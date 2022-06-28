@@ -50,7 +50,7 @@ try:
 
 		# Info module and plugins
 		WRECK.current_module = 'info'
-		from module_info import *
+		from module_info_nero import *
 		WRECK.destination = export_dir.rstrip('/')
 		globals().update(WRECK.syntax_extensions)
 		globals().update(WRECK.plugin_globals)

@@ -1,10 +1,10 @@
-﻿import sys
+import sys
 sys.dont_write_bytecode = True
 
 from traceback import format_exc as formatted_exception, extract_stack
 from inspect import currentframe as inspect_currentframe, getmembers as inspect_getmembers
 from os.path import split as path_split, exists as path_exists
-from copy import deepcopy
+from copy import deepcopy, copy
 
 get_globals = globals
 get_locals = locals
@@ -32,7 +32,8 @@ def parse_int(value):
 	return long(value)
 
 
-# Standard W.R.E.C.K. exception class. Used to differentiate Python-generated exceptions from internal exceptions, and to aggregate error information on different levels.
+# Standard W.R.E.C.K. exception class. Used to differentiate Python-generated exceptions from internal exceptions,
+# and to aggregate error information on different levels.
 class MSException(Exception):
 
 	def formatted(self):
@@ -238,19 +239,29 @@ class VARIABLE(object):
 		try:
 			total_commands = 1 # Usually an expression will generate one command
 			operations = []
+			tmp_used_loc = set()
 			# Pre-calculate operands
 			for index in xrange(len(self.operands)):
 				operand = self.operands[index]
 				if isinstance(operand, VARIABLE):
 					if operand.is_expression and not(operand.is_static):
-						tmp_local = opmask_local_variable | WRECK.get_local_tmp_id(script_name, local_depth)
-						new_commands, new_operations = operand(script_name, tmp_local, local_depth)
+						operand = self.operands[index] = operand.newcopy() #Fix for mission_template triggers usage more than once
+						local_tmp_id = 0
+						while not local_tmp_id:
+							local_tmp_id = WRECK.get_local_tmp_id(script_name, local_depth)
+							if not local_tmp_id:
+								local_depth += 1
+						tmp_local = opmask_local_variable | local_tmp_id
+						new_commands, new_operations, new_used_loc = operand(script_name, tmp_local, local_depth)
 						operations.extend(new_operations)
 						total_commands += new_commands
+						tmp_used_loc.update(new_used_loc)
 						self.operands[index] = tmp_local
 						local_depth += 1
+						#print('Operand %r depth %d' % (operand, local_depth))
 					else:
 						self.operands[index] = long(operand)
+						if operand.module == WRECK.l: tmp_used_loc.add(operand.name)
 			if self.operation   == 'neg': operations.extend([store_sub, 3, destination, 0, self.operands[0]])
 			elif self.operation == 'abs':
 				operations.extend([assign, 2, destination, self.operands[0], val_abs, 1, destination])
@@ -271,12 +282,20 @@ class VARIABLE(object):
 			elif self.operation == '&'  : operations.extend([store_and, 3, destination, self.operands[0], self.operands[1]])
 			elif self.operation == '|'  : operations.extend([store_or, 2, destination, self.operands[0], self.operands[1]])
 			else: raise MSException('expression %r contains illegal operation %s' % (self, self.operation))
-			return total_commands, operations
+			return total_commands, operations, tmp_used_loc
 		except MSException, e:
 			raise MSException('failed to generate dynamic code for expression %r' % self, *e.args)
 		except Exception, e:
 			raise MSException('failed to generate dynamic code for expression %r' % self, e.message)
-
+	def newcopy(self):
+		cls = self.__class__
+		result = cls.__new__(cls)
+		for k, v in self.__dict__.items():
+			if type(k) == VARIABLE and VARIABLE.is_expression == True:
+				setattr(result, k, self.newcopy(v))
+			else:
+				setattr(result, k, copy(v))
+		return result
 
 # A specific sub-variant of VARIABLE, representing some entity's property. Used to gain access to entity properties at compile time using syntax like: itm.long_spear.weapon_length. And since it's an attribute as well, it can be freely used in the code and mathematical expressions.
 class VAR_PROPERTY(VARIABLE):
@@ -691,6 +710,7 @@ class WRECK(object):
 	dialog_states_list = ['start','party_encounter','prisoner_liberated','enemy_defeated','party_relieved','event_triggered','close_window','trade','exchange_members', 'trade_prisoners','buy_mercenaries','view_char','training','member_chat','prisoner_chat']
 	dialog_states_dict = dict([(dialog_states_list[index], index) for index in xrange(len(dialog_states_list))])
 	dialog_uids = {}
+	dialog_states_usage = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
 
 	# PLUGIN SUPPORT
 	plugins = []
@@ -715,6 +735,7 @@ class WRECK(object):
 	# SUPPORT FOR LOCAL VARIABLES DURING SCRIPT COMPILATION
 	local_uses = {}
 	local_tmp_uses = []
+	local_tmp_reserved = []
 	local_last_id = -1
 	local_128_vars_warning_issued = False
 
@@ -722,6 +743,7 @@ class WRECK(object):
 	def start_script(cls):
 		cls.local_uses = {}
 		cls.local_tmp_uses = []
+		local_tmp_reserved = []
 		cls.local_last_id = -1
 		cls.local_128_vars_warning_issued = False
 
@@ -740,7 +762,10 @@ class WRECK(object):
 	@classmethod
 	def get_local_tmp_id(cls, script_name, index):
 		try:
-			return cls.local_tmp_uses[index]
+			if not cls.local_tmp_uses[index] in cls.local_tmp_reserved: 
+				return cls.local_tmp_uses[index]
+			else:
+				return False
 		except IndexError:
 			cls.local_last_id += 1
 			cls.local_tmp_uses.append(cls.local_last_id)
@@ -1085,12 +1110,14 @@ def aggregate_sounds(entities):
 	for sound in entities:
 		refs = []
 		for f in sound[2]:
+			if (type(f) != type([])):
+				f = [f, '0']
 			try:
-				refs.append('%s 0 ' % sound_files[f])
+				refs.append('%s %s ' % (sound_files[f[0]], f[1]))
 			except KeyError:
-				sound_files[f] = len(files)
-				refs.append('%d 0 ' % len(files))
-				files.append(' %s %s' % (f, sound[1]))
+				sound_files[f[0]] = len(files)
+				refs.append('%d %s ' % (len(files), f[1]))
+				files.append(' %s %s' % (f[0], sound[1]))
 		sounds.append('snd_%s %s %d %s' % (sound[0], sound[1], len(refs), ''.join(refs)))
 	return 'soundsfile version 3\r\n%d\r\n%s\r\n%d\r\n%s\r\n' % (len(files), '\r\n'.join(files), len(sounds), '\r\n'.join(sounds))
 def process_skins(e, index):
@@ -1108,15 +1135,19 @@ def process_skins(e, index):
 	for c in e[17]:
 		cvalues = ''.join([' %f %d' % (cvalue[0], cvalue[1]) for cvalue in c[2]])
 		constraints.append('%f %d %s %s' % (c[0], c[1], len(c[2]), cvalues))
-	constraints = '\r\n'.join(constraints)
-	return '%s %s\r\n %s %s %s\r\n %s %s %s\r\n%s\r\n %s \r\n %s\r\n%s\r\n %s \r\n %s \r\n%s\r\n %s \r\n %s %f \r\n%d %d\r\n%s\r\n\r\n%s' % (e[0], e[1], e[2], e[3], e[4], e[5], len(e[6]), ''.join(skinkeys), len(e[7]), '  '.join(e[7]), len(e[8]), beards, hair_textures, beard_textures, ''.join(face_textures), voices, e[13], e[14], parse_int(e[15]), parse_int(e[16]), len(e[17]), constraints)
+	if constraints != []:
+		constraints = '\r\n'.join(constraints)
+		constraints = '\r\n' + constraints
+	else:
+		constraints = ''
+	return '%s %s\r\n %s %s %s\r\n %s %s %s\r\n%s\r\n %s \r\n %s\r\n%s\r\n %s \r\n %s \r\n%s\r\n %s \r\n %s %f \r\n%d %d\r\n%s\r\n%s' % (e[0], e[1], e[2], e[3], e[4], e[5], len(e[6]), ''.join(skinkeys), len(e[7]), '  '.join(e[7]), len(e[8]), beards, hair_textures, beard_textures, ''.join(face_textures), voices, e[13], e[14], parse_int(e[15]), parse_int(e[16]), len(e[17]), constraints)
 def aggregate_skins(entities):
 	entities.insert(0, 'skins_file version 1\r\n%d' % len(entities))
 	#entities.append('')
 	return '\r\n'.join(entities)
 def process_scripts(entity, index):
 	#return entity
-	try: return '%s -1\r\n %s ' % (entity[0], parse_module_code(entity[1], 'script.%s' % entity[0]))
+	try: return '%s -1\r\n %s ' % (entity[0], parse_module_code(entity[1], 'script.%s' % entity[0], True))
 	except MSException, e: raise MSException('failed to compile script %s (#%d)' % (entity[0], index), *e.args)
 def aggregate_scripts(entities):
 	#return None
@@ -1223,16 +1254,19 @@ def aggregate_game_menus(entities):
 def process_dialogs(e, index):
 	try:
 		dialog_state = WRECK.dialog_states_dict[e[1]]
+		WRECK.dialog_states_usage[dialog_state] = 1
 	except KeyError:
 		dialog_state = len(WRECK.dialog_states_list)
 		WRECK.dialog_states_dict[e[1]] = dialog_state
 		WRECK.dialog_states_list.append(e[1])
+		WRECK.dialog_states_usage.append(1)
 	try:
 		target_state = WRECK.dialog_states_dict[e[4]]
 	except KeyError:
 		target_state = len(WRECK.dialog_states_list)
 		WRECK.dialog_states_dict[e[4]] = target_state
 		WRECK.dialog_states_list.append(e[4])
+		WRECK.dialog_states_usage.append(0)
 	dialog_uid = 'dlga_%s:%s' % (e[1], e[4])
 	if (dialog_uid in WRECK.dialog_uids) and (WRECK.dialog_uids[dialog_uid] != e[3]):
 		new_uid = dialog_uid
@@ -1245,6 +1279,8 @@ def process_dialogs(e, index):
 	try: return '%s %d %d  %s %s  %d  %s %s ' % (dialog_uid, parse_int(e[0]), dialog_state, parse_module_code(e[2], 'dialog.%s(#%d).condition'%(e[1],index)), external_string(e[3]), target_state, parse_module_code(e[5], 'dialog.%s(#%d).result'%(e[1],index)), e[6])
 	except MSException, er: raise MSException('failed to compile code for dialog %s (#%d)' % (dialog_uid, index), *er.args)
 def aggregate_dialogs(entities):
+	for i in range(len(WRECK.dialog_states_list)):
+		if WRECK.dialog_states_usage[i] == 0: raise MSException('Output token (dialog state) not found %r.' % (WRECK.dialog_states_list[i], ))
 	entities.insert(0, 'dialogsfile version 2\r\n%d' % len(entities))
 	entities.append('')
 	return '\r\n'.join(entities)
@@ -1278,6 +1314,7 @@ class inject(object):
 		self.name = name
 
 class troop_item(object): pass
+class sound_file(object): pass
 
 def OPTIONAL(check, fallback = None): return { 'check': check, 'default': fallback }
 
@@ -1306,7 +1343,7 @@ parsers = {
 	'simple_triggers':   { 'parser': (float, SCRIPT), 'processor': process_simple_triggers, 'aggregator': aggregate_simple_triggers, 'uid': None },
 	'skills':            { 'parser': (id, str, int, int, str), 'processor': process_skills, 'aggregator': aggregate_simple },
 	'skins':             { 'parser': (id, int, id, id, id, id, [(int, int, float, float, str)], [id], [id], [id], [id], [(id, int, [id], [int])], [(int, int)], id, float, int, int, OPTIONAL([(float, int, REPEATABLE, (float, int))], []) ), 'processor': process_skins, 'aggregator': aggregate_skins },
-	'sounds':            { 'parser': (id, int, [file]), 'processor': process_sounds, 'aggregator': aggregate_sounds },
+	'sounds':            { 'parser': (id, int, [sound_file]), 'processor': process_sounds, 'aggregator': aggregate_sounds },
 	'strings':           { 'parser': (id, str), 'processor': process_strings, 'aggregator': aggregate_strings },
 	'tableaus':          { 'parser': (id, int, id, int, int, int, int, int, int, SCRIPT), 'processor': process_tableaus, 'aggregator': aggregate_simple },
 	'triggers':          { 'parser': TRIGGER, 'processor': process_triggers, 'aggregator': aggregate_triggers, 'uid': None },
@@ -1488,26 +1525,39 @@ def parse_module_code(code_block, script_name, check_can_fail = False):
 						raise MSException('failed to parse operand %r for operation %s in %s on line %d' % (operand, opcode_to_string(command[0]), script_name, index+1), *e.args)
 				if isinstance(operand, VARIABLE):
 					if operand.is_expression:
-						#print repr(operand), operand.__dict__
 						if operand.is_static: continue
-						tmp_local = opmask_local_variable | WRECK.get_local_tmp_id(script_name, local_tmp_depth)
-						local_tmp_depth += 1
-						extra_commands, operations = operand(script_name, tmp_local, local_tmp_depth)
+						#print ('ID of operand: ', id(operand))
+						#print repr(operand), operand.__dict__
+						operand = command[opindex] = operand.newcopy() #Fix for mission_template triggers usage more than once
+						#print ('ID of new_operand: ', id(operand))
+						#print repr(operand), operand.__dict__
+						local_tmp_id = 0
+						while not local_tmp_id:
+							local_tmp_id = WRECK.get_local_tmp_id(script_name, local_tmp_depth)
+							if not local_tmp_id:
+								local_tmp_depth += 1
+						if command[0] in depth_operations: #don't rewrite temp locals in loop conditions
+							WRECK.local_tmp_reserved.append(local_tmp_id)
+						tmp_local = opmask_local_variable | local_tmp_id
+						extra_commands, operations, tmp_used_loc = operand(script_name, tmp_local, local_tmp_depth)
 						#print extra_commands
 						#print operations
 						#print (' %d' * len(operations)) % tuple(operations)
 						command[opindex] = operand = tmp_local
 						export.append((' %d' * len(operations)) % tuple(operations))
 						total_commands += extra_commands
+						locals_use.update(tmp_used_loc)
+						local_tmp_depth += 1
+						#print('Operand %r for operation %s in %s on line %d depth %d' % (operand, opcode_to_string(command[0]), script_name, index+1, local_tmp_depth))
 					elif operand.module == WRECK.l:
 						if (operand.name not in locals_def) and (not(is_assign) or (opindex > 2)):
 							WRECK.errors.append('unassigned local variable %r used by operation %s in %s on line %d' % (operand, opcode_to_string(command[0]), script_name, index + 1))
-						if not(is_assign) or (command[0] == try_for_range) or (opindex > 2): locals_use.add(operand.name) # If local was used in non-assigned position, remember it (used to track declared but never used locals)
+						if not(is_assign) or (command[0] == try_for_range) or (command[0] == try_for_range_backwards) or (opindex > 2) or (operand.name.find('unused') != -1): locals_use.add(operand.name) # If local was used in non-assigned position, remember it (used to track declared but never used locals)
 						operand.value = opmask_local_variable | WRECK.get_local_id(script_name, operand.name)
 		except MSException, e:
 			raise MSException('command %r compilation fails in %s on line %d' % (command, script_name, index + 1), *e.args)
 		# Identify can_fail scripts
-		can_fail |= (current_depth < 1) and (((command[0] & 0x3FFFFFFF) in can_fail_operations) or ((command[0] == call_script) and isinstance(command[1], VARIABLE) and (command[1].module == WRECK.script) and (command[1].name[0:3] == 'cf_')))
+		can_fail |= (current_depth < 1) and (((command[0] & 0x3FFFFFFF) in can_fail_operations) or ((command[0] == call_script) and isinstance(command[2], VARIABLE) and (command[2].module == WRECK.script) and (command[2].name[0:3] == 'cf_')))
 		# If command was an assignment, mark the variable as initialized
 		if is_assign:
 			if type(command[2]) in (int, long):
@@ -1532,7 +1582,7 @@ def parse_module_code(code_block, script_name, check_can_fail = False):
 	if current_depth != 0:
 		explanation = 'missing' if (current_depth > 0) else 'extra'
 		WRECK.errors.append('try/end operations do not match in %s: %d try_end(s) %s' % (script_name, abs(current_depth), explanation))
-	if check_can_fail and can_fail and (script_name[0:3] != 'cf_'):
+	if check_can_fail and can_fail and (script_name[7:10] != 'cf_'):
 		WRECK.warnings.append('%s can fail but it\'s name does not start with "cf_"' % script_name)
 	for unused_local in locals_def - locals_use:
 		WRECK.notices.append('local l.%s declared but never used in %s' % (unused_local, script_name))
@@ -1625,6 +1675,11 @@ def check_syntax(entity, parser, uid = 0):
 			return check_syntax(entity, (int, int), uid)
 		else:
 			return [check_syntax(entity, int, uid), 0]
+	elif parser == sound_file:
+		if type(entity) == list:
+			return check_syntax(entity, (file, WRECK.fac), uid)
+		else:
+			return [check_syntax(entity, file, uid), 0]		
 	elif parser == int:
 		if type(entity) == str: entity = convert_string_id_to_variable(entity)
 		if isinstance(entity, VARIABLE):
@@ -1652,8 +1707,9 @@ def check_syntax(entity, parser, uid = 0):
 		# TODO: identifier validity check
 		if (type(entity) != str) and (entity not in set([0])): raise MSException('value %r is not a valid identifier' % (entity, ))
 	elif parser == file:
-		# TODO: filename validity check
 		if type(entity) != str: raise MSException('value %r is not a valid filename' % (entity, ))
+		fmod_music_formats = ('wav', 'mp3', 'ogg', 'wma', 'flac', 'aif', 'aiff')
+		if not entity.lower().endswith(fmod_music_formats): WRECK.warnings.append('File %r has unsupported audio file extension.' % (entity, ))
 	elif type(parser) == str:
 		if entity != parser: raise MSException('value %r must always be a string constant %r' % (entity, parser))
 	else:

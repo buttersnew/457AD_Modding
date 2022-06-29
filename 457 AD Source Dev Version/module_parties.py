@@ -582,11 +582,11 @@ parties = [
   ("sabir_bandit_spawn_point","the steppe",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(70.83,92.39),[(trp_looter,15,0)]),  #[swycartographr] prev. coords: (10.72, 90.59)
   ("armenian_rebel_spawn_point","armenia",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(128.46,50.49),[(trp_looter,15,0)]),  #[swycartographr] prev. coords: (65, 26)
   ("coptic_spawn_point"  ,"egypt",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(57.36, -80.69),[(trp_looter,15,0)]),         #[swycartographr] prev. coords: (-15, -91)
-  ("arab_bandit_spawn_point"  ,"the desert"pf_disabled|,pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(118.23, -33.87),[(trp_looter,15,0)]), #[swycartographr] prev. coords: (50, -25)
+  ("arab_bandit_spawn_point"  ,"the desert",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(118.23, -33.87),[(trp_looter,15,0)]), #[swycartographr] prev. coords: (50, -25)
  # add extra towns before this point 
   ("spawn_points_end"                  ,"{!}last_spawn_point",    pf_disabled|pf_is_static, no_menu, pt_none, fac_commoners,0,ai_bhvr_hold,0,(0., 0),[(trp_looter,15,0)]),
 
-  ("pirate_spawn_point"  ,"the coast"pf_disabled|,pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(-87.38, -1.83),[(trp_looter,15,0)]),     #[swycartographr] prev. coords: (-128, -11)
+  ("pirate_spawn_point"  ,"the coast",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(-87.38, -1.83),[(trp_looter,15,0)]),     #[swycartographr] prev. coords: (-128, -11)
   ("scirii_spawn_point"  ,"the danube",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(-93.86, 92.58),[(trp_looter,15,0)]),    #[swycartographr] prev. coords: (-109.3, 77.3) #[swycartographr] prev. coords: (-78.27, 88.89) #[swycartographr] prev. coords: (-88.31, 91.52)
   ("heruli_spawn_point"  ,"germania",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(-118.47, 103.51),[(trp_looter,15,0)]),    #[swycartographr] prev. coords: (-131.5, 91.3)
 

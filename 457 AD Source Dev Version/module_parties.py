@@ -523,72 +523,72 @@ parties = [
   ("battlefields","battlefields",pf_disabled|icon_village_a|pf_is_static|pf_always_visible|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(10.8, -16.6),[]),
   ("dhorak_keep","Dhorak_Keep",icon_town|pf_disabled|pf_is_static|pf_always_visible|pf_no_label|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-50,-58),[]),
 
-  ("ruins_1","Ruins_of_Vimiacium",pf_disabled|icon_castle_snow_b|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-98.3, 45),[]),
-  ("hidden_forest","Zamb",pf_disabled|icon_castle_snow_b|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(200,63.31),[]),
-  ("hidden_fort","Ruins",pf_disabled|icon_castle_snow_b|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_hunimund_suebi,0,ai_bhvr_hold,0,(-126,83),[]), #-110,76
-  ("holy_lance_cave","Cave",pf_disabled|icon_bandit_lair|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(20.8, -74.58),[]),
-  ("attila_sword_location","Grove",pf_disabled|icon_castle_snow_b|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-110, 60),[]),
-  ("waylands_smithy","Wayland's Smithy",pf_disabled|icon_castle_snow_b|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-225.32, 119.42),[]),
-  ("donar_forest","Forest",pf_disabled|icon_castle_snow_b|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-133.59,130.93),[]),
-  ("abandoned_mithraic_temple","Abandoned Antrum",pf_disabled|icon_castle_snow_b|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-166.3,57.57),[]),
-  ("nubian_bandit_camp","Bandit Encampment",pf_disabled|icon_bandit_lair|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(2,-139),[]),
-  ("vidigoias_grave","Vidigoia's Grave",pf_disabled|icon_castle_snow_b|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-62,60),[]),
-  ("bagadua_fort","Ruins of Iuliobriga",pf_disabled|icon_castle_snow_b|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-244.5,43.6),[]),
-  ("quest_villa","Villa",pf_disabled|pf_always_visible|icon_village_snow_a|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-220,19),[]),
-  ("dragons_lair","Dragon's Lair",pf_disabled|icon_bandit_lair|pf_always_visible|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-163,158.17),[]),
-  ("grove_of_nymphs","Grove of Nymphs",pf_disabled|icon_castle_snow_b|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-79,-26.4),[]),
-  ("sinuessa","Sinuessa",pf_disabled|icon_village_snow_burnt_a|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-143.13,7.16),[]), #roman_village_battle map
-  ("silingi_village","Vicus Silingorum",pf_disabled|icon_village_a|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-111,109),[]),
-  ("venedi_village","Venedi Village",pf_disabled|icon_village_a|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-99,113),[]),
-  ("agrippinus_quest_villa","Agrippinus's Villa",pf_disabled|pf_always_visible|icon_village_snow_a|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-212.5,85.4),[]),
-  ("court_of_attila","Attila's Court",pf_disabled|icon_castle_snow_b|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-106.6, 75.9),[]), #sword of attila quest
-  ("noricum_refugee_camp","Refugee Camp",pf_disabled|icon_village_a|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-140.2, 75.86),[]), #severinus quest
-  ("sarmatian_camp","Campus_Sarmaticum",pf_disabled|icon_village_a|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-111.12, 74.82),[]), #hunimund quest
+  ("ruins_1","Ruins_of_Vimiacium",icon_castle_snow_b|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-98.3, 45),[]),
+  ("hidden_forest","Zamb",icon_castle_snow_b|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(200,63.31),[]),
+  ("hidden_fort","Ruins",icon_castle_snow_b|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_hunimund_suebi,0,ai_bhvr_hold,0,(-126,83),[]), #-110,76
+  ("holy_lance_cave","Cave",icon_bandit_lair|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(20.8, -74.58),[]),
+  ("attila_sword_location","Grove",icon_castle_snow_b|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-110, 60),[]),
+  ("waylands_smithy","Wayland's Smithy",icon_castle_snow_b|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-225.32, 119.42),[]),
+  ("donar_forest","Forest",icon_castle_snow_b|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-133.59,130.93),[]),
+  ("abandoned_mithraic_temple","Abandoned Antrum",icon_castle_snow_b|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-166.3,57.57),[]),
+  ("nubian_bandit_camp","Bandit Encampment",icon_bandit_lair|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(2,-139),[]),
+  ("vidigoias_grave","Vidigoia's Grave",icon_castle_snow_b|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-62,60),[]),
+  ("bagadua_fort","Ruins of Iuliobriga",icon_castle_snow_b|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-244.5,43.6),[]),
+  ("quest_villa","Villa",pf_always_visible|icon_village_snow_a|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-220,19),[]),
+  ("dragons_lair","Dragon's Lair",icon_bandit_lair|pf_always_visible|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-163,158.17),[]),
+  ("grove_of_nymphs","Grove of Nymphs",icon_castle_snow_b|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-79,-26.4),[]),
+  ("sinuessa","Sinuessa",icon_village_snow_burnt_a|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-143.13,7.16),[]), #roman_village_battle map
+  ("silingi_village","Vicus Silingorum",icon_village_a|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-111,109),[]),
+  ("venedi_village","Venedi Village",icon_village_a|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-99,113),[]),
+  ("agrippinus_quest_villa","Agrippinus's Villa",pf_always_visible|icon_village_snow_a|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-212.5,85.4),[]),
+  ("court_of_attila","Attila's Court",icon_castle_snow_b|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-106.6, 75.9),[]), #sword of attila quest
+  ("noricum_refugee_camp","Refugee Camp",icon_village_a|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-140.2, 75.86),[]), #severinus quest
+  ("sarmatian_camp","Campus_Sarmaticum",icon_village_a|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-111.12, 74.82),[]), #hunimund quest
 
   #("champion_lair","Forest_Hideout",pf_disabled|icon_castle_snow_b|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(65.58,-3.78),[]), #not used just yet
 
-  ("training_ground","Training Ground",  pf_disabled|icon_training_ground|pf_hide_defenders|pf_is_static|pf_always_visible, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(3, -7),[]),
+  # ("training_ground","Training Ground",  pf_disabled|icon_training_ground|pf_hide_defenders|pf_is_static|pf_always_visible, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(3, -7),[]),
   ("training_ground_1", "Training Field",  icon_training_ground|pf_hide_defenders|pf_is_static|pf_always_visible|pf_label_medium, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-144.86,8.32),[], 100), #roman, will be in italy?
-  ("training_ground_2", "Training Field",  pf_disabled|icon_training_ground|pf_hide_defenders|pf_is_static|pf_always_visible|pf_label_medium, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-24.79, 10.08),[], 100),
-  ("training_ground_3", "Training Field",  pf_disabled|icon_training_ground|pf_hide_defenders|pf_is_static|pf_always_visible|pf_label_medium, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-230.62, 72.0),[], 100), 
-  ("training_ground_4", "Training Field",  pf_disabled|icon_training_ground|pf_hide_defenders|pf_is_static|pf_always_visible|pf_label_medium, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-8.92, -85.79),[], 100),
-  ("training_ground_5", "Training Field",  pf_disabled|icon_training_ground|pf_hide_defenders|pf_is_static|pf_always_visible|pf_label_medium, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-146.43, 20.1),[], 100),
+  # ("training_ground_2", "Training Field",  pf_disabled|icon_training_ground|pf_hide_defenders|pf_is_static|pf_always_visible|pf_label_medium, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-24.79, 10.08),[], 100),
+  # ("training_ground_3", "Training Field",  pf_disabled|icon_training_ground|pf_hide_defenders|pf_is_static|pf_always_visible|pf_label_medium, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-230.62, 72.0),[], 100), 
+  # ("training_ground_4", "Training Field",  pf_disabled|icon_training_ground|pf_hide_defenders|pf_is_static|pf_always_visible|pf_label_medium, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-8.92, -85.79),[], 100),
+  # ("training_ground_5", "Training Field",  pf_disabled|icon_training_ground|pf_hide_defenders|pf_is_static|pf_always_visible|pf_label_medium, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-146.43, 20.1),[], 100),
 
 
 #  bridge_a
-  ("Bridge_1","{!}1",pf_disabled|icon_bridge_b|pf_is_static|pf_always_visible|pf_no_label, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-194.17, 65.10),[], 13),
-  ("Bridge_2","{!}2",pf_disabled|icon_bridge_b|pf_is_static|pf_always_visible|pf_no_label, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-158.5, 50.3),[], 85),
-  ("Bridge_3","{!}3",pf_disabled|icon_bridge_b|pf_is_static|pf_always_visible|pf_no_label, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-237.07, 31.02),[], 91),
-  ("Bridge_4","{!}4",pf_disabled|icon_bridge_b|pf_is_static|pf_always_visible|pf_no_label, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-161.16, 49.12),[], 353),
-  ("Bridge_5","{!}5",pf_disabled|icon_bridge_b|pf_is_static|pf_always_visible|pf_no_label, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-133.18, -83.02),[], 247),
-  ("Bridge_6","{!}6",pf_disabled|icon_bridge_b|pf_is_static|pf_always_visible|pf_no_label, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-94.23, 39.28),[], 257),
-  ("Bridge_7","{!}7",pf_disabled|icon_bridge_b|pf_is_static|pf_always_visible|pf_no_label, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-218.92, 80.25),[], 182),
-  ("Bridge_8","{!}8",pf_disabled|icon_bridge_b|pf_is_static|pf_always_visible|pf_no_label, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-195.15, 93.17),[], 114),
-  ("Bridge_9","{!}9",pf_disabled|icon_bridge_b|pf_is_static|pf_always_visible|pf_no_label, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-193.06, -9.60),[], 100),
-  ("Bridge_10","{!}10",pf_disabled|icon_bridge_b|pf_is_static|pf_always_visible|pf_no_label, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-116.6, 44.33),[], 267),
-  ("Bridge_11","{!}11",pf_disabled|icon_bridge_a|pf_is_static|pf_always_visible|pf_no_label, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-17.43, -81.26),[], 295),
-  ("Bridge_12","{!}12",pf_disabled|icon_bridge_a|pf_is_static|pf_always_visible|pf_no_label, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-154.13, 18.84),[], -35.5),
-  ("Bridge_13","{!}13",pf_disabled|icon_bridge_a|pf_is_static|pf_always_visible|pf_no_label, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-196.3, 39.45),[], 87),
-  ("Bridge_14","{!}14",pf_disabled|icon_bridge_a|pf_is_static|pf_always_visible|pf_no_label, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-273.26, 10.11),[], 88),
+  # ("Bridge_1","{!}1",pf_disabled|icon_bridge_b|pf_is_static|pf_always_visible|pf_no_label, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-194.17, 65.10),[], 13),
+  # ("Bridge_2","{!}2",pf_disabled|icon_bridge_b|pf_is_static|pf_always_visible|pf_no_label, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-158.5, 50.3),[], 85),
+  # ("Bridge_3","{!}3",pf_disabled|icon_bridge_b|pf_is_static|pf_always_visible|pf_no_label, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-237.07, 31.02),[], 91),
+  # ("Bridge_4","{!}4",pf_disabled|icon_bridge_b|pf_is_static|pf_always_visible|pf_no_label, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-161.16, 49.12),[], 353),
+  # ("Bridge_5","{!}5",pf_disabled|icon_bridge_b|pf_is_static|pf_always_visible|pf_no_label, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-133.18, -83.02),[], 247),
+  # ("Bridge_6","{!}6",pf_disabled|icon_bridge_b|pf_is_static|pf_always_visible|pf_no_label, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-94.23, 39.28),[], 257),
+  # ("Bridge_7","{!}7",pf_disabled|icon_bridge_b|pf_is_static|pf_always_visible|pf_no_label, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-218.92, 80.25),[], 182),
+  # ("Bridge_8","{!}8",pf_disabled|icon_bridge_b|pf_is_static|pf_always_visible|pf_no_label, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-195.15, 93.17),[], 114),
+  # ("Bridge_9","{!}9",pf_disabled|icon_bridge_b|pf_is_static|pf_always_visible|pf_no_label, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-193.06, -9.60),[], 100),
+  # ("Bridge_10","{!}10",pf_disabled|icon_bridge_b|pf_is_static|pf_always_visible|pf_no_label, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-116.6, 44.33),[], 267),
+  # ("Bridge_11","{!}11",pf_disabled|icon_bridge_a|pf_is_static|pf_always_visible|pf_no_label, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-17.43, -81.26),[], 295),
+  # ("Bridge_12","{!}12",pf_disabled|icon_bridge_a|pf_is_static|pf_always_visible|pf_no_label, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-154.13, 18.84),[], -35.5),
+  # ("Bridge_13","{!}13",pf_disabled|icon_bridge_a|pf_is_static|pf_always_visible|pf_no_label, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-196.3, 39.45),[], 87),
+  # ("Bridge_14","{!}14",pf_disabled|icon_bridge_a|pf_is_static|pf_always_visible|pf_no_label, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-273.26, 10.11),[], 88),
 
   ("looter_spawn_point"   ,"{!}looter_sp",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(26, 77),[(trp_looter,15,0)]),
-  ("steppe_bandit_spawn_point"  ,"the danube",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(-109, 67),[(trp_looter,15,0)]),
-  ("taiga_bandit_spawn_point"   ,"germania",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(-154, 115),[(trp_looter,15,0)]),
-  ("forest_bandit_spawn_point"  ,"gaul and hispania",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(-244.52, 30.87),[(trp_looter,15,0)]),
-  ("mountain_bandit_spawn_point","the mountains",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(-18,-8),[(trp_looter,15,0)]),
-  ("desert_bandit_spawn_point"  ,"the desert",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(-189.3, -47.1),[(trp_looter,15,0)]),
-  ("sea_raider_spawn_point_1"   ,"the coast",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(-188.40, 125.36),[(trp_looter,15,0)]),
-  ("sea_raider_spawn_point_2"   ,"the coast",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(-210.7, 140.7),[(trp_looter,15,0)]),
-  ("sabir_bandit_spawn_point","the steppe",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(10.72,90.59),[(trp_looter,15,0)]),
-  ("armenian_rebel_spawn_point","armenia",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(65,26),[(trp_looter,15,0)]),
-  ("coptic_spawn_point"  ,"egypt",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(-15, -91),[(trp_looter,15,0)]),
-  ("arab_bandit_spawn_point"  ,"the desert",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(50, -25),[(trp_looter,15,0)]),
+  ("steppe_bandit_spawn_point"  ,"the danube",pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(-109, 67),[(trp_looter,15,0)]),
+  ("taiga_bandit_spawn_point"   ,"germania",pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(-154, 115),[(trp_looter,15,0)]),
+  ("forest_bandit_spawn_point"  ,"gaul and hispania",pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(-244.52, 30.87),[(trp_looter,15,0)]),
+  ("mountain_bandit_spawn_point","the mountains",pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(-18,-8),[(trp_looter,15,0)]),
+  ("desert_bandit_spawn_point"  ,"the desert",pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(-189.3, -47.1),[(trp_looter,15,0)]),
+  ("sea_raider_spawn_point_1"   ,"the coast",pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(-188.40, 125.36),[(trp_looter,15,0)]),
+  ("sea_raider_spawn_point_2"   ,"the coast",pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(-210.7, 140.7),[(trp_looter,15,0)]),
+  ("sabir_bandit_spawn_point","the steppe",pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(10.72,90.59),[(trp_looter,15,0)]),
+  ("armenian_rebel_spawn_point","armenia",pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(65,26),[(trp_looter,15,0)]),
+  ("coptic_spawn_point"  ,"egypt",pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(-15, -91),[(trp_looter,15,0)]),
+  ("arab_bandit_spawn_point"  ,"the desert",pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(50, -25),[(trp_looter,15,0)]),
  # add extra towns before this point 
   ("spawn_points_end"                  ,"{!}last_spawn_point",    pf_disabled|pf_is_static, no_menu, pt_none, fac_commoners,0,ai_bhvr_hold,0,(0., 0),[(trp_looter,15,0)]),
 
-  ("pirate_spawn_point"  ,"the coast",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(-128, -11),[(trp_looter,15,0)]),
-  ("scirii_spawn_point"  ,"the danube",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(-109.3, 77.3),[(trp_looter,15,0)]),
-  ("heruli_spawn_point"  ,"germania",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(-131.5, 91.3),[(trp_looter,15,0)]),
+  ("pirate_spawn_point"  ,"the coast",pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(-128, -11),[(trp_looter,15,0)]),
+  ("scirii_spawn_point"  ,"the danube",pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(-109.3, 77.3),[(trp_looter,15,0)]),
+  ("heruli_spawn_point"  ,"germania",pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(-131.5, 91.3),[(trp_looter,15,0)]),
 
   ("reserved_1"                  ,"{!}last_spawn_point",    pf_disabled|pf_is_static, no_menu, pt_none, fac_commoners,0,ai_bhvr_hold,0,(0., 0),[(trp_looter,15,0)]),
   ("reserved_2"                  ,"{!}last_spawn_point",    pf_disabled|pf_is_static, no_menu, pt_none, fac_commoners,0,ai_bhvr_hold,0,(0., 0),[(trp_looter,15,0)]),
@@ -628,7 +628,7 @@ parties = [
   ("religious_site_15","Monastery_of_Lerina",icon_castle_snow_a|pf_is_static|pf_always_visible|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-187.7,33.9),[]), #roman
   ("religious_site_16","Monastery_of_Saint_Martin",icon_castle_snow_a|pf_is_static|pf_always_visible|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-223.25,70.12),[]), #roman
   #animal spawns
-  ("deer_spawn_point" ,"the wilderness",pf_disabled|pf_is_static, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-154,104),[]),
-  ("boar_spawn_point" ,"the wilderness",pf_disabled|pf_is_static, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-201,72),[]),
+  ("deer_spawn_point" ,"the wilderness",pf_is_static, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-154,104),[]),
+  ("boar_spawn_point" ,"the wilderness",pf_is_static, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-201,72),[]),
 
   ]

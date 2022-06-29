@@ -1701,7 +1701,7 @@ centers_begin = towns_begin
 centers_end   = villages_end
 
 training_grounds_begin   = "p_training_ground_1"
-training_grounds_end     = "p_Bridge_1"
+training_grounds_end     = "p_looter_spawn_point"
 
 scenes_begin = "scn_town_1_center"
 scenes_end = "scn_castle_1_exterior"

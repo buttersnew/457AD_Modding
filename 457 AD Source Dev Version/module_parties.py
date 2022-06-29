@@ -523,27 +523,27 @@ parties = [
   ("battlefields","battlefields",pf_disabled|icon_village_a|pf_is_static|pf_always_visible|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(10.8, -16.6),[]),
   ("dhorak_keep","Dhorak_Keep",icon_town|pf_disabled|pf_is_static|pf_always_visible|pf_no_label|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-50,-58),[]),
 
-  ("ruins_1","Ruins_of_Vimiacium",icon_castle_snow_b|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-50.72, 53.33),[]), #[swycartographr] prev. coords: (-98.3, 45)
-  ("hidden_forest","Zamb",icon_castle_snow_b|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(310.7,74.28),[]), #[swycartographr] prev. coords: (200, 63.31)
-  ("hidden_fort","Ruins",icon_castle_snow_b|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_hunimund_suebi,0,ai_bhvr_hold,0,(-86.41,91.35),[]), #-110,76 #[swycartographr] prev. coords: (-126, 83) #[swycartographr] prev. coords: (-79.56, 91.3)
-  ("holy_lance_cave","Cave",icon_bandit_lair|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(78.77, -77.54),[]), #[swycartographr] prev. coords: (20.8, -74.58) #[swycartographr] prev. coords: (82.92, -85.23)
-  ("attila_sword_location","Grove",icon_castle_snow_b|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-76.23, 70.09),[]), #[swycartographr] prev. coords: (-110, 60)
-  ("waylands_smithy","Wayland's Smithy",icon_castle_snow_b|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-224.17, 121.57),[]), #[swycartographr] prev. coords: (-225.32, 119.42)
-  ("donar_forest","Forest",icon_castle_snow_b|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-95.23,142.24),[]), #[swycartographr] prev. coords: (-133.59, 130.93)
-  ("abandoned_mithraic_temple","Abandoned Antrum",icon_castle_snow_b|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-136.05,60.09),[]), #[swycartographr] prev. coords: (-166.3, 57.57)
-  ("nubian_bandit_camp","Bandit Encampment",icon_bandit_lair|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(96.18,-160.01),[]), #[swycartographr] prev. coords: (2, -139)
-  ("vidigoias_grave","Vidigoia's Grave",icon_castle_snow_b|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-7.84,68.9),[]), #[swycartographr] prev. coords: (-62, 60)
-  ("bagadua_fort","Ruins of Iuliobriga",icon_castle_snow_b|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-227.66,29.15),[]), #[swycartographr] prev. coords: (-244.5, 43.6)
-  ("quest_villa","Villa",pf_always_visible|icon_village_snow_a|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-203.92,16.6),[]), #[swycartographr] prev. coords: (-220, 19)
-  ("dragons_lair","Dragon's Lair",icon_bandit_lair|pf_always_visible|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-143.79,166.31),[]), #[swycartographr] prev. coords: (-163, 158.17)
-  ("grove_of_nymphs","Grove of Nymphs",icon_castle_snow_b|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-25.65,-19.97),[]), #[swycartographr] prev. coords: (-79, -26.4)
-  ("sinuessa","Sinuessa",icon_village_snow_burnt_a|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-107.04,14.81),[]), #roman_village_battle map #[swycartographr] prev. coords: (-143.13, 7.16) #[swycartographr] prev. coords: (-159.58, 25.79)
-  ("silingi_village","Vicus Silingorum",icon_village_a|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-68.33,123.08),[]), #[swycartographr] prev. coords: (-111, 109)
-  ("venedi_village","Venedi Village",icon_village_a|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-69.66,133.01),[]), #[swycartographr] prev. coords: (-99, 113)
-  ("agrippinus_quest_villa","Agrippinus's Villa",pf_always_visible|icon_village_snow_a|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-199.49,86.36),[]), #[swycartographr] prev. coords: (-212.5, 85.4)
-  ("court_of_attila","Attila's Court",icon_castle_snow_b|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-62.33, 88.26),[]), #sword of attila quest #[swycartographr] prev. coords: (-106.6, 75.9)
-  ("noricum_refugee_camp","Refugee Camp",icon_village_a|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-92.53, 83.47),[]), #severinus quest #[swycartographr] prev. coords: (-140.2, 75.86)
-  ("sarmatian_camp","Campus_Sarmaticum",icon_village_a|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-72.17, 84.19),[]), #hunimund quest #[swycartographr] prev. coords: (-111.12, 74.82)
+  ("ruins_1","Ruins_of_Vimiacium",pf_disabled|icon_castle_snow_b|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-50.72, 53.33),[]), #[swycartographr] prev. coords: (-98.3, 45)
+  ("hidden_forest","Zamb",pf_disabled|icon_castle_snow_b|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(310.7,74.28),[]), #[swycartographr] prev. coords: (200, 63.31)
+  ("hidden_fort","Ruins",pf_disabled|icon_castle_snow_b|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_hunimund_suebi,0,ai_bhvr_hold,0,(-86.41,91.35),[]), #-110,76 #[swycartographr] prev. coords: (-126, 83) #[swycartographr] prev. coords: (-79.56, 91.3)
+  ("holy_lance_cave","Cave",pf_disabled|icon_bandit_lair|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(78.77, -77.54),[]), #[swycartographr] prev. coords: (20.8, -74.58) #[swycartographr] prev. coords: (82.92, -85.23)
+  ("attila_sword_location","Grove",pf_disabled|icon_castle_snow_b|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-76.23, 70.09),[]), #[swycartographr] prev. coords: (-110, 60)
+  ("waylands_smithy","Wayland's Smithy",pf_disabled|icon_castle_snow_b|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-224.17, 121.57),[]), #[swycartographr] prev. coords: (-225.32, 119.42)
+  ("donar_forest","Forest",pf_disabled|icon_castle_snow_b|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-95.23,142.24),[]), #[swycartographr] prev. coords: (-133.59, 130.93)
+  ("abandoned_mithraic_temple","Abandoned Antrum",pf_disabled|icon_castle_snow_b|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-136.05,60.09),[]), #[swycartographr] prev. coords: (-166.3, 57.57)
+  ("nubian_bandit_camp","Bandit Encampment",pf_disabled|icon_bandit_lair|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(96.18,-160.01),[]), #[swycartographr] prev. coords: (2, -139)
+  ("vidigoias_grave","Vidigoia's Grave",pf_disabled|icon_castle_snow_b|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-7.84,68.9),[]), #[swycartographr] prev. coords: (-62, 60)
+  ("bagadua_fort","Ruins of Iuliobriga",pf_disabled|icon_castle_snow_b|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-227.66,29.15),[]), #[swycartographr] prev. coords: (-244.5, 43.6)
+  ("quest_villa","Villa",pf_disabled|pf_always_visible|icon_village_snow_a|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-203.92,16.6),[]), #[swycartographr] prev. coords: (-220, 19)
+  ("dragons_lair","Dragon's Lair",pf_disabled|icon_bandit_lair|pf_always_visible|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-143.79,166.31),[]), #[swycartographr] prev. coords: (-163, 158.17)
+  ("grove_of_nymphs","Grove of Nymphs",pf_disabled|icon_castle_snow_b|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-25.65,-19.97),[]), #[swycartographr] prev. coords: (-79, -26.4)
+  ("sinuessa","Sinuessa",pf_disabled|icon_village_snow_burnt_a|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-107.04,14.81),[]), #roman_village_battle map #[swycartographr] prev. coords: (-143.13, 7.16) #[swycartographr] prev. coords: (-159.58, 25.79)
+  ("silingi_village","Vicus Silingorum",pf_disabled|icon_village_a|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-68.33,123.08),[]), #[swycartographr] prev. coords: (-111, 109)
+  ("venedi_village","Venedi Village",pf_disabled|icon_village_a|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-69.66,133.01),[]), #[swycartographr] prev. coords: (-99, 113)
+  ("agrippinus_quest_villa","Agrippinus's Villa",pf_disabled|pf_always_visible|icon_village_snow_a|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-199.49,86.36),[]), #[swycartographr] prev. coords: (-212.5, 85.4)
+  ("court_of_attila","Attila's Court",pf_disabled|icon_castle_snow_b|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-62.33, 88.26),[]), #sword of attila quest #[swycartographr] prev. coords: (-106.6, 75.9)
+  ("noricum_refugee_camp","Refugee Camp",pf_disabled|icon_village_a|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-92.53, 83.47),[]), #severinus quest #[swycartographr] prev. coords: (-140.2, 75.86)
+  ("sarmatian_camp","Campus_Sarmaticum",pf_disabled|icon_village_a|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-72.17, 84.19),[]), #hunimund quest #[swycartographr] prev. coords: (-111.12, 74.82)
 
   #("champion_lair","Forest_Hideout",pf_disabled|icon_castle_snow_b|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(65.58,-3.78),[]), #not used just yet
 
@@ -572,23 +572,23 @@ parties = [
   # ("Bridge_14","{!}14",pf_disabled|icon_bridge_a|pf_is_static|pf_always_visible|pf_no_label, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-273.26, 10.11),[], 88),
 
   ("looter_spawn_point"   ,"{!}looter_sp",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(26, 77),[(trp_looter,15,0)]),
-  ("steppe_bandit_spawn_point"  ,"the danube",pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(-76.42, 76.85),[(trp_looter,15,0)]), #[swycartographr] prev. coords: (-109, 67)
-  ("taiga_bandit_spawn_point"   ,"germania",pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(-139.87, 126.39),[(trp_looter,15,0)]), #[swycartographr] prev. coords: (-154, 115)
-  ("forest_bandit_spawn_point"  ,"gaul and hispania",pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(-232.77, 21.13),[(trp_looter,15,0)]), #[swycartographr] prev. coords: (-244.52, 30.87)
-  ("mountain_bandit_spawn_point","the mountains",pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(48.81,10.46),[(trp_looter,15,0)]), #[swycartographr] prev. coords: (-18, -8)
-  ("desert_bandit_spawn_point"  ,"the desert",pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(-147.98, -59.72),[(trp_looter,15,0)]), #[swycartographr] prev. coords: (-189.3, -47.1)
-  ("sea_raider_spawn_point_1"   ,"the coast",pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(-177.40, 128.56),[(trp_looter,15,0)]), #[swycartographr] prev. coords: (-173.99, 125.36) #[swycartographr] prev. coords: (-174.59, 135.04) #[swycartographr] prev. coords: (-188.4, 135.11)
-  ("sea_raider_spawn_point_2"   ,"the coast",pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(-206.12, 145.24),[(trp_looter,15,0)]), #[swycartographr] prev. coords: (-210.7, 140.7)
-  ("sabir_bandit_spawn_point","the steppe",pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(70.83,92.39),[(trp_looter,15,0)]),  #[swycartographr] prev. coords: (10.72, 90.59)
-  ("armenian_rebel_spawn_point","armenia",pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(128.46,50.49),[(trp_looter,15,0)]),  #[swycartographr] prev. coords: (65, 26)
-  ("coptic_spawn_point"  ,"egypt",pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(57.36, -80.69),[(trp_looter,15,0)]),         #[swycartographr] prev. coords: (-15, -91)
-  ("arab_bandit_spawn_point"  ,"the desert",pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(118.23, -33.87),[(trp_looter,15,0)]), #[swycartographr] prev. coords: (50, -25)
+  ("steppe_bandit_spawn_point"  ,"the danube",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(-76.42, 76.85),[(trp_looter,15,0)]), #[swycartographr] prev. coords: (-109, 67)
+  ("taiga_bandit_spawn_point"   ,"germania",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(-139.87, 126.39),[(trp_looter,15,0)]), #[swycartographr] prev. coords: (-154, 115)
+  ("forest_bandit_spawn_point"  ,"gaul and hispania",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(-232.77, 21.13),[(trp_looter,15,0)]), #[swycartographr] prev. coords: (-244.52, 30.87)
+  ("mountain_bandit_spawn_point","the mountains",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(48.81,10.46),[(trp_looter,15,0)]), #[swycartographr] prev. coords: (-18, -8)
+  ("desert_bandit_spawn_point"  ,"the desert",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(-147.98, -59.72),[(trp_looter,15,0)]), #[swycartographr] prev. coords: (-189.3, -47.1)
+  ("sea_raider_spawn_point_1"   ,"the coast",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(-177.40, 128.56),[(trp_looter,15,0)]), #[swycartographr] prev. coords: (-173.99, 125.36) #[swycartographr] prev. coords: (-174.59, 135.04) #[swycartographr] prev. coords: (-188.4, 135.11)
+  ("sea_raider_spawn_point_2"   ,"the coast",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(-206.12, 145.24),[(trp_looter,15,0)]), #[swycartographr] prev. coords: (-210.7, 140.7)
+  ("sabir_bandit_spawn_point","the steppe",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(70.83,92.39),[(trp_looter,15,0)]),  #[swycartographr] prev. coords: (10.72, 90.59)
+  ("armenian_rebel_spawn_point","armenia",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(128.46,50.49),[(trp_looter,15,0)]),  #[swycartographr] prev. coords: (65, 26)
+  ("coptic_spawn_point"  ,"egypt",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(57.36, -80.69),[(trp_looter,15,0)]),         #[swycartographr] prev. coords: (-15, -91)
+  ("arab_bandit_spawn_point"  ,"the desert"pf_disabled|,pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(118.23, -33.87),[(trp_looter,15,0)]), #[swycartographr] prev. coords: (50, -25)
  # add extra towns before this point 
   ("spawn_points_end"                  ,"{!}last_spawn_point",    pf_disabled|pf_is_static, no_menu, pt_none, fac_commoners,0,ai_bhvr_hold,0,(0., 0),[(trp_looter,15,0)]),
 
-  ("pirate_spawn_point"  ,"the coast",pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(-87.38, -1.83),[(trp_looter,15,0)]),     #[swycartographr] prev. coords: (-128, -11)
-  ("scirii_spawn_point"  ,"the danube",pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(-93.86, 92.58),[(trp_looter,15,0)]),    #[swycartographr] prev. coords: (-109.3, 77.3) #[swycartographr] prev. coords: (-78.27, 88.89) #[swycartographr] prev. coords: (-88.31, 91.52)
-  ("heruli_spawn_point"  ,"germania",pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(-118.47, 103.51),[(trp_looter,15,0)]),    #[swycartographr] prev. coords: (-131.5, 91.3)
+  ("pirate_spawn_point"  ,"the coast"pf_disabled|,pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(-87.38, -1.83),[(trp_looter,15,0)]),     #[swycartographr] prev. coords: (-128, -11)
+  ("scirii_spawn_point"  ,"the danube",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(-93.86, 92.58),[(trp_looter,15,0)]),    #[swycartographr] prev. coords: (-109.3, 77.3) #[swycartographr] prev. coords: (-78.27, 88.89) #[swycartographr] prev. coords: (-88.31, 91.52)
+  ("heruli_spawn_point"  ,"germania",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(-118.47, 103.51),[(trp_looter,15,0)]),    #[swycartographr] prev. coords: (-131.5, 91.3)
 
   ("reserved_1"                  ,"{!}last_spawn_point",    pf_disabled|pf_is_static, no_menu, pt_none, fac_commoners,0,ai_bhvr_hold,0,(0., 0),[(trp_looter,15,0)]),
   ("reserved_2"                  ,"{!}last_spawn_point",    pf_disabled|pf_is_static, no_menu, pt_none, fac_commoners,0,ai_bhvr_hold,0,(0., 0),[(trp_looter,15,0)]),
@@ -628,7 +628,7 @@ parties = [
   ("religious_site_15","Monastery_of_Lerina",icon_castle_snow_a|pf_is_static|pf_always_visible|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-165.82,36.74),[]), #roman #[swycartographr] prev. coords: (-187.7, 33.9)
   ("religious_site_16","Monastery_of_Saint_Martin",icon_castle_snow_a|pf_is_static|pf_always_visible|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-210.1,72.77),[]), #roman #[swycartographr] prev. coords: (-223.25, 70.12)
   #animal spawns
-  ("deer_spawn_point" ,"the wilderness",pf_is_static, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-143.69,109.36),[]),                   #[swycartographr] prev. coords: (-154, 104)
-  ("boar_spawn_point" ,"the wilderness",pf_is_static, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-185.14,75.49),[]),                    #[swycartographr] prev. coords: (-201, 72)
+  ("deer_spawn_point" ,"the wilderness",pf_disabled|pf_is_static, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-143.69,109.36),[]),                   #[swycartographr] prev. coords: (-154, 104)
+  ("boar_spawn_point" ,"the wilderness",pf_disabled|pf_is_static, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-185.14,75.49),[]),                    #[swycartographr] prev. coords: (-201, 72)
 
   ]

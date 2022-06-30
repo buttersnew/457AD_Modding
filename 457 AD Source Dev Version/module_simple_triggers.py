@@ -4929,11 +4929,6 @@ simple_triggers = [
  ]),
  # reserved for future use. For backward compatibility, we need to use these triggers instead of creating new ones.
 
-  (0.29,#daily on average
-   [
-    (store_random_in_range, ":castle", castles_begin, castles_end),
-    (call_script, "script_calculate_castle_prosperities_by_using_its_villages", ":castle"),
-   ]),
 
   (1,
    [

@@ -1,6 +1,8 @@
 from ID_items import *
 from ID_quests import *
 from ID_factions import *
+from ID_parties import *
+from ID_troops import *
 
 from compiler import *
 from header_triggers import *
@@ -1699,6 +1701,15 @@ walled_centers_end   = castles_end
 
 centers_begin = towns_begin
 centers_end   = villages_end
+
+#this is used for the asynchronous triggers
+number_of_castles        = p_village_1 - p_castle_1
+number_of_villages       = p_salt_mine - p_village_1
+number_of_towns          = p_castle_1 - p_town_1
+number_of_walled_centers = number_of_towns+number_of_castles
+number_of_centers        = number_of_walled_centers + number_of_villages
+number_of_factions       = fac_kingdoms_end - fac_player_supporters_faction
+number_of_active_npcs    = trp_knight_1_1_wife - trp_npc1
 
 training_grounds_begin   = "p_training_ground_1"
 training_grounds_end     = "p_looter_spawn_point"

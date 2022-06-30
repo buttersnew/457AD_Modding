@@ -3588,7 +3588,7 @@ presentations = [
       (position_set_x, pos1, 395),
       (position_set_y, pos1, 25),
       (overlay_set_position, "$g_presentation_obj_item_select_11", pos1),
-      (assign, ":cur_y", 725),
+      # (assign, ":cur_y", 725),
       (multiplayer_get_my_player, ":my_player_no"),
       (player_get_team_no, ":my_team_no", ":my_player_no"),
       (assign, ":has_bots", 0),
@@ -3981,7 +3981,7 @@ presentations = [
             (neg|troop_slot_eq, "trp_multiplayer_data", ":cur_slot", -1),
             (store_sub, ":button_id", ":cur_slot", multi_data_item_button_indices_begin),
             (eq, ":tested_object", ":button_id"),
-            (troop_get_slot, ":item_no", "trp_multiplayer_data", ":cur_slot"),
+            # (troop_get_slot, ":item_no", "trp_multiplayer_data", ":cur_slot"),
         (try_begin), #d
           (eq, ":object", "$g_presentation_obj_item_select_10"),
           (call_script, "script_multiplayer_set_default_item_selections_for_troop", ":my_troop_no"),

@@ -961,7 +961,8 @@ triggers = [
   (eq, "$g_player_faith", 1),], #changed so that the player must be chalcedonian to get quest
 [(jump_to_menu, "mnu_holy_lance_messenger"),]),
 
-(24, 0, ti_once, [  (store_character_level, ":level", "trp_player"),
+(24, 0, ti_once, [  
+    # (store_character_level, ":level", "trp_player"),
   (troop_slot_ge, "trp_player", slot_troop_renown, 100),
   (store_relation, ":players_religion_relation", "fac_roman_pagans", "fac_player_faction"),
   (gt, ":players_religion_relation", 30), #positive relations

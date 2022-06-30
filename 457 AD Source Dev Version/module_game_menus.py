@@ -1735,7 +1735,7 @@ game_menus = [
         (try_end),
     (try_begin), #tom - add various goods
 #      (troop_add_gold, "trp_player", 1000),
-      (faction_get_slot,":culture", "$g_start_faction", slot_faction_culture),
+      # (faction_get_slot,":culture", "$g_start_faction", slot_faction_culture),
 #      (faction_get_slot,":fac_troop", ":culture", slot_faction_tier_6_troop),
 #      (call_script, "script_equip_companion", "trp_player",":fac_troop"), #equip player
       #Generic armor + weapons
@@ -11313,11 +11313,11 @@ TOTAL:  {reg5}"),
   ),
   (
     "village_loot_complete",mnf_disable_all_keys,
-    "On your orders your troops sack the village, pillaging everything of any value,\
- and then put the buildings to the torch. From the coins and valuables that are found, you get your share of {reg11} siliquae.",
+    "On your orders your troops sack {s22}, pillaging everything of any value,\
+ and then put the buildings to the torch. From the coins and valuables that are found, you get your share of {reg23} siliquae.",
     "none",
     [
-
+    (str_store_party_name, s22, "$current_town"),
     (try_begin), #religion
         (val_sub, "$piety", 3),
         (party_get_slot, ":religion_center", "$current_town", slot_center_religion),                   
@@ -11341,8 +11341,6 @@ TOTAL:  {reg5}"),
             (call_script, "script_set_player_relation_with_faction", "fac_roman_pagans", -1), 
         (try_end),
     (try_end),
-
-
 
     (party_get_slot, ":village_lord", "$current_town", slot_town_lord),
     (try_begin),
@@ -11368,12 +11366,12 @@ TOTAL:  {reg5}"),
         (assign, ":money_gained", 50),
     (try_end),
     (party_get_slot, ":prosperity", "$current_town", slot_town_prosperity),
-    (assign, reg12, ":prosperity"),
-    (display_message, "@Prosperity: {reg12}"),
+    (assign, reg22, ":prosperity"),
+    (display_message, "@Prosperity: {reg22}"),
     (val_mul, ":prosperity", 5),
     (val_add, ":money_gained", ":prosperity"),
     (call_script, "script_troop_add_gold", "trp_player", ":money_gained"),
-    (assign, reg11, ":money_gained"),
+    (assign, reg23, ":money_gained"),
     
     (assign, ":morale_increase", 3),
     (store_div, ":money_gained_div_100", ":money_gained", 100),
@@ -11476,9 +11474,9 @@ TOTAL:  {reg5}"),
             #	(assign, ":cur_probability", 0),
         (try_end),
         
-        (assign, reg12, ":cur_probability"),
+        (assign, reg22, ":cur_probability"),
         (str_store_item_name, s22, ":cur_goods"),
-        (display_message, "@{s22}: {reg12}"),
+        (display_message, "@{s22}: {reg22}"),
         (set_item_probability_in_merchandise,":cur_goods",":cur_probability"),
     (try_end),
     #end of changes
@@ -11486,6 +11484,7 @@ TOTAL:  {reg5}"),
     (troop_add_merchandise,"trp_temp_troop",itp_type_goods,30),
     (troop_sort_inventory, "trp_temp_troop"),
     (change_screen_loot, "trp_temp_troop"),
+
         ]),
     ],
   ),

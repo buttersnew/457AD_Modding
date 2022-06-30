@@ -46463,7 +46463,7 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   ],
    "Clear the halls, I need a private audience with my ministers.", "dplmc_guard_talk_enter_court",[
    (party_clear, "p_temp_party_2"),
-   (call_script, "script_enter_court_staff", "$current_town", "p_temp_party_2"),
+   (call_script, "script_enter_court_staff", "p_temp_party_2"),
    (party_set_slot, "$current_town", slot_party_temp_slot_1, "p_temp_party_2"), #2nd mode
    ]],
    

@@ -625,6 +625,14 @@ simple_triggers = [
     (assign, reg0, ":save_reg0"),
     ]),
 
+(0,[
+(try_for_range, ":village", villages_begin, villages_end),
+    (party_slot_eq, "p_village_167", slot_town_prosperity, 0),
+    (str_store_party_name, s22, ":village"),
+    (display_message, "@{s22} has zero prosperty"),
+(try_end),
+]),
+
   #Adding net incomes to centers (once a week)
 (1.367, [#once a week on average
     (assign, ":save_reg0", reg0),

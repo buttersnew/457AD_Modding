@@ -1287,6 +1287,10 @@ scenes = [
   ("village_generic_12",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000001300005000007f9fc0000207400004aa000005d32", #saxon village
     [],[],"outer_terrain_forest"),  
 
+#@dacian borbor/Romanius scene
+  ("village_generic_13",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000300000000001a86b000041ef00005ae800003c55 ", #saxon village
+    [],[],"outer_terrain_forest"),  
+
 #Eastern steppe/plains - caucasia, sassanid
   ("village_eastern_1",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000022007a7b200045d19000004920000076d00003b0a", #village_76
     [],[],"outer_terrain_steppe"),

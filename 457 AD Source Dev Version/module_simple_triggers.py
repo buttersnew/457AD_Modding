@@ -625,14 +625,6 @@ simple_triggers = [
     (assign, reg0, ":save_reg0"),
     ]),
 
-(0,[
-(try_for_range, ":village", villages_begin, villages_end),
-    (party_slot_eq, "p_village_167", slot_town_prosperity, 0),
-    (str_store_party_name, s22, ":village"),
-    (display_message, "@{s22} has zero prosperty"),
-(try_end),
-]),
-
   #Adding net incomes to centers (once a week)
 (1.367, [#once a week on average
     (assign, ":save_reg0", reg0),
@@ -3153,10 +3145,10 @@ simple_triggers = [
        (try_end),
        (val_clamp, ":bandit_attraction", 0, 100),
        #SB : disallow bandit attraction while raiding villages so they don't join on the "side" of villagers
-       (try_begin),
-         (is_between, "$g_player_raiding_village", villages_begin, villages_end),
-         (assign, ":bandit_attraction", 0),
-       (try_end),
+       # (try_begin),
+         # (is_between, "$g_player_raiding_village", villages_begin, villages_end),
+         # (assign, ":bandit_attraction", 0),
+       # (try_end),
        (party_set_bandit_attraction, "p_main_party", ":bandit_attraction"),
     ]),
 

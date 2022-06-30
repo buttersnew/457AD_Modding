@@ -3039,20 +3039,21 @@ Still I am sorry that I'll leave you soon. You must promise me, you'll come visi
 [anyone,"member_question", [], "Very well. What did you want to ask?", "member_question_2",[]],
 
 #SB : quest delegation
-[anyone|plyr,"member_question_2", [
-    #has an active quest, coarse range check
-    (assign, ":end", delegate_quests_end),
-    (try_for_range, ":quest_no", delegate_quests_begin, ":end"),
-      (check_quest_active, ":quest_no"),
-      (neg|quest_slot_eq, slot_quest_delegate_level, -1),
-      (assign, ":end", delegate_quests_begin),
-    (try_end),
-    (neq, ":end", delegate_quests_end),
-], "I have a job I'd like for you to handle...", "member_delegate_quest", [
-  (call_script, "script_dplmc_init_quest_delegate_states"), #older savegames
-  (troop_get_slot, ":honorific", "$g_talk_troop", slot_troop_honorific),
-  (str_store_string, s5, ":honorific"),
-]],
+# [anyone|plyr,"member_question_2", [
+    # #has an active quest, coarse range check
+    # (assign, ":end", delegate_quests_end),
+    # (try_for_range, ":quest_no", delegate_quests_begin, ":end"),
+      # (check_quest_active, ":quest_no"),
+      # (neg|quest_slot_eq, slot_quest_delegate_level, -1),
+      # (assign, ":end", delegate_quests_begin),
+    # (try_end),
+    # (neq, ":end", delegate_quests_end),
+# ], "I have a job I'd like for you to handle...", "member_delegate_quest", [
+  # (call_script, "script_dplmc_init_quest_delegate_states"), #older savegames
+  # (troop_get_slot, ":honorific", "$g_talk_troop", slot_troop_honorific),
+  # (str_store_string, s5, ":honorific"),
+# ]],
+
 [anyone|plyr,"member_question_2", [], "How do you feel about the way things are going in this company?", "member_morale",[]],
 #SB : removed duplicate member_background_recap
 [anyone|plyr,"member_question_2", [
@@ -3379,103 +3380,103 @@ Still I am sorry that I'll leave you soon. You must promise me, you'll come visi
 
  ], "Good. I should be ready to report in about five days. Farewell then, {s21}, for a little while.", "close_window",[]],
  
-#SB : quest delegation fail by health
-[anyone,"member_delegate_quest", [
-  (troop_is_wounded, "$g_talk_troop"),
-], "Alas, {s5}, I have yet to heal from my wounds. Give me a few days to recuperate and I can be of more service then.", "do_member_trade",[]],
+# #SB : quest delegation fail by health
+# [anyone,"member_delegate_quest", [
+  # (troop_is_wounded, "$g_talk_troop"),
+# ], "Alas, {s5}, I have yet to heal from my wounds. Give me a few days to recuperate and I can be of more service then.", "do_member_trade",[]],
 
 
-#fail by having too many active quests
-[anyone,"member_delegate_quest", [
-  #higher threshold from leadership level or faction standing?
-  (assign, ":limit", 1),
-  (assign, ":end", companions_end),
-  (try_for_range, ":companion", companions_begin, ":end"),
-    (troop_slot_ge, ":companion", slot_troop_current_mission, 1),
-    (val_sub, ":limit", 1),
-    (str_store_troop_name, s6, ":companion"),
-    (try_begin),
-      (le, ":limit", 0),
-      (call_script, "script_companion_get_mission_string", ":companion"),
-      (assign, ":end", companions_begin),
-    (try_end),
-  (try_end),
-  (le, ":limit", 0),
-], "I believe it would be wiser to stick together for now, since {s4} has yet to return from {s8}.", "do_member_trade",[]],
+# #fail by having too many active quests
+# [anyone,"member_delegate_quest", [
+  # #higher threshold from leadership level or faction standing?
+  # (assign, ":limit", 1),
+  # (assign, ":end", companions_end),
+  # (try_for_range, ":companion", companions_begin, ":end"),
+    # (troop_slot_ge, ":companion", slot_troop_current_mission, 1),
+    # (val_sub, ":limit", 1),
+    # (str_store_troop_name, s6, ":companion"),
+    # (try_begin),
+      # (le, ":limit", 0),
+      # (call_script, "script_companion_get_mission_string", ":companion"),
+      # (assign, ":end", companions_begin),
+    # (try_end),
+  # (try_end),
+  # (le, ":limit", 0),
+# ], "I believe it would be wiser to stick together for now, since {s4} has yet to return from {s8}.", "do_member_trade",[]],
 
-#fail by level
-[anyone,"member_delegate_quest", [
-  (store_character_level, ":level", "$g_talk_troop"),
-  (lt, ":level", 5), #basic threshold for "Getting to know each-other" or "Worldly enough to listen"
-  (troop_get_slot, ":m_type", "$g_talk_troop", slot_troop_morality_type),
-  (troop_get_slot, ":m_val", "$g_talk_troop", slot_troop_morality_value),
-  (str_store_string, s6, "@We've barely gotten to know one another and now you're sending me away!"),
-  (try_begin), #strong objection
-    (gt, ":m_val", 2),
-    (try_begin),
-      (eq, ":m_type", tmt_aristocratic),
-      (str_store_string, s6, "@I am certainly not your errant {reg65?girl:boy}..."),
-    (else_try),
-      (eq, ":m_type", tmt_egalitarian),
-      (str_store_string, s6, "@How do I know there will still be a place for me when I return from this journey?"),
-    (else_try),
-      (eq, ":m_type", tmt_humanitarian),
-      (str_store_string, s6, "@I believe I would be of more use by staying with the other soldiers."),
-    (try_end),
-  (try_end),
-], "This is not what I signed up for when I joined your company, {s5}. {s6}", "do_member_trade",[]],
+# #fail by level
+# [anyone,"member_delegate_quest", [
+  # (store_character_level, ":level", "$g_talk_troop"),
+  # (lt, ":level", 5), #basic threshold for "Getting to know each-other" or "Worldly enough to listen"
+  # (troop_get_slot, ":m_type", "$g_talk_troop", slot_troop_morality_type),
+  # (troop_get_slot, ":m_val", "$g_talk_troop", slot_troop_morality_value),
+  # (str_store_string, s6, "@We've barely gotten to know one another and now you're sending me away!"),
+  # (try_begin), #strong objection
+    # (gt, ":m_val", 2),
+    # (try_begin),
+      # (eq, ":m_type", tmt_aristocratic),
+      # (str_store_string, s6, "@I am certainly not your errant {reg65?girl:boy}..."),
+    # (else_try),
+      # (eq, ":m_type", tmt_egalitarian),
+      # (str_store_string, s6, "@How do I know there will still be a place for me when I return from this journey?"),
+    # (else_try),
+      # (eq, ":m_type", tmt_humanitarian),
+      # (str_store_string, s6, "@I believe I would be of more use by staying with the other soldiers."),
+    # (try_end),
+  # (try_end),
+# ], "This is not what I signed up for when I joined your company, {s5}. {s6}", "do_member_trade",[]],
 
-#fail by morale
-[anyone,"member_delegate_quest", [
-  (call_script, "script_dplmc_npc_morale", "$g_talk_troop", 1),
-  (lt, reg0, 30),
-  (neq, "$disable_npc_complaints", 1),
- ], "Look, {s5} - if you want me out of your hair for a bit, just say the word and I'll gladly depart. But don't expect me to be doing you any favours while I'm gone.", "close_window",[]],
+# #fail by morale
+# [anyone,"member_delegate_quest", [
+  # (call_script, "script_dplmc_npc_morale", "$g_talk_troop", 1),
+  # (lt, reg0, 30),
+  # (neq, "$disable_npc_complaints", 1),
+ # ], "Look, {s5} - if you want me out of your hair for a bit, just say the word and I'll gladly depart. But don't expect me to be doing you any favours while I'm gone.", "close_window",[]],
 
-[anyone,"member_delegate_quest", [
+# [anyone,"member_delegate_quest", [
   
-], "Very well {s5}, what will you have me do?", "member_delegate_quest_list",[
-  (store_conversation_agent, "$g_talk_agent"),
-  (try_begin),
-    (call_script, "script_cf_dplmc_troop_is_female", "$g_talk_troop"),
-    (agent_set_animation, "$g_talk_agent", "anim_stand_lady"),
-  (else_try),
-    (agent_set_animation, "$g_talk_agent", "anim_stand_lord"),
-  (try_end),
-  (store_random_in_range, ":random_no", 0, 100),
-  (agent_set_animation_progress, "$g_talk_agent", ":random_no"),
-]],
+# ], "Very well {s5}, what will you have me do?", "member_delegate_quest_list",[
+  # (store_conversation_agent, "$g_talk_agent"),
+  # (try_begin),
+    # (call_script, "script_cf_dplmc_troop_is_female", "$g_talk_troop"),
+    # (agent_set_animation, "$g_talk_agent", "anim_stand_lady"),
+  # (else_try),
+    # (agent_set_animation, "$g_talk_agent", "anim_stand_lord"),
+  # (try_end),
+  # (store_random_in_range, ":random_no", 0, 100),
+  # (agent_set_animation_progress, "$g_talk_agent", ":random_no"),
+# ]],
 
-# could do repeat_for_troops quest giver?
-[anyone|plyr, "member_delegate_quest_list", [], "Nevermind.", "redo_member_quest", []],
-[anyone|plyr|repeat_for_100, "member_delegate_quest_list",
-[
-  (store_repeat_object, ":quest"),
-  (val_add, ":quest", all_quests_begin), #starts at 0
-  (lt, ":quest", all_quests_end),
-  (neg|quest_slot_eq, ":quest", slot_quest_delegate_level, -1),
-  (check_quest_active, ":quest"),
-  (neg|check_quest_concluded, ":quest"),
-  # (str_store_quest_name, s2, ":quest"), #TODO replace with description rather than relying on preset
-  (store_add, ":quest_string", ":quest", "str_dplmc_npc_qst_deliver_message"),
-  (str_store_string, s2, ":quest_string"),
-  (quest_get_slot, ":quest_giver", ":quest", slot_quest_giver_troop),
-  (try_begin), #elders, guildmasters
-    (is_between, ":quest_giver", merchants_begin, merchants_end),
-    (quest_get_slot, ":quest_center", ":quest", slot_quest_giver_center),
-    (str_store_party_name, s3, ":quest_center"),
-  (else_try),
-    (gt, ":quest_giver", 0),
-    (str_store_troop_name, s3, ":quest_giver"),
-  (else_try), #me_irl
-    (str_store_string, s3, "str_me"),
-  (try_end),
-],
-"{s2} for {s3}.", "member_delegate_quest_details",
-[
-  (store_repeat_object, "$random_merchant_quest_no"),
-  (val_add, "$random_merchant_quest_no", all_quests_begin),
-]],
+# # could do repeat_for_troops quest giver?
+# [anyone|plyr, "member_delegate_quest_list", [], "Nevermind.", "redo_member_quest", []],
+# [anyone|plyr|repeat_for_100, "member_delegate_quest_list",
+# [
+  # (store_repeat_object, ":quest"),
+  # (val_add, ":quest", all_quests_begin), #starts at 0
+  # (lt, ":quest", all_quests_end),
+  # (neg|quest_slot_eq, ":quest", slot_quest_delegate_level, -1),
+  # (check_quest_active, ":quest"),
+  # (neg|check_quest_concluded, ":quest"),
+  # # (str_store_quest_name, s2, ":quest"), #TODO replace with description rather than relying on preset
+  # (store_add, ":quest_string", ":quest", "str_dplmc_npc_qst_deliver_message"),
+  # (str_store_string, s2, ":quest_string"),
+  # (quest_get_slot, ":quest_giver", ":quest", slot_quest_giver_troop),
+  # (try_begin), #elders, guildmasters
+    # (is_between, ":quest_giver", merchants_begin, merchants_end),
+    # (quest_get_slot, ":quest_center", ":quest", slot_quest_giver_center),
+    # (str_store_party_name, s3, ":quest_center"),
+  # (else_try),
+    # (gt, ":quest_giver", 0),
+    # (str_store_troop_name, s3, ":quest_giver"),
+  # (else_try), #me_irl
+    # (str_store_string, s3, "str_me"),
+  # (try_end),
+# ],
+# "{s2} for {s3}.", "member_delegate_quest_details",
+# [
+  # (store_repeat_object, "$random_merchant_quest_no"),
+  # (val_add, "$random_merchant_quest_no", all_quests_begin),
+# ]],
 
 #filter out the ones they can't do
 # [anyone, "member_delegate_quest_details", [
@@ -3492,287 +3493,287 @@ Still I am sorry that I'll leave you soon. You must promise me, you'll come visi
  # "I don't believe I can handle that one myself, {s5}.", "member_delegate_quest_list", []
  # ],
 
-#debug printouts
-[anyone, "member_delegate_quest_details", [
-  (try_for_range, ":sreg", s10, s21),
-    (str_clear, ":sreg"),
-  (try_end),
-  (try_begin),
-    (quest_get_slot, ":target", "$random_merchant_quest_no", slot_quest_target_center),
-    (gt, ":target", 0),
-    (str_store_party_name, s10, ":target"),
-  (try_end),
-  (try_begin),
-    (quest_get_slot, ":target", "$random_merchant_quest_no", slot_quest_target_troop),
-    (gt, ":target", 0),
-    (str_store_troop_name, s11, ":target"),
-  (try_end),
-  (try_begin),
-    (quest_get_slot, ":target", "$random_merchant_quest_no", slot_quest_target_faction),
-    (gt, ":target", 0),
-    (str_store_faction_name, s12, ":target"),
-  (try_end),
-  (try_begin),
-    (quest_get_slot, ":target", "$random_merchant_quest_no", slot_quest_object_troop),
-    (gt, ":target", 0),
-    (str_store_troop_name, s13, ":target"),
-  (try_end),
-  (try_begin),
-    (quest_get_slot, ":target", "$random_merchant_quest_no", slot_quest_giver_troop),
-    (gt, ":target", 0),
-    (str_store_troop_name, s14, ":target"),
-  (try_end),
-  (try_begin),
-    (quest_get_slot, ":target", "$random_merchant_quest_no", slot_quest_object_center),
-    (gt, ":target", 0),
-    (str_store_party_name, s15, ":target"),
-  (try_end),
-  (try_begin),
-    (quest_get_slot, ":target", "$random_merchant_quest_no", slot_quest_target_party),
-    (gt, ":target", 0),
-    (str_store_party_name, s16, ":target"),
-  (try_end),
-  (try_begin),
-    (quest_get_slot, ":target", "$random_merchant_quest_no", slot_quest_target_party_template),
-    (gt, ":target", 0),
-    (assign, reg1, ":target"),
-    (str_store_string, s17, "str_reg1"),
-    # (str_store_party_template_name, s16, ":target"),
-  (try_end),
-  (try_begin),
-    (quest_get_slot, ":target", "$random_merchant_quest_no", slot_quest_giver_center),
-    (gt, ":target", 0),
-    (str_store_party_name, s18, ":target"),
-  (try_end),
-  (try_begin),
-    (quest_get_slot, ":target", "$random_merchant_quest_no", slot_quest_target_item),
-    (gt, ":target", 0),
-    (str_store_item_name, s19, ":target"),
-  (try_end),
-  (try_begin),
-    (quest_get_slot, ":target", "$random_merchant_quest_no", slot_quest_object_faction),
-    (gt, ":target", 0),
-    (str_store_faction_name, s20, ":target"),
-  (try_end),
+# #debug printouts
+# [anyone, "member_delegate_quest_details", [
+  # (try_for_range, ":sreg", s10, s21),
+    # (str_clear, ":sreg"),
+  # (try_end),
+  # (try_begin),
+    # (quest_get_slot, ":target", "$random_merchant_quest_no", slot_quest_target_center),
+    # (gt, ":target", 0),
+    # (str_store_party_name, s10, ":target"),
+  # (try_end),
+  # (try_begin),
+    # (quest_get_slot, ":target", "$random_merchant_quest_no", slot_quest_target_troop),
+    # (gt, ":target", 0),
+    # (str_store_troop_name, s11, ":target"),
+  # (try_end),
+  # (try_begin),
+    # (quest_get_slot, ":target", "$random_merchant_quest_no", slot_quest_target_faction),
+    # (gt, ":target", 0),
+    # (str_store_faction_name, s12, ":target"),
+  # (try_end),
+  # (try_begin),
+    # (quest_get_slot, ":target", "$random_merchant_quest_no", slot_quest_object_troop),
+    # (gt, ":target", 0),
+    # (str_store_troop_name, s13, ":target"),
+  # (try_end),
+  # (try_begin),
+    # (quest_get_slot, ":target", "$random_merchant_quest_no", slot_quest_giver_troop),
+    # (gt, ":target", 0),
+    # (str_store_troop_name, s14, ":target"),
+  # (try_end),
+  # (try_begin),
+    # (quest_get_slot, ":target", "$random_merchant_quest_no", slot_quest_object_center),
+    # (gt, ":target", 0),
+    # (str_store_party_name, s15, ":target"),
+  # (try_end),
+  # (try_begin),
+    # (quest_get_slot, ":target", "$random_merchant_quest_no", slot_quest_target_party),
+    # (gt, ":target", 0),
+    # (str_store_party_name, s16, ":target"),
+  # (try_end),
+  # (try_begin),
+    # (quest_get_slot, ":target", "$random_merchant_quest_no", slot_quest_target_party_template),
+    # (gt, ":target", 0),
+    # (assign, reg1, ":target"),
+    # (str_store_string, s17, "str_reg1"),
+    # # (str_store_party_template_name, s16, ":target"),
+  # (try_end),
+  # (try_begin),
+    # (quest_get_slot, ":target", "$random_merchant_quest_no", slot_quest_giver_center),
+    # (gt, ":target", 0),
+    # (str_store_party_name, s18, ":target"),
+  # (try_end),
+  # (try_begin),
+    # (quest_get_slot, ":target", "$random_merchant_quest_no", slot_quest_target_item),
+    # (gt, ":target", 0),
+    # (str_store_item_name, s19, ":target"),
+  # (try_end),
+  # (try_begin),
+    # (quest_get_slot, ":target", "$random_merchant_quest_no", slot_quest_object_faction),
+    # (gt, ":target", 0),
+    # (str_store_faction_name, s20, ":target"),
+  # (try_end),
   
-  #numerics (probably)
-  (quest_get_slot, reg10, "$random_merchant_quest_no", 10),
-  (quest_get_slot, reg11, "$random_merchant_quest_no", 11),
-  (quest_get_slot, reg13, "$random_merchant_quest_no", 13),
-  (quest_get_slot, reg16, "$random_merchant_quest_no", 16),
-  (quest_get_slot, reg16, "$random_merchant_quest_no", 16),
-  (quest_get_slot, reg17, "$random_merchant_quest_no", 17),
-  # (quest_get_slot, reg18, "$random_merchant_quest_no", 18),
-  (quest_get_slot, reg19, "$random_merchant_quest_no", 19),
-  (quest_get_slot, reg20, "$random_merchant_quest_no", 20),
-  (quest_get_slot, reg21, "$random_merchant_quest_no", 21),
-  (quest_get_slot, reg22, "$random_merchant_quest_no", 22),
-  (quest_get_slot, reg23, "$random_merchant_quest_no", 23),
-  (quest_get_slot, reg24, "$random_merchant_quest_no", 24),
-  (quest_get_slot, reg25, "$random_merchant_quest_no", 25),
-  (quest_get_slot, reg26, "$random_merchant_quest_no", 26),
-  (quest_get_slot, reg27, "$random_merchant_quest_no", 27),
-  (quest_get_slot, reg28, "$random_merchant_quest_no", 28),
+  # #numerics (probably)
+  # (quest_get_slot, reg10, "$random_merchant_quest_no", 10),
+  # (quest_get_slot, reg11, "$random_merchant_quest_no", 11),
+  # (quest_get_slot, reg13, "$random_merchant_quest_no", 13),
+  # (quest_get_slot, reg16, "$random_merchant_quest_no", 16),
+  # (quest_get_slot, reg16, "$random_merchant_quest_no", 16),
+  # (quest_get_slot, reg17, "$random_merchant_quest_no", 17),
+  # # (quest_get_slot, reg18, "$random_merchant_quest_no", 18),
+  # (quest_get_slot, reg19, "$random_merchant_quest_no", 19),
+  # (quest_get_slot, reg20, "$random_merchant_quest_no", 20),
+  # (quest_get_slot, reg21, "$random_merchant_quest_no", 21),
+  # (quest_get_slot, reg22, "$random_merchant_quest_no", 22),
+  # (quest_get_slot, reg23, "$random_merchant_quest_no", 23),
+  # (quest_get_slot, reg24, "$random_merchant_quest_no", 24),
+  # (quest_get_slot, reg25, "$random_merchant_quest_no", 25),
+  # (quest_get_slot, reg26, "$random_merchant_quest_no", 26),
+  # (quest_get_slot, reg27, "$random_merchant_quest_no", 27),
+  # (quest_get_slot, reg28, "$random_merchant_quest_no", 28),
 
- ], 
-"target center: {s10}\
- target troop: {s11}\
- target faction: {s12}^\
- object troop: {s13}\
- object center: {s15}\
- object faction: {s20}^\
- giver troop: {s14}^\
- giver center: {s18}\
- target party: {s16}\
- target pt: {s17}^\
- target item: {s19}^\
- target amt: {reg10}\
- target dna: {reg13}^\
- current state: {reg11}\
- target state: {reg16}\
- object state: {reg17}^\
- convince val: {reg19}\
- importance: {reg20}^\
- EXP reward: {reg21}\
- GOLD reward: {reg22}^\
- expiration days: {reg23}^\
- don't give period: {reg24}\
- don't give days: {reg25}\
- failure consequence: {reg26}^\
- TEMP slot: {reg27}^\
- delegate level pt: {reg28}", "member_delegate_quest_select",
- []
-],
+ # ], 
+# "target center: {s10}\
+ # target troop: {s11}\
+ # target faction: {s12}^\
+ # object troop: {s13}\
+ # object center: {s15}\
+ # object faction: {s20}^\
+ # giver troop: {s14}^\
+ # giver center: {s18}\
+ # target party: {s16}\
+ # target pt: {s17}^\
+ # target item: {s19}^\
+ # target amt: {reg10}\
+ # target dna: {reg13}^\
+ # current state: {reg11}\
+ # target state: {reg16}\
+ # object state: {reg17}^\
+ # convince val: {reg19}\
+ # importance: {reg20}^\
+ # EXP reward: {reg21}\
+ # GOLD reward: {reg22}^\
+ # expiration days: {reg23}^\
+ # don't give period: {reg24}\
+ # don't give days: {reg25}\
+ # failure consequence: {reg26}^\
+ # TEMP slot: {reg27}^\
+ # delegate level pt: {reg28}", "member_delegate_quest_select",
+ # []
+# ],
 
-[anyone|plyr, "member_delegate_quest_select", [],
-"Yes, that's correct.", "member_delegate_quest_destination", [
-  (change_screen_notes, 4, "$random_merchant_quest_no"),
-  (assign, "$diplomacy_var", 0),
-  (assign, "$diplomacy_var2", 0),
-]],
+# [anyone|plyr, "member_delegate_quest_select", [],
+# "Yes, that's correct.", "member_delegate_quest_destination", [
+  # (change_screen_notes, 4, "$random_merchant_quest_no"),
+  # (assign, "$diplomacy_var", 0),
+  # (assign, "$diplomacy_var2", 0),
+# ]],
 
-[anyone|plyr, "member_delegate_quest_select", [], 
-"On second though, I better do this one myself.", "member_delegate_quest", []],
+# [anyone|plyr, "member_delegate_quest_select", [], 
+# "On second though, I better do this one myself.", "member_delegate_quest", []],
 
-#calculate destination - usually target party takes x days
-[anyone, "member_delegate_quest_destination", [
-  (quest_get_slot, ":target", "$random_merchant_quest_no", slot_quest_target_center),
-  (try_begin),
-    (lt, ":target", -1),
-    (quest_get_slot, ":target", "$random_merchant_quest_no", slot_quest_object_center),
-  (try_end),
-  (try_begin),
-    (lt, ":target", -1),
-    (quest_get_slot, ":target", "$random_merchant_quest_no", slot_quest_target_party),
-  (try_end),
-  (party_is_active, ":target"),
-  (str_store_party_name, s10, ":target"),
+# #calculate destination - usually target party takes x days
+# [anyone, "member_delegate_quest_destination", [
+  # (quest_get_slot, ":target", "$random_merchant_quest_no", slot_quest_target_center),
+  # (try_begin),
+    # (lt, ":target", -1),
+    # (quest_get_slot, ":target", "$random_merchant_quest_no", slot_quest_object_center),
+  # (try_end),
+  # (try_begin),
+    # (lt, ":target", -1),
+    # (quest_get_slot, ":target", "$random_merchant_quest_no", slot_quest_target_party),
+  # (try_end),
+  # (party_is_active, ":target"),
+  # (str_store_party_name, s10, ":target"),
   
-  (store_skill_level, ":speed", "$g_talk_troop", "skl_pathfinding"),
-  (val_add, ":speed", 45), #45 to 60
-  (store_distance_to_party_from_party, ":distance", "p_main_party", ":target"),
-  (val_mul, ":distance", 2), #back trip
-  #could add in second leg to quest giver and back
-  (store_div, reg10, ":distance", ":speed"),
-  (val_max, reg10, 2), #base time to "complete"
-  # (assign, reg11, ":distance"), #base time to "complete"
-], 
-"Very well. I will set forth for {s10}. I should be back in approximately {reg10} days but may need a few extra days to complete the mission satisfactorily.", "member_delegate_quest_inventory", [
-  (troop_clear_inventory, "trp_temp_troop"),
-  (party_clear, "p_temp_party"),
-]],
-#fallback
-[anyone, "member_delegate_quest_destination", [], 
-"I am actually lost on where I need to go for this. Do you happen to have a map of the area per chance?", "redo_member_quest", []],
+  # (store_skill_level, ":speed", "$g_talk_troop", "skl_pathfinding"),
+  # (val_add, ":speed", 45), #45 to 60
+  # (store_distance_to_party_from_party, ":distance", "p_main_party", ":target"),
+  # (val_mul, ":distance", 2), #back trip
+  # #could add in second leg to quest giver and back
+  # (store_div, reg10, ":distance", ":speed"),
+  # (val_max, reg10, 2), #base time to "complete"
+  # # (assign, reg11, ":distance"), #base time to "complete"
+# ], 
+# "Very well. I will set forth for {s10}. I should be back in approximately {reg10} days but may need a few extra days to complete the mission satisfactorily.", "member_delegate_quest_inventory", [
+  # (troop_clear_inventory, "trp_temp_troop"),
+  # (party_clear, "p_temp_party"),
+# ]],
+# #fallback
+# [anyone, "member_delegate_quest_destination", [], 
+# "I am actually lost on where I need to go for this. Do you happen to have a map of the area per chance?", "redo_member_quest", []],
 
-#check for quest items: qst_deliver_wine, qst_deliver_grain
-[anyone, "member_delegate_quest_inventory", [
-  (this_or_next|eq, "$random_merchant_quest_no", "qst_deliver_wine"),
-  (eq, "$random_merchant_quest_no", "qst_deliver_grain"),
-  (assign, ":quest_object", -1),
-  (try_begin),
-    (quest_get_slot, ":item_no", "$random_merchant_quest_no", slot_quest_target_item),
-    (try_begin), #if not set, fallback to grain
-      (lt, ":item_no", 0),
-      (eq, "$random_merchant_quest_no", "qst_deliver_grain"),
-      (assign, ":item_no", "itm_grain"),
-    (try_end),
-    (str_store_item_name, s11, ":item_no"),
-    (assign, ":quest_object", ":item_no"),
-    (assign, "$diplomacy_var", ":quest_object"),
-    (quest_get_slot, "$diplomacy_var2", "$random_merchant_quest_no", slot_quest_target_amount),
-  (try_end),
-  (neq, ":quest_object", -1),
-  (assign, reg12, "$diplomacy_var2")
-  ],
-  "Of course, things would go better if I didn't arrive empty-handed - we do still have the {reg12} units of {s11}?", "member_delegate_quest_ask_for_items",
-  [
-    #calculate how much player has in inventory
-    (item_get_max_ammo, ":stack_size", "$diplomacy_var"),
-    (val_mul, ":stack_size", "$diplomacy_var2"),
-    (troop_get_inventory_capacity, ":inv_cap", "trp_player"),
-    (assign, ":total_units", 0),
-    (try_for_range, ":i_slot", 10, ":inv_cap"),
-      (troop_get_inventory_slot, ":item_no", "trp_player", ":i_slot"),
-      (eq, ":item_no", "$diplomacy_var"),
-      (troop_get_inventory_slot_modifier, ":imod", "trp_player", ":i_slot"),
-      (neq, ":imod", imod_rotten),
-      (troop_inventory_slot_get_item_amount, ":cur_amount", "trp_player", ":i_slot"),
-      (val_add, ":total_units", ":cur_amount"),
-    (try_end),
-    (quest_set_slot, "$random_merchant_quest_no", slot_quest_temp_slot, ":total_units"),
-  ]
-],
-[anyone|auto_proceed, "member_delegate_quest_inventory", [], "{!}.", "member_delegate_quest_soldiers", []],
+# #check for quest items: qst_deliver_wine, qst_deliver_grain
+# [anyone, "member_delegate_quest_inventory", [
+  # (this_or_next|eq, "$random_merchant_quest_no", "qst_deliver_wine"),
+  # (eq, "$random_merchant_quest_no", "qst_deliver_grain"),
+  # (assign, ":quest_object", -1),
+  # (try_begin),
+    # (quest_get_slot, ":item_no", "$random_merchant_quest_no", slot_quest_target_item),
+    # (try_begin), #if not set, fallback to grain
+      # (lt, ":item_no", 0),
+      # (eq, "$random_merchant_quest_no", "qst_deliver_grain"),
+      # (assign, ":item_no", "itm_grain"),
+    # (try_end),
+    # (str_store_item_name, s11, ":item_no"),
+    # (assign, ":quest_object", ":item_no"),
+    # (assign, "$diplomacy_var", ":quest_object"),
+    # (quest_get_slot, "$diplomacy_var2", "$random_merchant_quest_no", slot_quest_target_amount),
+  # (try_end),
+  # (neq, ":quest_object", -1),
+  # (assign, reg12, "$diplomacy_var2")
+  # ],
+  # "Of course, things would go better if I didn't arrive empty-handed - we do still have the {reg12} units of {s11}?", "member_delegate_quest_ask_for_items",
+  # [
+    # #calculate how much player has in inventory
+    # (item_get_max_ammo, ":stack_size", "$diplomacy_var"),
+    # (val_mul, ":stack_size", "$diplomacy_var2"),
+    # (troop_get_inventory_capacity, ":inv_cap", "trp_player"),
+    # (assign, ":total_units", 0),
+    # (try_for_range, ":i_slot", 10, ":inv_cap"),
+      # (troop_get_inventory_slot, ":item_no", "trp_player", ":i_slot"),
+      # (eq, ":item_no", "$diplomacy_var"),
+      # (troop_get_inventory_slot_modifier, ":imod", "trp_player", ":i_slot"),
+      # (neq, ":imod", imod_rotten),
+      # (troop_inventory_slot_get_item_amount, ":cur_amount", "trp_player", ":i_slot"),
+      # (val_add, ":total_units", ":cur_amount"),
+    # (try_end),
+    # (quest_set_slot, "$random_merchant_quest_no", slot_quest_temp_slot, ":total_units"),
+  # ]
+# ],
+# [anyone|auto_proceed, "member_delegate_quest_inventory", [], "{!}.", "member_delegate_quest_soldiers", []],
 
-[anyone|plyr, "member_delegate_quest_ask_for_items", [ 
-  (gt, "$diplomacy_var", 0),
-  (store_item_kind_count, ":item_count", "$diplomacy_var"),
-  (item_get_max_ammo, ":item_size", "$diplomacy_var"),
-  ],
-"Of course, take care with these.", "close_window", [ #was member_delegate_quest_assess_for_items?
+# [anyone|plyr, "member_delegate_quest_ask_for_items", [ 
+  # (gt, "$diplomacy_var", 0),
+  # (store_item_kind_count, ":item_count", "$diplomacy_var"),
+  # (item_get_max_ammo, ":item_size", "$diplomacy_var"),
+  # ],
+# "Of course, take care with these.", "close_window", [ #was member_delegate_quest_assess_for_items?
   
-]],
-[anyone|plyr, "member_delegate_quest_ask_for_items", [ (gt, "$diplomacy_var", 0),],
-"You'll have to pick up some more along the way. I can't be bothered to gather more at the moment.", "member_delegate_quest_confirm", [
-]],
-[anyone|plyr, "member_delegate_quest_ask_for_items", [ (gt, "$diplomacy_var", 0),],
-"No, thank you for reminding me to restock.", "redo_member_quest", []],
+# ]],
+# [anyone|plyr, "member_delegate_quest_ask_for_items", [ (gt, "$diplomacy_var", 0),],
+# "You'll have to pick up some more along the way. I can't be bothered to gather more at the moment.", "member_delegate_quest_confirm", [
+# ]],
+# [anyone|plyr, "member_delegate_quest_ask_for_items", [ (gt, "$diplomacy_var", 0),],
+# "No, thank you for reminding me to restock.", "redo_member_quest", []],
 
-#check for quest soldiers/prisoners
-[anyone, "member_delegate_quest_soldiers", [
-  (this_or_next|eq, "$random_merchant_quest_no", "qst_capture_prisoners"),
-  (eq, "$random_merchant_quest_no", "qst_raise_troops"),
-  (assign, ":quest_object", -1),
-  (try_begin),
-    (quest_get_slot, ":troop_no", "$random_merchant_quest_no", slot_quest_object_troop),
-    (str_store_troop_name, s11, ":troop_no"),
-    (assign, ":quest_object", ":troop_no"),
-    (assign, "$diplomacy_var", ":quest_object"),
-    (quest_get_slot, "$diplomacy_var2", "$random_merchant_quest_no", slot_quest_target_amount),
-  (try_end),
-  (neq, ":quest_object", -1),
-  (assign, reg12, "$diplomacy_var2")
-  ],
-  "Alright, let me gather the soldiers and I'll be on my way. I believe we need {reg10} {s10} for the quota.", "member_delegate_quest_ask_for_troops",
-  [
+# #check for quest soldiers/prisoners
+# [anyone, "member_delegate_quest_soldiers", [
+  # (this_or_next|eq, "$random_merchant_quest_no", "qst_capture_prisoners"),
+  # (eq, "$random_merchant_quest_no", "qst_raise_troops"),
+  # (assign, ":quest_object", -1),
+  # (try_begin),
+    # (quest_get_slot, ":troop_no", "$random_merchant_quest_no", slot_quest_object_troop),
+    # (str_store_troop_name, s11, ":troop_no"),
+    # (assign, ":quest_object", ":troop_no"),
+    # (assign, "$diplomacy_var", ":quest_object"),
+    # (quest_get_slot, "$diplomacy_var2", "$random_merchant_quest_no", slot_quest_target_amount),
+  # (try_end),
+  # (neq, ":quest_object", -1),
+  # (assign, reg12, "$diplomacy_var2")
+  # ],
+  # "Alright, let me gather the soldiers and I'll be on my way. I believe we need {reg10} {s10} for the quota.", "member_delegate_quest_ask_for_troops",
+  # [
     
 
-  ]
-],
-[anyone|auto_proceed, "member_delegate_quest_soldiers", [], "{!}.", "member_delegate_quest_confirm", []],
+  # ]
+# ],
+# [anyone|auto_proceed, "member_delegate_quest_soldiers", [], "{!}.", "member_delegate_quest_confirm", []],
 
 
-[anyone|plyr, "member_delegate_quest_ask_for_troops", [],
-"Yes, here are the troops.", "member_delegate_quest_confirm", []],
+# [anyone|plyr, "member_delegate_quest_ask_for_troops", [],
+# "Yes, here are the troops.", "member_delegate_quest_confirm", []],
 
 
 
-[anyone|plyr, "member_delegate_quest_confirm", [],
-"Good luck out there.", "do_member_quest", [
+# [anyone|plyr, "member_delegate_quest_confirm", [],
+# "Good luck out there.", "do_member_quest", [
   
-]],
-[anyone|plyr, "member_delegate_quest_confirm", [],
-"No, I've reconsidered.", "redo_member_quest", []],
-#calculate 3 states - success, abort, failure, auto-abort if it expires
-#on success - copy over the dialogue rewards since slots are usually empty
-#on abort - set npc to rejoin party
-#on failure - do same, apply failure consequence (if any)
+# ]],
+# [anyone|plyr, "member_delegate_quest_confirm", [],
+# "No, I've reconsidered.", "redo_member_quest", []],
+# #calculate 3 states - success, abort, failure, auto-abort if it expires
+# #on success - copy over the dialogue rewards since slots are usually empty
+# #on abort - set npc to rejoin party
+# #on failure - do same, apply failure consequence (if any)
 
 
-#this reviews all the quest slots
-[anyone, "do_member_quest", [
+# #this reviews all the quest slots
+# [anyone, "do_member_quest", [
   
-], "I'll be on my way then.", "close_window", [
-  (str_store_troop_name, s1, "$g_talk_troop"),
-  (add_quest_note_from_sreg, "$random_merchant_quest_no", 6, "@You have assigned this task to {s1}", 1),
-  (troop_set_slot, "$g_talk_troop", slot_troop_current_mission, dplmc_npc_mission_delegate_quest),
-  (troop_set_slot, "$g_talk_troop", slot_troop_mission_object, dplmc_npc_mission_delegate_quest),
-  (troop_set_slot, "$g_talk_troop", slot_troop_days_on_mission, 0), #distance-based
-]],
-#this cancels all the temp quest slots
-[anyone, "redo_member_quest", [
-  (try_for_range, ":slot_no", slot_troop_days_on_mission, slot_troop_mission_object + 1),
-    (troop_set_slot, "$g_talk_troop", ":slot_no", 0),
-  (try_end),
-  (troop_set_slot, "$g_talk_troop", dplmc_slot_troop_mission_diplomacy, 0), 
-  (troop_set_slot, "$g_talk_troop", dplmc_slot_troop_mission_diplomacy2, 0),
-  (troop_set_slot, "$g_talk_troop", slot_troop_mission_object, 0), #quest
-  (troop_set_slot, "$g_talk_troop", slot_troop_days_on_mission, 0), #distance
-  (troop_set_slot, "$g_talk_troop", slot_troop_current_mission, 0), #dplmc_npc_mission_delegate_quest
-  (assign, "$random_merchant_quest_no", -1),
-  (assign, "$diplomacy_var", -1),
-  (assign, "$diplomacy_var2", -1),
+# ], "I'll be on my way then.", "close_window", [
+  # (str_store_troop_name, s1, "$g_talk_troop"),
+  # (add_quest_note_from_sreg, "$random_merchant_quest_no", 6, "@You have assigned this task to {s1}", 1),
+  # (troop_set_slot, "$g_talk_troop", slot_troop_current_mission, dplmc_npc_mission_delegate_quest),
+  # (troop_set_slot, "$g_talk_troop", slot_troop_mission_object, dplmc_npc_mission_delegate_quest),
+  # (troop_set_slot, "$g_talk_troop", slot_troop_days_on_mission, 0), #distance-based
+# ]],
+# #this cancels all the temp quest slots
+# [anyone, "redo_member_quest", [
+  # (try_for_range, ":slot_no", slot_troop_days_on_mission, slot_troop_mission_object + 1),
+    # (troop_set_slot, "$g_talk_troop", ":slot_no", 0),
+  # (try_end),
+  # (troop_set_slot, "$g_talk_troop", dplmc_slot_troop_mission_diplomacy, 0), 
+  # (troop_set_slot, "$g_talk_troop", dplmc_slot_troop_mission_diplomacy2, 0),
+  # (troop_set_slot, "$g_talk_troop", slot_troop_mission_object, 0), #quest
+  # (troop_set_slot, "$g_talk_troop", slot_troop_days_on_mission, 0), #distance
+  # (troop_set_slot, "$g_talk_troop", slot_troop_current_mission, 0), #dplmc_npc_mission_delegate_quest
+  # (assign, "$random_merchant_quest_no", -1),
+  # (assign, "$diplomacy_var", -1),
+  # (assign, "$diplomacy_var2", -1),
   
-], "How else may I be of service?", "do_member_trade", []],
-[anyone|auto_proceed, "start",
-[
-(is_between, "$g_talk_troop", startup_merchants_begin, startup_merchants_end),
-(eq, "$talk_context", tc_town_talk),
-],
-"{!}.", "merchant_quest_4_start",
-[
-]],
+# ], "How else may I be of service?", "do_member_trade", []],
+# [anyone|auto_proceed, "start",
+# [
+# (is_between, "$g_talk_troop", startup_merchants_begin, startup_merchants_end),
+# (eq, "$talk_context", tc_town_talk),
+# ],
+# "{!}.", "merchant_quest_4_start",
+# [
+# ]],
 
 
 [anyone|auto_proceed, "start",

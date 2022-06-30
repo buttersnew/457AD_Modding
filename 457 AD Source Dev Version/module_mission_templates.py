@@ -851,7 +851,7 @@ common_bearer_down = ( #also functions to check how many death hostiles and frie
     (val_add, "$dead_friendlies", 1),
     (val_add, "$dead_friendliest", 1),
   (else_try),
-    (agent_get_troop_id, ":troop", ":dead"),
+    # (agent_get_troop_id, ":troop", ":dead"),
     (val_add, "$dead_enemies", 1),
     (val_add, "$dead_enemiest", 1),
   (try_end),
@@ -1730,17 +1730,17 @@ jacobhinds_battle_ratio_calculate = (
     (call_script, "script_cf_calculate_battle_ratio"),
   ],
             )
-agent_assign_rank_depth = (ti_on_order_issued, 0, 0, [], [
+# agent_assign_rank_depth = (ti_on_order_issued, 0, 0, [], [
 
-    (store_trigger_param_1,":order"),
-    (store_trigger_param_2,":agent"),
+    # # (store_trigger_param_1,":order"),
+    # # (store_trigger_param_2,":agent"),
 
-#  (is_between, ":order", mordr_form_1_ranks, mordr_form_5_ranks_plus_one),
+# #  (is_between, ":order", mordr_form_1_ranks, mordr_form_5_ranks_plus_one),
 
-#  (val_sub, ":order", mordr_form_0_rank),
-#  (agent_set_slot, ":agent", slot_agent_rank_depth, ":order"),
+# #  (val_sub, ":order", mordr_form_0_rank),
+# #  (agent_set_slot, ":agent", slot_agent_rank_depth, ":order"),
 
-  ])
+  # ])
 
 agent_assign_rank_closeness = (ti_on_order_issued, 0, 0, [], [
 
@@ -1835,7 +1835,7 @@ jacobhinds_rout_check = (
                   )
 
 jacobhinds_morale_triggers = [
-  agent_assign_rank_depth,
+  # agent_assign_rank_depth,#currently unused
   agent_assign_rank_closeness,
   jacobhinds_battle_ratio_init,
   jacobhinds_battle_ratio_spawn_bonus,
@@ -23240,19 +23240,13 @@ mission_templates = [
 
       (3, 0, 0, [(eq, "$talk_context", tc_escape),],    # keep them fleeing
         [
-          (assign, ":sound_played", 0),
-          (try_for_agents, ":agent_no"),
+        (try_for_agents, ":agent_no"),
             (agent_slot_ge, ":agent_no",  slot_agent_is_running_away, 1),
             # (neg|agent_is_ally, ":agent_no"),
             (store_random_in_range, ":rand", 13, 32),
             (entry_point_get_position, pos2, ":rand"),
             (agent_start_running_away, ":agent_no", pos2),
-            #sound:
-            #(eq, ":sound_played", 0),
-            #(assign, ":sound_played", 1),
-            #(store_random_in_range, ":rand", 1, 4),
-            #(eq, ":rand", 1),
-          (try_end),
+        (try_end),
       ]),   
  
       (0,8,0,[(neq, "$talk_context", tc_escape),],

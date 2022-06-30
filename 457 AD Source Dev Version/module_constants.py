@@ -318,7 +318,7 @@ slot_center_last_taken_by_troop = 28
 slot_party_commander_party = 30 #default -1   #Deprecate
 slot_party_following_player    = 31
 slot_party_follow_player_until_time = 32
-slot_party_dont_follow_player_until_time = 33
+# slot_party_dont_follow_player_until_time = 33
 
 slot_village_raided_by        = 34
 slot_village_state            = 35 #svs_normal, svs_being_raided, svs_looted, svs_recovering, svs_deserted

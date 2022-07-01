@@ -934,7 +934,7 @@ simple_triggers = [
     (assign, "$g_half_payment_checkpoint", 0),
     ]),
 
-   (1.5,#was 1, make it a little less frequent	#MOTO recycle trigger (to 1 from 24) from another 24-hour trigger#34
+   (1.25,#was 1, make it a little less frequent	#MOTO recycle trigger (to 1 from 24) from another 24-hour trigger#34
    [
   (assign, ":save_reg0", reg0),
 	(store_time_of_day, ":oclock"),
@@ -7144,6 +7144,8 @@ simple_triggers = [
   [
    (set_fixed_point_multiplier, 1),
    (set_shader_param_float, "@vSeason", "$shader_season"),
+   
+   # (assign, "$declare_war_curb_power", 1), 
   ]),
 
 (24,## SIMULATING WEATHER

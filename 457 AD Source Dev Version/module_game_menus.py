@@ -14014,9 +14014,15 @@ TOTAL:  {reg5}"),
         ]),
       ("tournament_join_next_fight", [], "Fight in the next round.",
        [
-           (party_get_slot, ":arena_scene", "$current_town", slot_town_arena),
-           (modify_visitors_at_site, ":arena_scene"),
-           (reset_visitors),
+            (party_get_slot, ":arena_scene", "$current_town", slot_town_arena),
+            (modify_visitors_at_site, ":arena_scene"),
+            (reset_visitors),
+           
+            (set_jump_mission, "mt_arena_melee_fight"),
+            (try_for_range, ":entry", 0, 55),
+                (mission_tpl_entry_set_override_flags, "mt_arena_melee_fight", ":entry", 0),
+                (mission_tpl_entry_clear_override_items, "mt_arena_melee_fight", ":entry"),
+            (try_end),
            #Assuming that there are enough participants for the teams
 		   (assign, "$g_player_tournament_placement", "$g_tournament_cur_tier"),
 		   (try_begin),
@@ -14078,7 +14084,6 @@ TOTAL:  {reg5}"),
              (assign, "$g_player_entry_point", -1),
            (try_end),
 
-            (set_jump_mission, "mt_arena_melee_fight"),
 
             (jump_to_scene, ":arena_scene"),
             (change_screen_mission),

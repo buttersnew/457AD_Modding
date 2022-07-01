@@ -5381,7 +5381,7 @@ TOTAL:  {reg5}"),
           (assign, "$talk_context", tc_ally_thanks),
           (call_script, "script_setup_troop_meeting", ":ally_leader", ":ally_leader_dna"),
         (else_try),
-          (neq, "$freelancer_state", 1),  #Caba freelancer fixes chief
+          
           # Talk to enemy leaders
           (assign, ":break", 0),
 
@@ -5433,7 +5433,9 @@ TOTAL:  {reg5}"),
               (store_add, "$last_defeated_hero", ":stack_no", 1),
               (call_script, "script_remove_troop_from_prison", ":stack_troop"),
               (troop_set_slot, ":stack_troop", slot_troop_leaded_party, -1),
-
+                
+                
+              (neq, "$freelancer_state", 1),  #Caba freelancer fixes chief
               (assign, "$talk_context", tc_hero_defeated),
 
               (call_script, "script_setup_troop_meeting", ":stack_troop", ":stack_troop_dna"),

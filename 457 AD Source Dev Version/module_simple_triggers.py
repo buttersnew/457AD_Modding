@@ -2691,6 +2691,8 @@ simple_triggers = [
     (party_get_slot, ":party_no", ":home_center", slot_village_farmer_party),
     
     (try_begin),
+         (gt, ":party_no", "p_spawn_points_end"),
+         (party_is_active, ":party_no"),
          (party_slot_eq, ":party_no", slot_party_type, spt_village_farmer),
          (party_is_in_any_town, ":party_no"),
          (party_get_slot, ":home_center", ":party_no", slot_party_home_center),

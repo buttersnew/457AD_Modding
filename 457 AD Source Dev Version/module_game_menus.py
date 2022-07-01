@@ -5377,9 +5377,11 @@ TOTAL:  {reg5}"),
             (try_end),
             (call_script,"script_change_player_relation_with_troop", ":ally_leader", ":rel_boost"),
           (try_end),
+          (neq, "$freelancer_state", 1),  #Caba freelancer fixes chief
           (assign, "$talk_context", tc_ally_thanks),
           (call_script, "script_setup_troop_meeting", ":ally_leader", ":ally_leader_dna"),
         (else_try),
+          (neq, "$freelancer_state", 1),  #Caba freelancer fixes chief
           # Talk to enemy leaders
           (assign, ":break", 0),
 
@@ -5507,7 +5509,8 @@ TOTAL:  {reg5}"),
           (party_get_num_prisoners,  ":num_captured_enemies", "p_temp_party"),
 
           (store_add, ":total_capture_size", ":num_rescued_prisoners", ":num_captured_enemies"),
-#         (neq, "$freelancer_state", 1), 
+          
+          # (neq, "$freelancer_state", 1),  #Caba freelancer fixes chief 
           (gt, ":total_capture_size", 0),
           (change_screen_exchange_with_party, "p_temp_party"),
         (else_try),
@@ -5529,6 +5532,7 @@ TOTAL:  {reg5}"),
 		  ##diplomacy start+
 		  #Here: we jump to rubik's autoloot from CC if applicable instead of using the standard loot screen
 		  (try_begin),
+            (neq, "$freelancer_state", 1),  #Caba freelancer fixes chief
 			(call_script, "script_cf_dplmc_player_party_meets_autoloot_conditions"),
 			(assign, "$dplmc_return_menu", "mnu_total_victory"),
 			(assign, "$lord_selected", "trp_player"),

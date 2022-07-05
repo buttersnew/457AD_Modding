@@ -449,9 +449,13 @@ game_menus = [
   ),
 
   ("reports",mnf_enable_hot_keys,
-   "Character Renown: {reg5}^Honor Rating: {reg6}^Party Morale: {reg8}^Party Size Limit: {reg7}^Piety: {reg9}^",
+   "Character Renown: {reg5}^Honor Rating: {reg6}^Party Morale: {reg8}^Party Size Limit: {reg7}^Piety: {reg9}^Culture: {s22}",
    "none",
-   [(call_script, "script_game_get_party_companion_limit"),
+   [
+    (troop_get_slot, ":culture", "trp_player", slot_troop_culture),
+    (str_store_faction_name, s22, ":culture"),
+    
+    (call_script, "script_game_get_party_companion_limit"),
     (assign, ":party_size_limit", reg0),
     (troop_get_slot, ":renown", "trp_player", slot_troop_renown),
     (assign, reg5, ":renown"),
@@ -995,7 +999,11 @@ game_menus = [
 ##        (jump_to_menu,"mnu_past_life_explanation"),
 ##        ]),
       ("begin_adventuring",[],"Become an adventurer and ride to your destiny.",[
+
+      
            (set_show_messages, 0),
+
+           
            (try_begin),
              (eq, "$character_gender", tf_male),
              (troop_raise_attribute, "trp_player",ca_strength,1),
@@ -9894,8 +9902,9 @@ TOTAL:  {reg5}"),
         ]
        ,"Manage this village.",
        [
-           (assign, "$g_next_menu", "mnu_village"),
-           (jump_to_menu, "mnu_center_manage"),
+        (assign, "$g_next_menu", "mnu_village"),
+        (assign, reg64, 1),
+        (jump_to_menu, "mnu_center_manage_2"),
         ]),
       ("recruit_volunteers",
       [
@@ -10574,334 +10583,622 @@ TOTAL:  {reg5}"),
     ],
   ),
 
-  (
-    "center_manage",0,
-    "{s19}^{reg6?^^You are\
- currently building {s7}. The building will be completed after {reg8} day{reg9?s:}.:}",
-    "none",
-    [(assign, ":num_improvements", 0),
-     (str_clear, s18),
-     #SB : spt strings
-     (try_begin),
-       (party_slot_eq, "$g_encountered_party", slot_party_type, spt_village),
-       (assign, ":begin", village_improvements_begin),
-       (assign, ":end", village_improvements_end),
-       (str_store_string, s17, "@village"),
-     (else_try),
-       (assign, ":begin", walled_center_improvements_begin),
-       (assign, ":end", walled_center_improvements_end),
-       (party_slot_eq, "$g_encountered_party", slot_party_type, spt_town),
-       (str_store_string, s17, "@town"),
-     (else_try),
-       (str_store_string, s17, "@castle"),
-     (try_end),
+  # (
+    # "center_manage",0,
+    # "{s19}^{reg6?^^You are\
+ # currently building {s7}. The building will be completed after {reg8} day{reg9?s:}.:}",
+    # "none",
+    # [(assign, ":num_improvements", 0),
+     # (str_clear, s18),
+     # #SB : spt strings
+     # (try_begin),
+       # (party_slot_eq, "$g_encountered_party", slot_party_type, spt_village),
+       # (assign, ":begin", village_improvements_begin),
+       # (assign, ":end", village_improvements_end),
+       # (str_store_string, s17, "@village"),
+     # (else_try),
+       # (assign, ":begin", walled_center_improvements_begin),
+       # (assign, ":end", walled_center_improvements_end),
+       # (party_slot_eq, "$g_encountered_party", slot_party_type, spt_town),
+       # (str_store_string, s17, "@town"),
+     # (else_try),
+       # (str_store_string, s17, "@castle"),
+     # (try_end),
 
-     (try_for_range, ":improvement_no", ":begin", ":end"),
-       (party_slot_ge, "$g_encountered_party", ":improvement_no", 1),
-       (val_add,  ":num_improvements", 1),
-       (call_script, "script_get_improvement_details", ":improvement_no"),
-       (try_begin),
-         (eq,  ":num_improvements", 1),
-         (str_store_string_reg, s18, s0),
-       (else_try),
-         (str_store_string, s18, "@{!}{s18}, {s0}"),
-       (try_end),
-     (try_end),
+     # (try_for_range, ":improvement_no", ":begin", ":end"),
+       # (party_slot_ge, "$g_encountered_party", ":improvement_no", 1),
+       # (val_add,  ":num_improvements", 1),
+       # (call_script, "script_get_improvement_details", ":improvement_no"),
+       # (try_begin),
+         # (eq,  ":num_improvements", 1),
+         # (str_store_string_reg, s18, s0),
+       # (else_try),
+         # (str_store_string, s18, "@{!}{s18}, {s0}"),
+       # (try_end),
+     # (try_end),
 
-     (try_begin),
-       (eq,  ":num_improvements", 0),
-       (str_store_string, s19, "@The {s17} has no improvements."),
-     (else_try),
-       (str_store_string, s19, "@The {s17} has the following improvements:{s18}."),
-     (try_end),
+     # (try_begin),
+       # (eq,  ":num_improvements", 0),
+       # (str_store_string, s19, "@The {s17} has no improvements."),
+     # (else_try),
+       # (str_store_string, s19, "@The {s17} has the following improvements:{s18}."),
+     # (try_end),
 
-     (assign, reg6, 0),
-     (try_begin),
-       (party_get_slot, ":cur_improvement", "$g_encountered_party", slot_center_current_improvement),
-       (gt, ":cur_improvement", 0),
-       (call_script, "script_get_improvement_details", ":cur_improvement"),
-       (str_store_string, s7, s0),
-       (assign, reg6, 1),
-       (store_current_hours, ":cur_hours"),
-       (party_get_slot, ":finish_time", "$g_encountered_party", slot_center_improvement_end_hour),
-       (val_sub, ":finish_time", ":cur_hours"),
-       (store_div, reg8, ":finish_time", 24),
-       (val_max, reg8, 1),
-       (store_sub, reg9, reg8, 1),
-     (try_end),
-    ],
-    [
-      ("center_build_manor",[(eq, reg6, 0),
-                             (party_slot_eq, "$g_encountered_party", slot_party_type, spt_village),
-                             (party_slot_eq, "$g_encountered_party", slot_center_has_manor, 0),
-                                  ],
-       "Build a villa.",[(assign, "$g_improvement_type", slot_center_has_manor),
-                         (jump_to_menu, "mnu_center_improve"),]),
-      ("center_build_fish_pond",[(eq, reg6, 0),
-                                 (party_slot_eq, "$g_encountered_party", slot_party_type, spt_village),
-                                 (party_slot_eq, "$g_encountered_party", slot_center_has_fish_pond, 0),
-                                  ],
-       "Build a mill.",[(assign, "$g_improvement_type", slot_center_has_fish_pond),
-                             (jump_to_menu, "mnu_center_improve"),]),
-      ("center_build_watch_tower",[(eq, reg6, 0),
-                                   (party_slot_eq, "$g_encountered_party", slot_party_type, spt_village),
-                                   (party_slot_eq, "$g_encountered_party", slot_center_has_watch_tower, 0),
-                                  ],
-       "Build a watch tower.",[(assign, "$g_improvement_type", slot_center_has_watch_tower),
-                               (jump_to_menu, "mnu_center_improve"),]),
-      ("center_build_school",[(eq, reg6, 0),
-                              (party_slot_eq, "$g_encountered_party", slot_party_type, spt_village),
-                              (party_slot_eq, "$g_encountered_party", slot_center_has_school, 0),
-                                  ],
-       "Build a school.",[(assign, "$g_improvement_type", slot_center_has_school),
-                          (jump_to_menu, "mnu_center_improve"),]),
-      ("center_build_messenger_post",[(eq, reg6, 0),
-                                      (party_slot_eq, "$g_encountered_party", slot_center_has_messenger_post, 0),
-                                       ],
-       "Build a messenger post.",[(assign, "$g_improvement_type", slot_center_has_messenger_post),
-                                  (jump_to_menu, "mnu_center_improve"),]),
-      ("center_build_prisoner_tower",[(eq, reg6, 0),
-                                      (this_or_next|party_slot_eq, "$g_encountered_party", slot_party_type, spt_town),
-                                      (party_slot_eq, "$g_encountered_party", slot_party_type, spt_castle),
-                                      (party_slot_eq, "$g_encountered_party", slot_center_has_prisoner_tower, 0),
-                                       ],
-       "Build a prisoner tower.",[(assign, "$g_improvement_type", slot_center_has_prisoner_tower),
-                                  (jump_to_menu, "mnu_center_improve"),]),
-      #religous conversion locations - villages first
-      ("center_build_religion1",[(eq, reg6, 0),
-          (eq, "$g_player_faith", 1), #is roman christian
-          (this_or_next|party_slot_eq, "$g_encountered_party", slot_party_type, spt_town),
-          (this_or_next|party_slot_eq, "$g_encountered_party", slot_party_type, spt_castle),
-          (party_slot_eq, "$g_encountered_party", slot_party_type, spt_village),
-          (party_slot_eq, "$g_encountered_party", slot_center_has_temple1, 0),
-        ],
-        "Build a Chalcedonian Basilica.",[
-          (assign, "$g_improvement_type", slot_center_has_temple1),
-          (party_set_slot, "$g_encountered_party", slot_center_has_temple2, 0),
-          (party_set_slot, "$g_encountered_party", slot_center_has_temple3, 0),
-          (party_set_slot, "$g_encountered_party", slot_center_has_temple4, 0),
-          (party_set_slot, "$g_encountered_party", slot_center_has_temple5, 0),
-          (party_set_slot, "$g_encountered_party", slot_center_has_temple6, 0),
-          (jump_to_menu, "mnu_center_improve"),]),
+     # (assign, reg6, 0),
+     # (try_begin),
+       # (party_get_slot, ":cur_improvement", "$g_encountered_party", slot_center_current_improvement),
+       # (gt, ":cur_improvement", 0),
+       # (call_script, "script_get_improvement_details", ":cur_improvement"),
+       # (str_store_string, s7, s0),
+       # (assign, reg6, 1),
+       # (store_current_hours, ":cur_hours"),
+       # (party_get_slot, ":finish_time", "$g_encountered_party", slot_center_improvement_end_hour),
+       # (val_sub, ":finish_time", ":cur_hours"),
+       # (store_div, reg8, ":finish_time", 24),
+       # (val_max, reg8, 1),
+       # (store_sub, reg9, reg8, 1),
+     # (try_end),
+    # ],
+    # [
+      # ("center_build_manor",[(eq, reg6, 0),
+                             # (party_slot_eq, "$g_encountered_party", slot_party_type, spt_village),
+                             # (party_slot_eq, "$g_encountered_party", slot_center_has_manor, 0),
+                                  # ],
+       # "Build a villa.",[(assign, "$g_improvement_type", slot_center_has_manor),
+                         # (jump_to_menu, "mnu_center_improve"),]),
+      # ("center_build_fish_pond",[(eq, reg6, 0),
+                                 # (party_slot_eq, "$g_encountered_party", slot_party_type, spt_village),
+                                 # (party_slot_eq, "$g_encountered_party", slot_center_has_fish_pond, 0),
+                                  # ],
+       # "Build a mill.",[(assign, "$g_improvement_type", slot_center_has_fish_pond),
+                             # (jump_to_menu, "mnu_center_improve"),]),
+      # ("center_build_watch_tower",[(eq, reg6, 0),
+                                   # (party_slot_eq, "$g_encountered_party", slot_party_type, spt_village),
+                                   # (party_slot_eq, "$g_encountered_party", slot_center_has_watch_tower, 0),
+                                  # ],
+       # "Build a watch tower.",[(assign, "$g_improvement_type", slot_center_has_watch_tower),
+                               # (jump_to_menu, "mnu_center_improve"),]),
+      # ("center_build_school",[(eq, reg6, 0),
+                              # (party_slot_eq, "$g_encountered_party", slot_party_type, spt_village),
+                              # (party_slot_eq, "$g_encountered_party", slot_center_has_school, 0),
+                                  # ],
+       # "Build a school.",[(assign, "$g_improvement_type", slot_center_has_school),
+                          # (jump_to_menu, "mnu_center_improve"),]),
+      # ("center_build_messenger_post",[(eq, reg6, 0),
+                                      # (party_slot_eq, "$g_encountered_party", slot_center_has_messenger_post, 0),
+                                       # ],
+       # "Build a messenger post.",[(assign, "$g_improvement_type", slot_center_has_messenger_post),
+                                  # (jump_to_menu, "mnu_center_improve"),]),
+      # ("center_build_prisoner_tower",[(eq, reg6, 0),
+                                      # (this_or_next|party_slot_eq, "$g_encountered_party", slot_party_type, spt_town),
+                                      # (party_slot_eq, "$g_encountered_party", slot_party_type, spt_castle),
+                                      # (party_slot_eq, "$g_encountered_party", slot_center_has_prisoner_tower, 0),
+                                       # ],
+       # "Build a prisoner tower.",[(assign, "$g_improvement_type", slot_center_has_prisoner_tower),
+                                  # (jump_to_menu, "mnu_center_improve"),]),
+      # #religous conversion locations - villages first
+      # ("center_build_religion1",[(eq, reg6, 0),
+          # (eq, "$g_player_faith", 1), #is roman christian
+          # (this_or_next|party_slot_eq, "$g_encountered_party", slot_party_type, spt_town),
+          # (this_or_next|party_slot_eq, "$g_encountered_party", slot_party_type, spt_castle),
+          # (party_slot_eq, "$g_encountered_party", slot_party_type, spt_village),
+          # (party_slot_eq, "$g_encountered_party", slot_center_has_temple1, 0),
+        # ],
+        # "Build a Chalcedonian Basilica.",[
+          # (assign, "$g_improvement_type", slot_center_has_temple1),
+          # (party_set_slot, "$g_encountered_party", slot_center_has_temple2, 0),
+          # (party_set_slot, "$g_encountered_party", slot_center_has_temple3, 0),
+          # (party_set_slot, "$g_encountered_party", slot_center_has_temple4, 0),
+          # (party_set_slot, "$g_encountered_party", slot_center_has_temple5, 0),
+          # (party_set_slot, "$g_encountered_party", slot_center_has_temple6, 0),
+          # (jump_to_menu, "mnu_center_improve"),]),
 
-      ("center_build_religion2",[(eq, reg6, 0),
-          (eq, "$g_player_faith", 2), #is a pagan
-          (this_or_next|party_slot_eq, "$g_encountered_party", slot_party_type, spt_town),
-          (this_or_next|party_slot_eq, "$g_encountered_party", slot_party_type, spt_castle),
-          (party_slot_eq, "$g_encountered_party", slot_party_type, spt_village),
-          (party_slot_eq, "$g_encountered_party", slot_center_has_temple2, 0),
-        ],
-        "Build a Pagan Shrine.",[
-          (assign, "$g_improvement_type", slot_center_has_temple2),
-          (party_set_slot, "$g_encountered_party", slot_center_has_temple1, 0),
-          (party_set_slot, "$g_encountered_party", slot_center_has_temple3, 0),
-          (party_set_slot, "$g_encountered_party", slot_center_has_temple4, 0),
-          (party_set_slot, "$g_encountered_party", slot_center_has_temple5, 0),
-          (party_set_slot, "$g_encountered_party", slot_center_has_temple6, 0),
-          (jump_to_menu, "mnu_center_improve"), ]),
+      # ("center_build_religion2",[(eq, reg6, 0),
+          # (eq, "$g_player_faith", 2), #is a pagan
+          # (this_or_next|party_slot_eq, "$g_encountered_party", slot_party_type, spt_town),
+          # (this_or_next|party_slot_eq, "$g_encountered_party", slot_party_type, spt_castle),
+          # (party_slot_eq, "$g_encountered_party", slot_party_type, spt_village),
+          # (party_slot_eq, "$g_encountered_party", slot_center_has_temple2, 0),
+        # ],
+        # "Build a Pagan Shrine.",[
+          # (assign, "$g_improvement_type", slot_center_has_temple2),
+          # (party_set_slot, "$g_encountered_party", slot_center_has_temple1, 0),
+          # (party_set_slot, "$g_encountered_party", slot_center_has_temple3, 0),
+          # (party_set_slot, "$g_encountered_party", slot_center_has_temple4, 0),
+          # (party_set_slot, "$g_encountered_party", slot_center_has_temple5, 0),
+          # (party_set_slot, "$g_encountered_party", slot_center_has_temple6, 0),
+          # (jump_to_menu, "mnu_center_improve"), ]),
 
-      ("center_build_religion3",[(eq, reg6, 0),
-          (eq, "$g_player_faith", 3), #is arian christian
-          (this_or_next|party_slot_eq, "$g_encountered_party", slot_party_type, spt_town),
-          (this_or_next|party_slot_eq, "$g_encountered_party", slot_party_type, spt_castle),
-          (party_slot_eq, "$g_encountered_party", slot_party_type, spt_village),
-          (party_slot_eq, "$g_encountered_party", slot_center_has_temple3, 0),
-        ],
-        "Build an Arian Basilica.",[
-          (assign, "$g_improvement_type", slot_center_has_temple3),
-          (party_set_slot, "$g_encountered_party", slot_center_has_temple1, 0),
-          (party_set_slot, "$g_encountered_party", slot_center_has_temple2, 0),
-          (party_set_slot, "$g_encountered_party", slot_center_has_temple4, 0),
-          (party_set_slot, "$g_encountered_party", slot_center_has_temple5, 0),
-          (party_set_slot, "$g_encountered_party", slot_center_has_temple6, 0),
-          (jump_to_menu, "mnu_center_improve"),]),
+      # ("center_build_religion3",[(eq, reg6, 0),
+          # (eq, "$g_player_faith", 3), #is arian christian
+          # (this_or_next|party_slot_eq, "$g_encountered_party", slot_party_type, spt_town),
+          # (this_or_next|party_slot_eq, "$g_encountered_party", slot_party_type, spt_castle),
+          # (party_slot_eq, "$g_encountered_party", slot_party_type, spt_village),
+          # (party_slot_eq, "$g_encountered_party", slot_center_has_temple3, 0),
+        # ],
+        # "Build an Arian Basilica.",[
+          # (assign, "$g_improvement_type", slot_center_has_temple3),
+          # (party_set_slot, "$g_encountered_party", slot_center_has_temple1, 0),
+          # (party_set_slot, "$g_encountered_party", slot_center_has_temple2, 0),
+          # (party_set_slot, "$g_encountered_party", slot_center_has_temple4, 0),
+          # (party_set_slot, "$g_encountered_party", slot_center_has_temple5, 0),
+          # (party_set_slot, "$g_encountered_party", slot_center_has_temple6, 0),
+          # (jump_to_menu, "mnu_center_improve"),]),
 
-      ("center_build_religion4",[(eq, reg6, 0),
-          (eq, "$g_player_faith", 4), #is zoroastrian
-          (this_or_next|party_slot_eq, "$g_encountered_party", slot_party_type, spt_town),
-          (this_or_next|party_slot_eq, "$g_encountered_party", slot_party_type, spt_castle),
-          (party_slot_eq, "$g_encountered_party", slot_party_type, spt_village),
-          (party_slot_eq, "$g_encountered_party", slot_center_has_temple4, 0),
-        ],
-        "Build a Zoroastrian Temple.",[
-          (assign, "$g_improvement_type", slot_center_has_temple4),
-          (party_set_slot, "$g_encountered_party", slot_center_has_temple1, 0),
-          (party_set_slot, "$g_encountered_party", slot_center_has_temple2, 0),
-          (party_set_slot, "$g_encountered_party", slot_center_has_temple3, 0),
-          (party_set_slot, "$g_encountered_party", slot_center_has_temple5, 0),
-          (party_set_slot, "$g_encountered_party", slot_center_has_temple6, 0),
-          (jump_to_menu, "mnu_center_improve"),]),
+      # ("center_build_religion4",[(eq, reg6, 0),
+          # (eq, "$g_player_faith", 4), #is zoroastrian
+          # (this_or_next|party_slot_eq, "$g_encountered_party", slot_party_type, spt_town),
+          # (this_or_next|party_slot_eq, "$g_encountered_party", slot_party_type, spt_castle),
+          # (party_slot_eq, "$g_encountered_party", slot_party_type, spt_village),
+          # (party_slot_eq, "$g_encountered_party", slot_center_has_temple4, 0),
+        # ],
+        # "Build a Zoroastrian Temple.",[
+          # (assign, "$g_improvement_type", slot_center_has_temple4),
+          # (party_set_slot, "$g_encountered_party", slot_center_has_temple1, 0),
+          # (party_set_slot, "$g_encountered_party", slot_center_has_temple2, 0),
+          # (party_set_slot, "$g_encountered_party", slot_center_has_temple3, 0),
+          # (party_set_slot, "$g_encountered_party", slot_center_has_temple5, 0),
+          # (party_set_slot, "$g_encountered_party", slot_center_has_temple6, 0),
+          # (jump_to_menu, "mnu_center_improve"),]),
 
-      ("center_build_religion5",[(eq, reg6, 0),
-          (eq, "$g_player_faith", 5), #is coptic christian
-          (this_or_next|party_slot_eq, "$g_encountered_party", slot_party_type, spt_town),
-          (this_or_next|party_slot_eq, "$g_encountered_party", slot_party_type, spt_castle),
-          (party_slot_eq, "$g_encountered_party", slot_party_type, spt_village),
-          (party_slot_eq, "$g_encountered_party", slot_center_has_temple5, 0),
-        ],
-        "Build a Miaphysite Basilica.",[
-          (assign, "$g_improvement_type", slot_center_has_temple5),
-          (party_set_slot, "$g_encountered_party", slot_center_has_temple1, 0),
-          (party_set_slot, "$g_encountered_party", slot_center_has_temple2, 0),
-          (party_set_slot, "$g_encountered_party", slot_center_has_temple3, 0),
-          (party_set_slot, "$g_encountered_party", slot_center_has_temple4, 0),
-          (party_set_slot, "$g_encountered_party", slot_center_has_temple6, 0),
-          (jump_to_menu, "mnu_center_improve"),]),
-      #religious conversion locations - towns
-      ("center_build_religion6",[(eq, reg6, 0),
-          (eq, "$g_player_faith", 6), #is roman pagan
-          (this_or_next|party_slot_eq, "$g_encountered_party", slot_party_type, spt_town),
-          (this_or_next|party_slot_eq, "$g_encountered_party", slot_party_type, spt_castle),
-          (party_slot_eq, "$g_encountered_party", slot_party_type, spt_village),
-          (party_slot_eq, "$g_encountered_party", slot_center_has_temple5, 0),
-        ],
-        "Build a Roman Pagan Temple.",[
-          (assign, "$g_improvement_type", slot_center_has_temple6),
-          (party_set_slot, "$g_encountered_party", slot_center_has_temple1, 0),
-          (party_set_slot, "$g_encountered_party", slot_center_has_temple2, 0),
-          (party_set_slot, "$g_encountered_party", slot_center_has_temple3, 0),
-          (party_set_slot, "$g_encountered_party", slot_center_has_temple4, 0),
-          (party_set_slot, "$g_encountered_party", slot_center_has_temple5, 0),
-          (jump_to_menu, "mnu_center_improve"),]),
+      # ("center_build_religion5",[(eq, reg6, 0),
+          # (eq, "$g_player_faith", 5), #is coptic christian
+          # (this_or_next|party_slot_eq, "$g_encountered_party", slot_party_type, spt_town),
+          # (this_or_next|party_slot_eq, "$g_encountered_party", slot_party_type, spt_castle),
+          # (party_slot_eq, "$g_encountered_party", slot_party_type, spt_village),
+          # (party_slot_eq, "$g_encountered_party", slot_center_has_temple5, 0),
+        # ],
+        # "Build a Miaphysite Basilica.",[
+          # (assign, "$g_improvement_type", slot_center_has_temple5),
+          # (party_set_slot, "$g_encountered_party", slot_center_has_temple1, 0),
+          # (party_set_slot, "$g_encountered_party", slot_center_has_temple2, 0),
+          # (party_set_slot, "$g_encountered_party", slot_center_has_temple3, 0),
+          # (party_set_slot, "$g_encountered_party", slot_center_has_temple4, 0),
+          # (party_set_slot, "$g_encountered_party", slot_center_has_temple6, 0),
+          # (jump_to_menu, "mnu_center_improve"),]),
+      # #religious conversion locations - towns
+      # ("center_build_religion6",[(eq, reg6, 0),
+          # (eq, "$g_player_faith", 6), #is roman pagan
+          # (this_or_next|party_slot_eq, "$g_encountered_party", slot_party_type, spt_town),
+          # (this_or_next|party_slot_eq, "$g_encountered_party", slot_party_type, spt_castle),
+          # (party_slot_eq, "$g_encountered_party", slot_party_type, spt_village),
+          # (party_slot_eq, "$g_encountered_party", slot_center_has_temple5, 0),
+        # ],
+        # "Build a Roman Pagan Temple.",[
+          # (assign, "$g_improvement_type", slot_center_has_temple6),
+          # (party_set_slot, "$g_encountered_party", slot_center_has_temple1, 0),
+          # (party_set_slot, "$g_encountered_party", slot_center_has_temple2, 0),
+          # (party_set_slot, "$g_encountered_party", slot_center_has_temple3, 0),
+          # (party_set_slot, "$g_encountered_party", slot_center_has_temple4, 0),
+          # (party_set_slot, "$g_encountered_party", slot_center_has_temple5, 0),
+          # (jump_to_menu, "mnu_center_improve"),]),
 
 
-      #SB: cancel current improvement
-      ("center_cancel_build",[(eq, reg6, 1),],
-      "Cancel building the {s7}.",[
-        (call_script, "script_change_center_prosperity", "$current_town", -4),
-        (call_script, "script_change_player_relation_with_center", "$current_town", -2),
-        (party_set_slot, "$current_town", slot_center_current_improvement, 0),
-        (party_set_slot, "$current_town", slot_village_recover_progress, 0),
-        (party_get_slot, ":hours_left", "$current_town", slot_center_improvement_end_hour),
+      # #SB: cancel current improvement
+      # ("center_cancel_build",[(eq, reg6, 1),],
+      # "Cancel building the {s7}.",[
+        # (call_script, "script_change_center_prosperity", "$current_town", -4),
+        # (call_script, "script_change_player_relation_with_center", "$current_town", -2),
+        # (party_set_slot, "$current_town", slot_center_current_improvement, 0),
+        # (party_set_slot, "$current_town", slot_village_recover_progress, 0),
+        # (party_get_slot, ":hours_left", "$current_town", slot_center_improvement_end_hour),
 
-        #reinvest in economy, not household possessions
-        # (party_get_slot, ":cur_wealth", "$current_town", slot_town_wealth),
-        (try_begin),
-          (is_between, "$current_town", towns_begin, towns_end),
-          (party_get_slot, ":merchant_troop", "$current_town", slot_town_merchant),
-          (troop_add_gold, ":merchant_troop", ":hours_left"),
-        (else_try),
-          (is_between, "$current_town", villages_begin, villages_end),
-          (party_get_slot, ":merchant_troop", "$current_town", slot_town_elder),
-        (else_try),
-          (assign, ":merchant_troop", -1),
-        (try_end),
+        # #reinvest in economy, not household possessions
+        # # (party_get_slot, ":cur_wealth", "$current_town", slot_town_wealth),
+        # (try_begin),
+          # (is_between, "$current_town", towns_begin, towns_end),
+          # (party_get_slot, ":merchant_troop", "$current_town", slot_town_merchant),
+          # (troop_add_gold, ":merchant_troop", ":hours_left"),
+        # (else_try),
+          # (is_between, "$current_town", villages_begin, villages_end),
+          # (party_get_slot, ":merchant_troop", "$current_town", slot_town_elder),
+        # (else_try),
+          # (assign, ":merchant_troop", -1),
+        # (try_end),
         
-        (store_current_hours, ":cur_hours"),
-        (val_sub, ":hours_left", ":cur_hours"),
-        (val_mul, ":hours_left", 15), #a paltry sum
+        # (store_current_hours, ":cur_hours"),
+        # (val_sub, ":hours_left", ":cur_hours"),
+        # (val_mul, ":hours_left", 15), #a paltry sum
+        # (try_begin),
+          # (gt, ":merchant_troop", 0),
+          # (troop_add_gold, ":merchant_troop", ":hours_left"),
+        # (else_try), #castle has no seneschal
+          # (party_get_slot, ":cur_gold", "$current_town", slot_center_accumulated_tariffs),
+          # (val_add, ":cur_gold", ":hours_left"),
+          # (party_set_slot, "$current_town", slot_center_accumulated_tariffs, ":cur_gold"),
+        # (try_end),
+        # (jump_to_menu, "$g_next_menu"),
+        # ]),
+      # ("go_back_dot",[],"Go back.",[(jump_to_menu, "$g_next_menu")]),
+    # ],
+  # ),
+  (
+    "center_extort_reaction",0,
+    "{s10}^\
+	{s40}",
+    "none",
+    [
+	(store_faction_of_party, ":fac", "$current_town"),
+	(faction_get_slot, ":king", ":fac", slot_faction_leader),
+	(str_store_troop_name, s11, ":king"),
+	(set_background_mesh, "mesh_pic_townriot"),
+	(try_begin),
+		(eq, ":king", "trp_player"),
+		(str_store_string, s40, "@But who cares about an angry commoner?"),		
+	(else_try),
+		(str_store_string, s40, "@The town counsel threatens you to write to {s11} about your tyrannic behavior to try to convince him to dismiss you as governor. \
+		But you know that {s11} never replays on such requests."),
+	(try_end),
+	(try_begin),
+		(eq, "$temp", extort_tax),##tax
+		(str_store_string, s10, "@Argueing that the money is needed for the good of the realm, you start to collect the tax. As expected the citizens are outraged about your greedy action."),
+		(party_get_slot, ":relation", "$current_town", slot_center_player_relation),
+		(try_begin),
+			(ge, ":relation", 50),
+			(store_random_in_range, ":r", 10, 20),
+			(val_mul, ":r", -1),
+		(else_try),
+			(ge, ":relation", 0),
+			(store_random_in_range, ":r", 5, 10),
+			(val_mul, ":r", -1),			
+		(else_try),
+			(ge, ":relation", -50),
+			(store_random_in_range, ":r", 2, 6),
+			(val_mul, ":r", -1),			
+		(else_try),
+			(store_random_in_range, ":r", 1, 5),
+			(val_mul, ":r", -1),		
+		(try_end),
+		(call_script, "script_change_player_relation_with_center", "$current_town", ":r"),
+		(call_script, "script_change_center_prosperity", "$current_town", -15),
+		(party_get_slot, ":capital", "$current_town", slot_center_capital),
+		(val_sub, ":capital", "$temp2"),
+		(party_set_slot, "$current_town", slot_center_capital, ":capital"),
+	(else_try),
+		(eq, "$temp", extort_toll),##toll
+		(str_store_string, s10, "@Argueing that the money is needed for the good of the realm, you start to collect the toll. As expected the merchants are outraged about your greedy action."),
+		(party_get_slot, ":relation", "$current_town", slot_center_player_relation),
+		(try_begin),
+			(ge, ":relation", 50),
+			(store_random_in_range, ":r", 7, 15),
+			(val_mul, ":r", -1),
+		(else_try),
+			(ge, ":relation", 0),
+			(store_random_in_range, ":r", 5, 9),
+			(val_mul, ":r", -1),			
+		(else_try),
+			(ge, ":relation", -50),
+			(store_random_in_range, ":r", 1, 6),
+			(val_mul, ":r", -1),			
+		(else_try),
+			(store_random_in_range, ":r", 1, 5),
+			(val_mul, ":r", -1),		
+		(try_end),
+		(call_script, "script_change_player_relation_with_center", "$current_town", ":r"),		
+		(try_for_range, ":village", villages_begin, villages_end),
+			(party_slot_eq, ":village", slot_village_bound_center, "$current_town"),
+			(store_random_in_range, ":r", 1, 3),
+			(val_mul, ":r", -1),				
+			(call_script, "script_change_player_relation_with_center", ":village", ":r"),
+		(try_end),
+		(call_script, "script_change_center_prosperity", "$current_town", -10),
+		(party_get_slot, ":capital", "$current_town", slot_center_capital),
+		(val_sub, ":capital", "$temp2"),
+		(party_set_slot, "$current_town", slot_center_capital, ":capital"),		
+	(else_try),
+		(eq, "$temp", extort_concile),##town counsel
+		(str_store_string, s10, "@You march with your troops to the town counsel. Argueing that the counsels treasury is needed to defend the realm you order your troops to take over it.\
+		As expected the citizens are outraged about your greedy action."),
+		(store_random_in_range, ":r", 3, 9),
+		(val_mul, ":r", -1),
+		(call_script, "script_change_player_relation_with_center", "$current_town", ":r"),
+		(call_script, "script_change_center_prosperity", "$current_town", -5),
+		(party_set_slot, "$current_town", slot_town_wealth, 0),
+	(try_end),
+    ],
+    [
+      ("go_back_dot",[],"Continue...",[
+        (call_script, "script_change_player_honor", -5),
+        (call_script, "script_change_troop_renown", "trp_player", -15),
+        (call_script, "script_troop_add_gold", "trp_player", "$temp2"),
+        (rest_for_hours, "$temp3", 8, 0),
         (try_begin),
-          (gt, ":merchant_troop", 0),
-          (troop_add_gold, ":merchant_troop", ":hours_left"),
-        (else_try), #castle has no seneschal
-          (party_get_slot, ":cur_gold", "$current_town", slot_center_accumulated_tariffs),
-          (val_add, ":cur_gold", ":hours_left"),
-          (party_set_slot, "$current_town", slot_center_accumulated_tariffs, ":cur_gold"),
+            (party_get_slot, ":lord", "$current_town", slot_town_lord),
+            (neq, ":lord", "trp_player"),
+            (call_script, "script_change_player_relation_with_troop", ":lord", -10),
+            (str_store_troop_name, s40, ":lord"),
+            (display_message, "@{s40} is not amused to hear about your tyrannical tax collection in his town!"),
         (try_end),
-        (jump_to_menu, "$g_next_menu"),
-        ]),
-      ("go_back_dot",[],"Go back.",[(jump_to_menu, "$g_next_menu")]),
+        (change_screen_map),]),
+    ],
+  ),  
+  
+
+  (
+    "repopulate",0,
+    "You can order your soldiers to kill anyone older than 14. Then you would grante the acquired land to the families of your soldiers.^\
+	But you should note that such an extreme act will have a bad impact on your reputation.",
+    "none",
+    [
+	(str_store_party_name, s39, "$g_encountered_party"),
+	(set_background_mesh, "mesh_pic_charge"),
+    ],
+    [
+
+	  
+      ("special_tax",[],"Kill them all. They deserve it.",[
+        (party_slot_eq, "$current_town", slot_party_type, spt_village),
+        (party_get_slot, ":capital", "$current_town", slot_center_capital),
+        (troop_add_gold, "trp_player", ":capital"),
+       
+        (party_set_slot, "$current_town", slot_center_player_relation, 0), #relation to 0
+        (party_set_slot, "$current_town", slot_center_capital, 0),
+        (party_set_slot, "$current_town", slot_center_accumulated_rents, 0),
+        (troop_get_slot, ":culture", "trp_player", slot_troop_culture),
+        (party_set_slot, "$current_town", slot_center_culture, ":culture"),        
+        
+        (troop_get_slot, ":religion", "trp_player", slot_troop_religion),
+        (party_set_slot, "$current_town", slot_center_religion, ":religion"),
+        
+        (call_script, "script_change_player_honor", -30),
+        (val_sub, "$piety", 30),
+        (party_get_slot, ":prosperity_change", "$current_town", slot_town_prosperity),
+        (val_mul, ":prosperity_change", -9),
+        (val_div, ":prosperity_change", 10),
+        (call_script, "script_change_center_prosperity", "$current_town", ":prosperity_change"),
+        
+        (party_get_slot, ":food_stores", "$current_town", slot_party_food_store),
+        (call_script, "script_center_get_food_store_limit", "$current_town"),
+        (val_min, ":food_stores", reg0),
+        (party_set_slot, "$current_town", slot_party_food_store, ":food_stores"),
+        (try_for_range, ":walker_no", 0, num_town_walkers),
+          (call_script, "script_center_set_walker_to_type", "$current_town", ":walker_no", walkert_default),
+        (try_end),         
+        
+        (str_store_party_name, s4, "$current_town"),
+        #####
+        (str_clear,s1),
+        (display_message, "@Mercilessly your men kill anyone that crosses their way, then enter the houses, killing all men over 14 years of age. The fame of your cruelty travels as the wind. " +
+        "Fear seizes all who talk about you. Now {s4} is pacified, but the cost has been very high."),
+        (jump_to_menu, "mnu_repopulate_complete"),
+
+	  ]),
+	  
+      ("go_back_dot",[],"Go back.",[(jump_to_menu, "mnu_center_manage_2")]),
+    ],
+  ),  
+  (
+    "repopulate_complete",0,
+    "Mercilessly your men kill anyone that crosses their way, then enter the houses, killing all men over 14 years of age. The fame of your cruelty travels as the wind. " +
+        "Fear seizes all who talk about you. Now {s4} is pacified, but the cost has been very high.",
+    "none",
+    [
+	(str_store_party_name, s4, "$g_encountered_party"),
+	(set_background_mesh, "mesh_pic_charge"),
+    ],
+    [
+    ("go_back_dot",[],"Continue.",[
+    (jump_to_menu, "mnu_auto_return_to_map"),
+    ]),
+    ],
+  ),  
+
+  
+  (
+    "garrison_management",mnf_disable_all_keys,
+    "You can exchange troops with the garrison. Size of the garrison: {reg31}. Number of prisoners: {reg30}^^{s22}",
+    "none",
+    [
+    (party_set_flags, "$g_encountered_party", pf_limit_members, 0),#clear flag later on
+    (assign, reg66, 0),
+    
+    (party_get_num_prisoners, reg30, "$g_encountered_party"),
+    (store_party_size_wo_prisoners, reg31, "$g_encountered_party"),
+    (str_clear, s22),
+    (try_begin),
+        (party_slot_eq, "$g_encountered_party", slot_party_type, spt_village),
+        (call_script,"script_cf_fix_party_size_village","$g_encountered_party",1),
+        (str_store_string, s22, "@If you place prisoners in your village they will work on the fields and in the mines and generate additional rents."),
+    (try_end),
+    ],
+    [
+      ("exchange",[(eq, reg64, 1),],"Exchange.",[
+    
+    (change_screen_exchange_members,1),
+      ]),         
+    
+    ("exchange",[ (eq, reg64, 0),],"Review garrison and prisoners.",[
+   
+    (call_script, "script_view_party_members","$g_encountered_party"),]),
+    
+    ("add_prisoners",[
+    (eq, reg64, 1),
+    (party_get_num_prisoners, ":prisoners", "p_main_party"),
+    (ge, ":prisoners", 1),],"Drop off all non-hero prisoners.",[
+    (assign, "$g_move_heroes", 0), 
+    (call_script, "script_party_add_party_prisoners", "$g_encountered_party", "p_main_party"),
+    (call_script, "script_party_remove_all_prisoners", "p_main_party"),     
+    ]),       
+      
+    ("add_members",[
+    (eq, reg64, 1),  
+    (store_party_size_wo_prisoners, ":men", "p_main_party"),
+    (ge, ":men", 1),],"Drop off all your  non-hero party members.",[
+    (assign, "$g_move_heroes", 0), 
+    (call_script, "script_party_add_party_companions", "$g_encountered_party", "p_main_party"),
+    (call_script, "script_party_remove_all_companions", "p_main_party"),     
+    ]),             
+      # ("slaves_0",[
+    # (party_slot_eq, "$g_encountered_party", slot_town_lord, "trp_player"),
+      # ],"Buy 25 slaves. (25,000 denars)",[
+    # (try_begin),
+        # (store_troop_gold, ":gold", "trp_household_possessions"),
+        # (ge, ":gold", 25000),
+        # (party_add_prisoners, "$g_encountered_party", "trp_slave", 25),
+        # (call_script, "script_dplmc_withdraw_from_treasury", 25000),
+    # (else_try),
+        # (store_troop_gold, ":gold", "trp_player"),
+        # (ge, ":gold", 25000),
+        # (party_add_prisoners, "$g_encountered_party", "trp_slave", 25),
+        # (troop_remove_gold, "trp_player", 25000),
+    # (try_end),
+      # ]),       
+      # ("slaves_1",[
+    # (party_slot_eq, "$g_encountered_party", slot_town_lord, "trp_player"),
+      # ],"Buy 50 slaves. (50,000 denars)",[
+    # (try_begin),
+        # (store_troop_gold, ":gold", "trp_household_possessions"),
+        # (ge, ":gold", 50000),
+        # (party_add_prisoners, "$g_encountered_party", "trp_slave", 50),
+        # (call_script, "script_dplmc_withdraw_from_treasury", 50000),
+    # (else_try),
+        # (store_troop_gold, ":gold", "trp_player"),
+        # (ge, ":gold", 50000),
+        # (party_add_prisoners, "$g_encountered_party", "trp_slave", 50),
+        # (troop_remove_gold, "trp_player", 50000),
+    # (try_end),
+      # ]),        
+    # ("slaves_2",[
+    # (party_slot_eq, "$g_encountered_party", slot_town_lord, "trp_player"),
+      # ],"Buy 100 slaves. (100,000 denars)",[
+    # (try_begin),
+        # (store_troop_gold, ":gold", "trp_household_possessions"),
+        # (ge, ":gold", 100000),
+        # (party_add_prisoners, "$g_encountered_party", "trp_slave", 100),
+        # (call_script, "script_dplmc_withdraw_from_treasury", 100000),
+    # (else_try),
+        # (store_troop_gold, ":gold", "trp_player"),
+        # (ge, ":gold", 100000),
+        # (party_add_prisoners, "$g_encountered_party", "trp_slave", 100),
+        # (troop_remove_gold, "trp_player", 100000),
+    # (try_end),
+      # ]),      
+      
+      ("continue",[],"Go back.",[
+    (jump_to_menu, "mnu_center_manage_2"),
+      ]),
     ],
   ),
 
   (
-    "center_improve",0,
-    "{s19} As the party member with the highest engineer skill ({reg2}), {reg3?you reckon:{s3} reckons} that building the {s4} will cost you\
- {reg5} siliquae and will take {reg6} days.",
+    "center_manage_2",0,
+    "{s39} has a prosperity rating of {reg51} and a accumulated capital of {reg29} denars, which can be taxed. The taxrate is {s11}.^^{s44}",
     "none",
-    [#SB : town pictures
-     (call_script, "script_set_town_picture"),
-     (call_script, "script_get_improvement_details", "$g_improvement_type"),
-     (assign, ":improvement_cost", reg0),
-     (str_store_string, s4, s0),
-     (str_store_string, s19, s1),
-     (call_script, "script_get_max_skill_of_player_party", "skl_engineer"),
-     (assign, ":max_skill", reg0),
-     (assign, ":max_skill_owner", reg1),
-     (assign, reg2, ":max_skill"),
+    [	
+    #set variables
+    (try_for_range, ":slot",0,500),
+        (troop_set_slot, "trp_zendar_chest", ":slot", 0),
+    (try_end),
+    (assign, "$g_improvement_type", 0),
+    (assign, "$temp", 0),
+    (assign, "$temp2", 0),
+    (assign, "$temp3", 0),
+    (assign, "$g_presentation_next_presentation", 0),
+    (modify_visitors_at_site, "scn_meeting_scene_plain"),
+    (reset_visitors),
+    (set_visitor, 0, "trp_player"),
+    (set_jump_mission, "mt_center_management"),
+    (jump_to_scene, "scn_meeting_scene_plain"),
+    (change_screen_mission),
+	],[],),
+  # (
+    # "center_improve",0,
+    # "{s19} As the party member with the highest engineer skill ({reg2}), {reg3?you reckon:{s3} reckons} that building the {s4} will cost you\
+ # {reg5} siliquae and will take {reg6} days.",
+    # "none",
+    # [#SB : town pictures
+     # (call_script, "script_set_town_picture"),
+     # (call_script, "script_get_improvement_details", "$g_improvement_type"),
+     # (assign, ":improvement_cost", reg0),
+     # (str_store_string, s4, s0),
+     # (str_store_string, s19, s1),
+     # (call_script, "script_get_max_skill_of_player_party", "skl_engineer"),
+     # (assign, ":max_skill", reg0),
+     # (assign, ":max_skill_owner", reg1),
+     # (assign, reg2, ":max_skill"),
 
-     (store_sub, ":multiplier", 20, ":max_skill"),
-     (val_mul, ":improvement_cost", ":multiplier"),
-     (val_div, ":improvement_cost", 20),
+     # (store_sub, ":multiplier", 20, ":max_skill"),
+     # (val_mul, ":improvement_cost", ":multiplier"),
+     # (val_div, ":improvement_cost", 20),
 
-     (store_div, ":improvement_time", ":improvement_cost", 100),
-     (val_add, ":improvement_time", 3),
+     # (store_div, ":improvement_time", ":improvement_cost", 100),
+     # (val_add, ":improvement_time", 3),
 
-     (assign, reg5, ":improvement_cost"),
-     (assign, reg6, ":improvement_time"),
+     # (assign, reg5, ":improvement_cost"),
+     # (assign, reg6, ":improvement_time"),
 
-     #SB : tableau at bottom
-     (try_begin),
-       (eq, ":max_skill_owner", "trp_player"),
-       (assign, reg3, 1),
-     (else_try),
-       (assign, reg3, 0),
-       (str_store_troop_name, s3, ":max_skill_owner"),
-     (try_end),
+     # #SB : tableau at bottom
+     # (try_begin),
+       # (eq, ":max_skill_owner", "trp_player"),
+       # (assign, reg3, 1),
+     # (else_try),
+       # (assign, reg3, 0),
+       # (str_store_troop_name, s3, ":max_skill_owner"),
+     # (try_end),
     
-    #SB : assign globals to be safe
-    (assign, "$diplomacy_var", ":improvement_cost"),
-    (assign, "$diplomacy_var2", ":improvement_time"),
-    (assign, "$lord_selected", ":max_skill_owner"),
-    (set_fixed_point_multiplier, 100),
-    (position_set_x, pos0, 70),
-    (position_set_y, pos0, 5),
-    (position_set_z, pos0, 75),
-    (set_game_menu_tableau_mesh, "tableau_troop_note_mesh", ":max_skill_owner", pos0),
-    ],
-    [
-      ##diplomacy begin
-      ("dplmc_improve_cont",
-      [
-        (gt, "$g_player_chamberlain", 0),
-        (store_troop_gold, ":cur_gold", "trp_household_possessions"),
-        (ge, ":cur_gold", "$diplomacy_var"),
-      ], "Go on. (Pay from treasury)",
-        [
-          (call_script, "script_dplmc_withdraw_from_treasury", "$diplomacy_var"),
-          # (call_script, "script_get_max_skill_of_player_party", "skl_engineer"), #SB : re-fetch skill
-          (call_script, "script_improve_center", "$g_encountered_party", "$lord_selected", "$diplomacy_var2"),
-          (jump_to_menu,"mnu_center_manage"),
-         ]
-      ),
-      ("improve_not_enough_gold",[(gt, "$g_player_chamberlain", 0),
-                                  (store_troop_gold, ":cur_gold", "trp_household_possessions"),
-                                  (lt, ":cur_gold", "$diplomacy_var"),
-                                  #SB : disable_menu_option
-                                  (disable_menu_option)],
-       "Insufficient fund in the treasury.", []),
-      ##diplomacy end
+    # #SB : assign globals to be safe
+    # (assign, "$diplomacy_var", ":improvement_cost"),
+    # (assign, "$diplomacy_var2", ":improvement_time"),
+    # (assign, "$lord_selected", ":max_skill_owner"),
+    # (set_fixed_point_multiplier, 100),
+    # (position_set_x, pos0, 70),
+    # (position_set_y, pos0, 5),
+    # (position_set_z, pos0, 75),
+    # (set_game_menu_tableau_mesh, "tableau_troop_note_mesh", ":max_skill_owner", pos0),
+    # ],
+    # [
+      # ##diplomacy begin
+      # ("dplmc_improve_cont",
+      # [
+        # (gt, "$g_player_chamberlain", 0),
+        # (store_troop_gold, ":cur_gold", "trp_household_possessions"),
+        # (ge, ":cur_gold", "$diplomacy_var"),
+      # ], "Go on. (Pay from treasury)",
+        # [
+          # (call_script, "script_dplmc_withdraw_from_treasury", "$diplomacy_var"),
+          # # (call_script, "script_get_max_skill_of_player_party", "skl_engineer"), #SB : re-fetch skill
+          # (call_script, "script_improve_center", "$g_encountered_party", "$lord_selected", "$diplomacy_var2"),
+          # (jump_to_menu,"mnu_center_manage"),
+         # ]
+      # ),
+      # ("improve_not_enough_gold",[(gt, "$g_player_chamberlain", 0),
+                                  # (store_troop_gold, ":cur_gold", "trp_household_possessions"),
+                                  # (lt, ":cur_gold", "$diplomacy_var"),
+                                  # #SB : disable_menu_option
+                                  # (disable_menu_option)],
+       # "Insufficient fund in the treasury.", []),
+      # ##diplomacy end
       
-      ("improve_cont",[(store_troop_gold, ":cur_gold", "trp_player"),
-                       (ge, ":cur_gold", "$diplomacy_var")],
-       "Go on.", [
-                  (try_begin), #fast build
-                    (ge, "$cheat_mode", 1),
-                    (assign, "$diplomacy_var2", 0),
-                  (else_try),
-                    (troop_remove_gold, "trp_player", "$diplomacy_var"),
-                  (try_end),
-                  (call_script, "script_improve_center", "$g_encountered_party", "$lord_selected", "$diplomacy_var2"),
-                  #(try_begin),
-                  #  (this_or_next|eq, "$g_improvement_type", slot_center_has_temple1),
-                  #  (this_or_next|eq, "$g_improvement_type", slot_center_has_temple2),
-                  #  (this_or_next|eq, "$g_improvement_type", slot_center_has_temple3),
-                  #  (this_or_next|eq, "$g_improvement_type", slot_center_has_temple4),
-                  #  (eq, "$g_improvement_type", slot_center_has_temple5),
-                  #  (troop_get_slot, ":religion_player","trp_player", slot_troop_religion),
-                  #  (party_set_slot,"$g_encountered_party",slot_center_religion, ":religion_player"),
-                  #(try_end),
-                  (jump_to_menu,"mnu_center_manage"),
-                  ]),
-      ("improve_not_enough_gold",[(store_troop_gold, ":cur_gold", "trp_player"),
-                                  (lt, ":cur_gold", "$diplomacy_var"),
-                                  #SB : disable_menu_option
-                                  (disable_menu_option)],
-       "I don't have enough money for that.", []),
-      ("forget_it",[], "Forget it.", [(jump_to_menu,"mnu_center_manage")]),
+      # ("improve_cont",[(store_troop_gold, ":cur_gold", "trp_player"),
+                       # (ge, ":cur_gold", "$diplomacy_var")],
+       # "Go on.", [
+                  # (try_begin), #fast build
+                    # (ge, "$cheat_mode", 1),
+                    # (assign, "$diplomacy_var2", 0),
+                  # (else_try),
+                    # (troop_remove_gold, "trp_player", "$diplomacy_var"),
+                  # (try_end),
+                  # (call_script, "script_improve_center", "$g_encountered_party", "$lord_selected", "$diplomacy_var2"),
+                  # #(try_begin),
+                  # #  (this_or_next|eq, "$g_improvement_type", slot_center_has_temple1),
+                  # #  (this_or_next|eq, "$g_improvement_type", slot_center_has_temple2),
+                  # #  (this_or_next|eq, "$g_improvement_type", slot_center_has_temple3),
+                  # #  (this_or_next|eq, "$g_improvement_type", slot_center_has_temple4),
+                  # #  (eq, "$g_improvement_type", slot_center_has_temple5),
+                  # #  (troop_get_slot, ":religion_player","trp_player", slot_troop_religion),
+                  # #  (party_set_slot,"$g_encountered_party",slot_center_religion, ":religion_player"),
+                  # #(try_end),
+                  # (jump_to_menu,"mnu_center_manage"),
+                  # ]),
+      # ("improve_not_enough_gold",[(store_troop_gold, ":cur_gold", "trp_player"),
+                                  # (lt, ":cur_gold", "$diplomacy_var"),
+                                  # #SB : disable_menu_option
+                                  # (disable_menu_option)],
+       # "I don't have enough money for that.", []),
+      # ("forget_it",[], "Forget it.", [(jump_to_menu,"mnu_center_manage")]),
 
-    ],
-  ),
+    # ],
+  # ),
 
   (
     "town_bandits_failed",mnf_disable_all_keys,
@@ -13039,7 +13336,8 @@ TOTAL:  {reg5}"),
        "Manage this {reg0?town:castle}.",
        [
            (assign, "$g_next_menu", "mnu_town"),
-           (jump_to_menu, "mnu_center_manage"),
+           (assign, reg64, 1),
+           (jump_to_menu, "mnu_center_manage_2"),
        ]),
 
       ("walled_center_move_court",
@@ -13070,60 +13368,60 @@ TOTAL:  {reg5}"),
         (jump_to_menu, "mnu_establish_court"),
       ]),
 
-      ("castle_station_troops",
-      [
-		(party_get_slot, ":town_lord", "$current_town", slot_town_lord),
-	    (str_clear, s10),
+      # ("castle_station_troops",
+      # [
+		# (party_get_slot, ":town_lord", "$current_town", slot_town_lord),
+	    # (str_clear, s10),
 
-	    (assign, ":player_can_draw_from_garrison", 0),
-		(try_begin), #option 1 - player is town lord
-		  (eq, ":town_lord", "trp_player"),
-		  (assign, ":player_can_draw_from_garrison", 1),
-		(else_try), #option 2 - town is unassigned and part of the player faction
-		  (store_faction_of_party, ":faction", "$g_encountered_party"),
-		  (eq, ":faction", "fac_player_supporters_faction"),
-		  (neg|party_slot_ge, "$g_encountered_party", slot_town_lord, active_npcs_begin), #ie, zero or -1
+	    # (assign, ":player_can_draw_from_garrison", 0),
+		# (try_begin), #option 1 - player is town lord
+		  # (eq, ":town_lord", "trp_player"),
+		  # (assign, ":player_can_draw_from_garrison", 1),
+		# (else_try), #option 2 - town is unassigned and part of the player faction
+		  # (store_faction_of_party, ":faction", "$g_encountered_party"),
+		  # (eq, ":faction", "fac_player_supporters_faction"),
+		  # (neg|party_slot_ge, "$g_encountered_party", slot_town_lord, active_npcs_begin), #ie, zero or -1
 
-		  (assign, ":player_can_draw_from_garrison", 1),
-		(else_try), #option 3 - town was captured by player
-		  (lt, ":town_lord", 0), #ie, unassigned
-		  (store_faction_of_party, ":castle_faction", "$g_encountered_party"),
-		  (eq, "$players_kingdom", ":castle_faction"),
+		  # (assign, ":player_can_draw_from_garrison", 1),
+		# (else_try), #option 3 - town was captured by player
+		  # (lt, ":town_lord", 0), #ie, unassigned
+		  # (store_faction_of_party, ":castle_faction", "$g_encountered_party"),
+		  # (eq, "$players_kingdom", ":castle_faction"),
 
-		  (eq, "$g_encountered_party", "$g_castle_requested_by_player"),
+		  # (eq, "$g_encountered_party", "$g_castle_requested_by_player"),
 
-		  (str_store_string, s10, "str_retrieve_garrison_warning"),
-		  (assign, ":player_can_draw_from_garrison", 1),
-		(else_try),
-		  (lt, ":town_lord", 0), #ie, unassigned
-		  (store_faction_of_party, ":castle_faction", "$g_encountered_party"),
-		  (eq, "$players_kingdom", ":castle_faction"),
+		  # (str_store_string, s10, "str_retrieve_garrison_warning"),
+		  # (assign, ":player_can_draw_from_garrison", 1),
+		# (else_try),
+		  # (lt, ":town_lord", 0), #ie, unassigned
+		  # (store_faction_of_party, ":castle_faction", "$g_encountered_party"),
+		  # (eq, "$players_kingdom", ":castle_faction"),
 
-		  (store_party_size_wo_prisoners, ":party_size", "$g_encountered_party"),
-		  (eq, ":party_size", 0),
+		  # (store_party_size_wo_prisoners, ":party_size", "$g_encountered_party"),
+		  # (eq, ":party_size", 0),
 
-		  (str_store_string, s10, "str_retrieve_garrison_warning"),
-		  (assign, ":player_can_draw_from_garrison", 1),
-		(else_try),
-		  (party_slot_ge, "$g_encountered_party", slot_town_lord, active_npcs_begin),
-		  (store_faction_of_party, ":castle_faction", "$g_encountered_party"),
-		  (eq, "$players_kingdom", ":castle_faction"),
-		  ##diplomacy start+ can arise if using this to represent polygamy
-		  (this_or_next|troop_slot_eq, ":town_lord", slot_troop_spouse, "trp_player"),
-		     (troop_slot_eq, "trp_player", slot_troop_spouse, ":town_lord"),
-		  (this_or_next|is_between, ":town_lord", heroes_begin, heroes_end),
-		  ##diplomacy end+
-		  (troop_slot_eq, "trp_player", slot_troop_spouse, ":town_lord"),
+		  # (str_store_string, s10, "str_retrieve_garrison_warning"),
+		  # (assign, ":player_can_draw_from_garrison", 1),
+		# (else_try),
+		  # (party_slot_ge, "$g_encountered_party", slot_town_lord, active_npcs_begin),
+		  # (store_faction_of_party, ":castle_faction", "$g_encountered_party"),
+		  # (eq, "$players_kingdom", ":castle_faction"),
+		  # ##diplomacy start+ can arise if using this to represent polygamy
+		  # (this_or_next|troop_slot_eq, ":town_lord", slot_troop_spouse, "trp_player"),
+		     # (troop_slot_eq, "trp_player", slot_troop_spouse, ":town_lord"),
+		  # (this_or_next|is_between, ":town_lord", heroes_begin, heroes_end),
+		  # ##diplomacy end+
+		  # (troop_slot_eq, "trp_player", slot_troop_spouse, ":town_lord"),
 
-		  (assign, ":player_can_draw_from_garrison", 1),
-		(try_end),
+		  # (assign, ":player_can_draw_from_garrison", 1),
+		# (try_end),
 
-        (eq, ":player_can_draw_from_garrison", 1),
-      ],
-      "Manage the garrison {s10}",
-      [
-        (change_screen_exchange_members,1),
-      ]),
+        # (eq, ":player_can_draw_from_garrison", 1),
+      # ],
+      # "Manage the garrison {s10}",
+      # [
+        # (change_screen_exchange_members,1),
+      # ]),
 	  ##diplomacy start+
 	  #Other option to add troops to garrison
       ("dplmc_castle_give_troops",
@@ -21438,12 +21736,12 @@ goods, and books will never be sold. ^^You can change some settings here freely.
             (try_end),
           ]),
 
-          ("village_manage",
-          [], "Manage this center.",
-          [
-           (assign, "$g_next_menu", "mnu_town_cheats_2"),
-           (jump_to_menu, "mnu_center_manage"),
-          ]),
+          # ("village_manage",
+          # [], "Manage this center.",
+          # [
+           # (assign, "$g_next_menu", "mnu_town_cheats_2"),
+           # (jump_to_menu, "mnu_center_manage"),
+          # ]),
           ("increase_rel",
           [],
           "Increase Relation.",
@@ -23024,6 +23322,78 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     (troop_set_slot, "trp_player", slot_troop_religion, slot_religion_roman_paganism),
     (change_screen_return),   
     ]),       
+    ]
+  ),
+  ("culture_selection",0,
+    "Choose your Culture.",
+    "none",
+    [],
+    [
+    ("religion_roman",[],"Gothic",
+    [  
+    (troop_set_slot, "trp_player", slot_troop_culture, "fac_culture_1"),
+    (change_screen_return),   
+    ]),      
+    ("religion_roman",[],"Eastern Germanic",
+    [  
+    (troop_set_slot, "trp_player", slot_troop_culture, "fac_culture_2"),
+    (change_screen_return),   
+    ]),    
+    ("religion_roman",[],"Romano-Briton",
+    [  
+    (troop_set_slot, "trp_player", slot_troop_culture, "fac_culture_3"),
+    (change_screen_return),   
+    ]),    
+    ("religion_roman",[],"Northern Germanic",
+    [  
+    (troop_set_slot, "trp_player", slot_troop_culture, "fac_culture_4"),
+    (change_screen_return),   
+    ]),
+    ("religion_roman",[],"Pictish",
+    [  
+    (troop_set_slot, "trp_player", slot_troop_culture, "fac_culture_5"),
+    (change_screen_return),   
+    ]),
+    ("religion_roman",[],"Sassanid",
+    [  
+    (troop_set_slot, "trp_player", slot_troop_culture, "fac_culture_6"),
+    (change_screen_return),   
+    ]),
+    ("religion_roman",[],"Roman",
+    [  
+    (troop_set_slot, "trp_player", slot_troop_culture, "fac_culture_empire"),
+    (change_screen_return),   
+    ]),    
+    ("religion_roman",[],"Western Germanic",
+    [  
+    (troop_set_slot, "trp_player", slot_troop_culture, "fac_culture_7"),
+    (change_screen_return),   
+    ]),    
+    ("religion_roman",[],"Caucasian",
+    [  
+    (troop_set_slot, "trp_player", slot_troop_culture, "fac_culture_8"),
+    (change_screen_return),   
+    ]),    
+    ("religion_roman",[],"Romano-Mauri",
+    [  
+    (troop_set_slot, "trp_player", slot_troop_culture, "fac_culture_11"),
+    (change_screen_return),   
+    ]),    
+    ("religion_roman",[],"Hunnic",
+    [  
+    (troop_set_slot, "trp_player", slot_troop_culture, "fac_culture_12"),
+    (change_screen_return),   
+    ]),    
+    ("religion_roman",[],"Nubian",
+    [  
+    (troop_set_slot, "trp_player", slot_troop_culture, "fac_culture_15"),
+    (change_screen_return),   
+    ]),    
+    ("religion_roman",[],"Caucasian Alan",
+    [  
+    (troop_set_slot, "trp_player", slot_troop_culture, "fac_culture_16"),
+    (change_screen_return),   
+    ]),      
     ]
   ),
   
@@ -26725,6 +27095,56 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     
     ("upgrade_wait", [(this_or_next|eq, reg1, 1),(eq, reg2, 1)], "Wait until next week.", [(change_screen_map)]),
     ]),
+    
+ ("epidemic_outbreak",0,
+    "Sickness and death!^^{s10} is haunted by an outbreak of {s0}. {s1}^The people pray to the gods begging them to redeem them.^{s33}",
+    "none", [
+    (str_store_party_name, s10, "$g_notification_menu_var1"),
+    (party_get_slot, ":disease", "$g_notification_menu_var1", slot_center_disease),
+    (call_script, "script_get_event_details", ":disease"),
+    (set_background_mesh, "mesh_pic_cattle"),
+    (str_clear, s33),
+    (try_begin),
+        (party_slot_eq, "$g_notification_menu_var1", slot_town_lord, "trp_player"),
+        (str_store_string, s33, "@You may order a quarantine for the settlement. However, such measures will upset the population as the majority of the population do not believe that it has any effect at all."),
+    (try_end),
+    ],
+    [
+    ("option_1", [(party_slot_eq, "$g_notification_menu_var1", slot_town_lord, "trp_player"),],"Order a quarantine.",
+    [(jump_to_menu, "mnu_auto_return_to_map"),
+    (party_get_slot, ":disease", "$g_notification_menu_var1", slot_center_disease),
+    (val_sub, ":disease", 1),
+    (party_set_slot, "$g_notification_menu_var1", slot_center_disease, ":disease"),
+    (call_script, "script_change_player_relation_with_center", "$g_notification_menu_var1", -10),
+    ]),    
+    
+    ("option_2", [(party_slot_eq, "$g_notification_menu_var1", slot_town_lord, "trp_player"),],"Do nothing.",
+    [(jump_to_menu, "mnu_auto_return_to_map"),]),    
+    
+    ("option_3", [(neg|party_slot_eq, "$g_notification_menu_var1", slot_town_lord, "trp_player"),],"Continue.",
+    [(jump_to_menu, "mnu_auto_return_to_map"),]),
+    
+    
+    ],),    
+ ("disaster_event",0,
+    "Disaster!^^{s10} was hit by a disastrous {s0}. {s1}^The people pray to the gods that the disaster may end soon.",
+    "none", [
+    (str_store_party_name, s10, "$g_notification_menu_var1"),
+    (party_get_slot, ":event", "$g_notification_menu_var1", slot_center_event),
+    (call_script, "script_get_event_details", ":event"),
+    (set_background_mesh, "mesh_pic_cattle"),
+    ],
+    [
+    ("option_1", [(party_slot_eq, "$g_notification_menu_var1", slot_town_lord, "trp_player"),],"Damn it.",
+    [(jump_to_menu, "mnu_auto_return_to_map"),]),    
+    
+    ("option_1", [(neg|party_slot_eq, "$g_notification_menu_var1", slot_town_lord, "trp_player"),],"Continue.",
+    [(jump_to_menu, "mnu_auto_return_to_map"),]),
+    
+    ],),   
+
+    
+    
 #+freelancer end
  ]
  

@@ -76,3 +76,4 @@ mt_venedi_battle = 74
 mt_bounty_hunter_duel = 75
 mt_visit_minor_town = 76
 mt_minor_village_attack = 77
+mt_center_management = 78

@@ -23440,5 +23440,179 @@ mission_templates = [
     ##diplomacy end
   ),
 
+#this is for center management
+("center_management",0,-1,
+    "dungeon",
+    [ (0,mtef_visitor_source,af_override_all,0,1,[]),
+    ], 
+    [
 
+    (0, 0, 0, [(neg|is_presentation_active, "prsnt_center_management"),], 
+        [
+    (start_presentation, "prsnt_center_management"),
+    ]),     
+    
+    (ti_after_mission_start, 0, ti_once, [], [
+    (mission_cam_set_screen_color, 0xFF000000),
+    # (mission_cam_animate_to_screen_color, 0xFF000000, 3000),
+    ]),	     
+    
+    (0, 0, ti_once, [], 
+        [
+    (set_rain, 2, 0),
+    (set_rain, 1, 0),
+    (set_rain, 0, 100),
+    
+    (assign, "$g_improvement_type", -1),
+    ]),    
+    
+    (ti_on_agent_spawn, 0, 0, [], 
+        [
+    (store_trigger_param_1, ":agent"),
+    (agent_set_speed_modifier, ":agent",0),
+    ]),      
+      
+      (ti_question_answered, 0, 0, [],
+        [
+        (store_trigger_param_1, ":answer"),
+        (try_begin),
+            (eq, ":answer", 0),
+            (try_begin),#extort
+                (eq, "$g_presentation_next_presentation", 3),
+                (jump_to_menu, "mnu_center_extort_reaction"),
+                (finish_mission),
+            # (else_try), #decrees
+                # (eq, "$g_presentation_next_presentation", 2),
+                # (try_begin),   
+                    # (eq, "$temp", 1),#revoke decree
+                    # (try_begin),
+                        # (gt, "$g_player_chamberlain", 0),
+                        # (store_troop_gold, ":cur_gold", "trp_household_possessions"),
+                        # (ge, ":cur_gold", decree_cost),
+                        # (call_script, "script_dplmc_withdraw_from_treasury", decree_cost),
+                        # (party_set_slot, "$g_encountered_party", "$g_improvement_type", 0),
+                    # (else_try),
+                        # (store_troop_gold, ":cur_gold", "trp_player"),
+                        # (ge, ":cur_gold", decree_cost),
+                        # (troop_remove_gold, "trp_player", decree_cost),
+                        # (party_set_slot, "$g_encountered_party", "$g_improvement_type", 0),
+                    # (else_try),
+                        # (display_message, "@Insufficient funds", message_alert),
+                    # (try_end),                    
+                    # #clear variables
+                    # (assign, "$g_improvement_type", -1),
+                    # (assign, "$temp", 0),
+                # (else_try),
+                    # (eq, "$temp", 2),#issue it!
+                    # (try_begin),
+                        # (gt, "$g_player_chamberlain", 0),
+                        # (store_troop_gold, ":cur_gold", "trp_household_possessions"),
+                        # (ge, ":cur_gold", decree_cost),
+                        # (call_script, "script_dplmc_withdraw_from_treasury", decree_cost),
+                        # (party_set_slot, "$g_encountered_party", "$g_improvement_type", 1),
+                    # (else_try),
+                        # (store_troop_gold, ":cur_gold", "trp_player"),
+                        # (ge, ":cur_gold", decree_cost),
+                        # (troop_remove_gold, "trp_player", decree_cost),
+                        # (party_set_slot, "$g_encountered_party", "$g_improvement_type", 1),
+                    # (else_try),
+                        # (display_message, "@Insufficient funds", message_alert),
+                    # (try_end),   
+                    # #clear variables
+                    # (assign, "$g_improvement_type", -1),
+                    # (assign, "$temp", 0),
+                # (try_end),                 
+            (else_try), #buildings 
+                (eq, "$g_presentation_next_presentation", 1),
+                (try_begin),   
+                    (eq, "$temp", 1),#destroy a building
+                    (call_script, "script_get_improvement_details", "$g_improvement_type", "$g_encountered_party"),
+                    (val_mul, reg0, 3),
+                    (val_div, reg0, 5),            
+                    (display_message, "@{s0} has been destroyed. You gained {reg0} of denars.", message_alert),
+                    (troop_add_gold, "trp_player", reg0),
+                    (party_set_slot, "$g_encountered_party", "$g_improvement_type", 0),
+                    
+                    (try_begin),#clear also for temple god
+                        (eq, "$g_improvement_type", slot_center_has_temple),
+                        (party_set_slot, "$g_encountered_party", slot_center_has_temple_god, 0),
+                    (try_end),
+                    #clear variables
+                    (assign, "$g_improvement_type", -1),
+                    (assign, "$temp", 0),  
+                    (call_script, "script_change_center_prosperity", "$current_town", -4),
+                    (call_script, "script_change_player_relation_with_center", "$current_town", -2),                    
+                (else_try),
+                    (eq, "$temp", 3),#cancle a building
+                    (party_set_slot, "$current_town", slot_center_current_improvement, 0),
+                    (party_get_slot, ":hours_left", "$current_town", slot_center_improvement_end_hour),
+                    #player gets some money back
+                    (store_current_hours, ":cur_hours"),
+                    (val_sub, ":hours_left", ":cur_hours"),
+                    (val_mul, ":hours_left", 10), #a paltry sum
+                    (troop_add_gold, "trp_player", ":hours_left"),
+                    
+                    #clear variables
+                    (try_begin),#clear also for temple god
+                        (eq, "$g_improvement_type", slot_center_has_temple),
+                        (party_set_slot, "$g_encountered_party", slot_center_has_temple_god, 0),
+                    (try_end),
+                    (assign, "$g_improvement_type", -1),
+                    (assign, "$temp", 0),
+                    (call_script, "script_change_center_prosperity", "$current_town", -4),
+                    (call_script, "script_change_player_relation_with_center", "$current_town", -2),
+                (else_try),
+                    (eq, "$temp", 4),#cancle a building
+                    (party_set_slot, "$current_town", slot_center_current_improvement_2, 0),
+                    (party_get_slot, ":hours_left", "$current_town", slot_center_improvement_2_end_hour),
+                    #player gets some money back
+                    (store_current_hours, ":cur_hours"),
+                    (val_sub, ":hours_left", ":cur_hours"),
+                    (val_mul, ":hours_left", 10), #a paltry sum
+                    (troop_add_gold, "trp_player", ":hours_left"),
+                    #clear variables
+                    (try_begin),#clear also for temple god
+                        (eq, "$g_improvement_type", slot_center_has_temple),
+                        (party_set_slot, "$g_encountered_party", slot_center_has_temple_god, 0),
+                    (try_end),
+                    (assign, "$g_improvement_type", -1),
+                    (assign, "$temp", 0),
+                    (call_script, "script_change_center_prosperity", "$current_town", -4),
+                    (call_script, "script_change_player_relation_with_center", "$current_town", -2),
+                (else_try),
+                    (eq, "$temp", 2),#build it!
+                    (try_begin), #fast build
+                        (ge, "$cheat_mode", 1),
+                        (assign, "$diplomacy_var2", 0),
+                        (call_script, "script_improve_center", "$g_encountered_party", "$lord_selected", "$diplomacy_var2"),
+                    (else_try),
+                        (try_begin),
+                            (gt, "$g_player_chamberlain", 0),
+                            (store_troop_gold, ":cur_gold", "trp_household_possessions"),
+                            (ge, ":cur_gold", "$diplomacy_var"),
+                            (call_script, "script_dplmc_withdraw_from_treasury", "$diplomacy_var"),
+                            (call_script, "script_improve_center", "$g_encountered_party", "$lord_selected", "$diplomacy_var2"),
+                        (else_try),
+                            (store_troop_gold, ":cur_gold", "trp_player"),
+                            (ge, ":cur_gold", "$diplomacy_var"),
+                            (troop_remove_gold, "trp_player", "$diplomacy_var"),
+                            (call_script, "script_improve_center", "$g_encountered_party", "$lord_selected", "$diplomacy_var2"),
+                        (else_try),
+                            (display_message, "@Insufficient funds", message_alert),
+                        (try_end),
+                    (try_end),
+                    #clear variables
+                    (assign, "$g_improvement_type", -1),
+                    (assign, "$temp", 0),
+                (try_end),            
+            (try_end),        
+        (else_try),        
+            (assign, "$g_improvement_type", -1),
+            (assign, "$temp", 0),
+            # (start_presentation, "prsnt_center_management"), 
+        (try_end),        
+      ]),
+    ],
+  ),
+##END center management presentation
 ]

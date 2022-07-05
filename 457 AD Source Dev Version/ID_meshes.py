@@ -784,3 +784,4 @@ mesh_pic_soldier_rebel = 782
 mesh_pic_soldier_desert = 783
 mesh_status_troop_ratio_bar = 784
 mesh_status_troop_ratio_bar_button = 785
+mesh_pic_settlement_display = 786

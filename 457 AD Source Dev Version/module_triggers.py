@@ -30,6 +30,17 @@ num_merchandise_goods = 36
 
 
 triggers = [
+
+    (0,0,ti_once,[],[
+      (call_script, "script_add_notification_menu","mnu_religion_selection",0,0),
+    ]),
+
+    (0,0,ti_once,[
+    (troop_slot_eq, "trp_player", slot_troop_culture, 0),
+    ],[
+    (call_script, "script_add_notification_menu","mnu_culture_selection",0,0),
+    ]),
+
 # Tutorial:
   (0.1, 0, ti_once, [(map_free,0)], [(dialog_box,"str_tutorial_map1")]),
 
@@ -1054,10 +1065,6 @@ triggers = [
   (add_troop_to_site, "trp_visigothic_merchant", "scn_town_40_tavern", 12),
   (add_troop_to_site, "trp_zamb_man", "scn_town_17_tavern", 12),
    ]),
-
-(2,0,ti_once,[],[
-  (jump_to_menu,"mnu_religion_selection"),
-]),
 
 (72,0,ti_once,[(check_quest_active,"qst_agrippinus_quest"),(quest_slot_eq,"qst_agrippinus_quest",slot_quest_current_state, 4)],[ #agrippinus quest
   (quest_set_slot,"qst_agrippinus_quest", slot_quest_current_state, 5),

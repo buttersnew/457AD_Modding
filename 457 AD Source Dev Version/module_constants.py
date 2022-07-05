@@ -453,92 +453,155 @@ slot_party_last_traded_center     = 126
 
 
 
-slot_center_has_manor            = 130 #village
-slot_center_has_fish_pond        = 131 #village
-slot_center_has_watch_tower      = 132 #village
-slot_center_has_school           = 133 #village
-slot_center_has_messenger_post   = 134 #town, castle, village
-slot_center_has_temple1          = 135 #town, castle, village
-slot_center_has_temple2          = 136 #town, castle, village
-slot_center_has_temple3          = 137 #town, castle, village
-slot_center_has_temple4          = 138 #town, castle, village
-slot_center_has_temple5          = 139 #town, castle, village
-slot_center_has_temple6          = 140 #town, castle, village
-slot_center_has_prisoner_tower   = 141 #town, castle
+# slot_center_has_manor            = 130 #village
+# slot_center_has_fish_pond        = 131 #village
+# slot_center_has_watch_tower      = 132 #village
+# slot_center_has_school           = 133 #village
+# slot_center_has_messenger_post   = 134 #town, castle, village
+# slot_center_has_temple1          = 135 #town, castle, village
+# slot_center_has_temple2          = 136 #town, castle, village
+# slot_center_has_temple3          = 137 #town, castle, village
+# slot_center_has_temple4          = 138 #town, castle, village
+# slot_center_has_temple5          = 139 #town, castle, village
+# slot_center_has_temple6          = 140 #town, castle, village
+# slot_center_has_prisoner_tower   = 141 #town, castle
+
+##extort options:
+extort_tax          = 1
+extort_toll         = 2
+extort_concile      = 3
+extort_end          = 4
+
+slot_center_capital                 = 127
+##Buildings:
+slot_center_has_silver_mine         = 128 #village
+
+slot_center_has_manor                = 129 #village
+slot_center_has_fish_pond            = 130 #village
+slot_center_has_watch_tower          = 131 #village
+slot_center_has_school               = 132 #village
+slot_center_has_iron_mine            = 133 #village
+slot_center_change_culture_village   = 134  #village
+slot_center_has_farms                = 135  #village
+slot_center_has_cattle               = 136  #village
+slot_center_has_trader               = 137  #village
+slot_center_has_quarry               = 138  #village
+slot_center_has_irigation            = 139  #village
+
+slot_center_has_messenger_post       = 140 #town, castle, village
+slot_center_has_guard                = 141 #town, castle, village
+slot_center_has_fishport             = 142 #town, castle, village
+slot_center_has_roads                = 143 #town, castle, village
+slot_center_has_hosptial             = 144 #town, castle, village
+
+slot_center_change_culture_town      = 145 #town, castle
+slot_center_has_prisoner_tower       = 146 #town, castle
+slot_center_has_fire_fighter         = 147 #town, castle
+slot_center_has_training_grounds     = 148 #town, castle
+slot_center_has_slave_market 	     = 149 #town, castle
+slot_center_has_barracks             = 150 #town, castle
+slot_center_has_sewers               = 151 #town, castle
+slot_center_has_industry             = 152 #town, castle
+slot_center_has_loom                 = 153 #town, castle
+slot_center_has_smith                = 154 #town, castle
+slot_center_has_port                 = 155 #town, castle
+##this are player only buildinga
+slot_center_has_forum   		     = 156 #town, castle
+slot_center_has_theatre   		     = 157 #town, castle
+slot_center_has_triumph   		     = 158 #town, castle
+slot_center_has_water   		     = 159 #town, castle
+slot_center_has_temple               = 160 #town, castle
+slot_center_has_temple_god           = 161 #town, castle
+ ## player only ends
+
+slot_center_current_improvement     = 162
+slot_center_improvement_end_hour    = 163
+slot_center_current_improvement_2   = 164
+slot_center_improvement_2_end_hour  = 165
+#slot_center_has_blacksmith     = 351 #town, castle
+
+village_improvements_begin 					 = slot_center_has_silver_mine
+village_improvements_end         			 = slot_center_change_culture_town
+
+walled_center_improvements_begin 			 = slot_center_has_messenger_post
+walled_center_improvements_end               = slot_center_has_temple_god
+
+number_of_buildings_town =    walled_center_improvements_end - walled_center_improvements_begin
+number_of_buildings_village = village_improvements_end - village_improvements_begin 
 
 
-village_improvements_begin = slot_center_has_manor
-village_improvements_end = 140
+# village_improvements_begin = slot_center_has_manor
+# village_improvements_end = 140
 
-walled_center_improvements_begin = slot_center_has_messenger_post
-walled_center_improvements_end = slot_center_has_prisoner_tower
+# walled_center_improvements_begin = slot_center_has_messenger_post
+# walled_center_improvements_end = slot_center_has_prisoner_tower
 
-slot_center_player_enterprise                     = 142 #noted with the item produced
-slot_center_player_enterprise_production_order    = 143
-slot_center_player_enterprise_consumption_order   = 144 #not used
-slot_center_player_enterprise_days_until_complete = 145 #Used instead
+slot_center_player_enterprise                     = 166 #noted with the item produced
+slot_center_player_enterprise_production_order    = 167
+slot_center_player_enterprise_consumption_order   = 168 #not used
+slot_center_player_enterprise_days_until_complete = 169 #Used instead
 
-slot_center_player_enterprise_balance             = 146 #not used
-slot_center_player_enterprise_input_price         = 147 #not used
-slot_center_player_enterprise_output_price        = 148 #not used
+slot_center_player_enterprise_balance             = 170 #not used
+slot_center_player_enterprise_input_price         = 171 #not used
+slot_center_player_enterprise_output_price        = 172 #not used
 
 
 
-slot_center_has_bandits                        = 155
-slot_town_has_tournament                       = 156
-slot_town_tournament_max_teams                 = 157
-slot_town_tournament_max_team_size             = 158
+slot_center_has_bandits                        = 173
+slot_town_has_tournament                       = 174
+slot_town_tournament_max_teams                 = 175
+slot_town_tournament_max_team_size             = 176
 
-slot_center_faction_when_oath_renounced        = 159
+slot_center_faction_when_oath_renounced        = 177
 
-slot_center_walker_0_troop                   = 160
-slot_center_walker_1_troop                   = 161
-slot_center_walker_2_troop                   = 162
-slot_center_walker_3_troop                   = 163
-slot_center_walker_4_troop                   = 164
-slot_center_walker_5_troop                   = 165
-slot_center_walker_6_troop                   = 166
-slot_center_walker_7_troop                   = 167
-slot_center_walker_8_troop                   = 168
-slot_center_walker_9_troop                   = 169
+slot_center_walker_0_troop                   = 178
+slot_center_walker_1_troop                   = 179
+slot_center_walker_2_troop                   = 180
+slot_center_walker_3_troop                   = 181
+slot_center_walker_4_troop                   = 182
+slot_center_walker_5_troop                   = 183
+slot_center_walker_6_troop                   = 184
+slot_center_walker_7_troop                   = 185
+slot_center_walker_8_troop                   = 186
+slot_center_walker_9_troop                   = 187
 
-slot_center_walker_0_dna                     = 170
-slot_center_walker_1_dna                     = 171
-slot_center_walker_2_dna                     = 172
-slot_center_walker_3_dna                     = 173
-slot_center_walker_4_dna                     = 174
-slot_center_walker_5_dna                     = 175
-slot_center_walker_6_dna                     = 176
-slot_center_walker_7_dna                     = 177
-slot_center_walker_8_dna                     = 178
-slot_center_walker_9_dna                     = 179
+slot_center_walker_0_dna                     = 188
+slot_center_walker_1_dna                     = 189
+slot_center_walker_2_dna                     = 190
+slot_center_walker_3_dna                     = 191
+slot_center_walker_4_dna                     = 192
+slot_center_walker_5_dna                     = 193
+slot_center_walker_6_dna                     = 194
+slot_center_walker_7_dna                     = 195
+slot_center_walker_8_dna                     = 196
+slot_center_walker_9_dna                     = 197
 
-slot_center_walker_0_type                    = 180
-slot_center_walker_1_type                    = 181
-slot_center_walker_2_type                    = 182
-slot_center_walker_3_type                    = 183
-slot_center_walker_4_type                    = 184
-slot_center_walker_5_type                    = 185
-slot_center_walker_6_type                    = 186
-slot_center_walker_7_type                    = 187
-slot_center_walker_8_type                    = 188
-slot_center_walker_9_type                    = 189
+slot_center_walker_0_type                    = 198
+slot_center_walker_1_type                    = 199
+slot_center_walker_2_type                    = 200
+slot_center_walker_3_type                    = 201
+slot_center_walker_4_type                    = 202
+slot_center_walker_5_type                    = 203
+slot_center_walker_6_type                    = 204
+slot_center_walker_7_type                    = 205
+slot_center_walker_8_type                    = 206
+slot_center_walker_9_type                    = 207
 
-slot_town_trade_route_1           = 190
-slot_town_trade_route_2           = 191
-slot_town_trade_route_3           = 192
-slot_town_trade_route_4           = 193
-slot_town_trade_route_5           = 194
-slot_town_trade_route_6           = 195
-slot_town_trade_route_7           = 196
-slot_town_trade_route_8           = 197
-slot_town_trade_route_9           = 198
-slot_town_trade_route_10          = 199
-slot_town_trade_route_11          = 200
-slot_town_trade_route_12          = 201
-slot_town_trade_route_13          = 202
-slot_town_trade_route_14          = 203
-slot_town_trade_route_15          = 204
+slot_town_trade_route_1           = 208
+slot_town_trade_route_2           = 209
+slot_town_trade_route_3           = 210
+slot_town_trade_route_4           = 211
+slot_town_trade_route_5           = 212
+slot_town_trade_route_6           = 213
+slot_town_trade_route_7           = 214
+slot_town_trade_route_8           = 215
+slot_town_trade_route_9           = 216
+slot_town_trade_route_10          = 217
+slot_town_trade_route_11          = 218
+slot_town_trade_route_12          = 219
+slot_town_trade_route_13          = 220
+slot_town_trade_route_14          = 221
+slot_town_trade_route_15          = 222
 slot_town_trade_routes_begin = slot_town_trade_route_1
 slot_town_trade_routes_end = slot_town_trade_route_15 + 1
 
@@ -548,49 +611,49 @@ slot_town_trade_good_productions_begin       = 500 #a harmless number, until it 
 
 #These affect production but in some cases also demand, so it is perhaps easier to itemize them than to have separate
 
-slot_village_number_of_cattle   = 205
-slot_center_head_cattle         = 205 #dried meat, cheese, hides, butter
-slot_center_head_sheep			= 206 #sausages, wool
-slot_center_head_horses		 	= 207 #horses can be a trade item used in tracking but which are never offered for sale
+slot_village_number_of_cattle   = 225
+slot_center_head_cattle         = 225 #dried meat, cheese, hides, butter
+slot_center_head_sheep			= 226 #sausages, wool
+slot_center_head_horses		 	= 227 #horses can be a trade item used in tracking but which are never offered for sale
 
-slot_center_acres_pasture       = 208 #pasture area for grazing of cattles and sheeps, if this value is high then number of cattles and sheeps increase faster
-slot_production_sources_begin = 209
-slot_center_acres_grain			= 209 #grain
-slot_center_acres_olives        = 210 #olives
-slot_center_acres_vineyard		= 211 #fruit
-slot_center_acres_flax          = 212 #flax
-slot_center_acres_dates			= 213 #dates
+slot_center_acres_pasture       = 228 #pasture area for grazing of cattles and sheeps, if this value is high then number of cattles and sheeps increase faster
+slot_production_sources_begin = 229
+slot_center_acres_grain			= 229 #grain
+slot_center_acres_olives        = 230 #olives
+slot_center_acres_vineyard		= 231 #fruit
+slot_center_acres_flax          = 232 #flax
+slot_center_acres_dates			= 233 #dates
 
-slot_center_fishing_fleet		= 214 #smoked fish
-slot_center_salt_pans		    = 215 #salt
+slot_center_fishing_fleet		= 234 #smoked fish
+slot_center_salt_pans		    = 235 #salt
 
-slot_center_apiaries       		= 216 #honey
-slot_center_silk_farms			= 217 #silk
-slot_center_kirmiz_farms		= 218 #dyes
+slot_center_apiaries       		= 236 #honey
+slot_center_silk_farms			= 237 #silk
+slot_center_kirmiz_farms		= 238 #dyes
 
-slot_center_iron_deposits       = 219 #iron
-slot_center_fur_traps			= 220 #furs
+slot_center_iron_deposits       = 239 #iron
+slot_center_fur_traps			= 240 #furs
 
-slot_center_mills				= 221 #bread
-slot_center_breweries			= 222 #ale
-slot_center_wine_presses		= 223 #wine
-slot_center_olive_presses		= 224 #oil
+slot_center_mills				= 241 #bread
+slot_center_breweries			= 242 #ale
+slot_center_wine_presses		= 243 #wine
+slot_center_olive_presses		= 244 #oil
 
-slot_center_linen_looms			= 225 #linen
-slot_center_silk_looms          = 226 #velvet
-slot_center_wool_looms          = 227 #wool cloth
+slot_center_linen_looms			= 245 #linen
+slot_center_silk_looms          = 246 #velvet
+slot_center_wool_looms          = 247 #wool cloth
 
-slot_center_pottery_kilns		= 228 #pottery
-slot_center_smithies			= 229 #tools
-slot_center_tanneries			= 230 #leatherwork
-slot_center_shipyards			= 231 #naval stores - uses timber, pitch, and linen
+slot_center_pottery_kilns		= 248 #pottery
+slot_center_smithies			= 249 #tools
+slot_center_tanneries			= 250 #leatherwork
+slot_center_silver_deposits			= 251 #naval stores - uses timber, pitch, and linen
 
-slot_center_household_gardens   = 232 #cabbages
-slot_production_sources_end = 233
+slot_center_household_gardens   = 252 #cabbages
+slot_production_sources_end = 253
 
-slot_center_religion = 234 # 1 -roman christian, 2 -pagan, 3 arian, 4 zoroastrian, 5 coptic
+slot_center_religion = 254 # 1 -roman christian, 2 -pagan, 3 arian, 4 zoroastrian, 5 coptic
 #slot_center_faithratio = 235 # player religion vs other religion in town
-slot_party_been_sacked	= 235
+slot_party_been_sacked	= 255
 #slot_center_support_roman = 235 #Old system, now unused
 #slot_center_support_pagan = 236
 #slot_center_support_arian = 237 
@@ -605,22 +668,69 @@ slot_party_been_sacked	= 235
 #timber and pitch if we ever have a shipbuilding industry
 #limestone and timber for mortar, if we allow building
 
-slot_town_last_nearby_fire_time                         = 240
+slot_town_last_nearby_fire_time                         = 260
 
 #slot_town_trade_good_prices_begin            = slot_town_trade_good_productions_begin + num_trade_goods + 1
-slot_party_following_orders_of_troop        = 244
-slot_party_orders_type				        = 245
-slot_party_orders_object				    = 246
-slot_party_orders_time				    	= 247
+slot_party_following_orders_of_troop        = 264
+slot_party_orders_type				        = 265
+slot_party_orders_object				    = 266
+slot_party_orders_time				    	= 267
 
-slot_party_temp_slot_1			            = 248 #right now used only within a single script, merchant_road_info_to_s42, to denote closed roads. Now also used in comparative scripts
-slot_party_under_player_suggestion			= 249 #move this up a bit
-slot_town_trade_good_prices_begin 			= 250
+slot_party_temp_slot_1			            = 268 #right now used only within a single script, merchant_road_info_to_s42, to denote closed roads. Now also used in comparative scripts
+slot_party_under_player_suggestion			= 269 #move this up a bit
+slot_town_trade_good_prices_begin 			= 270
 
 #slot_center_last_reconnoitered_by_faction_time 				= 350
 #slot_center_last_reconnoitered_by_faction_cached_strength 	= 360
 #slot_center_last_reconnoitered_by_faction_friend_strength 	= 370
 
+slot_center_disease               = 271
+
+#use only prime numbers
+disease_consumption_timer     = 2
+disease_consumption           = 5
+    
+disease_slow_fever_timer      = 7
+disease_slow_fever            = 10
+
+disease_camp_fever_timer      = 12
+disease_camp_fever            = 15
+
+disease_plague_timer          = 16
+disease_plague                = 20
+
+disease_measles_timer         = 22
+disease_measles               = 25
+
+disease_smallpox_timer        = 27
+disease_smallpox              = 30
+
+disease_greatpoxpox_timer     = 32
+disease_greatpoxpox           = 35
+
+slot_center_event                 = 272
+
+#effects of catastrophic events will stay for two weeks, decrease tax revenue
+event_earthquake_timer    =   97
+event_earthquake          =   100
+
+event_fire_timer          =   109
+event_fire                =   110
+
+event_drought_timer       =   116
+event_drought             =   120
+
+event_insects_timer       =   128
+event_insects             =   130
+
+event_conquered_timer     =   138
+event_conquered           =   140
+
+# event_fire_of_rome_timer  =   165#
+# event_fire_of_rome        =   200#
+
+slot_center_current_improvement_builder     = 273
+slot_center_current_improvement_2_builder   = 274
 
 
 
@@ -815,6 +925,7 @@ slot_troop_trainer_training_difficulty       = 36
 
 slot_lady_used_tournament					= 40
 
+slot_troop_culture            = 44
 
 slot_troop_current_rumor       = 45
 slot_troop_temp_slot           = 46
@@ -2152,10 +2263,10 @@ ACHIEVEMENT_LADY_OF_THE_LAKE = 80,
 
 ##diplomacy begin
 # recruiter kit begin
-dplmc_slot_party_recruiter_needed_recruits = 233           # Amount of recruits the employer ordered.
-dplmc_slot_party_recruiter_origin = 234                    # Walled center from where the recruiter was hired.
-dplmc_slot_village_reserved_by_recruiter = 235             # This prevents recruiters from going to villages targeted by other recruiters.
-dplmc_slot_party_recruiter_needed_recruits_faction = 236   # Alkhadias Master, you forgot this one from the PM you sent me :D
+dplmc_slot_party_recruiter_needed_recruits = 283           # Amount of recruits the employer ordered.
+dplmc_slot_party_recruiter_origin = 284                    # Walled center from where the recruiter was hired.
+dplmc_slot_village_reserved_by_recruiter = 285             # This prevents recruiters from going to villages targeted by other recruiters.
+dplmc_slot_party_recruiter_needed_recruits_faction = 286   # Alkhadias Master, you forgot this one from the PM you sent me :D
 dplmc_spt_recruiter     = 12
 # recruiter kit end
 ##diplomacy start+ Re-use those slots for other party types

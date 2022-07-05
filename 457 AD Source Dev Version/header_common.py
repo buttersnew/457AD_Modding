@@ -659,6 +659,7 @@ reg62  = opmask_register|62
 reg63  = opmask_register|63
 
 reg65  = opmask_register|65
+reg66  = opmask_register|66
 
 spf_all_teams_are_enemy                      = 0x00000001, 
 spf_is_horseman                              = 0x00000002,

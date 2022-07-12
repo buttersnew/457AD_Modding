@@ -19608,6 +19608,144 @@ presentations = [
           (val_add, ":slot_no_id", 1),
           (val_add, "$troop_tree_counter", 1),
         (try_end),        
+        #gap
+        (call_script, "script_prsnt_vc_menu_helper_gap"),
+        
+        (try_begin),
+            (party_slot_ge, "$g_encountered_party", slot_center_has_barracks, 1),
+            (faction_get_slot, ":culture", "$g_encountered_party_faction", slot_faction_culture),#>>
+            (try_for_range, ":troop", "trp_farmer", "trp_kidnapped_girl"),
+              (assign, ":c", 0),
+                #setting up the basic troops (t1 recruits, t3 inf, archer, t1 cav if they have it, t1 noble)  
+                (eq, ":c", 0),
+                (try_begin),
+                  (is_between, "$g_encountered_party",walled_centers_begin, walled_centers_end),
+                  (try_begin),
+                    (eq, ":culture", "fac_culture_1"), #goths  
+                    (this_or_next|eq, ":troop", "trp_gothic_freeman"),
+                    (this_or_next|eq, ":troop", "trp_gothic_skirmisher"),
+                    (eq, ":troop", "trp_gothic_horseman"),
+                    (assign, ":c", 1),
+                  (else_try),  
+                    (eq, ":culture", "fac_culture_2"), #vandals
+                    (this_or_next|eq, ":troop", "trp_eastern_germanic_spearman"),
+                    (this_or_next|eq, ":troop", "trp_eastern_germanic_skirmisher"),
+                    (eq, ":troop", "trp_eastern_germanic_mounted_warrior"),
+                    (assign, ":c", 1),          
+                  (else_try),  
+                    (eq, ":culture", "fac_culture_3"), #britons
+                    (this_or_next|eq, ":troop", "trp_briton_footman"),
+                    (this_or_next|eq, ":troop", "trp_briton_skirmisher"),
+                    (this_or_next|eq, ":troop", "trp_briton_horseman"),
+                    (eq, ":troop", "trp_pedes_secunda_britannica"),      
+                    (assign, ":c", 1),
+                  (else_try),  
+                    (eq, ":culture", "fac_culture_4"), #northern germanic
+                    (this_or_next|eq, ":troop", "trp_northern_germanic_freeman"),
+                    (this_or_next|eq, ":troop", "trp_northern_germanic_skirmisher"),
+                    (eq, ":troop", "trp_northern_germanic_horseman"),
+                    (assign, ":c", 1), 
+                  (else_try),  
+                    (eq, ":culture", "fac_culture_5"), #pictish
+                    (this_or_next|eq, ":troop", "trp_pictish_warrior"), #t1
+                    (this_or_next|eq, ":troop", "trp_pictish_skirmisher"), #t3 inf.
+                    (eq, ":troop", "trp_pictish_companion"), #noble
+                    (assign, ":c", 1), 
+                  (else_try),  
+                    (eq, ":culture", "fac_culture_6"), #sassanid - slightly different
+                    (this_or_next|eq, ":troop", "trp_sassanid_levy"),
+                    (this_or_next|eq, ":troop", "trp_sassanid_skirmisher"),
+                    (this_or_next|eq, ":troop", "trp_sassanid_horse_archer"),
+                    (this_or_next|eq, ":troop", "trp_sassanid_cavalry"),
+                    (this_or_next|eq, ":troop", "trp_sassanid_officer"),
+                    (this_or_next|eq, ":troop", "trp_sassanid_camel_rider"),
+                    (eq, ":troop", "trp_sassanid_standard_bearer"),
+                    (assign, ":c", 1), 
+                  (else_try),  
+                    (eq, ":culture", "fac_culture_7"), #western germans
+                    (this_or_next|eq, ":troop", "trp_western_germanic_freeman"), #t1
+                    (this_or_next|eq, ":troop", "trp_western_germanic_skirmisher"), #t3 inf.
+                    (eq, ":troop", "trp_western_germanic_companion"), #noble
+                    (assign, ":c", 1), 
+                  (else_try),  
+                    (eq, ":culture", "fac_culture_8"), #caucasians
+                    (this_or_next|eq, ":troop", "trp_caucasian_levy"), #t1
+                    (this_or_next|eq, ":troop", "trp_caucasian_skirmisher"), #t3 inf.
+                    (eq, ":troop", "trp_caucasian_nobleman"), #noble
+                    (assign, ":c", 1), 
+                  (else_try),  
+                    (eq, ":culture", "fac_culture_11"), #mauri
+                    (this_or_next|eq, ":troop", "trp_mauri_skirmisher"), #t1
+                    (this_or_next|eq, ":troop", "trp_mauri_footman"), #t3 inf.
+                    (eq, ":troop", "trp_mauri_mounted_skirmisher"), #noble
+                    (assign, ":c", 1), 
+                  (else_try),  
+                    (eq, ":culture", "fac_culture_12"), #hunnic - also different, entirely cav
+                    #(this_or_next|eq, ":troop", "trp_hunnic_skirmisher"), #t1
+                    (this_or_next|eq, ":troop", "trp_hunnic_horse_archer"), #t2
+                    (eq, ":troop", "trp_hunnic_retainer"), #noble
+                    (assign, ":c", 1), 
+                  (else_try),  
+                    (eq, ":culture", "fac_culture_15"), #Nubian
+                    (this_or_next|eq, ":troop", "trp_nubian_tribesman"), #t1
+                    (this_or_next|eq, ":troop", "trp_nubian_warrior"), #t1
+                    (this_or_next|eq, ":troop", "trp_nubian_bowman"), #archer
+                    (eq, ":troop", "trp_nubian_horseman"), #noble
+                    (assign, ":c", 1), 
+                  (else_try),  
+                    (eq, ":culture", "fac_culture_16"), #alan
+                    (this_or_next|eq, ":troop", "trp_caucasian_alan_skirmisher"), #t1
+                    (this_or_next|eq, ":troop", "trp_caucasian_alan_footman"), #t2 inf.
+                    (this_or_next|eq, ":troop", "trp_caucasian_alan_tribesman"), #archer
+                    (eq, ":troop", "trp_caucasian_alan_retainer"), #noble
+                    (assign, ":c", 1), 
+                  (else_try),  
+                    (eq, ":culture", "fac_culture_empire"), #romans - this is where the fun begins!
+                    (this_or_next|eq, ":troop", "trp_tiro_limitanei"), #recruit limitanei
+                    (this_or_next|eq, ":troop", "trp_eques_limitanei"), #limitanei horseman
+                    (this_or_next|eq, ":troop", "trp_exculator_limitanei"), #skirmisher
+                    (this_or_next|eq, ":troop", "trp_sagittarius_limitanei"), #archer
+                    (this_or_next|eq, ":troop", "trp_eques_dalmatae"), #mounted skirmisher
+                    (this_or_next|eq, ":troop", "trp_eques_sagittarii"), #horse archer
+                    (this_or_next|eq, ":troop", "trp_eques_cataphractarii"), #recruit cataphracts
+                    (this_or_next|eq, ":troop", "trp_vigilia"), #recruit burgarii
+                    (this_or_next|eq, ":troop", "trp_iuvenis_foederatus"), #recruit foederati
+                    (this_or_next|eq, ":troop", "trp_eques_alae"), #recruit foederati
+                    (this_or_next|eq, ":troop", "trp_roman_slinger"), #recruit slingers
+                    (this_or_next|eq, ":troop", "trp_imperial_signifer"), #recruit signifers
+                    (this_or_next|eq, ":troop", "trp_roman_marine"), #recruit marines
+                    (this_or_next|eq, ":troop", "trp_bucellarius"), #recruit bucellarii - noble troop
+                    (eq, ":troop", "trp_centenarius"), #centenarius
+                    (assign, ":c", 1), 
+                  (try_end),
+                (try_end),
+                (eq, ":c", 1),
+
+              (str_store_troop_name, s1, ":troop"),
+              (create_text_overlay, reg1, s1, 0),
+              (overlay_set_val, reg1, ":troop"),
+              (overlay_set_color, reg1, 0x000000), #Black se ve bien
+              (overlay_set_position, reg1, pos1),
+              (overlay_set_size, reg1, pos2),
+            
+              # create button
+              (create_image_button_overlay, reg10, "mesh_longer_button", "mesh_longer_button"),
+              (overlay_set_position, reg10, pos1),
+              (overlay_set_size, reg10, pos2),
+              (overlay_set_alpha, reg10, 0),
+              (overlay_set_color, reg10, 0xDDDDDD), 
+                     
+              #gap
+              (position_get_y, ":y", pos1),
+              (val_sub, ":y", 40),
+              (position_set_y, pos1, ":y"),
+              (troop_set_slot, "trp_temp_array_a", ":slot_no_troop", ":troop"),
+              (troop_set_slot, "trp_temp_array_b", ":slot_no_id", reg10),
+              (val_add, ":slot_no_troop", 1),
+              (val_add, ":slot_no_id", 1),
+              (val_add, "$troop_tree_counter", 1),
+            (try_end),        
+        (try_end),        
       
         (set_container_overlay, -1),
 

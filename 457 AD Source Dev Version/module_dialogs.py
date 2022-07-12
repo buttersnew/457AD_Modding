@@ -46299,6 +46299,16 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
                                          ],
    #diplomacy start+ replace {sir/madame} with {my lord/my lady} or {your highness} if appropriate
    "Thank you for your kindness {s0}. With your help our lives will be better. I will pray for you everyday.", "close_window",[]],
+   
+  [anyone,"town_dweller_ask_situation", [
+    (party_get_slot, ":disease", "$current_town", slot_center_disease),
+    (ge, ":disease", 1),
+    (call_script, "script_get_event_details", ":disease"),
+    (str_store_string, s44, "@disease has struck our town! The {s0} is raging and has killed many people. My gods gift us a better future soon!"),
+    (call_script, "script_dplmc_print_subordinate_says_sir_madame_to_s0"),],
+   "{s0}, {s44}", "town_dweller_talk",[]],  
+
+   
    #diplomacy end+
   [anyone,"town_dweller_ask_situation", [(neg|party_slot_ge, "$current_town", slot_town_prosperity, 30),
   #diplomacy start+ replace {sir/madame} with {my lord/my lady} or {your highness} if appropriate

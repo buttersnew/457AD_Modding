@@ -778,6 +778,16 @@ simple_triggers = [
        (try_for_range, ":unused", 0, ":num_hiring_rounds"),
          (call_script, "script_hire_men_to_kingdom_hero_party", "$g_hire_troops_and_controversy"), #Hiring men with current wealth
        (try_end),
+       
+        (try_begin),#upgrade troops a bit
+            (assign, ":xp_addition_for_party_no", 2500),
+            (try_begin),
+                (party_slot_ge, ":cur_attached_party", slot_center_has_training_grounds, 1),#training ground
+                (val_add, ":xp_addition_for_party_no", 22500),
+            (try_end),
+            (party_upgrade_with_xp, ":party_no", ":xp_addition_for_party_no", 0),	
+        (try_end),
+       
      (try_end),
      
     (val_add, "$g_hire_troops_and_controversy", 1),  
@@ -2898,6 +2908,30 @@ simple_triggers = [
 			 (val_div, ":tariffs_generated", 5),#round properly
 			 ##diplomacy end+
 			 (val_div, ":tariffs_generated", 20), #10 for caravans, 20 for villages
+             
+                (try_begin),
+                    (party_slot_ge, ":home_center", slot_center_has_trader, 1),
+                    (val_mul, ":tariffs_generated", 3),
+                    (val_div, ":tariffs_generated", 2),
+                (try_end),             
+                
+                (try_begin),
+                    (party_slot_ge, ":home_center", slot_center_has_forum, 1),
+                    (val_mul, ":tariffs_generated", 3),
+                    (val_div, ":tariffs_generated", 2),
+                (try_end),             
+
+                (try_begin),
+                    (party_slot_ge, ":home_center", slot_center_has_roads, 1),
+                    (val_mul, ":tariffs_generated", 3),
+                    (val_div, ":tariffs_generated", 2),
+                (try_end),             
+                (try_begin),
+                    (party_slot_ge, ":cur_ai_object", slot_center_has_roads, 1),
+                    (val_mul, ":tariffs_generated", 3),
+                    (val_div, ":tariffs_generated", 2),
+                (try_end),
+            
 			 (val_add, ":accumulated_tariffs", ":tariffs_generated"),
 			 ##diplomacy begin
         (try_begin), #no tariffs for infested villages and towns
@@ -2923,10 +2957,15 @@ simple_triggers = [
              (val_min, ":town_food_store", ":food_store_limit"),
              (party_set_slot, ":cur_ai_object", slot_party_food_store, ":town_food_store"),
 
-             #Adding 1 to village prosperity
+                #Adding 1 to village prosperity
+                (assign, ":luck", 5),
+                (try_begin),
+                    (party_slot_ge, ":home_center", slot_center_has_trader, 1), 
+                    (val_add, ":luck", 50),
+                (try_end),
              (try_begin),
                (store_random_in_range, ":rand", 0, 100),
-               (lt, ":rand", 5), #was 35
+               (lt, ":rand",  ":luck"), #was 35
                (call_script, "script_change_center_prosperity", ":home_center", 1),
 			   (val_add, "$newglob_total_prosperity_from_village_trade", 1),
              (try_end),
@@ -4113,8 +4152,9 @@ simple_triggers = [
 # Village upgrade triggers
 
 # School
-  (30 * 24,
-   [(try_for_range, ":cur_village", villages_begin, villages_end),
+  (24.0*14.0/(number_of_villages),
+   [(store_random_in_range, ":cur_village", villages_begin, villages_end),
+    (try_begin),
       # (party_slot_eq, ":cur_village", slot_town_lord, "trp_player"),
       (party_get_slot, ":town_lord", ":cur_village", slot_town_lord),
       #SB : also handle the case where player hands out villages
@@ -4132,6 +4172,16 @@ simple_triggers = [
       (val_add, ":cur_relation", 1),
       (val_min, ":cur_relation", 100),
       (party_set_slot, ":cur_village", slot_center_player_relation, ":cur_relation"),
+    (try_end),
+    
+    (try_begin),
+        (party_slot_ge, ":cur_village", slot_center_has_silver_mine, 1),
+        (party_slot_eq, ":cur_village", slot_village_state, svs_normal), 
+
+        (store_random_in_range, ":goldmine_rent",5000,15000),
+        (party_get_slot, ":rent", ":cur_village", slot_center_accumulated_rents),
+        (val_add, ":rent", ":goldmine_rent"),
+        (party_set_slot, ":cur_village", slot_center_accumulated_rents, ":rent"),		   
     (try_end),
     ]),
 

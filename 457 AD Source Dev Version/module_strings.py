@@ -6047,17 +6047,17 @@ Even in the last case, the player can make formations up to four lines by orderi
 
 
 ("barracks_name_rome", "Barracks"),
-("barracks_description_rome", "This building allows you to recruit ordinary auxiliary troops and special local auxiliaries. If you have the rank of a legatus legionis (or if you Divine Caesar) it allows you to found your own legion and recruit it."),
+("barracks_description_rome", "This building allows you to recruit troops from your faction culture. It also increases the number of recruits available."),
 ("barracks_name_eastern", "Royal Barracks"),
-("barracks_description_eastern", "This building allows you to recruit troops of your kingdom in an organized way."),
+("barracks_description_eastern", "This building allows you to recruit troops of your kingdom in an organized way. It also increases the number of recruits available."),
 ("barracks_name_germanic", "Warrior Hall"),
-("barracks_description_germanic", "Build a warrior hall to encourage warriors of your people to settle here. It will allow you to recruit troops of your kingdom."),
+("barracks_description_germanic", "Build a warrior hall to encourage warriors of your people to settle here. It will allow you to recruit troops of your kingdom. It also increases the number of recruits available."),
 ("barracks_name_british", "Oathsworn Hall"),
-("barracks_description_british", "Build a great hall to encourage warriors of your people to settle here. It will allow you to recruit troops of your kingdom."),
+("barracks_description_british", "Build a great hall to encourage warriors of your people to settle here. It will allow you to recruit troops of your kingdom. It also increases the number of recruits available."),
 ("barracks_name_dacian", "Hall of Champions"),
-("barracks_description_dacian", "Build a great hall to encourage warriors of your people to settle here. It will allow you to recruit troops of your kingdom."),
+("barracks_description_dacian", "Build a great hall to encourage warriors of your people to settle here. It will allow you to recruit troops of your kingdom. It also increases the number of recruits available."),
 ("barracks_name_nomadic", "Warrior Camp"),
-("barracks_description_nomadic", "Build a camp to give warriors of your people a place to life. It will allow you to recruit troops of your kingdom."),
+("barracks_description_nomadic", "Build a camp to give warriors of your people a place to life. It will allow you to recruit troops of your kingdom. It also increases the number of recruits available."),
 
 ("culture_name_rome", "Romanize the population"),
 ("culture_description_rome", "By introducing your traditions, laws and rituals to the local population, you can change the culture of the settlement in a peaceful way."),

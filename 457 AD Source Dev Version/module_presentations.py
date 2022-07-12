@@ -19614,6 +19614,7 @@ presentations = [
         (try_begin),
             (party_slot_ge, "$g_encountered_party", slot_center_has_barracks, 1),
             (faction_get_slot, ":culture", "$g_encountered_party_faction", slot_faction_culture),#>>
+            (neg|party_slot_eq, "$g_encountered_party", slot_center_culture, ":culture"),#they dont have same culture
             (try_for_range, ":troop", "trp_farmer", "trp_kidnapped_girl"),
               (assign, ":c", 0),
                 #setting up the basic troops (t1 recruits, t3 inf, archer, t1 cav if they have it, t1 noble)  

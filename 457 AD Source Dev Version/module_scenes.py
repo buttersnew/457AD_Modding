@@ -56,6 +56,18 @@ scenes = [
   ("camp_scene_horse_track",sf_generate|sf_auto_entry_points,"none", "none", (0,0),(240,240),-0.5,"0x300028000003e8fa0000034e00004b34000059be",
     [],[], "outer_terrain_plain"),
 #new battle scenes begin
+### We divide the map into regions:
+# # 1) Spain
+# # 2) North Africa,
+# # 3) South Italy and Greece
+# # 4) Nile
+# # 5) Syria and Palestine
+# # 6) Anatolia central
+# # 7) Anatolia coastal
+# # 8) Mesopotamia
+# # 9) Persian hill lands (green)
+# # 10) Persian hill lands (desert)
+# # 11) Caucasus
 
   ("battle_scene_snow_1",sf_generate|sf_auto_entry_points,"none", "none", (0,0),(240,240),-0.5,"0x0000000048e00980000705c100004a17000017c400007b30",
     [],[], "outer_terrain_plain"),

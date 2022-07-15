@@ -752,7 +752,7 @@ dialogs = [
   "Thank you for shopping.", "close_window",[]],
 
 #AESTII QUEST
-[trp_aestii_rebel_king,"start", [(check_quest_active, "qst_aestii_rebel_quest"),(quest_slot_eq, "qst_aestii_rebel_quest", slot_quest_current_state, 3),],
+[trp_aestii_rebel_king,"start", [(check_quest_active, "qst_aestii_rebel_quest"),(quest_slot_eq, "qst_aestii_rebel_quest", slot_quest_current_state, 5),],
 "Aiwarikiar!, you have been defeated, your army is in shamble and the few who survived are trying their luck running through the forest. Pah! May the Bull Spirit get them!", "aestii_after_battle_talk_1",[]],   
 [anyone|other(trp_aestii_king),"aestii_after_battle_talk_1", [],
 "I yield! You won. Grant me the honors of war and let me die like a warrior: let me plunge my own sword in my chest and I'll be free.", "aestii_after_battle_talk_2",[]],   
@@ -49958,6 +49958,7 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   ],"I have captured Shvarnas.", "aestii_quest_rebel_captured_1",[]],
   [anyone, "aestii_quest_rebel_captured_1",[],"Friend, {playername}, you came back victorious! I will hold a celebration in your name to this Bull Spirit to which the Aestii are so devoted. And here, as reward and promised, you have my sword and some of my best men are at your service. You shall always be welcome here. Vadas Shvarnas will be our offering to the Bull Spirit!", "aestii_quest_rebel_captured_2",[
   (call_script, "script_change_player_relation_with_troop", "$g_talk_troop",20),
+  (call_script, "script_change_player_relation_with_faction", "fac_minor_aestii", 30),
   (remove_member_from_party, "trp_aestii_rebel_king"),
   (call_script, "script_end_quest", "qst_aestii_rebel_quest"),
   (call_script, "script_change_troop_renown", "trp_player", 50),

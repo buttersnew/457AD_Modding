@@ -25807,7 +25807,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       (faction_set_slot, "fac_minor_aestii", slot_faction_leader, "trp_aestii_rebel_king"),
       (party_add_leader, "p_aestii_village", "trp_aestii_rebel_king"),
       (party_set_slot, "p_aestii_village", slot_town_lord, "trp_aestii_rebel_king"),
-      (quest_set_slot,"qst_aestii_rebel_quest", slot_quest_current_state, 3), #for dialogue
+      (quest_set_slot,"qst_aestii_rebel_quest", slot_quest_current_state, 5), #for dialogue
       (faction_set_slot, "fac_minor_aestii", slot_faction_reinforcements_a, "pt_aestii_party_2"), #changes the template
       
       (try_for_range, ":unused", 0, 9), #readd troops to garrison

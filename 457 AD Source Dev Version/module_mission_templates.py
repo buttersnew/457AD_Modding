@@ -47,6 +47,61 @@ bard_disguise = [itm_wrapping_boots,itm_lyre,itm_linen_tunic,itm_winged_mace]
 
 af_castle_lord = af_override_horse | af_override_weapons| af_require_civilian
 
+small_battle_check = (0,0,ti_once, 
+    [],
+    [
+    # (display_message, "@Small battle check"),
+    
+    (store_add, ":total_size", "$g_friend_fit_for_battle", "$g_enemy_fit_for_battle"),
+    (le, ":total_size", 100),
+    # (display_message, "@Small battle found"),
+    
+    (try_for_agents, ":agent_no"),
+        (agent_is_active, ":agent_no"),
+        (agent_is_human, ":agent_no"),
+        (agent_is_alive, ":agent_no"),
+        (agent_get_horse, ":horse", ":agent_no"),
+        
+        (assign, ":agent_to_move", ":agent_no"),
+        (try_begin),
+            (gt, ":horse", -1),
+            (agent_is_alive, ":horse"),
+            (assign, ":agent_to_move", ":horse"),
+        (try_end),
+        
+        # (set_fixed_point_multiplier, 100),
+        
+        (init_position, pos11),
+        (get_scene_boundaries, pos10, pos11),
+        (position_get_x, ":scene_max_x", pos11),
+        (position_get_y, ":scene_max_y", pos11),
+        #get center of map
+        (val_div, ":scene_max_x", 2),
+        (val_div, ":scene_max_y", 2),
+        (position_set_x, pos11, ":scene_max_x"),
+        (position_set_y, pos11, ":scene_max_y"),
+        
+        (agent_get_position, pos10, ":agent_to_move"),
+        (call_script, "script_point_y_toward_position", pos10, pos11),
+        
+        (position_get_x, ":x", pos10),
+        (store_random_in_range, ":x_addition", -1500, 1500),
+        (val_add, ":x", ":x_addition"),
+        (position_set_x, pos10, ":x"),
+        
+        (assign, ":y_to_move", ":scene_max_y"),
+        (val_div, ":y_to_move", 3),
+        (val_mul, ":y_to_move", 2),
+        (position_move_y, pos10, ":y_to_move"),
+        
+        (agent_set_position, ":agent_to_move", pos10),
+        
+        # (str_store_agent_name, s22, ":agent_to_move"),
+        # (display_message, "@{s22} was moved"),
+    (try_end),
+    ])
+
+
 #tocan's template triggers
 tocan_walkers = [
   (0, 0, ti_once, [],
@@ -6541,6 +6596,8 @@ mission_templates = [
      (4,mtef_attackers|mtef_team_1,0,aif_start_alarmed,0,[]),
      ], vc_weather +
     [
+    small_battle_check,
+    
       (ti_on_agent_spawn, 0, 0, [],
        [
          (store_trigger_param_1, ":agent_no"),

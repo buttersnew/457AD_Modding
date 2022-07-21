@@ -6294,7 +6294,25 @@ Even in the last case, the player can make formations up to four lines by orderi
 ("extort_toll_xp", "You can raise a special toll on goods which are traded today. This would upset the merchants of {s39} and the villagers of the surrounding villages, who come here to sell their goods. As the party member with the highest trade skill ({reg2}), {reg3?you expect:{s1} expects} it would take {reg40} hours to collect the toll and would give you {reg30} denars."),
 ("extort_concile_xp", "The town counsel has {reg31} in their treasury. You can force them to take over their funds. It would take you 2 hours and you would gain {reg31} denars."),
 
-
+("region_strings_begin","ZAMB LAND"),      
+("region_spain","Spain"),      
+("region_north_africa","North Africa"),      
+("region_southitaly","South Italy"),      
+("region_nile","Nile"),      
+("region_syria_palestine","Syria and Palestine"),      
+("region_anatolia_central","Anatolia Central"),      
+("region_anatolia_coastal","Anatolia Coastal"),      
+("region_mesopotamia","Mesopotamia"),      
+("region_persianhill_green","Persian hills (green)"),      
+("region_persianhill_desert","Persian hills (desert)"),      
+("region_caucasus","Caucasus"),      
+("region_greece","Greece"),      
+("region_nile_delta","Nile Delta"),      
+("region_mountain_europe","Mountain Europe Alps"),      
+("region_mountain_europe_spain_france","Mountain Europe Spain France"),      
+("region_mountain_europe_romania","Mountain Europe Romania"),      
+("region_mountain_europe_bohemia","Mountain Europe Bohemia"),      
+("other","other region"),
 #utility for skill names
 ]+[
 ("skl_"+skills[x][0], skills[x][1]) for x in range(0, len(skills))]

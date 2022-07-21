@@ -3120,3 +3120,25 @@ mcc_item_storage_begin                 = 100
 # Slots 101-120 reserved.
 mcc_item_storage_end                   = 121
 
+#######################################
+##WE DIVIDE WORLDMAP INTO REGIONS
+##REGIONS:
+region_spain                            = 1
+region_north_africa                     = 2
+region_southitaly                       = 3
+region_nile                             = 4
+region_syria_palestine                  = 5
+region_anatolia_central                 = 6
+region_anatolia_coastal                 = 7
+region_mesopotamia                      = 8
+region_persianhill_green                = 9
+region_persianhill_desert               =10
+region_caucasus                         =11
+region_greece                           =12
+region_nile_delta                       =13
+region_mountain_europe_alps             =14
+region_mountain_europe_spain_france     =15
+region_mountain_europe_romania          =16
+region_mountain_europe_bohemia          =17
+###END REGIONS
+#######################################

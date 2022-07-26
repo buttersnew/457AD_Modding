@@ -3850,6 +3850,8 @@ scene_props = [
   ( "germanic_house_2"                           ,0,"germanic_house_2","bo_germanic_house_2",[]),
   ( "germanic_house_1"                           ,0,"germanic_house_1","bo_germanic_house_1",[]),
 
+  ( "arabian_pyramid"                            ,0,"arabian_pyramid","bo_arabian_pyramid",[]), #pyramids
+  ( "waterfall"                                  ,0,"waterfall","bo_waterfall",[]),
 #sclavenia
   ( "tent_open"                           ,0,"tent_open","bo_tent_open",[]),
   ( "tent_closed"                           ,0,"tent_closed","bo_tent_closed",[]),

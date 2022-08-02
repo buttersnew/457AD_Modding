@@ -19542,7 +19542,8 @@ presentations = [
                 (eq, ":troop", "trp_garamantian_horseman"),
                 (assign, ":c", 1),     
               (else_try), #scandanavian
-                (eq, "$g_encountered_party", "p_dani_village"),
+                (this_or_next|eq, "$g_encountered_party", "p_dani_village"),
+                (eq, "$g_encountered_party", "p_augundzi_village"),
                 (this_or_next|eq, ":troop", "trp_scandinavian_freeman"),
                 (this_or_next|eq, ":troop", "trp_scandinavian_retainer"),
                 (eq, ":troop", "trp_scandinavian_comes"),
@@ -19578,6 +19579,14 @@ presentations = [
                 (this_or_next|eq, ":troop", "trp_tauri_axeman"),
                 (eq, ":troop", "trp_tauri_horseman"),
                 (assign, ":c", 1),  
+              (else_try), #vidivarii
+                (eq, "$g_encountered_party", "p_vidivarii_village"),
+                (this_or_next|eq, ":troop", "trp_aestii_skirmisher"),
+                (this_or_next|eq, ":troop", "trp_aestii_tribesman"),
+                (this_or_next|eq, ":troop", "trp_gothic_freeman"),
+                (this_or_next|eq, ":troop", "trp_scandinavian_freeman"),
+                (eq, ":troop", "trp_scandinavian_comes"),
+                (assign, ":c", 1), 
               (try_end),
             (try_end),
 

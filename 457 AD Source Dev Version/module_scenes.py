@@ -1609,6 +1609,8 @@ scenes = [
     [],[],"sea_outer_terrain_1"), 
   ("tauri_town",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000003000000000036cd5000041ef00005ae800003c55",
     [],[],"outer_terrain_beach"), 
+  ("frisian_town",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000300000000005194a000041ef00005ae800003c55",
+    [],[],"outer_terrain_beach"), 
 
   ("ruins_1",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000300005000003ccf300007c9a00004ca90000122f",
    [],["bonus_chest_5"], "outer_terrain_plain"),

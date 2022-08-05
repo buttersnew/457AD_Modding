@@ -25637,7 +25637,17 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     (set_visitor, 34, ":merchant_2"),
   
     (set_visitor, 35, ":leader"),
-
+    
+    (try_begin),
+        (eq, "$g_encountered_party", "p_dani_village"),
+        (quest_slot_eq, "qst_finnsburh_quest", slot_quest_current_state, 0),
+        (set_visitor, 36, "trp_dani_hocing"),
+        (set_visitor, 37, "trp_dani_sigeferth"),
+        (set_visitor, 38, "trp_dani_eaha"),
+        (set_visitor, 39, "trp_dani_hengest"),
+        (set_visitor, 40, "trp_dani_ordlaf"),
+        (set_visitor, 41, "trp_dani_guthlaf"),
+    (try_end),
     #50 attackers spawn
     #51 defender gathering point
     #52 defender inf spawn

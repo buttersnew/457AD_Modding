@@ -554,6 +554,10 @@ quests = [
  ("conquest_sicily", "Conquer Sicily", 0, #Vandals - must conquer Syracuse - small reward
   "{!}"
  ),    
+ 
+ ("finnsburh_quest", "Battle of Finnsburh", 0, #
+  "{!}"
+ ),    
 
 
 #TO BE DONE QUESTS

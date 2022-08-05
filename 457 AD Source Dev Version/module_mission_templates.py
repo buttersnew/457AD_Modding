@@ -23277,6 +23277,13 @@ mission_templates = [
       (33,mtef_visitor_source,af_override_horse,0,1,[]),#merchant 1
       (34,mtef_visitor_source,af_override_horse,0,1,[]),#merchant 2
       (35,mtef_visitor_source,af_override_horse,0,1,[]),#king
+      (36,mtef_visitor_source,af_override_horse,0,1,[]),#king
+      (37,mtef_visitor_source,af_override_horse,0,1,[]),#king
+      (38,mtef_visitor_source,af_override_horse,0,1,[]),#king
+      (39,mtef_visitor_source,af_override_horse,0,1,[]),#king
+      (40,mtef_visitor_source,af_override_horse,0,1,[]),#king
+      (41,mtef_visitor_source,af_override_horse,0,1,[]),#king
+      (42,mtef_visitor_source,af_override_horse,0,1,[]),#king
 
     ], vc_weather +
     [

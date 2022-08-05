@@ -678,13 +678,8 @@ slot_party_orders_time				    	= 267
 
 slot_party_temp_slot_1			            = 268 #right now used only within a single script, merchant_road_info_to_s42, to denote closed roads. Now also used in comparative scripts
 slot_party_under_player_suggestion			= 269 #move this up a bit
-slot_town_trade_good_prices_begin 			= 270
 
-#slot_center_last_reconnoitered_by_faction_time 				= 350
-#slot_center_last_reconnoitered_by_faction_cached_strength 	= 360
-#slot_center_last_reconnoitered_by_faction_friend_strength 	= 370
-
-slot_center_disease               = 271
+slot_center_disease                         = 270
 
 #use only prime numbers
 disease_consumption_timer     = 2
@@ -708,7 +703,7 @@ disease_smallpox              = 30
 disease_greatpoxpox_timer     = 32
 disease_greatpoxpox           = 35
 
-slot_center_event                 = 272
+slot_center_event                 = 271
 
 #effects of catastrophic events will stay for two weeks, decrease tax revenue
 event_earthquake_timer    =   97
@@ -726,13 +721,18 @@ event_insects             =   130
 event_conquered_timer     =   138
 event_conquered           =   140
 
+#slot_center_last_reconnoitered_by_faction_time 				= 350
+#slot_center_last_reconnoitered_by_faction_cached_strength 	= 360
+#slot_center_last_reconnoitered_by_faction_friend_strength 	= 370
+
+
 # event_fire_of_rome_timer  =   165#
 # event_fire_of_rome        =   200#
 
-slot_center_current_improvement_builder     = 273
-slot_center_current_improvement_2_builder   = 274
+slot_center_current_improvement_builder     = 272
+slot_center_current_improvement_2_builder   = 273
 
-
+slot_town_trade_good_prices_begin 			= 274
 
 #slot_party_type values
 ##spt_caravan            = 1

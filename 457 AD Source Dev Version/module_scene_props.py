@@ -569,14 +569,14 @@ scene_props = [
   ("carpet_e",0,"carpet_e","0", []),
   ("carpet_f",0,"carpet_f","0", []),
 
-  ("ship",0,"ship","bo_ship", []),
+  ("ship",sokf_moveable,"ship","bo_ship", []),
 
-  ("ship_b",0,"ship_b","bo_ship_b", []),
-  ("ship_c",0,"ship_c","bo_ship_c", []),
+  ("ship_b",sokf_moveable,"ship_b","bo_ship_b", []),
+  ("ship_c",sokf_moveable,"ship_c","bo_ship_c", []),
 
 
 
-  ("ship_d",0,"ship_d","bo_ship_d", []),
+  ("ship_d",sokf_moveable,"ship_d","bo_ship_d", []),
 
   ("snowy_barrel_a",0,"snowy_barrel_a","bo_snowy_barrel_a", []),
   ("snowy_fence",0,"snowy_fence","bo_snowy_fence", []),

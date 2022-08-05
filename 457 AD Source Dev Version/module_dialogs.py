@@ -50719,7 +50719,8 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
 
     (call_script, "script_start_quest", "qst_finnsburh_quest", "trp_dani_hocing"),
     (quest_set_slot, "qst_finnsburh_quest", slot_quest_current_state, 1),
-
+    (jump_to_menu, "mnu_finnsburg_quest_1"),
+    (finish_mission),
   ]],
   
   

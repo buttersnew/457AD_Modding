@@ -131,5 +131,6 @@ tracks = [
   ("wedding", "wedding.ogg", mtf_persist_until_finished, 0),
 
   ("coronation", "coronation.ogg", mtf_persist_until_finished, 0),
-
+    
+  ("cutscene_longboat_track", "cutscene_longboat_track.wav", mtf_persist_until_finished, 0),
 ]

@@ -1690,4 +1690,10 @@ scenes = [
   ("duel_plain_forest", sf_generate, "none", "none", (0, 0), (200, 200), -0.5, "0x00000000300005000005495000002ee4000032f600000753",
     [],[], "outer_terrain_plain"),
 
+  ("cutscene_longboat", sf_generate, "none", "none", (0, 0), (200, 200), -0.5, "0x00000000300005000005495000002ee4000032f600000753",
+    [],[], "sea_outer_terrain_1"),
+
+  ("cutscene_longboat_2", sf_generate, "none", "none", (0, 0), (200, 200), -0.5, "0x00000000300005000005495000002ee4000032f600000753",
+    [],[], "sea_outer_terrain_1"),
+
 ]

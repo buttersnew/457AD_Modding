@@ -27153,7 +27153,71 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     
     ],),   
 
+#################BIG CHUNGUS FINNSBURG QUEST BEGINN
+## HAIL TO LOMBARDY
+ ("finnsburg_quest_1",0,
+    "The journey towards the land of the Frisians is long and tiring. The northern sea is often tumultuous and life on the ship isn't easy, however, Hnaef's men remain calm, knowing that their journey has just started and the most has yet to come.",
+    "none", [
+    ],
+    [
+    ("option_1", [],"Continue.",
+    [
+    (add_xp_as_reward, 1500),
     
+    (assign, "$g_next_menu", "mnu_finnsburg_quest_2"),
+    (assign, "$tutorial_state", 0),
+    (set_jump_mission, "mt_longboat_cutscene"),
+    (modify_visitors_at_site, "scn_cutscene_longboat"),
+    (reset_visitors),    
+   
+    
+    (try_begin),
+        (eq,"$character_gender", tf_female),
+        (troop_set_type,"trp_multiplayer_profile_troop_male", tf_female),
+    (else_try),
+        (troop_set_type,"trp_multiplayer_profile_troop_male", tf_male),
+    (try_end),
+    (str_store_troop_face_keys, s1, "trp_player"),
+    (troop_set_face_keys, "trp_multiplayer_profile_troop_male", s1),
+    (call_script, "script_dplmc_copy_inventory", "trp_player", "trp_multiplayer_profile_troop_male"),
+    
+    (set_visitor, 0, "trp_player"),
+    (set_visitor, 1, "trp_dani_eaha"),
+    (set_visitor, 2, "trp_dani_guthlaf"),
+    (set_visitor, 3, "trp_dani_hengest"),
+    (set_visitor, 4, "trp_dani_hocing"),
+    (set_visitor, 5, "trp_dani_ordlaf"),
+    (set_visitor, 6, "trp_dani_sigeferth"),
+    (set_visitor, 7, "trp_multiplayer_profile_troop_male"),
+    
+    (jump_to_scene, "scn_cutscene_longboat"),
+    (change_screen_mission),       
+
+    ]),
+    ("option_1", [],"test scene.",
+    [
+    (jump_to_scene, "scn_cutscene_longboat"),
+    (change_screen_mission),
+    ]),
+    
+    ],),   
+ ("finnsburg_quest_2",0,
+    "One day, you take advantage of the bright sky to have a chat with the members of the crew.",
+    "none", [
+    ],
+    [
+    ("option_1", [],"Continue.",
+    [
+    (change_screen_quit),
+    ]),
+     ("option_1", [],"test scene.",
+    [
+    (jump_to_scene, "scn_cutscene_longboat_2"),
+    (change_screen_mission),
+    ]),   
+    ],),   
+
+#################BIG CHUNGUS FINNSBURG QUEST END
     
 #+freelancer end
  ]

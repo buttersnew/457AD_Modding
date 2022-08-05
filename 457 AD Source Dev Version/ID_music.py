@@ -75,3 +75,4 @@ track_victorious_vaegir = 73
 track_victorious_vaegir_2 = 74
 track_wedding = 75
 track_coronation = 76
+track_cutscene_longboat_track = 77

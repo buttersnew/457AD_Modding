@@ -382,3 +382,5 @@ mnu_desert = 380
 mnu_upgrade_path = 381
 mnu_epidemic_outbreak = 382
 mnu_disaster_event = 383
+mnu_finnsburg_quest_1 = 384
+mnu_finnsburg_quest_2 = 385

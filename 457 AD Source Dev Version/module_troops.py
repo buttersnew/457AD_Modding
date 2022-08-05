@@ -4926,6 +4926,26 @@ troops = [
    [itm_roman_lorum_fasciari_1,itm_roman_lorum_fasciari_5,itm_roman_leather_boots_1,itm_roman_leather_boots_2,itm_roman_leather_boots_3,itm_roman_greaves_1,itm_roman_greaves_5,itm_roman_greaves_manica_1,itm_roman_greaves_manica_3,itm_457_mail_shirt_1,itm_457_mail_short_1,itm_roman_light_scale_1,itm_sword_viking_3_small,itm_spiculum,itm_spiculum,itm_oval_shield_1,itm_oval_shield_red_1,itm_florence_helmet_1],
    def_attrib_lvl_25|level(25),wp_one_handed(210)|wp_two_handed(190)|wp_polearm(190)|wp_archery(120)|wp_throwing(210),knows_lvl_23_inf|knows_shield_6|knows_power_strike_4,roman_face_1, roman_face_2],
 
+####finnsburh quest characters
+  ["dani_hocing","Hnaef Hocing","Hnaef Hocing",tf_hero,0,0,fac_minor_dani,
+   [],
+   def_attrib_lvl_25|level(25),wp_one_handed(210)|wp_two_handed(190)|wp_polearm(190)|wp_archery(120)|wp_throwing(210),knows_lvl_23_inf|knows_shield_6|knows_power_strike_4,roman_face_1, roman_face_2],
+  ["dani_sigeferth","Sigeferth","Sigeferth",tf_hero,0,0,fac_minor_dani,
+   [],
+   def_attrib_lvl_25|level(25),wp_one_handed(210)|wp_two_handed(190)|wp_polearm(190)|wp_archery(120)|wp_throwing(210),knows_lvl_23_inf|knows_shield_6|knows_power_strike_4,roman_face_1, roman_face_2],
+  ["dani_eaha","Eaha","Eaha",tf_hero,0,0,fac_minor_dani,
+   [],
+   def_attrib_lvl_25|level(25),wp_one_handed(210)|wp_two_handed(190)|wp_polearm(190)|wp_archery(120)|wp_throwing(210),knows_lvl_23_inf|knows_shield_6|knows_power_strike_4,roman_face_1, roman_face_2],
+  ["dani_hengest","Hengest Wodning","Hengest Wodning",tf_hero,0,0,fac_minor_dani,
+   [],
+   def_attrib_lvl_25|level(25),wp_one_handed(210)|wp_two_handed(190)|wp_polearm(190)|wp_archery(120)|wp_throwing(210),knows_lvl_23_inf|knows_shield_6|knows_power_strike_4,roman_face_1, roman_face_2],
+  ["dani_ordlaf","Ordlaf","Ordlaf",tf_hero,0,0,fac_minor_dani,
+   [],
+   def_attrib_lvl_25|level(25),wp_one_handed(210)|wp_two_handed(190)|wp_polearm(190)|wp_archery(120)|wp_throwing(210),knows_lvl_23_inf|knows_shield_6|knows_power_strike_4,roman_face_1, roman_face_2],
+  ["dani_guthlaf","Guthlaf","Guthlaf",tf_hero,0,0,fac_minor_dani,
+   [],
+   def_attrib_lvl_25|level(25),wp_one_handed(210)|wp_two_handed(190)|wp_polearm(190)|wp_archery(120)|wp_throwing(210),knows_lvl_23_inf|knows_shield_6|knows_power_strike_4,roman_face_1, roman_face_2],
+
 #other pagans of importance: Severianus of Damascus
 
   ##diplomacy begin

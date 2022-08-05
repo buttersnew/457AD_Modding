@@ -50679,6 +50679,111 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   [trp_roman_pagan_high_priest|plyr, "roman_pagan_high_priest_talk_1", [],
    "I do not need a man of faith right now, farewell.", "close_window", []],
 
+
+
+
+  [trp_dani_hocing,"start", [], 
+  "Hail! Whom do I have here?", 
+  "finnsburg_quest_start_1",[]],
+  
+  [anyone|plyr,"finnsburg_quest_start_1", [], 
+  "Hail to you, oh valorous warrior. I came to visit King Gramr, leader of the Danes and owner of this hall. Are you one of his sworn men?", 
+  "finnsburg_quest_start_2",[]],
+  
+  [anyone,"finnsburg_quest_start_2", [], 
+  "Hail, stranger. I, indeed, am one of his servants. My name is Hnaef, son of Hoc and leader of my clan, loyal servants of the Skjoldungrs. These are some of my warriors, they are valiant and brave and their names are known far and wide in the lands of the North: among the Saxons, Jutes, Danes, Angles… They all know the names of Hengist, brother of Horsa, vanquisher of the Romans and Picts in the distant lands of Britannia.", 
+  "finnsburg_quest_start_3",[]],
+  
+  [anyone|other(trp_dani_hengest),"finnsburg_quest_start_3", [], 
+  "Hail stranger, I see you carry weapons of war and thus you share our craft. We welcome you in the halls of our supreme leader, Gramr Skjoldungr. ", 
+  "finnsburg_quest_start_4",[]],
+  
+  [anyone|plyr,"finnsburg_quest_start_4", [], 
+  "It is an honour to meet, face to face, the terror of the North. I know your brother is leading his men in Britain to fight the kings of the Britons, Ambrosius and Riothamus.", 
+  "finnsburg_quest_start_5",[]],
+  
+  [anyone|other(trp_dani_hengest),"finnsburg_quest_start_5", [], 
+  "Horsa, like me, is a sea-wolf. The same Britons summoned us, few years back, to defend them from those barbarous folk of the North, the Picts, and so we did. But when me and my brother demanded them what was rightfully ours, they denied us our well-deserved payment. There can’t be no peace between us now and as soon as my Lord Hnaef will free me from the vow, I will rejoin my brother in the lands of the Cantii.", 
+  "finnsburg_quest_start_6",[]],
+  
+  [anyone,"finnsburg_quest_start_6", [], 
+  "And that time, I will join you, oh valorous Hengist, as your follower. For I shall repay you for your loyalty. Then meet Sigeferth, lord of the Sedgeans. He too rejoined king Gramr in his expeditions with the most valiant of his men and now he serves my name.", 
+  "finnsburg_quest_start_7",[]],
+  
+  [anyone|other(trp_dani_sigeferth),"finnsburg_quest_start_7", [], 
+  "Hail! Grab my arm with the hand you use to bear your blade for I am a friend, and you have nothing to fear at this hearth.", 
+  "finnsburg_quest_start_8",[]],
+  
+  [anyone|plyr,"finnsburg_quest_start_8", [], 
+  "*nods and grabs Sigeferth’s arm as strongly and convincingly as the other warrior does*", 
+  "finnsburg_quest_start_9",[]],
+  
+  [anyone,"finnsburg_quest_start_9", [], 
+  "Then meet my other men, whom all come from illustrious families: Eaha, Ordlaf and Guthlaf. Young men rejoining my retinue to forge a name for themselves and carry on the legacy of their forefathers.", 
+  "finnsburg_quest_start_10",[]],
+  
+  [anyone|other(trp_dani_eaha),"finnsburg_quest_start_10", [], 
+  "Hail!", 
+  "finnsburg_quest_start_11",[]],
+  
+  [anyone|other(trp_dani_ordlaf),"finnsburg_quest_start_11", [], 
+  "Hail, {playername}!", 
+  "finnsburg_quest_start_12",[]],
+  
+  [anyone|other(trp_dani_guthlaf),"finnsburg_quest_start_12", [], 
+  "Greetings to you!", 
+  "finnsburg_quest_start_13",[]],
+  
+  [anyone|plyr,"finnsburg_quest_start_13", [], 
+  "Hail to all of you. It is my turn, my name is {playername}, adventurer is my craft and leader of men too, among my kin. I ventured to the lands of the North with my men to pay my respects to Gramr Skjoldungr, but you too, Hnaef son of Hoc, are worthy of my esteem for you look like a fine captain and have illustrious men in your retinue. What you and your men are doing for King Gramr these days?", 
+  "finnsburg_quest_start_14",[]],
+  
+  [anyone,"finnsburg_quest_start_14", [], 
+  "Our supreme Lord granted me a leave to visit my sister, Hildeburh, wife of the king of the Frisians, Finn. I haven’t seen her since she left our father’s hall to marry that stranger against which my father shed his men’s blood, years ago. We are about to take our belongings and leave for the marshy coasts of the Finn with our ship.", 
+  "finnsburg_quest_start_15",[]],
+  
+  [anyone,"finnsburg_quest_start_15", [], 
+  "Actually, you look sturdy enough and I’d rather have one more blade at my side during the length of our trip. I am not enough wealthy to hire all your soldiers, but I can pay you well if you join me. You know our lord Gramr and you managed to reach this hall alive which is enough for me to trust you.", 
+  "finnsburg_quest_start_16",[]],
+  
+  [anyone|other(trp_dani_sigeferth),"finnsburg_quest_start_16", [], 
+  "More men will be welcome; we don’t trust the Frisians.", 
+  "finnsburg_quest_start_17",[]],
+  
+  [anyone|plyr,"finnsburg_quest_start_17", [], 
+  "I’ll gladly follow you, Hnaef son of Hoc. My sword is yours for this task, my men will wait for me next to Heorot while we are abroad.", 
+  "finnsburg_quest_start_final",[]],
+  
+  [anyone|plyr,"finnsburg_quest_start_17", [], 
+  "I cannot do what you ask, Hnaef son of Hoc. I hold no grudges against the Frisians and if I have to draw my sword, I’d rather not do it against them.", 
+  "close_window",[]],
+  
+  [anyone,"finnsburg_quest_start_final", [], 
+  "And so be it, pack your things, we leave tomorrow at dawn, {playername}. ",
+  "close_window",
+  [
+    (setup_quest_text, "qst_finnsburh_quest"),
+    (str_store_string, s2, "@You have agreed to follow the Dani warriors to Finn's hall. You will travel alone, without your men as the Dani have not enough gold to hire your whole warband. In the meantime your men stay at Heorot in the company of the beautiful blond Dani women and wait until you come back."),
+
+    (call_script, "script_start_quest", "qst_finnsburh_quest", "trp_dani_hocing"),
+    (quest_set_slot, "qst_finnsburh_quest", slot_quest_current_state, 1),
+    (jump_to_menu, "mnu_finnsburg_quest_1"),
+    (finish_mission),
+  ]],
+  
+  
+  [trp_dani_sigeferth,"start", [
+  ], "I am busy. If you have any to say speak with our leader Hnaef Hocing.", "close_window",[]],
+  [trp_dani_eaha,"start", [
+  ], "Can't you see I am busy. Speak with our leader Hnaef Hocing and annoy him, not me.", "close_window",[]],
+  [trp_dani_hengest,"start", [
+  ], "I am eating right now. No time for talking.", "close_window",[]],
+  [trp_dani_ordlaf,"start", [
+  ], "I have no time to talk. Better speak with our leader Hnaef Hocing.", "close_window",[]],
+  [trp_dani_guthlaf,"start", [
+  ], "Its not the right time to talk. Go and speak with our leader Hnaef Hocing if you have anything to say.", "close_window",[]],
+  
+  
   [anyone,"start", [
   (neq,"$g_talk_troop","trp_bishop_of_rome"),
   (neq,"$g_talk_troop","trp_bishop_of_constantinople"),

@@ -23277,6 +23277,13 @@ mission_templates = [
       (33,mtef_visitor_source,af_override_horse,0,1,[]),#merchant 1
       (34,mtef_visitor_source,af_override_horse,0,1,[]),#merchant 2
       (35,mtef_visitor_source,af_override_horse,0,1,[]),#king
+      (36,mtef_visitor_source,af_override_horse,0,1,[]),#king
+      (37,mtef_visitor_source,af_override_horse,0,1,[]),#king
+      (38,mtef_visitor_source,af_override_horse,0,1,[]),#king
+      (39,mtef_visitor_source,af_override_horse,0,1,[]),#king
+      (40,mtef_visitor_source,af_override_horse,0,1,[]),#king
+      (41,mtef_visitor_source,af_override_horse,0,1,[]),#king
+      (42,mtef_visitor_source,af_override_horse,0,1,[]),#king
 
     ], vc_weather +
     [
@@ -23672,4 +23679,136 @@ mission_templates = [
     ],
   ),
 ##END center management presentation
+
+
+   ("longboat_cutscene",mtf_battle_mode,-1,
+    "plundering a settlement",
+    [
+      (0,mtef_visitor_source,0,0,1,[]),#player
+      (1,mtef_visitor_source,af_override_horse,0,1,[]),#player
+      (2,mtef_visitor_source,0,0,1,[]),#guard
+	  (3,mtef_visitor_source,0,0,1,[]),#legatus
+      (4,mtef_visitor_source,0,0,1,[]),#legatus
+	  
+      (5,mtef_visitor_source,0,0,1,[]),#unused
+      (6,mtef_visitor_source,0,0,1,[]),#unused
+      (7,mtef_visitor_source,0,0,1,[]),#unused
+      (8,mtef_visitor_source,0,0,1,[]),#spectators
+      (9,mtef_visitor_source,0,0,1,[]),#spectators
+      (10,mtef_visitor_source,0,0,1,[]),#spectators
+      (11,mtef_visitor_source,0,0,1,[]),#spectators
+      (12,mtef_visitor_source,0,0,1,[]),#spectators
+      (13,mtef_visitor_source,0,0,1,[]),#spectators
+      (14,mtef_visitor_source,0,0,1,[]),#spectators
+      (15,mtef_visitor_source,0,0,1,[]),#spectators
+      (16,mtef_visitor_source,0,0,1,[]),#spectators
+      (17,mtef_visitor_source,0,0,1,[]),#spectators
+      (18,mtef_visitor_source,0,0,1,[]),#spectators
+      (19,mtef_visitor_source,0,0,1,[]),#spectators
+      (20,mtef_visitor_source,0,0,1,[]),#spectators
+      (21,mtef_visitor_source,0,0,1,[]),#spectators
+      (22,mtef_visitor_source,0,0,1,[]),#spectators
+      (23,mtef_visitor_source,0,0,1,[]),#spectators
+      (24,mtef_visitor_source,0,0,1,[]),#spectators
+      (25,mtef_visitor_source,0,0,1,[]),#spectators
+      (26,mtef_visitor_source,0,0,1,[]),#spectators
+      (27,mtef_visitor_source,0,0,1,[]),#spectators
+      (28,mtef_visitor_source,0,0,1,[]),#spectators
+      (29,mtef_visitor_source,0,0,1,[]),#spectators
+      (30,mtef_visitor_source,0,0,1,[]),#spectators
+    ],
+    [
+    (ti_before_mission_start, 0, 0, [
+			 ],
+    [
+    (scene_set_day_time, 19),
+    (set_global_cloud_amount, 100),
+    (set_global_haze_amount, 60),
+    (set_fog_distance, 300, 0xFFc7d7ec),
+    (set_rain, 1, 60),
+    ]),
+    
+    (ti_tab_pressed,0,0,[],[
+    (show_object_details_overlay, 1),
+    (jump_to_menu, "$g_next_menu"),
+    (finish_mission),
+    ]),       
+    
+    (ti_after_mission_start,0,0,[],[
+    (show_object_details_overlay, 0),
+    ]),      
+
+    (0, 0, ti_once,
+       [],[
+    (play_track, "track_cutscene_longboat_track",2),   
+
+    (get_player_agent_no, ":player"),
+    (agent_set_speed_modifier,":player", 0),
+    (agent_set_horse_speed_factor, ":player", 0),
+    (agent_set_visibility, ":player", 0),
+	   ]),
+     
+    (0,0,0,[],
+    [
+    (store_mission_timer_a, ":cur_time"),
+    (set_fixed_point_multiplier, 100),
+    (try_begin),
+        (eq, "$tutorial_state", 5),
+        (ge, ":cur_time", 71),
+        (jump_to_menu, "$g_next_menu"),
+        (mission_cam_animate_to_screen_color, 0xFF000000, 2000),
+        (show_object_details_overlay,1),
+        (finish_mission, 3),
+        (val_add, "$tutorial_state", 1),  
+    (else_try),
+        (ge, ":cur_time", 68),
+        (eq, "$tutorial_state", 4),
+        (set_fixed_point_multiplier, 1000), 
+        (entry_point_get_position, pos9, 30),
+        (mission_cam_animate_to_position, pos9, 6000, 0),  
+        (val_add, "$tutorial_state", 1),      
+    (else_try),      
+        (ge, ":cur_time", 45),
+        (eq, "$tutorial_state", 3),
+        (set_fixed_point_multiplier, 1000),
+        (entry_point_get_position, pos9, 29),
+        (mission_cam_animate_to_position, pos9, 25000, 0),  
+        (val_add, "$tutorial_state", 1),      
+    (else_try),   
+        (ge, ":cur_time", 23),
+        (eq, "$tutorial_state", 2),
+        (entry_point_get_position, pos9, 28),
+        (mission_cam_animate_to_position, pos9, 25000, 0),  
+        (val_add, "$tutorial_state", 1),      
+    (else_try),
+        (ge, ":cur_time", 1),
+        (eq, "$tutorial_state", 1),
+        (entry_point_get_position, pos9, 27),
+        (mission_cam_animate_to_position, pos9, 25000, 0),  
+        (val_add, "$tutorial_state", 1),             
+    (else_try),
+        (eq, "$tutorial_state", 0),
+        (set_fixed_point_multiplier, 1000),
+        (mission_cam_set_mode, 1, 0, 0),
+        (set_camera_in_first_person, 0),
+        (init_position, pos10),
+        (entry_point_get_position, pos10, 26),
+        (mission_cam_set_position, pos10),
+        (val_add, "$tutorial_state", 1),   
+        
+        (set_fixed_point_multiplier, 1),
+        (entry_point_get_position, pos11, 8),
+        (try_for_prop_instances, ":ship"),
+            (prop_instance_get_scene_prop_kind, ":is_ship", ":ship"),
+            (is_between, ":is_ship", "spr_ship", "spr_snowy_barrel_a"),
+            (prop_instance_animate_to_position, ":ship", pos11, 10000),  
+            (display_message, "@Wodan! Wodan! Wodan! Wodan, guard us on our journey!"),
+        (try_end), 
+        
+    (try_end),
+      ]),
+ 
+    common_inventory_not_available,]),    
+
+
 ]

@@ -71,34 +71,6 @@ strings = [
   ("hold_fire", "Hold Fire"),
   ("blunt_hold_fire", "Blunt / Hold Fire"),
 
-##  ("tutorial_camp1","This is training ground where you can learn the basics of the game. Use A, S, D, W keys to move and the mouse to look around."),
-##  ("tutorial_camp2","F is the action key. You can open doors, talk to people and pick up objects with F key. If you wish to leave a town or retreat from a battle, press the TAB key."),
-##  ("tutorial_camp3","Training Ground Master wishes to speak with you about your training. Go near him, look at him and press F when you see the word 'Talk' under his name. "),
-##  ("tutorial_camp4","To see the in-game menu, press the Escape key. If you select Options, and then Controls from the in-game menu, you can see a complete list of key bindings."),
-##  ("tutorial_camp6","You've received your first quest! You can take a look at your current quests by pressing the Q key. Do it now and check the details of your quest."),
-##  ("tutorial_camp7","You've completed your quest! Go near Training Ground Master and speak with him about your reward."),
-##  ("tutorial_camp8","You've gained some experience and weapon points! Press C key to view your character and increase your weapon proficiencies."),
-##  ("tutorial_camp9","Congratulations! You've finished the tutorial of Mount&Blade. Press TAB key to leave the training ground."),
-
-##  ("tutorial_enter_melee", "You are entering the melee weapon training area. The chest nearby contains various weapons which you can experiment with. If you wish to quit this tutorial, press TAB key."),
-##  ("tutorial_enter_ranged", "You are entering the ranged weapon training area.  The chest nearby contains various ranged weapons which you can experiment with. If you wish to quit this tutorial, press TAB key."),
-##  ("tutorial_enter_mounted", "You are entering the mounted training area. Here, you can try different kinds of weapons while riding a horse. If you wish to quit this tutorial, press TAB key."),
-
-#  ("tutorial_usage_sword", "Sword is a very versatile weapon which is very fast in both attack and defense. Usage of one handed swords are affected by your one handed weapon proficiency. Focus on the sword and press F key to pick it up."),
-#  ("tutorial_usage_axe", "Axe is a heavy (and therefore slow) weapon which can deal high damage to the opponent. Usage of one handed axes are affected by your one handed weapon proficiency. Focus on the axe and press F key to pick it up."),
-#  ("tutorial_usage_club", "Club is a blunt weapon which deals less damage to the opponent than any other one handed weapon, but it knocks you opponents unconscious so that you can take them as a prisoner. Usage of clubs are affected by your one handed weapon proficiency. Focus on the club and press F key to pick it up."),
-#  ("tutorial_usage_battle_axe", "Battle axe is a long weapon and it can deal high damage to the opponent. Usage of battle axes are affected by your two handed weapon proficiency. Focus on the battle axe and press F key to pick it up."),
-#  ("tutorial_usage_spear", "Spear is a very long weapon which lets the wielder to strike the opponent earlier. Usage of the spears are affected by your polearm proficiency. Focus on the spear and press F key to pick it up."),
-#  ("tutorial_usage_short_bow", "Short bow is a common ranged weapon which is easy to reload but hard to master at. Usage of short bows are affected by your archery proficiency. Focus on the short bow and arrows and press F key to pick them up."),
-#  ("tutorial_usage_crossbow", "Crossbow is a heavy ranged weapon which is easy to use and deals high amount of damage to the opponent. Usage of crossbows are affected by your crossbow proficiency. Focus on the crossbow and bolts and press F key to pick them up."),
-#  ("tutorial_usage_throwing_daggers", "Throwing daggers are easy to use and throwing them takes a very short time. But they deal light damage to the opponent. Usage of throwing daggers are affected byyour throwing weapon proficiency. Focus on the throwing daggers and press F key to pick it up."),
-#  ("tutorial_usage_mounted", "You can use your weapons while you're mounted. Polearms like the lance here can be used for couched damage against opponents. In order to do that, ride your horse at a good speed and aim at your enemy. But do not press the attack button."),
-
-##  ("tutorial_melee_chest", "The chest near you contains some of the melee weapons that can be used throughout the game. Look at the chest now and press F key to view its contents. Click on the weapons and move them to your Arms slots to be able to use them."),
-##  ("tutorial_ranged_chest", "The chest near you contains some of the ranged weapons that can be used throughout the game. Look at the chest now and press F key to view its contents. Click on the weapons and move them to your Arms slots to be able to use them."),
-##
-##  ("tutorial_item_equipped", "You have equipped a weapon. Move your mouse scroll wheel up to wield your weapon. You can also switch between your weapons using your mouse scroll wheel."),
-
   ("tutorial_ammo_refilled", "Ammo refilled."),
   ("tutorial_failed", "You have been beaten this time, but don't worry. Follow the instructions carefully and you'll do better next time.\
  Press the Tab key to return to to the menu where you can retry this tutorial."),
@@ -5534,6 +5506,41 @@ Even in the last case, the player can make formations up to four lines by orderi
   ("roman_focale_6","roman_focale_yellow"),
   ("roman_focale_end","roman_focale_white"),
 
+#new cloaks by asher
+  #a - to be used by thorsburg tunic
+  #b - to be used by others
+
+  ("TOAOE_cloak_1a","TOAOE_cloak_1a"),#brown
+  ("TOAOE_cloak_2a","TOAOE_cloak_2a"),#brown
+  ("TOAOE_cloak_3a","TOAOE_cloak_3a"),#brown
+  ("TOAOE_cloak_4a","TOAOE_cloak_4a"),#brown
+  ("TOAOE_cloak_5a","TOAOE_cloak_5a"),#red/roman
+  ("TOAOE_cloak_6a","TOAOE_cloak_6a"),#red/roman
+  ("TOAOE_cloak_7a","TOAOE_cloak_7a"),#yellow w/ red stripe (roman)
+  ("TOAOE_cloak_8a","TOAOE_cloak_8a"),#yellow w/ decorations (roman)
+  ("TOAOE_cloak_9a","TOAOE_cloak_9a"),#brown with decorations (roman)
+  ("TOAOE_cloak_10a","TOAOE_cloak_10a"),#decorated (roman)
+  ("TOAOE_cloak_11a","TOAOE_cloak_11a"),#decorated (roman)
+  ("TOAOE_cloak_12a","TOAOE_cloak_12a"),#germanic (brown)
+  ("TOAOE_cloak_13a","TOAOE_cloak_13a"),#germanic (red/orange)
+  ("TOAOE_cloak_14a","TOAOE_cloak_14a"),#germanic (red w/ stripes)
+  ("TOAOE_cloak_15a","TOAOE_cloak_15a"),#germanic (red w/ stripes)
+
+  ("TOAOE_cloak_1b","TOAOE_cloak_1b"),#brown
+  ("TOAOE_cloak_2b","TOAOE_cloak_2b"),#brown
+  ("TOAOE_cloak_3b","TOAOE_cloak_3b"),#brown
+  ("TOAOE_cloak_4b","TOAOE_cloak_4b"),#brown
+  ("TOAOE_cloak_5b","TOAOE_cloak_5b"),#red/roman
+  ("TOAOE_cloak_6b","TOAOE_cloak_6b"),#red/roman
+  ("TOAOE_cloak_7b","TOAOE_cloak_7b"),#yellow w/ red stripe (roman)
+  ("TOAOE_cloak_8b","TOAOE_cloak_8b"),#yellow w/ decorations (roman)
+  ("TOAOE_cloak_9b","TOAOE_cloak_9b"),#brown with decorations (roman)
+  ("TOAOE_cloak_10b","TOAOE_cloak_10b"),#decorated (roman)
+  ("TOAOE_cloak_11b","TOAOE_cloak_11b"),#decorated (roman)
+  ("TOAOE_cloak_12b","TOAOE_cloak_12b"),#germanic (brown)
+  ("TOAOE_cloak_13b","TOAOE_cloak_13b"),#germanic (red/orange)
+  ("TOAOE_cloak_14b","TOAOE_cloak_14b"),#germanic (red w/ stripes)
+  ("TOAOE_cloak_15b","TOAOE_cloak_15b"),#germanic (red w/ stripes)
 #TEXTURE STRINGS
 
 #ROUND SHIELDS + CONCAVE SHIELDS - NEW
@@ -5799,10 +5806,10 @@ Even in the last case, the player can make formations up to four lines by orderi
 ("irigation_description_rome", "Improving the irrigation of farms and pasture land will improve the fertility of the lands. It will also lower probability of droughts."),
 
 ("manor_name_rome", "Manor"),
-("manor_description_rome", "A manor lets you rest at the village and pay your troops half wages while you rest. You can also garrison troops in your manor to protect the village from raiding. You won't have to pay for the upkeep of stationed troops, but you can only add up to maximal 150 men. Furthermore, you can add prisoners, who will work in your village and generate additional wealth. It will cost 500 denars a month to maintain (costs will be paid from rents)."),
+("manor_description_rome", "A manor lets you rest at the village and pay your troops half wages while you rest. You can also garrison troops in your manor to protect the village from raiding. You won't have to pay for the upkeep of stationed troops, but you can only add up to maximal 150 men. Furthermore, you can add prisoners, who will work in your village and generate additional wealth. It will cost 500 siliquae a month to maintain (costs will be paid from rents)."),
 
 ("guard_posts_name_rome", "Guard Posts"),
-("guard_posts_description_rome", "Additional guard posts will help fighting banditry. Bandits will no longer be able to infest the settlement at night and looter will no longer spawn near the settlement. It will cost 300 denars upkeep which will be taken directly from the rents."),
+("guard_posts_description_rome", "Additional guard posts will help fighting banditry. Bandits will no longer be able to infest the settlement at night and looter will no longer spawn near the settlement. It will cost 300 siliquae upkeep which will be taken directly from the rents."),
 
 ("sewers_name_rome", "Sewers"),
 ("sewers_description_rome", "Building sewers and keeping the poop out of the streets will improve the health of the population and decrease probability of diseases."),
@@ -5857,47 +5864,47 @@ Even in the last case, the player can make formations up to four lines by orderi
 ("smithies_description_nomadic", "Smithies will increase production of tools and other metal goods and thus increase wealth and rents."),
 
 ("fishing_name_rome", "Fishing Port"),
-("fishing_description_rome", "Building an own port for a fishing fleet will increase the production of fish and thus increase rents. It will also generate 500 denars which are added to the rents (tolls)."),
+("fishing_description_rome", "Building an own port for a fishing fleet will increase the production of fish and thus increase rents. It will also generate 500 siliquae which are added to the rents (tolls)."),
 
 ("roads_name_rome", "Paved Roads"),
-("roads_description_rome", "Roads simplify transportation and will increase trade and prosperity. It will also generate 2,000 denars which are added to the rents (tolls)."),
+("roads_description_rome", "Roads simplify transportation and will increase trade and prosperity. It will also generate 2,000 siliquae which are added to the rents (tolls)."),
 ("roads_name_eastern", "Royal Toll Roads"),
-("roads_description_eastern", "Roads simplify transportation and will increase trade and prosperity. It will also generate 2,000 denars which are added to the rents (tolls)."),
+("roads_description_eastern", "Roads simplify transportation and will increase trade and prosperity. It will also generate 2,000 siliquae which are added to the rents (tolls)."),
 ("roads_name_germanic", "Meadhall"),
-("roads_description_germanic", "Building a large meadhall will increase trade and prosperity as people from nearby villages will come to spend their time there. It will also generate 2,000 denars which are added to the rents."),
+("roads_description_germanic", "Building a large meadhall will increase trade and prosperity as people from nearby villages will come to spend their time there. It will also generate 2,000 siliquae which are added to the rents."),
 ("roads_name_british", "Farmer's Market"),
-("roads_description_british", "A large marketplace will increase trade and prosperity. It will also generate 2,000 denars which are added to the rents."),
+("roads_description_british", "A large marketplace will increase trade and prosperity. It will also generate 2,000 siliquae which are added to the rents."),
 ("roads_name_dacian", "Royal Treasury"),
-("roads_description_dacian", "Minting coins and additional tax collectors will increase your income from trade and it will also generate 2,000 denars which are added to the rents."),
+("roads_description_dacian", "Minting coins and additional tax collectors will increase your income from trade and it will also generate 2,000 siliquae which are added to the rents."),
 
 ("roads_name_nomadic", "Marketplace"),
-("roads_description_nomadic", "A marketplace will increase trade and prosperity. It will also generate 2,000 denars which are added to the rents (tolls)."),
+("roads_description_nomadic", "A marketplace will increase trade and prosperity. It will also generate 2,000 siliquae which are added to the rents (tolls)."),
 
 ("hospital_name_rome", "Hospital"),
-("hospital_description_rome", "A hospital will improve the health of the population and increase your relation with the settlement. It has a monthly upkeep of 1,000 denars which will be taken from the rents."),
+("hospital_description_rome", "A hospital will improve the health of the population and increase your relation with the settlement. It has a monthly upkeep of 1,000 siliquae which will be taken from the rents."),
 ("hospital_name_eastern", "Shabestans"),
-("hospital_description_eastern", "Shabestans are an underground floor with windcatchers to provide a cool environment. Thus, they will improve the health of the population and increase your relation with the settlement. It has a monthly upkeep of 1,000 denars which will be taken from the rents."),
+("hospital_description_eastern", "Shabestans are an underground floor with windcatchers to provide a cool environment. Thus, they will improve the health of the population and increase your relation with the settlement. It has a monthly upkeep of 1,000 siliquae which will be taken from the rents."),
 ("hospital_name_germanic", "Healer"),
-("hospital_description_germanic", "A healer will improve the health of the population by treating their illnesses and increase your relation with the settlement. It has a monthly upkeep of 1,000 denars which will be taken from the rents."),
+("hospital_description_germanic", "A healer will improve the health of the population by treating their illnesses and increase your relation with the settlement. It has a monthly upkeep of 1,000 siliquae which will be taken from the rents."),
 ("hospital_name_british", "Druid Healer"),
-("hospital_description_british", "A druidic healer will improve the health of the population by treating their illnesses and increase your relation with the settlement. It has a monthly upkeep of 1,000 denars which will be taken from the rents."),
+("hospital_description_british", "A druidic healer will improve the health of the population by treating their illnesses and increase your relation with the settlement. It has a monthly upkeep of 1,000 siliquae which will be taken from the rents."),
 ("hospital_name_dacian", "Hospital"),
-("hospital_description_dacian", "A hospital will increase the health of the population and increase your relation with the settlement. It has a monthly upkeep of 1,000 denars which will be taken from the rents."),
+("hospital_description_dacian", "A hospital will increase the health of the population and increase your relation with the settlement. It has a monthly upkeep of 1,000 siliquae which will be taken from the rents."),
 ("hospital_name_nomadic", "Shaman's Hut"),
-("hospital_description_nomadic", "A shaman will improve the health of the population by treating their illnesses and increase your relation with the settlement. It has a monthly upkeep of 1,000 denars which will be taken from the rents."),
+("hospital_description_nomadic", "A shaman will improve the health of the population by treating their illnesses and increase your relation with the settlement. It has a monthly upkeep of 1,000 siliquae which will be taken from the rents."),
 
 ("habour_name_rome", "Great Harbour"),
-("habour_description_rome", "Enlarging the port will increase tariffs from sea trade and will increase prosperity and generate additional 2,500 denars of rents (tolls). Building such a large project will give you renown and experience."),
+("habour_description_rome", "Enlarging the port will increase tariffs from sea trade and will increase prosperity and generate additional 2,500 siliquae of rents (tolls). Building such a large project will give you renown and experience."),
 ("habour_name_eastern", "Grand Merchant Port"),
-("habour_description_eastern", "Enlarging the port will increase tariffs from sea trade and will increase prosperity and generate additional 2,500 denars of rents (tolls). Building such a large project will give you renown and experience."),
+("habour_description_eastern", "Enlarging the port will increase tariffs from sea trade and will increase prosperity and generate additional 2,500 siliquae of rents (tolls). Building such a large project will give you renown and experience."),
 ("habour_name_germanic", "Docks"),
-("habour_description_germanic", "Building docks and a proper port will increase tariffs from sea trade and will increase prosperity and generate additional 2,500 denars of rents (tolls). Building such a large project will give you renown and experience."),
+("habour_description_germanic", "Building docks and a proper port will increase tariffs from sea trade and will increase prosperity and generate additional 2,500 siliquae of rents (tolls). Building such a large project will give you renown and experience."),
 ("habour_name_british", "Port"),
-("habour_description_british", "Building a port will increase tariffs from sea trade and will increase prosperity and generate additional 2,500 denars of rents (tolls). Building such a large project will give you renown and experience."),
+("habour_description_british", "Building a port will increase tariffs from sea trade and will increase prosperity and generate additional 2,500 siliquae of rents (tolls). Building such a large project will give you renown and experience."),
 ("habour_name_dacian", "Harbour"),
-("habour_description_dacian", "Enlarging the port will increase tariffs from sea trade and will increase prosperity and generate additional 2,500 denars of rents (tolls). Building such a large project will give you renown and experience."),
+("habour_description_dacian", "Enlarging the port will increase tariffs from sea trade and will increase prosperity and generate additional 2,500 siliquae of rents (tolls). Building such a large project will give you renown and experience."),
 ("habour_name_nomadic", "Basic Port"),
-("habour_description_nomadic", "Building a basic port will increase tariffs from sea trade and will increase prosperity and generate additional 2,500 denars of rents (tolls). Building such a large project will give you renown and experience."),
+("habour_description_nomadic", "Building a basic port will increase tariffs from sea trade and will increase prosperity and generate additional 2,500 siliquae of rents (tolls). Building such a large project will give you renown and experience."),
 
 
 ("farming_name_rome", "Provincial Farming"),
@@ -5929,17 +5936,17 @@ Even in the last case, the player can make formations up to four lines by orderi
 
 
 ("trader_name_rome", "Provincial Trader"),
-("trader_description_rome", "Investment into local trade will increase the tariffs generated by villagers when entering the market town and will increase its prosperity. Additionally you will get 1,000 denars per month added to your rents (tolls)."),
+("trader_description_rome", "Investment into local trade will increase the tariffs generated by villagers when entering the market town and will increase its prosperity. Additionally you will get 1,000 siliquae per month added to your rents (tolls)."),
 ("trader_name_eastern", "Bazaar"),
-("trader_description_eastern", "Investment into local trade will increase the tariffs generated by villagers when entering the market town and will increase its prosperity. Additionally you will get 1,000 denars per month added to your rents (tolls)."),
+("trader_description_eastern", "Investment into local trade will increase the tariffs generated by villagers when entering the market town and will increase its prosperity. Additionally you will get 1,000 siliquae per month added to your rents (tolls)."),
 ("trader_name_germanic", "Fair"),
-("trader_description_germanic", "Greating a place for fairs and markets will increase local trade will increase the tariffs generated by villagers when entering the market town and will increase its prosperity. Additionally you will get 1,000 denars per month added to your rents (tolls)."),
+("trader_description_germanic", "Greating a place for fairs and markets will increase local trade will increase the tariffs generated by villagers when entering the market town and will increase its prosperity. Additionally you will get 1,000 siliquae per month added to your rents (tolls)."),
 ("trader_name_british", "Tavern"),
-("trader_description_british", "By building a tavern people from nearby villages will come and thus increases trade and wealth. Additionally you will get 1,000 denars per month added to your rents."),
+("trader_description_british", "By building a tavern people from nearby villages will come and thus increases trade and wealth. Additionally you will get 1,000 siliquae per month added to your rents."),
 ("trader_name_dacian", "Public Markets"),
-("trader_description_dacian", "Investment into regional trade will increase the tariffs generated by villagers when entering the market town and will increase its prosperity. Additionally you will get 1,000 denars per month added to your rents (tolls)."),
+("trader_description_dacian", "Investment into regional trade will increase the tariffs generated by villagers when entering the market town and will increase its prosperity. Additionally you will get 1,000 siliquae per month added to your rents (tolls)."),
 ("trader_name_nomadic", "Trading Post"),
-("trader_description_nomadic", "A trading post will increase the tariffs generated by villagers when entering the market town and will increase its prosperity. Additionally you will get 1,000 denars per month added to your rents (tolls)."),
+("trader_description_nomadic", "A trading post will increase the tariffs generated by villagers when entering the market town and will increase its prosperity. Additionally you will get 1,000 siliquae per month added to your rents (tolls)."),
 
 
 ("ironmine_name_rome", "Iron mine"),
@@ -5953,42 +5960,42 @@ Even in the last case, the player can make formations up to four lines by orderi
 
 #house of strength - for easterns
 ("training_name_rome", "Training Ground"),
-("training_description_rome", "A training ground allows your troops to train while garrisoned in the center. It will cost 1000 denars a month to maintain (costs will be paid from rents)."),
+("training_description_rome", "A training ground allows your troops to train while garrisoned in the center. It will cost 1000 siliquae a month to maintain (costs will be paid from rents)."),
 
 ("mill_simple_name_rome", "Mill"),
-("mill_simple_description_rome", "A mill increases village prosperity every month. And it will also add an additional income of 600 denars to the center rents (fees)."),
+("mill_simple_description_rome", "A mill increases village prosperity every month. And it will also add an additional income of 600 siliquae to the center rents (fees)."),
 
 ("firefighters_name_rome", "Fire Department"),
-("firefighters_description_rome", "Organizing a professional fire department can decrease the chance of devastating fires. It will cost 500 denars a month to maintain (costs will be paid from rents)."),
+("firefighters_description_rome", "Organizing a professional fire department can decrease the chance of devastating fires. It will cost 500 siliquae a month to maintain (costs will be paid from rents)."),
 ("firefighters_name_eastern", "Windcatchers"),
-("firefighters_description_eastern", "Windcatchers are special buildings designed to decrease temprature in the city. Hence they decreases the chance of devastating fires. It will cost 500 denars a month to maintain (costs will be paid from rents)."),
+("firefighters_description_eastern", "Windcatchers are special buildings designed to decrease temprature in the city. Hence they decreases the chance of devastating fires. It will cost 500 siliquae a month to maintain (costs will be paid from rents)."),
 ("firefighters_name_germanic", "Sanctuary of Wodanaz"),
-("firefighters_description_germanic", "Creating a sacred grove for Wodanaz to honour him will decrease the chance of devastating events like fires. It will cost 500 denars a month to maintain (costs will be paid from rents)."),
+("firefighters_description_germanic", "Creating a sacred grove for Wodanaz to honour him will decrease the chance of devastating events like fires. It will cost 500 siliquae a month to maintain (costs will be paid from rents)."),
 ("firefighters_name_british", "Sanctuary of Epona"),
-("firefighters_description_british", "Creating a large sanctuary for Epona will appease her and decrease the chance of devastating events like fires. It will cost 500 denars a month to maintain (costs will be paid from rents)."),
+("firefighters_description_british", "Creating a large sanctuary for Epona will appease her and decrease the chance of devastating events like fires. It will cost 500 siliquae a month to maintain (costs will be paid from rents)."),
 ("firefighters_name_dacian", "Basic Sanitations"),
-("firefighters_description_dacian", "Make waster disposal more efficient to decrease chance of devastating events like fires. It will cost 500 denars a month to maintain (costs will be paid from rents)."),
+("firefighters_description_dacian", "Make waster disposal more efficient to decrease chance of devastating events like fires. It will cost 500 siliquae a month to maintain (costs will be paid from rents)."),
 ("firefighters_name_nomadic", "Altar"),
-("firefighters_description_nomadic", "Build an altar to honor the gods. This will decrease chance of devastating events like fires. It will cost 500 denars a month to maintain (costs will be paid from rents)."),
+("firefighters_description_nomadic", "Build an altar to honor the gods. This will decrease chance of devastating events like fires. It will cost 500 siliquae a month to maintain (costs will be paid from rents)."),
 
 ("watchtower_name_rome", "Watch Tower"),
 ("watchtower_description_rome", "A watch tower lets the villagers raise alarm earlier. The time it takes for enemies to loot the village increases by 50%."),
 
 ("school_name_rome", "School"),
-("school_description_rome", "A shool increases the loyality of the villagers to you by +1 every month and also increases wealth. It will cost 500 denars a month to maintain (costs will be paid from rents)."),
+("school_description_rome", "A shool increases the loyality of the villagers to you by +1 every month and also increases wealth. It will cost 500 siliquae a month to maintain (costs will be paid from rents)."),
 ("school_name_eastern", "Archery Games"),
-("school_description_eastern", "Games will entertain the population and thus increase your relation by +1 every month and also increases wealth. It will cost 500 denars a month to maintain (costs will be paid from rents)."),
+("school_description_eastern", "Games will entertain the population and thus increase your relation by +1 every month and also increases wealth. It will cost 500 siliquae a month to maintain (costs will be paid from rents)."),
 ("school_name_germanic", "Storyteller"),
-("school_description_germanic", "Building a house for a storyteller will entertain the population and thus increase the loyality of the villagers to you by +1 every month and also increases wealth. It will cost 500 denars a month to maintain (costs will be paid from rents)."),
+("school_description_germanic", "Building a house for a storyteller will entertain the population and thus increase the loyality of the villagers to you by +1 every month and also increases wealth. It will cost 500 siliquae a month to maintain (costs will be paid from rents)."),
 ("school_name_british", "Hall of the Elders"),
-("school_description_british", "Building a hall where the elders can gather will increase your realtion by +1 each month and also increases wealth. It will cost 500 denars a month to maintain (costs will be paid from rents)."),
+("school_description_british", "Building a hall where the elders can gather will increase your realtion by +1 each month and also increases wealth. It will cost 500 siliquae a month to maintain (costs will be paid from rents)."),
 ("school_name_dacian", "School of Nobles"),
-("school_description_dacian", "A shool to teach the local aristocracy will increases the loyality by +1 every month and also increases wealth. It will cost 500 denars a month to maintain (costs will be paid from rents)."),
+("school_description_dacian", "A shool to teach the local aristocracy will increases the loyality by +1 every month and also increases wealth. It will cost 500 siliquae a month to maintain (costs will be paid from rents)."),
 ("school_name_nomadic", "Learning Grove"),
-("school_description_nomadic", "A learning grove increases the loyality of the villagers to you by +1 every month and also increases wealth. It will cost 500 denars a month to maintain (costs will be paid from rents)."),
+("school_description_nomadic", "A learning grove increases the loyality of the villagers to you by +1 every month and also increases wealth. It will cost 500 siliquae a month to maintain (costs will be paid from rents)."),
 
 ("messenger_post_name_rome", "Messenger Post"),
-("messenger_post_description_rome", "A messenger post lets the inhabitants send you a message whenever enemies are nearby, even if you are far away from here. It will cost 250 denars a month to maintain (costs will be paid from rents)."),
+("messenger_post_description_rome", "A messenger post lets the inhabitants send you a message whenever enemies are nearby, even if you are far away from here. It will cost 250 siliquae a month to maintain (costs will be paid from rents)."),
 ("prison_tower_name_rome", "Prison"),
 ("prison_tower_description_rome", "A prison reduces the chance of captives held here running away successfully. A prisoner tower also allows you to torture your prisoners."),
 
@@ -6292,9 +6299,9 @@ Even in the last case, the player can make formations up to four lines by orderi
 ("extort_toll", "Raise special tariffs"),
 ("extort_concile", "Raid the town counsel"),
 
-("extort_tax_xp", "You can raise a special tax. As the party member with the highest trade skill ({reg2}), {reg3?you expect:{s1} expects} it would take {reg40} hours to collect this tax and would give you {reg30} denars: But it will upset the citizens of {s39}."),
-("extort_toll_xp", "You can raise a special toll on goods which are traded today. This would upset the merchants of {s39} and the villagers of the surrounding villages, who come here to sell their goods. As the party member with the highest trade skill ({reg2}), {reg3?you expect:{s1} expects} it would take {reg40} hours to collect the toll and would give you {reg30} denars."),
-("extort_concile_xp", "The town counsel has {reg31} in their treasury. You can force them to take over their funds. It would take you 2 hours and you would gain {reg31} denars."),
+("extort_tax_xp", "You can raise a special tax. As the party member with the highest trade skill ({reg2}), {reg3?you expect:{s1} expects} it would take {reg40} hours to collect this tax and would give you {reg30} siliquae: But it will upset the citizens of {s39}."),
+("extort_toll_xp", "You can raise a special toll on goods which are traded today. This would upset the merchants of {s39} and the villagers of the surrounding villages, who come here to sell their goods. As the party member with the highest trade skill ({reg2}), {reg3?you expect:{s1} expects} it would take {reg40} hours to collect the toll and would give you {reg30} siliquae."),
+("extort_concile_xp", "The town counsel has {reg31} in their treasury. You can force them to take over their funds. It would take you 2 hours and you would gain {reg31} siliquae."),
 
 ("region_strings_begin","ZAMB LAND"),      
 ("region_spain","Spain"),      

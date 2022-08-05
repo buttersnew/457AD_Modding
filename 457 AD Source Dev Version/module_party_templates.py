@@ -283,6 +283,7 @@ party_templates = [
   ("tauri_party","Tauri Raiders",icon_axeman|carries_goods(30)|pf_show_faction,0,fac_minor_tauri,bandit_personality,[(trp_tauri_axeman,15,30),(trp_tauri_horseman,15,30)]),
   ("augundzi_party","Augundzi Warriors",icon_axeman|carries_goods(30)|pf_show_faction,0,fac_minor_augundzi,bandit_personality,[(trp_scandinavian_freeman,10,25),(trp_scandinavian_retainer,10,25),(trp_scandinavian_comes,5,10)]),
   ("vidivarii_party","Vidivarii Warriors",icon_axeman|carries_goods(30)|pf_show_faction,0,fac_minor_vidivarii,bandit_personality,[(trp_aestii_skirmisher,10,25),(trp_gothic_freeman,15,25),(trp_scandinavian_comes,5,10)]),
+  ("frisian_party","Frisii Warriors",icon_axeman|carries_goods(30)|pf_show_faction,0,fac_minor_frisians,bandit_personality,[(trp_frisian_freeman,25,50),(trp_frisian_companion,5,10)]),
 
 #Max temp 1 : 8-20
 #Max temp 2: 6-15 exclude bearer

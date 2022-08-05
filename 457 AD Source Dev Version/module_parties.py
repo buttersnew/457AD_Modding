@@ -609,6 +609,7 @@ parties = [
   ("tauri_village", "Vicus_Taurorum", icon_village_a|pf_town, no_menu, pt_none, fac_minor_tauri, 0, ai_bhvr_hold, 0, (45.09, 77.36), []),
   ("augundzi_village", "Vicus_Augandzorum", icon_village_a|pf_town, no_menu, pt_none, fac_minor_augundzi, 0, ai_bhvr_hold, 0, (-163.96, 198.3), []), 
   ("vidivarii_village", "Truso", icon_village_a|pf_town, no_menu, pt_none, fac_minor_vidivarii, 0, ai_bhvr_hold, 0, (-79.94, 152), []), 
+  ("frisian_village", "Finn's Hall", icon_village_a|pf_town, no_menu, pt_none, fac_minor_frisians, 0, ai_bhvr_hold, 0, (-174.68, 135.89), []), 
 
   #minor faction villages
 

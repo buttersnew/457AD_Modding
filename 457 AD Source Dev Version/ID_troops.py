@@ -1871,4 +1871,3 @@ trp_dplmc_scout = 1869
 trp_dplmc_recruiter = 1870
 trp_no_troop = 1871
 trp_gate_aggravator = 1872
-

@@ -132,5 +132,5 @@ tracks = [
 
   ("coronation", "coronation.ogg", mtf_persist_until_finished, 0),
     
-  ("cutscene_longboat_track", "cutscene_longboat_track.wav", mtf_persist_until_finished, 0),
+  ("cutscene_longboat_track", "victorious_neutral_3.ogg", mtf_persist_until_finished, 0),
 ]

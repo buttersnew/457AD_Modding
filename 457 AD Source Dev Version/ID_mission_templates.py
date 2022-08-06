@@ -78,3 +78,5 @@ mt_visit_minor_town = 76
 mt_minor_village_attack = 77
 mt_center_management = 78
 mt_longboat_cutscene = 79
+mt_longboat_cutscene_2 = 80
+mt_longboat_landing_1 = 81

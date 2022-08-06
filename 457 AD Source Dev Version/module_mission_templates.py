@@ -23296,6 +23296,12 @@ mission_templates = [
       [
         (replace_scene_props, "spr_earth_sally_gate_right", "spr_empty"),
         (replace_scene_props, "spr_earth_sally_gate_left", "spr_empty"),
+        (try_begin),#remove longboat for quest
+            (neg|check_quest_active, "qst_finnsburh_quest"),
+            (store_current_scene, ":scene"),
+            (eq, ":scene", "scn_frisian_town"),
+            (replace_scene_props, "spr_ship_sail_off", "spr_empty"),
+        (try_end),
       ]),
 
  #common_inventory_not_available,
@@ -23684,20 +23690,20 @@ mission_templates = [
    ("longboat_cutscene",mtf_battle_mode,-1,
     "plundering a settlement",
     [
-      (0,mtef_visitor_source,0,0,1,[]),#player
+      (0,mtef_visitor_source,af_override_horse,0,1,[]),#player
       (1,mtef_visitor_source,af_override_horse,0,1,[]),#player
-      (2,mtef_visitor_source,0,0,1,[]),#guard
-	  (3,mtef_visitor_source,0,0,1,[]),#legatus
-      (4,mtef_visitor_source,0,0,1,[]),#legatus
+      (2,mtef_visitor_source,af_override_horse,0,1,[]),#guard
+	  (3,mtef_visitor_source,af_override_horse,0,1,[]),#legatus
+      (4,mtef_visitor_source,af_override_horse,0,1,[]),#legatus
 	  
-      (5,mtef_visitor_source,0,0,1,[]),#unused
-      (6,mtef_visitor_source,0,0,1,[]),#unused
-      (7,mtef_visitor_source,0,0,1,[]),#unused
-      (8,mtef_visitor_source,0,0,1,[]),#spectators
-      (9,mtef_visitor_source,0,0,1,[]),#spectators
-      (10,mtef_visitor_source,0,0,1,[]),#spectators
-      (11,mtef_visitor_source,0,0,1,[]),#spectators
-      (12,mtef_visitor_source,0,0,1,[]),#spectators
+      (5,mtef_visitor_source,af_override_horse,0,1,[]),#unused
+      (6,mtef_visitor_source,af_override_horse,0,1,[]),#unused
+      (7,mtef_visitor_source,af_override_horse,0,1,[]),#unused
+      (8,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (9,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (10,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (11,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (12,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
       (13,mtef_visitor_source,0,0,1,[]),#spectators
       (14,mtef_visitor_source,0,0,1,[]),#spectators
       (15,mtef_visitor_source,0,0,1,[]),#spectators
@@ -23721,7 +23727,7 @@ mission_templates = [
     (ti_before_mission_start, 0, 0, [
 			 ],
     [
-    (scene_set_day_time, 19),
+    (scene_set_day_time, 6),
     (set_global_cloud_amount, 100),
     (set_global_haze_amount, 60),
     (set_fog_distance, 300, 0xFFc7d7ec),
@@ -23801,7 +23807,7 @@ mission_templates = [
         (try_for_prop_instances, ":ship"),
             (prop_instance_get_scene_prop_kind, ":is_ship", ":ship"),
             (is_between, ":is_ship", "spr_ship", "spr_snowy_barrel_a"),
-            (prop_instance_animate_to_position, ":ship", pos11, 10000),  
+            (prop_instance_animate_to_position, ":ship", pos11, 8700),  
             (display_message, "@Wodan! Wodan! Wodan! Wodan, guard us on our journey!"),
         (try_end), 
         
@@ -23810,5 +23816,138 @@ mission_templates = [
  
     common_inventory_not_available,]),    
 
+("longboat_cutscene_2",mtf_battle_mode,-1,
+    "plundering a settlement",
+    [
+      (0,mtef_visitor_source,af_override_horse,0,1,[]),#player
+      (1,mtef_visitor_source,af_override_horse,0,1,[]),#player
+      (2,mtef_visitor_source,af_override_horse,0,1,[]),#guard
+	  (3,mtef_visitor_source,af_override_horse,0,1,[]),#legatus
+      (4,mtef_visitor_source,af_override_horse,0,1,[]),#legatus
+	  
+      (5,mtef_visitor_source,af_override_horse,0,1,[]),#unused
+      (6,mtef_visitor_source,af_override_horse,0,1,[]),#unused
+      (7,mtef_visitor_source,af_override_horse,0,1,[]),#unused
+      (8,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (9,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (10,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (11,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (12,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (13,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (14,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (15,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (16,mtef_visitor_source,0,0,1,[]),#spectators
+      (17,mtef_visitor_source,0,0,1,[]),#spectators
+      (18,mtef_visitor_source,0,0,1,[]),#spectators
+      (19,mtef_visitor_source,0,0,1,[]),#spectators
+      (20,mtef_visitor_source,0,0,1,[]),#spectators
+      (21,mtef_visitor_source,0,0,1,[]),#spectators
+      (22,mtef_visitor_source,0,0,1,[]),#spectators
+      (23,mtef_visitor_source,0,0,1,[]),#spectators
+      (24,mtef_visitor_source,0,0,1,[]),#spectators
+      (25,mtef_visitor_source,0,0,1,[]),#spectators
+      (26,mtef_visitor_source,0,0,1,[]),#spectators
+      (27,mtef_visitor_source,0,0,1,[]),#spectators
+      (28,mtef_visitor_source,0,0,1,[]),#spectators
+      (29,mtef_visitor_source,0,0,1,[]),#spectators
+      (30,mtef_visitor_source,0,0,1,[]),#spectators
+    ],
+    [
+    (ti_before_mission_start, 0, 0, [
+			 ],
+    [
+    (scene_set_day_time, 20),
+    (set_global_cloud_amount, 100),
+    (set_global_haze_amount, 60),
+    (set_fog_distance, 400, 0xFFc7d7ec),
+    (set_rain, 1, 40),
+    ]),
+    
+    (ti_tab_pressed,0,0,[],[
+    (try_begin),
+        (ge, "$g_battle_result", 6),
+        (jump_to_menu, "$g_next_menu"),
+        (finish_mission),
+    (else_try),
+        (tutorial_box, "@Cannot leave now. Talk with the Dani champions first.", "@Hint"),
+    (try_end),
+    ]),       
+    
+    (ti_before_mission_start,0,0,[],[
+    (call_script, "script_music_set_situation_with_culture", mtf_sit_travel),
+    (assign, "$g_battle_result", 0),
+    ]),      
+    (ti_after_mission_start,0,0,[],[
+    (mission_enable_talk),
+    ]),      
 
+ 
+    common_inventory_not_available,]),
+("longboat_landing_1",mtf_battle_mode,-1,
+    "plundering a settlement",
+    [
+      (0,mtef_visitor_source,af_override_horse,0,1,[]),#player
+      (1,mtef_visitor_source,af_override_horse,0,1,[]),#player
+      (2,mtef_visitor_source,af_override_horse,0,1,[]),#guard
+	  (3,mtef_visitor_source,af_override_horse,0,1,[]),#legatus
+      (4,mtef_visitor_source,af_override_horse,0,1,[]),#legatus
+	  
+      (5,mtef_visitor_source,af_override_horse,0,1,[]),#unused
+      (6,mtef_visitor_source,af_override_horse,0,1,[]),#unused
+      (7,mtef_visitor_source,af_override_horse,0,1,[]),#unused
+      (8,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (9,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (10,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (11,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (12,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (13,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (14,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (15,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (16,mtef_visitor_source,0,0,1,[]),#spectators
+      (17,mtef_visitor_source,0,0,1,[]),#spectators
+      (18,mtef_visitor_source,0,0,1,[]),#spectators
+      (19,mtef_visitor_source,0,0,1,[]),#spectators
+      (20,mtef_visitor_source,0,0,1,[]),#spectators
+      (21,mtef_visitor_source,0,0,1,[]),#spectators
+      (22,mtef_visitor_source,0,0,1,[]),#spectators
+      (23,mtef_visitor_source,0,0,1,[]),#spectators
+      (24,mtef_visitor_source,0,0,1,[]),#spectators
+      (25,mtef_visitor_source,0,0,1,[]),#spectators
+      (26,mtef_visitor_source,0,0,1,[]),#spectators
+      (27,mtef_visitor_source,0,0,1,[]),#spectators
+      (28,mtef_visitor_source,0,0,1,[]),#spectators
+      (29,mtef_visitor_source,0,0,1,[]),#spectators
+      (30,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (31,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (32,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (33,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (34,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (35,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (36,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (37,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (38,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (39,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (40,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (41,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (42,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (43,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (44,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (45,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (46,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (47,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (48,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (49,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (50,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+    ],
+   vc_weather + [
+
+    (ti_before_mission_start,0,0,[],[
+    (call_script, "script_music_set_situation_with_culture", mtf_sit_feast),
+    (assign, "$g_battle_result", 0),
+    ]),      
+    (ti_after_mission_start,0,0,[],[
+    (mission_enable_talk),
+    ]),      
+ 
+    common_inventory_not_available,]),
 ]

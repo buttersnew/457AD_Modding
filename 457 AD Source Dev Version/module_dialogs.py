@@ -50681,8 +50681,311 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
 
 
 
+  [trp_dani_guthlaf,"start", [
+  (check_quest_active, "qst_finnsburh_quest"),
+  (quest_slot_eq, "qst_finnsburh_quest", slot_quest_current_state, 1),
+  (agent_slot_eq, "$g_talk_agent", slot_agent_is_in_scripted_mode, 0),
+  ], 
+  "*He is looking into the distance as you interrupt him.*", 
+  "guthlaf_talk_ship_1",[]],
+  [anyone|plyr,"guthlaf_talk_ship_1", [
+  ], 
+  "Hail, Guthlaf. What were the news before we moved out of Heorot?",
+  "guthlaf_talk_ship_2",[]],
+  
+  [anyone,"guthlaf_talk_ship_2", [
+  ], 
+  "Hail to you, {playername}. May Wotan protect you! Before we moved out there was just one topic the warriors were talking about, Svipdagr.",
+  "guthlaf_talk_ship_3",[]],
+  
+  [anyone|plyr,"guthlaf_talk_ship_3", [
+  ], 
+  "Who is he?",
+  "guthlaf_talk_ship_4",[]],
+  
+  [anyone,"guthlaf_talk_ship_4", [
+  ], 
+  "Don’t you know his tale? Gramr, our supreme lord, killed Svipdagr’s father in a duel and since then the prince has taken refuge in the lands of the Augandzi, a northern tribe, which made him their king. Travellers have rumored he has assembled a huge army in the North and he’s now building a fleet of swift ships to attack Gramr Skjoldungr.",
+  "guthlaf_talk_ship_5",[]],
+  
+  [anyone|plyr,"guthlaf_talk_ship_5", [
+  ], 
+  "And what does King Gramr have to say about it?",
+  "guthlaf_talk_ship_6",[]],
+  
+  [anyone,"guthlaf_talk_ship_6", [
+  ], 
+  "He literally said, 'let him come'. The old wolf! He’s afraid of no one. In fact, we must hurry. We cannot spend too much time among the Frisians because we’ll be soon needed in Heorot to fight against Svipdagr.",
+  "guthlaf_talk_ship_7",[]],
+  
+  [anyone|plyr,"guthlaf_talk_ship_7", [
+  ], 
+  "I guess if we do not come back in time, Gramr will be furious and will punish Hnaef harshly.",
+  "guthlaf_talk_ship_8",[]],
+  
+  [anyone,"guthlaf_talk_ship_8", [
+  ], 
+  "Indeed, and us too, probably! But Hengist with us, Gramr wouldn’t dare touch the grandson of the great god Wotan. However, this is just a simple visit, I am confident we’ll be able to get back to the hall of Heorot soon. Just don’t cause any harm to the Frisians and we’ll be free to return to our abodes.",
+  "guthlaf_talk_ship_9",[]],
+  
+  [anyone|plyr,"guthlaf_talk_ship_9", [
+  ], 
+  "I mean no harm towards the Frisians as I hold no grudge against them. However, it is Hnaef that needs an armed escort to visit his sister.",
+  "close_window",[
+  (val_add, "$g_battle_result", 1),
+  (agent_set_slot, "$g_talk_agent", slot_agent_is_in_scripted_mode, 1),
+  ]],
+  
+  
+  [trp_dani_ordlaf,"start", [
+  (check_quest_active, "qst_finnsburh_quest"),
+  (quest_slot_eq, "qst_finnsburh_quest", slot_quest_current_state, 1),
+  (agent_slot_eq, "$g_talk_agent", slot_agent_is_in_scripted_mode, 0),
+  ], 
+  "Salutions to {playername}!", 
+  "ordlaf_talk_ship_1",[]],
+  [anyone|plyr,"ordlaf_talk_ship_1", [
+  ], 
+  "Salutations, Ordlaf. What are you up to?",
+  "ordlaf_talk_ship_2",[]],
+  
+  [anyone,"ordlaf_talk_ship_2", [
+  ], 
+  "Nothing, as you can see there is nothing to do so I’ll just watch the sea and think.",
+  "ordlaf_talk_ship_3",[]],
+  
+  [anyone|plyr,"ordlaf_talk_ship_3", [
+  ], 
+  "And what are you thinking?",
+  "ordlaf_talk_ship_4",[]],
+  
+  [anyone,"ordlaf_talk_ship_4", [
+  ], 
+  "I’m thinking about meat… and honey. I’m hungry and I can’t bear one more week of porridge or dried horse meat. ",
+  "ordlaf_talk_ship_5",[]],
+  
+  [anyone|plyr,"ordlaf_talk_ship_5", [
+  ], 
+  " I agree. I seldom travel by ship and my journeys are not usually this long on sea.",
+  "ordlaf_talk_ship_6",[]],
+  
+  [anyone,"ordlaf_talk_ship_6", [
+  ], 
+  "Get used to it, it is the best way to travel. From Scandza to the rest of the world you want to travel by sea. Before serving Hnaef I was in the retinue of another lord, called Aiwarikiar Scylfingr, an exiled prince of the Swehanaz. With our ships we even went upstream of some rivers in the lands of the Aestii. ",
+  "ordlaf_talk_ship_7",[]],
+  
+  [anyone|plyr,"ordlaf_talk_ship_7", [
+  ], 
+  "What did you do there? ",
+  "ordlaf_talk_ship_8",[]],
+  
+  [anyone,"ordlaf_talk_ship_8", [
+  ], 
+  "We fought the indigenous. They are a treacherous folk who are more prone to ambushes than fighting in shieldwalls like we do. We had to study their land, their forests, understand where they laid their traps and ruin their plans. Five bloody years of war in their swampy forests. Not going back.",
+  "ordlaf_talk_ship_9",[]],
+  
+  [anyone|plyr,"ordlaf_talk_ship_9", [
+  ], 
+  "I can see why you left. But did your old chief leave be like this?",
+  "ordlaf_talk_ship_10",[]],
+  
+  [anyone,"ordlaf_talk_ship_10", [
+  ], 
+  "Yes, many of us left because there is nothing for us among the land of the Aestii. They’re poorer than us and East of them are just barren forests and even more desolate folk. If Aiwarikiar wants to set his domains there, I’ll leave him be. I am not interested.",
+  "ordlaf_talk_ship_11",[]],
+  
+  [anyone|plyr,"ordlaf_talk_ship_11", [
+  ], 
+  "I guess Scandza is good enough for you then.",
+  "close_window",[
+  (val_add, "$g_battle_result", 1),
+  (agent_set_slot, "$g_talk_agent", slot_agent_is_in_scripted_mode, 1),
+  ]],
+  
+  
+  [trp_dani_eaha,"start", [
+  (check_quest_active, "qst_finnsburh_quest"),
+  (quest_slot_eq, "qst_finnsburh_quest", slot_quest_current_state, 1),
+  (agent_slot_eq, "$g_talk_agent", slot_agent_is_in_scripted_mode, 0),
+  ], 
+  "Hail to the mighty and unkillable {playername}!", 
+  "eaha_talk_ship_1",[]],
+  [anyone|plyr,"eaha_talk_ship_1", [
+  ], 
+  "Health and prosperity to you, Eaha.",
+  "eaha_talk_ship_2",[]],
+ 
+  [anyone,"eaha_talk_ship_2", [
+  ], 
+  "Likewise, {playername}, likewise.",
+  "eaha_talk_ship_3",[]],
+ 
+  [anyone|plyr,"eaha_talk_ship_3", [
+  ], 
+  "How did you come into Hnaef’s service, if may I ask? ",
+  "eaha_talk_ship_4",[]],
+ 
+  [anyone,"eaha_talk_ship_4", [
+  ], 
+  "I was a young boy among the Hocings, my parents were distant relatives of Hnaef but they were mere farmers and freemen. Luckily, I had the chance to grow strong and healthy and Hnaef noticed me for my strength and my skill with the spear.",
+  "eaha_talk_ship_5",[]],
+ 
+  [anyone,"eaha_talk_ship_5", [
+  ], 
+  "He recruited me in his retinue and gifted me a sword, this blade I carry on my side. My parents were proud of me, from a mere freeman to a retainer: a rare honour few boys may even dream about. My forefathers were warriors and we do share some tales, but ages have passed since a scop (bard) sung tales of my ancestors deeds. Now it is my turn to make them proud.",
+  "eaha_talk_ship_6",[]],
+ 
+  [anyone|plyr,"eaha_talk_ship_6", [
+  ], 
+  "These are good intentions but what exactly do you plan to achieve?",
+  "eaha_talk_ship_7",[]],
+ 
+  [anyone,"eaha_talk_ship_7", [
+  ], 
+  "I want to slay a beast, grab the spoil of a defeated enemy champion, and marry a princess. This is the only way for me to redeem myself from my noble origins and free my family from its burdensome life at the farm. Once these things will be dealt with, I will finally start my own dynasty.",
+  "eaha_talk_ship_8",[]],
+ 
+  [anyone|plyr,"eaha_talk_ship_8", [
+  ], 
+  "I wish you success in your deeds, Eaha. Your enthusiasm is commendable.",
+  "close_window",[
+  (val_add, "$g_battle_result", 1),
+  (agent_set_slot, "$g_talk_agent", slot_agent_is_in_scripted_mode, 1),
+  ]],
+ 
+  
+  [trp_dani_sigeferth,"start", [
+  (check_quest_active, "qst_finnsburh_quest"),
+  (quest_slot_eq, "qst_finnsburh_quest", slot_quest_current_state, 1),
+  (agent_slot_eq, "$g_talk_agent", slot_agent_is_in_scripted_mode, 0),
+  ], 
+  "Hail to {playername}! What is your bidding?", 
+  "sigeferth_talk_ship_1",[]],
+  
+  [anyone|plyr,"sigeferth_talk_ship_1", [
+  ], 
+  "Hail to you, Sigeferth. The storm is finally over, our ship moves swiftly over the sea like a bird in the wind. It’s a good omen, hopefully we’ll manage to reach the Frisian coast in a few days.",
+  "sigeferth_talk_ship_2",[]],
+  
+  [anyone,"sigeferth_talk_ship_2", [
+  ], 
+  "Aye, indeed! I cannot wait to place my feet on the ground once more. We northern folk are used to long sea journeys, but nothing is like having lush, green grass below your boots and a woman on your lap!",
+  "sigeferth_talk_ship_3",[]],
+  
+  [anyone|plyr,"sigeferth_talk_ship_3", [
+  ], 
+  "Ah, yes. But please, do tell me more of your lineage. Who are the Sedgeans?",
+  "sigeferth_talk_ship_4",[]],
+  
+  [anyone,"sigeferth_talk_ship_4", [
+  ], 
+  "My kin! We live along the southern coasts south of the lands of the Jutes. North of us live the Angles and East of us the Frisians. We are the Danes faithful allies and servants, especially close to the Hocings: my father served Hoc in his youth and now it’s my turn to loyally protect Hnaef from any concealed blade. ",
+  "sigeferth_talk_ship_5",[]],
+  
+  [anyone|plyr,"sigeferth_talk_ship_5", [
+  ], 
+  "Who rules your clan while you’re away? At Heorot, Hnaef said you were the Lord of the Sedgeans.",
+  "sigeferth_talk_ship_6",[]],
+  
+  [anyone,"sigeferth_talk_ship_6", [
+  ], 
+  "My uncle does, but when I’ll come back, he’ll have to step back and let me rule in my hall. I plan to build a temple to honour Nerthus for our crops to grow in multitude and for our women to bear many sons and daughters in our tribe.",
+  "sigeferth_talk_ship_7",[]],
+  
+  [anyone|plyr,"sigeferth_talk_ship_7", [
+  ], 
+  "This is good, I wish you success. ",
+  "close_window",[
+  (val_add, "$g_battle_result", 1),
+  (agent_set_slot, "$g_talk_agent", slot_agent_is_in_scripted_mode, 1),
+  ]],
+  
+  [trp_dani_hengest,"start", [
+  (check_quest_active, "qst_finnsburh_quest"),
+  (quest_slot_eq, "qst_finnsburh_quest", slot_quest_current_state, 1),
+  (agent_slot_eq, "$g_talk_agent", slot_agent_is_in_scripted_mode, 0),
+  ], 
+  "Hail to {playername}! Great foreign warrior.", 
+  "hengest_talk_ship_1",[]],
+  
+  [anyone|plyr,"hengest_talk_ship_1", [
+  ], 
+  "I honour you, oh Hengist. You are a man well renowned among many and hordes of men would eagerly fight for you so why do you follow a lesser prince then? Hnaef may be of great lineage, but he’s a servant to a king.", 
+  "hengest_talk_ship_2",[]],
 
-  [trp_dani_hocing,"start", [], 
+  [anyone,"hengest_talk_ship_2", [
+  ], 
+  "I owe it to his father, who recently died. His father, Hoc the Half-Dane, saved my life in the past and now Hnaef wants me at his side. We fought few wars serving Gramr and he will soon release me from the oath that binds me to him. After we return to Heorot I will set sail to Britannia, where my brother needs me. If you will ever look for employment, come to us, we are always in need of warriors.", 
+  "hengest_talk_ship_3",[]],
+
+  [anyone|plyr,"hengest_talk_ship_3", [
+  ], 
+  "I will consider it. However, what exactly happened in Britannia?", 
+  "hengest_talk_ship_4",[]],
+
+  [anyone,"hengest_talk_ship_4", [
+  ], 
+  "It happened that the king of the Britons, Vortigern, fell in love with my daughter Rowena. The two married with my consent but then I asked Vortigern to honour his words and give us enough land to settle in. We shed blood for him and offered him my daughter, after all. However, it seems like it wasn’t enough for him, so we organised a trap. One day, at a banquet, we hid our seaxes in our shoes and when the time came, we slaughtered all his men and captured the greedy bastard. ", 
+  "hengest_talk_ship_5",[]],
+
+  [anyone,"hengest_talk_ship_5", [
+  ], 
+  "Since then, the Britons are our enemies, but they should blame their king instead and not us for we only defended our good name and interests while their king was just interested in our strong arms and blades. We are now ready to take what we want from them by right of conquest. ", 
+  "close_window",[
+  (val_add, "$g_battle_result", 1),
+  (agent_set_slot, "$g_talk_agent", slot_agent_is_in_scripted_mode, 1),
+  ]],
+
+
+
+  [trp_dani_hocing,"start", [
+  (check_quest_active, "qst_finnsburh_quest"),
+  (quest_slot_eq, "qst_finnsburh_quest", slot_quest_current_state, 1),
+  (agent_slot_eq, "$g_talk_agent", slot_agent_is_in_scripted_mode, 0),
+  ], 
+  "Hail {playername}!", 
+  "hocing_talk_ship_1",[]],
+  
+  [anyone|plyr,"hocing_talk_ship_1", [
+  ], 
+  "Hail, Hnaef son of Hoc. What feud elapsed between your father, Hoc, and Finn king of the Frisians?", 
+  "hocing_talk_ship_2",[]],
+  
+  [anyone,"hocing_talk_ship_2", [
+  ], 
+  "My father Hoc was the leader of my clan before me, he died recently, fighting with Gramr against the Swehanaz and therefore I, now, rule over our followers and, at the same time, answer to Gramr’s call when needed. During his time as leader of my clan, Hoc the Half-Dane, my father, had to face many enemies, one of which was Folcwald, father to Finn.", 
+  "hocing_talk_ship_3",[]],
+  
+  [anyone,"hocing_talk_ship_3", [
+  ], 
+  "It is not clear to me whether conflict arose between the two, probably because of a dispute happened while serving the Romans in Britain or the Franks. However, much blood was shed and to stop this terrible carnage the two came to an agreement: my sister, Hildeburh, had to marry Folcwald’s son, Finn. Now that even Folcwald died, his son Finn became king and thus, my sister, queen of the Frisians. The two had a son, Aethelbald, who is young, but old enough to carry a sword. We will meet him at my brother’s hall.", 
+  "hocing_talk_ship_4",[]],
+  
+  [anyone|plyr,"hocing_talk_ship_4", [
+  ], 
+  "Why did you want more armed men for your escort? Don’t you trust your brother-in-law?", 
+  "hocing_talk_ship_5",[]],
+  
+  [anyone,"hocing_talk_ship_5", [
+  ], 
+  "All door-ways,^before going forward,^should be looked to;^for difficult it is to know^where foes may sit^within a dwelling.", 
+  "close_window",[
+  (val_add, "$g_battle_result", 1),
+  (agent_set_slot, "$g_talk_agent", slot_agent_is_in_scripted_mode, 1),
+  ]],
+  
+  
+  [anyone,"start", [
+  (check_quest_active, "qst_finnsburh_quest"),
+  (quest_slot_eq, "qst_finnsburh_quest", slot_quest_current_state, 1),
+  (store_current_scene, ":scene"),
+  (eq, ":scene", "scn_cutscene_longboat_2"),
+  ], 
+  "I am busy right now. Let us talk later.", 
+  "close_window",[]],
+  
+  
+  [trp_dani_hocing,"start", [(neg|check_quest_active, "qst_finnsburh_quest"),], 
   "Hail! Whom do I have here?", 
   "finnsburg_quest_start_1",[]],
   

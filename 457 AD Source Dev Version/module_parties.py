@@ -28,6 +28,7 @@ from compiler import *
 
 no_menu = 0
 #pf_town = pf_is_static|pf_always_visible|pf_hide_defenders|pf_show_faction
+pf_minor_town = pf_is_static|pf_always_visible|pf_show_faction|pf_label_medium#medium label
 pf_town = pf_is_static|pf_always_visible|pf_show_faction|pf_label_large
 pf_castle = pf_is_static|pf_always_visible|pf_show_faction|pf_label_medium
 pf_village = pf_is_static|pf_always_visible|pf_hide_defenders|pf_label_small
@@ -598,18 +599,18 @@ parties = [
   ("freelancer_party_backup","{!}",  pf_disabled, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(1,1),[]),
 
   #minor faction villages
-  ("aestii_village", "Fort_of_the_Bull", icon_castle_b|pf_town, no_menu, pt_none, fac_minor_aestii, 0, ai_bhvr_hold, 0, (-51.63, 186.34), []),
-  ("irish_village", "Rath_Celtchair", icon_village_a|pf_town, no_menu, pt_none, fac_minor_irish, 0, ai_bhvr_hold, 0, (-242.78, 155.39), []), 
-  ("garamantian_village_1", "Garama", icon_village_c|pf_town, no_menu, pt_none, fac_minor_garamantians, 0, ai_bhvr_hold, 0, (-101.52, -130.72), []), 
-  ("dani_village", "Heorot", icon_village_a|pf_town, no_menu, pt_none, fac_minor_dani, 0, ai_bhvr_hold, 0, (-126.88, 167.08), []),  
-  ("morden_village", "Terekh's_Hall", icon_castle_b|pf_town, no_menu, pt_none, fac_minor_mordens, 0, ai_bhvr_hold, 0, (36.85, 160.96), []), 
-  ("sporoi_village", "Danaprstadr", icon_village_a|pf_town, no_menu, pt_none, fac_minor_sporoi, 0, ai_bhvr_hold, 0, (-3.35, 133), []),  
-  ("bosphoran_village", "Panticapaeum", icon_castle_a|pf_town, no_menu, pt_none, fac_minor_bosphoran, 0, ai_bhvr_hold, 0, (54.96, 84.42), []),
-  ("abagasian_village", "Anakopia", icon_castle_a|pf_town, no_menu, pt_none, fac_minor_abagasians, 0, ai_bhvr_hold, 0, (85.78,73.74), []),  
-  ("tauri_village", "Vicus_Taurorum", icon_village_a|pf_town, no_menu, pt_none, fac_minor_tauri, 0, ai_bhvr_hold, 0, (45.09, 77.36), []),
-  ("augundzi_village", "Vicus_Augandzorum", icon_village_a|pf_town, no_menu, pt_none, fac_minor_augundzi, 0, ai_bhvr_hold, 0, (-163.96, 198.3), []), 
-  ("vidivarii_village", "Truso", icon_village_a|pf_town, no_menu, pt_none, fac_minor_vidivarii, 0, ai_bhvr_hold, 0, (-79.94, 152), []), 
-  ("frisian_village", "Finn's Hall", icon_village_a|pf_town, no_menu, pt_none, fac_minor_frisians, 0, ai_bhvr_hold, 0, (-174.68, 135.89), []), 
+  ("aestii_village", "Fort_of_the_Bull", icon_castle_b|pf_minor_town, no_menu, pt_none, fac_minor_aestii, 0, ai_bhvr_hold, 0, (-51.63, 186.34), []),
+  ("irish_village", "Rath_Celtchair", icon_village_a|pf_minor_town, no_menu, pt_none, fac_minor_irish, 0, ai_bhvr_hold, 0, (-242.78, 155.39), []), 
+  ("garamantian_village_1", "Garama", icon_village_c|pf_minor_town, no_menu, pt_none, fac_minor_garamantians, 0, ai_bhvr_hold, 0, (-101.52, -130.72), []), 
+  ("dani_village", "Heorot", icon_village_a|pf_minor_town, no_menu, pt_none, fac_minor_dani, 0, ai_bhvr_hold, 0, (-126.88, 167.08), []),  
+  ("morden_village", "Terekh's_Hall", icon_castle_b|pf_minor_town, no_menu, pt_none, fac_minor_mordens, 0, ai_bhvr_hold, 0, (36.85, 160.96), []), 
+  ("sporoi_village", "Danaprstadr", icon_village_a|pf_minor_town, no_menu, pt_none, fac_minor_sporoi, 0, ai_bhvr_hold, 0, (-3.35, 133), []),  
+  ("bosphoran_village", "Panticapaeum", icon_castle_a|pf_minor_town, no_menu, pt_none, fac_minor_bosphoran, 0, ai_bhvr_hold, 0, (54.96, 84.42), []),
+  ("abagasian_village", "Anakopia", icon_castle_a|pf_minor_town, no_menu, pt_none, fac_minor_abagasians, 0, ai_bhvr_hold, 0, (85.78,73.74), []),  
+  ("tauri_village", "Vicus_Taurorum", icon_village_a|pf_minor_town, no_menu, pt_none, fac_minor_tauri, 0, ai_bhvr_hold, 0, (45.09, 77.36), []),
+  ("augundzi_village", "Vicus_Augandzorum", icon_village_a|pf_minor_town, no_menu, pt_none, fac_minor_augundzi, 0, ai_bhvr_hold, 0, (-163.96, 198.3), []), 
+  ("vidivarii_village", "Truso", icon_village_a|pf_minor_town, no_menu, pt_none, fac_minor_vidivarii, 0, ai_bhvr_hold, 0, (-79.94, 152), []), 
+  ("frisian_village", "Finn's Hall", icon_village_a|pf_minor_town, no_menu, pt_none, fac_minor_frisians, 0, ai_bhvr_hold, 0, (-174.68, 135.89), []), 
 
   #minor faction villages
 

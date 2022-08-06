@@ -678,7 +678,7 @@ troops = [
   ["multiplayer_profile_troop_female","multiplayer_profile_troop_female","multiplayer_profile_troop_female", tf_hero|tf_female|tf_guarantee_all, 0, 0,fac_commoners,
    [itm_tribal_warrior_outfit, itm_leather_boots],
    0, 0, 0, 0x000000018000000136db6db6db6db6db00000000001db6db0000000000000000],
-  ["temp_troop","Temp Troop","Temp Troop",tf_hero,no_scene,reserved,fac_commoners,[],def_attrib,0,knows_common|knows_inventory_management_10,0],
+  ["temp_troop","Temp Troop","Temp Troop",tf_hero,no_scene,reserved,fac_commoners,[],def_attrib|str_30|agi_30,0,knows_common|knows_inventory_management_10|knows_power_throw_10|knows_power_draw_10,0],
 ##  ["game","Game","Game",tf_hero,no_scene,reserved,fac_commoners,[],def_attrib,0,knows_common,0],
 ##  ["unarmed_troop","Unarmed Troop","Unarmed Troops",tf_hero,no_scene,reserved,fac_commoners,[itm_arrows,itm_short_bow],def_attrib|str_14,0,knows_common|knows_power_draw_2,0],
 
@@ -4927,6 +4927,7 @@ troops = [
    def_attrib_lvl_25|level(25),wp_one_handed(210)|wp_two_handed(190)|wp_polearm(190)|wp_archery(120)|wp_throwing(210),knows_lvl_23_inf|knows_shield_6|knows_power_strike_4,roman_face_1, roman_face_2],
 
 ####finnsburh quest characters
+#DANI
   ["dani_hocing","Hnaef Hocing","Hnaef Hocing",tf_hero,0,0,fac_minor_dani,
    [],
    def_attrib_lvl_25|level(25),wp_one_handed(210)|wp_two_handed(190)|wp_polearm(190)|wp_archery(120)|wp_throwing(210),knows_lvl_23_inf|knows_shield_6|knows_power_strike_4,roman_face_1, roman_face_2],
@@ -4945,6 +4946,23 @@ troops = [
   ["dani_guthlaf","Guthlaf","Guthlaf",tf_hero,0,0,fac_minor_dani,
    [],
    def_attrib_lvl_25|level(25),wp_one_handed(210)|wp_two_handed(190)|wp_polearm(190)|wp_archery(120)|wp_throwing(210),knows_lvl_23_inf|knows_shield_6|knows_power_strike_4,roman_face_1, roman_face_2],
+##FINNS
+  ["finn_garulf","Garulf Guthlafing","Garulf Guthlafing",tf_hero,0,0,fac_minor_frisians,
+   [],
+   def_attrib_lvl_25|level(25),wp_one_handed(210)|wp_two_handed(190)|wp_polearm(190)|wp_archery(120)|wp_throwing(210),knows_lvl_23_inf|knows_shield_6|knows_power_strike_4,roman_face_1, roman_face_2],
+
+  ["finn_guthere","Guthere","Guthere",tf_hero,0,0,fac_minor_frisians,
+   [],
+   def_attrib_lvl_25|level(25),wp_one_handed(210)|wp_two_handed(190)|wp_polearm(190)|wp_archery(120)|wp_throwing(210),knows_lvl_23_inf|knows_shield_6|knows_power_strike_4,roman_face_1, roman_face_2],
+
+  ["finn_aethelbald","Aethelbald","Aethelbald",tf_hero,0,0,fac_minor_frisians,
+   [],
+   def_attrib_lvl_25|level(25),wp_one_handed(210)|wp_two_handed(190)|wp_polearm(190)|wp_archery(120)|wp_throwing(210),knows_lvl_23_inf|knows_shield_6|knows_power_strike_4,roman_face_1, roman_face_2],
+
+  ["finn_hildeburh","Hildeburh","Hildeburh",tf_hero|tf_hero,0,0,fac_minor_frisians,
+   [],
+   def_attrib,wp(60),knows_common,woman_face_1, woman_face_2],
+####finnsburh quest characters END
 
 #other pagans of importance: Severianus of Damascus
 

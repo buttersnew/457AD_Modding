@@ -384,3 +384,4 @@ mnu_epidemic_outbreak = 382
 mnu_disaster_event = 383
 mnu_finnsburg_quest_1 = 384
 mnu_finnsburg_quest_2 = 385
+mnu_finnsburg_quest_3 = 386

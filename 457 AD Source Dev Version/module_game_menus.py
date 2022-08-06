@@ -27189,6 +27189,10 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     (set_visitor, 5, "trp_dani_ordlaf"),
     (set_visitor, 6, "trp_dani_sigeferth"),
     (set_visitor, 7, "trp_multiplayer_profile_troop_male"),
+    (set_visitor, 8, "trp_scandinavian_freeman"),
+    (set_visitor, 9, "trp_scandinavian_freeman"),
+    (set_visitor, 10, "trp_scandinavian_freeman"),
+    (set_visitor, 11, "trp_scandinavian_freeman"),
     
     (jump_to_scene, "scn_cutscene_longboat"),
     (change_screen_mission),       
@@ -27208,11 +27212,67 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     [
     ("option_1", [],"Continue.",
     [
-    (change_screen_quit),
+    (assign, "$g_next_menu", "mnu_finnsburg_quest_3"),
+    (set_jump_mission, "mt_longboat_cutscene_2"),
+    (modify_visitors_at_site, "scn_cutscene_longboat_2"),
+    (reset_visitors),    
+   
+    (set_visitor, 0, "trp_player"),
+    (set_visitor, 1, "trp_dani_eaha"),
+    (set_visitor, 2, "trp_dani_guthlaf"),
+    (set_visitor, 3, "trp_dani_hengest"),
+    (set_visitor, 4, "trp_dani_hocing"),
+    (set_visitor, 5, "trp_dani_ordlaf"),
+    (set_visitor, 6, "trp_dani_sigeferth"),
+    (set_visitor, 8, "trp_scandinavian_freeman"),
+    (set_visitor, 9, "trp_scandinavian_freeman"),
+    (set_visitor, 10, "trp_scandinavian_freeman"),
+    (set_visitor, 11, "trp_scandinavian_freeman"),
+    
+    (jump_to_scene, "scn_cutscene_longboat_2"),
+    (change_screen_mission),  
     ]),
      ("option_1", [],"test scene.",
     [
     (jump_to_scene, "scn_cutscene_longboat_2"),
+    (change_screen_mission),
+    ]),   
+    ],),   
+ ("finnsburg_quest_3",0,
+    "The longship finally reaches the Frisian village, you can spot some fires along the beach to signal the presence of the settlement. A big square can be seen just beyond the beach, where traders and other salesmen sell their goods from beyond the sea. A small group of men await the Danes at the beach: it is Finn and his men wave at the sailors, signalling them to land next to them.",
+    "none", [
+    (quest_set_slot, "qst_finnsburh_quest", slot_quest_current_state, 2),
+    ],
+    [
+    ("option_1", [],"Continue.",
+    [
+    #36 player, 37-42 dani
+      #43-46 fin
+    (assign, "$g_next_menu", "mnu_finnsburg_quest_3"),
+    (set_jump_mission, "mt_longboat_landing_1"),
+    (modify_visitors_at_site, "scn_frisian_town"),
+    (reset_visitors),    
+   
+    (set_visitor, 36, "trp_player"),
+    (set_visitor, 38, "trp_dani_eaha"),
+    (set_visitor, 39, "trp_dani_guthlaf"),
+    (set_visitor, 40, "trp_dani_hengest"),
+    (set_visitor, 37, "trp_dani_hocing"),
+    (set_visitor, 41, "trp_dani_ordlaf"),
+    (set_visitor, 42, "trp_dani_sigeferth"),
+    (set_visitor, 43, "trp_finn_garulf"),
+    (set_visitor, 44, "trp_frisian_king"),
+    (set_visitor, 45, "trp_finn_aethelbald"),
+    (set_visitor, 46, "trp_finn_guthere"),
+    
+    (jump_to_scene, "scn_frisian_town"),
+    (change_screen_mission),  
+
+      
+    ]),
+     ("option_1", [],"test scene.",
+    [
+    (jump_to_scene, "scn_frisian_town"),
     (change_screen_mission),
     ]),   
     ],),   

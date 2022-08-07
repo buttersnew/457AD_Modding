@@ -4948,25 +4948,25 @@ troops = [
    def_attrib_lvl_25|level(25),wp_one_handed(210)|wp_two_handed(190)|wp_polearm(190)|wp_archery(120)|wp_throwing(210),knows_lvl_23_inf|knows_shield_6|knows_power_strike_4,roman_face_1, roman_face_2],
 
 ####finnsburh quest characters
-#DANI
+#DANI are strong hehe
   ["dani_hocing","Hnaef Hocing","Hnaef Hocing",tf_hero,0,0,fac_minor_dani,
    [itm_obenaltendorf_shoes_1,itm_mid_generic_mail_19,itm_tarasovsky_782,itm_indesheim_spatha_rich,itm_concave_shield_germanic_10],
-   def_attrib_lvl_25|level(25),wp_one_handed(210)|wp_two_handed(190)|wp_polearm(190)|wp_archery(120)|wp_throwing(210),knows_lvl_23_inf|knows_shield_6|knows_power_strike_4,0x0000000196000509291a692862adb6db00000000001db6e90000000000000000],
+   knight_attrib_5,wp(300),knows_berserker,0x0000000196000509291a692862adb6db00000000001db6e90000000000000000],
   ["dani_sigeferth","Sigeferth","Sigeferth",tf_hero,0,0,fac_minor_dani,
    [itm_wrapping_boots,itm_mid_generic_mail_24,itm_drengsted_helmet_mail,itm_indesheim_spatha_rich,itm_round_shield_germanic_19],
-   def_attrib_lvl_25|level(25),wp_one_handed(210)|wp_two_handed(190)|wp_polearm(190)|wp_archery(120)|wp_throwing(210),knows_lvl_23_inf|knows_shield_6|knows_power_strike_4,0x00000001890010ca291189286251b2da00000000001db6e80000000000000000],
+   knight_attrib_5,wp(300),knows_berserker,0x00000001890010ca291189286251b2da00000000001db6e80000000000000000],
   ["dani_eaha","Eaha","Eaha",tf_hero,0,0,fac_minor_dani,
    [itm_simple_shoes,itm_cloaked_tunic_1,itm_germanic_cap_1,itm_sword_medieval_c_long,itm_round_shield_germanic_12],
-   def_attrib_lvl_25|level(25),wp_one_handed(210)|wp_two_handed(190)|wp_polearm(190)|wp_archery(120)|wp_throwing(210),knows_lvl_23_inf|knows_shield_6|knows_power_strike_4,0x00000005ab00144136536e586951b4e300000000001d36a30000000000000000],
+   knight_attrib_5,wp(300),knows_berserker,0x00000005ab00144136536e586951b4e300000000001d36a30000000000000000],
   ["dani_hengest","Hengest Wodning","Hengest Wodning",tf_hero,0,0,fac_minor_dani,
    [itm_obenaltendorf_shoes_2,itm_mid_generic_mail_29,itm_tsaritsyno_2_2,itm_samson_spatha_2_rich,itm_concave_shield_germanic_25],
-   def_attrib_lvl_25|level(25),wp_one_handed(210)|wp_two_handed(190)|wp_polearm(190)|wp_archery(120)|wp_throwing(210),knows_lvl_23_inf|knows_shield_6|knows_power_strike_4,0x00000006800044c759522e454b91231a00000000001eb6e20000000000000000],
+   knight_attrib_5,wp(300),knows_berserker,0x00000006800044c759522e454b91231a00000000001eb6e20000000000000000],
   ["dani_ordlaf","Ordlaf","Ordlaf",tf_hero,0,0,fac_minor_dani,
    [itm_obenaltendorf_shoes_2,itm_cloaked_generic_tunic_3,itm_concave_shield_germanic_21,itm_angon_1,itm_long_seax_3],
-   def_attrib_lvl_25|level(25),wp_one_handed(210)|wp_two_handed(190)|wp_polearm(190)|wp_archery(120)|wp_throwing(210),knows_lvl_23_inf|knows_shield_6|knows_power_strike_4,0x00000004e300508836536d3793aca91b00000000001db6d30000000000000000],
+   knight_attrib_5,wp(300),knows_berserker,0x00000004e300508836536d3793aca91b00000000001db6d30000000000000000],
   ["dani_guthlaf","Guthlaf","Guthlaf",tf_hero,0,0,fac_minor_dani,
    [itm_ankle_boots,itm_cloaked_tunic_9,itm_round_shield_germanic_19,itm_war_spear_2],
-   def_attrib_lvl_25|level(25),wp_one_handed(210)|wp_two_handed(190)|wp_polearm(190)|wp_archery(120)|wp_throwing(210),knows_lvl_23_inf|knows_shield_6|knows_power_strike_4,0x000000074f00030f46536e7a2951b2d900000000001db6da0000000000000000],
+   knight_attrib_5,wp(300),knows_berserker,0x000000074f00030f46536e7a2951b2d900000000001db6da0000000000000000],
 ##FINNS
   ["finn_garulf","Garulf Guthlafing","Garulf Guthlafing",tf_hero,0,0,fac_minor_frisians,
    [itm_simple_shoes,itm_mid_generic_mail_18,itm_fernpass_helmet_2,itm_battle_axe,itm_concave_shield_germanic_22],
@@ -4980,7 +4980,7 @@ troops = [
    [itm_ankle_boots,itm_mid_generic_mail_27,itm_triveres_leather,itm_round_shield_germanic_22,itm_sword_viking_a_long],
    def_attrib_lvl_25|level(25),wp_one_handed(210)|wp_two_handed(190)|wp_polearm(190)|wp_archery(120)|wp_throwing(210),knows_lvl_23_inf|knows_shield_6|knows_power_strike_4,0x00000004c00020451651c248a195a49100000000001d368a0000000000000000],
 
-  ["finn_hildeburh","Hildeburh","Hildeburh",tf_hero|tf_hero,0,0,fac_minor_frisians,
+  ["finn_hildeburh","Hildeburh","Hildeburh",tf_hero|tf_female,0,0,fac_minor_frisians,
    [itm_wrapping_boots,itm_dress_5],
    def_attrib,wp(60),knows_common,woman_face_1, woman_face_2],
 ####finnsburh quest characters END

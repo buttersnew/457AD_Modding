@@ -3682,7 +3682,9 @@ simple_triggers = [
 
   # Taking denars from player while resting in not owned centers
   (1,
-   [(neg|map_free),
+   [
+    (neg|check_quest_active, "qst_finnsburh_quest"),
+    (neg|map_free),
     (is_currently_night),
 #    (ge, "$g_last_rest_center", 0),
     (this_or_next|is_between, "$g_last_rest_center", centers_begin, centers_end),

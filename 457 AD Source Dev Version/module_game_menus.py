@@ -25421,10 +25421,26 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     "In the distance you see {s50}. It is the capital of the {s51}. ^^{s52}",
     "none",
     [
-  (try_begin), #first checks if the party has been sacked
-    (party_slot_eq, "$g_encountered_party", slot_party_been_sacked, 1),
-    (jump_to_menu, "mnu_settlement_looted"),
-  (try_end),
+    
+    
+    (try_begin), #check for quest
+        (check_quest_active, "qst_finnsburh_quest"),
+        (quest_slot_eq, "qst_finnsburh_quest", slot_quest_current_state, 4),
+        (jump_to_menu, "mnu_finnsburg_quest_6"),
+    (else_try),
+        (check_quest_active, "qst_finnsburh_quest"),
+        (this_or_next|quest_slot_eq, "qst_finnsburh_quest", slot_quest_current_state, 7),
+        (this_or_next|quest_slot_eq, "qst_finnsburh_quest", slot_quest_current_state, 8),
+        (this_or_next|quest_slot_eq, "qst_finnsburh_quest", slot_quest_current_state, 9),
+        (this_or_next|quest_slot_eq, "qst_finnsburh_quest", slot_quest_current_state, 10),
+        (quest_slot_eq, "qst_finnsburh_quest", slot_quest_current_state, 11),
+        (jump_to_menu, "mnu_finnsburg_quest_8"),
+    (try_end),
+    
+    (try_begin), #first checks if the party has been sacked
+        (party_slot_eq, "$g_encountered_party", slot_party_been_sacked, 1),
+        (jump_to_menu, "mnu_settlement_looted"),
+    (try_end),
 
   (assign, "$current_town","$g_encountered_party"),
   (store_faction_of_party, ":fac", "$g_encountered_party"),
@@ -27158,6 +27174,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
  ("finnsburg_quest_1",0,
     "The journey towards the land of the Frisians is long and tiring. The northern sea is often tumultuous and life on the ship isn't easy, however, Hnaef's men remain calm, knowing that their journey has just started and the most has yet to come.",
     "none", [
+    (play_track, "track_cutscene_longboat_track",1),
     ],
     [
     ("option_1", [],"Continue.",
@@ -27248,11 +27265,11 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     [
     #36 player, 37-42 dani
       #43-46 fin
-    (assign, "$g_next_menu", "mnu_finnsburg_quest_3"),
     (set_jump_mission, "mt_longboat_landing_1"),
+    (assign, "$g_next_menu", "mnu_finnsburg_quest_4"),
     (modify_visitors_at_site, "scn_frisian_town"),
     (reset_visitors),    
-   
+    (assign, "$temp", "trp_frisian_king"),
     (set_visitor, 36, "trp_player"),
     (set_visitor, 38, "trp_dani_eaha"),
     (set_visitor, 39, "trp_dani_guthlaf"),
@@ -27276,13 +27293,384 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     (change_screen_mission),
     ]),   
     ],),   
+ ("finnsburg_quest_4",0,
+    "The group of champions heads towards Finn's hall. Hildeburh and her maidens have naerly finished the preparations for the feast. While entering, one of the maidens, who carries a large jug of mead, gives you an ambiguous wink."
+    +" You remember her face, she may be of use later on.",
+    "none", [
+    (quest_set_slot, "qst_finnsburh_quest", slot_quest_current_state, 3),
+    (play_track, "track_finnsburg_feast_track",1), 
+    ],
+    [
+    ("option_1", [],"Continue.",
+    [
+    #36 player, 37-42 dani
+      #43-46 fin
+    (set_jump_mission, "mt_longboat_landing_1"),
+    (assign, "$g_next_menu", "mnu_finnsburg_quest_5"),
+    (modify_visitors_at_site, "scn_finns_hall_interior"),
+    (reset_visitors),    
+    (assign, "$temp", "trp_finn_hildeburh"),
+    (set_visitor, 0, "trp_player"),
+    (set_visitor, 1, "trp_dani_eaha"),
+    (set_visitor, 2, "trp_dani_guthlaf"),
+    (set_visitor, 3, "trp_dani_hengest"),
+    (set_visitor, 4, "trp_dani_hocing"),
+    (set_visitor, 5, "trp_dani_ordlaf"),
+    (set_visitor, 6, "trp_dani_sigeferth"),
+    (set_visitor, 7, "trp_finn_garulf"),
+    (set_visitor, 8, "trp_frisian_king"),
+    (set_visitor, 9, "trp_finn_aethelbald"),
+    (set_visitor, 10, "trp_finn_guthere"),
+    (set_visitor, 11, "trp_finn_hildeburh"),
+    (set_visitor, 12, "trp_town_walker_2"),
+    (set_visitor, 13, "trp_town_walker_2"),
+    (set_visitor, 14, "trp_town_walker_2"),
+    (set_visitor, 15, "trp_town_walker_2"),
+    
+    (jump_to_scene, "scn_finns_hall_interior"),
+    (change_screen_mission),  
 
+      
+    ]),
+    ("option_1", [],"test scene.",
+    [
+    (jump_to_scene, "scn_finns_hall_interior"),
+    (change_screen_mission),
+    ]),   
+    ],),   
+
+ ("finnsburg_quest_5",0,
+    "Generous amounts of food are served, although not of great varied. Plenty of mead is brought by the maidens. You recognize the face of the maid serving you, it's the one giving you the wink. You smile when she looks into your direction. She notices your sign and stays close to you. "+
+    "^While the mead is dimming your mind, while the music is whistling through your ears and the food is warming your belly you feel the desires of flesh. The maiden would be an easy match for you...."
+    +"^You take another glance at the maid, closely observing how her curves are stretching her dress. Now its time to decide...",
+    "none", [
+    (quest_set_slot, "qst_finnsburh_quest", slot_quest_current_state, 4),
+    (party_relocate_near_party, "p_main_party", "p_frisian_village", 0),
+    (disable_party),
+    
+    (store_time_of_day,":cur_time_of_day"),#0 to 24
+    (val_add, ":cur_time_of_day", 1),
+    (assign, reg22, 48),
+    (val_sub,reg22,":cur_time_of_day"),
+    (val_mod,reg22,24),
+    (val_add,reg22, 1),
+    ],
+    [
+    ("option_1", [],"...give the maid a wink and spend the rest of the feast with her.",
+    [
+    (assign, "$auto_enter_town", "p_frisian_village"),
+    (assign, "$g_town_visit_after_rest", 1),
+    (assign, "$g_last_rest_center", "p_frisian_village"),
+    (assign, "$g_last_rest_payment_until", -1),
+    (rest_for_hours, reg22, 3, 0),
+    (change_screen_map),
+    
+    (add_xp_as_reward, 1500),
+    (display_message, "@You ignore everything around you and focus on the maid. Her embrace gives you many joys..."),
+    ]),
+    ("option_2", [],"...drink, eat and ensure that the name of your host is honored properly, the woman isn't important.",
+    [
+    (assign, "$auto_enter_town", "p_frisian_village"),
+    (assign, "$g_town_visit_after_rest", 1),
+    (assign, "$g_last_rest_center", "p_frisian_village"),
+    (assign, "$g_last_rest_payment_until", -1),
+    (rest_for_hours, reg22, 3, 0),
+    (call_script, "script_change_troop_renown", "trp_player", 15),
+    (display_message, "@By honoring the name of your host propery you spread not only his but also your own fame..."),
+    (change_screen_map),
+    ]),
+  
+    ("option_3", [],"...stay modest, everything else is sinful.",
+    [
+    (assign, "$auto_enter_town", "p_frisian_village"),
+    (assign, "$g_town_visit_after_rest", 1),
+    (assign, "$g_last_rest_center", "p_frisian_village"),
+    (assign, "$g_last_rest_payment_until", -1),
+    (rest_for_hours, reg22, 3, 0),
+    (val_add, "$piety", 5),
+    (display_message, "@Staying modest increases your piety, however being modest brings no fame..."),
+    (change_screen_map),
+    ]),
+  
+    ],),   
+ ("finnsburg_quest_6",0,
+    "You wake up by the sound of spears hitting the shields and cries of men outside the hall. The other Dani warriors have already got their equipment. "
+    +"You hurry up to pull on your armour and grab your weapons.",
+    "none", [
+    (add_quest_note_from_sreg, "qst_finnsburh_quest", 3, "@Finn has betrayed the Dani and ordered to kill all Dani champions.", 0),
+    (quest_set_slot, "qst_finnsburh_quest", slot_quest_current_state, 5),
+    ],
+    [
+    ("option_1", [],"Continue",
+    [
+    (set_jump_mission, "mt_finns_hall_murder"),
+    (assign, "$g_next_menu", "mnu_finnsburg_quest_7"),
+    (modify_visitors_at_site, "scn_finns_hall_interior"),
+    (reset_visitors),    
+    (set_visitor, 25, "trp_player"),
+    (set_visitor, 22, "trp_dani_eaha"),
+    (set_visitor, 27, "trp_dani_guthlaf"),
+    (set_visitor, 23, "trp_dani_hengest"),
+    (set_visitor, 24, "trp_dani_hocing"),
+    (set_visitor, 28, "trp_dani_ordlaf"),
+    (set_visitor, 26, "trp_dani_sigeferth"),
+    
+    (set_visitor, 18, "trp_finn_garulf"),
+    (set_visitor, 19, "trp_frisian_king"),
+    (set_visitor, 20, "trp_finn_aethelbald"),
+    (set_visitor, 21, "trp_finn_guthere"),
+
+    (assign, "$temp", "trp_frisian_king"),
+    (jump_to_scene, "scn_finns_hall_interior"),
+    (change_screen_mission), 
+    ]),
+    ("option_1", [],"test scene.",
+    [
+    #attacker entries: 16 and 17, 
+    #18,19,20,21 entry outside of 17
+    #22,23,24,25,26,27,28 inside near 17
+    (jump_to_scene, "scn_finns_hall_interior"),
+    (change_screen_mission),
+    ]),  
+    ],),   
+ ("finnsburg_quest_7",0,
+    "Since Garulf Guthlafing, a jutish champion, died by Sigeferth's hands, Finn kept sending more men each night to assault his hall. "
+    +"Although being undersiege in the hall the Dani champions are optimistic. The food and mead is plenty, there is enough room to sleep and defending the door is easier than storming it.",
+    "none", [
+    (add_quest_note_from_sreg, "qst_finnsburh_quest", 4, "@Finn has ordered to lay siege to his own hall. You have to defend against Frisian attacks.", 0),
+    (quest_set_slot, "qst_finnsburh_quest", slot_quest_current_state, 7),
+    ],
+    [
+    ("option_1", [],"Continue",
+    [
+    (store_time_of_day,":cur_time_of_day"),#0 to 24
+    (val_add, ":cur_time_of_day", 1),
+    (assign, reg22, 48),
+    (val_sub,reg22,":cur_time_of_day"),
+    (val_mod,reg22,24),
+    (val_add,reg22, 1),
+    
+    (assign, "$auto_enter_town", "p_frisian_village"),
+    (assign, "$g_town_visit_after_rest", 1),
+    (assign, "$g_last_rest_center", "p_frisian_village"),
+    (assign, "$g_last_rest_payment_until", -1),
+    (rest_for_hours, reg22, 15, 0),
+    (change_screen_map),
+    ]), 
+    
+    ],),
+ ("finnsburg_quest_8",0,
+    "Finn's men try another assault. His son is leading the troops. It is time to fight!",
+    "none", [
+    (try_begin),
+        (quest_slot_eq, "qst_finnsburh_quest", slot_quest_current_state, 11),
+        (jump_to_menu, "mnu_finnsburg_quest_final_battle_talk"),
+    (try_end),
+    (set_background_mesh, "mesh_pic_sea_raiders"),
+    ],
+    [
+    ("option_1", [],"To battle Dani champions!",
+    [
+    (set_jump_mission, "mt_finns_hall_battle"),
+    (modify_visitors_at_site, "scn_finns_hall_interior"),
+    (reset_visitors),    
+    
+    # (try_begin),
+        # (quest_slot_eq, "qst_finnsburh_quest", slot_quest_current_state, 12),
+        # (troop_set_health, "trp_dani_eaha", 25),
+        # (troop_set_health, "trp_dani_guthlaf", 25),
+        # (troop_set_health, "trp_dani_hengest", 25),
+        # (troop_set_health, "trp_dani_hocing", 25),
+        # (troop_set_health, "trp_dani_ordlaf", 25),
+        # (troop_set_health, "trp_dani_sigeferth", 25),
+    # (else_try),
+    (troop_set_health, "trp_dani_eaha", 100),
+    (troop_set_health, "trp_dani_guthlaf", 100),
+    (troop_set_health, "trp_dani_hengest", 100),
+    (troop_set_health, "trp_dani_hocing", 100),
+    (troop_set_health, "trp_dani_ordlaf", 100),
+    (troop_set_health, "trp_dani_sigeferth", 100),
+    # (try_end),
+    
+    
+    (set_visitor, 25, "trp_player"),
+    (set_visitor, 22, "trp_dani_eaha"),
+    (set_visitor, 27, "trp_dani_guthlaf"),
+    (set_visitor, 23, "trp_dani_hengest"),
+    (set_visitor, 24, "trp_dani_hocing"),
+    (set_visitor, 28, "trp_dani_ordlaf"),
+    (set_visitor, 26, "trp_dani_sigeferth"),
+    
+    (set_visitor, 17, "trp_finn_aethelbald"),
+    
+    (assign, ":number_1", 3),
+    (assign, ":number_2", 1),
+    (try_begin),
+        (quest_slot_eq, "qst_finnsburh_quest", slot_quest_current_state, 7),
+        (assign, "$temp", 2),
+    (else_try),
+        (quest_slot_eq, "qst_finnsburh_quest", slot_quest_current_state, 8),
+        (assign, "$temp", 3),
+    (else_try),
+        (quest_slot_eq, "qst_finnsburh_quest", slot_quest_current_state, 9),
+        (assign, "$temp", 4),
+    (else_try),
+        (quest_slot_eq, "qst_finnsburh_quest", slot_quest_current_state, 10),
+        (assign, "$temp", 5),
+    (else_try),
+        (quest_slot_eq, "qst_finnsburh_quest", slot_quest_current_state, 12),
+        (assign, "$temp", 10000),
+    (try_end),
+    
+    (set_visitors, 17, "trp_frisian_freeman", ":number_1"),
+    (set_visitors, 17, "trp_frisian_companion", ":number_2"),
+    
+    (try_begin),
+        (quest_slot_eq, "qst_finnsburh_quest", slot_quest_current_state, 12),
+        (set_visitors, 16, "trp_frisian_freeman", ":number_1"),
+        (set_visitors, 16, "trp_frisian_companion", ":number_2"),
+    (try_end),
+
+    (jump_to_scene, "scn_finns_hall_interior"),
+    (change_screen_mission), 
+
+    ]), 
+    
+    ],), 
+    ("finnsburg_quest_final_battle_talk",0,
+    "The men are getting tired as the assaults continue. You can feel that the last battle has come. Maybe you will die today, however it doesn't matter as you will die fighting, honoring your word and your name.",
+    "none", [
+    # (set_background_mesh, "mesh_pic_sea_raiders"),
+    ],
+    [
+    ("option_1", [],"Continue",
+    [
+    (set_jump_mission, "mt_longboat_landing_1"),
+    (assign, "$g_next_menu", "mnu_finnsburg_quest_8"),
+    (modify_visitors_at_site, "scn_finns_hall_interior"),
+    (reset_visitors),    
+    (assign, "$temp", "trp_dani_hocing"),
+    (set_visitor, 0, "trp_player"),
+    (set_visitor, 1, "trp_dani_eaha"),
+    (set_visitor, 7, "trp_dani_guthlaf"),
+    (set_visitor, 8, "trp_dani_hengest"),
+    (set_visitor, 9, "trp_dani_hocing"),
+    (set_visitor, 10, "trp_dani_ordlaf"),
+    (set_visitor, 11, "trp_dani_sigeferth"),
+    (jump_to_scene, "scn_finns_hall_interior"),
+    (change_screen_mission),      ]), 
+    
+    ],), 
+    
+    ("finnsburg_quest_battle_won",0,
+    "Finn's men are forced to retreat. However they will regroup and come back next night.",
+    "none", [
+    (set_background_mesh, "mesh_pic_victory"),
+    (quest_get_slot, ":state", "qst_finnsburh_quest", slot_quest_current_state),
+    (val_add, ":state", 1),
+    (quest_set_slot, "qst_finnsburh_quest", slot_quest_current_state, ":state"),
+    ],
+    [
+    ("option_1", [],"Continue",
+    [
+    (store_time_of_day,":cur_time_of_day"),#0 to 24
+    (val_add, ":cur_time_of_day", 1),
+    (assign, reg22, 48),
+    (val_sub,reg22,":cur_time_of_day"),
+    (val_mod,reg22,24),
+    (val_add,reg22, 1),
+    (assign, "$auto_enter_town", "p_frisian_village"),
+    (assign, "$g_town_visit_after_rest", 1),
+    (assign, "$g_last_rest_center", "p_frisian_village"),
+    (assign, "$g_last_rest_payment_until", -1),
+    (rest_for_hours, reg22, 15, 0),
+    (change_screen_map),
+     ]), 
+    
+    ],),
+    ("finnsburg_quest_battle_final",0,
+    "You wake up with a terrible headache. Luckily you are alive. But you find out the only Danes who survived are Hengist, Ordlaf and Guthlaf. Hnaef lies dead on the ground, as well as Sigeferth and Eaha. Hnaef was mortally wounded by a blow that hit his head. Hengist and the other survivors all agreed to sign peace with Finn Folcwalding and the Frisians. It looks, however, that in the middle of the fray, even Aethelbald, Finn's heir, died fighting against Hnaef."
+    +" You treat your wounds. Then Finn, Hildeburh and other Frisian warriors enter the hall through the gate.",
+    "none", [
+    (set_background_mesh, "mesh_pic_defeat"),
+    (quest_set_slot, "qst_finnsburh_quest", slot_quest_current_state, 13),
+    ],
+    [
+    ("option_1", [],"Glory to the fallen, their names will be remembered!",
+    [
+    (set_jump_mission, "mt_longboat_landing_1"),
+    (assign, "$g_next_menu", "mnu_finnsburg_quest_final_feast"),
+    (modify_visitors_at_site, "scn_finns_hall_interior"),
+    (reset_visitors),    
+    (assign, "$temp", "trp_dani_hengest"),
+    (set_visitor, 0, "trp_player"),
+    # (set_visitor, 1, "trp_dani_eaha"),#dead
+    (set_visitor, 2, "trp_dani_guthlaf"),
+    (set_visitor, 3, "trp_dani_hengest"),
+    # (set_visitor, 4, "trp_dani_hocing"),#dead
+    (set_visitor, 5, "trp_dani_ordlaf"),
+    # (set_visitor, 6, "trp_dani_sigeferth"),#dead
+    # (set_visitor, 7, "trp_finn_garulf"),#dead
+    (set_visitor, 8, "trp_frisian_king"),
+    # (set_visitor, 9, "trp_finn_aethelbald"),#dead
+    (set_visitor, 10, "trp_finn_guthere"),
+    (set_visitor, 11, "trp_finn_hildeburh"),
+    (jump_to_scene, "scn_finns_hall_interior"),
+    (change_screen_mission),  
+     ]), 
+     ]),
+     
+    ("finnsburg_quest_final_feast",0,
+    "First, the dead were removed and prepared for burial. Then the hall was cleaned and a great feast was organised the same day, where both Frisians and Danes took part. You, confused by the situation, stuck with the participants, and tried to enjoy the banquet. The evening after, Hnaef and Aethelbald corpses were burned on a pyre next to the beach. You and the Danes slept again in the village. You wake up in the morning and notice Hengist and Guthlaf speaking: Guthlaf placed Hnaef's sword on Hengist's lap.",
+    "none", [
+    (set_background_mesh, "mesh_pic_defeat"),
+    (quest_set_slot, "qst_finnsburh_quest", slot_quest_current_state, 14),
+    ],
+    [
+    ("option_1", [],"Continue...",
+    [
+    (set_jump_mission, "mt_longboat_landing_1"),
+    (assign, "$g_next_menu", "mnu_finnsburg_quest_final_end"),
+    (modify_visitors_at_site, "scn_finns_hall_interior"),
+    (reset_visitors),    
+    (assign, "$temp", "trp_dani_guthlaf"),
+    (set_visitor, 0, "trp_player"),
+    # (set_visitor, 1, "trp_dani_eaha"),#dead
+    (set_visitor, 2, "trp_dani_guthlaf"),
+    (set_visitor, 7, "trp_dani_hengest"),
+    # (set_visitor, 4, "trp_dani_hocing"),#dead
+    (set_visitor, 11, "trp_dani_ordlaf"),
+    # (set_visitor, 6, "trp_dani_sigeferth"),#dead
+
+    (jump_to_scene, "scn_finns_hall_interior"),
+    (change_screen_mission),  
+     ]), 
+    
+    ],),
+    
+    ("finnsburg_quest_final_end",0,
+    "You advanterous journey has not ended yet. You still need to return to Heorot. Your men are still waiting there for you."
+    +"^^You join the next merchant ship travelling to Heorot. After you arrive, you find your men mainly drunken and in company of the local wenches. They have become lazy and some seem to be way fatter than before."
+    +" The Dani women indeed showed them too much hospitality. It takes you a whole day to restore order and discipline.",
+    "none", [
+    (set_background_mesh, "mesh_pic_camp"),
+    ],
+    [
+    ("option_1", [],"Continue...",
+    [
+    (rest_for_hours, 24, 16, 0),
+    (party_relocate_near_party, "p_main_party", "p_dani_village", 1),
+    (enable_party, "p_main_party"),
+    (change_screen_map),
+     ]), 
+    
+    ],),
 #################BIG CHUNGUS FINNSBURG QUEST END
     
-#+freelancer end
+#end of file
  ]
  
-
+#Freelance shit, fuck freelancer shit
 pre_join_freelancer = [
           (eq, "$freelancer_state", 1),
       (try_begin),

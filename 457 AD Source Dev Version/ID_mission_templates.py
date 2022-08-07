@@ -80,3 +80,5 @@ mt_center_management = 78
 mt_longboat_cutscene = 79
 mt_longboat_cutscene_2 = 80
 mt_longboat_landing_1 = 81
+mt_finns_hall_murder = 82
+mt_finns_hall_battle = 83

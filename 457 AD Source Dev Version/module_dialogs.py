@@ -50710,7 +50710,7 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   
   [anyone|plyr,"guthlaf_talk_ship_5", [
   ], 
-  "And what does King Gramr have to say about it?",
+  "And what does King Gramr have to say about it?", #And What Do You Have To Say About It?
   "guthlaf_talk_ship_6",[]],
   
   [anyone,"guthlaf_talk_ship_6", [
@@ -50766,12 +50766,12 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   
   [anyone|plyr,"ordlaf_talk_ship_5", [
   ], 
-  " I agree. I seldom travel by ship and my journeys are not usually this long on sea.",
+  "I agree. I seldom travel by ship and my journeys are not usually this long on sea.",
   "ordlaf_talk_ship_6",[]],
   
   [anyone,"ordlaf_talk_ship_6", [
   ], 
-  "Get used to it, it is the best way to travel. From Scandza to the rest of the world you want to travel by sea. Before serving Hnaef I was in the retinue of another lord, called Aiwarikiar Scylfingr, an exiled prince of the Swehanaz. With our ships we even went upstream of some rivers in the lands of the Aestii. ",
+  "Get used to it, it is the best way to travel. From Scandza to the rest of the world you want to travel by sea. Before serving Hnaef I was in the retinue of another lord, called Aiwarikiar Scylfingr, an exiled prince of the Swehanaz. With our ships we even went upstream of some rivers in the lands of the Aestii.",
   "ordlaf_talk_ship_7",[]],
   
   [anyone|plyr,"ordlaf_talk_ship_7", [
@@ -50879,7 +50879,7 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   
   [anyone,"sigeferth_talk_ship_4", [
   ], 
-  "My kin! We live along the southern coasts south of the lands of the Jutes. North of us live the Angles and East of us the Frisians. We are the Danes faithful allies and servants, especially close to the Hocings: my father served Hoc in his youth and now it’s my turn to loyally protect Hnaef from any concealed blade. ",
+  "My kin! We live along the southern coasts south of the lands of the Jutes. North of us live the Angles and East of us the Frisians. We are the Danes faithful allies and servants, especially close to the Hocings: my father served Hoc in his youth and now it’s my turn to loyally protect Hnaef from any concealed blade.",
   "sigeferth_talk_ship_5",[]],
   
   [anyone|plyr,"sigeferth_talk_ship_5", [

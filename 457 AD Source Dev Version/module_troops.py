@@ -1570,7 +1570,7 @@ troops = [
    def_attrib_lvl_18|level(18),wp_one_handed(170)|wp_two_handed(150)|wp_polearm(170)|wp_throwing(160)|wp_archery(80)|wp_firearm(80),knows_lvl_18_inf|knows_shield_4|knows_power_strike_4,caucaus_face_1, caucaus_face_2],
 
   ["caucasian_footman","Caucasian Footman","Caucasian Footmen",tf_guarantee_basic|tf_guarantee_helmet,0,0,fac_culture_8,
-   [itm_simple_shoes,itm_nomad_boots,itm_wrapping_boots,itm_mid_generic_mail_11,itm_sassanid_mail_shirt_3,itm_sassanid_mail_shirt_4,itm_sassanid_mail_shirt_5,itm_eastern_scale_4,itm_eastern_scale_5,itm_batumi_helmet_aventail,itm_tarasovsky_1784_helmet_mail_1,itm_tarasovsky_1784_helmet_mail_2,itm_tsaritsyno_1_light,itm_medium_spear_4,itm_roman_spear_3,itm_poleaxe,itm_roman_spear_4,itm_bearded_axe_2,itm_battle_axe_4,itm_sarranid_two_handed_mace_1,itm_oval_shield_blue_2,itm_oval_shield_green_2,itm_tab_shield_heater_a],
+   [itm_simple_shoes,itm_nomad_boots,itm_wrapping_boots,itm_mid_generic_mail_11,itm_sassanid_mail_shirt_3,itm_sassanid_mail_shirt_4,itm_sassanid_mail_shirt_5,itm_eastern_scale_4,itm_eastern_scale_5,itm_batumi_helmet_aventail,itm_tarasovsky_1784_helmet_mail_1,itm_tarasovsky_1784_helmet_mail_2,itm_tsaritsyno_1_light,itm_medium_spear_4,itm_roman_spear_3,itm_poleaxe,itm_roman_spear_4,itm_bearded_axe_2,itm_battle_axe_4,itm_sarranid_two_handed_mace_1,itm_rgani_mace,itm_oval_shield_blue_2,itm_oval_shield_green_2,itm_tab_shield_heater_a],
    def_attrib_lvl_23|level(23),wp_one_handed(230)|wp_two_handed(210)|wp_polearm(220)|wp_throwing(210)|wp_archery(80)|wp_firearm(80),knows_lvl_23_inf|knows_shield_5|knows_power_strike_5,caucaus_face_1, caucaus_face_2],
 
   ["caucasian_skirmisher","Caucasian Skirmisher","Caucasian Skirmishers",tf_guarantee_armor|tf_guarantee_boots|tf_guarantee_ranged,0,0,fac_culture_8,
@@ -1587,7 +1587,7 @@ troops = [
    def_attrib_lvl_23|level(23),wp_one_handed(190)|wp_two_handed(150)|wp_polearm(190)|wp_throwing(190)|wp_archery(160),knows_lvl_23_cav|knows_shield_4|knows_power_strike_5|knows_horse_archery_4,caucaus_face_1, caucaus_face_2],
 
   ["caucasian_cataphract","Caucasian Cataphract","Caucasian Cataphracts",tf_mounted|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_polearm|tf_guarantee_horse|tf_guarantee_helmet,0,0,fac_culture_8,
-   [itm_sassanid_cavalry_boots_2,itm_heavy_greaves,itm_eastern_scale_1,itm_eastern_scale_2,itm_eastern_scale_3,itm_eastern_scale_4,itm_eastern_scale_5,itm_eastern_scale_6,itm_batumi_helmet_aventail,itm_tsaritsyno_1,itm_veiled_helmet_4,itm_tsaritsyno_1_veiled,itm_leather_gloves,itm_battle_axe,itm_heavy_lance,itm_khergit_bow,itm_bodkin_arrows,itm_tab_shield_small_round_c,itm_half_cataphract_horse_3,itm_half_cataphract_horse_4,itm_cataphract_horse_1,itm_cataphract_horse_4,itm_cataphract_horse_5,itm_half_cataphract_horse_7],
+   [itm_sassanid_cavalry_boots_2,itm_heavy_greaves,itm_eastern_scale_1,itm_eastern_scale_2,itm_eastern_scale_3,itm_eastern_scale_4,itm_eastern_scale_5,itm_eastern_scale_6,itm_batumi_helmet_aventail,itm_tsaritsyno_1,itm_veiled_helmet_4,itm_tsaritsyno_1_veiled,itm_leather_gloves,itm_battle_axe,itm_rgani_mace,itm_heavy_lance,itm_khergit_bow,itm_bodkin_arrows,itm_tab_shield_small_round_c,itm_half_cataphract_horse_3,itm_half_cataphract_horse_4,itm_cataphract_horse_1,itm_cataphract_horse_4,itm_cataphract_horse_5,itm_half_cataphract_horse_7],
    def_attrib_lvl_30|level(30),wp_one_handed(230)|wp_two_handed(210)|wp_polearm(240)|wp_throwing(210)|wp_archery(160)|wp_firearm(80),knows_lvl_30_cav|knows_shield_4|knows_power_strike_6|knows_horse_archery_5,caucaus_face_1, caucaus_face_2],
 
   ["caucasian_messenger","Caucasian Messenger","Caucasian Messengers",tf_mounted|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_polearm|tf_guarantee_horse|tf_guarantee_helmet,0,0,fac_culture_8,
@@ -2219,7 +2219,7 @@ troops = [
 #lvl 9, cheap troops that can spawn during siege events
   #armed with a club, chipped axe, sword - roman cultures
   ["roman_civilian","Civis Armatura","Civites Armaturae",tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_shield,0,0,fac_commoners,
-   [itm_roman_shirt_1,itm_roman_shirt_4,itm_roman_shirt_8,itm_roman_shirt_10,itm_roman_shirt_13,itm_straw_hat,itm_simple_shield_1,itm_simple_shield_2,(itm_club,imod_heavy),(itm_sword_khergit_3,imod_chipped),(itm_securis,imod_chipped)]+pannonian_hats+shoes_roman,
+   [itm_straw_hat,itm_simple_shield_1,itm_simple_shield_2,(itm_club,imod_heavy),(itm_sword_khergit_3,imod_chipped),(itm_securis,imod_chipped)]+pannonian_hats+shoes_roman+tunics_roman_civilian+hoods_roman_1+hoods_roman_2+hoods_roman_3,
    def_attrib_lvl_9|level(9),wp(100),knows_lvl_9,roman_face_1, roman_face_2],
   #armed with a spear, old axe - germanic cultures
   ["germanic_civilian","Germanic Peasant (Gawjamann)","Germanic Peasants (Gawjamanni)",tf_guarantee_basic,0,0,fac_commoners,
@@ -2471,7 +2471,7 @@ troops = [
 
   #https://en.wikipedia.org/wiki/Parabalani - can be recruited by christians in alexandria, constantinople
   ["parabalanus","Parabalanus","Parabalani",tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet,0,0,fac_roman_christians,
-   [itm_wrapping_boots,itm_club,itm_winged_mace,itm_wooden_stick,itm_stones,itm_stones,itm_linen_shirt_10,itm_linen_shirt,itm_sleeveless_tunic,itm_roman_shirt_1,itm_roman_shirt_10,itm_roman_shirt_4,itm_roman_shirt_8,itm_brown_hood1,itm_new_hood_b,itm_new_hood_d],
+   [itm_wrapping_boots,itm_club,itm_winged_mace,itm_wooden_stick,itm_stones,itm_stones,itm_roman_peasant_tunic_1,itm_roman_peasant_tunic_2,itm_roman_peasant_tunic_3,itm_roman_peasant_tunic_4,itm_roman_peasant_tunic_6,itm_roman_peasant_tunic_10],
    def_attrib_lvl_18|level(15),wp_one_handed(140)|wp_two_handed(150)|wp_throwing(150),knows_lvl_18_inf|knows_power_strike_8,roman_face_1, roman_face_2],
 
 #Tauri 
@@ -2896,7 +2896,7 @@ troops = [
    def_attrib|level(8),wp(90),knows_common,0x00000004eb00300e43196eb8aa712b1300000000001d36d30000000000000000],
 
   ["roman_pagan_villager_1","Roman Pagan","Roman Pagans",tf_guarantee_boots|tf_guarantee_armor,0,0,fac_roman_pagans,
-   [itm_wrapping_boots,itm_ankle_boots,itm_knife] + roman_tunics_civ, 
+   [itm_wrapping_boots,itm_ankle_boots,itm_knife] + tunics_roman_civilian, 
    def_attrib|level(8),wp(90),knows_common,roman_face_1, roman_face_2],
 
   ["roman_pagan_villager_2","Roman Pagan","Roman Pagans",tf_female|tf_guarantee_boots|tf_guarantee_armor,0,0,fac_roman_pagans,
@@ -4693,40 +4693,40 @@ troops = [
 
   #MINOR FACTION KINGS END
   #MINOR FACTION MERCHANTS BEGIN
-  ["aestii_merchant_1","Merchant","Merchants",tf_hero|tf_is_merchant, no_scene, reserved, fac_commoners,[itm_wrapping_boots,itm_tunic_long_pants_4],def_attrib|level(6),wp(80),knows_common,germanic_face_1, germanic_face_2], #sells goods - amber, fur
-  ["aestii_merchant_2","Merchant","Merchants",tf_hero|tf_is_merchant, no_scene, reserved, fac_commoners,[itm_ankle_boots,itm_generic_tunic_15],def_attrib|level(6),wp(80),knows_common,germanic_face_1, germanic_face_2], #sells gear - shields, old swords
+  ["aestii_merchant_1","Merchant","Merchants",tf_hero|tf_randomize_face|tf_is_merchant, no_scene, reserved, fac_commoners,[itm_wrapping_boots,itm_tunic_long_pants_4],def_attrib|level(6),wp(80),knows_common,germanic_face_1, germanic_face_2], #sells goods - amber, fur
+  ["aestii_merchant_2","Merchant","Merchants",tf_hero|tf_randomize_face|tf_is_merchant, no_scene, reserved, fac_commoners,[itm_ankle_boots,itm_generic_tunic_15],def_attrib|level(6),wp(80),knows_common,germanic_face_1, germanic_face_2], #sells gear - shields, old swords
 
-  ["irish_merchant_1","Merchant","Merchants",tf_hero|tf_is_merchant, no_scene, reserved, fac_commoners,[itm_wrapping_boots,itm_falkirk_tunic_1],def_attrib|level(6),wp(80),knows_common,celtic_face_1, celtic_face_2], #sells goods
-  ["irish_merchant_2","Merchant","Merchants",tf_hero|tf_is_merchant, no_scene, reserved, fac_commoners,[itm_ankle_boots,itm_falkirk_tunic_4],def_attrib|level(6),wp(80),knows_common,celtic_face_1, celtic_face_2], #sells gear
+  ["irish_merchant_1","Merchant","Merchants",tf_hero|tf_randomize_face|tf_is_merchant, no_scene, reserved, fac_commoners,[itm_wrapping_boots,itm_falkirk_tunic_1],def_attrib|level(6),wp(80),knows_common,celtic_face_1, celtic_face_2], #sells goods
+  ["irish_merchant_2","Merchant","Merchants",tf_hero|tf_randomize_face|tf_is_merchant, no_scene, reserved, fac_commoners,[itm_ankle_boots,itm_falkirk_tunic_4],def_attrib|level(6),wp(80),knows_common,celtic_face_1, celtic_face_2], #sells gear
 
-  ["garamantian_merchant_1","Merchant","Merchants",tf_hero|tf_is_merchant, no_scene, reserved, fac_commoners,[itm_a_exomis_1],def_attrib|level(6),wp(80),knows_common,mauri_face_1, mauri_face_2], #sells goods
-  ["garamantian_merchant_2","Merchant","Merchants",tf_hero|tf_is_merchant, no_scene, reserved, fac_commoners,[itm_garamantian_armor_1],def_attrib|level(6),wp(80),knows_common,mauri_face_1, mauri_face_2], #sells gear
+  ["garamantian_merchant_1","Merchant","Merchants",tf_hero|tf_randomize_face|tf_is_merchant, no_scene, reserved, fac_commoners,[itm_a_exomis_1],def_attrib|level(6),wp(80),knows_common,mauri_face_1, mauri_face_2], #sells goods
+  ["garamantian_merchant_2","Merchant","Merchants",tf_hero|tf_randomize_face|tf_is_merchant, no_scene, reserved, fac_commoners,[itm_garamantian_armor_1],def_attrib|level(6),wp(80),knows_common,mauri_face_1, mauri_face_2], #sells gear
 
-  ["dani_merchant_1","Merchant","Merchants",tf_hero|tf_is_merchant, no_scene, reserved, fac_commoners,[itm_wrapping_boots,itm_generic_tunic_1],def_attrib|level(6),wp(80),knows_common,germanic_face_1, germanic_face_2], #sells goods - amber, fur
-  ["dani_merchant_2","Merchant","Merchants",tf_hero|tf_is_merchant, no_scene, reserved, fac_commoners,[itm_ankle_boots,itm_generic_tunic_3],def_attrib|level(6),wp(80),knows_common,germanic_face_1, germanic_face_2], #sells gear - shields, old swords
+  ["dani_merchant_1","Merchant","Merchants",tf_hero|tf_randomize_face|tf_is_merchant, no_scene, reserved, fac_commoners,[itm_wrapping_boots,itm_generic_tunic_1],def_attrib|level(6),wp(80),knows_common,germanic_face_1, germanic_face_2], #sells goods - amber, fur
+  ["dani_merchant_2","Merchant","Merchants",tf_hero|tf_randomize_face|tf_is_merchant, no_scene, reserved, fac_commoners,[itm_ankle_boots,itm_generic_tunic_3],def_attrib|level(6),wp(80),knows_common,germanic_face_1, germanic_face_2], #sells gear - shields, old swords
 
-  ["morden_merchant_1","Merchant","Merchants",tf_hero|tf_is_merchant, no_scene, reserved, fac_commoners,[itm_wrapping_boots,itm_generic_tunic_2],def_attrib|level(6),wp(80),knows_common,germanic_face_1, germanic_face_2], #sells goods - amber, fur
-  ["morden_merchant_2","Merchant","Merchants",tf_hero|tf_is_merchant, no_scene, reserved, fac_commoners,[itm_ankle_boots,itm_generic_tunic_7],def_attrib|level(6),wp(80),knows_common,germanic_face_1, germanic_face_2], #sells gear - shields, old swords
+  ["morden_merchant_1","Merchant","Merchants",tf_hero|tf_randomize_face|tf_is_merchant, no_scene, reserved, fac_commoners,[itm_wrapping_boots,itm_generic_tunic_2],def_attrib|level(6),wp(80),knows_common,germanic_face_1, germanic_face_2], #sells goods - amber, fur
+  ["morden_merchant_2","Merchant","Merchants",tf_hero|tf_randomize_face|tf_is_merchant, no_scene, reserved, fac_commoners,[itm_ankle_boots,itm_generic_tunic_7],def_attrib|level(6),wp(80),knows_common,germanic_face_1, germanic_face_2], #sells gear - shields, old swords
 
-  ["slavic_merchant_1","Merchant","Merchants",tf_hero|tf_is_merchant, no_scene, reserved, fac_commoners,[itm_wrapping_boots,itm_tunic_long_pants_9],def_attrib|level(6),wp(80),knows_common,germanic_face_1, germanic_face_2], #sells goods - shared
-  ["slavic_merchant_2","Merchant","Merchants",tf_hero|tf_is_merchant, no_scene, reserved, fac_commoners,[itm_ankle_boots,itm_tunic_long_pants_10],def_attrib|level(6),wp(80),knows_common,germanic_face_1, germanic_face_2], #sells gear - shared
+  ["slavic_merchant_1","Merchant","Merchants",tf_hero|tf_randomize_face|tf_is_merchant, no_scene, reserved, fac_commoners,[itm_wrapping_boots,itm_tunic_long_pants_9],def_attrib|level(6),wp(80),knows_common,germanic_face_1, germanic_face_2], #sells goods - shared
+  ["slavic_merchant_2","Merchant","Merchants",tf_hero|tf_randomize_face|tf_is_merchant, no_scene, reserved, fac_commoners,[itm_ankle_boots,itm_tunic_long_pants_10],def_attrib|level(6),wp(80),knows_common,germanic_face_1, germanic_face_2], #sells gear - shared
 
-  ["bosphoran_merchant_1","Merchant","Merchants",tf_hero|tf_is_merchant, no_scene, reserved, fac_commoners,[itm_roman_lorum_fasciari_1,itm_roman_shirt_1],def_attrib|level(6),wp(80),knows_common,roman_face_1, roman_face_2], #sells goods - shared
-  ["bosphoran_merchant_2","Merchant","Merchants",tf_hero|tf_is_merchant, no_scene, reserved, fac_commoners,[itm_roman_lorum_fasciari_3,itm_roman_shirt_13],def_attrib|level(6),wp(80),knows_common,roman_face_1, roman_face_2], #sells gear - shared
+  ["bosphoran_merchant_1","Merchant","Merchants",tf_hero|tf_randomize_face|tf_is_merchant, no_scene, reserved, fac_commoners,[itm_roman_lorum_fasciari_1,itm_roman_shirt_1],def_attrib|level(6),wp(80),knows_common,roman_face_1, roman_face_2], #sells goods - shared
+  ["bosphoran_merchant_2","Merchant","Merchants",tf_hero|tf_randomize_face|tf_is_merchant, no_scene, reserved, fac_commoners,[itm_roman_lorum_fasciari_3,itm_roman_shirt_13],def_attrib|level(6),wp(80),knows_common,roman_face_1, roman_face_2], #sells gear - shared
 
-  ["abagasian_merchant_1","Merchant","Merchants",tf_hero|tf_is_merchant, no_scene, reserved, fac_commoners,[itm_wrapping_boots,itm_kaftan_sheepskin_2],def_attrib|level(6),wp(80),knows_common,caucaus_face_1, caucaus_face_2], #sells goods - shared
-  ["abagasian_merchant_2","Merchant","Merchants",tf_hero|tf_is_merchant, no_scene, reserved, fac_commoners,[itm_sassanid_cavalry_boots_1,itm_skirmisher_tunic_2],def_attrib|level(6),wp(80),knows_common,caucaus_face_1, caucaus_face_2], #sells gear - shared
+  ["abagasian_merchant_1","Merchant","Merchants",tf_hero|tf_randomize_face|tf_is_merchant, no_scene, reserved, fac_commoners,[itm_wrapping_boots,itm_kaftan_sheepskin_2],def_attrib|level(6),wp(80),knows_common,caucaus_face_1, caucaus_face_2], #sells goods - shared
+  ["abagasian_merchant_2","Merchant","Merchants",tf_hero|tf_randomize_face|tf_is_merchant, no_scene, reserved, fac_commoners,[itm_sassanid_cavalry_boots_1,itm_skirmisher_tunic_2],def_attrib|level(6),wp(80),knows_common,caucaus_face_1, caucaus_face_2], #sells gear - shared
 
-  ["tauri_merchant_1","Merchant","Merchants",tf_hero|tf_is_merchant, no_scene, reserved, fac_commoners,[itm_wrapping_boots,itm_roman_shirt_1],def_attrib|level(6),wp(80),knows_common,roman_face_1, roman_face_2], #sells goods - shared
+  ["tauri_merchant_1","Merchant","Merchants",tf_hero|tf_randomize_face|tf_is_merchant, no_scene, reserved, fac_commoners,[itm_wrapping_boots,itm_roman_shirt_1],def_attrib|level(6),wp(80),knows_common,roman_face_1, roman_face_2], #sells goods - shared
 
-  ["augundzi_merchant_1","Merchant","Merchants",tf_hero|tf_is_merchant, no_scene, reserved, fac_commoners,[itm_obenaltendorf_shoes_1,itm_generic_tunic_2],def_attrib|level(6),wp(80),knows_common,germanic_face_1, germanic_face_2], #sells goods - hides, leather, fish, grain
-  ["augundzi_merchant_2","Merchant","Merchants",tf_hero|tf_is_merchant, no_scene, reserved, fac_commoners,[itm_obenaltendorf_shoes_2,itm_generic_tunic_5],def_attrib|level(6),wp(80),knows_common,germanic_face_1, germanic_face_2], #sells gear - shields, sword(s)?
+  ["augundzi_merchant_1","Merchant","Merchants",tf_hero|tf_randomize_face|tf_is_merchant, no_scene, reserved, fac_commoners,[itm_obenaltendorf_shoes_1,itm_generic_tunic_2],def_attrib|level(6),wp(80),knows_common,germanic_face_1, germanic_face_2], #sells goods - hides, leather, fish, grain
+  ["augundzi_merchant_2","Merchant","Merchants",tf_hero|tf_randomize_face|tf_is_merchant, no_scene, reserved, fac_commoners,[itm_obenaltendorf_shoes_2,itm_generic_tunic_5],def_attrib|level(6),wp(80),knows_common,germanic_face_1, germanic_face_2], #sells gear - shields, sword(s)?
 
-  ["vidivarii_merchant_1","Merchant","Merchants",tf_hero|tf_is_merchant, no_scene, reserved, fac_commoners,[itm_wrapping_boots,itm_generic_tunic_3],def_attrib|level(6),wp(80),knows_common,germanic_face_1, germanic_face_2], #sells goods - grain, fish, amber, fur (baltic)
-  ["vidivarii_merchant_2","Merchant","Merchants",tf_hero|tf_is_merchant, no_scene, reserved, fac_commoners,[itm_wrapping_boots,itm_generic_tunic_6],def_attrib|level(6),wp(80),knows_common,germanic_face_1, germanic_face_2], #sells goods - germanic swords, shields, leather
+  ["vidivarii_merchant_1","Merchant","Merchants",tf_hero|tf_randomize_face|tf_is_merchant, no_scene, reserved, fac_commoners,[itm_wrapping_boots,itm_generic_tunic_3],def_attrib|level(6),wp(80),knows_common,germanic_face_1, germanic_face_2], #sells goods - grain, fish, amber, fur (baltic)
+  ["vidivarii_merchant_2","Merchant","Merchants",tf_hero|tf_randomize_face|tf_is_merchant, no_scene, reserved, fac_commoners,[itm_wrapping_boots,itm_generic_tunic_6],def_attrib|level(6),wp(80),knows_common,germanic_face_1, germanic_face_2], #sells goods - germanic swords, shields, leather
 
-  ["frisian_merchant_1","Merchant","Merchants",tf_hero|tf_is_merchant, no_scene, reserved, fac_commoners,[itm_ankle_boots,itm_generic_tunic_4],def_attrib|level(6),wp(80),knows_common,germanic_face_1, germanic_face_2], #sells goods - grain, fish
-  ["frisian_merchant_2","Merchant","Merchants",tf_hero|tf_is_merchant, no_scene, reserved, fac_commoners,[itm_simple_shoes,itm_generic_tunic_7],def_attrib|level(6),wp(80),knows_common,germanic_face_1, germanic_face_2], #sells goods - spears, swords, etc
+  ["frisian_merchant_1","Merchant","Merchants",tf_hero|tf_randomize_face|tf_is_merchant, no_scene, reserved, fac_commoners,[itm_ankle_boots,itm_generic_tunic_4],def_attrib|level(6),wp(80),knows_common,germanic_face_1, germanic_face_2], #sells goods - grain, fish
+  ["frisian_merchant_2","Merchant","Merchants",tf_hero|tf_randomize_face|tf_is_merchant, no_scene, reserved, fac_commoners,[itm_simple_shoes,itm_generic_tunic_7],def_attrib|level(6),wp(80),knows_common,germanic_face_1, germanic_face_2], #sells goods - spears, swords, etc
 
   #MINOR FACTION MERCHANTS END
 
@@ -4842,12 +4842,12 @@ troops = [
 
   ["mithraist_leader","Pater","Pater",tf_hero,scn_mithraeum|entry(2),reserved, fac_commoners,[itm_roman_shirt_2,itm_ankle_boots,itm_woolen_cap_2],def_attrib_lvl_20|level(19),wp(180),knows_ironflesh_6|knows_power_strike_3|knows_athletics_5,roman_face_1, roman_face_2],
 
-  ["mithras_cultist","Syndexioi","Syndexioi",tf_guarantee_boots|tf_guarantee_armor,0,0,fac_roman_pagans,[itm_dagger] + roman_tunics_civ + tunics_romans_low + tunics_romans_officer + tunics_romans_military + shoes_roman, def_attrib_lvl_18|level(17),wp(160),knows_lvl_18_inf|knows_shield_4,roman_face_1, roman_face_2],
+  ["mithras_cultist","Syndexioi","Syndexioi",tf_guarantee_boots|tf_guarantee_armor,0,0,fac_roman_pagans,[itm_dagger] + tunics_roman_civilian + tunics_romans_low + tunics_romans_officer + tunics_romans_military + shoes_roman, def_attrib_lvl_18|level(17),wp(160),knows_lvl_18_inf|knows_shield_4,roman_face_1, roman_face_2],
 
   ["mithraist_iniate","Julius","Julius",tf_hero|tf_guarantee_boots|tf_guarantee_armor, no_scene, reserved, fac_commoners,[itm_roman_shirt_12,itm_ankle_boots],def_attrib_lvl_18|level(19),wp(180),knows_ironflesh_6|knows_power_strike_3|knows_athletics_5,roman_face_1, roman_face_2],
 
   ["chrisitan_zealot","Zealot","Zealots",tf_guarantee_boots|tf_guarantee_armor,0,0,fac_commoners,
-   [itm_club] + shoes_roman + roman_tunics_civ + tunics_romans_low + pannonian_hats,
+   [itm_club] + shoes_roman + tunics_roman_civilian + tunics_romans_low + pannonian_hats,
    def_attrib_lvl_18|level(17),wp(130),knows_common|knows_athletics_2|knows_power_strike_2|knows_ironflesh_2,roman_face_1, roman_face_2],  
 
   ["mithras_bandit","Mysterious Man","lol he's a bandit",tf_hero, no_scene,0, fac_outlaws,[itm_wrapping_boots,itm_mid_generic_mail_7,(itm_intercisa_helmet_1,imod_battered),itm_battle_axe_2,itm_round_shield_gray_1],def_attrib_lvl_30|level(30),wp(230),knows_common|knows_riding_3|knows_athletics_4|knows_ironflesh_8|knows_shield_4|knows_power_throw_4,0x00000001b80032473ac49738206626b200000000001da7660000000000000000, bandit_face2],

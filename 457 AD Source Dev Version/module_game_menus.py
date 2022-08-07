@@ -27215,11 +27215,11 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     (change_screen_mission),       
 
     ]),
-    ("option_1", [],"test scene.",
-    [
-    (jump_to_scene, "scn_cutscene_longboat"),
-    (change_screen_mission),
-    ]),
+    # ("option_1", [],"test scene.",
+    # [
+    # (jump_to_scene, "scn_cutscene_longboat"),
+    # (change_screen_mission),
+    # ]),
     
     ],),   
  ("finnsburg_quest_2",0,
@@ -27249,11 +27249,11 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     (jump_to_scene, "scn_cutscene_longboat_2"),
     (change_screen_mission),  
     ]),
-     ("option_1", [],"test scene.",
-    [
-    (jump_to_scene, "scn_cutscene_longboat_2"),
-    (change_screen_mission),
-    ]),   
+     # ("option_1", [],"test scene.",
+    # [
+    # (jump_to_scene, "scn_cutscene_longboat_2"),
+    # (change_screen_mission),
+    # ]),   
     ],),   
  ("finnsburg_quest_3",0,
     "The longship finally reaches the Frisian village, you can spot some fires along the beach to signal the presence of the settlement. A big square can be seen just beyond the beach, where traders and other salesmen sell their goods from beyond the sea. A small group of men await the Danes at the beach: it is Finn and his men wave at the sailors, signalling them to land next to them.",
@@ -27287,11 +27287,11 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 
       
     ]),
-     ("option_1", [],"test scene.",
-    [
-    (jump_to_scene, "scn_frisian_town"),
-    (change_screen_mission),
-    ]),   
+     # ("option_1", [],"test scene.",
+    # [
+    # (jump_to_scene, "scn_frisian_town"),
+    # (change_screen_mission),
+    # ]),   
     ],),   
  ("finnsburg_quest_4",0,
     "The group of champions heads towards Finn's hall. Hildeburh and her maidens have naerly finished the preparations for the feast. While entering, one of the maidens, who carries a large jug of mead, gives you an ambiguous wink."
@@ -27332,11 +27332,11 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 
       
     ]),
-    ("option_1", [],"test scene.",
-    [
-    (jump_to_scene, "scn_finns_hall_interior"),
-    (change_screen_mission),
-    ]),   
+    # ("option_1", [],"test scene.",
+    # [
+    # (jump_to_scene, "scn_finns_hall_interior"),
+    # (change_screen_mission),
+    # ]),   
     ],),   
 
  ("finnsburg_quest_5",0,
@@ -27424,14 +27424,14 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     (jump_to_scene, "scn_finns_hall_interior"),
     (change_screen_mission), 
     ]),
-    ("option_1", [],"test scene.",
-    [
-    #attacker entries: 16 and 17, 
-    #18,19,20,21 entry outside of 17
-    #22,23,24,25,26,27,28 inside near 17
-    (jump_to_scene, "scn_finns_hall_interior"),
-    (change_screen_mission),
-    ]),  
+    # ("option_1", [],"test scene.",
+    # [
+    # #attacker entries: 16 and 17, 
+    # #18,19,20,21 entry outside of 17
+    # #22,23,24,25,26,27,28 inside near 17
+    # (jump_to_scene, "scn_finns_hall_interior"),
+    # (change_screen_mission),
+    # ]),  
     ],),   
  ("finnsburg_quest_7",0,
     "Since Garulf Guthlafing, a jutish champion, died by Sigeferth's hands, Finn kept sending more men each night to assault his hall. "

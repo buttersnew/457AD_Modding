@@ -19081,7 +19081,8 @@ presentations = [
             (else_try), #saxon aor
               (this_or_next|eq, "$current_town", "p_castle_72"),  
               (eq, "$current_town", "p_town_32"),         
-              (eq, ":troop", "trp_kouadoi_warrior"),
+              (this_or_next|eq, ":troop", "trp_kouadoi_warrior"),
+              (eq, ":troop", "trp_saxon_companion"),
               (assign, ":c", 1),
             (else_try), #lazika AOR
               (this_or_next|eq, "$current_town", "p_castle_64"),
@@ -19127,9 +19128,10 @@ presentations = [
               (this_or_next|eq, ":troop", "trp_gaetuli_warrior"),
               (eq, ":troop", "trp_gaetuli_horseman"),
               (assign, ":c", 1),
-            (else_try), #scanzae in denmark
-              (eq, "$current_town", "p_castle_70"),        
-              (eq, ":troop", "trp_scandinavian_freeman"),
+            (else_try), #jute troops
+              (this_or_next|eq, "$current_town", "p_castle_68"),    
+              (eq, "$current_town", "p_castle_70"),       
+              (eq, ":troop", "trp_jute_swordsman"),
               (assign, ":c", 1),
             (else_try), #burgundians
               (this_or_next|eq, "$current_town", "p_castle_14"),
@@ -19137,13 +19139,6 @@ presentations = [
               (this_or_next|eq, ":troop", "trp_burgundian_oathtaker"),
               (eq, ":troop", "trp_burgundian_tracker"),
               (assign, ":c", 1),
-            #(else_try), #bosphorans
-            #  (this_or_next|eq, "$current_town", "p_town_36"),
-            #  (eq, "$current_town", "p_town_44"),        
-            #  (this_or_next|eq, ":troop", "trp_bosphor_recruit"),
-            #  (this_or_next|eq, ":troop", "trp_bosphor_infantry"),
-            #  (eq, ":troop", "trp_bosphor_horseman"),
-            #  (assign, ":c", 1),
             (else_try), #parabalani - constantinople, alexandria
               (troop_get_slot, ":player_religion", "trp_player", slot_troop_religion),
               (eq, ":player_religion", slot_religion_chalcedonian),
@@ -19379,6 +19374,14 @@ presentations = [
               (eq, "$g_aestii_quest", 3),
               (eq, ":troop", "trp_sitones_retainer"), #siding with Shvarnas
               (assign, ":c", 1), 
+            (else_try), #norwegians
+              (eq, "$current_town", "p_augundzi_village"),   
+              (eq, ":troop", "trp_saami_hunter"),
+              (assign, ":c", 1),
+            (else_try), #danes
+              (eq, "$current_town", "p_dani_village"),   
+              (eq, ":troop", "trp_dane_vanguard"),
+              (assign, ":c", 1),
             (try_end),
             (eq, ":c", 1),
 

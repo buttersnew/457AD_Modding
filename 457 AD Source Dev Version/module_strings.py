@@ -5576,6 +5576,7 @@ Even in the last case, the player can make formations up to four lines by orderi
   ("round_shields_germanic_22","round_shields_germanic_22"),
   ("round_shields_germanic_23","round_shields_germanic_23"),
   ("round_shields_germanic_24","round_shields_germanic_24"),
+  ("round_shields_germanic_25","round_shields_germanic_25"),
 
   #romans
   ("round_shields_roman_1","round_shields_roman_1"),

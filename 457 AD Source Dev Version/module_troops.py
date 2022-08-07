@@ -1283,6 +1283,19 @@ troops = [
    [itm_generic_tunic_1,itm_generic_tunic_3,itm_generic_tunic_5,itm_cloaked_generic_tunic_1,itm_cloaked_generic_tunic_3,itm_cloaked_generic_tunic_5,itm_jarid,itm_jarid,itm_mace_1,itm_seax_2,itm_round_shield_germanic_small_13,itm_round_shield_germanic_small_20]+hats_northern+shoes_generic,
    def_attrib_lvl_18|level(16),wp_one_handed (160) | wp_two_handed (130) | wp_polearm (160) | wp_archery (120) | wp_crossbow (90) | wp_throwing (180) | wp_firearm(140),knows_skirmisher|knows_ironflesh_5|knows_power_strike_5,germanic_face_1, germanic_face_2],
 
+  #germanic heroic-age inspired AOR troops
+  ["jute_swordsman","Jute Sword-Keen (Sweordcenan)","Jute Sword-Keen (Sweordcenan)",tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_shield,0,0,fac_culture_4, #swordsman
+   [itm_obenaltendorf_shoes_1,itm_obenaltendorf_shoes_2,itm_wrapping_boots,itm_cloaked_tunic_6,itm_leather_armor_c,itm_mid_generic_mail_1,itm_mid_generic_mail_16,itm_burgh_helmet_1,itm_burgh_helmet_mail,itm_drengsted_helmet_mail,itm_drengsted_helmet_leather,itm_arabian_sword_a,itm_concave_shield_germanic_20],
+   def_attrib_lvl_25|level(25),wp_one_handed(230)|wp_two_handed(190)|wp_polearm(180)|wp_archery(110)|wp_throwing(200),knows_lvl_23_inf|knows_shield_4|knows_power_strike_8,germanic_face_1, germanic_face_2],
+
+  ["angle_hero","Angle Hero (Sweordcenan)","Angle Heroes (Sweordcenan)",tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_shield,0,0,fac_culture_4, #cav?
+   [itm_obenaltendorf_shoes_1,itm_obenaltendorf_shoes_2,itm_wrapping_boots],
+   def_attrib_lvl_25|level(25),wp_one_handed(230)|wp_two_handed(190)|wp_polearm(180)|wp_archery(110)|wp_throwing(200),knows_lvl_23_inf|knows_shield_4|knows_power_strike_8,germanic_face_1, germanic_face_2],
+
+  ["saxon_companion","Saxon Throne-Companion (Seldguman)","Saxon Throne-Companions (Seldgumanni)",tf_guarantee_basic|tf_guarantee_helmet,0,0,fac_culture_4, #sword/spear
+   [itm_obenaltendorf_shoes_1,itm_obenaltendorf_shoes_2,itm_simple_shoes,itm_mid_generic_mail_21,itm_mid_generic_mail_29,itm_burgh_helmet_1,itm_burgh_helmet_2,itm_triveres_mail,itm_arabian_sword_a,itm_war_spear_3,itm_concave_shield_germanic_11],
+   def_attrib_lvl_28|level(28),wp_one_handed(230)|wp_two_handed(200)|wp_polearm(230)|wp_archery(110)|wp_throwing(220),knows_lvl_28_inf|knows_shield_5|knows_power_strike_7,germanic_face_1, germanic_face_2],
+
 #PICTISH
   ["pictish_warrior","Pictish Warrior (Katuur)","Pictish Warriors (Katuur)",tf_guarantee_basic,0,0,fac_culture_5,
    [itm_war_spear,itm_medium_spear_1,itm_spear,itm_glaive,itm_pict_axe_a,itm_pict_axe_b,itm_sword_medieval_b_small,itm_sword_medieval_c_small,itm_new_hood_c,itm_new_hood_d,itm_p_hood,itm_brown_hood1,itm_brown_hood1,itm_ridge_helm_c,(itm_intercisa_helmet_1,imod_battered),(itm_augst_helmet_1,imod_battered),(itm_intercisa_helmet_1,imod_battered),itm_iatrus_helmet_light,itm_burgh_helmet_light,itm_woolen_hose,itm_ragged_outfit,itm_wrapping_boots,itm_javelin,itm_javelin]+tunics_pictish+shields_picts+hats_pict+shields_pictish_small+light_armor_pict,
@@ -2282,11 +2295,11 @@ troops = [
 
 #FRISIANS
   ["frisian_freeman","Frisesk Freeman","Frisesk Freemen",tf_guarantee_basic,0,0,fac_culture_minor_4,
-   [itm_ankle_boots,itm_simple_shoes,itm_wrapping_boots,itm_roman_lorum_fasciari_2,itm_roman_lorum_fasciari_4,itm_carbatinae_2_grey,itm_carbatinae_1_grey,itm_linen_tunic,itm_linen_shirt,itm_shirt,itm_generic_tunic_2,itm_generic_tunic_4,itm_generic_tunic_14,itm_linen_shirt_6,itm_linen_shirt_11,itm_linen_shirt_10,itm_cloaked_tunic_5,itm_cloaked_tunic_12,itm_cloaked_tunic_10,itm_concave_shield_blue_1,itm_concave_shield_red_1,itm_concave_shield_green_2,itm_concave_shield_orange_1,itm_javelin,itm_roman_spear_3,itm_roman_spear_4,itm_fighting_axe,itm_bearded_axe_1,itm_seax_1,itm_seax_2,itm_seax_10,itm_long_seax_1,itm_long_seax_3,itm_woolen_cap_1,itm_woolen_cap_2,itm_woolen_cap_5,itm_woolen_cap_8,itm_ridge_helm_c,itm_triveres_cloth,itm_triveres_leather,(itm_intercisa_helmet_1,imod_battered)]+shields_generic,
+   [itm_ankle_boots,itm_simple_shoes,itm_wrapping_boots,itm_roman_lorum_fasciari_2,itm_roman_lorum_fasciari_4,itm_carbatinae_2_grey,itm_carbatinae_1_grey,itm_linen_tunic,itm_linen_shirt,itm_shirt,itm_generic_tunic_2,itm_generic_tunic_4,itm_generic_tunic_14,itm_linen_shirt_6,itm_linen_shirt_11,itm_linen_shirt_10,itm_cloaked_tunic_5,itm_cloaked_tunic_12,itm_cloaked_tunic_10,itm_concave_shield_blue_1,itm_concave_shield_red_1,itm_concave_shield_green_2,itm_concave_shield_orange_1,itm_round_shield_germanic_22,itm_javelin,itm_roman_spear_3,itm_roman_spear_4,itm_fighting_axe,itm_bearded_axe_1,itm_seax_1,itm_seax_2,itm_seax_10,itm_long_seax_1,itm_long_seax_3,itm_woolen_cap_1,itm_woolen_cap_2,itm_woolen_cap_5,itm_woolen_cap_8,itm_ridge_helm_c,itm_triveres_cloth,itm_triveres_leather,(itm_intercisa_helmet_1,imod_battered)]+shields_generic,
    def_attrib_lvl_18|level(17),wp_one_handed(180)|wp_two_handed(170)|wp_polearm(185)|wp_throwing(170)|wp_archery(100),knows_lvl_18_inf|knows_shield_5|knows_power_strike_4,germanic_face_1, germanic_face_2],
 
   ["frisian_companion","Frisesk Companion","Frisesk Companions",tf_mounted|tf_guarantee_horse|tf_guarantee_basic|tf_guarantee_helmet,0,0,fac_culture_minor_4,
-   [itm_frisian_warhorse,itm_roman_lorum_fasciari_2,itm_roman_lorum_fasciari_4,itm_wrapping_boots,itm_mid_generic_mail_19,itm_mid_generic_mail_7,itm_mid_generic_mail_17,itm_mid_generic_mail_18,itm_triveres_mail,itm_augst_helmet_3,itm_burgh_helmet_1,itm_burgh_helmet_2,itm_tab_shield_small_round_c,itm_concave_shield_germanic_small_1,itm_late_roman_spear_1,itm_sword_viking_c_long]+horses_germanic_4,
+   [itm_frisian_warhorse,itm_roman_lorum_fasciari_2,itm_roman_lorum_fasciari_4,itm_wrapping_boots,itm_mid_generic_mail_19,itm_mid_generic_mail_7,itm_mid_generic_mail_17,itm_mid_generic_mail_18,itm_triveres_mail,itm_augst_helmet_3,itm_burgh_helmet_1,itm_burgh_helmet_2,itm_tab_shield_small_round_c,itm_concave_shield_germanic_small_1,itm_round_shield_germanic_small_22,itm_late_roman_spear_1,itm_sword_viking_c_long]+horses_germanic_4,
    def_attrib_lvl_28|level(27),wp_one_handed(250)|wp_two_handed(240)|wp_polearm(240)|wp_throwing(230)|wp_archery(100),knows_lvl_28_cav|knows_shield_6|knows_power_strike_8,germanic_face_1, germanic_face_2],
 
 #AESTII
@@ -2346,6 +2359,14 @@ troops = [
   ["scandinavian_comes","Scandzae Bodyguard (Thegnar)","Scandzae Bodyguards (Thegnar)",tf_guarantee_basic|tf_guarantee_helmet,0,0,fac_culture_minor_7,
    [itm_wrapping_boots,itm_ankle_boots,itm_mid_generic_mail_9,itm_mid_generic_mail_7,itm_mid_generic_mail_25,itm_mid_generic_mail_12,itm_mid_generic_mail_13,itm_gultlingen_helmet_mail,itm_gultlingen_helmet,itm_tarasovsky_782,itm_drengsted_helmet_mail,itm_burgh_helmet_mail,itm_burgh_helmet_1,itm_war_spear,itm_sword_viking_2,itm_sword_viking_c_long,itm_tab_shield_round_e,itm_tab_shield_small_round_c],
    def_attrib_lvl_28|level(28),wp_one_handed(240)|wp_two_handed(220)|wp_polearm(230)|wp_throwing(160)|wp_archery(90),knows_lvl_28_inf|knows_shield_6|knows_power_strike_8,germanic_face_1, germanic_face_2],
+
+  ["dane_vanguard","Danir Vanguard (Ordfruman)","Danir Vanguards (Ordfruman)",tf_guarantee_basic,0,0,fac_culture_minor_7,
+   [itm_obenaltendorf_shoes_1,itm_obenaltendorf_shoes_2,itm_wrapping_boots,itm_simple_shoes,itm_cloaked_generic_tunic_4,itm_cloaked_generic_tunic_12,itm_cloaked_tunic_1,itm_mid_generic_mail_3,itm_mid_generic_mail_6,itm_drengsted_helmet_mail,itm_woolen_cap_2,itm_woolen_cap_3,itm_battle_axe,itm_angon_1,itm_round_shield_germanic_19],
+   def_attrib_lvl_23|level(23),wp_one_handed(210)|wp_two_handed(210)|wp_polearm(190)|wp_throwing(200)|wp_archery(90),knows_lvl_23_inf|knows_shield_4|knows_power_strike_7,germanic_face_1, germanic_face_2],
+
+  ["saami_hunter","Scerefennae Hunter","Scerefennae Hunters",tf_guarantee_armor|tf_guarantee_boots|tf_guarantee_ranged,0,0,fac_culture_minor_7,
+   [itm_wrapping_boots,itm_simple_shoes,itm_skirmisher_tunic_4,itm_linen_shirt_10,itm_linen_shirt_14,itm_linen_shirt,itm_kovas_hat_1,itm_kovas_hat_2,itm_kovas_hat_3,itm_kovas_hat_4,itm_polehammer,itm_short_bow,itm_germanic_arrows,itm_germanic_arrows],
+   def_attrib_lvl_18|level(18),wp_one_handed(170)|wp_two_handed(160)|wp_polearm(150)|wp_archery(155)|wp_throwing(130),knows_archer,germanic_face_1, germanic_face_2],
 
 #CRIMEAN GOTHS/TETRAXITAE
   ["crimean_gothic_skirmisher","Tetraxitae Youth (Junga)","Tetraxitae Youth (Jungans)",tf_guarantee_armor|tf_guarantee_boots|tf_guarantee_ranged,0,0,fac_culture_minor_8,
@@ -2427,7 +2448,7 @@ troops = [
    def_attrib_lvl_18|level(16),wp_one_handed(180)|wp_two_handed(160)|wp_polearm(190)|wp_archery(100)|wp_throwing(180),knows_lvl_18_inf|knows_shield_4|knows_power_strike_6,celtic_face_1, celtic_face_2],
 
   ["irish_follower","Irish Follower (Forbfer)","Irish Followers (Forbfer)",tf_mounted|tf_guarantee_basic,0,0,fac_minor_irish,
-   [itm_woolen_hose,itm_wrapping_boots,itm_throwing_spears,itm_throwing_spears,itm_long_shirt_2,itm_long_shirt_14,itm_long_shirt_15,itm_bl_tunic6,itm_bl_tunic7,itm_bl_tunic11,itm_iatrus_helmet_light,itm_iatrus_helmet_mail,itm_koblenz_helmet_light_old,(itm_intercisa_helmet_1,imod_battered),itm_sword_medieval_c_small,itm_pictish_sword,itm_jarid,itm_jarid,itm_tab_shield_small_round_c]+shields_pictish_small,
+   [itm_woolen_hose,itm_wrapping_boots,itm_long_shirt_2,itm_long_shirt_14,itm_long_shirt_15,itm_bl_tunic6,itm_bl_tunic7,itm_bl_tunic11,itm_burgh_helmet_mail,itm_burgh_helmet_light,(itm_intercisa_helmet_1,imod_battered),itm_irish_spatha_1,itm_throwing_spears,itm_throwing_spears,itm_tab_shield_small_round_c]+shields_pictish_small,
    def_attrib_lvl_28|level(28),wp_one_handed(260)|wp_two_handed(230)|wp_polearm(260)|wp_archery(100)|wp_throwing(180),knows_lvl_28_inf|knows_shield_6|knows_power_strike_8,celtic_face_1, celtic_face_2],
 
 #ARABS
@@ -4929,38 +4950,38 @@ troops = [
 ####finnsburh quest characters
 #DANI
   ["dani_hocing","Hnaef Hocing","Hnaef Hocing",tf_hero,0,0,fac_minor_dani,
-   [],
-   def_attrib_lvl_25|level(25),wp_one_handed(210)|wp_two_handed(190)|wp_polearm(190)|wp_archery(120)|wp_throwing(210),knows_lvl_23_inf|knows_shield_6|knows_power_strike_4,roman_face_1, roman_face_2],
+   [itm_obenaltendorf_shoes_1,itm_mid_generic_mail_19,itm_tarasovsky_782,itm_indesheim_spatha_rich,itm_concave_shield_germanic_10],
+   def_attrib_lvl_25|level(25),wp_one_handed(210)|wp_two_handed(190)|wp_polearm(190)|wp_archery(120)|wp_throwing(210),knows_lvl_23_inf|knows_shield_6|knows_power_strike_4,0x0000000196000509291a692862adb6db00000000001db6e90000000000000000],
   ["dani_sigeferth","Sigeferth","Sigeferth",tf_hero,0,0,fac_minor_dani,
-   [],
-   def_attrib_lvl_25|level(25),wp_one_handed(210)|wp_two_handed(190)|wp_polearm(190)|wp_archery(120)|wp_throwing(210),knows_lvl_23_inf|knows_shield_6|knows_power_strike_4,roman_face_1, roman_face_2],
+   [itm_wrapping_boots,itm_mid_generic_mail_24,itm_drengsted_helmet_mail,itm_indesheim_spatha_rich,itm_round_shield_germanic_19],
+   def_attrib_lvl_25|level(25),wp_one_handed(210)|wp_two_handed(190)|wp_polearm(190)|wp_archery(120)|wp_throwing(210),knows_lvl_23_inf|knows_shield_6|knows_power_strike_4,0x00000001890010ca291189286251b2da00000000001db6e80000000000000000],
   ["dani_eaha","Eaha","Eaha",tf_hero,0,0,fac_minor_dani,
-   [],
-   def_attrib_lvl_25|level(25),wp_one_handed(210)|wp_two_handed(190)|wp_polearm(190)|wp_archery(120)|wp_throwing(210),knows_lvl_23_inf|knows_shield_6|knows_power_strike_4,roman_face_1, roman_face_2],
+   [itm_simple_shoes,itm_cloaked_tunic_1,itm_germanic_cap_1,itm_sword_medieval_c_long,itm_round_shield_germanic_12],
+   def_attrib_lvl_25|level(25),wp_one_handed(210)|wp_two_handed(190)|wp_polearm(190)|wp_archery(120)|wp_throwing(210),knows_lvl_23_inf|knows_shield_6|knows_power_strike_4,0x00000005ab00144136536e586951b4e300000000001d36a30000000000000000],
   ["dani_hengest","Hengest Wodning","Hengest Wodning",tf_hero,0,0,fac_minor_dani,
-   [],
-   def_attrib_lvl_25|level(25),wp_one_handed(210)|wp_two_handed(190)|wp_polearm(190)|wp_archery(120)|wp_throwing(210),knows_lvl_23_inf|knows_shield_6|knows_power_strike_4,roman_face_1, roman_face_2],
+   [itm_obenaltendorf_shoes_2,itm_mid_generic_mail_29,itm_tsaritsyno_2_2,itm_samson_spatha_2_rich,itm_concave_shield_germanic_25],
+   def_attrib_lvl_25|level(25),wp_one_handed(210)|wp_two_handed(190)|wp_polearm(190)|wp_archery(120)|wp_throwing(210),knows_lvl_23_inf|knows_shield_6|knows_power_strike_4,0x00000006800044c759522e454b91231a00000000001eb6e20000000000000000],
   ["dani_ordlaf","Ordlaf","Ordlaf",tf_hero,0,0,fac_minor_dani,
-   [],
-   def_attrib_lvl_25|level(25),wp_one_handed(210)|wp_two_handed(190)|wp_polearm(190)|wp_archery(120)|wp_throwing(210),knows_lvl_23_inf|knows_shield_6|knows_power_strike_4,roman_face_1, roman_face_2],
+   [itm_obenaltendorf_shoes_2,itm_cloaked_generic_tunic_3,itm_concave_shield_germanic_21,itm_angon_1,itm_long_seax_3],
+   def_attrib_lvl_25|level(25),wp_one_handed(210)|wp_two_handed(190)|wp_polearm(190)|wp_archery(120)|wp_throwing(210),knows_lvl_23_inf|knows_shield_6|knows_power_strike_4,0x00000004e300508836536d3793aca91b00000000001db6d30000000000000000],
   ["dani_guthlaf","Guthlaf","Guthlaf",tf_hero,0,0,fac_minor_dani,
-   [],
-   def_attrib_lvl_25|level(25),wp_one_handed(210)|wp_two_handed(190)|wp_polearm(190)|wp_archery(120)|wp_throwing(210),knows_lvl_23_inf|knows_shield_6|knows_power_strike_4,roman_face_1, roman_face_2],
+   [itm_ankle_boots,itm_cloaked_tunic_9,itm_round_shield_germanic_19,itm_war_spear_2],
+   def_attrib_lvl_25|level(25),wp_one_handed(210)|wp_two_handed(190)|wp_polearm(190)|wp_archery(120)|wp_throwing(210),knows_lvl_23_inf|knows_shield_6|knows_power_strike_4,0x000000074f00030f46536e7a2951b2d900000000001db6da0000000000000000],
 ##FINNS
   ["finn_garulf","Garulf Guthlafing","Garulf Guthlafing",tf_hero,0,0,fac_minor_frisians,
-   [],
-   def_attrib_lvl_25|level(25),wp_one_handed(210)|wp_two_handed(190)|wp_polearm(190)|wp_archery(120)|wp_throwing(210),knows_lvl_23_inf|knows_shield_6|knows_power_strike_4,roman_face_1, roman_face_2],
+   [itm_simple_shoes,itm_mid_generic_mail_18,itm_fernpass_helmet_2,itm_battle_axe,itm_concave_shield_germanic_22],
+   def_attrib_lvl_25|level(25),wp_one_handed(210)|wp_two_handed(190)|wp_polearm(190)|wp_archery(120)|wp_throwing(210),knows_lvl_23_inf|knows_shield_6|knows_power_strike_4,0x00000001a700424b5b1189286251b8e300000000001db68c0000000000000000],
 
   ["finn_guthere","Guthere","Guthere",tf_hero,0,0,fac_minor_frisians,
-   [],
-   def_attrib_lvl_25|level(25),wp_one_handed(210)|wp_two_handed(190)|wp_polearm(190)|wp_archery(120)|wp_throwing(210),knows_lvl_23_inf|knows_shield_6|knows_power_strike_4,roman_face_1, roman_face_2],
+   [itm_wrapping_boots,itm_cloaked_tunic_2,itm_woolen_cap_2,itm_round_shield_germanic_11,itm_sword_khergit_3],
+   def_attrib_lvl_25|level(25),wp_one_handed(210)|wp_two_handed(190)|wp_polearm(190)|wp_archery(120)|wp_throwing(210),knows_lvl_23_inf|knows_shield_6|knows_power_strike_4,0x000000058f00644256536e586951b4e300000000001db6ea0000000000000000],
 
   ["finn_aethelbald","Aethelbald","Aethelbald",tf_hero,0,0,fac_minor_frisians,
-   [],
-   def_attrib_lvl_25|level(25),wp_one_handed(210)|wp_two_handed(190)|wp_polearm(190)|wp_archery(120)|wp_throwing(210),knows_lvl_23_inf|knows_shield_6|knows_power_strike_4,roman_face_1, roman_face_2],
+   [itm_ankle_boots,itm_mid_generic_mail_27,itm_triveres_leather,itm_round_shield_germanic_22,itm_sword_viking_a_long],
+   def_attrib_lvl_25|level(25),wp_one_handed(210)|wp_two_handed(190)|wp_polearm(190)|wp_archery(120)|wp_throwing(210),knows_lvl_23_inf|knows_shield_6|knows_power_strike_4,0x00000004c00020451651c248a195a49100000000001d368a0000000000000000],
 
   ["finn_hildeburh","Hildeburh","Hildeburh",tf_hero|tf_hero,0,0,fac_minor_frisians,
-   [],
+   [itm_wrapping_boots,itm_dress_5],
    def_attrib,wp(60),knows_common,woman_face_1, woman_face_2],
 ####finnsburh quest characters END
 

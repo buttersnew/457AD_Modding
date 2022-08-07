@@ -275,15 +275,15 @@ party_templates = [
   ("aestii_party_2","Aestii Warriors",icon_axeman|carries_goods(30)|pf_show_faction,0,fac_minor_aestii,bandit_personality,[(trp_aestii_skirmisher,10,25),(trp_aestii_tribesman,15,25),(trp_sitones_retainer,5,10),(trp_aestii_companion,5,10)]), #after quest is completed
   ("irish_party","Scoti Warriors",icon_axeman|carries_goods(30)|pf_show_faction,0,fac_minor_irish,bandit_personality,[(trp_irish_skirmisher,10,25),(trp_irish_warrior,15,25),(trp_irish_follower,5,10)]),
   ("garamantian_party","Garamantian Warriors",icon_axeman|carries_goods(30)|pf_show_faction,0,fac_minor_garamantians,bandit_personality,[(trp_garamantian_warrior,14,30),(trp_garamantian_horseman,14,25),(trp_african_mercenary,2,5)]),
-  ("dani_party","Dani Warriors",icon_axeman|carries_goods(30)|pf_show_faction,0,fac_minor_dani,bandit_personality,[(trp_scandinavian_freeman,10,25),(trp_scandinavian_retainer,10,25),(trp_scandinavian_comes,5,10)]),
+  ("dani_party","Dani Warriors",icon_axeman|carries_goods(30)|pf_show_faction,0,fac_minor_dani,bandit_personality,[(trp_scandinavian_freeman,10,25),(trp_scandinavian_retainer,5,10),(trp_dane_vanguard,5,15),(trp_scandinavian_comes,5,10)]),
   ("morden_party","Morden Warriors",icon_axeman|carries_goods(30)|pf_show_faction,0,fac_minor_mordens,bandit_personality,[(trp_mordvin_skirmisher,10,15),(trp_mordvin_footman,10,25),(trp_mordvin_mounted_skirmisher,5,10),(trp_mordvin_companion,3,6),(trp_komi_warrior,2,4)]),
   ("sporoi_party","Sporoi Warriors",icon_axeman|carries_goods(30)|pf_show_faction,0,fac_minor_sporoi,bandit_personality,[(trp_slav_skirmisher,10,25),(trp_slav_footman,10,25),(trp_slav_horseman,5,10)]), #slavs
   ("bosphoran_party","Bosphoran Patrol",icon_axeman|carries_goods(30)|pf_show_faction,0,fac_minor_bosphoran,soldier_personality,[(trp_bosphor_recruit,10,15),(trp_bosphor_infantry,10,25),(trp_bosphor_archer,5,10),(trp_bosphor_horseman,3,6),(trp_meotian_horseman,2,4)]),
   ("abagasian_party","Abagasian Warriors",icon_axeman|carries_goods(30)|pf_show_faction,0,fac_minor_abagasians,bandit_personality,[(trp_abasgian_skirmisher,10,15),(trp_abasgian_footman,10,25),(trp_abasgian_horse_archer,7,12),(trp_abasgian_nobleman,3,8)]),
   ("tauri_party","Tauri Raiders",icon_axeman|carries_goods(30)|pf_show_faction,0,fac_minor_tauri,bandit_personality,[(trp_tauri_axeman,15,30),(trp_tauri_horseman,15,30)]),
-  ("augundzi_party","Augundzi Warriors",icon_axeman|carries_goods(30)|pf_show_faction,0,fac_minor_augundzi,bandit_personality,[(trp_scandinavian_freeman,10,25),(trp_scandinavian_retainer,10,25),(trp_scandinavian_comes,5,10)]),
+  ("augundzi_party","Augundzi Warriors",icon_axeman|carries_goods(30)|pf_show_faction,0,fac_minor_augundzi,bandit_personality,[(trp_scandinavian_freeman,5,15),(trp_saami_hunter,5,15),(trp_scandinavian_retainer,10,20),(trp_scandinavian_comes,5,10)]),
   ("vidivarii_party","Vidivarii Warriors",icon_axeman|carries_goods(30)|pf_show_faction,0,fac_minor_vidivarii,bandit_personality,[(trp_aestii_skirmisher,10,25),(trp_gothic_freeman,15,25),(trp_scandinavian_comes,5,10)]),
-  ("frisian_party","Frisii Warriors",icon_axeman|carries_goods(30)|pf_show_faction,0,fac_minor_frisians,bandit_personality,[(trp_frisian_freeman,25,50),(trp_frisian_companion,5,10)]),
+  ("frisian_party","Frisii Warriors",icon_axeman|carries_goods(30)|pf_show_faction,0,fac_minor_frisians,bandit_personality,[(trp_frisian_freeman,20,40),(trp_frisian_companion,5,10),(trp_saxon_companion,5,10)]),
 
 #Max temp 1 : 8-20
 #Max temp 2: 6-15 exclude bearer
@@ -405,7 +405,7 @@ party_templates = [
 
   ("kingdom_saxon_reinforcements_a", "{!}Saxon Reinforcements", 0, 0, fac_commoners, 0, [(trp_northern_germanic_skirmisher,4,10),(trp_northern_germanic_freeman,4,10)]), #mix of kouadoi, frisians, angles
   ("kingdom_saxon_reinforcements_b", "{!}Saxon Reinforcements", 0, 0, fac_commoners, 0, [(trp_northern_germanic_freeman,2,5),(trp_kouadoi_warrior,2,5),(trp_frisian_freeman,2,5),(trp_standard_bearer,1,1)]),
-  ("kingdom_saxon_reinforcements_c", "{!}Saxon Reinforcements", 0, 0, fac_commoners, 0, [(trp_northern_germanic_warrior,2,5),(trp_angle_mercenary,1,2),(trp_northern_germanic_horseman,1,3)]),
+  ("kingdom_saxon_reinforcements_c", "{!}Saxon Reinforcements", 0, 0, fac_commoners, 0, [(trp_northern_germanic_warrior,2,5),(trp_saxon_companion,1,2),(trp_northern_germanic_horseman,1,3)]),
 
   ("kingdom_amali_reinforcements_a", "{!}ostrogothic Reinforcements", 0, 0, fac_commoners, 0, [(trp_gothic_skirmisher,4,10),(trp_gothic_freeman,4,10)]),
   ("kingdom_amali_reinforcements_b", "{!}ostrogothic Reinforcements", 0, 0, fac_commoners, 0, [(trp_gothic_freeman,2,6),(trp_gothic_mounted_skirmisher,2,3),(trp_alpidzuri_rider,1,3),(trp_tuncarsi_mounted_skirmisher,1,3),(trp_standard_bearer,1,1)]),

@@ -786,4 +786,5 @@ scn_arian_monastery = 783
 scn_duel_plain_forest = 784
 scn_cutscene_longboat = 785
 scn_cutscene_longboat_2 = 786
+scn_finns_hall_interior = 787
 scn_exit = 100000

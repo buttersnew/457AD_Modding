@@ -49810,7 +49810,237 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   "Mind your manners and we will have no problems, outsider.", "close_window",
   []],
 
-  #aestii king
+#THIS IS FOR THE FINNSBURG QUEST, IT MUST BE BEFORE THE KING INTRODUCTION!!!!!  
+  [trp_dani_guthlaf, "start", [
+  (check_quest_active, "qst_finnsburh_quest"),
+  (quest_slot_eq, "qst_finnsburh_quest", slot_quest_current_state, 14),
+  ],
+   "You cannot refuse this sword, Hengist. You cannot escape your faith. Remember the vow that tied you to Hnaef of the Hocings: you had to protect him and now your Lord is nothing but ashes.",
+   "finn_quest_first_part_final_1", [
+   ]],
+
+  [anyone|other(trp_dani_hengest), "finn_quest_first_part_final_1", [
+  ],
+   "The peace we signed with Finn is profitable for everyone, he granted us a good wergild and some of his treasure.",
+   "finn_quest_first_part_final_2", [
+   ]],
+
+  [anyone|plyr, "finn_quest_first_part_final_2", [
+  ],
+   "He broke the law of hospitality; Finn has no honour.",
+   "finn_quest_first_part_final_3", [
+   ]],
+
+  [anyone|other(trp_dani_guthlaf), "finn_quest_first_part_final_3", [
+  ],
+   "Ah, {playername} is here! And he speaks the truth. Finn is afraid of you. No enemy would make such great concessions after all the damage we caused him! How many men did we kill of his personal retinue? Twenty with our own blades? Maybe more? Some of our best men died yesterday too, Sigeferth and Eaha. We ought to avenge them!",
+   "finn_quest_first_part_final_4", [
+   ]],
+
+  [anyone|other(trp_dani_hengest), "finn_quest_first_part_final_4", [
+  ],
+   "No. I have to stay here. If we leave now, they will follow us. Guthlaf, you will visit Heorot, inform Gramr that one of his retainers has been assassinated. Ordlaf will visit my brother and he too will grant us aid. You, {playername}, this is not your fight. You escorted Hnaef here, but you had no other obligation towards him, you are free to go.",
+   "finn_quest_first_part_final_5", [
+   ]],
+
+  [anyone|plyr, "finn_quest_first_part_final_5", [
+  ],
+   "No, I too want Finn Folcwalding to pay for his wrongdoings. I will ready my men and we will storm this village with you when time comes.",
+   "finn_quest_first_part_final_continue", [
+   ]],
+
+  [anyone|plyr, "finn_quest_first_part_final_5", [
+  ],
+   " I understand. Our paths split here. Farewell, warriors. I shall sing of our deeds through the lands of the Romans.",
+   "finn_quest_first_part_final_end_1", [
+   ]],
+
+  [anyone|other(trp_dani_hengest), "finn_quest_first_part_final_continue", [
+  ],
+   "Good, it is settled. In the meantime, I will spend some time here, I will convince them I mean no harm towards them. But when the time comes you all will be informed: we will meet at Heorot and will sail together towards this hall. Finn and Hildeburh, that hag, will pay.",
+   "close_window", [
+    (call_script, "script_end_quest", "qst_finnsburh_quest"),
+    (call_script, "script_change_troop_renown", "trp_player", 50),
+    (call_script, "script_change_player_honor", 2),
+    (add_xp_as_reward,2000),
+    (assign, "$g_battle_result", 1),
+    
+    (setup_quest_text, "qst_finnsburh_quest_2"),
+    (str_store_string, s2, "@Soon you will recieve a message from the Dani warriors. Then you will have to be ready for battle and travel to Heorot to meet the Dani army there."),
+
+    (call_script, "script_start_quest", "qst_finnsburh_quest_2", "trp_dani_hengest"),
+    (quest_set_slot, "qst_finnsburh_quest_2", slot_quest_current_state, 1),
+    
+   ]],
+
+  [anyone|other(trp_dani_hengest), "finn_quest_first_part_final_end_1", [
+  ],
+   "Are you sure {playername}? I enjoyed fighting with you a lot. We would miss your arm in battle. Remember the glory, the fame! The bards will sing of the coming battle for generations!",
+   "finn_quest_first_part_final_end_11", [
+   ]],
+
+
+  [anyone|plyr, "finn_quest_first_part_final_end_11", [
+  ],
+   "You are right! I will ready my warband and storm this village when the time will come.",
+   "finn_quest_first_part_final_continue", [
+   ]],
+
+  [anyone|plyr, "finn_quest_first_part_final_end_11", [
+  ],
+   "I have important other business which needs my attention...",
+   "finn_quest_first_part_final_end_2", [
+   ]],
+
+  [anyone|other(trp_dani_hengest), "finn_quest_first_part_final_end_2", [
+  ],
+   "That is good and fine as we can win without you anyway. It will be harder though. I wish you good luck for your journeys, {playername}.",
+   "close_window", [
+    (call_script, "script_end_quest", "qst_finnsburh_quest"),
+    (call_script, "script_change_troop_renown", "trp_player", 25),
+    (add_xp_as_reward,1500),
+    (assign, "$g_battle_result", 1),
+   ]],
+
+   
+  [trp_dani_hocing, "start", [
+  (check_quest_active, "qst_finnsburh_quest"),
+  (quest_slot_eq, "qst_finnsburh_quest", slot_quest_current_state, 11),
+  ],
+   "I hope my champions are ready, I can smell them already.",
+   "finn_quest_last_battle_talk_1", [
+   ]],
+   
+  [anyone|plyr, "finn_quest_last_battle_talk_1", [
+  ],
+   "Hnaef, prince of the Hocings, we can no longer endure their assaults. We are valiant, but they are too many.",
+   "finn_quest_last_battle_talk_2", [
+   ]],
+  [anyone|other(trp_dani_eaha), "finn_quest_last_battle_talk_2", [
+  ],
+   "One of their Jutish mercenaries wounded my leg, even if we survive this, I won’t be able to protect you anymore, chief. ",
+   "finn_quest_last_battle_talk_3", [
+   ]],
+   
+  [anyone, "finn_quest_last_battle_talk_3", [
+  ],
+   "Then here remain with your uncertainty! Let every feeble rumour shake your hearts. Our enemies, with nodding of their caps, fan you into despair!",
+   "finn_quest_last_battle_talk_4", [
+   ]],
+   
+  [anyone, "finn_quest_last_battle_talk_4", [
+  ],
+   "Are you a pack of stray dogs or wolves!? Take heart, for if we die here, we will dine in Valhalla this very evening!",
+   "finn_quest_last_battle_talk_5", [
+   ]],
+   
+  [anyone|other(trp_dani_ordlaf), "finn_quest_last_battle_talk_5", [
+  ],
+   "We are with you, illustrious prince of the Danes!",
+   "finn_quest_last_battle_talk_6", [
+   ]],
+   
+  [anyone|other(trp_dani_guthlaf), "finn_quest_last_battle_talk_6", [
+  ],
+   "They are coming again, ready your blades!",
+   "close_window", [
+   (quest_set_slot, "qst_finnsburh_quest", slot_quest_current_state, 12),
+   (assign, "$g_battle_result", 1),
+   # (finish_mission),
+   # (jump_to_menu, "mnu_finnsburg_quest_8"),
+   ]],
+   
+  [trp_frisian_king, "start", [
+  (check_quest_active, "qst_finnsburh_quest"),
+  (quest_slot_eq, "qst_finnsburh_quest", slot_quest_current_state, 6),
+  ],
+   "Garulf has fallen! Men, attack! Make them a feast for the crows!",
+   "close_window", [
+   (add_visitors_to_current_scene, 17, "trp_frisian_freeman", 4),
+   (add_visitors_to_current_scene, 17, "trp_frisian_freeman", 4),
+   (mission_disable_talk),
+   ]],
+   
+  [trp_frisian_king, "start", [
+  (check_quest_active, "qst_finnsburh_quest"),
+  (quest_slot_eq, "qst_finnsburh_quest", slot_quest_current_state, 5),
+  ],
+   "*You hear noises from outside. The Frisians are gathering in front of the door*",
+   "finn_quest_talk_first_battle_1", []],
+  [anyone|other(trp_dani_hengest), "finn_quest_talk_first_battle_1", [
+  ],
+   "My good Lord Hnaef, wake up, the Frisians drew their blades and are about to attack!",
+   "finn_quest_talk_first_battle_2", []],
+   
+  [anyone|other(trp_dani_hocing), "finn_quest_talk_first_battle_2", [
+  ],
+   "Lo! Up arose evil deeds, this nation-folk’s bitter hatred, did attain its desire. But lo! Awake! My small host of thanes, heave up your linden-shields, bethink upon valour, toiling at swordplay, be now courageous!",
+   "finn_quest_talk_first_battle_3", []],
+   
+  [anyone, "finn_quest_talk_first_battle_3", [
+  ],
+   "Hnaef, miserable murderer, you shouldn’t have come for the sons of Frisia still remember the grief you caused to many! This night you will rejoin your ancestors, none of you will come out of my hall alive. You should have brought shovels with you for I am going to bury you beneath the very soil I trample with my feet every morning.",
+   "finn_quest_talk_first_battle_4", []],
+   
+  [anyone|other(trp_finn_guthere), "finn_quest_talk_first_battle_4", [
+  ],
+   "I shall be the first man! The one who will slay the champions of the Danes!",
+   "finn_quest_talk_first_battle_5", []],
+   
+  [anyone|other(trp_finn_garulf), "finn_quest_talk_first_battle_5", [
+  ],
+   "Desist, dear cousin, for your soul is burning with hatred and your sword might fail you! I shall go first. Who is he, the door holding fast?",
+   "finn_quest_talk_first_battle_6", []],
+   
+  [anyone|other(trp_dani_sigeferth), "finn_quest_talk_first_battle_6", [
+  ],
+   "Sigeferth is my name! I am a man of the Sedgeans, an adventurer, of whom many have wide knowledge, trustily I have borne ill-fortune, hard-fought wars. Even now, called forth here for you, whatsoever yourselves from me seek, you shall attain.",
+   "close_window", 
+   [
+   (assign, "$g_battle_result", 1),
+   (mission_disable_talk),
+   ]],
+   
+  [trp_frisian_king, "start", [(check_quest_active, "qst_finnsburh_quest"),
+  (quest_slot_eq, "qst_finnsburh_quest", slot_quest_current_state, 2),
+  ],
+   "Salutations, brother! We did not expect you, nor you sent a message to tell us of your arrival. However, you and your men are very welcome. To see you here truly is a surprise. Come, meet your nephew, Aethelbald. Our clan grows larger, Aethelbald might be young, but he’s vigorous and strong. ", 
+   "finn_quest_talk_intro_1", []],
+  [anyone, "finn_quest_talk_intro_1", 
+  [
+  (str_clear, s44),
+  (try_begin),
+    (gt, "$g_talk_troop_met", 0),
+    (str_store_string, s44, "@And you also have {playername}, I knew we would meet again, but never under these circumstances. Welcome, welcome!"),
+  (try_end),
+  ],
+   "I recognise Hengist with you, it is an honour to have a warrior of such caliber with us. Our humble hall isn’t worthy of your presence.^^{s44}", 
+   "finn_quest_talk_intro_2", []],
+   
+  [anyone|other(trp_finn_aethelbald), "finn_quest_talk_intro_2", 
+  [],
+   "Welcome, men of the North, into my father’s hall. My mother is inside the longhouse and will be enthusiast to see you, uncle.", 
+   "finn_quest_talk_intro_3", []],
+   
+  [anyone|other(trp_dani_hocing), "finn_quest_talk_intro_3", 
+  [],
+   "Hail, brother, king of the Frisians, dragon of the Oceanus Germanicus, good friend of the Franks and wise counsellor to the Saxons! I revere you. Your hospitality is a greatly appreciated gift. Me and my men will follow you into your hall and will gladly eat your food.", 
+   "finn_quest_talk_intro_4", []],
+   
+  [anyone|other(trp_dani_hocing), "finn_quest_talk_intro_4", 
+  [],
+   "To thank you for your hospitality please, accept this gift from my side. I brought a blade with me, this sword here was in a prince’s hand in Scandza when I found it, but it was destined for another ruler. Wear it with honour!", 
+   "finn_quest_talk_intro_5", []],
+   
+  [anyone, "finn_quest_talk_intro_5", 
+  [],
+   "Thank you, Hnaef, prince of the Hocing, wolf of the Danes, shield-destroyer and brother! I will wear it with pride.", 
+   "close_window", [
+   (assign, "$g_battle_result", 1),
+   (mission_disable_talk),
+   ]],
+   
+#aestii king
   [trp_aestii_king, "start", [(eq, "$g_talk_troop_met", 0),],
    "Who's yonder, that appears as he lost his path?", "aestii_king_intro_1", []],
   [trp_aestii_king|plyr, "aestii_king_intro_1", [],
@@ -50902,6 +51132,78 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   
   [trp_dani_hengest,"start", [
   (check_quest_active, "qst_finnsburh_quest"),
+  (quest_slot_eq, "qst_finnsburh_quest", slot_quest_current_state, 13),
+  ], 
+  "Finn son of Folcwald, your men got the better of it and killed our prince, Hnaef, your brother! We harshly fought for five days and five nights, but we are exhausted, and our chief died. We can’t resist any longer. We are at your mercy but beware: if you dare harm me or the other warriors who survived my kinsmen will reach your halls and you will rejoin us beneath the soil you mentioned.", 
+  "finn_quest_after_battle_talk_1",[]],
+  
+  [anyone|other(trp_frisian_king),"finn_quest_after_battle_talk_1", [
+  ], 
+  "Enough! Enough blood has been shed and my hatred lied with no other foreigner but him. ", 
+  "finn_quest_after_battle_talk_2",[]],
+  
+  [anyone|other(trp_finn_hildeburh),"finn_quest_after_battle_talk_2", [
+  ], 
+  "Husband, do not let them go! They will come back with more men and avenge Hnaef!", 
+  "finn_quest_after_battle_talk_3",[]],
+  
+  [anyone|plyr,"finn_quest_after_battle_talk_3", [
+  ], 
+  "You, wench! They killed your brother and the fight who ensued led to Aethelbald’s death too!", 
+  "finn_quest_after_battle_talk_option_1",[]],
+  
+  [anyone|plyr,"finn_quest_after_battle_talk_3", [
+  ], 
+  "*Remain silent*", 
+  "finn_quest_after_battle_talk_4",[]],
+  
+  [anyone|other(trp_finn_hildeburh),"finn_quest_after_battle_talk_option_1", [
+  ], 
+  "Mind your words, foreigner! My brother and my father were nothing but beasts. They destined me to a tragic fate: a mere girl exiled from her homeland, far from the halls where I was born! For what? Of course, to settle their men’s disputes! But with Freya’s assistance I found a good husband who understood my plight and with him I plotted my revenge.", 
+  "finn_quest_after_battle_talk_option_2",
+  [(call_script, "script_change_player_relation_with_troop", "trp_finn_hildeburh",-10),]],
+  
+  [anyone|other(trp_dani_hengest),"finn_quest_after_battle_talk_option_2", [
+  ], 
+  "{playername}, this is no time for revenge. Do not talk.", 
+  "finn_quest_after_battle_talk_4",
+  []],
+  
+  [anyone|other(trp_finn_hildeburh),"finn_quest_after_battle_talk_4", [
+  ], 
+  "Me and the other Jutes had to beg my king to kill my brother, he wanted to honour the pact signed by his father Folcwald but he eventually saw how humiliating this peace was. Hnaef had to die.", 
+  "finn_quest_after_battle_talk_5",[]],
+  
+  [anyone|other(trp_frisian_king),"finn_quest_after_battle_talk_5", [
+  ], 
+  "And he died, but our son is now with him! Hnaef fought valiantly, this is true. And for this reason, I am willing to accept a peace treaty between me and you, Hengist Wodning. I too lost too many men and if we kept fighting none of us would have emerged from the hall.", 
+  "finn_quest_after_battle_talk_6",[]],
+  
+  [anyone|other(trp_frisian_king),"finn_quest_after_battle_talk_6", [
+  ], 
+  "For this reason, any other Frisian that will cause harm to Hengist and the Danes will be dealt with the edge of the sword. Furthermore, to provide a good wergild for your losses, we will hold a feast in your name.", 
+  "finn_quest_after_battle_talk_7",[]],
+  
+  [anyone|other(trp_finn_guthere),"finn_quest_after_battle_talk_7", [
+  ], 
+  "My king, these terms are too generous! We, the Frisians, killed their Prince!", 
+  "finn_quest_after_battle_talk_8",[]],
+  
+  [anyone|other(trp_frisian_king),"finn_quest_after_battle_talk_8", [
+  ], 
+  "Finally, we will hold a good funeral, where Hnaef and Aethelbald will be burned on the same pyre.", 
+  "finn_quest_after_battle_talk_9",[]],
+  
+  [anyone|other(trp_dani_hengest),"finn_quest_after_battle_talk_9", [
+  ], 
+  "These are good terms, and we accept them gladly.", 
+  "close_window",
+  [
+  (assign, "$g_battle_result", 1),]],
+  
+  
+  [trp_dani_hengest,"start", [
+  (check_quest_active, "qst_finnsburh_quest"),
   (quest_slot_eq, "qst_finnsburh_quest", slot_quest_current_state, 1),
   (agent_slot_eq, "$g_talk_agent", slot_agent_is_in_scripted_mode, 0),
   ], 
@@ -50985,7 +51287,17 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   "close_window",[]],
   
   
-  [trp_dani_hocing,"start", [(neg|check_quest_active, "qst_finnsburh_quest"),], 
+  [trp_dani_hocing,"start", [(neg|check_quest_active, "qst_finnsburh_quest"),
+  (quest_slot_eq, "qst_finnsburh_quest", slot_quest_current_state, 0),
+  (quest_slot_eq, "qst_finnsburh_quest", slot_quest_temp_slot, 1),
+  ], 
+  "Hail {playername}. I am still preparing our journey. You may changed your mind and want to join us? More men would be welcome.", 
+  "finnsburg_quest_start_17",[]],
+  
+  [trp_dani_hocing,"start", [(neg|check_quest_active, "qst_finnsburh_quest"),
+  (quest_slot_eq, "qst_finnsburh_quest", slot_quest_current_state, 0),
+  (quest_slot_eq, "qst_finnsburh_quest", slot_quest_temp_slot, 0),
+  ], 
   "Hail! Whom do I have here?", 
   "finnsburg_quest_start_1",[]],
   
@@ -51059,14 +51371,18 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   
   [anyone|plyr,"finnsburg_quest_start_17", [], 
   "I cannot do what you ask, Hnaef son of Hoc. I hold no grudges against the Frisians and if I have to draw my sword, I’d rather not do it against them.", 
-  "close_window",[]],
+  "finnsburg_quest_start_refused",[]],
+  
+  [anyone,"finnsburg_quest_start_refused", [], 
+  "I understand {playername}. However, if you should change your mind come back. Maybe you're lucky and we haven't left yet.", 
+  "close_window",[(quest_set_slot, "qst_finnsburh_quest", slot_quest_temp_slot, 1),]],
   
   [anyone,"finnsburg_quest_start_final", [], 
   "And so be it, pack your things, we leave tomorrow at dawn, {playername}. ",
   "close_window",
   [
     (setup_quest_text, "qst_finnsburh_quest"),
-    (str_store_string, s2, "@You have agreed to follow the Dani warriors to Finn's hall. You will travel alone, without your men as the Dani have not enough gold to hire your whole warband. In the meantime your men stay at Heorot in the company of the beautiful blond Dani women and wait until you come back."),
+    (str_store_string, s2, "@You have agreed to follow the Dani warriors to Finn's hall. You will travel alone, without your men, as the Dani have not enough gold to hire your whole warband. In the meantime your men stay at Heorot in the company of the beautiful blond Dani women and wait until you come back."),
 
     (call_script, "script_start_quest", "qst_finnsburh_quest", "trp_dani_hocing"),
     (quest_set_slot, "qst_finnsburh_quest", slot_quest_current_state, 1),
@@ -51085,7 +51401,33 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   ], "I have no time to talk. Better speak with our leader Hnaef Hocing.", "close_window",[]],
   [trp_dani_guthlaf,"start", [
   ], "Its not the right time to talk. Go and speak with our leader Hnaef Hocing if you have anything to say.", "close_window",[]],
-  
+ 
+  [trp_finn_hildeburh,"start", [
+  (check_quest_active, "qst_finnsburh_quest"),
+  (quest_slot_eq, "qst_finnsburh_quest", slot_quest_current_state, 3),
+  ],
+  "I cannot believe my eyes, as I rarely see such hefty figures around the village. My brother you must be! The most splendid of the Danes and the boldest among the warriors. Oh, the joy I feel by seeing you again!", 
+  "finn_quest_hildeburh_talk_intro_1",[]],
+
+  [anyone|other(trp_dani_hocing),"finn_quest_hildeburh_talk_intro_1", [
+  ],
+  "Peace-weaver, you are as gracious as the last time we met, when you were but a young girl, sent by the lord of our family to bring concord among our sea-kins.", 
+  "finn_quest_hildeburh_talk_intro_2",[]],
+
+  [anyone|other(trp_frisian_king),"finn_quest_hildeburh_talk_intro_2", [
+  ],
+  "Let us lift our cups to the Folcwaldings and the Hocings, the most noble lineages among the Frisians and the Danes! Hail!", 
+  "finn_quest_hildeburh_talk_intro_3",[]],
+
+  [anyone|other(trp_finn_aethelbald),"finn_quest_hildeburh_talk_intro_3", [
+  ],
+  "Our family is finally reunited; may the Gods remember this day of joy! Hail!", 
+  "close_window",[
+  (assign, "$g_battle_result", 1),
+  (mission_disable_talk),
+  ]],
+
+ 
   
   [anyone,"start", [
   (neq,"$g_talk_troop","trp_bishop_of_rome"),

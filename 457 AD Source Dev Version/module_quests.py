@@ -555,7 +555,10 @@ quests = [
   "{!}"
  ),    
  
- ("finnsburh_quest", "Battle of Finnsburh", 0, #
+ ("finnsburh_quest", "Battle of Finnsburh Part I", 0, #
+  "{!}"
+ ),    
+ ("finnsburh_quest_2", "Battle of Finnsburh Part II", 0, #
   "{!}"
  ),    
 

@@ -131,6 +131,10 @@ tracks = [
   ("wedding", "wedding.ogg", mtf_persist_until_finished, 0),
 
   ("coronation", "coronation.ogg", mtf_persist_until_finished, 0),
-    
-  ("cutscene_longboat_track", "victorious_neutral_3.ogg", mtf_persist_until_finished, 0),
+  
+  #this tracks are for finnsburg quest
+  #this one here plays when the journey start
+  ("cutscene_longboat_track", "town_neutral.mp3", mtf_persist_until_finished, 0),
+  #this here plays when the finnsburg feast starts
+  ("finnsburg_feast_track", "lords_hall_vaegir.mp3", mtf_persist_until_finished, 0),
 ]

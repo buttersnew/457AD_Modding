@@ -48,7 +48,7 @@ bard_disguise = [itm_wrapping_boots,itm_lyre,itm_linen_tunic,itm_winged_mace]
 af_castle_lord = af_override_horse | af_override_weapons| af_require_civilian
 
 small_battle_check = (0,0,ti_once, 
-    [],
+    [(mission_tpl_are_all_agents_spawned)],
     [
     # (display_message, "@Small battle check"),
     
@@ -90,8 +90,8 @@ small_battle_check = (0,0,ti_once,
         (position_set_x, pos10, ":x"),
         
         (assign, ":y_to_move", ":scene_max_y"),
-        (val_div, ":y_to_move", 3),
-        (val_mul, ":y_to_move", 2),
+        (val_div, ":y_to_move", 7),
+        (val_mul, ":y_to_move", 4),
         (position_move_y, pos10, ":y_to_move"),
         
         (agent_set_position, ":agent_to_move", pos10),
@@ -6597,6 +6597,10 @@ mission_templates = [
      ], vc_weather +
     [
     small_battle_check,
+    (ti_after_mission_start, 0, ti_once, [], [
+    (mission_cam_set_screen_color, 0xFF000000),
+    (mission_cam_animate_to_screen_color, 0x00000000, 2000),
+    ]),	
     
       (ti_on_agent_spawn, 0, 0, [],
        [

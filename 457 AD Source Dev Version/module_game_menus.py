@@ -1730,29 +1730,31 @@ game_menus = [
         (change_screen_return, 0),
       (try_end),
        (troop_add_gold, "trp_player", 100),
-      (try_begin),
-        (gt, "$g_start_faction", 0),
-        (call_script, "script_player_join_faction", "$g_start_faction"),
-        (assign, "$player_has_homage" ,1),
-        (assign, "$g_player_banner_granted", 1),
-        (try_begin),
-          (call_script, "script_cf_select_random_village_with_faction", "$g_start_faction"),
-          (call_script, "script_give_center_to_lord", reg0, "trp_player", 0),
-          (faction_get_slot, ":faction_leader", "$g_start_faction", slot_faction_leader),
-          (call_script, "script_add_log_entry", logent_liege_grants_fief_to_vassal, ":faction_leader",  reg0, "trp_player", "$g_start_faction"),
-        (try_end),
-    (try_begin), #tom - add various goods
-#      (troop_add_gold, "trp_player", 1000),
-      # (faction_get_slot,":culture", "$g_start_faction", slot_faction_culture),
-#      (faction_get_slot,":fac_troop", ":culture", slot_faction_tier_6_troop),
-#      (call_script, "script_equip_companion", "trp_player",":fac_troop"), #equip player
-      #Generic armor + weapons
-      (troop_add_item,"trp_player", "itm_saddle_horse"),
-      (troop_add_item,"trp_player", "itm_war_spear"),
-      (troop_add_item,"trp_player", "itm_bread"),
-      (troop_add_item,"trp_player", "itm_butter"),
-    (try_end),
-      (try_end),     
+       
+       #this seems unused
+        # (try_begin),
+            # (gt, "$g_start_faction", 0),
+            # (call_script, "script_player_join_faction", "$g_start_faction"),
+            # (assign, "$player_has_homage" ,1),
+            # (assign, "$g_player_banner_granted", 1),
+            # (try_begin),
+              # (call_script, "script_cf_select_random_village_with_faction", "$g_start_faction"),
+              # (call_script, "script_give_center_to_lord", reg0, "trp_player", 0),
+              # (faction_get_slot, ":faction_leader", "$g_start_faction", slot_faction_leader),
+              # (call_script, "script_add_log_entry", logent_liege_grants_fief_to_vassal, ":faction_leader",  reg0, "trp_player", "$g_start_faction"),
+            # (try_end),
+            # (try_begin), #tom - add various goods
+    # #      (troop_add_gold, "trp_player", 1000),
+          # # (faction_get_slot,":culture", "$g_start_faction", slot_faction_culture),
+    # #      (faction_get_slot,":fac_troop", ":culture", slot_faction_tier_6_troop),
+    # #      (call_script, "script_equip_companion", "trp_player",":fac_troop"), #equip player
+          # #Generic armor + weapons
+                # (troop_add_item,"trp_player", "itm_saddle_horse"),
+                # (troop_add_item,"trp_player", "itm_war_spear"),
+                # (troop_add_item,"trp_player", "itm_bread"),
+                # (troop_add_item,"trp_player", "itm_butter"),
+            # (try_end),
+        # (try_end),     
 
 
       (set_show_messages, 1),
@@ -18263,36 +18265,27 @@ goods, and books will never be sold. ^^You can change some settings here freely.
      ]
   ),
 
-  (
+   (
     "notification_war_declared",0,
-    "Declaration of War^^{s1} has declared war against {s2}!",
+#    "Declaration of War^^{s1} has declared war against {s2}!^^The sword has been drawn from the sheath, and the shield taken down from the wall. War has been declared!",
+    "Declaration of War^^{s1} has declared war against {s2}!^{s57}^The sword has been drawn from the sheath, and the shield taken down from the wall. War has been declared!",
     "none",
     [
+	  #MOTO salvage explanation (when multiple explanations needed, only last one valid)
+	  (try_begin),
+      (eq, "$g_last_acting_faction", "$g_notification_menu_var1"),
+      (eq, "$g_last_target_faction", "$g_notification_menu_var2"),
+      (str_store_string, s57, "@^{s64}^"),
+      (assign, "$g_last_acting_faction", -1),
+      (assign, "$g_last_target_faction", -1),
+	  (else_try),
+	    (str_clear, s57),
+	  (try_end),
+	  #MOTO salvage explanation end
 
-#	  (try_begin),
-#		(eq, "$g_include_diplo_explanation", "$g_notification_menu_var1"),
-#		(assign, "$g_include_diplo_explanation", 0),
-#		(str_store_string, s57, "$g_notification_menu_var1"),
-#	  (else_try),
-#	    (str_clear, s57),
-#	  (try_end),
-
-
-	#to do the reason, have war_damage = 0 yield pre-war reasons
-      (try_begin),
-#        (eq, "$g_notification_menu_var1", "fac_player_supporters_faction"),
-#        (str_store_faction_name, s1, "$g_notification_menu_var2"),
-#        (str_store_string, s2, "@you"),
-#      (else_try),
-#        (eq, "$g_notification_menu_var2", "fac_player_supporters_faction"),
-#        (str_store_faction_name, s1, "$g_notification_menu_var1"),
-#        (str_store_string, s2, "@you"),
-#      (else_try),
-        (str_store_faction_name, s1, "$g_notification_menu_var1"),
-        (str_store_faction_name, s2, "$g_notification_menu_var2"),
-      (try_end),
-
-
+      (str_store_faction_name, s1, "$g_notification_menu_var1"),
+      (str_store_faction_name, s2, "$g_notification_menu_var2"),
+      
       (set_fixed_point_multiplier, 100),
       (position_set_x, pos0, 65),
       (position_set_y, pos0, 30),
@@ -18309,21 +18302,29 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         ]),
      ]
   ),
-
+#chief sot cambia texto abajo, motomataru cambia codigo
   (
     "notification_peace_declared",0,
-    "Peace Agreement^^{s1} and {s2} have made peace!^{s57}",
+#    "Peace Agreement^^{s1} and {s2} have made peace!^{s57}^^These two peoples have stopped fighting - for now. Perhaps one nation will use the time to sharpen a fresh knife to plunge into the heart of its enemy...",
+    "Peace Agreement^^{s1} and {s2} have made peace!^{s57}^These two peoples have stopped fighting - for now. Perhaps one nation will use the time to sharpen a fresh knife to plunge into the heart of its enemy...",
     "none",
     [
 
 	  (try_begin),
-		(eq, 1, 0), #Alas, this does not seem to work
-		(eq, "$g_include_diplo_explanation", "$g_notification_menu_var1"),
-		(assign, "$g_include_diplo_explanation", 0),
+      #MOTO salvage explanation (when multiple explanations needed, only last one valid)
+      # (eq, 1, 0), #Alas, this does not seem to work
+      # (eq, "$g_include_diplo_explanation", "$g_notification_menu_var1"),
+      # (assign, "$g_include_diplo_explanation", 0),
+      (eq, "$g_last_acting_faction", "$g_notification_menu_var1"),
+      (eq, "$g_last_target_faction", "$g_notification_menu_var2"),
+      (str_store_string, s57, "@^{s64}^"),
+      (assign, "$g_last_acting_faction", -1),
+      (assign, "$g_last_target_faction", -1),
+      #MOTO salvage explanation end
 	  (else_try),
 	    (str_clear, s57),
 	  (try_end),
-
+	
 	  (str_store_faction_name, s1, "$g_notification_menu_var1"),
       (str_store_faction_name, s2, "$g_notification_menu_var2"),
       (set_fixed_point_multiplier, 100),
@@ -25418,11 +25419,20 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 
 #MINOR FACTIONS
   ( "minor_faction_town",menu_text_color(0xFF000000)|mnf_disable_all_keys,
-    "In the distance you see {s50}. It is the capital of the {s51}. ^^{s52}",
+    "In the distance you see {s50}. It is the capital of the {s51}.^^{s52}^^{s49}",
     "none",
     [
-    
-    
+    (str_clear, s49),
+    (try_begin),
+        (check_quest_active, "qst_finnsburh_quest_2"),
+        (try_begin),
+            (quest_slot_eq, "qst_finnsburh_quest_2", slot_quest_current_state, 1),
+            (str_store_string, s49, "@The Dani are currently gathering forces to attack Finn's hall. New ships are built and old ones repaired. Spears, swords and axes are sharpened and the shields, helmets and armours are polished."),
+        (else_try),
+            (quest_slot_eq, "qst_finnsburh_quest_2", slot_quest_current_state, 2),
+            (str_store_string, s49, "@The preparations of the Dani are over. A sizeable fleet is waiting at the shore, ready to disembark. You see that also the Juti king and his warband has joined the forces."),
+        (try_end),
+    (try_end),
     (try_begin), #check for quest
         (check_quest_active, "qst_finnsburh_quest"),
         (quest_slot_eq, "qst_finnsburh_quest", slot_quest_current_state, 4),
@@ -25663,6 +25673,19 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         (set_visitor, 39, "trp_dani_hengest"),
         (set_visitor, 40, "trp_dani_ordlaf"),
         (set_visitor, 41, "trp_dani_guthlaf"),
+    (else_try),
+        (eq, "$g_encountered_party", "p_dani_village"),
+        (check_quest_active, "qst_finnsburh_quest_2"),
+        (quest_slot_eq, "qst_finnsburh_quest_2", slot_quest_current_state, 2),
+        # (set_visitor, 36, "trp_dani_hocing"),#dead
+        # (set_visitor, 37, "trp_dani_sigekferth"),#dead
+        # (set_visitor, 38, "trp_dani_eaha"),#dead
+        (set_visitor, 42, "trp_dani_hengest"),
+        (set_visitor, 43, "trp_dani_ordlaf"),
+        (set_visitor, 44, "trp_dani_guthlaf"),
+        (set_visitor, 45, "trp_dani_guthormr"),
+        (set_visitor, 46, "trp_dani_haddingr"),
+        (set_visitor, 47, "trp_kingdom_19_lord"),#the juti king
     (try_end),
     #50 attackers spawn
     #51 defender gathering point
@@ -27663,6 +27686,163 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     (enable_party, "p_main_party"),
     (change_screen_map),
      ]), 
+    
+    ],),
+    ("finn_2_quest_start",0,
+    "A messenger approaches your warband. He brings news from Hengist and gives you a letter, it reads:"+
+    "^^'{playername}, the time to avenge Hnaef has arrived! Come to Heorot as fast as possible. The Dani host is awaiting you.'",
+    "none", [
+    (set_background_mesh, "mesh_pic_messenger"),   
+    ],
+    [
+    ("option_1", [],"The time has come!",
+    [
+    (quest_set_slot, "qst_finnsburh_quest_2", slot_quest_current_state, 2),
+    (add_quest_note_from_sreg, "qst_finnsburh_quest_2", 2, "@You recieved the message that the preparations have concluded. Gather as many men as possible and travel to Heorot as fast as possible!", 0),
+    (add_quest_note_from_sreg, "qst_finnsburh_quest_2", 7, "str_empty_string", 0),
+    (change_screen_map),
+     ]), 
+    
+    ],),
+    ("finnsburg_revenge_1",0,
+    "A large fleet made up of Danes, Jutes and your men set sail from southern Scandza, heading towards the shores of Frisia. As the fleet comes closer to Frisia, the weather changes all of a sudden and a great storm begins."
+    +" The wind is howling and you see thunders all around you. You fear, the whole operation would come to a sudden end due to the whims of nature. While you look around, you see the other warriors cheering and performing shield taunts."
+    +" Hengist, standing next to you insures you that this is a good omen. Then he walks towards the bow of the ship and starts invoking the gods of the sky, the ocean and Dunraz, the great thunderer.",
+    "none", [  
+    ],
+    [
+
+    ("option_1", [],"Continue...",
+    [
+    (add_xp_as_reward, 1500),
+    
+    (assign, "$g_next_menu", "mnu_finnsburg_revenge_2"),
+    (assign, "$tutorial_state", 0),
+    (set_jump_mission, "mt_fleet_cutscene"),
+    (modify_visitors_at_site, "scn_cutscene_longboat_fleet"),
+    (reset_visitors),    
+   
+    
+    (try_begin),
+        (eq,"$character_gender", tf_female),
+        (troop_set_type,"trp_multiplayer_profile_troop_male", tf_female),
+    (else_try),
+        (troop_set_type,"trp_multiplayer_profile_troop_male", tf_male),
+    (try_end),
+    (str_store_troop_face_keys, s1, "trp_player"),
+    (troop_set_face_keys, "trp_multiplayer_profile_troop_male", s1),
+    (call_script, "script_dplmc_copy_inventory", "trp_player", "trp_multiplayer_profile_troop_male"),
+    
+    (set_visitor, 0, "trp_player"),
+    (set_visitor, 1, "trp_kingdom_19_lord"),
+    (set_visitor, 2, "trp_dani_guthlaf"),
+    (set_visitor, 3, "trp_dani_hengest"),
+    (set_visitor, 4, "trp_dani_haddingr"),
+    (set_visitor, 5, "trp_dani_ordlaf"),
+    (set_visitor, 6, "trp_dani_guthormr"),
+    (set_visitor, 7, "trp_multiplayer_profile_troop_male"),
+    (set_visitor, 8, "trp_frisian_king"),
+    
+    (try_for_range, ":entry", 9, 75),
+        (set_visitors, ":entry", "trp_scandinavian_freeman", 2),
+    (try_end),
+    
+    (jump_to_scene, "scn_cutscene_longboat_fleet"),
+    (change_screen_mission),   
+    ]), 
+    
+    ],),
+    ("finnsburg_revenge_2",0,
+    "As soons as the storm started it ends and finally the fleet arrives the marshy coast of Frisia. Hengist decides to set up the camp in the woods, to conceal his forces from Finn the Frisian."+
+    "^^While you were resting next to the fireplace with your men, you hear some of the guards screaming aloud: 'They found us, they are attacking, wake up!'"+
+    "^The Frisians spotted the camp and are now assaulting your base with their men. Finn Folcwalding, however, doesn't seem to be there.",
+    "none", [  
+    ],
+    [
+
+    ("option_1", [],"To battle, champions!",
+    [
+    #0 player,
+    #1-10 dani
+    #11-20 frisi
+    #21-26 frisi reinforcements
+    (assign, "$g_is_quick_battle", 1),
+    
+    (set_jump_mission, "mt_finn_camp_battle"),
+    (assign, "$g_next_menu", "mnu_finnsburg_revenge_3"),
+    (modify_visitors_at_site, "scn_finnquest_dani_camp"),
+    (reset_visitors),    
+    (set_visitor, 0, "trp_player"),
+    (set_visitor, 1, "trp_kingdom_19_lord"),
+    (set_visitor, 2, "trp_dani_guthlaf"),
+    (set_visitor, 3, "trp_dani_hengest"),
+    (set_visitor, 4, "trp_dani_guthormr"),
+    (set_visitor, 5, "trp_dani_ordlaf"),
+    (set_visitor, 6, "trp_dani_haddingr"),
+    (set_visitor, 7, "trp_frisian_king"),
+    
+    
+    (try_for_range, ":entry", 11, 21),
+        (set_visitors, ":entry", "trp_northern_germanic_freeman", 5),
+        (set_visitors, ":entry", "trp_northern_germanic_warrior", 2),
+        (set_visitors, ":entry", "trp_frisian_freeman", 10),
+        (set_visitors, ":entry", "trp_frisian_companion", 2),
+    (try_end),
+    
+    (assign, ":stack_no", 1),
+    (party_get_num_companion_stacks, ":end", "p_main_party"),
+    (try_for_range, ":entry", 1, 11),
+        (try_begin),
+            (lt, ":stack_no", ":end"),
+            (party_stack_get_troop_id, ":troop_no", "p_main_party", ":stack_no"),
+            (party_stack_get_size, ":size", ":troop_no"),
+            (val_min, ":size", 3),
+            (set_visitors, ":entry", ":troop_no", ":size"),
+            (val_add, ":stack_no", 1),
+            (display_message, "@Added player troop"),
+        (try_end),
+        (set_visitors, ":entry", "trp_scandinavian_freeman", 3),
+        (set_visitors, ":entry", "trp_scandinavian_retainer", 2),
+        (set_visitors, ":entry", "trp_scandinavian_comes", 1),
+        (set_visitors, ":entry", "trp_dane_vanguard", 2),
+        (set_visitors, ":entry", "trp_jute_swordsman", 5),
+    (try_end),
+    (assign, "$temp", 3),
+    (jump_to_scene, "scn_finnquest_dani_camp"),
+    (change_screen_mission),
+    ]), 
+    ("option_1", [],"Test scene",
+    [
+    (jump_to_scene, "scn_finnquest_dani_camp"),
+    (change_screen_mission),
+    ]), 
+    
+    ],),
+    
+    ("finnsburg_revenge_3",0,
+    "You do your best to bring the wounded men on the ships while you reorganise your forces and follow the main host, led by Hengist, outside the forest towards the Frisian village. The village is heavily defended by hundreds of men, to prevail it won't be easy.",
+    "none", [  
+    ],
+    [
+
+    ("option_1", [],"Continue",
+    [
+    ]), 
+    ("option_1", [],"Test scene",
+    [
+    ]), 
+     ],),
+     
+    ("finnsburg_revenge_lost",0,
+    "",
+    "none", [  
+    ],
+    [
+
+    ("option_1", [],"Vae victis...",
+    [
+    (change_screen_map),
+    ]), 
     
     ],),
 #################BIG CHUNGUS FINNSBURG QUEST END

@@ -7,3 +7,4 @@
 #export_dir = "test/"
 #export_dir = "C:/Program Files/Mount&Blade/Modules/Native/"
 export_dir = "D:\SteamLibrary\steamapps\common\MountBlade Warband\Modules\AD457"
+# export_dir = "C:/Users/maxim/Saved Games/Steam/steamapps/common/MountBlade Warband/Modules/457AD Dev Edition/"

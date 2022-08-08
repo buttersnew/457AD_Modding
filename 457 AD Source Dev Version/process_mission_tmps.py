@@ -45,7 +45,7 @@ def save_mission_templates(variables,variable_uses,tag_uses,quick_strings):
     file.write("\n%d "%len(mission_template[mission_template_groups_pos]))
     for group in mission_template[mission_template_groups_pos]:
       save_mission_template_group(file,group)
-    save_triggers(file,convert_to_identifier(mission_template[mission_template_name_pos]), mission_template[mission_template_triggers_pos],variables,variable_uses,tag_uses,quick_strings)
+    save_triggers(file,convert_to_identifier(mission_template[mission_template_name_pos]), mission_template[mission_template_triggers_pos]+ global_common_triggers,variables,variable_uses,tag_uses,quick_strings)
     file.write("\n")
   file.close()
 

@@ -182,11 +182,9 @@ def save_sentences(variable_list,variable_uses,sentences,tag_uses,quick_strings,
       else:
         file.write("NO_VOICEOVER ")
       file.write("\n")
-    except Exception, err:
+    except:
       print "Error in dialog line:"
       print sentence
-      print "Error was:", err
-      print ""
   file.close()
 
 # Registered cookies is a list which enables the order of cookies to remain fixed across changes.

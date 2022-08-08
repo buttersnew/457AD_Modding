@@ -4967,6 +4967,12 @@ troops = [
   ["dani_guthlaf","Guthlaf","Guthlaf",tf_hero,0,0,fac_minor_dani,
    [itm_ankle_boots,itm_cloaked_tunic_9,itm_round_shield_germanic_19,itm_war_spear_2],
    knight_attrib_5,wp(300),knows_berserker,0x000000074f00030f46536e7a2951b2d900000000001db6da0000000000000000],
+  ["dani_guthormr","Guthormr","Guthormr",tf_hero,0,0,fac_minor_dani,
+   [],
+   knight_attrib_5,wp(300),knows_berserker,man_face_1],
+  ["dani_haddingr","Haddingr","Haddingr",tf_hero,0,0,fac_minor_dani,
+   [],
+   knight_attrib_5,wp(300),knows_berserker,man_face_1],
 ##FINNS
   ["finn_garulf","Garulf Guthlafing","Garulf Guthlafing",tf_hero,0,0,fac_minor_frisians,
    [itm_simple_shoes,itm_mid_generic_mail_18,itm_fernpass_helmet_2,itm_battle_axe,itm_concave_shield_germanic_22],

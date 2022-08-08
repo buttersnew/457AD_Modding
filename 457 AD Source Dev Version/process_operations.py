@@ -294,8 +294,6 @@ def get_variable(variable_string,variables_list,variable_uses):
       result = len(variables_list) - 1
       print "WARNING: Usage of unassigned global variable: " + variable_string
     else:
-      if True:
-        raise Exception("ERROR: Usage of unassigned local variable: " + variable_string)
       print "ERROR: Usage of unassigned local variable: " + variable_string
   return result
 

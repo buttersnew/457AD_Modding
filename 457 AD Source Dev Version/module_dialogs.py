@@ -50966,7 +50966,6 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   (agent_set_slot, "$g_talk_agent", slot_agent_is_in_scripted_mode, 1),
   ]],
   
-  
   [trp_dani_ordlaf,"start", [
   (check_quest_active, "qst_finnsburh_quest"),
   (quest_slot_eq, "qst_finnsburh_quest", slot_quest_current_state, 1),
@@ -51289,6 +51288,18 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   
   [trp_dani_hocing,"start", [(neg|check_quest_active, "qst_finnsburh_quest"),
   (quest_slot_eq, "qst_finnsburh_quest", slot_quest_current_state, 0),
+  (store_party_size_wo_prisoners, reg1, "p_main_party"),
+  (troop_get_slot, reg2, "trp_player", slot_troop_renown),
+  (store_character_level, reg3, "trp_player"),
+  (lt,reg3, 15),
+  (lt,reg2, 250),
+  (lt,reg1, 15),
+  ], 
+  "I have no time right now. Let us talk later.^^[Hint: Come back when you have 250 renown, level 15 and a party of 15 men. Currently you have {reg2} renown, level {reg3} and a party of {reg3} men.]", 
+  "close_window",[]],
+  
+  [trp_dani_hocing,"start", [(neg|check_quest_active, "qst_finnsburh_quest"),
+  (quest_slot_eq, "qst_finnsburh_quest", slot_quest_current_state, 0),
   (quest_slot_eq, "qst_finnsburh_quest", slot_quest_temp_slot, 1),
   ], 
   "Hail {playername}. I am still preparing our journey. You may changed your mind and want to join us? More men would be welcome.", 
@@ -51391,17 +51402,6 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   ]],
   
   
-  [trp_dani_sigeferth,"start", [
-  ], "I am busy. If you have any to say speak with our leader Hnaef Hocing.", "close_window",[]],
-  [trp_dani_eaha,"start", [
-  ], "Can't you see I am busy. Speak with our leader Hnaef Hocing and annoy him, not me.", "close_window",[]],
-  [trp_dani_hengest,"start", [
-  ], "I am eating right now. No time for talking.", "close_window",[]],
-  [trp_dani_ordlaf,"start", [
-  ], "I have no time to talk. Better speak with our leader Hnaef Hocing.", "close_window",[]],
-  [trp_dani_guthlaf,"start", [
-  ], "Its not the right time to talk. Go and speak with our leader Hnaef Hocing if you have anything to say.", "close_window",[]],
- 
   [trp_finn_hildeburh,"start", [
   (check_quest_active, "qst_finnsburh_quest"),
   (quest_slot_eq, "qst_finnsburh_quest", slot_quest_current_state, 3),
@@ -51427,7 +51427,78 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   (mission_disable_talk),
   ]],
 
- 
+  [trp_dani_ordlaf,"start", [
+  (check_quest_active, "qst_finnsburh_quest_2"),
+  (quest_slot_eq, "qst_finnsburh_quest_2", slot_quest_current_state, 2),
+  ], 
+  "{playername} has arrived! We can begin.", 
+  "finn_quest_revenge_1",[]],
+  
+  [anyone|other(trp_dani_king),"finn_quest_revenge_1", [
+  ], 
+  "Hail, {playername} . May we begin with the oaths!",
+  "finn_quest_revenge_2",[]],
+  
+  [anyone|other(trp_dani_king),"finn_quest_revenge_2", [
+  ], 
+  "I, Gramr of the Scyldingas, son of Skjoldr and King of the Dani, swear to avenge my thane Hnaef, son of Hoc! The enemies of my people will keep me away from the battle, but my son, X, will join you with his thanes and his ships.",
+  "finn_quest_revenge_3",[]],
+  
+  [anyone|other(trp_dani_hengest),"finn_quest_revenge_3", [
+  ], 
+  " I, Hengist son of Wihtgils and chief of the Jutes, swear to avenge my fallen lord, Hnaef son of Hoc. My soul won’t rest until his blade, hildeleoma, will be satiated by the blood of Finn the Traitor and Hildeburh the Witch, as well as those Jutes that sided with the Frisians. ",
+  "finn_quest_revenge_4",[]],
+  
+  [anyone|other(trp_kingdom_19_lord),"finn_quest_revenge_4", [
+  ], 
+  "I, Horsa son of Wihtgils, chief of the Jutes in the lands of the Cantii, swear to help my brother Hengist in his struggle against the Frisians. For this reason, I will give him my best thanes in his expedition in Frisia.",
+  "finn_quest_revenge_5",[]],
+  
+  [anyone|other(trp_dani_guthlaf),"finn_quest_revenge_5", [
+  ], 
+  "I, Guthlaf, son of Hunlaf, swear to avenge my good lord Hnaef, son of Hoc, murdered by the hands of the cowardly Frisians.",
+  "finn_quest_revenge_6",[]],
+  
+  [anyone|other(trp_dani_ordlaf),"finn_quest_revenge_6", [
+  ], 
+  "I too, Ordlaf, son of of Gylaug, swear to avenge my good lord Hnaef, son of Hoc, and will not rest until a son of Folcwald still draw breath.",
+  "finn_quest_revenge_7",[]],
+  
+  [anyone|plyr,"finn_quest_revenge_7", [
+  ], 
+  "I, {playername}, solemnly swear to join you, valiant warriors, in this struggly and avenge prince Hnaef, son of Hoc, thane of the great Gramr Skjoldung.",
+  "finn_quest_revenge_8",[]],
+  
+  [anyone|other(trp_dani_king),"finn_quest_revenge_8", [
+  ], 
+  "It is done, the warriors are now bound by a holy oath, and may your lineage be cursed if you will ever dare to break it and run away from the battle!",
+  "finn_quest_revenge_9",[]],
+  
+  [anyone|other(trp_dani_hengest),"finn_quest_revenge_9", [
+  ], 
+  "So be it. Warriors, news of our arms have reached Frisia and Finn Folcwalding, the Traitor, has started gathering support from his thanes and freemen. His village will be now defended by large hordes of men: some of us might die in the fighting, but honour states we must avenge our friend.",
+  "finn_quest_revenge_10",[]],
+  
+  [anyone|other(trp_dani_hengest),"finn_quest_revenge_10", [
+  ], 
+  "With our hosts, we will set sail from Heorot and land not so far from Finn’s hall. Then, once set up the camp, we will assault his village in the upcoming days. Make sure your men’s arms are as strong as this oath we just signed for we will need them.",
+  "close_window",
+  [
+  (jump_to_menu, "mnu_finnsburg_revenge_1"),
+  (finish_mission),
+  ]],
+
+  [trp_dani_sigeferth,"start", [
+  ], "I am busy. If you have any to say speak with our leader Hnaef Hocing.", "close_window",[]],
+  [trp_dani_eaha,"start", [
+  ], "Can't you see I am busy. Speak with our leader Hnaef Hocing and annoy him, not me.", "close_window",[]],
+  [trp_dani_hengest,"start", [
+  ], "I am eating right now. No time for talking.", "close_window",[]],
+  [trp_dani_ordlaf,"start", [
+  ], "I have no time to talk. Better speak with our leader Hnaef Hocing.", "close_window",[]],
+  [trp_dani_guthlaf,"start", [
+  ], "Its not the right time to talk. Go and speak with our leader Hnaef Hocing if you have anything to say.", "close_window",[]],
+
   
   [anyone,"start", [
   (neq,"$g_talk_troop","trp_bishop_of_rome"),

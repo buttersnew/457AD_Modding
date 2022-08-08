@@ -1328,8 +1328,90 @@ vc_seasons = [          # 3 triggers
       (end_try),
     ]),
 ]
+thunder_storm =	[		# 4 trigger
 
-vc_weather = vc_seasons + improved_lighting
+  (0, 0, ti_once, #preparations 2
+    [
+      (assign, "$lightning_cycle", -1),
+    ],
+    [
+    (try_begin),
+        (party_get_current_terrain, ":terrain","p_main_party"),
+        (neq, ":terrain", rt_desert_forest),
+        (neq, ":terrain", rt_desert),
+        (store_time_of_day, ":day_time"),
+        (neg|is_between, ":day_time", 4, 20),
+        (get_global_cloud_amount, ":clouds"),
+        (ge, ":clouds", 65),
+        (try_for_range, ":rand", 1, 11),
+            (le, ":rand", 4),	# 20% chance
+            (assign, "$lightning_cycle", 0),
+            (try_begin),
+                (neq, ":terrain", rt_desert_forest),
+                (neq, ":terrain", rt_desert),
+                (neq, ":terrain", rt_snow),           
+                (neq, ":terrain", rt_snow_forest),	
+                (set_rain, 1, 250),
+            (end_try),
+        (end_try),
+    (end_try),
+      
+    (eq, "$lightning_cycle", 0),
+    
+    (set_fixed_point_multiplier, 100),
+    
+    (get_startup_sun_light, pos1),
+    (position_get_x, "$sun_r", pos1),	# r
+    (position_get_y, "$sun_g", pos1), # g
+    (position_get_z, "$sun_b", pos1),	# b
+    (get_startup_ambient_light, pos1),
+    (position_get_x, "$amb_r", pos1),	# r
+    (position_get_y, "$amb_g", pos1), # g
+    (position_get_z, "$amb_b", pos1),	# b
+  ]),
+  
+  (3, 0.2, 6, 			#lightning 1
+    [
+      (eq,"$lightning_cycle",0),
+      (store_random_in_range,":chance",1,5),
+      (eq,":chance",1),
+      (play_sound,"snd_thunder"),
+      (set_startup_sun_light, 1000, 1000, 1000),
+      (set_startup_ambient_light, 1000, 1000, 1000),
+    ],
+    [
+      (set_startup_sun_light, 0, 0, 0),
+      (set_startup_ambient_light, 0, 0, 0),
+      (assign, "$lightning_cycle",1),
+  ]),
+  
+  (0.4,0.1, 6,			#lightning 2
+    [
+      (eq,"$lightning_cycle",1),
+      
+      (set_startup_sun_light, 220, 220, 220),
+      (set_startup_ambient_light, 220, 220, 220),
+    ],
+    [
+      (set_startup_sun_light, 1, 1, 1),
+      (set_startup_ambient_light, 1, 1, 1),
+      (assign,"$lightning_cycle",2),
+  ]),
+  
+  (0.5,0.1, 6,			#lightning 3
+    [
+      (eq,"$lightning_cycle",2),
+      (set_startup_sun_light, 150, 150, 150),
+      (set_startup_ambient_light, 150, 150, 150),
+    ],
+    [
+      (set_startup_sun_light, "$sun_r", "$sun_g", "$sun_b"),
+      (set_startup_ambient_light, "$amb_r", "$amb_g", "$amb_b"),
+      (assign,"$lightning_cycle", 0),
+  ]),
+]
+
+vc_weather = vc_seasons + improved_lighting + thunder_storm
 
 battle_notifications = [
     common_battle_prepare,
@@ -23288,6 +23370,14 @@ mission_templates = [
       (40,mtef_visitor_source,af_override_horse,0,1,[]),#king
       (41,mtef_visitor_source,af_override_horse,0,1,[]),#king
       (42,mtef_visitor_source,af_override_horse,0,1,[]),#king
+      (43,mtef_visitor_source,af_override_horse,0,1,[]),#king
+      (44,mtef_visitor_source,af_override_horse,0,1,[]),#king
+      (45,mtef_visitor_source,af_override_horse,0,1,[]),#king
+      (46,mtef_visitor_source,af_override_horse,0,1,[]),#king
+      (47,mtef_visitor_source,af_override_horse,0,1,[]),#king
+      (48,mtef_visitor_source,af_override_horse,0,1,[]),#king
+      (49,mtef_visitor_source,af_override_horse,0,1,[]),#king
+      (50,mtef_visitor_source,af_override_horse,0,1,[]),#king
 
     ], vc_weather +
     [
@@ -23307,7 +23397,37 @@ mission_templates = [
             (replace_scene_props, "spr_ship_sail_off", "spr_empty"),
         (try_end),
       ]),
-
+      
+    (1, 0, ti_once, [
+    (check_quest_active, "qst_finnsburh_quest_2"),
+    (quest_slot_eq, "qst_finnsburh_quest_2", slot_quest_current_state, 2),
+    (neg|conversation_screen_is_active),
+    (set_fixed_point_multiplier, 1),
+    (init_position, pos11),
+    (init_position, pos12),
+    (get_player_agent_no, ":player_agent"),
+    (agent_get_position, pos11, ":player_agent"),
+    (assign, ":c", 0),
+    (try_for_agents, ":agent"),
+        (agent_is_active, ":agent"),
+        (agent_get_troop_id, ":troop", ":agent"),
+        (this_or_next|eq, ":troop", "trp_dani_hengest"),
+        (this_or_next|eq, ":troop", "trp_dani_ordlaf"),
+        (this_or_next|eq, ":troop", "trp_dani_guthlaf"),
+        (this_or_next|eq, ":troop", "trp_dani_guthormr"),
+        (this_or_next|eq, ":troop", "trp_dani_haddingr"),
+        (eq, ":troop", "trp_kingdom_19_lord"),
+        (agent_get_position, pos12, ":agent"),
+        (get_distance_between_positions_in_meters, ":dist", pos11, pos12),
+        (le, ":dist", 4),
+        (assign, ":c", 1),
+    (try_end),
+    (eq, ":c", 1),
+    ],
+    [
+    (play_track, "track_finnsburg_hengist_revenge",1),
+    (start_mission_conversation, "trp_dani_ordlaf"),
+    ]),
  #common_inventory_not_available,
  
 
@@ -24337,4 +24457,542 @@ mission_templates = [
     ]),
  
     common_inventory_not_available,]),
+    
+    ("finn_camp_battle",mtf_battle_mode,-1,
+    "plundering a settlement",
+    [
+      (0,mtef_visitor_source|mtef_team_0,af_override_horse,aif_start_alarmed,1,[]),#player
+      (1,mtef_visitor_source|mtef_team_2,af_override_horse,aif_start_alarmed,1,[]),#player
+      (2,mtef_visitor_source|mtef_team_2,af_override_horse,aif_start_alarmed,1,[]),#guard
+	  (3,mtef_visitor_source|mtef_team_2,af_override_horse,aif_start_alarmed,1,[]),#legatus
+      (4,mtef_visitor_source|mtef_team_2,af_override_horse,aif_start_alarmed,1,[]),#legatus
+      (5,mtef_visitor_source|mtef_team_2,af_override_horse,aif_start_alarmed,1,[]),#unused
+      (6,mtef_visitor_source|mtef_team_2,af_override_horse,aif_start_alarmed,1,[]),#unused
+      (7,mtef_visitor_source|mtef_team_2,af_override_horse,aif_start_alarmed,1,[]),#unused
+      (8,mtef_visitor_source|mtef_team_2,af_override_horse,aif_start_alarmed,1,[]),#spectators
+      (9,mtef_visitor_source|mtef_team_2,af_override_horse,aif_start_alarmed,1,[]),#spectators
+      (10,mtef_visitor_source|mtef_team_2,af_override_horse,aif_start_alarmed,1,[]),#spectators
+      (11,mtef_visitor_source|mtef_team_1,0,aif_start_alarmed,1,[]),#spectators
+      (12,mtef_visitor_source|mtef_team_1,0,aif_start_alarmed,1,[]),#spectators
+      (13,mtef_visitor_source|mtef_team_1,0,aif_start_alarmed,1,[]),#spectators
+      (14,mtef_visitor_source|mtef_team_1,0,aif_start_alarmed,1,[]),#spectators
+      (15,mtef_visitor_source|mtef_team_1,0,aif_start_alarmed,1,[]),#spectators
+      (16,mtef_visitor_source|mtef_team_1,0,aif_start_alarmed,1,[]),#spectators
+      (17,mtef_visitor_source|mtef_team_1,0,aif_start_alarmed,1,[]),#spectators
+      (18,mtef_visitor_source|mtef_team_1,0,aif_start_alarmed,1,[]),#spectators
+      (19,mtef_visitor_source|mtef_team_1,0,aif_start_alarmed,1,[]),#spectators
+      (20,mtef_visitor_source|mtef_team_1,0,aif_start_alarmed,1,[]),#spectators
+      (21,mtef_visitor_source|mtef_team_1,0,aif_start_alarmed,1,[]),#spectators
+      (22,mtef_visitor_source|mtef_team_1,0,aif_start_alarmed,1,[]),#spectators
+      (23,mtef_visitor_source|mtef_team_1,0,aif_start_alarmed,1,[]),#spectators
+      (24,mtef_visitor_source|mtef_team_1,0,aif_start_alarmed,1,[]),#spectators
+      (25,mtef_visitor_source|mtef_team_1,0,aif_start_alarmed,1,[]),#spectators
+      (26,mtef_visitor_source|mtef_team_1,0,aif_start_alarmed,1,[]),#spectators
+      (27,mtef_visitor_source|mtef_team_1,0,aif_start_alarmed,1,[]),#spectators
+      (28,mtef_visitor_source|mtef_team_1,0,aif_start_alarmed,1,[]),#spectators
+      (29,mtef_visitor_source|mtef_team_1,0,aif_start_alarmed,1,[]),#spectators
+      (30,mtef_visitor_source|mtef_team_1,0,aif_start_alarmed,1,[]),#spectators
+    ],
+   vc_weather + utility_triggers  + common_division_data + division_order_processing + real_deployment + formations_triggers + AI_triggers  +[
+   
+    passable_allies,
+    custom_commander_critical_strike,
+    equipment_randomization,
+###TO BULLY RETARTED CHEATERS
+    (0, 0, 0, [
+    (this_or_next|key_is_down, key_left_alt),
+    (key_is_down, key_right_alt),
+    (key_is_down, key_f4),
+    (this_or_next|key_is_down, key_left_control),
+    (key_is_down, key_right_control),
+    ],
+    [
+    (get_player_agent_no, ":player"),
+    (agent_deliver_damage_to_agent,":player",":player",10000,"itm_warhammer"),
+    (display_message, "@DIE CHEATER! DIE CHEATER! DIE CHEATER!"),
+    (jump_to_menu, "mnu_finnsburg_revenge_lost"),
+    (finish_mission),
+    (call_script, "script_change_troop_renown", "trp_player", -500),
+    (call_script, "script_change_player_honor", -200),
+    (store_troop_gold, ":gold", "trp_player"),
+    (troop_remove_gold, "trp_player", ":gold"),
+    (troop_clear_inventory, "trp_player"),
+    ]),
+###TO BULLY RETARDED CHEATERS
+    (0, 0, 0, [
+    (this_or_next|key_is_down, key_left_control),
+    (key_is_down, key_right_control),
+    (key_is_down, key_h),
+    ],
+    [
+    (get_player_agent_no, ":player"),
+    (agent_deliver_damage_to_agent,":player",":player",10000,"itm_warhammer"),
+    (display_message, "@DIE CHEATER! DIE CHEATER! DIE CHEATER!"),
+    (jump_to_menu, "mnu_finnsburg_revenge_lost"),
+    (finish_mission),
+    (call_script, "script_change_troop_renown", "trp_player", -500),
+    (call_script, "script_change_player_honor", -200),
+    (store_troop_gold, ":gold", "trp_player"),
+    (troop_remove_gold, "trp_player", ":gold"),
+    (troop_clear_inventory, "trp_player"),
+    ]),
+    
+    (ti_on_agent_spawn, 0, 0, [
+    ],
+    [
+    (store_trigger_param, ":agent", 1),
+    (agent_get_troop_id, ":troop", ":agent"),
+    (try_begin),
+        (troop_is_hero, ":troop"),
+        (neq, ":troop", "trp_player"),
+        (agent_set_no_death_knock_down_only, ":agent", 1),
+        (agent_set_damage_modifier, ":agent", 150),
+    (else_try),
+        (this_or_next|eq, ":troop", "trp_northern_germanic_warrior"),
+        (this_or_next|eq, ":troop", "trp_northern_germanic_freeman"),
+        (this_or_next|eq, ":troop", "trp_frisian_freeman"),
+        (eq, ":troop", "trp_frisian_companion"),
+        (agent_set_ranged_damage_modifier, ":agent", 50),
+        (agent_set_damage_modifier, ":agent", 75),
+        (agent_set_accuracy_modifier, ":agent", 50),
+    (try_end),
+    ]),
+ 
+    (ti_before_mission_start,0,0,[],[
+    (call_script, "script_music_set_situation_with_culture", mtf_sit_siege),
+    (assign, "$g_battle_result", 0),
+    (team_set_relation, 0,3,-1),
+    (team_set_relation, 2,3,-1),
+    (team_set_relation, 0,2,1),
+    # (set_cheer_at_no_enemy, 0),
+    ]),
+    
+    (ti_tab_pressed,0,0,[],[
+    (finish_mission),
+    ]),
+    
+    (1,4,ti_once,[
+    (num_active_teams_le, 2),
+    (eq, "$temp", -1),
+    (neg|main_hero_fallen),
+    ],[
+    (mission_enable_talk),
+    (call_script, "script_change_troop_renown", "trp_player", 5),
+    (add_xp_as_reward, 250),
+    (tutorial_box, "@The Frisians are retreating! Search for Hengist and talk with him.", "@Victory"),
+    # (finish_mission, 3),
+    # (mission_cam_animate_to_screen_color, 0xFF000000, 2000),
+    ]),        
+    
+    (1,1,0,[(eq, "$temp", 0),],[(assign, "$temp", -1)]),
+    
+    (0,5,ti_once,[
+    (main_hero_fallen),
+    ],[
+    (jump_to_menu, "mnu_finnsburg_revenge_lost"),
+    (finish_mission, 3),
+    (mission_cam_animate_to_screen_color, 0xFF000000, 2000),
+    ]),      
+ 
+    (0, 0, 4, [
+    (num_active_teams_le, 2),
+    (ge, "$temp", 1),],
+    [
+    (try_for_range, ":entry", 21,26),
+        (add_visitors_to_current_scene, ":entry", "trp_frisian_freeman", 25),
+        (add_visitors_to_current_scene, ":entry", "trp_frisian_companion",3),
+    (try_end),
+    (display_message, "@Another wave of Frisians arrives!"),
+    (val_sub, "$temp", 1),
+    ]),
+ 
+    (ti_on_agent_killed_or_wounded, 0, 0, [],
+    [
+    (store_trigger_param_1, ":dead_agent"),
+    (store_trigger_param_3, ":is_wounded"),
+    (agent_get_troop_id, ":troop", ":dead_agent"),
+    (main_party_has_troop, ":troop"),
+    (try_begin),
+        (this_or_next|eq, ":is_wounded", 1),
+        (troop_is_hero, ":troop"),
+        (party_wound_members, "p_main_party", ":troop", 1),
+    (else_try),
+        (party_remove_members, "p_main_party", ":troop", 1),
+    (try_end),
+    ]),
+ 
+    # (0, 0, 2, [],
+    # [
+    # (try_for_agents, ":agent_no"),
+        # (agent_is_human, ":agent_no"),
+        # (agent_is_alive, ":agent_no"),
+        # (agent_get_team, ":team", ":agent_no"),
+        # (eq, ":team", 1),
+        # (agent_ai_set_always_attack_in_melee, ":agent_no", 1),
+    # (try_end),
+    # ]),
+    (ti_before_mission_start, 0, 0, [],
+        [
+        (set_global_cloud_amount, 25),
+        (set_global_haze_amount, 25),
+        (scene_set_day_time, 13),
+        ]),
+ 
+ 
+    common_inventory_not_available,]),
+    
+    
+  ("fleet_cutscene",mtf_battle_mode,-1,
+    "plundering a settlement",
+    [
+      (0,mtef_scene_source,af_override_horse,0,1,[]),#player
+      (1,mtef_visitor_source,af_override_horse,0,1,[]),#guard
+      (2,mtef_visitor_source,af_override_horse,0,1,[]),#guard
+	  (3,mtef_visitor_source,af_override_horse,0,1,[]),#legatus
+      (4,mtef_visitor_source,af_override_horse,0,1,[]),#legatus
+	  
+      (5,mtef_visitor_source,af_override_horse,0,1,[]),#unused
+      (6,mtef_visitor_source,af_override_horse,0,1,[]),#unused
+      (7,mtef_visitor_source,af_override_horse,0,1,[]),#unused
+		#spectators begin
+		#69 bis 73 sind mindestens 5 pro spawn	  
+      (8,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (9,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (10,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (11,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (12,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (13,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (14,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (15,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (16,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (17,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (18,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (19,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (20,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (21,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (22,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (23,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (24,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (25,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (26,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (27,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (28,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (29,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (30,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (31,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (32,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (33,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (34,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (35,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (36,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (37,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (38,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (39,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (40,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (41,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (42,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (43,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (44,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (45,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (46,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (47,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (48,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (49,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (50,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (51,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (52,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (53,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (54,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (55,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (56,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (57,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (58,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (59,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (60,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (61,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (62,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (63,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (64,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (65,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (66,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (67,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (68,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (69,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (70,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (71,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (72,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (73,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (74,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (75,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (76,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (77,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (78,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (79,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (80,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (81,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (82,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (83,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (84,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (85,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (86,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (87,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (88,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (89,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (90,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (91,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (92,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (93,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (94,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (95,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (96,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (97,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (98,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (99,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (100,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (101,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (102,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (103,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (104,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (105,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (106,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (107,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (108,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (109,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (110,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (111,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (112,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (113,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (114,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (115,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (116,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (117,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (118,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (119,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (120,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (121,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (122,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (123,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (124,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (125,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (126,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+      (127,mtef_visitor_source,af_override_horse,0,1,[]),#spectators
+    ],
+    [
+    (ti_before_mission_start, 0, 0, [],
+    [
+    (scene_set_day_time, 24),
+    (set_global_cloud_amount, 100),
+    (set_global_haze_amount, 100),
+    (set_fog_distance, 350, 0xFF6c6c6c),
+    (set_rain, 1, 250),
+    ]),
+    
+    (ti_tab_pressed,0,0,[],[
+    (show_object_details_overlay, 1),
+    (jump_to_menu, "$g_next_menu"),
+    (finish_mission),
+    ]),       
+    
+    (ti_after_mission_start,0,0,[],[
+    (show_object_details_overlay, 0),
+    ]),      
+
+    (0, 0, ti_once,
+       [],[
+    (get_player_agent_no, ":player"),
+    (agent_set_speed_modifier,":player", 0),
+    (agent_set_horse_speed_factor, ":player", 0),
+    (agent_set_visibility, ":player", 0),
+	   ]),
+     
+    (0,0,0,[],
+    [
+    (store_mission_timer_a, ":cur_time"),
+    (set_fixed_point_multiplier, 100),
+    (try_begin),
+        (eq, "$tutorial_state", 5),
+        (ge, ":cur_time", 73),
+        (jump_to_menu, "$g_next_menu"),
+        (mission_cam_animate_to_screen_color, 0xFF000000, 2000),
+        (show_object_details_overlay,1),
+        (finish_mission, 3),
+        (val_add, "$tutorial_state", 1),  
+        (play_sound,"snd_thunder"),
+    (else_try),
+        (ge, ":cur_time", 70),
+        (eq, "$tutorial_state", 4),
+        (set_fixed_point_multiplier, 1000), 
+        (entry_point_get_position, pos9, 104),
+        (mission_cam_animate_to_position, pos9, 4000, 1),  
+        (val_add, "$tutorial_state", 1), 
+        (tutorial_message_set_background, 1),
+        (tutorial_message, -1), 
+    (else_try),      
+        (ge, ":cur_time", 45),
+        (eq, "$tutorial_state", 3),
+        (set_fixed_point_multiplier, 1000),
+        (entry_point_get_position, pos9, 103),
+        (mission_cam_animate_to_position, pos9, 25000, 0),  
+        (val_add, "$tutorial_state", 1),   
+        (tutorial_message_set_background, 1),
+        (tutorial_message, "@'All known gods of the ocean and gods of the sky and all unkown gods of the ocean and the sky, hear me! Guard our ships! But destroy the ships of Finn thereby he cannot escape our wrath!'"), 
+    (else_try),   
+        (ge, ":cur_time", 23),
+        (eq, "$tutorial_state", 2),
+        (entry_point_get_position, pos9, 102),
+        (mission_cam_animate_to_position, pos9, 25000, 0),  
+        (val_add, "$tutorial_state", 1), 
+        (tutorial_message_set_background, 1),
+        (tutorial_message, "@'Dunraz! Dunraz! Dunraz! Hear me, great thunderer! Let Finn and his men tremble in fear! When they hear your hammer, Dunraz, great thunderer, then they know: The Dani are coming!'"), 
+    (else_try),
+        (ge, ":cur_time", 1),
+        (eq, "$tutorial_state", 1),
+        (entry_point_get_position, pos9, 101),
+        (mission_cam_animate_to_position, pos9, 25000, 0),  
+        (val_add, "$tutorial_state", 1),   
+        (tutorial_message_set_background, 1),
+        (tutorial_message, "@Hengest unleshes a fearsome warcry, then he shouts: ^^'Dunraz! Dunraz! Dunraz! Hear me, great thunderer! You swing your hammer to honor us and to announce our arrival!'"), 
+    (else_try),
+        (eq, "$tutorial_state", 0),
+        (set_fixed_point_multiplier, 1000),
+        (mission_cam_set_mode, 1, 0, 0),
+        (set_camera_in_first_person, 0),
+        (init_position, pos10),
+        (entry_point_get_position, pos10, 100),
+        (mission_cam_set_position, pos10),
+        (val_add, "$tutorial_state", 1),   
+        
+        (set_fixed_point_multiplier, 1),
+        (try_for_prop_instances, ":ship"),
+            (prop_instance_get_scene_prop_kind, ":is_ship", ":ship"),
+            (is_between, ":is_ship", "spr_ship", "spr_snowy_barrel_a"),
+            (prop_instance_get_position, pos11, ":ship"),
+            (position_move_x, pos11, 20000),
+            (prop_instance_animate_to_position, ":ship", pos11, 7000),  
+        (try_end), 
+    (try_end),
+      ]),
+
+    (ti_on_agent_spawn, 0, 0, [],	# equipment troops
+    [
+    (store_trigger_param, ":agent", 1),
+    (try_for_range, ":item_slot", ek_item_0, ek_head),
+        (agent_get_item_slot, ":item", ":agent", ":item_slot"),
+        (gt, ":item", -1),
+        (try_begin),
+            (is_between, ":item", weapons_begin, weapons_end),
+            (agent_set_wielded_item,":agent",":item"),
+        (else_try),
+            (is_between, ":item", shields_begin, shields_end),
+            (agent_set_wielded_item,":agent",":item"),
+        (try_end),
+    (try_end),
+
+    ]),
+
+(4, 0, 0,
+  [
+    (store_mission_timer_a, ":cur_time"),
+    (gt, ":cur_time", 2),
+  ],
+  [
+    (try_for_agents, ":agent"),
+        (agent_is_human, ":agent"),
+        (agent_is_alive, ":agent"),
+        (agent_is_active,":agent"),
+      
+        (agent_get_troop_id, ":troop_id", ":agent"),
+        (neq,":troop_id","trp_player"),
+      
+        (agent_get_animation, ":agent_anl", ":agent", 0),
+        (agent_get_animation, ":agent_anu", ":agent", 1),
+      
+        (store_random_in_range, ":rand", 0, 350),
+
+        (try_begin),
+            (le, ":rand", 40),
+            (agent_play_sound, ":agent", "snd_man_warcry"),
+            (call_script,"script_agent_perform_shield_taunt", ":agent"),
+        (else_try),
+            (le, ":rand", 75),
+            (eq, ":agent_anl", 8),#
+            (this_or_next|eq, ":agent_anu", 320),#
+            (eq, ":agent_anu", -1),#
+            (call_script,"script_agent_perform_warcry", ":agent"),
+        (else_try),
+            (le, ":rand", 115),
+            (eq, ":agent_anl", 8),#v
+            (this_or_next|eq, ":agent_anu", 320),#
+            (eq, ":agent_anu", -1),#
+            (call_script,"script_agent_perform_shield_taunt", ":agent"),
+        (try_end),
+    (try_end),
+]),
+
+  (0, 0, ti_once, #preparations 2
+    [
+    ],
+    [
+    (assign, "$lightning_cycle", 0),
+    (play_sound,"snd_thunder"),
+    (set_fixed_point_multiplier, 100),
+    (get_startup_sun_light, pos20),
+    (position_get_x, "$sun_r", pos20),	# r
+    (position_get_y, "$sun_g", pos20), # g
+    (position_get_z, "$sun_b", pos20),	# b
+    (get_startup_ambient_light, pos21),
+    (position_get_x, "$amb_r", pos21),	# r
+    (position_get_y, "$amb_g", pos21), # g
+    (position_get_z, "$amb_b", pos21),	# b
+  ]),
+  
+  (3, 0.2, 6, 			#lightning 1
+    [
+    (eq,"$lightning_cycle",0),
+    # (store_random_in_range,":chance",0,2),
+    # (eq,":chance",1),
+    (play_sound,"snd_thunder"),
+    (set_startup_sun_light, 10000, 10000, 10000),
+    (set_startup_ambient_light, 10000, 10000, 10000),
+    # (display_message, "@set light 1"),
+    ],
+    [
+    (set_startup_sun_light, 0, 0, 0),
+    (set_startup_ambient_light, 0, 0, 0),
+    (assign, "$lightning_cycle",1),
+    # (display_message, "@set light 2"),
+  ]),
+  
+  (0.4,0.1, 6,			#lightning 2
+    [
+    (eq,"$lightning_cycle",1),
+      
+    (set_startup_sun_light, 220, 220, 220),
+    (set_startup_ambient_light, 220, 220, 220),
+    # (display_message, "@set light 3"),
+    ],
+    [
+    (set_startup_sun_light, 1, 1, 1),
+    (set_startup_ambient_light, 1, 1, 1),
+    (assign,"$lightning_cycle",2),
+    # (display_message, "@set light 4"),
+  ]),
+  
+  (0.5,0.1, 6,			#lightning 3
+    [
+    (eq,"$lightning_cycle",2),
+    (set_startup_sun_light, 150, 150, 150),
+    (set_startup_ambient_light, 150, 150, 150),
+    # (display_message, "@set light 5"),
+    ],
+    [
+    (set_startup_sun_light, "$sun_r", "$sun_g", "$sun_b"),
+    (set_startup_ambient_light, "$amb_r", "$amb_g", "$amb_b"),
+    (assign,"$lightning_cycle", 0),
+    # (display_message, "@set light 6"),
+  ]),
+
+
+    common_inventory_not_available,]),    
+    
 ]

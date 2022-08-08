@@ -137,4 +137,5 @@ tracks = [
   ("cutscene_longboat_track", "town_neutral.mp3", mtf_persist_until_finished, 0),
   #this here plays when the finnsburg feast starts
   ("finnsburg_feast_track", "lords_hall_vaegir.mp3", mtf_persist_until_finished, 0),
+  ("finnsburg_hengist_revenge", "ambushed_by_vaegir.mp3", mtf_persist_until_finished, 0),
 ]

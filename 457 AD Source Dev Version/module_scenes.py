@@ -1690,10 +1690,16 @@ scenes = [
   ("duel_plain_forest", sf_generate, "none", "none", (0, 0), (200, 200), -0.5, "0x00000000300005000005495000002ee4000032f600000753",
     [],[], "outer_terrain_plain"),
 
+  ("finnquest_dani_camp", sf_generate, "none", "none", (0, 0), (200, 200), -0.5, "0x00000000300005000005495000002ee4000032f600000753",
+    [],[], "outer_terrain_beach"),
+
   ("cutscene_longboat", sf_generate, "none", "none", (0, 0), (200, 200), -0.5, "0x00000000300005000005495000002ee4000032f600000753",
     [],[], "sea_outer_terrain_1"),
 
   ("cutscene_longboat_2", sf_generate, "none", "none", (0, 0), (200, 200), -0.5, "0x00000000300005000005495000002ee4000032f600000753",
+    [],[], "sea_outer_terrain_2"),
+    
+  ("cutscene_longboat_fleet", sf_generate, "none", "none", (0, 0), (200, 200), -0.5, "0x0000000330000500000d23480000766b00001c13000046e9",
     [],[], "sea_outer_terrain_2"),
 
   ("finns_hall_interior",sf_indoors, "interior_castle_k", "bo_interior_castle_k", (-100,-100),(100,100),-100,"0",

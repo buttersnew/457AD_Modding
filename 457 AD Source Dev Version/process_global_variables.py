@@ -100,34 +100,7 @@ def compile_all_global_vars(variable_list,variable_uses, triggers, sentences, ga
 
 
 print "Compiling all global variables..."
-##diplomacy start+
-#Import global-variable-saving code
-#
-##OLD:
-#
-#variable_uses = []
-#variables = load_variables(export_dir, variable_uses)
-#compile_all_global_vars(variables, variable_uses,triggers, dialogs, game_menus, mission_templates, scripts, simple_triggers)
-#save_variables(export_dir, variables,variable_uses)
-#
-##NEW:
-#
-#MORDACHAI - Preserve previous global variable order, for save-game compatibility...
-variables = []
 variable_uses = []
-try:
-  file = open("variables.txt","r")
-  var_list = file.readlines()
-  file.close()
-  for v in var_list:
-    vv = string.strip(v)
-    if vv:
-      variables.append(vv)
-      variable_uses.append(0)
-
-except:
-  print "Variables.txt not found. No attempt to maintain save game compatibility will be made for this build."
-
-compile_all_global_vars(variables, variable_uses, triggers, dialogs, game_menus, mission_templates, scripts, simple_triggers)
-save_variables(export_dir, variables, variable_uses)
-##diplomacy end+
+variables = load_variables(export_dir, variable_uses)
+compile_all_global_vars(variables, variable_uses,triggers, dialogs, game_menus, mission_templates, scripts, simple_triggers)
+save_variables(export_dir, variables,variable_uses)

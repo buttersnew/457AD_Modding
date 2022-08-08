@@ -3020,6 +3020,7 @@ banner_background_dblue = 0xFF024f97
 banner_background_lgreen = 0xFF818978
 banner_background_dgreen = 0xFF2c5021
 banner_background_dred = 0xFF5d1b18
+banner_background_black = 0x1c1c1c
 
 banner_bg_default = 0xFFC0B090
 

@@ -1286,11 +1286,11 @@ troops = [
   #germanic heroic-age inspired AOR troops
   ["jute_swordsman","Jute Sword-Keen (Sweordcenan)","Jute Sword-Keen (Sweordcenan)",tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_shield,0,0,fac_culture_4, #swordsman
    [itm_obenaltendorf_shoes_1,itm_obenaltendorf_shoes_2,itm_wrapping_boots,itm_cloaked_tunic_6,itm_leather_armor_c,itm_mid_generic_mail_1,itm_mid_generic_mail_16,itm_burgh_helmet_1,itm_burgh_helmet_mail,itm_drengsted_helmet_mail,itm_drengsted_helmet_leather,itm_arabian_sword_a,itm_concave_shield_germanic_20],
-   def_attrib_lvl_25|level(25),wp_one_handed(230)|wp_two_handed(190)|wp_polearm(180)|wp_archery(110)|wp_throwing(200),knows_lvl_23_inf|knows_shield_4|knows_power_strike_8,germanic_face_1, germanic_face_2],
+   def_attrib_lvl_25|level(25),wp_one_handed(220)|wp_two_handed(190)|wp_polearm(180)|wp_archery(110)|wp_throwing(200),knows_lvl_23_inf|knows_shield_4|knows_power_strike_8,germanic_face_1, germanic_face_2],
 
-  ["angle_hero","Angle Hero (Sweordcenan)","Angle Heroes (Sweordcenan)",tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_shield,0,0,fac_culture_4, #cav?
-   [itm_obenaltendorf_shoes_1,itm_obenaltendorf_shoes_2,itm_wrapping_boots],
-   def_attrib_lvl_25|level(25),wp_one_handed(230)|wp_two_handed(190)|wp_polearm(180)|wp_archery(110)|wp_throwing(200),knows_lvl_23_inf|knows_shield_4|knows_power_strike_8,germanic_face_1, germanic_face_2],
+  ["angle_hero","Angle Hero (Helethas)","Angle Heroes (Helethas)",tf_mounted|tf_guarantee_horse|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_shield|tf_guarantee_polearm,0,0,fac_culture_4, #cav
+   [itm_obenaltendorf_shoes_1,itm_obenaltendorf_shoes_2,itm_wrapping_boots,itm_cloaked_tunic_4,itm_cloaked_generic_tunic_6,itm_mid_generic_mail_4,itm_mid_generic_mail_15,itm_augst_helmet_plume_1,itm_burgh_helmet_plume_1,itm_arabian_sword_a,itm_war_spear_3,itm_throwing_spears,itm_round_shield_germanic_small_25]+horses_germanic_4,
+   def_attrib_lvl_25|level(25),wp_one_handed(210)|wp_two_handed(190)|wp_polearm(230)|wp_archery(110)|wp_throwing(200),knows_lvl_23_cav|knows_shield_5|knows_power_strike_7,germanic_face_1, germanic_face_2],
 
   ["saxon_companion","Saxon Throne-Companion (Seldguman)","Saxon Throne-Companions (Seldgumanni)",tf_guarantee_basic|tf_guarantee_helmet,0,0,fac_culture_4, #sword/spear
    [itm_obenaltendorf_shoes_1,itm_obenaltendorf_shoes_2,itm_simple_shoes,itm_mid_generic_mail_21,itm_mid_generic_mail_29,itm_burgh_helmet_1,itm_burgh_helmet_2,itm_triveres_mail,itm_arabian_sword_a,itm_war_spear_3,itm_concave_shield_germanic_11],

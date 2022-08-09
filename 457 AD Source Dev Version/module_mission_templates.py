@@ -23419,7 +23419,7 @@ mission_templates = [
         (eq, ":troop", "trp_kingdom_19_lord"),
         (agent_get_position, pos12, ":agent"),
         (get_distance_between_positions_in_meters, ":dist", pos11, pos12),
-        (le, ":dist", 4),
+        (le, ":dist", 5),
         (assign, ":c", 1),
     (try_end),
     (eq, ":c", 1),
@@ -23558,6 +23558,15 @@ mission_templates = [
       (56,mtef_defenders|mtef_team_0|mtef_archers_first,af_override_horse,aif_start_alarmed,10,[]),
      ], vc_weather +
     [
+      (ti_before_mission_start, 0, 0, [],
+      [
+        (try_begin),#remove longboat for quest
+            (neg|check_quest_active, "qst_finnsburh_quest"),
+            (store_current_scene, ":scene"),
+            (eq, ":scene", "scn_frisian_town"),
+            (replace_scene_props, "spr_ship_sail_off", "spr_empty"),
+        (try_end),
+      ]),
       common_battle_mission_start,
       common_battle_tab_press,
       immersive_troops,
@@ -24310,20 +24319,20 @@ mission_templates = [
     ("finns_hall_battle",mtf_battle_mode,-1,
     "plundering a settlement",
     [
-      (0,mtef_visitor_source,af_override_horse,aif_start_alarmed,1,[]),#player
-      (1,mtef_visitor_source,af_override_horse,aif_start_alarmed,1,[]),#player
-      (2,mtef_visitor_source,af_override_horse,aif_start_alarmed,1,[]),#guard
-	  (3,mtef_visitor_source,af_override_horse,aif_start_alarmed,1,[]),#legatus
-      (4,mtef_visitor_source,af_override_horse,aif_start_alarmed,1,[]),#legatus
-      (5,mtef_visitor_source,af_override_horse,aif_start_alarmed,1,[]),#unused
-      (6,mtef_visitor_source,af_override_horse,aif_start_alarmed,1,[]),#unused
-      (7,mtef_visitor_source,af_override_horse,aif_start_alarmed,1,[]),#unused
-      (8,mtef_visitor_source,af_override_horse,aif_start_alarmed,1,[]),#spectators
-      (9,mtef_visitor_source,af_override_horse,aif_start_alarmed,1,[]),#spectators
-      (10,mtef_visitor_source,af_override_horse,aif_start_alarmed,1,[]),#spectators
-      (11,mtef_visitor_source,af_override_horse,aif_start_alarmed,1,[]),#spectators
-      (12,mtef_visitor_source,af_override_horse,aif_start_alarmed,1,[]),#spectators
-      (13,mtef_visitor_source,af_override_horse,aif_start_alarmed,1,[]),#spectators
+      (0,mtef_visitor_source|mtef_team_0,af_override_horse,aif_start_alarmed,1,[]),#player
+      (1,mtef_visitor_source|mtef_team_0,af_override_horse,aif_start_alarmed,1,[]),#player
+      (2,mtef_visitor_source|mtef_team_2,af_override_horse,aif_start_alarmed,1,[]),#guard
+	  (3,mtef_visitor_source|mtef_team_0,af_override_horse,aif_start_alarmed,1,[]),#legatus
+      (4,mtef_visitor_source|mtef_team_0,af_override_horse,aif_start_alarmed,1,[]),#legatus
+      (5,mtef_visitor_source|mtef_team_0,af_override_horse,aif_start_alarmed,1,[]),#unused
+      (6,mtef_visitor_source|mtef_team_0,af_override_horse,aif_start_alarmed,1,[]),#unused
+      (7,mtef_visitor_source|mtef_team_0,af_override_horse,aif_start_alarmed,1,[]),#unused
+      (8,mtef_visitor_source|mtef_team_0,af_override_horse,aif_start_alarmed,1,[]),#spectators
+      (9,mtef_visitor_source|mtef_team_0,af_override_horse,aif_start_alarmed,1,[]),#spectators
+      (10,mtef_visitor_source|mtef_team_0,af_override_horse,aif_start_alarmed,1,[]),#spectators
+      (11,mtef_visitor_source|mtef_team_0,af_override_horse,aif_start_alarmed,1,[]),#spectators
+      (12,mtef_visitor_source|mtef_team_0,af_override_horse,aif_start_alarmed,1,[]),#spectators
+      (13,mtef_visitor_source|mtef_team_0,af_override_horse,aif_start_alarmed,1,[]),#spectators
       (14,mtef_visitor_source|mtef_team_0,af_override_horse,aif_start_alarmed,1,[]),#spectators
       (15,mtef_visitor_source|mtef_team_0,af_override_horse,aif_start_alarmed,1,[]),#spectators
       (16,mtef_visitor_source|mtef_team_0,af_override_horse,aif_start_alarmed,1,[]),#spectators
@@ -24344,7 +24353,16 @@ mission_templates = [
     ],
    vc_weather + [
    
-   
+    (ti_on_agent_spawn, 0, 0, [],
+    [
+    (store_trigger_param_1, ":agent_no"),
+    (agent_is_ally, ":agent_no"),
+    (agent_get_troop_id, ":troop_id", ":agent_no"),
+    (neq, ":troop_id", "trp_finn_hildeburh"),
+    (cur_agent_set_banner_tableau_material, "tableau_game_troop_label_banner", "mesh_banners_default_c"),
+    ]),
+    passable_allies,
+    custom_commander_critical_strike,
 ###TO BULLY RETARTED CHEATERS
     (0, 0, 0, [
     (this_or_next|key_is_down, key_left_alt),
@@ -24375,7 +24393,12 @@ mission_templates = [
     (get_player_agent_no, ":player"),
     (agent_deliver_damage_to_agent,":player",":player",10000,"itm_warhammer"),
     (display_message, "@DIE CHEATER! DIE CHEATER! DIE CHEATER!"),
-    (jump_to_menu, "mnu_finnsburg_quest_battle_final"),
+    (try_begin),
+        (check_quest_active, "qst_finnsburh_quest_2"),
+        (jump_to_menu, "mnu_finnsburg_revenge_lost"),
+    (else_try),
+        (jump_to_menu, "mnu_finnsburg_quest_battle_final"),
+    (try_end),
     (finish_mission),
     (call_script, "script_change_troop_renown", "trp_player", -500),
     (call_script, "script_change_player_honor", -200),
@@ -24397,8 +24420,17 @@ mission_templates = [
     (ti_before_mission_start,0,0,[],[
     (call_script, "script_music_set_situation_with_culture", mtf_sit_siege),
     (assign, "$g_battle_result", 0),
-    (team_set_relation, 0,1,-1),
-    (team_set_relation, 1,0,-1),
+    
+    (try_begin),
+        (eq, "$temp", -2),
+        (team_set_relation, 0,1,1),
+        (team_set_relation, 1,0,1),
+        (team_set_relation, 1,2,1),
+        (team_set_relation, 0,2,1),
+    (else_try),
+        (team_set_relation, 0,1,-1),
+        (team_set_relation, 1,0,-1),
+    (try_end),
     # (set_cheer_at_no_enemy, 0),
     ]),
     
@@ -24412,25 +24444,80 @@ mission_templates = [
     (neg|main_hero_fallen),
     ],[
     (try_begin),
-        (main_hero_fallen),
-        (jump_to_menu, "mnu_finnsburg_quest_battle_final"),
+        (check_quest_active, "qst_finnsburh_quest_2"),
+        (quest_slot_eq, "qst_finnsburh_quest_2", slot_quest_current_state, 9),
+        (mission_enable_talk),
+        (start_mission_conversation, "trp_dani_hengest"),
+        (quest_set_slot, "qst_finnsburh_quest_2", slot_quest_current_state, 10),
     (else_try),
         (call_script, "script_change_troop_renown", "trp_player", 25),
         (add_xp_as_reward, 500),
         (jump_to_menu, "mnu_finnsburg_quest_battle_won"),
+        (finish_mission, 3),
+        (mission_cam_animate_to_screen_color, 0xFF000000, 2000),
     (try_end),
-    
-    (finish_mission, 3),
-    (mission_cam_animate_to_screen_color, 0xFF000000, 2000),
+    ]),        
+    (1,5,ti_once,[
+    (check_quest_active, "qst_finnsburh_quest_2"),
+    (quest_slot_eq, "qst_finnsburh_quest_2", slot_quest_current_state, 9),
+    (num_active_teams_le, 2),
+    (neg|main_hero_fallen),
+    ],[
+    (mission_enable_talk),
+    (start_mission_conversation, "trp_dani_hengest"),
+    (quest_set_slot, "qst_finnsburh_quest_2", slot_quest_current_state, 10),
     ]),        
     
     (1,1,0,[(eq, "$temp", 0),],[(assign, "$temp", -1)]),
     
+    (0,1,ti_once,[
+    (quest_slot_eq, "qst_finnsburh_quest_2", slot_quest_current_state, 8),
+    (eq, "$temp", -2),
+    (neg|conversation_screen_is_active),
+    ],[
+    (start_mission_conversation, "trp_frisian_king"),
+    ]),      
+
+      (4, 0, 0, [
+      (check_quest_active, "qst_finnsburh_quest_2"),
+      (quest_slot_eq, "qst_finnsburh_quest_2", slot_quest_current_state, 9),
+      ],
+        [          
+        (try_for_agents, ":agent_no"),
+            (agent_get_troop_id, ":troop_no", ":agent_no"),
+            (eq, ":troop_no", "trp_finn_hildeburh"),
+            (store_random_in_range, ":rand", 1, 25),
+            (entry_point_get_position, pos2, ":rand"),
+            (agent_start_running_away, ":agent_no", pos2),
+        (try_end),
+      ]),  
+
+    (ti_on_agent_spawn, 0, 0, [
+    (quest_slot_eq, "qst_finnsburh_quest_2", slot_quest_current_state, 8),
+    ],
+    [
+    (store_trigger_param, ":agent", 1),
+    (agent_get_team, ":team", ":agent"),
+    (eq, ":team", 1),
+    (agent_get_troop_id, ":troop", ":agent"),
+    (try_begin),
+        (troop_is_hero, ":troop"),
+        (neq, ":troop", "trp_player"),
+        (agent_set_no_death_knock_down_only, ":agent", 1),
+        (agent_set_damage_modifier, ":agent", 150),
+    (try_end),
+    ]),
+
     (0,5,ti_once,[
     (main_hero_fallen),
     ],[
     (main_hero_fallen),
-    (jump_to_menu, "mnu_finnsburg_quest_battle_final"),
+    (try_begin),
+        (check_quest_active, "qst_finnsburh_quest_2"),
+        (jump_to_menu, "mnu_finnsburg_revenge_lost"),
+    (else_try),
+        (jump_to_menu, "mnu_finnsburg_quest_battle_final"),
+    (try_end),
     (finish_mission, 3),
     (mission_cam_animate_to_screen_color, 0xFF000000, 2000),
     ]),      
@@ -24461,7 +24548,7 @@ mission_templates = [
     ("finn_camp_battle",mtf_battle_mode,-1,
     "plundering a settlement",
     [
-      (0,mtef_visitor_source|mtef_team_0,af_override_horse,aif_start_alarmed,1,[]),#player
+      (0,mtef_visitor_source|mtef_team_2,af_override_horse,aif_start_alarmed,1,[]),#player
       (1,mtef_visitor_source|mtef_team_2,af_override_horse,aif_start_alarmed,1,[]),#player
       (2,mtef_visitor_source|mtef_team_2,af_override_horse,aif_start_alarmed,1,[]),#guard
 	  (3,mtef_visitor_source|mtef_team_2,af_override_horse,aif_start_alarmed,1,[]),#legatus
@@ -24472,29 +24559,36 @@ mission_templates = [
       (8,mtef_visitor_source|mtef_team_2,af_override_horse,aif_start_alarmed,1,[]),#spectators
       (9,mtef_visitor_source|mtef_team_2,af_override_horse,aif_start_alarmed,1,[]),#spectators
       (10,mtef_visitor_source|mtef_team_2,af_override_horse,aif_start_alarmed,1,[]),#spectators
-      (11,mtef_visitor_source|mtef_team_1,0,aif_start_alarmed,1,[]),#spectators
-      (12,mtef_visitor_source|mtef_team_1,0,aif_start_alarmed,1,[]),#spectators
-      (13,mtef_visitor_source|mtef_team_1,0,aif_start_alarmed,1,[]),#spectators
-      (14,mtef_visitor_source|mtef_team_1,0,aif_start_alarmed,1,[]),#spectators
-      (15,mtef_visitor_source|mtef_team_1,0,aif_start_alarmed,1,[]),#spectators
-      (16,mtef_visitor_source|mtef_team_1,0,aif_start_alarmed,1,[]),#spectators
-      (17,mtef_visitor_source|mtef_team_1,0,aif_start_alarmed,1,[]),#spectators
-      (18,mtef_visitor_source|mtef_team_1,0,aif_start_alarmed,1,[]),#spectators
-      (19,mtef_visitor_source|mtef_team_1,0,aif_start_alarmed,1,[]),#spectators
-      (20,mtef_visitor_source|mtef_team_1,0,aif_start_alarmed,1,[]),#spectators
-      (21,mtef_visitor_source|mtef_team_1,0,aif_start_alarmed,1,[]),#spectators
-      (22,mtef_visitor_source|mtef_team_1,0,aif_start_alarmed,1,[]),#spectators
-      (23,mtef_visitor_source|mtef_team_1,0,aif_start_alarmed,1,[]),#spectators
-      (24,mtef_visitor_source|mtef_team_1,0,aif_start_alarmed,1,[]),#spectators
-      (25,mtef_visitor_source|mtef_team_1,0,aif_start_alarmed,1,[]),#spectators
-      (26,mtef_visitor_source|mtef_team_1,0,aif_start_alarmed,1,[]),#spectators
-      (27,mtef_visitor_source|mtef_team_1,0,aif_start_alarmed,1,[]),#spectators
-      (28,mtef_visitor_source|mtef_team_1,0,aif_start_alarmed,1,[]),#spectators
-      (29,mtef_visitor_source|mtef_team_1,0,aif_start_alarmed,1,[]),#spectators
-      (30,mtef_visitor_source|mtef_team_1,0,aif_start_alarmed,1,[]),#spectators
+      (11,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#spectators
+      (12,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#spectators
+      (13,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#spectators
+      (14,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#spectators
+      (15,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#spectators
+      (16,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#spectators
+      (17,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#spectators
+      (18,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#spectators
+      (19,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#spectators
+      (20,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#spectators
+      (21,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#spectators
+      (22,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#spectators
+      (23,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#spectators
+      (24,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#spectators
+      (25,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#spectators
+      (26,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#spectators
+      (27,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#spectators
+      (28,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#spectators
+      (29,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#spectators
+      (30,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#spectators
     ],
    vc_weather + utility_triggers  + common_division_data + division_order_processing + real_deployment + formations_triggers + AI_triggers  +[
    
+    (ti_on_agent_spawn, 0, 0, [],
+    [
+    (store_trigger_param_1, ":agent_no"),
+    (agent_is_ally, ":agent_no"),
+    (cur_agent_set_banner_tableau_material, "tableau_game_troop_label_banner", "mesh_banner_kingdom_19"),
+    ]),
+    
     passable_allies,
     custom_commander_critical_strike,
     equipment_randomization,
@@ -24543,6 +24637,9 @@ mission_templates = [
     (store_trigger_param, ":agent", 1),
     (agent_get_troop_id, ":troop", ":agent"),
     (try_begin),
+        (eq, ":troop", "trp_player"),
+        (agent_set_team, ":agent", 0),
+    (else_try),
         (troop_is_hero, ":troop"),
         (neq, ":troop", "trp_player"),
         (agent_set_no_death_knock_down_only, ":agent", 1),
@@ -24561,15 +24658,16 @@ mission_templates = [
     (ti_before_mission_start,0,0,[],[
     (call_script, "script_music_set_situation_with_culture", mtf_sit_siege),
     (assign, "$g_battle_result", 0),
+    (assign, "$tutorial_state", 0),
     (team_set_relation, 0,3,-1),
     (team_set_relation, 2,3,-1),
     (team_set_relation, 0,2,1),
     # (set_cheer_at_no_enemy, 0),
     ]),
     
-    (ti_tab_pressed,0,0,[],[
-    (finish_mission),
-    ]),
+    # (ti_tab_pressed,0,0,[],[
+    # (finish_mission),
+    # ]),
     
     (1,4,ti_once,[
     (num_active_teams_le, 2),
@@ -24579,17 +24677,47 @@ mission_templates = [
     (mission_enable_talk),
     (call_script, "script_change_troop_renown", "trp_player", 5),
     (add_xp_as_reward, 250),
-    (tutorial_box, "@The Frisians are retreating! Search for Hengist and talk with him.", "@Victory"),
+    (start_mission_conversation, "trp_dani_hengest"),
+    # (tutorial_box, "@The Frisians are retreating! Search for Hengist and talk with him.", "@Victory"),
     # (finish_mission, 3),
     # (mission_cam_animate_to_screen_color, 0xFF000000, 2000),
     ]),        
     
     (1,1,0,[(eq, "$temp", 0),],[(assign, "$temp", -1)]),
+   
+    (0,0,0,[(quest_slot_eq, "qst_finnsburh_quest_2", slot_quest_current_state, 6),],
+    [
+    (store_mission_timer_a, ":cur_time"),
+    (set_fixed_point_multiplier, 100),
+    (try_begin),
+        (ge, ":cur_time", 12),
+        (eq, "$tutorial_state", 1),
+        (val_add, "$tutorial_state", 1), 
+        (tutorial_message_set_background, 1),
+        (tutorial_message, -1), 
+        (quest_set_slot, "qst_finnsburh_quest_2", slot_quest_current_state, 7),
+    (else_try),
+        (ge, ":cur_time", 1),
+        (eq, "$tutorial_state", 0),
+        (val_add, "$tutorial_state", 1),   
+        (tutorial_message_set_background, 1),
+        (tutorial_message, "@Hengest shouts: ^^'Warriors! Take up your shields, think of valor. Fight in the vanguard and be resolute!'"), 
+    (try_end),
+      ]),
+    
     
     (0,5,ti_once,[
     (main_hero_fallen),
     ],[
     (jump_to_menu, "mnu_finnsburg_revenge_lost"),
+    (finish_mission, 3),
+    (mission_cam_animate_to_screen_color, 0xFF000000, 2000),
+    ]),      
+    (0,5,ti_once,[
+    (neg|conversation_screen_is_active),
+    (eq, "$g_battle_result", 1),
+    ],[
+    (jump_to_menu, "$g_next_menu"),
     (finish_mission, 3),
     (mission_cam_animate_to_screen_color, 0xFF000000, 2000),
     ]),      
@@ -24599,8 +24727,8 @@ mission_templates = [
     (ge, "$temp", 1),],
     [
     (try_for_range, ":entry", 21,26),
-        (add_visitors_to_current_scene, ":entry", "trp_frisian_freeman", 25),
-        (add_visitors_to_current_scene, ":entry", "trp_frisian_companion",3),
+        (add_visitors_to_current_scene, ":entry", "trp_frisian_freeman", 13),
+        (add_visitors_to_current_scene, ":entry", "trp_frisian_companion",2),
     (try_end),
     (display_message, "@Another wave of Frisians arrives!"),
     (val_sub, "$temp", 1),
@@ -24621,16 +24749,16 @@ mission_templates = [
     (try_end),
     ]),
  
-    # (0, 0, 2, [],
-    # [
-    # (try_for_agents, ":agent_no"),
-        # (agent_is_human, ":agent_no"),
-        # (agent_is_alive, ":agent_no"),
-        # (agent_get_team, ":team", ":agent_no"),
-        # (eq, ":team", 1),
-        # (agent_ai_set_always_attack_in_melee, ":agent_no", 1),
-    # (try_end),
-    # ]),
+    (0, 0, 2, [],
+    [
+    (try_for_agents, ":agent_no"),
+        (agent_is_human, ":agent_no"),
+        (agent_is_alive, ":agent_no"),
+        (agent_get_team, ":team", ":agent_no"),
+        (eq, ":team", 1),
+        (agent_ai_set_always_attack_in_melee, ":agent_no", 1),
+    (try_end),
+    ]),
     (ti_before_mission_start, 0, 0, [],
         [
         (set_global_cloud_amount, 25),
@@ -24851,7 +24979,7 @@ mission_templates = [
         (mission_cam_animate_to_position, pos9, 25000, 0),  
         (val_add, "$tutorial_state", 1),   
         (tutorial_message_set_background, 1),
-        (tutorial_message, "@Hengest unleshes a fearsome warcry, then he shouts: ^^'Dunraz! Dunraz! Dunraz! Hear me, great thunderer! You swing your hammer to honor us and to announce our arrival!'"), 
+        (tutorial_message, "@Hengest unleashes a fearsome warcry, then he shouts: ^^'Dunraz! Dunraz! Dunraz! Hear me, great thunderer! You swing your hammer to honor us and to announce our arrival!'"), 
     (else_try),
         (eq, "$tutorial_state", 0),
         (set_fixed_point_multiplier, 1000),
@@ -24993,6 +25121,101 @@ mission_templates = [
   ]),
 
 
-    common_inventory_not_available,]),    
+    common_inventory_not_available,]), 
     
+("final_feast",mtf_battle_mode,-1,
+    "plundering a settlement",
+    [
+      (0,mtef_visitor_source,af_override_horse|af_override_head|af_override_weapons|af_override_gloves,0,1,[]),#player
+      (1,mtef_visitor_source,af_override_horse|af_override_head|af_override_weapons|af_override_gloves,0,1,[]),#player
+      (2,mtef_visitor_source,af_override_horse|af_override_head|af_override_weapons|af_override_gloves,0,1,[]),#guard
+	  (3,mtef_visitor_source,af_override_horse|af_override_head|af_override_weapons|af_override_gloves,0,1,[]),#legatus
+      (4,mtef_visitor_source,af_override_horse|af_override_head|af_override_weapons|af_override_gloves,0,1,[]),#legatus
+	  
+      (5,mtef_visitor_source,af_override_horse|af_override_head|af_override_weapons|af_override_gloves,0,1,[]),#unused
+      (6,mtef_visitor_source,af_override_horse|af_override_head|af_override_weapons|af_override_gloves,0,1,[]),#unused
+      (7,mtef_visitor_source,af_override_horse|af_override_head|af_override_weapons|af_override_gloves,0,1,[]),#unused
+      (8,mtef_visitor_source,af_override_horse|af_override_head|af_override_weapons|af_override_gloves,0,1,[]),#spectators
+      (9,mtef_visitor_source,af_override_horse|af_override_head|af_override_weapons|af_override_gloves,0,1,[]),#spectators
+      (10,mtef_visitor_source,af_override_horse|af_override_head|af_override_weapons|af_override_gloves,0,1,[]),#spectators
+      (11,mtef_visitor_source,af_override_horse|af_override_head|af_override_weapons|af_override_gloves,0,1,[]),#spectators
+      (12,mtef_visitor_source,af_override_horse|af_override_head|af_override_weapons|af_override_gloves,0,1,[]),#spectators
+      (13,mtef_visitor_source,af_override_horse|af_override_head|af_override_weapons|af_override_gloves,0,1,[]),#spectators
+      (14,mtef_visitor_source,af_override_horse|af_override_head|af_override_weapons|af_override_gloves,0,1,[itm_dedal_lutnia]),#spectators
+      (15,mtef_visitor_source,af_override_horse|af_override_head|af_override_weapons|af_override_gloves,0,1,[itm_dedal_lira]),#spectators
+      (16,mtef_visitor_source,0,0,1,[]),#spectators
+      (17,mtef_visitor_source,0,0,1,[]),#spectators
+      (18,mtef_visitor_source,0,0,1,[]),#spectators
+      (19,mtef_visitor_source,0,0,1,[]),#spectators
+      (20,mtef_visitor_source,0,0,1,[]),#spectators
+      (21,mtef_visitor_source,0,0,1,[]),#spectators
+      (22,mtef_visitor_source,0,0,1,[]),#spectators
+      (23,mtef_visitor_source,0,0,1,[]),#spectators
+      (24,mtef_visitor_source,0,0,1,[]),#spectators
+      (25,mtef_visitor_source,0,0,1,[]),#spectators
+      (26,mtef_visitor_source,0,0,1,[]),#spectators
+      (27,mtef_visitor_source,0,0,1,[]),#spectators
+      (28,mtef_visitor_source,0,0,1,[]),#spectators
+      (29,mtef_visitor_source,0,0,1,[]),#spectators
+      (30,mtef_visitor_source,0,0,1,[]),#spectators
+    ],
+    [
+    (0, 0, ti_once,
+       [],[
+    (get_player_agent_no, ":player"),
+    (agent_set_no_death_knock_down_only, ":player", 1),
+	   ]),
+    
+    (ti_before_mission_start, 0, 0, [
+			 ],
+    [
+    (scene_set_day_time, 24),
+    ]),
+    
+    (ti_tab_pressed,0,0,[],[
+    (try_begin),
+        (ge, "$g_battle_result", 6),
+        (jump_to_menu, "$g_next_menu"),
+        (mission_disable_talk),
+        (mission_cam_animate_to_screen_color, 0xFF000000, 2000),
+        (finish_mission, 3),
+    (else_try),
+        (tutorial_box, "@Cannot leave now. Talk with all heroes first.", "@Hint"),
+    (try_end),
+    ]),       
+    
+    (ti_before_mission_start,0,0,[],[
+    (call_script, "script_music_set_situation_with_culture", mtf_sit_feast),
+    (assign, "$g_battle_result", 0),
+    ]),      
+    (ti_after_mission_start,0,0,[],[
+    (mission_enable_talk),
+    ]),      
+
+(ti_on_agent_spawn,1,0,[
+    (store_trigger_param_1,":agent"),
+    (agent_get_troop_id,":troop",":agent"),
+    (try_begin),
+      (is_between,":troop","trp_musican_male","trp_musicans_end"),
+      (try_begin),
+        (agent_has_item_equipped,":agent","itm_dedal_lutnia"),
+        (agent_set_stand_animation, ":agent", "anim_lute_sitting"),
+        (agent_set_animation, ":agent", "anim_lute_sitting"),
+        (agent_play_sound,":agent","snd_dedal_tavern_lute"),
+      (else_try),
+        (agent_has_item_equipped,":agent","itm_dedal_lira"),
+        (agent_set_stand_animation, ":agent", "anim_lyre_sitting"),
+        (agent_set_animation, ":agent", "anim_lyre_sitting"),
+        (agent_play_sound,":agent","snd_dedal_tavern_lyre"),
+      (try_end),
+      (store_random_in_range,":r",0,300),
+      (agent_set_animation_progress,":agent",":r"),
+    (try_end),
+  ],
+  []),
+
+
+ 
+    common_inventory_not_available,]),
+
 ]

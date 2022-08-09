@@ -25553,6 +25553,14 @@ goods, and books will never be sold. ^^You can change some settings here freely.
   
   ("attack_town",
   [(neg|faction_slot_eq, "$g_encountered_party_faction", slot_faction_player_tributary, 1),
+  (assign, reg50, 0),
+  (try_begin),
+    (check_quest_active, "qst_finnsburh_quest_2"),
+    (this_or_next|eq, "$g_encountered_party", "p_frisian_village"),
+    (eq, "$g_encountered_party", "p_dani_village"),
+    (assign, reg50, 1),
+  (try_end),
+  (eq, reg50, 0),
   ], 
     "Attack the town.", 
   [
@@ -27709,6 +27717,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     +" The wind is howling and you see thunders all around you. You fear, the whole operation would come to a sudden end due to the whims of nature. While you look around, you see the other warriors cheering and performing shield taunts."
     +" Hengist, standing next to you insures you that this is a good omen. Then he walks towards the bow of the ship and starts invoking the gods of the sky, the ocean and Dunraz, the great thunderer.",
     "none", [  
+    (quest_set_slot, "qst_finnsburh_quest_2", slot_quest_current_state, 4),
     ],
     [
 
@@ -27741,7 +27750,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     (set_visitor, 5, "trp_dani_ordlaf"),
     (set_visitor, 6, "trp_dani_guthormr"),
     (set_visitor, 7, "trp_multiplayer_profile_troop_male"),
-    (set_visitor, 8, "trp_frisian_king"),
+    (set_visitor, 8, "trp_scandinavian_comes"),
     
     (try_for_range, ":entry", 9, 75),
         (set_visitors, ":entry", "trp_scandinavian_freeman", 2),
@@ -27757,6 +27766,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     "^^While you were resting next to the fireplace with your men, you hear some of the guards screaming aloud: 'They found us, they are attacking, wake up!'"+
     "^The Frisians spotted the camp and are now assaulting your base with their men. Finn Folcwalding, however, doesn't seem to be there.",
     "none", [  
+    (quest_set_slot, "qst_finnsburh_quest_2", slot_quest_current_state, 5),
     ],
     [
 
@@ -27766,7 +27776,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     #1-10 dani
     #11-20 frisi
     #21-26 frisi reinforcements
-    (assign, "$g_is_quick_battle", 1),
+    # (assign, "$g_is_quick_battle", 1),
     
     (set_jump_mission, "mt_finn_camp_battle"),
     (assign, "$g_next_menu", "mnu_finnsburg_revenge_3"),
@@ -27779,14 +27789,14 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     (set_visitor, 4, "trp_dani_guthormr"),
     (set_visitor, 5, "trp_dani_ordlaf"),
     (set_visitor, 6, "trp_dani_haddingr"),
-    (set_visitor, 7, "trp_frisian_king"),
+    (set_visitor, 7, "trp_scandinavian_comes"),
     
     
     (try_for_range, ":entry", 11, 21),
-        (set_visitors, ":entry", "trp_northern_germanic_freeman", 5),
-        (set_visitors, ":entry", "trp_northern_germanic_warrior", 2),
-        (set_visitors, ":entry", "trp_frisian_freeman", 10),
-        (set_visitors, ":entry", "trp_frisian_companion", 2),
+        (set_visitors, ":entry", "trp_northern_germanic_freeman", 4),
+        (set_visitors, ":entry", "trp_northern_germanic_warrior", 1),
+        (set_visitors, ":entry", "trp_frisian_freeman", 8),
+        (set_visitors, ":entry", "trp_frisian_companion", 1),
     (try_end),
     
     (assign, ":stack_no", 1),
@@ -27799,52 +27809,224 @@ goods, and books will never be sold. ^^You can change some settings here freely.
             (val_min, ":size", 3),
             (set_visitors, ":entry", ":troop_no", ":size"),
             (val_add, ":stack_no", 1),
-            (display_message, "@Added player troop"),
+            # (display_message, "@Added player troop"),
         (try_end),
         (set_visitors, ":entry", "trp_scandinavian_freeman", 3),
         (set_visitors, ":entry", "trp_scandinavian_retainer", 2),
-        (set_visitors, ":entry", "trp_scandinavian_comes", 1),
+        (set_visitors, ":entry", "trp_scandinavian_comes", 2),
         (set_visitors, ":entry", "trp_dane_vanguard", 2),
-        (set_visitors, ":entry", "trp_jute_swordsman", 5),
+        (set_visitors, ":entry", "trp_jute_swordsman", 4),
     (try_end),
     (assign, "$temp", 3),
     (jump_to_scene, "scn_finnquest_dani_camp"),
     (change_screen_mission),
     ]), 
-    ("option_1", [],"Test scene",
-    [
-    (jump_to_scene, "scn_finnquest_dani_camp"),
-    (change_screen_mission),
-    ]), 
+    # ("option_1", [],"Test scene",
+    # [
+    # (jump_to_scene, "scn_finnquest_dani_camp"),
+    # (change_screen_mission),
+    # ]), 
     
     ],),
     
     ("finnsburg_revenge_3",0,
     "You do your best to bring the wounded men on the ships while you reorganise your forces and follow the main host, led by Hengist, outside the forest towards the Frisian village. The village is heavily defended by hundreds of men, to prevail it won't be easy.",
     "none", [  
+    (quest_set_slot, "qst_finnsburh_quest_2", slot_quest_current_state, 6),
     ],
     [
 
     ("option_1", [],"Continue",
     [
+    #0 player,
+    #1-10 dani
+    #11-20 frisi
+    #21-26 frisi reinforcements
+    # (assign, "$g_is_quick_battle", 1),
+    
+    (set_jump_mission, "mt_finn_camp_battle"),
+    (assign, "$g_next_menu", "mnu_finnsburg_revenge_final"),
+    (modify_visitors_at_site, "scn_frisian_town"),
+    (reset_visitors),    
+    (set_visitor, 0, "trp_player"),
+    (set_visitor, 0, "trp_kingdom_19_lord"),
+    (set_visitor, 0, "trp_dani_guthlaf"),
+    (set_visitor, 0, "trp_dani_hengest"),
+    (set_visitor, 0, "trp_dani_guthormr"),
+    (set_visitor, 0, "trp_dani_ordlaf"),
+    (set_visitor, 0, "trp_dani_haddingr"),
+    (set_visitor, 0, "trp_scandinavian_comes"),
+    
+    
+    (try_for_range, ":entry", 11, 31),
+        (set_visitors, ":entry", "trp_northern_germanic_freeman", 2),
+        (set_visitors, ":entry", "trp_northern_germanic_warrior", 1),
+        (set_visitors, ":entry", "trp_frisian_freeman", 3),
+        (set_visitors, ":entry", "trp_frisian_companion", 1),
+    (try_end),
+    
+    (assign, ":stack_no", 1),
+    (party_get_num_companion_stacks, ":end", "p_main_party"),
+    (try_for_range, ":unused", 1, 11),
+        (try_begin),
+            (lt, ":stack_no", ":end"),
+            (party_stack_get_troop_id, ":troop_no", "p_main_party", ":stack_no"),
+            (party_stack_get_size, ":size", ":troop_no"),
+            (val_min, ":size", 3),
+            (set_visitors, 0, ":troop_no", ":size"),
+            (val_add, ":stack_no", 1),
+            # (display_message, "@Added player troop"),
+        (try_end),
+        (set_visitors, 0, "trp_scandinavian_freeman", 2),
+        (set_visitors, 0, "trp_scandinavian_retainer", 2),
+        (set_visitors, 0, "trp_scandinavian_comes", 2),
+        (set_visitors, 0, "trp_dane_vanguard", 2),
+        (set_visitors, 0, "trp_jute_swordsman", 3),
+    (try_end),
+    (assign, "$temp", 1),
+    (jump_to_scene, "scn_frisian_town"),
+    (change_screen_mission),
+    
     ]), 
-    ("option_1", [],"Test scene",
-    [
-    ]), 
+    # ("option_1", [],"Test scene",
+    # [
+    # (jump_to_scene, "scn_frisian_town"),
+    # (change_screen_mission),
+    # ]), 
      ],),
      
     ("finnsburg_revenge_lost",0,
-    "",
+    "You fall on the ground with multiple injuries. As you awake you discover that the Dani and Iuti army was defeated. Your own warband suffered high casualties too."
+    +" Shame on the defeated. There names shall be forgotten.",
     "none", [  
+    (set_background_mesh, "mesh_pic_defeat"),
     ],
     [
 
     ("option_1", [],"Vae victis...",
     [
+    (call_script, "script_fail_quest", "qst_finnsburh_quest_2"),
+    (call_script, "script_end_quest", "qst_finnsburh_quest_2"),
+    (call_script, "script_change_troop_renown", "trp_player", -25),
+    (call_script, "script_party_inflict_attrition", "p_main_party", 75),
     (change_screen_map),
     ]), 
     
     ],),
+    ("finnsburg_revenge_final",0,
+    "The ranks of the Frisians and the Jutish mercenaries are soon broke by your men and Hengist's. A few of the remaining warriors take refuge in the hall, with Finn Folcwalding and his retainer Guthere, protecting Hildeburh. You, Hengist, Guthlaf, Ordlaf, Guthormr and Hadding enter the hall alone, to face the last Frisians in an heroic duel.",
+    "none", [  
+    (quest_set_slot, "qst_finnsburh_quest_2", slot_quest_current_state, 8),
+    (set_background_mesh, "mesh_pic_looted_village"),
+    ],
+    [
+
+    ("option_1", [],"The time of revenge has come!",
+    [
+    (set_jump_mission, "mt_finns_hall_battle"),
+    (modify_visitors_at_site, "scn_finns_hall_interior"),
+    (reset_visitors),    
+
+    (troop_set_health, "trp_dani_guthlaf", 100),
+    (troop_set_health, "trp_dani_hengest", 100),
+    (troop_set_health, "trp_dani_haddingr", 100),
+    (troop_set_health, "trp_dani_ordlaf", 100),
+    (troop_set_health, "trp_dani_guthormr", 100),
+
+    (set_visitor, 0, "trp_frisian_king"),
+    (set_visitor, 1, "trp_finn_guthere"),
+    (set_visitor, 2, "trp_finn_hildeburh"),
+    (set_visitor, 3, "trp_frisian_companion"),
+    (set_visitor, 4, "trp_frisian_companion"),
+    (set_visitor, 5, "trp_frisian_companion"),
+    (set_visitor, 6, "trp_frisian_companion"),
+   
+    (set_visitor, 25, "trp_player"),
+    (set_visitor, 27, "trp_dani_guthlaf"),
+    (set_visitor, 23, "trp_dani_hengest"),
+    (set_visitor, 24, "trp_dani_guthormr"),
+    (set_visitor, 28, "trp_dani_ordlaf"),
+    (set_visitor, 26, "trp_dani_haddingr"),
+
+    (assign, "$temp", -2),
+
+    (jump_to_scene, "scn_finns_hall_interior"),
+    (change_screen_mission), 
+
+    ]), 
+    
+    ],),
+    
+    ("finn_quest_final_banquet_1",0,
+    "The dead are buried and a great feast is organized to honor the victory, to honor the fallen and finally to celebrate the coronation of the new king of the Frisians!",
+    "none", [  
+
+    ],
+    [
+
+    ("option_1", [],"Glory to the victors! Vae victis!",
+    [
+    (quest_set_slot, "qst_finnsburh_quest_2", slot_quest_current_state, 11),
+    (set_jump_mission, "mt_final_feast"),
+    (modify_visitors_at_site, "scn_finns_hall_interior"),
+    (reset_visitors),    
+
+    (assign, "$g_next_menu", "mnu_finn_quest_final_banquet_2"),
+    
+    (set_visitor, 0, "trp_player"),
+    (set_visitor, 1, "trp_dani_guthlaf"),
+    (set_visitor, 2, "trp_dani_hengest"),
+    (set_visitor, 3, "trp_dani_guthormr"),
+    (set_visitor, 4, "trp_dani_ordlaf"),
+    (set_visitor, 5, "trp_dani_haddingr"),
+    (set_visitor, 6, "trp_jute_swordsman"),
+    (set_visitor, 7, "trp_jute_swordsman"),
+    (set_visitor, 8, "trp_jute_swordsman"),
+    (set_visitor, 9, "trp_scandinavian_comes"),
+    (set_visitor, 10, "trp_scandinavian_comes"),
+    (set_visitor, 11, "trp_scandinavian_comes"),
+    (set_visitor, 12, "trp_finn_hildeburh"),
+    (set_visitor, 13, "trp_musican_male"),
+    (set_visitor, 14, "trp_musican_female"),
+
+    (assign, "$temp", -2),
+
+    (jump_to_scene, "scn_finns_hall_interior"),
+    (change_screen_mission), 
+
+    ]), 
+    
+    ],),
+    
+ ("finn_quest_final_banquet_2",0,
+    "Everything is almost the same as during the first feast. Generous amounts of food are served, although not of great varied. Plenty of mead is brought by the maidens. And finally, you spot again the maiden, who was very kind towards you during the first feast. Again you smile when she looks into your direction. She notices your sign and aigain stays close to you. "
+    +"^^However, there is an important difference. Many men are dead now, and their name will always be remembered. Among the greatest are Hnaef, Sigeferth and Eaha! Why did they had to die? You don't know. Maybe it was their fate. You only know, it is part of the life of a warrior: Death and pain, chaos and destruction are the soul of a warrior. However, after the battle comes the feast! And the warrios who survived can call themselves lucky: You see Hengest in company of two maidens, you see Guthlaf and Ordlaf in a drinking competition. Guthormr is singing and Haddingr is dancing on a table."
++"^^You decide to join them, nothing can hold you now. Its the time after the battle, the time of joy. You sing with Guthormr, dance with Haddingr, drink with Guthlaf and Ordlaf and you secretly sneak between Hengest and his maidens and give each of them a kiss, while Hengest is laughing."
++"^^The mead is dimming the minds,  the music is whistling and the food is warming the bellies. Finally, desires of flesh slowly bring an end to the festivities. Every warrior is in company of at least one maiden. The one who smiled at you is already lying by your side as the musicians finally stop playing....",
+    "none", [
+    (quest_set_slot, "qst_finnsburh_quest_2", slot_quest_current_state, 12),
+    (party_relocate_near_party, "p_main_party", "p_frisian_village", 0),
+    
+    (call_script, "script_end_quest", "qst_finnsburh_quest_2"),
+    (call_script, "script_change_troop_renown", "trp_player", 5),
+    (call_script, "script_change_player_honor", 1),
+    (add_xp_as_reward,2000),
+    ],
+    [
+    ("option_1", [],"Today we feast, tomorrow we battle! This is the fate of a warrior!",
+    [
+    (assign, "$auto_enter_town", "p_frisian_village"),
+    (assign, "$g_town_visit_after_rest", 1),
+    (assign, "$g_last_rest_center", "p_frisian_village"),
+    (assign, "$g_last_rest_payment_until", -1),
+    (rest_for_hours, 4, 3, 0),
+    (change_screen_map),
+    ]),
+
+  
+    ],),   
+
+    
 #################BIG CHUNGUS FINNSBURG QUEST END
     
 #end of file

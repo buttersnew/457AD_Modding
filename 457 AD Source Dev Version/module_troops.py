@@ -4690,6 +4690,12 @@ troops = [
 
   #installed via quest
   ["aestii_rebel_king","Shvarnas","Shvarnas",tf_hero, no_scene, reserved, fac_minor_aestii,[itm_simple_shoes,itm_mid_generic_mail_17,itm_burgh_helmet_2,itm_baltic_sword_1,itm_eastern_germanic_shield_2,itm_warhorse],def_attrib_lvl_32|level(32),wp_one_handed(300)|wp_two_handed(300)|wp_polearm(300)|wp_throwing(280)|wp_archery(160)|wp_crossbow(130)|wp_firearm(130),knows_ironflesh_10|knows_power_strike_10|knows_shield_8|knows_athletics_8|knows_riding_5,0x00000005d80061076b6d8a485b6db6db00000000001db6a90000000000000000],
+    
+  #installed via quest
+  ["dani_guthlaf","Guthlaf","Guthlaf",tf_hero,0,0,fac_minor_frisians,
+   [itm_ankle_boots,itm_cloaked_tunic_9,itm_round_shield_germanic_19,itm_war_spear_2],
+   knight_attrib_5,wp(300),knows_berserker,0x000000074f00030f46536e7a2951b2d900000000001db6da0000000000000000],
+
 
   #MINOR FACTION KINGS END
   #MINOR FACTION MERCHANTS BEGIN
@@ -4964,9 +4970,6 @@ troops = [
   ["dani_ordlaf","Ordlaf","Ordlaf",tf_hero,0,0,fac_minor_dani,
    [itm_obenaltendorf_shoes_2,itm_cloaked_generic_tunic_3,itm_concave_shield_germanic_21,itm_angon_1,itm_long_seax_3],
    knight_attrib_5,wp(300),knows_berserker,0x00000004e300508836536d3793aca91b00000000001db6d30000000000000000],
-  ["dani_guthlaf","Guthlaf","Guthlaf",tf_hero,0,0,fac_minor_dani,
-   [itm_ankle_boots,itm_cloaked_tunic_9,itm_round_shield_germanic_19,itm_war_spear_2],
-   knight_attrib_5,wp(300),knows_berserker,0x000000074f00030f46536e7a2951b2d900000000001db6da0000000000000000],
   ["dani_guthormr","Guthormr","Guthormr",tf_hero,0,0,fac_minor_dani,
    [],
    knight_attrib_5,wp(300),knows_berserker,man_face_1],

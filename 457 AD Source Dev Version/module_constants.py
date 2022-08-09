@@ -2096,6 +2096,11 @@ num_garamantian_spawn_points = 1
 num_danish_spawn_points = 1
 num_sporoi_spawn_points = 1
 num_bosphoran_spawn_points = 1
+num_abagasian_spawn_points = 1
+num_tauri_spawn_points = 1
+num_augundzi_spawn_points = 1
+num_vidivarii_spawn_points = 1
+num_frisian_spawn_points = 1
 
 peak_prisoner_trains = 4
 peak_kingdom_caravans = 12

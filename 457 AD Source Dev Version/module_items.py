@@ -460,8 +460,10 @@ items = [
 #handwear
 ["leather_gloves","Leather Gloves", [("leather_gloves_L",0)], itp_merchandise|itp_type_hand_armor,0, 500, weight(0.25)|abundance(10)|body_armor(2)|difficulty(0),imodbits_cloth],
 ["mail_mittens","Mail Gloves", [("mail_mittens_new_L",0)], itp_type_hand_armor,0, 2840, weight(1)|abundance(1)|body_armor(6)|difficulty(0),imodbits_armor],
-#["scale_gauntlets","Scale Gauntlets", [("scale_gauntlets_b_L",0)], itp_type_hand_armor,0, 2500, weight(3)|abundance(1)|body_armor(6)|difficulty(6),imodbits_armor],
-#["lamellar_gauntlets","Lamellar Gauntlets", [("glove6_L",0)], itp_type_hand_armor,0, 2500, weight(3)|abundance(1)|body_armor(6)|difficulty(6),imodbits_armor],
+
+##Cloaks as gloves
+["TOAOE_cloak_glove_1a","FUCKING GLOVE Cloak", [("TOAOE_cloak_glove_1a_L",0),("TOAOE_cloak_1a",ixmesh_inventory)], itp_type_hand_armor|itp_attach_armature|itp_fit_to_head|itp_force_show_right_hand|itp_force_show_left_hand,0, 
+500, weight(2.5)|abundance(100)|body_armor(6)|difficulty(0),imodbits_armor],
 
 #footwear
 ["wrapping_boots", "Wrapping Boots", [("wrapping_boots_a",0)], itp_merchandise| itp_type_foot_armor |itp_civilian | itp_attach_armature ,0,

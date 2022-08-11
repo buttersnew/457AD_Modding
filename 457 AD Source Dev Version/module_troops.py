@@ -2295,11 +2295,12 @@ troops = [
 
 #FRISIANS
   ["frisian_freeman","Frisesk Freeman","Frisesk Freemen",tf_guarantee_basic,0,0,fac_culture_minor_4,
-   [itm_ankle_boots,itm_simple_shoes,itm_wrapping_boots,itm_roman_lorum_fasciari_2,itm_roman_lorum_fasciari_4,itm_carbatinae_2_grey,itm_carbatinae_1_grey,itm_linen_tunic,itm_linen_shirt,itm_shirt,itm_generic_tunic_2,itm_generic_tunic_4,itm_generic_tunic_14,itm_linen_shirt_6,itm_linen_shirt_11,itm_linen_shirt_10,itm_cloaked_tunic_5,itm_cloaked_tunic_12,itm_cloaked_tunic_10,itm_concave_shield_blue_1,itm_concave_shield_red_1,itm_concave_shield_green_2,itm_concave_shield_orange_1,itm_round_shield_germanic_22,itm_javelin,itm_roman_spear_3,itm_roman_spear_4,itm_fighting_axe,itm_bearded_axe_1,itm_seax_1,itm_seax_2,itm_seax_10,itm_long_seax_1,itm_long_seax_3,itm_woolen_cap_1,itm_woolen_cap_2,itm_woolen_cap_5,itm_woolen_cap_8,itm_ridge_helm_c,itm_triveres_cloth,itm_triveres_leather,(itm_intercisa_helmet_1,imod_battered)]+shields_generic,
+   [itm_ankle_boots,itm_simple_shoes,itm_wrapping_boots,itm_roman_lorum_fasciari_2,itm_roman_lorum_fasciari_4,itm_carbatinae_2_grey,itm_carbatinae_1_grey,itm_obenaltendorf_shoes_1,itm_obenaltendorf_shoes_2,itm_linen_tunic,itm_linen_shirt,itm_shirt,itm_generic_tunic_2,itm_generic_tunic_4,itm_generic_tunic_14,itm_linen_shirt_6,itm_linen_shirt_11,itm_linen_shirt_10,itm_cloaked_tunic_5,itm_cloaked_tunic_12,itm_cloaked_tunic_10,itm_concave_shield_blue_1,itm_concave_shield_red_1,itm_concave_shield_green_2,itm_concave_shield_orange_1,itm_round_shield_germanic_22,
+   itm_javelin,itm_roman_spear_3,itm_roman_spear_4,itm_war_spear_2,itm_seax_1,itm_seax_2,itm_seax_10,itm_long_seax_1,itm_long_seax_3,itm_woolen_cap_1,itm_woolen_cap_2,itm_woolen_cap_5,itm_woolen_cap_8,itm_triveres_cloth,itm_triveres_leather,(itm_intercisa_helmet_1,imod_battered)]+shields_generic,
    def_attrib_lvl_18|level(17),wp_one_handed(180)|wp_two_handed(170)|wp_polearm(185)|wp_throwing(170)|wp_archery(100),knows_lvl_18_inf|knows_shield_5|knows_power_strike_4,germanic_face_1, germanic_face_2],
 
   ["frisian_companion","Frisesk Companion","Frisesk Companions",tf_mounted|tf_guarantee_horse|tf_guarantee_basic|tf_guarantee_helmet,0,0,fac_culture_minor_4,
-   [itm_frisian_warhorse,itm_roman_lorum_fasciari_2,itm_roman_lorum_fasciari_4,itm_wrapping_boots,itm_mid_generic_mail_19,itm_mid_generic_mail_7,itm_mid_generic_mail_17,itm_mid_generic_mail_18,itm_triveres_mail,itm_augst_helmet_3,itm_burgh_helmet_1,itm_burgh_helmet_2,itm_tab_shield_small_round_c,itm_concave_shield_germanic_small_1,itm_round_shield_germanic_small_22,itm_late_roman_spear_1,itm_sword_viking_c_long]+horses_germanic_4,
+   [itm_frisian_warhorse,itm_roman_lorum_fasciari_2,itm_roman_lorum_fasciari_4,itm_obenaltendorf_shoes_1,itm_obenaltendorf_shoes_2,itm_mid_generic_mail_19,itm_mid_generic_mail_7,itm_mid_generic_mail_17,itm_mid_generic_mail_18,itm_triveres_mail,itm_augst_helmet_3,itm_burgh_helmet_1,itm_augsburg_2_helmet_mail,itm_tab_shield_small_round_c,itm_concave_shield_germanic_small_1,itm_round_shield_germanic_small_22,itm_war_spear_3,itm_arabian_sword_b]+horses_germanic_4,
    def_attrib_lvl_28|level(27),wp_one_handed(250)|wp_two_handed(240)|wp_polearm(240)|wp_throwing(230)|wp_archery(100),knows_lvl_28_cav|knows_shield_6|knows_power_strike_8,germanic_face_1, germanic_face_2],
 
 #AESTII
@@ -4971,11 +4972,11 @@ troops = [
    [itm_obenaltendorf_shoes_2,itm_cloaked_generic_tunic_3,itm_concave_shield_germanic_21,itm_angon_1,itm_long_seax_3],
    knight_attrib_5,wp(300),knows_berserker,0x00000004e300508836536d3793aca91b00000000001db6d30000000000000000],
   ["dani_guthormr","Guthormr","Guthormr",tf_hero,0,0,fac_minor_dani,
-   [],
-   knight_attrib_5,wp(300),knows_berserker,man_face_1],
+   [itm_wrapping_boots,itm_cloaked_generic_tunic_8,itm_triveres_mail,itm_concave_shield_germanic_19,itm_angon_1,itm_sword_medieval_c_long], #sword, angon
+   knight_attrib_5,wp(300),knows_berserker,0x000000019e0060821b558a385a56a31200000000001db6e10000000000000000],
   ["dani_haddingr","Haddingr","Haddingr",tf_hero,0,0,fac_minor_dani,
-   [],
-   knight_attrib_5,wp(300),knows_berserker,man_face_1],
+   [itm_obenaltendorf_shoes_1,itm_cloaked_generic_tunic_5,itm_fernpass_helmet_1,itm_round_shield_germanic_24,itm_angon_1,itm_war_spear_3,itm_long_seax_1], #spear, seax, angon
+   knight_attrib_5,wp(300),knows_berserker,0x00000005410030c41b5589c70cad9b1b00000000001db6e10000000000000000],
 ##FINNS
   ["finn_garulf","Garulf Guthlafing","Garulf Guthlafing",tf_hero,0,0,fac_minor_frisians,
    [itm_simple_shoes,itm_mid_generic_mail_18,itm_fernpass_helmet_2,itm_battle_axe,itm_concave_shield_germanic_22],
@@ -4991,7 +4992,7 @@ troops = [
 
   ["finn_hildeburh","Hildeburh","Hildeburh",tf_hero|tf_female,0,0,fac_minor_frisians,
    [itm_wrapping_boots,itm_dress_5],
-   def_attrib,wp(60),knows_common,woman_face_1, woman_face_2],
+   def_attrib,wp(60),knows_common,0x000000018000500246924924d2a9a6dc00000000001d53920000000000000000],
 ####finnsburh quest characters END
 
 #other pagans of importance: Severianus of Damascus

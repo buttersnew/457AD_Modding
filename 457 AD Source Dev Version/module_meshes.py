@@ -573,14 +573,14 @@ meshes = [
   ("banner_kingdom_22", 0, "banner_kingdom_22", 0, 0, 0, -90, 0, 0, 1, 1, 1),
   ("banner_kingdom_23", 0, "banner_kingdom_23", 0, 0, 0, -90, 0, 0, 1, 1, 1),
   ("banner_kingdom_24", 0, "banner_kingdom_24", 0, 0, 0, -90, 0, 0, 1, 1, 1),
-  #Lord banners
   ("banner_kingdom_25", 0, "banner_kingdom_25", 0, 0, 0, -90, 0, 0, 1, 1, 1),
   ("banner_kingdom_26", 0, "banner_kingdom_26", 0, 0, 0, -90, 0, 0, 1, 1, 1),
-
   ("banner_kingdom_27", 0, "banner_kingdom_27", 0, 0, 0, -90, 0, 0, 1, 1, 1),
   ("banner_kingdom_28", 0, "banner_kingdom_28", 0, 0, 0, -90, 0, 0, 1, 1, 1),
   ("banner_kingdom_29", 0, "banner_kingdom_29", 0, 0, 0, -90, 0, 0, 1, 1, 1),
   ("banner_kingdom_30", 0, "banner_kingdom_30", 0, 0, 0, -90, 0, 0, 1, 1, 1),
+  ("banner_kingdom_31", 0, "banner_kingdom_31", 0, 0, 0, -90, 0, 0, 1, 1, 1),
+  ("banner_kingdom_32", 0, "banner_kingdom_32", 0, 0, 0, -90, 0, 0, 1, 1, 1),
 
   ("banner_end", 0, "banner_a15", 0, 0, 0, -90, 0, 0, 1, 1, 1),
 
@@ -859,14 +859,14 @@ meshes = [
   ("arms_kingdom_22", 0, "arms_kingdom_22", 0, 0, 0, -90, 0, 0, 1, 1, 1),
   ("arms_kingdom_23", 0, "arms_kingdom_23", 0, 0, 0, -90, 0, 0, 1, 1, 1),
   ("arms_kingdom_24", 0, "arms_kingdom_24", 0, 0, 0, -90, 0, 0, 1, 1, 1),
-  #Lord banners
   ("arms_kingdom_25", 0, "arms_kingdom_25", 0, 0, 0, -90, 0, 0, 1, 1, 1),
   ("arms_kingdom_26", 0, "arms_kingdom_26", 0, 0, 0, -90, 0, 0, 1, 1, 1),
-
   ("arms_kingdom_27", 0, "arms_kingdom_27", 0, 0, 0, -90, 0, 0, 1, 1, 1),
   ("arms_kingdom_28", 0, "arms_kingdom_28", 0, 0, 0, -90, 0, 0, 1, 1, 1),
   ("arms_kingdom_29", 0, "arms_kingdom_29", 0, 0, 0, -90, 0, 0, 1, 1, 1),
   ("arms_kingdom_30", 0, "arms_kingdom_30", 0, 0, 0, -90, 0, 0, 1, 1, 1),
+  ("arms_kingdom_31", 0, "arms_kingdom_31", 0, 0, 0, -90, 0, 0, 1, 1, 1),
+  ("arms_kingdom_32", 0, "arms_kingdom_32", 0, 0, 0, -90, 0, 0, 1, 1, 1),
 
   ("arms_end", 0, "banner_a15", 0, 0, 0, -90, 0, 0, 1, 1, 1),
 

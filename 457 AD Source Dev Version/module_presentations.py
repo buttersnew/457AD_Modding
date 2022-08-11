@@ -19590,6 +19590,11 @@ presentations = [
                 (this_or_next|eq, ":troop", "trp_scandinavian_freeman"),
                 (eq, ":troop", "trp_scandinavian_comes"),
                 (assign, ":c", 1), 
+              (else_try), #frisians
+                (eq, "$g_encountered_party", "p_frisian_village"),
+                (this_or_next|eq, ":troop", "trp_frisian_freeman"),
+                (eq, ":troop", "trp_frisian_companion"),
+                (assign, ":c", 1), 
               (try_end),
             (try_end),
 

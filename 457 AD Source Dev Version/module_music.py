@@ -134,8 +134,8 @@ tracks = [
   
   #this tracks are for finnsburg quest
   #this one here plays when the journey start
-  ("cutscene_longboat_track", "town_neutral.mp3", mtf_persist_until_finished, 0),
+  ("cutscene_longboat_track", "cutscene_longboat_track.mp3", mtf_persist_until_finished, 0),
   #this here plays when the finnsburg feast starts
-  ("finnsburg_feast_track", "lords_hall_vaegir.mp3", mtf_persist_until_finished, 0),
-  ("finnsburg_hengist_revenge", "ambushed_by_vaegir.mp3", mtf_persist_until_finished, 0),
+  ("finnsburg_feast_track", "finnsburg_feast_track.mp3", mtf_persist_until_finished, 0),
+  ("finnsburg_hengist_revenge", "finnsburg_hengist_revenge.mp3", mtf_persist_until_finished, 0),
 ]

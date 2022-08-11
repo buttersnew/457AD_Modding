@@ -1343,6 +1343,8 @@ scene_props = [
   ("banner_kingdom_28", 0, "banner_kingdom_28", "0", []),
   ("banner_kingdom_29", 0, "banner_kingdom_29", "0", []),
   ("banner_kingdom_30", 0, "banner_kingdom_30", "0", []),
+  ("banner_kingdom_31", 0, "banner_kingdom_31", "0", []),
+  ("banner_kingdom_32", 0, "banner_kingdom_32", "0", []),
 
   ("banner_end", 0, "banner_a15", "0", []),
 

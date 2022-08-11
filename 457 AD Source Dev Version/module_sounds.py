@@ -217,7 +217,7 @@ sounds = [
  ("enemy_scored_a_point", sf_2d|sf_priority_10|sf_vol_10, ["enemy_scored_a_point.wav"]),
  ("horn", sf_priority_1|sf_vol_15, ["horn.wav"]),
  ("wind", sf_priority_10|sf_vol_5|sf_looping, ["wind.wav"]),
- ("thunder", sf_2d|sf_priority_10|sf_vol_15|sf_stream_from_hd, ["thunder01.wav", "thunder02.wav", "thunder03.wav", "thunder04.wav"]),
+ ("thunder", sf_2d|sf_priority_10|sf_vol_15|sf_stream_from_hd, ["thunder_close_1.wav","thunder_close_2.wav","thunder_close_3.wav", "thunder.wav"]),
  ("dedal_tavern_lute",	sf_priority_6|sf_vol_5|sf_looping, ["dedal_tavern_lyre_1.wav","dedal_tavern_lyre_2.wav","dedal_tavern_lyre_3.wav"]),
  ("dedal_tavern_lyre",	sf_priority_6|sf_vol_6|sf_looping, ["dedal_tavern_lyre_1.wav","dedal_tavern_lyre_2.wav","dedal_tavern_lyre_3.wav"]),
  ("ciervomuerto", sf_2d|sf_priority_9|sf_vol_10,["ciervomuerto.wav"]),

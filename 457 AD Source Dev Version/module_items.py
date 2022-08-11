@@ -2600,7 +2600,10 @@ items = [
  950 , weight(1.85)|abundance(60)|difficulty(0)|spd_rtng(89) | weapon_length(92)|swing_damage(29 , cut) | thrust_damage(16 ,  pierce),imodbits_sword_high ],
 
 ["irish_spatha_1", "Irish Spatha", [("irish_spatha_1",0),("irish_spatha_1_scabbard", ixmesh_carry)], itp_type_one_handed_wpn|itp_primary, itc_longsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn,
- 1000 , weight(1.65)|abundance(60)|difficulty(0)|spd_rtng(89) | weapon_length(82)|swing_damage(27 , cut) | thrust_damage(20 ,  pierce),imodbits_sword_high ],
+ 1000 , weight(1.65)|abundance(60)|difficulty(0)|spd_rtng(90) | weapon_length(82)|swing_damage(27 , cut) | thrust_damage(20 ,  pierce),imodbits_sword_high ],
+
+["arab_machete", "Arab Machete", [("arab_machete",0)], itp_merchandise|itp_type_one_handed_wpn|itp_primary, itc_scimitar|itcf_carry_sword_left_hip, #cutting sword
+ 800 , weight(1.3)|abundance(40)|difficulty(0)|spd_rtng(92) | weapon_length(76)|swing_damage(29 , cut) | thrust_damage(0 ,  pierce),imodbits_sword_high, [], culture_sassanid ],
 
 #Rich/Ornate Spathas
 ["tetraxitae_spatha", "Rich Tetraxitae Spatha", [("tetraxitae_spatha",0),("tetraxitae_spatha_scabbard", ixmesh_carry)], itp_type_one_handed_wpn|itp_merchandise|itp_primary, itc_longsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn, 
@@ -3774,8 +3777,7 @@ items = [
 
 ["excalibur", "Excalibur", [("Kirkburn",0),("Kirkburn_scab", ixmesh_carry)], itp_unique|itp_type_one_handed_wpn|itp_primary, itc_longsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn,9000 , weight(1.75)|difficulty(0)|spd_rtng(89) | weapon_length(94)|swing_damage(36 , cut) | thrust_damage(25 ,  pierce),imodbits_sword_high ],
 
-["hildeleoma", "Hildeleoma", [("Kirkburn",0),("Kirkburn_scab", ixmesh_carry)], itp_unique|itp_type_one_handed_wpn|itp_primary, itc_longsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn,
-6000, weight(1.75)|difficulty(0)|spd_rtng(89) | weapon_length(94)|swing_damage(36 , cut) | thrust_damage(25 ,  pierce),imodbits_sword_high ],
+["hildeleoma", "Hildeleoma", [("nydam_IV_spatha",0),("nydam_IV_spatha_scabbard", ixmesh_carry)], itp_unique|itp_bonus_against_shield|itp_type_one_handed_wpn|itp_primary, itc_longsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn,6000, weight(1.8)|difficulty(0)|spd_rtng(90)|weapon_length(84)|swing_damage(35 , cut) | thrust_damage(22 ,  pierce),imodbits_sword_high ],
 
 ["ranja","Ranja", [("runic_spear_2",0)], itp_unique|itp_type_polearm|itp_offset_lance|itp_primary|itp_wooden_parry, itc_spear_upstab|itcf_carry_spear, 5000 , weight(1.5)|abundance(0)|difficulty(8)|spd_rtng(99) | weapon_length(150)|swing_damage(22 , blunt) | thrust_damage(34 ,  pierce),imodbits_polearm],
 ["danish_king_mace", "Gramr's Mace", [("danish_king_mace",0)], itp_type_one_handed_wpn|itp_can_knock_down| itp_primary|itp_wooden_parry, itc_scimitar|itcf_carry_mace_left_hip, 5000 , weight(3.5)|difficulty(7)|spd_rtng(86)|weapon_length(55)|swing_damage(34 , blunt)|thrust_damage(0 ,  pierce),imodbits_mace ],

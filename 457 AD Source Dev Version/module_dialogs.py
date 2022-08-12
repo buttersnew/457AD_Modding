@@ -51835,7 +51835,7 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   
   [anyone|other(trp_dani_king),"finn_quest_revenge_2", [
   ], 
-  "I, Gramr of the Scyldingas, son of Skjoldr and King of the Dani, swear to avenge my thane Hnaef, son of Hoc! The enemies of my people will keep me away from the battle, but my son, X, will join you with his thanes and his ships.",
+  "I, Gramr of the Scyldingas, son of Skjoldr and King of the Dani, swear to avenge my thane Hnaef, son of Hoc! The enemies of my people will keep me away from the battle, but my son, Guthormr and Haddingr, will join you with his thanes and his ships.",
   "finn_quest_revenge_3",[]],
   
   [anyone|other(trp_dani_hengest),"finn_quest_revenge_3", [
@@ -51860,7 +51860,7 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   
   [anyone|plyr,"finn_quest_revenge_7", [
   ], 
-  "I, {playername}, solemnly swear to join you, valiant warriors, in this struggly and avenge prince Hnaef, son of Hoc, thane of the great Gramr Skjoldung.",
+  "I, {playername}, solemnly swear to join you, valiant warriors, in this struggle and avenge prince Hnaef, son of Hoc, thane of the great Gramr Skjoldung.",
   "finn_quest_revenge_8",[]],
   
   [anyone|other(trp_dani_king),"finn_quest_revenge_8", [

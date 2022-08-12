@@ -25424,6 +25424,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     [
     (str_clear, s49),
     (try_begin),
+        (eq, "$g_encountered_party", "p_dani_village"),
         (check_quest_active, "qst_finnsburh_quest_2"),
         (try_begin),
             (quest_slot_eq, "qst_finnsburh_quest_2", slot_quest_current_state, 1),

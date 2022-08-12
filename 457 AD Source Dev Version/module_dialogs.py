@@ -49859,7 +49859,7 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
 
   [anyone|plyr,"hengest_final_talk_7", [
   ], 
-  "I wish you success in your conquests, Hengist son of Wotan. You truly are one of the most valorous warriors I've ever met.",
+  "I wish you success in your conquests, Hengist grandson of Wotan. You truly are one of the most valorous warriors I've ever met.",
   "hengest_final_talk_8",[
   ]],
 
@@ -49899,7 +49899,7 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   
    [anyone,"ordlaf_final_talk_4", [
   ], 
-  " I am truly not interested; this gift will cause me more trouble of anything else. ",
+  " I am truly not interested; this gift will cause me more troubles than anything else. ",
   "ordlaf_final_talk_5",[
   ]],
   
@@ -49969,7 +49969,7 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   (quest_slot_eq, "qst_finnsburh_quest_2", slot_quest_current_state, 11),
   (agent_slot_eq, "$g_talk_agent", slot_agent_is_in_scripted_mode, 0),
   ], 
-  "{playername}, good to see you. Let us drink to gather. Let us honor our victory, let us honor the fallen and the new king! "+
+  "{playername}, good to see you. Let us drink together. Let us honor our victory, let us honor the fallen and the new king! "+
   "I have to say that I and my brother Haddingr will leave Frisia as soon as possible. Heorot is in danger as Svipdagr,  ruler of the Augandzi wants revenge!",
   "close_window",[
   (val_add, "$g_battle_result", 1),
@@ -50042,7 +50042,7 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   "haddingr_final_talk_7",[
   ]],
   
-  [anyone,"haddingr_final_talk_7", [
+  [anyone|plyr,"haddingr_final_talk_7", [
   ], 
   "Safe travels to you then, warriors of the North. We will meet again.",
   "close_window",[
@@ -50063,8 +50063,8 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   (quest_slot_eq, "qst_finnsburh_quest_2", slot_quest_current_state, 11),
   ],
    "Let us raise our cups to honor the fallen, to honor the victory and finally to honor the new Frisian king! "
-   +"Yesterday was a bloody battle, but let us not think on yesterday. Tomorrow there may be a bloody battle again. But let us not think on tomorrow."
-   +" Let us think on today! Today is the day of victory. The day of victory is the happiest day for a warrior. It is the day of joy!",
+   +"Yesterday was a bloody battle, but let us not think of yesterday. Tomorrow there may be a bloody battle again. But let us not think of tomorrow."
+   +" Let us think of today! Today is the day of victory. The day of victory is the happiest day for a warrior. It is the day of joy!",
    "close_window", [
    ]],
    

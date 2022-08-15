@@ -13619,7 +13619,7 @@ presentations = [
 		  ##diplomacy start+
 		  ##OLD:
           #(assign, reg0, "$demanded_money"),
-          #(overlay_set_text, "$g_presentation_obj_sliders_2", "@{reg0} denars"),
+          #(overlay_set_text, "$g_presentation_obj_sliders_2", "@{reg0} siliquae"),
 		  ##NEW:
 		  (assign, reg1, "$demanded_money"),
 		  (overlay_set_text, "$g_presentation_obj_sliders_2", "str_reg1_denars"),
@@ -19864,7 +19864,7 @@ presentations = [
             (lt, ":recruits", reg43),
             (display_message, "@There are not enough recruits available!"),
           (else_try),
-            (display_message, "@You don't have enough space in your party, or you don't have enough denars!"),
+            (display_message, "@You don't have enough space in your party, or you don't have enough siliquae!"),
           (try_end),
           
         (else_try),
@@ -20412,7 +20412,7 @@ presentations = [
             (try_end),
        
             (call_script, "script_get_improvement_details", ":improvement", "$g_encountered_party"),
-            (create_text_overlay, reg1, "@{s0}: {reg22} denars to rents", 0),
+            (create_text_overlay, reg1, "@{s0}: {reg22} siliquae to rents", 0),
             (position_set_x, pos1, 0),
             (position_set_y, pos1, ":y_name"),
             
@@ -20474,7 +20474,7 @@ presentations = [
             # (try_end),
 
             # (call_script, "script_get_decree_details", ":decree"),
-            # (create_text_overlay, reg1, "@{s30}: {reg22} denars to rents", 0),
+            # (create_text_overlay, reg1, "@{s30}: {reg22} siliquae to rents", 0),
             # (position_set_x, pos1, 0),
             # (position_set_y, pos1, ":y_name"),
             
@@ -21147,7 +21147,7 @@ presentations = [
                     (assign, "$diplomacy_var", ":improvement_cost"),
                     (assign, "$diplomacy_var2", ":improvement_time"),
                     (assign, "$lord_selected", ":max_skill_owner"), 
-                    (str_store_string, s11, "@{s11}^^As the party member with the highest engineer skill ({reg2}), {reg3?you reckon:{s3} reckons} that building the {s4} will cost you {reg5} denars and will take {reg6} days.^^The building time and costs are modified by: Skill: {reg44}%, slave politic of the realm: {reg45}%. Additionally, the building time is modified by the number of prisoners in the town: {reg46}%."),
+                    (str_store_string, s11, "@{s11}^^As the party member with the highest engineer skill ({reg2}), {reg3?you reckon:{s3} reckons} that building the {s4} will cost you {reg5} siliquae and will take {reg6} days.^^The building time and costs are modified by: Skill: {reg44}%, slave politic of the realm: {reg45}%. Additionally, the building time is modified by the number of prisoners in the town: {reg46}%."),
                     (assign, ":value", 1),
                     (call_script, "script_get_improvement_picture", ":building", "trp_player", "$g_encountered_party"),
                     (assign, ":material", reg0),
@@ -21444,7 +21444,7 @@ presentations = [
                 # (eq, "$temp", 1),
                 # (call_script, "script_get_decree_details", "$g_improvement_type"),
                 # (assign, reg0, decree_cost),
-                # (question_box, "@Do you wish to revoke {s30}? It would cost you {reg0} denars."),
+                # (question_box, "@Do you wish to revoke {s30}? It would cost you {reg0} siliquae."),
                 # (assign, "$g_improvement_type", -1),
                 # (start_presentation, "prsnt_center_management"),
             # (else_try),
@@ -21452,7 +21452,7 @@ presentations = [
                 # (party_slot_eq, "$g_encountered_party", "$g_improvement_type", 0),
                 # (call_script, "script_get_decree_details", "$g_improvement_type"),
                 # (assign, reg0, decree_cost),
-                # (question_box, "@Issuing a decree costs {reg0} denars. Do you wish to issue {s30}?"),
+                # (question_box, "@Issuing a decree costs {reg0} siliquae. Do you wish to issue {s30}?"),
                 # (assign, "$g_improvement_type", -1),
                 # (start_presentation, "prsnt_center_management"),
             # (try_end),           
@@ -21541,7 +21541,7 @@ presentations = [
                     (call_script, "script_get_improvement_details", "$g_improvement_type", "$g_encountered_party"),
                     (val_mul, reg0, 3),
                     (val_div, reg0, 5),
-                    (question_box, "@{s0} has already been built. You wish to destroy it? You would regain {reg0} denars."),
+                    (question_box, "@{s0} has already been built. You wish to destroy it? You would regain {reg0} siliquae."),
                     (start_presentation, "prsnt_center_management"),
                     #(display_message, "@The building has already been built.", message_alert),            
                 (else_try),
@@ -21566,7 +21566,7 @@ presentations = [
                     (call_script, "script_get_improvement_details", "$g_improvement_type", "$g_encountered_party"),
                     (assign, reg0, "$diplomacy_var"),
                     (assign, reg1, "$diplomacy_var2"),
-                    (question_box, "@Building a {s0} would cost you {reg0} denars and take {reg1} days. Do you wish to proceed?"),
+                    (question_box, "@Building a {s0} would cost you {reg0} siliquae and take {reg1} days. Do you wish to proceed?"),
                     (start_presentation, "prsnt_center_management"),
                 (try_end),
             (try_end),
@@ -21574,16 +21574,16 @@ presentations = [
        # (try_end),
     ]),     
     # (ti_question_answered, [
-        # (display_message, "@{s0} has been destroyed. You gained {reg0} of denars.", message_alert),
+        # (display_message, "@{s0} has been destroyed. You gained {reg0} of siliquae.", message_alert),
         # (store_trigger_param_1, ":answer"),
         # (eq, ":answer", 0),
-        # (display_message, "@{s0} has been destroyed. You gained {reg0} of denars.", message_alert),
+        # (display_message, "@{s0} has been destroyed. You gained {reg0} of siliquae.", message_alert),
         # (try_begin),   
             # (eq, "$temp", 1),#destroy a building
             # (call_script, "script_get_improvement_details", "$g_improvement_type"),
             # (val_mul, reg0, 3),
             # (val_div, reg0, 5),            
-            # (display_message, "@{s0} has been destroyed. You gained {reg0} of denars.", message_alert),
+            # (display_message, "@{s0} has been destroyed. You gained {reg0} of siliquae.", message_alert),
             # (troop_add_gold, "trp_player", reg0),
             # (party_set_slot, "$g_encountered_party", "$g_improvement_type", 0),
             # (assign, "$temp", 0),  

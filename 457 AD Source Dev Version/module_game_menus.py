@@ -25425,6 +25425,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     (str_clear, s49),
     (try_begin),
         (check_quest_active, "qst_finnsburh_quest_2"),
+        (eq, "$g_encountered_party", "p_dani_village"),
         (try_begin),
             (quest_slot_eq, "qst_finnsburh_quest_2", slot_quest_current_state, 1),
             (str_store_string, s49, "@The Dani are currently gathering forces to attack Finn's hall. New ships are built and old ones repaired. Spears, swords and axes are sharpened and the shields, helmets and armours are polished."),
@@ -25748,24 +25749,35 @@ goods, and books will never be sold. ^^You can change some settings here freely.
        "Attack!",
        [
       (try_begin),
+        (eq, "$g_encountered_party", "p_aestii_village"),
         (check_quest_active, "qst_aestii_rebel_quest"),
         (quest_slot_eq,"qst_aestii_rebel_quest",slot_quest_current_state, 3),
         (quest_get_slot, ":quest_target_party", "qst_aestii_rebel_quest", slot_quest_target_party),
         (party_quick_attach_to_current_battle, ":quest_target_party", 0),
         (display_message,"@Shvarnas and his men have joined your troops in the assault!"),
-      (try_end),
+        (quest_set_slot,"qst_aestii_rebel_quest", slot_quest_current_state, 5), #for dialogue
 
-      (assign, "$g_battle_result", 0),
-      (assign, "$g_engaged_enemy", 1),      
-      (call_script, "script_calculate_battle_advantage"),
-      (set_battle_advantage, reg0),
-      (set_party_battle_mode),
-      (party_get_slot, ":exterior_scene", "$g_encountered_party", slot_town_center),
-      (set_jump_mission,"mt_minor_village_attack"),
-      (jump_to_scene, ":exterior_scene"),
-      (assign, "$g_next_menu", "mnu_minor_town_fight"),
-      (jump_to_menu, "mnu_battle_debrief"),     
-      (change_screen_mission),
+        (modify_visitors_at_site,"scn_conversation_scene"),
+        (reset_visitors),
+        (set_visitor,0,"trp_player"),
+        (set_visitor,11,"trp_aestii_rebel_king"),
+        (set_visitor,17,"trp_aestii_king"),
+        (set_jump_mission,"mt_conversation_encounter"),
+        (jump_to_scene,"scn_conversation_scene"),
+
+      (else_try),
+        (assign, "$g_battle_result", 0),
+        (assign, "$g_engaged_enemy", 1),      
+        (call_script, "script_calculate_battle_advantage"),
+        (set_battle_advantage, reg0),
+        (set_party_battle_mode),
+        (party_get_slot, ":exterior_scene", "$g_encountered_party", slot_town_center),
+        (set_jump_mission,"mt_minor_village_attack"),
+        (jump_to_scene, ":exterior_scene"),
+        (assign, "$g_next_menu", "mnu_minor_town_fight"),
+        (jump_to_menu, "mnu_battle_debrief"),     
+        (change_screen_mission),
+      (try_end),
     ]), 
   ]),
 
@@ -25864,7 +25876,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       (faction_set_slot, "fac_minor_aestii", slot_faction_leader, "trp_aestii_rebel_king"),
       (party_add_leader, "p_aestii_village", "trp_aestii_rebel_king"),
       (party_set_slot, "p_aestii_village", slot_town_lord, "trp_aestii_rebel_king"),
-      (quest_set_slot,"qst_aestii_rebel_quest", slot_quest_current_state, 5), #for dialogue
+      (quest_set_slot,"qst_aestii_rebel_quest", slot_quest_current_state, 7), #for dialogue
       (faction_set_slot, "fac_minor_aestii", slot_faction_reinforcements_a, "pt_aestii_party_2"), #changes the template
       
       (try_for_range, ":unused", 0, 9), #readd troops to garrison

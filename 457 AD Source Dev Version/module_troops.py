@@ -1704,16 +1704,16 @@ troops = [
 
 #HUNS
   ["hunnic_skirmisher","Hunnic Skirmisher","Hun Skirmishers",tf_mounted|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_horse|tf_guarantee_ranged,0,0,fac_culture_12,
-   [itm_hatchet,itm_cavalry_javelins,itm_cavalry_javelins,itm_cavalry_javelins,itm_nomad_boots,itm_simple_shoes,itm_kaftan_hunnic_red,itm_kaftan_hunnic_blue,itm_kaftan_hunnic_green,itm_kaftan_hunnic_white,itm_pannonian_cap_fur_1,itm_pannonian_cap_fur_2,itm_chionite_hat_4,itm_chionite_hat_5,itm_leather_steppe_cap_a,itm_nomad_cap_b,itm_steppe_horse]+tunics_hunnic+hats_huns+shields_simple+horses_hunnic_1,
+   [itm_hatchet,itm_cavalry_javelins,itm_cavalry_javelins,itm_cavalry_javelins,itm_nomad_boots,itm_simple_shoes,itm_kaftan_hunnic_red,itm_kaftan_hunnic_blue,itm_kaftan_hunnic_green,itm_kaftan_hunnic_white,itm_pannonian_cap_fur_1,itm_pannonian_cap_fur_2,itm_chionite_hat_4,itm_chionite_hat_5,itm_leather_steppe_cap_a,itm_be_hunnic_cap_1,itm_be_hunnic_cap_2,itm_be_hunnic_cap_3,itm_be_hunnic_cap_4,itm_nomad_cap_b,itm_steppe_horse]+tunics_hunnic+hats_huns+shields_simple+horses_hunnic_1,
    def_attrib_lvl_13|level(13),wp_one_handed(130)|wp_two_handed(80)|wp_polearm(130)|wp_throwing(150)|wp_archery(130),knows_common|knows_riding_4|knows_power_throw_3|knows_horse_archery_3|knows_power_strike_2|knows_ironflesh_1,hunnic_face_1, hunnic_face_2],
 
   ["hunnic_horse_archer","Hunnic Horse Archer","Hun Horse Archers",tf_mounted|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_horse|tf_guarantee_ranged,0,0,fac_culture_12,
-   [itm_nomad_boots,itm_simple_shoes,itm_sarranid_boots_b,itm_sassanid_cavalry_boots_1,itm_sassanid_cavalry_boots_2,itm_pannonian_cap_fur_1,itm_pannonian_cap_fur_2,itm_hunnic_phrygian_leather,itm_kaftan_hunnic_red,itm_kaftan_hunnic_blue,itm_kaftan_hunnic_white,itm_khergit_bow,itm_long_seax_4,itm_sword_khergit_1,itm_roman_arrows_1,itm_roman_arrows_1]+tunics_hunnic+hats_huns+horses_hunnic_1,
+   [itm_nomad_boots,itm_simple_shoes,itm_sarranid_boots_b,itm_sassanid_cavalry_boots_1,itm_sassanid_cavalry_boots_2,itm_pannonian_cap_fur_1,itm_pannonian_cap_fur_2,itm_hunnic_phrygian_leather,itm_kaftan_hunnic_red,itm_kaftan_hunnic_blue,itm_kaftan_hunnic_white,itm_be_hunnic_cap_1,itm_be_hunnic_cap_2,itm_be_hunnic_cap_3,itm_be_hunnic_cap_4,itm_khergit_bow,itm_long_seax_4,itm_sword_khergit_1,itm_roman_arrows_1,itm_roman_arrows_1]+tunics_hunnic+hats_huns+horses_hunnic_1,
    def_attrib_lvl_18|level(17),wp_one_handed(160)|wp_two_handed(150)|wp_polearm(150)|wp_throwing(160)|wp_archery(190),knows_riding_6|knows_horse_archery_6|knows_athletics_4|knows_power_strike_4|knows_power_draw_6|knows_power_throw_4|knows_ironflesh_3|knows_inventory_management_3,hunnic_face_1, hunnic_face_2],
 
   ["hunnic_retainer","Hunnic Retainer","Hun Retainers",tf_mounted|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_horse|tf_guarantee_polearm|tf_guarantee_ranged,0,0,fac_culture_12,
    [itm_sarranid_boots_b,itm_sassanid_cavalry_boots_1,itm_sassanid_cavalry_boots_2,itm_hunnic_kaftan_lamellar_1,itm_hunnic_kaftan_lamellar_2,itm_hunnic_kaftan_lamellar_3,itm_kaftan_hunnic_red,itm_kaftan_hunnic_blue,itm_kaftan_hunnic_white,itm_kaftan_hunnic_1,itm_kaftan_hunnic_5,itm_kaftan_hunnic_6,itm_kaftan_lamellar_1,itm_kaftan_lamellar_5,itm_kaftan_lamellar_6,
-   itm_pannonian_cap_fur_1,itm_pannonian_cap_fur_2,itm_hunnic_phrygian_leather,itm_khudashevsky_helmet_1,itm_khudashevsky_helmet_2,itm_kishpek_helmet_leather,itm_kalhkni_helmet_mail,itm_kerch_lamellenhelm,itm_kerch_lamellenhelm_light,itm_tarasovsky_1784_helmet_leather,itm_tarasovsky_1784_helmet_mail_1,itm_tarasovsky_1784_helmet_cloth,itm_tarasovsky_1784_helmet_mail_2,itm_turaevo_helmet,
+   itm_pannonian_cap_fur_1,itm_pannonian_cap_fur_2,itm_hunnic_phrygian_leather,itm_be_hunnic_cap_1,itm_be_hunnic_cap_2,itm_be_hunnic_cap_3,itm_be_hunnic_cap_4,itm_khudashevsky_helmet_1,itm_khudashevsky_helmet_2,itm_kishpek_helmet_leather,itm_kalhkni_helmet_mail,itm_kerch_lamellenhelm,itm_kerch_lamellenhelm_light,itm_tarasovsky_1784_helmet_leather,itm_tarasovsky_1784_helmet_mail_1,itm_tarasovsky_1784_helmet_cloth,itm_tarasovsky_1784_helmet_mail_2,itm_turaevo_helmet,
    itm_hunnic_spatha,itm_khergit_bow,itm_khergit_arrows,itm_light_lance]+hats_huns+horses_hunnic_1+horses_hunnic_2,
    def_attrib_lvl_23|level(23),wp_one_handed(190)|wp_two_handed(190)|wp_polearm(200)|wp_throwing(200)|wp_archery(170),knows_athletics_5|knows_riding_6|knows_power_throw_2|knows_horse_archery_5|knows_power_strike_7|knows_power_draw_7|knows_ironflesh_6|knows_inventory_management_3,hunnic_face_1, hunnic_face_2],
 
@@ -1733,11 +1733,11 @@ troops = [
 
 #AOR
   ["akatziri_tribesman","Akatziri Tribesman","Akatziri Tribesmen",tf_mounted|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_horse|tf_guarantee_ranged,0,0,fac_culture_12,
-   [itm_nomad_boots,itm_sassanid_simple_boots_2,itm_hunnic_phrygian_leather,itm_skirmisher_tunic_3,itm_kaftan_sheepskin_4,itm_kaftan_tunic_5,itm_kaftan_tunic_8,itm_khergit_bow,itm_long_seax_5,itm_khergit_arrows,itm_khergit_arrows]+hats_huns+horses_hunnic_1,
+   [itm_nomad_boots,itm_sassanid_simple_boots_2,itm_hunnic_phrygian_leather,itm_skirmisher_tunic_3,itm_kaftan_sheepskin_4,itm_kaftan_tunic_5,itm_kaftan_tunic_8,itm_be_hunnic_cap_1,itm_be_hunnic_cap_2,itm_be_hunnic_cap_3,itm_be_hunnic_cap_4,itm_khergit_bow,itm_long_seax_5,itm_khergit_arrows,itm_khergit_arrows]+hats_huns+horses_hunnic_1,
    def_attrib_lvl_18|level(17),wp_one_handed(160)|wp_two_handed(150)|wp_polearm(140)|wp_throwing(150)|wp_archery(180),knows_riding_5|knows_horse_archery_6|knows_athletics_4|knows_power_strike_5|knows_power_draw_6|knows_power_throw_4|knows_ironflesh_4|knows_inventory_management_3,hunnic_face_1, hunnic_face_2],
 
   ["akatziri_retainer","Akatziri Retainer","Akatziri Retainers",tf_mounted|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_horse|tf_guarantee_ranged,0,0,fac_culture_12,
-   [itm_sassanid_cavalry_boots_1,itm_sassanid_cavalry_boots_2,itm_sarranid_boots_b,itm_kaftan_hunnic_1,itm_kaftan_hunnic_2,itm_kaftan_hunnic_3,itm_kaftan_hunnic_4,itm_kaftan_hunnic_5,itm_kaftan_hunnic_6,itm_hunnic_phrygian_leather,itm_hunnic_phrygian_1,itm_turaevo_helmet,itm_kalhkni_helmet_mail,itm_kalhkni_helmet_1,itm_kalhkni_helmet_2,itm_concesti_helmet,itm_pannonhalma_spatha,itm_niya_bow_2,itm_khergit_arrows,itm_khergit_arrows]+horses_hunnic_2,
+   [itm_sassanid_cavalry_boots_1,itm_sassanid_cavalry_boots_2,itm_sarranid_boots_b,itm_kaftan_hunnic_1,itm_kaftan_hunnic_2,itm_kaftan_hunnic_3,itm_kaftan_hunnic_4,itm_kaftan_hunnic_5,itm_kaftan_hunnic_6,itm_hunnic_phrygian_leather,itm_hunnic_phrygian_1,itm_be_hunnic_cap_1,itm_be_hunnic_cap_3,itm_turaevo_helmet,itm_kalhkni_helmet_mail,itm_kalhkni_helmet_1,itm_kalhkni_helmet_2,itm_concesti_helmet,itm_pannonhalma_spatha,itm_niya_bow_2,itm_khergit_arrows,itm_khergit_arrows]+horses_hunnic_2,
    def_attrib_lvl_23|level(23),wp_one_handed(190)|wp_two_handed(150)|wp_polearm(190)|wp_throwing(150)|wp_archery(190),knows_athletics_5|knows_riding_6|knows_horse_archery_5|knows_power_strike_7|knows_power_draw_6|knows_ironflesh_7|knows_inventory_management_3,hunnic_face_1, hunnic_face_2],
 
   ["meotian_horseman","Maeotian Horseman","Maeotian Horsemen",tf_mounted|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_horse|tf_guarantee_ranged,0,0,fac_culture_12,
@@ -4363,6 +4363,7 @@ troops = [
   ["bonus_chest_5","{!}Bonus Chest","{!}Bonus Chest",tf_hero|tf_inactive, 0,reserved,  fac_neutral,[itm_heirloom],def_attrib|level(18),wp(60),knows_common, 0], #ring for the greek scythaboo
   ["bonus_chest_6","{!}Bonus Chest","{!}Bonus Chest",tf_hero|tf_inactive, 0,reserved,  fac_neutral,[itm_niya_bow_2,itm_raw_silk,itm_linen,itm_linen],def_attrib|level(18),wp(60),knows_common, 0], #hidden in attilas court ruins
   ["bonus_chest_7","{!}Bonus Chest","{!}Bonus Chest",tf_hero|tf_inactive, 0,reserved,  fac_neutral,[itm_mace_roman_1,itm_wool_cloth,itm_wool_cloth],def_attrib|level(18),wp(60),knows_common, 0], #hidden in noricum
+  ["bonus_chest_8","{!}Bonus Chest","{!}Bonus Chest",tf_hero|tf_inactive, 0,reserved,  fac_neutral,[itm_aetius_shield],def_attrib|level(18),wp(60),knows_common, 0], #hidden in ravenna
 
   ["household_possessions","{!}household_possessions","{!}household_possessions",tf_hero|tf_inactive|tf_is_merchant, 0,reserved,  fac_neutral,[],def_attrib|level(18),wp(60),knows_inventory_management_10, 0],
 

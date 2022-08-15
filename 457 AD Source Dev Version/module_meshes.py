@@ -98,6 +98,7 @@ meshes = [
   ("pic_celtic_start", 0, "pic_celtic_start", 0, 0, 0, 0, 0, 0, 1, 1, 1),
   ("pic_sassanid_start", 0, "pic_sassanid_start", 0, 0, 0, 0, 0, 0, 1, 1, 1),
   ("pic_troop_trees", 0, "pic_troop_trees", 0, 0, 0, 0, 0, 0, 1, 1, 1),
+  ("pic_empty", 0, "pic_empty", 0, 0, 0, 0, 0, 0, 1, 1, 1),
 
   ("mp_score_a", 0, "mp_score_a", 0, 0, 0, 0, 0, 0, 1, 1, 1),
   ("mp_score_b", 0, "mp_score_b", 0, 0, 0, 0, 0, 0, 1, 1, 1),

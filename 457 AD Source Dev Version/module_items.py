@@ -2146,6 +2146,11 @@ items = [
 ["hunnic_phrygian_5", "Phrygian Cap", [("hunnic_phrygian_5",0)], itp_merchandise| itp_type_head_armor  |itp_civilian ,0, 120 , weight(1)|abundance(100)|head_armor(10)|body_armor(0)|leg_armor(0)|difficulty(0) ,imodbits_cloth ],
 ["hunnic_phrygian_6", "Phrygian Cap", [("hunnic_phrygian_6",0)], itp_merchandise| itp_type_head_armor  |itp_civilian ,0, 120 , weight(1)|abundance(100)|head_armor(10)|body_armor(0)|leg_armor(0)|difficulty(0) ,imodbits_cloth ],
 
+["be_hunnic_cap_1", "Hunnic Cap", [("be_hunnic_cap_1",0)], itp_merchandise|itp_type_head_armor|itp_civilian ,0, 300 , weight(1.5)|abundance(100)|head_armor(12)|body_armor(0)|leg_armor(0)|difficulty(0) ,imodbits_cloth, [], culture_hunnic+culture_alan ],
+["be_hunnic_cap_2", "Hunnic Cap", [("be_hunnic_cap_2",0)], itp_merchandise|itp_type_head_armor|itp_civilian ,0, 300 , weight(1.5)|abundance(100)|head_armor(12)|body_armor(0)|leg_armor(0)|difficulty(0) ,imodbits_cloth, [], culture_hunnic+culture_alan ],
+["be_hunnic_cap_3", "Hunnic Cap", [("be_hunnic_cap_3",0)], itp_merchandise|itp_type_head_armor|itp_civilian ,0, 300 , weight(1.5)|abundance(100)|head_armor(12)|body_armor(0)|leg_armor(0)|difficulty(0) ,imodbits_cloth, [], culture_hunnic+culture_alan ],
+["be_hunnic_cap_4", "Hunnic Cap", [("be_hunnic_cap_4",0)], itp_merchandise|itp_type_head_armor|itp_civilian ,0, 300 , weight(1.5)|abundance(100)|head_armor(12)|body_armor(0)|leg_armor(0)|difficulty(0) ,imodbits_cloth, [], culture_hunnic+culture_alan ],
+
 ["pannonian_cap_1", "Pillbox Cap", [("pannonian_cap_cloth_1",0)], itp_merchandise| itp_type_head_armor  |itp_civilian ,0, 90 , weight(1)|abundance(100)|head_armor(10)|body_armor(0)|leg_armor(0)|difficulty(0) ,imodbits_cloth, [], culture_roman ],
 ["pannonian_cap_2", "Pillbox Cap", [("pannonian_cap_cloth_2",0)], itp_merchandise| itp_type_head_armor  |itp_civilian ,0, 90 , weight(1)|abundance(100)|head_armor(10)|body_armor(0)|leg_armor(0)|difficulty(0) ,imodbits_cloth, [], culture_roman ],
 ["pannonian_cap_3", "Pillbox Cap", [("pannonian_cap_cloth_3",0)], itp_merchandise| itp_type_head_armor  |itp_civilian ,0, 90 , weight(1)|abundance(100)|head_armor(10)|body_armor(0)|leg_armor(0)|difficulty(0) ,imodbits_cloth, [], culture_roman ],
@@ -2208,6 +2213,7 @@ items = [
 
 ["roman_arming_cap_1", "Arming Cap", [("roman_arming_cap_1",0),("roman_arming_cap_1_inv",ixmesh_inventory)], itp_merchandise|itp_type_head_armor|itp_attach_armature|itp_civilian ,0, 180 , weight(0.5)|abundance(30)|head_armor(18)|body_armor(0)|leg_armor(0)|difficulty(0) ,imodbits_cloth, [], culture_roman ],
 ["roman_arming_cap_2", "Arming Cap", [("roman_arming_cap_2",0),("roman_arming_cap_2_inv",ixmesh_inventory)], itp_merchandise|itp_type_head_armor|itp_attach_armature|itp_civilian ,0, 180 , weight(0.5)|abundance(30)|head_armor(18)|body_armor(0)|leg_armor(0)|difficulty(0) ,imodbits_cloth, [], culture_roman ],
+["simple_arming_cap", "Arming Cap", [("simple_arming_cap",0),("simple_arming_cap_inv",ixmesh_inventory)], itp_merchandise|itp_type_head_armor|itp_attach_armature|itp_civilian ,0, 180 , weight(0.5)|abundance(30)|head_armor(18)|body_armor(0)|leg_armor(0)|difficulty(0) ,imodbits_cloth, [], culture_roman ],
 
 ["hunnic_phrygian_leather", "Leather Phrygian Cap", [("hunnic_phrygian_leather",0)], itp_merchandise| itp_type_head_armor  |itp_civilian ,0, 200 , weight(1)|abundance(100)|head_armor(20)|body_armor(0)|leg_armor(0)|difficulty(0) ,imodbits_cloth ],
 
@@ -3801,7 +3807,7 @@ items = [
 #starting with weapons
 ["sword_of_mars", "Sword of Mars", [("sword_of_mars",0),("sword_of_mars_scabbard", ixmesh_carry)], itp_unique|itp_type_one_handed_wpn|itp_primary, itc_longsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn, 9850 , weight(1.5)|difficulty(0)|spd_rtng(90) | weapon_length(91)|swing_damage(36 , cut)| thrust_damage(22 ,  pierce),imodbits_sword_high ],
 
-["lance_of_longiunus","Lancea Longini", [("roman_spear_2",0)], itp_unique|itp_type_polearm|itp_offset_lance|itp_primary|itp_wooden_parry, itc_spear_upstab|itcf_carry_spear, 9000 , weight(1.5)|abundance(0)|difficulty(8)|spd_rtng(98) | weapon_length(158)|swing_damage(18 , cut) | thrust_damage(35 ,  pierce),imodbits_polearm],
+["lance_of_longiunus","Lancea Longini", [("roman_spear_2",0)], itp_unique|itp_type_polearm|itp_offset_lance|itp_primary|itp_wooden_parry, itc_spear_upstab|itcf_carry_spear, 9000 , weight(1.5)|abundance(0)|difficulty(8)|spd_rtng(100) | weapon_length(158)|swing_damage(18 , cut) | thrust_damage(35 ,  pierce),imodbits_polearm],
 ["axe_of_zamb",  "Axe of Zamb", [("vikingaxeb",0)], itp_unique|itp_type_two_handed_wpn| itp_two_handed|itp_primary|itp_wooden_parry|itp_unbalanced, itc_nodachi|itp_can_penetrate_shield|itcf_carry_axe_back, 1000 , weight(5.5)|difficulty(14)|spd_rtng(80) | weapon_length(82)|swing_damage(48 , cut) | thrust_damage(0 ,  blunt),imodbits_axe ],
 ["caesar_gladius", "Crocea Mors", [("roman_gladius_1",0),("roman_gladius_1_scabbard", ixmesh_carry)], itp_unique|itp_type_one_handed_wpn|itp_primary, itc_longsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn, 9850 , weight(2.5)|difficulty(0)|spd_rtng(95) | weapon_length(68)|swing_damage(36 , cut)| thrust_damage(30 ,  pierce),imodbits_sword_high ],
 
@@ -3809,19 +3815,20 @@ items = [
 
 ["hildeleoma", "Hildeleoma", [("nydam_IV_spatha",0),("nydam_IV_spatha_scabbard", ixmesh_carry)], itp_unique|itp_bonus_against_shield|itp_type_one_handed_wpn|itp_primary, itc_longsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn,6000, weight(1.8)|difficulty(0)|spd_rtng(90)|weapon_length(84)|swing_damage(35 , cut) | thrust_damage(22 ,  pierce),imodbits_sword_high ],
 
-["ranja","Ranja", [("runic_spear_2",0)], itp_unique|itp_type_polearm|itp_offset_lance|itp_primary|itp_wooden_parry, itc_spear_upstab|itcf_carry_spear, 5000 , weight(1.5)|abundance(0)|difficulty(8)|spd_rtng(99) | weapon_length(150)|swing_damage(22 , blunt) | thrust_damage(34 ,  pierce),imodbits_polearm],
+["ranja","Ranja", [("runic_spear_2",0)], itp_unique|itp_type_polearm|itp_offset_lance|itp_primary|itp_wooden_parry, itc_spear_upstab|itcf_carry_spear, 5000 , weight(1.5)|abundance(0)|difficulty(8)|spd_rtng(100) | weapon_length(150)|swing_damage(22 , blunt) | thrust_damage(34 ,  pierce),imodbits_polearm],
 ["danish_king_mace", "Gramr's Mace", [("danish_king_mace",0)], itp_type_one_handed_wpn|itp_can_knock_down| itp_primary|itp_wooden_parry, itc_scimitar|itcf_carry_mace_left_hip, 5000 , weight(3.5)|difficulty(7)|spd_rtng(86)|weapon_length(55)|swing_damage(34 , blunt)|thrust_damage(0 ,  pierce),imodbits_mace ],
 ["st_martin_axe", "Axe of St. Martin", [("st_martin_axe",0)], itp_unique|itp_can_knock_down|itp_type_one_handed_wpn|itp_primary|itp_secondary|itp_bonus_against_shield|itp_wooden_parry, itc_scimitar|itcf_carry_axe_left_hip, 5000, weight(2)|difficulty(8)|spd_rtng(93)|weapon_length(55)|swing_damage(33 , pierce)|thrust_damage(0 ,  pierce),imodbits_axe ],
 
-["trier_lance", "Decorated Contus", [("trier_lance_210",0)], itp_unique|itp_can_knock_down|itp_couchable|itp_type_polearm|itp_two_handed|itp_offset_lance|itp_primary|itp_penalty_with_shield|itp_wooden_parry, itc_kontos_upstab, 5000 , weight(3.5)|difficulty(10)|spd_rtng(93)|weapon_length(210)|swing_damage(22 , blunt) | thrust_damage(34 ,  pierce),imodbits_polearm ],
+["trier_lance", "Decorated Lance", [("trier_lance_210",0)], itp_unique|itp_can_knock_down|itp_couchable|itp_type_polearm|itp_two_handed|itp_offset_lance|itp_primary|itp_penalty_with_shield|itp_wooden_parry, itc_kontos_upstab, 4000 , weight(3.5)|difficulty(10)|spd_rtng(93)|weapon_length(210)|swing_damage(22 , blunt) | thrust_damage(35 ,  pierce),imodbits_polearm ],
+["trier_spear", "Decorated Spear", [("trier_spear_171",0)], itp_unique|itp_can_knock_down|itp_type_polearm|itp_offset_lance|itp_primary|itp_wooden_parry, itc_spear_upstab|itcf_carry_spear, 4000 , weight(2.5)|difficulty(10)|spd_rtng(94)|weapon_length(171)|swing_damage(22 , blunt) | thrust_damage(35 ,  pierce),imodbits_polearm ],
 
 ["donars_club", "Donar's Club", [("donars_club",0)], itp_unique|itp_type_two_handed_wpn|itp_two_handed|itp_primary|itp_unbalanced|itp_can_penetrate_shield|itp_crush_through|itp_wooden_parry, itc_nodachi|itcf_carry_axe_back,
 9600 , weight(5.5)|difficulty(16)|spd_rtng(82) | weapon_length(85)|swing_damage(38 , blunt) | thrust_damage(0 ,  pierce),imodbits_axe ],
 
 ["vidigoia_spear", "Vidigoia's Spear", [("runic_spear_1_ranged",0)], itp_type_thrown|itp_can_penetrate_shield|itp_primary|itp_next_item_as_melee ,itcf_throw_javelin|itp_bonus_against_shield,
-7000 , weight(1.5)|difficulty(5)|spd_rtng(88) | shoot_speed(22) | thrust_damage(50 ,  pierce)|max_ammo(1)|weapon_length(120)|accuracy(90),imodbits_polearm ],
+7000 , weight(1.5)|difficulty(5)|spd_rtng(90) | shoot_speed(22) | thrust_damage(50 ,  pierce)|max_ammo(1)|weapon_length(120)|accuracy(90),imodbits_polearm ],
 ["vidigoia_spear_melee", "Vidigoia's Spear", [("runic_spear_1",0)],itp_type_polearm|itp_can_penetrate_shield|itp_crush_through|itp_primary|itp_wooden_parry , itc_spear_upstab|itp_bonus_against_shield,
-7000 , weight(1.5)|difficulty(8)|spd_rtng(96) | swing_damage(25, blunt) | thrust_damage(33 ,  pierce)|weapon_length(160),imodbits_polearm ],
+7000 , weight(1.5)|difficulty(8)|spd_rtng(97) | swing_damage(25, blunt) | thrust_damage(34 ,  pierce)|weapon_length(160),imodbits_polearm ],
 
 ["hunimund_axe", "Hunimund's Axe", [("bb_nordic_war_axe",0)], itp_unique|itp_type_one_handed_wpn|itp_primary|itp_secondary|itp_next_item_as_melee|itp_bonus_against_shield|itp_can_penetrate_shield|itp_wooden_parry, itc_scimitar|itcf_carry_axe_left_hip,
  3005 , weight(1.5)|difficulty(8)|spd_rtng(90) | weapon_length(75)|swing_damage(36 , cut) | thrust_damage(0 ,  pierce),imodbits_axe],

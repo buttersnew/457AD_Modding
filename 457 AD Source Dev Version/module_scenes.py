@@ -1704,4 +1704,11 @@ scenes = [
 
   ("finns_hall_interior",sf_indoors, "interior_castle_k", "bo_interior_castle_k", (-100,-100),(100,100),-100,"0",
     ["exit"],[]),
+    
+    
+  ("church", sf_indoors, "interior_prison_cell_a", "bo_interior_prison_cell_a", (-100, -100), (100, 100), -100, "0",
+  [], ["bonus_chest_9"]),
+  ("imperial_palace", sf_generate, "none", "none", (0, 0), (240, 240), -0.5, "0x00000002300000000004fd4a000041ef00005ae800003c55",
+  [], ["bonus_chest_10"], "outer_terrain_plain"),
+
 ]

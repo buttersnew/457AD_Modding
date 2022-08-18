@@ -13185,6 +13185,37 @@ TOTAL:  {reg5}"),
          (try_end),
         ], "To the castle courtyard."),
 
+    ("visit_dungen",
+      [
+		(eq, 0, 1),  
+      ],
+      "Door to the catacombs.",
+      [
+    (set_passage_menu,"mnu_town"),
+    (assign, "$temp", 1),
+    (set_jump_mission, "mt_visit_rome_secrets"),
+    (modify_visitors_at_site,"scn_church"),
+    (reset_visitors),
+    (set_visitor, 0, "trp_player"),
+    (jump_to_scene, "scn_church"),
+    (change_screen_mission),
+      ], "Door to the catacombs"),      
+     
+     ("visit_garden_secret",
+      [
+		(eq, 0, 1),  
+      ],
+      "Door to the stream.",
+      [
+    (set_passage_menu,"mnu_town"),
+    (try_begin),
+        (jump_to_menu, "mnu_visit_nero"),
+        (finish_mission),
+    (else_try),
+        (display_message, "@The shaft collapsed. It is impossible to pass."),
+    (try_end),
+      ], "Door"),    
+
      ("town_enterprise",
       [
         (party_slot_eq,"$current_town",slot_party_type, spt_town),
@@ -28037,9 +28068,27 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 
   
     ],),   
-
-    
+ 
 #################BIG CHUNGUS FINNSBURG QUEST END
+    
+ ("visit_nero",0,
+    "You open the door and enter a long shaft. You follow it. You feel like have walked through this tunnel before. After a while you see light at the end of the tunnel. In front of you stretches a large garden, or at least what is left of it. The Romans seem to be using this place as dump. It stinks disgustingly. Right behind the garden you spot the ruins of a palace complex. You climb up a stair to enter it.",
+    "none", [
+    ],
+    [
+    ("option_1", [],"Continue.",
+    [
+    (assign, "$temp", 2),
+    (set_jump_mission, "mt_visit_rome_secrets"),
+    (modify_visitors_at_site,"scn_imperial_palace"),
+    (reset_visitors),
+    (set_visitor, 0, "trp_player"),
+    (jump_to_scene, "scn_imperial_palace"),
+    (change_screen_mission),
+    ]),
+
+  
+    ],),  
     
 #end of file
  ]

@@ -4364,6 +4364,9 @@ troops = [
   ["bonus_chest_6","{!}Bonus Chest","{!}Bonus Chest",tf_hero|tf_inactive, 0,reserved,  fac_neutral,[itm_niya_bow_2,itm_raw_silk,itm_linen,itm_linen],def_attrib|level(18),wp(60),knows_common, 0], #hidden in attilas court ruins
   ["bonus_chest_7","{!}Bonus Chest","{!}Bonus Chest",tf_hero|tf_inactive, 0,reserved,  fac_neutral,[itm_mace_roman_1,itm_wool_cloth,itm_wool_cloth],def_attrib|level(18),wp(60),knows_common, 0], #hidden in noricum
   ["bonus_chest_8","{!}Bonus Chest","{!}Bonus Chest",tf_hero|tf_inactive, 0,reserved,  fac_neutral,[itm_aetius_shield],def_attrib|level(18),wp(60),knows_common, 0], #hidden in ravenna
+  
+  ["bonus_chest_9","{!}Bonus Chest","{!}Bonus Chest",tf_hero|tf_inactive, 0,reserved,  fac_neutral,[itm_holy_grail],def_attrib|level(18),wp(60),knows_common, 0], #hidden in ravenna
+  ["bonus_chest_10","{!}Bonus Chest","{!}Bonus Chest",tf_hero|tf_inactive, 0,reserved,  fac_neutral,[itm_gold_jewelry,itm_gold_jewelry,itm_gold_jewelry,itm_gold_jewelry,itm_ivory,itm_ivory,itm_ivory,itm_ivory,itm_silver,itm_silver,itm_silver,itm_silver],def_attrib|level(18),wp(60),knows_common, 0], #hidden in ravenna
 
   ["household_possessions","{!}household_possessions","{!}household_possessions",tf_hero|tf_inactive|tf_is_merchant, 0,reserved,  fac_neutral,[],def_attrib|level(18),wp(60),knows_inventory_management_10, 0],
 

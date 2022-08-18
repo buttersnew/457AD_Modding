@@ -789,4 +789,6 @@ scn_cutscene_longboat = 786
 scn_cutscene_longboat_2 = 787
 scn_cutscene_longboat_fleet = 788
 scn_finns_hall_interior = 789
+scn_church = 790
+scn_imperial_palace = 791
 scn_exit = 100000

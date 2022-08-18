@@ -25218,4 +25218,120 @@ mission_templates = [
  
     common_inventory_not_available,]),
 
+("visit_rome_secrets",mtf_battle_mode,-1,
+    "plundering a settlement",
+    [
+      (0,mtef_visitor_source,af_override_horse,0,1,[]),#player
+    ],
+    [
+    (0, 0, ti_once, [
+          (tutorial_message_set_size, 15, 15),
+          (tutorial_message_set_position, 500, 650), #650 for tutorial or mission msg, 450 for dialogs
+          (tutorial_message_set_center_justify, 0),
+          ], []),
+      
+      (1,0,0,[                        
+        (neg|conversation_screen_is_active),
+        (neg|is_presentation_active, "prsnt_battle"),
+        (neg|is_presentation_active, "prsnt_order_display"),
+        (eq, "$temp", 1),
+        ],
+        [
+        (store_mission_timer_a, ":cur_time"),
+        (try_begin),
+            (ge, ":cur_time", 45),
+            (tutorial_message, -1),
+            (tutorial_message_set_background, 0),
+        (else_try),
+            (ge, ":cur_time", 30),
+            (tutorial_message_set_background, 1),
+            (tutorial_message, "@It is said, that treasures are hidden in the tunnels. It is also said that the tunnels connect various places with each other."),
+        (else_try),
+            (ge, ":cur_time", 20),
+            (tutorial_message, -1),
+            (tutorial_message_set_background, 0),
+        (else_try),
+            (ge, ":cur_time", 5),
+            (tutorial_message_set_background, 1),
+            (tutorial_message, "@The Roman catacombs are Ancient underground burial places. They where also used as hideouts by the early Christians, at the time when Christianity was persecuted."),
+        (try_end),
+      ]),
+      
+      (0.5,0,0,[                        
+        (neg|conversation_screen_is_active),
+        (neg|is_presentation_active, "prsnt_battle"),
+        (neg|is_presentation_active, "prsnt_order_display"),
+        (eq, "$temp", 2),
+        ],
+        [
+        (store_mission_timer_a, ":cur_time"),
+        (try_begin),
+            (ge, ":cur_time", 155),
+            (tutorial_message, -1),
+            (tutorial_message_set_background, 0),
+        (else_try),
+            (ge, ":cur_time", 135),
+            (tutorial_message_set_background, 1),
+            (tutorial_message, "@You don't know why, but everything here looks so familiar. It seems to you that you have visited this place before."),
+        (else_try),
+            (eq, ":cur_time", 125),
+            (tutorial_message, -1),
+            (tutorial_message_set_background, 0),
+        (else_try),
+            (eq, ":cur_time", 105),
+            (tutorial_message_set_background, 1),
+            (mission_cam_set_screen_color, 0xFF000000),
+            (mission_cam_animate_to_screen_color, 0x4D000000, 2000),
+            (tutorial_message, "@Suddenly, you feel a hand touching your arm. You can feel the warm breath of a human. Then hear a sweat voice say:^^         'You don't need to worry about him.'^^Then it is gone. Ghosts?"),
+        (else_try),
+            (eq, ":cur_time", 95),
+            (tutorial_message, -1),
+            (tutorial_message_set_background, 0),
+        (else_try),
+            (eq, ":cur_time", 75),
+            (tutorial_message_set_background, 1),
+            (mission_cam_set_screen_color, 0xFF000000),
+            (mission_cam_animate_to_screen_color, 0x4D000000, 2000),
+            (tutorial_message, "@Again you smell perfume and the stench disappears. Then you hear a sweat voice say:^^       'Why? You know why.'^^The stench comes back, the voice disappears. Was it a ghost?"),
+        (else_try),
+            (eq, ":cur_time", 65),
+            (tutorial_message, -1),
+            (tutorial_message_set_background, 0),
+        (else_try),
+            (eq, ":cur_time", 45),
+            (mission_cam_set_screen_color, 0xFF000000),
+            (mission_cam_animate_to_screen_color, 0x4D000000, 2000),
+            (tutorial_message_set_background, 1),
+            (tutorial_message, "@All of the sudden the disgusting stench is gone. You smell perfume. You hear a female voice laugh. You hear the sweat sound of a lyre. Then all of a sudden you smell the disgusting stench again, the sounds are gone too. Mabye it was just a hallucination caused by the stench?"),
+        (else_try),
+            (eq, ":cur_time", 30),
+            (tutorial_message, -1),
+            (tutorial_message_set_background, 0),
+        (else_try),
+            (eq, ":cur_time", 20),
+            (tutorial_message_set_background, 1),
+            (tutorial_message, "@Most likely, this place was once the home of Emperor Nero. Ironically, it stinks incredible. The Romans seem to use it as a dump."),
+        (else_try),
+            (eq, ":cur_time", 5),
+            (tutorial_message_set_background, 1),
+            (tutorial_message, "@You spot something shining. You pick it up and notice its an old coin. On one side it has a male face and Nero is written under it. On the other side it has a female face and Agrippina is written under it."),
+        (try_end),
+      ]),
+    
+    (ti_tab_pressed,0,0,[],[
+    (jump_to_menu, "mnu_town"),
+    (finish_mission),
+    ]),       
+    
+    (ti_before_mission_start,0,0,[],[
+    (mission_cam_set_screen_color, 0xFF000000),
+    (mission_cam_animate_to_screen_color, 0x4D000000, 3000),#black
+    
+    (call_script, "script_music_set_situation_with_culture", mtf_sit_ambushed),
+    ]),          
+
+    common_inventory_not_available,
+    
+    ]),
+
 ]

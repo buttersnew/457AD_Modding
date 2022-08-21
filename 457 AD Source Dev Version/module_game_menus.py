@@ -27902,7 +27902,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     
     
     (try_for_range, ":entry", 11, 31),
-        (set_visitors, ":entry", "trp_northern_germanic_freeman", 2),
+        (set_visitors, ":entry", "trp_northern_germanic_freeman", 3),
         (set_visitors, ":entry", "trp_northern_germanic_warrior", 1),
         (set_visitors, ":entry", "trp_frisian_freeman", 3),
         (set_visitors, ":entry", "trp_frisian_companion", 1),

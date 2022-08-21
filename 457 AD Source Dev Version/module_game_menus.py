@@ -25703,6 +25703,22 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     (set_visitor, 34, ":merchant_2"),
   
     (set_visitor, 35, ":leader"),
+    (try_begin),
+        (neg|check_quest_active, "qst_finnsburh_quest"),
+        (neg|check_quest_active, "qst_finnsburh_quest_2"),
+        (eq, "$g_encountered_party", "p_dani_village"),
+        (set_visitor, 42, "trp_dani_guthormr"),
+        (set_visitor, 43, "trp_dani_haddingr"),
+    (try_end),    
+    
+    (try_begin),
+        (neg|check_quest_active, "qst_finnsburh_quest"),
+        (neg|check_quest_active, "qst_finnsburh_quest_2"),
+        (neg|quest_slot_ge, "qst_finnsburh_quest_2", slot_quest_current_state, 3),
+        (eq, "$g_encountered_party", "p_frisian_village"),
+        (set_visitor, 48, "trp_finn_aethelbald"),
+        (set_visitor, 47, "trp_finn_garulf"),
+    (try_end),
     
     (try_begin),
         (eq, "$g_encountered_party", "p_dani_village"),

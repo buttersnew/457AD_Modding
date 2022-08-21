@@ -51944,6 +51944,15 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   ], "Its not the right time to talk. Go and speak with our leader Hnaef Hocing if you have anything to say.", "close_window",[]],
 
   
+  [trp_finn_aethelbald,"start", [
+  ], "I have no time right now.", "close_window",[]],
+  [trp_finn_garulf,"start", [
+  ], "I have no time right now.", "close_window",[]],
+  [trp_dani_guthormr,"start", [
+  ], "I have no time right now.", "close_window",[]],
+  [trp_dani_haddingr,"start", [
+  ], "I have no time right now.", "close_window",[]],
+  
   [anyone,"start", [
   (neq,"$g_talk_troop","trp_bishop_of_rome"),
   (neq,"$g_talk_troop","trp_bishop_of_constantinople"),

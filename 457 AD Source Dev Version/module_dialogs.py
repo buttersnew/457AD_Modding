@@ -48666,14 +48666,36 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   [trp_pilos_cultist, "start", [],
    "Good day, {sir/madam}. Would you like to hear the great word of the pilos?", "pilos_cultist_talk_1", []], #opening
 
+  [trp_pilos_cultist|plyr, "pilos_cultist_talk_1", [],
+   "Tell me more about Pilos.", "pilos_cultist_talk_explain_pilos", []],
+
+  [trp_pilos_cultist, "pilos_cultist_talk_explain_pilos", [],
+   "YES. People usually don't ask me such deep and philosophical questions. They just come and want a copy of THE PILOS. "+
+   "Now I have to explain you a lot. First of all, every pilos I sell is a copy of THE PILOS. "+
+   "I do this to spread the word of THE PILOS and to honour its greatness. "+
+   "THE PILOS was found during the time of Emperor Nero. It is said THE PILOS was first gifted to Nero. It was old and rusty. "+
+   "Nero ordered to restore it with gold and silver. But Nero didn't understood THE PILOS and its greatness. "+
+   "And thus he decided to gift it to one of his closest friends. But his friend turned against him and finally Nero died. "+
+   "In fact, it was the power of THE PILOS which lead to Neros downfall.^^Now. What can you say about it?", "pilos_cultist_talk_explain_pilos_2", []],
+
+  [trp_pilos_cultist|plyr, "pilos_cultist_talk_explain_pilos_2", [],
+   "I say, continue explaining me the legend of pilos.", "pilos_cultist_talk_explain_pilos_3", []],
+  [trp_pilos_cultist, "pilos_cultist_talk_explain_pilos_3", [],
+   "This is how THE PILOS was discovered first. But then hard times came. THE PILOS cult was forced to remain in the underground. "+
+   "The Mithras cultists, the Christians, the Isis cultists and other religions hunted and persecuted worshippers of THE PILOS. "+
+   "And still the cult is hunted. Although it is clear that THE PILOS is the only reason for everything. ", "pilos_cultist_pretalk", []],
+
+  [trp_pilos_cultist|plyr, "pilos_cultist_talk_explain_pilos_2", [],
+   "I say, I better leave now.", "close_window", []],
+
   [trp_pilos_cultist|plyr, "pilos_cultist_talk_1", [(store_troop_gold,":money","trp_player"),(gt,":money",999),],
-   "I would like to hire a special unit (1000 siliquae).", "pilos_cultist_talk_hire", [(troop_remove_gold, "trp_player", 1000),(party_add_members, "p_main_party","trp_shitpost_unit",1),]],
+   "I would like to hire a special unit (1000 siliquae).", "pilos_cultist_pretalk", [(troop_remove_gold, "trp_player", 1000),(party_add_members, "p_main_party","trp_shitpost_unit",1),]],
 
   [trp_pilos_cultist|plyr, "pilos_cultist_talk_1", [(store_troop_gold,":money","trp_player"),(gt,":money",299),],
-   "I would like a pilos (300 siliquae).", "pilos_cultist_talk_hire", [(troop_remove_gold, "trp_player", 300),(troop_add_item,"trp_player","itm_pilos_helmet", 0),]],
+   "I would like a pilos (300 siliquae).", "pilos_cultist_pretalk", [(troop_remove_gold, "trp_player", 300),(troop_add_item,"trp_player","itm_pilos_helmet", 0),]],
 
-  [trp_pilos_cultist, "pilos_cultist_talk_hire", [],
-   "Very well.", "pilos_cultist_talk_1", []],
+  [trp_pilos_cultist, "pilos_cultist_pretalk", [],
+   "Now. What can you say about it?", "pilos_cultist_talk_1", []],
 
   [trp_pilos_cultist|plyr, "pilos_cultist_talk_1", [],
    "I do not need a man of faith right now, farewell.", "close_window", []],   
@@ -51943,6 +51965,15 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   [trp_dani_guthlaf,"start", [
   ], "Its not the right time to talk. Go and speak with our leader Hnaef Hocing if you have anything to say.", "close_window",[]],
 
+  
+  [trp_finn_aethelbald,"start", [
+  ], "I have no time right now.", "close_window",[]],
+  [trp_finn_garulf,"start", [
+  ], "I have no time right now.", "close_window",[]],
+  [trp_dani_guthormr,"start", [
+  ], "I have no time right now.", "close_window",[]],
+  [trp_dani_haddingr,"start", [
+  ], "I have no time right now.", "close_window",[]],
   
   [anyone,"start", [
   (neq,"$g_talk_troop","trp_bishop_of_rome"),

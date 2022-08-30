@@ -406,6 +406,9 @@ hoods_roman_1 = [itm_roman_civilian_hood_open_1,itm_roman_civilian_hood_open_2,i
 hoods_roman_2 = [itm_roman_civilian_hood_1,itm_roman_civilian_hood_2,itm_roman_civilian_hood_3] 
 hoods_roman_3 = [itm_roman_civilian_hood_closed_1,itm_roman_civilian_hood_closed_2,itm_roman_civilian_hood_closed_3] #hood with mask
 
+furs_bear = [itm_bearskin_1,itm_bearskin_2,itm_bearskin_3]
+furs_wolf = [itm_wolf_skin_1,itm_wolf_skin_2]
+
 #new tunic groups
 #culture_1
 tunics_goths = [itm_generic_tunic_7,itm_generic_tunic_15,itm_linen_shirt_1,itm_linen_shirt_10,itm_generic_tunic_3,itm_generic_tunic_5,itm_generic_tunic_8,itm_generic_tunic_12,itm_generic_tunic_13,itm_generic_tunic_14,itm_linen_shirt_4,itm_linen_shirt_5,itm_linen_tunic,itm_linen_shirt]
@@ -1146,7 +1149,7 @@ troops = [
 
   #lombards
   ["cynocephalus","Cynocephalus","Cynocephali",tf_guarantee_basic,0,0,fac_culture_2,
-   [itm_nomad_boots,itm_simple_shoes,itm_wrapping_boots,itm_carbatinae_1_blue,itm_carbatinae_2_blue,itm_rawhide_coat3,itm_rawhide_coat6,itm_rawhide_coat7,itm_rawhide_coat8,itm_rawhide_coat9,itm_rawhide_coat10,itm_throwing_spears,itm_war_spear,itm_sword_viking_3,itm_round_shield_germanic_12,itm_round_shield_germanic_21],
+   [itm_nomad_boots,itm_simple_shoes,itm_wrapping_boots,itm_carbatinae_1_blue,itm_carbatinae_2_blue,itm_rawhide_coat3,itm_rawhide_coat6,itm_rawhide_coat7,itm_rawhide_coat8,itm_rawhide_coat9,itm_rawhide_coat10,itm_throwing_spears,itm_war_spear,itm_sword_viking_3,itm_round_shield_germanic_12,itm_round_shield_germanic_21]+furs_bear+furs_wolf,
    def_attrib_lvl_23|level(23),wp_one_handed (210) | wp_two_handed (230) | wp_polearm (220) | wp_archery (100) | wp_crossbow (120) | wp_throwing (190),knows_berserker,germanic_face_1, germanic_face_2],
   ["charudes_retainer","Charudes Retainer","Charudes Retainers",tf_mounted|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_shield|tf_guarantee_helmet,0,0,fac_culture_2,
    [itm_tab_shield_round_d,itm_cloaked_generic_tunic_3,itm_cloaked_generic_tunic_4,itm_mid_generic_mail_21,itm_mid_generic_mail_24,itm_fernpass_helmet_2,itm_fernpass_helmet_3,itm_triveres_mail,itm_burgh_helmet_mail,itm_burgh_helmet_light,itm_sword_viking_3,itm_round_shield_germanic_11,itm_round_shield_germanic_12,itm_round_shield_germanic_14,itm_round_shield_germanic_20]+shoes_generic+angons,
@@ -4368,6 +4371,9 @@ troops = [
   ["bonus_chest_6","{!}Bonus Chest","{!}Bonus Chest",tf_hero|tf_inactive, 0,reserved,  fac_neutral,[itm_niya_bow_2,itm_raw_silk,itm_linen,itm_linen],def_attrib|level(18),wp(60),knows_common, 0], #hidden in attilas court ruins
   ["bonus_chest_7","{!}Bonus Chest","{!}Bonus Chest",tf_hero|tf_inactive, 0,reserved,  fac_neutral,[itm_mace_roman_1,itm_wool_cloth,itm_wool_cloth],def_attrib|level(18),wp(60),knows_common, 0], #hidden in noricum
   ["bonus_chest_8","{!}Bonus Chest","{!}Bonus Chest",tf_hero|tf_inactive, 0,reserved,  fac_neutral,[itm_aetius_shield],def_attrib|level(18),wp(60),knows_common, 0], #hidden in ravenna
+  
+  ["bonus_chest_9","{!}Bonus Chest","{!}Bonus Chest",tf_hero|tf_inactive, 0,reserved,  fac_neutral,[itm_holy_grail],def_attrib|level(18),wp(60),knows_common, 0], #hidden in ravenna
+  ["bonus_chest_10","{!}Bonus Chest","{!}Bonus Chest",tf_hero|tf_inactive, 0,reserved,  fac_neutral,[itm_gold_jewelry,itm_gold_jewelry,itm_gold_jewelry,itm_gold_jewelry,itm_ivory,itm_ivory,itm_ivory,itm_ivory,itm_silver,itm_silver,itm_silver,itm_silver],def_attrib|level(18),wp(60),knows_common, 0], #hidden in ravenna
 
   ["household_possessions","{!}household_possessions","{!}household_possessions",tf_hero|tf_inactive|tf_is_merchant, 0,reserved,  fac_neutral,[],def_attrib|level(18),wp(60),knows_inventory_management_10, 0],
 

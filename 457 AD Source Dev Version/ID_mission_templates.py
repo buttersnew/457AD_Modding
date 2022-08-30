@@ -85,3 +85,4 @@ mt_finns_hall_battle = 83
 mt_finn_camp_battle = 84
 mt_fleet_cutscene = 85
 mt_final_feast = 86
+mt_visit_rome_secrets = 87

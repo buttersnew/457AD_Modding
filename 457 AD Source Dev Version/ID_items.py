@@ -2109,3 +2109,4 @@ itm_empty_hands = 2107
 itm_empty_legs = 2108
 itm_empty_head = 2109
 itm_empty_body = 2110
+

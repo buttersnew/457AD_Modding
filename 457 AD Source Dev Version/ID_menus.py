@@ -403,3 +403,4 @@ mnu_finnsburg_revenge_lost = 401
 mnu_finnsburg_revenge_final = 402
 mnu_finn_quest_final_banquet_1 = 403
 mnu_finn_quest_final_banquet_2 = 404
+mnu_visit_nero = 405

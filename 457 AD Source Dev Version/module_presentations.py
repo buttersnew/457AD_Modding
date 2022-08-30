@@ -18653,7 +18653,7 @@ presentations = [
         (set_fixed_point_multiplier, 1000),
         
         #0. BACKROUND
-        (create_mesh_overlay, reg0, "mesh_pic_troop_trees"),
+        (create_mesh_overlay, reg0, "mesh_pic_empty"),
         (position_set_x, pos1, -1),
         (position_set_y, pos1, -1),
         (overlay_set_position, reg0, pos1),
@@ -19904,7 +19904,7 @@ presentations = [
         (assign, ":draw_troop", "$temp_troop"),
         
         #pic
-        (create_mesh_overlay, reg0, "mesh_pic_troop_trees"),
+        (create_mesh_overlay, reg0, "mesh_pic_empty"),
         (position_set_x, pos1, -1),
         (position_set_y, pos1, -1),
         (overlay_set_position, reg0, pos1),
@@ -19988,7 +19988,7 @@ presentations = [
     (set_fixed_point_multiplier, 1000),   
 
     #0. BACKROUND
-    (create_mesh_overlay, reg0, "mesh_pic_troop_trees"),
+    (create_mesh_overlay, reg0, "mesh_pic_empty"),
     (position_set_x, pos1, -1),
     (position_set_y, pos1, -1),
     (overlay_set_position, reg0, pos1),

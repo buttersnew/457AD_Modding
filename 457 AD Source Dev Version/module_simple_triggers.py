@@ -7175,9 +7175,33 @@ simple_triggers = [
       (try_end),
   ]),
 
+(24, [ #checks if Rome has fallen
+    (party_get_slot, ":faction", "p_town_8", slot_center_original_faction),
+    (store_faction_of_party, ":cur_faction", "p_town_8"),
+    (neq, ":cur_faction", ":faction"),
+    #(dialog_box, "@Once again this century, the great city of Rome has fallen. ", "@A messenger approaches your warband"),
+    (call_script, "script_add_notification_menu", "mnu_rome_conquered", ":cur_faction", 0),
+    (party_set_slot, "p_town_8", slot_center_original_faction, ":cur_faction"),
+    ]),
+
+(24, [ #checks if constantinople has been taken
+    (party_get_slot, ":faction", "p_town_6", slot_center_original_faction),
+    (store_faction_of_party, ":cur_faction", "p_town_6"),
+    (neq, ":cur_faction", ":faction"),
+    (call_script, "script_add_notification_menu", "mnu_constantinople_conquered", ":cur_faction", 0),
+    (party_set_slot, "p_town_6", slot_center_original_faction, ":cur_faction"),
+    ]),
+
+(24, [ #checks if ctesiphon has been taken
+    (party_get_slot, ":faction", "p_town_19", slot_center_original_faction),
+    (store_faction_of_party, ":cur_faction", "p_town_19"),
+    (neq, ":cur_faction", ":faction"),
+    (call_script, "script_add_notification_menu", "mnu_ctesiphon_conquered", ":cur_faction", 0),
+    (party_set_slot, "p_town_19", slot_center_original_faction, ":cur_faction"),
+    ]),
 
   #random events
-  (24 * 4, #every 5? days - 30% chance of an event
+  (24 * 4, #every 4 days - 50% chance of an event
     [ (eq, "$enlisted_party", -1),#not freelancing
       (map_free),
       (neq, "$g_player_is_captive", 1),
@@ -7194,7 +7218,7 @@ simple_triggers = [
       (try_begin),
         (ge, ":player_renown", 200),
         (gt, ":num_men", 30),
-        (store_random_in_range, ":rand", 0, 44), #1/2 chance to get an event
+        (store_random_in_range, ":rand", 0, 44), #50% chance to get an event
         (try_begin),
           (eq, ":rand", 0),
           (party_get_current_terrain, ":terrain", "p_main_party"), #cannot happen in the desert

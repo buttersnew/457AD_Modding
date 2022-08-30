@@ -26885,6 +26885,58 @@ goods, and books will never be sold. ^^You can change some settings here freely.
           (change_screen_return, 0),
         ]),
     ]),
+
+("rome_conquered",menu_text_color(0xFF000000)|mnf_disable_all_keys,
+    "Once again this century, the ancient capitol of Rome has been taken, this time by the {s22}. The once great city has fallen further into ruin!",
+    "none",
+    [
+    (str_store_faction_name, "$g_notification_menu_var1"),
+    ],
+    [
+      ("option_1",
+        [],
+        "Continue.",
+        [
+        (faction_get_slot, ":leader", "$g_notification_menu_var1", slot_faction_leader),
+        (call_script, "script_change_troop_renown", ":leader", 80),
+        (change_screen_map),
+      ]),
+  ]), 
+
+("constantinople_conquered",menu_text_color(0xFF000000)|mnf_disable_all_keys,
+    "The walls that held off Attila, once thought impenitrable have failed, and the great city of Constantinople has fallen to {s22}!",
+    "none",
+    [
+    (str_store_faction_name, "$g_notification_menu_var1"),
+    ],
+    [
+      ("option_1",
+        [],
+        "Continue.",
+        [
+        (faction_get_slot, ":leader", "$g_notification_menu_var1", slot_faction_leader),
+        (call_script, "script_change_troop_renown", ":leader", 100),
+        (change_screen_map),
+      ]),
+  ]), 
+
+("ctesiphon_conquered",menu_text_color(0xFF000000)|mnf_disable_all_keys,
+    "The grand capitol of both the Parthians, and their successors, the Sassanids, Ctesiphon has fallen to the {s22}!",
+    "none",
+    [
+    (str_store_faction_name, "$g_notification_menu_var1"),
+    ],
+    [
+      ("option_1",
+        [],
+        "Continue.",
+        [
+        (faction_get_slot, ":leader", "$g_notification_menu_var1", slot_faction_leader),
+        (call_script, "script_change_troop_renown", ":leader", 80),
+        (change_screen_map),
+      ]),
+  ]), 
+
 #+freelancer start
 #menu_world_map_soldier
     ("world_map_soldier",0,

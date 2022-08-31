@@ -20435,12 +20435,12 @@ mission_templates = [
          (val_add, ":initial_courage_score", ":troop_level"), #average : 20 * 35 = 700
          (agent_get_troop_id, ":troop_id", ":agent_no"),
          (try_begin),
-          (this_or_next|eq,":troop_id","trp_standard_bearer"),
-          (this_or_next|eq,":troop_id","trp_imperial_signifer"),
-          (this_or_next|eq,":troop_id","trp_caucasian_standard_bearer"),
-          (this_or_next|eq,":troop_id","trp_sassanid_standard_bearer"),
-          (eq,":troop_id","trp_centenarius"),
-          (val_add, ":initial_courage_score", 400), 
+            (this_or_next|eq,":troop_id","trp_standard_bearer"),
+            (this_or_next|eq,":troop_id","trp_imperial_signifer"),
+            (this_or_next|eq,":troop_id","trp_caucasian_standard_bearer"),
+            (this_or_next|eq,":troop_id","trp_sassanid_standard_bearer"),
+            (eq,":troop_id","trp_centenarius"),
+            (val_add, ":initial_courage_score", 400), 
          (try_end), 
          (store_random_in_range, ":randomized_addition_courage", 0, 2000), #rigale tweak
          (val_add, ":initial_courage_score", ":randomized_addition_courage"), 

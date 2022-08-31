@@ -25787,15 +25787,12 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 
 
   ( "attack_minor_town",menu_text_color(0xFF000000)|mnf_disable_all_keys,
-    "You order your troops to march towards the town. The enemy has noticed your advance and prepare to defend their homes...",
+    "You order your troops to march towards the town. The {s51} have noticed your advance and prepare to defend their homes...",
     "none",
-    [(store_faction_of_party, ":fac", "$g_encountered_party"),
-     (str_store_faction_name, s51, ":fac"),],
-    [("continue",
-       [],
-       "Attack!",
-       [
-      (try_begin),
+    [
+    (str_store_faction_name, s51, "$g_encountered_party_faction"),
+
+    (try_begin),
         (eq, "$g_encountered_party", "p_aestii_village"),
         (check_quest_active, "qst_aestii_rebel_quest"),
         (quest_slot_eq,"qst_aestii_rebel_quest",slot_quest_current_state, 3),
@@ -25811,8 +25808,14 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         (set_visitor,17,"trp_aestii_king"),
         (set_jump_mission,"mt_conversation_encounter"),
         (jump_to_scene,"scn_conversation_scene"),
-
-      (else_try),
+        (change_screen_map_conversation, "trp_aestii_king"),
+    (try_end),
+     ],
+    [("continue",
+       [],
+       "Attack!",
+       [
+    (try_begin),
         (assign, "$g_battle_result", 0),
         (assign, "$g_engaged_enemy", 1),      
         (call_script, "script_calculate_battle_advantage"),
@@ -25824,7 +25827,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         (assign, "$g_next_menu", "mnu_minor_town_fight"),
         (jump_to_menu, "mnu_battle_debrief"),     
         (change_screen_mission),
-      (try_end),
+    (try_end),
     ]), 
   ]),
 

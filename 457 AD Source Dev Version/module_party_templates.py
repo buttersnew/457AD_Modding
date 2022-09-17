@@ -203,7 +203,7 @@ party_templates = [
 
   ("culture_minor_2_reinforcements_a", "{!}Slavic Reinforcements", 0, 0, fac_commoners, 0, [(trp_slav_skirmisher,4,10),(trp_slav_archer, 4,10)]),
   ("culture_minor_2_reinforcements_b", "{!}Slavic Reinforcements", 0, 0, fac_commoners, 0, [(trp_slav_footman,6,15),(trp_standard_bearer,1,1)]),
-  ("culture_minor_2_reinforcements_c", "{!}Slavic Reinforcements", 0, 0, fac_commoners, 0, [(trp_slav_horseman,4,10)]),
+  ("culture_minor_2_reinforcements_c", "{!}Slavic Reinforcements", 0, 0, fac_commoners, 0, [(trp_slav_horseman,2,5),(trp_slav_horsearcher,2,5)]),
 
   ("culture_minor_4_reinforcements_a", "{!}Frisian Reinforcements", 0, 0, fac_commoners, 0, [(trp_frisian_freeman,8,20)]),
   ("culture_minor_4_reinforcements_b", "{!}Frisian Reinforcements", 0, 0, fac_commoners, 0, [(trp_frisian_freeman,6,15),(trp_standard_bearer,1,1)]),
@@ -277,7 +277,7 @@ party_templates = [
   ("garamantian_party","Garamantian Warriors",icon_axeman|carries_goods(30)|pf_show_faction,0,fac_minor_garamantians,bandit_personality,[(trp_garamantian_warrior,14,30),(trp_garamantian_horseman,14,25),(trp_african_mercenary,2,5)]),
   ("dani_party","Dani Warriors",icon_axeman|carries_goods(30)|pf_show_faction,0,fac_minor_dani,bandit_personality,[(trp_scandinavian_freeman,10,25),(trp_scandinavian_retainer,5,10),(trp_dane_vanguard,5,15),(trp_scandinavian_comes,5,10)]),
   ("morden_party","Morden Warriors",icon_axeman|carries_goods(30)|pf_show_faction,0,fac_minor_mordens,bandit_personality,[(trp_mordvin_skirmisher,10,15),(trp_mordvin_footman,10,25),(trp_mordvin_mounted_skirmisher,5,10),(trp_mordvin_companion,3,6),(trp_komi_warrior,2,4)]),
-  ("sporoi_party","Sporoi Warriors",icon_axeman|carries_goods(30)|pf_show_faction,0,fac_minor_sporoi,bandit_personality,[(trp_slav_archer,5,14),(trp_slav_skirmisher,5,14),(trp_slav_footman,10,25),(trp_slav_horseman,5,10)]), #slavs
+  ("sporoi_party","Sporoi Warriors",icon_axeman|carries_goods(30)|pf_show_faction,0,fac_minor_sporoi,bandit_personality,[(trp_slav_archer,5,14),(trp_slav_skirmisher,5,14),(trp_slav_footman,10,25),(trp_slav_horseman,3,5),(trp_slav_horsearcher,3,5)]), #slavs
   ("bosphoran_party","Bosphoran Patrol",icon_axeman|carries_goods(30)|pf_show_faction,0,fac_minor_bosphoran,soldier_personality,[(trp_bosphor_recruit,10,15),(trp_bosphor_infantry,10,25),(trp_bosphor_archer,5,10),(trp_bosphor_horseman,3,6),(trp_meotian_horseman,2,4)]),
   ("abagasian_party","Abagasian Warriors",icon_axeman|carries_goods(30)|pf_show_faction,0,fac_minor_abagasians,bandit_personality,[(trp_abasgian_skirmisher,10,15),(trp_abasgian_footman,10,25),(trp_abasgian_horse_archer,7,12),(trp_abasgian_nobleman,3,8)]),
   ("tauri_party","Tauri Raiders",icon_axeman|carries_goods(30)|pf_show_faction,0,fac_minor_tauri,bandit_personality,[(trp_tauri_axeman,15,30),(trp_tauri_horseman,15,30)]),

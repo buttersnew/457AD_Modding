@@ -2282,7 +2282,17 @@ troops = [
   ["slav_archer","Slavic Archer","Slavic Archers",tf_guarantee_armor|tf_guarantee_ranged,0,0,fac_culture_minor_2,
    [itm_simple_shoes,itm_nomad_boots,itm_wrapping_boots,itm_basic_axe,itm_hand_axe,itm_club,itm_fur_hat,
    itm_poisoned_arrows,itm_short_bow,itm_long_bow]+tunics_slav+pants_slav,
-   def_attrib_skirmisher|level(13),wp_one_handed(150)|wp_two_handed(130)|wp_polearm(130)|wp_throwing(160)|wp_archery(150),knows_skirmisher, germanic_face_1, germanic_face_2],
+   def_attrib_lvl_18|level(18),wp_one_handed(150)|wp_two_handed(130)|wp_polearm(130)|wp_throwing(160)|wp_archery(200),knows_archer, germanic_face_1, germanic_face_2],
+
+  ["slav_horsearcher","Slavic Horsearcher","Slavic Horsearchers",tf_mounted|tf_guarantee_horse|tf_guarantee_armor|tf_guarantee_boots|tf_guarantee_ranged,0,0,fac_culture_minor_2,
+   [itm_simple_shoes,itm_nomad_boots,itm_wrapping_boots,itm_cloaked_tunic_pants_9,itm_cloaked_tunic_pants_10,
+   itm_cloaked_tunic_pants_5,itm_cloaked_tunic_pants_6,itm_cloaked_tunic_pants_7,itm_fur_hat,
+   itm_leather_cap,itm_iatrus_helmet_light,
+   itm_strong_bow,itm_bodkin_arrows,
+   itm_war_spear,itm_club,itm_light_lance,
+   itm_steppe_horse,itm_normal_horse13,itm_normal_horse14,itm_normal_horse15,itm_warhorse]+tunics_slav,
+   def_attrib_lvl_25|level(23),wp_one_handed(240)|wp_two_handed(240)|wp_archery(220)|wp_throwing(230),knows_lvl_23_cav|knows_power_strike_9|knows_horse_archery_5, germanic_face_1, germanic_face_2],
+
 
 #SLAVS
   ["slav_skirmisher","Slavic Skirmisher","Slavic Skirmishers",tf_guarantee_armor|tf_guarantee_ranged,0,0,fac_culture_minor_2,

@@ -47,6 +47,90 @@ bard_disguise = [itm_wrapping_boots,itm_lyre,itm_linen_tunic,itm_winged_mace]
 
 af_castle_lord = af_override_horse | af_override_weapons| af_require_civilian
 
+poisoned_arrows_hit = (ti_on_agent_hit, 0, 0, [], [
+
+        (store_trigger_param, ":victim", 1),
+        (store_trigger_param, ":attacker", 2),
+        (store_trigger_param, ":missile", 5),		  
+
+        (eq, ":missile", "itm_poisoned_arrows"),
+        # (try_begin),
+            # (agent_get_slot, ":is_poisoned", ":victim", slot_agent_is_poisoned),  	
+        (get_player_agent_no, ":player"),
+        (agent_get_horse, ":p_horse", ":player"), 	   
+        (try_begin),	   
+            (eq, ":attacker", ":player"),
+            # (neq, ":is_poisoned", 1),
+            (try_begin),
+                (neg|agent_is_human, ":victim"),	 
+                (display_message, "@You have poisoned a horse!", 0x3F8000), 	     
+                (agent_set_slot, ":victim", slot_agent_is_poisoned, 3),	   
+            (else_try),	      
+                (display_message, "@You have poisoned the enemy!", 0x3F8000), 
+                (agent_set_slot, ":victim", slot_agent_is_poisoned, 3),
+            (try_end),		 
+        (else_try),	
+            (eq, ":victim", ":player"),       	   
+            # (neq, ":is_poisoned", 1),      	   
+            (display_message, "@You are poisoned!", 0x3F8000),
+            (mission_cam_set_screen_color, 0xFF000000),
+            (mission_cam_animate_to_screen_color, 0x4D000000, 2000),
+            (agent_set_slot, ":victim", slot_agent_is_poisoned, 3),
+        (else_try),       	  
+            (eq, ":victim", ":p_horse"),       	   
+            # (neq, ":is_poisoned", 1),
+            (display_message, "@Your horse is poisoned!", 0x3F8000),
+            (agent_set_slot, ":victim", slot_agent_is_poisoned, 3),
+        (else_try),	
+            # (neq, ":is_poisoned", 1),	      
+            (agent_set_slot, ":victim", slot_agent_is_poisoned, 3),
+        (try_end),	
+        # (try_end),
+     ])
+poisoned_arrows_damage = (6, 0, 0, [], [
+    (try_for_agents,":cur_agent"),
+        (agent_is_alive, ":cur_agent"),
+        (agent_get_slot, ":is_poisoned", ":cur_agent", slot_agent_is_poisoned),
+        (ge, ":is_poisoned", 1),
+        (val_sub, ":is_poisoned", 1),
+        (try_begin),	
+            (store_agent_hit_points,reg22,":cur_agent", 0),
+            (val_sub,reg22, 7),
+            (agent_set_hit_points,":cur_agent",reg22, 0),
+            
+            #debug message
+            # (str_store_agent_name, s1, ":cur_agent"),
+            # (display_message, "@{s1} has {reg22} hp"),
+            
+            (le,reg22, 1),
+            (remove_agent,":cur_agent"),
+        (try_end), 
+        (try_begin),
+            (neg|agent_is_non_player, ":cur_agent"),
+            (mission_cam_set_screen_color, 0xFF000000),
+            (mission_cam_animate_to_screen_color, 0x4D000000, 2000),
+            (display_message, "@The poison decreases your health!", 0x3F8000),
+        #debug message
+        # (else_try),
+            # (str_store_agent_name, s1, ":cur_agent"),
+            # (display_message, "@The poison decreases {s1} health!"),
+        (try_end),
+
+        (try_begin),
+            (eq, ":is_poisoned", 0),
+            (try_begin),
+                (neg|agent_is_non_player, ":cur_agent"),
+                (display_message, "@You are no longer poisoned", color_good_news),
+            #debug message
+            # (else_try),
+                # (str_store_agent_name, s1, ":cur_agent"),
+                # (display_message, "@{s1} is no longer poisoned", color_good_news),
+            (try_end),
+        (try_end),
+        (agent_set_slot, ":cur_agent", slot_agent_is_poisoned, ":is_poisoned"), 
+    (try_end),
+     ])
+
 small_battle_check = (0,0,ti_once, 
     [(mission_tpl_are_all_agents_spawned)],
     [
@@ -3942,6 +4026,8 @@ dplmc_battle_mode_triggers = [
     custom_commander_camera, deathcam_cycle_forwards, deathcam_cycle_backwards,
     dplmc_death_camera,
     passable_allies,
+    poisoned_arrows_hit,
+    poisoned_arrows_damage,
   ]
 ##diplomacy end
 

@@ -2278,6 +2278,12 @@ troops = [
    itm_battle_axe_4,itm_roman_spear_3,itm_cavalry_javelins,itm_cavalry_javelins,itm_concave_shield_leather_small_1,itm_concave_shield_leather_small_2,itm_concave_shield_leather_small_3,itm_celtic_horse_1,itm_celtic_horse_2]+shields_cantabrian_small+tunics_basque+horses_roman_1+horses_roman_2+horses_roman_3,
    def_attrib_lvl_20|level(18),wp_one_handed(190)|wp_two_handed(160)|wp_polearm(190)|wp_throwing(230)|wp_archery(130),knows_lvl_18_cav|knows_shield_4|knows_power_strike_5|knows_horse_archery_6,briton_face_1, briton_face_2],
 
+##SPOROI
+  ["slav_archer","Slavic Archer","Slavic Archers",tf_guarantee_armor|tf_guarantee_ranged,0,0,fac_culture_minor_2,
+   [itm_simple_shoes,itm_nomad_boots,itm_wrapping_boots,itm_basic_axe,itm_hand_axe,itm_club,itm_fur_hat,
+   itm_poisoned_arrows,itm_short_bow,itm_long_bow]+tunics_slav+pants_slav,
+   def_attrib_skirmisher|level(13),wp_one_handed(150)|wp_two_handed(130)|wp_polearm(130)|wp_throwing(160)|wp_archery(150),knows_skirmisher, germanic_face_1, germanic_face_2],
+
 #SLAVS
   ["slav_skirmisher","Slavic Skirmisher","Slavic Skirmishers",tf_guarantee_armor|tf_guarantee_ranged,0,0,fac_culture_minor_2,
    [itm_simple_shoes,itm_nomad_boots,itm_wrapping_boots,itm_basic_axe,itm_hand_axe,itm_club,itm_winged_mace,itm_fur_hat,itm_throwing_spears,itm_throwing_spears,itm_eastern_germanic_shield_5]+tunics_slav+pants_slav+shields_simple,

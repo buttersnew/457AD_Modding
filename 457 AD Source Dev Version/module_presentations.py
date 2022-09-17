@@ -19559,6 +19559,7 @@ presentations = [
                 (assign, ":c", 1),       
               (else_try), #slavs
                 (eq, "$g_encountered_party", "p_sporoi_village"),
+                (this_or_next|eq, ":troop", "trp_slav_archer"),
                 (this_or_next|eq, ":troop", "trp_slav_skirmisher"),
                 (this_or_next|eq, ":troop", "trp_slav_footman"),
                 (eq, ":troop", "trp_slav_horseman"),

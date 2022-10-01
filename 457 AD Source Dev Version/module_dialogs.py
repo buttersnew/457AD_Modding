@@ -45558,8 +45558,36 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
    "{!}Warning: This line should never display.", "bandit_introduce",[]],
 
     [party_tpl|pt_minor_faction_levies,"start", [],
-    "Greetings! Any orders, chief?", "minor_levies_talk",
+    "Hail! Any orders, Lord?", "minor_levies_talk",
     []],
+    [anyone, "minor_levies_pretalk",[],
+    "Anything else?", "minor_levies_talk",[]], 
+    
+    [anyone|plyr, "minor_levies_talk",[],"I have come to bring you some share of the loot.", "minor_faction_king_loot_1",[]],
+    [anyone, "minor_levies_pretalk",[],"Great! What have you brought me?", "minor_levies_talk",[]], 
+
+    [anyone, "minor_faction_king_loot_1",[],"Great! What have you brought me?", "minor_faction_king_loot_2",[]],  
+    #list of gifts
+    [anyone|plyr, "minor_faction_king_loot_2",[(store_troop_gold,":money","trp_player"),(ge,":money",1000),],
+    "Gold worth 1000 siliquae, for you and your people.", "minor_faction_king_gift_give",
+    [(call_script, "script_change_player_relation_with_troop", "$g_talk_troop",2),
+    (call_script, "script_change_player_relation_with_faction", "$g_encountered_party_faction", 1),
+    (troop_remove_gold,"trp_player",1000),]], #coins +5 relations
+    [anyone|plyr, "minor_faction_king_loot_2",[(store_troop_gold,":money","trp_player"),(ge,":money",2500),],
+    "Gold worth 2500 siliquae, for you and your people.", "minor_faction_king_gift_give",
+    [(call_script, "script_change_player_relation_with_troop", "$g_talk_troop",4),
+    (call_script, "script_change_player_relation_with_faction", "$g_encountered_party_faction", 3),
+    (troop_remove_gold,"trp_player",2500),]], #coins +5 relations
+    [anyone|plyr, "minor_faction_king_loot_2",[(store_troop_gold,":money","trp_player"),(ge,":money",5000),],
+    "Gold worth 5000 siliquae, for you and your people.", "minor_faction_king_gift_give",
+    [(call_script, "script_change_player_relation_with_troop", "$g_talk_troop",6),
+    (call_script, "script_change_player_relation_with_faction", "$g_encountered_party_faction", 6),
+    (troop_remove_gold,"trp_player",5000),]], #coins +5 relations
+    
+    [anyone|plyr, "minor_faction_king_loot_2",[],"Nevermind.", "minor_levies_pretalk",[]],
+    [anyone, "minor_faction_king_gift_give",[],"Splendid, {playername}. I will distribute it to my soldiers.", "minor_faction_king_pretalk",[]],  
+
+    
     [anyone|plyr,"minor_levies_talk", [],
     "Return home. I don't need you any longer", "minor_levies_talk_2",
     []],
@@ -45567,12 +45595,16 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
     "That are indeed great news!", "close_window",
     [
     (assign, "$g_leave_encounter", 1),
+    (party_get_slot, ":original_minor_faciton", "$g_encountered_party", slot_minor_faction_levies_original_faction),
+    (call_script, "script_change_player_relation_with_faction", ":original_minor_faciton", 15),
     (remove_party, "$g_encountered_party"),
     ]],
     
     [anyone|plyr,"minor_levies_talk", [],
     "Continue following", "close_window",
-    [(assign, "$g_leave_encounter", 1),]],
+    [(assign, "$g_leave_encounter", 1),
+    (leave_encounter),
+    ]],
     
    
     [party_tpl|pt_sea_raiders,"start", [
@@ -50737,21 +50769,30 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   (try_end),],"{s23}", "minor_faction_king",[]],  
   
   [anyone, "start", [
-  (faction_slot_eq, "$g_talk_troop_faction", slot_faction_leader, "$g_talk_troop"),
-  (is_between, "$g_talk_troop", minor_kings_begin, minor_kings_end),
-  (try_begin),
-    (ge,"$g_talk_troop_relation",30),
-    (str_store_string, s23, "@It is always nice to meet you again, {playername}?"),   
-  (else_try),
-    (ge,"$g_talk_troop_relation",0),
-    (str_store_string, s23, "@Ah, you again."),
-  (else_try), 
-    (ge,"$g_talk_troop_relation",-40),
-    (str_store_string, s23, "@Are you here to punish me with your sight?"),
-  (else_try),
-    (str_store_string, s23, "@Have you come to bring a plague over my people?"),  
-  (try_end),],
-  "{s23}", "minor_faction_king",[]],
+    (faction_slot_eq, "$g_talk_troop_faction", slot_faction_leader, "$g_talk_troop"),
+    (is_between, "$g_talk_troop", minor_kings_begin, minor_kings_end),
+    (try_begin),
+        (ge,"$g_talk_troop_relation",30),
+        (str_store_string, s23, "@It is always nice to meet you again, {playername}."),   
+    (else_try),
+        (ge,"$g_talk_troop_relation",0),
+        (str_store_string, s23, "@Ah, you again."),
+    (else_try), 
+        (ge,"$g_talk_troop_relation",-40),
+        (str_store_string, s23, "@Are you here to punish me with your sight?"),
+    (else_try),
+        (str_store_string, s23, "@Have you come to bring a plague over my people?"),  
+    (try_end),
+    
+    (str_clear, s24),
+    (try_begin),
+        (faction_get_slot, ":levies", "$g_talk_troop_faction", slot_faction_levied_troops),
+        (gt, ":levies", 0),
+        (party_is_active, ":levies"),
+        (str_store_string, s24, "@I am currently resting at my homestead with my men. We are ready to leave at any time."),  
+    (try_end),
+  ],
+  "{s23}^^{s24}", "minor_faction_king",[]],
   
   [anyone, "minor_faction_king_pretalk",
   [(try_begin),
@@ -50773,8 +50814,15 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
     [anyone|plyr, "minor_faction_king",[
     (faction_slot_eq, "$g_talk_troop_faction", slot_faction_player_tributary, 1),
     ],
-    "I demand a levies for my campaigns.", "minor_faction_king_levies",[]],  
-  
+    "I demand levies for my campaigns.", "minor_faction_king_levies",[]],  
+ 
+   [anyone, "minor_faction_king_levies",[(faction_get_slot, ":levies", "$g_talk_troop_faction", slot_faction_levied_troops),
+    (gt, ":levies", 0),
+    (party_is_active, ":levies"),],
+    "You already levied troops from us. I cannot give you more as otherwise we wouldn't be able to defend our own home.", 
+    "minor_faction_king_pretalk",[]],  
+
+ 
     [anyone, "minor_faction_king_levies",[
     (store_relation, reg1, "$g_encountered_party_faction", "fac_player_supporters_faction"),
     (le, reg1, 50),
@@ -50782,11 +50830,6 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
     "Too many of our people already died in your wars. We need some time to refill the casualities.^^(You need more than 50 relation with the faction. Currently {reg1})", 
     "minor_faction_king_pretalk",[]],
     
-   [anyone, "minor_faction_king_levies",[(faction_get_slot, ":levies", "$g_talk_troop_faction", slot_faction_levied_troops),
-    (gt, ":levies", 0),
-    (party_is_active, ":levies"),],
-    "You already levied troops from us. I cannot give you more as otherwise we wouldn't be able to defend our own home.", 
-    "minor_faction_king_pretalk",[]],  
     
    [anyone, "minor_faction_king_levies",[],"What? We are paying you tribute, this should be enough! It would be an offense to demand more!", 
     "minor_faction_king_levies_2",[]],  
@@ -50827,9 +50870,13 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
         (party_set_banner_icon, ":levies", ":banner"),
     (try_end),
     (str_store_faction_name, s1, "$g_encountered_party_faction"),
-    (party_set_name, ":levies", "@{s1} Levies"),
+    (party_set_name, ":levies", "@{s1} Host"),
     
     (faction_get_slot, ":troops", "$g_encountered_party_faction", slot_faction_reinforcements_a),
+    
+    (faction_get_slot, ":leader", "$g_encountered_party_faction", slot_faction_leader),
+    (party_add_leader, ":levies", ":leader"),
+    
     (party_add_template, ":levies", ":troops"),
     (party_add_template, ":levies", ":troops"),
     (party_add_template, ":levies", ":troops"),

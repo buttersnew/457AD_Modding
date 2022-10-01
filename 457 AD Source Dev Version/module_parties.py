@@ -28,7 +28,7 @@ from compiler import *
 
 no_menu = 0
 #pf_town = pf_is_static|pf_always_visible|pf_hide_defenders|pf_show_faction
-pf_minor_town = pf_is_static|pf_always_visible|pf_show_faction|pf_label_medium#medium label
+pf_minor_town = pf_is_static|pf_always_visible|pf_show_faction|pf_label_medium|pf_hide_defenders
 pf_town = pf_is_static|pf_always_visible|pf_show_faction|pf_label_large
 pf_castle = pf_is_static|pf_always_visible|pf_show_faction|pf_label_medium
 pf_village = pf_is_static|pf_always_visible|pf_hide_defenders|pf_label_small

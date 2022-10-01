@@ -293,3 +293,4 @@ pt_officiorum_east_c = 291
 pt_thracias_a = 292
 pt_thracias_b = 293
 pt_thracias_c = 294
+pt_minor_faction_levies = 295

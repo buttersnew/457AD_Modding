@@ -480,5 +480,7 @@ party_templates = [
   ("thracias_a", "{!}Per Thracias Reinforcements", 0, 0, fac_commoners, 0, [(trp_tiro_limitanei,5,12),(trp_exculator_limitanei,3,5),(trp_sagittarius_limitanei,2,5)]),
   ("thracias_b", "{!}Per Thracias Reinforcements", 0, 0, fac_commoners, 0, [(trp_eques_sagittarii,2,6),(trp_pedes_tzaanni,3,6),(trp_pedes_augustenses,3,6),(trp_imperial_signifer,1,1)]),
   ("thracias_c", "{!}Per Thracias Reinforcements", 0, 0, fac_commoners, 0, [(trp_pedes_tzaanni,2,5),(trp_pedes_augustenses,2,5),(trp_eques_cataphractarii,2,2),(trp_centenarius,1,1)]),
+  
+  ("minor_faction_levies", "Levies", icon_axeman|pf_show_faction|pf_always_visible, soldier_personality, fac_commoners, 0, []),
 
 ]

@@ -284,6 +284,9 @@ slot_party_ai_rationale        = 6 #Currently unused, but can be used to save a 
 
 #slot_town_belongs_to_kingdom   = 6
 slot_town_lord                 = 7
+
+slot_minor_faction_levies_original_faction = 8
+
 slot_party_ai_substate         = 8
 slot_town_claimed_by_player    = 9
 
@@ -756,6 +759,7 @@ spt_ship               = 16
 spt_cattle_herd        = 17
 spt_bandit_lair       = 18
 #spt_deserter           = 20
+spt_minor_faction_levies    = 100
 
 kingdom_party_types_begin = spt_kingdom_caravan
 kingdom_party_types_end = spt_kingdom_hero_party + 1
@@ -2414,6 +2418,9 @@ dplmc_slot_faction_patrol_time                = 305
 ##diplomacy end
 ##diplomacy start+ add faction slots for additional policies
 dplmc_slot_faction_mercantilism               = 306 # + mercantilism / - free trade
+
+slot_faction_levied_troops      =   307
+
 # Merchantilism
 # - Your caravans generate more revenue for your towns, but your benefit
 #   from the caravans of other kingdoms is diminished.

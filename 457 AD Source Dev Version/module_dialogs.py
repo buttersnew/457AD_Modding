@@ -45557,7 +45557,25 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   [party_tpl|pt_foederati_rebels|auto_proceed,"start", [(eq,"$talk_context",tc_party_encounter),(encountered_party_is_attacker)],
    "{!}Warning: This line should never display.", "bandit_introduce",[]],
 
-  [party_tpl|pt_sea_raiders,"start", [
+    [party_tpl|pt_minor_faction_levies,"start", [],
+    "Greetings! Any orders, chief?", "minor_levies_talk",
+    []],
+    [anyone|plyr,"minor_levies_talk", [],
+    "Return home. I don't need you any longer", "minor_levies_talk_2",
+    []],
+    [anyone,"minor_levies_talk_2", [],
+    "That are indeed great news!", "close_window",
+    [
+    (assign, "$g_leave_encounter", 1),
+    (remove_party, "$g_encountered_party"),
+    ]],
+    
+    [anyone|plyr,"minor_levies_talk", [],
+    "Continue following", "close_window",
+    [(assign, "$g_leave_encounter", 1),]],
+    
+   
+    [party_tpl|pt_sea_raiders,"start", [
     (eq, "$g_encountered_party_faction", "fac_outlaws"), #first stack should always be a bandit
     #sea raiders skull-drinking dialogue
     ],
@@ -50751,7 +50769,77 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   ],
   "{s23}", "minor_faction_king",
   []],
+  
+    [anyone|plyr, "minor_faction_king",[
+    (faction_slot_eq, "$g_talk_troop_faction", slot_faction_player_tributary, 1),
+    ],
+    "I demand a levies for my campaigns.", "minor_faction_king_levies",[]],  
+  
+    [anyone, "minor_faction_king_levies",[
+    (store_relation, reg1, "$g_encountered_party_faction", "fac_player_supporters_faction"),
+    (le, reg1, 50),
+    ],
+    "Too many of our people already died in your wars. We need some time to refill the casualities.^^(You need more than 50 relation with the faction. Currently {reg1})", 
+    "minor_faction_king_pretalk",[]],
+    
+   [anyone, "minor_faction_king_levies",[(faction_get_slot, ":levies", "$g_talk_troop_faction", slot_faction_levied_troops),
+    (gt, ":levies", 0),
+    (party_is_active, ":levies"),],
+    "You already levied troops from us. I cannot give you more as otherwise we wouldn't be able to defend our own home.", 
+    "minor_faction_king_pretalk",[]],  
+    
+   [anyone, "minor_faction_king_levies",[],"What? We are paying you tribute, this should be enough! It would be an offense to demand more!", 
+    "minor_faction_king_levies_2",[]],  
+    
+    [anyone|plyr, "minor_faction_king_levies_2",[],"You heard me right! I need additional troops on my campaign!", 
+    "minor_faction_king_levies_3",[]],  
+   [anyone|plyr, "minor_faction_king_levies_2",[],"Nevermind.", 
+    "minor_faction_king_pretalk",[]],  
+   [anyone, "minor_faction_king_levies_3",[],"I see. The levy will await you outside the town and follow you wherever you go.", 
+    "minor_faction_king_pretalk",[
+    (set_spawn_radius, 2),
+    (spawn_around_party, "$current_town", "pt_minor_faction_levies"),
+    (assign, ":levies", reg0),
+    
+    ##slots
+    (faction_set_slot, "$g_talk_troop_faction", slot_faction_levied_troops, ":levies"),
+    (party_set_slot, ":levies", slot_minor_faction_levies_original_faction, "$g_talk_troop_faction"),
+    (party_set_slot, ":levies", slot_party_type, spt_minor_faction_levies),
+    (party_set_slot, ":levies", slot_party_ai_object, "p_main_party"),
+    #faction
+    (party_set_faction, ":levies", "fac_player_supporters_faction"),
+    
+    ##ai
+    (party_set_ai_initiative, ":levies", 20),
+    (party_set_helpfulness, ":levies", 200),
+    (party_set_aggressiveness, ":levies", 6),
+    (party_set_courage, ":levies", 100),
+    (party_set_bandit_attraction, ":levies", 1),
+    (party_set_ai_behavior, ":levies", ai_bhvr_escort_party),
+    (party_set_ai_object, ":levies", "p_main_party"),
+    
+    #banner
+    (troop_get_slot, ":banner", "trp_player", slot_troop_banner_scene_prop),
+    (try_begin),
+        (gt, ":banner", 0),
+        (val_sub, ":banner", banner_scene_props_begin),
+        (val_add, ":banner", banner_map_icons_begin),
+        (party_set_banner_icon, ":levies", ":banner"),
+    (try_end),
+    (str_store_faction_name, s1, "$g_encountered_party_faction"),
+    (party_set_name, ":levies", "@{s1} Levies"),
+    
+    (faction_get_slot, ":troops", "$g_encountered_party_faction", slot_faction_reinforcements_a),
+    (party_add_template, ":levies", ":troops"),
+    (party_add_template, ":levies", ":troops"),
+    (party_add_template, ":levies", ":troops"),
+    (party_add_template, ":levies", ":troops"),
+    
+    (call_script, "script_change_player_relation_with_faction", "$g_encountered_party_faction", -50),
+    ]],  
+ 
   [anyone|plyr, "minor_faction_king",[(faction_slot_eq, "$g_talk_troop_faction", slot_faction_player_tributary, 1),],"I demand a special tribute.", "minor_faction_king_tribute",[]],  
+  
   [anyone, "minor_faction_king_tribute",[],"What? We have always paid the tribute! It would be a offense to our people to request additional tributes.", "minor_faction_king_tribute2",[(call_script, "script_change_player_relation_with_troop", "$g_talk_troop",-3),]],  
   
   [anyone|plyr, "minor_faction_king_tribute2",[],"You heard right. I demand additional 1000 siliquae.", "minor_faction_king_tribute3",[]],
@@ -50765,7 +50853,14 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   (val_mul, ":enemy_strength", 7),
   (val_div, ":enemy_strength", 6),
   (gt, ":player_strength", ":enemy_strength"),
-  ],"Bah, hear take 1000 siliquae. Now you should better leave.", "close_window",[(call_script, "script_change_player_relation_with_troop", "$g_talk_troop",-10)]], 
+  ],"Bah, hear take 1000 siliquae. Now you should better leave.", "close_window",[
+  (call_script, "script_change_player_relation_with_troop", "$g_talk_troop",-10),
+  (store_relation, ":relation", "$g_encountered_party_faction", "fac_player_supporters_faction"),
+  (try_begin),
+    (gt, ":relation", 25),
+    (call_script, "script_change_player_relation_with_faction", "$g_encountered_party_faction", -15),
+  (try_end),
+  ]], 
   [anyone, "minor_faction_king_tribute3",[
   ],"I will pay you nothing. You will never see coins from us anymore. I declare our independence. Now leave this place.", "close_window",[(faction_set_slot, "$g_talk_troop_faction", slot_faction_player_tributary, -1),
   (call_script, "script_change_player_relation_with_troop", "$g_talk_troop",-20),

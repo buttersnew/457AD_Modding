@@ -1364,28 +1364,30 @@ simple_triggers = [
 			(neg|is_between, ":troop_no", kings_begin, kings_end), #SB : range consts
 			(neg|is_between, ":troop_no", pretenders_begin, pretenders_end),
 
-		  (assign, ":num_centers", 0),
-		  (try_for_range,":cur_center", walled_centers_begin, walled_centers_end),
-		    (store_faction_of_party, ":faction_of_center", ":cur_center"),
-			(eq, ":faction_of_center", ":faction"),
-			(val_add, ":num_centers", 1),
-		  (try_end),
+            (assign, ":num_centers", 0),
+            (try_for_range,":cur_center", walled_centers_begin, walled_centers_end),
+                (store_faction_of_party, ":faction_of_center", ":cur_center"),
+                (eq, ":faction_of_center", ":faction"),
+                (val_add, ":num_centers", 1),
+            (try_end),
 
-		  #we are counting num_centers to allow defection although there is high relation between faction leader and troop. 
-		  #but this rule should not applied for player's faction and player_supporters_faction so thats why here 1 is added to num_centers in that case.
-		  (try_begin), 
-		    (this_or_next|eq, ":faction", "$players_kingdom"),
-			(eq, ":faction", "fac_player_supporters_faction"),
-			(val_add, ":num_centers", 1),
-		  (try_end),
+            #we are counting num_centers to allow defection although there is high relation between faction leader and troop. 
+            #but this rule should not applied for player's faction and player_supporters_faction so thats why here 1 is added to num_centers in that case.
+            (try_begin), 
+                (this_or_next|eq, ":faction", "$players_kingdom"),
+                (eq, ":faction", "fac_player_supporters_faction"),
+                (val_add, ":num_centers", 1),
+            (try_end),
 			
             (call_script, "script_troop_get_relation_with_troop", ":troop_no", ":faction_leader"),
             (this_or_next|le, reg0, -50), #was -75
             (eq, ":num_centers", 0), #if there is no walled centers that faction has defection happens 100%.
 
             (call_script, "script_cf_troop_can_intrigue", ":troop_no", 0), #Should include battle, prisoner, in a castle with others
-            (store_random_in_range, ":who_moves_first", 0, 2),
-
+            
+            (store_random_in_range, ":rand", 0, 4),
+            (le, ":rand", 1),
+            
             #The more centralized the faction, the greater the chance the liege will indict
             #the lord before he defects.
             (faction_get_slot, reg0, ":faction", dplmc_slot_faction_centralization),
@@ -1396,52 +1398,53 @@ simple_triggers = [
             #Random >= 5: The liege indicts the lord for treason
 
             (try_begin),
-              (this_or_next|eq, ":num_centers", 0), #Thanks Caba`drin & Osviux
-              (neq, ":who_moves_first", 0),
-              (lt, ":random", 5),
-              (neq, ":troop_no", "trp_player"),
-              #do a defection
-              (try_begin), 
-                (neq, ":num_centers", 0), 
-                #Note that I assign the troop number instead of 1 as is done in Native
-                (assign, "$g_give_advantage_to_original_faction", ":troop_no"),
-              (try_end),
-            #(assign, "$g_give_advantage_to_original_faction", 1),
+                (this_or_next|eq, ":num_centers", 0), #Thanks Caba`drin & Osviux
+                (store_random_in_range, ":who_moves_first", 0, 2),
+                (neq, ":who_moves_first", 0),
+                (lt, ":random", 5),
+                (neq, ":troop_no", "trp_player"),
+                #do a defection
+                (try_begin), 
+                    (neq, ":num_centers", 0), 
+                    #Note that I assign the troop number instead of 1 as is done in Native
+                    (assign, "$g_give_advantage_to_original_faction", ":troop_no"),
+                (try_end),
+                #(assign, "$g_give_advantage_to_original_faction", 1),
 
-              (store_faction_of_troop, ":orig_faction", ":troop_no"),
-              (call_script, "script_lord_find_alternative_faction", ":troop_no"),
-              (assign, ":new_faction", reg0),
-              (assign, "$g_give_advantage_to_original_faction", 0),
-              (try_begin),
-                (neq, ":new_faction", ":orig_faction"),
-                (is_between, ":new_faction", kingdoms_begin, kingdoms_end),
-                (str_store_troop_name_link, s1, ":troop_no"),
-                (str_store_faction_name_link, s2, ":new_faction"),
-                (str_store_faction_name_link, s3, ":faction"),
-                (call_script, "script_change_troop_faction", ":troop_no", ":new_faction"),
+                (store_faction_of_troop, ":orig_faction", ":troop_no"),
+                (call_script, "script_lord_find_alternative_faction", ":troop_no"),
+                (assign, ":new_faction", reg0),
+                (assign, "$g_give_advantage_to_original_faction", 0),
                 (try_begin),
-                  (ge, "$cheat_mode", 1),
-                  (str_store_troop_name, s4, ":troop_no"),
-                  (display_message, "@{!}DEBUG - {s4} faction changed in defection"),
+                    (neq, ":new_faction", ":orig_faction"),
+                    (is_between, ":new_faction", kingdoms_begin, kingdoms_end),
+                    (str_store_troop_name_link, s1, ":troop_no"),
+                    (str_store_faction_name_link, s2, ":new_faction"),
+                    (str_store_faction_name_link, s3, ":faction"),
+                    (call_script, "script_change_troop_faction", ":troop_no", ":new_faction"),
+                    (try_begin),
+                        (ge, "$cheat_mode", 1),
+                        (str_store_troop_name, s4, ":troop_no"),
+                        (display_message, "@{!}DEBUG - {s4} faction changed in defection"),
+                    (try_end),
+                    (call_script, "script_dplmc_store_troop_is_female", ":troop_no"),
+                    (assign, reg4, reg0),
+                    #SB : factionalize colors
+                    (str_store_string, s4, "str_lord_defects_ordinary"),
+                    (faction_get_color, ":color", ":new_faction"),
+                    (display_log_message, s4, ":color"),
+                    (try_begin),
+                        (eq, "$cheat_mode", 1),
+                        (this_or_next|eq, ":new_faction", "$players_kingdom"),
+                        (eq, ":faction", "$players_kingdom"),
+                        (call_script, "script_add_notification_menu", "mnu_notification_lord_defects", ":troop_no", ":faction"),
+                    (try_end),
                 (try_end),
-                (call_script, "script_dplmc_store_troop_is_female", ":troop_no"),
-                (assign, reg4, reg0),
-                #SB : factionalize colors
-                (str_store_string, s4, "str_lord_defects_ordinary"),
-                (faction_get_color, ":color", ":new_faction"),
-                (display_log_message, s4, ":color"),
-                (try_begin),
-                  (eq, "$cheat_mode", 1),
-                  (this_or_next|eq, ":new_faction", "$players_kingdom"),
-                  (eq, ":faction", "$players_kingdom"),
-                  (call_script, "script_add_notification_menu", "mnu_notification_lord_defects", ":troop_no", ":faction"),
-                (try_end),
-              (try_end),
             (else_try),
-              (neq, ":faction_leader", "trp_player"),
-              (call_script, "script_troop_get_relation_with_troop", ":troop_no", ":faction_leader"),
-              (le, reg0, -50), #was -75
-              (call_script, "script_indict_lord_for_treason", ":troop_no", ":faction"),
+                (neq, ":faction_leader", "trp_player"),
+                (call_script, "script_troop_get_relation_with_troop", ":troop_no", ":faction_leader"),
+                (le, reg0, -50), #was -75
+                (call_script, "script_indict_lord_for_treason", ":troop_no", ":faction"),
             (try_end),
 
 			#Update :faction if it has changed
@@ -4826,7 +4829,7 @@ simple_triggers = [
 ]),
 #NPC changes end
 
-(4,
+(24,
    ##diplomacy start+ Add support for promoted kingdom ladies
    ##OLD:
    #[(try_for_range, ":troop_no", active_npcs_begin, active_npcs_end),

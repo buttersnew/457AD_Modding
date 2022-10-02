@@ -50883,6 +50883,7 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
     (party_add_template, ":levies", ":troops"),
     
     (call_script, "script_change_player_relation_with_faction", "$g_encountered_party_faction", -50),
+    (call_script, "script_change_player_relation_with_troop", "$g_talk_troop",-50),
     ]],  
  
   [anyone|plyr, "minor_faction_king",[(faction_slot_eq, "$g_talk_troop_faction", slot_faction_player_tributary, 1),],"I demand a special tribute.", "minor_faction_king_tribute",[]],  

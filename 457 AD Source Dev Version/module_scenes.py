@@ -1557,7 +1557,7 @@ scenes = [
     [],[]),
   ("meeting_scene_plain",0,"ch_meet_plain_a", "bo_encounter_spot", (-40,-40),(40,40),-100,"0",
     [],[]),
-  ("meeting_scene_snow",0,"ch_meet_snow_a", "bo_encounter_spot", (-40,-40),(40,40),-100,"0",
+  ("meeting_scene_snow",0,"ch_meet_plain_a", "bo_encounter_spot", (-40,-40),(40,40),-100,"0",
     [],[]),
   ("meeting_scene_desert",0,"ch_meet_desert_a", "bo_encounter_spot", (-40,-40),(40,40),-100,"0",
     [],[]),
@@ -1565,7 +1565,7 @@ scenes = [
     [],[]),
   ("meeting_scene_plain_forest",0,"ch_meet_plain_a", "bo_encounter_spot", (-40,-40),(40,40),-100,"0",
     [],[]),
-  ("meeting_scene_snow_forest",0,"ch_meet_snow_a", "bo_encounter_spot", (-40,-40),(40,40),-100,"0",
+  ("meeting_scene_snow_forest",0,"ch_meet_plain_a", "bo_encounter_spot", (-40,-40),(40,40),-100,"0",
     [],[]),
   ("meeting_scene_desert_forest",0,"ch_meet_desert_a", "bo_encounter_spot", (-40,-40),(40,40),-100,"0",
     [],[]),
@@ -1617,6 +1617,9 @@ scenes = [
     [],[],"outer_terrain_plain"), 
   ("iberian_town",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000130000500000aa2a8000035b600002c1b00002af9", #shared by both vascones + gallacians for now
     [],[],"outer_terrain_forest"),
+  ("venedi_town",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000220000500000d23480000540b000076c900003f3f",
+    [],[],"outer_terrain_forest"),  
+
 
   ("ruins_1",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000300005000003ccf300007c9a00004ca90000122f",
    [],["bonus_chest_5"], "outer_terrain_plain"),

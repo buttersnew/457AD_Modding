@@ -18911,7 +18911,8 @@ presentations = [
               (assign, ":c", 1),
             (else_try), #angles
               (eq, "$current_town", "p_castle_68"),        
-              (eq, ":troop", "trp_angle_mercenary"),
+              (this_or_next|eq, ":troop", "trp_angle_mercenary"),
+              (eq, ":troop", "trp_angle_hero"),
               (assign, ":c", 1),
             (else_try), #burii - suebi
               (this_or_next|eq, "$current_town", "p_castle_53"),
@@ -19397,6 +19398,7 @@ presentations = [
               (eq, "$current_town", "p_vascones_village"),   
               (this_or_next|eq, ":troop", "trp_miles_romani"),
               (this_or_next|eq, ":troop", "trp_latro_vasconius"),
+              (this_or_next|eq, ":troop", "trp_forest_bandit_recruit"), #bagadua as well
               (eq, ":troop", "trp_eques_cantabri"),
               (assign, ":c", 1),
             (else_try), #gallaeci
@@ -19404,6 +19406,16 @@ presentations = [
               (this_or_next|eq, ":troop", "trp_miles_romani"),
               (this_or_next|eq, ":troop", "trp_pedes_burgarius"),
               (eq, ":troop", "trp_eques_cantabri"),
+              (assign, ":c", 1),
+            (else_try), #sporoi
+              (eq, "$current_town", "p_sporoi_village"),   
+              (eq, ":troop", "trp_slav_horsearcher"),
+              (assign, ":c", 1),
+            (else_try), #venedi
+              (eq, "$current_town", "p_venedi_village"),   
+              (this_or_next|eq, ":troop", "trp_aestii_skirmisher"),
+              (this_or_next|eq, ":troop", "trp_aestii_tribesman"),
+              (eq, ":troop", "trp_slav_horsearcher"),
               (assign, ":c", 1),
             (try_end),
             (eq, ":c", 1),
@@ -19581,9 +19593,7 @@ presentations = [
                 (eq, ":troop", "trp_mordvin_mounted_skirmisher"),
                 (assign, ":c", 1),       
               (else_try), #slavs
-                (this_or_next|eq, "$g_encountered_party", "p_sporoi_village"),
-                (eq, "$g_encountered_party", "p_venedi_village"),
-                (this_or_next|eq, ":troop", "trp_slav_horsearcher"),
+                (eq, "$g_encountered_party", "p_sporoi_village"),
                 (this_or_next|eq, ":troop", "trp_slav_archer"),
                 (this_or_next|eq, ":troop", "trp_slav_skirmisher"),
                 (this_or_next|eq, ":troop", "trp_slav_footman"),
@@ -19628,6 +19638,12 @@ presentations = [
                 (this_or_next|eq, ":troop", "trp_hibero_roman_rusticus"),
                 (eq, ":troop", "trp_hibero_roman_defensor"),
                 (assign, ":c", 1),
+              (else_try), #slavs
+                (eq, "$g_encountered_party", "p_venedi_village"),
+                (this_or_next|eq, ":troop", "trp_venedi_skirmisher"),
+                (this_or_next|eq, ":troop", "trp_venedi_warrior"),
+                (eq, ":troop", "trp_venedi_nobleman"),
+                (assign, ":c", 1),  
               (try_end),
             (try_end),
 

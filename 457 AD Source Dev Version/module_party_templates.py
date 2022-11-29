@@ -288,7 +288,7 @@ party_templates = [
   ("frisian_party","Frisii Warriors",icon_axeman|carries_goods(30)|pf_show_faction,0,fac_minor_frisians,bandit_personality,[(trp_frisian_freeman,20,40),(trp_frisian_companion,5,10),(trp_saxon_companion,5,10)]),
   ("vascones_party","Vascones Raiders",icon_axeman|carries_goods(30)|pf_show_faction,0,fac_minor_vascones,bandit_personality,[(trp_latro_vasconius,10,15),(trp_hibero_roman_venator,5,10),(trp_hibero_roman_rusticus,10,25),(trp_hibero_roman_defensor,5,10)]),
   ("gallaeci_party","Gallaeci Raiders",icon_axeman|carries_goods(30)|pf_show_faction,0,fac_minor_gallaeci,bandit_personality,[(trp_hibero_roman_venator,10,20),(trp_hibero_roman_rusticus,10,20),(trp_hibero_roman_defensor,5,10),(trp_eques_cantabri,5,10)]),
-  ("venedi_party","Venedi Warriors",icon_axeman|carries_goods(30)|pf_show_faction,0,fac_minor_venedi,bandit_personality,[(trp_slav_archer,5,14),(trp_slav_skirmisher,5,14),(trp_slav_footman,10,25),(trp_slav_horseman,3,5),(trp_slav_horsearcher,3,5)]), #slavs
+  ("venedi_party","Venedi Warriors",icon_axeman|carries_goods(30)|pf_show_faction,0,fac_minor_venedi,bandit_personality,[(trp_venedi_skirmisher,10,20),(trp_venedi_warrior,10,20),(trp_venedi_nobleman,5,10),(trp_slav_horsearcher,5,10)]),
 
 #Max temp 1 : 8-20
 #Max temp 2: 6-15 exclude bearer

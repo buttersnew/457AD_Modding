@@ -23553,9 +23553,6 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     (call_script, "script_change_player_relation_with_faction", "fac_kingdom_1", -8),
     (call_script, "script_change_player_relation_with_faction", "fac_kingdom_2", -5),
     (call_script, "script_change_player_relation_with_faction", "fac_roman_christians", -10),
-    (call_script, "script_change_player_relation_with_faction", "fac_arian_christians", 1),
-    (call_script, "script_change_player_relation_with_faction", "fac_roman_pagans", 2),
-    (call_script, "script_change_player_relation_with_faction", "fac_pagans", 1), 
     
     (troop_get_slot, ":player_religion", "trp_player", slot_troop_religion),
     (try_begin),
@@ -23699,9 +23696,6 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     (call_script, "script_change_player_relation_with_faction", "fac_kingdom_1", -5),
     (call_script, "script_change_player_relation_with_faction", "fac_kingdom_2", -5),
     (call_script, "script_change_player_relation_with_faction", "fac_roman_christians", -10),
-    (call_script, "script_change_player_relation_with_faction", "fac_arian_christians", 1),
-    (call_script, "script_change_player_relation_with_faction", "fac_roman_pagans", 2),
-    (call_script, "script_change_player_relation_with_faction", "fac_pagans", 1), 
     
     (troop_get_slot, ":player_religion", "trp_player", slot_troop_religion),
     (try_begin),
@@ -23816,11 +23810,10 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     (call_script, "script_change_player_party_morale", 10),
     (call_script, "script_change_player_honor", -5),       
     (call_script, "script_change_troop_renown", "trp_player", 5),
+    (call_script, "script_change_player_relation_with_faction", "fac_kingdom_3", -5), #visigoths - ostrogoths - vandals
+    (call_script, "script_change_player_relation_with_faction", "fac_kingdom_4", -5),
     (call_script, "script_change_player_relation_with_faction", "fac_kingdom_15", -5),
-    (call_script, "script_change_player_relation_with_faction", "fac_roman_christians", 1),
     (call_script, "script_change_player_relation_with_faction", "fac_arian_christians", -10),
-    (call_script, "script_change_player_relation_with_faction", "fac_roman_pagans", 2),
-    (call_script, "script_change_player_relation_with_faction", "fac_pagans", 1), 
     
     (troop_get_slot, ":player_religion", "trp_player", slot_troop_religion),
     (try_begin),
@@ -23948,10 +23941,6 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     (call_script, "script_change_player_honor", -5),       
     (call_script, "script_change_troop_renown", "trp_player", 5),
     (call_script, "script_change_player_relation_with_faction", "fac_coptic_christians", -10),
-    (call_script, "script_change_player_relation_with_faction", "fac_arian_christians", 1),
-    (call_script, "script_change_player_relation_with_faction", "fac_roman_christians", 1),
-    (call_script, "script_change_player_relation_with_faction", "fac_roman_pagans", 2),
-    (call_script, "script_change_player_relation_with_faction", "fac_pagans", 1), 
     
     (troop_get_slot, ":player_religion", "trp_player", slot_troop_religion),
     (try_begin),
@@ -24077,10 +24066,6 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     (call_script, "script_change_troop_renown", "trp_player", 5),
     (call_script, "script_change_player_relation_with_faction", "fac_kingdom_12", -5),
     (call_script, "script_change_player_relation_with_faction", "fac_kingdom_17", -5),
-    (call_script, "script_change_player_relation_with_faction", "fac_roman_christians", 1),
-    (call_script, "script_change_player_relation_with_faction", "fac_coptic_christians", 1),
-    (call_script, "script_change_player_relation_with_faction", "fac_arian_christians", 1),
-    (call_script, "script_change_player_relation_with_faction", "fac_roman_pagans", 1),
     (call_script, "script_change_player_relation_with_faction", "fac_pagans", -10), 
 
     (troop_get_slot, ":player_religion", "trp_player", slot_troop_religion),
@@ -25237,10 +25222,10 @@ goods, and books will never be sold. ^^You can change some settings here freely.
            (call_script, "script_party_count_fit_for_battle", "p_main_party"),
 
            (set_visitors,2,"trp_venedi_chief", 1), #sallied up front
-           (set_visitors,2,"trp_slav_footman", 60), #sallied up front
-           (set_visitors,3,"trp_slav_skirmisher", 10), #center of village
+           (set_visitors,2,"trp_venedi_warrior", 60), #sallied up front
+           (set_visitors,3,"trp_venedi_skirmisher", 10), #center of village
 
-           (set_visitors,4,"trp_slav_skirmisher", 20), #skirmishers, also up front
+           (set_visitors,4,"trp_venedi_skirmisher", 20), #skirmishers, also up front
           
           (jump_to_scene, "scn_venedi_village"),
           (set_jump_mission,"mt_venedi_battle"),

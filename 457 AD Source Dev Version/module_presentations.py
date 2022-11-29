@@ -18859,7 +18859,7 @@ presentations = [
             (else_try), #AOR cantaberian
               (this_or_next|eq, "$current_town", "p_castle_33"), 
               (eq, "$current_town", "p_castle_60"),       
-              (eq, ":troop", "trp_basque_skirmisher"),
+              (eq, ":troop", "trp_eques_cantabri"),
               (assign, ":c", 1),
             (else_try), #AOR crimean
               (this_or_next|eq, "$current_town", "p_castle_76"), 
@@ -18918,12 +18918,23 @@ presentations = [
               (this_or_next|eq, "$current_town", "p_castle_60"),
               (eq, "$current_town", "p_town_23"),     
               (this_or_next|eq, ":troop", "trp_burii_retainer"),  
-              (this_or_next|eq, ":troop", "trp_quadi_spearman"),    
-              (eq, ":troop", "trp_gallaecian_rebel"),
+              (this_or_next|eq, ":troop", "trp_quadi_spearman"),  
+              (this_or_next|eq, ":troop", "trp_hibero_roman_venator"),  
+              (eq, ":troop", "trp_hibero_roman_rusticus"),
               (assign, ":c", 1),
             (else_try), #albania stronk
-              (eq, "$current_town", "p_castle_36"),        
+              (this_or_next|eq, "$current_town", "p_castle_36"),      
+              (this_or_next|eq, "$current_town", "p_castle_87"),    
+              (eq, "$current_town", "p_castle_88"),     
+              (this_or_next|eq, ":troop", "trp_aghwan_warrior"), 
+              (this_or_next|eq, ":troop", "trp_aghwan_nobleman"), 
+              (this_or_next|eq, ":troop", "trp_aghwan_archer"), 
               (eq, ":troop", "trp_albanian_cavalry"),
+              (assign, ":c", 1),
+            (else_try), #meseni
+              (eq, "$current_town", "p_castle_89"),      
+              (this_or_next|eq, ":troop", "trp_meseni_spearman"), 
+              (eq, ":troop", "trp_meseni_archer"),
               (assign, ":c", 1),
             (else_try), #parizi
               (eq, "$current_town", "p_castle_10"),        
@@ -19382,6 +19393,18 @@ presentations = [
               (eq, "$current_town", "p_dani_village"),   
               (eq, ":troop", "trp_dane_vanguard"),
               (assign, ":c", 1),
+            (else_try), #vascones
+              (eq, "$current_town", "p_vascones_village"),   
+              (this_or_next|eq, ":troop", "trp_miles_romani"),
+              (this_or_next|eq, ":troop", "trp_latro_vasconius"),
+              (eq, ":troop", "trp_eques_cantabri"),
+              (assign, ":c", 1),
+            (else_try), #gallaeci
+              (eq, "$current_town", "p_gallaeci_village"),   
+              (this_or_next|eq, ":troop", "trp_miles_romani"),
+              (this_or_next|eq, ":troop", "trp_pedes_burgarius"),
+              (eq, ":troop", "trp_eques_cantabri"),
+              (assign, ":c", 1),
             (try_end),
             (eq, ":c", 1),
 
@@ -19558,7 +19581,8 @@ presentations = [
                 (eq, ":troop", "trp_mordvin_mounted_skirmisher"),
                 (assign, ":c", 1),       
               (else_try), #slavs
-                (eq, "$g_encountered_party", "p_sporoi_village"),
+                (this_or_next|eq, "$g_encountered_party", "p_sporoi_village"),
+                (eq, "$g_encountered_party", "p_venedi_village"),
                 (this_or_next|eq, ":troop", "trp_slav_horsearcher"),
                 (this_or_next|eq, ":troop", "trp_slav_archer"),
                 (this_or_next|eq, ":troop", "trp_slav_skirmisher"),
@@ -19597,6 +19621,13 @@ presentations = [
                 (this_or_next|eq, ":troop", "trp_frisian_freeman"),
                 (eq, ":troop", "trp_frisian_companion"),
                 (assign, ":c", 1), 
+              (else_try), #hibero-romans
+                (this_or_next|eq, "$g_encountered_party", "p_vascones_village"),
+                (eq, "$g_encountered_party", "p_gallaeci_village"),
+                (this_or_next|eq, ":troop", "trp_hibero_roman_venator"),
+                (this_or_next|eq, ":troop", "trp_hibero_roman_rusticus"),
+                (eq, ":troop", "trp_hibero_roman_defensor"),
+                (assign, ":c", 1),
               (try_end),
             (try_end),
 

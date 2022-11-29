@@ -37,12 +37,13 @@ from compiler import *
 
 #SB : add new disguise sets, make sure none of them have high difficulty
 # the new flags now also have af_override_everything, so include footwear
-pilgrim_disguise = [itm_brown_hood1,itm_linen_shirt_10,itm_spear,itm_throwing_daggers,itm_sword_medieval_d_long,itm_wrapping_boots]
-farmer_disguise = [itm_woolen_cap_2, itm_coarse_tunic, itm_cleaver, itm_battle_fork, itm_stones, itm_nomad_boots]
-hunter_disguise = [itm_hunting_bow,itm_barbed_arrows, itm_brown_hood1, itm_leather_gloves, itm_linen_shirt_10, itm_long_seax_4, itm_nomad_boots]
-merchant_disguise = [itm_roman_lorum_fasciari_3,itm_roman_military_tunic_4,itm_pannonian_cap_6,itm_sword_khergit_2]
-guard_disguise = [itm_wrapping_boots,itm_mail_shirt,itm_narona_bandhelm_mail,itm_tab_shield_round_d,itm_sword_medieval_a,itm_war_spear]
-bard_disguise = [itm_wrapping_boots,itm_lyre,itm_linen_tunic,itm_winged_mace]
+pilgrim_disguise = [itm_roman_civilian_hood_closed_3,itm_roman_peasant_tunic_10,itm_spear,itm_throwing_daggers,itm_sword_medieval_d_long,itm_wrapping_boots]
+farmer_disguise = [itm_woolen_cap_2, itm_roman_peasant_tunic_1, itm_cleaver, itm_battle_fork, itm_stones, itm_wrapping_boots]
+hunter_disguise = [itm_hunting_bow,itm_barbed_arrows, itm_roman_civilian_hood_closed_2, itm_leather_gloves, itm_roman_peasant_tunic_10, itm_long_seax_4, itm_wrapping_boots]
+merchant_disguise = [itm_deurne_campagi_3,itm_roman_peasant_tunic_5,itm_pannonian_cap_6,itm_sword_khergit_2]
+guard_disguise = [itm_deurne_campagi_1,itm_kemathen_mail_15,itm_narona_bandhelm_mail,itm_tab_shield_round_d,itm_sword_medieval_a,itm_war_spear]
+bard_disguise = [itm_deurne_campagi_2,itm_lyre,itm_coptic_tunic_4,itm_winged_mace]
+
 #note that these are usually male clothing, especially farmer_disguise, need some female ones as well
 
 af_castle_lord = af_override_horse | af_override_weapons| af_require_civilian
@@ -2004,7 +2005,7 @@ jacobhinds_ranged_melee_morale_penalty = (
       (this_or_next|neq, ":troop_id", "trp_miles_sagittarii_venatores"),
       (this_or_next|neq, ":troop_id", "trp_caucasian_archer"),
       (this_or_next|neq, ":troop_id", "trp_nubian_archer"),
-      (this_or_next|neq, ":troop_id", "trp_basque_skirmisher"),
+      (this_or_next|neq, ":troop_id", "trp_latro_vasconius"),
       (neq, ":troop_id", "trp_caucasian_alan_skirmisher"),
 
       (agent_get_simple_behavior, ":behaviour", ":agent_no"),
@@ -21000,7 +21001,7 @@ mission_templates = [
     (call_script, "script_change_player_honor", 15),
     (call_script, "script_change_troop_renown", "trp_player", 25),
     (call_script, "script_troop_add_gold", "trp_player", 625),
-        (troop_add_item, "trp_player","itm_mid_generic_mail_26",0),
+        (troop_add_item, "trp_player","itm_kemathen_mail_12",0),
         (troop_add_item, "trp_player","itm_ranja", 0),
        (mission_disable_talk),
                         (assign,"$g_historia2",1),                        

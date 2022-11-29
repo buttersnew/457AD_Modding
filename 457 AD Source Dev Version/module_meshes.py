@@ -72,6 +72,7 @@ meshes = [
   ("pic_kingdom25", 0, "pic_nubian_arms", 0, 0, 0, 0, 0, 0, 1, 1, 1),
   ("pic_kingdom26", 0, "pic_nubian_arms", 0, 0, 0, 0, 0, 0, 1, 1, 1),
   ("pic_kingdom27", 0, "pic_georgian_arms", 0, 0, 0, 0, 0, 0, 1, 1, 1),
+  ("pic_kingdom28", 0, "pic_georgian_arms", 0, 0, 0, 0, 0, 0, 1, 1, 1),
 
   ("pic_castle1", 0, "pic_castle1", 0, 0, 0, 0, 0, 0, 1, 1, 1),
   ("pic_castledes", 0, "pic_castledes", 0, 0, 0, 0, 0, 0, 1, 1, 1),

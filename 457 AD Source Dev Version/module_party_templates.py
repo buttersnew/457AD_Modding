@@ -65,7 +65,7 @@ party_templates = [
   ("bagaudae","Bagaudae Army",icon_germanic_army|carries_goods(2),0,fac_forest_bandits,bandit_personality,[(trp_forest_bandit_recruit,30,75),(trp_forest_bandit,20,100),(trp_bagaudae_footman,15,55)]),
   ("pirates","Piratae",icon_axeman|carries_goods(2),0,fac_outlaws,bandit_personality,[(trp_pirate,9,60)]),
   ("bagaudae_army_event","Bagaudae Army",icon_germanic_army|carries_goods(5),0,fac_forest_bandits,bandit_personality,[(trp_forest_bandit_recruit,50,155),(trp_forest_bandit,45,125),(trp_bagaudae_footman,35,80)]),
-  ("gallaecian_rebels","Gallaecian Rebels",icon_peasant|carries_goods(8),0,fac_gallaecian_rebels,soldier_personality,[(trp_gallaecian_rebel,20,40),(trp_gallaecian_militia,15,25),(trp_gallaecian_guard,10,20)]),
+  ("gallaecian_rebels","Gallaecian Rebels",icon_peasant|carries_goods(8),0,fac_minor_gallaeci,soldier_personality,[(trp_hibero_roman_venator,20,40),(trp_hibero_roman_rusticus,15,25),(trp_hibero_roman_defensor,10,20)]),
   ("foederati_rebels","Foederati Rebels",icon_khergit_horseman_b|carries_goods(2),0,fac_deserters,bandit_personality,[(trp_iuvenis_foederatus,20,40),(trp_hunnic_horse_archer,20,30),(trp_miles_foederatus,10,20)]), #mix of huns, foederati troops - some time before majorians major campaigns, unruly federates + huns ravaged the countryside
 
   #SB : fix icon
@@ -197,9 +197,9 @@ party_templates = [
   ("kingdom_empire_reinforcements_c", "{!}Roman Reinforcements", 0, 0, fac_commoners, 0, [(trp_pedes_psuedo,2,6),(trp_eques_promoti,1,3),(trp_centenarius,1,1)]),
 
   #minor cultures - could potentially be adopted by the player?
-  ("culture_minor_1_reinforcements_a", "{!}Cantabrian Reinforcements", 0, 0, fac_commoners, 0, [(trp_basque_skirmisher,8,20)]),
-  ("culture_minor_1_reinforcements_b", "{!}Cantabrian Reinforcements", 0, 0, fac_commoners, 0, [(trp_basque_footman,6,15),(trp_imperial_signifer,1,1)]),
-  ("culture_minor_1_reinforcements_c", "{!}Cantabrian Reinforcements", 0, 0, fac_commoners, 0, [(trp_basque_horseman,1,5),(trp_bagaudae_footman,2,3),(trp_basque_footman,1,2)]),
+  ("culture_minor_1_reinforcements_a", "{!}Cantabrian Reinforcements", 0, 0, fac_commoners, 0, [(trp_latro_vasconius,8,20)]),
+  ("culture_minor_1_reinforcements_b", "{!}Cantabrian Reinforcements", 0, 0, fac_commoners, 0, [(trp_hibero_roman_rusticus,6,15),(trp_imperial_signifer,1,1)]),
+  ("culture_minor_1_reinforcements_c", "{!}Cantabrian Reinforcements", 0, 0, fac_commoners, 0, [(trp_eques_cantabri,1,5),(trp_bagaudae_footman,2,3),(trp_hibero_roman_defensor,1,2)]),
 
   ("culture_minor_2_reinforcements_a", "{!}Slavic Reinforcements", 0, 0, fac_commoners, 0, [(trp_slav_skirmisher,4,10),(trp_slav_archer, 4,10)]),
   ("culture_minor_2_reinforcements_b", "{!}Slavic Reinforcements", 0, 0, fac_commoners, 0, [(trp_slav_footman,6,15),(trp_standard_bearer,1,1)]),
@@ -269,6 +269,8 @@ party_templates = [
 
   ("ostrogothic_army","Ostrogothic Army",icon_germanic_army|carries_goods(20)|pf_show_faction,0,fac_kingdom_4,soldier_personality,[(trp_gothic_freeman,40,75),(trp_gothic_skirmisher,10,30),(trp_gothic_mounted_skirmisher,10,20),(trp_gothic_horseman,5,10),(trp_gothic_companion,1,1)]), #balance out so that ostrogoths do not get completely destroyed
 
+  ("arran_army","Arran Rebels",icon_axeman|carries_goods(20)|pf_show_faction,0,fac_kingdom_28,soldier_personality,[(trp_aghwan_warrior,60,100),(trp_aghwan_archer,20,40),(trp_aghwan_nobleman,10,20),(trp_albanian_cavalry,1,5)]),
+
   #minor factions 30 - 60
   ("aestii_party","Aestii Warriors",icon_axeman|carries_goods(30)|pf_show_faction,0,fac_minor_aestii,bandit_personality,[(trp_aestii_skirmisher,10,25),(trp_aestii_tribesman,15,25),(trp_aestii_companion,5,10)]), #for patrols
   ("aestii_party_1","Aestii Warriors",icon_axeman|carries_goods(30)|pf_show_faction,0,fac_minor_aestii,bandit_personality,[(trp_aestii_skirmisher,10,25),(trp_aestii_tribesman,15,25),(trp_suiones_guard,5,10),(trp_aestii_companion,5,10)]), #before quest is completed
@@ -284,6 +286,9 @@ party_templates = [
   ("augundzi_party","Augundzi Warriors",icon_axeman|carries_goods(30)|pf_show_faction,0,fac_minor_augundzi,bandit_personality,[(trp_scandinavian_freeman,5,15),(trp_saami_hunter,5,15),(trp_scandinavian_retainer,10,20),(trp_scandinavian_comes,5,10)]),
   ("vidivarii_party","Vidivarii Warriors",icon_axeman|carries_goods(30)|pf_show_faction,0,fac_minor_vidivarii,bandit_personality,[(trp_aestii_skirmisher,10,25),(trp_gothic_freeman,15,25),(trp_scandinavian_comes,5,10)]),
   ("frisian_party","Frisii Warriors",icon_axeman|carries_goods(30)|pf_show_faction,0,fac_minor_frisians,bandit_personality,[(trp_frisian_freeman,20,40),(trp_frisian_companion,5,10),(trp_saxon_companion,5,10)]),
+  ("vascones_party","Vascones Raiders",icon_axeman|carries_goods(30)|pf_show_faction,0,fac_minor_vascones,bandit_personality,[(trp_latro_vasconius,10,15),(trp_hibero_roman_venator,5,10),(trp_hibero_roman_rusticus,10,25),(trp_hibero_roman_defensor,5,10)]),
+  ("gallaeci_party","Gallaeci Raiders",icon_axeman|carries_goods(30)|pf_show_faction,0,fac_minor_gallaeci,bandit_personality,[(trp_hibero_roman_venator,10,20),(trp_hibero_roman_rusticus,10,20),(trp_hibero_roman_defensor,5,10),(trp_eques_cantabri,5,10)]),
+  ("venedi_party","Venedi Warriors",icon_axeman|carries_goods(30)|pf_show_faction,0,fac_minor_venedi,bandit_personality,[(trp_slav_archer,5,14),(trp_slav_skirmisher,5,14),(trp_slav_footman,10,25),(trp_slav_horseman,3,5),(trp_slav_horsearcher,3,5)]), #slavs
 
 #Max temp 1 : 8-20
 #Max temp 2: 6-15 exclude bearer
@@ -315,17 +320,13 @@ party_templates = [
   ("knight_2_11_reinforcements_b", "{!}Theoderic Strabo Reinforcements", 0, 0, fac_commoners, 0, [(trp_moesian_goth,3,8),(trp_miles_foederatus,2,6),(trp_imperial_signifer,1,1)]),
   ("knight_2_11_reinforcements_c", "{!}Theoderic Strabo Reinforcements", 0, 0, fac_commoners, 0, [(trp_moesian_goth,2,5),(trp_optimas_foederatus,1,3),(trp_eques_alae,1,3)]),
   #cantabrians
-  ("knight_3_4_reinforcements_a", "{!}cantabrian_reinforcements_a", 0, 0, fac_commoners, 0, [(trp_basque_skirmisher,3,6),(trp_forest_bandit_recruit,3,9),(trp_gothic_freeman,3,5)]), #mix of roman + frankish infantry, skirmishers
-  ("knight_3_4_reinforcements_b", "{!}cantabrian_reinforcements_b", 0, 0, fac_commoners, 0, [(trp_forest_bandit,2,5),(trp_basque_skirmisher,2,5),(trp_iuvenis_foederatus,2,5),(trp_standard_bearer,1,1),(trp_gothic_mounted_skirmisher,1,3)]), #mix of roman infantry, archers, frankish infantry
-  ("knight_3_4_reinforcements_c", "{!}cantabrian_reinforcements_c", 0, 0, fac_commoners, 0, [(trp_basque_footman,1,5),(trp_bagaudae_footman,2,3),(trp_basque_horseman,1,2)]),
+  ("knight_3_4_reinforcements_a", "{!}cantabrian_reinforcements_a", 0, 0, fac_commoners, 0, [(trp_latro_vasconius,3,6),(trp_forest_bandit_recruit,3,9),(trp_gothic_freeman,3,5)]), #mix of roman + frankish infantry, skirmishers
+  ("knight_3_4_reinforcements_b", "{!}cantabrian_reinforcements_b", 0, 0, fac_commoners, 0, [(trp_forest_bandit,2,5),(trp_hibero_roman_venator,2,5),(trp_hibero_roman_rusticus,2,5),(trp_standard_bearer,1,1),(trp_gothic_mounted_skirmisher,1,3)]), #mix of roman infantry, archers, frankish infantry
+  ("knight_3_4_reinforcements_c", "{!}cantabrian_reinforcements_c", 0, 0, fac_commoners, 0, [(trp_hibero_roman_defensor,1,5),(trp_bagaudae_footman,2,3),(trp_eques_cantabri,1,2)]),
   #shah
   ("kingdom_6_lord_reinforcements_a", "{!}shah Reinforcements", 0, 0, fac_commoners, 0, [(trp_kurdish_javelinman,3,8),(trp_daylamite_hillman,5,12)]), 
   ("kingdom_6_lord_reinforcements_b", "{!}shah Reinforcements", 0, 0, fac_commoners, 0, [(trp_sassanid_footman,2,6),(trp_armenian_bowman,2,4),(trp_chionite_horse_archer,1,3),(trp_gilan_horseman,1,3),(trp_sassanid_standard_bearer,1,1)]),
   ("kingdom_6_lord_reinforcements_c", "{!}shah Reinforcements", 0, 0, fac_commoners, 0, [(trp_sassanid_guard_spearman,1,2),(trp_albanian_cavalry,1,3),(trp_sassanid_bodyguard,1,3),(trp_sassanid_cavalry,1,2),(trp_sassanid_officer,1,1)]),
-  #albania stronk
-  ("knight_6_5_reinforcements_a", "{!}Caucasian Albania Reinforcements", 0, 0, fac_commoners, 0, [(trp_caucasian_skirmisher,3,8),(trp_caucasian_levy,3,8),(trp_lekh_warrior,2,4)]), #caucasians, lekhs, albanians
-  ("knight_6_5_reinforcements_b", "{!}Caucasian Albania Reinforcements", 0, 0, fac_commoners, 0, [(trp_sarir_horseman,2,6),(trp_caucasian_archer,2,4),(trp_lekh_retainer,2,6),(trp_caucasian_standard_bearer,1,1)]),
-  ("knight_6_5_reinforcements_c", "{!}Caucasian Albania Reinforcements", 0, 0, fac_commoners, 0, [(trp_albanian_cavalry,2,4),(trp_caucasian_nobleman,1,3),(trp_lekh_horseman,1,3),(trp_sassanid_officer,1,1)]),
   #lahkmids
   ("knight_6_6_reinforcements_a", "{!}lahkmid_reinforcements_a", 0, 0, fac_commoners, 0, [(trp_arab_skirmisher,5,10),(trp_arab_tribesman,5,10)]), #Mix of mainly arab troops
   ("knight_6_6_reinforcements_b", "{!}lahkmid_reinforcements_b", 0, 0, fac_commoners, 0, [(trp_arab_tribesman,5,11),(trp_arab_light_cavalry,2,4),(trp_sassanid_standard_bearer,1,1),(trp_sassanid_cavalry,1,3)]),
@@ -418,9 +419,9 @@ party_templates = [
   ("kingdom_amali_king_reinforcements_c", "{!}ostrogothic king Reinforcements", 0, 0, fac_commoners, 0, [(trp_gothic_footman,1,3),(trp_gothic_horseman,1,3),(trp_boisci_lancer,1,3),(trp_ostrogoth_guard,2,3)]),
   ("kingdom_balthi_king_reinforcements_c", "{!}visigoth king Reinforcements", 0, 0, fac_commoners, 0, [(trp_gothic_footman,1,3),(trp_gothic_horseman,1,3),(trp_roxolani_horseman,1,3),(trp_visigoth_guard,2,3)]),
 
-  ("kingdom_gallaeci_reinforcements_a", "{!}Gallaeci Reinforcements", 0, 0, fac_commoners, 0, [(trp_gallaecian_rebel,4,10),(trp_gallaecian_militia,4,10)]), #mix of gallaeci, germans, romans + limited bagadua
-  ("kingdom_gallaeci_reinforcements_b", "{!}Gallaeci Reinforcements", 0, 0, fac_commoners, 0, [(trp_western_germanic_freeman,2,6),(trp_western_germanic_bowman,2,5),(trp_sagittarius_limitanei,2,4),(trp_standard_bearer,1,1)]),
-  ("kingdom_gallaeci_reinforcements_c", "{!}Gallaeci Reinforcements", 0, 0, fac_commoners, 0, [(trp_gallaecian_guard,3,7),(trp_bucellarius,1,3)]),
+  ("kingdom_gallaeci_reinforcements_a", "{!}Gallaeci Reinforcements", 0, 0, fac_commoners, 0, [(trp_hibero_roman_venator,4,10),(trp_hibero_roman_rusticus,4,10)]), #mix of gallaeci, germans, romans + limited bagadua
+  ("kingdom_gallaeci_reinforcements_b", "{!}Gallaeci Reinforcements", 0, 0, fac_commoners, 0, [(trp_miles_romani,3,9),(trp_sagittarius_limitanei,3,6),(trp_standard_bearer,1,1)]),
+  ("kingdom_gallaeci_reinforcements_c", "{!}Gallaeci Reinforcements", 0, 0, fac_commoners, 0, [(trp_hibero_roman_defensor,3,7),(trp_bucellarius,1,3)]),
 
   #caucasian factions
   ("kingdom_kartli_reinforcements_a", "{!}Kartli Reinforcements", 0, 0, fac_commoners, 0, [(trp_caucasian_skirmisher,4,10),(trp_caucasian_levy,4,10)]),
@@ -430,6 +431,10 @@ party_templates = [
   ("kingdom_lazika_reinforcements_a", "{!}Lazika Reinforcements", 0, 0, fac_commoners, 0, [(trp_caucasian_skirmisher,4,10),(trp_caucasian_levy,4,10)]),
   ("kingdom_lazika_reinforcements_b", "{!}Lazika Reinforcements", 0, 0, fac_commoners, 0, [(trp_caucasian_levy,2,5),(trp_tzanni_footman,2,5),(trp_suanian_archer,1,3),(trp_caucasian_archer,1,2),(trp_caucasian_standard_bearer,1,1)]),
   ("kingdom_lazika_reinforcements_c", "{!}Lazika Reinforcements", 0, 0, fac_commoners, 0, [(trp_caucasian_footman,1,3),(trp_caucasian_nobleman,3,7)]),
+
+  ("kingdom_arran_reinforcements_a", "{!}Caucasian Albania Reinforcements", 0, 0, fac_commoners, 0, [(trp_aghwan_warrior,6,16),(trp_lekh_warrior,2,4)]), #caucasians, lekhs, aghwan
+  ("kingdom_arran_reinforcements_b", "{!}Caucasian Albania Reinforcements", 0, 0, fac_commoners, 0, [(trp_sarir_horseman,2,6),(trp_aghwan_archer,2,4),(trp_lekh_retainer,2,6),(trp_caucasian_standard_bearer,1,1)]),
+  ("kingdom_arran_reinforcements_c", "{!}Caucasian Albania Reinforcements", 0, 0, fac_commoners, 0, [(trp_albanian_cavalry,2,4),(trp_aghwan_nobleman,1,3),(trp_lekh_horseman,1,3),(trp_sassanid_officer,1,1)]),
 
 #Max temp 1 : 10-22 - mainly limitanei + foederati, p. com
 #Max temp 2: 8-18 - unique legions of com. aux palatina if needed

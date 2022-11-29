@@ -965,6 +965,14 @@ triggers = [
   (call_script, "script_diplomacy_start_war_between_kingdoms", "fac_kingdom_1", "fac_kingdom_3", 0), #declares war
 ]),
 
+(1800,0,ti_once,[(faction_slot_eq, "fac_kingdom_6", slot_faction_state, sfs_active),(neq,"$g_arran_revolt",1)],[  #checks if the Sassanids are still around - around 75 (1800 hours) days
+    (store_faction_of_party, ":fac", "p_castle_36"),
+    (neq, ":fac", "fac_kingdom_28"),
+    (party_get_slot, ":lord", "p_castle_36", slot_town_lord),
+    (ge, ":lord", 1), 
+    (call_script, "script_add_notification_menu", "mnu_event_arran_revolt",0,0),
+   ]),
+
 
 (24, 0, ti_once, [  (store_character_level, ":level", "trp_player"),
   (ge, ":level", 10),
@@ -1058,7 +1066,7 @@ triggers = [
      (try_end),
 
      (dialog_box, "@A messenger approaches your warband, bringing news of war! The Ostrogoths have declared war on their former allies, the Rugii, Heruli, Scirii, and the danubian Suebi, with an attempt to conquer all of Illyria!", "@A messenger approaches your warband"),
-     (assign, "$g_battle_of_bolia", 1)
+     (assign, "$g_battle_of_bolia", 1),
    ]),
 
 (24,0,ti_once,[],[ #adds merchant to tavern, zamb man

@@ -2105,6 +2105,9 @@ num_tauri_spawn_points = 1
 num_augundzi_spawn_points = 1
 num_vidivarii_spawn_points = 1
 num_frisian_spawn_points = 1
+num_vascones_spawn_points = 1
+num_gallaeci_spawn_points = 1
+num_venedi_spawn_points = 1
 
 peak_prisoner_trains = 4
 peak_kingdom_caravans = 12

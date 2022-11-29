@@ -1353,7 +1353,7 @@ game_menus = [
        # (troop_add_item, "trp_player","itm_wooden_shield",imod_battered),
        (store_random_in_range, ":shield_item", "itm_tab_shield_round_a", "itm_tab_shield_round_c"),
        (troop_add_item, "trp_player",":shield_item",imod_heavy),
-       (store_random_in_range, ":armor_item", "itm_generic_subarmalis_1", "itm_generic_subarmalis_9"),
+       (store_random_in_range, ":armor_item", "itm_roman_subarmalis_1", "itm_roman_subarmalis_7"),
        (store_random_in_range, ":armor_imod", imod_tattered, imod_reinforced),
        (troop_add_item, "trp_player",":armor_item",":armor_imod"),
        (troop_add_item, "trp_player", "itm_ankle_boots", 0),
@@ -1383,7 +1383,7 @@ game_menus = [
        #store crap gear here, this depends on Native's item ordering
        (store_random_in_range, ":helmet_item", "itm_leather_warrior_cap", "itm_intercisa_helmet_1"),
        (store_random_in_range, ":weapon_item", "itm_seax_1", "itm_long_seax_3"),
-       (store_random_in_range, ":armor_item", "itm_generic_subarmalis_1", "itm_generic_subarmalis_9"),
+       (store_random_in_range, ":armor_item", "itm_roman_subarmalis_1", "itm_roman_subarmalis_7"),
        (store_random_in_range, ":boots_item", "itm_carbatinae_1", "itm_ankle_boots"),
        (store_random_in_range, ":helmet_imod", imod_tattered, imod_reinforced),
        (store_random_in_range, ":weapon_imod", imod_crude, imod_deadly),
@@ -14043,8 +14043,7 @@ TOTAL:  {reg5}"),
               (eq, ":rand", 0), 
                   (try_begin), #romans to start
                     (this_or_next|party_slot_eq, "$current_town", slot_center_culture, "fac_culture_3"),
-                    (this_or_next|party_slot_eq, "$current_town", slot_center_culture, "fac_culture_empire"),
-                    (party_slot_eq, "$current_town", slot_center_culture, "fac_culture_11"),
+                    (party_slot_eq, "$current_town", slot_center_culture, "fac_culture_empire"),
                     (troop_add_item, "trp_player", "itm_nisean_roman_1", 0),
                     (display_message, "@You have been gifted a horse for your victory.", 0xFF0000),
                   (else_try), #huns, alans
@@ -14052,8 +14051,34 @@ TOTAL:  {reg5}"),
                     (party_slot_eq, "$current_town", slot_center_culture, "fac_culture_16"),
                     (troop_add_item, "trp_player", "itm_hun_rich_horse_nobard_2", 0),
                     (display_message, "@You have been gifted a horse for your victory.", 0xFF0000),
-                  (else_try),
-                    (troop_add_item, "trp_player", "itm_warhorse", 0), #Quality horse       
+                  (else_try), #caucasians, sassanids
+                    (this_or_next|party_slot_eq, "$current_town", slot_center_culture, "fac_culture_6"),
+                    (party_slot_eq, "$current_town", slot_center_culture, "fac_culture_8"),
+                    (troop_add_item, "trp_player", "itm_niseansas_2", 0),
+                    (display_message, "@You have been gifted a horse for your victory.", 0xFF0000),
+                  (else_try), #nubians
+                    (party_slot_eq, "$current_town", slot_center_culture, "fac_culture_15"),
+                    (troop_add_item, "trp_player", "itm_dongola_bard_5", 0),
+                    (display_message, "@You have been gifted a horse for your victory.", 0xFF0000),
+                  (else_try), #mauri
+                    (party_slot_eq, "$current_town", slot_center_culture, "fac_culture_11"),
+                    (troop_add_item, "trp_player", "itm_barb_cham_1", 0),
+                    (display_message, "@You have been gifted a horse for your victory.", 0xFF0000),
+                  (else_try), #goths + eastern germs
+                    (this_or_next|party_slot_eq, "$current_town", slot_center_culture, "fac_culture_1"),
+                    (party_slot_eq, "$current_town", slot_center_culture, "fac_culture_2"), 
+                    (troop_add_item, "trp_player", "itm_east_germ_warhorse_1", 0), #Quality horse       
+                    (display_message, "@You have been gifted a horse for your victory.", 0xFF0000),
+                  (else_try), #western germs
+                    (party_slot_eq, "$current_town", slot_center_culture, "fac_culture_1"), 
+                    (troop_add_item, "trp_player", "itm_westger_warhorse_2", 0), #Quality horse       
+                    (display_message, "@You have been gifted a horse for your victory.", 0xFF0000),
+                  (else_try), #northern germs
+                    (party_slot_eq, "$current_town", slot_center_culture, "fac_culture_4"), 
+                    (troop_add_item, "trp_player", "itm_westger_warhorse_2", 0), #Quality horse       
+                    (display_message, "@You have been gifted a horse for your victory.", 0xFF0000),
+                  (else_try), #others
+                    (troop_add_item, "trp_player", "itm_camargue_roman_3", 0), #Quality horse       
                     (display_message, "@You have been gifted a horse for your victory.", 0xFF0000),
                   (try_end),
             (else_try),
@@ -14067,32 +14092,32 @@ TOTAL:  {reg5}"),
                     (this_or_next|party_slot_eq, "$current_town", slot_center_culture, "fac_culture_2"),
                     (this_or_next|party_slot_eq, "$current_town", slot_center_culture, "fac_culture_4"),
                     (party_slot_eq, "$current_town", slot_center_culture, "fac_culture_7"),
-                    (troop_add_item, "trp_player", "itm_mid_generic_mail_27", 0),#mail
+                    (troop_add_item, "trp_player", "itm_kemathen_mail_15", 0),#mail
                     (display_message, "@You have been gifted a coat of mail for your victory.", 0xFF0000),
                   (else_try), #roman
                     (this_or_next|party_slot_eq, "$current_town", slot_center_culture, "fac_culture_3"),
                     (this_or_next|party_slot_eq, "$current_town", slot_center_culture, "fac_culture_empire"),
                     (party_slot_eq, "$current_town", slot_center_culture, "fac_culture_11"),
-                    (troop_add_item, "trp_player", "itm_mid_roman_mail_3", 0),#mail
+                    (troop_add_item, "trp_player", "itm_kemathen_mail_1", 0),#mail
                     (display_message, "@You have been gifted a coat of mail for your victory.", 0xFF0000),
                   (else_try), #sassanid - caucasian
                     (this_or_next|party_slot_eq, "$current_town", slot_center_culture, "fac_culture_6"),
                     (party_slot_eq, "$current_town", slot_center_culture, "fac_culture_8"),
-                    (troop_add_item, "trp_player", "itm_sassanid_mail_shirt_2", 0),#mail
+                    (troop_add_item, "trp_player", "itm_sassanid_mail_2", 0),#mail
                     (display_message, "@You have been gifted a coat of mail for your victory.", 0xFF0000),
                   (else_try), #hunnic - alan
                     (this_or_next|party_slot_eq, "$current_town", slot_center_culture, "fac_culture_12"),
                     (party_slot_eq, "$current_town", slot_center_culture, "fac_culture_16"),
-                    (troop_add_item, "trp_player", "itm_hunnic_kaftan_lamellar_2", 0),#lamellar
+                    (troop_add_item, "trp_player", "itm_kaftan_lamellar_1", 0),#lamellar
                     (display_message, "@You have been gifted a lamellar vest for your victory.", 0xFF0000),
                   (else_try), #nubian
                     (party_slot_eq, "$current_town", slot_center_culture, "fac_culture_15"),
-                    (troop_add_item, "trp_player", "itm_nubian_scale_armor_1", 0),#scale
-                    (display_message, "@You have been gifted a scale shirt for your victory.", 0xFF0000),
+                    (troop_add_item, "trp_player", "itm_kemathen_mail_10", 0),#mail
+                    (display_message, "@You have been gifted an imported Roman mail shirt for your victory.", 0xFF0000),
                   (else_try), #pictish
                     (party_slot_eq, "$current_town", slot_center_culture, "fac_culture_5"),
-                    (troop_add_item, "trp_player", "itm_pictish_short_mail_2", 0),#mail
-                    (display_message, "@You have been gifted a coat of mail for your victory.", 0xFF0000),
+                    (troop_add_item, "trp_player", "itm_kemathen_mail_16", 0),#mail
+                    (display_message, "@You have been gifted an imported Roman mail shirt for your victory.", 0xFF0000),
                   (try_end),
             (else_try),
               (eq, ":rand", 3), #spatha
@@ -25197,7 +25222,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         (troop_set_health,   "trp_player", ":health"),   #set it
       (try_end),
       (set_background_mesh, "mesh_pic_nord"),
-      (assign, "$g_enemy_party", "p_venedi_village"),
+      (assign, "$g_enemy_party", "p_venedi_village_quest"),
       (assign, "$g_ally_party", -1),
       (call_script, "script_encounter_calculate_fit"),
     ],
@@ -25274,7 +25299,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         (call_script, "script_change_player_honor", 2),
         (leave_encounter),
         (change_screen_return),
-        (disable_party, "p_venedi_village"),
+        (disable_party, "p_venedi_village_quest"),
       ]),
     ]),
 
@@ -25290,7 +25315,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         (call_script, "script_change_troop_renown", "trp_player", -15),
         (call_script, "script_change_player_relation_with_troop", "trp_kingdom_15_lord", -5),
         (disable_party, "p_silingi_village"),
-        (disable_party, "p_venedi_village"),
+        (disable_party, "p_venedi_village_quest"),
         (leave_encounter),
         (change_screen_return),
       ]),
@@ -25576,8 +25601,8 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     (assign, "$talk_context", tc_town_talk),    
     (jump_to_scene, ":scene"),
     (mission_tpl_entry_set_override_flags, "mt_visit_minor_town", 0, af_override_everything),
-    (mission_tpl_entry_add_override_item, "mt_visit_minor_town", 0, "itm_linen_shirt_22"),
-    (mission_tpl_entry_add_override_item, "mt_visit_minor_town", 0, "itm_new_hood_b"),
+    (mission_tpl_entry_add_override_item, "mt_visit_minor_town", 0, "itm_roman_peasant_tunic_10"),
+    (mission_tpl_entry_add_override_item, "mt_visit_minor_town", 0, "itm_roman_civilian_hood_closed_3"),
     (mission_tpl_entry_add_override_item, "mt_visit_minor_town", 0, "itm_wrapping_boots"),
     (set_jump_entry, 0),
     (change_screen_mission),  
@@ -26935,6 +26960,24 @@ goods, and books will never be sold. ^^You can change some settings here freely.
           (change_screen_return, 0),
         ]),
     ]),
+
+("event_arran_revolt",menu_text_color(0xFF000000)|mnf_disable_all_keys,
+    "News from Eranshahr warn you of a new war! The king of Albania, Vache II, relative to the Shahanshah, raised his armies and is now challenging the Shahanshah in order to contest his authority. \
+  Vache II and his allies have grown strong resentment towards the King of Kings and now they wish to declare themselves independent.^\
+  Furthermore, Vache II has exiled the Persian Fire Priests and reembraced his old faith in Christ, that he was forced to abandon some years before.",
+    "none",
+    [(set_background_mesh, "mesh_pic_sarranid_encounter"),
+  ],
+    [
+     ("continue_revolt_1",[
+   ],"Continue...",
+       [
+    (call_script, "script_cf_start_arran_revolt"),
+    (change_screen_map),
+        ],
+       ),    
+    ]
+),
 
 ("rome_conquered",menu_text_color(0xFF000000)|mnf_disable_all_keys,
     "Once again this century, the ancient capitol of Rome has been taken, this time by the {s22}. The once great city has fallen further into ruin!",

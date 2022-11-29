@@ -1615,6 +1615,8 @@ scenes = [
     [],[],"outer_terrain_plain"), 
   ("vidivarii_town",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000002a0000500000d234800007d8e00006aca00005ad8",
     [],[],"outer_terrain_plain"), 
+  ("iberian_town",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000130000500000aa2a8000035b600002c1b00002af9", #shared by both vascones + gallacians for now
+    [],[],"outer_terrain_forest"),
 
   ("ruins_1",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000300005000003ccf300007c9a00004ca90000122f",
    [],["bonus_chest_5"], "outer_terrain_plain"),

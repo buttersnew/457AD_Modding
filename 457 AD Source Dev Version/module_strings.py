@@ -2417,6 +2417,7 @@ strings = [
   ("kingdom_25_adjective",                     "Nubian"),
   ("kingdom_26_adjective",                     "Nubian"),
   ("kingdom_27_adjective",                     "Alan"),
+  ("kingdom_28_adjective",                     "Aghwan"),
 
   ("credits_1", "Mount&Blade: Warband Copyright 2008-2015 Taleworlds Entertainment"),
   ("credits_2", "Game design:^Armagan Yavuz^Steve Negus^Cem Cimenbicer"),
@@ -5483,21 +5484,6 @@ Even in the last case, the player can make formations up to four lines by orderi
   ("nobles_at_hall", "{reg0?Nobles at hall {reg0}.{reg1? Commanders {reg1} ({s67}).:} {reg2?Ladies {reg2} ({s19}).:}:}{reg4? pretenders to the throne {reg4} ({s21}).:} {reg3?Heroes in the tavern {reg3} ({s20}).:}"),
 
 #MODEL STRINGS
-  ("accessory_bag_1","bag_addon_1"),
-  ("accessory_bag_2","bag_addon_2"),
-  ("accessory_end","bag_addon_2"),
-  ("cloak_addon_1","cloak_addon_1"),
-  ("cloak_addon_2","cloak_addon_2"),
-  ("cloak_addon_3","cloak_addon_3"),
-  ("cloak_addon_4","cloak_addon_4"),
-  ("cloak_addon_5","cloak_addon_5"),
-  ("cloak_addon_6","cloak_addon_6"),
-  ("cloak_addon_7","cloak_addon_7"),
-  ("cloak_addon_8","cloak_addon_8"),
-  ("cloak_addon_9","cloak_addon_9"),
-  ("cloak_addon_10","cloak_addon_10"),
-  ("cloak_addon_end","cloak_addon_1"),
-
   ("roman_focale_1","roman_focale_red"),
   ("roman_focale_2","roman_focale_white"),
   ("roman_focale_3","roman_focale_blue"),
@@ -5506,6 +5492,13 @@ Even in the last case, the player can make formations up to four lines by orderi
   ("roman_focale_6","roman_focale_yellow"),
   ("roman_focale_end","roman_focale_white"),
 
+#new roman accessories by fabio
+  ("accessories_capsa","accessories_capsa"),
+  ("accessories_satchel","accessories_satchel"),
+  ("accessories_pouch","accessories_pouch"),
+  ("accessories_canteen","accessories_canteen"),
+  ("accessories_end","accessories_pouch"),
+  
 #new cloaks by asher
   #a - to be used by thorsburg tunic
   #b - to be used by others
@@ -5577,6 +5570,7 @@ Even in the last case, the player can make formations up to four lines by orderi
   ("round_shields_germanic_23","round_shields_germanic_23"),
   ("round_shields_germanic_24","round_shields_germanic_24"),
   ("round_shields_germanic_25","round_shields_germanic_25"),
+  ("round_shields_germanic_26","round_shields_germanic_26"),
 
   #romans
   ("round_shields_roman_1","round_shields_roman_1"),
@@ -5758,6 +5752,15 @@ Even in the last case, the player can make formations up to four lines by orderi
   ("georgian_rectangular_shield_leather_1","georgian_rectangular_shield_leather_1"),
   ("georgian_rectangular_shield_leather_2","georgian_rectangular_shield_leather_2"),
   ("georgian_rectangular_shield_leather_3","georgian_rectangular_shield_leather_3"),
+
+#Pictish/arab shields
+  ("pict_shield_1","pict_shield_1"),
+  ("pict_shield_2","pict_shield_2"),
+  ("pict_shield_3","pict_shield_3"),
+  ("pict_shield_4","pict_shield_4"),
+  ("pict_shield_5","pict_shield_5"),
+  ("pict_shield_6","pict_shield_6"),
+  ("pict_shield_7","pict_shield_7"),
 
 #skin colored arms!
   ("roman_dress_arms_white","roman_dress_arms_white"),

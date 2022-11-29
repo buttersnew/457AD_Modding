@@ -40,8 +40,8 @@ imodbits_horse_basic = imodbit_swaybacked|imodbit_lame|imodbit_spirited|imodbit_
 imodbits_cloth  = imodbit_tattered | imodbit_ragged | imodbit_thick
 imodbits_leather = imodbits_cloth | imodbit_sturdy | imodbit_hardened
 #new armor modifiers
-imodbits_mail = imodbit_rusty | imodbit_battered | imodbit_thick | imodbit_reinforced 
-imodbits_scale = imodbit_battered | imodbit_crude | imodbit_thick | imodbit_reinforced | imodbit_lordly
+imodbits_mail = imodbit_rusty | imodbit_battered | imodbit_thick | imodbit_reinforced | imodbit_lordly
+imodbits_scale = imodbit_rusty | imodbit_battered | imodbit_crude | imodbit_thick | imodbit_reinforced | imodbit_lordly
 
 imodbits_armor  = imodbit_rusty | imodbit_battered | imodbit_crude | imodbit_thick | imodbit_reinforced |imodbit_lordly
 imodbits_plate  = imodbit_cracked | imodbit_rusty | imodbit_battered | imodbit_crude | imodbit_thick | imodbit_reinforced |imodbit_lordly
@@ -272,101 +272,28 @@ items = [
 ["camel","Camel", [("bedyin_camel_a",0)], itp_merchandise|itp_type_horse, 0, 650,abundance(40)|hit_points(210)|body_armor(12)|difficulty(3)|horse_speed(34)|horse_maneuver(46)|horse_charge(40)|horse_scale(100),imodbits_horse_basic|imodbit_champion, [], culture_sassanid ],
 ["bareback_horse_1","Horse", [("bareback_horse_1",0)], itp_merchandise|itp_type_horse, 0, 1000,abundance(30)|hit_points(110)|body_armor(2)|difficulty(3)|horse_speed(46)|horse_maneuver(42)|horse_charge(12)|horse_scale(92),imodbits_horse_basic, [], [fac_culture_11,fac_culture_15] ], #nubians, mauri
 
-#New half cataphract horses!
-#roman
-["half_cataphract_horse_1","Half-Cataphract Horse", [("half_cataphract_horse_1",0)], itp_merchandise|itp_type_horse, 0, 4300,abundance(30)|hit_points(170)|body_armor(30)|difficulty(3)|horse_speed(39)|horse_maneuver(42)|horse_charge(35)|horse_scale(98),imodbits_horse_basic|imodbit_champion, [], culture_roman+culture_sassanid+culture_caucasian ],
-["half_cataphract_horse_2","Half-Cataphract Horse", [("half_cataphract_horse_2",0)], itp_merchandise|itp_type_horse, 0, 4300,abundance(30)|hit_points(170)|body_armor(30)|difficulty(3)|horse_speed(39)|horse_maneuver(42)|horse_charge(35)|horse_scale(98),imodbits_horse_basic|imodbit_champion, [], culture_roman+culture_sassanid+culture_caucasian ],
-#roman, sassanid, alan, caucasian
-["half_cataphract_horse_3","Half-Cataphract Horse", [("half_cataphract_horse_3",0)], itp_merchandise|itp_type_horse, 0, 4300,abundance(30)|hit_points(170)|body_armor(30)|difficulty(3)|horse_speed(39)|horse_maneuver(42)|horse_charge(35)|horse_scale(98),imodbits_horse_basic|imodbit_champion, [], culture_roman+culture_sassanid+culture_caucasian ],
-["half_cataphract_horse_4","Half-Cataphract Horse", [("half_cataphract_horse_4",0)], itp_merchandise|itp_type_horse, 0, 4300,abundance(30)|hit_points(170)|body_armor(30)|difficulty(3)|horse_speed(39)|horse_maneuver(42)|horse_charge(35)|horse_scale(98),imodbits_horse_basic|imodbit_champion, [], culture_roman+culture_sassanid+culture_caucasian ],
-#alan, hunnic?
-["half_cataphract_horse_5","Half-Cataphract Horse", [("half_cataphract_horse_5",0)], itp_merchandise|itp_type_horse, 0, 4300,abundance(30)|hit_points(170)|body_armor(30)|difficulty(3)|horse_speed(39)|horse_maneuver(42)|horse_charge(35)|horse_scale(98),imodbits_horse_basic|imodbit_champion, [], culture_hunnic+culture_alan+culture_caucasian ],
-["half_cataphract_horse_6","Half-Cataphract Horse", [("half_cataphract_horse_6",0)], itp_merchandise|itp_type_horse, 0, 4300,abundance(30)|hit_points(170)|body_armor(30)|difficulty(3)|horse_speed(39)|horse_maneuver(42)|horse_charge(35)|horse_scale(98),imodbits_horse_basic|imodbit_champion, [], culture_hunnic+culture_alan+culture_caucasian ],
-#mail, "generic"
-["half_cataphract_horse_7","Half-Cataphract Horse", [("half_cataphract_horse_7",0)], itp_merchandise|itp_type_horse, 0, 4300,abundance(30)|hit_points(170)|body_armor(30)|difficulty(3)|horse_speed(39)|horse_maneuver(42)|horse_charge(35)|horse_scale(98),imodbits_horse_basic|imodbit_champion, [], culture_roman+culture_sassanid+culture_caucasian ],
-#more romans
-["half_cataphract_horse_8","Half-Cataphract Horse", [("half_cataphract_horse_8",0)], itp_merchandise|itp_type_horse, 0, 4300,abundance(30)|hit_points(170)|body_armor(30)|difficulty(3)|horse_speed(39)|horse_maneuver(42)|horse_charge(35)|horse_scale(98),imodbits_horse_basic|imodbit_champion, [], culture_roman+culture_sassanid+culture_caucasian ],
-
-#new full barded cataphract horse
-#used by the various emperors
-["warhorse_sarranid","Rich Cataphract Horse", [("cataphract_horse_5_1",0)], itp_type_horse, 0, 7500,abundance(10)|hit_points(165)|body_armor(50)|difficulty(4)|horse_speed(36)|horse_maneuver(42)|horse_charge(45)|horse_scale(99),imodbits_horse_basic|imodbit_champion ],
-["warhorse_steppe","Steppe Cataphract Horse", [("horse1",0)], itp_merchandise|itp_type_horse, 0, 6500,abundance(25)|hit_points(150)|body_armor(40)|difficulty(4)|horse_speed(36)|horse_maneuver(50)|horse_charge(40)|horse_scale(112),imodbits_horse_basic|imodbit_champion, [], culture_hunnic+culture_alan+culture_caucasian ],
-#mail
-["cataphract_horse_1","Cataphract Horse", [("cataphract_horse_1",0)], itp_merchandise|itp_type_horse, 0, 6500,abundance(20)|hit_points(160)|body_armor(45)|difficulty(4)|horse_speed(36)|horse_maneuver(42)|horse_charge(45)|horse_scale(100),imodbits_horse_basic|imodbit_champion, [], culture_roman+culture_sassanid+culture_caucasian ],
-#roman scale
-["cataphract_horse_2","Cataphract Horse", [("cataphract_horse_2",0)], itp_merchandise|itp_type_horse, 0, 6500,abundance(20)|hit_points(160)|body_armor(45)|difficulty(4)|horse_speed(36)|horse_maneuver(42)|horse_charge(45)|horse_scale(100),imodbits_horse_basic|imodbit_champion, [], culture_roman+culture_sassanid+culture_caucasian ],
-["cataphract_horse_3","Cataphract Horse", [("cataphract_horse_3",0)], itp_merchandise|itp_type_horse, 0, 6500,abundance(20)|hit_points(160)|body_armor(45)|difficulty(4)|horse_speed(36)|horse_maneuver(42)|horse_charge(45)|horse_scale(100),imodbits_horse_basic|imodbit_champion, [], culture_roman+culture_sassanid+culture_caucasian ],
-#scale
-["cataphract_horse_4","Cataphract Horse", [("cataphract_horse_4",0)], itp_merchandise|itp_type_horse, 0, 6500,abundance(20)|hit_points(160)|body_armor(45)|difficulty(4)|horse_speed(36)|horse_maneuver(42)|horse_charge(45)|horse_scale(100),imodbits_horse_basic|imodbit_champion, [], culture_roman+culture_sassanid+culture_caucasian ],
-["cataphract_horse_5","Cataphract Horse", [("cataphract_horse_5",0)], itp_merchandise|itp_type_horse, 0, 6500,abundance(20)|hit_points(160)|body_armor(45)|difficulty(4)|horse_speed(36)|horse_maneuver(42)|horse_charge(45)|horse_scale(100),imodbits_horse_basic|imodbit_champion, [], culture_roman+culture_sassanid+culture_caucasian ],
-
-["imperial_courser","Koursor", [("roman_courser",0)], itp_merchandise|itp_type_horse, 0, 4050,abundance(60)|body_armor(12)|hit_points(100)|difficulty(3)|horse_speed(48)|horse_maneuver(40)|horse_charge(22)|horse_scale(96),imodbits_horse_basic|imodbit_champion, [], culture_roman ],
-["courser","Koursor", [("normal_horse32",0)], itp_merchandise|itp_type_horse, 0, 4050,abundance(70)|body_armor(12)|hit_points(100)|difficulty(3)|horse_speed(48)|horse_maneuver(40)|horse_charge(22)|horse_scale(96),imodbits_horse_basic|imodbit_champion],
-
-["imperial_saddle_horse_1","Equus", [("roman_horse_1",0)], itp_merchandise|itp_type_horse, 0, 1340,abundance(40)|hit_points(100)|body_armor(10)|difficulty(2)|horse_speed(44)|horse_maneuver(44)|horse_charge(10)|horse_scale(94),imodbits_horse_basic, [], culture_roman ],
-["imperial_saddle_horse_2","Equus", [("roman_horse_2",0)], itp_merchandise|itp_type_horse, 0, 1340,abundance(40)|hit_points(100)|body_armor(10)|difficulty(2)|horse_speed(44)|horse_maneuver(44)|horse_charge(10)|horse_scale(94),imodbits_horse_basic, [], culture_roman ],
-["imperial_saddle_horse_3","Equus", [("roman_horse_3",0)], itp_merchandise|itp_type_horse, 0, 1340,abundance(40)|hit_points(100)|body_armor(10)|difficulty(2)|horse_speed(44)|horse_maneuver(44)|horse_charge(10)|horse_scale(94),imodbits_horse_basic, [], culture_roman ],
-["imperial_saddle_horse_4","Equus", [("roman_horse_4",0)], itp_merchandise|itp_type_horse, 0, 1340,abundance(40)|hit_points(100)|body_armor(10)|difficulty(2)|horse_speed(44)|horse_maneuver(44)|horse_charge(10)|horse_scale(94),imodbits_horse_basic, [], culture_roman ],
-
-["saddle_horse","Horse", [("normal_horse8",0),("normal_horse17",imodbits_horse_good)], itp_merchandise|itp_type_horse, 0, 1340,abundance(40)|hit_points(100)|body_armor(10)|difficulty(2)|horse_speed(44)|horse_maneuver(44)|horse_charge(10)|horse_scale(94),imodbits_horse_basic],
-["saddle_horse_2","Horse", [("gallic_horse_1",0)], itp_merchandise|itp_type_horse, 0, 1340,abundance(40)|hit_points(100)|body_armor(10)|difficulty(2)|horse_speed(44)|horse_maneuver(44)|horse_charge(10)|horse_scale(94),imodbits_horse_basic],
-["saddle_horse_3","Horse", [("gallic_horse_2",0)], itp_merchandise|itp_type_horse, 0, 1340,abundance(40)|hit_points(100)|body_armor(10)|difficulty(2)|horse_speed(44)|horse_maneuver(44)|horse_charge(10)|horse_scale(94),imodbits_horse_basic],
-["saddle_horse_4","Horse", [("gallic_horse_3",0)], itp_merchandise|itp_type_horse, 0, 1340,abundance(40)|hit_points(100)|body_armor(10)|difficulty(2)|horse_speed(44)|horse_maneuver(44)|horse_charge(10)|horse_scale(94),imodbits_horse_basic],
-["saddle_horse_5","Horse", [("WRoman1",0)], itp_merchandise|itp_type_horse, 0, 1340,abundance(40)|hit_points(100)|body_armor(10)|difficulty(2)|horse_speed(44)|horse_maneuver(44)|horse_charge(10)|horse_scale(94),imodbits_horse_basic],
-["saddle_horse_6","Horse", [("WRoman2",0)], itp_merchandise|itp_type_horse, 0, 1340,abundance(40)|hit_points(100)|body_armor(10)|difficulty(2)|horse_speed(44)|horse_maneuver(44)|horse_charge(10)|horse_scale(94),imodbits_horse_basic],
-
- #brytenwalda horses
-["normal_horse11","Horse", [("normal_horse11",0)], itp_merchandise|itp_type_horse, 0, 1340,abundance(40)|hit_points(100)|body_armor(10)|difficulty(2)|horse_speed(44)|horse_maneuver(44)|horse_charge(10)|horse_scale(94),imodbits_horse_basic],
-["normal_horse12","Horse", [("normal_horse12",0)], itp_merchandise|itp_type_horse, 0, 1340,abundance(40)|hit_points(100)|body_armor(10)|difficulty(2)|horse_speed(44)|horse_maneuver(44)|horse_charge(10)|horse_scale(94),imodbits_horse_basic],
-["normal_horse13","Horse", [("normal_horse13",0)], itp_merchandise|itp_type_horse, 0, 1340,abundance(40)|hit_points(100)|body_armor(10)|difficulty(2)|horse_speed(44)|horse_maneuver(44)|horse_charge(10)|horse_scale(94),imodbits_horse_basic],
-["normal_horse14","Horse", [("normal_horse14",0)], itp_merchandise|itp_type_horse, 0, 1340,abundance(40)|hit_points(100)|body_armor(10)|difficulty(2)|horse_speed(44)|horse_maneuver(44)|horse_charge(10)|horse_scale(94),imodbits_horse_basic],
-["normal_horse15","Horse", [("normal_horse15",0)], itp_merchandise|itp_type_horse, 0, 1340,abundance(40)|hit_points(100)|body_armor(10)|difficulty(2)|horse_speed(44)|horse_maneuver(44)|horse_charge(10)|horse_scale(94),imodbits_horse_basic],
-["normal_horse16","Horse", [("normal_horse16",0)], itp_merchandise|itp_type_horse, 0, 1340,abundance(40)|hit_points(100)|body_armor(10)|difficulty(2)|horse_speed(44)|horse_maneuver(44)|horse_charge(10)|horse_scale(94),imodbits_horse_basic],
-["normal_horse17","Horse", [("normal_horse17",0)], itp_merchandise|itp_type_horse, 0, 1340,abundance(40)|hit_points(100)|body_armor(10)|difficulty(2)|horse_speed(44)|horse_maneuver(44)|horse_charge(10)|horse_scale(94),imodbits_horse_basic],
-["normal_horse21","Horse", [("normal_horse21",0)], itp_merchandise|itp_type_horse, 0, 1340,abundance(40)|hit_points(100)|body_armor(10)|difficulty(2)|horse_speed(44)|horse_maneuver(44)|horse_charge(10)|horse_scale(94),imodbits_horse_basic],
-["normal_horse22","Horse", [("normal_horse22",0)], itp_merchandise|itp_type_horse, 0, 1340,abundance(40)|hit_points(100)|body_armor(10)|difficulty(2)|horse_speed(44)|horse_maneuver(44)|horse_charge(10)|horse_scale(94),imodbits_horse_basic],
-["normal_horse27","Horse", [("normal_horse27",0)], itp_merchandise|itp_type_horse, 0, 1340,abundance(40)|hit_points(100)|body_armor(10)|difficulty(2)|horse_speed(44)|horse_maneuver(44)|horse_charge(10)|horse_scale(94),imodbits_horse_basic],
-["normal_horse23","Horse", [("normal_horse23",0)], itp_merchandise|itp_type_horse, 0, 1340,abundance(40)|hit_points(100)|body_armor(10)|difficulty(2)|horse_speed(44)|horse_maneuver(44)|horse_charge(10)|horse_scale(94),imodbits_horse_basic],
-["normal_horse24","Horse", [("normal_horse24",0)], itp_merchandise|itp_type_horse, 0, 1340,abundance(40)|hit_points(100)|body_armor(10)|difficulty(2)|horse_speed(44)|horse_maneuver(44)|horse_charge(10)|horse_scale(94),imodbits_horse_basic],
-["normal_horse25","Horse", [("normal_horse25",0)], itp_merchandise|itp_type_horse, 0, 1340,abundance(40)|hit_points(100)|body_armor(10)|difficulty(2)|horse_speed(44)|horse_maneuver(44)|horse_charge(10)|horse_scale(94),imodbits_horse_basic],
-["normal_horse26","Horse", [("normal_horse26",0)], itp_merchandise|itp_type_horse, 0, 1340,abundance(40)|hit_points(100)|body_armor(10)|difficulty(2)|horse_speed(44)|horse_maneuver(44)|horse_charge(10)|horse_scale(94),imodbits_horse_basic],
-["normal_horse30","Horse", [("normal_horse30",0)], itp_merchandise|itp_type_horse, 0, 1340,abundance(40)|hit_points(100)|body_armor(10)|difficulty(2)|horse_speed(44)|horse_maneuver(44)|horse_charge(10)|horse_scale(94),imodbits_horse_basic],
- #work horses
-["sumpter_horse",   "Work Horse", [("sumpter_horse",0)],  itp_merchandise|itp_type_horse, 0, 900,abundance(60)|body_armor(8)|hit_points(140)|difficulty(1)|horse_speed(40)|horse_maneuver(35)|horse_charge(17)|horse_scale(96),imodbits_horse_basic],
-["arabian_horse_b2","Work Horse", [("normal_horse3",0)], itp_merchandise|itp_type_horse, 0, 900,abundance(60)|body_armor(8)|hit_points(140)|difficulty(1)|horse_speed(40)|horse_maneuver(35)|horse_charge(17)|horse_scale(96),imodbits_horse_basic],
-["arabian_horse_a3","Work Horse", [("normal_horse4",0)], itp_merchandise|itp_type_horse, 0, 900,abundance(60)|body_armor(8)|hit_points(140)|difficulty(1)|horse_speed(40)|horse_maneuver(35)|horse_charge(17)|horse_scale(96),imodbits_horse_basic],
-["arabian_horse_b3","Work Horse", [("normal_horse5",0)], itp_merchandise|itp_type_horse, 0, 900,abundance(60)|body_armor(8)|hit_points(140)|difficulty(1)|horse_speed(40)|horse_maneuver(35)|horse_charge(17)|horse_scale(96),imodbits_horse_basic],
-["arabian_horse_a4","Work Horse", [("normal_horse6",0)], itp_merchandise|itp_type_horse, 0, 900,abundance(60)|body_armor(8)|hit_points(140)|difficulty(1)|horse_speed(40)|horse_maneuver(35)|horse_charge(17)|horse_scale(96),imodbits_horse_basic],
-["courser4",        "Work Horse", [("normal_horse7",0)],       itp_merchandise|itp_type_horse, 0, 900,abundance(60)|body_armor(8)|hit_points(140)|difficulty(1)|horse_speed(40)|horse_maneuver(35)|horse_charge(17)|horse_scale(96),imodbits_horse_basic],
-["arabian_horse_b4","Work Horse", [("normal_horse8",0)], itp_merchandise|itp_type_horse, 0, 900,abundance(60)|body_armor(8)|hit_points(140)|difficulty(1)|horse_speed(40)|horse_maneuver(35)|horse_charge(17)|horse_scale(96),imodbits_horse_basic],
-["courser5",        "Work Horse", [("normal_horse9",0)],       itp_merchandise|itp_type_horse, 0, 900,abundance(60)|body_armor(8)|hit_points(140)|difficulty(1)|horse_speed(40)|horse_maneuver(35)|horse_charge(17)|horse_scale(96),imodbits_horse_basic],
-["normal_horse18",  "Work Horse", [("normal_horse18",0)],  itp_merchandise|itp_type_horse, 0, 700,abundance(60)|body_armor(8)|hit_points(140)|difficulty(1)|horse_speed(40)|horse_maneuver(35)|horse_charge(17)|horse_scale(96),imodbits_horse_basic],
-["normal_horse19",  "Work Horse", [("normal_horse19",0)],  itp_merchandise|itp_type_horse, 0, 900,abundance(60)|body_armor(8)|hit_points(140)|difficulty(1)|horse_speed(40)|horse_maneuver(35)|horse_charge(17)|horse_scale(96),imodbits_horse_basic],
-["normal_horse20",  "Work Horse", [("normal_horse20",0)],  itp_merchandise|itp_type_horse, 0, 900,abundance(60)|body_armor(8)|hit_points(140)|difficulty(1)|horse_speed(40)|horse_maneuver(35)|horse_charge(17)|horse_scale(96),imodbits_horse_basic],
-["normal_horse28",  "Work Horse", [("normal_horse28",0)],  itp_merchandise|itp_type_horse, 0, 900,abundance(60)|body_armor(8)|hit_points(140)|difficulty(1)|horse_speed(40)|horse_maneuver(35)|horse_charge(17)|horse_scale(96),imodbits_horse_basic],
-
-["arabian_horse_a","Arabian Horse", [("ArabBay1",0)], itp_merchandise|itp_type_horse, 0, 1550,abundance(80)|hit_points(110)|body_armor(10)|difficulty(2)|horse_speed(46)|horse_maneuver(50)|horse_charge(16)|horse_scale(96),imodbits_horse_basic|imodbit_champion, [], culture_sassanid ],
-["arabian_horse_b","Arabian Horse", [("ArabBay2",0)], itp_merchandise|itp_type_horse, 0, 1550,abundance(80)|hit_points(120)|body_armor(10)|difficulty(3)|horse_speed(46)|horse_maneuver(50)|horse_charge(16)|horse_scale(96),imodbits_horse_basic|imodbit_champion, [], culture_sassanid ],
-["arabian_horse_c","Arabian Horse", [("ArabBay3",0)], itp_merchandise|itp_type_horse, 0, 1550,abundance(80)|hit_points(120)|body_armor(10)|difficulty(3)|horse_speed(46)|horse_maneuver(50)|horse_charge(16)|horse_scale(96),imodbits_horse_basic|imodbit_champion, [], culture_sassanid ],
-["arabian_horse_d","Arabian Horse", [("ArabBay4",0)], itp_merchandise|itp_type_horse, 0, 1550,abundance(80)|hit_points(120)|body_armor(10)|difficulty(3)|horse_speed(46)|horse_maneuver(50)|horse_charge(16)|horse_scale(96),imodbits_horse_basic|imodbit_champion, [], culture_sassanid ],
-
-["celtic_horse_1","Horse", [("WPict1",0)], itp_merchandise|itp_type_horse, 0, 1340,abundance(20)|hit_points(100)|body_armor(9)|difficulty(1)|horse_speed(43)|horse_maneuver(46)|horse_charge(8)|horse_scale(92),imodbits_horse_basic, [], culture_celtic ],
-["celtic_horse_2","Horse", [("WPict2",0)], itp_merchandise|itp_type_horse, 0, 1340,abundance(20)|hit_points(100)|body_armor(9)|difficulty(1)|horse_speed(43)|horse_maneuver(46)|horse_charge(8)|horse_scale(92),imodbits_horse_basic, [], culture_celtic ],
-["steppe_horse","Steppe Horse", [("steppe_horse_new",0)], itp_merchandise|itp_type_horse, 0, 1400,abundance(80)|hit_points(120)|body_armor(10)|difficulty(3)|horse_speed(44)|horse_maneuver(51)|horse_charge(8)|horse_scale(90),imodbits_horse_basic, [], culture_hunnic+culture_alan ],
-
-["hunter","Hunter", [("normal_horse29",0),("normal_horse31",imodbits_horse_good)], itp_merchandise|itp_type_horse, 0, 1400,abundance(60)|hit_points(160)|body_armor(10)|difficulty(3)|horse_speed(43)|horse_maneuver(44)|horse_charge(24)|horse_scale(90),imodbits_horse_basic|imodbit_champion],
-["warhorse","Warhorse", [("warhorse_new",0)], itp_merchandise|itp_type_horse, 0, 4100,abundance(50)|hit_points(190)|body_armor(22)|difficulty(4)|horse_speed(43)|horse_maneuver(42)|horse_charge(30)|horse_scale(100),imodbits_horse_basic|imodbit_champion],
-["charger","Warhorse", [("normal_horse19",0)], itp_merchandise|itp_type_horse, 0, 4100,abundance(40)|hit_points(190)|body_armor(22)|difficulty(4)|horse_speed(43)|horse_maneuver(44)|horse_charge(30)|horse_scale(100),imodbits_horse_basic|imodbit_champion ],
+#unused horses
+["warhorse_sarranid","Rich Cataphract Horse", [("niseansas_cata_4",0)], itp_type_horse, 0, 7500,abundance(10)|hit_points(165)|body_armor(50)|difficulty(4)|horse_speed(36)|horse_maneuver(42)|horse_charge(45)|horse_scale(99),imodbits_horse_basic|imodbit_champion ],
+["warhorse_steppe","Steppe Cataphract Horse", [("niseansas_cata_4",0)], itp_type_horse, 0, 6500,abundance(25)|hit_points(150)|body_armor(40)|difficulty(4)|horse_speed(36)|horse_maneuver(50)|horse_charge(40)|horse_scale(112),imodbits_horse_basic|imodbit_champion, [], culture_hunnic+culture_alan+culture_caucasian ],
+["courser","Koursor", [("iberian_warhorse_roman_1",0)], itp_type_horse, 0, 4050,abundance(70)|body_armor(12)|hit_points(100)|difficulty(3)|horse_speed(48)|horse_maneuver(40)|horse_charge(22)|horse_scale(96),imodbits_horse_basic|imodbit_champion],
+["saddle_horse","Horse", [("iberian_warhorse_roman_1",0)], itp_type_horse, 0, 1340,abundance(40)|hit_points(100)|body_armor(10)|difficulty(2)|horse_speed(44)|horse_maneuver(44)|horse_charge(10)|horse_scale(94),imodbits_horse_basic],
+["arabian_horse_a","Arabian Horse", [("arab_1",0)], itp_type_horse, 0, 1550,abundance(80)|hit_points(110)|body_armor(10)|difficulty(2)|horse_speed(46)|horse_maneuver(50)|horse_charge(16)|horse_scale(96),imodbits_horse_basic|imodbit_champion, [], culture_sassanid ],
+["arabian_horse_b","Arabian Horse", [("arab_1",0)], itp_type_horse, 0, 1550,abundance(80)|hit_points(110)|body_armor(10)|difficulty(2)|horse_speed(46)|horse_maneuver(50)|horse_charge(16)|horse_scale(96),imodbits_horse_basic|imodbit_champion, [], culture_sassanid ],
+["steppe_horse","Steppe Horse", [("hun_horse_1",0)], itp_type_horse, 0, 1400,abundance(80)|hit_points(120)|body_armor(10)|difficulty(3)|horse_speed(44)|horse_maneuver(51)|horse_charge(8)|horse_scale(90),imodbits_horse_basic, [], culture_hunnic+culture_alan ],
+["hunter","Hunter", [("iberian_warhorse_roman_1",0)], itp_type_horse, 0, 1400,abundance(60)|hit_points(160)|body_armor(10)|difficulty(3)|horse_speed(43)|horse_maneuver(44)|horse_charge(24)|horse_scale(90),imodbits_horse_basic|imodbit_champion],
+["warhorse","Warhorse", [("iberian_warhorse_roman_1",0)], itp_type_horse, 0, 4100,abundance(50)|hit_points(190)|body_armor(22)|difficulty(4)|horse_speed(43)|horse_maneuver(42)|horse_charge(30)|horse_scale(100),imodbits_horse_basic|imodbit_champion],
+["charger","Warhorse", [("iberian_warhorse_roman_1",0)], itp_type_horse, 0, 4100,abundance(40)|hit_points(190)|body_armor(22)|difficulty(4)|horse_speed(43)|horse_maneuver(44)|horse_charge(30)|horse_scale(100),imodbits_horse_basic|imodbit_champion ],
+["sumpter_horse","Horse", [("iberian_warhorse_roman_1",0)], itp_type_horse, 0, 1340,abundance(40)|hit_points(100)|body_armor(10)|difficulty(2)|horse_speed(44)|horse_maneuver(44)|horse_charge(10)|horse_scale(94),imodbits_horse_basic],
 
 #Nisean warhorses
 ["nisean_roman_1","Nisean Warhorse", [("nisean_roman_1",0)], itp_merchandise|itp_type_horse, 0, 3500,abundance(20)|hit_points(200)|body_armor(20)|difficulty(4)|horse_speed(47)|horse_maneuver(45)|horse_charge(30)|horse_scale(98),imodbits_horse_basic|imodbit_champion, [], culture_roman ],
 ["nisean_roman_2","Nisean Warhorse", [("nisean_roman_2",0)], itp_merchandise|itp_type_horse, 0, 3500,abundance(20)|hit_points(200)|body_armor(20)|difficulty(4)|horse_speed(47)|horse_maneuver(45)|horse_charge(30)|horse_scale(98),imodbits_horse_basic|imodbit_champion, [], culture_roman ],
 ["nisean_roman_3","Nisean Warhorse", [("nisean_roman_3",0)], itp_merchandise|itp_type_horse, 0, 3500,abundance(20)|hit_points(200)|body_armor(20)|difficulty(4)|horse_speed(47)|horse_maneuver(45)|horse_charge(30)|horse_scale(98),imodbits_horse_basic|imodbit_champion, [], culture_roman ],
 
-["nisean_cataphract_1","Nisean Cataphract", [("nisean_cataphract_1",0)], itp_merchandise|itp_type_horse, 0, 8000,abundance(20)|hit_points(200)|body_armor(50)|difficulty(4)|horse_speed(40)|horse_maneuver(36)|horse_charge(50)|horse_scale(98),imodbits_horse_basic|imodbit_champion, [], culture_roman+culture_sassanid ],
-["nisean_cataphract_2","Nisean Cataphract", [("nisean_cataphract_2",0)], itp_merchandise|itp_type_horse, 0, 8000,abundance(20)|hit_points(200)|body_armor(50)|difficulty(4)|horse_speed(40)|horse_maneuver(36)|horse_charge(50)|horse_scale(98),imodbits_horse_basic|imodbit_champion, [], culture_roman+culture_sassanid ],
-["nisean_cataphract_3","Nisean Cataphract", [("nisean_cataphract_3",0)], itp_merchandise|itp_type_horse, 0, 8000,abundance(20)|hit_points(200)|body_armor(50)|difficulty(4)|horse_speed(40)|horse_maneuver(36)|horse_charge(50)|horse_scale(98),imodbits_horse_basic|imodbit_champion, [], culture_roman+culture_sassanid ],
-["nisean_cataphract_4","Nisean Cataphract", [("nisean_cataphract_4",0)], itp_merchandise|itp_type_horse, 0, 8000,abundance(20)|hit_points(200)|body_armor(50)|difficulty(4)|horse_speed(40)|horse_maneuver(36)|horse_charge(50)|horse_scale(98),imodbits_horse_basic|imodbit_champion, [], culture_roman+culture_sassanid ],
+["nisean_cataphract_1","Nisean Cataphract", [("nisean_cataphract_1",0)], itp_merchandise|itp_type_horse, 0, 8000,abundance(5)|hit_points(200)|body_armor(50)|difficulty(4)|horse_speed(40)|horse_maneuver(36)|horse_charge(50)|horse_scale(98),imodbits_horse_basic|imodbit_champion, [], culture_roman+culture_sassanid ],
+["nisean_cataphract_2","Nisean Cataphract", [("nisean_cataphract_2",0)], itp_merchandise|itp_type_horse, 0, 8000,abundance(5)|hit_points(200)|body_armor(50)|difficulty(4)|horse_speed(40)|horse_maneuver(36)|horse_charge(50)|horse_scale(98),imodbits_horse_basic|imodbit_champion, [], culture_roman+culture_sassanid ],
+["nisean_cataphract_3","Nisean Cataphract", [("nisean_cataphract_3",0)], itp_merchandise|itp_type_horse, 0, 8000,abundance(5)|hit_points(200)|body_armor(50)|difficulty(4)|horse_speed(40)|horse_maneuver(36)|horse_charge(50)|horse_scale(98),imodbits_horse_basic|imodbit_champion, [], culture_roman+culture_sassanid ],
+["nisean_cataphract_4","Nisean Cataphract", [("nisean_cataphract_4",0)], itp_merchandise|itp_type_horse, 0, 8000,abundance(5)|hit_points(200)|body_armor(50)|difficulty(4)|horse_speed(40)|horse_maneuver(36)|horse_charge(50)|horse_scale(98),imodbits_horse_basic|imodbit_champion, [], culture_roman+culture_sassanid ],
 
 #Hunnic horses
 ["hun_horse_1","Hunnic Horse", [("hun_horse_1",0)], itp_merchandise|itp_type_horse, 0, 1500,abundance(70)|hit_points(120)|body_armor(10)|difficulty(2)|horse_speed(44)|horse_maneuver(55)|horse_charge(10)|horse_scale(90),imodbits_horse_basic, [], culture_hunnic+culture_alan ],
@@ -383,13 +310,13 @@ items = [
 ["hun_rich_horse_3","Hunnic Barded Horse", [("hun_rich_horse_3",0)], itp_merchandise|itp_type_horse, 0, 6200,abundance(30)|body_armor(30)|hit_points(150)|difficulty(3)|horse_speed(43)|horse_maneuver(52)|horse_charge(28)|horse_scale(90),imodbits_horse_basic|imodbit_champion, [], culture_hunnic+culture_alan ],
 
 #Asturco 
-["asturco_germanic_1","Asturco", [("asturco_germanic_1",0)], itp_merchandise|itp_type_horse, 0, 1340,abundance(80)|hit_points(100)|body_armor(8)|difficulty(1)|horse_speed(44)|horse_maneuver(50)|horse_charge(10)|horse_scale(90),imodbits_horse_basic, [], culture_germanic+culture_gothic ],
-["asturco_germanic_2","Asturco", [("asturco_germanic_2",0)], itp_merchandise|itp_type_horse, 0, 1340,abundance(80)|hit_points(100)|body_armor(8)|difficulty(1)|horse_speed(44)|horse_maneuver(50)|horse_charge(10)|horse_scale(90),imodbits_horse_basic, [], culture_germanic+culture_gothic ],
-["asturco_germanic_3","Asturco", [("asturco_germanic_3",0)], itp_merchandise|itp_type_horse, 0, 1340,abundance(80)|hit_points(100)|body_armor(8)|difficulty(1)|horse_speed(44)|horse_maneuver(50)|horse_charge(10)|horse_scale(90),imodbits_horse_basic, [], culture_germanic+culture_gothic ],
+["asturco_germanic_1","Asturco Horse", [("asturco_germanic_1",0)], itp_merchandise|itp_type_horse, 0, 1340,abundance(80)|hit_points(100)|body_armor(8)|difficulty(1)|horse_speed(44)|horse_maneuver(50)|horse_charge(10)|horse_scale(90),imodbits_horse_basic, [], culture_germanic+culture_gothic ],
+["asturco_germanic_2","Asturco Horse", [("asturco_germanic_2",0)], itp_merchandise|itp_type_horse, 0, 1340,abundance(80)|hit_points(100)|body_armor(8)|difficulty(1)|horse_speed(44)|horse_maneuver(50)|horse_charge(10)|horse_scale(90),imodbits_horse_basic, [], culture_germanic+culture_gothic ],
+["asturco_germanic_3","Asturco Horse", [("asturco_germanic_3",0)], itp_merchandise|itp_type_horse, 0, 1340,abundance(80)|hit_points(100)|body_armor(8)|difficulty(1)|horse_speed(44)|horse_maneuver(50)|horse_charge(10)|horse_scale(90),imodbits_horse_basic, [], culture_germanic+culture_gothic ],
 
-["asturco_roman_1","Asturco", [("asturco_roman_1",0)], itp_merchandise|itp_type_horse, 0, 1340,abundance(80)|hit_points(100)|body_armor(8)|difficulty(1)|horse_speed(44)|horse_maneuver(50)|horse_charge(10)|horse_scale(90),imodbits_horse_basic, [], culture_roman ],
-["asturco_roman_2","Asturco", [("asturco_roman_2",0)], itp_merchandise|itp_type_horse, 0, 1340,abundance(80)|hit_points(100)|body_armor(8)|difficulty(1)|horse_speed(44)|horse_maneuver(50)|horse_charge(10)|horse_scale(90),imodbits_horse_basic, [], culture_roman ],
-["asturco_roman_3","Asturco", [("asturco_roman_3",0)], itp_merchandise|itp_type_horse, 0, 1340,abundance(80)|hit_points(100)|body_armor(8)|difficulty(1)|horse_speed(44)|horse_maneuver(50)|horse_charge(10)|horse_scale(90),imodbits_horse_basic, [], culture_roman ],
+["asturco_roman_1","Asturco Horse", [("asturco_roman_1",0)], itp_merchandise|itp_type_horse, 0, 1340,abundance(80)|hit_points(100)|body_armor(8)|difficulty(1)|horse_speed(44)|horse_maneuver(50)|horse_charge(10)|horse_scale(90),imodbits_horse_basic, [], culture_roman ],
+["asturco_roman_2","Asturco Horse", [("asturco_roman_2",0)], itp_merchandise|itp_type_horse, 0, 1340,abundance(80)|hit_points(100)|body_armor(8)|difficulty(1)|horse_speed(44)|horse_maneuver(50)|horse_charge(10)|horse_scale(90),imodbits_horse_basic, [], culture_roman ],
+["asturco_roman_3","Asturco Horse", [("asturco_roman_3",0)], itp_merchandise|itp_type_horse, 0, 1340,abundance(80)|hit_points(100)|body_armor(8)|difficulty(1)|horse_speed(44)|horse_maneuver(50)|horse_charge(10)|horse_scale(90),imodbits_horse_basic, [], culture_roman ],
 
 #Camargue
 ["camargue_germanic_1","Camargue Horse", [("camargue_germanic_1",0)], itp_merchandise|itp_type_horse, 0, 1500,abundance(60)|hit_points(120)|body_armor(10)|difficulty(1)|horse_speed(44)|horse_maneuver(45)|horse_charge(12)|horse_scale(92),imodbits_horse_basic, [], culture_germanic+culture_gothic ],
@@ -408,8 +335,8 @@ items = [
 ["iberian_warhorse_roman_2","Iberian Warhorse", [("iberian_warhorse_roman_2",0)], itp_merchandise|itp_type_horse, 0, 3200,abundance(40)|hit_points(170)|body_armor(10)|difficulty(3)|horse_speed(47)|horse_maneuver(45)|horse_charge(20)|horse_scale(92),imodbits_horse_basic, [], culture_roman ],
 
 #Germanic War horses
-["westger_warhorse_1","Northern Warhorse", [("westger_warhorse_1",0)], itp_merchandise|itp_type_horse, 0, 3800,abundance(30)|hit_points(190)|body_armor(15)|difficulty(3)|horse_speed(40)|horse_maneuver(35)|horse_charge(30)|horse_scale(90),imodbits_horse_basic, [], culture_germanic ],
-["westger_warhorse_2","Northern Warhorse", [("westger_warhorse_2",0)], itp_merchandise|itp_type_horse, 0, 3800,abundance(30)|hit_points(190)|body_armor(15)|difficulty(3)|horse_speed(40)|horse_maneuver(35)|horse_charge(30)|horse_scale(90),imodbits_horse_basic, [], culture_germanic ],
+["westger_warhorse_1","Warhorse", [("westger_warhorse_1",0)], itp_merchandise|itp_type_horse, 0, 3800,abundance(30)|hit_points(190)|body_armor(15)|difficulty(3)|horse_speed(42)|horse_maneuver(35)|horse_charge(30)|horse_scale(90),imodbits_horse_basic, [], culture_germanic ],
+["westger_warhorse_2","Warhorse", [("westger_warhorse_2",0)], itp_merchandise|itp_type_horse, 0, 3800,abundance(30)|hit_points(190)|body_armor(15)|difficulty(3)|horse_speed(42)|horse_maneuver(35)|horse_charge(30)|horse_scale(90),imodbits_horse_basic, [], culture_germanic ],
 
 ["barb_light_1","Mauri Horse", [("barb_light_1",0)], itp_merchandise|itp_type_horse, 0, 1340,abundance(80)|hit_points(120)|body_armor(6)|difficulty(2)|horse_speed(47)|horse_maneuver(55)|horse_charge(12)|horse_scale(90),imodbits_horse_basic, [], [fac_culture_11] ],
 ["barb_light_2","Mauri Horse", [("barb_light_2",0)], itp_merchandise|itp_type_horse, 0, 1340,abundance(80)|hit_points(120)|body_armor(6)|difficulty(2)|horse_speed(47)|horse_maneuver(55)|horse_charge(12)|horse_scale(90),imodbits_horse_basic, [], [fac_culture_11] ],
@@ -423,6 +350,43 @@ items = [
 ["barb_cham_2","Mauri Horse", [("barb_cham_2",0)], itp_merchandise|itp_type_horse, 0, 2200,abundance(20)|hit_points(170)|body_armor(18)|difficulty(3)|horse_speed(47)|horse_maneuver(48)|horse_charge(22)|horse_scale(90),imodbits_horse_basic, [], [fac_culture_11] ],
 ["barb_cham_3","Mauri Horse", [("barb_cham_3",0)], itp_merchandise|itp_type_horse, 0, 2200,abundance(20)|hit_points(170)|body_armor(18)|difficulty(3)|horse_speed(47)|horse_maneuver(48)|horse_charge(22)|horse_scale(90),imodbits_horse_basic, [], [fac_culture_11] ],
 
+#eastern germanic horses
+["east_germ_forest_horse_1","Forest Horse", [("east_germ_forest_horse_1",0)], itp_merchandise|itp_type_horse, 0, 1340,abundance(80)|hit_points(120)|body_armor(10)|difficulty(1)|horse_speed(44)|horse_maneuver(50)|horse_charge(12)|horse_scale(92),imodbits_horse_basic, [], [fac_culture_1,fac_culture_2] ],
+["east_germ_forest_horse_2","Forest Horse", [("east_germ_forest_horse_2",0)], itp_merchandise|itp_type_horse, 0, 1340,abundance(80)|hit_points(120)|body_armor(10)|difficulty(1)|horse_speed(44)|horse_maneuver(50)|horse_charge(12)|horse_scale(92),imodbits_horse_basic, [], [fac_culture_1,fac_culture_2] ],
+["east_germ_forest_horse_3","Forest Horse", [("east_germ_forest_horse_3",0)], itp_merchandise|itp_type_horse, 0, 1340,abundance(80)|hit_points(120)|body_armor(10)|difficulty(1)|horse_speed(44)|horse_maneuver(50)|horse_charge(12)|horse_scale(92),imodbits_horse_basic, [], [fac_culture_1,fac_culture_2] ],
+["east_germ_forest_horse_4","Forest Horse", [("east_germ_forest_horse_4",0)], itp_merchandise|itp_type_horse, 0, 1340,abundance(80)|hit_points(120)|body_armor(10)|difficulty(1)|horse_speed(44)|horse_maneuver(50)|horse_charge(12)|horse_scale(92),imodbits_horse_basic, [], [fac_culture_1,fac_culture_2] ],
+
+["east_germ_heavy_forest_horse_1","Forest Horse", [("east_germ_heavy_forest_horse_1",0)], itp_merchandise|itp_type_horse, 0, 1980,abundance(60)|hit_points(140)|body_armor(15)|difficulty(1)|horse_speed(44)|horse_maneuver(50)|horse_charge(20)|horse_scale(92),imodbits_horse_basic, [], [fac_culture_1,fac_culture_2] ],
+["east_germ_heavy_forest_horse_2","Forest Horse", [("east_germ_heavy_forest_horse_2",0)], itp_merchandise|itp_type_horse, 0, 1980,abundance(60)|hit_points(140)|body_armor(15)|difficulty(1)|horse_speed(44)|horse_maneuver(50)|horse_charge(20)|horse_scale(92),imodbits_horse_basic, [], [fac_culture_1,fac_culture_2] ],
+["east_germ_heavy_forest_horse_3","Forest Horse", [("east_germ_heavy_forest_horse_3",0)], itp_merchandise|itp_type_horse, 0, 1980,abundance(60)|hit_points(140)|body_armor(15)|difficulty(1)|horse_speed(44)|horse_maneuver(50)|horse_charge(20)|horse_scale(92),imodbits_horse_basic, [], [fac_culture_1,fac_culture_2] ],
+["east_germ_heavy_forest_horse_4","Forest Horse", [("east_germ_heavy_forest_horse_4",0)], itp_merchandise|itp_type_horse, 0, 1980,abundance(60)|hit_points(140)|body_armor(15)|difficulty(1)|horse_speed(44)|horse_maneuver(50)|horse_charge(20)|horse_scale(92),imodbits_horse_basic, [], [fac_culture_1,fac_culture_2] ],
+
+["east_germ_warhorse_1","Warhorse", [("east_germ_warhorse_1",0)], itp_merchandise|itp_type_horse, 0, 3800,abundance(20)|hit_points(170)|body_armor(15)|difficulty(3)|horse_speed(45)|horse_maneuver(45)|horse_charge(25)|horse_scale(92),imodbits_horse_basic, [], [fac_culture_1,fac_culture_2] ],
+["east_germ_warhorse_2","Warhorse", [("east_germ_warhorse_2",0)], itp_merchandise|itp_type_horse, 0, 3800,abundance(20)|hit_points(170)|body_armor(15)|difficulty(3)|horse_speed(45)|horse_maneuver(45)|horse_charge(25)|horse_scale(92),imodbits_horse_basic, [], [fac_culture_1,fac_culture_2] ],
+["east_germ_warhorse_3","Warhorse", [("east_germ_warhorse_3",0)], itp_merchandise|itp_type_horse, 0, 3800,abundance(20)|hit_points(170)|body_armor(15)|difficulty(3)|horse_speed(45)|horse_maneuver(45)|horse_charge(25)|horse_scale(92),imodbits_horse_basic, [], [fac_culture_1,fac_culture_2] ],
+["east_germ_warhorse_4","Warhorse", [("east_germ_warhorse_4",0)], itp_merchandise|itp_type_horse, 0, 3800,abundance(20)|hit_points(170)|body_armor(15)|difficulty(3)|horse_speed(45)|horse_maneuver(45)|horse_charge(25)|horse_scale(92),imodbits_horse_basic, [], [fac_culture_1,fac_culture_2] ],
+
+#slavic + sporoi horses
+["slav_forest_horse_1","Forest Horse", [("slav_forest_horse_1",0)], itp_merchandise|itp_type_horse, 0, 1340,abundance(80)|hit_points(120)|body_armor(10)|difficulty(1)|horse_speed(44)|horse_maneuver(50)|horse_charge(12)|horse_scale(92),imodbits_horse_basic, [], culture_hunnic+culture_alan ],
+["slav_forest_horse_2","Forest Horse", [("slav_forest_horse_2",0)], itp_merchandise|itp_type_horse, 0, 1340,abundance(80)|hit_points(120)|body_armor(10)|difficulty(1)|horse_speed(44)|horse_maneuver(50)|horse_charge(12)|horse_scale(92),imodbits_horse_basic, [], culture_hunnic+culture_alan ],
+["slav_forest_horse_3","Forest Horse", [("slav_forest_horse_3",0)], itp_merchandise|itp_type_horse, 0, 1340,abundance(80)|hit_points(120)|body_armor(10)|difficulty(1)|horse_speed(44)|horse_maneuver(50)|horse_charge(12)|horse_scale(92),imodbits_horse_basic, [], culture_hunnic+culture_alan ],
+["slav_forest_horse_4","Forest Horse", [("slav_forest_horse_4",0)], itp_merchandise|itp_type_horse, 0, 1340,abundance(80)|hit_points(120)|body_armor(10)|difficulty(1)|horse_speed(44)|horse_maneuver(50)|horse_charge(12)|horse_scale(92),imodbits_horse_basic, [], culture_hunnic+culture_alan ],
+
+["slav_heavy_forest_horse_1","Forest Horse", [("slav_heavy_forest_horse_1",0)], itp_merchandise|itp_type_horse, 0, 1980,abundance(60)|hit_points(140)|body_armor(15)|difficulty(1)|horse_speed(44)|horse_maneuver(50)|horse_charge(20)|horse_scale(92),imodbits_horse_basic, [], culture_hunnic+culture_alan ],
+["slav_heavy_forest_horse_2","Forest Horse", [("slav_heavy_forest_horse_2",0)], itp_merchandise|itp_type_horse, 0, 1980,abundance(60)|hit_points(140)|body_armor(15)|difficulty(1)|horse_speed(44)|horse_maneuver(50)|horse_charge(20)|horse_scale(92),imodbits_horse_basic, [], culture_hunnic+culture_alan ],
+["slav_heavy_forest_horse_3","Forest Horse", [("slav_heavy_forest_horse_3",0)], itp_merchandise|itp_type_horse, 0, 1980,abundance(60)|hit_points(140)|body_armor(15)|difficulty(1)|horse_speed(44)|horse_maneuver(50)|horse_charge(20)|horse_scale(92),imodbits_horse_basic, [], culture_hunnic+culture_alan ],
+["slav_heavy_forest_horse_4","Forest Horse", [("slav_heavy_forest_horse_4",0)], itp_merchandise|itp_type_horse, 0, 1980,abundance(60)|hit_points(140)|body_armor(15)|difficulty(1)|horse_speed(44)|horse_maneuver(50)|horse_charge(20)|horse_scale(92),imodbits_horse_basic, [], culture_hunnic+culture_alan ],
+
+["sporoi_forest_horse_1","Forest Horse", [("sporoi_forest_horse_1",0)], itp_type_horse, 0, 1340,abundance(80)|hit_points(120)|body_armor(10)|difficulty(1)|horse_speed(44)|horse_maneuver(50)|horse_charge(12)|horse_scale(92),imodbits_horse_basic ],
+["sporoi_forest_horse_2","Forest Horse", [("sporoi_forest_horse_2",0)], itp_type_horse, 0, 1340,abundance(80)|hit_points(120)|body_armor(10)|difficulty(1)|horse_speed(44)|horse_maneuver(50)|horse_charge(12)|horse_scale(92),imodbits_horse_basic ],
+["sporoi_forest_horse_3","Forest Horse", [("sporoi_forest_horse_3",0)], itp_type_horse, 0, 1340,abundance(80)|hit_points(120)|body_armor(10)|difficulty(1)|horse_speed(44)|horse_maneuver(50)|horse_charge(12)|horse_scale(92),imodbits_horse_basic ],
+["sporoi_forest_horse_4","Forest Horse", [("sporoi_forest_horse_4",0)], itp_type_horse, 0, 1340,abundance(80)|hit_points(120)|body_armor(10)|difficulty(1)|horse_speed(44)|horse_maneuver(50)|horse_charge(12)|horse_scale(92),imodbits_horse_basic ],
+
+["sporoi_hun_horse_1","Hunnic Horse", [("sporoi_hun_horse_1",0)], itp_type_horse, 0, 1500,abundance(70)|hit_points(120)|body_armor(10)|difficulty(2)|horse_speed(44)|horse_maneuver(55)|horse_charge(10)|horse_scale(90),imodbits_horse_basic ],
+["sporoi_hun_horse_2","Hunnic Horse", [("sporoi_hun_horse_2",0)], itp_type_horse, 0, 1500,abundance(70)|hit_points(120)|body_armor(10)|difficulty(2)|horse_speed(44)|horse_maneuver(55)|horse_charge(10)|horse_scale(90),imodbits_horse_basic ],
+["sporoi_hun_horse_3","Hunnic Horse", [("sporoi_hun_horse_3",0)], itp_type_horse, 0, 1500,abundance(70)|hit_points(120)|body_armor(10)|difficulty(2)|horse_speed(44)|horse_maneuver(55)|horse_charge(10)|horse_scale(90),imodbits_horse_basic ],
+["sporoi_hun_horse_4","Hunnic Horse", [("sporoi_hun_horse_4",0)], itp_type_horse, 0, 1500,abundance(70)|hit_points(120)|body_armor(10)|difficulty(2)|horse_speed(44)|horse_maneuver(55)|horse_charge(10)|horse_scale(90),imodbits_horse_basic ],
+
 #Nubian horses
 ["dongola_1","Nubian Horse", [("dongola_1",0)], itp_merchandise|itp_type_horse, 0, 3400,abundance(40)|hit_points(100)|body_armor(10)|difficulty(2)|horse_speed(50)|horse_maneuver(44)|horse_charge(12)|horse_scale(92),imodbits_horse_basic, [], [fac_culture_15] ],
 ["dongola_2","Nubian Horse", [("dongola_2",0)], itp_merchandise|itp_type_horse, 0, 3400,abundance(40)|hit_points(100)|body_armor(10)|difficulty(2)|horse_speed(50)|horse_maneuver(44)|horse_charge(12)|horse_scale(92),imodbits_horse_basic, [], [fac_culture_15] ],
@@ -432,16 +396,80 @@ items = [
 ["dongola_rich_2","Nubian Noble Horse", [("dongola_rich_2",0)], itp_merchandise|itp_type_horse, 0, 5300,abundance(20)|hit_points(140)|body_armor(12)|difficulty(3)|horse_speed(50)|horse_maneuver(46)|horse_charge(18)|horse_scale(92),imodbits_horse_basic, [], [fac_culture_15] ],
 ["dongola_rich_3","Nubian Noble Horse", [("dongola_rich_3",0)], itp_merchandise|itp_type_horse, 0, 5300,abundance(20)|hit_points(140)|body_armor(12)|difficulty(3)|horse_speed(50)|horse_maneuver(46)|horse_charge(18)|horse_scale(92),imodbits_horse_basic, [], [fac_culture_15] ],
 
-["dongola_bard_1","Nubian Barded Horse", [("dongola_bard_1",0)], itp_merchandise|itp_type_horse, 0, 6800,abundance(10)|hit_points(150)|body_armor(30)|difficulty(4)|horse_speed(45)|horse_maneuver(43)|horse_charge(25)|horse_scale(92),imodbits_horse_basic, [], [fac_culture_15] ],
-["dongola_bard_2","Nubian Barded Horse", [("dongola_bard_2",0)], itp_merchandise|itp_type_horse, 0, 6800,abundance(10)|hit_points(150)|body_armor(30)|difficulty(4)|horse_speed(45)|horse_maneuver(43)|horse_charge(25)|horse_scale(92),imodbits_horse_basic, [], [fac_culture_15] ],
-["dongola_bard_3","Nubian Barded Horse", [("dongola_bard_3",0)], itp_merchandise|itp_type_horse, 0, 6800,abundance(10)|hit_points(150)|body_armor(30)|difficulty(4)|horse_speed(45)|horse_maneuver(43)|horse_charge(25)|horse_scale(92),imodbits_horse_basic, [], [fac_culture_15] ],
-["dongola_bard_4","Nubian Barded Horse", [("dongola_bard_4",0)], itp_merchandise|itp_type_horse, 0, 6800,abundance(10)|hit_points(150)|body_armor(30)|difficulty(4)|horse_speed(45)|horse_maneuver(43)|horse_charge(25)|horse_scale(92),imodbits_horse_basic, [], [fac_culture_15] ],
-["dongola_bard_5","Nubian Barded Horse", [("dongola_bard_5",0)], itp_merchandise|itp_type_horse, 0, 6800,abundance(10)|hit_points(150)|body_armor(30)|difficulty(4)|horse_speed(45)|horse_maneuver(43)|horse_charge(25)|horse_scale(92),imodbits_horse_basic, [], [fac_culture_15] ],
-["dongola_bard_6","Nubian Barded Horse", [("dongola_bard_6",0)], itp_merchandise|itp_type_horse, 0, 6800,abundance(10)|hit_points(150)|body_armor(30)|difficulty(4)|horse_speed(45)|horse_maneuver(43)|horse_charge(25)|horse_scale(92),imodbits_horse_basic, [], [fac_culture_15] ],
+["dongola_bard_1","Nubian Barded Horse", [("dongola_bard_1",0)], itp_merchandise|itp_type_horse, 0, 6800,abundance(5)|hit_points(150)|body_armor(30)|difficulty(4)|horse_speed(45)|horse_maneuver(43)|horse_charge(25)|horse_scale(92),imodbits_horse_basic, [], [fac_culture_15] ],
+["dongola_bard_2","Nubian Barded Horse", [("dongola_bard_2",0)], itp_merchandise|itp_type_horse, 0, 6800,abundance(5)|hit_points(150)|body_armor(30)|difficulty(4)|horse_speed(45)|horse_maneuver(43)|horse_charge(25)|horse_scale(92),imodbits_horse_basic, [], [fac_culture_15] ],
+["dongola_bard_3","Nubian Barded Horse", [("dongola_bard_3",0)], itp_merchandise|itp_type_horse, 0, 6800,abundance(5)|hit_points(150)|body_armor(30)|difficulty(4)|horse_speed(45)|horse_maneuver(43)|horse_charge(25)|horse_scale(92),imodbits_horse_basic, [], [fac_culture_15] ],
+["dongola_bard_4","Nubian Barded Horse", [("dongola_bard_4",0)], itp_merchandise|itp_type_horse, 0, 6800,abundance(5)|hit_points(150)|body_armor(30)|difficulty(4)|horse_speed(45)|horse_maneuver(43)|horse_charge(25)|horse_scale(92),imodbits_horse_basic, [], [fac_culture_15] ],
+["dongola_bard_5","Nubian Barded Horse", [("dongola_bard_5",0)], itp_merchandise|itp_type_horse, 0, 6800,abundance(5)|hit_points(150)|body_armor(30)|difficulty(4)|horse_speed(45)|horse_maneuver(43)|horse_charge(25)|horse_scale(92),imodbits_horse_basic, [], [fac_culture_15] ],
+["dongola_bard_6","Nubian Barded Horse", [("dongola_bard_6",0)], itp_merchandise|itp_type_horse, 0, 6800,abundance(5)|hit_points(150)|body_armor(30)|difficulty(4)|horse_speed(45)|horse_maneuver(43)|horse_charge(25)|horse_scale(92),imodbits_horse_basic, [], [fac_culture_15] ],
 
-#both cultures were known for their horses
-["frisian_warhorse","Frisian Warhorse", [("normal_horse12",0)], itp_merchandise|itp_type_horse, 0, 3800,abundance(30)|hit_points(170)|body_armor(19)|difficulty(4)|horse_speed(44)|horse_maneuver(43)|horse_charge(23)|horse_scale(96),imodbits_horse_basic|imodbit_champion, [], culture_germanic ],
-["thuringian_warhorse","Thuringian Horse", [("normal_horse19",0)], itp_merchandise|itp_type_horse, 0, 3900,abundance(30)|hit_points(160)|body_armor(19)|difficulty(4)|horse_speed(45)|horse_maneuver(44)|horse_charge(20)|horse_scale(95),imodbits_horse_basic|imodbit_champion, [], culture_germanic ],
+#arab horses
+["arab_1","Arabian Horse", [("arab_1",0)], itp_merchandise|itp_type_horse, 0, 1600,abundance(40)|hit_points(120)|body_armor(10)|difficulty(3)|horse_speed(50)|horse_maneuver(58)|horse_charge(15)|horse_scale(98),imodbits_horse_basic, [], culture_sassanid ],
+["arab_2","Arabian Horse", [("arab_2",0)], itp_merchandise|itp_type_horse, 0, 1600,abundance(40)|hit_points(120)|body_armor(10)|difficulty(3)|horse_speed(50)|horse_maneuver(58)|horse_charge(15)|horse_scale(98),imodbits_horse_basic, [], culture_sassanid ],
+["arab_3","Arabian Horse", [("arab_3",0)], itp_merchandise|itp_type_horse, 0, 1600,abundance(40)|hit_points(120)|body_armor(10)|difficulty(3)|horse_speed(50)|horse_maneuver(58)|horse_charge(15)|horse_scale(98),imodbits_horse_basic, [], culture_sassanid ],
+["arab_4","Arabian Horse", [("arab_4",0)], itp_merchandise|itp_type_horse, 0, 1600,abundance(40)|hit_points(120)|body_armor(10)|difficulty(3)|horse_speed(50)|horse_maneuver(58)|horse_charge(15)|horse_scale(98),imodbits_horse_basic, [], culture_sassanid ],
+
+["arab_rich_1","Arabian Horse", [("arab_rich_1",0)], itp_merchandise|itp_type_horse, 0, 3200,abundance(20)|hit_points(150)|body_armor(15)|difficulty(4)|horse_speed(50)|horse_maneuver(60)|horse_charge(20)|horse_scale(98),imodbits_horse_basic|imodbit_champion, [], culture_sassanid ],
+["arab_rich_2","Arabian Horse", [("arab_rich_2",0)], itp_merchandise|itp_type_horse, 0, 3200,abundance(20)|hit_points(150)|body_armor(15)|difficulty(4)|horse_speed(50)|horse_maneuver(60)|horse_charge(20)|horse_scale(98),imodbits_horse_basic|imodbit_champion, [], culture_sassanid ],
+["arab_rich_3","Arabian Horse", [("arab_rich_3",0)], itp_merchandise|itp_type_horse, 0, 3200,abundance(20)|hit_points(150)|body_armor(15)|difficulty(4)|horse_speed(50)|horse_maneuver(60)|horse_charge(20)|horse_scale(98),imodbits_horse_basic|imodbit_champion, [], culture_sassanid ],
+["arab_rich_4","Arabian Horse", [("arab_rich_4",0)], itp_merchandise|itp_type_horse, 0, 3200,abundance(20)|hit_points(150)|body_armor(15)|difficulty(4)|horse_speed(50)|horse_maneuver(60)|horse_charge(20)|horse_scale(98),imodbits_horse_basic|imodbit_champion, [], culture_sassanid ],
+
+["arab_bard_1","Arabian Barded Horse", [("arab_bard_1",0)], itp_merchandise|itp_type_horse, 0, 6950,abundance(8)|hit_points(150)|body_armor(40)|difficulty(4)|horse_speed(48)|horse_maneuver(55)|horse_charge(25)|horse_scale(98),imodbits_horse_basic|imodbit_champion, [], culture_sassanid ],
+["arab_bard_2","Arabian Barded Horse", [("arab_bard_2",0)], itp_merchandise|itp_type_horse, 0, 6950,abundance(8)|hit_points(150)|body_armor(40)|difficulty(4)|horse_speed(48)|horse_maneuver(55)|horse_charge(25)|horse_scale(98),imodbits_horse_basic|imodbit_champion, [], culture_sassanid ],
+["arab_bard_3","Arabian Barded Horse", [("arab_bard_3",0)], itp_merchandise|itp_type_horse, 0, 6950,abundance(8)|hit_points(150)|body_armor(40)|difficulty(4)|horse_speed(48)|horse_maneuver(55)|horse_charge(25)|horse_scale(98),imodbits_horse_basic|imodbit_champion, [], culture_sassanid ],
+["arab_bard_4","Arabian Barded Horse", [("arab_bard_4",0)], itp_merchandise|itp_type_horse, 0, 6950,abundance(8)|hit_points(150)|body_armor(40)|difficulty(4)|horse_speed(48)|horse_maneuver(55)|horse_charge(25)|horse_scale(98),imodbits_horse_basic|imodbit_champion, [], culture_sassanid ],
+
+#persian horses
+["eastern_horse_1","Eastern Horse", [("eastern_horse_1",0)], itp_merchandise|itp_type_horse, 0, 1580,abundance(80)|hit_points(130)|body_armor(10)|difficulty(2)|horse_speed(45)|horse_maneuver(50)|horse_charge(18)|horse_scale(98),imodbits_horse_basic, [], culture_sassanid ],
+["eastern_horse_2","Eastern Horse", [("eastern_horse_2",0)], itp_merchandise|itp_type_horse, 0, 1580,abundance(80)|hit_points(130)|body_armor(10)|difficulty(2)|horse_speed(45)|horse_maneuver(50)|horse_charge(18)|horse_scale(98),imodbits_horse_basic, [], culture_sassanid ],
+["eastern_horse_3","Eastern Horse", [("eastern_horse_3",0)], itp_merchandise|itp_type_horse, 0, 1580,abundance(80)|hit_points(130)|body_armor(10)|difficulty(2)|horse_speed(45)|horse_maneuver(50)|horse_charge(18)|horse_scale(98),imodbits_horse_basic, [], culture_sassanid ],
+
+["niseansas_1","Nisean Warhorse", [("niseansas_1",0)], itp_merchandise|itp_type_horse, 0, 3500,abundance(18)|hit_points(200)|body_armor(20)|difficulty(4)|horse_speed(47)|horse_maneuver(45)|horse_charge(30)|horse_scale(98),imodbits_horse_basic|imodbit_champion, [], culture_sassanid ],
+["niseansas_2","Nisean Warhorse", [("niseansas_2",0)], itp_merchandise|itp_type_horse, 0, 3500,abundance(18)|hit_points(200)|body_armor(20)|difficulty(4)|horse_speed(47)|horse_maneuver(45)|horse_charge(30)|horse_scale(98),imodbits_horse_basic|imodbit_champion, [], culture_sassanid ],
+["niseansas_3","Nisean Warhorse", [("niseansas_3",0)], itp_merchandise|itp_type_horse, 0, 3500,abundance(18)|hit_points(200)|body_armor(20)|difficulty(4)|horse_speed(47)|horse_maneuver(45)|horse_charge(30)|horse_scale(98),imodbits_horse_basic|imodbit_champion, [], culture_sassanid ],
+["niseansas_4","Nisean Warhorse", [("niseansas_4",0)], itp_merchandise|itp_type_horse, 0, 3500,abundance(18)|hit_points(200)|body_armor(20)|difficulty(4)|horse_speed(47)|horse_maneuver(45)|horse_charge(30)|horse_scale(98),imodbits_horse_basic|imodbit_champion, [], culture_sassanid ],
+
+["niseansas_bard_1","Barded Nisean Warhorse", [("niseansas_bard_1",0)], itp_merchandise|itp_type_horse, 0, 6400,abundance(15)|hit_points(200)|body_armor(30)|difficulty(4)|horse_speed(43)|horse_maneuver(45)|horse_charge(38)|horse_scale(98),imodbits_horse_basic|imodbit_champion, [], culture_roman+culture_sassanid+culture_caucasian ],
+["niseansas_bard_2","Barded Nisean Warhorse", [("niseansas_bard_2",0)], itp_merchandise|itp_type_horse, 0, 6400,abundance(15)|hit_points(200)|body_armor(30)|difficulty(4)|horse_speed(43)|horse_maneuver(45)|horse_charge(38)|horse_scale(98),imodbits_horse_basic|imodbit_champion, [], culture_sassanid+culture_caucasian ],
+["niseansas_bard_3","Barded Nisean Warhorse", [("niseansas_bard_3",0)], itp_merchandise|itp_type_horse, 0, 6400,abundance(15)|hit_points(200)|body_armor(30)|difficulty(4)|horse_speed(43)|horse_maneuver(45)|horse_charge(38)|horse_scale(98),imodbits_horse_basic|imodbit_champion, [], culture_sassanid+culture_caucasian ],
+["niseansas_bard_4","Barded Nisean Warhorse", [("niseansas_bard_4",0)], itp_merchandise|itp_type_horse, 0, 6400,abundance(15)|hit_points(200)|body_armor(30)|difficulty(4)|horse_speed(43)|horse_maneuver(45)|horse_charge(38)|horse_scale(98),imodbits_horse_basic|imodbit_champion, [], culture_roman+culture_sassanid+culture_caucasian ],
+
+["niseansas_cata_1","Nisean Cataphract", [("niseansas_cata_1",0)], itp_merchandise|itp_type_horse, 0, 8000,abundance(5)|hit_points(200)|body_armor(50)|difficulty(4)|horse_speed(40)|horse_maneuver(36)|horse_charge(50)|horse_scale(98),imodbits_horse_basic|imodbit_champion, [], culture_sassanid ],
+["niseansas_cata_2","Nisean Cataphract", [("niseansas_cata_2",0)], itp_merchandise|itp_type_horse, 0, 8000,abundance(5)|hit_points(200)|body_armor(50)|difficulty(4)|horse_speed(40)|horse_maneuver(36)|horse_charge(50)|horse_scale(98),imodbits_horse_basic|imodbit_champion, [], culture_sassanid ],
+["niseansas_cata_3","Nisean Cataphract", [("niseansas_cata_3",0)], itp_merchandise|itp_type_horse, 0, 8000,abundance(5)|hit_points(200)|body_armor(50)|difficulty(4)|horse_speed(40)|horse_maneuver(36)|horse_charge(50)|horse_scale(98),imodbits_horse_basic|imodbit_champion, [], culture_sassanid+culture_caucasian ],
+["niseansas_cata_4","Nisean Cataphract", [("niseansas_cata_4",0)], itp_merchandise|itp_type_horse, 0, 8000,abundance(5)|hit_points(200)|body_armor(50)|difficulty(4)|horse_speed(40)|horse_maneuver(36)|horse_charge(50)|horse_scale(98),imodbits_horse_basic|imodbit_champion, [], culture_sassanid+culture_caucasian ],
+
+["nisean_royal_1","Nisean Half-Cataphract", [("nisean_royal_1",0)], itp_merchandise|itp_type_horse, 0, 9200,abundance(2)|hit_points(220)|body_armor(40)|difficulty(4)|horse_speed(45)|horse_maneuver(45)|horse_charge(40)|horse_scale(98),imodbits_horse_basic|imodbit_champion, [], culture_sassanid ],
+["nisean_royal_2","Nisean Half-Cataphract", [("nisean_royal_2",0)], itp_merchandise|itp_type_horse, 0, 9200,abundance(2)|hit_points(220)|body_armor(40)|difficulty(4)|horse_speed(45)|horse_maneuver(45)|horse_charge(40)|horse_scale(98),imodbits_horse_basic|imodbit_champion, [], culture_sassanid ],
+["nisean_royal_3","Nisean Half-Cataphract", [("nisean_royal_3",0)], itp_merchandise|itp_type_horse, 0, 9200,abundance(2)|hit_points(220)|body_armor(40)|difficulty(4)|horse_speed(45)|horse_maneuver(45)|horse_charge(40)|horse_scale(98),imodbits_horse_basic|imodbit_champion, [], culture_sassanid ],
+
+#aquired via future quest?
+["nisean_special","Nisean Warhorse", [("nisean_special",0)], itp_unique|itp_type_horse, 0, 12000,abundance(2)|hit_points(220)|body_armor(45)|difficulty(5)|horse_speed(47)|horse_maneuver(50)|horse_charge(40)|horse_scale(98),imodbits_horse_basic|imodbit_champion ],
+
+#Northern horses
+["skogsruss_1","Widauzhrhruss", [("skogsruss_1",0)], itp_merchandise|itp_type_horse, 0, 1340,abundance(70)|hit_points(120)|body_armor(10)|difficulty(1)|horse_speed(44)|horse_maneuver(50)|horse_charge(12)|horse_scale(98),imodbits_horse_basic, [], culture_germanic ],
+["skogsruss_2","Widauzhrhruss", [("skogsruss_2",0)], itp_merchandise|itp_type_horse, 0, 1340,abundance(70)|hit_points(120)|body_armor(10)|difficulty(1)|horse_speed(44)|horse_maneuver(50)|horse_charge(12)|horse_scale(98),imodbits_horse_basic, [], culture_germanic ],
+["skogsruss_3","Widauzhrhruss", [("skogsruss_3",0)], itp_merchandise|itp_type_horse, 0, 1340,abundance(70)|hit_points(120)|body_armor(10)|difficulty(1)|horse_speed(44)|horse_maneuver(50)|horse_charge(12)|horse_scale(98),imodbits_horse_basic, [], culture_germanic ],
+["skogsruss_4","Widauzhrhruss", [("skogsruss_4",0)], itp_merchandise|itp_type_horse, 0, 1340,abundance(70)|hit_points(120)|body_armor(10)|difficulty(1)|horse_speed(44)|horse_maneuver(50)|horse_charge(12)|horse_scale(98),imodbits_horse_basic, [], culture_germanic ],
+
+["fjord_1","Ferthauzhruss", [("fjord_1",0)], itp_merchandise|itp_type_horse, 0, 1980,abundance(70)|hit_points(150)|body_armor(15)|difficulty(2)|horse_speed(44)|horse_maneuver(50)|horse_charge(20)|horse_scale(98),imodbits_horse_basic, [], culture_germanic ],
+["fjord_2","Ferthauzhruss", [("fjord_2",0)], itp_merchandise|itp_type_horse, 0, 1980,abundance(70)|hit_points(150)|body_armor(15)|difficulty(2)|horse_speed(44)|horse_maneuver(50)|horse_charge(20)|horse_scale(98),imodbits_horse_basic, [], culture_germanic ],
+["fjord_3","Ferthauzhruss", [("fjord_3",0)], itp_merchandise|itp_type_horse, 0, 1980,abundance(70)|hit_points(150)|body_armor(15)|difficulty(2)|horse_speed(44)|horse_maneuver(50)|horse_charge(20)|horse_scale(98),imodbits_horse_basic, [], culture_germanic ],
+["fjord_4","Ferthauzhruss", [("fjord_4",0)], itp_merchandise|itp_type_horse, 0, 1980,abundance(70)|hit_points(150)|body_armor(15)|difficulty(2)|horse_speed(44)|horse_maneuver(50)|horse_charge(20)|horse_scale(98),imodbits_horse_basic, [], culture_germanic ],
+
+["friesian_1","Friesian Warhorse", [("friesian_1",0)], itp_merchandise|itp_type_horse, 0, 3000,abundance(70)|hit_points(170)|body_armor(15)|difficulty(3)|horse_speed(45)|horse_maneuver(45)|horse_charge(25)|horse_scale(98),imodbits_horse_basic, [], culture_germanic ],
+["friesian_2","Friesian Warhorse", [("friesian_2",0)], itp_merchandise|itp_type_horse, 0, 3000,abundance(70)|hit_points(170)|body_armor(15)|difficulty(3)|horse_speed(45)|horse_maneuver(45)|horse_charge(25)|horse_scale(98),imodbits_horse_basic, [], culture_germanic ],
+
+#celtic horses
+["marcagnos_1","Marcagnos Horse", [("marcagnos_1",0)], itp_merchandise|itp_type_horse, 0, 1340,abundance(70)|hit_points(120)|body_armor(10)|difficulty(1)|horse_speed(44)|horse_maneuver(50)|horse_charge(12)|horse_scale(98),imodbits_horse_basic, [], culture_celtic ],
+["marcagnos_2","Marcagnos Horse", [("marcagnos_2",0)], itp_merchandise|itp_type_horse, 0, 1340,abundance(70)|hit_points(120)|body_armor(10)|difficulty(1)|horse_speed(44)|horse_maneuver(50)|horse_charge(12)|horse_scale(98),imodbits_horse_basic, [], culture_celtic ],
+["marcagnos_3","Marcagnos Horse", [("marcagnos_3",0)], itp_merchandise|itp_type_horse, 0, 1340,abundance(70)|hit_points(120)|body_armor(10)|difficulty(1)|horse_speed(44)|horse_maneuver(50)|horse_charge(12)|horse_scale(98),imodbits_horse_basic, [], culture_celtic ],
+["marcagnos_4","Marcagnos Horse", [("marcagnos_4",0)], itp_merchandise|itp_type_horse, 0, 1340,abundance(70)|hit_points(120)|body_armor(10)|difficulty(1)|horse_speed(44)|horse_maneuver(50)|horse_charge(12)|horse_scale(98),imodbits_horse_basic, [], culture_celtic ],
+
+["marcos_1","Marcos Warhorse", [("marcos_1",0)], itp_merchandise|itp_type_horse, 0, 1980,abundance(50)|hit_points(160)|body_armor(15)|difficulty(3)|horse_speed(44)|horse_maneuver(47)|horse_charge(23)|horse_scale(98),imodbits_horse_basic, [], culture_celtic ],
+["marcos_2","Marcos Warhorse", [("marcos_2",0)], itp_merchandise|itp_type_horse, 0, 1980,abundance(50)|hit_points(160)|body_armor(15)|difficulty(3)|horse_speed(44)|horse_maneuver(47)|horse_charge(23)|horse_scale(98),imodbits_horse_basic, [], culture_celtic ],
+["marcos_3","Marcos Warhorse", [("marcos_3",0)], itp_merchandise|itp_type_horse, 0, 1980,abundance(50)|hit_points(160)|body_armor(15)|difficulty(3)|horse_speed(44)|horse_maneuver(47)|horse_charge(23)|horse_scale(98),imodbits_horse_basic, [], culture_celtic ],
+["marcos_4","Marcos Warhorse", [("marcos_4",0)], itp_merchandise|itp_type_horse, 0, 1980,abundance(50)|hit_points(160)|body_armor(15)|difficulty(3)|horse_speed(44)|horse_maneuver(47)|horse_charge(23)|horse_scale(98),imodbits_horse_basic, [], culture_celtic ],
 
 ["donkey_mount","Donkey", [("donkey_mount",0)], itp_merchandise|itp_type_horse, 0, 400,abundance(80)|hit_points(55)|body_armor(7)|difficulty(0)|horse_speed(32)|horse_maneuver(33)|horse_charge(8)|horse_scale(79),imodbits_horse_basic],
 ["mule","Mule", [("mule",0)], itp_merchandise|itp_type_horse, 0, 450,abundance(70)|hit_points(65)|body_armor(10)|difficulty(0)|horse_speed(35)|horse_maneuver(35)|horse_charge(8)|horse_scale(86),imodbits_horse_basic],
@@ -482,38 +510,6 @@ items = [
 ["leather_gloves","Leather Gloves", [("leather_gloves_L",0)], itp_merchandise|itp_type_hand_armor,0, 500, weight(0.25)|abundance(10)|body_armor(2)|difficulty(0),imodbits_cloth],
 ["mail_mittens","Mail Gloves", [("mail_mittens_new_L",0)], itp_type_hand_armor,0, 2840, weight(1)|abundance(1)|body_armor(6)|difficulty(0),imodbits_armor],
 
-##Cloaks as gloves
-["TOAOE_cloak_glove_2a","Cloak", [("nero_TOAOE_cloak_glove_2a_L",0),("nero_TOAOE_cloak_glove_2a_Lx",ixmesh_inventory)], itp_merchandise|itp_type_hand_armor|itp_attach_armature|itp_fit_to_head|itp_force_show_right_hand|itp_force_show_left_hand,0, 
-500, weight(2.5)|abundance(100)|body_armor(6)|difficulty(0),imodbits_armor],
-["TOAOE_cloak_glove_2b","Cloak", [("nero_TOAOE_cloak_glove_2b_L",0),("nero_TOAOE_cloak_glove_2b_Lx",ixmesh_inventory)],  itp_merchandise|itp_type_hand_armor|itp_attach_armature|itp_fit_to_head|itp_force_show_right_hand|itp_force_show_left_hand,0, 
-500, weight(2.5)|abundance(100)|body_armor(6)|difficulty(0),imodbits_armor],
-["TOAOE_cloak_glove_2c","Cloak", [("nero_TOAOE_cloak_glove_2c_L",0),("nero_TOAOE_cloak_glove_2c_Lx",ixmesh_inventory)],  itp_merchandise|itp_type_hand_armor|itp_attach_armature|itp_fit_to_head|itp_force_show_right_hand|itp_force_show_left_hand,0, 
-500, weight(2.5)|abundance(100)|body_armor(6)|difficulty(0),imodbits_armor],
-["TOAOE_cloak_glove_2d","Cloak", [("nero_TOAOE_cloak_glove_2d_L",0),("nero_TOAOE_cloak_glove_2d_Lx",ixmesh_inventory)],  itp_merchandise|itp_type_hand_armor|itp_attach_armature|itp_fit_to_head|itp_force_show_right_hand|itp_force_show_left_hand,0, 
-500, weight(2.5)|abundance(100)|body_armor(6)|difficulty(0),imodbits_armor],
-["TOAOE_cloak_glove_2e","Cloak", [("nero_TOAOE_cloak_glove_2e_L",0),("nero_TOAOE_cloak_glove_2e_Lx",ixmesh_inventory)],  itp_merchandise|itp_type_hand_armor|itp_attach_armature|itp_fit_to_head|itp_force_show_right_hand|itp_force_show_left_hand,0, 
-500, weight(2.5)|abundance(100)|body_armor(6)|difficulty(0),imodbits_armor],
-["TOAOE_cloak_glove_2f","Cloak", [("nero_TOAOE_cloak_glove_2f_L",0),("nero_TOAOE_cloak_glove_2f_Lx",ixmesh_inventory)],  itp_merchandise|itp_type_hand_armor|itp_attach_armature|itp_fit_to_head|itp_force_show_right_hand|itp_force_show_left_hand,0, 
-500, weight(2.5)|abundance(100)|body_armor(6)|difficulty(0),imodbits_armor],
-["TOAOE_cloak_glove_2g","Cloak", [("nero_TOAOE_cloak_glove_2g_L",0),("nero_TOAOE_cloak_glove_2g_Lx",ixmesh_inventory)],  itp_merchandise|itp_type_hand_armor|itp_attach_armature|itp_fit_to_head|itp_force_show_right_hand|itp_force_show_left_hand,0, 
-500, weight(2.5)|abundance(100)|body_armor(6)|difficulty(0),imodbits_armor],
-["TOAOE_cloak_glove_2h","Fancy Cloak", [("nero_TOAOE_cloak_glove_2h_L",0),("nero_TOAOE_cloak_glove_2h_Lx",ixmesh_inventory)],  itp_merchandise|itp_type_hand_armor|itp_attach_armature|itp_fit_to_head|itp_force_show_right_hand|itp_force_show_left_hand,0, 
-750, weight(2.5)|abundance(100)|body_armor(6)|difficulty(0),imodbits_armor],
-["TOAOE_cloak_glove_2i","Fancy Cloak", [("nero_TOAOE_cloak_glove_2i_L",0),("nero_TOAOE_cloak_glove_2i_Lx",ixmesh_inventory)],  itp_merchandise|itp_type_hand_armor|itp_attach_armature|itp_fit_to_head|itp_force_show_right_hand|itp_force_show_left_hand,0, 
-750, weight(2.5)|abundance(100)|body_armor(6)|difficulty(0),imodbits_armor],
-["TOAOE_cloak_glove_2j","Rich Cloak", [("nero_TOAOE_cloak_glove_2j_L",0),("nero_TOAOE_cloak_glove_2j_Lx",ixmesh_inventory)],  itp_merchandise|itp_type_hand_armor|itp_attach_armature|itp_fit_to_head|itp_force_show_right_hand|itp_force_show_left_hand,0, 
-1000, weight(2.5)|abundance(100)|body_armor(6)|difficulty(0),imodbits_armor],
-["TOAOE_cloak_glove_2k","Fancy Cloak", [("nero_TOAOE_cloak_glove_2k_L",0),("nero_TOAOE_cloak_glove_2k_Lx",ixmesh_inventory)],  itp_merchandise|itp_type_hand_armor|itp_attach_armature|itp_fit_to_head|itp_force_show_right_hand|itp_force_show_left_hand,0, 
-750, weight(2.5)|abundance(100)|body_armor(6)|difficulty(0),imodbits_armor],
-["TOAOE_cloak_glove_2l","Cloak", [("nero_TOAOE_cloak_glove_2l_L",0),("nero_TOAOE_cloak_glove_2l_Lx",ixmesh_inventory)],  itp_merchandise|itp_type_hand_armor|itp_attach_armature|itp_fit_to_head|itp_force_show_right_hand|itp_force_show_left_hand,0, 
-500, weight(2.5)|abundance(100)|body_armor(6)|difficulty(0),imodbits_armor],
-["TOAOE_cloak_glove_2m","Cloak", [("nero_TOAOE_cloak_glove_2m_L",0),("nero_TOAOE_cloak_glove_2m_Lx",ixmesh_inventory)],  itp_merchandise|itp_type_hand_armor|itp_attach_armature|itp_fit_to_head|itp_force_show_right_hand|itp_force_show_left_hand,0, 
-500, weight(2.5)|abundance(100)|body_armor(6)|difficulty(0),imodbits_armor],
-["TOAOE_cloak_glove_2n","Cloak", [("nero_TOAOE_cloak_glove_2n_L",0),("nero_TOAOE_cloak_glove_2n_Lx",ixmesh_inventory)],  itp_merchandise|itp_type_hand_armor|itp_attach_armature|itp_fit_to_head|itp_force_show_right_hand|itp_force_show_left_hand,0, 
-500, weight(2.5)|abundance(100)|body_armor(6)|difficulty(0),imodbits_armor],
-["TOAOE_cloak_glove_2o","Cloak", [("nero_TOAOE_cloak_glove_2o_L",0),("nero_TOAOE_cloak_glove_2o_Lx",ixmesh_inventory)],  itp_merchandise|itp_type_hand_armor|itp_attach_armature|itp_fit_to_head|itp_force_show_right_hand|itp_force_show_left_hand,0, 
-500, weight(2.5)|abundance(100)|body_armor(6)|difficulty(0),imodbits_armor],
-
 #footwear
 ["wrapping_boots", "Wrapping Boots", [("wrapping_boots_a",0)], itp_merchandise| itp_type_foot_armor |itp_civilian | itp_attach_armature ,0,
  75 , weight(1)|abundance(100)|head_armor(0)|body_armor(0)|leg_armor(12)|difficulty(0) ,imodbits_cloth ],
@@ -538,33 +534,33 @@ items = [
 ["sarranid_boots_b", "Leather Boots", [("new_leather_boots_a",0)],  itp_merchandise|itp_type_foot_armor |itp_civilian | itp_attach_armature ,0,
  120 , weight(2)|abundance(40)|head_armor(0)|body_armor(0)|leg_armor(16)|difficulty(0) ,imodbits_cloth ],
 
-["roman_boots_1", "Fascia Crurales", [("roman_boots_1",0)], itp_merchandise| itp_type_foot_armor |itp_civilian  | itp_attach_armature,0,
- 75 , weight(1)|abundance(100)|head_armor(0)|body_armor(0)|leg_armor(12)|difficulty(0) ,imodbits_cloth ],
-["roman_boots_2", "Fascia Crurales", [("roman_boots_2",0)], itp_merchandise| itp_type_foot_armor |itp_civilian  | itp_attach_armature,0,
- 75 , weight(1)|abundance(100)|head_armor(0)|body_armor(0)|leg_armor(12)|difficulty(0) ,imodbits_cloth ],
-
-["roman_lorum_fasciari_1", "Lorum Fasciari", [("roman_lorum_fasciari_1",0)], itp_merchandise| itp_type_foot_armor |itp_civilian  | itp_attach_armature,0,
- 75 , weight(1)|abundance(100)|head_armor(0)|body_armor(0)|leg_armor(13)|difficulty(0) ,imodbits_cloth ],
-["roman_lorum_fasciari_2", "Lorum Fasciari", [("roman_lorum_fasciari_2",0)], itp_merchandise| itp_type_foot_armor |itp_civilian  | itp_attach_armature,0,
- 75 , weight(1)|abundance(100)|head_armor(0)|body_armor(0)|leg_armor(13)|difficulty(0) ,imodbits_cloth ],
-["roman_lorum_fasciari_3", "Lorum Fasciari", [("roman_lorum_fasciari_3",0)], itp_merchandise| itp_type_foot_armor |itp_civilian  | itp_attach_armature,0,
- 75 , weight(1)|abundance(100)|head_armor(0)|body_armor(0)|leg_armor(13)|difficulty(0) ,imodbits_cloth ],
-["roman_lorum_fasciari_4", "Lorum Fasciari", [("roman_lorum_fasciari_4",0)], itp_merchandise| itp_type_foot_armor |itp_civilian  | itp_attach_armature,0,
- 75 , weight(1)|abundance(100)|head_armor(0)|body_armor(0)|leg_armor(13)|difficulty(0) ,imodbits_cloth ],
-["roman_lorum_fasciari_5", "Lorum Fasciari", [("roman_lorum_fasciari_5",0)], itp_merchandise| itp_type_foot_armor |itp_civilian  | itp_attach_armature,0,
- 75 , weight(1)|abundance(100)|head_armor(0)|body_armor(0)|leg_armor(13)|difficulty(0) ,imodbits_cloth ],
-["roman_lorum_fasciari_6", "Lorum Fasciari", [("roman_lorum_fasciari_6",0)], itp_merchandise| itp_type_foot_armor |itp_civilian  | itp_attach_armature,0,
- 75 , weight(1)|abundance(100)|head_armor(0)|body_armor(0)|leg_armor(13)|difficulty(0) ,imodbits_cloth ],
+["roman_lorum_fasciari_5", "Campagi with Lorum Fasciari", [("roman_lorum_fasciari_5",0)], itp_merchandise| itp_type_foot_armor |itp_civilian  | itp_attach_armature,0,
+ 75 , weight(1)|abundance(100)|head_armor(0)|body_armor(0)|leg_armor(13)|difficulty(0) ,imodbits_cloth, [], culture_roman+culture_gothic+culture_germanic ],
+["roman_lorum_fasciari_6", "Campagi with Lorum Fasciari", [("roman_lorum_fasciari_6",0)], itp_merchandise| itp_type_foot_armor |itp_civilian  | itp_attach_armature,0,
+ 75 , weight(1)|abundance(100)|head_armor(0)|body_armor(0)|leg_armor(13)|difficulty(0) ,imodbits_cloth, [], culture_roman+culture_gothic+culture_germanic ],
 
 ["generic_lorum_fasciari_1", "Lorum Fasciari", [("generic_lorum_fasciari_1",0)], itp_merchandise| itp_type_foot_armor |itp_civilian  | itp_attach_armature,0,
- 75 , weight(1)|abundance(100)|head_armor(0)|body_armor(0)|leg_armor(13)|difficulty(0) ,imodbits_cloth ],
+ 75 , weight(1)|abundance(100)|head_armor(0)|body_armor(0)|leg_armor(13)|difficulty(0) ,imodbits_cloth, [], culture_roman+culture_gothic+culture_germanic ],
 ["generic_lorum_fasciari_2", "Lorum Fasciari", [("generic_lorum_fasciari_2",0)], itp_merchandise| itp_type_foot_armor |itp_civilian  | itp_attach_armature,0,
- 75 , weight(1)|abundance(100)|head_armor(0)|body_armor(0)|leg_armor(13)|difficulty(0) ,imodbits_cloth ],
+ 75 , weight(1)|abundance(100)|head_armor(0)|body_armor(0)|leg_armor(13)|difficulty(0) ,imodbits_cloth, [], culture_roman+culture_gothic+culture_germanic ],
 
 ["obenaltendorf_shoes_1", "Carbatinae", [("obenaltendorf_shoes_1",0)], itp_merchandise| itp_type_foot_armor |itp_civilian  | itp_attach_armature,0, #germanic
- 75 , weight(1)|abundance(100)|head_armor(0)|body_armor(0)|leg_armor(13)|difficulty(0) ,imodbits_cloth ],
+ 75 , weight(1)|abundance(100)|head_armor(0)|body_armor(0)|leg_armor(13)|difficulty(0) ,imodbits_cloth, [], culture_roman+culture_gothic+culture_germanic ],
 ["obenaltendorf_shoes_2", "Carbatinae", [("obenaltendorf_shoes_2",0)], itp_merchandise| itp_type_foot_armor |itp_civilian  | itp_attach_armature,0,
- 75 , weight(1)|abundance(100)|head_armor(0)|body_armor(0)|leg_armor(13)|difficulty(0) ,imodbits_cloth ],
+ 75 , weight(1)|abundance(100)|head_armor(0)|body_armor(0)|leg_armor(13)|difficulty(0) ,imodbits_cloth, [], culture_roman+culture_gothic+culture_germanic ],
+
+["deurne_campagi_1", "Campagi with Lorum Fasciari", [("deurne_campagi_1",0)], itp_merchandise| itp_type_foot_armor |itp_civilian  | itp_attach_armature,0,
+ 75 , weight(1)|abundance(100)|head_armor(0)|body_armor(0)|leg_armor(13)|difficulty(0) ,imodbits_cloth, [], culture_roman+culture_gothic+culture_germanic ],
+["deurne_campagi_2", "Campagi with Lorum Fasciari", [("deurne_campagi_2",0)], itp_merchandise| itp_type_foot_armor |itp_civilian  | itp_attach_armature,0,
+ 75 , weight(1)|abundance(100)|head_armor(0)|body_armor(0)|leg_armor(13)|difficulty(0) ,imodbits_cloth, [], culture_roman+culture_gothic+culture_germanic ],
+["deurne_campagi_3", "Campagi with Lorum Fasciari", [("deurne_campagi_3",0)], itp_merchandise| itp_type_foot_armor |itp_civilian  | itp_attach_armature,0,
+ 75 , weight(1)|abundance(100)|head_armor(0)|body_armor(0)|leg_armor(13)|difficulty(0) ,imodbits_cloth, [], culture_roman+culture_gothic+culture_germanic ],
+["deurne_campagi_4", "Rich Campagi with Lorum Fasciari", [("deurne_campagi_4",0)], itp_merchandise| itp_type_foot_armor |itp_civilian  | itp_attach_armature,0,
+ 120 , weight(1)|abundance(50)|head_armor(0)|body_armor(0)|leg_armor(14)|difficulty(0) ,imodbits_cloth, [], culture_roman+culture_gothic+culture_germanic ],
+["deurne_campagi_5", "Campagi with Lorum Fasciari", [("deurne_campagi_5",0)], itp_merchandise| itp_type_foot_armor |itp_civilian  | itp_attach_armature,0,
+ 75 , weight(1)|abundance(100)|head_armor(0)|body_armor(0)|leg_armor(13)|difficulty(0) ,imodbits_cloth, [], culture_roman+culture_gothic+culture_germanic ],
+["deurne_campagi_6", "Campagi with Lorum Fasciari", [("deurne_campagi_6",0)], itp_merchandise| itp_type_foot_armor |itp_civilian  | itp_attach_armature,0,
+ 75 , weight(1)|abundance(100)|head_armor(0)|body_armor(0)|leg_armor(13)|difficulty(0) ,imodbits_cloth, [], culture_roman+culture_gothic+culture_germanic ],
 
 #Boots/Shoes
 ["sassanid_simple_boots_1", "Simple Boots", [("boot13",0)], itp_merchandise|itp_type_foot_armor |itp_civilian | itp_attach_armature ,0,
@@ -637,41 +633,32 @@ items = [
 ["splinted_greaves", "Splinted Greaves", [("splinted_greaves_a",0)], itp_type_foot_armor | itp_attach_armature,0,
  1000 , weight(2.75)|abundance(20)|head_armor(0)|body_armor(0)|leg_armor(28)|difficulty(7) ,imodbits_armor ],
 
-["roman_greaves_1", "Greaves", [("roman_greaves_1",0)],  itp_merchandise| itp_type_foot_armor  | itp_attach_armature ,0,
- 1000 , weight(2.5)|abundance(10)|head_armor(0)|body_armor(0)|leg_armor(28)|difficulty(7) ,imodbits_plate, [], culture_roman ],
-["roman_greaves_2", "Greaves", [("roman_greaves_2",0)],  itp_merchandise| itp_type_foot_armor  | itp_attach_armature ,0,
- 1000 , weight(2.5)|abundance(10)|head_armor(0)|body_armor(0)|leg_armor(28)|difficulty(7) ,imodbits_plate, [], culture_roman ],
-["roman_greaves_3", "Greaves", [("roman_greaves_3",0)],  itp_merchandise| itp_type_foot_armor  | itp_attach_armature ,0,
- 1000 , weight(2.5)|abundance(10)|head_armor(0)|body_armor(0)|leg_armor(28)|difficulty(7) ,imodbits_plate, [], culture_roman ],
-["roman_greaves_4", "Greaves", [("roman_greaves_4",0)],  itp_merchandise| itp_type_foot_armor  | itp_attach_armature ,0,
- 1000 , weight(2.5)|abundance(10)|head_armor(0)|body_armor(0)|leg_armor(28)|difficulty(7) ,imodbits_plate, [], culture_roman ],
 ["roman_greaves_5", "Greaves", [("roman_greaves_5",0)],  itp_merchandise| itp_type_foot_armor  | itp_attach_armature ,0,
  1000 , weight(2.5)|abundance(10)|head_armor(0)|body_armor(0)|leg_armor(28)|difficulty(7) ,imodbits_plate, [], culture_roman ],
 ["roman_greaves_6", "Greaves", [("roman_greaves_6",0)],  itp_merchandise| itp_type_foot_armor  | itp_attach_armature ,0,
  1000 , weight(2.5)|abundance(10)|head_armor(0)|body_armor(0)|leg_armor(28)|difficulty(7) ,imodbits_plate, [], culture_roman ],
 
-["sarranid_boots_c", "Ankle Boots with Greaves", [("roman_greaves_5_1",0)],  itp_merchandise| itp_type_foot_armor  | itp_attach_armature ,0,
+["deurne_campagi_greaves_1", "Greaves", [("deurne_campagi_greaves_1",0)],  itp_merchandise| itp_type_foot_armor  | itp_attach_armature ,0,
+ 1000 , weight(2.5)|abundance(10)|head_armor(0)|body_armor(0)|leg_armor(28)|difficulty(7) ,imodbits_plate, [], culture_roman ],
+["deurne_campagi_greaves_2", "Greaves", [("deurne_campagi_greaves_2",0)],  itp_merchandise| itp_type_foot_armor  | itp_attach_armature ,0,
+ 1000 , weight(2.5)|abundance(10)|head_armor(0)|body_armor(0)|leg_armor(28)|difficulty(7) ,imodbits_plate, [], culture_roman ],
+["deurne_campagi_greaves_3", "Greaves", [("deurne_campagi_greaves_3",0)],  itp_merchandise| itp_type_foot_armor  | itp_attach_armature ,0,
+ 1000 , weight(2.5)|abundance(10)|head_armor(0)|body_armor(0)|leg_armor(28)|difficulty(7) ,imodbits_plate, [], culture_roman ],
+["deurne_campagi_greaves_4", "Greaves", [("deurne_campagi_greaves_4",0)],  itp_merchandise| itp_type_foot_armor  | itp_attach_armature ,0,
+ 1000 , weight(2.5)|abundance(10)|head_armor(0)|body_armor(0)|leg_armor(28)|difficulty(7) ,imodbits_plate, [], culture_roman ],
+["deurne_campagi_greaves_5", "Greaves", [("deurne_campagi_greaves_5",0)],  itp_merchandise| itp_type_foot_armor  | itp_attach_armature ,0,
+ 1000 , weight(2.5)|abundance(10)|head_armor(0)|body_armor(0)|leg_armor(28)|difficulty(7) ,imodbits_plate, [], culture_roman ],
+["deurne_campagi_greaves_6", "Greaves", [("deurne_campagi_greaves_6",0)],  itp_merchandise| itp_type_foot_armor  | itp_attach_armature ,0,
+ 1000 , weight(2.5)|abundance(10)|head_armor(0)|body_armor(0)|leg_armor(28)|difficulty(7) ,imodbits_plate, [], culture_roman ],
+
+["sarranid_boots_c", "Greaves", [("deurne_campagi_greaves_2",0)],  itp_type_foot_armor  | itp_attach_armature ,0,
  1000 , weight(2.75)|abundance(10)|head_armor(0)|body_armor(0)|leg_armor(28)|difficulty(7) ,imodbits_plate, [], culture_roman ],
-["black_greaves", "Ankle Boots with Greaves", [("roman_greaves_6_1",0)], itp_merchandise| itp_type_foot_armor  | itp_attach_armature,0,
+["black_greaves", "Greaves", [("deurne_campagi_greaves_3",0)], itp_type_foot_armor  | itp_attach_armature,0,
  1000 , weight(2.75)|abundance(10)|head_armor(0)|body_armor(0)|leg_armor(28)|difficulty(7) ,imodbits_plate, [], culture_roman ],
 ["heavy_greaves", "Greaves", [("rus_splint_greaves",0)], itp_merchandise| itp_type_foot_armor |itp_civilian  | itp_attach_armature,0, 1000 , weight(3)|abundance(10)|head_armor(0)|body_armor(0)|leg_armor(28)|difficulty(0) ,imodbits_armor, [], culture_sassanid+culture_caucasian+culture_alan+culture_hunnic ],
 
 ["mail_boots", "Mail Boots", [("mail_chausses_new",0)], itp_merchandise|itp_type_foot_armor | itp_attach_armature  ,0,
  1250 , weight(3)|abundance(1)|head_armor(0)|body_armor(0)|leg_armor(30)|difficulty(8) ,imodbits_mail, [], [fac_culture_empire,fac_culture_6] ],
-
-["roman_greaves_manica_1", "Greaves with Manica", [("roman_greaves_manica_1",0)],  itp_merchandise| itp_type_foot_armor  | itp_attach_armature ,0,
- 2500 , weight(5)|abundance(2)|head_armor(0)|body_armor(8)|leg_armor(28)|difficulty(10) ,imodbits_plate, [], [fac_culture_empire] ],
-["roman_greaves_manica_2", "Greaves with Manica", [("roman_greaves_manica_2",0)],  itp_merchandise| itp_type_foot_armor  | itp_attach_armature ,0,
- 2500 , weight(5)|abundance(2)|head_armor(0)|body_armor(8)|leg_armor(28)|difficulty(10) ,imodbits_plate, [], [fac_culture_empire] ],
-["roman_greaves_manica_3", "Greaves with Manica", [("roman_greaves_manica_3",0)],  itp_merchandise| itp_type_foot_armor  | itp_attach_armature ,0,
- 2500 , weight(5)|abundance(2)|head_armor(0)|body_armor(8)|leg_armor(28)|difficulty(10) ,imodbits_plate, [], [fac_culture_empire] ],
-["roman_greaves_manica_4", "Greaves with Manica", [("roman_greaves_manica_4",0)],  itp_merchandise| itp_type_foot_armor  | itp_attach_armature ,0,
- 2500 , weight(5)|abundance(2)|head_armor(0)|body_armor(8)|leg_armor(28)|difficulty(10) ,imodbits_plate, [], [fac_culture_empire] ],
-
-["mail_boots_manica_1", "Mail Boots with Manica", [("mail_boots_manica_1",0)], itp_merchandise|itp_type_foot_armor | itp_attach_armature  ,0,
- 3000 , weight(8)|abundance(1)|head_armor(0)|body_armor(14)|leg_armor(30)|difficulty(12) ,imodbits_mail, [], [fac_culture_empire,fac_culture_6] ],
-["mail_boots_manica_2", "Mail Boots with Manica", [("mail_boots_manica_2",0)], itp_merchandise|itp_type_foot_armor | itp_attach_armature  ,0,
- 3000 , weight(8)|abundance(1)|head_armor(0)|body_armor(14)|leg_armor(30)|difficulty(12) ,imodbits_mail, [], [fac_culture_empire,fac_culture_6] ],
 
 
 #bodywear
@@ -703,7 +690,7 @@ items = [
  74 , weight(3)|abundance(100)|head_armor(0)|body_armor(15)|leg_armor(9)|difficulty(0) ,imodbits_cloth ],
 
 #Quest-specific - perhaps can be used for prisoners,
-["burlap_tunic", "Burlap Tunic", [("light_brown_tunic",0)], itp_type_body_armor  |itp_covers_legs ,0,
+["burlap_tunic", "Burlap Tunic", [("thorsberg_tunic_simple_2",0)], itp_type_body_armor  |itp_covers_legs ,0,
  5 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_armor ],
 
 ["dress", "Long Tunic", [("briton_dress_b",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs|itp_civilian ,0, 6 , weight(1)|abundance(100)|head_armor(0)|body_armor(6)|leg_armor(2)|difficulty(0) ,imodbits_cloth ],
@@ -711,7 +698,7 @@ items = [
 ["peasant_dress", "Green Long Tunic", [("briton_dress_b",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs|itp_civilian ,0, 6 , weight(1)|abundance(100)|head_armor(0)|body_armor(6)|leg_armor(2)|difficulty(0) ,imodbits_cloth ],
 ["woolen_dress", "Woolen Dress", [("woolen_dress",0)], itp_merchandise| itp_type_body_armor|itp_civilian  |itp_covers_legs ,0,
  10 , weight(1.75)|abundance(100)|head_armor(0)|body_armor(8)|leg_armor(2)|difficulty(0) ,imodbits_cloth ],
-["shirt", "Brown Tunic", [("light_brown_tunic",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs|itp_civilian ,0,
+["shirt", "Brown Tunic", [("thorsberg_tunic_simple_2",0)], itp_type_body_armor  |itp_covers_legs|itp_civilian ,0,
  85 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth ],
 
 ["robe", "Robes", [("robes_new",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs |itp_civilian,0,
@@ -722,95 +709,190 @@ items = [
 ["robes_church", "Robes", [("priest_1_combined",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs |itp_civilian,0,
  231 , weight(1.5)|abundance(100)|head_armor(0)|body_armor(18)|leg_armor(10)|difficulty(0) ,imodbits_cloth ],
 
-["heraldic_mail_with_surcoat", "Rich Tunic", [("woolen_tunic_b",0)], itp_type_body_armor  |itp_covers_legs ,0,
+["heraldic_mail_with_surcoat", "Rich Tunic", [("thorsberg_tunic_3",0)], itp_type_body_armor  |itp_covers_legs ,0,
  400 , weight(8)|abundance(10)|head_armor(0)|body_armor(20)|leg_armor(17)|difficulty(0) ,imodbits_cloth],
-["heraldic_mail_with_tunic", "Rich Tunic", [("woolen_tunic_a",0)], itp_type_body_armor  |itp_covers_legs ,0,
+["heraldic_mail_with_tunic", "Rich Tunic", [("thorsberg_tunic_1",0)], itp_type_body_armor  |itp_covers_legs ,0,
  400 , weight(8)|abundance(10)|head_armor(0)|body_armor(20)|leg_armor(16)|difficulty(0) ,imodbits_cloth],
-["heraldic_mail_with_tunic_b", "Rich Tunic", [("woolen_tunic_c",0)], itp_type_body_armor  |itp_covers_legs ,0,
+["heraldic_mail_with_tunic_b", "Rich Tunic", [("thorsberg_tunic_2",0)], itp_type_body_armor  |itp_covers_legs ,0,
  400 , weight(8)|abundance(10)|head_armor(0)|body_armor(20)|leg_armor(16)|difficulty(0) ,imodbits_cloth],
-["heraldic_mail_with_tabard", "Rich Tunic", [("yellow_tunic_saxon",0)], itp_type_body_armor  |itp_covers_legs ,0,
+["heraldic_mail_with_tabard", "Rich Tunic", [("thorsberg_tunic_3",0)], itp_type_body_armor  |itp_covers_legs ,0,
  400 , weight(8)|abundance(10)|head_armor(0)|body_armor(20)|leg_armor(15)|difficulty(0) ,imodbits_cloth],
 
-["tabard", "Tunic", [("green_tunic",0)], itp_type_body_armor  |itp_covers_legs|itp_civilian,0,
+["tabard", "Tunic", [("thorsberg_tunic_4",0)], itp_type_body_armor  |itp_covers_legs|itp_civilian,0,
  78 , weight(3)|abundance(10)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_germanic ],
-["gambeson", "Tunic", [("linen_tunic_b",0)], itp_type_body_armor|itp_covers_legs|itp_civilian,0,
+["gambeson", "Tunic", [("thorsberg_tunic_6",0)], itp_type_body_armor|itp_covers_legs|itp_civilian,0,
  78 , weight(5)|abundance(10)|head_armor(0)|body_armor(10)|leg_armor(5)|difficulty(0) ,imodbits_cloth, [], culture_germanic ],
-["blue_gambeson", "Tunic", [("blue_tunic",0)], itp_type_body_armor|itp_covers_legs|itp_civilian,0,
+["blue_gambeson", "Tunic", [("thorsberg_tunic_5",0)], itp_type_body_armor|itp_covers_legs|itp_civilian,0,
  78 , weight(5)|abundance(10)|head_armor(0)|body_armor(10)|leg_armor(5)|difficulty(0) ,imodbits_cloth, [], culture_germanic ],
-["red_gambeson", "Tunic", [("red_tunic",0)], itp_type_body_armor|itp_covers_legs|itp_civilian,0,
+["red_gambeson", "Tunic", [("thorsberg_tunic_1",0)], itp_type_body_armor|itp_covers_legs|itp_civilian,0,
  78 , weight(5)|abundance(10)|head_armor(0)|body_armor(10)|leg_armor(5)|difficulty(0) ,imodbits_cloth, [], culture_germanic ],
-["padded_cloth", "Tunic", [("shirt_tel",0)],  itp_type_body_armor  |itp_covers_legs ,0,
+["padded_cloth", "Tunic", [("thorsberg_tunic_2",0)],  itp_type_body_armor  |itp_covers_legs ,0,
  78 , weight(11)|abundance(10)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_germanic ],
-["aketon_green", "Tunic", [("shirt_grn",0)], itp_type_body_armor  |itp_covers_legs ,0,
+["aketon_green", "Tunic", [("thorsberg_tunic_11",0)], itp_type_body_armor  |itp_covers_legs ,0,
  78 , weight(11)|abundance(10)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_germanic ],
-["studded_leather_coat", "Tunic", [("shirt_blk",0)],itp_type_body_armor  |itp_covers_legs ,0,
+["studded_leather_coat", "Tunic", [("thorsberg_tunic_12",0)],itp_type_body_armor  |itp_covers_legs ,0,
  78 , weight(14)|abundance(10)|head_armor(0)|body_armor(10)|leg_armor(10)|difficulty(7) ,imodbits_armor, [], culture_germanic ],
 
-["roman_shirt_1", "Tunica Manicata", [("roman_shirt_1",0)], itp_type_body_armor|itp_merchandise|itp_covers_legs|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_roman ],
-["roman_shirt_2", "Tunica Manicata", [("roman_shirt_2",0)], itp_type_body_armor|itp_merchandise|itp_covers_legs|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_roman ],
-["roman_shirt_3", "Tunica Manicata", [("roman_shirt_3",0)], itp_type_body_armor|itp_merchandise|itp_covers_legs|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_roman ],
-["roman_shirt_4", "Tunica Manicata", [("roman_shirt_4",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_roman ],
-["roman_shirt_5", "Tunica Manicata", [("roman_shirt_5",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_roman ],
-["roman_shirt_6", "Tunica Manicata", [("roman_shirt_6",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_roman ],
-["roman_shirt_7", "Tunica Manicata", [("roman_shirt_7",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_roman ],
-["roman_shirt_8", "Tunica Manicata", [("roman_shirt_8",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_roman ],
-["roman_shirt_9", "Tunica Manicata", [("roman_shirt_9",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_roman ],
-["roman_shirt_10", "Tunica Manicata", [("roman_shirt_10",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_roman ],
-["roman_shirt_11", "Tunica Manicata", [("roman_shirt_11",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_roman ],
-["roman_shirt_12", "Tunica Manicata", [("roman_shirt_12",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_roman ],
-["roman_shirt_13", "Tunica Manicata", [("roman_shirt_13",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_roman ],
-["roman_shirt_14", "Tunica Manicata", [("roman_shirt_14",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_roman ],
-["roman_shirt_15", "Tunica Manicata", [("roman_shirt_15",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_roman ],
-["roman_shirt_16", "Tunica Manicata", [("roman_shirt_16",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_roman ],
+#new tunics - asher + fabio
+#thorsberg
+["thorsberg_tunic_simple_1", "Tunic", [("thorsberg_tunic_simple_1",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_germanic+culture_gothic+culture_celtic ],
+["thorsberg_tunic_simple_2", "Tunic", [("thorsberg_tunic_simple_2",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_germanic+culture_gothic+culture_celtic ],
+["thorsberg_tunic_simple_3", "Tunic", [("thorsberg_tunic_simple_3",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_germanic+culture_gothic ],
+["thorsberg_tunic_simple_4", "Tunic", [("thorsberg_tunic_simple_4",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_germanic+culture_gothic ],
+["thorsberg_tunic_simple_5", "Tunic", [("thorsberg_tunic_simple_5",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_germanic+culture_gothic ],
+["thorsberg_tunic_simple_6", "Tunic", [("thorsberg_tunic_simple_6",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_germanic+culture_gothic ],
+["thorsberg_tunic_simple_7", "Tunic", [("thorsberg_tunic_simple_7",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_germanic+culture_celtic ],
+["thorsberg_tunic_simple_8", "Tunic", [("thorsberg_tunic_simple_8",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_germanic+culture_gothic ],
+["thorsberg_tunic_simple_9", "Tunic", [("thorsberg_tunic_simple_9",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_germanic+culture_gothic ],
+["thorsberg_tunic_simple_10", "Tunic", [("thorsberg_tunic_simple_10",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_germanic+culture_gothic ],
+["thorsberg_tunic_simple_11", "Tunic", [("thorsberg_tunic_simple_11",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_germanic+culture_gothic ],
+["thorsberg_tunic_simple_12", "Tunic", [("thorsberg_tunic_simple_12",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_germanic+culture_gothic ],
+["thorsberg_tunic_simple_13", "Tunic", [("thorsberg_tunic_simple_13",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_germanic+culture_gothic ],
 
-["roman_peasant_tunic_1", "Simple White Tunic", [("roman_peasant_tunic_1",0)], itp_type_body_armor|itp_merchandise|itp_covers_legs|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth ],
-["roman_peasant_tunic_2", "Simple Red Tunic", [("roman_peasant_tunic_2",0)], itp_type_body_armor|itp_merchandise|itp_covers_legs|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_roman ],
-["roman_peasant_tunic_3", "Simple Blue Tunic", [("roman_peasant_tunic_3",0)], itp_type_body_armor|itp_merchandise|itp_covers_legs|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_roman ],
+["thorsberg_tunic_1", "Tunic", [("thorsberg_tunic_1",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_germanic+culture_gothic+culture_roman ],
+["thorsberg_tunic_2", "Tunic", [("thorsberg_tunic_2",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_germanic+culture_gothic ],
+["thorsberg_tunic_3", "Tunic", [("thorsberg_tunic_3",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_germanic+culture_gothic ],
+["thorsberg_tunic_4", "Tunic", [("thorsberg_tunic_4",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_germanic+culture_gothic ],
+["thorsberg_tunic_5", "Tunic", [("thorsberg_tunic_5",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_germanic+culture_gothic+culture_roman ],
+["thorsberg_tunic_6", "Tunic", [("thorsberg_tunic_6",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_germanic+culture_gothic+culture_roman ],
+["thorsberg_tunic_7", "Tunic", [("thorsberg_tunic_7",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_germanic+culture_gothic+culture_roman ],
+["thorsberg_tunic_8", "Tunic", [("thorsberg_tunic_8",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_germanic+culture_gothic+culture_roman ],
+["thorsberg_tunic_9", "Tunic", [("thorsberg_tunic_9",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_germanic+culture_gothic ],
+["thorsberg_tunic_10", "Tunic", [("thorsberg_tunic_10",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_germanic+culture_gothic+culture_roman ],
+["thorsberg_tunic_11", "Tunic", [("thorsberg_tunic_11",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_germanic+culture_gothic ],
+["thorsberg_tunic_12", "Tunic", [("thorsberg_tunic_12",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_germanic+culture_gothic ],
+["thorsberg_tunic_13", "Tunic", [("thorsberg_tunic_13",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_germanic+culture_gothic ],
+["thorsberg_tunic_14", "Tunic", [("thorsberg_tunic_14",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_germanic+culture_gothic ],
+
+["thorsberg_tunic_rich_1", "Rich Tunic", [("thorsberg_tunic_rich_1",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 300 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_germanic+culture_gothic ],
+["thorsberg_tunic_rich_2", "Rich Tunic", [("thorsberg_tunic_rich_2",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 300 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_germanic+culture_gothic ],
+["thorsberg_tunic_rich_3", "Rich Tunic", [("thorsberg_tunic_rich_3",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 300 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_germanic+culture_gothic ],
+["thorsberg_tunic_rich_4", "Rich Tunic", [("thorsberg_tunic_rich_4",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 300 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_germanic+culture_gothic+culture_roman ],
+["thorsberg_tunic_rich_5", "Rich Tunic", [("thorsberg_tunic_rich_5",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 300 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_germanic+culture_gothic+culture_roman ],
+["thorsberg_tunic_rich_6", "Rich Tunic", [("thorsberg_tunic_rich_6",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 300 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_germanic+culture_gothic+culture_roman ],
+["thorsberg_tunic_rich_7", "Rich Tunic", [("thorsberg_tunic_rich_7",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 300 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_germanic+culture_gothic ],
+["thorsberg_tunic_rich_8", "Rich Tunic", [("thorsberg_tunic_rich_8",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 300 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_germanic+culture_gothic ],
+["thorsberg_tunic_rich_9", "Rich Tunic", [("thorsberg_tunic_rich_9",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 300 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_germanic+culture_gothic+culture_roman ],
+
+["thorsberg_tunic_roman_1", "Tunic", [("thorsberg_tunic_roman_1",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 100 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_gothic+culture_roman ],
+["thorsberg_tunic_roman_2", "Tunic", [("thorsberg_tunic_roman_2",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 100 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_gothic+culture_roman ],
+["thorsberg_tunic_roman_3", "Tunic", [("thorsberg_tunic_roman_3",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 100 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_gothic+culture_roman ],
+["thorsberg_tunic_roman_4", "Tunic", [("thorsberg_tunic_roman_4",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 100 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_gothic+culture_roman ],
+["thorsberg_tunic_roman_5", "Tunic", [("thorsberg_tunic_roman_5",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 100 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_gothic+culture_roman ],
+
+#roman peasant tunic - used by romans, sassanids + caucasian lower tier troops/peasants
+["roman_peasant_tunic_1", "Simple White Tunic", [("roman_peasant_tunic_1",0)], itp_type_body_armor|itp_merchandise|itp_covers_legs|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_roman+culture_sassanid+culture_caucasian ],
+["roman_peasant_tunic_2", "Simple Red Tunic", [("roman_peasant_tunic_2",0)], itp_type_body_armor|itp_merchandise|itp_covers_legs|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_roman+culture_sassanid+culture_caucasian ],
+["roman_peasant_tunic_3", "Simple Blue Tunic", [("roman_peasant_tunic_3",0)], itp_type_body_armor|itp_merchandise|itp_covers_legs|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_roman+culture_sassanid+culture_caucasian ],
 ["roman_peasant_tunic_4", "Tunica Manicata", [("roman_peasant_tunic_4",0)], itp_type_body_armor|itp_merchandise|itp_covers_legs|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_roman ],
 ["roman_peasant_tunic_5", "Tunica Manicata", [("roman_peasant_tunic_5",0)], itp_type_body_armor|itp_merchandise|itp_covers_legs|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_roman ],
 ["roman_peasant_tunic_6", "Tunica Manicata", [("roman_peasant_tunic_6",0)], itp_type_body_armor|itp_merchandise|itp_covers_legs|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_roman ],
 ["roman_peasant_tunic_7", "Tunica Manicata", [("roman_peasant_tunic_7",0)], itp_type_body_armor|itp_merchandise|itp_covers_legs|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_roman ],
 ["roman_peasant_tunic_8", "Tunica Manicata", [("roman_peasant_tunic_8",0)], itp_type_body_armor|itp_merchandise|itp_covers_legs|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_roman ],
 ["roman_peasant_tunic_9", "Tunica Manicata", [("roman_peasant_tunic_9",0)], itp_type_body_armor|itp_merchandise|itp_covers_legs|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_roman ],
-["roman_peasant_tunic_10", "Simple Tunic", [("roman_peasant_tunic_10",0)], itp_type_body_armor|itp_merchandise|itp_covers_legs|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth ],
+["roman_peasant_tunic_10", "Simple Brown Tunic", [("roman_peasant_tunic_10",0)], itp_type_body_armor|itp_merchandise|itp_covers_legs|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_roman+culture_sassanid+culture_caucasian ],
+["roman_peasant_tunic_11", "Simple Red Tunic", [("roman_peasant_tunic_11",0)], itp_type_body_armor|itp_merchandise|itp_covers_legs|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_roman+culture_sassanid+culture_caucasian ],
+["roman_peasant_tunic_12", "Simple Orange Tunic", [("roman_peasant_tunic_12",0)], itp_type_body_armor|itp_merchandise|itp_covers_legs|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_roman+culture_sassanid+culture_caucasian ],
+["roman_peasant_tunic_13", "Simple Green Tunic", [("roman_peasant_tunic_13",0)], itp_type_body_armor|itp_merchandise|itp_covers_legs|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_roman+culture_sassanid+culture_caucasian ],
+["roman_peasant_tunic_14", "Simple Yellow Tunic", [("roman_peasant_tunic_14",0)], itp_type_body_armor|itp_merchandise|itp_covers_legs|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_roman+culture_sassanid+culture_caucasian ],
 
-["berber_tunic_1", "Tunic", [("berber_tunic_1",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian ,0, 10 , weight(1)|abundance(100)|head_armor(0)|body_armor(8)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [(ti_on_init_item,[(call_script, "script_init_tunic_legs"),]),], culture_roman ],
-["berber_tunic_2", "Tunic", [("berber_tunic_2",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian ,0, 10 , weight(1)|abundance(100)|head_armor(0)|body_armor(8)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [(ti_on_init_item,[(call_script, "script_init_tunic_legs"),]),], culture_roman ],
-["berber_tunic_3", "Tunic", [("berber_tunic_3",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian ,0, 10 , weight(1)|abundance(100)|head_armor(0)|body_armor(8)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [(ti_on_init_item,[(call_script, "script_init_tunic_legs"),]),], culture_roman ],
-["berber_tunic_4", "Tunic", [("berber_tunic_4",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian ,0, 10 , weight(1)|abundance(100)|head_armor(0)|body_armor(8)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [(ti_on_init_item,[(call_script, "script_init_tunic_legs"),]),], culture_roman ],
-["berber_tunic_5", "Tunic", [("berber_tunic_5",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian ,0, 10 , weight(1)|abundance(100)|head_armor(0)|body_armor(8)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [(ti_on_init_item,[(call_script, "script_init_male_arms"),]),], culture_roman ],
+["arabian_peasant_tunic_1", "Striped Tunic", [("arabian_peasant_tunic_1",0)], itp_type_body_armor|itp_merchandise|itp_covers_legs|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_sassanid ], #for arabs
+["arabian_peasant_tunic_2", "Striped Tunic", [("arabian_peasant_tunic_2",0)], itp_type_body_armor|itp_merchandise|itp_covers_legs|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_sassanid ], #for arabs
+["arabian_peasant_tunic_3", "Striped Tunic", [("arabian_peasant_tunic_3",0)], itp_type_body_armor|itp_merchandise|itp_covers_legs|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_sassanid ], #for arabs
+["arabian_peasant_tunic_4", "Striped Tunic", [("arabian_peasant_tunic_4",0)], itp_type_body_armor|itp_merchandise|itp_covers_legs|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_sassanid ], #for arabs
 
-["arabian_tunic_1", "Tunic", [("arabian_tunic_1",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_roman ],
-["arabian_tunic_2", "Tunic", [("arabian_tunic_2",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian ,0, 10 , weight(1)|abundance(100)|head_armor(0)|body_armor(8)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [(ti_on_init_item,[(call_script, "script_init_tunic_legs"),]),], culture_sassanid ],
-["arabian_tunic_3", "Tunic", [("arabian_tunic_3",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian ,0, 10 , weight(1)|abundance(100)|head_armor(0)|body_armor(8)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [(ti_on_init_item,[(call_script, "script_init_tunic_legs"),]),], culture_sassanid ],
+#coptic tunics by fabio
+["coptic_tunic_1", "Tunica Manicata", [("coptic_tunic_1",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
+ 200 , weight(1)|abundance(70)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth,
+[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_accessories_capsa","str_accessories_end"),(cur_item_add_mesh, ":rand_accessory"),])], culture_roman ],
+["coptic_tunic_2", "Tunica Manicata", [("coptic_tunic_2",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
+ 200 , weight(1)|abundance(70)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth,
+[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_accessories_capsa","str_accessories_end"),(cur_item_add_mesh, ":rand_accessory"),])], culture_roman ],
+["coptic_tunic_3", "Tunica Manicata", [("coptic_tunic_3",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
+ 200 , weight(1)|abundance(70)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth,
+[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_accessories_capsa","str_accessories_end"),(cur_item_add_mesh, ":rand_accessory"),])], culture_roman ],
+["coptic_tunic_4", "Tunica Manicata", [("coptic_tunic_4",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
+ 200 , weight(1)|abundance(70)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth,
+[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_accessories_capsa","str_accessories_end"),(cur_item_add_mesh, ":rand_accessory"),])], culture_roman ],
+["coptic_tunic_5", "Tunica Manicata", [("coptic_tunic_5",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
+ 200 , weight(1)|abundance(70)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth,
+[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_accessories_capsa","str_accessories_end"),(cur_item_add_mesh, ":rand_accessory"),])], culture_roman ],
+["coptic_tunic_6", "Tunica Manicata", [("coptic_tunic_6",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
+ 200 , weight(1)|abundance(70)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth,
+[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_accessories_capsa","str_accessories_end"),(cur_item_add_mesh, ":rand_accessory"),])], culture_roman ],
+["coptic_tunic_7", "Tunica Manicata", [("coptic_tunic_7",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
+ 200 , weight(1)|abundance(70)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth,
+[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_accessories_capsa","str_accessories_end"),(cur_item_add_mesh, ":rand_accessory"),])], culture_roman ],
+["coptic_tunic_8", "Tunica Manicata", [("coptic_tunic_8",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
+ 200 , weight(1)|abundance(70)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth,
+[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_accessories_capsa","str_accessories_end"),(cur_item_add_mesh, ":rand_accessory"),])], culture_roman ],
+["coptic_tunic_9", "Tunica Manicata", [("coptic_tunic_9",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
+ 500 , weight(1)|abundance(20)|head_armor(0)|body_armor(11)|leg_armor(7)|difficulty(0) ,imodbits_cloth,
+[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_accessories_capsa","str_accessories_end"),(cur_item_add_mesh, ":rand_accessory"),])], culture_roman ],
+["coptic_tunic_10", "Tunica Manicata", [("coptic_tunic_10",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
+ 500 , weight(1)|abundance(20)|head_armor(0)|body_armor(11)|leg_armor(7)|difficulty(0) ,imodbits_cloth,
+[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_accessories_capsa","str_accessories_end"),(cur_item_add_mesh, ":rand_accessory"),])], culture_roman ],
+["coptic_tunic_11", "Tunica Manicata", [("coptic_tunic_11",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
+ 500 , weight(1)|abundance(20)|head_armor(0)|body_armor(11)|leg_armor(7)|difficulty(0) ,imodbits_cloth,
+[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_accessories_capsa","str_accessories_end"),(cur_item_add_mesh, ":rand_accessory"),])], culture_roman ],
+["coptic_tunic_12", "Tunica Manicata", [("coptic_tunic_12",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
+ 500 , weight(1)|abundance(20)|head_armor(0)|body_armor(11)|leg_armor(7)|difficulty(0) ,imodbits_cloth,
+[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_accessories_capsa","str_accessories_end"),(cur_item_add_mesh, ":rand_accessory"),])], culture_roman ],
+["coptic_tunic_13", "Tunica Manicata", [("coptic_tunic_13",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
+ 500 , weight(1)|abundance(20)|head_armor(0)|body_armor(11)|leg_armor(7)|difficulty(0) ,imodbits_cloth,
+[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_accessories_capsa","str_accessories_end"),(cur_item_add_mesh, ":rand_accessory"),])], culture_roman ],
+
+["coptic_tunic_white", "Tunica Manicata", [("coptic_tunic_white",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs,0,
+ 180 , weight(1)|abundance(80)|head_armor(0)|body_armor(11)|leg_armor(7)|difficulty(0) ,imodbits_cloth,
+[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_accessories_capsa","str_accessories_end"),(cur_item_add_mesh, ":rand_accessory"),])], culture_roman ],
+
+["medicus_tunic_1", "Medicus Tunica", [("medicus_tunic_1",0)], itp_type_body_armor|itp_merchandise|itp_covers_legs|itp_civilian,0, 200 , weight(1)|abundance(80)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_roman ],
+
+["roman_military_tunic_1", "Tunica Blattea", [("roman_military_tunic_1",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(12)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_roman ],
+["roman_military_tunic_2", "Tunica Blattea", [("roman_military_tunic_2",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(12)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_roman ],
+["roman_military_tunic_3", "Tunica Blattea", [("roman_military_tunic_3",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(12)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_roman ], #marines
+
+#persian tunics
+["persian_tunic_1", "Eastern Tunic", [("persian_tunic_1",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 100 , weight(1.25)|abundance(100)|head_armor(0)|body_armor(11)|leg_armor(8)|difficulty(0) ,imodbits_cloth, [], culture_sassanid ],
+["persian_tunic_2", "Eastern Tunic", [("persian_tunic_2",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 100 , weight(1.25)|abundance(100)|head_armor(0)|body_armor(11)|leg_armor(8)|difficulty(0) ,imodbits_cloth, [], culture_sassanid ],
+["persian_tunic_3", "Eastern Tunic", [("persian_tunic_3",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 100 , weight(1.25)|abundance(100)|head_armor(0)|body_armor(11)|leg_armor(8)|difficulty(0) ,imodbits_cloth, [], culture_sassanid ],
+["persian_tunic_4", "Eastern Tunic", [("persian_tunic_4",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 100 , weight(1.25)|abundance(100)|head_armor(0)|body_armor(11)|leg_armor(8)|difficulty(0) ,imodbits_cloth, [], culture_sassanid ],
+["persian_tunic_5", "Rich Eastern Tunic", [("persian_tunic_5",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 600 , weight(1.25)|abundance(20)|head_armor(0)|body_armor(12)|leg_armor(8)|difficulty(0) ,imodbits_cloth, [], culture_sassanid ],
+["persian_tunic_6", "Rich Eastern Tunic", [("persian_tunic_6",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 600 , weight(1.25)|abundance(20)|head_armor(0)|body_armor(12)|leg_armor(8)|difficulty(0) ,imodbits_cloth, [], culture_sassanid ],
+["persian_tunic_7", "Rich Eastern Tunic", [("persian_tunic_7",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 600 , weight(1.25)|abundance(20)|head_armor(0)|body_armor(12)|leg_armor(8)|difficulty(0) ,imodbits_cloth, [], culture_sassanid ],
+["persian_tunic_8", "Rich Eastern Tunic", [("persian_tunic_8",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 600 , weight(1.25)|abundance(20)|head_armor(0)|body_armor(12)|leg_armor(8)|difficulty(0) ,imodbits_cloth, [], culture_sassanid ],
+["persian_tunic_9", "Rich Eastern Tunic", [("persian_tunic_9",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 600 , weight(1.25)|abundance(20)|head_armor(0)|body_armor(12)|leg_armor(8)|difficulty(0) ,imodbits_cloth, [], culture_sassanid ],
+["persian_tunic_10", "Rich Eastern Tunic", [("persian_tunic_10",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 600 , weight(1.25)|abundance(20)|head_armor(0)|body_armor(12)|leg_armor(8)|difficulty(0) ,imodbits_cloth, [], culture_sassanid ],
+["persian_tunic_11", "Rich Eastern Tunic", [("persian_tunic_11",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 600 , weight(1.25)|abundance(20)|head_armor(0)|body_armor(12)|leg_armor(8)|difficulty(0) ,imodbits_cloth, [], culture_sassanid ],
+["persian_tunic_12", "Rich Eastern Tunic", [("persian_tunic_12",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 600 , weight(1.25)|abundance(20)|head_armor(0)|body_armor(12)|leg_armor(8)|difficulty(0) ,imodbits_cloth, [], culture_sassanid ],
+["persian_tunic_13", "Rich Eastern Tunic", [("persian_tunic_13",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 600 , weight(1.25)|abundance(20)|head_armor(0)|body_armor(12)|leg_armor(8)|difficulty(0) ,imodbits_cloth, [], culture_sassanid ],
+["persian_tunic_14", "Rich Eastern Tunic", [("persian_tunic_14",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 600 , weight(1.25)|abundance(20)|head_armor(0)|body_armor(12)|leg_armor(8)|difficulty(0) ,imodbits_cloth, [], culture_sassanid ],
+["persian_tunic_15", "Rich Eastern Tunic", [("persian_tunic_15",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 600 , weight(1.25)|abundance(20)|head_armor(0)|body_armor(12)|leg_armor(8)|difficulty(0) ,imodbits_cloth, [], culture_sassanid ],
+["persian_tunic_16", "Rich Eastern Tunic", [("persian_tunic_16",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 600 , weight(1.25)|abundance(20)|head_armor(0)|body_armor(12)|leg_armor(8)|difficulty(0) ,imodbits_cloth, [], culture_sassanid ],
+["persian_tunic_17", "Eastern Tunic", [("persian_tunic_17",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 100 , weight(1.25)|abundance(100)|head_armor(0)|body_armor(11)|leg_armor(8)|difficulty(0) ,imodbits_cloth, [], culture_sassanid ],
+
+#persian riding coats
+["persian_riding_coat_1a", "Persian Coat", [("persian_riding_coat_1a",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 550 , weight(1.25)|abundance(80)|head_armor(0)|body_armor(20)|leg_armor(12)|difficulty(0) ,imodbits_cloth, [], culture_sassanid ],
+["persian_riding_coat_1b", "Persian Coat", [("persian_riding_coat_1b",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 550 , weight(1.25)|abundance(80)|head_armor(0)|body_armor(20)|leg_armor(12)|difficulty(0) ,imodbits_cloth, [], culture_sassanid ],
+["persian_riding_coat_2a", "Persian Coat", [("persian_riding_coat_2a",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 550 , weight(1.25)|abundance(80)|head_armor(0)|body_armor(20)|leg_armor(12)|difficulty(0) ,imodbits_cloth, [], culture_sassanid ],
+["persian_riding_coat_2b", "Persian Coat", [("persian_riding_coat_2b",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 550 , weight(1.25)|abundance(80)|head_armor(0)|body_armor(20)|leg_armor(12)|difficulty(0) ,imodbits_cloth, [], culture_sassanid ],
+["persian_riding_coat_3a", "Persian Coat", [("persian_riding_coat_3a",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 550 , weight(1.25)|abundance(80)|head_armor(0)|body_armor(20)|leg_armor(12)|difficulty(0) ,imodbits_cloth, [], culture_sassanid ],
+["persian_riding_coat_3b", "Persian Coat", [("persian_riding_coat_3b",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 550 , weight(1.25)|abundance(80)|head_armor(0)|body_armor(20)|leg_armor(12)|difficulty(0) ,imodbits_cloth, [], culture_sassanid ],
+["persian_riding_coat_4a", "Persian Coat", [("persian_riding_coat_4a",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 550 , weight(1.25)|abundance(80)|head_armor(0)|body_armor(20)|leg_armor(12)|difficulty(0) ,imodbits_cloth, [], culture_sassanid ],
+["persian_riding_coat_4b", "Persian Coat", [("persian_riding_coat_4b",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 550 , weight(1.25)|abundance(80)|head_armor(0)|body_armor(20)|leg_armor(12)|difficulty(0) ,imodbits_cloth, [], culture_sassanid ],
+
+["persian_riding_coat_5a", "Rich Persian Coat", [("persian_riding_coat_5a",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 720 , weight(1.25)|abundance(20)|head_armor(0)|body_armor(26)|leg_armor(14)|difficulty(0) ,imodbits_cloth, [], culture_sassanid ],
+["persian_riding_coat_5b", "Rich Persian Coat", [("persian_riding_coat_5b",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 720 , weight(1.25)|abundance(20)|head_armor(0)|body_armor(26)|leg_armor(14)|difficulty(0) ,imodbits_cloth, [], culture_sassanid ],
+["persian_riding_coat_6a", "Rich Persian Coat", [("persian_riding_coat_6a",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 720 , weight(1.25)|abundance(20)|head_armor(0)|body_armor(26)|leg_armor(14)|difficulty(0) ,imodbits_cloth, [], culture_sassanid ],
+["persian_riding_coat_6b", "Rich Persian Coat", [("persian_riding_coat_6b",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 720 , weight(1.25)|abundance(20)|head_armor(0)|body_armor(26)|leg_armor(14)|difficulty(0) ,imodbits_cloth, [], culture_sassanid ],
+
+#end new tunics
 
 ["imperial_common_shirt", "Simple Tunic", [("simple_short_tunic",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian ,0, 10 , weight(1)|abundance(100)|head_armor(0)|body_armor(8)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [(ti_on_init_item,[(call_script, "script_init_short_tunic_arms"),]),], culture_roman ],
-
-["simple_tunic_1", "Simple Tunic", [("simple_tunic_1",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian ,0, 10 , weight(1)|abundance(100)|head_armor(0)|body_armor(8)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [(ti_on_init_item,[(call_script, "script_init_short_tunic_arms"),]),], ],
-["simple_tunic_2", "Simple Tunic", [("simple_tunic_2",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian ,0, 10 , weight(1)|abundance(100)|head_armor(0)|body_armor(8)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [(ti_on_init_item,[(call_script, "script_init_short_tunic_arms"),]),], ],
-["simple_tunic_3", "Simple Tunic", [("simple_tunic_3",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian ,0, 10 , weight(1)|abundance(100)|head_armor(0)|body_armor(8)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [(ti_on_init_item,[(call_script, "script_init_short_tunic_arms"),]),], ],
-["simple_tunic_4", "Simple Tunic", [("simple_tunic_4",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian ,0, 10 , weight(1)|abundance(100)|head_armor(0)|body_armor(8)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [(ti_on_init_item,[(call_script, "script_init_short_tunic_arms"),]),], ],
-["simple_tunic_5", "Simple Tunic", [("simple_tunic_5",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian ,0, 10 , weight(1)|abundance(100)|head_armor(0)|body_armor(8)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [(ti_on_init_item,[(call_script, "script_init_short_tunic_arms"),]),], ],
-["simple_tunic_6", "Simple Tunic", [("simple_tunic_6",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian ,0, 10 , weight(1)|abundance(100)|head_armor(0)|body_armor(8)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [(ti_on_init_item,[(call_script, "script_init_short_tunic_arms"),]),], ],
-["simple_tunic_7", "Simple Tunic", [("simple_tunic_7",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian ,0, 10 , weight(1)|abundance(100)|head_armor(0)|body_armor(8)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [(ti_on_init_item,[(call_script, "script_init_short_tunic_arms"),]),], ],
-["simple_tunic_8", "Simple Tunic", [("simple_tunic_8",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian ,0, 10 , weight(1)|abundance(100)|head_armor(0)|body_armor(8)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [(ti_on_init_item,[(call_script, "script_init_short_tunic_arms"),]),], ],
-["simple_tunic_9", "Simple Tunic", [("simple_tunic_9",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian ,0, 10 , weight(1)|abundance(100)|head_armor(0)|body_armor(8)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [(ti_on_init_item,[(call_script, "script_init_short_tunic_arms"),]),], ],
-["simple_tunic_10", "Simple Tunic", [("simple_tunic_10",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian ,0, 10 , weight(1)|abundance(100)|head_armor(0)|body_armor(8)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [(ti_on_init_item,[(call_script, "script_init_short_tunic_arms"),]),], ],
 
 ["a_exomis_1", "Exomis", [("a_exomis_1",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian ,0, 10 , weight(1)|abundance(100)|head_armor(0)|body_armor(8)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [(ti_on_init_item,[(call_script, "script_init_exomis_body_1"),]),], [fac_culture_11,fac_culture_15] ],
 ["a_exomis_2", "Exomis", [("a_exomis_2",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian ,0, 10 , weight(1)|abundance(100)|head_armor(0)|body_armor(8)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [(ti_on_init_item,[(call_script, "script_init_exomis_body_1"),]),], [fac_culture_11,fac_culture_15] ],
 ["a_exomis_3", "Exomis", [("a_exomis_3",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian ,0, 10 , weight(1)|abundance(100)|head_armor(0)|body_armor(8)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [(ti_on_init_item,[(call_script, "script_init_exomis_body_1"),]),], [fac_culture_11,fac_culture_15] ],
-
-["roman_military_tunic_1", "Tunica Blattea", [("roman_military_tunic_1",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(12)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_roman ],
-["roman_military_tunic_2", "Tunica Blattea", [("roman_military_tunic_2",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(12)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_roman ],
-["roman_military_tunic_3", "Tunica Blattea", [("roman_military_tunic_3",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(12)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_roman ],
-["roman_military_tunic_4", "Tunica Blattea", [("roman_military_tunic_4",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(12)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_roman ],
-["roman_military_tunic_5", "Tunica Blattea", [("roman_military_tunic_5",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(12)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_roman ],
-["roman_military_tunic_6", "Tunica Blattea", [("roman_military_tunic_6",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(12)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_roman ],
-["roman_military_tunic_7", "Tunica Blattea", [("roman_military_tunic_7",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(12)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_roman ],
-["roman_military_tunic_8", "Tunica Blattea", [("roman_military_tunic_8",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(12)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_roman ],
-["roman_military_tunic_9", "Tunica Blattea", [("roman_military_tunic_9",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(12)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_roman ],
-["roman_military_tunic_10", "Tunica Blattea", [("roman_military_tunic_10",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(12)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [(ti_on_init_item,[(call_script, "script_init_tunic_legs"),]),], culture_roman ], #no pants
 
 ["red_shirt", "Red Tunic", [("rich_tunic_a",0)], itp_merchandise| itp_type_body_armor |itp_civilian |itp_covers_legs ,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_sassanid+culture_caucasian ],
 ["rich_tunic_1", "Blue Tunic", [("rich_tunic_1",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_sassanid+culture_caucasian ],
@@ -819,24 +901,6 @@ items = [
 ["rich_tunic_4", "Blue Tunic", [("rich_tunic_4",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_sassanid+culture_caucasian ],
 ["rich_tunic_5", "Brown Tunic", [("rich_tunic_5",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_sassanid+culture_caucasian ],
 ["rich_tunic_6", "Yellow Tunic", [("rich_tunic_e",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_sassanid+culture_caucasian ],
-
-["kaftan_tunic_1", "Tunic", [("kaftan_tunic_1",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_sassanid+culture_caucasian ],
-["kaftan_tunic_2", "Tunic", [("kaftan_tunic_2",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_sassanid+culture_caucasian ],
-["kaftan_tunic_3", "Tunic", [("kaftan_tunic_3",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_sassanid+culture_caucasian ],
-["kaftan_tunic_4", "Tunic", [("kaftan_tunic_4",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_sassanid+culture_caucasian ],
-["kaftan_tunic_5", "Tunic", [("kaftan_tunic_5",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_sassanid+culture_caucasian ],
-["kaftan_tunic_6", "Tunic", [("kaftan_tunic_6",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_sassanid+culture_caucasian ],
-["kaftan_tunic_7", "Tunic", [("kaftan_tunic_7",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_sassanid+culture_caucasian ],
-["kaftan_tunic_8", "Tunic", [("kaftan_tunic_8",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_sassanid+culture_caucasian ],
-["kaftan_tunic_9", "Tunic", [("kaftan_tunic_9",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_sassanid+culture_caucasian ],
-["kaftan_tunic_10", "Tunic", [("kaftan_tunic_10",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_sassanid+culture_caucasian ],
-
-["kaftan_sheepskin_1", "Tunic with Sheepskin", [("kaftan_sheepskin_1",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_sassanid+culture_caucasian ],
-["kaftan_sheepskin_2", "Tunic with Sheepskin", [("kaftan_sheepskin_2",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_sassanid+culture_caucasian ],
-["kaftan_sheepskin_3", "Tunic with Sheepskin", [("kaftan_sheepskin_3",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_sassanid+culture_caucasian ],
-["kaftan_sheepskin_4", "Tunic with Sheepskin", [("kaftan_sheepskin_4",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_sassanid+culture_caucasian ],
-["kaftan_sheepskin_5", "Tunic with Sheepskin", [("kaftan_sheepskin_5",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_sassanid+culture_caucasian ],
-["kaftan_sheepskin_6", "Tunic with Sheepskin", [("kaftan_sheepskin_6",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_sassanid+culture_caucasian ],
 
 ["skirmisher_tunic_1", "Tunic with Sheepskin", [("skirmisher_tunic_1",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth ],
 ["skirmisher_tunic_2", "Tunic with Sheepskin", [("skirmisher_tunic_2",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth ],
@@ -884,215 +948,18 @@ items = [
 ["kaftan_eastern_1", "Rich Kaftan", [("kaftan_eastern_1",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 1000 , weight(2)|abundance(100)|head_armor(0)|body_armor(25)|leg_armor(15)|difficulty(0) ,imodbits_cloth, [], culture_hunnic+culture_sassanid ],
 ["kaftan_eastern_2", "Rich Kaftan", [("kaftan_eastern_2",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 1000 , weight(2)|abundance(100)|head_armor(0)|body_armor(25)|leg_armor(15)|difficulty(0) ,imodbits_cloth, [], culture_hunnic+culture_sassanid ],
 
-["linen_tunic", "Tunic", [("shirt_a",0)], itp_merchandise| itp_type_body_armor |itp_civilian |itp_covers_legs ,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth ],
-["linen_shirt_1", "Blue Tunic", [("shirt_blu",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth ],
-["linen_shirt_2", "Green Tunic", [("shirt_grn",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth ],
-["linen_shirt_3", "Red Tunic", [("shirt_red",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth ],
-["linen_shirt_4", "Blue Tunic", [("linen_tunic_a",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth ],
-["linen_shirt_5", "White Tunic", [("linen_tunic_b",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth ],
-["linen_shirt_6", "Red Tunic", [("linen_tunic_c",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth ],
-["linen_shirt_7", "Green Tunic", [("woolen_tunic_a",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth ],
-["linen_shirt_8", "Yellow Tunic", [("woolen_tunic_b",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth ],
-["linen_shirt_9", "Black Tunic", [("woolen_tunic_c",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth ],
-["linen_shirt_10", "Brown Tunic", [("shirt_blk",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth ],
-["linen_shirt_11", "Orange Tunic", [("linen_tunic_d",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth ],
-["linen_shirt_12", "Tunic", [("linen_tunic_e",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth ],
-["linen_shirt_13", "Yellow Tunic", [("shirt_ylw",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth ],
-["linen_shirt_14", "Blue Tunic", [("shirt_tel",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth ],
-["linen_shirt_15", "Tunic", [("shirt_d2",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth ],
-["linen_shirt_16", "Green Tunic", [("green_tunic",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth ],
-["linen_shirt_17", "Red Tunic", [("red_tunic",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth ],
-["linen_shirt_18", "Blue Tunic", [("blue_tunic",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth ],
-["linen_shirt_19", "Blue Tunic", [("shirt_d3",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth ],
-["linen_shirt_20", "Yellow Tunic", [("yellow_tunic",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth ],
-["linen_shirt_21", "Yellow Tunic", [("yellow_tunic_saxon",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth ],
-["linen_shirt_22", "Brown Tunic", [("brown_tunic",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth ],
-
-["generic_tunic_1", "Tunic", [("generic_tunic_1",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs|itp_civilian,0,
-80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth,
-[(ti_on_init_item,
-        [(store_random_in_range,":rand_accessory","str_accessory_bag_1","str_accessory_end"),    # Picking one random string and thus one random mesh
-        (store_random_in_range,":probability",0,100),
-        (try_begin),
-            (lt, ":probability", 50),    # The script only continues with a probability of 50 %
-            (cur_item_add_mesh, ":rand_accessory"),    # Adding the random mesh to the item
-        (try_end),])]
-],
-["generic_tunic_2", "Green Tunic", [("generic_tunic_2",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs|itp_civilian,0,
-80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth,
-[(ti_on_init_item,
-        [(store_random_in_range,":rand_accessory","str_accessory_bag_1","str_accessory_end"),    # Picking one random string and thus one random mesh
-        (store_random_in_range,":probability",0,100),
-        (try_begin),
-            (lt, ":probability", 50),    # The script only continues with a probability of 50 %
-            (cur_item_add_mesh, ":rand_accessory"),    # Adding the random mesh to the item
-        (try_end),])]
-],
-["generic_tunic_3", "Red Tunic", [("generic_tunic_3",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs|itp_civilian,0,
-80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth,
-[(ti_on_init_item,
-        [(store_random_in_range,":rand_accessory","str_accessory_bag_1","str_accessory_end"),    # Picking one random string and thus one random mesh
-        (store_random_in_range,":probability",0,100),
-        (try_begin),
-            (lt, ":probability", 50),    # The script only continues with a probability of 50 %
-            (cur_item_add_mesh, ":rand_accessory"),    # Adding the random mesh to the item
-        (try_end),])]
-],
-["generic_tunic_4", "Red Tunic", [("generic_tunic_4",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs|itp_civilian,0,
-80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth,
-[(ti_on_init_item,
-        [(store_random_in_range,":rand_accessory","str_accessory_bag_1","str_accessory_end"),    # Picking one random string and thus one random mesh
-        (store_random_in_range,":probability",0,100),
-        (try_begin),
-            (lt, ":probability", 50),    # The script only continues with a probability of 50 %
-            (cur_item_add_mesh, ":rand_accessory"),    # Adding the random mesh to the item
-        (try_end),])]
-],
-["generic_tunic_5", "Blue Tunic", [("generic_tunic_5",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs|itp_civilian,0,
-80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth,
-[(ti_on_init_item,
-        [(store_random_in_range,":rand_accessory","str_accessory_bag_1","str_accessory_end"),    # Picking one random string and thus one random mesh
-        (store_random_in_range,":probability",0,100),
-        (try_begin),
-            (lt, ":probability", 50),    # The script only continues with a probability of 50 %
-            (cur_item_add_mesh, ":rand_accessory"),    # Adding the random mesh to the item
-        (try_end),])]
-],
-["generic_tunic_6", "Brown Tunic", [("generic_tunic_6",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs|itp_civilian,0,
-80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth,
-[(ti_on_init_item,
-        [(store_random_in_range,":rand_accessory","str_accessory_bag_1","str_accessory_end"),    # Picking one random string and thus one random mesh
-        (store_random_in_range,":probability",0,100),
-        (try_begin),
-            (lt, ":probability", 50),    # The script only continues with a probability of 50 %
-            (cur_item_add_mesh, ":rand_accessory"),    # Adding the random mesh to the item
-        (try_end),])]
-],
-["generic_tunic_7", "Brown Tunic", [("generic_tunic_7",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs|itp_civilian,0,
-80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth,
-[(ti_on_init_item,
-        [(store_random_in_range,":rand_accessory","str_accessory_bag_1","str_accessory_end"),    # Picking one random string and thus one random mesh
-        (store_random_in_range,":probability",0,100),
-        (try_begin),
-            (lt, ":probability", 50),    # The script only continues with a probability of 50 %
-            (cur_item_add_mesh, ":rand_accessory"),    # Adding the random mesh to the item
-        (try_end),])]
-],
-["generic_tunic_8", "Tunic", [("generic_tunic_8",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs|itp_civilian,0,
-80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth,
-[(ti_on_init_item,
-        [(store_random_in_range,":rand_accessory","str_accessory_bag_1","str_accessory_end"),    # Picking one random string and thus one random mesh
-        (store_random_in_range,":probability",0,100),
-        (try_begin),
-            (lt, ":probability", 50),    # The script only continues with a probability of 50 %
-            (cur_item_add_mesh, ":rand_accessory"),    # Adding the random mesh to the item
-        (try_end),])]
-],
-["generic_tunic_9", "Green Tunic", [("generic_tunic_9",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs|itp_civilian,0,
-80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth,
-[(ti_on_init_item,
-        [(store_random_in_range,":rand_accessory","str_accessory_bag_1","str_accessory_end"),    # Picking one random string and thus one random mesh
-        (store_random_in_range,":probability",0,100),
-        (try_begin),
-            (lt, ":probability", 50),    # The script only continues with a probability of 50 %
-            (cur_item_add_mesh, ":rand_accessory"),    # Adding the random mesh to the item
-        (try_end),])]
-],
-["generic_tunic_10", "Tunic", [("generic_tunic_10",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs|itp_civilian,0,
-80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth,
-[(ti_on_init_item,
-        [(store_random_in_range,":rand_accessory","str_accessory_bag_1","str_accessory_end"),    # Picking one random string and thus one random mesh
-        (store_random_in_range,":probability",0,100),
-        (try_begin),
-            (lt, ":probability", 50),    # The script only continues with a probability of 50 %
-            (cur_item_add_mesh, ":rand_accessory"),    # Adding the random mesh to the item
-        (try_end),])]
-],
-["generic_tunic_11", "Tunic", [("generic_tunic_11",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs|itp_civilian,0,
-80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth,
-[(ti_on_init_item,
-        [(store_random_in_range,":rand_accessory","str_accessory_bag_1","str_accessory_end"),    # Picking one random string and thus one random mesh
-        (store_random_in_range,":probability",0,100),
-        (try_begin),
-            (lt, ":probability", 50),    # The script only continues with a probability of 50 %
-            (cur_item_add_mesh, ":rand_accessory"),    # Adding the random mesh to the item
-        (try_end),])]
-],
-["generic_tunic_12", "Tunic", [("generic_tunic_12",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs|itp_civilian,0,
-80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth,
-[(ti_on_init_item,
-        [(store_random_in_range,":rand_accessory","str_accessory_bag_1","str_accessory_end"),    # Picking one random string and thus one random mesh
-        (store_random_in_range,":probability",0,100),
-        (try_begin),
-            (lt, ":probability", 50),    # The script only continues with a probability of 50 %
-            (cur_item_add_mesh, ":rand_accessory"),    # Adding the random mesh to the item
-        (try_end),])]
-],
-["generic_tunic_13", "Tunic", [("generic_tunic_13",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs|itp_civilian,0,
-80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth,
-[(ti_on_init_item,
-        [(store_random_in_range,":rand_accessory","str_accessory_bag_1","str_accessory_end"),    # Picking one random string and thus one random mesh
-        (store_random_in_range,":probability",0,100),
-        (try_begin),
-            (lt, ":probability", 50),    # The script only continues with a probability of 50 %
-            (cur_item_add_mesh, ":rand_accessory"),    # Adding the random mesh to the item
-        (try_end),])]
-],
-["generic_tunic_14", "Tunic", [("generic_tunic_14",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs|itp_civilian,0,
-80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth,
-[(ti_on_init_item,
-        [(store_random_in_range,":rand_accessory","str_accessory_bag_1","str_accessory_end"),    # Picking one random string and thus one random mesh
-        (store_random_in_range,":probability",0,100),
-        (try_begin),
-            (lt, ":probability", 50),    # The script only continues with a probability of 50 %
-            (cur_item_add_mesh, ":rand_accessory"),    # Adding the random mesh to the item
-        (try_end),])]
-],
-["generic_tunic_15", "Tunic", [("generic_tunic_15",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs|itp_civilian,0,
-80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth,
-[(ti_on_init_item,
-        [(store_random_in_range,":rand_accessory","str_accessory_bag_1","str_accessory_end"),    # Picking one random string and thus one random mesh
-        (store_random_in_range,":probability",0,100),
-        (try_begin),
-            (lt, ":probability", 50),    # The script only continues with a probability of 50 %
-            (cur_item_add_mesh, ":rand_accessory"),    # Adding the random mesh to the item
-        (try_end),])]
-],
-
-["tunic_long_pants_1", "Tunic", [("tunic_long_pants_1",0)], itp_merchandise| itp_type_body_armor |itp_civilian |itp_covers_legs ,0, 100 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(10)|difficulty(0) ,imodbits_cloth, [], culture_gothic ],
-["tunic_long_pants_2", "Tunic", [("tunic_long_pants_2",0)], itp_merchandise| itp_type_body_armor |itp_civilian |itp_covers_legs ,0, 100 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(10)|difficulty(0) ,imodbits_cloth, [], culture_gothic ],
-["tunic_long_pants_3", "Tunic", [("tunic_long_pants_3",0)], itp_merchandise| itp_type_body_armor |itp_civilian |itp_covers_legs ,0, 100 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(10)|difficulty(0) ,imodbits_cloth, [], culture_gothic ],
-["tunic_long_pants_4", "Tunic", [("tunic_long_pants_4",0)], itp_merchandise| itp_type_body_armor |itp_civilian |itp_covers_legs ,0, 100 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(10)|difficulty(0) ,imodbits_cloth, [], culture_gothic ],
-["tunic_long_pants_5", "Tunic", [("tunic_long_pants_5",0)], itp_merchandise| itp_type_body_armor |itp_civilian |itp_covers_legs ,0, 100 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(10)|difficulty(0) ,imodbits_cloth, [], culture_gothic ],
-["tunic_long_pants_6", "Tunic", [("tunic_long_pants_6",0)], itp_merchandise| itp_type_body_armor |itp_civilian |itp_covers_legs ,0, 100 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(10)|difficulty(0) ,imodbits_cloth, [], culture_gothic ],
-["tunic_long_pants_7", "Tunic", [("tunic_long_pants_7",0)], itp_merchandise| itp_type_body_armor |itp_civilian |itp_covers_legs ,0, 100 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(10)|difficulty(0) ,imodbits_cloth, [], culture_gothic ],
-["tunic_long_pants_8", "Tunic", [("tunic_long_pants_8",0)], itp_merchandise| itp_type_body_armor |itp_civilian |itp_covers_legs ,0, 100 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(10)|difficulty(0) ,imodbits_cloth, [], culture_gothic ],
-["tunic_long_pants_9", "Tunic", [("tunic_long_pants_9",0)], itp_merchandise| itp_type_body_armor |itp_civilian |itp_covers_legs ,0, 100 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(10)|difficulty(0) ,imodbits_cloth, [], culture_gothic ],
-["tunic_long_pants_10", "Tunic", [("tunic_long_pants_10",0)], itp_merchandise| itp_type_body_armor |itp_civilian |itp_covers_legs ,0, 100 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(10)|difficulty(0) ,imodbits_cloth, [], culture_gothic ],
-["tunic_long_pants_11", "Tunic", [("tunic_long_pants_11",0)], itp_merchandise| itp_type_body_armor |itp_civilian |itp_covers_legs ,0, 100 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(10)|difficulty(0) ,imodbits_cloth, [], culture_gothic+culture_germanic ],
-
-["sassanid_rich_tunic_1", "Rich Sassanid Tunic", [("sassanid_rich_tunic_1",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 400 , weight(1)|abundance(50)|head_armor(0)|body_armor(12)|leg_armor(9)|difficulty(0) ,imodbits_cloth, [], culture_sassanid ],
-["sassanid_rich_tunic_2", "Rich Sassanid Tunic", [("sassanid_rich_tunic_2",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 400 , weight(1)|abundance(50)|head_armor(0)|body_armor(12)|leg_armor(9)|difficulty(0) ,imodbits_cloth, [], culture_sassanid ],
-["sassanid_rich_tunic_3", "Rich Sassanid Tunic", [("sassanid_rich_tunic_3",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 400 , weight(1)|abundance(50)|head_armor(0)|body_armor(12)|leg_armor(9)|difficulty(0) ,imodbits_cloth, [], culture_sassanid ],
-["sassanid_rich_tunic_4", "Rich Sassanid Tunic", [("sassanid_rich_tunic_4",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 400 , weight(1)|abundance(50)|head_armor(0)|body_armor(12)|leg_armor(9)|difficulty(0) ,imodbits_cloth, [], culture_sassanid ],
-
-#based off of falkirk tartarn pattern, found in briton, similar find in juteland
-["falkirk_tunic_1", "Tunic", [("falkirk_tunic_1",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_celtic ],
-["falkirk_tunic_2", "Tunic", [("falkirk_tunic_2",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_celtic ],
-["falkirk_tunic_3", "Tunic", [("falkirk_tunic_3",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_celtic ],
-["falkirk_tunic_4", "Tunic", [("falkirk_tunic_4",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_celtic ],
-["falkirk_tunic_5", "Tunic", [("falkirk_tunic_5",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_celtic ],
-
-["simple_shirt_5", "Simple Tunic", [("short_tunic_1",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian ,0, 10 , weight(1)|abundance(100)|head_armor(0)|body_armor(8)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [(ti_on_init_item,[(call_script, "script_init_male_arms"),]),], ],
-["simple_shirt_6", "Simple Tunic", [("short_tunic_2",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian ,0, 10 , weight(1)|abundance(100)|head_armor(0)|body_armor(8)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [(ti_on_init_item,[(call_script, "script_init_male_arms"),]),], ],
+#old tunics based off of shirt_a
+["linen_tunic", "Tunic", [("thorsberg_tunic_simple_3",0)], itp_type_body_armor |itp_civilian |itp_covers_legs ,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth ],
+["linen_shirt_1", "Blue Tunic", [("shirt_blu",0)], itp_type_body_armor|itp_covers_legs|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth ],
+["linen_shirt_2", "Green Tunic", [("shirt_grn",0)], itp_type_body_armor|itp_covers_legs|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth ],
+["linen_shirt_3", "Red Tunic", [("shirt_red",0)], itp_type_body_armor|itp_covers_legs|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth ],
+["linen_shirt_10", "Brown Tunic", [("shirt_blk",0)], itp_type_body_armor|itp_covers_legs|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth ],
+["linen_shirt_13", "Yellow Tunic", [("shirt_ylw",0)], itp_type_body_armor|itp_covers_legs|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth ],
+["linen_shirt_14", "Blue Tunic", [("shirt_tel",0)], itp_type_body_armor|itp_covers_legs|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth ],
 
 ["african_kilt_1", "Nubian Kilt", [("african_kilt_1",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian ,0, 10 , weight(1)|abundance(100)|head_armor(0)|body_armor(4)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [(ti_on_init_item,[(call_script, "script_init_african_kilt_body"),]),], culture_african ],
 ["african_kilt_2", "Nubian Kilt", [("african_kilt_2",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian ,0, 10 , weight(1)|abundance(100)|head_armor(0)|body_armor(4)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [(ti_on_init_item,[(call_script, "script_init_african_kilt_body"),]),], culture_african ],
 ["african_kilt_3", "Nubian Kilt", [("african_kilt_3",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian ,0, 10 , weight(1)|abundance(100)|head_armor(0)|body_armor(4)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [(ti_on_init_item,[(call_script, "script_init_african_kilt_body"),]),], culture_african ],
-
-["long_tunic_a", "Blue Long Tunic", [("shirt_shirt_a",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(8)|difficulty(0) ,imodbits_cloth ],
-["long_tunic_b", "Yellow Long Tunic", [("shirt_shirt_b",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(8)|difficulty(0) ,imodbits_cloth ],
-["long_tunic_c", "White Long Tunic", [("shirt_shirt_c",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(8)|difficulty(0) ,imodbits_cloth ],
 
 ["coarse_tunic", "Tunic with vest", [("coarse_tunic_a",0)], itp_merchandise| itp_type_body_armor |itp_civilian |itp_covers_legs ,0,
  107 , weight(2)|abundance(100)|head_armor(0)|body_armor(12)|leg_armor(6)|difficulty(0) ,imodbits_cloth ],
@@ -1149,16 +1016,7 @@ items = [
 ["beduin_armor_b", "Worn Robe", [("beduin_armor_b",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0,
  33 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(10)|difficulty(0) ,imodbits_cloth ],
 
-["peasant_man_1", "Tunic", [("peasant_man_b",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 100 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(8)|difficulty(0) ,imodbits_cloth ],
-["peasant_man_2", "Tunic", [("peasant_man_c",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 100 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(8)|difficulty(0) ,imodbits_cloth ],
-["peasant_man_3", "Tunic", [("peasant_man_d",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 100 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(8)|difficulty(0) ,imodbits_cloth ],
-["peasant_man_4", "Tunic", [("peasant_man_e",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 100 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(8)|difficulty(0) ,imodbits_cloth ],
-["peasant_man_5", "Tunic", [("peasant_man_f",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 100 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(8)|difficulty(0) ,imodbits_cloth ],
-["peasant_man_6", "Tunic", [("peasant_man_1",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 100 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(8)|difficulty(0) ,imodbits_cloth ],
-["peasant_man_7", "Tunic", [("peasant_archer",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 100 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(8)|difficulty(0) ,imodbits_cloth ],
-["peasant_man_8", "Tunic", [("peasant_man_2",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 100 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(8)|difficulty(0) ,imodbits_cloth ],
-["peasant_man_9", "Tunic", [("peasant_man_3",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 100 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(8)|difficulty(0) ,imodbits_cloth ],
-["tunic_with_green_cape", "Tunic", [("peasant_man_a",0)], itp_merchandise| itp_type_body_armor|itp_covers_legs|itp_civilian ,0, 100 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(8)|difficulty(0) ,imodbits_cloth ],
+["tunic_with_green_cape", "Tunic", [("peasant_man_a",0)], itp_type_body_armor|itp_covers_legs|itp_civilian ,0, 100 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(8)|difficulty(0) ,imodbits_cloth ],
 
 ["pants_5", "Pants", [("BL_Celts05",0)], itp_type_body_armor|itp_covers_legs|itp_civilian,0, 40 , weight(1)|abundance(100)|head_armor(0)|body_armor(2)|leg_armor(8)|difficulty(0) ,imodbits_cloth ],
 ["pants_6", "Pants", [("BL_Celts06",0)], itp_type_body_armor|itp_covers_legs|itp_civilian,0, 40 , weight(1)|abundance(100)|head_armor(0)|body_armor(2)|leg_armor(8)|difficulty(0) ,imodbits_cloth ],
@@ -1170,7 +1028,7 @@ items = [
 ["pants_13", "Pants", [("BL_Celts13",0)], itp_type_body_armor|itp_covers_legs|itp_civilian,0, 40 , weight(1)|abundance(100)|head_armor(0)|body_armor(2)|leg_armor(8)|difficulty(0) ,imodbits_cloth ],
 
 ["linen_shirt", "Linen Tunic", [("white_linen_shirt",0)], itp_type_body_armor|itp_covers_legs|itp_civilian,0, 148 , weight(2)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(10)|difficulty(0) ,imodbits_cloth ],
-["sleeveless_tunic", "Linen Tunic", [("short_tunic_3",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian ,0, 10 , weight(1)|abundance(100)|head_armor(0)|body_armor(8)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [(ti_on_init_item,[(call_script, "script_init_male_arms"),]),], ],
+["sleeveless_tunic", "Linen Tunic", [("white_linen_shirt",0)], itp_type_body_armor|itp_covers_legs|itp_civilian,0, 148 , weight(2)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(10)|difficulty(0) ,imodbits_cloth ],
 
 ["long_shirt_1", "Blue Tunic", [("BL_NT_Blue01",0)], itp_type_body_armor|itp_covers_legs|itp_civilian,0, 148 , weight(2)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(10)|difficulty(0) ,imodbits_cloth ],
 ["long_shirt_2", "Green Tunic", [("BL_NT_Blue07",0)], itp_type_body_armor|itp_covers_legs|itp_civilian,0, 148 , weight(2)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(10)|difficulty(0) ,imodbits_cloth ],
@@ -1216,192 +1074,113 @@ items = [
 ["pict_body_3f", "Pictish Warpaint", [("picta3",0)], itp_unique|itp_type_body_armor|itp_covers_legs|itp_civilian,0, 10 , weight(0)|abundance(100)|head_armor(0)|body_armor(4)|leg_armor(4)|difficulty(0) ,imodbits_none ],
 ["pict_body_4f", "Pictish Warpaint", [("picta4",0)], itp_unique|itp_type_body_armor|itp_covers_legs|itp_civilian,0, 10 , weight(0)|abundance(100)|head_armor(0)|body_armor(4)|leg_armor(4)|difficulty(0) ,imodbits_none ],
 
-["cloaked_tunic_1", "Tunic with Cloak", [("linen_tunic_c",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0, #red
+#new tunics w/ cloaks
+["thorsberg_tunic_cloak_1", "Tunic with Cloak", [("thorsberg_tunic_1",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
 300 , weight(2)|abundance(100)|head_armor(0)|body_armor(18)|leg_armor(10)|difficulty(0) ,imodbits_cloth,
-[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_TOAOE_cloak_1b","str_TOAOE_cloak_4b"),(cur_item_add_mesh, ":rand_accessory"),])]],
-["cloaked_tunic_2", "Tunic with Cloak", [("linen_tunic_d",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0, #orange
+[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_TOAOE_cloak_1a","str_TOAOE_cloak_4a"),(cur_item_add_mesh, ":rand_accessory"),])], culture_germanic+culture_gothic+culture_roman],
+["thorsberg_tunic_cloak_2", "Tunic with Cloak", [("thorsberg_tunic_2",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
 300 , weight(2)|abundance(100)|head_armor(0)|body_armor(18)|leg_armor(10)|difficulty(0) ,imodbits_cloth,
-[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_TOAOE_cloak_1b","str_TOAOE_cloak_4b"),(cur_item_add_mesh, ":rand_accessory"),])]],
-["cloaked_tunic_3", "Tunic with Cloak", [("frankish_long_tunic",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0, #frankish
+[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_TOAOE_cloak_1a","str_TOAOE_cloak_4a"),(cur_item_add_mesh, ":rand_accessory"),])], culture_germanic+culture_gothic],
+["thorsberg_tunic_cloak_3", "Tunic with Cloak", [("thorsberg_tunic_3",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
 300 , weight(2)|abundance(100)|head_armor(0)|body_armor(18)|leg_armor(10)|difficulty(0) ,imodbits_cloth,
-[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_TOAOE_cloak_1b","str_TOAOE_cloak_4b"),(cur_item_add_mesh, ":rand_accessory"),])]],
-["cloaked_tunic_4", "Tunic with Cloak", [("woolen_tunic_a",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0, #green
+[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_TOAOE_cloak_1a","str_TOAOE_cloak_4a"),(cur_item_add_mesh, ":rand_accessory"),])], culture_germanic+culture_gothic],
+["thorsberg_tunic_cloak_4", "Tunic with Cloak", [("thorsberg_tunic_4",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
 300 , weight(2)|abundance(100)|head_armor(0)|body_armor(18)|leg_armor(10)|difficulty(0) ,imodbits_cloth,
-[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_TOAOE_cloak_1b","str_TOAOE_cloak_4b"),(cur_item_add_mesh, ":rand_accessory"),])]],
-["cloaked_tunic_5", "Tunic with Cloak", [("shirt_blk",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0, #brown
+[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_TOAOE_cloak_1a","str_TOAOE_cloak_4a"),(cur_item_add_mesh, ":rand_accessory"),])], culture_germanic+culture_gothic],
+["thorsberg_tunic_cloak_5", "Tunic with Cloak", [("thorsberg_tunic_5",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
 300 , weight(2)|abundance(100)|head_armor(0)|body_armor(18)|leg_armor(10)|difficulty(0) ,imodbits_cloth,
-[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_TOAOE_cloak_1b","str_TOAOE_cloak_4b"),(cur_item_add_mesh, ":rand_accessory"),])]],
-["cloaked_tunic_6", "Tunic with Cloak", [("linen_tunic_a",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0, #blue
+[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_TOAOE_cloak_1a","str_TOAOE_cloak_4a"),(cur_item_add_mesh, ":rand_accessory"),])], culture_germanic+culture_gothic+culture_roman],
+["thorsberg_tunic_cloak_6", "Tunic with Cloak", [("thorsberg_tunic_6",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
 300 , weight(2)|abundance(100)|head_armor(0)|body_armor(18)|leg_armor(10)|difficulty(0) ,imodbits_cloth,
-[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_TOAOE_cloak_1b","str_TOAOE_cloak_4b"),(cur_item_add_mesh, ":rand_accessory"),])]],
-["cloaked_tunic_7", "Tunic with Cloak", [("linen_tunic_b",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0, #white
+[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_TOAOE_cloak_1a","str_TOAOE_cloak_4a"),(cur_item_add_mesh, ":rand_accessory"),])], culture_germanic+culture_gothic+culture_roman],
+["thorsberg_tunic_cloak_7", "Tunic with Cloak", [("thorsberg_tunic_7",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
 300 , weight(2)|abundance(100)|head_armor(0)|body_armor(18)|leg_armor(10)|difficulty(0) ,imodbits_cloth,
-[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_TOAOE_cloak_1b","str_TOAOE_cloak_4b"),(cur_item_add_mesh, ":rand_accessory"),])]],
-["cloaked_tunic_8", "Tunic with Cloak", [("shirt_blu",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0, #blue
+[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_TOAOE_cloak_1a","str_TOAOE_cloak_4a"),(cur_item_add_mesh, ":rand_accessory"),])], culture_germanic+culture_gothic+culture_roman],
+["thorsberg_tunic_cloak_8", "Tunic with Cloak", [("thorsberg_tunic_8",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
 300 , weight(2)|abundance(100)|head_armor(0)|body_armor(18)|leg_armor(10)|difficulty(0) ,imodbits_cloth,
-[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_TOAOE_cloak_1b","str_TOAOE_cloak_4b"),(cur_item_add_mesh, ":rand_accessory"),])]],
-["cloaked_tunic_9", "Tunic with Cloak", [("shirt_red",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0, #red
+[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_TOAOE_cloak_1a","str_TOAOE_cloak_4a"),(cur_item_add_mesh, ":rand_accessory"),])], culture_germanic+culture_gothic+culture_roman],
+["thorsberg_tunic_cloak_9", "Tunic with Cloak", [("thorsberg_tunic_9",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
 300 , weight(2)|abundance(100)|head_armor(0)|body_armor(18)|leg_armor(10)|difficulty(0) ,imodbits_cloth,
-[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_TOAOE_cloak_1b","str_TOAOE_cloak_4b"),(cur_item_add_mesh, ":rand_accessory"),])]],
-["cloaked_tunic_10", "Tunic with Cloak", [("white_linen_shirt",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
+[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_TOAOE_cloak_1a","str_TOAOE_cloak_4a"),(cur_item_add_mesh, ":rand_accessory"),])], culture_germanic+culture_gothic],
+["thorsberg_tunic_cloak_10", "Tunic with Cloak", [("thorsberg_tunic_10",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
 300 , weight(2)|abundance(100)|head_armor(0)|body_armor(18)|leg_armor(10)|difficulty(0) ,imodbits_cloth,
-[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_TOAOE_cloak_1b","str_TOAOE_cloak_4b"),(cur_item_add_mesh, ":rand_accessory"),])]],
-["cloaked_tunic_11", "Tunic with Cloak", [("light_brown_tunic",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
+[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_TOAOE_cloak_1a","str_TOAOE_cloak_4a"),(cur_item_add_mesh, ":rand_accessory"),])], culture_germanic+culture_gothic+culture_roman],
+["thorsberg_tunic_cloak_11", "Tunic with Cloak", [("thorsberg_tunic_11",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
 300 , weight(2)|abundance(100)|head_armor(0)|body_armor(18)|leg_armor(10)|difficulty(0) ,imodbits_cloth,
-[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_TOAOE_cloak_1b","str_TOAOE_cloak_4b"),(cur_item_add_mesh, ":rand_accessory"),])]],
-["cloaked_tunic_12", "Tunic with Cloak", [("shirt_ylw",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
+[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_TOAOE_cloak_1a","str_TOAOE_cloak_4a"),(cur_item_add_mesh, ":rand_accessory"),])], culture_germanic+culture_gothic],
+["thorsberg_tunic_cloak_12", "Tunic with Cloak", [("thorsberg_tunic_12",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
 300 , weight(2)|abundance(100)|head_armor(0)|body_armor(18)|leg_armor(10)|difficulty(0) ,imodbits_cloth,
-[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_TOAOE_cloak_1b","str_TOAOE_cloak_4b"),(cur_item_add_mesh, ":rand_accessory"),])]],
-["cloaked_tunic_16", "Tunic with Cloak", [("yellow_tunic_saxon",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
+[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_TOAOE_cloak_1a","str_TOAOE_cloak_4a"),(cur_item_add_mesh, ":rand_accessory"),])], culture_germanic+culture_gothic],
+["thorsberg_tunic_cloak_13", "Tunic with Cloak", [("thorsberg_tunic_13",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
 300 , weight(2)|abundance(100)|head_armor(0)|body_armor(18)|leg_armor(10)|difficulty(0) ,imodbits_cloth,
-[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_TOAOE_cloak_1b","str_TOAOE_cloak_4b"),(cur_item_add_mesh, ":rand_accessory"),])]],
-["cloaked_tunic_17", "Tunic with Cloak", [("generic_tunic_14",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
+[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_TOAOE_cloak_1a","str_TOAOE_cloak_4a"),(cur_item_add_mesh, ":rand_accessory"),])], culture_germanic+culture_gothic],
+["thorsberg_tunic_cloak_14", "Tunic with Cloak", [("thorsberg_tunic_14",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
 300 , weight(2)|abundance(100)|head_armor(0)|body_armor(18)|leg_armor(10)|difficulty(0) ,imodbits_cloth,
-[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_TOAOE_cloak_1b","str_TOAOE_cloak_4b"),(cur_item_add_mesh, ":rand_accessory"),])]],
+[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_TOAOE_cloak_1a","str_TOAOE_cloak_4a"),(cur_item_add_mesh, ":rand_accessory"),])], culture_germanic+culture_gothic],
+["thorsberg_tunic_cloak_15", "Tunic with Cloak", [("thorsberg_tunic_simple_2",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
+300 , weight(2)|abundance(100)|head_armor(0)|body_armor(18)|leg_armor(10)|difficulty(0) ,imodbits_cloth,
+[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_TOAOE_cloak_1a","str_TOAOE_cloak_4a"),(cur_item_add_mesh, ":rand_accessory"),])], culture_germanic+culture_gothic+culture_celtic],
+["thorsberg_tunic_cloak_16", "Tunic with Cloak", [("thorsberg_tunic_simple_7",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
+300 , weight(2)|abundance(100)|head_armor(0)|body_armor(18)|leg_armor(10)|difficulty(0) ,imodbits_cloth,
+[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_TOAOE_cloak_1a","str_TOAOE_cloak_4a"),(cur_item_add_mesh, ":rand_accessory"),])], culture_germanic+culture_gothic+culture_celtic],
+["thorsberg_tunic_cloak_17", "Tunic with Cloak", [("thorsberg_tunic_simple_8",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
+300 , weight(2)|abundance(100)|head_armor(0)|body_armor(18)|leg_armor(10)|difficulty(0) ,imodbits_cloth,
+[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_TOAOE_cloak_1a","str_TOAOE_cloak_4a"),(cur_item_add_mesh, ":rand_accessory"),])], culture_germanic+culture_gothic+culture_celtic],
+["thorsberg_tunic_cloak_18", "Tunic with Cloak", [("thorsberg_tunic_simple_9",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
+300 , weight(2)|abundance(100)|head_armor(0)|body_armor(18)|leg_armor(10)|difficulty(0) ,imodbits_cloth,
+[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_TOAOE_cloak_1a","str_TOAOE_cloak_4a"),(cur_item_add_mesh, ":rand_accessory"),])], culture_germanic+culture_gothic+culture_celtic],
+["thorsberg_tunic_cloak_19", "Tunic with Cloak", [("thorsberg_tunic_simple_10",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
+300 , weight(2)|abundance(100)|head_armor(0)|body_armor(18)|leg_armor(10)|difficulty(0) ,imodbits_cloth,
+[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_TOAOE_cloak_1a","str_TOAOE_cloak_4a"),(cur_item_add_mesh, ":rand_accessory"),])], culture_germanic+culture_gothic+culture_celtic],
+["thorsberg_tunic_cloak_20", "Tunic with Cloak", [("thorsberg_tunic_simple_11",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
+300 , weight(2)|abundance(100)|head_armor(0)|body_armor(18)|leg_armor(10)|difficulty(0) ,imodbits_cloth,
+[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_TOAOE_cloak_1a","str_TOAOE_cloak_4a"),(cur_item_add_mesh, ":rand_accessory"),])], culture_germanic+culture_gothic+culture_celtic],
 
-["cloaked_generic_tunic_1", "Tunic with Cloak", [("generic_tunic_1",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
+["thorsberg_tunic_rich_cloak_1", "Tunic with Cloak", [("thorsberg_tunic_rich_1",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
 300 , weight(2)|abundance(100)|head_armor(0)|body_armor(18)|leg_armor(10)|difficulty(0) ,imodbits_cloth,
-[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_TOAOE_cloak_1b","str_TOAOE_cloak_4b"),(cur_item_add_mesh, ":rand_accessory"),])]],
-["cloaked_generic_tunic_2", "Tunic with Cloak", [("generic_tunic_2",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
+[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_TOAOE_cloak_12a","str_TOAOE_cloak_15a"),(cur_item_add_mesh, ":rand_accessory"),])], culture_germanic+culture_gothic+culture_roman],
+["thorsberg_tunic_rich_cloak_2", "Tunic with Cloak", [("thorsberg_tunic_rich_2",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
 300 , weight(2)|abundance(100)|head_armor(0)|body_armor(18)|leg_armor(10)|difficulty(0) ,imodbits_cloth,
-[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_TOAOE_cloak_1b","str_TOAOE_cloak_4b"),(cur_item_add_mesh, ":rand_accessory"),])]],
-["cloaked_generic_tunic_3", "Tunic with Cloak", [("generic_tunic_3",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
+[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_TOAOE_cloak_12a","str_TOAOE_cloak_15a"),(cur_item_add_mesh, ":rand_accessory"),])], culture_germanic+culture_gothic+culture_roman],
+["thorsberg_tunic_rich_cloak_3", "Tunic with Cloak", [("thorsberg_tunic_rich_3",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
 300 , weight(2)|abundance(100)|head_armor(0)|body_armor(18)|leg_armor(10)|difficulty(0) ,imodbits_cloth,
-[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_TOAOE_cloak_1b","str_TOAOE_cloak_4b"),(cur_item_add_mesh, ":rand_accessory"),])]],
-["cloaked_generic_tunic_4", "Tunic with Cloak", [("generic_tunic_4",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
+[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_TOAOE_cloak_12a","str_TOAOE_cloak_15a"),(cur_item_add_mesh, ":rand_accessory"),])], culture_germanic+culture_gothic+culture_roman],
+["thorsberg_tunic_rich_cloak_4", "Tunic with Cloak", [("thorsberg_tunic_rich_4",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
 300 , weight(2)|abundance(100)|head_armor(0)|body_armor(18)|leg_armor(10)|difficulty(0) ,imodbits_cloth,
-[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_TOAOE_cloak_1b","str_TOAOE_cloak_4b"),(cur_item_add_mesh, ":rand_accessory"),])]],
-["cloaked_generic_tunic_5", "Tunic with Cloak", [("generic_tunic_5",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
+[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_TOAOE_cloak_1a","str_TOAOE_cloak_9a"),(cur_item_add_mesh, ":rand_accessory"),])], culture_germanic+culture_gothic+culture_roman],
+["thorsberg_tunic_rich_cloak_5", "Tunic with Cloak", [("thorsberg_tunic_rich_5",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
 300 , weight(2)|abundance(100)|head_armor(0)|body_armor(18)|leg_armor(10)|difficulty(0) ,imodbits_cloth,
-[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_TOAOE_cloak_1b","str_TOAOE_cloak_4b"),(cur_item_add_mesh, ":rand_accessory"),])]],
-["cloaked_generic_tunic_6", "Tunic with Cloak", [("generic_tunic_6",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
+[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_TOAOE_cloak_1a","str_TOAOE_cloak_9a"),(cur_item_add_mesh, ":rand_accessory"),])], culture_germanic+culture_gothic+culture_roman],
+["thorsberg_tunic_rich_cloak_6", "Tunic with Cloak", [("thorsberg_tunic_rich_6",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
 300 , weight(2)|abundance(100)|head_armor(0)|body_armor(18)|leg_armor(10)|difficulty(0) ,imodbits_cloth,
-[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_TOAOE_cloak_1b","str_TOAOE_cloak_4b"),(cur_item_add_mesh, ":rand_accessory"),])]],
-["cloaked_generic_tunic_7", "Tunic with Cloak", [("generic_tunic_7",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
+[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_TOAOE_cloak_1a","str_TOAOE_cloak_9a"),(cur_item_add_mesh, ":rand_accessory"),])], culture_germanic+culture_gothic+culture_roman],
+["thorsberg_tunic_rich_cloak_7", "Tunic with Cloak", [("thorsberg_tunic_rich_7",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
 300 , weight(2)|abundance(100)|head_armor(0)|body_armor(18)|leg_armor(10)|difficulty(0) ,imodbits_cloth,
-[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_TOAOE_cloak_1b","str_TOAOE_cloak_4b"),(cur_item_add_mesh, ":rand_accessory"),])]],
-["cloaked_generic_tunic_8", "Tunic with Cloak", [("generic_tunic_8",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
+[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_TOAOE_cloak_12a","str_TOAOE_cloak_15a"),(cur_item_add_mesh, ":rand_accessory"),])], culture_germanic+culture_gothic+culture_roman],
+["thorsberg_tunic_rich_cloak_8", "Tunic with Cloak", [("thorsberg_tunic_rich_8",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
 300 , weight(2)|abundance(100)|head_armor(0)|body_armor(18)|leg_armor(10)|difficulty(0) ,imodbits_cloth,
-[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_TOAOE_cloak_1b","str_TOAOE_cloak_4b"),(cur_item_add_mesh, ":rand_accessory"),])]],
-["cloaked_generic_tunic_9", "Tunic with Cloak", [("generic_tunic_9",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
+[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_TOAOE_cloak_12a","str_TOAOE_cloak_15a"),(cur_item_add_mesh, ":rand_accessory"),])], culture_germanic+culture_gothic+culture_roman],
+["thorsberg_tunic_rich_cloak_9", "Tunic with Cloak", [("thorsberg_tunic_rich_9",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
 300 , weight(2)|abundance(100)|head_armor(0)|body_armor(18)|leg_armor(10)|difficulty(0) ,imodbits_cloth,
-[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_TOAOE_cloak_1b","str_TOAOE_cloak_4b"),(cur_item_add_mesh, ":rand_accessory"),])]],
-["cloaked_generic_tunic_10", "Tunic with Cloak", [("generic_tunic_10",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
-300 , weight(2)|abundance(100)|head_armor(0)|body_armor(18)|leg_armor(10)|difficulty(0) ,imodbits_cloth,
-[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_TOAOE_cloak_1b","str_TOAOE_cloak_4b"),(cur_item_add_mesh, ":rand_accessory"),])]],
-["cloaked_generic_tunic_11", "Tunic with Cloak", [("generic_tunic_11",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
-300 , weight(2)|abundance(100)|head_armor(0)|body_armor(18)|leg_armor(10)|difficulty(0) ,imodbits_cloth,
-[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_TOAOE_cloak_1b","str_TOAOE_cloak_4b"),(cur_item_add_mesh, ":rand_accessory"),])]],
-["cloaked_generic_tunic_12", "Tunic with Cloak", [("generic_tunic_12",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
-300 , weight(2)|abundance(100)|head_armor(0)|body_armor(18)|leg_armor(10)|difficulty(0) ,imodbits_cloth,
-[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_TOAOE_cloak_1b","str_TOAOE_cloak_4b"),(cur_item_add_mesh, ":rand_accessory"),])]],
-["cloaked_generic_tunic_13", "Tunic with Cloak", [("generic_tunic_13",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
-300 , weight(2)|abundance(100)|head_armor(0)|body_armor(18)|leg_armor(10)|difficulty(0) ,imodbits_cloth,
-[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_TOAOE_cloak_1b","str_TOAOE_cloak_4b"),(cur_item_add_mesh, ":rand_accessory"),])]],
-["cloaked_generic_tunic_14", "Tunic with Cloak", [("generic_tunic_14",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
-300 , weight(2)|abundance(100)|head_armor(0)|body_armor(18)|leg_armor(10)|difficulty(0) ,imodbits_cloth,
-[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_TOAOE_cloak_1b","str_TOAOE_cloak_4b"),(cur_item_add_mesh, ":rand_accessory"),])]],
-["cloaked_generic_tunic_15", "Tunic with Cloak", [("generic_tunic_15",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
-300 , weight(2)|abundance(100)|head_armor(0)|body_armor(18)|leg_armor(10)|difficulty(0) ,imodbits_cloth,
-[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_TOAOE_cloak_1b","str_TOAOE_cloak_4b"),(cur_item_add_mesh, ":rand_accessory"),])]],
+[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_TOAOE_cloak_1a","str_TOAOE_cloak_9a"),(cur_item_add_mesh, ":rand_accessory"),])], culture_germanic+culture_gothic+culture_roman],
 
-["cloaked_tunic_pants_1", "Tunic with Cloak", [("tunic_long_pants_1",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
+["thorsberg_tunic_roman_cloak_1", "Tunic with Cloak", [("thorsberg_tunic_roman_1",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
 300 , weight(2)|abundance(100)|head_armor(0)|body_armor(18)|leg_armor(10)|difficulty(0) ,imodbits_cloth,
-[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_TOAOE_cloak_1b","str_TOAOE_cloak_4b"),(cur_item_add_mesh, ":rand_accessory"),])]],
-["cloaked_tunic_pants_2", "Tunic with Cloak", [("tunic_long_pants_2",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
+[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_TOAOE_cloak_1a","str_TOAOE_cloak_9a"),(cur_item_add_mesh, ":rand_accessory"),])], culture_roman],
+["thorsberg_tunic_roman_cloak_2", "Tunic with Cloak", [("thorsberg_tunic_roman_2",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
 300 , weight(2)|abundance(100)|head_armor(0)|body_armor(18)|leg_armor(10)|difficulty(0) ,imodbits_cloth,
-[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_TOAOE_cloak_1b","str_TOAOE_cloak_4b"),(cur_item_add_mesh, ":rand_accessory"),])]],
-["cloaked_tunic_pants_3", "Tunic with Cloak", [("tunic_long_pants_3",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
+[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_TOAOE_cloak_1a","str_TOAOE_cloak_9a"),(cur_item_add_mesh, ":rand_accessory"),])], culture_germanic+culture_gothic+culture_roman],
+["thorsberg_tunic_roman_cloak_3", "Tunic with Cloak", [("thorsberg_tunic_roman_3",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
 300 , weight(2)|abundance(100)|head_armor(0)|body_armor(18)|leg_armor(10)|difficulty(0) ,imodbits_cloth,
-[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_TOAOE_cloak_1b","str_TOAOE_cloak_4b"),(cur_item_add_mesh, ":rand_accessory"),])]],
-["cloaked_tunic_pants_4", "Tunic with Cloak", [("tunic_long_pants_4",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
+[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_TOAOE_cloak_1a","str_TOAOE_cloak_9a"),(cur_item_add_mesh, ":rand_accessory"),])], culture_germanic+culture_gothic+culture_roman],
+["thorsberg_tunic_roman_cloak_4", "Tunic with Cloak", [("thorsberg_tunic_roman_4",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
 300 , weight(2)|abundance(100)|head_armor(0)|body_armor(18)|leg_armor(10)|difficulty(0) ,imodbits_cloth,
-[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_TOAOE_cloak_1b","str_TOAOE_cloak_4b"),(cur_item_add_mesh, ":rand_accessory"),])]],
-["cloaked_tunic_pants_5", "Tunic with Cloak", [("tunic_long_pants_5",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
+[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_TOAOE_cloak_1a","str_TOAOE_cloak_9a"),(cur_item_add_mesh, ":rand_accessory"),])], culture_germanic+culture_gothic+culture_roman],
+["thorsberg_tunic_roman_cloak_5", "Tunic with Cloak", [("thorsberg_tunic_roman_5",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
 300 , weight(2)|abundance(100)|head_armor(0)|body_armor(18)|leg_armor(10)|difficulty(0) ,imodbits_cloth,
-[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_TOAOE_cloak_1b","str_TOAOE_cloak_4b"),(cur_item_add_mesh, ":rand_accessory"),])]],
-["cloaked_tunic_pants_6", "Tunic with Cloak", [("tunic_long_pants_6",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
-300 , weight(2)|abundance(100)|head_armor(0)|body_armor(18)|leg_armor(10)|difficulty(0) ,imodbits_cloth,
-[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_TOAOE_cloak_1b","str_TOAOE_cloak_4b"),(cur_item_add_mesh, ":rand_accessory"),])]],
-["cloaked_tunic_pants_7", "Tunic with Cloak", [("tunic_long_pants_7",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
-300 , weight(2)|abundance(100)|head_armor(0)|body_armor(18)|leg_armor(10)|difficulty(0) ,imodbits_cloth,
-[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_TOAOE_cloak_1b","str_TOAOE_cloak_4b"),(cur_item_add_mesh, ":rand_accessory"),])]],
-["cloaked_tunic_pants_8", "Tunic with Cloak", [("tunic_long_pants_8",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
-300 , weight(2)|abundance(100)|head_armor(0)|body_armor(18)|leg_armor(10)|difficulty(0) ,imodbits_cloth,
-[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_TOAOE_cloak_1b","str_TOAOE_cloak_4b"),(cur_item_add_mesh, ":rand_accessory"),])]],
-["cloaked_tunic_pants_9", "Tunic with Cloak", [("tunic_long_pants_9",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
-300 , weight(2)|abundance(100)|head_armor(0)|body_armor(18)|leg_armor(10)|difficulty(0) ,imodbits_cloth,
-[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_TOAOE_cloak_1b","str_TOAOE_cloak_4b"),(cur_item_add_mesh, ":rand_accessory"),])]],
-["cloaked_tunic_pants_10", "Tunic with Cloak", [("tunic_long_pants_10",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
-300 , weight(2)|abundance(100)|head_armor(0)|body_armor(18)|leg_armor(10)|difficulty(0) ,imodbits_cloth,
-[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_TOAOE_cloak_1b","str_TOAOE_cloak_4b"),(cur_item_add_mesh, ":rand_accessory"),])]],
-
-["cloaked_tunic_briton_1", "Tunic with Cloak", [("roman_shirt_4",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
-300 , weight(2)|abundance(100)|head_armor(0)|body_armor(18)|leg_armor(10)|difficulty(0) ,imodbits_cloth,
-[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_TOAOE_cloak_1b","str_TOAOE_cloak_4b"),(cur_item_add_mesh, ":rand_accessory"),])]],
-["cloaked_tunic_briton_2", "Tunic with Cloak", [("roman_military_tunic_2",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
-300 , weight(2)|abundance(100)|head_armor(0)|body_armor(18)|leg_armor(10)|difficulty(0) ,imodbits_cloth,
-[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_TOAOE_cloak_1b","str_TOAOE_cloak_4b"),(cur_item_add_mesh, ":rand_accessory"),])]],
-["cloaked_tunic_briton_3", "Tunic with Cloak", [("roman_shirt_3",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
-300 , weight(2)|abundance(100)|head_armor(0)|body_armor(18)|leg_armor(10)|difficulty(0) ,imodbits_cloth,
-[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_TOAOE_cloak_1b","str_TOAOE_cloak_4b"),(cur_item_add_mesh, ":rand_accessory"),])]],
-["cloaked_tunic_briton_4", "Tunic with Cloak", [("roman_shirt_10",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
-300 , weight(2)|abundance(100)|head_armor(0)|body_armor(18)|leg_armor(10)|difficulty(0) ,imodbits_cloth,
-[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_TOAOE_cloak_1b","str_TOAOE_cloak_4b"),(cur_item_add_mesh, ":rand_accessory"),])]],
-["cloaked_tunic_briton_5", "Tunic with Cloak", [("roman_military_tunic_3",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
-300 , weight(2)|abundance(100)|head_armor(0)|body_armor(18)|leg_armor(10)|difficulty(0) ,imodbits_cloth,
-[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_TOAOE_cloak_1b","str_TOAOE_cloak_4b"),(cur_item_add_mesh, ":rand_accessory"),])]],
-["cloaked_tunic_briton_6", "Tunic with Cloak", [("roman_military_tunic_4",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
-300 , weight(2)|abundance(100)|head_armor(0)|body_armor(18)|leg_armor(10)|difficulty(0) ,imodbits_cloth,
-[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_TOAOE_cloak_1b","str_TOAOE_cloak_4b"),(cur_item_add_mesh, ":rand_accessory"),])]],
-["cloaked_tunic_briton_7", "Tunic with Cloak", [("red_tunic",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
-300 , weight(2)|abundance(100)|head_armor(0)|body_armor(18)|leg_armor(10)|difficulty(0) ,imodbits_cloth,
-[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_TOAOE_cloak_1b","str_TOAOE_cloak_4b"),(cur_item_add_mesh, ":rand_accessory"),])]],
-["cloaked_tunic_briton_8", "Tunic with Cloak", [("blue_tunic",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
-300 , weight(2)|abundance(100)|head_armor(0)|body_armor(18)|leg_armor(10)|difficulty(0) ,imodbits_cloth,
-[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_TOAOE_cloak_1b","str_TOAOE_cloak_4b"),(cur_item_add_mesh, ":rand_accessory"),])]],
-["cloaked_tunic_briton_9", "Tunic with Cloak", [("roman_military_tunic_7",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
-300 , weight(2)|abundance(100)|head_armor(0)|body_armor(18)|leg_armor(10)|difficulty(0) ,imodbits_cloth,
-[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_TOAOE_cloak_1b","str_TOAOE_cloak_4b"),(cur_item_add_mesh, ":rand_accessory"),])]],
-
-
-["cloaked_tunic_falkirk_1", "Tunic with Cloak", [("falkirk_tunic_1",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
-300 , weight(2)|abundance(100)|head_armor(0)|body_armor(18)|leg_armor(10)|difficulty(0) ,imodbits_cloth,
-[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_TOAOE_cloak_1b","str_TOAOE_cloak_4b"),(cur_item_add_mesh, ":rand_accessory"),])]],
-["cloaked_tunic_falkirk_2", "Tunic with Cloak", [("falkirk_tunic_2",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
-300 , weight(2)|abundance(100)|head_armor(0)|body_armor(18)|leg_armor(10)|difficulty(0) ,imodbits_cloth,
-[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_TOAOE_cloak_1b","str_TOAOE_cloak_4b"),(cur_item_add_mesh, ":rand_accessory"),])]],
-["cloaked_tunic_falkirk_3", "Tunic with Cloak", [("falkirk_tunic_3",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
-300 , weight(2)|abundance(100)|head_armor(0)|body_armor(18)|leg_armor(10)|difficulty(0) ,imodbits_cloth,
-[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_TOAOE_cloak_1b","str_TOAOE_cloak_4b"),(cur_item_add_mesh, ":rand_accessory"),])]],
-["cloaked_tunic_falkirk_4", "Tunic with Cloak", [("falkirk_tunic_4",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
-300 , weight(2)|abundance(100)|head_armor(0)|body_armor(18)|leg_armor(10)|difficulty(0) ,imodbits_cloth,
-[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_TOAOE_cloak_1b","str_TOAOE_cloak_4b"),(cur_item_add_mesh, ":rand_accessory"),])]],
-["cloaked_tunic_falkirk_5", "Tunic with Cloak", [("falkirk_tunic_5",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
-300 , weight(2)|abundance(100)|head_armor(0)|body_armor(18)|leg_armor(10)|difficulty(0) ,imodbits_cloth,
-[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_TOAOE_cloak_1b","str_TOAOE_cloak_4b"),(cur_item_add_mesh, ":rand_accessory"),])]],
+[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_TOAOE_cloak_1a","str_TOAOE_cloak_9a"),(cur_item_add_mesh, ":rand_accessory"),])], culture_germanic+culture_gothic+culture_roman],
 
 ["garamantian_armor_1", "Tunic with Pelt", [("garamantian_armor_1",0)], itp_type_body_armor|itp_covers_legs|itp_civilian ,0, 400 , weight(2.5)|abundance(10)|head_armor(0)|body_armor(20)|leg_armor(10)|difficulty(0) ,imodbits_cloth, [(ti_on_init_item,[(call_script, "script_init_short_tunic_arms"),]),], ],
-["garamantian_armor_2", "Tunic with Pelt", [("garamantian_armor_2",0)], itp_type_body_armor|itp_covers_legs|itp_civilian ,0, 400 , weight(2.5)|abundance(10)|head_armor(0)|body_armor(20)|leg_armor(10)|difficulty(0) ,imodbits_cloth, [(ti_on_init_item,[(call_script, "script_init_short_tunic_arms"),]),], ],
-["garamantian_armor_3", "Tunic with Pelt", [("garamantian_armor_3",0)], itp_type_body_armor|itp_covers_legs|itp_civilian ,0, 400 , weight(2.5)|abundance(10)|head_armor(0)|body_armor(20)|leg_armor(10)|difficulty(0) ,imodbits_cloth, [(ti_on_init_item,[(call_script, "script_init_short_tunic_arms"),]),], ],
-
-["peasant_leather_1", "Leather Tunic", [("peasant_leather_a",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs|itp_civilian ,0,
- 460 , weight(4)|abundance(90)|head_armor(0)|body_armor(25)|leg_armor(7)|difficulty(0) ,imodbits_leather ],
-["peasant_leather_2", "Leather Tunic", [("peasant_leather_b",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs|itp_civilian ,0,
- 460 , weight(4)|abundance(90)|head_armor(0)|body_armor(25)|leg_armor(7)|difficulty(0) ,imodbits_leather ],
-["peasant_leather_3", "Leather Tunic", [("peasant_leather_c",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs|itp_civilian ,0,
- 460 , weight(4)|abundance(90)|head_armor(0)|body_armor(25)|leg_armor(7)|difficulty(0) ,imodbits_leather ],
-["peasant_leather_4", "Leather Tunic", [("peasant_leather_d",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs|itp_civilian ,0,
- 460 , weight(4)|abundance(90)|head_armor(0)|body_armor(25)|leg_armor(7)|difficulty(0) ,imodbits_leather ],
-
-["peasant_leather_long_1", "Leather Tunic", [("peasant_leather_LS_1",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs|itp_civilian ,0,
- 588 , weight(6)|abundance(90)|head_armor(0)|body_armor(29)|leg_armor(7)|difficulty(0) ,imodbits_leather ],
-["peasant_leather_long_2", "Leather Tunic", [("peasant_leather_LS_2",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs|itp_civilian ,0,
- 588 , weight(6)|abundance(90)|head_armor(0)|body_armor(29)|leg_armor(7)|difficulty(0) ,imodbits_leather ],
-["peasant_leather_long_3", "Leather Tunic", [("peasant_leather_LS_3",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs|itp_civilian ,0,
- 588 , weight(6)|abundance(90)|head_armor(0)|body_armor(29)|leg_armor(7)|difficulty(0) ,imodbits_leather ],
-["peasant_leather_long_4", "Leather Tunic", [("peasant_leather_LS_4",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs|itp_civilian ,0,
- 588 , weight(6)|abundance(90)|head_armor(0)|body_armor(29)|leg_armor(7)|difficulty(0) ,imodbits_leather ],
 
 ["nomad_leather_vest_1", "Leather Vest", [("khergit_vest_a_new",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs|itp_civilian ,0,
  360 , weight(4)|abundance(90)|head_armor(0)|body_armor(20)|leg_armor(12)|difficulty(0) ,imodbits_leather, [], culture_hunnic+culture_alan ],
@@ -1414,8 +1193,6 @@ items = [
 
 #New Light Armors
 ["ragged_outfit", "Ragged Outfit", [("ragged_outfit_a_new",0)], itp_merchandise| itp_type_body_armor |itp_civilian |itp_covers_legs ,0,
- 580 , weight(5)|abundance(60)|head_armor(0)|body_armor(23)|leg_armor(9)|difficulty(0) ,imodbits_cloth, [], culture_germanic ],
-["goatist_tunic", "Ragged Outfit", [("goatist_tunic",0)], itp_merchandise| itp_type_body_armor |itp_civilian |itp_covers_legs ,0,
  580 , weight(5)|abundance(60)|head_armor(0)|body_armor(23)|leg_armor(9)|difficulty(0) ,imodbits_cloth, [], culture_germanic ],
 ["nomad_robe", "Nomad Robe", [("nomad_robe_a",0)], itp_type_body_armor |itp_civilian |itp_covers_legs |itp_civilian,0,890 , weight(15)|abundance(60)|head_armor(0)|body_armor(22)|leg_armor(10)|difficulty(0) ,imodbits_cloth ],
 ["thick_coat_1", "Thick Coat", [("vae_thick_coat1",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0,
@@ -1444,89 +1221,30 @@ items = [
 ["rawhide_coat10", "Fur Coat", [("coat_of_plates5m",0)], itp_merchandise| itp_type_body_armor |itp_civilian |itp_covers_legs ,0, 320 , weight(8)|abundance(60)|head_armor(0)|body_armor(24)|leg_armor(8)|difficulty(0) ,imodbits_cloth, [], culture_germanic ],
 ["rawhide_coat11", "Fur Coat", [("coat_of_plates6m",0)], itp_merchandise| itp_type_body_armor |itp_civilian |itp_covers_legs ,0, 320 , weight(8)|abundance(60)|head_armor(0)|body_armor(24)|leg_armor(8)|difficulty(0) ,imodbits_cloth, [], culture_germanic ],
 
-["subarmalis_1", "Subarmalis", [("roman_subarmalis_1",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs,0,
- 800 , weight(7)|abundance(60)|head_armor(0)|body_armor(30)|leg_armor(10)|difficulty(0) ,imodbits_cloth,
-[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_roman_focale_1","str_roman_focale_end"),(cur_item_add_mesh, ":rand_accessory"),])], culture_roman ],
-["subarmalis_2", "Subarmalis", [("roman_subarmalis_2",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs,0,
- 800 , weight(7)|abundance(60)|head_armor(0)|body_armor(30)|leg_armor(10)|difficulty(0) ,imodbits_cloth,
-[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_roman_focale_1","str_roman_focale_end"),(cur_item_add_mesh, ":rand_accessory"),])], culture_roman ],
-["subarmalis_3", "Subarmalis", [("roman_subarmalis_3",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs,0,
- 800 , weight(7)|abundance(60)|head_armor(0)|body_armor(30)|leg_armor(10)|difficulty(0) ,imodbits_cloth,
-[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_roman_focale_1","str_roman_focale_end"),(cur_item_add_mesh, ":rand_accessory"),])], culture_roman ],
-["subarmalis_4", "Subarmalis", [("roman_subarmalis_4",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs,0,
- 800 , weight(7)|abundance(60)|head_armor(0)|body_armor(30)|leg_armor(10)|difficulty(0) ,imodbits_cloth,
-[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_roman_focale_1","str_roman_focale_end"),(cur_item_add_mesh, ":rand_accessory"),])], culture_roman ],
-["subarmalis_5", "Subarmalis", [("roman_subarmalis_5",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs,0,
- 800 , weight(7)|abundance(60)|head_armor(0)|body_armor(30)|leg_armor(10)|difficulty(0) ,imodbits_cloth,
-[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_roman_focale_1","str_roman_focale_end"),(cur_item_add_mesh, ":rand_accessory"),])], culture_roman ],
-["subarmalis_6", "Subarmalis", [("roman_subarmalis_6",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs,0,
- 800 , weight(7)|abundance(60)|head_armor(0)|body_armor(30)|leg_armor(10)|difficulty(0) ,imodbits_cloth,
-[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_roman_focale_1","str_roman_focale_end"),(cur_item_add_mesh, ":rand_accessory"),])], culture_roman ],
+#new subarmalis from asher
+["roman_subarmalis_1", "Subarmalis", [("roman_subarmalis_1",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0,
+ 800 , weight(6)|abundance(60)|head_armor(0)|body_armor(30)|leg_armor(11)|difficulty(0) ,imodbits_cloth, [], culture_roman ],
+["roman_subarmalis_2", "Subarmalis", [("roman_subarmalis_2",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0,
+ 800 , weight(6)|abundance(60)|head_armor(0)|body_armor(30)|leg_armor(11)|difficulty(0) ,imodbits_cloth, [], culture_roman ],
+["roman_subarmalis_3", "Subarmalis", [("roman_subarmalis_3",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0,
+ 800 , weight(6)|abundance(60)|head_armor(0)|body_armor(30)|leg_armor(11)|difficulty(0) ,imodbits_cloth, [], culture_roman ], #marines/river units
+["roman_subarmalis_4", "Subarmalis", [("roman_subarmalis_4",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0,
+ 800 , weight(6)|abundance(60)|head_armor(0)|body_armor(30)|leg_armor(11)|difficulty(0) ,imodbits_cloth, [], culture_roman ], #marines/river units
+["roman_subarmalis_5", "Subarmalis", [("roman_subarmalis_5",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0,
+ 800 , weight(6)|abundance(60)|head_armor(0)|body_armor(30)|leg_armor(11)|difficulty(0) ,imodbits_cloth, [], culture_roman ], #for post-roman units
+["roman_subarmalis_6", "Subarmalis", [("roman_subarmalis_6",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0,
+ 800 , weight(6)|abundance(60)|head_armor(0)|body_armor(30)|leg_armor(11)|difficulty(0) ,imodbits_cloth, [], culture_roman ], #for post-roman units
+["roman_subarmalis_7", "Subarmalis", [("roman_subarmalis_7",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0,
+ 800 , weight(6)|abundance(60)|head_armor(0)|body_armor(30)|leg_armor(11)|difficulty(0) ,imodbits_cloth, [], culture_roman ], #for post-roman units
 
-["generic_subarmalis_1", "Subarmalis", [("generic_subarmalis_1",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0,
- 800 , weight(6)|abundance(60)|head_armor(0)|body_armor(30)|leg_armor(8)|difficulty(0) ,imodbits_cloth, [], culture_gothic ],
-["generic_subarmalis_2", "Subarmalis", [("generic_subarmalis_2",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0,
- 800 , weight(6)|abundance(60)|head_armor(0)|body_armor(30)|leg_armor(8)|difficulty(0) ,imodbits_cloth, [], culture_gothic],
-["generic_subarmalis_3", "Subarmalis", [("generic_subarmalis_3",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0,
- 800 , weight(6)|abundance(60)|head_armor(0)|body_armor(30)|leg_armor(8)|difficulty(0) ,imodbits_cloth, [], culture_gothic],
-["generic_subarmalis_4", "Subarmalis", [("generic_subarmalis_4",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0,
- 800 , weight(6)|abundance(60)|head_armor(0)|body_armor(30)|leg_armor(8)|difficulty(0) ,imodbits_cloth, [], culture_gothic],
-["generic_subarmalis_5", "Subarmalis", [("generic_subarmalis_5",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0,
- 800 , weight(6)|abundance(60)|head_armor(0)|body_armor(30)|leg_armor(8)|difficulty(0) ,imodbits_cloth, [], culture_gothic],
-["generic_subarmalis_6", "Subarmalis", [("generic_subarmalis_6",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0,
- 800 , weight(6)|abundance(60)|head_armor(0)|body_armor(30)|leg_armor(8)|difficulty(0) ,imodbits_cloth, [], culture_gothic ],
-["generic_subarmalis_7", "Subarmalis", [("generic_subarmalis_7",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0,
- 800 , weight(6)|abundance(60)|head_armor(0)|body_armor(30)|leg_armor(8)|difficulty(0) ,imodbits_cloth ],
-["generic_subarmalis_8", "Subarmalis", [("generic_subarmalis_8",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0,
- 800 , weight(6)|abundance(60)|head_armor(0)|body_armor(30)|leg_armor(8)|difficulty(0) ,imodbits_cloth ],
-["generic_subarmalis_9", "Subarmalis", [("generic_subarmalis_9",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0,
- 800 , weight(6)|abundance(60)|head_armor(0)|body_armor(30)|leg_armor(8)|difficulty(0) ,imodbits_cloth ],
-
-["briton_subarmalis_1", "Subarmalis", [("briton_subarmalis_1",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs,0,
- 800 , weight(7)|abundance(60)|head_armor(0)|body_armor(30)|leg_armor(10)|difficulty(0) ,imodbits_cloth,
-[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_roman_focale_1","str_roman_focale_end"),(cur_item_add_mesh, ":rand_accessory"),])], culture_roman ],
-["briton_subarmalis_2", "Subarmalis", [("briton_subarmalis_2",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs,0,
- 800 , weight(7)|abundance(60)|head_armor(0)|body_armor(30)|leg_armor(10)|difficulty(0) ,imodbits_cloth,
-[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_roman_focale_1","str_roman_focale_end"),(cur_item_add_mesh, ":rand_accessory"),])], culture_roman ],
-
-["roman_subarmalis_new_1", "Subarmalis", [("roman_subarmalis_new_1",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs,0,
- 800 , weight(7)|abundance(60)|head_armor(0)|body_armor(30)|leg_armor(10)|difficulty(0) ,imodbits_cloth,
-[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_roman_focale_1","str_roman_focale_end"),(cur_item_add_mesh, ":rand_accessory"),])], culture_roman ],
-["roman_subarmalis_new_2", "Subarmalis", [("roman_subarmalis_new_2",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs,0,
- 800 , weight(7)|abundance(60)|head_armor(0)|body_armor(30)|leg_armor(10)|difficulty(0) ,imodbits_cloth,
-[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_roman_focale_1","str_roman_focale_end"),(cur_item_add_mesh, ":rand_accessory"),])], culture_roman ],
-["roman_subarmalis_new_3", "Subarmalis", [("roman_subarmalis_new_3",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs,0,
- 800 , weight(7)|abundance(60)|head_armor(0)|body_armor(30)|leg_armor(10)|difficulty(0) ,imodbits_cloth,
-[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_roman_focale_1","str_roman_focale_end"),(cur_item_add_mesh, ":rand_accessory"),])], culture_roman ],
-["roman_subarmalis_new_4", "Subarmalis", [("roman_subarmalis_new_4",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs,0,
- 800 , weight(7)|abundance(60)|head_armor(0)|body_armor(30)|leg_armor(10)|difficulty(0) ,imodbits_cloth,
-[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_roman_focale_1","str_roman_focale_end"),(cur_item_add_mesh, ":rand_accessory"),])], culture_roman ],
-["roman_subarmalis_new_5", "Subarmalis", [("roman_subarmalis_new_5",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs,0,
- 800 , weight(7)|abundance(60)|head_armor(0)|body_armor(30)|leg_armor(10)|difficulty(0) ,imodbits_cloth,
-[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_roman_focale_1","str_roman_focale_end"),(cur_item_add_mesh, ":rand_accessory"),])], culture_roman ],
-["roman_subarmalis_new_6", "Subarmalis", [("roman_subarmalis_new_6",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs,0,
- 800 , weight(7)|abundance(60)|head_armor(0)|body_armor(30)|leg_armor(10)|difficulty(0) ,imodbits_cloth,
-[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_roman_focale_1","str_roman_focale_end"),(cur_item_add_mesh, ":rand_accessory"),])], culture_roman ],
-["roman_subarmalis_new_7", "Subarmalis", [("roman_subarmalis_new_7",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs,0,
- 800 , weight(7)|abundance(60)|head_armor(0)|body_armor(30)|leg_armor(10)|difficulty(0) ,imodbits_cloth,
-[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_roman_focale_1","str_roman_focale_end"),(cur_item_add_mesh, ":rand_accessory"),])], culture_roman ],
-["roman_subarmalis_new_8", "Subarmalis", [("roman_subarmalis_new_8",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs,0,
- 800 , weight(7)|abundance(60)|head_armor(0)|body_armor(30)|leg_armor(10)|difficulty(0) ,imodbits_cloth,
-[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_roman_focale_1","str_roman_focale_end"),(cur_item_add_mesh, ":rand_accessory"),])], culture_roman ],
-["roman_subarmalis_new_9", "Subarmalis", [("roman_subarmalis_new_9",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs,0, #For Quinta Macedonica
- 1000 , weight(8)|abundance(50)|head_armor(0)|body_armor(35)|leg_armor(10)|difficulty(0) ,imodbits_cloth,
-[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_roman_focale_1","str_roman_focale_end"),(cur_item_add_mesh, ":rand_accessory"),])], culture_roman ],
-
-["coptic_subarmalis", "Thorocomachus", [("coptic_padded_armor",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0,
- 1000 , weight(9)|abundance(60)|head_armor(0)|body_armor(34)|leg_armor(8)|difficulty(0) ,imodbits_cloth, [], [fac_culture_empire] ],
-
-["sleeveless_padded_1", "Thorocomachus", [("sleeveless_padded_1",0)], itp_type_body_armor|itp_covers_legs|itp_civilian ,0, 800 , weight(6)|abundance(60)|head_armor(0)|body_armor(30)|leg_armor(10)|difficulty(0) ,imodbits_cloth, [(ti_on_init_item,[(call_script, "script_init_male_arms"),]),], culture_african ],
-["sleeveless_padded_2", "Thorocomachus", [("sleeveless_padded_2",0)], itp_type_body_armor|itp_covers_legs|itp_civilian ,0, 800 , weight(6)|abundance(60)|head_armor(0)|body_armor(30)|leg_armor(10)|difficulty(0) ,imodbits_cloth, [(ti_on_init_item,[(call_script, "script_init_male_arms"),]),], culture_african ],
-
-["padded_full_1", "Long Subarmalis", [("padded_full_1",0)], itp_type_body_armor  |itp_covers_legs ,0,
- 1200 , weight(8)|abundance(50)|head_armor(0)|body_armor(36)|leg_armor(10)|difficulty(0) ,imodbits_cloth ],
-["padded_full_2", "Long Subarmalis", [("padded_full_2",0)], itp_type_body_armor  |itp_covers_legs ,0,
- 1200 , weight(8)|abundance(50)|head_armor(0)|body_armor(36)|leg_armor(10)|difficulty(0) ,imodbits_cloth ],
+["roman_subarmalis_legio_v", "Subarmalis", [("roman_subarmalis_legio_v",0)], itp_unique|itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, #for Legio V
+ 800 , weight(6)|abundance(60)|head_armor(0)|body_armor(30)|leg_armor(11)|difficulty(0) ,imodbits_cloth, [], culture_roman ],
+["roman_subarmalis_noricum", "Subarmalis", [("roman_subarmalis_noricum",0)], itp_unique|itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, #for noricum legions
+ 800 , weight(6)|abundance(60)|head_armor(0)|body_armor(30)|leg_armor(11)|difficulty(0) ,imodbits_cloth, [], culture_roman ],
+["roman_subarmalis_hispania", "Subarmalis", [("roman_subarmalis_hispania",0)], itp_unique|itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, #for ibero-romano troops
+ 800 , weight(6)|abundance(60)|head_armor(0)|body_armor(30)|leg_armor(11)|difficulty(0) ,imodbits_cloth, [], culture_roman ],
+["roman_subarmalis_lauriacenses", "Subarmalis", [("roman_subarmalis_lauriacenses",0)], itp_unique|itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, #for lanciarii lauriacenses
+ 800 , weight(6)|abundance(60)|head_armor(0)|body_armor(30)|leg_armor(11)|difficulty(0) ,imodbits_cloth, [], culture_roman ],
 
 ["padded_leather", "Padded Leather", [("leather_armor_b",0)], itp_type_body_armor|itp_covers_legs|itp_civilian,0,890 , weight(12)|abundance(100)|head_armor(0)|body_armor(36)|leg_armor(10)|difficulty(0) ,imodbits_leather, [], culture_germanic ],
 ["tribal_warrior_outfit", "Tribal Warrior Outfit", [("tribal_warrior_outfit_a_new",0)], itp_type_body_armor  |itp_covers_legs|itp_civilian ,0,890 , weight(14)|abundance(100)|head_armor(0)|body_armor(36)|leg_armor(10)|difficulty(0) ,imodbits_leather ],
@@ -1534,10 +1252,10 @@ items = [
 ["leather_armor_d", "Leather over Tunic", [("saxon_leather_vest_green",0)], itp_merchandise| itp_type_body_armor|itp_covers_legs|itp_civilian ,0, 890 , weight(6)|abundance(60)|head_armor(0)|body_armor(36)|leg_armor(8)|difficulty(4) ,imodbits_leather, [], culture_germanic ],
 ["leather_armor_e", "Leather over Tunic", [("saxon_leather_vest_red",0)], itp_merchandise| itp_type_body_armor|itp_covers_legs|itp_civilian ,0, 890 , weight(6)|abundance(60)|head_armor(0)|body_armor(36)|leg_armor(8)|difficulty(4) ,imodbits_leather, [], culture_germanic ], 
 
-["steppe_armor", "Light Lamellar Vest", [("lamellar_leather",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0,
+["steppe_armor", "Light Lamellar Vest", [("lamellar_leather",0)], itp_type_body_armor  |itp_covers_legs ,0,
  890 , weight(5)|abundance(100)|head_armor(0)|body_armor(36)|leg_armor(8)|difficulty(0) ,imodbits_leather ],
 
-["leather_vest", "Leather Vest", [("leather_vest_a",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs|itp_civilian ,0,
+["leather_vest", "Leather Vest", [("leather_vest_a",0)], itp_type_body_armor  |itp_covers_legs|itp_civilian ,0,
  460 , weight(4)|abundance(20)|head_armor(0)|body_armor(22)|leg_armor(7)|difficulty(0) ,imodbits_leather ],
 ["leather_jerkin", "Leather Tunic", [("BL_Tunic_Leather_1",0)], itp_merchandise| itp_type_body_armor |itp_civilian |itp_covers_legs ,0,
  540 , weight(6)|abundance(100)|head_armor(0)|body_armor(28)|leg_armor(6)|difficulty(0) ,imodbits_leather ],
@@ -1545,243 +1263,168 @@ items = [
 ["sarranid_leather_armor", "Eastern Leather Armor", [("sarranid_leather_armor",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0,
  650 , weight(9)|abundance(100)|head_armor(0)|body_armor(32)|leg_armor(12)|difficulty(0) ,imodbits_armor, [], culture_sassanid ],
 
-["archers_vest", "Linen Coat", [("eastern_light_armor",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0,
+["archers_vest", "Linen Coat", [("archers_vest",0)], itp_type_body_armor  |itp_covers_legs ,0,
  600 , weight(7)|abundance(60)|head_armor(0)|body_armor(28)|leg_armor(8)|difficulty(0) ,imodbits_leather, [], culture_sassanid ],
 #Mail Armor
 
-["brigandine_red", "Mail", [("peasant_leather_mail_LS",0)],itp_merchandise|itp_type_body_armor|itp_covers_legs,0, 2590 , weight(13)|abundance(45)|head_armor(0)|body_armor(46)|leg_armor(8)|difficulty(8) ,imodbits_mail, [], culture_gothic ],
+["brigandine_red", "Mail Shirt", [("mercenary_mail_3",0)],itp_merchandise|itp_type_body_armor|itp_covers_legs,0,
+ 3000 , weight(16.5)|abundance(30)|head_armor(0)|body_armor(55)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_germanic+culture_gothic ],
+["mail_shirt", "Mail Shirt", [("mercenary_mail_1",0)], itp_merchandise|itp_type_body_armor  |itp_covers_legs ,0,
+ 3000 , weight(16.5)|abundance(30)|head_armor(0)|body_armor(55)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_germanic+culture_gothic ],
+["byrnie", "Mail Shirt", [("mercenary_mail_2",0)], itp_merchandise|itp_type_body_armor  |itp_covers_legs ,0,
+ 3000 , weight(16.5)|abundance(30)|head_armor(0)|body_armor(55)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_germanic+culture_gothic ],
 
-#Mail armor
-#sleeveless ~46 body, 12 legs
+#new mail armors, by asher
+["kemathen_mail_1", "Mail Shirt", [("kemathen_mail_1",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3000 , weight(16.5)|abundance(30)|head_armor(0)|body_armor(55)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_roman+culture_germanic+culture_gothic ],
+["kemathen_mail_2", "Mail Shirt", [("kemathen_mail_2",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3000 , weight(16.5)|abundance(30)|head_armor(0)|body_armor(55)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_germanic+culture_gothic+culture_celtic ],
+["kemathen_mail_3", "Mail Shirt", [("kemathen_mail_3",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3000 , weight(16.5)|abundance(30)|head_armor(0)|body_armor(55)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_germanic+culture_gothic ],
+["kemathen_mail_4", "Mail Shirt", [("kemathen_mail_4",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3000 , weight(16.5)|abundance(30)|head_armor(0)|body_armor(55)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_germanic+culture_gothic+culture_celtic ],
+["kemathen_mail_5", "Mail Shirt", [("kemathen_mail_5",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3000 , weight(16.5)|abundance(30)|head_armor(0)|body_armor(55)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_germanic+culture_gothic ],
+["kemathen_mail_6", "Mail Shirt", [("kemathen_mail_6",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3000 , weight(16.5)|abundance(30)|head_armor(0)|body_armor(55)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_germanic+culture_gothic ],
+["kemathen_mail_7", "Mail Shirt", [("kemathen_mail_7",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3000 , weight(16.5)|abundance(30)|head_armor(0)|body_armor(55)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_roman+culture_germanic+culture_gothic ],
+["kemathen_mail_8", "Mail Shirt", [("kemathen_mail_8",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3000 , weight(16.5)|abundance(30)|head_armor(0)|body_armor(55)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_roman+culture_germanic+culture_gothic ],
+["kemathen_mail_9", "Mail Shirt", [("kemathen_mail_9",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3000 , weight(16.5)|abundance(30)|head_armor(0)|body_armor(55)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_germanic+culture_gothic ],
+["kemathen_mail_10", "Mail Shirt", [("kemathen_mail_10",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3000 , weight(16.5)|abundance(30)|head_armor(0)|body_armor(55)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_germanic+culture_gothic ],
+["kemathen_mail_11", "Mail Shirt", [("kemathen_mail_11",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3000 , weight(16.5)|abundance(30)|head_armor(0)|body_armor(55)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_germanic+culture_gothic+culture_celtic ],
+["kemathen_mail_12", "Mail Shirt", [("kemathen_mail_12",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3000 , weight(16.5)|abundance(30)|head_armor(0)|body_armor(55)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_germanic+culture_gothic+culture_celtic ],
+["kemathen_mail_13", "Mail Shirt", [("kemathen_mail_13",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3000 , weight(16.5)|abundance(30)|head_armor(0)|body_armor(55)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_germanic+culture_gothic ],
+["kemathen_mail_14", "Mail Shirt", [("kemathen_mail_14",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3000 , weight(16.5)|abundance(30)|head_armor(0)|body_armor(55)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_germanic+culture_gothic ],
+["kemathen_mail_15", "Mail Shirt", [("kemathen_mail_15",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3000 , weight(16.5)|abundance(30)|head_armor(0)|body_armor(55)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_germanic+culture_gothic+culture_celtic ],
+["kemathen_mail_16", "Mail Shirt", [("kemathen_mail_16",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3000 , weight(16.5)|abundance(30)|head_armor(0)|body_armor(55)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_germanic+culture_gothic+culture_celtic ],
+["kemathen_mail_17", "Mail Shirt", [("kemathen_mail_17",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3000 , weight(16.5)|abundance(30)|head_armor(0)|body_armor(55)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_germanic+culture_gothic ],
+["kemathen_mail_18", "Mail Shirt", [("kemathen_mail_18",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3000 , weight(16.5)|abundance(30)|head_armor(0)|body_armor(55)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_germanic+culture_gothic ],
+["kemathen_mail_19", "Mail Shirt", [("kemathen_mail_19",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3000 , weight(16.5)|abundance(30)|head_armor(0)|body_armor(55)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_germanic+culture_gothic ],
+["kemathen_mail_20", "Mail Shirt", [("kemathen_mail_20",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3000 , weight(16.5)|abundance(30)|head_armor(0)|body_armor(55)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_germanic+culture_gothic ],
+["kemathen_mail_21", "Mail Shirt", [("kemathen_mail_21",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3000 , weight(16.5)|abundance(30)|head_armor(0)|body_armor(55)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_germanic+culture_gothic ],
 
-["short_ragged_mail_1", "Sleeveless Mail", [("short_ragged_mail_1",0)],itp_merchandise|itp_type_body_armor|itp_covers_legs,0, 2560 , weight(12)|abundance(50)|head_armor(0)|body_armor(46)|leg_armor(12)|difficulty(7) ,imodbits_mail],
-["short_ragged_mail_2", "Sleeveless Mail", [("short_ragged_mail_2",0)],itp_merchandise|itp_type_body_armor|itp_covers_legs,0, 2560 , weight(12)|abundance(50)|head_armor(0)|body_armor(46)|leg_armor(12)|difficulty(7) ,imodbits_mail],
-["short_ragged_mail_3", "Sleeveless Mail", [("short_ragged_mail_3",0)],itp_merchandise|itp_type_body_armor|itp_covers_legs,0, 2560 , weight(12)|abundance(50)|head_armor(0)|body_armor(46)|leg_armor(12)|difficulty(7) ,imodbits_mail],
-["short_ragged_mail_4", "Sleeveless Mail", [("short_ragged_mail_4",0)],itp_merchandise|itp_type_body_armor|itp_covers_legs,0, 2560 , weight(12)|abundance(50)|head_armor(0)|body_armor(46)|leg_armor(12)|difficulty(7) ,imodbits_mail],
-["short_ragged_mail_5", "Sleeveless Mail", [("short_ragged_mail_5",0)],itp_merchandise|itp_type_body_armor|itp_covers_legs,0, 2560 , weight(12)|abundance(50)|head_armor(0)|body_armor(46)|leg_armor(12)|difficulty(7) ,imodbits_mail],
-["short_ragged_mail_6", "Sleeveless Mail", [("short_ragged_mail_6",0)],itp_merchandise|itp_type_body_armor|itp_covers_legs,0, 2560 , weight(12)|abundance(50)|head_armor(0)|body_armor(46)|leg_armor(12)|difficulty(7) ,imodbits_mail],
-["short_ragged_mail_7", "Sleeveless Mail", [("short_ragged_mail_7",0)],itp_merchandise|itp_type_body_armor|itp_covers_legs,0, 2560 , weight(12)|abundance(50)|head_armor(0)|body_armor(46)|leg_armor(12)|difficulty(7) ,imodbits_mail],
-["short_ragged_mail_8", "Sleeveless Mail", [("short_ragged_mail_8",0)],itp_merchandise|itp_type_body_armor|itp_covers_legs,0, 2560 , weight(12)|abundance(50)|head_armor(0)|body_armor(46)|leg_armor(12)|difficulty(7) ,imodbits_mail],
-["short_ragged_mail_9", "Sleeveless Mail", [("short_ragged_mail_9",0)],itp_merchandise|itp_type_body_armor|itp_covers_legs,0, 2560 , weight(12)|abundance(50)|head_armor(0)|body_armor(46)|leg_armor(12)|difficulty(7) ,imodbits_mail],
-["short_ragged_mail_10", "Sleeveless Mail", [("short_ragged_mail_10",0)],itp_merchandise|itp_type_body_armor|itp_covers_legs,0, 2560 , weight(12)|abundance(50)|head_armor(0)|body_armor(46)|leg_armor(12)|difficulty(7) ,imodbits_mail],
-["short_ragged_mail_11", "Sleeveless Mail", [("short_ragged_mail_11",0)],itp_merchandise|itp_type_body_armor|itp_covers_legs,0, 2560 , weight(12)|abundance(50)|head_armor(0)|body_armor(46)|leg_armor(12)|difficulty(7) ,imodbits_mail],
-["short_ragged_mail_12", "Sleeveless Mail", [("short_ragged_mail_12",0)],itp_merchandise|itp_type_body_armor|itp_covers_legs,0, 2560 , weight(12)|abundance(50)|head_armor(0)|body_armor(46)|leg_armor(12)|difficulty(7) ,imodbits_mail],
+["kemathen_mail_roman_1", "Mail Shirt", [("kemathen_mail_roman_1",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0, #primarily for post-roman states
+ 3000 , weight(16.5)|abundance(30)|head_armor(0)|body_armor(55)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_roman+culture_germanic+culture_gothic ],
+["kemathen_mail_roman_2", "Mail Shirt", [("kemathen_mail_roman_2",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3000 , weight(16.5)|abundance(30)|head_armor(0)|body_armor(55)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_roman+culture_germanic+culture_gothic ],
+["kemathen_mail_roman_3", "Mail Shirt", [("kemathen_mail_roman_3",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3000 , weight(16.5)|abundance(30)|head_armor(0)|body_armor(55)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_roman+culture_germanic+culture_gothic ],
+["kemathen_mail_roman_4", "Mail Shirt", [("kemathen_mail_roman_4",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3000 , weight(16.5)|abundance(30)|head_armor(0)|body_armor(55)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_roman+culture_germanic+culture_gothic ],
+["kemathen_mail_roman_5", "Mail Shirt", [("kemathen_mail_roman_5",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3000 , weight(16.5)|abundance(30)|head_armor(0)|body_armor(55)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_roman+culture_germanic+culture_gothic ],
 
-["short_slavic_mail_1", "Sleeveless Mail", [("short_slavic_mail_1",0)],  itp_merchandise|itp_type_body_armor  |itp_covers_legs ,0, 2560 , weight(12)|abundance(50)|head_armor(0)|body_armor(46)|leg_armor(12)|difficulty(7) ,imodbits_mail ],
-["short_slavic_mail_2", "Sleeveless Mail", [("short_slavic_mail_2",0)],  itp_merchandise|itp_type_body_armor  |itp_covers_legs ,0, 2560 , weight(12)|abundance(50)|head_armor(0)|body_armor(46)|leg_armor(12)|difficulty(7) ,imodbits_mail ],
-["pictish_short_mail_1", "Sleeveless Mail", [("pictish_short_mail_1",0)],  itp_merchandise|itp_type_body_armor  |itp_covers_legs ,0, 2560 , weight(12)|abundance(50)|head_armor(0)|body_armor(46)|leg_armor(12)|difficulty(7) ,imodbits_mail, [], culture_celtic ],
-["pictish_short_mail_2", "Sleeveless Mail", [("pictish_short_mail_2",0)],  itp_merchandise|itp_type_body_armor  |itp_covers_legs ,0, 2560 , weight(12)|abundance(50)|head_armor(0)|body_armor(46)|leg_armor(12)|difficulty(7) ,imodbits_mail, [], culture_celtic ],
-["pictish_short_mail_3", "Sleeveless Mail", [("pictish_short_mail_3",0)],  itp_merchandise|itp_type_body_armor  |itp_covers_legs ,0, 2560 , weight(12)|abundance(50)|head_armor(0)|body_armor(46)|leg_armor(12)|difficulty(7) ,imodbits_mail, [], culture_celtic ],
+["kemathen_mail_rich_1", "Rich Mail Shirt", [("kemathen_mail_rich_1",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3100 , weight(16.5)|abundance(20)|head_armor(0)|body_armor(56)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_germanic+culture_gothic ],
+["kemathen_mail_rich_2", "Rich Mail Shirt", [("kemathen_mail_rich_2",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3100 , weight(16.5)|abundance(20)|head_armor(0)|body_armor(56)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_germanic+culture_gothic ],
+["kemathen_mail_rich_3", "Rich Mail Shirt", [("kemathen_mail_rich_3",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3100 , weight(16.5)|abundance(20)|head_armor(0)|body_armor(56)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_germanic+culture_gothic ],
+["kemathen_mail_rich_4", "Rich Mail Shirt", [("kemathen_mail_rich_4",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3100 , weight(16.5)|abundance(20)|head_armor(0)|body_armor(56)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_roman+culture_germanic+culture_gothic ],
+["kemathen_mail_rich_5", "Rich Mail Shirt", [("kemathen_mail_rich_5",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3100 , weight(16.5)|abundance(20)|head_armor(0)|body_armor(56)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_roman+culture_germanic+culture_gothic ],
+["kemathen_mail_rich_6", "Rich Mail Shirt", [("kemathen_mail_rich_6",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3100 , weight(16.5)|abundance(20)|head_armor(0)|body_armor(56)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_roman+culture_germanic+culture_gothic ],
+["kemathen_mail_rich_7", "Rich Mail Shirt", [("kemathen_mail_rich_7",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3100 , weight(16.5)|abundance(20)|head_armor(0)|body_armor(56)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_germanic+culture_gothic ],
+["kemathen_mail_rich_8", "Rich Mail Shirt", [("kemathen_mail_rich_8",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3100 , weight(16.5)|abundance(20)|head_armor(0)|body_armor(56)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_germanic+culture_gothic ],
+["kemathen_mail_rich_9", "Rich Mail Shirt", [("kemathen_mail_rich_9",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0, #centenarii
+ 3100 , weight(16.5)|abundance(20)|head_armor(0)|body_armor(56)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_roman ],
+["kemathen_mail_rich_10", "Rich Mail Shirt", [("kemathen_mail_rich_10",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3100 , weight(16.5)|abundance(20)|head_armor(0)|body_armor(56)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_roman+culture_germanic+culture_gothic ],
 
-["457_mail_short_1", "Hamata", [("457_mail_short_1",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
- 2600 , weight(13)|abundance(45)|head_armor(0)|body_armor(46)|leg_armor(14)|difficulty(8) ,imodbits_mail, [], culture_roman ],
-["457_mail_short_2", "Hamata", [("457_mail_short_2",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
- 2600 , weight(13)|abundance(45)|head_armor(0)|body_armor(46)|leg_armor(14)|difficulty(8) ,imodbits_mail, [], culture_roman ],
-["457_mail_short_3", "Hamata", [("457_mail_short_3",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
- 2600 , weight(13)|abundance(45)|head_armor(0)|body_armor(46)|leg_armor(14)|difficulty(8) ,imodbits_mail, [], culture_roman ],
-["457_mail_short_4", "Hamata", [("457_mail_short_4",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
- 2600 , weight(13)|abundance(45)|head_armor(0)|body_armor(46)|leg_armor(14)|difficulty(8) ,imodbits_mail, [], culture_roman ],
-["457_mail_short_5", "Hamata", [("457_mail_short_5",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
- 2600 , weight(13)|abundance(45)|head_armor(0)|body_armor(46)|leg_armor(14)|difficulty(8) ,imodbits_mail, [], culture_roman ], #for marines
+["luchistoe_mail_1", "Rich Mail Shirt", [("luchistoe_mail_1",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3100 , weight(16.5)|abundance(20)|head_armor(0)|body_armor(56)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_germanic+culture_gothic ],
+["luchistoe_mail_2", "Rich Mail Shirt", [("luchistoe_mail_2",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3100 , weight(16.5)|abundance(20)|head_armor(0)|body_armor(56)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_germanic+culture_gothic ],
+["luchistoe_mail_3", "Rich Mail Shirt", [("luchistoe_mail_3",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3100 , weight(16.5)|abundance(20)|head_armor(0)|body_armor(56)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_roman+culture_germanic+culture_gothic ],
+["luchistoe_mail_4", "Rich Mail Shirt", [("luchistoe_mail_4",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3100 , weight(16.5)|abundance(20)|head_armor(0)|body_armor(56)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_roman+culture_germanic+culture_gothic ],
+["luchistoe_mail_5", "Rich Mail Shirt", [("luchistoe_mail_5",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3100 , weight(16.5)|abundance(20)|head_armor(0)|body_armor(56)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_roman+culture_germanic+culture_gothic ],
+["luchistoe_mail_6", "Rich Mail Shirt", [("luchistoe_mail_6",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3100 , weight(16.5)|abundance(20)|head_armor(0)|body_armor(56)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_germanic+culture_gothic ],
+["luchistoe_mail_7", "Rich Mail Shirt", [("luchistoe_mail_7",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3100 , weight(16.5)|abundance(20)|head_armor(0)|body_armor(56)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_germanic+culture_gothic ],
+["luchistoe_mail_8", "Rich Mail Shirt", [("luchistoe_mail_8",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3100 , weight(16.5)|abundance(20)|head_armor(0)|body_armor(56)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_roman+culture_germanic+culture_gothic ],
+["luchistoe_mail_9", "Rich Mail Shirt", [("luchistoe_mail_9",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3100 , weight(16.5)|abundance(20)|head_armor(0)|body_armor(56)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_roman+culture_germanic+culture_gothic ],
+["luchistoe_mail_10", "Rich Mail Shirt", [("luchistoe_mail_10",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3100 , weight(16.5)|abundance(20)|head_armor(0)|body_armor(56)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_roman+culture_germanic+culture_gothic ],
+["luchistoe_mail_11", "Rich Mail Shirt", [("luchistoe_mail_11",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3100 , weight(16.5)|abundance(20)|head_armor(0)|body_armor(56)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_roman+culture_germanic+culture_gothic ],
+["luchistoe_mail_12", "Rich Mail Shirt", [("luchistoe_mail_12",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3100 , weight(16.5)|abundance(20)|head_armor(0)|body_armor(56)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_roman+culture_germanic+culture_gothic ],
+["luchistoe_mail_13", "Mail Shirt", [("luchistoe_mail_13",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3100 , weight(16.5)|abundance(20)|head_armor(0)|body_armor(56)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_roman+culture_germanic+culture_gothic ],
 
-["short_roman_mail_1", "Hamata", [("short_roman_mail_1",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
- 2600 , weight(13)|abundance(45)|head_armor(0)|body_armor(46)|leg_armor(14)|difficulty(8) ,imodbits_mail, [], culture_roman ],
-["short_roman_mail_2", "Hamata", [("short_roman_mail_2",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
- 2600 , weight(13)|abundance(45)|head_armor(0)|body_armor(46)|leg_armor(14)|difficulty(8) ,imodbits_mail, [], culture_roman ],
-["short_roman_mail_3", "Hamata", [("short_roman_mail_3",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
- 2600 , weight(13)|abundance(45)|head_armor(0)|body_armor(46)|leg_armor(14)|difficulty(8) ,imodbits_mail, [], culture_roman ],
-["short_roman_mail_4", "Hamata", [("short_roman_mail_4",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
- 2600 , weight(13)|abundance(45)|head_armor(0)|body_armor(46)|leg_armor(14)|difficulty(8) ,imodbits_mail, [], culture_roman ],
+#sasanids
+["sassanid_mail_1", "Rich Persian Mail Shirt", [("sassanid_mail_1",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3200 , weight(18)|abundance(30)|head_armor(0)|body_armor(56)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_sassanid ],
+["sassanid_mail_2", "Rich Persian Mail Shirt", [("sassanid_mail_2",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3200 , weight(18)|abundance(30)|head_armor(0)|body_armor(56)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_sassanid ],
+["sassanid_mail_3", "Rich Persian Mail Shirt", [("sassanid_mail_3",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3200 , weight(18)|abundance(30)|head_armor(0)|body_armor(56)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_sassanid ],
+["sassanid_mail_4", "Rich Persian Mail Shirt", [("sassanid_mail_4",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3200 , weight(18)|abundance(30)|head_armor(0)|body_armor(56)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_sassanid ],
+["sassanid_mail_5", "Rich Persian Mail Shirt", [("sassanid_mail_5",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3200 , weight(18)|abundance(30)|head_armor(0)|body_armor(56)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_sassanid ],
+["sassanid_mail_6", "Rich Persian Mail Shirt", [("sassanid_mail_6",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3200 , weight(18)|abundance(30)|head_armor(0)|body_armor(56)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_sassanid ],
+["sassanid_mail_7", "Rich Persian Mail Shirt", [("sassanid_mail_7",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3200 , weight(18)|abundance(30)|head_armor(0)|body_armor(56)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_sassanid ],
+["sassanid_mail_8", "Rich Persian Mail Shirt", [("sassanid_mail_8",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3200 , weight(18)|abundance(30)|head_armor(0)|body_armor(56)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_sassanid ],
+["sassanid_mail_9", "Rich Persian Mail Shirt", [("sassanid_mail_9",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3200 , weight(18)|abundance(30)|head_armor(0)|body_armor(56)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_sassanid ],
+["sassanid_mail_10", "Rich Persian Mail Shirt", [("sassanid_mail_10",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3200 , weight(18)|abundance(30)|head_armor(0)|body_armor(56)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_sassanid ],
+["sassanid_mail_11", "Rich Persian Mail Shirt", [("sassanid_mail_11",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3200 , weight(18)|abundance(30)|head_armor(0)|body_armor(56)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_sassanid ],
+["sassanid_mail_12", "Rich Persian Mail Shirt", [("sassanid_mail_12",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3200 , weight(18)|abundance(30)|head_armor(0)|body_armor(56)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_sassanid ],
+["sassanid_mail_13", "Rich Persian Mail Shirt", [("sassanid_mail_13",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3200 , weight(18)|abundance(30)|head_armor(0)|body_armor(56)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_sassanid ],
+["sassanid_mail_14", "Rich Persian Mail Shirt", [("sassanid_mail_14",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3200 , weight(18)|abundance(30)|head_armor(0)|body_armor(56)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_sassanid ],
+["sassanid_mail_15", "Rich Persian Mail Shirt", [("sassanid_mail_15",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3200 , weight(18)|abundance(30)|head_armor(0)|body_armor(56)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_sassanid ],
+["sassanid_mail_16", "Rich Persian Mail Shirt", [("sassanid_mail_16",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3200 , weight(18)|abundance(30)|head_armor(0)|body_armor(56)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_sassanid ],
+["sassanid_mail_17", "Rich Persian Mail Shirt", [("sassanid_mail_17",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3200 , weight(18)|abundance(30)|head_armor(0)|body_armor(56)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_sassanid ],
 
-["mail_african_1", "Sleeveless Mail", [("mail_african_1",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
- 2600 , weight(10)|abundance(40)|head_armor(0)|body_armor(45)|leg_armor(14)|difficulty(0) ,imodbits_mail, [(ti_on_init_item,[(call_script, "script_init_short_tunic_arms"),]),], culture_african ],
-
-#short sleeved ~54 body, 12 legs
-
-["sassanid_mail_shirt_1", "Mail Shirt", [("mid_sassanid_mail_1",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0,
- 2840 , weight(15)|abundance(40)|head_armor(0)|body_armor(54)|leg_armor(12)|difficulty(11) ,imodbits_mail, [], culture_sassanid ],
-["sassanid_mail_shirt_2", "Mail Shirt", [("mid_sassanid_mail_2",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0,
- 2840 , weight(15)|abundance(40)|head_armor(0)|body_armor(54)|leg_armor(12)|difficulty(11) ,imodbits_mail, [], culture_sassanid ],
-["sassanid_mail_shirt_3", "Mail Shirt", [("mid_sassanid_mail_3",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0,
- 2840 , weight(15)|abundance(40)|head_armor(0)|body_armor(54)|leg_armor(12)|difficulty(11) ,imodbits_mail, [], culture_sassanid ],
-["sassanid_mail_shirt_4", "Mail Shirt", [("mid_sassanid_mail_4",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0,
- 2840 , weight(15)|abundance(40)|head_armor(0)|body_armor(54)|leg_armor(12)|difficulty(11) ,imodbits_mail, [], culture_sassanid ],
-["sassanid_mail_shirt_5", "Mail Shirt", [("mid_sassanid_mail_5",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0,
- 2840 , weight(15)|abundance(40)|head_armor(0)|body_armor(54)|leg_armor(12)|difficulty(11) ,imodbits_mail, [], culture_sassanid ],
-["sassanid_mail_shirt_6", "Mail Shirt", [("mid_sassanid_mail_6",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0,
- 2840 , weight(15)|abundance(40)|head_armor(0)|body_armor(54)|leg_armor(12)|difficulty(11) ,imodbits_mail, [], culture_sassanid ],
-
-["hunnic_mail_1", "Mail Shirt", [("hunnic_mail_1",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0,
- 2840 , weight(15)|abundance(40)|head_armor(0)|body_armor(54)|leg_armor(12)|difficulty(11) ,imodbits_mail, [], culture_hunnic+culture_alan ],
-
-["mid_generic_mail_1", "Mail Shirt", [("mid_generic_mail_1",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0,
- 2840 , weight(15)|abundance(40)|head_armor(0)|body_armor(54)|leg_armor(12)|difficulty(11) ,imodbits_mail, [], culture_germanic ],
-["mid_generic_mail_2", "Mail Shirt", [("mid_generic_mail_2",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0,
- 2840 , weight(15)|abundance(40)|head_armor(0)|body_armor(54)|leg_armor(12)|difficulty(11) ,imodbits_mail, [], culture_gothic ],
-["mid_generic_mail_3", "Mail Shirt", [("mid_generic_mail_3",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0,
- 2840 , weight(15)|abundance(40)|head_armor(0)|body_armor(54)|leg_armor(12)|difficulty(11) ,imodbits_mail, [], culture_germanic ],
-["mid_generic_mail_4", "Mail Shirt", [("mid_generic_mail_4",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0,
- 2840 , weight(15)|abundance(40)|head_armor(0)|body_armor(54)|leg_armor(12)|difficulty(11) ,imodbits_mail, [], culture_germanic ],
-["mid_generic_mail_5", "Mail Shirt", [("mid_generic_mail_5",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0,
- 2840 , weight(15)|abundance(40)|head_armor(0)|body_armor(54)|leg_armor(12)|difficulty(11) ,imodbits_mail, [], culture_germanic ],
-["mid_generic_mail_6", "Mail Shirt", [("mid_generic_mail_6",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0,
- 2840 , weight(15)|abundance(40)|head_armor(0)|body_armor(54)|leg_armor(12)|difficulty(11) ,imodbits_mail, [], culture_germanic ],
-["mid_generic_mail_7", "Mail Shirt", [("mid_generic_mail_7",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0,
- 2840 , weight(15)|abundance(40)|head_armor(0)|body_armor(54)|leg_armor(12)|difficulty(11) ,imodbits_mail, [], culture_gothic ],
-["mid_generic_mail_8", "Mail Shirt", [("mid_generic_mail_8",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0,
- 2840 , weight(15)|abundance(40)|head_armor(0)|body_armor(54)|leg_armor(12)|difficulty(11) ,imodbits_mail, [], culture_germanic ],
-["mid_generic_mail_9", "Mail Shirt", [("mid_generic_mail_9",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0,
- 2840 , weight(15)|abundance(40)|head_armor(0)|body_armor(54)|leg_armor(12)|difficulty(11) ,imodbits_mail, [], culture_gothic ], #was brunjo
-["mid_generic_mail_10", "Mail Shirt", [("mid_generic_mail_10",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0,
- 2840 , weight(15)|abundance(40)|head_armor(0)|body_armor(54)|leg_armor(12)|difficulty(11) ,imodbits_mail, [], culture_gothic ],
-["mid_generic_mail_11", "Mail Shirt", [("mid_generic_mail_11",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0,
- 2840 , weight(15)|abundance(40)|head_armor(0)|body_armor(54)|leg_armor(12)|difficulty(11) ,imodbits_mail, [], culture_gothic ],
-["mid_generic_mail_12", "Mail Shirt", [("mid_generic_mail_12",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0,
- 2840 , weight(15)|abundance(40)|head_armor(0)|body_armor(54)|leg_armor(12)|difficulty(11) ,imodbits_mail, [], culture_gothic ],
-["mid_generic_mail_13", "Mail Shirt", [("mid_generic_mail_13",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0,
- 2840 , weight(15)|abundance(40)|head_armor(0)|body_armor(54)|leg_armor(12)|difficulty(11) ,imodbits_mail, [], culture_gothic ],
-["mid_generic_mail_14", "Mail Shirt", [("mid_generic_mail_14",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0,
- 2840 , weight(15)|abundance(40)|head_armor(0)|body_armor(54)|leg_armor(12)|difficulty(11) ,imodbits_mail, [], culture_germanic ],
-["mid_generic_mail_15", "Mail Shirt", [("mid_generic_mail_15",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0,
- 2840 , weight(15)|abundance(40)|head_armor(0)|body_armor(54)|leg_armor(12)|difficulty(11) ,imodbits_mail, [], culture_germanic ],
-["mid_generic_mail_16", "Mail Shirt", [("mid_generic_mail_16",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0,
- 2840 , weight(15)|abundance(40)|head_armor(0)|body_armor(54)|leg_armor(12)|difficulty(11) ,imodbits_mail, [], culture_germanic ],
-["mid_generic_mail_17", "Mail Shirt", [("mid_generic_mail_17",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0,
- 2840 , weight(15)|abundance(40)|head_armor(0)|body_armor(54)|leg_armor(12)|difficulty(11) ,imodbits_mail, [], culture_germanic ],
-["mid_generic_mail_18", "Mail Shirt", [("mid_generic_mail_18",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0,
- 2840 , weight(15)|abundance(40)|head_armor(0)|body_armor(54)|leg_armor(12)|difficulty(11) ,imodbits_mail, [], culture_germanic ],
-["mid_generic_mail_19", "Mail Shirt", [("mid_generic_mail_19",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0,
- 2840 , weight(15)|abundance(40)|head_armor(0)|body_armor(54)|leg_armor(12)|difficulty(11) ,imodbits_mail, [], culture_germanic ],
-["mid_generic_mail_20", "Mail Shirt", [("mid_generic_mail_20",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0,
- 2840 , weight(15)|abundance(40)|head_armor(0)|body_armor(54)|leg_armor(12)|difficulty(11) ,imodbits_mail, [], culture_germanic ],
-["mid_generic_mail_21", "Mail Shirt", [("mid_generic_mail_21",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0,
- 2840 , weight(15)|abundance(40)|head_armor(0)|body_armor(54)|leg_armor(12)|difficulty(11) ,imodbits_mail, [], culture_germanic ],
-["mid_generic_mail_22", "Mail Shirt", [("mid_generic_mail_22",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0,
- 2840 , weight(15)|abundance(40)|head_armor(0)|body_armor(54)|leg_armor(12)|difficulty(11) ,imodbits_mail ],
-["mid_generic_mail_23", "Mail Shirt", [("mid_generic_mail_23",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0,
- 2840 , weight(15)|abundance(40)|head_armor(0)|body_armor(54)|leg_armor(12)|difficulty(11) ,imodbits_mail, [], culture_germanic ],
-["mid_generic_mail_24", "Mail Shirt", [("mid_generic_mail_24",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0,
- 2840 , weight(15)|abundance(40)|head_armor(0)|body_armor(54)|leg_armor(12)|difficulty(11) ,imodbits_mail, [], culture_germanic ],
-["mid_generic_mail_25", "Mail Shirt", [("mid_generic_mail_25",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0,
- 2840 , weight(15)|abundance(40)|head_armor(0)|body_armor(54)|leg_armor(12)|difficulty(11) ,imodbits_mail, [], culture_germanic ], #rich mail
-["mid_generic_mail_26", "Mail Shirt", [("mid_generic_mail_26",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0,
- 2840 , weight(15)|abundance(40)|head_armor(0)|body_armor(54)|leg_armor(12)|difficulty(11) ,imodbits_mail, [], culture_germanic ], #rich mail
-["mid_generic_mail_27", "Mail Shirt", [("mid_generic_mail_27",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0,
- 2840 , weight(15)|abundance(40)|head_armor(0)|body_armor(54)|leg_armor(12)|difficulty(11) ,imodbits_mail, [], culture_germanic ], #rich mail
-["mid_generic_mail_28", "Mail Shirt", [("mid_generic_mail_28",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0,
- 2840 , weight(15)|abundance(40)|head_armor(0)|body_armor(54)|leg_armor(12)|difficulty(11) ,imodbits_mail, [], culture_germanic ], #rich mail
-["mid_generic_mail_29", "Mail Shirt", [("mid_generic_mail_29",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0,
- 2840 , weight(15)|abundance(40)|head_armor(0)|body_armor(54)|leg_armor(12)|difficulty(11) ,imodbits_mail, [], culture_germanic ], #rich mail
-
-["mail_shirt", "Mail Shirt", [("mercenary_mail",0)], itp_merchandise|itp_type_body_armor  |itp_covers_legs ,0,
- 2840 , weight(15)|abundance(40)|head_armor(0)|body_armor(54)|leg_armor(12)|difficulty(11) ,imodbits_mail ],
-["byrnie", "Mail Shirt", [("english_byrne",0)], itp_merchandise|itp_type_body_armor  |itp_covers_legs ,0,
- 2840 , weight(15)|abundance(40)|head_armor(0)|body_armor(54)|leg_armor(12)|difficulty(11) ,imodbits_mail, [], culture_germanic ],
-
-["rich_mail_1", "Mail Shirt", [("rich_mail_1",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs,0, 2840 , weight(15)|abundance(30)|head_armor(0)|body_armor(54)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_gothic+culture_germanic ], #to be used by the goths
-["rich_mail_2", "Mail Shirt", [("rich_mail_2",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs,0, 2840 , weight(15)|abundance(30)|head_armor(0)|body_armor(54)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_gothic+culture_germanic ], #to be used by the goths
-["rich_mail_3", "Mail Shirt", [("rich_mail_3",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs,0, 2840 , weight(15)|abundance(30)|head_armor(0)|body_armor(54)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_gothic+culture_germanic ], #to be used by the goths
-["rich_mail_4", "Mail Shirt", [("rich_mail_4",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs,0, 2840 , weight(15)|abundance(30)|head_armor(0)|body_armor(54)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_gothic+culture_germanic ], #to be used by the goths
-["rich_mail_5", "Mail Shirt", [("rich_mail_5",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs,0, 2840 , weight(15)|abundance(30)|head_armor(0)|body_armor(54)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_gothic+culture_germanic ], #to be used by the goths
-["rich_mail_6", "Mail Shirt", [("rich_mail_6",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs,0, 2840 , weight(15)|abundance(30)|head_armor(0)|body_armor(54)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_gothic+culture_germanic ], #to be used by the goths
-["rich_mail_7", "Mail Shirt", [("rich_mail_7",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs,0, 2840 , weight(15)|abundance(30)|head_armor(0)|body_armor(54)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_gothic+culture_germanic ], #to be used by the goths
-["rich_mail_8", "Mail Shirt", [("rich_mail_8",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs,0, 2840 , weight(15)|abundance(30)|head_armor(0)|body_armor(54)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_gothic+culture_germanic ], #to be used by the goths
-["rich_mail_9", "Mail Shirt", [("rich_mail_9",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs,0, 2840 , weight(15)|abundance(30)|head_armor(0)|body_armor(54)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_gothic+culture_germanic ], #to be used by the slavs
-["rich_mail_10", "Mail Shirt", [("rich_mail_10",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs,0, 2840 , weight(15)|abundance(30)|head_armor(0)|body_armor(54)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_gothic+culture_germanic ], #to be used by the slavs
-["rich_mail_11", "Mail Shirt", [("rich_mail_11",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs,0, 2840 , weight(15)|abundance(30)|head_armor(0)|body_armor(54)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_gothic+culture_germanic ], #to be used by the slavs
-
-["457_mail_shirt_1", "Hamata", [("457_mail_shirt_1",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
- 3000 , weight(16.5)|abundance(30)|head_armor(0)|body_armor(55)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_roman ],
-["457_mail_shirt_2", "Hamata", [("457_mail_shirt_2",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
- 3000 , weight(16.5)|abundance(30)|head_armor(0)|body_armor(55)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_roman ],
-["457_mail_shirt_3", "Hamata", [("457_mail_shirt_3",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
- 3000 , weight(16.5)|abundance(30)|head_armor(0)|body_armor(55)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_roman ],
-["457_mail_shirt_4", "Hamata", [("457_mail_shirt_4",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
- 3000 , weight(16.5)|abundance(30)|head_armor(0)|body_armor(55)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_roman ],
-["457_mail_shirt_5", "Hamata", [("457_mail_shirt_5",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
- 3000 , weight(16.5)|abundance(30)|head_armor(0)|body_armor(55)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_roman ], #for marines
-["legio_v_mail", "Hamata", [("legio_v_mail",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0, #unique variant for legio V
- 3000 , weight(16.5)|abundance(20)|head_armor(0)|body_armor(55)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_roman ],
-
-["mid_roman_mail_1", "Hamata", [("mid_roman_mail_1",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
- 3000 , weight(16.5)|abundance(30)|head_armor(0)|body_armor(55)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_roman ],
-["mid_roman_mail_2", "Hamata", [("mid_roman_mail_2",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
- 3000 , weight(16.5)|abundance(30)|head_armor(0)|body_armor(55)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_roman ],
-["mid_roman_mail_3", "Hamata", [("mid_roman_mail_3",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
- 3000 , weight(16.5)|abundance(30)|head_armor(0)|body_armor(55)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_roman ],
-["mid_roman_mail_4", "Hamata", [("mid_roman_mail_4",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
- 3000 , weight(16.5)|abundance(30)|head_armor(0)|body_armor(55)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_roman ],
-["mid_roman_mail_5", "Hamata", [("mid_roman_mail_5",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
- 3000 , weight(16.5)|abundance(30)|head_armor(0)|body_armor(55)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_roman ],
-["mid_roman_mail_6", "Hamata", [("mid_roman_mail_6",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
- 3000 , weight(16.5)|abundance(30)|head_armor(0)|body_armor(55)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_roman ],
-["mid_roman_mail_7", "Hamata", [("mid_roman_mail_7",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
- 3000 , weight(16.5)|abundance(30)|head_armor(0)|body_armor(55)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_roman ],
-["mid_roman_mail_8", "Hamata", [("mid_roman_mail_8",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
- 3000 , weight(16.5)|abundance(30)|head_armor(0)|body_armor(55)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_roman ],
-
-#long sleeved ~58 body, 12 legs
-
-["long_mail_new_1", "Long Mail", [("long_mail_new_1",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0,
- 3500 , weight(19)|abundance(20)|head_armor(0)|body_armor(58)|leg_armor(12)|difficulty(11) ,imodbits_mail, [], culture_gothic+culture_germanic],
-["long_mail_new_2", "Long Mail", [("long_mail_new_2",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0,
- 3500 , weight(19)|abundance(20)|head_armor(0)|body_armor(58)|leg_armor(12)|difficulty(11) ,imodbits_mail, [], culture_gothic+culture_germanic],
-["long_mail_new_3", "Long Mail", [("long_mail_new_3",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0,
- 3500 , weight(19)|abundance(20)|head_armor(4)|body_armor(58)|leg_armor(12)|difficulty(11) ,imodbits_mail, [], culture_gothic+culture_germanic],
-["long_mail_new_4", "Long Mail", [("long_mail_new_4",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0,
- 3500 , weight(19)|abundance(20)|head_armor(0)|body_armor(58)|leg_armor(12)|difficulty(11) ,imodbits_mail, [], culture_gothic+culture_germanic],
-["long_mail_new_5", "Long Mail", [("long_mail_new_5",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0,
- 3500 , weight(19)|abundance(20)|head_armor(0)|body_armor(58)|leg_armor(12)|difficulty(11) ,imodbits_mail, [], culture_gothic+culture_germanic],
-["long_mail_new_6", "Long Mail", [("long_mail_new_6",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0,
- 3500 , weight(19)|abundance(20)|head_armor(0)|body_armor(58)|leg_armor(12)|difficulty(11) ,imodbits_mail, [], culture_gothic+culture_germanic ],
-["long_mail_new_7", "Long Mail", [("long_mail_new_7",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0,
- 3500 , weight(19)|abundance(20)|head_armor(0)|body_armor(58)|leg_armor(12)|difficulty(11) ,imodbits_mail, [], culture_gothic+culture_germanic ],
-["long_mail_new_8", "Long Mail", [("long_mail_new_8",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0,
- 3500 , weight(19)|abundance(20)|head_armor(0)|body_armor(58)|leg_armor(12)|difficulty(11) ,imodbits_mail, [], culture_gothic+culture_germanic ],
-["long_mail_new_9", "Long Mail", [("long_mail_new_9",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0,
- 3500 , weight(19)|abundance(20)|head_armor(0)|body_armor(58)|leg_armor(12)|difficulty(11) ,imodbits_mail, [], culture_gothic+culture_germanic ],
-
-["sassanid_heavy_mail", "Sassanid Mail", [("sassanid_heavy_mail",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0,
- 3500 , weight(19)|abundance(20)|head_armor(0)|body_armor(58)|leg_armor(12)|difficulty(11) ,imodbits_mail, [], culture_sassanid+culture_caucasian ],
-["sassanid_heavy_inf_mail", "Sassanid Mail", [("sassanid_heavy_mail3",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0,
- 3500 , weight(19)|abundance(20)|head_armor(0)|body_armor(58)|leg_armor(12)|difficulty(11) ,imodbits_mail, [], culture_sassanid+culture_caucasian ],
-["sassanid_heavy_mail_1", "Sassanid Mail", [("sassanid_heavy_mail2",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0,
- 3500 , weight(19)|abundance(20)|head_armor(0)|body_armor(58)|leg_armor(12)|difficulty(11) ,imodbits_mail, [], culture_sassanid+culture_caucasian ],
-["sassanid_long_mail_1", "Mail", [("sassanid_long_mail_1",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0,
- 3500 , weight(19)|abundance(20)|head_armor(0)|body_armor(58)|leg_armor(12)|difficulty(11) ,imodbits_mail, [], culture_sassanid+culture_caucasian ],
-
-["457_mail_long_1", "Hamata", [("457_mail_long_1",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
- 3700 , weight(19)|abundance(20)|head_armor(0)|body_armor(58)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_roman ],
-["457_mail_long_2", "Hamata", [("457_mail_long_2",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
- 3700 , weight(19)|abundance(20)|head_armor(0)|body_armor(58)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_roman ],
-["457_mail_long_3", "Hamata", [("457_mail_long_3",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
- 3700 , weight(19)|abundance(20)|head_armor(0)|body_armor(58)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_roman ],
-["457_mail_long_4", "Hamata", [("457_mail_long_4",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
- 3700 , weight(19)|abundance(20)|head_armor(0)|body_armor(58)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_roman ],
-
-["long_roman_mail_1", "Hamata", [("long_roman_mail_1",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
- 3700 , weight(19)|abundance(20)|head_armor(0)|body_armor(58)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_roman ],
-["long_roman_mail_2", "Hamata", [("long_roman_mail_2",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
- 3700 , weight(19)|abundance(20)|head_armor(0)|body_armor(58)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_roman ],
-["long_roman_mail_3", "Hamata", [("long_roman_mail_3",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
- 3700 , weight(19)|abundance(20)|head_armor(0)|body_armor(58)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_roman ],
-["long_roman_mail_4", "Hamata", [("long_roman_mail_4",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
- 3700 , weight(19)|abundance(20)|head_armor(0)|body_armor(58)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_roman ],
-["long_roman_mail_5", "Hamata", [("long_roman_mail_5",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
- 3700 , weight(19)|abundance(20)|head_armor(0)|body_armor(58)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_roman ],
-
-["long_briton_mail_1", "Hamata with Cloak", [("long_roman_mail_3",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
- 3700 , weight(19)|abundance(15)|head_armor(0)|body_armor(58)|leg_armor(14)|difficulty(11) ,imodbits_mail,
-[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_TOAOE_cloak_1b","str_cloak_addon_end"),(cur_item_add_mesh, ":rand_accessory"),])]],
-["long_briton_mail_2", "Hamata with Cloak", [("long_roman_mail_2",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
- 3700 , weight(19)|abundance(15)|head_armor(0)|body_armor(58)|leg_armor(14)|difficulty(11) ,imodbits_mail,
-[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_TOAOE_cloak_1b","str_cloak_addon_end"),(cur_item_add_mesh, ":rand_accessory"),])]],
-["long_briton_mail_3", "Hamata with Cloak", [("long_roman_mail_1",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
- 3700 , weight(19)|abundance(15)|head_armor(0)|body_armor(58)|leg_armor(14)|difficulty(11) ,imodbits_mail,
-[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_TOAOE_cloak_1b","str_cloak_addon_end"),(cur_item_add_mesh, ":rand_accessory"),])]],
-
-["candidati_mail", "Hamata", [("candidati_mail",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0,
- 3700 , weight(18)|abundance(1)|head_armor(0)|body_armor(59)|leg_armor(13)|difficulty(11) ,imodbits_mail, [], [fac_culture_empire] ],
+["persian_riding_coat_mail_1", "Persian Coat over Mail", [("persian_riding_coat_mail_1",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3500 , weight(19)|abundance(20)|head_armor(0)|body_armor(58)|leg_armor(18)|difficulty(11) ,imodbits_mail, [], culture_sassanid ],
+["persian_riding_coat_mail_2", "Persian Coat over Mail", [("persian_riding_coat_mail_2",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3500 , weight(19)|abundance(20)|head_armor(0)|body_armor(58)|leg_armor(18)|difficulty(11) ,imodbits_mail, [], culture_sassanid ],
+["persian_riding_coat_mail_3", "Persian Coat over Mail", [("persian_riding_coat_mail_3",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3500 , weight(19)|abundance(20)|head_armor(0)|body_armor(58)|leg_armor(18)|difficulty(11) ,imodbits_mail, [], culture_sassanid ],
+["persian_riding_coat_mail_4", "Persian Coat over Mail", [("persian_riding_coat_mail_4",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3500 , weight(19)|abundance(20)|head_armor(0)|body_armor(58)|leg_armor(18)|difficulty(11) ,imodbits_mail, [], culture_sassanid ],
+["persian_riding_coat_mail_5", "Rich Persian Coat over Mail", [("persian_riding_coat_mail_5",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3800 , weight(19)|abundance(10)|head_armor(0)|body_armor(59)|leg_armor(18)|difficulty(11) ,imodbits_mail, [], culture_sassanid ],
+["persian_riding_coat_mail_6", "Rich Persian Coat over Mail", [("persian_riding_coat_mail_6",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3800 , weight(19)|abundance(10)|head_armor(0)|body_armor(59)|leg_armor(18)|difficulty(11) ,imodbits_mail, [], culture_sassanid ],
 
 #full mail (cataphract) ~60 body, 16 legs 
 
@@ -1793,29 +1436,17 @@ items = [
  5800 , weight(20)|abundance(10)|head_armor(0)|body_armor(60)|leg_armor(18)|difficulty(15) ,imodbits_mail ],
 ["arabian_armor_b", "Mail", [("cataphract_mail_2",0)], itp_merchandise|itp_type_body_armor  |itp_covers_legs ,0,
  5800 , weight(20)|abundance(10)|head_armor(0)|body_armor(60)|leg_armor(18)|difficulty(15) ,imodbits_mail ],
-["roman_military_mail_12", "Hamata", [("roman_military_mail_12",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0,
- 5800 , weight(20)|abundance(10)|head_armor(0)|body_armor(60)|leg_armor(18)|difficulty(15) ,imodbits_mail, [], culture_roman ],
 
 #misc mail armors - mostly unused (for now)
-["mail_with_surcoat", "Long Mail", [("mail_heavy_sleeveless_1",0)], itp_type_body_armor  |itp_covers_legs ,0, 4000 , weight(19)|abundance(20)|head_armor(0)|body_armor(52)|leg_armor(15)|difficulty(11) ,imodbits_mail, [(ti_on_init_item,[(call_script, "script_init_male_arms"),]),], ],
-["surcoat_over_mail", "Long Mail", [("mail_heavy_sleeveless_2",0)], itp_type_body_armor  |itp_covers_legs ,0, 4000 , weight(19)|abundance(20)|head_armor(0)|body_armor(52)|leg_armor(15)|difficulty(11) ,imodbits_mail, [(ti_on_init_item,[(call_script, "script_init_male_arms"),]),], ],
-["mail_hauberk", "Long Mail", [("mail_heavy_sleeveless_3",0)], itp_type_body_armor  |itp_covers_legs ,0, 4000 , weight(19)|abundance(20)|head_armor(0)|body_armor(52)|leg_armor(15)|difficulty(11) ,imodbits_mail, [(ti_on_init_item,[(call_script, "script_init_male_arms"),]),], ],
-
-#only for nubians
-["nubian_scale_armor_1", "Hide Scale Armor", [("nubian_scale_armor_1",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian ,0, 1500 , weight(7)|abundance(40)|head_armor(0)|body_armor(38)|leg_armor(8)|difficulty(0) ,imodbits_cloth, [(ti_on_init_item,[(call_script, "script_init_short_tunic_arms"),]),], culture_african ],
-["nubian_scale_armor_2", "Hide Scale Armor", [("nubian_scale_armor_2",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian ,0, 1500 , weight(7)|abundance(40)|head_armor(0)|body_armor(38)|leg_armor(8)|difficulty(0) ,imodbits_cloth, [(ti_on_init_item,[(call_script, "script_init_short_tunic_arms"),]),], culture_african ],
+["mail_with_surcoat", "Mail Shirt", [("kemathen_mail_15",0)], itp_type_body_armor|itp_covers_legs ,0,
+ 3000 , weight(16.5)|abundance(30)|head_armor(0)|body_armor(55)|leg_armor(14)|difficulty(11) ,imodbits_mail ],
+["surcoat_over_mail", "Mail Shirt", [("kemathen_mail_15",0)], itp_type_body_armor|itp_covers_legs ,0,
+ 3000 , weight(16.5)|abundance(30)|head_armor(0)|body_armor(55)|leg_armor(14)|difficulty(11) ,imodbits_mail ],
+["mail_hauberk", "Mail Shirt", [("kemathen_mail_15",0)], itp_type_body_armor|itp_covers_legs ,0,
+ 3000 , weight(16.5)|abundance(30)|head_armor(0)|body_armor(55)|leg_armor(14)|difficulty(11) ,imodbits_mail ],
 
 #Scale and Lamellar Armor
 #vest ~45 body, 10 legs
-
-["steppe_plated_armor_6", "Plated Vest", [("steppe_plated_armor_6",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0, #used for mordvins, huns
- 2000 , weight(10)|abundance(40)|head_armor(0)|body_armor(43)|leg_armor(6)|difficulty(6) ,imodbits_scale, [], culture_hunnic ],
-["steppe_plated_armor_7", "Plated Vest", [("steppe_plated_armor_7",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0, #used for mordvins, huns
- 2000 , weight(10)|abundance(40)|head_armor(0)|body_armor(43)|leg_armor(6)|difficulty(6) ,imodbits_scale, [], culture_hunnic ],
-["steppe_plated_armor_8", "Plated Vest", [("steppe_plated_armor_8",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0, #used for mordvins, huns
- 2000 , weight(10)|abundance(40)|head_armor(0)|body_armor(43)|leg_armor(6)|difficulty(6) ,imodbits_scale, [], culture_hunnic ],
-["steppe_plated_armor_9", "Plated Vest", [("steppe_plated_armor_9",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0, #used for mordvins, huns
- 2000 , weight(10)|abundance(40)|head_armor(0)|body_armor(43)|leg_armor(6)|difficulty(6) ,imodbits_scale, [], culture_hunnic ],
 
 ["lamellar_vest_khergit", "Lamellar Vest", [("lamellar_vest_b",0)], itp_type_body_armor |itp_civilian |itp_covers_legs ,0,
  2200 , weight(12)|abundance(35)|head_armor(0)|body_armor(45)|leg_armor(10)|difficulty(6) ,imodbits_scale, [], culture_hunnic+culture_alan ],
@@ -1825,21 +1456,6 @@ items = [
  2200 , weight(12)|abundance(35)|head_armor(0)|body_armor(45)|leg_armor(10)|difficulty(6) ,imodbits_scale, [], culture_hunnic+culture_alan ],
 ["lamellar_vest_d", "Lamellar Vest", [("lamellar_vest_d",0)], itp_type_body_armor |itp_civilian |itp_covers_legs ,0,
  2200 , weight(12)|abundance(35)|head_armor(0)|body_armor(45)|leg_armor(10)|difficulty(6) ,imodbits_scale, [], culture_hunnic+culture_alan ],
-
-["hunnic_kaftan_lamellar_1", "Lamellar Vest", [("hunnic_kaftan_lamellar_1",0)], itp_merchandise| itp_type_body_armor |itp_civilian |itp_covers_legs ,0,
- 2200 , weight(12)|abundance(35)|head_armor(0)|body_armor(45)|leg_armor(10)|difficulty(6) ,imodbits_scale, [], culture_hunnic+culture_alan ],
-["hunnic_kaftan_lamellar_2", "Lamellar Vest", [("hunnic_kaftan_lamellar_2",0)], itp_merchandise| itp_type_body_armor |itp_civilian |itp_covers_legs ,0,
- 2200 , weight(12)|abundance(35)|head_armor(0)|body_armor(45)|leg_armor(10)|difficulty(6) ,imodbits_scale, [], culture_hunnic+culture_alan ],
-["hunnic_kaftan_lamellar_3", "Lamellar Vest", [("hunnic_kaftan_lamellar_3",0)], itp_merchandise| itp_type_body_armor |itp_civilian |itp_covers_legs ,0,
- 2200 , weight(12)|abundance(35)|head_armor(0)|body_armor(45)|leg_armor(10)|difficulty(6) ,imodbits_scale, [], culture_hunnic+culture_alan ],
-
-["roman_lamellar_1", "Lamellar Vest", [("roman_lamellar_1",0)], itp_merchandise| itp_type_body_armor |itp_civilian |itp_covers_legs ,0,
- 2200 , weight(12)|abundance(35)|head_armor(0)|body_armor(45)|leg_armor(10)|difficulty(6) ,imodbits_scale, [], [fac_culture_empire] ],
-
-["lombard_lamellar_1", "Lamellar Vest", [("lombard_lamellar_1",0)], itp_merchandise| itp_type_body_armor |itp_civilian |itp_covers_legs ,0,
- 2200 , weight(12)|abundance(35)|head_armor(0)|body_armor(45)|leg_armor(10)|difficulty(6) ,imodbits_scale, [], [fac_culture_2] ],
-["lombard_lamellar_2", "Lamellar Vest", [("lombard_lamellar_2",0)], itp_merchandise| itp_type_body_armor |itp_civilian |itp_covers_legs ,0,
- 2200 , weight(12)|abundance(35)|head_armor(0)|body_armor(45)|leg_armor(10)|difficulty(6) ,imodbits_scale, [], [fac_culture_2] ],
 
 #mid ~48 body, 10 legs
 
@@ -1870,143 +1486,47 @@ items = [
 ["kaftan_lamellar_13", "Lamellar Vest", [("kaftan_lamellar_13",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
  3100 , weight(12)|abundance(25)|head_armor(0)|body_armor(48)|leg_armor(16)|difficulty(7),imodbits_scale, [], culture_hunnic+culture_sassanid ],
 
-["scale_armor", "Squamata", [("light_scale_armor_new",0)], itp_type_body_armor|itp_covers_legs ,0,
- 3300 , weight(14)|abundance(10)|head_armor(0)|body_armor(48)|leg_armor(10)|difficulty(10) ,imodbits_scale ],
-
 #sleeveless/short sleeved ~52 body, 10 legs
-
-["medium_scale_1", "Squamata", [("medium_scale_1",0)], itp_merchandise|itp_type_body_armor  |itp_covers_legs ,0,
- 3820 , weight(15)|abundance(20)|head_armor(0)|body_armor(52)|leg_armor(10)|difficulty(9) ,imodbits_scale ],
-["medium_scale_2", "Squamata", [("medium_scale_2",0)], itp_merchandise|itp_type_body_armor  |itp_covers_legs ,0,
- 3820 , weight(15)|abundance(20)|head_armor(0)|body_armor(52)|leg_armor(10)|difficulty(9) ,imodbits_scale ],
-["medium_scale_3", "Squamata", [("medium_scale_3",0)], itp_merchandise|itp_type_body_armor  |itp_covers_legs ,0, #to be used by gothic lords
- 3820 , weight(15)|abundance(20)|head_armor(0)|body_armor(52)|leg_armor(10)|difficulty(9) ,imodbits_scale ],
-["medium_scale_4", "Squamata", [("medium_scale_4",0)], itp_merchandise|itp_type_body_armor  |itp_covers_legs ,0,
- 3820 , weight(15)|abundance(20)|head_armor(0)|body_armor(52)|leg_armor(10)|difficulty(9) ,imodbits_scale ],
-["medium_scale_5", "Squamata", [("medium_scale_5",0)], itp_merchandise|itp_type_body_armor  |itp_covers_legs ,0,
- 3820 , weight(15)|abundance(20)|head_armor(0)|body_armor(52)|leg_armor(10)|difficulty(9) ,imodbits_scale ],
-
-["roman_light_scale_1", "Squamata", [("roman_light_scale_1",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs,0,
- 3820 , weight(15)|abundance(20)|head_armor(0)|body_armor(52)|leg_armor(10)|difficulty(9) ,imodbits_scale,
-[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_roman_focale_1","str_roman_focale_end"),(cur_item_add_mesh, ":rand_accessory"),])]],
-["roman_light_scale_2", "Squamata", [("roman_light_scale_2",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs,0,
- 3820 , weight(15)|abundance(20)|head_armor(0)|body_armor(52)|leg_armor(10)|difficulty(9) ,imodbits_scale,
-[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_roman_focale_1","str_roman_focale_end"),(cur_item_add_mesh, ":rand_accessory"),])]],
-["roman_light_scale_3", "Squamata", [("roman_light_scale_3",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs,0,
- 3820 , weight(15)|abundance(20)|head_armor(0)|body_armor(52)|leg_armor(10)|difficulty(9) ,imodbits_scale,
-[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_roman_focale_1","str_roman_focale_end"),(cur_item_add_mesh, ":rand_accessory"),])]],
-["roman_light_scale_4", "Squamata", [("roman_light_scale_4",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs,0,
- 3820 , weight(15)|abundance(20)|head_armor(0)|body_armor(52)|leg_armor(10)|difficulty(9) ,imodbits_scale,
-[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_roman_focale_1","str_roman_focale_end"),(cur_item_add_mesh, ":rand_accessory"),])]],
-["roman_light_scale_5", "Squamata", [("roman_light_scale_5",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs,0,
- 3820 , weight(15)|abundance(20)|head_armor(0)|body_armor(52)|leg_armor(10)|difficulty(9) ,imodbits_scale,
-[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_roman_focale_1","str_roman_focale_end"),(cur_item_add_mesh, ":rand_accessory"),])]],
-
-["banded_armor", "Squamata", [("roman_squamata_new_1_light",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs,0,
- 3820 , weight(15)|abundance(20)|head_armor(0)|body_armor(52)|leg_armor(10)|difficulty(9) ,imodbits_scale,
-[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_roman_focale_1","str_roman_focale_end"),(cur_item_add_mesh, ":rand_accessory"),])]],
-["cuir_bouilli", "Squamata", [("roman_squamata_new_2_light",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs,0,
- 3820 , weight(15)|abundance(20)|head_armor(0)|body_armor(52)|leg_armor(10)|difficulty(9) ,imodbits_scale,
-[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_roman_focale_1","str_roman_focale_end"),(cur_item_add_mesh, ":rand_accessory"),])]],
-["black_armor", "Squamata", [("roman_squamata_new_3_light",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs,0,
- 3820 , weight(15)|abundance(20)|head_armor(0)|body_armor(52)|leg_armor(10)|difficulty(9) ,imodbits_scale,
-[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_roman_focale_1","str_roman_focale_end"),(cur_item_add_mesh, ":rand_accessory"),])]],
-
-["roman_rigid_scale_1", "Squamata", [("roman_rigid_scale_1",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs,0,
- 3820 , weight(15)|abundance(20)|head_armor(0)|body_armor(52)|leg_armor(10)|difficulty(9) ,imodbits_scale,
-[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_roman_focale_1","str_roman_focale_end"),(cur_item_add_mesh, ":rand_accessory"),])]],
-["roman_rigid_scale_2", "Squamata", [("roman_rigid_scale_2",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs,0,
- 3820 , weight(15)|abundance(20)|head_armor(0)|body_armor(52)|leg_armor(10)|difficulty(9) ,imodbits_scale,
-[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_roman_focale_1","str_roman_focale_end"),(cur_item_add_mesh, ":rand_accessory"),])]],
-["roman_rigid_scale_3", "Squamata", [("roman_rigid_scale_3",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs,0,
- 3820 , weight(15)|abundance(20)|head_armor(0)|body_armor(52)|leg_armor(10)|difficulty(9) ,imodbits_scale,
-[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_roman_focale_1","str_roman_focale_end"),(cur_item_add_mesh, ":rand_accessory"),])]],
-["roman_rigid_scale_4", "Squamata", [("roman_rigid_scale_4",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs,0,
- 3820 , weight(15)|abundance(20)|head_armor(0)|body_armor(52)|leg_armor(10)|difficulty(9) ,imodbits_scale,
-[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_roman_focale_1","str_roman_focale_end"),(cur_item_add_mesh, ":rand_accessory"),])]],
-["roman_rigid_scale_5", "Squamata", [("roman_rigid_scale_5",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs,0,
- 3820 , weight(15)|abundance(20)|head_armor(0)|body_armor(52)|leg_armor(10)|difficulty(9) ,imodbits_scale,
-[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_roman_focale_1","str_roman_focale_end"),(cur_item_add_mesh, ":rand_accessory"),])]],
-["roman_rigid_scale_6", "Squamata", [("roman_rigid_scale_6",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs,0,
- 3820 , weight(15)|abundance(20)|head_armor(0)|body_armor(52)|leg_armor(10)|difficulty(9) ,imodbits_scale,
-[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_roman_focale_1","str_roman_focale_end"),(cur_item_add_mesh, ":rand_accessory"),])]],
-
-["roman_squamata_1", "Squamata", [("roman_squamata_1",0)], itp_merchandise|itp_type_body_armor  |itp_covers_legs ,0,
- 3820 , weight(15)|abundance(20)|head_armor(0)|body_armor(52)|leg_armor(10)|difficulty(9) ,imodbits_scale, [], culture_roman ], #romans
-["roman_squamata_2", "Squamata", [("roman_squamata_2",0)], itp_merchandise|itp_type_body_armor  |itp_covers_legs ,0,
- 3820 , weight(15)|abundance(20)|head_armor(0)|body_armor(52)|leg_armor(10)|difficulty(9) ,imodbits_scale, [], culture_roman ], #romans
-["roman_squamata_3", "Squamata", [("roman_squamata_3",0)], itp_merchandise|itp_type_body_armor  |itp_covers_legs ,0,
- 3820 , weight(15)|abundance(20)|head_armor(0)|body_armor(52)|leg_armor(10)|difficulty(9) ,imodbits_scale, [], culture_roman ], #romano-britons
-["roman_squamata_4", "Squamata", [("roman_squamata_4",0)], itp_merchandise|itp_type_body_armor  |itp_covers_legs ,0,
- 3820 , weight(15)|abundance(20)|head_armor(0)|body_armor(52)|leg_armor(10)|difficulty(9) ,imodbits_scale, [], culture_roman ], #roman lords
-["roman_squamata_5", "Squamata", [("roman_squamata_5",0)], itp_merchandise|itp_type_body_armor  |itp_covers_legs ,0,
- 3820 , weight(15)|abundance(20)|head_armor(0)|body_armor(52)|leg_armor(10)|difficulty(9) ,imodbits_scale, [], culture_germanic ], #germans
-
-["rich_squamata_1", "Rich Squamata", [("rich_squamata_1",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
- 4300 , weight(15)|abundance(5)|head_armor(0)|body_armor(54)|leg_armor(12)|difficulty(9) ,imodbits_scale, [], [fac_culture_empire] ],
-["rich_squamata_2", "Rich Squamata", [("rich_squamata_2",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
- 4300 , weight(15)|abundance(5)|head_armor(0)|body_armor(54)|leg_armor(12)|difficulty(9) ,imodbits_scale, [], [fac_culture_empire] ],
-["rich_squamata_3", "Rich Squamata", [("rich_squamata_3",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
- 4300 , weight(15)|abundance(5)|head_armor(0)|body_armor(54)|leg_armor(12)|difficulty(9) ,imodbits_scale, [], culture_gothic ],
-["rich_squamata_4", "Rich Squamata", [("rich_squamata_4",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
- 4300 , weight(15)|abundance(5)|head_armor(0)|body_armor(54)|leg_armor(12)|difficulty(9) ,imodbits_scale, [], culture_gothic ],
-
-["coptic_scale_cuirass_1", "Squamata", [("coptic_scale_cuirass_1",0)], itp_merchandise|itp_type_body_armor  |itp_covers_legs ,0,
- 3820 , weight(15)|abundance(20)|head_armor(0)|body_armor(52)|leg_armor(10)|difficulty(9) ,imodbits_scale, [], [fac_culture_empire] ], #copts
-["coptic_scale_cuirass_2", "Squamata", [("coptic_scale_cuirass_2",0)], itp_merchandise|itp_type_body_armor  |itp_covers_legs ,0,
- 3820 , weight(15)|abundance(20)|head_armor(0)|body_armor(52)|leg_armor(10)|difficulty(9) ,imodbits_scale, [], [fac_culture_empire] ], #copts
-["roman_scale_cuirass_1", "Squamata", [("roman_scale_cuirass_1",0)], itp_merchandise|itp_type_body_armor  |itp_covers_legs ,0,
- 3820 , weight(15)|abundance(20)|head_armor(0)|body_armor(52)|leg_armor(10)|difficulty(9) ,imodbits_scale, [], culture_roman ], #romans
-["roman_scale_cuirass_2", "Squamata", [("roman_scale_cuirass_2",0)], itp_merchandise|itp_type_body_armor  |itp_covers_legs ,0,
- 3820 , weight(15)|abundance(20)|head_armor(0)|body_armor(52)|leg_armor(10)|difficulty(9) ,imodbits_scale, [], culture_roman ], #romans
-["vaegir_elite_armor", "Briton Squamata", [("briton_scale_cuirass_1",0)], itp_merchandise|itp_type_body_armor  |itp_covers_legs ,0,
- 3820 , weight(15)|abundance(20)|head_armor(0)|body_armor(52)|leg_armor(10)|difficulty(9) ,imodbits_scale, [], culture_roman ],
-["plate_armor", "Briton Squamata", [("briton_scale_cuirass_2",0)], itp_merchandise|itp_type_body_armor  |itp_covers_legs ,0,
- 3820 , weight(15)|abundance(20)|head_armor(0)|body_armor(52)|leg_armor(10)|difficulty(9) ,imodbits_scale, [], culture_roman ],
-["khergit_elite_armor", "Briton Squamata", [("briton_scale_cuirass_3",0)], itp_merchandise|itp_type_body_armor  |itp_covers_legs ,0,
- 3820 , weight(15)|abundance(20)|head_armor(0)|body_armor(52)|leg_armor(10)|difficulty(9) ,imodbits_scale, [], culture_roman ],
-
-["candidati_squamata_1", "Squamata", [("candidati_squamata_1",0)], itp_merchandise|itp_type_body_armor |itp_covers_legs ,0, #same style as the other ones, limited to one troop
- 4200 , weight(15)|abundance(1)|head_armor(0)|body_armor(56)|leg_armor(11)|difficulty(10) ,imodbits_scale, [], [fac_culture_empire] ], #romans
-["candidati_squamata_2", "Squamata", [("candidati_squamata_2",0)], itp_merchandise|itp_type_body_armor |itp_covers_legs ,0, #same style as the other ones, limited to one troop
- 4200 , weight(14)|abundance(1)|head_armor(0)|body_armor(56)|leg_armor(11)|difficulty(10) ,imodbits_scale, [], [fac_culture_empire] ], #romans
-["candidati_squamata_3", "Squamata", [("candidati_squamata_3",0)], itp_merchandise|itp_type_body_armor |itp_covers_legs ,0, #same style as the other ones, limited to one troop
- 4200 , weight(14)|abundance(1)|head_armor(0)|body_armor(56)|leg_armor(11)|difficulty(10) ,imodbits_scale, [], [fac_culture_empire] ], #romans
-
-#short sleeved ~54 body, 10-15 legs
-["steppe_plated_armor_4", "Mail with Plates", [("steppe_plated_armor_4",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0, #used for mordvins, huns
- 4150 , weight(18)|abundance(15)|head_armor(0)|body_armor(55)|leg_armor(12)|difficulty(11) ,imodbits_scale, [], culture_hunnic ],
-["steppe_plated_armor_5", "Mail with Plates", [("steppe_plated_armor_5",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0, #used for mordvins, huns
- 4150 , weight(18)|abundance(15)|head_armor(0)|body_armor(55)|leg_armor(12)|difficulty(11) ,imodbits_scale, [], culture_hunnic ],
-
-["sassanid_scale_1", "Scale Coat", [("sassanid_scale_1",0)], itp_merchandise|itp_type_body_armor  |itp_covers_legs ,0,
- 4150 , weight(18)|abundance(20)|head_armor(0)|body_armor(54)|leg_armor(12)|difficulty(11) ,imodbits_scale, [], culture_sassanid+culture_caucasian ],
-["sassanid_scale_2", "Scale Coat", [("sassanid_scale_2",0)], itp_merchandise|itp_type_body_armor  |itp_covers_legs ,0,
- 4150 , weight(18)|abundance(20)|head_armor(0)|body_armor(54)|leg_armor(12)|difficulty(11) ,imodbits_scale, [], culture_sassanid+culture_caucasian ],
-
-["eastern_scale_1", "Scale Coat", [("eastern_scale_1",0)], itp_merchandise|itp_type_body_armor  |itp_covers_legs ,0,
- 4300 , weight(19)|abundance(20)|head_armor(0)|body_armor(54)|leg_armor(15)|difficulty(11) ,imodbits_scale, [], culture_sassanid+culture_caucasian ],
-["eastern_scale_2", "Scale Coat", [("eastern_scale_2",0)], itp_merchandise|itp_type_body_armor  |itp_covers_legs ,0,
- 4300 , weight(19)|abundance(20)|head_armor(0)|body_armor(54)|leg_armor(15)|difficulty(11) ,imodbits_scale, [], culture_sassanid+culture_caucasian ],
-["eastern_scale_3", "Scale Coat", [("eastern_scale_3",0)], itp_merchandise|itp_type_body_armor  |itp_covers_legs ,0,
- 4300 , weight(19)|abundance(20)|head_armor(0)|body_armor(54)|leg_armor(15)|difficulty(11) ,imodbits_scale, [], culture_sassanid+culture_caucasian ],
-["eastern_scale_4", "Scale Coat", [("eastern_scale_4",0)], itp_merchandise|itp_type_body_armor  |itp_covers_legs ,0,
- 4300 , weight(19)|abundance(20)|head_armor(0)|body_armor(54)|leg_armor(15)|difficulty(11) ,imodbits_scale, [], culture_sassanid+culture_caucasian ],
-["eastern_scale_5", "Scale Coat", [("eastern_scale_5",0)], itp_merchandise|itp_type_body_armor  |itp_covers_legs ,0,
- 4300 , weight(19)|abundance(20)|head_armor(0)|body_armor(54)|leg_armor(15)|difficulty(11) ,imodbits_scale, [], culture_sassanid+culture_caucasian ],
-["eastern_scale_6", "Scale Coat", [("eastern_scale_6",0)], itp_merchandise|itp_type_body_armor  |itp_covers_legs ,0,
- 4300 , weight(19)|abundance(20)|head_armor(0)|body_armor(54)|leg_armor(15)|difficulty(11) ,imodbits_scale, [], culture_sassanid+culture_caucasian ],
 
 ["lamellar_armor", "Heavy Lamellar Armor", [("kranj_lamellar_1",0)], itp_type_body_armor  |itp_covers_legs ,0,
  4300 , weight(19)|abundance(20)|head_armor(0)|body_armor(54)|leg_armor(15)|difficulty(11) ,imodbits_scale ],
 
-["steppe_plated_armor_1", "Mail with Plates", [("steppe_plated_armor_1",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0, #used for mordvins, huns
- 5000 , weight(21)|abundance(10)|head_armor(0)|body_armor(58)|leg_armor(16)|difficulty(14) ,imodbits_scale, [], culture_hunnic ],
-["steppe_plated_armor_2", "Mail with Plates", [("steppe_plated_armor_2",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0, #used for mordvins, huns
- 5000 , weight(21)|abundance(10)|head_armor(0)|body_armor(58)|leg_armor(16)|difficulty(14) ,imodbits_scale, [], culture_hunnic ],
-["steppe_plated_armor_3", "Mail with Plates", [("steppe_plated_armor_3",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0, #used for mordvins, huns
- 5000 , weight(21)|abundance(10)|head_armor(0)|body_armor(58)|leg_armor(16)|difficulty(14) ,imodbits_scale, [], culture_hunnic ],
+#new asher scale
+#for post roman troops/factions
+["banded_armor", "Squamata", [("post_roman_scale_1",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 4020 , weight(16)|abundance(20)|head_armor(0)|body_armor(52)|leg_armor(10)|difficulty(9),imodbits_scale, [], culture_roman ],
+["cuir_bouilli", "Squamata", [("post_roman_scale_2",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 4020 , weight(16)|abundance(20)|head_armor(0)|body_armor(52)|leg_armor(10)|difficulty(9),imodbits_scale, [], culture_roman ],
+["black_armor", "Squamata", [("post_roman_scale_3",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 4020 , weight(16)|abundance(20)|head_armor(0)|body_armor(52)|leg_armor(10)|difficulty(9),imodbits_scale, [], culture_roman ],
+["vaegir_elite_armor", "Squamata", [("post_roman_scale_4",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 4020 , weight(16)|abundance(20)|head_armor(0)|body_armor(52)|leg_armor(10)|difficulty(9),imodbits_scale, [], culture_roman ],
+["plate_armor", "Squamata", [("post_roman_scale_5",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 4020 , weight(16)|abundance(20)|head_armor(0)|body_armor(52)|leg_armor(10)|difficulty(9),imodbits_scale, [], culture_roman ],
+["khergit_elite_armor", "Squamata", [("post_roman_scale_6",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 4020 , weight(16)|abundance(20)|head_armor(0)|body_armor(52)|leg_armor(10)|difficulty(9),imodbits_scale, [], culture_roman ],
+["scale_armor", "Squamata", [("post_roman_scale_7",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 4020 , weight(16)|abundance(20)|head_armor(0)|body_armor(52)|leg_armor(10)|difficulty(9),imodbits_scale, [], culture_roman ],
 
+["roman_scale_1", "Squamata", [("roman_scale_1_1",0),("roman_scale_1_2",imodbit_reinforced),("roman_scale_1_3",imodbit_lordly),], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 4020 , weight(16)|abundance(20)|head_armor(0)|body_armor(52)|leg_armor(12)|difficulty(9) ,imodbits_scale, [], culture_roman ], #romans
+["roman_scale_2", "Squamata", [("roman_scale_2_1",0),("roman_scale_2_2",imodbit_reinforced),("roman_scale_2_3",imodbit_lordly),], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 4020 , weight(16)|abundance(20)|head_armor(0)|body_armor(52)|leg_armor(12)|difficulty(9) ,imodbits_scale, [], culture_roman ], #romans
+["roman_scale_3", "Squamata", [("roman_scale_3_1",0),("roman_scale_3_2",imodbit_reinforced),("roman_scale_3_3",imodbit_lordly),], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 4020 , weight(16)|abundance(20)|head_armor(0)|body_armor(52)|leg_armor(12)|difficulty(9) ,imodbits_scale, [], culture_roman ], #romans
+["roman_scale_4", "Squamata", [("roman_scale_4_1",0),("roman_scale_4_2",imodbit_reinforced),("roman_scale_4_3",imodbit_lordly),], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 4020 , weight(16)|abundance(20)|head_armor(0)|body_armor(52)|leg_armor(12)|difficulty(9) ,imodbits_scale, [], culture_roman ], #romans
+["roman_scale_5", "Squamata", [("roman_scale_5_1",0),("roman_scale_5_2",imodbit_reinforced),("roman_scale_5_3",imodbit_lordly),], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 4020 , weight(16)|abundance(20)|head_armor(0)|body_armor(52)|leg_armor(12)|difficulty(9) ,imodbits_scale, [], culture_roman ], #romans
+["roman_scale_6", "Squamata", [("roman_scale_6_1",0),("roman_scale_6_2",imodbit_reinforced),("roman_scale_6_3",imodbit_lordly),], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 4020 , weight(16)|abundance(20)|head_armor(0)|body_armor(52)|leg_armor(12)|difficulty(9) ,imodbits_scale, [], culture_roman ], #romans
+["roman_scale_7", "Squamata", [("roman_scale_7_1",0),("roman_scale_7_2",imodbit_reinforced),("roman_scale_7_3",imodbit_lordly),], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 4020 , weight(16)|abundance(20)|head_armor(0)|body_armor(52)|leg_armor(12)|difficulty(9) ,imodbits_scale, [], culture_roman ], #romans
+
+["western_scholae_scale_1", "Squamata", [("western_scholae_scale_1_1",0),("western_scholae_scale_1_2",imodbit_reinforced),("western_scholae_scale_1_3",imodbit_lordly),], itp_unique|itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 4020 , weight(16)|abundance(20)|head_armor(0)|body_armor(52)|leg_armor(12)|difficulty(9) ,imodbits_scale, [], [fac_culture_empire] ], #scholae
+["eastern_scholae_scale_1", "Squamata", [("eastern_scholae_scale_1_1",0),("eastern_scholae_scale_1_2",imodbit_reinforced),("eastern_scholae_scale_1_3",imodbit_lordly),], itp_unique|itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 4020 , weight(16)|abundance(20)|head_armor(0)|body_armor(52)|leg_armor(12)|difficulty(9) ,imodbits_scale, [], [fac_culture_empire] ], #scholae
 
 #full ~60 body, 18 legs
 
@@ -2027,6 +1547,15 @@ items = [
  6100 , weight(19)|abundance(15)|head_armor(0)|body_armor(58)|leg_armor(16)|difficulty(13) ,imodbits_scale, [], culture_roman ],
 ["457_scale_hauberk_8", "Squamata", [("457_scale_hauberk_8",0)], itp_merchandise|itp_type_body_armor  |itp_covers_legs ,0,
  6100 , weight(19)|abundance(15)|head_armor(0)|body_armor(58)|leg_armor(16)|difficulty(13) ,imodbits_scale, [], culture_roman ],
+
+["caucasian_scale_1", "Scale Armor", [("caucasian_scale_1",0)], itp_merchandise|itp_type_body_armor  |itp_covers_legs ,0,
+ 5900 , weight(19)|abundance(18)|head_armor(0)|body_armor(56)|leg_armor(16)|difficulty(13) ,imodbits_scale, [], culture_caucasian ],
+["caucasian_scale_2", "Scale Armor", [("caucasian_scale_2",0)], itp_merchandise|itp_type_body_armor  |itp_covers_legs ,0,
+ 5900 , weight(19)|abundance(18)|head_armor(0)|body_armor(56)|leg_armor(16)|difficulty(13) ,imodbits_scale, [], culture_caucasian ],
+["caucasian_scale_3", "Scale Armor", [("caucasian_scale_3",0)], itp_merchandise|itp_type_body_armor  |itp_covers_legs ,0,
+ 5900 , weight(19)|abundance(18)|head_armor(0)|body_armor(56)|leg_armor(16)|difficulty(13) ,imodbits_scale, [], culture_caucasian ],
+["caucasian_scale_4", "Scale Armor", [("caucasian_scale_4",0)], itp_merchandise|itp_type_body_armor  |itp_covers_legs ,0,
+ 5900 , weight(19)|abundance(18)|head_armor(0)|body_armor(56)|leg_armor(16)|difficulty(13) ,imodbits_scale, [], culture_caucasian ],
 
 #cataphract ~64 body, 20 legs
 ["cataphract_armor_1", "Cataphract Armor", [("sassanid_cataphract_1",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0,
@@ -2050,6 +1579,29 @@ items = [
 ["cataphract_lamellar_1", "Cataphract Armor", [("cataphract_lamellar_1",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0,
  8600 , weight(35)|abundance(5)|head_armor(0)|body_armor(64)|leg_armor(20)|difficulty(16) ,imodbits_scale, [], culture_roman+culture_sassanid+culture_caucasian+culture_hunnic+culture_alan ],
 
+["caucasian_cataphract_1", "Cataphract Armor", [("caucasian_cataphract_1",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0,
+ 8600 , weight(35)|abundance(5)|head_armor(0)|body_armor(64)|leg_armor(20)|difficulty(16) ,imodbits_scale, [], culture_caucasian ],
+["caucasian_cataphract_2", "Cataphract Armor", [("caucasian_cataphract_2",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0,
+ 8600 , weight(35)|abundance(5)|head_armor(0)|body_armor(64)|leg_armor(20)|difficulty(16) ,imodbits_scale, [], culture_caucasian ],
+["caucasian_cataphract_3", "Cataphract Armor", [("caucasian_cataphract_3",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0,
+ 8600 , weight(35)|abundance(5)|head_armor(0)|body_armor(64)|leg_armor(20)|difficulty(16) ,imodbits_scale, [], culture_caucasian ],
+
+["sassanid_heavy_mail_1", "Persian Cataphract Mail", [("sassanid_heavy_mail_1",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0,
+ 8200 , weight(32)|abundance(5)|head_armor(0)|body_armor(60)|leg_armor(20)|difficulty(15) ,imodbits_scale, [], culture_sassanid ],
+["sassanid_heavy_mail_2", "Persian Cataphract Mail", [("sassanid_heavy_mail_2",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0,
+ 8200 , weight(32)|abundance(5)|head_armor(0)|body_armor(60)|leg_armor(20)|difficulty(15) ,imodbits_scale, [], culture_sassanid ],
+["sassanid_heavy_mail_3", "Persian Cataphract Mail", [("sassanid_heavy_mail_3",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0,
+ 8200 , weight(32)|abundance(5)|head_armor(0)|body_armor(60)|leg_armor(20)|difficulty(15) ,imodbits_scale, [], culture_sassanid ],
+["sassanid_heavy_mail_4", "Persian Cataphract Mail", [("sassanid_heavy_mail_4",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0,
+ 8200 , weight(32)|abundance(5)|head_armor(0)|body_armor(60)|leg_armor(20)|difficulty(15) ,imodbits_scale, [], culture_sassanid ],
+
+["sassanid_plated_mail_1", "Persian Cataphract Mail", [("sassanid_plated_mail_1",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0,
+ 8700 , weight(36)|abundance(1)|head_armor(0)|body_armor(65)|leg_armor(20)|difficulty(17) ,imodbits_scale, [], culture_sassanid ],
+["sassanid_plated_mail_2", "Persian Cataphract Mail", [("sassanid_plated_mail_2",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0,
+ 8700 , weight(36)|abundance(1)|head_armor(0)|body_armor(65)|leg_armor(20)|difficulty(17) ,imodbits_scale, [], culture_sassanid ],
+["sassanid_plated_mail_3", "Persian Cataphract Mail", [("sassanid_plated_mail_3",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0,
+ 8700 , weight(36)|abundance(1)|head_armor(0)|body_armor(65)|leg_armor(20)|difficulty(17) ,imodbits_scale, [], culture_sassanid ],
+
 #others
 
 ["kizil_composite_armor", "Compsite Armor", [("kizil_composite_armor",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, #very rare, can only be sold by the alans and the huns
@@ -2060,25 +1612,20 @@ items = [
 ["cuirass_roman_2", "Roman Muscle Cuirass", [("cuirass_roman_2",0)], itp_merchandise| itp_type_body_armor |itp_covers_legs ,0,
  9000 , weight(22)|abundance(1)|head_armor(0)|body_armor(59)|leg_armor(12)|difficulty(10) ,imodbits_plate, [], culture_roman ],
 
-["roman_emperor_tunic", "Roman Emperor's Tunic", [("roman_emperor_tunic",0)], itp_type_body_armor|itp_covers_legs|itp_civilian,0, 600 , weight(4)|abundance(20)|head_armor(0)|body_armor(20)|leg_armor(10)|difficulty(0) ,imodbits_cloth ],
-["roman_emperor_boots", "Roman Emperor's Shoes", [("roman_emperor_boots",0)], itp_type_foot_armor |itp_civilian | itp_attach_armature ,0, 600 , weight(1)|abundance(20)|head_armor(0)|body_armor(0)|leg_armor(15)|difficulty(0) ,imodbits_cloth ],
+["roman_emperor_tunic", "Roman Emperor's Tunic", [("coptic_tunic_emperor_1",0)], itp_type_body_armor|itp_covers_legs|itp_civilian,0, 600 , weight(4)|abundance(20)|head_armor(0)|body_armor(20)|leg_armor(10)|difficulty(0) ,imodbits_cloth ],
 
-["emperor_armor_c", "Emperor's Armor", [("sassanid_emperor_armor",0)], itp_type_body_armor  |itp_covers_legs|itp_civilian ,0,8000 , weight(22)|abundance(20)|head_armor(4)|body_armor(56)|leg_armor(16)|difficulty(10) ,imodbits_scale, [], culture_sassanid+culture_caucasian ],
+["emperor_armor_c", "Shah's Mail", [("sassanid_emperor_mail",0)], itp_type_body_armor  |itp_covers_legs|itp_civilian ,0,8000 , weight(22)|abundance(20)|head_armor(4)|body_armor(56)|leg_armor(16)|difficulty(10) ,imodbits_scale, [], culture_sassanid+culture_caucasian ],
 
 ["cuirass_roman_emperor", "Roman Emperor's Cuirass", [("cuirass_roman_emperor",0)], itp_type_body_armor  |itp_covers_legs ,0,9000 , weight(20)|abundance(20)|head_armor(0)|body_armor(59)|leg_armor(16)|difficulty(10) ,imodbits_plate ],
-["roman_squamata_emperor", "Roman Emperor's Scale Curiass", [("roman_squamata_emperor",0)], itp_type_body_armor|itp_covers_legs ,0,9000 , weight(18)|abundance(20)|head_armor(4)|body_armor(56)|leg_armor(16)|difficulty(8) ,imodbits_scale ],
-["roman_emperor_greaves", "Roman Emperor's Greaves", [("roman_emperor_greaves",0)], itp_type_foot_armor | itp_attach_armature ,0, 6000 , weight(2.5)|abundance(10)|head_armor(0)|body_armor(0)|leg_armor(36)|difficulty(0) ,imodbits_plate ],
+["roman_squamata_emperor", "Roman Emperor's Scale Curiass", [("roman_emperor_scale",0)], itp_type_body_armor|itp_covers_legs ,0,9000 , weight(18)|abundance(20)|head_armor(4)|body_armor(56)|leg_armor(16)|difficulty(8) ,imodbits_scale ],
 
 #unique armor for certain lords
 ["childeric_armor", "Rigid Scale Curiass", [("childeric_armor",0)], itp_type_body_armor|itp_covers_legs ,0,9000 , weight(18)|abundance(20)|head_armor(4)|body_armor(56)|leg_armor(16)|difficulty(8) ,imodbits_scale ], #for childeric I
 ["arthur_scale", "Briton Scale Curiass", [("arthur_scale",0)], itp_unique|itp_type_body_armor|itp_covers_legs ,0,9000 , weight(17)|abundance(10)|head_armor(0)|body_armor(56)|leg_armor(16)|difficulty(8) ,imodbits_scale ],
-["aspar_armor", "Scale Curiass", [("aspar_armor",0)], itp_unique|itp_type_body_armor|itp_covers_legs ,0,9000 , weight(17)|abundance(10)|head_armor(0)|body_armor(56)|leg_armor(16)|difficulty(8) ,imodbits_scale ],
 ["strabo_armor", "Scale Curiass", [("strabo_armor",0)], itp_unique|itp_type_body_armor|itp_covers_legs ,0,9000 , weight(17)|abundance(10)|head_armor(0)|body_armor(56)|leg_armor(16)|difficulty(8) ,imodbits_scale ],
-["libyan_king_mail", "Mail", [("libyan_king_mail",0)], itp_unique|itp_type_body_armor|itp_covers_legs ,0, 7000 , weight(17)|abundance(1)|head_armor(0)|body_armor(56)|leg_armor(16)|difficulty(8) ,imodbits_scale ],
 ["danish_king_mail", "Mail", [("danish_king_mail",0)], itp_unique|itp_type_body_armor|itp_covers_legs ,0, 7000 , weight(17)|abundance(1)|head_armor(0)|body_armor(56)|leg_armor(16)|difficulty(8) ,imodbits_scale ],
 ["garamantian_king_scale", "Scale Curiass", [("garamantian_king_scale",0)], itp_unique|itp_type_body_armor|itp_covers_legs|itp_civilian ,0, 6000 , weight(15)|abundance(1)|head_armor(0)|body_armor(54)|leg_armor(12)|difficulty(8) ,imodbits_scale, [(ti_on_init_item,[(call_script, "script_init_short_tunic_arms"),]),], [fac_culture_11] ],
 ["mamluke_mail", "Squamata", [("gaiseric_scale",0)], itp_unique|itp_type_body_armor|itp_covers_legs ,0, 7000 , weight(19)|abundance(15)|head_armor(0)|body_armor(58)|leg_armor(16)|difficulty(13) ,imodbits_scale ],
-
 
 ["sarranid_head_cloth", "Lady Head Cloth", [("tulbent",0)],  itp_type_head_armor | itp_doesnt_cover_hair |itp_civilian |itp_attach_armature,0, 1 , weight(0.5)|abundance(100)|head_armor(4)|body_armor(0)|leg_armor(0)|difficulty(0) ,imodbits_cloth ],
 ["sarranid_head_cloth_b", "Lady Head Cloth", [("tulbent_b",0)],  itp_type_head_armor | itp_doesnt_cover_hair |itp_civilian |itp_attach_armature,0, 1 , weight(0.5)|abundance(100)|head_armor(4)|body_armor(0)|leg_armor(0)|difficulty(0) ,imodbits_cloth ],
@@ -2179,6 +1726,8 @@ items = [
 ["pannonian_cap_5", "Pillbox Cap", [("pannonian_cap_leather_2",0)], itp_merchandise| itp_type_head_armor  |itp_civilian ,0, 90 , weight(1)|abundance(100)|head_armor(10)|body_armor(0)|leg_armor(0)|difficulty(0) ,imodbits_cloth, [], culture_roman ],
 ["pannonian_cap_6", "Pillbox Cap", [("pannonian_cap_cloth_4",0)], itp_merchandise| itp_type_head_armor  |itp_civilian ,0, 90 , weight(1)|abundance(100)|head_armor(10)|body_armor(0)|leg_armor(0)|difficulty(0) ,imodbits_cloth, [], culture_roman ], #now for a specific, special character
 
+["jannis_pannonian_cap_1", "Rich Pillbox Cap", [("jannis_pannonian_cap_1",0)], itp_merchandise| itp_type_head_armor  |itp_civilian ,0, 120 , weight(1)|abundance(100)|head_armor(10)|body_armor(0)|leg_armor(0)|difficulty(0) ,imodbits_cloth, [], culture_roman ],
+
 ["pannonian_cap_fur_1", "Fur Pillbox Cap", [("pannonian_cap_fur_1",0),("pannonian_cap_fur_1_inv",ixmesh_inventory)], itp_merchandise|itp_type_head_armor |itp_attach_armature ,0, 90 , weight(1)|abundance(100)|head_armor(10)|body_armor(0)|leg_armor(0)|difficulty(0), imodbits_cloth, [], culture_roman ],
 ["pannonian_cap_fur_2", "Fur Pillbox Cap", [("pannonian_cap_fur_2",0),("pannonian_cap_fur_2_inv",ixmesh_inventory)], itp_merchandise|itp_type_head_armor |itp_attach_armature ,0, 90 , weight(1)|abundance(100)|head_armor(10)|body_armor(0)|leg_armor(0)|difficulty(0), imodbits_cloth, [], culture_roman ],
 
@@ -2187,27 +1736,21 @@ items = [
 ["germanic_cap_3", "Woolen Cap", [("germanic_cap_3",0)],  itp_merchandise| itp_type_head_armor  |itp_civilian ,0, 80 , weight(1)|abundance(100)|head_armor(8)|body_armor(0)|leg_armor(0)|difficulty(0) ,imodbits_cloth ],
 ["germanic_cap_4", "Woolen Cap", [("germanic_cap_4",0)],  itp_merchandise| itp_type_head_armor  |itp_civilian ,0, 80 , weight(1)|abundance(100)|head_armor(8)|body_armor(0)|leg_armor(0)|difficulty(0) ,imodbits_cloth ],
 
-["bulb_cap", "Bulb Cap", [("sassanid_bulb_1",0)], itp_merchandise| itp_type_head_armor  |itp_civilian ,0, 110 , weight(1)|abundance(100)|head_armor(8)|body_armor(0)|leg_armor(0)|difficulty(0) ,imodbits_cloth, [], culture_sassanid+culture_caucasian ],
-["bulb_cap_1", "Bulb Cap", [("sassanid_bulb_1",0)], itp_merchandise| itp_type_head_armor  |itp_civilian ,0, 110 , weight(1)|abundance(100)|head_armor(8)|body_armor(0)|leg_armor(0)|difficulty(0) ,imodbits_cloth, [], culture_sassanid+culture_caucasian ],
-["bulb_cap_2", "Bulb Cap", [("sassanid_bulb_2",0)], itp_merchandise| itp_type_head_armor  |itp_civilian ,0, 110 , weight(1)|abundance(100)|head_armor(8)|body_armor(0)|leg_armor(0)|difficulty(0) ,imodbits_cloth, [], culture_sassanid+culture_caucasian ],
-["bulb_cap_3", "Bulb Cap", [("sassanid_bulb_3",0)], itp_merchandise| itp_type_head_armor  |itp_civilian ,0, 110 , weight(1)|abundance(100)|head_armor(8)|body_armor(0)|leg_armor(0)|difficulty(0) ,imodbits_cloth, [], culture_sassanid+culture_caucasian ],
-["bulb_cap_4", "Bulb Cap", [("sassanid_bulb_4",0)], itp_merchandise| itp_type_head_armor  |itp_civilian ,0, 110 , weight(1)|abundance(100)|head_armor(8)|body_armor(0)|leg_armor(0)|difficulty(0) ,imodbits_cloth, [], culture_sassanid+culture_caucasian ],
-["bulb_cap_5", "Bulb Cap", [("sassanid_bulb_5",0)], itp_merchandise| itp_type_head_armor  |itp_civilian ,0, 110 , weight(1)|abundance(100)|head_armor(8)|body_armor(0)|leg_armor(0)|difficulty(0) ,imodbits_cloth, [], culture_sassanid+culture_caucasian ],
-["bulb_cap_6", "Bulb Cap", [("sassanid_bulb_6",0)], itp_merchandise| itp_type_head_armor  |itp_civilian ,0, 110 , weight(1)|abundance(100)|head_armor(8)|body_armor(0)|leg_armor(0)|difficulty(0) ,imodbits_cloth, [], culture_sassanid+culture_caucasian ],
-
 #Hoods
 ["new_hood_a", "Blue Hood", [("sclavenia_hood_rigged_3",0),("sclavenia_hood_inv_3",ixmesh_inventory)], itp_merchandise|itp_attach_armature|itp_type_head_armor|itp_civilian,0,75, weight(1)|abundance(50)|head_armor(15)|body_armor(0)|leg_armor(0)|difficulty(0),imodbits_cloth, [], culture_germanic ],
 ["new_hood_b", "Red Hood", [("sclavenia_hood_rigged_4",0),("sclavenia_hood_inv_4",ixmesh_inventory)], itp_merchandise|itp_attach_armature|itp_type_head_armor|itp_civilian,0,75, weight(1)|abundance(50)|head_armor(15)|body_armor(0)|leg_armor(0)|difficulty(0),imodbits_cloth, [], culture_germanic ],
 ["new_hood_c", "Green Hood", [("sclavenia_hood_rigged_2",0),("sclavenia_hood_inv_2",ixmesh_inventory)], itp_merchandise|itp_attach_armature|itp_type_head_armor|itp_civilian,0,75, weight(1)|abundance(50)|head_armor(15)|body_armor(0)|leg_armor(0)|difficulty(0),imodbits_cloth, [], culture_germanic ],
 ["new_hood_d", "Black Hood", [("sclavenia_hood_rigged_5",0),("sclavenia_hood_inv_5",ixmesh_inventory)], itp_merchandise|itp_attach_armature|itp_type_head_armor|itp_civilian,0,75, weight(1)|abundance(50)|head_armor(15)|body_armor(0)|leg_armor(0)|difficulty(0),imodbits_cloth, [], culture_germanic ],
 ["new_hood_e", "White Hood", [("sclavenia_hood_rigged_6",0),("sclavenia_hood_inv_6",ixmesh_inventory)], itp_merchandise|itp_attach_armature|itp_type_head_armor|itp_civilian,0,75, weight(1)|abundance(50)|head_armor(15)|body_armor(0)|leg_armor(0)|difficulty(0),imodbits_cloth, [], culture_germanic ],
-
-["p_hood", "Hood", [("pictish_hood",0)], 0| itp_type_head_armor |itp_civilian  ,0, 75 , weight(1.25)|abundance(30)|head_armor(18)|body_armor(0)|leg_armor(0)|difficulty(0) ,imodbits_cloth, [], culture_germanic ],
 ["brown_hood1", "Brown Hood", [("sclavenia_hood_rigged_1",0),("sclavenia_hood_inv_1",ixmesh_inventory)], itp_merchandise|itp_attach_armature|itp_type_head_armor|itp_civilian,0,75, weight(1)|abundance(50)|head_armor(15)|body_armor(0)|leg_armor(0)|difficulty(0),imodbits_cloth, [], culture_germanic ],
 
-["roman_civilian_hood_open_1", "Paenula", [("roman_civilian_hood_open_1",0)], itp_merchandise|itp_attach_armature|itp_fit_to_head|itp_type_head_armor|itp_civilian,0,175, weight(2)|abundance(50)|head_armor(8)|body_armor(8)|leg_armor(0)|difficulty(0),imodbits_cloth, [], culture_roman ],
-["roman_civilian_hood_open_2", "Paenula", [("roman_civilian_hood_open_2",0)], itp_merchandise|itp_attach_armature|itp_fit_to_head|itp_type_head_armor|itp_civilian,0,175, weight(2)|abundance(50)|head_armor(8)|body_armor(8)|leg_armor(0)|difficulty(0),imodbits_cloth, [], culture_roman ],
-["roman_civilian_hood_open_3", "Paenula", [("roman_civilian_hood_open_3",0)], itp_merchandise|itp_attach_armature|itp_fit_to_head|itp_type_head_armor|itp_civilian,0,175, weight(2)|abundance(50)|head_armor(8)|body_armor(8)|leg_armor(0)|difficulty(0),imodbits_cloth, [], culture_roman ],
+["pictish_hood_1", "Hood", [("pictish_hood_1",0),("pictish_hood_1_inv",ixmesh_inventory)], itp_merchandise|itp_attach_armature|itp_type_head_armor|itp_civilian,0,150, weight(1.75)|abundance(50)|head_armor(16)|body_armor(4)|leg_armor(0)|difficulty(0),imodbits_cloth, [], culture_celtic ],
+["pictish_hood_2", "Hood", [("pictish_hood_2",0),("pictish_hood_2_inv",ixmesh_inventory)], itp_merchandise|itp_attach_armature|itp_type_head_armor|itp_civilian,0,150, weight(1.75)|abundance(50)|head_armor(16)|body_armor(4)|leg_armor(0)|difficulty(0),imodbits_cloth, [], culture_celtic ],
+["pictish_hood_3", "Hood", [("pictish_hood_3",0),("pictish_hood_3_inv",ixmesh_inventory)], itp_merchandise|itp_attach_armature|itp_type_head_armor|itp_civilian,0,150, weight(1.75)|abundance(50)|head_armor(16)|body_armor(4)|leg_armor(0)|difficulty(0),imodbits_cloth, [], culture_celtic ],
+
+["roman_civilian_hood_open_1", "Paenula", [("roman_civilian_hood_open_1",0)], itp_merchandise|itp_attach_armature|itp_fit_to_head|itp_type_head_armor|itp_civilian,0,175, weight(2)|abundance(50)|head_armor(12)|body_armor(8)|leg_armor(0)|difficulty(0),imodbits_cloth, [], culture_roman ],
+["roman_civilian_hood_open_2", "Paenula", [("roman_civilian_hood_open_2",0)], itp_merchandise|itp_attach_armature|itp_fit_to_head|itp_type_head_armor|itp_civilian,0,175, weight(2)|abundance(50)|head_armor(12)|body_armor(8)|leg_armor(0)|difficulty(0),imodbits_cloth, [], culture_roman ],
+["roman_civilian_hood_open_3", "Paenula", [("roman_civilian_hood_open_3",0)], itp_merchandise|itp_attach_armature|itp_fit_to_head|itp_type_head_armor|itp_civilian,0,175, weight(2)|abundance(50)|head_armor(12)|body_armor(8)|leg_armor(0)|difficulty(0),imodbits_cloth, [], culture_roman ],
 
 ["roman_civilian_hood_1", "Paenula", [("roman_civilian_hood_1",0)], itp_merchandise|itp_attach_armature|itp_fit_to_head|itp_type_head_armor|itp_civilian,0,175, weight(2)|abundance(50)|head_armor(16)|body_armor(8)|leg_armor(0)|difficulty(0),imodbits_cloth, [], culture_roman ],
 ["roman_civilian_hood_2", "Paenula", [("roman_civilian_hood_2",0)], itp_merchandise|itp_attach_armature|itp_fit_to_head|itp_type_head_armor|itp_civilian,0,175, weight(2)|abundance(50)|head_armor(16)|body_armor(8)|leg_armor(0)|difficulty(0),imodbits_cloth, [], culture_roman ],
@@ -2218,16 +1761,15 @@ items = [
 ["roman_civilian_hood_closed_3", "Paenula", [("roman_civilian_hood_closed_3",0)], itp_merchandise|itp_attach_armature|itp_fit_to_head|itp_type_head_armor|itp_civilian,0,175, weight(2)|abundance(50)|head_armor(16)|body_armor(8)|leg_armor(0)|difficulty(0),imodbits_cloth, [], culture_roman ],
 
 ["bl_boar_fur", "Boar fur cloak", [("BL_boar",0)], itp_type_head_armor| itp_attach_armature| itp_fit_to_head|itp_civilian,0, 480 , weight(1)|abundance(80)|head_armor(24)|body_armor(14)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_germanic ],
-
-["bearskin_1", "Bearskin", [("bearskin_1",0)], itp_type_head_armor| itp_attach_armature| itp_fit_to_head|itp_civilian,0, 480 , 
+["bearskin_1", "Bearskin", [("bearskin_1",0)], itp_type_head_armor|itp_doesnt_cover_hair| itp_attach_armature| itp_fit_to_head|itp_civilian,0, 480 , 
 weight(1)|abundance(80)|head_armor(24)|body_armor(14)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_germanic ],
-["bearskin_2", "Bearskin", [("bearskin_2",0)], itp_type_head_armor| itp_attach_armature| itp_fit_to_head|itp_civilian,0, 480 , 
+["bearskin_2", "Bearskin", [("bearskin_2",0)], itp_type_head_armor|itp_doesnt_cover_hair| itp_attach_armature| itp_fit_to_head|itp_civilian,0, 480 , 
 weight(1)|abundance(80)|head_armor(24)|body_armor(14)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_germanic ],
-["bearskin_3", "Bearskin", [("bearskin_3",0)], itp_type_head_armor| itp_attach_armature| itp_fit_to_head|itp_civilian,0, 480 , 
+["bearskin_3", "Bearskin", [("bearskin_3",0)], itp_type_head_armor|itp_doesnt_cover_hair| itp_attach_armature| itp_fit_to_head|itp_civilian,0, 480 , 
 weight(1)|abundance(80)|head_armor(24)|body_armor(14)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_germanic ],
-["wolf_skin_1", "Wolfskin", [("wolf_skin_1",0)], itp_type_head_armor| itp_attach_armature| itp_fit_to_head|itp_civilian,0, 480 , 
+["wolf_skin_1", "Wolfskin", [("wolf_skin_1",0)], itp_type_head_armor|itp_doesnt_cover_hair| itp_attach_armature| itp_fit_to_head|itp_civilian,0, 480 , 
 weight(1)|abundance(80)|head_armor(24)|body_armor(14)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_germanic ],
-["wolf_skin_2", "Wolfskin", [("wolf_skin_2",0)], itp_type_head_armor| itp_attach_armature| itp_fit_to_head|itp_civilian,0, 480 , 
+["wolf_skin_2", "Wolfskin", [("wolf_skin_2",0)], itp_type_head_armor|itp_doesnt_cover_hair| itp_attach_armature| itp_fit_to_head|itp_civilian,0, 480 , 
 weight(1)|abundance(80)|head_armor(24)|body_armor(14)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_germanic ],
 
 ["turban_white_1", "Turban", [("turban_white_1",0),("turban_white_1_inv",ixmesh_inventory)], itp_merchandise|itp_attach_armature|itp_type_head_armor|itp_civilian,0,75, weight(1)|abundance(50)|head_armor(15)|body_armor(0)|leg_armor(0)|difficulty(0),imodbits_cloth, [], culture_sassanid ],
@@ -2260,7 +1802,6 @@ weight(1)|abundance(80)|head_armor(24)|body_armor(14)|leg_armor(6)|difficulty(0)
 
 ["boar_helmet", "Boar Cap", [("BL_boarhelmet",0)], itp_type_head_armor|itp_civilian ,0, 400, weight(2)|abundance(100)|head_armor(24)|body_armor(0)|leg_armor(0)|difficulty(0) ,imodbits_cloth ],
 ["goat_cap", "Goat Cap", [("goat_cap",0)], itp_type_head_armor|itp_civilian ,0, 400, weight(2)|abundance(100)|head_armor(24)|body_armor(0)|leg_armor(0)|difficulty(0) ,imodbits_cloth ],
-["wolf_helmet", "Wolf Cap", [("veles_wolfskin_headdress",0)], itp_type_head_armor|itp_civilian ,0, 400, weight(2)|abundance(100)|head_armor(24)|body_armor(0)|leg_armor(0)|difficulty(0) ,imodbits_cloth ],
 
 ["drengsted_helmet_leather", "Skeletal Helmet", [("drengsted_helmet_leather",0),("drengsted_helmet_leather_inv",ixmesh_inventory)], itp_merchandise|itp_attach_armature|itp_type_head_armor,0,450 , weight(1.0)|abundance(60)|head_armor(35)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], [fac_culture_4] ],
 ["drengsted_helmet_mail", "Skeletal Helmet with Mail", [("drengsted_helmet_mail",0),("drengsted_helmet_mail_inv",ixmesh_inventory)], itp_merchandise|itp_attach_armature|itp_type_head_armor,0,680 , weight(1.25)|abundance(50)|head_armor(39)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], [fac_culture_4] ],
@@ -2334,9 +1875,6 @@ weight(1)|abundance(80)|head_armor(24)|body_armor(14)|leg_armor(6)|difficulty(0)
 ["tarasovsky_1784_helmet_mail_2", "Eastern Spangenhelm with Mail", [("tarasovsky_1784_helmet_mail_2",0),("tarasovsky_1784_inv_2",ixmesh_inventory)], itp_merchandise|itp_attach_armature|itp_type_head_armor,0,1055 , weight(1.50)|abundance(45)|head_armor(44)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], culture_sassanid+culture_caucasian+culture_hunnic+culture_alan ],
 
 ["kerch_lamellenhelm", "Lamellenhelm", [("kerch_lamellenhelm",0),("kerch_lamellenhelm_inv",ixmesh_inventory)], itp_merchandise|itp_attach_armature|itp_type_head_armor,0,1050 , weight(2)|abundance(45)|head_armor(44)|body_armor(0)|leg_armor(0) ,imodbits_plate, [], culture_sassanid+culture_caucasian ],
-
-#Removed helmets, most are duplicates and are unneeded
-["ridge_helm_c", "Ridge Helmet", [("light_ridge",0)], itp_merchandise|itp_type_head_armor,0,1045 , weight(1.5)|abundance(120)|head_armor(44)|body_armor(0)|leg_armor(0)|difficulty(3) ,imodbits_plate, [], culture_roman ],
 
 ["haditha_1", "Band Helmet", [("haditha_1",0),("haditha_1_inv",ixmesh_inventory)], itp_type_head_armor|itp_attach_armature|itp_merchandise,0,1045 , weight(1.5)|abundance(40)|head_armor(44)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], culture_roman ],
 ["haditha_crested_1", "Band Helmet with Crest", [("haditha_crested_1",0),("haditha_crested_1_inv",ixmesh_inventory)], itp_type_head_armor|itp_attach_armature|itp_merchandise,0,1045 , weight(1.5)|abundance(40)|head_armor(44)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], culture_roman ],
@@ -2417,13 +1955,11 @@ weight(1)|abundance(80)|head_armor(24)|body_armor(14)|leg_armor(6)|difficulty(0)
 ["tarasovsky_782_mail", "Gilded Spangenhelm with Mail", [("tarasovsky_782_mail",0),("tarasovsky_782_mail_inv",ixmesh_inventory)], itp_type_head_armor|itp_attach_armature|itp_merchandise,0,1230, weight(2.0)|abundance(30)|head_armor(46)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], culture_hunnic ],
 
 #Roman
-["full_helm", "Ridge Helmet", [("burgh_helmet_a",0),("burgh_helmet_a_inv",ixmesh_inventory)],itp_attach_armature|itp_type_head_armor,0,1230 , weight(2.5)|abundance(30)|head_armor(48)|body_armor(0)|leg_armor(0)|difficulty(7) ,imodbits_plate, [], culture_roman ],
-
 ["iatrus_1", "Ridge Helmet", [("iatrus_helmet_1",0),("iatrus_helmet_1_inv",ixmesh_inventory)], itp_type_head_armor|itp_attach_armature|itp_merchandise,0,1230, weight(1.5)|abundance(30)|head_armor(48)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], culture_roman ],
-
 ["iatrus_plume_1", "Ridge Helmet with Crest", [("iatrus_helmet_plume_1",0),("iatrus_helmet_plume_1_inv",ixmesh_inventory)], itp_type_head_armor|itp_attach_armature|itp_merchandise,0,1230, weight(1.5)|abundance(30)|head_armor(48)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], culture_roman ],
 
-["dux_ridge_helm", "Ridge Helmet", [("dux_ridge_helm",0)], itp_merchandise| itp_type_head_armor,0,1230 , weight(3)|abundance(22)|head_armor(48)|body_armor(0)|leg_armor(0)|difficulty(7) ,imodbits_plate, [], culture_roman ],
+["refitted_ridge_helmet_1", "Refitted Ridge Helmet", [("refitted_ridge_helmet_1",0),("refitted_ridge_helmet_1_inv",ixmesh_inventory)], itp_type_head_armor|itp_attach_armature|itp_merchandise,0,1230, weight(1.5)|abundance(30)|head_armor(48)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], culture_roman ],
+["refitted_ridge_helmet_2", "Refitted Ridge Helmet", [("refitted_ridge_helmet_2",0),("refitted_ridge_helmet_2_inv",ixmesh_inventory)], itp_type_head_armor|itp_attach_armature|itp_merchandise,0,1230, weight(1.5)|abundance(30)|head_armor(48)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], culture_roman ],
 
 ["koblenz_helmet_light_old", "Old Ridge Helmet", [("koblenz_helmet_old",0),("koblenz_helmet_old_inv",ixmesh_inventory)], itp_merchandise|itp_attach_armature|itp_type_head_armor,0,1040 , weight(2.20)|abundance(25)|head_armor(47)|body_armor(0)|leg_armor(0)|difficulty(6) ,imodbits_plate ],
 
@@ -2494,8 +2030,6 @@ weight(1)|abundance(80)|head_armor(24)|body_armor(14)|leg_armor(6)|difficulty(0)
 ["intercisa_helmet_rich_plume_3", "Ornate Gilded Ridge Helmet with Crest", [("intercisa_helmet_rich_plume_3",0),("intercisa_helmet_rich_plume_3_inv",ixmesh_inventory)], itp_type_head_armor|itp_attach_armature|itp_merchandise,0,1550 , weight(1.5)|abundance(10)|head_armor(48)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], culture_roman ],
 ["intercisa_helmet_rich_plume_4", "Ornate Gilded Ridge Helmet with Crest", [("intercisa_helmet_rich_plume_4",0),("intercisa_helmet_rich_plume_4_inv",ixmesh_inventory)], itp_type_head_armor|itp_attach_armature|itp_merchandise,0,1550 , weight(1.5)|abundance(10)|head_armor(48)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], culture_roman ],
 
-["gold_ridge_helm", "Gilded Ridge Helmet", [("dux_ridge_helm_gold",0)], itp_merchandise| itp_type_head_armor,0,1550 , weight(2.5)|abundance(10)|head_armor(50)|body_armor(0)|leg_armor(0)|difficulty(7) ,imodbits_plate, [], culture_roman ],
-
 ["koblenz_helmet_2", "Gilded Ridge Helmet", [("koblenz_helmet_2",0),("koblenz_helmet_2_inv",ixmesh_inventory)], itp_merchandise|itp_attach_armature|itp_type_head_armor ,0,1550 , weight(2.5)|abundance(10)|head_armor(50)|body_armor(0)|leg_armor(0)|difficulty(7) ,imodbits_plate, [], culture_roman ],
 ["koblenz_crested_2", "Gilded Ridge Helmet with Crest", [("koblenz_helmet_plume_2",0),("koblenz_helmet_plume_2_inv",ixmesh_inventory)], itp_merchandise|itp_attach_armature|itp_type_head_armor ,0,1550 , weight(2.75)|abundance(10)|head_armor(50)|body_armor(0)|leg_armor(0)|difficulty(7) ,imodbits_plate, [], culture_roman ],
 
@@ -2514,6 +2048,9 @@ weight(1)|abundance(80)|head_armor(24)|body_armor(14)|leg_armor(6)|difficulty(0)
 ["berkasovo_2_helmet", "Ornate Ridge Helmet", [("berkasovo_2_helmet",0),("berkasovo_2_helmet_inv",ixmesh_inventory)], itp_merchandise|itp_attach_armature|itp_type_head_armor,0, 1850 , weight(2.5)|abundance(5)|head_armor(52)|body_armor(0)|leg_armor(0)|difficulty(7) ,imodbits_armor, [], culture_roman ], #berk 2
 
 #Ornate Ridge Helmets - rare and special helmets, for top tier lords + kings
+["toaoe_sassanid_helmet_1", "Old Persian Noble Helmet", [("toaoe_sassanid_helmet_1",0),("toaoe_sassanid_helmet_1_inv",ixmesh_inventory)], itp_merchandise|itp_attach_armature|itp_type_head_armor ,0, 2200 , weight(4.25)|abundance(1)|head_armor(53)|body_armor(0)|leg_armor(0)|difficulty(8),imodbits_armor, [], culture_sassanid ],
+["toaoe_sassanid_helmet_2", "Old Persian Noble Helmet", [("toaoe_sassanid_helmet_2",0),("toaoe_sassanid_helmet_2_inv",ixmesh_inventory)], itp_merchandise|itp_attach_armature|itp_type_head_armor ,0, 2200 , weight(4.25)|abundance(1)|head_armor(53)|body_armor(0)|leg_armor(0)|difficulty(8),imodbits_armor, [], culture_sassanid ],
+
 ["deurne_helmet", "Ornate Ridge Helmet", [("deurne_helmet",0),("deurne_helmet_inv",ixmesh_inventory)], itp_attach_armature|itp_type_head_armor   ,0, 2500 , weight(2.25)|abundance(5)|head_armor(54)|body_armor(0)|leg_armor(0)|difficulty(7) ,imodbits_armor, [], culture_roman ],
 ["berk_helmet", "Jewelled Ornate Ridge Helmet", [("berk_helmet",0),("berk_helmet_inv",ixmesh_inventory)], itp_attach_armature|itp_type_head_armor   ,0, 2500 , weight(2.75)|abundance(5)|head_armor(54)|body_armor(0)|leg_armor(0)|difficulty(7) ,imodbits_armor, [], culture_roman ],
 
@@ -2534,6 +2071,13 @@ weight(1)|abundance(80)|head_armor(24)|body_armor(14)|leg_armor(6)|difficulty(0)
 ["crown_2", "Roman Emperor's Crown", [("roman_crown_1",0)], itp_unique| itp_type_head_armor |itp_civilian | itp_doesnt_cover_hair,0,2150 , weight(1.5)|abundance(10)|head_armor(12)|body_armor(0)|leg_armor(0)|difficulty(0) ,imodbits_plate , [], culture_roman ],
 ["crown_3", "Shah's Crown", [("sassanid_crown",0)], itp_unique| itp_type_head_armor|itp_civilian,0,2150 , weight(1.5)|abundance(10)|head_armor(12)|body_armor(0)|leg_armor(0)|difficulty(0) ,imodbits_plate ],
 ["crown_4", "Crown", [("sib_couronne",0)], itp_unique| itp_type_head_armor | itp_doesnt_cover_hair |itp_civilian,0,2150 , weight(1.5)|abundance(10)|head_armor(12)|body_armor(0)|leg_armor(0)|difficulty(0) ,imodbits_plate ],
+
+#UNUSED / FOR SCENE PROPS
+["ridge_helm_c", "Ridge Helmet", [("light_ridge",0)], itp_type_head_armor,0,1045 , weight(1.5)|abundance(120)|head_armor(44)|body_armor(0)|leg_armor(0)|difficulty(3) ,imodbits_plate, [], culture_roman ],
+["full_helm", "Ridge Helmet", [("burgh_helmet_a",0),("burgh_helmet_a_inv",ixmesh_inventory)],itp_attach_armature|itp_type_head_armor,0,1230 , weight(2.5)|abundance(30)|head_armor(48)|body_armor(0)|leg_armor(0)|difficulty(7) ,imodbits_plate, [], culture_roman ],
+["dux_ridge_helm", "Ridge Helmet", [("dux_ridge_helm",0)], itp_type_head_armor,0,1230 , weight(3)|abundance(22)|head_armor(48)|body_armor(0)|leg_armor(0)|difficulty(7) ,imodbits_plate, [], culture_roman ],
+["gold_ridge_helm", "Gilded Ridge Helmet", [("dux_ridge_helm_gold",0)], itp_type_head_armor,0,1550 , weight(2.5)|abundance(10)|head_armor(50)|body_armor(0)|leg_armor(0)|difficulty(7) ,imodbits_plate, [], culture_roman ],
+
 
 #TODO:
 #WEAPONS
@@ -2619,8 +2163,8 @@ weight(1)|abundance(80)|head_armor(24)|body_armor(14)|leg_armor(6)|difficulty(0)
 #rich spathas ~31
 
 #Regular spathas
-["sword_viking_1", "Spatha", [("behmer_V",0),("behmer_V_scabbard", ixmesh_carry)], itp_type_one_handed_wpn|itp_merchandise|itp_primary, itc_longsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn, 
- 950 , weight(1.25)|abundance(60)|difficulty(0)|spd_rtng(89) | weapon_length(93)|swing_damage(27 , cut) | thrust_damage(20 ,  pierce),imodbits_sword_high, [], culture_germanic ], #generic
+["sword_viking_1", "Spatha", [("arhos_spatha_7",0),("arhos_spatha_7_scabbard", ixmesh_carry)], itp_type_one_handed_wpn|itp_merchandise|itp_primary, itc_longsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn, 
+ 950 , weight(1.45)|abundance(60)|difficulty(0)|spd_rtng(92) | weapon_length(71)|swing_damage(28 , cut) | thrust_damage(19 ,  pierce),imodbits_sword_high, [], culture_germanic+culture_gothic ], #generic
 
 ["sword_medieval_a", "Spatha", [("feltwell_spatha",0),("feltwell_spatha_scabbard", ixmesh_carry),("feltwell_spatha_rusty",imodbits_bad)], itp_type_one_handed_wpn|itp_merchandise|itp_primary, itc_longsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn,
  950 , weight(1.25)|abundance(60)|difficulty(0)|spd_rtng(90) | weapon_length(85)|swing_damage(28 , cut) | thrust_damage(18 ,  pierce),imodbits_sword_high, [], culture_germanic+culture_gothic+culture_roman ], #primarily roman
@@ -2631,8 +2175,8 @@ weight(1)|abundance(80)|head_armor(24)|body_armor(14)|leg_armor(6)|difficulty(0)
 ["sword_medieval_b_small", "Short Pictish Spatha", [("pict_sword_1",0),("pict_sword_1_scab", ixmesh_carry)], itp_type_one_handed_wpn|itp_merchandise|itp_primary, itc_longsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn,
  950 , weight(1)|abundance(60)|difficulty(0)|spd_rtng(92) | weapon_length(77)|swing_damage(25, cut) | thrust_damage(21, pierce),imodbits_sword_high, [], culture_celtic ], #celtic/pictish
 
-["sword_medieval_c", "Spatha", [("OrnateSpatha_S_ND",0),("ornatespatha2_scab", ixmesh_carry)], itp_type_one_handed_wpn|itp_merchandise|itp_primary, itc_longsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn,
- 950 , weight(1.5)|abundance(60)|difficulty(0)|spd_rtng(88) | weapon_length(96)|swing_damage(28 , cut) | thrust_damage(16 ,  pierce),imodbits_sword_high, [], culture_germanic+culture_gothic ], #can be used by anyone
+["sword_medieval_c", "Spatha", [("arhos_spatha_1",0),("arhos_spatha_1_scabbard", ixmesh_carry)], itp_type_one_handed_wpn|itp_merchandise|itp_primary, itc_longsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn, 
+ 950 , weight(1.45)|abundance(60)|difficulty(0)|spd_rtng(89) | weapon_length(92)|swing_damage(27 , cut) | thrust_damage(20 ,  pierce),imodbits_sword_high, [], culture_germanic+culture_gothic ], #generic
 
 ["sword_medieval_c_small", "Short Pictish Spatha", [("pict_sword_2",0),("pict_sword_2_scab", ixmesh_carry)], itp_type_one_handed_wpn|itp_merchandise|itp_primary, itc_longsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn,
  950 , weight(1)|abundance(60)|difficulty(0)|spd_rtng(94) | weapon_length(60)|swing_damage(25, cut) | thrust_damage(21 ,  pierce),imodbits_sword_high, [], culture_celtic ], #celtic/pictish
@@ -2655,7 +2199,7 @@ weight(1)|abundance(80)|head_armor(24)|body_armor(14)|leg_armor(6)|difficulty(0)
 ["sword_khergit_1", "Spatha", [("proto_sabre",0),("proto_sabre_scabbard", ixmesh_carry)], itp_type_one_handed_wpn|itp_merchandise|itp_primary, itc_scimitar|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn,
  950 , weight(1.25)|abundance(60)|difficulty(0)|spd_rtng(90) | weapon_length(95)|swing_damage(27 , cut),imodbits_sword_high, [], culture_hunnic ],
 
-["hunnic_spatha", "Spatha", [("hunnic_spatha",0),("hunnic_spatha_scabbard", ixmesh_carry)], itp_type_one_handed_wpn|itp_merchandise|itp_primary, itc_longsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn,
+["hunnic_spatha", "Hunnic Spatha", [("hunnic_spatha",0),("hunnic_spatha_scabbard", ixmesh_carry)], itp_type_one_handed_wpn|itp_merchandise|itp_primary, itc_longsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn,
  950 , weight(1.5)|abundance(60)|difficulty(0)|spd_rtng(88) | weapon_length(97)|swing_damage(28 , cut) | thrust_damage(19 ,  pierce),imodbits_sword_high, [], culture_hunnic+culture_alan ],
 
 ["samad_sword", "Persian Spatha", [("samad_sword",0),("samad_sword_scabbard", ixmesh_carry)], itp_type_one_handed_wpn|itp_merchandise|itp_primary, itc_longsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn, #used by arab, sassanid cavalry forces (inf for sassanids only!)
@@ -2664,30 +2208,39 @@ weight(1)|abundance(80)|head_armor(24)|body_armor(14)|leg_armor(6)|difficulty(0)
 ["baltic_sword_1", "Baltic Spatha", [("baltic_sword_1",0),("baltic_sword_1_scabbard", ixmesh_carry)], itp_type_one_handed_wpn|itp_primary, itc_longsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn,
  950 , weight(1.85)|abundance(60)|difficulty(0)|spd_rtng(87) | weapon_length(107)|swing_damage(28 , cut) | thrust_damage(18 ,  pierce),imodbits_sword_high ],
 
-["ringsword_1", "Spatha", [("ringsword_long",0),("ringsword_long_scabbard", ixmesh_carry)], itp_type_one_handed_wpn|itp_primary, itc_longsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn,
- 950 , weight(1.85)|abundance(60)|difficulty(0)|spd_rtng(89) | weapon_length(92)|swing_damage(29 , cut) | thrust_damage(16 ,  pierce),imodbits_sword_high ],
+["ringsword_1", "Spatha", [("ringsword_long",0),("ringsword_long_scabbard", ixmesh_carry)], itp_merchandise|itp_type_one_handed_wpn|itp_primary, itc_longsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn,
+ 950 , weight(1.85)|abundance(60)|difficulty(0)|spd_rtng(89) | weapon_length(92)|swing_damage(29 , cut) | thrust_damage(16 ,  pierce),imodbits_sword_high, [], culture_alan ],
 
-["irish_spatha_1", "Irish Spatha", [("irish_spatha_1",0),("irish_spatha_1_scabbard", ixmesh_carry)], itp_type_one_handed_wpn|itp_primary, itc_longsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn,
+["irish_spatha_1", "Hiberian Spatha", [("irish_spatha_1",0),("irish_spatha_1_scabbard", ixmesh_carry)], itp_type_one_handed_wpn|itp_primary, itc_longsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn,
  1000 , weight(1.65)|abundance(60)|difficulty(0)|spd_rtng(90) | weapon_length(82)|swing_damage(27 , cut) | thrust_damage(20 ,  pierce),imodbits_sword_high ],
 
 ["arab_machete", "Arab Machete", [("arab_machete",0)], itp_merchandise|itp_type_one_handed_wpn|itp_primary, itc_scimitar|itcf_carry_sword_left_hip, #cutting sword
  800 , weight(1.3)|abundance(40)|difficulty(0)|spd_rtng(92) | weapon_length(76)|swing_damage(29 , cut) | thrust_damage(0 ,  pierce),imodbits_sword_high, [], culture_sassanid ],
 
+["ballana_spatha", "Semi-Spatha", [("ballana_spatha",0),("ballana_spatha_scabbard", ixmesh_carry),("ballana_spatha_rusty",imodbits_bad)], itp_merchandise|itp_type_one_handed_wpn|itp_primary, itc_scimitar|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn, #cutting sword
+ 825 , weight(1.4)|abundance(50)|difficulty(0)|spd_rtng(90) | weapon_length(73)|swing_damage(30 , cut) | thrust_damage(0 ,  pierce),imodbits_sword_high, [], culture_african+culture_roman ],
+
+["aquincum_spatha_1", "Spatha", [("aquincum_spatha_1",0),("aquincum_spatha_1_scabbard", ixmesh_carry)], itp_merchandise|itp_type_one_handed_wpn|itp_primary, itc_longsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn, 
+ 950 , weight(1.25)|abundance(60)|difficulty(0)|spd_rtng(91) | weapon_length(80)|swing_damage(28 , cut)| thrust_damage(19 ,  pierce),imodbits_sword_high, [], culture_roman+culture_gothic ],
+
 #Rich/Ornate Spathas
 ["tetraxitae_spatha", "Rich Tetraxitae Spatha", [("tetraxitae_spatha",0),("tetraxitae_spatha_scabbard", ixmesh_carry)], itp_type_one_handed_wpn|itp_merchandise|itp_primary, itc_longsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn, 
 1700 , weight(1.25)|abundance(30)|difficulty(0)|spd_rtng(90) | weapon_length(90)|swing_damage(30 , cut) | thrust_damage(24 ,  pierce),imodbits_sword_high, [], culture_hunnic+culture_caucasian ], #for the crimean goths/tetraxitae
 
-["sword_viking_2", "Rich Germanic Spatha", [("behmer_V_rich",0),("behmer_V_rich_scabbard", ixmesh_carry)], itp_type_one_handed_wpn|itp_merchandise|itp_primary, itc_longsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn, 
-1700 , weight(1.25)|abundance(30)|difficulty(0)|spd_rtng(89) | weapon_length(93)|swing_damage(31 , cut) | thrust_damage(23 ,  pierce),imodbits_sword_high, [], culture_germanic+culture_gothic ], #generic
+["sword_viking_2", "Rich Germanic Spatha", [("arhos_spatha_6",0),("arhos_spatha_6_scabbard", ixmesh_carry)], itp_type_one_handed_wpn|itp_merchandise|itp_primary, itc_longsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn, 
+1700 , weight(1.25)|abundance(30)|difficulty(0)|spd_rtng(89) | weapon_length(96)|swing_damage(31 , cut) | thrust_damage(23 ,  pierce),imodbits_sword_high, [], culture_germanic+culture_gothic ], #generic
 
 ["sword_viking_2_small", "Rich Pictish Spatha", [("pict_sword_rich",0),("pict_sword_rich_scab", ixmesh_carry)], itp_type_one_handed_wpn|itp_merchandise|itp_primary, itc_longsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn, 
 1700 , weight(1.25)|abundance(30)|difficulty(0)|spd_rtng(92) | weapon_length(84)|swing_damage(29 , cut) | thrust_damage(25 ,  pierce),imodbits_sword_high, [], culture_celtic ], #celtic/pictish
 
-["sword_viking_3", "Rich Spatha", [("OrnateSpatha_G_D",0),("ornatespatha1_scab", ixmesh_carry)], itp_type_one_handed_wpn|itp_merchandise|itp_primary, itc_longsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn,
-1700 , weight(1.5)|abundance(30)|difficulty(0)|spd_rtng(88) | weapon_length(96)|swing_damage(31 , cut) | thrust_damage(20 ,  pierce),imodbits_sword_high, [], culture_germanic+culture_gothic ], #germanic
+["sword_viking_3", "Rich Spatha", [("arhos_spatha_4",0),("arhos_spatha_4_scabbard", ixmesh_carry)], itp_type_one_handed_wpn|itp_merchandise|itp_primary, itc_longsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn,
+1700 , weight(1.5)|abundance(30)|difficulty(0)|spd_rtng(90) | weapon_length(92)|swing_damage(31 , cut) | thrust_damage(20 ,  pierce),imodbits_sword_high, [], culture_germanic+culture_gothic ], #germanic
 
-["sword_viking_3_small", "Ornate Spatha", [("spathabarbaro_demasc",0),("spathabarbaro_scab", ixmesh_carry)], itp_type_one_handed_wpn|itp_merchandise|itp_primary, itc_longsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn, 
-1700 , weight(1.25)|abundance(30)|difficulty(0)|spd_rtng(91) | weapon_length(86)|swing_damage(30 , cut) | thrust_damage(22 ,  pierce),imodbits_sword_high, [], culture_germanic+culture_gothic ],
+["sword_viking_3_small", "Rich Spatha", [("arhos_spatha_3",0),("arhos_spatha_3_scabbard", ixmesh_carry)], itp_type_one_handed_wpn|itp_merchandise|itp_primary, itc_longsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn, 
+1700 , weight(1.25)|abundance(30)|difficulty(0)|spd_rtng(90) | weapon_length(92)|swing_damage(29 , cut) | thrust_damage(23 ,  pierce),imodbits_sword_high, [], culture_germanic+culture_gothic ],
+
+["sword_of_war", "Rich Spatha", [("arhos_spatha_5",0),("arhos_spatha_5_scabbard", ixmesh_carry)], itp_type_one_handed_wpn|itp_merchandise|itp_primary, itc_longsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn, 
+1700 , weight(1.25)|abundance(30)|difficulty(0)|spd_rtng(90) | weapon_length(83)|swing_damage(30 , cut) | thrust_damage(21 ,  pierce),imodbits_sword_high, [], culture_germanic+culture_gothic ],
 
 ["sword_viking_c_long", "Rich Spatha", [("kragenhul_spatha_rich",0),("kragenhul_spatha_rich_scabbard", ixmesh_carry)], itp_type_one_handed_wpn|itp_merchandise|itp_primary, itc_longsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn,
 1700 , weight(1.5)|abundance(30)|difficulty(0)|spd_rtng(90) | weapon_length(85)|swing_damage(30 , cut) | thrust_damage(20 ,  pierce),imodbits_sword_high, [], culture_germanic+culture_gothic ],
@@ -2701,8 +2254,8 @@ weight(1)|abundance(80)|head_armor(24)|body_armor(14)|leg_armor(6)|difficulty(0)
 ["pictish_sword", "Rich Celtic Spatha", [("CelticShort1_1_rich",0),("CelticShort1_1_rich_Scab", ixmesh_carry)], itp_type_one_handed_wpn|itp_merchandise|itp_primary, itc_longsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn, 
 1700 , weight(1.25)|abundance(30)|difficulty(0)|spd_rtng(93) | weapon_length(69)|swing_damage(29 , cut) | thrust_damage(20 ,  pierce),imodbits_sword_high, [], culture_celtic ],
 
-["sword_khergit_2", "Rich Spatha", [("aquincum_spatha",0),("aquincum_spatha_scabbard", ixmesh_carry)], itp_merchandise|itp_type_one_handed_wpn|itp_primary, itc_longsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn, 
-1700 , weight(1.25)|abundance(30)|difficulty(0)|spd_rtng(91) | weapon_length(75)|swing_damage(31 , cut) | thrust_damage(21 ,  pierce),imodbits_sword_high, [], culture_gothic+culture_roman ],
+["sword_khergit_2", "Rich Spatha", [("arhos_spatha_2",0),("arhos_spatha_2_scabbard", ixmesh_carry)], itp_merchandise|itp_type_one_handed_wpn|itp_primary, itc_longsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn,
+1700 , weight(1.25)|abundance(30)|difficulty(0)|spd_rtng(91) | weapon_length(83)|swing_damage(28 , cut) | thrust_damage(25 ,  pierce),imodbits_sword_high, [], culture_gothic+culture_roman ],
 
 ["sword_khergit_4", "Rich Spatha", [("samson_spatha_1_rich",0),("samson_spatha_1_rich_scabbard", ixmesh_carry)], itp_merchandise|itp_type_one_handed_wpn|itp_primary, itc_longsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn, 
 1700 , weight(1.5)|abundance(30)|difficulty(0)|spd_rtng(90) | weapon_length(83)|swing_damage(31 , cut)| thrust_damage(20 ,  pierce),imodbits_sword_high, [], culture_roman ],
@@ -2712,6 +2265,9 @@ weight(1)|abundance(80)|head_armor(24)|body_armor(14)|leg_armor(6)|difficulty(0)
 
 ["samson_spatha_2_rich", "Rich Spatha", [("samson_spatha_2_rich",0),("samson_spatha_2_rich_scabbard", ixmesh_carry)], itp_type_one_handed_wpn|itp_merchandise|itp_primary, itc_longsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn,
 1700 , weight(1.5)|abundance(30)|difficulty(0)|spd_rtng(90) | weapon_length(86)|swing_damage(30 , cut) | thrust_damage(20 ,  pierce),imodbits_sword_high, [], culture_germanic+culture_gothic+culture_roman ], #roman
+
+["aquincum_spatha_2", "Rich Spatha", [("aquincum_spatha_2",0),("aquincum_spatha_2_scabbard", ixmesh_carry)], itp_merchandise|itp_type_one_handed_wpn|itp_primary, itc_longsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn, 
+1700 , weight(1.25)|abundance(30)|difficulty(0)|spd_rtng(91) | weapon_length(80)|swing_damage(31 , cut) | thrust_damage(21 ,  pierce),imodbits_sword_high, [], culture_gothic+culture_roman ],
 
 ["beja_spatha", "Ornate Spatha", [("beja_spatha",0),("beja_spatha_scabbard", ixmesh_carry)], itp_merchandise|itp_type_one_handed_wpn|itp_primary, itc_longsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn, 
 1800 , weight(1.5)|abundance(30)|difficulty(0)|spd_rtng(89) | weapon_length(95)|swing_damage(31 , cut)| thrust_damage(21 ,  pierce),imodbits_sword_high, [], culture_germanic+culture_gothic+culture_hunnic+culture_alan ],
@@ -2728,15 +2284,17 @@ weight(1)|abundance(80)|head_armor(24)|body_armor(14)|leg_armor(6)|difficulty(0)
 ["ingushetia_spatha", "Rich Long Spatha", [("ingushetia_spatha",0),("ingushetia_spatha_scabbard", ixmesh_carry)], itp_type_two_handed_wpn|itp_merchandise|itp_primary, itc_bastardsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn, #used by sassanid, hunnic, alan lords (maybe throw in a caucasian too)
 2000 , weight(1.75)|abundance(10)|difficulty(8)|spd_rtng(89) | weapon_length(94)|swing_damage(33 , cut) | thrust_damage(19 ,  pierce),imodbits_sword_high, [], culture_sassanid ], #sassanids, caucasians, alans, huns
 
-#others
-["sword_of_war", "Old Germanic Sword", [("ancient_germanic_sword",0),("ancient_germanic_sword_scab", ixmesh_carry)], itp_type_one_handed_wpn|itp_primary, itc_longsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn,
- 950 , weight(1.25)|abundance(10)|difficulty(6)|spd_rtng(90) | weapon_length(80)|swing_damage(29 , cut) | thrust_damage(16 ,  pierce),imodbits_sword_high ],
+["kruglitsa_spatha", "Hunnic Long Spatha", [("kruglitsa_spatha",0),("kruglitsa_spatha_scabbard", ixmesh_carry)], itp_type_two_handed_wpn|itp_merchandise|itp_primary, itc_bastardsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn, #hunnic 1h/2h sword
+2000 , weight(2.25)|abundance(12)|difficulty(10)|spd_rtng(88) | weapon_length(97)|swing_damage(33 , cut) | thrust_damage(20 ,  pierce),imodbits_sword_high, [], culture_hunnic ], 
 
 ["sassanid_greatsword", "Persian Champion Sword", [("sassanid_greatsword",0)], itp_merchandise|itp_type_two_handed_wpn|itp_two_handed|itp_primary|itp_cant_use_on_horseback, itc_greatsword|itcf_carry_sword_back,
  3400 , weight(2.75)|abundance(1)|difficulty(13)|spd_rtng(85) | weapon_length(131)|swing_damage(38 , cut) | thrust_damage(25 ,  pierce),imodbits_sword_high, [], culture_sassanid ],
 
 ["borok_spatha", "Hunnic War Sword", [("borok_spatha",0),("borok_spatha_scabbard", ixmesh_carry)], itp_unique|itp_type_two_handed_wpn|itp_two_handed|itp_primary, itc_greatsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn,
  3800 , weight(2.5)|abundance(1)|difficulty(13)|spd_rtng(86) | weapon_length(101)|swing_damage(36 , cut) | thrust_damage(26 ,  pierce),imodbits_sword_high, [], culture_hunnic ],
+
+["spathabarbaro_demasc", "Ornate Spatha", [("spathabarbaro_demasc",0),("spathabarbaro_scab", ixmesh_carry)], itp_type_one_handed_wpn|itp_merchandise|itp_primary, itc_longsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn, 
+1700 , weight(1.25)|abundance(30)|difficulty(0)|spd_rtng(91) | weapon_length(86)|swing_damage(30 , cut) | thrust_damage(22 ,  pierce),imodbits_sword_high, [], culture_germanic+culture_gothic ],
 
 #princely
 #taurapilis spatha (aestii king)
@@ -2793,6 +2351,9 @@ weight(1)|abundance(80)|head_armor(24)|body_armor(14)|leg_armor(6)|difficulty(0)
 
 ["late_roman_spear_1","Contus", [("late_roman_spear_1_160",0)], itp_type_polearm|itp_merchandise|itp_offset_lance|itp_primary|itp_secondary|itp_no_blur|itp_wooden_parry, itc_spear_upstab, 460 , weight(2.5)|abundance(100)|difficulty(6)|spd_rtng(94) | weapon_length(160)|swing_damage(19 , blunt) | thrust_damage(30 ,  pierce),imodbits_polearm, [], culture_roman ],
 ["late_roman_spear_2","Contus", [("late_roman_spear_2_134",0)], itp_type_polearm|itp_merchandise|itp_offset_lance|itp_primary|itp_secondary|itp_no_blur|itp_wooden_parry, itc_spear_upstab, 460 , weight(2.25)|abundance(100)|difficulty(6)|spd_rtng(96) | weapon_length(134)|swing_damage(18 , blunt) | thrust_damage(29 ,  pierce),imodbits_polearm, [], culture_roman ],
+
+["pictish_spear_1", "Pictish War Spear", [("pictish_spear_1",0)], itp_type_polearm|itp_offset_lance|itp_merchandise|itp_primary|itp_secondary|itp_no_blur|itp_wooden_parry, itc_spear_upstab,440 , weight(2.25)|abundance(100)|difficulty(8)|spd_rtng(94) | weapon_length(156)|swing_damage(20 , blunt) | thrust_damage(30 ,  pierce),imodbits_polearm, [], culture_celtic ],
+["pictish_spear_2", "Pictish War Spear", [("pictish_spear_2",0)], itp_type_polearm|itp_offset_lance|itp_merchandise|itp_primary|itp_secondary|itp_no_blur|itp_wooden_parry, itc_spear_upstab,440 , weight(1.65)|abundance(100)|difficulty(8)|spd_rtng(96) | weapon_length(133)|swing_damage(25 , cut) | thrust_damage(28 ,  pierce),imodbits_polearm, [], culture_celtic ],
 
 ["spear_sword", "Long Cutting Spear", [("spear_sword",0)], itp_couchable|itp_type_polearm|itp_offset_lance|itp_primary|itp_crush_through|itp_two_handed|itp_wooden_parry, itc_sword_spear,670 , weight(2.5)|abundance(100)|difficulty(8)|spd_rtng(92) | weapon_length(178)|swing_damage(32 , cut) | thrust_damage(27 ,  pierce),imodbits_polearm ], #to be used by the goths
 
@@ -2997,6 +2558,9 @@ weight(1)|abundance(80)|head_armor(24)|body_armor(14)|leg_armor(6)|difficulty(0)
 ["socketed_axe", "Socketed Axe", [("socketed_axe",0)], itp_type_one_handed_wpn| itp_primary|itp_secondary|itp_bonus_against_shield|itp_wooden_parry, itc_scimitar|itcf_carry_axe_left_hip,
  440 , weight(1.5)|difficulty(6)|spd_rtng(93) | weapon_length(47)|swing_damage(28 , cut) | thrust_damage(0 ,  pierce),imodbits_axe ],
 
+["iberian_axe_1",  "Iberian Axe", [("iberian_axe_1_54",0)], itp_type_one_handed_wpn|itp_merchandise|itp_primary|itp_wooden_parry, itc_scimitar|itcf_carry_mace_left_hip,
+ 450 , weight(1.35)|difficulty(7)|spd_rtng(90) | weapon_length(54)|swing_damage(30 , cut) | thrust_damage(0 ,  pierce),imodbits_axe, [], [fac_culture_empire] ],
+
 ["bearded_axe_1",  "Shortened Battle Axe", [("axe_d",0)], itp_type_one_handed_wpn|itp_merchandise|itp_primary|itp_wooden_parry, itc_scimitar|itcf_carry_mace_left_hip,
  420 , weight(1.25)|difficulty(7)|spd_rtng(90) | weapon_length(52)|swing_damage(30 , cut) | thrust_damage(0 ,  pierce),imodbits_axe ],
 ["bearded_axe_2", "Shortened Battle Axe", [("bb_slavic_bearded_axe_3",0)], itp_type_one_handed_wpn| itp_primary|itp_secondary|itp_bonus_against_shield|itp_wooden_parry, itc_scimitar|itcf_carry_axe_left_hip,
@@ -3090,8 +2654,14 @@ weight(1)|abundance(80)|head_armor(24)|body_armor(14)|leg_armor(6)|difficulty(0)
 ["battle_knife_2", "Battle Knife", [("battle_knife_2",0),("battle_knife_2_scabbard", ixmesh_carry)], itp_type_one_handed_wpn|itp_primary|itp_secondary|itp_no_parry, itc_dagger|itcf_carry_dagger_front_left|itcf_show_holster_when_drawn,
 500 , weight(0.5)|difficulty(0)|spd_rtng(100) | weapon_length(41)|swing_damage(26 , cut) | thrust_damage(20 ,  pierce),imodbits_sword ],
 
+#unique weapons for venedi
+["battle_scythe_1", "Battle Scythe", [("battle_scythe_1",0)], itp_type_one_handed_wpn|itp_primary|itp_secondary|itp_bonus_against_shield|itp_wooden_parry, itc_scimitar|itcf_carry_axe_left_hip,
+405 , weight(1.25)|difficulty(0)|spd_rtng(100) | weapon_length(41)|swing_damage(22 , pierce) | thrust_damage(0 ,  pierce),imodbits_none ],
+["battle_scythe_2", "Battle Scythe", [("battle_scythe_2",0)], itp_type_one_handed_wpn|itp_primary|itp_secondary|itp_bonus_against_shield|itp_wooden_parry, itc_scimitar|itcf_carry_axe_left_hip,
+405 , weight(1.15)|difficulty(0)|spd_rtng(100) | weapon_length(36)|swing_damage(20 , pierce) | thrust_damage(0 ,  pierce),imodbits_none ],
+
 #Maces
-["mace_sassanid", "Sassanid Mace", [("sughdianmace",0)], itp_merchandise|itp_type_one_handed_wpn|itp_can_knock_down| itp_primary|itp_wooden_parry, itc_scimitar|itcf_carry_mace_left_hip,
+["mace_sassanid", "Persian Mace", [("sughdianmace",0)], itp_merchandise|itp_type_one_handed_wpn|itp_can_knock_down| itp_primary|itp_wooden_parry, itc_scimitar|itcf_carry_mace_left_hip,
  800 , weight(3.5)|difficulty(8)|abundance(10)|spd_rtng(84) | weapon_length(55)|swing_damage(30 , blunt) | thrust_damage(0 ,  pierce),imodbits_mace, [], culture_sassanid ],
 ["mace_roman_1", "Roman Mace", [("late_roman_mace_1",0)], itp_merchandise|itp_type_one_handed_wpn|itp_can_knock_down| itp_primary|itp_wooden_parry, itc_scimitar|itcf_carry_mace_left_hip,
  700 , weight(3)|difficulty(8)|abundance(10)|spd_rtng(84) | weapon_length(67)|swing_damage(28 , blunt) | thrust_damage(0 ,  pierce),imodbits_mace, [], culture_roman ],
@@ -3350,6 +2920,7 @@ weight(1)|abundance(80)|head_armor(24)|body_armor(14)|leg_armor(6)|difficulty(0)
 ["round_shield_germanic_23", "Round Shield", [("round_shield_3",0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_round_shield, 450 , weight(3.5)|hit_points(420)|body_armor(10)|spd_rtng(86)|shield_width(45),imodbits_shield, [(ti_on_init_item,[(cur_item_set_material, "str_round_shields_germanic_23"),]),], culture_germanic+culture_gothic ],
 ["round_shield_germanic_24", "Round Shield", [("round_shield_3",0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_round_shield, 450 , weight(3.5)|hit_points(420)|body_armor(10)|spd_rtng(86)|shield_width(45),imodbits_shield, [(ti_on_init_item,[(cur_item_set_material, "str_round_shields_germanic_24"),]),], culture_germanic+culture_gothic ],
 ["round_shield_germanic_25", "Round Shield", [("round_shield_2",0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_round_shield, 450 , weight(3.5)|hit_points(420)|body_armor(10)|spd_rtng(86)|shield_width(45),imodbits_shield, [(ti_on_init_item,[(cur_item_set_material, "str_round_shields_germanic_25"),]),], culture_germanic+culture_gothic ],
+["round_shield_germanic_26", "Round Shield", [("round_shield_3",0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_round_shield, 450 , weight(3.5)|hit_points(420)|body_armor(10)|spd_rtng(86)|shield_width(45),imodbits_shield, [(ti_on_init_item,[(cur_item_set_material, "str_round_shields_germanic_26"),]),], culture_germanic+culture_gothic ],
 
 ["round_shield_germanic_small_1", "Round Shield", [("round_shield_small_3",0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_round_shield, 450 , weight(2.0)|hit_points(400)|body_armor(12)|spd_rtng(90)|shield_width(35),imodbits_shield, [(ti_on_init_item,[(cur_item_set_material, "str_round_shields_germanic_1"),]),], culture_germanic+culture_gothic ],
 ["round_shield_germanic_small_2", "Round Shield", [("round_shield_small_1",0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_round_shield, 450 , weight(2.0)|hit_points(400)|body_armor(12)|spd_rtng(90)|shield_width(35),imodbits_shield, [(ti_on_init_item,[(cur_item_set_material, "str_round_shields_germanic_2"),]),], culture_germanic+culture_gothic ],
@@ -3376,6 +2947,7 @@ weight(1)|abundance(80)|head_armor(24)|body_armor(14)|leg_armor(6)|difficulty(0)
 ["round_shield_germanic_small_23", "Round Shield", [("round_shield_small_3",0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_round_shield, 450 , weight(2.0)|hit_points(400)|body_armor(12)|spd_rtng(90)|shield_width(35),imodbits_shield, [(ti_on_init_item,[(cur_item_set_material, "str_round_shields_germanic_23"),]),], culture_germanic+culture_gothic ],
 ["round_shield_germanic_small_24", "Round Shield", [("round_shield_small_3",0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_round_shield, 450 , weight(2.0)|hit_points(400)|body_armor(12)|spd_rtng(90)|shield_width(35),imodbits_shield, [(ti_on_init_item,[(cur_item_set_material, "str_round_shields_germanic_24"),]),], culture_germanic+culture_gothic ],
 ["round_shield_germanic_small_25", "Round Shield", [("round_shield_small_2",0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_round_shield, 450 , weight(2.0)|hit_points(400)|body_armor(12)|spd_rtng(90)|shield_width(35),imodbits_shield, [(ti_on_init_item,[(cur_item_set_material, "str_round_shields_germanic_25"),]),], culture_germanic+culture_gothic ],
+["round_shield_germanic_small_26", "Round Shield", [("round_shield_small_3",0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_round_shield, 450 , weight(2.0)|hit_points(400)|body_armor(12)|spd_rtng(90)|shield_width(35),imodbits_shield, [(ti_on_init_item,[(cur_item_set_material, "str_round_shields_germanic_26"),]),], culture_germanic+culture_gothic ],
 
 #Roman
 ["round_shield_roman_1", "Round Shield", [("round_shield_3",0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_round_shield, 450 , weight(3.5)|hit_points(420)|body_armor(10)|spd_rtng(86)|shield_width(45),imodbits_shield, [(ti_on_init_item,[(cur_item_set_material, "str_round_shields_roman_1"),]),], culture_roman ],
@@ -3519,6 +3091,7 @@ weight(1)|abundance(80)|head_armor(24)|body_armor(14)|leg_armor(6)|difficulty(0)
 ["concave_shield_germanic_23", "Round Shield", [("concave_shield_3",0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_round_shield, 450 , weight(3.5)|hit_points(500)|body_armor(12)|spd_rtng(88)|shield_width(42),imodbits_shield, [(ti_on_init_item,[(cur_item_set_material, "str_round_shields_germanic_23"),]),], culture_germanic+culture_gothic ],
 ["concave_shield_germanic_24", "Round Shield", [("concave_shield_3",0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_round_shield, 450 , weight(3.5)|hit_points(500)|body_armor(12)|spd_rtng(88)|shield_width(42),imodbits_shield, [(ti_on_init_item,[(cur_item_set_material, "str_round_shields_germanic_24"),]),], culture_germanic+culture_gothic ],
 ["concave_shield_germanic_25", "Round Shield", [("concave_shield_2",0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_round_shield, 450 , weight(3.5)|hit_points(500)|body_armor(12)|spd_rtng(88)|shield_width(42),imodbits_shield, [(ti_on_init_item,[(cur_item_set_material, "str_round_shields_germanic_25"),]),], culture_germanic+culture_gothic ],
+["concave_shield_germanic_26", "Round Shield", [("concave_shield_3",0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_round_shield, 450 , weight(3.5)|hit_points(500)|body_armor(12)|spd_rtng(88)|shield_width(42),imodbits_shield, [(ti_on_init_item,[(cur_item_set_material, "str_round_shields_germanic_26"),]),], culture_germanic+culture_gothic ],
 
 ["concave_shield_germanic_small_1", "Round Shield", [("concave_shield_small_3",0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_round_shield, 450 , weight(2.5)|hit_points(450)|body_armor(14)|spd_rtng(90)|shield_width(37),imodbits_shield, [(ti_on_init_item,[(cur_item_set_material, "str_round_shields_germanic_1"),]),], culture_germanic+culture_gothic ],
 ["concave_shield_germanic_small_2", "Round Shield", [("concave_shield_small_3",0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_round_shield, 450 , weight(2.5)|hit_points(450)|body_armor(14)|spd_rtng(90)|shield_width(37),imodbits_shield, [(ti_on_init_item,[(cur_item_set_material, "str_round_shields_germanic_2"),]),], culture_germanic+culture_gothic ],
@@ -3545,6 +3118,7 @@ weight(1)|abundance(80)|head_armor(24)|body_armor(14)|leg_armor(6)|difficulty(0)
 ["concave_shield_germanic_small_23", "Round Shield", [("concave_shield_small_3",0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_round_shield, 450 , weight(2.5)|hit_points(450)|body_armor(14)|spd_rtng(90)|shield_width(37),imodbits_shield, [(ti_on_init_item,[(cur_item_set_material, "str_round_shields_germanic_23"),]),], culture_germanic+culture_gothic ],
 ["concave_shield_germanic_small_24", "Round Shield", [("concave_shield_small_3",0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_round_shield, 450 , weight(2.5)|hit_points(450)|body_armor(14)|spd_rtng(90)|shield_width(37),imodbits_shield, [(ti_on_init_item,[(cur_item_set_material, "str_round_shields_germanic_24"),]),], culture_germanic+culture_gothic ],
 ["concave_shield_germanic_small_25", "Round Shield", [("concave_shield_small_2",0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_round_shield, 450 , weight(2.5)|hit_points(450)|body_armor(14)|spd_rtng(90)|shield_width(37),imodbits_shield, [(ti_on_init_item,[(cur_item_set_material, "str_round_shields_germanic_25"),]),], culture_germanic+culture_gothic ],
+["concave_shield_germanic_small_26", "Round Shield", [("concave_shield_small_3",0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_round_shield, 450 , weight(2.5)|hit_points(450)|body_armor(14)|spd_rtng(90)|shield_width(37),imodbits_shield, [(ti_on_init_item,[(cur_item_set_material, "str_round_shields_germanic_26"),]),], culture_germanic+culture_gothic ],
 
 #Romans
 ["concave_shield_roman_1", "Round Shield", [("concave_shield_large",0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_round_shield, 450 , weight(4)|hit_points(500)|body_armor(13)|spd_rtng(87)|shield_width(47),imodbits_shield, [(ti_on_init_item,[(cur_item_set_material, "str_round_shields_roman_1"),]),], culture_roman ], #limitanei
@@ -3657,16 +3231,21 @@ weight(1)|abundance(80)|head_armor(24)|body_armor(14)|leg_armor(6)|difficulty(0)
 ["balt_shield_1_blue", "Board Shield", [("baltic_shield_1",0)], itp_type_shield|itp_wooden_parry, itcf_carry_round_shield, 425 , weight(2.5)|abundance(10)|hit_points(410)|body_armor(14)|spd_rtng(90)|shield_width(25)|shield_height(113),imodbits_shield, [(ti_on_init_item,[(cur_item_set_material, "str_balt_shields_blue_1"),]),],  ],
 ["balt_shield_2_blue", "Board Shield", [("baltic_shield_2",0)], itp_type_shield|itp_wooden_parry, itcf_carry_round_shield, 425 , weight(2.0)|abundance(10)|hit_points(400)|body_armor(15)|spd_rtng(91)|shield_width(27)|shield_height(81),imodbits_shield, [(ti_on_init_item,[(cur_item_set_material, "str_balt_shields_blue_1"),]),],  ],
 
-["vae_cuadrado_3", "Square Shield", [("vae_cuadrado_3",0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_round_shield,  350 , weight(2.5)|hit_points(280)|body_armor(7)|spd_rtng(95)|shield_width(20)|shield_height(40)|difficulty(1),imodbits_shield,
-[], culture_celtic],
-["vae_cuadrado_4", "Square Shield", [("vae_cuadrado_4",0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_round_shield,  350 , weight(2.5)|hit_points(280)|body_armor(7)|spd_rtng(95)|shield_width(20)|shield_height(40)|difficulty(1),imodbits_shield,
-[], culture_celtic],
-["vae_cuadrado_21", "Square Shield", [("vae_cuadrado_21",0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_round_shield,  350 , weight(2.5)|hit_points(280)|body_armor(7)|spd_rtng(95)|shield_width(20)|shield_height(40)|difficulty(1),imodbits_shield,
-[], culture_celtic],
-["vae_cuadrado_27", "Square Shield", [("vae_cuadrado_27",0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_round_shield,  350 , weight(2.5)|hit_points(280)|body_armor(7)|spd_rtng(95)|shield_width(20)|shield_height(40)|difficulty(1),imodbits_shield,
-[], culture_celtic],
-["pictish_square_shield", "Square Shield", [("pictish_square_shield",0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_round_shield,  350 , weight(2.5)|hit_points(280)|body_armor(7)|spd_rtng(95)|shield_width(20)|shield_height(40)|difficulty(1),imodbits_shield,
-[], culture_celtic],
+["pict_shield_1", "Square Shield", [("pict_shield_1",0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_round_shield, 445 , weight(2.0)|hit_points(500)|body_armor(14)|spd_rtng(89)|shield_width(45)|shield_height(45),imodbits_shield, [(ti_on_init_item,[(cur_item_set_material, "str_pict_shield_1"),]),], culture_celtic ], #for picts + irish
+["pict_shield_2", "Square Shield", [("pict_shield_1",0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_round_shield, 445 , weight(2.0)|hit_points(500)|body_armor(14)|spd_rtng(89)|shield_width(45)|shield_height(45),imodbits_shield, [(ti_on_init_item,[(cur_item_set_material, "str_pict_shield_2"),]),], culture_celtic ],
+["pict_shield_3", "Square Shield", [("pict_shield_1",0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_round_shield, 445 , weight(2.0)|hit_points(500)|body_armor(14)|spd_rtng(89)|shield_width(45)|shield_height(45),imodbits_shield, [(ti_on_init_item,[(cur_item_set_material, "str_pict_shield_3"),]),], culture_celtic ],
+["pict_shield_4", "Square Shield", [("pict_shield_1",0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_round_shield, 445 , weight(2.0)|hit_points(500)|body_armor(14)|spd_rtng(89)|shield_width(45)|shield_height(45),imodbits_shield, [(ti_on_init_item,[(cur_item_set_material, "str_pict_shield_4"),]),], culture_celtic ],
+["pict_shield_5", "Square Shield", [("pict_shield_1",0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_round_shield, 445 , weight(2.0)|hit_points(500)|body_armor(14)|spd_rtng(89)|shield_width(45)|shield_height(45),imodbits_shield, [(ti_on_init_item,[(cur_item_set_material, "str_pict_shield_5"),]),], culture_celtic ],
+["pict_shield_6", "Square Shield", [("pict_shield_1",0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_round_shield, 445 , weight(2.0)|hit_points(500)|body_armor(14)|spd_rtng(89)|shield_width(45)|shield_height(45),imodbits_shield, [(ti_on_init_item,[(cur_item_set_material, "str_pict_shield_6"),]),], culture_celtic ],
+["pict_shield_7", "Square Shield", [("pict_shield_1",0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_round_shield, 445 , weight(2.0)|hit_points(500)|body_armor(14)|spd_rtng(89)|shield_width(45)|shield_height(45),imodbits_shield, [(ti_on_init_item,[(cur_item_set_material, "str_pict_shield_7"),]),], culture_celtic ],
+
+["arab_shield_1", "Small Round Shield", [("arab_shield_1_nb",0),("arab_shield_1",imodbits_good),], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_round_shield, 445 , weight(1.75)|hit_points(430)|body_armor(12)|spd_rtng(91)|shield_width(32),imodbits_shield, [(ti_on_init_item,[(cur_item_set_material, "str_pict_shield_1"),]),], culture_sassanid ], #for arabs
+["arab_shield_2", "Small Round Shield", [("arab_shield_1_nb",0),("arab_shield_1",imodbits_good),], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_round_shield, 445 , weight(1.75)|hit_points(430)|body_armor(12)|spd_rtng(91)|shield_width(32),imodbits_shield, [(ti_on_init_item,[(cur_item_set_material, "str_pict_shield_2"),]),], culture_sassanid ],
+["arab_shield_3", "Small Round Shield", [("arab_shield_1_nb",0),("arab_shield_1",imodbits_good),], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_round_shield, 445 , weight(1.75)|hit_points(430)|body_armor(12)|spd_rtng(91)|shield_width(32),imodbits_shield, [(ti_on_init_item,[(cur_item_set_material, "str_pict_shield_3"),]),], culture_sassanid ],
+["arab_shield_4", "Small Round Shield", [("arab_shield_1_nb",0),("arab_shield_1",imodbits_good),], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_round_shield, 445 , weight(1.75)|hit_points(430)|body_armor(12)|spd_rtng(91)|shield_width(32),imodbits_shield, [(ti_on_init_item,[(cur_item_set_material, "str_pict_shield_4"),]),], culture_sassanid ],
+["arab_shield_5", "Small Round Shield", [("arab_shield_1_nb",0),("arab_shield_1",imodbits_good),], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_round_shield, 445 , weight(1.75)|hit_points(430)|body_armor(12)|spd_rtng(91)|shield_width(32),imodbits_shield, [(ti_on_init_item,[(cur_item_set_material, "str_pict_shield_5"),]),], culture_sassanid ],
+["arab_shield_6", "Small Round Shield", [("arab_shield_1_nb",0),("arab_shield_1",imodbits_good),], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_round_shield, 445 , weight(1.75)|hit_points(430)|body_armor(12)|spd_rtng(91)|shield_width(32),imodbits_shield, [(ti_on_init_item,[(cur_item_set_material, "str_pict_shield_6"),]),], culture_sassanid ],
+["arab_shield_7", "Small Round Shield", [("arab_shield_1_nb",0),("arab_shield_1",imodbits_good),], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_round_shield, 445 , weight(1.75)|hit_points(430)|body_armor(12)|spd_rtng(91)|shield_width(32),imodbits_shield, [(ti_on_init_item,[(cur_item_set_material, "str_pict_shield_7"),]),], culture_sassanid ],
 
 ["vae_pictish_rectangle_1", "Rectangular Shield", [("vae_pictish_rectangle_1",0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_round_shield,  350 , weight(1)|hit_points(260)|body_armor(8)|spd_rtng(101)|shield_width(20)|difficulty(0),imodbits_shield,
 [], [fac_culture_5]],
@@ -3843,7 +3422,7 @@ weight(1)|abundance(80)|head_armor(24)|body_armor(14)|leg_armor(6)|difficulty(0)
 ["axe_of_zamb",  "Axe of Zamb", [("vikingaxeb",0)], itp_unique|itp_type_two_handed_wpn| itp_two_handed|itp_primary|itp_wooden_parry|itp_unbalanced, itc_nodachi|itp_can_penetrate_shield|itcf_carry_axe_back, 1000 , weight(5.5)|difficulty(14)|spd_rtng(80) | weapon_length(82)|swing_damage(48 , cut) | thrust_damage(0 ,  blunt),imodbits_axe ],
 ["caesar_gladius", "Crocea Mors", [("roman_gladius_1",0),("roman_gladius_1_scabbard", ixmesh_carry)], itp_unique|itp_type_one_handed_wpn|itp_primary, itc_longsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn, 9850 , weight(2.5)|difficulty(0)|spd_rtng(95) | weapon_length(68)|swing_damage(36 , cut)| thrust_damage(30 ,  pierce),imodbits_sword_high ],
 
-["excalibur", "Excalibur", [("Kirkburn",0),("Kirkburn_scab", ixmesh_carry)], itp_unique|itp_type_one_handed_wpn|itp_primary, itc_longsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn,9000 , weight(1.75)|difficulty(0)|spd_rtng(89) | weapon_length(94)|swing_damage(36 , cut) | thrust_damage(25 ,  pierce),imodbits_sword_high ],
+["excalibur", "Excalibur", [("arhos_spatha_2",0),("arhos_spatha_2_scabbard", ixmesh_carry)], itp_unique|itp_type_one_handed_wpn|itp_primary, itc_longsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn,9000 , weight(1.35)|difficulty(0)|spd_rtng(92) | weapon_length(84)|swing_damage(36 , cut) | thrust_damage(25 ,  pierce),imodbits_sword_high ],
 
 ["hildeleoma", "Hildeleoma", [("nydam_IV_spatha",0),("nydam_IV_spatha_scabbard", ixmesh_carry)], itp_unique|itp_bonus_against_shield|itp_type_one_handed_wpn|itp_primary, itc_longsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn,6000, weight(1.8)|difficulty(0)|spd_rtng(90)|weapon_length(84)|swing_damage(35 , cut) | thrust_damage(22 ,  pierce),imodbits_sword_high ],
 
@@ -3872,6 +3451,9 @@ weight(1)|abundance(80)|head_armor(24)|body_armor(14)|leg_armor(6)|difficulty(0)
 ["old_practice_spatha", "Practice Spatha", [("old_practice_spatha",0)], itp_type_one_handed_wpn|itp_primary, itc_longsword|itcf_carry_sword_left_hip, #for gladiator quest
  100 , weight(2)|difficulty(0)|spd_rtng(88) | weapon_length(97)|swing_damage(22, blunt) | thrust_damage(18, blunt),imodbits_sword_high ],
 
+["wlods_battle_banana", "Wlod's Battle Banana", [("wlods_battle_banana",0)], itp_type_one_handed_wpn|itp_primary|itp_secondary|itp_bonus_against_shield|itp_wooden_parry, itc_scimitar|itcf_carry_axe_left_hip, #op as shit lmao
+ 9600 , weight(1.25)|difficulty(0)|spd_rtng(110) | weapon_length(41)|swing_damage(100 , pierce) | thrust_damage(0 ,  pierce),imodbits_none ],
+
 
 #shields
 ["mithras_shield", "Mithrain Round Shield", [("mithras_shield",0)], itp_unique|itp_type_shield|itp_wooden_parry, itcf_carry_round_shield,  9600 , weight(3.5)|hit_points(700)|body_armor(18)|spd_rtng(91)|shield_width(42),imodbits_shield ],
@@ -3888,7 +3470,7 @@ weight(1)|abundance(80)|head_armor(24)|body_armor(14)|leg_armor(6)|difficulty(0)
 
 ["pilos_helmet", "Pilos", [("pilos_helmet",0)], itp_unique|itp_type_head_armor,0,300, weight(0)|abundance(0)|head_armor(38)|body_armor(0)|leg_armor(0)|difficulty(0),imodbits_plate],
 
-["aurelian_scale_armor", "Aurelian's Squamata", [("aurelian_scale_armor",0)], itp_unique|itp_type_body_armor|itp_covers_legs ,0,9000 , weight(18)|abundance(0)|head_armor(0)|body_armor(56)|leg_armor(16)|difficulty(16) ,imodbits_plate ], #high difficulty to prevent early players from using off the bat
+#["aurelian_scale_armor", "Aurelian's Squamata", [("aurelian_scale_armor",0)], itp_unique|itp_type_body_armor|itp_covers_legs ,0,9000 , weight(18)|abundance(0)|head_armor(0)|body_armor(56)|leg_armor(16)|difficulty(16) ,imodbits_plate ], #high difficulty to prevent early players from using off the bat
 
 ["unique_mail_armor", "Rich Mail Shirt", [("unique_mail_armor",0)], itp_unique|itp_type_body_armor |itp_covers_legs ,0,9000 , weight(14)|abundance(0)|head_armor(0)|body_armor(54)|leg_armor(15)|difficulty(8) ,imodbits_armor ],
 

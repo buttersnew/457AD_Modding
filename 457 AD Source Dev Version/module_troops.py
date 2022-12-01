@@ -1175,13 +1175,13 @@ troops = [
    def_attrib_lvl_23|level(23),wp_one_handed(220)|wp_two_handed(150)|wp_polearm(220)|wp_throwing(210)|wp_archery(100),knows_lvl_23_inf|knows_shield_5|knows_power_strike_7,germanic_face_1, germanic_face_2],
 
   ["thuringian_horseman","Thuringian Horseman (Aihwadrauhteis)","Thuringian Horsemen (Aihwardrauhtjos)",tf_mounted|tf_guarantee_shield|tf_guarantee_polearm|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_horse,0,0,fac_culture_2,
-   [itm_thorsberg_tunic_cloak_2,itm_leather_armor_c,itm_kemathen_mail_5,itm_kemathen_mail_rich_1,itm_pannonian_cap_fur_1,itm_pannonian_cap_fur_2,itm_brown_hood1,itm_new_hood_b,itm_new_hood_d,(itm_augst_helmet_1,imod_battered),(itm_intercisa_helmet_1,imod_battered),itm_intercisa_helmet_1,itm_fernpass_helmet_2,
+   [itm_thorsberg_tunic_cloak_2,itm_leather_armor_c,itm_kemathen_mail_5,itm_kemathen_mail_rich_1,itm_pannonian_cap_fur_1,itm_pannonian_cap_fur_2,(itm_augst_helmet_1,imod_battered),(itm_intercisa_helmet_1,imod_battered),itm_intercisa_helmet_1,itm_fernpass_helmet_2,
    itm_polehammer,itm_lance,itm_sword_viking_3,itm_tab_shield_small_round_c,itm_round_shield_gray_small_1,itm_round_shield_gray_small_2,itm_round_shield_germanic_small_10,itm_concave_shield_germanic_small_17,itm_concave_shield_germanic_small_20]+shoes_generic+horses_northern_2,
    def_attrib_lvl_23|level(23),wp_one_handed(210)|wp_two_handed(200)|wp_polearm(220)|wp_throwing(180)|wp_archery(140),knows_athletics_5|knows_riding_8|knows_ironflesh_8|knows_power_throw_5|knows_weapon_master_8|knows_inventory_management_2|knows_shield_4|knows_power_strike_7,germanic_face_1, germanic_face_2],
 
   #lombards
   ["cynocephalus","Cynocephalus","Cynocephali",tf_guarantee_basic,0,0,fac_culture_2,
-   [itm_nomad_boots,itm_simple_shoes,itm_wrapping_boots,itm_carbatinae_1_blue,itm_carbatinae_2_blue,itm_pants_7,itm_pants_8,itm_pants_9,itm_rawhide_coat3,itm_rawhide_coat6,itm_rawhide_coat7,itm_rawhide_coat8,itm_rawhide_coat9,itm_rawhide_coat10,itm_throwing_spears,itm_war_spear,itm_sword_viking_3,itm_round_shield_germanic_12,itm_round_shield_germanic_21]+furs_bear+furs_wolf,
+   [itm_simple_shoes,itm_wrapping_boots,itm_carbatinae_1_blue,itm_carbatinae_2_blue,itm_pants_7,itm_pants_8,itm_pants_9,itm_throwing_spears,itm_war_spear,itm_sword_viking_3,itm_round_shield_germanic_12,itm_round_shield_germanic_21]+furs_wolf,
    def_attrib_lvl_23|level(23),wp_one_handed (210) | wp_two_handed (230) | wp_polearm (220) | wp_archery (100) | wp_crossbow (120) | wp_throwing (190),knows_berserker,germanic_face_1, germanic_face_2],
   ["charudes_retainer","Charudes Retainer","Charudes Retainers",tf_mounted|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_shield|tf_guarantee_helmet,0,0,fac_culture_2,
    [itm_tab_shield_round_d,itm_thorsberg_tunic_cloak_13,itm_kemathen_mail_3,itm_kemathen_mail_13,itm_fernpass_helmet_2,itm_fernpass_helmet_3,itm_triveres_mail,itm_burgh_helmet_mail,itm_burgh_helmet_light,itm_sword_viking_3,itm_round_shield_germanic_11,itm_round_shield_germanic_12,itm_round_shield_germanic_14,itm_round_shield_germanic_20]+shoes_generic+angons,

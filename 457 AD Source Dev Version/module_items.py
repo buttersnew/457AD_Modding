@@ -146,11 +146,11 @@ items = [
 ["arena_shield_green", "Shield", [("round_shield_2",0)], itp_type_shield|itp_wooden_parry, itcf_carry_round_shield,  295 , weight(3.5)|hit_points(400)|body_armor(10)|spd_rtng(86)|shield_width(45),imodbits_shield ],
 ["arena_shield_yellow", "Shield", [("round_shield_2",0)], itp_type_shield|itp_wooden_parry, itcf_carry_round_shield,  295 , weight(3.5)|hit_points(400)|body_armor(10)|spd_rtng(86)|shield_width(45),imodbits_shield ],
 
-["arena_armor_white", "Arena Armor White", [("mid_generic_mail_2",0)], itp_type_body_armor  |itp_covers_legs ,0, 650 , weight(16)|abundance(100)|head_armor(0)|body_armor(29)|leg_armor(13), imodbits_armor ],
-["arena_armor_red", "Arena Armor Red", [("mid_generic_mail_3",0)], itp_type_body_armor  |itp_covers_legs ,0, 650 , weight(16)|abundance(100)|head_armor(0)|body_armor(29)|leg_armor(13), imodbits_armor ],
-["arena_armor_blue", "Arena Armor Blue", [("mid_generic_mail_1",0)], itp_type_body_armor  |itp_covers_legs ,0, 650 , weight(16)|abundance(100)|head_armor(0)|body_armor(29)|leg_armor(13), imodbits_armor ],
-["arena_armor_green", "Arena Armor Green", [("mid_generic_mail_4",0)], itp_type_body_armor  |itp_covers_legs ,0, 650 , weight(16)|abundance(100)|head_armor(0)|body_armor(29)|leg_armor(13), imodbits_armor ],
-["arena_armor_yellow", "Arena Armor Yellow", [("mid_generic_mail_5",0)], itp_type_body_armor  |itp_covers_legs ,0, 650 , weight(16)|abundance(100)|head_armor(0)|body_armor(29)|leg_armor(13), imodbits_armor ],
+["arena_armor_white", "Arena Armor White", [("kemathen_mail_6",0)], itp_type_body_armor  |itp_covers_legs ,0, 650 , weight(16)|abundance(100)|head_armor(0)|body_armor(29)|leg_armor(13), imodbits_armor ],
+["arena_armor_red", "Arena Armor Red", [("kemathen_mail_1",0)], itp_type_body_armor  |itp_covers_legs ,0, 650 , weight(16)|abundance(100)|head_armor(0)|body_armor(29)|leg_armor(13), imodbits_armor ],
+["arena_armor_blue", "Arena Armor Blue", [("kemathen_mail_5",0)], itp_type_body_armor  |itp_covers_legs ,0, 650 , weight(16)|abundance(100)|head_armor(0)|body_armor(29)|leg_armor(13), imodbits_armor ],
+["arena_armor_green", "Arena Armor Green", [("kemathen_mail_4",0)], itp_type_body_armor  |itp_covers_legs ,0, 650 , weight(16)|abundance(100)|head_armor(0)|body_armor(29)|leg_armor(13), imodbits_armor ],
+["arena_armor_yellow", "Arena Armor Yellow", [("kemathen_mail_9",0)], itp_type_body_armor  |itp_covers_legs ,0, 650 , weight(16)|abundance(100)|head_armor(0)|body_armor(29)|leg_armor(13), imodbits_armor ],
 ["arena_tunic_white", "Arena Tunic White ", [("arena_tunicW_new",0)], itp_type_body_armor |itp_covers_legs ,0, 47 , weight(2)|abundance(100)|head_armor(0)|body_armor(22)|leg_armor(10), imodbits_cloth ],
 ["arena_tunic_red", "Arena Tunic Red", [("arena_tunicR_new",0)], itp_type_body_armor |itp_covers_legs ,0, 27 , weight(2)|abundance(100)|head_armor(0)|body_armor(22)|leg_armor(10), imodbits_cloth ],
 ["arena_tunic_blue", "Arena Tunic Blue", [("arena_tunicB_new",0)], itp_type_body_armor |itp_covers_legs ,0, 27 , weight(2)|abundance(100)|head_armor(0)|body_armor(22)|leg_armor(10), imodbits_cloth ],
@@ -1757,9 +1757,9 @@ items = [
 ["pictish_hood_2", "Hood", [("pictish_hood_2",0),("pictish_hood_2_inv",ixmesh_inventory)], itp_merchandise|itp_attach_armature|itp_type_head_armor|itp_civilian,0,150, weight(1.75)|abundance(50)|head_armor(16)|body_armor(4)|leg_armor(0)|difficulty(0),imodbits_cloth, [], culture_celtic ],
 ["pictish_hood_3", "Hood", [("pictish_hood_3",0),("pictish_hood_3_inv",ixmesh_inventory)], itp_merchandise|itp_attach_armature|itp_type_head_armor|itp_civilian,0,150, weight(1.75)|abundance(50)|head_armor(16)|body_armor(4)|leg_armor(0)|difficulty(0),imodbits_cloth, [], culture_celtic ],
 
-["roman_civilian_hood_open_1", "Paenula", [("roman_civilian_hood_open_1",0)], itp_merchandise|itp_attach_armature|itp_fit_to_head|itp_type_head_armor|itp_civilian,0,175, weight(2)|abundance(50)|head_armor(12)|body_armor(8)|leg_armor(0)|difficulty(0),imodbits_cloth, [], culture_roman ],
-["roman_civilian_hood_open_2", "Paenula", [("roman_civilian_hood_open_2",0)], itp_merchandise|itp_attach_armature|itp_fit_to_head|itp_type_head_armor|itp_civilian,0,175, weight(2)|abundance(50)|head_armor(12)|body_armor(8)|leg_armor(0)|difficulty(0),imodbits_cloth, [], culture_roman ],
-["roman_civilian_hood_open_3", "Paenula", [("roman_civilian_hood_open_3",0)], itp_merchandise|itp_attach_armature|itp_fit_to_head|itp_type_head_armor|itp_civilian,0,175, weight(2)|abundance(50)|head_armor(12)|body_armor(8)|leg_armor(0)|difficulty(0),imodbits_cloth, [], culture_roman ],
+["roman_civilian_hood_open_1", "Paenula", [("roman_civilian_hood_open_1",0)], itp_merchandise|itp_attach_armature|itp_fit_to_head|itp_doesnt_cover_hair|itp_type_head_armor|itp_civilian,0,175, weight(2)|abundance(50)|head_armor(12)|body_armor(8)|leg_armor(0)|difficulty(0),imodbits_cloth, [], culture_roman ],
+["roman_civilian_hood_open_2", "Paenula", [("roman_civilian_hood_open_2",0)], itp_merchandise|itp_attach_armature|itp_fit_to_head|itp_doesnt_cover_hair|itp_type_head_armor|itp_civilian,0,175, weight(2)|abundance(50)|head_armor(12)|body_armor(8)|leg_armor(0)|difficulty(0),imodbits_cloth, [], culture_roman ],
+["roman_civilian_hood_open_3", "Paenula", [("roman_civilian_hood_open_3",0)], itp_merchandise|itp_attach_armature|itp_fit_to_head|itp_doesnt_cover_hair|itp_type_head_armor|itp_civilian,0,175, weight(2)|abundance(50)|head_armor(12)|body_armor(8)|leg_armor(0)|difficulty(0),imodbits_cloth, [], culture_roman ],
 
 ["roman_civilian_hood_1", "Paenula", [("roman_civilian_hood_1",0)], itp_merchandise|itp_attach_armature|itp_fit_to_head|itp_type_head_armor|itp_civilian,0,175, weight(2)|abundance(50)|head_armor(16)|body_armor(8)|leg_armor(0)|difficulty(0),imodbits_cloth, [], culture_roman ],
 ["roman_civilian_hood_2", "Paenula", [("roman_civilian_hood_2",0)], itp_merchandise|itp_attach_armature|itp_fit_to_head|itp_type_head_armor|itp_civilian,0,175, weight(2)|abundance(50)|head_armor(16)|body_armor(8)|leg_armor(0)|difficulty(0),imodbits_cloth, [], culture_roman ],
@@ -3346,7 +3346,7 @@ weight(1)|abundance(80)|head_armor(24)|body_armor(14)|leg_armor(6)|difficulty(0)
 ["horn","Horn",[("horn_new",0)],itp_type_one_handed_wpn|itp_primary|itp_no_parry,0,1000,weight(2.0),0], #itcf_carry_revolver_right
 
 ##diplomacy begin
-["dplmc_coat_of_plates_red_constable", "Constable Mail", [("mid_generic_mail_23",0)], itp_unique|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
+["dplmc_coat_of_plates_red_constable", "Constable Scale", [("post_roman_scale_6",0)], itp_unique|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
  3828 , weight(25)|abundance(100)|head_armor(0)|body_armor(52)|leg_armor(16)|difficulty(0) ,imodbits_armor, [], []],
 ##diplomacy end
 #SB : replace items_end to fit invasion items

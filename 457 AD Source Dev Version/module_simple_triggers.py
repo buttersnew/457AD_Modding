@@ -3771,23 +3771,9 @@ simple_triggers = [
     ]),
 
   # Spawn some bandits.
-  (36,
+  (24*3,
    [
        (call_script, "script_spawn_bandits"),
-       #SB : clean up looters a bit, especially ones running away       
-       #(try_for_parties, ":party_no"),
-       #  (party_is_active, ":party_no"),
-       #  (party_get_template_id, ":cur_party_template", ":party_no"),
-       #  (this_or_next|eq, ":cur_party_template", "pt_looters"),
-       #  (eq, ":cur_party_template", "pt_leaded_looters"), #in case player lets them run away
-         # (neq, ":party_no", ":spawned_party_id"),
-       #  (get_party_ai_behavior, ":bhvr", ":party_no"),
-       #  (eq, ":bhvr", ai_bhvr_avoid_party), #running away
-       #  (get_party_ai_object, ":object", ":party_no"),
-       #  (is_between, ":object", centers_begin, centers_end), #not being chased
-       #  (party_set_ai_behavior, ":party_no", ai_bhvr_patrol_party),
-       #  (party_set_ai_patrol_radius, ":party_no", 22), #half bandit lair radius
-       #(try_end),
     ]),
 
   # Make parties larger as game progresses.

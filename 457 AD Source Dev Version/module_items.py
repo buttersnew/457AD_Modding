@@ -2977,7 +2977,8 @@ weight(1)|abundance(80)|head_armor(24)|body_armor(14)|leg_armor(6)|difficulty(0)
 ["round_shield_roman_22", "Round Shield", [("round_shield_3",0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_round_shield, 450 , weight(3.5)|hit_points(420)|body_armor(10)|spd_rtng(86)|shield_width(45),imodbits_shield, [(ti_on_init_item,[(cur_item_set_material, "str_round_shields_roman_22"),]),], culture_roman ],
 ["round_shield_roman_23", "Round Shield", [("round_shield_2",0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_round_shield, 450 , weight(3.5)|hit_points(420)|body_armor(10)|spd_rtng(86)|shield_width(45),imodbits_shield, [(ti_on_init_item,[(cur_item_set_material, "str_round_shields_roman_23"),]),], culture_roman ],
 ["round_shield_roman_24", "Round Shield", [("round_shield_2",0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_round_shield, 450 , weight(3.5)|hit_points(420)|body_armor(10)|spd_rtng(86)|shield_width(45),imodbits_shield, [(ti_on_init_item,[(cur_item_set_material, "str_round_shields_roman_24"),]),], culture_roman ],
-["round_shield_roman_25", "Round Shield", [("round_shield_2",0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_round_shield, 450 , weight(3.5)|hit_points(420)|body_armor(10)|spd_rtng(86)|shield_width(45),imodbits_shield, [(ti_on_init_item,[(cur_item_set_material, "str_round_shields_roman_25"),]),], culture_roman ],
+["round_shield_roman_25", "Round Shield", [("round_shield_2",0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_round_shield, 450 , weight(3.5)|hit_points(420)|body_armor(10)|spd_rtng(86)|shield_width(45),imodbits_shield, [(ti_on_init_item,[(cur_item_set_material, "str_round_shields_roman_25"),]),], culture_roman ], #first version
+["round_shield_roman_25_2", "Round Shield", [("concave_shield_large_2",0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_round_shield, 450 , weight(3.5)|hit_points(420)|body_armor(10)|spd_rtng(86)|shield_width(45),imodbits_shield, [(ti_on_init_item,[(cur_item_set_material, "str_round_shields_roman_25"),]),], culture_roman ], #second version
 ["round_shield_roman_26", "Round Shield", [("round_shield_2",0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_round_shield, 450 , weight(3.5)|hit_points(420)|body_armor(10)|spd_rtng(86)|shield_width(45),imodbits_shield, [(ti_on_init_item,[(cur_item_set_material, "str_round_shields_roman_26"),]),], culture_roman ],
 ["round_shield_roman_27", "Old Round Shield", [("round_shield_2",0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_round_shield, 450 , weight(3.5)|hit_points(420)|body_armor(10)|spd_rtng(86)|shield_width(45),imodbits_shield, [(ti_on_init_item,[(cur_item_set_material, "str_round_shields_roman_27"),]),], culture_roman ],
 ["round_shield_roman_28", "Round Shield", [("round_shield_1",0)], itp_type_shield|itp_wooden_parry, itcf_carry_round_shield, 450 , weight(3.5)|hit_points(420)|body_armor(10)|spd_rtng(86)|shield_width(45),imodbits_shield, [(ti_on_init_item,[(cur_item_set_material, "str_round_shields_roman_28"),]),], culture_roman ], #not really used for anything
@@ -3457,18 +3458,16 @@ weight(1)|abundance(80)|head_armor(24)|body_armor(14)|leg_armor(6)|difficulty(0)
 ["wlods_battle_banana", "Wlod's Battle Banana", [("wlods_battle_banana",0)], itp_type_one_handed_wpn|itp_primary|itp_secondary|itp_bonus_against_shield|itp_wooden_parry, itc_scimitar|itcf_carry_axe_left_hip, #op as shit lmao
  9600 , weight(1.25)|difficulty(0)|spd_rtng(110) | weapon_length(41)|swing_damage(100 , pierce) | thrust_damage(0 ,  pierce),imodbits_none ],
 
-
 #shields
 #changed to oval shield
 ["mithras_shield", "Mithrain Oval Shield", [("oval_shield_1",0)], itp_unique|itp_type_shield|itp_cant_use_on_horseback|itp_wooden_parry, itcf_carry_round_shield, 5000 , weight(3.50)|hit_points(700)|body_armor(18)|spd_rtng(87)|shield_width(46)|shield_height(107),imodbits_shield, [(ti_on_init_item,[(cur_item_set_material, "str_oval_shield_red_1"),]),], ],
-["aetius_shield", "Aetius's Shield", [("concave_shield_large_1",0)], itp_unique|itp_type_shield|itp_wooden_parry, itcf_carry_round_shield, 5000 , weight(3.75)|hit_points(600)|body_armor(15)|spd_rtng(88)|shield_width(47),imodbits_shield, [(ti_on_init_item,[(cur_item_set_material, "str_round_shields_roman_27"),]),], ],
+["aetius_shield", "Aetius's Shield", [("concave_shield_large_1",0)], itp_unique|itp_type_shield|itp_wooden_parry, itcf_carry_round_shield, 5000 , weight(3.75)|hit_points(600)|body_armor(15)|spd_rtng(88)|shield_width(47),imodbits_shield, [(ti_on_init_item,[(cur_item_set_material, "str_round_shields_roman_27"),]),], ], #found in ravenna
 ["arthur_shield", "Pridwen", [("concave_shield_small_3",0)], itp_unique|itp_type_shield|itp_wooden_parry, itcf_carry_round_shield, 9000 , weight(2.5)|hit_points(650)|body_armor(18)|spd_rtng(92)|shield_width(37),imodbits_shield, [(ti_on_init_item,[(cur_item_set_material, "str_unique_round_shields_1"),]),], ], #given to ambrosius
 
 ["small_old_round_shield_1", "Small Round Shield", [("round_shield_small_4",0)], itp_type_shield|itp_wooden_parry, itcf_carry_round_shield, 400 , weight(2.0)|hit_points(380)|body_armor(12)|spd_rtng(92)|shield_width(35),imodbits_shield, [(ti_on_init_item,[(cur_item_set_material, "str_round_shields_roman_1"),]),]],
 ["small_old_round_shield_2", "Small Round Shield", [("round_shield_small_4",0)], itp_type_shield|itp_wooden_parry, itcf_carry_round_shield, 400 , weight(2.0)|hit_points(380)|body_armor(12)|spd_rtng(92)|shield_width(35),imodbits_shield, [(ti_on_init_item,[(cur_item_set_material, "str_round_shields_roman_3"),]),]],
 ["small_old_round_shield_3", "Small Round Shield", [("round_shield_small_4",0)], itp_type_shield|itp_wooden_parry, itcf_carry_round_shield, 400 , weight(2.0)|hit_points(380)|body_armor(12)|spd_rtng(92)|shield_width(35),imodbits_shield, [(ti_on_init_item,[(cur_item_set_material, "str_round_shields_roman_8"),]),]],
 ["small_old_round_shield_4", "Small Round Shield", [("round_shield_small_4",0)], itp_type_shield|itp_wooden_parry, itcf_carry_round_shield, 400 , weight(2.0)|hit_points(380)|body_armor(12)|spd_rtng(92)|shield_width(35),imodbits_shield, [(ti_on_init_item,[(cur_item_set_material, "str_round_shields_roman_17"),]),]],
-
 
 #armor
 ["lion_pelt", "Lion Pelt", [("lion_pelt",0),("lion_pelt_inv",ixmesh_inventory)], itp_type_head_armor|itp_attach_armature|itp_fit_to_head,0,3530, weight(2.5)|abundance(0)|head_armor(30)|body_armor(15)|leg_armor(0)|difficulty(2) ,imodbits_plate ],
@@ -3507,8 +3506,7 @@ weight(1)|abundance(80)|head_armor(24)|body_armor(14)|leg_armor(6)|difficulty(0)
 
 ["nero_lyre_final","Nero's Lyre", [("lyre",0)], itp_unique|itp_type_goods, 0, 4000,weight(2.5)|abundance(0),imodbits_none],
 
-["holy_grail","Cup of Chrestos", [("cup",0),], itp_unique, 0, 
-10,weight(0.25)|abundance(0)|max_ammo(1),imodbits_none],
+["holy_grail","Cup of Christos", [("cup",0),], itp_unique, 0, 10,weight(0.25)|abundance(0)|max_ammo(1),imodbits_none],
 
 ["tavern_cup","Cup",[("dedal_kufelL",0)],itp_type_hand_armor,0, 1, weight(1.0)|abundance(1)|body_armor(0)|difficulty(0),imodbits_none],
 ["dedal_lutnia","Lyre",[("dedal_liraL",0)],	itp_type_hand_armor,0,0,weight(1),0],

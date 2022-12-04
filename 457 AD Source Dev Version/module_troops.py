@@ -4443,17 +4443,16 @@ troops = [
   ["tutorial_chest_1","{!}Melee Weapons Chest","{!}Melee Weapons Chest",tf_hero|tf_inactive, 0,reserved,  fac_neutral,[itm_tutorial_sword, itm_tutorial_axe, itm_tutorial_spear, itm_tutorial_club, itm_tutorial_battle_axe],def_attrib|level(18),wp(60),knows_common, 0],
   ["tutorial_chest_2","{!}Ranged Weapons Chest","{!}Ranged Weapons Chest",tf_hero|tf_inactive, 0,reserved,  fac_neutral,[itm_tutorial_short_bow, itm_tutorial_arrows, itm_tutorial_crossbow, itm_tutorial_bolts, itm_tutorial_throwing_daggers],def_attrib|level(18),wp(60),knows_common, 0],
 
-  ["bonus_chest_1","{!}Bonus Chest","{!}Bonus Chest",tf_hero|tf_inactive, 0,reserved,  fac_neutral,[itm_concave_shield_domestici,itm_arabian_sword_d,itm_gold_jewelry,itm_wine],def_attrib|level(18),wp(60),knows_common, 0], #hidden at the palace
+  ["bonus_chest_1","{!}Bonus Chest","{!}Bonus Chest",tf_hero|tf_inactive, 0,reserved,  fac_neutral,[itm_concave_shield_domestici,itm_richborough_helmet_1,itm_gold_jewelry,itm_wine],def_attrib|level(18),wp(60),knows_common, 0], #hidden at the palace
   ["bonus_chest_2","{!}Bonus Chest","{!}Bonus Chest",tf_hero|tf_inactive, 0,reserved,  fac_neutral,[itm_vidigoia_spear,itm_gold_jewelry],def_attrib|level(18),wp(60),knows_common, 0], #grave
   ["bonus_chest_3","{!}Bonus Chest","{!}Bonus Chest",tf_hero|tf_inactive, 0,reserved,  fac_neutral,[itm_gold_jewelry],def_attrib|level(18),wp(60),knows_common, 0], #reuse
   ["bonus_chest_4","{!}Bonus Chest","{!}Bonus Chest",tf_hero|tf_inactive, 0,reserved,  fac_neutral,[itm_long_hafted_spiked_mace,itm_wine],def_attrib|level(18),wp(60),knows_common, 0], #le bonker
   ["bonus_chest_5","{!}Bonus Chest","{!}Bonus Chest",tf_hero|tf_inactive, 0,reserved,  fac_neutral,[itm_heirloom],def_attrib|level(18),wp(60),knows_common, 0], #ring for the greek scythaboo
   ["bonus_chest_6","{!}Bonus Chest","{!}Bonus Chest",tf_hero|tf_inactive, 0,reserved,  fac_neutral,[itm_niya_bow_2,itm_raw_silk,itm_linen,itm_linen],def_attrib|level(18),wp(60),knows_common, 0], #hidden in attilas court ruins
   ["bonus_chest_7","{!}Bonus Chest","{!}Bonus Chest",tf_hero|tf_inactive, 0,reserved,  fac_neutral,[itm_mace_roman_1,itm_wool_cloth,itm_wool_cloth],def_attrib|level(18),wp(60),knows_common, 0], #hidden in noricum
-  ["bonus_chest_8","{!}Bonus Chest","{!}Bonus Chest",tf_hero|tf_inactive, 0,reserved,  fac_neutral,[itm_aetius_shield],def_attrib|level(18),wp(60),knows_common, 0], #hidden in ravenna
-  
-  ["bonus_chest_9","{!}Bonus Chest","{!}Bonus Chest",tf_hero|tf_inactive, 0,reserved,  fac_neutral,[itm_holy_grail],def_attrib|level(18),wp(60),knows_common, 0], #hidden in ravenna
-  ["bonus_chest_10","{!}Bonus Chest","{!}Bonus Chest",tf_hero|tf_inactive, 0,reserved,  fac_neutral,[itm_gold_jewelry,itm_gold_jewelry,itm_gold_jewelry,itm_gold_jewelry,itm_ivory,itm_ivory,itm_ivory,itm_ivory,itm_silver,itm_silver,itm_silver,itm_silver],def_attrib|level(18),wp(60),knows_common, 0], #hidden in ravenna
+  ["bonus_chest_8","{!}Bonus Chest","{!}Bonus Chest",tf_hero|tf_inactive, 0,reserved,  fac_neutral,[itm_aetius_shield,itm_coptic_tunic_10],def_attrib|level(18),wp(60),knows_common, 0], #hidden in ravenna
+  ["bonus_chest_9","{!}Bonus Chest","{!}Bonus Chest",tf_hero|tf_inactive, 0,reserved,  fac_neutral,[itm_holy_grail],def_attrib|level(18),wp(60),knows_common, 0], #hidden in catacombs in rome
+  ["bonus_chest_10","{!}Bonus Chest","{!}Bonus Chest",tf_hero|tf_inactive, 0,reserved,  fac_neutral,[itm_gold_jewelry,itm_gold_jewelry,itm_gold_jewelry,itm_gold_jewelry,itm_ivory,itm_ivory,itm_ivory,itm_ivory,itm_silver,itm_silver,itm_silver,itm_silver],def_attrib|level(18),wp(60),knows_common, 0], #hidden in nero's ruins
 
   ["household_possessions","{!}household_possessions","{!}household_possessions",tf_hero|tf_inactive|tf_is_merchant, 0,reserved,  fac_neutral,[],def_attrib|level(18),wp(60),knows_inventory_management_10, 0],
 

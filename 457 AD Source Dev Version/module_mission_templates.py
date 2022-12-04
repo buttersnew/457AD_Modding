@@ -1382,7 +1382,7 @@ vc_seasons = [          # 3 triggers
       (assign, ":shader_wind_strength", "$wind_power"),
 
       (val_mul, ":shader_wind_strength", 10),#wind_power: 0 - 4 -> 0 - 40
-      (val_div, ":shader_wind_strength", 4), # 0-10
+      (val_div, ":shader_wind_strength", 6), # 0-10
      
       
       (set_fixed_point_multiplier,10),

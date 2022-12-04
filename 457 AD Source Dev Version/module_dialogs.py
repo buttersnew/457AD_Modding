@@ -51316,10 +51316,9 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
     (troop_get_slot, ":banner", "trp_player", slot_troop_banner_scene_prop),
     (try_begin),
         (gt, ":banner", 0),
-        (val_sub, ":banner", banner_scene_props_begin),
-        (val_add, ":banner", banner_map_icons_begin),
-        (party_set_banner_icon, ":levies", ":banner"),
+        (party_set_banner_icon, ":levies", "icon_heraldic_banner_03"),
     (try_end),
+    
     (str_store_faction_name, s1, "$g_encountered_party_faction"),
     (party_set_name, ":levies", "@{s1} Host"),
     

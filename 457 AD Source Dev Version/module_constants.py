@@ -708,6 +708,10 @@ disease_greatpoxpox           = 35
 
 slot_center_event                 = 271
 
+slot_icon_backup        = 271
+slot_party_on_water     = 270
+speed_modifier_campaign = 90
+
 #effects of catastrophic events will stay for two weeks, decrease tax revenue
 event_earthquake_timer    =   97
 event_earthquake          =   100

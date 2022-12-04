@@ -1583,6 +1583,272 @@ dialogs = [
 #new end
 ]],
 
+  [anyone|pt_aestii_party,"start", [
+    (is_between, "$g_encountered_party_template", "pt_aestii_party", "pt_kingdom_1_lord_reinforcements_a"),#to fix bug in dialog    
+    (eq,"$talk_context",tc_party_encounter),(encountered_party_is_attacker)
+    ],
+   "Prepare to die!", "battle_reason_stated",[]],
+
+  [anyone|pt_aestii_party_1,"start", [
+    (is_between, "$g_encountered_party_template", "pt_aestii_party", "pt_kingdom_1_lord_reinforcements_a"),#to fix bug in dialog    
+    (eq,"$talk_context",tc_party_encounter),(encountered_party_is_attacker)
+    ],
+   "Prepare to die!", "battle_reason_stated",[]],
+
+  [anyone|pt_aestii_party_2,"start", [
+    (is_between, "$g_encountered_party_template", "pt_aestii_party", "pt_kingdom_1_lord_reinforcements_a"),#to fix bug in dialog    
+    (eq,"$talk_context",tc_party_encounter),(encountered_party_is_attacker)
+    ],
+   "Prepare to die!", "battle_reason_stated",[]],
+
+  [anyone|pt_irish_party,"start", [
+    (is_between, "$g_encountered_party_template", "pt_aestii_party", "pt_kingdom_1_lord_reinforcements_a"),#to fix bug in dialog    
+    (eq,"$talk_context",tc_party_encounter),(encountered_party_is_attacker)
+    ],
+   "Prepare to die!", "battle_reason_stated",[]],
+
+  [anyone|pt_garamantian_party,"start", [
+    (is_between, "$g_encountered_party_template", "pt_aestii_party", "pt_kingdom_1_lord_reinforcements_a"),#to fix bug in dialog    
+    (eq,"$talk_context",tc_party_encounter),(encountered_party_is_attacker)
+    ],
+   "Prepare to die!", "battle_reason_stated",[]],
+
+  [anyone|pt_dani_party,"start", [
+    (is_between, "$g_encountered_party_template", "pt_aestii_party", "pt_kingdom_1_lord_reinforcements_a"),#to fix bug in dialog    
+    (eq,"$talk_context",tc_party_encounter),(encountered_party_is_attacker)
+    ],
+   "Prepare to die!", "battle_reason_stated",[]],
+
+  [anyone|pt_morden_party,"start", [
+    (is_between, "$g_encountered_party_template", "pt_aestii_party", "pt_kingdom_1_lord_reinforcements_a"),#to fix bug in dialog    
+    (eq,"$talk_context",tc_party_encounter),(encountered_party_is_attacker)
+    ],
+   "Prepare to die!", "battle_reason_stated",[]],
+
+  [anyone|pt_sporoi_party,"start", [
+    (is_between, "$g_encountered_party_template", "pt_aestii_party", "pt_kingdom_1_lord_reinforcements_a"),#to fix bug in dialog    
+    (eq,"$talk_context",tc_party_encounter),(encountered_party_is_attacker)
+    ],
+   "Prepare to die!", "battle_reason_stated",[]],
+
+  [anyone|pt_bosphoran_party,"start", [
+    (is_between, "$g_encountered_party_template", "pt_aestii_party", "pt_kingdom_1_lord_reinforcements_a"),#to fix bug in dialog    
+    (eq,"$talk_context",tc_party_encounter),(encountered_party_is_attacker)
+    ],
+   "Prepare to die!", "battle_reason_stated",[]],
+
+  [anyone|pt_abagasian_party,"start", [
+    (is_between, "$g_encountered_party_template", "pt_aestii_party", "pt_kingdom_1_lord_reinforcements_a"),#to fix bug in dialog    
+    (eq,"$talk_context",tc_party_encounter),(encountered_party_is_attacker)
+    ],
+   "Prepare to die!", "battle_reason_stated",[]],
+
+  [anyone|pt_tauri_party,"start", [
+    (is_between, "$g_encountered_party_template", "pt_aestii_party", "pt_kingdom_1_lord_reinforcements_a"),#to fix bug in dialog    
+    (eq,"$talk_context",tc_party_encounter),(encountered_party_is_attacker)
+    ],
+   "Prepare to die!", "battle_reason_stated",[]],
+
+  [anyone|pt_augundzi_party,"start", [
+    (is_between, "$g_encountered_party_template", "pt_aestii_party", "pt_kingdom_1_lord_reinforcements_a"),#to fix bug in dialog    
+    (eq,"$talk_context",tc_party_encounter),(encountered_party_is_attacker)
+    ],
+   "Prepare to die!", "battle_reason_stated",[]],
+
+  [anyone|pt_vidivarii_party,"start", [
+    (is_between, "$g_encountered_party_template", "pt_aestii_party", "pt_kingdom_1_lord_reinforcements_a"),#to fix bug in dialog    
+    (eq,"$talk_context",tc_party_encounter),(encountered_party_is_attacker)
+    ],
+   "Prepare to die!", "battle_reason_stated",[]],
+
+  [anyone|pt_frisian_party,"start", [
+    (is_between, "$g_encountered_party_template", "pt_aestii_party", "pt_kingdom_1_lord_reinforcements_a"),#to fix bug in dialog    
+    (eq,"$talk_context",tc_party_encounter),(encountered_party_is_attacker)
+    ],
+   "Prepare to die!", "battle_reason_stated",[]],
+
+  [anyone|pt_vascones_party,"start", [
+    (is_between, "$g_encountered_party_template", "pt_aestii_party", "pt_kingdom_1_lord_reinforcements_a"),#to fix bug in dialog    
+    (eq,"$talk_context",tc_party_encounter),(encountered_party_is_attacker)
+    ],
+   "Prepare to die!", "battle_reason_stated",[]],
+
+  [anyone|pt_gallaeci_party,"start", [
+    (is_between, "$g_encountered_party_template", "pt_aestii_party", "pt_kingdom_1_lord_reinforcements_a"),#to fix bug in dialog    
+    (eq,"$talk_context",tc_party_encounter),(encountered_party_is_attacker)
+    ],
+   "Prepare to die!", "battle_reason_stated",[]],
+
+  [anyone|pt_venedi_party,"start", [
+    (is_between, "$g_encountered_party_template", "pt_aestii_party", "pt_kingdom_1_lord_reinforcements_a"),#to fix bug in dialog    
+    (eq,"$talk_context",tc_party_encounter),(encountered_party_is_attacker)
+    ],
+   "Prepare to die!", "battle_reason_stated",[]],
+
+
+  [party_tpl|pt_aestii_party,"start", [ 
+    (is_between, "$g_encountered_party_template", "pt_aestii_party", "pt_kingdom_1_lord_reinforcements_a"),
+    ],
+   "Greetings to you!", "garamanten_talk",[]],
+   
+  [party_tpl|pt_aestii_party_1,"start", [ 
+    (is_between, "$g_encountered_party_template", "pt_aestii_party", "pt_kingdom_1_lord_reinforcements_a"),
+    ],
+   "Greetings to you!", "garamanten_talk",[]],
+   
+  [party_tpl|pt_aestii_party_2,"start", [ 
+    (is_between, "$g_encountered_party_template", "pt_aestii_party", "pt_kingdom_1_lord_reinforcements_a"),
+    ],
+   "Greetings to you!", "garamanten_talk",[]],
+   
+  [party_tpl|pt_irish_party,"start", [ 
+    (is_between, "$g_encountered_party_template", "pt_aestii_party", "pt_kingdom_1_lord_reinforcements_a"),
+    ],
+   "Greetings to you!", "garamanten_talk",[]],
+   
+  [party_tpl|pt_garamantian_party,"start", [ 
+    (is_between, "$g_encountered_party_template", "pt_aestii_party", "pt_kingdom_1_lord_reinforcements_a"),
+    ],
+   "Greetings to you!", "garamanten_talk",[]],
+   
+  [party_tpl|pt_dani_party,"start", [ 
+    (is_between, "$g_encountered_party_template", "pt_aestii_party", "pt_kingdom_1_lord_reinforcements_a"),
+    ],
+   "Greetings to you!", "garamanten_talk",[]],
+   
+  [party_tpl|pt_morden_party,"start", [ 
+    (is_between, "$g_encountered_party_template", "pt_aestii_party", "pt_kingdom_1_lord_reinforcements_a"),
+    ],
+   "Greetings to you!", "garamanten_talk",[]],
+   
+  [party_tpl|pt_bosphoran_party,"start", [ 
+    (is_between, "$g_encountered_party_template", "pt_aestii_party", "pt_kingdom_1_lord_reinforcements_a"),
+    ],
+   "Greetings to you!", "garamanten_talk",[]],
+   
+  [party_tpl|pt_abagasian_party,"start", [ 
+    (is_between, "$g_encountered_party_template", "pt_aestii_party", "pt_kingdom_1_lord_reinforcements_a"),
+    ],
+   "Greetings to you!", "garamanten_talk",[]],
+   
+  [party_tpl|pt_tauri_party,"start", [ 
+    (is_between, "$g_encountered_party_template", "pt_aestii_party", "pt_kingdom_1_lord_reinforcements_a"),
+    ],
+   "Greetings to you!", "garamanten_talk",[]],
+   
+  [party_tpl|pt_augundzi_party,"start", [ 
+    (is_between, "$g_encountered_party_template", "pt_aestii_party", "pt_kingdom_1_lord_reinforcements_a"),
+    ],
+   "Greetings to you!", "garamanten_talk",[]],
+   
+  [party_tpl|pt_vidivarii_party,"start", [ 
+    (is_between, "$g_encountered_party_template", "pt_aestii_party", "pt_kingdom_1_lord_reinforcements_a"),
+    ],
+   "Greetings to you!", "garamanten_talk",[]],
+   
+  [party_tpl|pt_frisian_party,"start", [ 
+    (is_between, "$g_encountered_party_template", "pt_aestii_party", "pt_kingdom_1_lord_reinforcements_a"),
+    ],
+   "Greetings to you!", "garamanten_talk",[]],
+   
+  [party_tpl|pt_vascones_party,"start", [ 
+    (is_between, "$g_encountered_party_template", "pt_aestii_party", "pt_kingdom_1_lord_reinforcements_a"),
+    ],
+   "Greetings to you!", "garamanten_talk",[]],
+   
+  [party_tpl|pt_gallaeci_party,"start", [ 
+    (is_between, "$g_encountered_party_template", "pt_aestii_party", "pt_kingdom_1_lord_reinforcements_a"),
+    ],
+   "Greetings to you!", "garamanten_talk",[]],
+   
+  [party_tpl|pt_venedi_party,"start", [ 
+    (is_between, "$g_encountered_party_template", "pt_aestii_party", "pt_kingdom_1_lord_reinforcements_a"),
+    ],
+   "Greetings to you!", "garamanten_talk",[]],
+   
+  [anyone|plyr,"garamanten_talk", [
+  (neg|faction_slot_eq, "$g_encountered_party_faction", slot_faction_player_tributary, 1),
+  ], "I will kill you all!", "close_window",[
+  (call_script, "script_make_kingdom_hostile_to_player", "$g_encountered_party_faction", -6), 
+  (encounter_attack)]],
+
+  [anyone|plyr,"garamanten_talk", 
+  [(store_troop_gold, ":g", "trp_player"), (ge, ":g", 2000)], 
+  "I want to offer you those rings and bracelets. (2000 denars)", "hire",[
+	]], 
+
+  [anyone|plyr,"garamanten_talk", [], "I want to hire you.", "hire_aux1",[
+	]],	  
+  [anyone|plyr,"hire_aux1", [], "It is said that you are strong warriors and I need soldiers. I would pay you well and give you good protection if you join my army.", "hire_aux2",[
+	]],	
+
+  [anyone,"hire_aux2", [
+  (store_relation, ":bandit_relation", "fac_player_faction", "$g_encountered_party_faction"),
+  (ge, ":bandit_relation", 0),
+  ], "Give us {reg40} denars and we have an agreement my friend.", "hire_aux3",[
+      (party_get_num_companion_stacks, ":num_stacks","$g_encountered_party"),
+      (assign, ":recruit_cost", 0),
+      (try_for_range, ":i_stack", 0, ":num_stacks"),
+        (party_stack_get_troop_id, ":troop_no", "$g_encountered_party", ":i_stack"),
+        (party_stack_get_size, ":stack_size", "$g_encountered_party", ":i_stack"),
+        (call_script, "script_game_get_join_cost", ":troop_no"),
+        (assign, ":join_cost", reg0),
+        (val_mul, ":join_cost", ":stack_size"),
+        (val_add, ":recruit_cost", ":join_cost"),
+      (try_end),
+      (assign, "$temp", ":recruit_cost"),
+      (assign, reg40, "$temp"),
+	]],		
+  [anyone,"hire_aux2", [
+  ], "We will never join you´ scum!", "close_window",[
+  (assign, "$g_leave_encounter",1),
+	]],	
+
+  [anyone,"hired_aux", [], "Good. We are at your service from now on.", "close_window",
+    [
+      (call_script, "script_party_add_party", "p_main_party", "$g_encountered_party"),
+      (party_detach, "$g_encountered_party"),
+      (remove_party, "$g_encountered_party"),
+      (assign, "$g_leave_encounter", 1),
+    ]],
+
+  [anyone|plyr,"hire_aux3", 
+      [
+        (store_troop_gold, reg2, "trp_player"),
+        (ge,reg2,"$temp"),
+        (assign,reg5,"$temp"),
+      ],
+     "All right here's your {reg5} denars.", "hired_aux",
+     [
+       (troop_remove_gold, "trp_player", "$temp"),
+     ]],
+  [anyone|plyr,"hire_aux3", [],
+   "I don't have that much money with me", "hire_aux5",[]],  
+   [anyone,"hire_aux5", [],
+   "Then forget our agreement. Now farewell.", "close_window",[(assign, "$g_leave_encounter", 1),]],
+
+	
+  [anyone|plyr,"hire", [], "This present shall be a sign of my friendship to your tribe.", "hire2",[
+	]],
+  [anyone,"hire2", [], "We accept your present. {s50}", "garamanten_talk",[(troop_remove_gold, "trp_player", 2000),
+    (assign, "$g_leave_encounter", 1),
+    (store_relation, ":bandit_relation", "fac_player_faction", "$g_encountered_party_faction"),
+    (str_clear, s50),
+    (try_begin),
+      (gt, ":bandit_relation", 10),
+      (str_store_string, s50, "@We also want to give you some ivory as a present from our tribe."),
+      (troop_add_item, "trp_player", "itm_ivory"),
+    (try_end),
+    (call_script, "script_change_player_relation_with_faction", "$g_encountered_party_faction", 3),
+    (party_ignore_player, "$g_encountered_party", 0),
+    (party_set_slot,"$g_encountered_party",slot_party_ignore_player_until, 0),
+	
+	]],
+  
+  [anyone|plyr,"garamanten_talk", [], "Farewell. I am just passing through", "close_window",[
+  (assign, "$g_leave_encounter", 1)
+	]],
+
 #TUTORIAL START
 [anyone, "start",
 [

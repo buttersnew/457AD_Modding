@@ -84,7 +84,7 @@ slot_agent_duel_start_time        = 22
 
 slot_agent_walker_occupation      = 25
 slot_agent_bought_horse           = 26
-slot_agent_is_poisoned            = 27    
+slot_agent_is_poisoned            = 500    
 #slot_possessed = 100
 #slot_real_troop = 101
 

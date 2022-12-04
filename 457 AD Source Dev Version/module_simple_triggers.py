@@ -7301,6 +7301,22 @@ simple_triggers = [
       (try_end),
   ]),
 
+(24*4,
+    [
+    # SEASONS (Check all 5 days)
+    (try_begin),
+        (is_between, "$g_cur_month", 3, 11), # spring
+        (eq, "$season", 0),
+        (jump_to_menu, "mnu_fruhling"),
+        # (assign,"$alt_diffuse_on",0), # es wird sommer, fruhling
+    (else_try),
+        (this_or_next|eq, "$g_cur_month", 12), # winter
+        (is_between, "$g_cur_month", 1, 3), # winter
+        (eq, "$season", 1),
+        (jump_to_menu, "mnu_winter"),
+        # (assign,"$alt_diffuse_on",1), # es wird winter
+    (try_end),  
+]),
 
     # season shader reset (fix for VC-463)
 (ti_on_switch_to_map,

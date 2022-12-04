@@ -27082,6 +27082,40 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     ]),
     ]),
   
+ ("fruhling",menu_text_color(0xFF000000)|mnf_disable_all_keys,
+    "The snow is melting, the flowers prosper, it is spring",
+    "none",
+    [  ],
+    [
+     ("continue",[],"Aestas...",
+       [
+     (assign, "$season", 1),
+     (assign, "$shader_season", 0),##shader
+	   (change_screen_map),
+        ]
+       ),
+    ]
+ ), 
+
+ ("winter",menu_text_color(0xFF000000)|mnf_disable_all_keys,
+    "The leaves are fallen, cold winds are coming, it is winter",
+    "none",
+    [],
+    [
+     ("continue",[],"Hiems...",
+       [
+      (assign, "$season", 0),
+      (assign, "$shader_season", 3),##shader
+      (try_for_parties, ":party"),
+        (call_script, "script_game_get_party_speed_multiplier", ":party"),
+      (try_end),
+	   (change_screen_map),
+        ]
+       ),
+    ]
+ ), 
+
+  
 #menu_aud_with_commander 
   (
     "commander_aud",0,
@@ -27971,6 +28005,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     
     ],),
     
+
     ("finnsburg_revenge_3",0,
     "You do your best to bring the wounded men on the ships while you reorganise your forces and follow the main host, led by Hengist, outside the forest towards the Frisian village. The village is heavily defended by hundreds of men, to prevail it won't be easy.",
     "none", [  

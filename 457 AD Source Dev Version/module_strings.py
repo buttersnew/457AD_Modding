@@ -5636,6 +5636,9 @@ Even in the last case, the player can make formations up to four lines by orderi
   ("round_shields_yellow_1","round_shields_yellow_1"),
   ("round_shields_white_1","round_shields_white_1"),
 
+  #for unique shields
+  ("unique_round_shields_1","unique_round_shields_1"),
+
 #WICKER SHIELDS
   ("wicker_shields_1","wicker_shields_1"),
   ("wicker_shields_2","wicker_shields_2"),
@@ -5729,6 +5732,10 @@ Even in the last case, the player can make formations up to four lines by orderi
   ("oval_shield_pseudo_1","oval_shield_pseudo_1"),
   ("oval_shield_pseudo_2","oval_shield_pseudo_2"),
   ("oval_shield_pseudo_3","oval_shield_pseudo_3"),
+
+  #unique
+  ("oval_shield_mithras","oval_shield_mithras"),
+
 
   #eastern germanic shields by fabio
   ("eastern_germanic_shield_1","eastern_germanic_shield_1"),

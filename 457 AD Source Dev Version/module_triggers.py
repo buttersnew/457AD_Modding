@@ -1213,6 +1213,7 @@ triggers = [
       (call_script, "script_end_quest", "qst_unite_britannia"), #ends the quest
       (call_script, "script_change_troop_renown", "trp_player", 220),
       (troop_add_item, "trp_player", "itm_excalibur", 0), #gets special sword
+      (troop_add_item, "trp_player", "itm_arthur_shield", 0), #gets special shield
       (troop_add_gold, "trp_player", 30000),
     (try_end),
 ]),

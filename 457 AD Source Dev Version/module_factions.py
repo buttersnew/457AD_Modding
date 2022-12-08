@@ -49,7 +49,7 @@ factions = [
   #minor cultures
   ("culture_minor_1",  "Cantabrian", 0, 0.9, [], []), 
   ("culture_minor_2",  "Slavic", 0, 0.9, [], []), 
-  #("culture_minor_3",  "Noricum", 0, 0.9, [], []), 
+  ("culture_minor_3",  "Coptic", 0, 0.9, [], []), 
   ("culture_minor_4",  "Frisian", 0, 0.9, [], []), 
   ("culture_minor_5",  "Baltic", 0, 0.9, [], []), 
   ("culture_minor_6",  "Morden", 0, 0.9, [], []), 
@@ -126,8 +126,8 @@ factions = [
   #starts at war with the ostrogothic kingdom, will be spawned in an event war with scirii, rugii, heruli + suebi vs ostrogoths
   ("hunimund_suebi","Danubian Suebi", 0, 0.5,[("kingdom_4",-0.75),("kingdom_11",0.99),("kingdom_14",0.99),("kingdom_21",0.99)], [], 0x3c5a1b), #lead by hunimund, at war with ostrogoths, will make color orange
   ("heruli","Danubian Heruli", 0, 0.5,[("kingdom_4",-0.75),("kingdom_11",0.99),("kingdom_14",0.99),("kingdom_21",0.99)], [], 0x993322), #lead by Visilaus, at war with ostrogoths
-  ("ghassanids","Ghassanids", 0, 0.5,[("kingdom_2",0.99),("coptic_christians",0.5),("coptic_rebels", 0.05)], [], 0xef301f), #allied with ERE, war with sassanids
-  ("salihids","Salihids", 0, 0.5,[("kingdom_2",0.99),("kingdom_6",-0.75)], [], 0xc9ad34), #allied with ERE, war with sassanids, limes arabicus
+  # ("ghassanids","Ghassanids", 0, 0.5,[("kingdom_2",0.99),("coptic_christians",0.5),("coptic_rebels", 0.05)], [], 0xef301f), #allied with ERE, war with sassanids
+  # ("salihids","Salihids", 0, 0.5,[("kingdom_2",0.99),("kingdom_6",-0.75)], [], 0xc9ad34), #allied with ERE, war with sassanids, limes arabicus
   ("faltras_suebi","Faltras's Loyalists", 0, 0.5,[("kingdom_8",-0.75)], [], 0x3c5a1b),
 
   #Minor faction features

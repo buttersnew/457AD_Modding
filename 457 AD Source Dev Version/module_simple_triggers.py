@@ -8089,21 +8089,20 @@ simple_triggers = [
 
     #check for player in non-main party - madsci
 
-(1,
-   [
-(try_for_parties, ":party"),
-(party_is_active, ":party"),
-(neq, ":party", "p_main_party"),
-(party_get_num_companion_stacks, ":num_stacks",":party"),
-(gt, ":num_stacks", 0),
-    (try_for_range, ":i_stack", 0, ":num_stacks"),
-    (party_stack_get_troop_id, ":stack_troop_id", ":party", ":i_stack"),
-    (eq, ":stack_troop_id", "trp_player"),
-    (str_store_party_name, s10, ":party"),
-    (str_store_troop_name, s11, "trp_player"),
-    (display_message, "@ERROR: {s10} has {s11}"),
+(1,[
+    (try_for_parties, ":party"),
+        (party_is_active, ":party"),
+        (neq, ":party", "p_main_party"),
+        (party_get_num_companion_stacks, ":num_stacks",":party"),
+        (gt, ":num_stacks", 0),
+        (try_for_range, ":i_stack", 0, ":num_stacks"),
+        (party_stack_get_troop_id, ":stack_troop_id", ":party", ":i_stack"),
+        (eq, ":stack_troop_id", "trp_player"),
+        (str_store_party_name, s10, ":party"),
+        (str_store_troop_name, s11, "trp_player"),
+        (display_message, "@ERROR: {s10} has {s11}"),
+        (try_end),
     (try_end),
-(try_end),
-    ]),
+]),
 
 ]

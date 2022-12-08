@@ -139,7 +139,26 @@ small_battle_check = (0,0,ti_once,
     
     (store_add, ":total_size", "$g_friend_fit_for_battle", "$g_enemy_fit_for_battle"),
     (le, ":total_size", 100),
+    
     # (display_message, "@Small battle found"),
+    # (set_fixed_point_multiplier, 100),
+    
+    (init_position, pos11),
+    # (get_scene_boundaries, pos10, pos11),#his seem to be causing problems with scenes with different polygon size
+    
+    (entry_point_get_position, pos10, 0),
+    (entry_point_get_position, pos11, 4),
+    (get_distance_between_positions, ":distance", pos10, pos11),
+    (val_div, ":distance", 2),
+    
+    (call_script, "script_point_y_toward_position", pos10, pos11),
+    
+    (position_get_x, ":scene_center_x", pos10),
+    (position_get_y, ":scene_center_y", pos10),
+    #get center of map
+    (val_add, ":scene_center_y", ":distance"),
+    (position_set_x, pos11, ":scene_center_x"),
+    (position_set_y, pos11, ":scene_center_y"),
     
     (try_for_agents, ":agent_no"),
         (agent_is_active, ":agent_no"),
@@ -153,19 +172,7 @@ small_battle_check = (0,0,ti_once,
             (agent_is_alive, ":horse"),
             (assign, ":agent_to_move", ":horse"),
         (try_end),
-        
-        # (set_fixed_point_multiplier, 100),
-        
-        (init_position, pos11),
-        (get_scene_boundaries, pos10, pos11),
-        (position_get_x, ":scene_max_x", pos11),
-        (position_get_y, ":scene_max_y", pos11),
-        #get center of map
-        (val_div, ":scene_max_x", 2),
-        (val_div, ":scene_max_y", 2),
-        (position_set_x, pos11, ":scene_max_x"),
-        (position_set_y, pos11, ":scene_max_y"),
-        
+
         (agent_get_position, pos10, ":agent_to_move"),
         (call_script, "script_point_y_toward_position", pos10, pos11),
         
@@ -174,9 +181,9 @@ small_battle_check = (0,0,ti_once,
         (val_add, ":x", ":x_addition"),
         (position_set_x, pos10, ":x"),
         
-        (assign, ":y_to_move", ":scene_max_y"),
+        (assign, ":y_to_move", ":distance"),
         (val_div, ":y_to_move", 7),
-        (val_mul, ":y_to_move", 4),
+        (val_mul, ":y_to_move", 5),
         (position_move_y, pos10, ":y_to_move"),
         
         (agent_set_position, ":agent_to_move", pos10),
@@ -184,6 +191,7 @@ small_battle_check = (0,0,ti_once,
         # (str_store_agent_name, s22, ":agent_to_move"),
         # (display_message, "@{s22} was moved"),
     (try_end),
+    
     ])
 
 
@@ -6768,7 +6776,7 @@ mission_templates = [
     small_battle_check,
     (ti_after_mission_start, 0, ti_once, [], [
     (mission_cam_set_screen_color, 0xFF000000),
-    (mission_cam_animate_to_screen_color, 0x00000000, 2000),
+    (mission_cam_animate_to_screen_color, 0x00000000, 3000),
     ]),	
     
       (ti_on_agent_spawn, 0, 0, [],

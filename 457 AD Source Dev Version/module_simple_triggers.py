@@ -6755,7 +6755,7 @@ simple_triggers = [
 #+freelancer start
   #  WEEKLY PAY AND CHECKS FOR UPGRADE
     (24 * 7, [
-        (eq, "$freelancer_state", 1),
+    (eq, "$freelancer_state", 1),
     (store_current_hours, reg0),
     (val_add, reg0, 24 * 7),
     (quest_set_slot, "qst_freelancer_enlisted", slot_quest_freelancer_next_payday, reg0),
@@ -6798,6 +6798,7 @@ simple_triggers = [
     (1,[
         (eq, "$freelancer_state", 1),
         #so that sight and camera follows near commander's party
+        (party_is_active, "$enlisted_party"), 
         (set_camera_follow_party, "$enlisted_party"),
         (party_relocate_near_party, "p_main_party", "$enlisted_party", 1), 
     ]),
@@ -6918,7 +6919,7 @@ simple_triggers = [
    (store_faction_of_party, ":fac", ":party"),
    (faction_get_slot, ":template", ":fac", slot_faction_reinforcements_a),
    (party_add_template, ":party", ":template"),
-   (party_set_slot, ":party", slot_center_volunteer_troop_type, 0),
+   (party_set_slot, ":party", slot_center_volunteer_troop_type, -1),
 (try_end),
 ]),  
 
@@ -8085,5 +8086,24 @@ simple_triggers = [
     # (val_add, ":number", 1),
     # (troop_set_slot,"trp_global_variables", g_number_fire, ":number"),
     ]), 
+
+    #check for player in non-main party - madsci
+
+(1,
+   [
+(try_for_parties, ":party"),
+(party_is_active, ":party"),
+(neq, ":party", "p_main_party"),
+(party_get_num_companion_stacks, ":num_stacks",":party"),
+(gt, ":num_stacks", 0),
+    (try_for_range, ":i_stack", 0, ":num_stacks"),
+    (party_stack_get_troop_id, ":stack_troop_id", ":party", ":i_stack"),
+    (eq, ":stack_troop_id", "trp_player"),
+    (str_store_party_name, s10, ":party"),
+    (str_store_troop_name, s11, "trp_player"),
+    (display_message, "@ERROR: {s10} has {s11}"),
+    (try_end),
+(try_end),
+    ]),
 
 ]

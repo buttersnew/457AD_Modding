@@ -1469,102 +1469,112 @@ items = [
 #mid ~48 body, 10 legs
 
 ["kaftan_lamellar_1", "Lamellar Vest", [("kaftan_lamellar_1",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
- 3100 , weight(12)|abundance(25)|head_armor(0)|body_armor(48)|leg_armor(16)|difficulty(7),imodbits_scale, [], culture_hunnic+culture_alan ],
+ 2700 , weight(12)|abundance(25)|head_armor(0)|body_armor(48)|leg_armor(16)|difficulty(7),imodbits_scale, [], culture_hunnic+culture_alan ],
 ["kaftan_lamellar_2", "Lamellar Vest", [("kaftan_lamellar_2",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
- 3100 , weight(12)|abundance(25)|head_armor(0)|body_armor(48)|leg_armor(16)|difficulty(7),imodbits_scale, [], culture_hunnic+culture_alan ],
+ 2700 , weight(12)|abundance(25)|head_armor(0)|body_armor(48)|leg_armor(16)|difficulty(7),imodbits_scale, [], culture_hunnic+culture_alan ],
 ["kaftan_lamellar_3", "Lamellar Vest", [("kaftan_lamellar_3",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
- 3100 , weight(12)|abundance(25)|head_armor(0)|body_armor(48)|leg_armor(16)|difficulty(7),imodbits_scale, [], culture_hunnic+culture_alan ],
+ 2700 , weight(12)|abundance(25)|head_armor(0)|body_armor(48)|leg_armor(16)|difficulty(7),imodbits_scale, [], culture_hunnic+culture_alan ],
 ["kaftan_lamellar_4", "Lamellar Vest", [("kaftan_lamellar_4",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
- 3100 , weight(12)|abundance(25)|head_armor(0)|body_armor(48)|leg_armor(16)|difficulty(7),imodbits_scale, [], culture_hunnic+culture_alan ],
+ 2700 , weight(12)|abundance(25)|head_armor(0)|body_armor(48)|leg_armor(16)|difficulty(7),imodbits_scale, [], culture_hunnic+culture_alan ],
 ["kaftan_lamellar_5", "Lamellar Vest", [("kaftan_lamellar_5",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
- 3100 , weight(12)|abundance(25)|head_armor(0)|body_armor(48)|leg_armor(16)|difficulty(7),imodbits_scale, [], culture_hunnic+culture_alan ],
+ 2700 , weight(12)|abundance(25)|head_armor(0)|body_armor(48)|leg_armor(16)|difficulty(7),imodbits_scale, [], culture_hunnic+culture_alan ],
 ["kaftan_lamellar_6", "Lamellar Vest", [("kaftan_lamellar_6",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
- 3100 , weight(12)|abundance(25)|head_armor(0)|body_armor(48)|leg_armor(16)|difficulty(7),imodbits_scale, [], culture_hunnic+culture_alan ],
+ 2700 , weight(12)|abundance(25)|head_armor(0)|body_armor(48)|leg_armor(16)|difficulty(7),imodbits_scale, [], culture_hunnic+culture_alan ],
 ["kaftan_lamellar_7", "Lamellar Vest", [("kaftan_lamellar_7",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
- 3100 , weight(12)|abundance(25)|head_armor(0)|body_armor(48)|leg_armor(16)|difficulty(7),imodbits_scale, [], culture_hunnic+culture_alan ],
+ 2700 , weight(12)|abundance(25)|head_armor(0)|body_armor(48)|leg_armor(16)|difficulty(7),imodbits_scale, [], culture_hunnic+culture_alan ],
 ["kaftan_lamellar_8", "Lamellar Vest", [("kaftan_lamellar_8",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
- 3100 , weight(12)|abundance(25)|head_armor(0)|body_armor(48)|leg_armor(16)|difficulty(7),imodbits_scale, [], culture_hunnic+culture_alan ],
+ 2700 , weight(12)|abundance(25)|head_armor(0)|body_armor(48)|leg_armor(16)|difficulty(7),imodbits_scale, [], culture_hunnic+culture_alan ],
 ["kaftan_lamellar_9", "Lamellar Vest", [("kaftan_lamellar_9",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
- 3100 , weight(12)|abundance(25)|head_armor(0)|body_armor(48)|leg_armor(16)|difficulty(7),imodbits_scale, [], culture_hunnic+culture_alan ],
+ 2700 , weight(12)|abundance(25)|head_armor(0)|body_armor(48)|leg_armor(16)|difficulty(7),imodbits_scale, [], culture_hunnic+culture_alan ],
 ["kaftan_lamellar_10", "Lamellar Vest", [("kaftan_lamellar_10",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
- 3100 , weight(12)|abundance(25)|head_armor(0)|body_armor(48)|leg_armor(16)|difficulty(7),imodbits_scale, [], culture_hunnic+culture_alan ],
+ 2700 , weight(12)|abundance(25)|head_armor(0)|body_armor(48)|leg_armor(16)|difficulty(7),imodbits_scale, [], culture_hunnic+culture_alan ],
 ["kaftan_lamellar_11", "Lamellar Vest", [("kaftan_lamellar_11",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
- 3100 , weight(12)|abundance(25)|head_armor(0)|body_armor(48)|leg_armor(16)|difficulty(7),imodbits_scale, [], culture_hunnic+culture_alan ],
+ 2700 , weight(12)|abundance(25)|head_armor(0)|body_armor(48)|leg_armor(16)|difficulty(7),imodbits_scale, [], culture_hunnic+culture_alan ],
 ["kaftan_lamellar_12", "Lamellar Vest", [("kaftan_lamellar_12",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
- 3100 , weight(12)|abundance(25)|head_armor(0)|body_armor(48)|leg_armor(16)|difficulty(7),imodbits_scale, [], culture_hunnic+culture_sassanid ],
+ 2700 , weight(12)|abundance(25)|head_armor(0)|body_armor(48)|leg_armor(16)|difficulty(7),imodbits_scale, [], culture_hunnic+culture_sassanid ],
 ["kaftan_lamellar_13", "Lamellar Vest", [("kaftan_lamellar_13",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
- 3100 , weight(12)|abundance(25)|head_armor(0)|body_armor(48)|leg_armor(16)|difficulty(7),imodbits_scale, [], culture_hunnic+culture_sassanid ],
+ 2700 , weight(12)|abundance(25)|head_armor(0)|body_armor(48)|leg_armor(16)|difficulty(7),imodbits_scale, [], culture_hunnic+culture_sassanid ],
 
 #sleeveless/short sleeved ~52 body, 10 legs
-
-["lamellar_armor", "Heavy Lamellar Armor", [("kranj_lamellar_1",0)], itp_type_body_armor  |itp_covers_legs ,0,
- 4300 , weight(19)|abundance(20)|head_armor(0)|body_armor(54)|leg_armor(15)|difficulty(11) ,imodbits_scale ],
+#unused
+["lamellar_armor", "Lamellar Vest", [("kaftan_lamellar_3_rich",0)], itp_type_body_armor  |itp_covers_legs ,0,
+ 2700 , weight(12)|abundance(25)|head_armor(0)|body_armor(48)|leg_armor(16)|difficulty(7),imodbits_scale, [], culture_hunnic ],
 
 #new asher scale
 #for post roman troops/factions
 ["banded_armor", "Squamata", [("post_roman_scale_1",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
- 4020 , weight(16)|abundance(20)|head_armor(0)|body_armor(52)|leg_armor(10)|difficulty(9),imodbits_scale, [], culture_roman ],
+ 3200 , weight(14)|abundance(20)|head_armor(0)|body_armor(52)|leg_armor(10)|difficulty(9),imodbits_scale, [], culture_roman ],
 ["cuir_bouilli", "Squamata", [("post_roman_scale_2",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
- 4020 , weight(16)|abundance(20)|head_armor(0)|body_armor(52)|leg_armor(10)|difficulty(9),imodbits_scale, [], culture_roman ],
+ 3200 , weight(14)|abundance(20)|head_armor(0)|body_armor(52)|leg_armor(10)|difficulty(9),imodbits_scale, [], culture_roman ],
 ["black_armor", "Squamata", [("post_roman_scale_3",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
- 4020 , weight(16)|abundance(20)|head_armor(0)|body_armor(52)|leg_armor(10)|difficulty(9),imodbits_scale, [], culture_roman ],
+ 3200 , weight(14)|abundance(20)|head_armor(0)|body_armor(52)|leg_armor(10)|difficulty(9),imodbits_scale, [], culture_roman ],
 ["vaegir_elite_armor", "Squamata", [("post_roman_scale_4",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
- 4020 , weight(16)|abundance(20)|head_armor(0)|body_armor(52)|leg_armor(10)|difficulty(9),imodbits_scale, [], culture_roman ],
+ 3200 , weight(14)|abundance(20)|head_armor(0)|body_armor(52)|leg_armor(10)|difficulty(9),imodbits_scale, [], culture_roman ],
 ["plate_armor", "Squamata", [("post_roman_scale_5",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
- 4020 , weight(16)|abundance(20)|head_armor(0)|body_armor(52)|leg_armor(10)|difficulty(9),imodbits_scale, [], culture_roman ],
+ 3200 , weight(14)|abundance(20)|head_armor(0)|body_armor(52)|leg_armor(10)|difficulty(9),imodbits_scale, [], culture_roman ],
 ["khergit_elite_armor", "Squamata", [("post_roman_scale_6",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
- 4020 , weight(16)|abundance(20)|head_armor(0)|body_armor(52)|leg_armor(10)|difficulty(9),imodbits_scale, [], culture_roman ],
+ 3200 , weight(14)|abundance(20)|head_armor(0)|body_armor(52)|leg_armor(10)|difficulty(9),imodbits_scale, [], culture_roman ],
 ["scale_armor", "Squamata", [("post_roman_scale_7",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
- 4020 , weight(16)|abundance(20)|head_armor(0)|body_armor(52)|leg_armor(10)|difficulty(9),imodbits_scale, [], culture_roman ],
+ 3200 , weight(14)|abundance(20)|head_armor(0)|body_armor(52)|leg_armor(10)|difficulty(9),imodbits_scale, [], culture_roman ],
 
 ["roman_scale_1", "Squamata", [("roman_scale_1_1",0),("roman_scale_1_2",imodbit_reinforced),("roman_scale_1_3",imodbit_lordly),], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
- 4020 , weight(16)|abundance(20)|head_armor(0)|body_armor(52)|leg_armor(12)|difficulty(9) ,imodbits_scale, [], culture_roman ], #romans
+ 3200 , weight(14)|abundance(20)|head_armor(0)|body_armor(52)|leg_armor(12)|difficulty(9) ,imodbits_scale, [], culture_roman ], #romans
 ["roman_scale_2", "Squamata", [("roman_scale_2_1",0),("roman_scale_2_2",imodbit_reinforced),("roman_scale_2_3",imodbit_lordly),], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
- 4020 , weight(16)|abundance(20)|head_armor(0)|body_armor(52)|leg_armor(12)|difficulty(9) ,imodbits_scale, [], culture_roman ], #romans
+ 3200 , weight(14)|abundance(20)|head_armor(0)|body_armor(52)|leg_armor(12)|difficulty(9) ,imodbits_scale, [], culture_roman ], #romans
 ["roman_scale_3", "Squamata", [("roman_scale_3_1",0),("roman_scale_3_2",imodbit_reinforced),("roman_scale_3_3",imodbit_lordly),], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
- 4020 , weight(16)|abundance(20)|head_armor(0)|body_armor(52)|leg_armor(12)|difficulty(9) ,imodbits_scale, [], culture_roman ], #romans
+ 3200 , weight(14)|abundance(20)|head_armor(0)|body_armor(52)|leg_armor(12)|difficulty(9) ,imodbits_scale, [], culture_roman ], #romans
 ["roman_scale_4", "Squamata", [("roman_scale_4_1",0),("roman_scale_4_2",imodbit_reinforced),("roman_scale_4_3",imodbit_lordly),], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
- 4020 , weight(16)|abundance(20)|head_armor(0)|body_armor(52)|leg_armor(12)|difficulty(9) ,imodbits_scale, [], culture_roman ], #romans
+ 3200 , weight(14)|abundance(20)|head_armor(0)|body_armor(52)|leg_armor(12)|difficulty(9) ,imodbits_scale, [], culture_roman ], #romans
 ["roman_scale_5", "Squamata", [("roman_scale_5_1",0),("roman_scale_5_2",imodbit_reinforced),("roman_scale_5_3",imodbit_lordly),], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
- 4020 , weight(16)|abundance(20)|head_armor(0)|body_armor(52)|leg_armor(12)|difficulty(9) ,imodbits_scale, [], culture_roman ], #romans
+ 3200 , weight(14)|abundance(20)|head_armor(0)|body_armor(52)|leg_armor(12)|difficulty(9) ,imodbits_scale, [], culture_roman ], #romans
 ["roman_scale_6", "Squamata", [("roman_scale_6_1",0),("roman_scale_6_2",imodbit_reinforced),("roman_scale_6_3",imodbit_lordly),], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
- 4020 , weight(16)|abundance(20)|head_armor(0)|body_armor(52)|leg_armor(12)|difficulty(9) ,imodbits_scale, [], culture_roman ], #romans
+ 3200 , weight(14)|abundance(20)|head_armor(0)|body_armor(52)|leg_armor(12)|difficulty(9) ,imodbits_scale, [], culture_roman ], #romans
 ["roman_scale_7", "Squamata", [("roman_scale_7_1",0),("roman_scale_7_2",imodbit_reinforced),("roman_scale_7_3",imodbit_lordly),], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
- 4020 , weight(16)|abundance(20)|head_armor(0)|body_armor(52)|leg_armor(12)|difficulty(9) ,imodbits_scale, [], culture_roman ], #romans
+ 3200 , weight(14)|abundance(20)|head_armor(0)|body_armor(52)|leg_armor(12)|difficulty(9) ,imodbits_scale, [], culture_roman ], #romans
 
 ["western_scholae_scale_1", "Squamata", [("western_scholae_scale_1_1",0),("western_scholae_scale_1_2",imodbit_reinforced),("western_scholae_scale_1_3",imodbit_lordly),], itp_unique|itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
- 4020 , weight(16)|abundance(20)|head_armor(0)|body_armor(52)|leg_armor(12)|difficulty(9) ,imodbits_scale, [], [fac_culture_empire] ], #scholae
+ 3200 , weight(14)|abundance(20)|head_armor(0)|body_armor(52)|leg_armor(12)|difficulty(9) ,imodbits_scale, [], [fac_culture_empire] ], #scholae
 ["eastern_scholae_scale_1", "Squamata", [("eastern_scholae_scale_1_1",0),("eastern_scholae_scale_1_2",imodbit_reinforced),("eastern_scholae_scale_1_3",imodbit_lordly),], itp_unique|itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
- 4020 , weight(16)|abundance(20)|head_armor(0)|body_armor(52)|leg_armor(12)|difficulty(9) ,imodbits_scale, [], [fac_culture_empire] ], #scholae
+ 3200 , weight(14)|abundance(20)|head_armor(0)|body_armor(52)|leg_armor(12)|difficulty(9) ,imodbits_scale, [], [fac_culture_empire] ], #scholae
+
+["centenarii_scale_1", "Squamata", [("centenarii_scale_1_1",0),("centenarii_scale_1_2",imodbit_reinforced),("centenarii_scale_1_3",imodbit_lordly),], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3200 , weight(14)|abundance(10)|head_armor(0)|body_armor(52)|leg_armor(12)|difficulty(9) ,imodbits_scale, [], culture_roman ], #for centurions
+["centenarii_scale_2", "Squamata", [("centenarii_scale_2_1",0),("centenarii_scale_2_2",imodbit_reinforced),("centenarii_scale_2_3",imodbit_lordly),], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3200 , weight(14)|abundance(10)|head_armor(0)|body_armor(52)|leg_armor(12)|difficulty(9) ,imodbits_scale, [], culture_roman ], #romans
+["centenarii_mail_1", "Rich Mail Shirt", [("centenarii_mail_1",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3200 , weight(16.5)|abundance(10)|head_armor(0)|body_armor(56)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_roman ],
+["centenarii_mail_2", "Rich Mail Shirt", [("centenarii_mail_2",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3200 , weight(16.5)|abundance(10)|head_armor(0)|body_armor(56)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_roman ],
+
 
 #full ~60 body, 18 legs
 
 ["457_scale_hauberk_1", "Squamata", [("457_scale_hauberk_1",0)], itp_merchandise|itp_type_body_armor  |itp_covers_legs ,0,
- 5900 , weight(19)|abundance(18)|head_armor(0)|body_armor(56)|leg_armor(16)|difficulty(13) ,imodbits_scale, [], culture_roman ],
+ 5900 , weight(21)|abundance(18)|head_armor(0)|body_armor(60)|leg_armor(16)|difficulty(13) ,imodbits_scale, [], culture_roman ],
 ["457_scale_hauberk_2", "Squamata", [("457_scale_hauberk_2",0)], itp_merchandise|itp_type_body_armor  |itp_covers_legs ,0,
- 5900 , weight(19)|abundance(18)|head_armor(0)|body_armor(56)|leg_armor(16)|difficulty(13) ,imodbits_scale, [], culture_roman ],
+ 5900 , weight(21)|abundance(18)|head_armor(0)|body_armor(60)|leg_armor(16)|difficulty(13) ,imodbits_scale, [], culture_roman ],
 ["457_scale_hauberk_3", "Squamata", [("457_scale_hauberk_3",0)], itp_merchandise|itp_type_body_armor  |itp_covers_legs ,0,
- 5900 , weight(19)|abundance(18)|head_armor(0)|body_armor(56)|leg_armor(16)|difficulty(13) ,imodbits_scale, [], culture_roman ],
-#richer scale armor - slightly better defense
+ 5900 , weight(21)|abundance(18)|head_armor(0)|body_armor(60)|leg_armor(16)|difficulty(13) ,imodbits_scale, [], culture_roman ],
+#richer scale armor - slightly better defense / slightly more expensive
 ["457_scale_hauberk_4", "Squamata", [("457_scale_hauberk_4",0)], itp_merchandise|itp_type_body_armor  |itp_covers_legs ,0,
- 6100 , weight(19)|abundance(15)|head_armor(0)|body_armor(58)|leg_armor(16)|difficulty(13) ,imodbits_scale, [], culture_roman ],
+ 6000 , weight(21)|abundance(15)|head_armor(0)|body_armor(61)|leg_armor(16)|difficulty(13) ,imodbits_scale, [], culture_roman ],
 ["457_scale_hauberk_5", "Squamata", [("457_scale_hauberk_5",0)], itp_merchandise|itp_type_body_armor  |itp_covers_legs ,0,
- 6100 , weight(19)|abundance(15)|head_armor(0)|body_armor(58)|leg_armor(16)|difficulty(13) ,imodbits_scale, [], culture_roman ],
+ 6000 , weight(21)|abundance(15)|head_armor(0)|body_armor(61)|leg_armor(16)|difficulty(13) ,imodbits_scale, [], culture_roman ],
 ["457_scale_hauberk_6", "Squamata", [("457_scale_hauberk_6",0)], itp_merchandise|itp_type_body_armor  |itp_covers_legs ,0,
- 6100 , weight(19)|abundance(15)|head_armor(0)|body_armor(58)|leg_armor(16)|difficulty(13) ,imodbits_scale, [], culture_roman ],
+ 6000 , weight(21)|abundance(15)|head_armor(0)|body_armor(61)|leg_armor(16)|difficulty(13) ,imodbits_scale, [], culture_roman ],
 ["457_scale_hauberk_7", "Squamata", [("457_scale_hauberk_7",0)], itp_merchandise|itp_type_body_armor  |itp_covers_legs ,0,
- 6100 , weight(19)|abundance(15)|head_armor(0)|body_armor(58)|leg_armor(16)|difficulty(13) ,imodbits_scale, [], culture_roman ],
+ 6000 , weight(21)|abundance(15)|head_armor(0)|body_armor(61)|leg_armor(16)|difficulty(13) ,imodbits_scale, [], culture_roman ],
 ["457_scale_hauberk_8", "Squamata", [("457_scale_hauberk_8",0)], itp_merchandise|itp_type_body_armor  |itp_covers_legs ,0,
- 6100 , weight(19)|abundance(15)|head_armor(0)|body_armor(58)|leg_armor(16)|difficulty(13) ,imodbits_scale, [], culture_roman ],
+ 6000 , weight(21)|abundance(15)|head_armor(0)|body_armor(61)|leg_armor(16)|difficulty(13) ,imodbits_scale, [], culture_roman ],
 
 ["caucasian_scale_1", "Scale Armor", [("caucasian_scale_1",0)], itp_merchandise|itp_type_body_armor  |itp_covers_legs ,0,
- 5900 , weight(19)|abundance(18)|head_armor(0)|body_armor(56)|leg_armor(16)|difficulty(13) ,imodbits_scale, [], culture_caucasian ],
+ 5900 , weight(21)|abundance(18)|head_armor(0)|body_armor(60)|leg_armor(16)|difficulty(13) ,imodbits_scale, [], culture_caucasian ],
 ["caucasian_scale_2", "Scale Armor", [("caucasian_scale_2",0)], itp_merchandise|itp_type_body_armor  |itp_covers_legs ,0,
- 5900 , weight(19)|abundance(18)|head_armor(0)|body_armor(56)|leg_armor(16)|difficulty(13) ,imodbits_scale, [], culture_caucasian ],
+ 5900 , weight(21)|abundance(18)|head_armor(0)|body_armor(60)|leg_armor(16)|difficulty(13) ,imodbits_scale, [], culture_caucasian ],
 ["caucasian_scale_3", "Scale Armor", [("caucasian_scale_3",0)], itp_merchandise|itp_type_body_armor  |itp_covers_legs ,0,
- 5900 , weight(19)|abundance(18)|head_armor(0)|body_armor(56)|leg_armor(16)|difficulty(13) ,imodbits_scale, [], culture_caucasian ],
+ 5900 , weight(21)|abundance(18)|head_armor(0)|body_armor(60)|leg_armor(16)|difficulty(13) ,imodbits_scale, [], culture_caucasian ],
 ["caucasian_scale_4", "Scale Armor", [("caucasian_scale_4",0)], itp_merchandise|itp_type_body_armor  |itp_covers_legs ,0,
- 5900 , weight(19)|abundance(18)|head_armor(0)|body_armor(56)|leg_armor(16)|difficulty(13) ,imodbits_scale, [], culture_caucasian ],
+ 5900 , weight(21)|abundance(18)|head_armor(0)|body_armor(60)|leg_armor(16)|difficulty(13) ,imodbits_scale, [], culture_caucasian ],
 
 #cataphract ~64 body, 20 legs
 ["cataphract_armor_1", "Cataphract Armor", [("sassanid_cataphract_1",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0,
@@ -1596,30 +1606,30 @@ items = [
  8600 , weight(35)|abundance(5)|head_armor(0)|body_armor(64)|leg_armor(20)|difficulty(16) ,imodbits_scale, [], culture_caucasian ],
 
 ["sassanid_heavy_mail_1", "Persian Cataphract Mail", [("sassanid_heavy_mail_1",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0,
- 8200 , weight(32)|abundance(5)|head_armor(0)|body_armor(60)|leg_armor(20)|difficulty(15) ,imodbits_scale, [], culture_sassanid ],
+ 8200 , weight(32)|abundance(5)|head_armor(0)|body_armor(62)|leg_armor(20)|difficulty(15) ,imodbits_scale, [], culture_sassanid ],
 ["sassanid_heavy_mail_2", "Persian Cataphract Mail", [("sassanid_heavy_mail_2",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0,
- 8200 , weight(32)|abundance(5)|head_armor(0)|body_armor(60)|leg_armor(20)|difficulty(15) ,imodbits_scale, [], culture_sassanid ],
+ 8200 , weight(32)|abundance(5)|head_armor(0)|body_armor(62)|leg_armor(20)|difficulty(15) ,imodbits_scale, [], culture_sassanid ],
 ["sassanid_heavy_mail_3", "Persian Cataphract Mail", [("sassanid_heavy_mail_3",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0,
- 8200 , weight(32)|abundance(5)|head_armor(0)|body_armor(60)|leg_armor(20)|difficulty(15) ,imodbits_scale, [], culture_sassanid ],
+ 8200 , weight(32)|abundance(5)|head_armor(0)|body_armor(62)|leg_armor(20)|difficulty(15) ,imodbits_scale, [], culture_sassanid ],
 ["sassanid_heavy_mail_4", "Persian Cataphract Mail", [("sassanid_heavy_mail_4",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0,
- 8200 , weight(32)|abundance(5)|head_armor(0)|body_armor(60)|leg_armor(20)|difficulty(15) ,imodbits_scale, [], culture_sassanid ],
+ 8200 , weight(32)|abundance(5)|head_armor(0)|body_armor(62)|leg_armor(20)|difficulty(15) ,imodbits_scale, [], culture_sassanid ],
 
 ["sassanid_plated_mail_1", "Persian Cataphract Mail", [("sassanid_plated_mail_1",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0,
- 8700 , weight(36)|abundance(1)|head_armor(0)|body_armor(65)|leg_armor(20)|difficulty(17) ,imodbits_scale, [], culture_sassanid ],
+ 8700 , weight(36)|abundance(1)|head_armor(0)|body_armor(66)|leg_armor(20)|difficulty(17) ,imodbits_scale, [], culture_sassanid ],
 ["sassanid_plated_mail_2", "Persian Cataphract Mail", [("sassanid_plated_mail_2",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0,
- 8700 , weight(36)|abundance(1)|head_armor(0)|body_armor(65)|leg_armor(20)|difficulty(17) ,imodbits_scale, [], culture_sassanid ],
+ 8700 , weight(36)|abundance(1)|head_armor(0)|body_armor(66)|leg_armor(20)|difficulty(17) ,imodbits_scale, [], culture_sassanid ],
 ["sassanid_plated_mail_3", "Persian Cataphract Mail", [("sassanid_plated_mail_3",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0,
- 8700 , weight(36)|abundance(1)|head_armor(0)|body_armor(65)|leg_armor(20)|difficulty(17) ,imodbits_scale, [], culture_sassanid ],
+ 8700 , weight(36)|abundance(1)|head_armor(0)|body_armor(66)|leg_armor(20)|difficulty(17) ,imodbits_scale, [], culture_sassanid ],
 
 #others
 
 ["kizil_composite_armor", "Compsite Armor", [("kizil_composite_armor",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, #very rare, can only be sold by the alans and the huns
- 8600 , weight(36)|abundance(1)|head_armor(0)|body_armor(64)|leg_armor(28)|difficulty(17) ,imodbits_plate, [], culture_hunnic+culture_alan ],
+ 9000 , weight(36)|abundance(1)|head_armor(0)|body_armor(66)|leg_armor(28)|difficulty(17) ,imodbits_plate, [], culture_hunnic+culture_alan ],
 
-["cuirass_roman_1", "Roman Muscle Cuirass", [("cuirass_roman_1",0)], itp_merchandise| itp_type_body_armor |itp_covers_legs ,0,
- 9000 , weight(22)|abundance(1)|head_armor(0)|body_armor(59)|leg_armor(12)|difficulty(10) ,imodbits_plate, [], culture_roman ],
+["cuirass_roman_1", "Roman Muscle Cuirass", [("cuirass_roman_1",0)], itp_merchandise| itp_type_body_armor |itp_covers_legs ,0, #very rare
+ 9000 , weight(19)|abundance(1)|head_armor(0)|body_armor(62)|leg_armor(12)|difficulty(10) ,imodbits_plate, [], culture_roman ],
 ["cuirass_roman_2", "Roman Muscle Cuirass", [("cuirass_roman_2",0)], itp_merchandise| itp_type_body_armor |itp_covers_legs ,0,
- 9000 , weight(22)|abundance(1)|head_armor(0)|body_armor(59)|leg_armor(12)|difficulty(10) ,imodbits_plate, [], culture_roman ],
+ 9000 , weight(19)|abundance(1)|head_armor(0)|body_armor(62)|leg_armor(12)|difficulty(10) ,imodbits_plate, [], culture_roman ],
 
 ["roman_emperor_tunic", "Roman Emperor's Tunic", [("coptic_tunic_emperor_1",0)], itp_type_body_armor|itp_covers_legs|itp_civilian,0, 600 , weight(4)|abundance(20)|head_armor(0)|body_armor(20)|leg_armor(10)|difficulty(0) ,imodbits_cloth ],
 

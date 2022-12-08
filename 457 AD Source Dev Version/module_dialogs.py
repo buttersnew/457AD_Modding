@@ -52061,7 +52061,7 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   
   [anyone|plyr,"ordlaf_talk_ship_9", [
   ], 
-  "I can see why you left. But did your old chief leave be like this?",
+  "I can see why you left. But did your old chief leave you be like this?",
   "ordlaf_talk_ship_10",[]],
   
   [anyone,"ordlaf_talk_ship_10", [
@@ -52117,7 +52117,7 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
  
   [anyone,"eaha_talk_ship_7", [
   ], 
-  "I want to slay a beast, grab the spoil of a defeated enemy champion, and marry a princess. This is the only way for me to redeem myself from my noble origins and free my family from its burdensome life at the farm. Once these things will be dealt with, I will finally start my own dynasty.",
+  "I want to slay a beast, grab the spoil of a defeated enemy champion, and marry a princess. This is the only way for me to redeem myself from my humble origins and free my family from its burdensome life at the farm. Once these things will be dealt with, I will finally start my own dynasty.",
   "eaha_talk_ship_8",[]],
  
   [anyone|plyr,"eaha_talk_ship_8", [

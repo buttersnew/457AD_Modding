@@ -49,7 +49,7 @@ factions = [
   #minor cultures
   ("culture_minor_1",  "Cantabrian", 0, 0.9, [], []), 
   ("culture_minor_2",  "Slavic", 0, 0.9, [], []), 
-  #("culture_minor_3",  "Noricum", 0, 0.9, [], []), 
+  ("culture_minor_3",  "Coptic", 0, 0.9, [], []), #added for future
   ("culture_minor_4",  "Frisian", 0, 0.9, [], []), 
   ("culture_minor_5",  "Baltic", 0, 0.9, [], []), 
   ("culture_minor_6",  "Morden", 0, 0.9, [], []), 
@@ -94,7 +94,6 @@ factions = [
   ("kingdoms_end","{!}kingdoms_end", 0, 0,[], []),
 
   ("robber_knights",  "{!}robber_knights", 0, 0.1, [], []),
-
   ("khergits","{!}Khergits", 0, 0.5,[("player_faction",0.0)], []),
   ("black_khergits","Hunnic Rebels", 0, 0.5,[("player_faction",-0.3),("kingdom_1",-0.05),("kingdom_2",-0.05),("kingdom_4",-0.05),("kingdom_11",-0.05)], []),
 
@@ -115,15 +114,12 @@ factions = [
   #armenian rebels
   ("armenian_rebels","Armenian Rebels", 0, 0.5,[("commoners",-0.05),("merchants",-0.5),("player_faction",-0.05),("kingdom_6",-0.75),("kingdom_2",0.75),("kingdom_16",0.5),("coptic_christians",0.75),("coptic_christians",0.75)], [], 0x888888),
   #Samaritan rebels - revolted in 484 under Zeno, may add them as a small rebel faction?
-  ("samaritan_rebels","Samaritan Rebels", 0, 0.5,[("commoners",-0.2),("merchants",-0.5),("manhunters",-0.6),("player_faction",-0.15),("kingdom_1",-0.75),("kingdom_2",-0.75),("kingdom_6",-0.5),("jews",0.75)], [], 0x888888),
-  #gallaecian rebels - pro roman rebels revolting against violent suebi rule
-  ("gallaecian_rebels","Gallaecian Rebels", 0, 0.5,[("commoners",0.1),("merchants",0.1),("manhunters",-0.2),("player_faction",0.0),("kingdom_1",0.75),("kingdom_3",0.15),("kingdom_8",-1)], [], 0x888888),
-  #suebi civil war
+  ("samaritan_rebels","Samaritan Rebels", 0, 0.5,[("commoners",-0.2),("merchants",-0.5),("manhunters",-0.6),("player_faction",-0.15),("kingdom_1",-0.75),("kingdom_2",-0.75),("kingdom_6",-0.5),("jews",0.75)], [], 0x888888),  #suebi civil war
   #starts at war with the ostrogothic kingdom, will be spawned in an event war with scirii, rugii, heruli + suebi vs ostrogoths
   ("hunimund_suebi","Danubian Suebi", 0, 0.5,[("kingdom_4",-0.75),("kingdom_11",0.99),("kingdom_14",0.99),("kingdom_21",0.99)], [], 0x3c5a1b), #lead by hunimund, at war with ostrogoths, will make color orange
   ("heruli","Danubian Heruli", 0, 0.5,[("kingdom_4",-0.75),("kingdom_11",0.99),("kingdom_14",0.99),("kingdom_21",0.99)], [], 0x993322), #lead by Visilaus, at war with ostrogoths
-  ("ghassanids","Ghassanids", 0, 0.5,[("kingdom_2",0.99),("coptic_christians",0.5),("coptic_rebels", 0.05)], [], 0xef301f), #allied with ERE, war with sassanids
-  ("salihids","Salihids", 0, 0.5,[("kingdom_2",0.99),("kingdom_6",-0.75)], [], 0xc9ad34), #allied with ERE, war with sassanids, limes arabicus
+  #("ghassanids","Ghassanids", 0, 0.5,[("kingdom_2",0.99),("coptic_christians",0.5),("coptic_rebels", 0.05)], [], 0xef301f), #allied with ERE, war with sassanids
+  #("salihids","Salihids", 0, 0.5,[("kingdom_2",0.99),("kingdom_6",-0.75)], [], 0xc9ad34), #allied with ERE, war with sassanids, limes arabicus
   ("faltras_suebi","Faltras's Loyalists", 0, 0.5,[("kingdom_8",-0.75)], [], 0x3c5a1b),
 
   #Minor faction features
@@ -157,7 +153,6 @@ factions = [
   ("pagans","Pagans", 0, 0.5,[("arian_christians",-0.05),("coptic_christians",-0.05),("roman_christians",-0.05),("zoroastrians",-0.05)], [], 0xFFFFFF),
   ("zoroastrians","Zoroastrians", 0, 0.5,[("arian_christians",-0.05),("coptic_christians",-0.05),("pagans",-0.05),("roman_christians",-0.05),("kingdom_6", 0.9)], [], 0xFFFFFF), #very friendly with the sassanids
   ("roman_pagans","Greco-Roman Pagans", 0, 0.5,[("arian_christians",-0.05),("coptic_christians",-0.05),("pagans",-0.05),("roman_christians",-0.05),("zoroastrians",-0.05),("kingdom_1", 0.1),("kingdom_2", -0.01)], [], 0xFFFFFF), #likes wre, dislikes ere
-
   ("jews","Jews", 0, 0.5,[("arian_christians",-0.05),("coptic_christians",-0.05),("pagans",-0.05),("roman_christians",-0.05),("zoroastrians",-0.05),("roman_pagans",-0.05)], [], 0xFFFFFF), #used for later
   #chariot racing teams
   ("blue_team","Blues",0, 0.1,[("player_faction",0.0),("kingdom_1",0.5),("kingdom_2",0.5)], [],0xFFFFFF),

@@ -1333,7 +1333,7 @@ strings = [
   ("npc16_home_description", "We Persians are a noble kin. Romans despise us, and that's only because they cannot stand someone can actually put a fight against them."),
   ("npc17_home_description", "However, I seldom pray to him... He doesnt listen..."),
   ("npc18_home_description", "Some of them are good men, honest, brave... A shame no one will remember them after their death. You, maybe you and me... Someone will tell tales about us but most of these names will be lost in the sands forever. Time is cruel, and in hundreds of years just the great men will be remembered, while the common soldiers will have no names..."),
-  ("npc19_home_description", "You know, we are kinda simple people. Most can’t afford even a proper clothing, yet alone an armour, most go in the field with large shield, spear and rarely axe, some chieftains might don a clothing or even chainmail. And a sword, as sign of authority."),
+  ("npc19_home_description", "You know we are a simple people. Most of us can't even afford proper clothing, let alone armour. Most go in the field with large shield, spear and rarely axes. Some chieftains might don clothing or even chainmail. And a sword, as sign of authority."),
   ("npc20_home_description", "Unfished - you shouldn't see this"),
 
   ("npc1_home_description_2", "Our homes may seem crude to you, but they keep us cool during summer and warm during winter. We are mostly farmers, claiming the land which belonged to someone else, someone who left a long time ago... There's no emperor or king to rule, only the clan which gathers from time to time to discuss and feast. It's a hard, but simple life."),

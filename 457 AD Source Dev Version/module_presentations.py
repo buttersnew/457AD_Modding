@@ -18864,7 +18864,6 @@ presentations = [
             (else_try), #AOR crimean
               (this_or_next|eq, "$current_town", "p_castle_76"), 
               (this_or_next|eq, "$current_town", "p_castle_77"), 
-              (this_or_next|eq, "$current_town", "p_town_36"), 
               (eq, "$current_town", "p_town_44"),        
               (this_or_next|eq, ":troop", "trp_crimean_gothic_skirmisher"),
               (this_or_next|eq, ":troop", "trp_crimean_gothic_freeman"),
@@ -19114,7 +19113,8 @@ presentations = [
               (eq, ":troop", "trp_latro_alpium"),
               (assign, ":c", 1),
             (else_try), #maz'kut - only in seraca
-              (eq, "$current_town", "p_castle_83"),        
+              (eq, "$current_town", "p_castle_83"),  
+              (this_or_next|eq, "$current_town", "p_castle_87"),      
               (eq, ":troop", "trp_mazkut_cataphract"),
               (assign, ":c", 1),
             (else_try), #barsil - only in usupa
@@ -19157,6 +19157,13 @@ presentations = [
               (this_or_next|eq, "$current_town", "p_town_6"),
               (eq, "$current_town", "p_town_21"),        
               (eq, ":troop", "trp_parabalanus"),
+              (assign, ":c", 1),
+            (else_try), #coptic troops - alexandria / egypt
+              (troop_get_slot, ":player_religion", "trp_player", slot_troop_religion),
+              (eq, ":player_religion", slot_religion_coptic),
+              (this_or_next|eq, "$current_town", "p_castle_9"),
+              (eq, "$current_town", "p_town_21"),        
+              (eq, ":troop", "trp_coptic_youth"),
               (assign, ":c", 1),
 ##########################################################################
             #and now for the roman AOR!

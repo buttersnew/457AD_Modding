@@ -229,11 +229,6 @@ party_templates = [
   ("culture_minor_9_reinforcements_a", "{!}Western Alan Reinforcements", 0, 0, fac_commoners, 0, [(trp_western_alan_rider,8,20)]),
   ("culture_minor_9_reinforcements_b", "{!}Western Alan Reinforcements", 0, 0, fac_commoners, 0, [(trp_western_alan_lancer,6,15)]),
   ("culture_minor_9_reinforcements_c", "{!}Western Alan Reinforcements", 0, 0, fac_commoners, 0, [(trp_western_alan_cataphract,4,10)]),
-
-#Max temp 1 : 8-20
-#Max temp 2: 6-15 exclude bearer
-#Max temp 3: 4-10
-#Each faction gets a standard bearer at tier 2
   #special party templates for specific lords
   #Majorian - will be stronger than most party templates
   ("kingdom_1_lord_reinforcements_a", "{!}majorian_reinforcements_a", 0, 0, fac_commoners, 0, [(trp_tiro_limitanei,3,7),(trp_exculator_limitanei,1,3),(trp_western_alan_rider,2,4),(trp_iuvenis_foederatus,2,6)]), #greater amount of federate troops

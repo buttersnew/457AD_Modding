@@ -456,10 +456,6 @@ party_templates = [
 
   ("mauri_rebel_horde","Austuriani Rebel Horde",icon_khergit|carries_goods(20)|pf_show_faction,0,fac_berber_rebels,bandit_personality,[(trp_mauri_mounted_skirmisher,80,160),(trp_desert_bandit,20,60),(trp_mauri_skirmisher,40,80),(trp_mauri_footman,30,50)]),
 
-  ("ghassanid_horde","Ghassanid Horde",icon_khergit|carries_goods(20)|pf_show_faction,0,fac_ghassanids,soldier_personality,[(trp_arab_tribesman,20,60),(trp_arab_skirmisher,10,30),(trp_arab_light_cavalry,20,40),(trp_arab_heavy_cavalry,10,25),(trp_ghassanid_king,1,1)]), #could have it so the player can hire them to follow around?
-
-  ("salihid_horde","Salihid Horde",icon_khergit|carries_goods(20)|pf_show_faction,0,fac_salihids,soldier_personality,[(trp_arab_tribesman,20,60),(trp_arab_skirmisher,10,30),(trp_arab_light_cavalry,20,40),(trp_arab_heavy_cavalry,10,25),(trp_salihid_king,1,1)]), #could have it so the player can hire them to follow around?
-
   ("ostrogothic_army","Ostrogothic Army",icon_germanic_army|carries_goods(20)|pf_show_faction,0,fac_kingdom_4,soldier_personality,[(trp_gothic_freeman,40,75),(trp_gothic_skirmisher,10,30),(trp_gothic_mounted_skirmisher,10,20),(trp_gothic_horseman,5,10),(trp_gothic_companion,1,1)]), #balance out so that ostrogoths do not get completely destroyed
 
   ("arran_army","Arran Rebels",icon_axeman|carries_goods(20)|pf_show_faction,0,fac_kingdom_28,soldier_personality,[(trp_aghwan_warrior,60,100),(trp_aghwan_archer,20,40),(trp_aghwan_nobleman,10,20),(trp_albanian_cavalry,1,5)]),

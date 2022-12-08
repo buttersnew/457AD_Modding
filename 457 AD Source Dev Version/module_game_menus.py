@@ -4616,6 +4616,7 @@ TOTAL:  {reg5}"),
           (eq, "$g_encountered_party_template", "pt_taiga_bandits"),
           (set_background_mesh, "mesh_pic_mb_warrior_1"),
         (else_try),
+          (this_or_next|eq, "$g_encountered_party_template", "pt_saxon_raiders"),
           (eq, "$g_encountered_party_template", "pt_sea_raiders"),
           (set_background_mesh, "mesh_pic_sea_raiders"),
         (else_try),
@@ -5522,7 +5523,7 @@ TOTAL:  {reg5}"),
 
           (store_add, ":total_capture_size", ":num_rescued_prisoners", ":num_captured_enemies"),
           
-          # (neq, "$freelancer_state", 1),  #Caba freelancer fixes chief 
+          (neq, "$freelancer_state", 1),  #Caba freelancer fixes chief 
           (gt, ":total_capture_size", 0),
           (change_screen_exchange_with_party, "p_temp_party"),
         (else_try),
@@ -18979,7 +18980,8 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         (assign, "$g_enemy_party", "$g_encountered_party"),
 
         (try_begin),
-          (eq, ":template", "pt_sea_raider_lair"),
+          (this_or_next|eq, ":template", "pt_sea_raider_lair"),
+          (eq, ":template", "pt_sea_raider_lair_2"),
           (assign, ":bandit_troop", "trp_sea_raider"),
           (assign, ":scene_to_use", "scn_lair_sea_raiders"),
         (else_try),
@@ -22247,6 +22249,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       (eq, "$g_encountered_party_template", "pt_taiga_bandits"),
       (set_background_mesh, "mesh_pic_mb_warrior_1"),
     (else_try),
+      (this_or_next|eq, "$g_encountered_party_template", "pt_saxon_raiders"),
       (eq, "$g_encountered_party_template", "pt_sea_raiders"),
       (set_background_mesh, "mesh_pic_sea_raiders"),
     (else_try),

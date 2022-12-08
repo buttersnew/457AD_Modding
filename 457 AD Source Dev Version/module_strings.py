@@ -4268,6 +4268,7 @@ We apologize sincerely if you contributed your suggestions and feedback but were
   ("_family_dupe", "^Family:"), #SB : duplicate string
   ("s49_s12_s11_end", "{s49} {s12} ({s11})."),
 
+ ("center_party_to_far_away", "is not our target, because it is too far away from our main army."),
   ("center_party_not_active", "is not our target, because we don't have a leader who has taken the field."),
   ("center_is_friendly", "is not our enemy."),
   ("center_is_already_besieged", "is already under siege."),
@@ -6052,8 +6053,8 @@ Even in the last case, the player can make formations up to four lines by orderi
 ("public_baths_name_nomadic", "House of the Ancestors"),
 ("public_baths_description_nomadic", "A holy place to honor the dead and drink to their memory. It is another sign of power and increase your renown and relation with this center. It will also increase your reputation and gain you experience."),
 
-("triumphal_arch_name_rome", "Triumph Arch"),
-("triumphal_arch_description_rome", "A triumph arch show your most famous victories over your enemies. It will increase your renown. Even after your death people will talk about you. It will also increase your reputation and gain you experience."),
+("triumphal_arch_name_rome", "Triumphal Arch"),
+("triumphal_arch_description_rome", "A triumphal arch show your most famous victories over your enemies. It will increase your renown. Even after your death people will talk about you. It will also increase your reputation and gain you experience."),
 ("triumphal_arch_name_eastern", "Pahlavi Scriptorium"),
 ("triumphal_arch_description_eastern", "By building a scriptorum most you can spread your most famous victories over your enemies. It will increase your renown. Even after your death people will talk about you. It will also increase your reputation and gain you experience."),
 ("triumphal_arch_name_germanic", "Bardic Circle"),

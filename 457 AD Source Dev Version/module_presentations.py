@@ -20222,7 +20222,7 @@ presentations = [
         (position_set_y, pos1, 1500),
         (overlay_set_size, reg1, pos1),        
 
-        (create_text_overlay, reg1, "@Here you find additional information about the wealth and expected tax income of the settlement. Certain effects are not simmultaniously and need time to apply! Rent is calculated as follows: Wealth and income or upkeep from buildings is added together, then the modifiers are applied. A taxrate of 60% means that you will get 60% of the total wealth of the settlement.", tf_double_space|tf_scrollable|tf_center_justify),
+        (create_text_overlay, reg1, "@Here you find additional information about the wealth and expected tax income of the settlement. Certain effects are not simultaneous and need time to apply! Rent is calculated as follows: Wealth and income or upkeep from buildings is added together, then the modifiers are applied. A taxrate of 60% means that you will get 60% of the total wealth of the settlement.", tf_double_space|tf_scrollable|tf_center_justify),
         (position_set_x, pos1, 350),
         (position_set_y, pos1, 70),
         (overlay_set_position, reg1, pos1),

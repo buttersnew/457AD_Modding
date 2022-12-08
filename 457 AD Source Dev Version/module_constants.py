@@ -416,8 +416,8 @@ slot_town_arena_melee_3_team_size = 85
 slot_town_arena_melee_cur_tier    = 86
 ##slot_town_arena_template        = 87
 
-slot_center_npc_volunteer_troop_type   = 90
-slot_center_npc_volunteer_troop_amount = 91
+slot_center_npc_volunteer_troop_type   = 88
+slot_center_npc_volunteer_troop_amount = 89
 slot_center_mercenary_troop_type  = 90
 slot_center_mercenary_troop_amount= 91
 slot_center_volunteer_troop_type  = 92

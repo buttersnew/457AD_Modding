@@ -49,7 +49,7 @@ factions = [
   #minor cultures
   ("culture_minor_1",  "Cantabrian", 0, 0.9, [], []), 
   ("culture_minor_2",  "Slavic", 0, 0.9, [], []), 
-  ("culture_minor_3",  "Coptic", 0, 0.9, [], []), #added for future
+  #("culture_minor_3",  "Noricum", 0, 0.9, [], []), 
   ("culture_minor_4",  "Frisian", 0, 0.9, [], []), 
   ("culture_minor_5",  "Baltic", 0, 0.9, [], []), 
   ("culture_minor_6",  "Morden", 0, 0.9, [], []), 
@@ -62,38 +62,41 @@ factions = [
   ("player_faction","Player Faction",0, 0.9, [], []),
   ("player_supporters_faction","Player's Supporters",0, 0.9, [("player_faction",1.00),("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("coptic_rebels", -0.05),("berber_rebels", -0.05),("armenian_rebels", -0.05)], [], 0xFF4433), #changed name so that can tell difference if shows up on map
 
-  ("kingdom_1",  "Imperium Romanum Pars Occidentalis", 0, 0.9, [("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.75),("coptic_rebels", -0.05),("minor_vascones", 0.5),("minor_gallaeci", 0.5)], [], 0x8E0D0D), #Western Roman Empire / Imperium Romanum Pars Occidentalis // Friendly with ERE and Salian franks to start
-  ("kingdom_2",  "Imperium Romanum Pars Orientalis",    0, 0.9, [("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.75),("coptic_rebels", -0.75)], [], 0x9B3CDB), #Eastern Roman Empire / Imperium Romanum Pars Orientalis // Friendly to WRE and Lazika to start
-  ("kingdom_3",  "Regnum Balthorum", 0, 0.9, [("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05),("minor_vascones", 0.25)], [], 0x65563F), #Kingdom of the Visigoths / Regnum Visigothorum
-  ("kingdom_4",  "Regnum Amalorum",    0, 0.9, [("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05)], [], 0x6ea6ce), #Kingdom of the Ostrogoths / Regnum Ostrogothi - changed to Regnum Amalorum, Kingdom of the Amali (dynasty) goths
-  ("kingdom_5",  "Regnum Picti",  0, 0.9, [("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05)], [], 0x667FFF), #Kingdom of the Picts / Regnum Picti
-  ("kingdom_6",  "Eranshahr",  0, 0.9, [("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05)], [], 0xfe6f20), #Sassanid Empire / Eranshahr
-  ("kingdom_7",  "Regnum Salii",  0, 0.9, [("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05)], [], 0x2A8000), #Kingdom of the Salian Franks / Regnum Salii
-  ("kingdom_8",  "Regnum Suevorum",  0, 0.9, [("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05),("minor_gallaeci", -0.5)], [], 0x6bb493), #Kingdom of the Suebi / Regnum Suevorum
-  ("kingdom_9",  "Regnum Burgundionum",    0, 0.9, [("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05)], [], 0xb3636e), #Kingdom of the Burgundians / Regnum Burgundionum
-  ("kingdom_10",  "Regnum Alemmani",    0, 0.9, [("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05)], [], 0xbd832f), #Kingdom of the Alemmani / Regnum Alemmani
-  ("kingdom_11",  "Regnum Gepidae",    0, 0.9, [("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05)], [], 0x904659), #Kingdom of the Gepids / Regnum Gepidae
-  ("kingdom_12",  "Regnum Saxones",    0, 0.9, [("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05)], [], 0xf93504), #Kingdom of the Saxons / Regnum Saxones
-  ("kingdom_13",  "Regnum Britannorum",    0, 0.9, [("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05),("minor_irish", -0.7)], [], 0xab4343), #Romano-Britons / Regnum Britannorum
-  ("kingdom_14",  "Regnum Rugurum",    0, 0.9, [("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05)], [], 0x65cd65), #Kingdom of the Rugii / Regnum Rugurum
-  ("kingdom_15",  "Regnum Vandalorum et Alanorum",    0, 0.9, [("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.75),("coptic_rebels", -0.05)], [], 0xcd9365), #Kingdom of the Vandals / Regnum Vandalorum et Alanorum
-  ("kingdom_16",  "Kartli",    0, 0.9, [("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05)], [], 0x0c42c4), #Kartli / Kingdom of Iberia
-  ("kingdom_17",  "Regnum Langobardi",    0, 0.9, [("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05)], [], 0x910c21), #Kingdom of the Langobards / Regnum Langobardi
-  ("kingdom_18",  "Regnum Thuringii",    0, 0.9, [("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05)], [], 0xd5d6b4), #Kingdom of the Thuringians / Regnum Thuringii
-  ("kingdom_19",  "Regnum Iuti",    0, 0.9, [("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05)], [], 0x53acff), #Kingdom of the Jutes / Regnum Iuti
-  ("kingdom_20",  "Regnum Ripuarii",    0, 0.9, [("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05)], [], 0xceb036), #Kingdom of the Ripuarian Franks / Regnum Ripuarii
-  ("kingdom_21",  "Regnum Scirii",    0, 0.9, [("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05)], [], 0x265626), #Kingdom of the Scirii / Regnum Scirii # was 0x103210 
-  ("kingdom_22",  "Regnum Maurorum et Romanorum",    0, 0.9, [("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", 0.05)], [], 0x80FF00), #Kingdom of the Mauri and the Romans / Regnum Maurorum Et Romanorum
-  ("kingdom_23",  "Hunni",    0, 0.9, [("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05)], [], 0xCC9966), #Hunni / Huns
-  ("kingdom_24",  "Lazika-Egrisi",    0, 0.9, [("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05)], [], 0x2d7b34), #Kingdom of Lazika / Lazika-Egrisi 
-  ("kingdom_25",  "Nobadia",    0, 0.9, [("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("coptic_rebels", 0.05)], [], 0x1b3159), #Kingdom of Nobatia / Nobadia
-  ("kingdom_26",  "Blemmyae",    0, 0.9, [("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("coptic_rebels", 0.05)], [], 0xae5b14), #Kingdom of the Blemmyes / Blemmyae #0x947b15
-  ("kingdom_27",  "Alania",    0, 0.9, [("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05)], [], 0x947b15), #Kingdom of the Alans / Alania #0xae5b14
-  ("kingdom_28",  "Arran",    0, 0.9, [("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05)], [], 0x1e817f), #Arran / Caucasian Albania
+  ("kingdom_1",  "Imperium Romanum Pars Occidentalis", 0, 0.9, [("saxons", -0.5),("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.75),("coptic_rebels", -0.05),("minor_vascones", 0.5),("minor_gallaeci", 0.5)], [], 0x8E0D0D), #Western Roman Empire / Imperium Romanum Pars Occidentalis // Friendly with ERE and Salian franks to start
+  ("kingdom_2",  "Imperium Romanum Pars Orientalis",    0, 0.9, [("saxons", -0.5),("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.75),("coptic_rebels", -0.75)], [], 0x9B3CDB), #Eastern Roman Empire / Imperium Romanum Pars Orientalis // Friendly to WRE and Lazika to start
+  ("kingdom_3",  "Regnum Balthorum", 0, 0.9, [("saxons", -0.5),("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05),("minor_vascones", 0.25)], [], 0x65563F), #Kingdom of the Visigoths / Regnum Visigothorum
+  ("kingdom_4",  "Regnum Amalorum",    0, 0.9, [("saxons", -0.5),("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05)], [], 0x6ea6ce), #Kingdom of the Ostrogoths / Regnum Ostrogothi - changed to Regnum Amalorum, Kingdom of the Amali (dynasty) goths
+  ("kingdom_5",  "Regnum Picti",  0, 0.9, [("saxons", 0.05),("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05)], [], 0x667FFF), #Kingdom of the Picts / Regnum Picti
+  ("kingdom_6",  "Eranshahr",  0, 0.9, [("saxons", -0.5),("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05)], [], 0xfe6f20), #Sassanid Empire / Eranshahr
+  ("kingdom_7",  "Regnum Salii",  0, 0.9, [("saxons", -0.5),("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05)], [], 0x2A8000), #Kingdom of the Salian Franks / Regnum Salii
+  ("kingdom_8",  "Regnum Suevorum",  0, 0.9, [("saxons", -0.5),("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05),("minor_gallaeci", -0.5)], [], 0x6bb493), #Kingdom of the Suebi / Regnum Suevorum
+  ("kingdom_9",  "Regnum Burgundionum",    0, 0.9, [("saxons", -0.5),("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05)], [], 0xb3636e), #Kingdom of the Burgundians / Regnum Burgundionum
+  ("kingdom_10",  "Regnum Alemmani",    0, 0.9, [("saxons", -0.5),("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05)], [], 0xbd832f), #Kingdom of the Alemmani / Regnum Alemmani
+  ("kingdom_11",  "Regnum Gepidae",    0, 0.9, [("saxons", -0.5),("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05)], [], 0x904659), #Kingdom of the Gepids / Regnum Gepidae
+  
+  ("kingdom_12",  "Regnum Saxones",    0, 0.9, [("saxons", 0.5),("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05)], [], 0xf93504), #Kingdom of the Saxons / Regnum Saxones
+  
+  ("kingdom_13",  "Regnum Britannorum",    0, 0.9, [("saxons", -0.5),("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05),("minor_irish", -0.7)], [], 0xab4343), #Romano-Britons / Regnum Britannorum
+  ("kingdom_14",  "Regnum Rugurum",    0, 0.9, [("saxons", -0.5),("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05)], [], 0x65cd65), #Kingdom of the Rugii / Regnum Rugurum
+  ("kingdom_15",  "Regnum Vandalorum et Alanorum",    0, 0.9, [("saxons", -0.5),("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.75),("coptic_rebels", -0.05)], [], 0xcd9365), #Kingdom of the Vandals / Regnum Vandalorum et Alanorum
+  ("kingdom_16",  "Kartli",    0, 0.9, [("saxons", -0.5),("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05)], [], 0x0c42c4), #Kartli / Kingdom of Iberia
+  ("kingdom_17",  "Regnum Langobardi",    0, 0.9, [("saxons", -0.5),("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05)], [], 0x910c21), #Kingdom of the Langobards / Regnum Langobardi
+  ("kingdom_18",  "Regnum Thuringii",    0, 0.9, [("saxons", -0.5),("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05)], [], 0xd5d6b4), #Kingdom of the Thuringians / Regnum Thuringii
+  ("kingdom_19",  "Regnum Iuti",    0, 0.9, [("saxons", 0.05),("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05)], [], 0x53acff), #Kingdom of the Jutes / Regnum Iuti
+  ("kingdom_20",  "Regnum Ripuarii",    0, 0.9, [("saxons", -0.5),("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05)], [], 0xceb036), #Kingdom of the Ripuarian Franks / Regnum Ripuarii
+  ("kingdom_21",  "Regnum Scirii",    0, 0.9, [("saxons", -0.5),("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05)], [], 0x265626), #Kingdom of the Scirii / Regnum Scirii # was 0x103210 
+  ("kingdom_22",  "Regnum Maurorum et Romanorum",    0, 0.9, [("saxons", -0.5),("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", 0.05)], [], 0x80FF00), #Kingdom of the Mauri and the Romans / Regnum Maurorum Et Romanorum
+  ("kingdom_23",  "Hunni",    0, 0.9, [("saxons", -0.5),("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05)], [], 0xCC9966), #Hunni / Huns
+  ("kingdom_24",  "Lazika-Egrisi",    0, 0.9, [("saxons", -0.5),("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05)], [], 0x2d7b34), #Kingdom of Lazika / Lazika-Egrisi 
+  ("kingdom_25",  "Nobadia",    0, 0.9, [("saxons", -0.5),("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("coptic_rebels", 0.05)], [], 0x1b3159), #Kingdom of Nobatia / Nobadia
+  ("kingdom_26",  "Blemmyae",    0, 0.9, [("saxons", -0.5),("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("coptic_rebels", 0.05)], [], 0xae5b14), #Kingdom of the Blemmyes / Blemmyae #0x947b15
+  ("kingdom_27",  "Alania",    0, 0.9, [("saxons", -0.5),("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05)], [], 0x947b15), #Kingdom of the Alans / Alania #0xae5b14
+  ("kingdom_28",  "Arran",    0, 0.9, [("saxons", -0.5),("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05)], [], 0x1e817f), #Arran / Caucasian Albania
 
   ("kingdoms_end","{!}kingdoms_end", 0, 0,[], []),
 
   ("robber_knights",  "{!}robber_knights", 0, 0.1, [], []),
+
   ("khergits","{!}Khergits", 0, 0.5,[("player_faction",0.0)], []),
   ("black_khergits","Hunnic Rebels", 0, 0.5,[("player_faction",-0.3),("kingdom_1",-0.05),("kingdom_2",-0.05),("kingdom_4",-0.05),("kingdom_11",-0.05)], []),
 
@@ -114,12 +117,17 @@ factions = [
   #armenian rebels
   ("armenian_rebels","Armenian Rebels", 0, 0.5,[("commoners",-0.05),("merchants",-0.5),("player_faction",-0.05),("kingdom_6",-0.75),("kingdom_2",0.75),("kingdom_16",0.5),("coptic_christians",0.75),("coptic_christians",0.75)], [], 0x888888),
   #Samaritan rebels - revolted in 484 under Zeno, may add them as a small rebel faction?
-  ("samaritan_rebels","Samaritan Rebels", 0, 0.5,[("commoners",-0.2),("merchants",-0.5),("manhunters",-0.6),("player_faction",-0.15),("kingdom_1",-0.75),("kingdom_2",-0.75),("kingdom_6",-0.5),("jews",0.75)], [], 0x888888),  #suebi civil war
+  ("samaritan_rebels","Samaritan Rebels", 0, 0.5,[("commoners",-0.2),("merchants",-0.5),("manhunters",-0.6),("player_faction",-0.15),("kingdom_1",-0.75),("kingdom_2",-0.75),("kingdom_6",-0.5),("jews",0.75)], [], 0x888888),
+  #gallaecian rebels - pro roman rebels revolting against violent suebi rule
+  ("gallaecian_rebels","Gallaecian Rebels", 0, 0.5,[("commoners",0.1),("merchants",0.1),("manhunters",-0.2),("player_faction",0.0),("kingdom_1",0.75),("kingdom_3",0.15),("kingdom_8",-1)], [], 0x888888),
+  #saxon raider
+  ("saxons","Saxon Raiders", 0, 0.5,[("commoners",0.1),("merchants",0.1),("manhunters",-0.2),("player_faction",-0.05),("player_supporters_faction",-0.05)], [], 0x888888),
+  #suebi civil war
   #starts at war with the ostrogothic kingdom, will be spawned in an event war with scirii, rugii, heruli + suebi vs ostrogoths
   ("hunimund_suebi","Danubian Suebi", 0, 0.5,[("kingdom_4",-0.75),("kingdom_11",0.99),("kingdom_14",0.99),("kingdom_21",0.99)], [], 0x3c5a1b), #lead by hunimund, at war with ostrogoths, will make color orange
   ("heruli","Danubian Heruli", 0, 0.5,[("kingdom_4",-0.75),("kingdom_11",0.99),("kingdom_14",0.99),("kingdom_21",0.99)], [], 0x993322), #lead by Visilaus, at war with ostrogoths
-  #("ghassanids","Ghassanids", 0, 0.5,[("kingdom_2",0.99),("coptic_christians",0.5),("coptic_rebels", 0.05)], [], 0xef301f), #allied with ERE, war with sassanids
-  #("salihids","Salihids", 0, 0.5,[("kingdom_2",0.99),("kingdom_6",-0.75)], [], 0xc9ad34), #allied with ERE, war with sassanids, limes arabicus
+  ("ghassanids","Ghassanids", 0, 0.5,[("kingdom_2",0.99),("coptic_christians",0.5),("coptic_rebels", 0.05)], [], 0xef301f), #allied with ERE, war with sassanids
+  ("salihids","Salihids", 0, 0.5,[("kingdom_2",0.99),("kingdom_6",-0.75)], [], 0xc9ad34), #allied with ERE, war with sassanids, limes arabicus
   ("faltras_suebi","Faltras's Loyalists", 0, 0.5,[("kingdom_8",-0.75)], [], 0x3c5a1b),
 
   #Minor faction features
@@ -153,6 +161,7 @@ factions = [
   ("pagans","Pagans", 0, 0.5,[("arian_christians",-0.05),("coptic_christians",-0.05),("roman_christians",-0.05),("zoroastrians",-0.05)], [], 0xFFFFFF),
   ("zoroastrians","Zoroastrians", 0, 0.5,[("arian_christians",-0.05),("coptic_christians",-0.05),("pagans",-0.05),("roman_christians",-0.05),("kingdom_6", 0.9)], [], 0xFFFFFF), #very friendly with the sassanids
   ("roman_pagans","Greco-Roman Pagans", 0, 0.5,[("arian_christians",-0.05),("coptic_christians",-0.05),("pagans",-0.05),("roman_christians",-0.05),("zoroastrians",-0.05),("kingdom_1", 0.1),("kingdom_2", -0.01)], [], 0xFFFFFF), #likes wre, dislikes ere
+
   ("jews","Jews", 0, 0.5,[("arian_christians",-0.05),("coptic_christians",-0.05),("pagans",-0.05),("roman_christians",-0.05),("zoroastrians",-0.05),("roman_pagans",-0.05)], [], 0xFFFFFF), #used for later
   #chariot racing teams
   ("blue_team","Blues",0, 0.1,[("player_faction",0.0),("kingdom_1",0.5),("kingdom_2",0.5)], [],0xFFFFFF),

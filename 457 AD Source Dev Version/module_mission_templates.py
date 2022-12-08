@@ -132,67 +132,41 @@ poisoned_arrows_damage = (6, 0, 0, [], [
     (try_end),
      ])
 
-small_battle_check = (0,0,ti_once, 
-    [(mission_tpl_are_all_agents_spawned)],
+small_battle_check = (ti_on_agent_spawn, 0, 0,
     [
-    # (display_message, "@Small battle check"),
-    
-    (store_add, ":total_size", "$g_friend_fit_for_battle", "$g_enemy_fit_for_battle"),
-    (le, ":total_size", 100),
-    
-    # (display_message, "@Small battle found"),
-    # (set_fixed_point_multiplier, 100),
-    
-    (init_position, pos11),
-    # (get_scene_boundaries, pos10, pos11),#his seem to be causing problems with scenes with different polygon size
-    
-    (entry_point_get_position, pos10, 0),
-    (entry_point_get_position, pos11, 4),
-    (get_distance_between_positions, ":distance", pos10, pos11),
-    (val_div, ":distance", 2),
-    
-    (call_script, "script_point_y_toward_position", pos10, pos11),
-    
-    (position_get_x, ":scene_center_x", pos10),
-    (position_get_y, ":scene_center_y", pos10),
-    #get center of map
-    (val_add, ":scene_center_y", ":distance"),
-    (position_set_x, pos11, ":scene_center_x"),
-    (position_set_y, pos11, ":scene_center_y"),
-    
-    (try_for_agents, ":agent_no"),
-        (agent_is_active, ":agent_no"),
-        (agent_is_human, ":agent_no"),
-        (agent_is_alive, ":agent_no"),
-        (agent_get_horse, ":horse", ":agent_no"),
+        (store_add, ":total_size", "$g_friend_fit_for_battle", "$g_enemy_fit_for_battle"),
+        (le, ":total_size", 100),
+    ],
+    [
+        (store_trigger_param_1, ":agent_to_move"),
+        (agent_is_active, ":agent_to_move"),
         
-        (assign, ":agent_to_move", ":agent_no"),
-        (try_begin),
-            (gt, ":horse", -1),
-            (agent_is_alive, ":horse"),
-            (assign, ":agent_to_move", ":horse"),
-        (try_end),
-
+        (get_scene_boundaries, pos10, pos11),
+        (set_fixed_point_multiplier, 100),
+        (position_get_x, ":scene_max_x", pos11),
+        (position_get_y, ":scene_max_y", pos11),
+        (val_add, ":scene_max_x", 2400), # 2400 has been subtracted automatically because of barriers from outer terrain
+        (val_add, ":scene_max_y", 2400),
+        (val_div, ":scene_max_x", 2),
+        (val_div, ":scene_max_y", 2),
+        (position_set_x, pos11, ":scene_max_x"),
+        (position_set_y, pos11, ":scene_max_y"),
+        
         (agent_get_position, pos10, ":agent_to_move"),
         (call_script, "script_point_y_toward_position", pos10, pos11),
         
         (position_get_x, ":x", pos10),
-        (store_random_in_range, ":x_addition", -1500, 1500),
+        (store_random_in_range, ":x_addition", -150, 150),
         (val_add, ":x", ":x_addition"),
         (position_set_x, pos10, ":x"),
         
-        (assign, ":y_to_move", ":distance"),
+        (get_distance_between_positions, ":y_to_move", pos10, pos11),
         (val_div, ":y_to_move", 7),
         (val_mul, ":y_to_move", 5),
         (position_move_y, pos10, ":y_to_move"),
         
         (agent_set_position, ":agent_to_move", pos10),
-        
-        # (str_store_agent_name, s22, ":agent_to_move"),
-        # (display_message, "@{s22} was moved"),
-    (try_end),
-    
-    ])
+])
 
 
 #tocan's template triggers

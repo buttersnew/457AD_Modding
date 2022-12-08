@@ -49,7 +49,7 @@ factions = [
   #minor cultures
   ("culture_minor_1",  "Cantabrian", 0, 0.9, [], []), 
   ("culture_minor_2",  "Slavic", 0, 0.9, [], []), 
-  #("culture_minor_3",  "Noricum", 0, 0.9, [], []), 
+  ("culture_minor_3",  "Coptic", 0, 0.9, [], []), 
   ("culture_minor_4",  "Frisian", 0, 0.9, [], []), 
   ("culture_minor_5",  "Baltic", 0, 0.9, [], []), 
   ("culture_minor_6",  "Morden", 0, 0.9, [], []), 
@@ -73,9 +73,7 @@ factions = [
   ("kingdom_9",  "Regnum Burgundionum",    0, 0.9, [("saxons", -0.5),("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05)], [], 0xb3636e), #Kingdom of the Burgundians / Regnum Burgundionum
   ("kingdom_10",  "Regnum Alemmani",    0, 0.9, [("saxons", -0.5),("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05)], [], 0xbd832f), #Kingdom of the Alemmani / Regnum Alemmani
   ("kingdom_11",  "Regnum Gepidae",    0, 0.9, [("saxons", -0.5),("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05)], [], 0x904659), #Kingdom of the Gepids / Regnum Gepidae
-  
   ("kingdom_12",  "Regnum Saxones",    0, 0.9, [("saxons", 0.5),("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05)], [], 0xf93504), #Kingdom of the Saxons / Regnum Saxones
-  
   ("kingdom_13",  "Regnum Britannorum",    0, 0.9, [("saxons", -0.5),("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05),("minor_irish", -0.7)], [], 0xab4343), #Romano-Britons / Regnum Britannorum
   ("kingdom_14",  "Regnum Rugurum",    0, 0.9, [("saxons", -0.5),("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05)], [], 0x65cd65), #Kingdom of the Rugii / Regnum Rugurum
   ("kingdom_15",  "Regnum Vandalorum et Alanorum",    0, 0.9, [("saxons", -0.5),("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.75),("coptic_rebels", -0.05)], [], 0xcd9365), #Kingdom of the Vandals / Regnum Vandalorum et Alanorum
@@ -119,7 +117,7 @@ factions = [
   #Samaritan rebels - revolted in 484 under Zeno, may add them as a small rebel faction?
   ("samaritan_rebels","Samaritan Rebels", 0, 0.5,[("commoners",-0.2),("merchants",-0.5),("manhunters",-0.6),("player_faction",-0.15),("kingdom_1",-0.75),("kingdom_2",-0.75),("kingdom_6",-0.5),("jews",0.75)], [], 0x888888),
   #gallaecian rebels - pro roman rebels revolting against violent suebi rule
-  ("gallaecian_rebels","Gallaecian Rebels", 0, 0.5,[("commoners",0.1),("merchants",0.1),("manhunters",-0.2),("player_faction",0.0),("kingdom_1",0.75),("kingdom_3",0.15),("kingdom_8",-1)], [], 0x888888),
+  #("gallaecian_rebels","Gallaecian Rebels", 0, 0.5,[("commoners",0.1),("merchants",0.1),("manhunters",-0.2),("player_faction",0.0),("kingdom_1",0.75),("kingdom_3",0.15),("kingdom_8",-1)], [], 0x888888),
   #saxon raider
   ("saxons","Saxon Raiders", 0, 0.5,[("commoners",0.1),("merchants",0.1),("manhunters",-0.2),("player_faction",-0.05),("player_supporters_faction",-0.05)], [], 0x888888),
   #suebi civil war

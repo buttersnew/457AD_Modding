@@ -87,8 +87,8 @@ items = [
  ["tutorial_throwing_daggers", "Throwing Daggers", [("throwing_dagger",0)], itp_type_thrown |itp_primary ,itcf_throw_knife, 0 , weight(3.5)|difficulty(0)|spd_rtng(102) | shoot_speed(25) | thrust_damage(16 ,  cut)|max_ammo(14)|weapon_length(0),imodbits_missile ],
  ["tutorial_saddle_horse", "Saddle Horse", [("saddle_horse",0)], itp_type_horse, 0, 0,abundance(90)|body_armor(3)|difficulty(0)|horse_speed(40)|horse_maneuver(38)|horse_charge(8),imodbits_horse_basic],
  ["tutorial_shield", "Round Shield", [("round_shield_2",0)], itp_type_shield|itp_wooden_parry, itcf_carry_round_shield,  118 , weight(2.5)|hit_points(480)|body_armor(1)|spd_rtng(82)|weapon_length(150),imodbits_shield ],
- ["tutorial_staff_no_attack","Staff", [("wooden_staff",0)],itp_type_polearm|itp_offset_lance|itp_primary|itp_penalty_with_shield|itp_wooden_parry|itp_wooden_attack,itc_parry_polearm|itcf_carry_sword_back,9, weight(3.5)|spd_rtng(120) | weapon_length(115)|swing_damage(0,blunt) | thrust_damage(0,blunt),imodbits_none],
- ["tutorial_staff","Staff", [("wooden_staff",0)],itp_type_polearm|itp_offset_lance|itp_primary|itp_penalty_with_shield|itp_wooden_parry|itp_wooden_attack,itc_staff|itcf_carry_sword_back,9, weight(3.5)|spd_rtng(120) | weapon_length(115)|swing_damage(16,blunt) | thrust_damage(16,blunt),imodbits_none],
+ ["tutorial_staff_no_attack","Staff", [("wooden_staff_swup",0)],itp_type_polearm|itp_offset_lance|itp_primary|itp_penalty_with_shield|itp_wooden_parry|itp_wooden_attack,itc_parry_polearm|itcf_carry_sword_back,9, weight(3.5)|spd_rtng(120) | weapon_length(115)|swing_damage(0,blunt) | thrust_damage(0,blunt),imodbits_none],
+ ["tutorial_staff","Staff", [("wooden_staff_swup",0)],itp_type_polearm|itp_offset_lance|itp_primary|itp_penalty_with_shield|itp_wooden_parry|itp_wooden_attack,itc_staff|itcf_carry_sword_back,9, weight(3.5)|spd_rtng(120) | weapon_length(115)|swing_damage(16,blunt) | thrust_damage(16,blunt),imodbits_none],
  ["tutorial_sword", "Sword", [("long_sword",0),("scab_longsw_a", ixmesh_carry)], itp_type_one_handed_wpn|itp_primary, itc_longsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn, 0 , weight(1.5)|difficulty(0)|spd_rtng(100) | weapon_length(102)|swing_damage(18 , cut) | thrust_damage(15 ,  pierce),imodbits_sword ],
  ["tutorial_axe", "Axe", [("iron_ax",0)], itp_type_two_handed_wpn| itp_two_handed|itp_primary|itp_bonus_against_shield|itp_wooden_parry, itc_nodachi|itcf_carry_axe_back, 0 , weight(4)|difficulty(0)|spd_rtng(91) | weapon_length(108)|swing_damage(19 , cut) | thrust_damage(0 ,  pierce),imodbits_axe ],
 
@@ -113,7 +113,7 @@ items = [
  90 , weight(2.5)|spd_rtng(92) | weapon_length(180)|swing_damage(20 , blunt) | thrust_damage(26 ,  blunt),imodbits_polearm ],
  ["arena_spear",  "Spear", [("roman_spear_2",0)], itp_type_polearm|itp_offset_lance|itp_primary|itp_wooden_parry, itc_spear_upstab|itcf_carry_spear,
  90 , weight(1.5)|spd_rtng(96) | weapon_length(134)|swing_damage(20 , blunt) | thrust_damage(26 ,  blunt),imodbits_polearm ],
- ["practice_staff","Practice Staff", [("wooden_staff",0)],itp_type_polearm|itp_offset_lance|itp_primary|itp_penalty_with_shield|itp_wooden_parry|itp_wooden_attack,itc_staff|itcf_carry_sword_back,9, weight(2.5)|spd_rtng(103) | weapon_length(118)|swing_damage(18,blunt) | thrust_damage(18,blunt),imodbits_none],
+ ["practice_staff","Practice Staff", [("wooden_staff_swup",0)],itp_type_polearm|itp_offset_lance|itp_primary|itp_penalty_with_shield|itp_wooden_parry|itp_wooden_attack,itc_staff|itcf_carry_sword_back,9, weight(2.5)|spd_rtng(103) | weapon_length(118)|swing_damage(18,blunt) | thrust_damage(18,blunt),imodbits_none],
  ["practice_lance","Practice Cavalry Spear", [("hasta_new_r1",0)], itp_type_polearm|itp_primary|itp_wooden_parry|itp_wooden_attack, itc_spear_upstab, 18,weight(4.25)|spd_rtng(96)|weapon_length(180)|swing_damage(20,blunt)|thrust_damage(28,blunt),imodbits_none],
  ["practice_shield", "Wooden Practice Shield", [("round_shield_2",0)], itp_type_shield|itp_wooden_parry, itcf_carry_round_shield,  295 , weight(3.5)|hit_points(400)|body_armor(10)|spd_rtng(86)|shield_width(45),imodbits_shield ],
  ["practice_bow","Practice Bow", [("bb_hunting_bow_v2",0), ("bb_hunting_bow_v2_carry",ixmesh_carry)], itp_type_bow |itp_primary|itp_two_handed,itcf_shoot_bow|itcf_carry_bow_back, 0, weight(1.5)|spd_rtng(90) | shoot_speed(40) | thrust_damage(21, blunt),imodbits_bow ],
@@ -1545,6 +1545,10 @@ items = [
  3200 , weight(16.5)|abundance(10)|head_armor(0)|body_armor(56)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_roman ],
 ["centenarii_mail_2", "Rich Mail Shirt", [("centenarii_mail_2",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
  3200 , weight(16.5)|abundance(10)|head_armor(0)|body_armor(56)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_roman ],
+["candidati_mail_1", "Rich Mail Shirt", [("candidati_mail_1",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0, #for candidati
+ 3200 , weight(16.5)|abundance(10)|head_armor(0)|body_armor(56)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_roman ],
+["candidati_mail_2", "Rich Mail Shirt", [("candidati_mail_2",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3200 , weight(16.5)|abundance(10)|head_armor(0)|body_armor(56)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_roman ],
 
 
 #full ~60 body, 18 legs
@@ -1635,8 +1639,8 @@ items = [
 
 ["emperor_armor_c", "Shah's Mail", [("sassanid_emperor_mail",0)], itp_type_body_armor  |itp_covers_legs|itp_civilian ,0,8000 , weight(22)|abundance(20)|head_armor(4)|body_armor(56)|leg_armor(16)|difficulty(10) ,imodbits_scale, [], culture_sassanid+culture_caucasian ],
 
-["cuirass_roman_emperor", "Roman Emperor's Cuirass", [("cuirass_roman_emperor",0)], itp_type_body_armor  |itp_covers_legs ,0,9000 , weight(20)|abundance(20)|head_armor(0)|body_armor(59)|leg_armor(16)|difficulty(10) ,imodbits_plate ],
-["roman_squamata_emperor", "Roman Emperor's Scale Curiass", [("roman_emperor_scale",0)], itp_type_body_armor|itp_covers_legs ,0,9000 , weight(18)|abundance(20)|head_armor(4)|body_armor(56)|leg_armor(16)|difficulty(8) ,imodbits_scale ],
+["cuirass_roman_emperor", "Roman Emperor's Cuirass", [("cuirass_roman_emperor",0)], itp_type_body_armor  |itp_covers_legs ,0,9000 , weight(20)|abundance(20)|head_armor(0)|body_armor(60)|leg_armor(16)|difficulty(10) ,imodbits_plate ],
+["roman_squamata_emperor", "Roman Emperor's Scale Curiass", [("roman_emperor_scale",0)], itp_type_body_armor|itp_covers_legs ,0,9000 , weight(18)|abundance(20)|head_armor(0)|body_armor(58)|leg_armor(16)|difficulty(8) ,imodbits_scale ],
 
 #unique armor for certain lords
 ["childeric_armor", "Rigid Scale Curiass", [("childeric_armor",0)], itp_type_body_armor|itp_covers_legs ,0,9000 , weight(18)|abundance(20)|head_armor(4)|body_armor(56)|leg_armor(16)|difficulty(8) ,imodbits_scale ], #for childeric I
@@ -1958,7 +1962,7 @@ weight(1)|abundance(80)|head_armor(24)|body_armor(14)|leg_armor(6)|difficulty(0)
 
 ["kalhkni_helmet_mail", "Lamellenhelm", [("kalhkni_helmet_mail",0),("kalhkni_helmet_mail_inv",ixmesh_inventory)], itp_type_head_armor|itp_attach_armature|itp_merchandise,0,1130, weight(1.5)|abundance(30)|head_armor(46)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], culture_caucasian+culture_hunnic+culture_alan ],
 
-["coptic_scale_coif_1", "Scale Coif", [("coptic_scale_coif_1",0),("coptic_scale_coif_1_inv",ixmesh_inventory)], itp_merchandise|itp_attach_armature|itp_type_head_armor,0,1245 , weight(2.0)|abundance(10)|head_armor(48)|body_armor(0)|leg_armor(0)|difficulty(7) ,imodbits_plate, [], [fac_culture_empire,fac_culture_6] ],
+#["coptic_scale_coif_1", "Scale Coif", [("coptic_scale_coif_1",0),("coptic_scale_coif_1_inv",ixmesh_inventory)], itp_attach_armature|itp_type_head_armor,0,1245 , weight(2.0)|abundance(10)|head_armor(48)|body_armor(0)|leg_armor(0)|difficulty(7) ,imodbits_plate, [], [fac_culture_empire,fac_culture_6] ],
 
 ["tarasovo_helmet_1", "Eastern Bandhelm", [("tarasovo_helmet_1",0),("tarasovo_helmet_1_inv",ixmesh_inventory)], itp_type_head_armor|itp_attach_armature|itp_merchandise,0,1130, weight(1.5)|abundance(30)|head_armor(46)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], culture_hunnic+culture_alan ],
 
@@ -1980,17 +1984,17 @@ weight(1)|abundance(80)|head_armor(24)|body_armor(14)|leg_armor(6)|difficulty(0)
 ["koblenz_crested_1", "Ridge Helmet with Crest", [("koblenz_helmet_plume_1",0),("koblenz_helmet_plume_1_inv",ixmesh_inventory)], itp_merchandise|itp_attach_armature|itp_type_head_armor,0,1230 , weight(2.50)|abundance(22)|head_armor(48)|body_armor(0)|leg_armor(0)|difficulty(7) ,imodbits_plate, [], culture_roman ],
 
 ["burgh_helmet_1", "Ridge Helmet", [("burgh_helmet_1",0),("burgh_helmet_1_inv",ixmesh_inventory)], itp_merchandise|itp_attach_armature|itp_type_head_armor,0,1230 , weight(2.50)|abundance(22)|head_armor(48)|body_armor(0)|leg_armor(0)|difficulty(7) ,imodbits_plate, [], culture_roman ],
-["burgh_helmet_plume_1", "Ridge Helmet with Crest", [("burgh_helmet_plume_1",0),("burgh_helmet_plume_1_inv",ixmesh_inventory)], itp_merchandise|itp_attach_armature|itp_type_head_armor,0,1230 , weight(2.50)|abundance(22)|head_armor(48)|body_armor(0)|leg_armor(0)|difficulty(7) ,imodbits_plate, [], culture_roman ],
-["burgh_helmet_plume_3", "Ridge Helmet with Crest", [("burgh_helmet_plume_3",0),("burgh_helmet_plume_3_inv",ixmesh_inventory)], itp_merchandise|itp_attach_armature|itp_type_head_armor,0,1230 , weight(2.50)|abundance(22)|head_armor(48)|body_armor(0)|leg_armor(0)|difficulty(7) ,imodbits_plate, [], culture_roman ], #britons
+["burgh_helmet_plume_1", "Ridge Helmet with Crest", [("burgh_helmet_plume_1",0),("burgh_helmet_plume_1_inv",ixmesh_inventory)], itp_merchandise|itp_attach_armature|itp_type_head_armor,0,1230 , weight(3)|abundance(22)|head_armor(48)|body_armor(0)|leg_armor(0)|difficulty(7) ,imodbits_plate, [], culture_roman ],
+["burgh_helmet_plume_3", "Ridge Helmet with Crest", [("burgh_helmet_plume_3",0),("burgh_helmet_plume_3_inv",ixmesh_inventory)], itp_merchandise|itp_attach_armature|itp_type_head_armor,0,1230 , weight(3)|abundance(22)|head_armor(48)|body_armor(0)|leg_armor(0)|difficulty(7) ,imodbits_plate, [], culture_roman ], #britons
 
 ["christies_helmet_1", "Ridge Helmet", [("christies_helmet_1",0),("christies_helmet_1_inv",ixmesh_inventory)], itp_merchandise|itp_attach_armature|itp_type_head_armor,0,1230 , weight(2.50)|abundance(22)|head_armor(48)|body_armor(0)|leg_armor(0)|difficulty(7) ,imodbits_plate, [], culture_roman ],
-["christies_helmet_crest_1", "Ridge Helmet with Crest", [("christies_helmet_crest_1",0),("christies_helmet_crest_1_inv",ixmesh_inventory)], itp_merchandise|itp_attach_armature|itp_type_head_armor,0,1230 , weight(2.50)|abundance(22)|head_armor(48)|body_armor(0)|leg_armor(0)|difficulty(7) ,imodbits_plate, [], culture_roman ],
-["christies_helmet_crest_2", "Ridge Helmet with Crest", [("christies_helmet_crest_2",0),("christies_helmet_crest_2_inv",ixmesh_inventory)], itp_merchandise|itp_attach_armature|itp_type_head_armor,0,1230 , weight(2.50)|abundance(22)|head_armor(48)|body_armor(0)|leg_armor(0)|difficulty(7) ,imodbits_plate, [], culture_roman ],
+["christies_helmet_crest_1", "Ridge Helmet with Crest", [("christies_helmet_crest_1",0),("christies_helmet_crest_1_inv",ixmesh_inventory)], itp_merchandise|itp_attach_armature|itp_type_head_armor,0,1230 , weight(3)|abundance(22)|head_armor(48)|body_armor(0)|leg_armor(0)|difficulty(7) ,imodbits_plate, [], culture_roman ],
+["christies_helmet_crest_2", "Ridge Helmet with Crest", [("christies_helmet_crest_2",0),("christies_helmet_crest_2_inv",ixmesh_inventory)], itp_merchandise|itp_attach_armature|itp_type_head_armor,0,1230 , weight(3)|abundance(22)|head_armor(48)|body_armor(0)|leg_armor(0)|difficulty(7) ,imodbits_plate, [], culture_roman ],
 
 ["augsburg_2_helmet_mail", "Ornate Ridge Helmet with Mail", [("augsburg_2_helmet_mail",0),("augsburg_2_helmet_mail_inv",ixmesh_inventory)], itp_type_head_armor|itp_attach_armature|itp_merchandise,0,1190, weight(2.0)|abundance(30)|head_armor(47)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], culture_germanic+culture_gothic ],
 
 #Germanic
-["fernpass_helmet_2", "Ridge Helmet with Mail", [("fernpass_helmet_2",0),("fernpass_helmet_2_inv",ixmesh_inventory)], itp_type_head_armor|itp_attach_armature|itp_merchandise,0,1230, weight(2.25)|abundance(22)|head_armor(48)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], culture_roman+culture_germanic+culture_gothic ],
+["fernpass_helmet_2", "Ridge Helmet with Mail", [("fernpass_helmet_2",0),("fernpass_helmet_2_inv",ixmesh_inventory),("fernpass_helmet_4",imodbits_good),("fernpass_helmet_4_inv",imodbits_good|ixmesh_inventory)], itp_type_head_armor|itp_attach_armature|itp_merchandise,0,1230, weight(2.25)|abundance(22)|head_armor(48)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], culture_roman+culture_germanic+culture_gothic ],
 
 #Eastern
 ["kerch_lamellenhelm_gilded", "Gilded Lamellenhelm", [("kerch_lamellenhelm_gilded",0),("kerch_lamellenhelm_gilded_inv",ixmesh_inventory)], itp_merchandise|itp_attach_armature|itp_type_head_armor,0,1230 , weight(2)|abundance(20)|head_armor(48)|body_armor(0)|leg_armor(0) ,imodbits_plate, [], culture_sassanid+culture_caucasian ],
@@ -2024,6 +2028,9 @@ weight(1)|abundance(80)|head_armor(24)|body_armor(14)|leg_armor(6)|difficulty(0)
 ["iatrus_2", "Gilded Ridge Helmet", [("iatrus_helmet_2",0),("iatrus_helmet_2_inv",ixmesh_inventory)], itp_type_head_armor|itp_attach_armature|itp_merchandise,0,1530, weight(1.5)|abundance(12)|head_armor(50)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], culture_roman ],
 ["iatrus_plume_2", "Gilded Ridge Helmet with Crest", [("iatrus_helmet_plume_2",0),("iatrus_helmet_plume_2_inv",ixmesh_inventory)], itp_type_head_armor|itp_attach_armature|itp_merchandise,0,1530, weight(1.5)|abundance(12)|head_armor(50)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], culture_roman ],
 
+["christies_helmet_2", "Gilded Ridge Helmet", [("christies_helmet_2",0),("christies_helmet_2_inv",ixmesh_inventory)], itp_merchandise|itp_attach_armature|itp_type_head_armor,0,1530 , weight(2.50)|abundance(12)|head_armor(50)|body_armor(0)|leg_armor(0)|difficulty(7) ,imodbits_plate, [], culture_roman ],
+["christies_helmet_crest_3", "Gilded Ridge Helmet with Crest", [("christies_helmet_crest_3",0),("christies_helmet_crest_3_inv",ixmesh_inventory)], itp_merchandise|itp_attach_armature|itp_type_head_armor,0,1530 , weight(3)|abundance(12)|head_armor(50)|body_armor(0)|leg_armor(0)|difficulty(7) ,imodbits_plate, [], culture_roman ],
+
 #new intercisa variants 4/11/2022
 ["augst_helmet_rich_1", "Ornate Silvered Ridge Helmet", [("augst_helmet_rich_1",0),("augst_helmet_rich_1_inv",ixmesh_inventory)], itp_type_head_armor|itp_attach_armature|itp_merchandise,0,1550 , weight(1.5)|abundance(10)|head_armor(48)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], culture_roman ],
 ["augst_helmet_rich_2", "Ornate Gilded Ridge Helmet", [("augst_helmet_rich_2",0),("augst_helmet_rich_2_inv",ixmesh_inventory)], itp_type_head_armor|itp_attach_armature|itp_merchandise,0,1550 , weight(1.5)|abundance(10)|head_armor(48)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], culture_roman ],
@@ -2047,7 +2054,7 @@ weight(1)|abundance(80)|head_armor(24)|body_armor(14)|leg_armor(6)|difficulty(0)
 ["koblenz_crested_2", "Gilded Ridge Helmet with Crest", [("koblenz_helmet_plume_2",0),("koblenz_helmet_plume_2_inv",ixmesh_inventory)], itp_merchandise|itp_attach_armature|itp_type_head_armor ,0,1550 , weight(2.75)|abundance(10)|head_armor(50)|body_armor(0)|leg_armor(0)|difficulty(7) ,imodbits_plate, [], culture_roman ],
 
 ["burgh_helmet_2", "Gilded Ridge Helmet", [("burgh_helmet_2",0),("burgh_helmet_2_inv",ixmesh_inventory)], itp_merchandise|itp_attach_armature|itp_type_head_armor,0,1550 , weight(2.5)|abundance(10)|head_armor(50)|body_armor(0)|leg_armor(0)|difficulty(7) ,imodbits_plate, [], culture_roman ],
-["burgh_helmet_plume_2", "Gilded Ridge Helmet with Crest", [("burgh_helmet_plume_2",0),("burgh_helmet_plume_2_inv",ixmesh_inventory)], itp_merchandise|itp_attach_armature|itp_type_head_armor,0,1550 , weight(2.75)|abundance(10)|head_armor(50)|body_armor(0)|leg_armor(0)|difficulty(7) ,imodbits_plate, [], culture_roman ],
+["burgh_helmet_plume_2", "Gilded Ridge Helmet with Crest", [("burgh_helmet_plume_2",0),("burgh_helmet_plume_2_inv",ixmesh_inventory)], itp_merchandise|itp_attach_armature|itp_type_head_armor,0,1550 , weight(3)|abundance(10)|head_armor(50)|body_armor(0)|leg_armor(0)|difficulty(7) ,imodbits_plate, [], culture_roman ],
 
 ["koblenz_helmet_3", "Ornate Ridge Helmet", [("koblenz_helmet_3",0),("koblenz_helmet_3_inv",ixmesh_inventory)], itp_merchandise|itp_attach_armature|itp_type_head_armor   ,0, 1550 , weight(2.5)|abundance(10)|head_armor(50)|body_armor(0)|leg_armor(0)|difficulty(7) ,imodbits_armor, [], culture_roman ],
 ["koblenz_crested_3", "Ornate Ridge Helmet with Crest", [("koblenz_helmet_plume_3",0),("koblenz_helmet_plume_3_inv",ixmesh_inventory)], itp_merchandise|itp_attach_armature|itp_type_head_armor   ,0, 1550 , weight(2.75)|abundance(10)|head_armor(50)|body_armor(0)|leg_armor(0)|difficulty(7) ,imodbits_armor, [], culture_roman ],
@@ -2152,9 +2159,9 @@ weight(1)|abundance(80)|head_armor(24)|body_armor(14)|leg_armor(6)|difficulty(0)
 ["pitch_fork_1", "Pitch Fork", [("pitchfork_1",0)], itp_type_polearm|itp_offset_lance|itp_merchandise| itp_primary|itp_penalty_with_shield|itp_wooden_parry,itc_staff, 80 , weight(1.5)|difficulty(0)|spd_rtng(87) | weapon_length(154)|swing_damage(16 , blunt) | thrust_damage(22 ,  pierce),imodbits_polearm ],
 ["pitch_fork_2", "Pitch Fork", [("pitchfork_2",0)], itp_type_polearm|itp_offset_lance|itp_merchandise| itp_primary|itp_penalty_with_shield|itp_wooden_parry,itc_staff, 80 , weight(1.5)|difficulty(0)|spd_rtng(87) | weapon_length(154)|swing_damage(16 , blunt) | thrust_damage(22 ,  pierce),imodbits_polearm ],
 
-["staff",         "Staff", [("wooden_staff",0)], itp_type_polearm|itp_offset_lance|itp_merchandise| itp_primary|itp_penalty_with_shield|itp_wooden_parry|itp_wooden_attack, itc_staff|itcf_carry_sword_back,
+["staff",         "Staff", [("wooden_staff_swup",0)], itp_type_polearm|itp_offset_lance|itp_merchandise| itp_primary|itp_penalty_with_shield|itp_wooden_parry|itp_wooden_attack, itc_staff|itcf_carry_sword_back,
  60 , weight(1.5)|difficulty(0)|spd_rtng(100) | weapon_length(130)|swing_damage(18 , blunt) | thrust_damage(19 ,  blunt),imodbits_polearm ],
-["quarter_staff", "Quarter Staff", [("quarter_staff",0)], itp_type_polearm|itp_offset_lance|itp_merchandise| itp_primary|itp_wooden_parry|itp_wooden_attack, itc_staff|itcf_carry_sword_back,
+["quarter_staff", "Quarter Staff", [("wooden_staff_swup",0)], itp_type_polearm|itp_offset_lance|itp_merchandise| itp_primary|itp_wooden_parry|itp_wooden_attack, itc_staff|itcf_carry_sword_back,
  100 , weight(2)|difficulty(0)|spd_rtng(104) | weapon_length(140)|swing_damage(20 , blunt) | thrust_damage(20 ,  blunt),imodbits_polearm ],
 ["iron_staff", "Crook", [("shepherds_crook",0)], itp_type_polearm|itp_offset_lance|itp_merchandise| itp_primary, itc_staff|itcf_carry_sword_back,
  60 , weight(2)|difficulty(0)|spd_rtng(96) | weapon_length(136)|swing_damage(19 , blunt) | thrust_damage(16 ,  blunt),imodbits_polearm ],
@@ -3430,19 +3437,19 @@ weight(1)|abundance(80)|head_armor(24)|body_armor(14)|leg_armor(6)|difficulty(0)
 ["animal_chicken", "Chicken", [("animal_chicken",0)], itp_type_animal|itp_disable_agent_sounds, 0, 50, abundance(0)|hit_points(50)|body_armor(0)|difficulty(11)|horse_speed(8)|horse_maneuver(42)|horse_charge(1)|horse_scale(15), imodbits_none ],
 #unique armors/weapons so that cheat menu losers won't be able to get them/find them without actually doing the quests
 #starting with weapons
-["sword_of_mars", "Sword of Mars", [("sword_of_mars",0),("sword_of_mars_scabbard", ixmesh_carry)], itp_unique|itp_type_one_handed_wpn|itp_primary, itc_longsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn, 9850 , weight(1.5)|difficulty(0)|spd_rtng(90) | weapon_length(91)|swing_damage(36 , cut)| thrust_damage(22 ,  pierce),imodbits_sword_high ],
-
+#can knock down
+["sword_of_mars", "Sword of Mars", [("sword_of_mars",0),("sword_of_mars_scabbard", ixmesh_carry)], itp_unique|itp_can_knock_down|itp_type_one_handed_wpn|itp_primary, itc_longsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn, 9850 , weight(1.5)|difficulty(0)|spd_rtng(90) | weapon_length(91)|swing_damage(36 , cut)| thrust_damage(22 ,  pierce),imodbits_sword_high ],
 ["lance_of_longiunus","Lancea Longini", [("roman_spear_2",0)], itp_unique|itp_type_polearm|itp_offset_lance|itp_primary|itp_wooden_parry, itc_spear_upstab|itcf_carry_spear, 9000 , weight(1.5)|abundance(0)|difficulty(8)|spd_rtng(100) | weapon_length(158)|swing_damage(18 , cut) | thrust_damage(35 ,  pierce),imodbits_polearm],
 ["axe_of_zamb",  "Axe of Zamb", [("vikingaxeb",0)], itp_unique|itp_type_two_handed_wpn| itp_two_handed|itp_primary|itp_wooden_parry|itp_unbalanced, itc_nodachi|itp_can_penetrate_shield|itcf_carry_axe_back, 1000 , weight(5.5)|difficulty(14)|spd_rtng(80) | weapon_length(82)|swing_damage(48 , cut) | thrust_damage(0 ,  blunt),imodbits_axe ],
-["caesar_gladius", "Crocea Mors", [("roman_gladius_1",0),("roman_gladius_1_scabbard", ixmesh_carry)], itp_unique|itp_type_one_handed_wpn|itp_primary, itc_longsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn, 9850 , weight(2.5)|difficulty(0)|spd_rtng(95) | weapon_length(68)|swing_damage(36 , cut)| thrust_damage(30 ,  pierce),imodbits_sword_high ],
-
-["excalibur", "Excalibur", [("arhos_spatha_2",0),("arhos_spatha_2_scabbard", ixmesh_carry)], itp_unique|itp_type_one_handed_wpn|itp_primary, itc_longsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn,9000 , weight(1.35)|difficulty(0)|spd_rtng(92) | weapon_length(84)|swing_damage(36 , cut) | thrust_damage(25 ,  pierce),imodbits_sword_high ],
-
+["caesar_gladius", "Crocea Mors", [("roman_gladius_1",0),("roman_gladius_1_scabbard", ixmesh_carry)], itp_unique|itp_type_one_handed_wpn|itp_primary, itc_longsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn, 9850 , weight(2.5)|difficulty(0)|spd_rtng(95) | weapon_length(68)|swing_damage(38 , cut)| thrust_damage(32 ,  pierce),imodbits_sword_high ],
+["excalibur", "Excalibur", [("arhos_spatha_2",0),("arhos_spatha_2_scabbard", ixmesh_carry)], itp_unique|itp_type_one_handed_wpn|itp_primary, itc_longsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn,9000 , weight(1.35)|difficulty(0)|spd_rtng(92) | weapon_length(84)|swing_damage(38 , cut) | thrust_damage(25 ,  pierce),imodbits_sword_high ],
+#bonus against shields
 ["hildeleoma", "Hildeleoma", [("nydam_IV_spatha",0),("nydam_IV_spatha_scabbard", ixmesh_carry)], itp_unique|itp_bonus_against_shield|itp_type_one_handed_wpn|itp_primary, itc_longsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn,6000, weight(1.8)|difficulty(0)|spd_rtng(90)|weapon_length(84)|swing_damage(35 , cut) | thrust_damage(22 ,  pierce),imodbits_sword_high ],
 
 ["ranja","Ranja", [("runic_spear_2",0)], itp_unique|itp_type_polearm|itp_offset_lance|itp_primary|itp_wooden_parry, itc_spear_upstab|itcf_carry_spear, 5000 , weight(1.5)|abundance(0)|difficulty(8)|spd_rtng(100) | weapon_length(150)|swing_damage(22 , blunt) | thrust_damage(34 ,  pierce),imodbits_polearm],
-["danish_king_mace", "Gramr's Mace", [("danish_king_mace",0)], itp_type_one_handed_wpn|itp_can_knock_down| itp_primary|itp_wooden_parry, itc_scimitar|itcf_carry_mace_left_hip, 5000 , weight(3.5)|difficulty(7)|spd_rtng(86)|weapon_length(55)|swing_damage(34 , blunt)|thrust_damage(0 ,  pierce),imodbits_mace ],
+["danish_king_mace", "Gramr's Mace", [("danish_king_mace",0)], itp_unique|itp_type_one_handed_wpn|itp_can_knock_down| itp_primary|itp_wooden_parry, itc_scimitar|itcf_carry_mace_left_hip, 5000 , weight(3.5)|difficulty(7)|spd_rtng(86)|weapon_length(55)|swing_damage(34 , blunt)|thrust_damage(0 ,  pierce),imodbits_mace ],
 ["st_martin_axe", "Axe of St. Martin", [("st_martin_axe",0)], itp_unique|itp_can_knock_down|itp_type_one_handed_wpn|itp_primary|itp_secondary|itp_bonus_against_shield|itp_wooden_parry, itc_scimitar|itcf_carry_axe_left_hip, 5000, weight(2)|difficulty(8)|spd_rtng(93)|weapon_length(55)|swing_damage(33 , pierce)|thrust_damage(0 ,  pierce),imodbits_axe ],
+["old_roman_mace", "Old Roman Mace", [("old_roman_mace",0)], itp_unique|itp_type_one_handed_wpn|itp_can_knock_down| itp_primary|itp_wooden_parry, itc_scimitar|itcf_carry_mace_left_hip, 1500 , weight(4.25)|difficulty(8)|spd_rtng(90)|weapon_length(50)|swing_damage(32 , blunt)|thrust_damage(0 ,  pierce),imodbits_mace ],
 
 ["trier_lance", "Decorated Lance", [("trier_lance_210",0)], itp_unique|itp_can_knock_down|itp_couchable|itp_type_polearm|itp_two_handed|itp_offset_lance|itp_primary|itp_penalty_with_shield|itp_wooden_parry, itc_kontos_upstab, 4000 , weight(3.5)|difficulty(10)|spd_rtng(93)|weapon_length(210)|swing_damage(22 , blunt) | thrust_damage(35 ,  pierce),imodbits_polearm ],
 ["trier_spear", "Decorated Spear", [("trier_spear_171",0)], itp_unique|itp_can_knock_down|itp_type_polearm|itp_offset_lance|itp_primary|itp_wooden_parry, itc_spear_upstab|itcf_carry_spear, 4000 , weight(2.5)|difficulty(10)|spd_rtng(94)|weapon_length(171)|swing_damage(22 , blunt) | thrust_damage(35 ,  pierce),imodbits_polearm ],
@@ -3471,7 +3478,7 @@ weight(1)|abundance(80)|head_armor(24)|body_armor(14)|leg_armor(6)|difficulty(0)
 #shields
 #changed to oval shield
 ["mithras_shield", "Mithrain Oval Shield", [("oval_shield_1",0)], itp_unique|itp_type_shield|itp_cant_use_on_horseback|itp_wooden_parry, itcf_carry_round_shield, 5000 , weight(3.50)|hit_points(700)|body_armor(18)|spd_rtng(87)|shield_width(46)|shield_height(107),imodbits_shield, [(ti_on_init_item,[(cur_item_set_material, "str_oval_shield_red_1"),]),], ],
-["aetius_shield", "Aetius's Shield", [("concave_shield_large_1",0)], itp_unique|itp_type_shield|itp_wooden_parry, itcf_carry_round_shield, 5000 , weight(3.75)|hit_points(600)|body_armor(15)|spd_rtng(88)|shield_width(47),imodbits_shield, [(ti_on_init_item,[(cur_item_set_material, "str_round_shields_roman_27"),]),], ], #found in ravenna
+["aetius_shield", "Aetius's Shield", [("concave_shield_large_1",0)], itp_unique|itp_type_shield|itp_wooden_parry, itcf_carry_round_shield, 3000 , weight(3.75)|hit_points(600)|body_armor(15)|spd_rtng(88)|shield_width(47),imodbits_shield, [(ti_on_init_item,[(cur_item_set_material, "str_round_shields_roman_27"),]),], ], #found in ravenna
 ["arthur_shield", "Pridwen", [("concave_shield_small_3",0)], itp_unique|itp_type_shield|itp_wooden_parry, itcf_carry_round_shield, 9000 , weight(2.5)|hit_points(650)|body_armor(18)|spd_rtng(92)|shield_width(37),imodbits_shield, [(ti_on_init_item,[(cur_item_set_material, "str_unique_round_shields_1"),]),], ], #given to ambrosius
 
 ["small_old_round_shield_1", "Small Round Shield", [("round_shield_small_4",0)], itp_type_shield|itp_wooden_parry, itcf_carry_round_shield, 400 , weight(2.0)|hit_points(380)|body_armor(12)|spd_rtng(92)|shield_width(35),imodbits_shield, [(ti_on_init_item,[(cur_item_set_material, "str_round_shields_roman_1"),]),]],
@@ -3486,18 +3493,22 @@ weight(1)|abundance(80)|head_armor(24)|body_armor(14)|leg_armor(6)|difficulty(0)
 
 #["aurelian_scale_armor", "Aurelian's Squamata", [("aurelian_scale_armor",0)], itp_unique|itp_type_body_armor|itp_covers_legs ,0,9000 , weight(18)|abundance(0)|head_armor(0)|body_armor(56)|leg_armor(16)|difficulty(16) ,imodbits_plate ], #high difficulty to prevent early players from using off the bat
 
-["unique_mail_armor", "Rich Mail Shirt", [("unique_mail_armor",0)], itp_unique|itp_type_body_armor |itp_covers_legs ,0,9000 , weight(14)|abundance(0)|head_armor(0)|body_armor(54)|leg_armor(15)|difficulty(8) ,imodbits_armor ],
+["unique_mail_armor", "Rich Mail Shirt", [("danish_king_mail",0)], itp_unique|itp_type_body_armor |itp_covers_legs ,0,9000 , weight(14)|abundance(0)|head_armor(0)|body_armor(54)|leg_armor(15)|difficulty(8) ,imodbits_armor ],
 
-["helmet_of_victory", "Ornate Ridge Helmet", [("victoria_intercisa",0),("victoria_intercisa_inv",ixmesh_inventory)], itp_type_head_armor|itp_attach_armature,0,7450, weight(1.75)|abundance(0)|head_armor(50)|body_armor(0)|leg_armor(0)|difficulty(0) ,imodbits_plate ],
+["helmet_of_victory", "Ornate Ridge Helmet", [("victoria_intercisa",0),("victoria_intercisa_inv",ixmesh_inventory)], itp_type_head_armor|itp_attach_armature,0,2450, weight(1.75)|abundance(0)|head_armor(51)|body_armor(0)|leg_armor(0)|difficulty(0) ,imodbits_plate ],
 
 ["aurelian_helmet", "Aurelian's Helmet", [("aurelian_helmet",0),("aurelian_helmet_inv",ixmesh_inventory)], itp_unique|itp_type_head_armor|itp_attach_armature|itp_fit_to_head|itp_covers_beard,0,9850, weight(5.5)|abundance(0)|head_armor(56)|body_armor(0)|leg_armor(0)|difficulty(10) ,imodbits_plate ],
 
-["richborough_helmet_1", "Refitted Antique Cavalry Helmet", [("richborough_helmet_1",0),("richborough_helmet_1_inv",ixmesh_inventory)], itp_unique|itp_type_head_armor|itp_attach_armature|itp_fit_to_head,0,8000, weight(2.0)|abundance(0)|head_armor(50)|body_armor(0)|leg_armor(0)|difficulty(7) ,imodbits_plate ],
+["richborough_helmet_1", "Refitted Antique Cavalry Helmet", [("richborough_helmet_1",0),("richborough_helmet_1_inv",ixmesh_inventory)], itp_unique|itp_type_head_armor|itp_attach_armature|itp_fit_to_head,0,2000, weight(2.0)|abundance(0)|head_armor(50)|body_armor(0)|leg_armor(0)|difficulty(7) ,imodbits_plate ],
 ["richborough_helmet_2", "Refitted Antique Cavalry Helmet", [("richborough_helmet_2",0),("richborough_helmet_2_inv",ixmesh_inventory)], itp_unique|itp_type_head_armor|itp_attach_armature|itp_fit_to_head,0,1250, weight(1.5)|abundance(0)|head_armor(45)|body_armor(0)|leg_armor(0)|difficulty(7) ,imodbits_plate ],
 ["florence_helmet_1", "Refitted Antique Helmet", [("florence_helmet_1",0),("florence_helmet_1_inv",ixmesh_inventory)], itp_unique|itp_type_head_armor|itp_attach_armature|itp_fit_to_head,0,1250 , weight(1.5)|abundance(0)|head_armor(45)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate ],
 
 ["old_gladiator_helmet_1", "Old Gladiator Helmet", [("old_gladiator_helmet_1",0),("old_gladiator_helmet_1_inv",ixmesh_inventory)],itp_attach_armature|itp_type_head_armor,0,2000 , weight(4.50)|abundance(0)|head_armor(50)|body_armor(0)|leg_armor(0)|difficulty(12) ,imodbits_plate ], #quest related only!
 ["old_gladiator_helmet_2", "Old Gladiator Helmet", [("old_gladiator_helmet_2",0),("old_gladiator_helmet_2_inv",ixmesh_inventory)],itp_attach_armature|itp_type_head_armor,0,2000 , weight(4.50)|abundance(0)|head_armor(50)|body_armor(0)|leg_armor(0)|difficulty(12) ,imodbits_plate ],
+
+["special_campagi_1", "Fitted Campagi", [("deurne_campagi_2",0)], itp_unique|itp_type_foot_armor|itp_civilian|itp_attach_armature,0, #increased athletics
+ 1000 , weight(1)|head_armor(0)|body_armor(0)|leg_armor(14)|difficulty(0) ,imodbits_cloth ],
+
 
 #quest items
 ["book_roman_pagan_quest","Collection of the Works of Plato", [("book_f",0)], itp_type_book, 0, 1,weight(2)|abundance(100),imodbits_none], #cheap so the player hopefully doesn't sell it
@@ -3516,7 +3527,7 @@ weight(1)|abundance(80)|head_armor(24)|body_armor(14)|leg_armor(6)|difficulty(0)
 
 ["nero_lyre_final","Nero's Lyre", [("lyre",0)], itp_unique|itp_type_goods, 0, 4000,weight(2.5)|abundance(0),imodbits_none],
 
-["holy_grail","Cup of Christos", [("cup",0),], itp_unique, 0, 10,weight(0.25)|abundance(0)|max_ammo(1),imodbits_none],
+["holy_grail","Cup of Christos", [("cup",0),], itp_unique, 0, 1,weight(0.25)|abundance(0)|max_ammo(1),imodbits_none],
 
 ["tavern_cup","Cup",[("dedal_kufelL",0)],itp_type_hand_armor,0, 1, weight(1.0)|abundance(1)|body_armor(0)|difficulty(0),imodbits_none],
 ["dedal_lutnia","Lyre",[("dedal_liraL",0)],	itp_type_hand_armor,0,0,weight(1),0],

@@ -31663,7 +31663,7 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
    [anyone,"lord_tell_mission_silingi_2", [
   ], "Our home is East, past the lands of the Langobards and Thuringians. Convince them, and I will reward you well...", "lord_pretalk",
    [(call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 5),
-   (str_store_string, s2, "@Visimar and his warband are raiding the land near Sinuessa, it would be best to quickly engage him before he leaves..."),
+   (str_store_string, s2, "@Gaiseric has tasked you in finding the kinsmen to the vandals; the Siligini. They are said to be living east of the lands of the Thuringians and Langobards."),
    (call_script, "script_start_quest", "qst_silingi_quest", "$g_talk_troop"),
    (enable_party, "p_silingi_village"),
    (assign, "$g_silingi_quest", 1),
@@ -46630,6 +46630,31 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   
   [anyone,"armorer_window", [], "Good luck. Remember my name if you need something else. Farewell.", "close_window",[]],
   
+  [anyone|plyr, "town_merchant_talk", [
+  (eq, "$g_talk_troop", "trp_town_19_horse_merchant"),
+  ], "I have heard you are in possesion of a special horse, are you willing to sell it?", "horse_merchant_buy", []],
+
+  [anyone,"horse_merchant_buy", [(troop_slot_ge, "trp_player", slot_troop_renown, 600),], "Sure thing, {reg59?madam:sir}.", "horse_merchant_trade",[]],
+  [anyone,"horse_merchant_buy", [], "Sorry, friend, but I only deal with those I know. Come back when you've made more of a name for yourself.", "close_window",[]],
+  
+  [anyone,"horse_merchant_trade", [], "Its a rare breed, one of a kind. I'll sell it to you for 12,000 siliquae", "horse_merchant_choose",[]],
+    
+  [anyone|plyr,"horse_merchant_choose", [ #ravenna + constantinople only
+  ], "I'd like to purchase the horse.", "horse_merchant_window",[
+      (store_troop_gold,":money","trp_player"),
+      (try_begin),
+        (gt,":money",11999),
+        (troop_remove_gold, "trp_player", 12000),
+        (troop_add_item, "trp_player", "itm_nisean_special", 0),
+      (else_try),
+        (display_message,"@You do not have enough money!"),
+      (try_end),
+  ]],
+
+  [anyone|plyr,"horse_merchant_choose", [], "Nothing. Thank you.", "close_window",[]],
+  
+  [anyone,"horse_merchant_window", [], "Good luck. Remember my name if you need something else. Farewell.", "close_window",[]],
+
 
   [anyone, "dplmc_trade_autosell_1", [
     (call_script, "script_dplmc_initialize_autoloot", 0),#0 means only run if uninitialized
@@ -48626,24 +48651,21 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
     (jump_to_menu, "mnu_alexandria_zealot_battle"),
     (finish_mission),]],
 
-  [trp_proclus|plyr, "proclus_talk_met", [(neg|check_quest_active, "qst_roman_pagan_quest"),(eq, "$proclus_book_quest_started", 0),],
-   "Is there anything else I can do for you?", "proclus_talk_book_quest", []],
-
-  [trp_proclus, "proclus_talk_book_quest", [],
-   "Yes, there is. I've been hunting for copies of several of Plato's works. One of my pupils has told me that there is a merchant in Antioch that has copies of Plato's work. Since I am busy here, would you be able to aquire them for me?", "proclus_talk_book_quest2", []],
-
-  [trp_proclus|plyr, "proclus_talk_book_quest2", [],
-   "Yes, I will get Plato's works for you. Anything else I need to know?", "proclus_talk_book_quest3", []],
-
-  [trp_proclus, "proclus_talk_book_quest3", [],
-   "The merchant's name is Marcellus. He should be somewhere in Antioch, it would be best to check the taverns. Farewell, {playername}.", "close_window", [
-   (setup_quest_text, "qst_proclus_book_quest"),
-   (str_store_string, s2, "@Proclus asks of you to retrieve the works for Plato from a merchant named Marcellus in Antioch."),
-   (call_script, "script_start_quest", "qst_proclus_book_quest", "$g_talk_troop"),
-   (quest_set_slot,"qst_proclus_book_quest", slot_quest_current_state, 1),
-   (add_troop_to_site, "trp_roman_pagan_quest_npc_7", "scn_town_38_tavern", 12),
-   (assign, "$proclus_book_quest_started", 1),
-]],
+  #[trp_proclus|plyr, "proclus_talk_met", [(neg|check_quest_active, "qst_roman_pagan_quest"),(eq, "$proclus_book_quest_started", 0),],
+  # "Is there anything else I can do for you?", "proclus_talk_book_quest", []],
+  #[trp_proclus, "proclus_talk_book_quest", [],
+  # "Yes, there is. I've been hunting for copies of several of Plato's works. One of my pupils has told me that there is a merchant in Antioch that has copies of Plato's work. Since I am busy here, would you be able to aquire them for me?", "proclus_talk_book_quest2", []],
+  #[trp_proclus|plyr, "proclus_talk_book_quest2", [],
+  # "Yes, I will get Plato's works for you. Anything else I need to know?", "proclus_talk_book_quest3", []],
+  #[trp_proclus, "proclus_talk_book_quest3", [],
+  # "The merchant's name is Marcellus. He should be somewhere in Antioch, it would be best to check the taverns. Farewell, {playername}.", "close_window", [
+  # (setup_quest_text, "qst_proclus_book_quest"),
+  # (str_store_string, s2, "@Proclus asks of you to retrieve the works for Plato from a merchant named Marcellus in Antioch."),
+  # (call_script, "script_start_quest", "qst_proclus_book_quest", "$g_talk_troop"),
+  # (quest_set_slot,"qst_proclus_book_quest", slot_quest_current_state, 1),
+  # (add_troop_to_site, "trp_roman_pagan_quest_npc_7", "scn_town_38_tavern", 12),
+  # (assign, "$proclus_book_quest_started", 1),
+#]],
 
   [trp_proclus|plyr, "proclus_talk_met", [],
   "I would like to purchase a book.", "proclus_shop_1", []],   
@@ -49288,6 +49310,18 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
    "I would like to hire a priest (300 siliquae).", "chalcedonian_bishop_talk_hire", [(troop_remove_gold, "trp_player", 300),(party_add_members, "p_main_party","trp_roman_priest",1),]],
   [anyone, "chalcedonian_bishop_talk_hire", [], #after player converts
    "Very well.", "chalcedonian_bishop_talk", []],
+  [anyone|plyr, "chalcedonian_bishop_talk", [(player_has_item,"itm_holy_grail")],
+   "I found the holy grail, and wish to donate it to the church.", "chalcedonian_grail_talk_1", []],
+  [anyone, "chalcedonian_grail_talk_1", [],
+   "You found the grail? Glory to God! Although it is not much, take this for the trouble, {playername}, for returning the grail to the true church.", "chalcedonian_bishop_talk", [
+   (troop_remove_item,"trp_player","itm_holy_grail"),
+   (call_script, "script_change_player_relation_with_faction", "fac_coptic_christians", 20),
+   (troop_add_gold, "trp_player", 4000),
+   (call_script, "script_change_player_honor", 5),
+   (val_add, "$piety", 10), 
+   (call_script, "script_change_troop_renown", "trp_player", 5),
+   (add_xp_as_reward, 200),
+   ]],
   [anyone|plyr, "chalcedonian_bishop_talk", [],
    "I do not need a man of God at this time, farewell.", "close_window", []],
 
@@ -49325,7 +49359,18 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
    "I would like to hire a priest (300 siliquae).", "coptic_pope_talk_hire", [(troop_remove_gold, "trp_player", 300),(party_add_members, "p_main_party","trp_coptic_priest",1),]],
   [trp_coptic_pope, "coptic_pope_talk_hire", [], #after player converts
    "Very well.", "coptic_pope_talk_1", []],
-
+  [anyone|plyr, "coptic_pope_talk_1", [(player_has_item,"itm_holy_grail")],
+   "I found the holy grail, and wish to donate it to the church.", "coptic_grail_talk_1", []],
+  [anyone, "coptic_grail_talk_1", [],
+   "You found the grail? Glory to God! Although it is not much, take this for the trouble, {playername}, for returning the grail to the true church.", "coptic_pope_talk_1", [
+   (troop_remove_item,"trp_player","itm_holy_grail"),
+   (call_script, "script_change_player_relation_with_faction", "fac_roman_christians", 20),
+   (troop_add_gold, "trp_player", 4000),
+   (call_script, "script_change_player_honor", 5),
+   (val_add, "$piety", 10), 
+   (call_script, "script_change_troop_renown", "trp_player", 5),
+   (add_xp_as_reward, 200),
+   ]],
   [trp_coptic_pope|plyr, "coptic_pope_talk_1", [],
    "I do not need a man of God at this time, farewell.", "close_window", []],
 
@@ -49822,7 +49867,7 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   (quest_set_slot,"qst_silingi_quest", slot_quest_current_state, 2),
   (display_message, "str_quest_log_updated"),
   (add_quest_note_from_sreg, "qst_silingi_quest", 5, "@In order for the Silingi to migrate to Africa, the Venedi tribe must be defeated.",0),
-  (enable_party, "p_venedi_village"),
+  (enable_party, "p_venedi_village_quest"),
    ]],
 
   [trp_silingi_chief, "start", [],
@@ -50018,6 +50063,91 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
    "Hello there! Interested in some antique goods?", "antiquarian_merchant_talk_1", []],
   [trp_antiquarian|plyr, "antiquarian_merchant_talk_1", [],
    "I'll take a look...", "antiquarian_merchant_talk_shop_1", []],
+
+  #can sell rare artifacts/goods for high price
+  #grail
+  [trp_antiquarian|plyr, "antiquarian_merchant_talk_1", [(player_has_item,"itm_holy_grail")],
+   "I found the grail, how much are you willing to buy it for?", "antiquarian_grail_talk_1", []],
+  [trp_antiquarian, "antiquarian_grail_talk_1", [],
+   "Is it really the grail? There are those who are willing to pay a great price for such an artifact. I'll give you 8000 siliquae for it, {playername}.", "antiquarian_grail_talk_2", []],
+  [trp_antiquarian|plyr, "antiquarian_grail_talk_2", [],
+   "I accept this offer, here take it.", "antiquarian_grail_talk_3", []],
+  [trp_antiquarian, "antiquarian_grail_talk_3", [],
+   "Very well, here's the gold. Thank you for finding such a rare piece!", "close_window", [
+   (troop_remove_item,"trp_player","itm_holy_grail"),
+   (troop_add_gold, "trp_player", 8000),
+   (call_script, "script_change_troop_renown", "trp_player", 5),
+   (add_xp_as_reward, 200),
+   ]],
+  [trp_antiquarian|plyr, "antiquarian_grail_talk_2", [],
+   "Nevermind, I will hold on to it for now.", "antiquarian_merchant_talk_1", []],
+  #attila's sword
+  [trp_antiquarian|plyr, "antiquarian_merchant_talk_1", [(player_has_item,"itm_sword_of_mars")],
+   "I was able to get my hands on to Attila's legendary sword. It wasn't easy, but I am willing to sell it to you. How much are you willing to pay for it?", "antiquarian_attila_sword_talk_1", []],
+  [trp_antiquarian, "antiquarian_attila_sword_talk_1", [],
+   "Attila's sword? Now that is quite the find! I'll give you 9500 siliquae right now for it!", "antiquarian_attila_sword_talk_2", []],
+  [trp_antiquarian|plyr, "antiquarian_attila_sword_talk_2", [],
+   "I accept this offer, here take it.", "antiquarian_attila_sword_talk_3", []],
+  [trp_antiquarian, "antiquarian_attila_sword_talk_3", [],
+   "Very well, here's the gold. This will make a fine addition to my collection!", "close_window", [
+   (troop_remove_item,"trp_player","itm_sword_of_mars"),
+   (troop_add_gold, "trp_player", 9500),
+   (call_script, "script_change_troop_renown", "trp_player", 2),
+   (add_xp_as_reward, 100),
+   ]],
+  [trp_antiquarian|plyr, "antiquarian_attila_sword_talk_2", [],
+   "Nevermind, I will hold on to it for now.", "antiquarian_merchant_talk_1", []],
+  #aetius's shield
+  [trp_antiquarian|plyr, "antiquarian_merchant_talk_1", [(player_has_item,"itm_aetius_shield")],
+   "I found an old round shield that may have once been Flavius Aetius shield, how much would you buy it for?", "antiquarian_aetius_shield_talk_1", []],
+  [trp_antiquarian, "antiquarian_aetius_shield_talk_1", [],
+   "Aetius's shield? I wonder how you got your hands on it... How does 4000 siliquae sound to you?", "antiquarian_aetius_shield_talk_2", []],
+  [trp_antiquarian|plyr, "antiquarian_aetius_shield_talk_2", [],
+   "I accept this offer, here take it.", "antiquarian_aetius_shield_talk_3", []],
+  [trp_antiquarian, "antiquarian_aetius_shield_talk_3", [],
+   "Very well, here's the gold. This is quite the collector's item!", "close_window", [
+   (troop_remove_item,"trp_player","itm_aetius_shield"),
+   (troop_add_gold, "trp_player", 4000),
+   (call_script, "script_change_troop_renown", "trp_player", 2),
+   (add_xp_as_reward, 100),
+   ]],
+  [trp_antiquarian|plyr, "antiquarian_aetius_shield_talk_2", [],
+   "Nevermind, I will hold on to it for now.", "antiquarian_merchant_talk_1", []],
+  #aurelian helmet
+  [trp_antiquarian|plyr, "antiquarian_merchant_talk_1", [(player_has_item,"itm_aurelian_helmet")],
+   "I was able to aquire the helmet of the great emperor, Aurelian. Are you intrested in buying it?", "antiquarian_aurelian_helmet_talk_1", []],
+  [trp_antiquarian, "antiquarian_aurelian_helmet_talk_1", [],
+   "Wow, the helmet of Aurelian? Where did you find it? Nevermind, that does not matter. How does 10000 siliqae sound?", "antiquarian_aurelian_helmet_talk_2", []],
+  [trp_antiquarian|plyr, "antiquarian_aurelian_helmet_talk_2", [],
+   "I accept this offer, here take it.", "antiquarian_aurelian_helmet_talk_3", []],
+  [trp_antiquarian, "antiquarian_aurelian_helmet_talk_3", [],
+   "Very well, here's the gold. This is quite the collector's item!", "close_window", [
+   (troop_remove_item,"trp_player","itm_aurelian_helmet"),
+   (troop_add_gold, "trp_player", 10000),
+   (call_script, "script_change_troop_renown", "trp_player", 3),
+   (add_xp_as_reward, 100),
+   ]],
+  [trp_antiquarian|plyr, "antiquarian_aurelian_helmet_talk_2", [],
+   "Nevermind, I will hold on to it for now.", "antiquarian_merchant_talk_1", []],
+  #nero's lyre
+  [trp_antiquarian|plyr, "antiquarian_merchant_talk_1", [(player_has_item,"itm_nero_lyre_final")],
+   "I found the emperor Nero's personal lyre. Are you intrested in buying it?", "antiquarian_nero_lyre_talk_1", []],
+  [trp_antiquarian, "antiquarian_nero_lyre_talk_1", [],
+   "Nero's personal lyre? How the hell did you find that? Probably a long story. I'll pay 4500 siliquae for it.", "antiquarian_nero_lyre_talk_2", []],
+  [trp_antiquarian|plyr, "antiquarian_nero_lyre_talk_2", [],
+   "I accept this offer, here take it.", "antiquarian_nero_lyre_talk_3", []],
+  [trp_antiquarian, "antiquarian_nero_lyre_talk_3", [],
+   "Very well, here's the gold. Now this has a story to it!", "close_window", [
+   (troop_remove_item,"trp_player","itm_nero_lyre_final"),
+   (troop_add_gold, "trp_player", 4500),
+   (call_script, "script_change_troop_renown", "trp_player", 3),
+   (add_xp_as_reward, 100),
+   ]],
+  [trp_antiquarian|plyr, "antiquarian_nero_lyre_talk_2", [],
+   "Nevermind, I will hold on to it for now.", "antiquarian_merchant_talk_1", []],
+
+
+
   [trp_antiquarian|plyr, "antiquarian_merchant_talk_1", [(check_quest_active, "qst_diocletian_quest"),
   (this_or_next|quest_slot_eq, "qst_diocletian_quest", slot_quest_current_state, 2),
   (quest_slot_eq, "qst_diocletian_quest", slot_quest_current_state, 2),],
@@ -50027,7 +50157,6 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
 
   [trp_antiquarian, "antiquarian_maximian_1", [],
    "I do, however its a rare piece... It'll cost you, say, 1000 siliquae...", "antiquarian_maximian_2", []],
-
   [trp_antiquarian|plyr,"antiquarian_maximian_2", [(store_troop_gold,":money","trp_player"),(gt,":money",999),], "Here, take the money", "antiquarian_maximian_3",[]],
   [trp_antiquarian|plyr,"antiquarian_maximian_2", [], "Nevermind.", "close_window",[]],
   [trp_antiquarian,"antiquarian_maximian_3", [], "Thank you, here's the statue.", "close_window",[(troop_add_item, "trp_player", "itm_maximian_statue", 0),(troop_remove_gold,"trp_player",1000),(quest_set_slot,"qst_diocletian_quest", slot_quest_current_state, 3),]],

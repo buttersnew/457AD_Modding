@@ -3814,6 +3814,17 @@ scene_props = [
   ( "tent_closed"                           ,0,"tent_closed","bo_tent_closed",[]),
   ( "tent_triangle"                           ,0,"tent_triangle","bo_tent_triangle",[]),
 
+  ( "scythian_hut_1"                             ,0,"scythian_hut_1","bo_scythian_hut_1",[]),
+  ( "scythian_hut_1b"                            ,0,"scythian_hut_1b","bo_scythian_hut_1",[]),
+  ( "scythian_hut_2"                             ,0,"scythian_hut_2","bo_scythian_hut_2",[]),
+  ( "scythian_hut_2b"                            ,0,"scythian_hut_2b","bo_scythian_hut_2",[]),
+  ( "scythian_hut_2c"                            ,0,"scythian_hut_2c","bo_scythian_hut_2",[]),
+  ( "scythian_hut_3"                             ,0,"scythian_hut_3","bo_scythian_hut_3",[]),
+  ( "scythian_hut_3b"                            ,0,"scythian_hut_3b","bo_scythian_hut_3",[]),
+  ( "scythian_wagon"                             ,0,"scythian_wagon","bo_scythian_wagon",[]),
+
+
+
 #added destructable gate
 
 ("castle_g_gate_house_door_a_destructable",sokf_show_hit_point_bar|sokf_destructible|spr_hit_points(1000),"castle_g_gate_house_door_a","bo_castle_g_gate_house_door_a",   [

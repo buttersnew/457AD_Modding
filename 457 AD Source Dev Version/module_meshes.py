@@ -74,6 +74,16 @@ meshes = [
   ("pic_kingdom27", 0, "pic_georgian_arms", 0, 0, 0, 0, 0, 0, 1, 1, 1),
   ("pic_kingdom28", 0, "pic_georgian_arms", 0, 0, 0, 0, 0, 0, 1, 1, 1),
 
+  #minor factions
+  ("pic_aestii", 0, "pic_aestii", 0, 0, 0, 0, 0, 0, 1, 1, 1),
+  ("pic_garamantian", 0, "pic_garamantian", 0, 0, 0, 0, 0, 0, 1, 1, 1),
+  ("pic_dani", 0, "pic_dani", 0, 0, 0, 0, 0, 0, 1, 1, 1),
+  ("pic_sporoi", 0, "pic_sporoi", 0, 0, 0, 0, 0, 0, 1, 1, 1),
+  ("pic_bosphoran", 0, "pic_bosphoran", 0, 0, 0, 0, 0, 0, 1, 1, 1),
+  ("pic_tauri", 0, "pic_tauri", 0, 0, 0, 0, 0, 0, 1, 1, 1),
+  ("pic_augandzii", 0, "pic_augandzii", 0, 0, 0, 0, 0, 0, 1, 1, 1),
+  ("pic_frisii", 0, "pic_frisii", 0, 0, 0, 0, 0, 0, 1, 1, 1),
+
   ("pic_castle1", 0, "pic_castle1", 0, 0, 0, 0, 0, 0, 1, 1, 1),
   ("pic_castledes", 0, "pic_castledes", 0, 0, 0, 0, 0, 0, 1, 1, 1),
   ("pic_castlesnow", 0, "pic_castlesnow", 0, 0, 0, 0, 0, 0, 1, 1, 1),

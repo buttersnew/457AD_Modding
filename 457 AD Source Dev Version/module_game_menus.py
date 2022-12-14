@@ -9908,7 +9908,7 @@ TOTAL:  {reg5}"),
        ,"Manage this village.",
        [
         (assign, "$g_next_menu", "mnu_village"),
-        (assign, reg64, 1),
+        (assign, reg63, 1),
         (jump_to_menu, "mnu_center_manage_2"),
         ]),
       ("recruit_volunteers",
@@ -11007,17 +11007,17 @@ TOTAL:  {reg5}"),
     (try_end),
     ],
     [
-      ("exchange",[(eq, reg64, 1),],"Exchange.",[
+      ("exchange",[(eq, reg63, 1),],"Exchange.",[
     
     (change_screen_exchange_members,1),
       ]),         
     
-    ("exchange",[ (eq, reg64, 0),],"Review garrison and prisoners.",[
+    ("exchange",[ (eq, reg63, 0),],"Review garrison and prisoners.",[
    
     (call_script, "script_view_party_members","$g_encountered_party"),]),
     
     ("add_prisoners",[
-    (eq, reg64, 1),
+    (eq, reg63, 1),
     (party_get_num_prisoners, ":prisoners", "p_main_party"),
     (ge, ":prisoners", 1),],"Drop off all non-hero prisoners.",[
     (assign, "$g_move_heroes", 0), 
@@ -11026,7 +11026,7 @@ TOTAL:  {reg5}"),
     ]),       
       
     ("add_members",[
-    (eq, reg64, 1),  
+    (eq, reg63, 1),  
     (store_party_size_wo_prisoners, ":men", "p_main_party"),
     (ge, ":men", 1),],"Drop off all your  non-hero party members.",[
     (assign, "$g_move_heroes", 0), 
@@ -13372,7 +13372,7 @@ TOTAL:  {reg5}"),
        "Manage this {reg0?town:castle}.",
        [
            (assign, "$g_next_menu", "mnu_town"),
-           (assign, reg64, 1),
+           (assign, reg63, 1),
            (jump_to_menu, "mnu_center_manage_2"),
        ]),
 

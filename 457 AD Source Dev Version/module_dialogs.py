@@ -48026,7 +48026,7 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
    (remove_troop_from_site,"trp_bigilas","scn_town_7_tavern"),
    (enable_party, "p_court_of_attila"),
    (display_message, "str_quest_log_updated"), 
-   (add_quest_note_from_sreg, "qst_sword_of_mars", 10, "@Although not knowing about the sword, Bigilas has shared the location of Attila's court. It is located between the lands of the Langobards and Gepids.",0),
+   (add_quest_note_from_sreg, "qst_sword_of_mars", 6, "@Although not knowing about the sword, Bigilas has shared the location of Attila's court. It is located between the lands of the Langobards and Gepids.",0),
    ]],
    
   [trp_bigilas, "start", [(check_quest_active,"qst_sword_of_mars"),(quest_slot_eq,"qst_sword_of_mars",slot_quest_current_state, 9),],
@@ -48062,7 +48062,7 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
    (quest_set_slot,"qst_sword_of_mars", slot_quest_current_state, 6),
    #(add_troop_to_site, "trp_ildico", "scn_town_12_tavern", 12), #Napoca
    (display_message, "str_quest_log_updated"),
-   (add_quest_note_from_sreg, "qst_sword_of_mars", 15, "@An old merchant living in the ruins of Attila's court has pointed to Ildico, the last wife of Attila, as having knowledge of the exact location of the sword. He claims she resides either in the lands of the Gepids, Langobards and Amali Goths.",0),
+   (add_quest_note_from_sreg, "qst_sword_of_mars", 7, "@An old merchant living in the ruins of Attila's court has pointed to Ildico, the last wife of Attila, as having knowledge of the exact location of the sword. He claims she resides either in the lands of the Gepids, Langobards and Amali Goths.",0),
    ]],
 
   #not related to the quest
@@ -48144,7 +48144,7 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
    (quest_set_slot,"qst_sword_of_mars", slot_quest_current_state, 7),
    (add_troop_to_site, "trp_attilas_bastard_son_duel", "scn_town_12_tavern", 12),
    (display_message, "str_quest_log_updated"), 
-   (add_quest_note_from_sreg, "qst_sword_of_mars", 20, "@Ildico knows the sword, however does not trust me. In order to gain her trust, she requested I eliminate a group of potential mercenaries who are stalking her. Their leader can be found in the tavern.",0),
+   (add_quest_note_from_sreg, "qst_sword_of_mars", 8, "@Ildico knows the sword, however does not trust me. In order to gain her trust, she requested I eliminate a group of potential mercenaries who are stalking her. Their leader can be found in the tavern.",0),
    ]],
 
 
@@ -48166,7 +48166,7 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
    (enable_party, "p_attila_sword_location"),
    (display_message, "str_quest_log_updated"),
    (str_store_party_name_link, s3, "p_town_10"),
-   (add_quest_note_from_sreg, "qst_sword_of_mars", 25, "@Ildico has given me the location of the sword. She claims that it is hidden in a grove outside of {s3}.",0),
+   (add_quest_note_from_sreg, "qst_sword_of_mars", 9, "@Ildico has given me the location of the sword. She claims that it is hidden in a grove outside of {s3}.",0),
   #now for the good old conditions that I will do later
    ]],
 

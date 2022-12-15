@@ -21613,7 +21613,13 @@ mission_templates = [
       ]),
       
       (ti_inventory_key_pressed, 0, 0, [(set_trigger_result,1)], []),
-      (ti_tab_pressed, 0, 0, [(set_trigger_result,1)], []),
+      (ti_tab_pressed, 0, 0, [
+        (try_begin),
+            (eq,"$sword_found",2),
+            (display_message, "str_cannot_leave_now"),
+        (else_try),
+            (set_trigger_result,1),
+        (try_end),], []),
       
       (1, 4, ti_once,
         [

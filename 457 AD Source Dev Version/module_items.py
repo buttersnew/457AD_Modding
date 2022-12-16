@@ -3525,7 +3525,7 @@ weight(1)|abundance(80)|head_armor(24)|body_armor(14)|leg_armor(6)|difficulty(0)
 
 ["mithras_statue","Statue of Mithras", [("mithras_final",0)], itp_unique|itp_type_goods, 0, 10000,weight(50)|abundance(10),imodbits_none],
 
-["nero_lyre","Nero's Lyre", [("lyre_golden",0)], itp_unique|itp_type_shield|itp_wooden_parry|itp_civilian|itp_two_handed, itcf_carry_bow_back,  100 , weight(2.5)|hit_points(600)|body_armor(4)|spd_rtng(92)|weapon_length(90),imodbits_none ],
+["nero_lyre","Nero's Lyre", [("lyre",0)], itp_unique|itp_type_shield|itp_wooden_parry|itp_civilian|itp_two_handed, itcf_carry_bow_back,  100 , weight(2.5)|hit_points(600)|body_armor(4)|spd_rtng(92)|weapon_length(90),imodbits_none ],
 
 ["nero_lyre_final","Nero's Lyre", [("lyre_golden",0)], itp_unique|itp_type_goods, 0, 4000,weight(2.5)|abundance(0),imodbits_none],
 

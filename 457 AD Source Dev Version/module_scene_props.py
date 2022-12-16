@@ -1082,7 +1082,7 @@ scene_props = [
   ("stone_house_e",0,"stone_house_e","bo_stone_house_e", []),
   ("stone_house_f",0,"stone_house_f","bo_stone_house_f", []),
 
-  ("banner_pole", sokf_moveable, "banner_pole", "bo_banner_pole", []),
+  ("banner_pole", sokf_moveable, "question_mark", "0", []),
 
   ("custom_banner_01",0,"custom_banner_01","0",
    [
@@ -2935,13 +2935,13 @@ scene_props = [
     ]),
   ]),
 
- ("ctf_flag_kingdom_1", sokf_moveable|sokf_face_player, "ctf_flag_kingdom_1", "0", []),
- ("ctf_flag_kingdom_2", sokf_moveable|sokf_face_player, "ctf_flag_kingdom_2", "0", []),
- ("ctf_flag_kingdom_3", sokf_moveable|sokf_face_player, "ctf_flag_kingdom_3", "0", []),
- ("ctf_flag_kingdom_4", sokf_moveable|sokf_face_player, "ctf_flag_kingdom_4", "0", []),
- ("ctf_flag_kingdom_5", sokf_moveable|sokf_face_player, "ctf_flag_kingdom_5", "0", []),
- ("ctf_flag_kingdom_6", sokf_moveable|sokf_face_player, "ctf_flag_kingdom_6", "0", []),
- ("ctf_flag_kingdom_7", sokf_moveable|sokf_face_player, "ctf_flag_kingdom_7", "0", []),
+ ("ctf_flag_kingdom_1", sokf_moveable|sokf_face_player, "question_mark", "0", []),
+ ("ctf_flag_kingdom_2", sokf_moveable|sokf_face_player, "question_mark", "0", []),
+ ("ctf_flag_kingdom_3", sokf_moveable|sokf_face_player, "question_mark", "0", []),
+ ("ctf_flag_kingdom_4", sokf_moveable|sokf_face_player, "question_mark", "0", []),
+ ("ctf_flag_kingdom_5", sokf_moveable|sokf_face_player, "question_mark", "0", []),
+ ("ctf_flag_kingdom_6", sokf_moveable|sokf_face_player, "question_mark", "0", []),
+ ("ctf_flag_kingdom_7", sokf_moveable|sokf_face_player, "question_mark", "0", []),
 
  ("headquarters_flag_rebel",sokf_moveable|sokf_face_player,"flag_rebel","0", []),
   ("arabian_lighthouse_a",0,"arabian_lighthouse_a","bo_arabian_lighthouse_a", []),
@@ -3635,8 +3635,8 @@ scene_props = [
   ("ado_med_gatehouse_brick_2",0,"ado_med_gatehouse_brick_2", "bo_ado_med_gatehouse_brick", []),
 
 # from 'arabian_castle.brf': begin (OpenBRF)
-  ( "temple_body"                                ,0,"temple_body","bo_temple_body",[]),
-  ( "palace_avenue"                              ,0,"palace_avenue","bo_palace_avenue",[]),
+  ( "temple_body"                                ,0,"question_mark","0",[]),
+  ( "palace_avenue"                              ,0,"question_mark","0",[]),
   ( "damask_arka_1_a"                            ,0,"damask_arka_1_a","bo_damask_arka_1_a",[]),
   ( "obelisk"                                    ,0,"obelisk","bo_obelisk",[]),
   ( "mud_wall_destroyed"                         ,0,"mud_wall_destroyed","bo_mud_wall_destroyed",[]),

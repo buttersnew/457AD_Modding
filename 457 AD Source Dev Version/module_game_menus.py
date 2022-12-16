@@ -20569,11 +20569,11 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     "none",
     [
     #SB : tableau notes
-    (set_fixed_point_multiplier, 100),
-    (position_set_x, pos0, 70),
-    (position_set_y, pos0, 5),
-    (position_set_z, pos0, 75),
-    (set_game_menu_tableau_mesh, "tableau_troop_note_mesh", "trp_dplmc_chamberlain", pos0),
+    # (set_fixed_point_multiplier, 100),
+    # (position_set_x, pos0, 70),
+    # (position_set_y, pos0, 5),
+    # (position_set_z, pos0, 75),
+    # (set_game_menu_tableau_mesh, "tableau_troop_note_mesh", "trp_dplmc_chamberlain", pos0),
     ],
     [
 
@@ -20610,11 +20610,11 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     "none",
     [
     #SB : tableau notes
-    (set_fixed_point_multiplier, 100),
-    (position_set_x, pos0, 70),
-    (position_set_y, pos0, 5),
-    (position_set_z, pos0, 75),
-    (set_game_menu_tableau_mesh, "tableau_troop_note_mesh", "trp_dplmc_constable", pos0),
+    # (set_fixed_point_multiplier, 100),
+    # (position_set_x, pos0, 70),
+    # (position_set_y, pos0, 5),
+    # (position_set_z, pos0, 75),
+    # (set_game_menu_tableau_mesh, "tableau_troop_note_mesh", "trp_dplmc_constable", pos0),
     ],
     [
 
@@ -20654,11 +20654,11 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     "none",
     [
     #SB : tableau notes
-    (set_fixed_point_multiplier, 100),
-    (position_set_x, pos0, 70),
-    (position_set_y, pos0, 5),
-    (position_set_z, pos0, 75),
-    (set_game_menu_tableau_mesh, "tableau_troop_note_mesh", "trp_dplmc_chancellor", pos0),
+    # (set_fixed_point_multiplier, 100),
+    # (position_set_x, pos0, 70),
+    # (position_set_y, pos0, 5),
+    # (position_set_z, pos0, 75),
+    # (set_game_menu_tableau_mesh, "tableau_troop_note_mesh", "trp_dplmc_chancellor", pos0),
     ],
     [
 

@@ -121,51 +121,51 @@ tableaus = [
        #(cur_tableau_add_mesh, "mesh_troop_label_banner", pos1, 112, 0),
        ]),
 
-  ("round_shield_1", 0, "ant_round_shield_11", 512, 256, 0, 0, 0, 0,
-   [
-       (store_script_param, ":banner_mesh", 1),
+  # ("round_shield_1", 0, "ant_round_shield_11", 512, 256, 0, 0, 0, 0,
+  #  [
+  #      (store_script_param, ":banner_mesh", 1),
 
-       (set_fixed_point_multiplier, 100),
+  #      (set_fixed_point_multiplier, 100),
 
-       (init_position, pos1),
-       (position_set_x, pos1, -50),
-       (position_set_y, pos1, 125),
-       (cur_tableau_add_mesh, ":banner_mesh", pos1, 120, 0),
-       (init_position, pos1),
-       (position_set_z, pos1, 10),
-       (cur_tableau_add_mesh, "mesh_tableau_mesh_shield_round_1", pos1, 0, 0),
-       (cur_tableau_set_camera_parameters, 0, 200, 100, 0, 100000),
-       ]),
-  ("round_shield_2", 0, "ant_round_shield_11", 512, 256, 0, 0, 0, 0,
-   [
-       (store_script_param, ":banner_mesh", 1),
+  #      (init_position, pos1),
+  #      (position_set_x, pos1, -50),
+  #      (position_set_y, pos1, 125),
+  #      (cur_tableau_add_mesh, ":banner_mesh", pos1, 120, 0),
+  #      (init_position, pos1),
+  #      (position_set_z, pos1, 10),
+  #      (cur_tableau_add_mesh, "mesh_tableau_mesh_shield_round_1", pos1, 0, 0),
+  #      (cur_tableau_set_camera_parameters, 0, 200, 100, 0, 100000),
+  #      ]),
+  # ("round_shield_2", 0, "ant_round_shield_11", 512, 256, 0, 0, 0, 0,
+  #  [
+  #      (store_script_param, ":banner_mesh", 1),
 
-       (set_fixed_point_multiplier, 100),
+  #      (set_fixed_point_multiplier, 100),
 
-       (init_position, pos1),
-       (position_set_x, pos1, -50),
-       (position_set_y, pos1, 120),
-       (cur_tableau_add_mesh, ":banner_mesh", pos1, 116, 0),
-       (init_position, pos1),
-       (position_set_z, pos1, 10),
-       (cur_tableau_add_mesh, "mesh_tableau_mesh_shield_round_2", pos1, 0, 0),
-       (cur_tableau_set_camera_parameters, 0, 200, 100, 0, 100000),
-       ]),
-  ("round_shield_3", 0, "sample_tableau_shield_round_3", 512, 256, 0, 0, 0, 0,
-   [
-       (store_script_param, ":banner_mesh", 1),
+  #      (init_position, pos1),
+  #      (position_set_x, pos1, -50),
+  #      (position_set_y, pos1, 120),
+  #      (cur_tableau_add_mesh, ":banner_mesh", pos1, 116, 0),
+  #      (init_position, pos1),
+  #      (position_set_z, pos1, 10),
+  #      (cur_tableau_add_mesh, "mesh_tableau_mesh_shield_round_2", pos1, 0, 0),
+  #      (cur_tableau_set_camera_parameters, 0, 200, 100, 0, 100000),
+  #      ]),
+  # ("round_shield_3", 0, "sample_tableau_shield_round_3", 512, 256, 0, 0, 0, 0,
+  #  [
+  #      (store_script_param, ":banner_mesh", 1),
 
-       (set_fixed_point_multiplier, 100),
+  #      (set_fixed_point_multiplier, 100),
 
-       (init_position, pos1),
-       (position_set_x, pos1, -50),
-       (position_set_y, pos1, 120),
-       (cur_tableau_add_mesh, ":banner_mesh", pos1, 116, 0),
-       (init_position, pos1),
-       (position_set_z, pos1, 10),
-       (cur_tableau_add_mesh, "mesh_tableau_mesh_shield_round_3", pos1, 0, 0),
-       (cur_tableau_set_camera_parameters, 0, 200, 100, 0, 100000),
-       ]),
+  #      (init_position, pos1),
+  #      (position_set_x, pos1, -50),
+  #      (position_set_y, pos1, 120),
+  #      (cur_tableau_add_mesh, ":banner_mesh", pos1, 116, 0),
+  #      (init_position, pos1),
+  #      (position_set_z, pos1, 10),
+  #      (cur_tableau_add_mesh, "mesh_tableau_mesh_shield_round_3", pos1, 0, 0),
+  #      (cur_tableau_set_camera_parameters, 0, 200, 100, 0, 100000),
+  #      ]),
   
   ("round_shield_4", 0, "sample_shield_matte", 512, 256, 0, 0, 0, 0,
    [
@@ -199,52 +199,52 @@ tableaus = [
        (cur_tableau_set_camera_parameters, 0, 200, 100, 0, 100000),
        ]),
 
-  ("small_round_shield_1", 0, "roman_small_round_1", 512, 256, 0, 0, 0, 0,
-   [
-       (store_script_param, ":banner_mesh", 1),
+  # ("small_round_shield_1", 0, "roman_small_round_1", 512, 256, 0, 0, 0, 0,
+  #  [
+  #      (store_script_param, ":banner_mesh", 1),
 
-       (set_fixed_point_multiplier, 100),
+  #      (set_fixed_point_multiplier, 100),
 
-       (init_position, pos1),
-       (position_set_x, pos1, -50),
-       (position_set_y, pos1, 130),
-       (cur_tableau_add_mesh, ":banner_mesh", pos1, 127, 0),
-       (init_position, pos1),
-       (position_set_z, pos1, 10),
-       (cur_tableau_add_mesh, "mesh_tableau_mesh_shield_small_round_1", pos1, 0, 0),
-       (cur_tableau_set_camera_parameters, 0, 200, 100, 0, 100000),
-       ]),
+  #      (init_position, pos1),
+  #      (position_set_x, pos1, -50),
+  #      (position_set_y, pos1, 130),
+  #      (cur_tableau_add_mesh, ":banner_mesh", pos1, 127, 0),
+  #      (init_position, pos1),
+  #      (position_set_z, pos1, 10),
+  #      (cur_tableau_add_mesh, "mesh_tableau_mesh_shield_small_round_1", pos1, 0, 0),
+  #      (cur_tableau_set_camera_parameters, 0, 200, 100, 0, 100000),
+  #      ]),
   
-  ("small_round_shield_2", 0, "Vaelicus_celticshield_3triskel2", 512, 256, 0, 0, 0, 0,
-   [
-       (store_script_param, ":banner_mesh", 1),
+  # ("small_round_shield_2", 0, "Vaelicus_celticshield_3triskel2", 512, 256, 0, 0, 0, 0,
+  #  [
+  #      (store_script_param, ":banner_mesh", 1),
 
-       (set_fixed_point_multiplier, 100),
+  #      (set_fixed_point_multiplier, 100),
 
-       (init_position, pos1),
-       (position_set_x, pos1, -50),
-       (position_set_y, pos1, 130),
-       (cur_tableau_add_mesh, ":banner_mesh", pos1, 127, 0),
-       (init_position, pos1),
-       (position_set_z, pos1, 10),
-       (cur_tableau_add_mesh, "mesh_tableau_mesh_shield_small_round_2", pos1, 0, 0),
-       (cur_tableau_set_camera_parameters, 0, 200, 100, 0, 100000),
-       ]),
-  ("small_round_shield_3", 0, "sample_tableau_shield_small_round_3", 512, 256, 0, 0, 0, 0,
-   [
-       (store_script_param, ":banner_mesh", 1),
+  #      (init_position, pos1),
+  #      (position_set_x, pos1, -50),
+  #      (position_set_y, pos1, 130),
+  #      (cur_tableau_add_mesh, ":banner_mesh", pos1, 127, 0),
+  #      (init_position, pos1),
+  #      (position_set_z, pos1, 10),
+  #      (cur_tableau_add_mesh, "mesh_tableau_mesh_shield_small_round_2", pos1, 0, 0),
+  #      (cur_tableau_set_camera_parameters, 0, 200, 100, 0, 100000),
+  #      ]),
+  # ("small_round_shield_3", 0, "sample_tableau_shield_small_round_3", 512, 256, 0, 0, 0, 0,
+  #  [
+  #      (store_script_param, ":banner_mesh", 1),
 
-       (set_fixed_point_multiplier, 100),
+  #      (set_fixed_point_multiplier, 100),
 
-       (init_position, pos1),
-       (position_set_x, pos1, -50),
-       (position_set_y, pos1, 130),
-       (cur_tableau_add_mesh, ":banner_mesh", pos1, 127, 0),
-       (init_position, pos1),
-       (position_set_z, pos1, 10),
-       (cur_tableau_add_mesh, "mesh_tableau_mesh_shield_small_round_3", pos1, 0, 0),
-       (cur_tableau_set_camera_parameters, 0, 200, 100, 0, 100000),
-       ]),
+  #      (init_position, pos1),
+  #      (position_set_x, pos1, -50),
+  #      (position_set_y, pos1, 130),
+  #      (cur_tableau_add_mesh, ":banner_mesh", pos1, 127, 0),
+  #      (init_position, pos1),
+  #      (position_set_z, pos1, 10),
+  #      (cur_tableau_add_mesh, "mesh_tableau_mesh_shield_small_round_3", pos1, 0, 0),
+  #      (cur_tableau_set_camera_parameters, 0, 200, 100, 0, 100000),
+  #      ]),
   
   ("kite_shield_1", 0, "sample_shield_matte", 512, 512, 0, 0, 0, 0,
    [
@@ -477,23 +477,23 @@ tableaus = [
        (cur_tableau_set_camera_parameters, 0, 200, 200, 0, 100000),
        ]),
 
-  ("flag_pole", 0, "sample_flag_poles", 512, 512, 0, 0, 0, 0,
-   [
-       (store_script_param, ":banner_mesh", 1),
+  # ("flag_pole", 0, "sample_flag_poles", 512, 512, 0, 0, 0, 0,
+  #  [
+  #      (store_script_param, ":banner_mesh", 1),
 
-       (set_fixed_point_multiplier, 100),
+  #      (set_fixed_point_multiplier, 100),
 
-       (init_position, pos1),
-       (position_set_x, pos1, -12),
-       (position_set_y, pos1, 23), #135
+  #      (init_position, pos1),
+  #      (position_set_x, pos1, -12),
+  #      (position_set_y, pos1, 23), #135
      
-       (cur_tableau_add_mesh, ":banner_mesh", pos1, 36, 0), #125 !!!
-       (init_position, pos1),
-       (position_set_z, pos1, 10),
+  #      (cur_tableau_add_mesh, ":banner_mesh", pos1, 36, 0), #125 !!!
+  #      (init_position, pos1),
+  #      (position_set_z, pos1, 10),
      
-       (cur_tableau_add_mesh, "mesh_tableau_mesh_flag_pole", pos1, 0, 0),
-       (cur_tableau_set_camera_parameters, 0, 100, 100, 0, 100000),
-       ]),
+  #      (cur_tableau_add_mesh, "mesh_tableau_mesh_flag_pole", pos1, 0, 0),
+  #      (cur_tableau_set_camera_parameters, 0, 100, 100, 0, 100000),
+  #      ]),
 
   ("flag_pole_new", 0, "sample_roman_spears_banner", 1024, 1024, 0, 0, 0, 0,
    [
@@ -735,49 +735,49 @@ tableaus = [
        ]),
 
 
-  ("color_shirt_roman", 0, "roman_shirt_1", 1024, 1024, 0, 0, 0, 0,
-   [
-    (store_script_param, ":banner_mesh", 1),
+  # ("color_shirt_roman", 0, "roman_shirt_1", 1024, 1024, 0, 0, 0, 0,
+  #  [
+  #   (store_script_param, ":banner_mesh", 1),
 
-    (set_fixed_point_multiplier, 100),
-    (store_mod, ":background_slot", ":banner_mesh", 1000),
-    # (assign, reg1, ":background_slot"),
-    # (assign, reg2, ":banner_mesh"),
-    (val_sub, ":background_slot", arms_meshes_begin),
-    (troop_get_slot, ":background_color", "trp_banner_background_color_array", ":background_slot"),
-    (cur_tableau_set_background_color, ":background_color"),
+  #   (set_fixed_point_multiplier, 100),
+  #   (store_mod, ":background_slot", ":banner_mesh", 1000),
+  #   # (assign, reg1, ":background_slot"),
+  #   # (assign, reg2, ":banner_mesh"),
+  #   (val_sub, ":background_slot", arms_meshes_begin),
+  #   (troop_get_slot, ":background_color", "trp_banner_background_color_array", ":background_slot"),
+  #   (cur_tableau_set_background_color, ":background_color"),
 
-    (init_position, pos1),
-    (position_set_z, pos1, 10),
-    (val_div, ":banner_mesh", 1000),
-    (val_add, ":banner_mesh", "mesh_tableau_mesh_roman_shirt_color"),
-    (assign, reg3, ":banner_mesh"),
-    (cur_tableau_add_mesh, ":banner_mesh", pos1, 0, 0),
-    (cur_tableau_set_camera_parameters, 0, 200, 200, 0, 100000),
-    # (display_message, "@{reg3}&{reg1} = {reg2}", ":background_color"),
-       ]),
+  #   (init_position, pos1),
+  #   (position_set_z, pos1, 10),
+  #   (val_div, ":banner_mesh", 1000),
+  #   (val_add, ":banner_mesh", "mesh_tableau_mesh_roman_shirt_color"),
+  #   (assign, reg3, ":banner_mesh"),
+  #   (cur_tableau_add_mesh, ":banner_mesh", pos1, 0, 0),
+  #   (cur_tableau_set_camera_parameters, 0, 200, 200, 0, 100000),
+  #   # (display_message, "@{reg3}&{reg1} = {reg2}", ":background_color"),
+  #      ]),
 
-  ("color_shirt", 0, "roman_shirt_1", 1024, 1024, 0, 0, 0, 0,
-   [
-    (store_script_param, ":banner_mesh", 1),
+  # ("color_shirt", 0, "roman_shirt_1", 1024, 1024, 0, 0, 0, 0,
+  #  [
+  #   (store_script_param, ":banner_mesh", 1),
 
-    (set_fixed_point_multiplier, 100),
-    (store_mod, ":background_slot", ":banner_mesh", 1000),
-    # (assign, reg1, ":background_slot"),
-    # (assign, reg2, ":banner_mesh"),
-    (val_sub, ":background_slot", arms_meshes_begin),
-    (troop_get_slot, ":background_color", "trp_banner_background_color_array", ":background_slot"),
-    (cur_tableau_set_background_color, ":background_color"),
+  #   (set_fixed_point_multiplier, 100),
+  #   (store_mod, ":background_slot", ":banner_mesh", 1000),
+  #   # (assign, reg1, ":background_slot"),
+  #   # (assign, reg2, ":banner_mesh"),
+  #   (val_sub, ":background_slot", arms_meshes_begin),
+  #   (troop_get_slot, ":background_color", "trp_banner_background_color_array", ":background_slot"),
+  #   (cur_tableau_set_background_color, ":background_color"),
 
-    (init_position, pos1),
-    (position_set_z, pos1, 10),
-    (val_div, ":banner_mesh", 1000),
-    (val_add, ":banner_mesh", "mesh_tableau_mesh_tunic_color"),
-    (assign, reg3, ":banner_mesh"),
-    (cur_tableau_add_mesh, ":banner_mesh", pos1, 0, 0),
-    (cur_tableau_set_camera_parameters, 0, 200, 200, 0, 100000),
-    # (display_message, "@{reg3}&{reg1} = {reg2}", ":background_color"),
-       ]),
+  #   (init_position, pos1),
+  #   (position_set_z, pos1, 10),
+  #   (val_div, ":banner_mesh", 1000),
+  #   (val_add, ":banner_mesh", "mesh_tableau_mesh_tunic_color"),
+  #   (assign, reg3, ":banner_mesh"),
+  #   (cur_tableau_add_mesh, ":banner_mesh", pos1, 0, 0),
+  #   (cur_tableau_set_camera_parameters, 0, 200, 200, 0, 100000),
+  #   # (display_message, "@{reg3}&{reg1} = {reg2}", ":background_color"),
+  #      ]),
 
     ("heraldic_banner_03", 0, "missiles", 512, 256, 0, 0, 0, 0,
         [

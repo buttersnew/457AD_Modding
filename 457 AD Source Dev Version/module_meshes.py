@@ -291,20 +291,20 @@ meshes = [
   ("tableau_mesh_heraldic_armor_b", 0, "tableau_mesh_heraldic_armor_b",  0, 0, 0, 0, 0, 0, 1, 1, 1),
   ("tableau_mesh_heraldic_armor_c", 0, "tableau_mesh_heraldic_armor_c",  0, 0, 0, 0, 0, 0, 1, 1, 1),
   ("tableau_mesh_heraldic_armor_d", 0, "tableau_mesh_heraldic_armor_d",  0, 0, 0, 0, 0, 0, 1, 1, 1),
-  ("tableau_mesh_flag_pole", 0, "tableau_mesh_flag_pole",  0, 0, 0, 0, 0, 0, 5, 5, 5),
+  # ("tableau_mesh_flag_pole", 0, "tableau_mesh_flag_pole",  0, 0, 0, 0, 0, 0, 5, 5, 5),
   ("tableau_mesh_roman_spear_banner", 0, "tableau_mesh_roman_spear_banner",  0, 0, 0, 0, 0, 0, 5, 5, 5),
-  ("tableau_mesh_shield_oval_1",  0, "tableau_mesh_shield_oval_1", 0, 0, 0, 0, 0, 0, 10, 10, 10),
+  # ("tableau_mesh_shield_oval_1",  0, "tableau_mesh_shield_oval_1", 0, 0, 0, 0, 0, 0, 10, 10, 10),
   ("tableau_mesh_wickershield",  0, "tableau_mesh_wickershield", 0, 0, 0, 0, 0, 0, 10, 10, 10),
-  ("tableau_mesh_roman_shirt_color", 0, "tableau_mesh_roman_shirt_color",  0, 0, 0, 0, 0, 0, 1, 1, 1),
-  ("tableau_mesh_tunic_color", 0, "tableau_mesh_tunic_color",  0, 0, 0, 0, 0, 0, 1, 1, 1),
-  ("tableau_mesh_concave_shield_tableau", 0, "tableau_mesh_concave_shield_tableau",  0, 0, 0, 0, 0, 0, 10, 10, 10),
+  # ("tableau_mesh_roman_shirt_color", 0, "tableau_mesh_roman_shirt_color",  0, 0, 0, 0, 0, 0, 1, 1, 1),
+  # ("tableau_mesh_tunic_color", 0, "tableau_mesh_tunic_color",  0, 0, 0, 0, 0, 0, 1, 1, 1),
+  # ("tableau_mesh_concave_shield_tableau", 0, "tableau_mesh_concave_shield_tableau",  0, 0, 0, 0, 0, 0, 10, 10, 10),
   ("tableau_mesh_round_shields", 0, "tableau_mesh_round_shields",  0, 0, 0, 0, 0, 0, 10, 10, 10),
   ("tableau_mesh_oval_shield", 0, "tableau_mesh_oval_shield",  0, 0, 0, 0, 0, 0, 10, 10, 10),
   
   ("heraldic_map_flag_03", 0, "heraldic_map_flag_03",  0, 0, 0, -90, 0, 90, 1, 1, 1),
   ("tableau_mesh_heraldic_banner_03", 0, "tableau_mesh_heraldic_banner_03", 0, 0, 0, 0, 0, 0, 10, 10, 10),
 
-  ("outer_terrain_plain_1", 0, "ter_border_a", -90, 0, 0, 0, 0, 0, 1, 1, 1),
+  ("outer_terrain_plain_1", 0, "pic_empty", -90, 0, 0, 0, 0, 0, 1, 1, 1),
   
   ("banner_a01", 0, "banner_a01", 0, 0, 0, -90, 0, 0, 1, 1, 1),
   ("banner_a02", 0, "banner_a02", 0, 0, 0, -90, 0, 0, 1, 1, 1),
@@ -890,15 +890,15 @@ meshes = [
 
   ("troop_label_banner",  0, "troop_label_banner", 0, 0, 0, 0, 0, 0, 10, 10, 10),
 
-  ("ui_kingdom_shield_1", 0, "ui_kingdom_shield_1", 0, 0, 0, 0, 0, 0, 1, 1, 1),
-  ("ui_kingdom_shield_2", 0, "ui_kingdom_shield_2", 0, 0, 0, 0, 0, 0, 1, 1, 1),
-  ("ui_kingdom_shield_3", 0, "ui_kingdom_shield_3", 0, 0, 0, 0, 0, 0, 1, 1, 1),
-  ("ui_kingdom_shield_4", 0, "ui_kingdom_shield_4", 0, 0, 0, 0, 0, 0, 1, 1, 1),
-  ("ui_kingdom_shield_5", 0, "ui_kingdom_shield_5", 0, 0, 0, 0, 0, 0, 1, 1, 1),
-  ("ui_kingdom_shield_6", 0, "ui_kingdom_shield_6", 0, 0, 0, 0, 0, 0, 1, 1, 1),
-  ("ui_kingdom_shield_7", 0, "ui_kingdom_shield_7", 0, 0, 0, 0, 0, 0, 1, 1, 1),
-  ("ui_kingdom_shield_8", 0, "ui_kingdom_shield_8", 0, 0, 0, 0, 0, 0, 1, 1, 1),
-  ("ui_kingdom_shield_9", 0, "ui_kingdom_shield_9", 0, 0, 0, 0, 0, 0, 1, 1, 1),
+  ("ui_kingdom_shield_1", 0, "pic_empty", 0, 0, 0, 0, 0, 0, 1, 1, 1),
+  ("ui_kingdom_shield_2", 0, "pic_empty", 0, 0, 0, 0, 0, 0, 1, 1, 1),
+  ("ui_kingdom_shield_3", 0, "pic_empty", 0, 0, 0, 0, 0, 0, 1, 1, 1),
+  ("ui_kingdom_shield_4", 0, "pic_empty", 0, 0, 0, 0, 0, 0, 1, 1, 1),
+  ("ui_kingdom_shield_5", 0, "pic_empty", 0, 0, 0, 0, 0, 0, 1, 1, 1),
+  ("ui_kingdom_shield_6", 0, "pic_empty", 0, 0, 0, 0, 0, 0, 1, 1, 1),
+  ("ui_kingdom_shield_7", 0, "pic_empty", 0, 0, 0, 0, 0, 0, 1, 1, 1),
+  ("ui_kingdom_shield_8", 0, "pic_empty", 0, 0, 0, 0, 0, 0, 1, 1, 1),
+  ("ui_kingdom_shield_9", 0, "pic_empty", 0, 0, 0, 0, 0, 0, 1, 1, 1),
 
   #("flag_swadian", 0, "banner_a01", 0, 0, 0, 0, 0, 0, 1, 1, 1),
   #("flag_vaegir", 0, "banner_a02", 0, 0, 0, 0, 0, 0, 1, 1, 1),
@@ -982,16 +982,17 @@ meshes = [
   ("icon_bardiche", 0, "ico_axetwo", 0, 0, 0, 0, 0, 0, 0.3, 0.3, 0.3),
 
 #INVASION MODE START  
-  ("incoming_enemy", 0, "cb_ui_icon_infantry", 0, 0, 0, 0, 0, 0, 2, 2, 2),
-  ("prison_cart_pos", 0, "ccoop_prison_cart", 0, 0, 0, 0, 0, 0, 2, 2, 2),
+  ("incoming_enemy", 0, "pic_empty", 0, 0, 0, 0, 0, 0, 2, 2, 2),
+  ("prison_cart_pos", 0, "pic_empty", 0, 0, 0, 0, 0, 0, 2, 2, 2),
 
-  ("ccoop_drop_chest_top", 0, "ccoop_drop_chest_top", 0, 0, 0, 0, 0, 0, 1, 1, 1),
-  ("ccoop_drop_chest_bottom", 0, "ccoop_drop_chest_bottom", 0, 0, 200, 0, 0, 0, 1, 1, 1),
-  ("ccoop_random_class", 0, "ccoop_random_class", 0, 0, 0, 0, 0, 0, 1, 1, 1),
-  ("ccoop_default_class", 0, "ccoop_default_class", 0, 0, 0, 0, 0, 0, 1, 1, 1),
-  ("ccoop_melee_class", 0, "ccoop_melee_class", 0, 0, 0, 0, 0, 0, 1, 1, 1),
-  ("ccoop_ranged_class", 0, "ccoop_ranged_class", 0, 0, 0, 0, 0, 0, 1, 1, 1),
-  ("ccoop_mounted_class", 0, "ccoop_mounted_class", 0, 0, 0, 0, 0, 0, 1, 1, 1),
+#pic_empty means default
+  ("ccoop_drop_chest_top", 0, "pic_empty", 0, 0, 0, 0, 0, 0, 1, 1, 1),
+  ("ccoop_drop_chest_bottom", 0, "pic_empty", 0, 0, 200, 0, 0, 0, 1, 1, 1),
+  ("ccoop_random_class", 0, "pic_empty", 0, 0, 0, 0, 0, 0, 1, 1, 1),
+  ("ccoop_default_class", 0, "pic_empty", 0, 0, 0, 0, 0, 0, 1, 1, 1),
+  ("ccoop_melee_class", 0, "pic_empty", 0, 0, 0, 0, 0, 0, 1, 1, 1),
+  ("ccoop_ranged_class", 0, "pic_empty", 0, 0, 0, 0, 0, 0, 1, 1, 1),
+  ("ccoop_mounted_class", 0, "pic_empty", 0, 0, 0, 0, 0, 0, 1, 1, 1),
 #INVASION MODE END
 
 #+freelancer begin

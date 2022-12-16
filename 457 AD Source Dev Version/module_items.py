@@ -124,7 +124,7 @@ items = [
  ["practice_throwing_daggers", "Throwing Daggers", [("throwing_dagger",0)], itp_type_thrown |itp_primary ,itcf_throw_knife, 0 , weight(3.5)|spd_rtng(102) | shoot_speed(25) | thrust_damage(16, blunt)|max_ammo(10)|weapon_length(0),imodbits_thrown ],
  ["practice_throwing_daggers_100_amount", "Throwing Daggers", [("throwing_dagger",0)], itp_type_thrown |itp_primary ,itcf_throw_knife, 0 , weight(3.5)|spd_rtng(102) | shoot_speed(25) | thrust_damage(16, blunt)|max_ammo(100)|weapon_length(0),imodbits_thrown ],
 # ["cheap_shirt","Cheap Shirt", [("shirt",0)], itp_type_body_armor|itp_covers_legs, 0, 4,weight(1.25)|body_armor(3),imodbits_none],
- ["practice_horse","Practice Horse", [("normal_horse32",0)], itp_type_horse, 0, 37,body_armor(10)|horse_speed(40)|horse_maneuver(37)|horse_charge(14),imodbits_none],
+ ["practice_horse","Practice Horse", [("bareback_horse_1",0)], itp_type_horse, 0, 37,body_armor(10)|horse_speed(40)|horse_maneuver(37)|horse_charge(14),imodbits_none],
  ["practice_arrows","Practice Arrows", [("arena_arrow_new_v2",0),("flying_missile",ixmesh_flying_ammo),("quiver_new", ixmesh_carry)], itp_type_arrows, itcf_carry_quiver_back, 0,weight(1.5)|weapon_length(95)|max_ammo(80),imodbits_missile],
 ## ["practice_arrows","Practice Arrows", [("arrow",0),("flying_missile",ixmesh_flying_ammo)], itp_type_arrows, 0, 31,weight(1.5)|weapon_length(95)|max_ammo(80),imodbits_none],
  ["practice_bolts","Practice Bolts", [("bolt_new",0),("flying_missile",ixmesh_flying_ammo),("bolt_bag", ixmesh_carry),("bolt_bag_b", ixmesh_carry|imodbit_large_bag)], itp_type_bolts, itcf_carry_quiver_right_vertical, 0,weight(2.25)|weapon_length(55)|max_ammo(49),imodbits_missile],
@@ -490,7 +490,7 @@ items = [
  ["roman_arrows_2","Arrows", [("roman_arrow",0),("roman_arrow",ixmesh_flying_ammo),("roman_quiver_2", ixmesh_carry)], itp_type_arrows|itp_merchandise|itp_default_ammo, itcf_carry_revolver_right, 100,weight(3.5)|abundance(80)|weapon_length(95)|thrust_damage(24,cut)|max_ammo(32),imodbits_missile],
 
 
-["poisoned_arrows", "Poisoned  Arrows", [("barbed_arrow",0),("flying_barbed_arrow",ixmesh_flying_ammo),("quiver_d",ixmesh_carry)], itp_type_arrows|itp_default_ammo, itcf_carry_quiver_right_vertical, 300, weight(1.7)|abundance(30)|weapon_length(95)|thrust_damage(1,pierce)|max_ammo(35), imodbits_missile, [],[] ],
+["poisoned_arrows", "Poisoned  Arrows", [("barbed_arrow_new",0),("barbed_arrow_new",ixmesh_flying_ammo),("barbed_arrows_quiver",ixmesh_carry)], itp_type_arrows|itp_default_ammo, itcf_carry_quiver_right_vertical, 300, weight(1.7)|abundance(30)|weapon_length(95)|thrust_damage(1,pierce)|max_ammo(35), imodbits_missile, [],[] ],
 
 
  
@@ -885,6 +885,8 @@ items = [
 ["persian_riding_coat_5b", "Rich Persian Coat", [("persian_riding_coat_5b",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 720 , weight(1.25)|abundance(20)|head_armor(0)|body_armor(26)|leg_armor(14)|difficulty(0) ,imodbits_cloth, [], culture_sassanid ],
 ["persian_riding_coat_6a", "Rich Persian Coat", [("persian_riding_coat_6a",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 720 , weight(1.25)|abundance(20)|head_armor(0)|body_armor(26)|leg_armor(14)|difficulty(0) ,imodbits_cloth, [], culture_sassanid ],
 ["persian_riding_coat_6b", "Rich Persian Coat", [("persian_riding_coat_6b",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 720 , weight(1.25)|abundance(20)|head_armor(0)|body_armor(26)|leg_armor(14)|difficulty(0) ,imodbits_cloth, [], culture_sassanid ],
+["persian_riding_coat_7a", "Rich Persian Coat", [("persian_riding_coat_7a",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 720 , weight(1.25)|abundance(20)|head_armor(0)|body_armor(26)|leg_armor(14)|difficulty(0) ,imodbits_cloth, [], culture_sassanid ],
+["persian_riding_coat_7b", "Rich Persian Coat", [("persian_riding_coat_7b",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 720 , weight(1.25)|abundance(20)|head_armor(0)|body_armor(26)|leg_armor(14)|difficulty(0) ,imodbits_cloth, [], culture_sassanid ],
 
 #end new tunics
 
@@ -3536,10 +3538,10 @@ weight(1)|abundance(80)|head_armor(24)|body_armor(14)|leg_armor(6)|difficulty(0)
 ["ccoop_new_items_end", "Items End", [("shield_round_a",0)], 0, 0, 1, 0, 0],
 #INVASION MODE END
 #invisible items
-["empty_hands","empty_hands",[("dummy_object",0)],itp_type_hand_armor|itp_unique,0,130,weight(225)|body_armor(100)|difficulty(0),0],
-["empty_legs","empty_legs",[("dummy_object",0)],itp_type_foot_armor|itp_unique,0,130,weight(225)|leg_armor(100)|difficulty(0),0],
-["empty_head","empty head",[("dummy_object",0)],itp_type_head_armor|itp_unique|itp_covers_head,0,1,weight(250)|head_armor(100)|difficulty(0),0],
-["empty_body","empty body",[("dummy_object",0)],itp_type_body_armor|itp_unique|itp_covers_legs,0,1,weight(250)|head_armor(100)|difficulty(0),0],
+["empty_hands","empty_hands",[("nothing_rig",0)],itp_type_hand_armor|itp_unique,0,130,weight(225)|body_armor(100)|difficulty(0),0],
+["empty_legs","empty_legs",[("nothing_rig",0)],itp_type_foot_armor|itp_unique,0,130,weight(225)|leg_armor(100)|difficulty(0),0],
+["empty_head","empty head",[("nothing_rig",0)],itp_type_head_armor|itp_unique|itp_covers_head,0,1,weight(250)|head_armor(100)|difficulty(0),0],
+["empty_body","empty body",[("nothing",0)],itp_type_body_armor|itp_unique|itp_covers_legs,0,1,weight(250)|head_armor(100)|difficulty(0),0],
 ]
   
 from copy import deepcopy

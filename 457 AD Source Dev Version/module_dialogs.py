@@ -49716,14 +49716,33 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   [trp_nero_larper, "nero_larper_talk_lyre_3", [],
    "Here, let me sing you a beautiful song!", "nero_larper_talk_lyre_4", []],
   [trp_nero_larper, "nero_larper_talk_lyre_4", [],
-   "O radiant son of Leto, Ruler of Tenedos, Chios, Chrysos, are you, he who, having in his care" +
-   "The sacred city of Ilion, Could yield it to Argive anger, And suffer sacred altars, Which blazed unceasingly to his honor, To be stained with Trojan blood?^^" +
-   "Aged men raised trembling hands to you, O you of the far-shooting silver bow, Mothers from the depth of their breasts Raised tearful cries to you, Imploring pity on their offspring.^^" +
-   "Those complaints might have moved a stone, But to the suffering of people You, O Smintheus, have less feeling than a stone!", "nero_larper_talk_lyre_5", []],
+    "O radiant son of Leto, Ruler of Tenedos, Chios, Chrysos,^"+
+    "Are you, he who, having in his care^"+ 
+    "The sacred city of Ilion,^"+
+    "Could yield it to Argive anger,^"+
+    "And suffer sacred altars,^"+
+    "Which blazed unceasingly to his honor,^"+ 
+    "To be stained with Trojan blood?", "nero_larper_talk_lyre_5_1", []],
+  [trp_nero_larper, "nero_larper_talk_lyre_5_1", [],
+    "Aged men raised trembling hands to you,^"+ 
+    "O you of the far-shooting silver bow,^"+ 
+    "Mothers from the depth of their breasts^"+ 
+    "Raised tearful cries to you,^"+
+    "Imploring pity on their offspring.^"+ 
+    "Those complaints might have moved a stone,^"+ 
+    "But to the suffering of people^"+ 
+    "You, O Smintheus, have less feeling than a stone!'", "nero_larper_talk_lyre_5", []],
   [trp_nero_larper, "nero_larper_talk_lyre_5", [],
-   "With the sound of your heavenly lyre You could drown the wailing, The lament of hearts. ^^" +
-   "At the sad sound of this song The eye to-day is filled with tears, As a flower is filled with dew, ^^" +
-   "But who can raise from dust and ashes That day of fire, disaster, ruin? O Smintheus, where were you then?" , "nero_larper_talk_lyre_6", []],
+    "With the sound of your heavenly lyre^"+
+    "You could drown the wailing,^"+
+    "The lament of hearts.^"+
+    "At the sad sound of this song^"+
+    "The eye to-day is filled with tears,^"+
+    "As a flower is filled with dew,^"+
+    "But who can raise from dust and ashes^"+
+    "That day of fire, disaster, ruin?^"+
+    "O Smintheus, where were you then?" , "nero_larper_talk_lyre_6", []],
+
   [trp_nero_larper|plyr, "nero_larper_talk_lyre_6", [], #increased relations for the roman pagans, decreased for christians
    "That was beautiful!", "nero_larper_talk_lyre_7", [
     (call_script, "script_set_player_relation_with_faction", "fac_roman_pagans", 2),

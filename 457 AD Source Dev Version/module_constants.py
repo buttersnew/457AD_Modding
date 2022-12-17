@@ -82,15 +82,35 @@ slot_agent_state                  = 20
 slot_agent_in_duel_with           = 21
 slot_agent_duel_start_time        = 22
 
-slot_agent_walker_occupation      = 25
-slot_agent_bought_horse           = 26
-slot_agent_is_poisoned            = 500    
+slot_agent_walker_occupation      = 23
+slot_agent_bought_horse           = 24
+slot_agent_is_poisoned            = 25    
 #slot_possessed = 100
 #slot_real_troop = 101
 
-slot_agent_is_skirmishing        = 104
-slot_agent_make_dist_with_enemy  = 105
-slot_agent_skirmish_direction    = 106
+slot_agent_is_skirmishing        = 26
+slot_agent_make_dist_with_enemy  = 27
+slot_agent_skirmish_direction    = 28
+
+#the following applied only to infantry in formation
+slot_agent_formation_rank      = 29
+slot_agent_inside_formation    = 30
+slot_agent_nearest_enemy_agent = 31
+slot_agent_new_division        = 32
+slot_agent_positioned          = 33
+slot_agent_volley_fire            = 34
+slot_agent_courage_score_bonus	  = 35
+slot_agent_rank_depth			  = 36
+slot_agent_rank_closeness		  = 37
+#banners
+slot_agent_banner           = 38
+slot_agent_scripted_mode    = 39
+slot_agent_rotation         = 40
+slot_agent_direction        = 41
+slot_agent_banner           = 42
+
+slot_agent_horse_rider      = 43
+#slot_agent_new_division = 46
 
 ########################################################
 ##  FACTION SLOTS          #############################
@@ -166,6 +186,8 @@ slot_faction_war_damage_suffered_when_marshal_appointed  = 63 #Probably deprecat
 slot_faction_political_issue 							 = 64 #Center or marshal appointment
 slot_faction_political_issue_time 						 = 65 #Now is used
 
+#Faction Slot
+slot_faction_freelancer_troop = 66 #should be unused
 
 #Rebellion changes
 #slot_faction_rebellion_target                     = 65
@@ -225,6 +247,35 @@ slot_faction_war_damage_inflicted_on_factions_end 	= slot_faction_sum_advice_abo
 slot_faction_sum_advice_about_factions_end            = 240
 slot_faction_neighbors_begin    = 241    #MOTO chief avoid center2 loop by storing results
 ##diplomacy end+
+
+slot_faction_player_tributary               = 299
+
+dplmc_slot_faction_policy_time                = 300
+dplmc_slot_faction_centralization             = 301
+dplmc_slot_faction_aristocracy                = 302
+dplmc_slot_faction_serfdom                    = 303
+dplmc_slot_faction_quality                    = 304
+dplmc_slot_faction_patrol_time                = 305
+##nested diplomacy start+
+#dplmc_slot_faction_attitude                   = 206 #DEPRECATED - Not used anywhere in Diplomacy 3.3.2
+##nested diplomacy end+
+#dplmc_slot_faction_attitude_begin             = 160
+##diplomacy end
+##diplomacy start+ add faction slots for additional policies
+dplmc_slot_faction_mercantilism               = 306 # + mercantilism / - free trade
+
+slot_faction_levied_troops      =   307
+
+dplmc_slot_faction_policies_begin = dplmc_slot_faction_centralization #Define these for convenient iteration.  Requires them to be continuous.
+dplmc_slot_faction_policies_end   = dplmc_slot_faction_mercantilism + 1
+
+#Other slots
+#use faction slots to remember information between battles
+slot_faction_d0_mem_formation           = 308 ##list of 9
+slot_faction_d0_mem_formation_space     = 317
+slot_faction_d0_mem_relative_x_flag     = 326
+slot_faction_d0_mem_relative_y          = 335
+#NEXT                                   = 236
 
 #revolts -- notes for self
 #type 1 -- minor revolt, aimed at negotiating change without changing the ruler
@@ -740,6 +791,54 @@ slot_center_current_improvement_builder     = 272
 slot_center_current_improvement_2_builder   = 273
 
 slot_town_trade_good_prices_begin 			= 274
+
+##assume 50 trade goods
+#hence slots: 274-324 are for trade goods
+
+##diplomacy begin
+# recruiter kit begin
+dplmc_slot_party_recruiter_needed_recruits = 325           # Amount of recruits the employer ordered.
+dplmc_slot_party_recruiter_origin = 326                    # Walled center from where the recruiter was hired.
+dplmc_slot_village_reserved_by_recruiter = 327             # This prevents recruiters from going to villages targeted by other recruiters.
+dplmc_slot_party_recruiter_needed_recruits_faction = 328   # Alkhadias Master, you forgot this one from the PM you sent me :D
+dplmc_spt_recruiter     = 12
+# recruiter kit end
+##diplomacy start+ Re-use those slots for other party types
+dplmc_slot_party_origin = dplmc_slot_party_recruiter_origin
+dplmc_slot_party_mission_parameter_1 = dplmc_slot_party_recruiter_needed_recruits
+dplmc_slot_party_mission_parameter_2 = dplmc_slot_party_recruiter_needed_recruits_faction
+##diplomacy end+
+
+dplmc_slot_party_mission_diplomacy            = 329
+#fa_slot_party_mission						  = 301
+dplmc_slot_center_taxation                    = 330
+##diplomacy start+ additional center slots
+dplmc_slot_center_ex_lord                     = 331 #The last lord (not counting those who willingly transferred it)
+dplmc_slot_center_original_lord               = 332 #The original lord
+dplmc_slot_center_last_transfer_time          = 333 #The last time it was captured
+dplmc_slot_center_last_attacked_time          = 334 #Last attempted raid or siege
+dplmc_slot_center_last_attacker               = 335 #Last lord who attempted to raid or siege
+
+dplmc_slot_village_trade_last_returned_from_market = 336#overlaps with dplmc_slot_town_trade_route_last_arrival_1
+dplmc_slot_village_trade_last_arrived_to_market = 337#overlaps with dplmc_slot_town_trade_route_last_arrival_2
+
+dplmc_slot_town_trade_route_last_arrival_1        = 338
+dplmc_slot_town_trade_route_last_arrival_2        = 339
+dplmc_slot_town_trade_route_last_arrival_3        = 340
+dplmc_slot_town_trade_route_last_arrival_4        = 341
+dplmc_slot_town_trade_route_last_arrival_5        = 342
+dplmc_slot_town_trade_route_last_arrival_6        = 343
+dplmc_slot_town_trade_route_last_arrival_7        = 344
+dplmc_slot_town_trade_route_last_arrival_8        = 345
+dplmc_slot_town_trade_route_last_arrival_9        = 346
+dplmc_slot_town_trade_route_last_arrival_10        = 347
+dplmc_slot_town_trade_route_last_arrival_11        = 348
+dplmc_slot_town_trade_route_last_arrival_12        = 349
+dplmc_slot_town_trade_route_last_arrival_13        = 350
+dplmc_slot_town_trade_route_last_arrival_14        = 351
+dplmc_slot_town_trade_route_last_arrival_15        = 352
+dplmc_slot_town_trade_route_last_arrivals_begin    = dplmc_slot_town_trade_route_last_arrival_1
+dplmc_slot_town_trade_route_last_arrivals_end      = dplmc_slot_town_trade_route_last_arrival_15 + 1
 
 #slot_party_type values
 ##spt_caravan            = 1
@@ -2277,20 +2376,6 @@ ACHIEVEMENT_EMPRESS = 78,
 ACHIEVEMENT_TALK_OF_THE_TOWN = 79,
 ACHIEVEMENT_LADY_OF_THE_LAKE = 80,
 
-##diplomacy begin
-# recruiter kit begin
-dplmc_slot_party_recruiter_needed_recruits = 283           # Amount of recruits the employer ordered.
-dplmc_slot_party_recruiter_origin = 284                    # Walled center from where the recruiter was hired.
-dplmc_slot_village_reserved_by_recruiter = 285             # This prevents recruiters from going to villages targeted by other recruiters.
-dplmc_slot_party_recruiter_needed_recruits_faction = 286   # Alkhadias Master, you forgot this one from the PM you sent me :D
-dplmc_spt_recruiter     = 12
-# recruiter kit end
-##diplomacy start+ Re-use those slots for other party types
-dplmc_slot_party_origin = dplmc_slot_party_recruiter_origin
-dplmc_slot_party_mission_parameter_1 = dplmc_slot_party_recruiter_needed_recruits
-dplmc_slot_party_mission_parameter_2 = dplmc_slot_party_recruiter_needed_recruits_faction
-##diplomacy end+
-
 ###################################################################################
 # AutoLoot: Modified Constants
 # Most of these are slot definitions, make sure they do not clash with your mod's other slot usage
@@ -2370,36 +2455,7 @@ dplmc_slot_troop_political_stance             = 164 #dplmc+ deprecated, see note
 dplmc_slot_troop_temp_slot                    = 164 #replaces dplmc_slot_troop_political_stance
 ##diplomacy end+
 dplmc_slot_troop_affiliated                   = 165 ##notes: 0 is default, 1 is asked; on newer games 3 is affiliated and 4 is betrayed
-dplmc_slot_party_mission_diplomacy            = 300
-#fa_slot_party_mission						  = 301
-dplmc_slot_center_taxation                    = 400
-##diplomacy start+ additional center slots
-dplmc_slot_center_ex_lord                     = 401 #The last lord (not counting those who willingly transferred it)
-dplmc_slot_center_original_lord               = 402 #The original lord
-dplmc_slot_center_last_transfer_time          = 403 #The last time it was captured
-dplmc_slot_center_last_attacked_time          = 404 #Last attempted raid or siege
-dplmc_slot_center_last_attacker               = 405 #Last lord who attempted to raid or siege
 
-dplmc_slot_village_trade_last_returned_from_market = 407#overlaps with dplmc_slot_town_trade_route_last_arrival_1
-dplmc_slot_village_trade_last_arrived_to_market = 408#overlaps with dplmc_slot_town_trade_route_last_arrival_2
-
-dplmc_slot_town_trade_route_last_arrival_1        = 407
-dplmc_slot_town_trade_route_last_arrival_2        = 408
-dplmc_slot_town_trade_route_last_arrival_3        = 409
-dplmc_slot_town_trade_route_last_arrival_4        = 410
-dplmc_slot_town_trade_route_last_arrival_5        = 411
-dplmc_slot_town_trade_route_last_arrival_6        = 412
-dplmc_slot_town_trade_route_last_arrival_7        = 413
-dplmc_slot_town_trade_route_last_arrival_8        = 414
-dplmc_slot_town_trade_route_last_arrival_9        = 415
-dplmc_slot_town_trade_route_last_arrival_10        = 416
-dplmc_slot_town_trade_route_last_arrival_11        = 417
-dplmc_slot_town_trade_route_last_arrival_12        = 418
-dplmc_slot_town_trade_route_last_arrival_13        = 419
-dplmc_slot_town_trade_route_last_arrival_14        = 420
-dplmc_slot_town_trade_route_last_arrival_15        = 421
-dplmc_slot_town_trade_route_last_arrivals_begin    = dplmc_slot_town_trade_route_last_arrival_1
-dplmc_slot_town_trade_route_last_arrivals_end      = dplmc_slot_town_trade_route_last_arrival_15 + 1
 
 ##diplomacy end+
 
@@ -2410,32 +2466,12 @@ spt_patrol                                    = 7 #no prefix since its outcommen
 #spt_player_field_army  						  = 22
 spt_scout                                     = 10 #no prefix since its outcommented in native
 
-slot_faction_player_tributary               = 299
-
-dplmc_slot_faction_policy_time                = 300
-dplmc_slot_faction_centralization             = 301
-dplmc_slot_faction_aristocracy                = 302
-dplmc_slot_faction_serfdom                    = 303
-dplmc_slot_faction_quality                    = 304
-dplmc_slot_faction_patrol_time                = 305
-##nested diplomacy start+
-#dplmc_slot_faction_attitude                   = 206 #DEPRECATED - Not used anywhere in Diplomacy 3.3.2
-##nested diplomacy end+
-#dplmc_slot_faction_attitude_begin             = 160
-##diplomacy end
-##diplomacy start+ add faction slots for additional policies
-dplmc_slot_faction_mercantilism               = 306 # + mercantilism / - free trade
-
-slot_faction_levied_troops      =   307
-
 # Merchantilism
 # - Your caravans generate more revenue for your towns, but your benefit
 #   from the caravans of other kingdoms is diminished.
 # - Trade within the kingdom is made more efficient, while imports are
 #   discouraged.
 #
-dplmc_slot_faction_policies_begin = dplmc_slot_faction_centralization #Define these for convenient iteration.  Requires them to be continuous.
-dplmc_slot_faction_policies_end   = dplmc_slot_faction_mercantilism + 1
 
 #For $g_dplmc_terrain_advantage
 DPLMC_TERRAIN_ADVANTAGE_DISABLE     =  -1
@@ -2844,21 +2880,6 @@ WB_Implementation   = 0
 WFaS_Implementation = 1
 Native_Formations_Implementation = WB_Implementation
 
-#Other slots
-#use faction slots to remember information between battles
-slot_faction_d0_mem_formation           = 200
-slot_faction_d0_mem_formation_space     = 209
-slot_faction_d0_mem_relative_x_flag     = 218
-slot_faction_d0_mem_relative_y          = 227
-#NEXT                                   = 236
-
-#the following applied only to infantry in formation
-slot_agent_formation_rank      = 27
-slot_agent_inside_formation    = 28
-slot_agent_nearest_enemy_agent = 29
-slot_agent_new_division        = 30
-slot_agent_positioned          = 31
-
 slot_item_alternate            = 46	#table between swing/noswing versions of same weapon
 
 #Battle Phases
@@ -2941,9 +2962,6 @@ freelancer_can_use_item  = "script_dplmc_troop_can_use_item"
 slot_freelancer_equip_start = 100 #only used for freelancer_party_backup
 slot_freelancer_version     = slot_freelancer_equip_start - 2 #only used for freelancer_party_backup
 
-#Faction Slot
-slot_faction_freelancer_troop = 101 #should be unused
-
 #Quest Slots
 #Only for Freelancer_Enlisted
 slot_quest_freelancer_start_xp       = slot_quest_object_state 
@@ -2961,7 +2979,7 @@ plyr_mission_captured = 2
 
 
 #Slots -- deprecated; for the savegame transition
-slot_party_orig_morale           = slot_party_ai_rationale
+# slot_party_orig_morale           = slot_party_ai_rationale
 slot_troop_freelancer_start_xp   = slot_troop_signup   #110 -only used for player
 slot_troop_freelancer_start_date = slot_troop_signup_2 #111 -only used for player
 #+Freelancer end
@@ -2969,6 +2987,7 @@ slot_troop_freelancer_start_date = slot_troop_signup_2 #111 -only used for playe
 skirmish_min_distance = 1500 #Min distance you wish maintained, in cm. Where agent will retreat
 skirmish_max_distance = 2500 #Max distance to maintain, in cm. Where agent will stop retreating
 
+##main party slot
 slot_party_skirmish_d0 = slot_town_arena_melee_mission_tpl
 slot_party_skirmish_d1 = slot_town_arena_torny_mission_tpl
 slot_party_skirmish_d2 = slot_town_arena_melee_1_num_teams
@@ -2981,7 +3000,6 @@ slot_party_skirmish_d8 = slot_town_arena_melee_cur_tier
 
 key_for_skirmish   = key_f8
 
-slot_agent_volley_fire             = 33
 slot_team_d0_order_volley     = 10 #plus 8 more for the other divisions
 
 key_for_volley   = key_f9
@@ -2992,12 +3010,6 @@ max_morale = 35000
 max_ratio = max_morale/2
 initial_morale = 10000
 
-slot_agent_courage_score_bonus	  = 27
-slot_agent_rank_depth			  = 28
-slot_agent_rank_closeness		  = 29
-
-#banners
-slot_agent_banner = 107
 
 camels_begin = "itm_camel"
 camels_end = "itm_camel"
@@ -3013,14 +3025,6 @@ color_hero_news = 0xFFFF99
 #Start as king/lord
 cb_king = 8
 cb_vassal = 9
-
-slot_agent_scripted_mode = 104
-slot_agent_rotation = 105
-slot_agent_direction = 106
-slot_agent_banner = 107
-
-slot_agent_horse_rider = 45
-#slot_agent_new_division = 46
 
 
 #### shaders

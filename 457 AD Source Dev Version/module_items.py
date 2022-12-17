@@ -214,7 +214,7 @@ items = [
 
  ["iron","Iron", [("iron_ore",0)], itp_merchandise|itp_type_goods, 0,264,weight(60)|abundance(60),imodbits_none],
  ["silver","Silver", [("iron_ore",0)], itp_merchandise|itp_type_goods, 0,564,weight(60)|abundance(60),imodbits_none],
-  ["tools","Tools", [("medieval_hammer_a",0)], itp_merchandise|itp_type_goods, 0, 410,weight(50)|abundance(90),imodbits_none],
+ ["tools","Tools", [("medieval_hammer_a",0)], itp_merchandise|itp_type_goods, 0, 410,weight(50)|abundance(90),imodbits_none],
 
  ["raw_leather","Hides", [("trade_goods_leather",0)], itp_merchandise|itp_type_goods, 0, 120,weight(40)|abundance(90),imodbits_none],
  ["leatherwork","Leatherwork", [("trade_goods_leatherwork_frame",0)], itp_merchandise|itp_type_goods, 0, 220,weight(40)|abundance(90),imodbits_none],
@@ -1189,7 +1189,9 @@ items = [
 300 , weight(2)|abundance(100)|head_armor(0)|body_armor(18)|leg_armor(10)|difficulty(0) ,imodbits_cloth,
 [(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_TOAOE_cloak_1a","str_TOAOE_cloak_9a"),(cur_item_add_mesh, ":rand_accessory"),])], culture_germanic+culture_gothic+culture_roman],
 
-["garamantian_armor_1", "Tunic with Pelt", [("garamantian_armor_1",0)], itp_type_body_armor|itp_covers_legs|itp_civilian ,0, 400 , weight(2.5)|abundance(10)|head_armor(0)|body_armor(20)|leg_armor(10)|difficulty(0) ,imodbits_cloth, [(ti_on_init_item,[(call_script, "script_init_short_tunic_arms"),]),], ],
+["garamantian_armor_1", "Tunic with Pelt", [("garamantian_armor_1",0)], itp_type_body_armor|itp_covers_legs|itp_civilian ,0, 
+400 , weight(2.5)|abundance(10)|head_armor(0)|body_armor(20)|leg_armor(10)|difficulty(0) ,imodbits_cloth, 
+[(ti_on_init_item,[(call_script, "script_init_short_tunic_arms"),]),], ],
 
 ["nomad_leather_vest_1", "Leather Vest", [("khergit_vest_a_new",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs|itp_civilian ,0,
  360 , weight(4)|abundance(90)|head_armor(0)|body_armor(20)|leg_armor(12)|difficulty(0) ,imodbits_leather, [], culture_hunnic+culture_alan ],

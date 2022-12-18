@@ -6336,7 +6336,7 @@ Even in the last case, the player can make formations up to four lines by orderi
 ("other","other region"),
 
 ("culture_gothic", "Gothic"),
-("culture_eastgermanic", "Eastgermanic"),
+("culture_eastgermanic", "East Germanic"),
 ("culture_romanobriton", "Romano-Briton"),
 ("culture_northgermanic", "North Germanic"),
 ("culture_pictish", "Pictish"),
@@ -6349,18 +6349,18 @@ Even in the last case, the player can make formations up to four lines by orderi
 ("culture_nubian", "Nubian"),
 ("culture_caucasian_alan", "Caucasian-Alan"),
 
-("background_slave", "Slave"),
-("background_freeman", "Freeman"),
-("background_noble", "Noble"),
+("background_slave", "Your parents were slaves and thus you were too. Your life has been a path of pain and suffering. As a child, you had to watch how your parents were cruelly punished by the master for every small mistake they did. Once you reached adulthood you were the one who was punished. Your parents died young, as slaves usually die young. You didn’t want to remain a slave for ever and thus prepared to escape. One day, an outbreak of smallpox haunted your masters farmstead. The outbreak killed your master and several other important figures. You used the opportunity and finally managed to escape and decide to return to your home town {s0}."),
+("background_freeman", "Your parents were freemen, owning a small farmstead with several serfs. As soon as you could walk you had to help with all kinds of tasks: harvest, repair work, carrying water, grind flour etc. Although life was sometimes hard, you most of the time enjoyed it: You could play with the other children and build up lasting friendships, you could bully the cattle, just for fun or enjoy the many festivities people performed in honour of their culture or religion. As you reached adulthood, your family decided you should marry the daughter of another renowned freeman. Though, right before your wedding day disaster struck your village: An outbreak of smallpox killed half of the village population, including your parents and your betrothed. Not only that, the lord decided to confiscate the farmstead of your parents, leaving you with nothing than some coins. Finally, you decided to leave your home and made your way towards {s0}, the wealthiest town of the region, to try your luck there."),
+("background_noble", "Your parents were lesser nobles, owning a smaller estate. Though not of great wealth your parents were always proud of their ancestry and taught you to be proud of it too. As child you were spoiled by your mother. She took good care of you and ensured you were only in company of people fitting your rank. Once you came to age your father started to train with you, learning you how to use the spear, the sword and the shield. He also taught you everything about tactics, leadership and things a noble need to know. Once you reached adulthood your parents arranged a marriage for you, with a bride from a wealthy and renowned family. Though from a noble family your bride turned out to be greedy and gluttonous. However, things changed drastically as war broke out and your father was called to arms. He died in battle. Your mother, after hearing the news soon followed him. Now alone, your marriage was dissolved and your estates were looted in the chaos of war. As there was nothing holding you in your old home you decided to make your way towards {s0}, the wealthiest town of the region, to try your luck there."),
 
-("build_strong", "Strong"),
-("build_thin", "Thin"),
-("build_weak", "Weak"),
+("build_strong", "You are of strong-build, which makes you more imposing. This in particular helps you enforcing your will more easily. If necessary, by prude force."),
+("build_thin", "You are agile, which allows you to move faster than others. If things get dicey, you just run away."),
+("build_weak", "Your body is weak and you are small. You're often laughed at for having a short and puny figure."),
 
-("mind_genius", "Genius"),
-("mind_shrewd", "Shrewd"),
-("mind_normal", "Normal"),
-("mind_dull", "Dull"),
+("mind_genius", "You are blessed with a quick and sharp mind, which only a view people have. Thus allowing you to quicker understand complex situations, giving you advantages over your other people."),
+("mind_shrewd", "You may not be the smartest, but still smarter than most others, as life has taught you the value of good judgement and sharp wit."),
+("mind_normal", "You are neither blessed with a sharp mind nor lacking it. You are as normal and superstitious as every other person around you."),
+("mind_dull", "You are lacking certain mental skills other people have, though you try to compensate them with pure strength and brutality."),
 
 ("background_religion_chalcedonian", "Chalcedonian"),
 ("background_religion_paganism", "Paganism"),

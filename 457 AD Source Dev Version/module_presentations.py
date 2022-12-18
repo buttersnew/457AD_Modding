@@ -18184,7 +18184,7 @@ presentations = [
     (position_set_y, pos1, 800),
     (overlay_set_size, "$g_presentation_obj_early", pos1),
     (overlay_add_item, "$g_presentation_obj_early", "@Strong"),
-    (overlay_add_item, "$g_presentation_obj_early", "@Thin"),
+    (overlay_add_item, "$g_presentation_obj_early", "@Agile"),
     (overlay_add_item, "$g_presentation_obj_early", "@Weak"),
     (val_sub, ":cur_y", 40),
 

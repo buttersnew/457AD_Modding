@@ -800,7 +800,7 @@ custom_commander_critical_strike =(
       (try_end),
     ])
 
-improved_horse_archer_ai = (2, 0, 0, [
+improved_horse_archer_ai = (1.5, 0, 0, [
     (eq,"$g_battle_won",0),
     ], [
 (set_fixed_point_multiplier, 100),
@@ -897,7 +897,8 @@ improved_horse_archer_ai = (2, 0, 0, [
         (agent_slot_eq, ":agent", slot_agent_is_in_scripted_mode, 1),
         (agent_set_slot, ":agent", slot_agent_is_in_scripted_mode, 0),
         (agent_clear_scripted_mode, ":agent"),
-        # (agent_force_rethink, ":agent"),    
+        (call_script, "script_equip_best_melee_weapon", ":agent", 0, 0, 0),
+        # (agent_force_rethink, ":agent"),
     (try_end),
 (try_end),
     ])

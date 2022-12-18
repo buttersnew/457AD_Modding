@@ -1584,185 +1584,185 @@ dialogs = [
 ]],
 
   [anyone|pt_aestii_party,"start", [
-    (is_between, "$g_encountered_party_template", "pt_aestii_party", "pt_kingdom_1_lord_reinforcements_a"),#to fix bug in dialog    
+    (is_between, "$g_encountered_party_template", "pt_aestii_party", "pt_minor_faction_levies"),#to fix bug in dialog    
     (eq,"$talk_context",tc_party_encounter),(encountered_party_is_attacker)
     ],
    "Prepare to die!", "battle_reason_stated",[]],
 
   [anyone|pt_aestii_party_1,"start", [
-    (is_between, "$g_encountered_party_template", "pt_aestii_party", "pt_kingdom_1_lord_reinforcements_a"),#to fix bug in dialog    
+    (is_between, "$g_encountered_party_template", "pt_aestii_party", "pt_minor_faction_levies"),#to fix bug in dialog    
     (eq,"$talk_context",tc_party_encounter),(encountered_party_is_attacker)
     ],
    "Prepare to die!", "battle_reason_stated",[]],
 
   [anyone|pt_aestii_party_2,"start", [
-    (is_between, "$g_encountered_party_template", "pt_aestii_party", "pt_kingdom_1_lord_reinforcements_a"),#to fix bug in dialog    
+    (is_between, "$g_encountered_party_template", "pt_aestii_party", "pt_minor_faction_levies"),#to fix bug in dialog    
     (eq,"$talk_context",tc_party_encounter),(encountered_party_is_attacker)
     ],
    "Prepare to die!", "battle_reason_stated",[]],
 
   [anyone|pt_irish_party,"start", [
-    (is_between, "$g_encountered_party_template", "pt_aestii_party", "pt_kingdom_1_lord_reinforcements_a"),#to fix bug in dialog    
+    (is_between, "$g_encountered_party_template", "pt_aestii_party", "pt_minor_faction_levies"),#to fix bug in dialog    
     (eq,"$talk_context",tc_party_encounter),(encountered_party_is_attacker)
     ],
    "Prepare to die!", "battle_reason_stated",[]],
 
   [anyone|pt_garamantian_party,"start", [
-    (is_between, "$g_encountered_party_template", "pt_aestii_party", "pt_kingdom_1_lord_reinforcements_a"),#to fix bug in dialog    
+    (is_between, "$g_encountered_party_template", "pt_aestii_party", "pt_minor_faction_levies"),#to fix bug in dialog    
     (eq,"$talk_context",tc_party_encounter),(encountered_party_is_attacker)
     ],
    "Prepare to die!", "battle_reason_stated",[]],
 
   [anyone|pt_dani_party,"start", [
-    (is_between, "$g_encountered_party_template", "pt_aestii_party", "pt_kingdom_1_lord_reinforcements_a"),#to fix bug in dialog    
+    (is_between, "$g_encountered_party_template", "pt_aestii_party", "pt_minor_faction_levies"),#to fix bug in dialog    
     (eq,"$talk_context",tc_party_encounter),(encountered_party_is_attacker)
     ],
    "Prepare to die!", "battle_reason_stated",[]],
 
   [anyone|pt_morden_party,"start", [
-    (is_between, "$g_encountered_party_template", "pt_aestii_party", "pt_kingdom_1_lord_reinforcements_a"),#to fix bug in dialog    
+    (is_between, "$g_encountered_party_template", "pt_aestii_party", "pt_minor_faction_levies"),#to fix bug in dialog    
     (eq,"$talk_context",tc_party_encounter),(encountered_party_is_attacker)
     ],
    "Prepare to die!", "battle_reason_stated",[]],
 
   [anyone|pt_sporoi_party,"start", [
-    (is_between, "$g_encountered_party_template", "pt_aestii_party", "pt_kingdom_1_lord_reinforcements_a"),#to fix bug in dialog    
+    (is_between, "$g_encountered_party_template", "pt_aestii_party", "pt_minor_faction_levies"),#to fix bug in dialog    
     (eq,"$talk_context",tc_party_encounter),(encountered_party_is_attacker)
     ],
    "Prepare to die!", "battle_reason_stated",[]],
 
   [anyone|pt_bosphoran_party,"start", [
-    (is_between, "$g_encountered_party_template", "pt_aestii_party", "pt_kingdom_1_lord_reinforcements_a"),#to fix bug in dialog    
+    (is_between, "$g_encountered_party_template", "pt_aestii_party", "pt_minor_faction_levies"),#to fix bug in dialog    
     (eq,"$talk_context",tc_party_encounter),(encountered_party_is_attacker)
     ],
    "Prepare to die!", "battle_reason_stated",[]],
 
   [anyone|pt_abagasian_party,"start", [
-    (is_between, "$g_encountered_party_template", "pt_aestii_party", "pt_kingdom_1_lord_reinforcements_a"),#to fix bug in dialog    
+    (is_between, "$g_encountered_party_template", "pt_aestii_party", "pt_minor_faction_levies"),#to fix bug in dialog    
     (eq,"$talk_context",tc_party_encounter),(encountered_party_is_attacker)
     ],
    "Prepare to die!", "battle_reason_stated",[]],
 
   [anyone|pt_tauri_party,"start", [
-    (is_between, "$g_encountered_party_template", "pt_aestii_party", "pt_kingdom_1_lord_reinforcements_a"),#to fix bug in dialog    
+    (is_between, "$g_encountered_party_template", "pt_aestii_party", "pt_minor_faction_levies"),#to fix bug in dialog    
     (eq,"$talk_context",tc_party_encounter),(encountered_party_is_attacker)
     ],
    "Prepare to die!", "battle_reason_stated",[]],
 
   [anyone|pt_augundzi_party,"start", [
-    (is_between, "$g_encountered_party_template", "pt_aestii_party", "pt_kingdom_1_lord_reinforcements_a"),#to fix bug in dialog    
+    (is_between, "$g_encountered_party_template", "pt_aestii_party", "pt_minor_faction_levies"),#to fix bug in dialog    
     (eq,"$talk_context",tc_party_encounter),(encountered_party_is_attacker)
     ],
    "Prepare to die!", "battle_reason_stated",[]],
 
   [anyone|pt_vidivarii_party,"start", [
-    (is_between, "$g_encountered_party_template", "pt_aestii_party", "pt_kingdom_1_lord_reinforcements_a"),#to fix bug in dialog    
+    (is_between, "$g_encountered_party_template", "pt_aestii_party", "pt_minor_faction_levies"),#to fix bug in dialog    
     (eq,"$talk_context",tc_party_encounter),(encountered_party_is_attacker)
     ],
    "Prepare to die!", "battle_reason_stated",[]],
 
   [anyone|pt_frisian_party,"start", [
-    (is_between, "$g_encountered_party_template", "pt_aestii_party", "pt_kingdom_1_lord_reinforcements_a"),#to fix bug in dialog    
+    (is_between, "$g_encountered_party_template", "pt_aestii_party", "pt_minor_faction_levies"),#to fix bug in dialog    
     (eq,"$talk_context",tc_party_encounter),(encountered_party_is_attacker)
     ],
    "Prepare to die!", "battle_reason_stated",[]],
 
   [anyone|pt_vascones_party,"start", [
-    (is_between, "$g_encountered_party_template", "pt_aestii_party", "pt_kingdom_1_lord_reinforcements_a"),#to fix bug in dialog    
+    (is_between, "$g_encountered_party_template", "pt_aestii_party", "pt_minor_faction_levies"),#to fix bug in dialog    
     (eq,"$talk_context",tc_party_encounter),(encountered_party_is_attacker)
     ],
    "Prepare to die!", "battle_reason_stated",[]],
 
   [anyone|pt_gallaeci_party,"start", [
-    (is_between, "$g_encountered_party_template", "pt_aestii_party", "pt_kingdom_1_lord_reinforcements_a"),#to fix bug in dialog    
+    (is_between, "$g_encountered_party_template", "pt_aestii_party", "pt_minor_faction_levies"),#to fix bug in dialog    
     (eq,"$talk_context",tc_party_encounter),(encountered_party_is_attacker)
     ],
    "Prepare to die!", "battle_reason_stated",[]],
 
   [anyone|pt_venedi_party,"start", [
-    (is_between, "$g_encountered_party_template", "pt_aestii_party", "pt_kingdom_1_lord_reinforcements_a"),#to fix bug in dialog    
+    (is_between, "$g_encountered_party_template", "pt_aestii_party", "pt_minor_faction_levies"),#to fix bug in dialog    
     (eq,"$talk_context",tc_party_encounter),(encountered_party_is_attacker)
     ],
    "Prepare to die!", "battle_reason_stated",[]],
 
 
   [party_tpl|pt_aestii_party,"start", [ 
-    (is_between, "$g_encountered_party_template", "pt_aestii_party", "pt_kingdom_1_lord_reinforcements_a"),
+    (is_between, "$g_encountered_party_template", "pt_aestii_party", "pt_minor_faction_levies"),
     ],
    "Greetings to you!", "garamanten_talk",[]],
    
   [party_tpl|pt_aestii_party_1,"start", [ 
-    (is_between, "$g_encountered_party_template", "pt_aestii_party", "pt_kingdom_1_lord_reinforcements_a"),
+    (is_between, "$g_encountered_party_template", "pt_aestii_party", "pt_minor_faction_levies"),
     ],
    "Greetings to you!", "garamanten_talk",[]],
    
   [party_tpl|pt_aestii_party_2,"start", [ 
-    (is_between, "$g_encountered_party_template", "pt_aestii_party", "pt_kingdom_1_lord_reinforcements_a"),
+    (is_between, "$g_encountered_party_template", "pt_aestii_party", "pt_minor_faction_levies"),
     ],
    "Greetings to you!", "garamanten_talk",[]],
    
   [party_tpl|pt_irish_party,"start", [ 
-    (is_between, "$g_encountered_party_template", "pt_aestii_party", "pt_kingdom_1_lord_reinforcements_a"),
+    (is_between, "$g_encountered_party_template", "pt_aestii_party", "pt_minor_faction_levies"),
     ],
    "Greetings to you!", "garamanten_talk",[]],
    
   [party_tpl|pt_garamantian_party,"start", [ 
-    (is_between, "$g_encountered_party_template", "pt_aestii_party", "pt_kingdom_1_lord_reinforcements_a"),
+    (is_between, "$g_encountered_party_template", "pt_aestii_party", "pt_minor_faction_levies"),
     ],
    "Greetings to you!", "garamanten_talk",[]],
    
   [party_tpl|pt_dani_party,"start", [ 
-    (is_between, "$g_encountered_party_template", "pt_aestii_party", "pt_kingdom_1_lord_reinforcements_a"),
+    (is_between, "$g_encountered_party_template", "pt_aestii_party", "pt_minor_faction_levies"),
     ],
    "Greetings to you!", "garamanten_talk",[]],
    
   [party_tpl|pt_morden_party,"start", [ 
-    (is_between, "$g_encountered_party_template", "pt_aestii_party", "pt_kingdom_1_lord_reinforcements_a"),
+    (is_between, "$g_encountered_party_template", "pt_aestii_party", "pt_minor_faction_levies"),
     ],
    "Greetings to you!", "garamanten_talk",[]],
    
   [party_tpl|pt_bosphoran_party,"start", [ 
-    (is_between, "$g_encountered_party_template", "pt_aestii_party", "pt_kingdom_1_lord_reinforcements_a"),
+    (is_between, "$g_encountered_party_template", "pt_aestii_party", "pt_minor_faction_levies"),
     ],
    "Greetings to you!", "garamanten_talk",[]],
    
   [party_tpl|pt_abagasian_party,"start", [ 
-    (is_between, "$g_encountered_party_template", "pt_aestii_party", "pt_kingdom_1_lord_reinforcements_a"),
+    (is_between, "$g_encountered_party_template", "pt_aestii_party", "pt_minor_faction_levies"),
     ],
    "Greetings to you!", "garamanten_talk",[]],
    
   [party_tpl|pt_tauri_party,"start", [ 
-    (is_between, "$g_encountered_party_template", "pt_aestii_party", "pt_kingdom_1_lord_reinforcements_a"),
+    (is_between, "$g_encountered_party_template", "pt_aestii_party", "pt_minor_faction_levies"),
     ],
    "Greetings to you!", "garamanten_talk",[]],
    
   [party_tpl|pt_augundzi_party,"start", [ 
-    (is_between, "$g_encountered_party_template", "pt_aestii_party", "pt_kingdom_1_lord_reinforcements_a"),
+    (is_between, "$g_encountered_party_template", "pt_aestii_party", "pt_minor_faction_levies"),
     ],
    "Greetings to you!", "garamanten_talk",[]],
    
   [party_tpl|pt_vidivarii_party,"start", [ 
-    (is_between, "$g_encountered_party_template", "pt_aestii_party", "pt_kingdom_1_lord_reinforcements_a"),
+    (is_between, "$g_encountered_party_template", "pt_aestii_party", "pt_minor_faction_levies"),
     ],
    "Greetings to you!", "garamanten_talk",[]],
    
   [party_tpl|pt_frisian_party,"start", [ 
-    (is_between, "$g_encountered_party_template", "pt_aestii_party", "pt_kingdom_1_lord_reinforcements_a"),
+    (is_between, "$g_encountered_party_template", "pt_aestii_party", "pt_minor_faction_levies"),
     ],
    "Greetings to you!", "garamanten_talk",[]],
    
   [party_tpl|pt_vascones_party,"start", [ 
-    (is_between, "$g_encountered_party_template", "pt_aestii_party", "pt_kingdom_1_lord_reinforcements_a"),
+    (is_between, "$g_encountered_party_template", "pt_aestii_party", "pt_minor_faction_levies"),
     ],
    "Greetings to you!", "garamanten_talk",[]],
    
   [party_tpl|pt_gallaeci_party,"start", [ 
-    (is_between, "$g_encountered_party_template", "pt_aestii_party", "pt_kingdom_1_lord_reinforcements_a"),
+    (is_between, "$g_encountered_party_template", "pt_aestii_party", "pt_minor_faction_levies"),
     ],
    "Greetings to you!", "garamanten_talk",[]],
    
   [party_tpl|pt_venedi_party,"start", [ 
-    (is_between, "$g_encountered_party_template", "pt_aestii_party", "pt_kingdom_1_lord_reinforcements_a"),
+    (is_between, "$g_encountered_party_template", "pt_aestii_party", "pt_minor_faction_levies"),
     ],
    "Greetings to you!", "garamanten_talk",[]],
    

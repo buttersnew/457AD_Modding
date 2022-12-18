@@ -6334,6 +6334,41 @@ Even in the last case, the player can make formations up to four lines by orderi
 ("region_mountain_europe_romania","Mountain Europe Romania"),      
 ("region_mountain_europe_bohemia","Mountain Europe Bohemia"),      
 ("other","other region"),
+
+("culture_gothic", "Gothic"),
+("culture_eastgermanic", "Eastgermanic"),
+("culture_romanobriton", "Romano-Briton"),
+("culture_northgermanic", "North Germanic"),
+("culture_pictish", "Pictish"),
+("culture_sassanid", "Sassanid"),
+("culture_roman", "Roman"),
+("culture_westerngermanic", "Western Germanic"),
+("culture_caucasian", "Caucasian"),
+("culture_romanmauri", "Roman-Mauri"),
+("culture_hunnic", "Hunnic"),
+("culture_nubian", "Nubian"),
+("culture_caucasian_alan", "Caucasian-Alan"),
+
+("background_slave", "Slave"),
+("background_freeman", "Freeman"),
+("background_noble", "Noble"),
+
+("build_strong", "Strong"),
+("build_thin", "Thin"),
+("build_weak", "Weak"),
+
+("mind_genius", "Genius"),
+("mind_shrewd", "Shrewd"),
+("mind_normal", "Normal"),
+("mind_dull", "Dull"),
+
+("background_religion_chalcedonian", "Chalcedonian"),
+("background_religion_paganism", "Paganism"),
+("background_religion_arianism", "Arianism"),
+("background_religion_zoroastrianism", "Zoroastrianism"),
+("background_religion_coptic", "Coptic"),
+("background_religion_roman_paganism", "Roman Paganism"),
+
 #utility for skill names
 ]+[
 ("skl_"+skills[x][0], skills[x][1]) for x in range(0, len(skills))]

@@ -5097,7 +5097,7 @@ simple_triggers = [
     (val_sub, "$g_dont_give_marshalship_to_player_days", 1),
     (val_max, "$g_dont_give_marshalship_to_player_days", -1),
    
-    (call_script, "script_dplmc_version_checker"), #SB : moved to script call
+    # (call_script, "script_dplmc_version_checker"), #SB : moved to script call
 
     #The following scripts are to end quests which should have cancelled, but did not because of a bug
     (try_begin),

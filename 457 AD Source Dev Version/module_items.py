@@ -2453,20 +2453,6 @@ weight(1)|abundance(80)|head_armor(24)|body_armor(14)|leg_armor(6)|difficulty(0)
 ["flintlock_pistol", "Sling", [("Sling",0)], itp_type_pistol |itp_merchandise|itp_cant_use_on_horseback|itp_cant_reload_on_horseback|itp_primary ,itcf_shoot_pistol|itcf_reload_pistol, 60 , weight(0.5)|difficulty(0)|spd_rtng(100) | shoot_speed(65) | thrust_damage(18 ,pierce)|max_ammo(1)|accuracy(90),imodbits_none,
  [(ti_on_weapon_attack, [(play_sound,"snd_throw_stone")])]],
 
-["torch_old",         "Torch", [("torch_h",0)], itp_type_one_handed_wpn|itp_primary, itc_scimitar, 11 , weight(2.5)|difficulty(0)|spd_rtng(98) | weapon_length(95)|swing_damage(31 , blunt) | thrust_damage(0 ,  pierce),imodbits_none,
- [(ti_on_init_item, [(set_position_delta,0,60,0),(particle_system_add_new, "psys_torch_fire"),(particle_system_add_new, "psys_torch_smoke"),(set_current_color,150, 130, 70),(add_point_light, 10, 30),
-])]],
-["torch", "Torch", [("torch_h", imodbits_none)], itp_type_shield|itp_force_attach_left_hand|itp_merchandise, 0,33, weight(2)|abundance(100)|body_armor(5)|hit_points(4)|spd_rtng(96)|shield_height(1)|shield_width(1), imodbits_none,
-	[(ti_on_init_item,
-		[
-			(set_position_delta, 0, 60, 0),
-			(particle_system_add_new, "psys_torch_fire"),
-			(particle_system_add_new, "psys_torch_smoke"),
-			(set_current_color, 150, 130, 70),
-			(add_point_light, 10, 30)
-		])]
-	],
-
 #Throwing Spears/Angons
 
 ["angon_1", "Angon", [("angon1",0),("angon1", ixmesh_carry)], itp_type_thrown |itp_merchandise|itp_primary|itp_next_item_as_melee ,itcf_throw_javelin|itp_bonus_against_shield,
@@ -2541,6 +2527,20 @@ weight(1)|abundance(80)|head_armor(24)|body_armor(14)|leg_armor(6)|difficulty(0)
 620, weight(5)|difficulty(3)|spd_rtng(97) | shoot_speed(18) | thrust_damage(36,cut)|max_ammo(1)|weapon_length(65),imodbits_axe ],
 ["heavy_throwing_axes_melee", "Heavy Francisca", [("gallic_axe_2",0)], itp_type_one_handed_wpn |itp_primary|itp_bonus_against_shield,itc_scimitar,
 620, weight(1)|difficulty(3)|spd_rtng(90) | swing_damage(31,cut)|weapon_length(65),imodbits_axe, [], culture_germanic ],
+
+["torch_old",         "Torch", [("torch_h",0)], itp_type_one_handed_wpn|itp_primary, itc_scimitar, 11 , weight(2.5)|difficulty(0)|spd_rtng(98) | weapon_length(95)|swing_damage(31 , blunt) | thrust_damage(0 ,  pierce),imodbits_none,
+ [(ti_on_init_item, [(set_position_delta,0,60,0),(particle_system_add_new, "psys_torch_fire"),(particle_system_add_new, "psys_torch_smoke"),(set_current_color,150, 130, 70),(add_point_light, 10, 30),
+])]],
+["torch", "Torch", [("torch_h", imodbits_none)], itp_type_shield|itp_force_attach_left_hand|itp_merchandise, 0,33, weight(2)|abundance(100)|body_armor(5)|hit_points(4)|spd_rtng(96)|shield_height(1)|shield_width(1), imodbits_none,
+	[(ti_on_init_item,
+		[
+			(set_position_delta, 0, 60, 0),
+			(particle_system_add_new, "psys_torch_fire"),
+			(particle_system_add_new, "psys_torch_smoke"),
+			(set_current_color, 150, 130, 70),
+			(add_point_light, 10, 30)
+		])]
+	],
 
 #Axes
 #Hatchet - Hand Axe - Fighting Axe - Battle Axe
@@ -2710,12 +2710,12 @@ weight(1)|abundance(80)|head_armor(24)|body_armor(14)|leg_armor(6)|difficulty(0)
 
 # SHIELDS
 
-["tab_shield_pavise_a", "Old Board Shield",   [("tableau_shield_pavise_2" ,0)], itp_type_shield|itp_cant_use_on_horseback|itp_wooden_parry, itcf_carry_board_shield,
-60 , weight(3.5)|hit_points(280)|body_armor(4)|spd_rtng(89)|shield_width(43)|shield_height(100),imodbits_shield,
- [heraldic("tableau_pavise_shield_2")]],
-["tab_shield_pavise_b", "Plain Board Shield",   [("tableau_shield_pavise_3" ,0)], itp_type_shield|itp_cant_use_on_horseback|itp_wooden_parry, itcf_carry_board_shield,
-114 , weight(4)|hit_points(360)|body_armor(8)|spd_rtng(85)|shield_width(43)|shield_height(100),imodbits_shield,
- [heraldic("tableau_pavise_shield_3")]],
+# ["tab_shield_pavise_a", "Old Board Shield",   [("tableau_shield_pavise_2" ,0)], itp_type_shield|itp_cant_use_on_horseback|itp_wooden_parry, itcf_carry_board_shield,
+# 60 , weight(3.5)|hit_points(280)|body_armor(4)|spd_rtng(89)|shield_width(43)|shield_height(100),imodbits_shield,
+#  [heraldic("tableau_pavise_shield_2")]],
+# ["tab_shield_pavise_b", "Plain Board Shield",   [("tableau_shield_pavise_3" ,0)], itp_type_shield|itp_cant_use_on_horseback|itp_wooden_parry, itcf_carry_board_shield,
+# 114 , weight(4)|hit_points(360)|body_armor(8)|spd_rtng(85)|shield_width(43)|shield_height(100),imodbits_shield,
+#  [heraldic("tableau_pavise_shield_3")]],
 
 #New Shields
 
@@ -3374,36 +3374,51 @@ weight(1)|abundance(80)|head_armor(24)|body_armor(14)|leg_armor(6)|difficulty(0)
 ["dark_bag_2", "Wig", [("black_long-medium_bag_wig",0)], itp_unique|itp_type_head_armor|itp_civilian|itp_fit_to_head,0,1, weight(0)|abundance(0)|head_armor(6)|body_armor(0)|leg_armor(0)|difficulty(0),imodbits_cloth],
 ["dark_bag_3", "Wig", [("dark_bag_hair_wig",0)], itp_unique|itp_type_head_armor|itp_civilian|itp_fit_to_head,0,1, weight(0)|abundance(0)|head_armor(6)|body_armor(0)|leg_armor(0)|difficulty(0),imodbits_cloth],
 
-["wooden_shield", "Wooden Shield", [("round_shield_1",0)], itp_type_shield|itp_wooden_parry, itcf_carry_round_shield,  42 , weight(2)|hit_points(360)|body_armor(1)|spd_rtng(100)|shield_width(50),imodbits_shield ],
-["round_shield_b", "Round Shield", [("round_shield_1",0)], itp_type_shield|itp_wooden_parry, itcf_carry_round_shield,  95 , weight(2)|hit_points(300)|body_armor(6)|spd_rtng(100)|shield_width(50),imodbits_shield ],
-["nordic_shield", "Nordic Shield", [("round_shield_1",0)], itp_type_shield|itp_wooden_parry, itcf_carry_round_shield,  95 , weight(2)|hit_points(440)|body_armor(1)|spd_rtng(100)|shield_width(50),imodbits_shield ],
-["fur_covered_shield",  "Fur Covered Shield", [("round_shield_1", 0)], itp_type_shield|itp_wooden_parry, itcf_carry_kite_shield,  227 , weight(3.5)|hit_points(600)|body_armor(1)|spd_rtng(76)|shield_width(35)|shield_height(81),imodbits_cloth],
-["nomad_shield", "Leather Shield", [("round_shield_1",0)], itp_type_shield|itp_wooden_parry, itcf_carry_round_shield,  12 , weight(2)|hit_points(260)|body_armor(6)|spd_rtng(110)|shield_width(30),imodbits_shield ],
-["leather_covered_round_shield", "Leather Covered Round Shield", [("round_shield_1",0)], itp_type_shield|itp_wooden_parry, itcf_carry_round_shield,  80 , weight(2.5)|hit_points(310)|body_armor(8)|spd_rtng(96)|shield_width(40),imodbits_shield ],
-["hide_covered_round_shield", "Hide Covered Round Shield", [("round_shield_1",0)], itp_type_shield|itp_wooden_parry, itcf_carry_round_shield,  40 , weight(2)|hit_points(260)|body_armor(3)|spd_rtng(100)|shield_width(40),imodbits_shield ],
-["nordic_shield_a", "Shield", [("round_shield_1",0)], itp_type_shield|itp_wooden_parry, itcf_carry_round_shield,  95 , weight(2)|hit_points(440)|body_armor(6)|spd_rtng(100)|shield_width(50),imodbits_shield ],
-["nordic_shield_b", "Shield", [("round_shield_1",0)], itp_type_shield|itp_wooden_parry, itcf_carry_round_shield,  95 , weight(2)|hit_points(440)|body_armor(6)|spd_rtng(100)|shield_width(50),imodbits_shield ],
-["nordic_shield_c", "Shield", [("round_shield_1",0)], itp_type_shield|itp_wooden_parry, itcf_carry_round_shield,  95 , weight(2)|hit_points(440)|body_armor(6)|spd_rtng(100)|shield_width(50),imodbits_shield ],
-["nordic_shield_d", "Shield", [("round_shield_1",0)], itp_type_shield|itp_wooden_parry, itcf_carry_round_shield,  95 , weight(2)|hit_points(440)|body_armor(6)|spd_rtng(100)|shield_width(50),imodbits_shield ],
-["shield_heater_c", "Round Shield", [("round_shield_1",0)], itp_type_shield|itp_wooden_parry, itcf_carry_round_shield,  395 , weight(2.75)|hit_points(400)|body_armor(12)|spd_rtng(88)|shield_width(80),imodbits_shield, [], culture_gothic ],
-["norman_shield_1", "Round Shield", [("round_shield_2",0)], itp_type_shield|itp_wooden_parry, itcf_carry_round_shield,  395 , weight(3.00)|hit_points(400)|body_armor(12)|spd_rtng(88)|shield_width(80),imodbits_shield, [], culture_gothic ],
-["norman_shield_2", "Round Shield", [("round_shield_3",0)], itp_type_shield|itp_wooden_parry, itcf_carry_round_shield,  395 , weight(2.75)|hit_points(400)|body_armor(12)|spd_rtng(88)|shield_width(80),imodbits_shield, [], culture_gothic ],
-["norman_shield_3", "Round Shield", [("round_shield_1",0)], itp_type_shield|itp_wooden_parry, itcf_carry_round_shield,  395 , weight(3.00)|hit_points(400)|body_armor(12)|spd_rtng(88)|shield_width(80),imodbits_shield, [], culture_gothic ],
-["norman_shield_4", "Round Shield", [("round_shield_2",0)], itp_type_shield|itp_wooden_parry, itcf_carry_round_shield,  395 , weight(2.75)|hit_points(400)|body_armor(12)|spd_rtng(88)|shield_width(80),imodbits_shield, [], culture_gothic ],
-["norman_shield_5", "Round Shield", [("round_shield_3",0)], itp_type_shield|itp_wooden_parry, itcf_carry_round_shield,  395 , weight(3.00)|hit_points(400)|body_armor(12)|spd_rtng(88)|shield_width(80),imodbits_shield, [], culture_gothic ],
-["norman_shield_6", "Round Shield", [("round_shield_1",0)], itp_type_shield|itp_wooden_parry, itcf_carry_round_shield,  395 , weight(2.75)|hit_points(400)|body_armor(12)|spd_rtng(88)|shield_width(80),imodbits_shield, [], culture_gothic ],
-["strange_boots",  "Strange Boots", [("samurai_boots",0)], itp_type_foot_armor|itp_attach_armature,0, 465 , weight(1)|abundance(100)|head_armor(0)|body_armor(0)|leg_armor(21)|difficulty(0) ,imodbits_cloth ],
-["strange_helmet", "Strange Helmet", [("samurai_helmet",0)], itp_type_head_armor   ,0, 824 , weight(2)|abundance(100)|head_armor(44)|body_armor(0)|leg_armor(0)|difficulty(7) ,imodbits_plate ],
-["strange_sword", "Strange Sword", [("katana",0),("katana_scabbard",ixmesh_carry)], itp_type_two_handed_wpn| itp_primary, itc_bastardsword|itcf_carry_katana|itcf_show_holster_when_drawn, 679 , weight(2.0)|difficulty(9)|spd_rtng(108) | weapon_length(95)|swing_damage(32 , cut) | thrust_damage(18 ,  pierce),imodbits_sword ],
-["strange_great_sword",  "Strange Great Sword", [("no_dachi",0),("no_dachi_scabbard",ixmesh_carry)], itp_type_two_handed_wpn|itp_two_handed|itp_primary, itc_nodachi|itcf_carry_sword_back|itcf_show_holster_when_drawn, 920 , weight(3.5)|difficulty(11)|spd_rtng(92) | weapon_length(125)|swing_damage(38 , cut) | thrust_damage(0 ,  pierce),imodbits_axe ],
-["strange_short_sword", "Strange Short Sword", [("wakizashi",0),("wakizashi_scabbard",ixmesh_carry)], itp_type_one_handed_wpn|itp_primary, itc_longsword|itcf_carry_wakizashi|itcf_show_holster_when_drawn, 321 , weight(1.25)|difficulty(0)|spd_rtng(108) | weapon_length(65)|swing_damage(25 , cut) | thrust_damage(19 ,  pierce),imodbits_sword ],
+# ["wooden_shield", "Wooden Shield", [("round_shield_1",0)], itp_type_shield|itp_wooden_parry, itcf_carry_round_shield,  42 , weight(2)|hit_points(360)|body_armor(1)|spd_rtng(100)|shield_width(50),imodbits_shield ],
+# ["round_shield_b", "Round Shield", [("round_shield_1",0)], itp_type_shield|itp_wooden_parry, itcf_carry_round_shield,  95 , weight(2)|hit_points(300)|body_armor(6)|spd_rtng(100)|shield_width(50),imodbits_shield ],
+# ["nordic_shield", "Nordic Shield", [("round_shield_1",0)], itp_type_shield|itp_wooden_parry, itcf_carry_round_shield,  95 , weight(2)|hit_points(440)|body_armor(1)|spd_rtng(100)|shield_width(50),imodbits_shield ],
+# ["fur_covered_shield",  "Fur Covered Shield", [("round_shield_1", 0)], itp_type_shield|itp_wooden_parry, itcf_carry_kite_shield,  227 , weight(3.5)|hit_points(600)|body_armor(1)|spd_rtng(76)|shield_width(35)|shield_height(81),imodbits_cloth],
+# ["nomad_shield", "Leather Shield", [("round_shield_1",0)], itp_type_shield|itp_wooden_parry, itcf_carry_round_shield,  12 , weight(2)|hit_points(260)|body_armor(6)|spd_rtng(110)|shield_width(30),imodbits_shield ],
+# ["leather_covered_round_shield", "Leather Covered Round Shield", [("round_shield_1",0)], itp_type_shield|itp_wooden_parry, itcf_carry_round_shield,  80 , weight(2.5)|hit_points(310)|body_armor(8)|spd_rtng(96)|shield_width(40),imodbits_shield ],
+# ["hide_covered_round_shield", "Hide Covered Round Shield", [("round_shield_1",0)], itp_type_shield|itp_wooden_parry, itcf_carry_round_shield,  40 , weight(2)|hit_points(260)|body_armor(3)|spd_rtng(100)|shield_width(40),imodbits_shield ],
+# ["nordic_shield_a", "Shield", [("round_shield_1",0)], itp_type_shield|itp_wooden_parry, itcf_carry_round_shield,  95 , weight(2)|hit_points(440)|body_armor(6)|spd_rtng(100)|shield_width(50),imodbits_shield ],
+# ["nordic_shield_b", "Shield", [("round_shield_1",0)], itp_type_shield|itp_wooden_parry, itcf_carry_round_shield,  95 , weight(2)|hit_points(440)|body_armor(6)|spd_rtng(100)|shield_width(50),imodbits_shield ],
+# ["nordic_shield_c", "Shield", [("round_shield_1",0)], itp_type_shield|itp_wooden_parry, itcf_carry_round_shield,  95 , weight(2)|hit_points(440)|body_armor(6)|spd_rtng(100)|shield_width(50),imodbits_shield ],
+# ["nordic_shield_d", "Shield", [("round_shield_1",0)], itp_type_shield|itp_wooden_parry, itcf_carry_round_shield,  95 , weight(2)|hit_points(440)|body_armor(6)|spd_rtng(100)|shield_width(50),imodbits_shield ],
+# ["shield_heater_c", "Round Shield", [("round_shield_1",0)], itp_type_shield|itp_wooden_parry, itcf_carry_round_shield,  395 , weight(2.75)|hit_points(400)|body_armor(12)|spd_rtng(88)|shield_width(80),imodbits_shield, [], culture_gothic ],
+# ["norman_shield_1", "Round Shield", [("round_shield_2",0)], itp_type_shield|itp_wooden_parry, itcf_carry_round_shield,  395 , weight(3.00)|hit_points(400)|body_armor(12)|spd_rtng(88)|shield_width(80),imodbits_shield, [], culture_gothic ],
+# ["norman_shield_2", "Round Shield", [("round_shield_3",0)], itp_type_shield|itp_wooden_parry, itcf_carry_round_shield,  395 , weight(2.75)|hit_points(400)|body_armor(12)|spd_rtng(88)|shield_width(80),imodbits_shield, [], culture_gothic ],
+# ["norman_shield_3", "Round Shield", [("round_shield_1",0)], itp_type_shield|itp_wooden_parry, itcf_carry_round_shield,  395 , weight(3.00)|hit_points(400)|body_armor(12)|spd_rtng(88)|shield_width(80),imodbits_shield, [], culture_gothic ],
+# ["norman_shield_4", "Round Shield", [("round_shield_2",0)], itp_type_shield|itp_wooden_parry, itcf_carry_round_shield,  395 , weight(2.75)|hit_points(400)|body_armor(12)|spd_rtng(88)|shield_width(80),imodbits_shield, [], culture_gothic ],
+# ["norman_shield_5", "Round Shield", [("round_shield_3",0)], itp_type_shield|itp_wooden_parry, itcf_carry_round_shield,  395 , weight(3.00)|hit_points(400)|body_armor(12)|spd_rtng(88)|shield_width(80),imodbits_shield, [], culture_gothic ],
+# ["norman_shield_6", "Round Shield", [("round_shield_1",0)], itp_type_shield|itp_wooden_parry, itcf_carry_round_shield,  395 , weight(2.75)|hit_points(400)|body_armor(12)|spd_rtng(88)|shield_width(80),imodbits_shield, [], culture_gothic ],
+# ["strange_boots",  "Strange Boots", [("samurai_boots",0)], itp_type_foot_armor|itp_attach_armature,0, 465 , weight(1)|abundance(100)|head_armor(0)|body_armor(0)|leg_armor(21)|difficulty(0) ,imodbits_cloth ],
+# ["strange_helmet", "Strange Helmet", [("samurai_helmet",0)], itp_type_head_armor   ,0, 824 , weight(2)|abundance(100)|head_armor(44)|body_armor(0)|leg_armor(0)|difficulty(7) ,imodbits_plate ],
+# ["strange_sword", "Strange Sword", [("katana",0),("katana_scabbard",ixmesh_carry)], itp_type_two_handed_wpn| itp_primary, itc_bastardsword|itcf_carry_katana|itcf_show_holster_when_drawn, 679 , weight(2.0)|difficulty(9)|spd_rtng(108) | weapon_length(95)|swing_damage(32 , cut) | thrust_damage(18 ,  pierce),imodbits_sword ],
+# ["strange_great_sword",  "Strange Great Sword", [("no_dachi",0),("no_dachi_scabbard",ixmesh_carry)], itp_type_two_handed_wpn|itp_two_handed|itp_primary, itc_nodachi|itcf_carry_sword_back|itcf_show_holster_when_drawn, 920 , weight(3.5)|difficulty(11)|spd_rtng(92) | weapon_length(125)|swing_damage(38 , cut) | thrust_damage(0 ,  pierce),imodbits_axe ],
+# ["strange_short_sword", "Strange Short Sword", [("wakizashi",0),("wakizashi_scabbard",ixmesh_carry)], itp_type_one_handed_wpn|itp_primary, itc_longsword|itcf_carry_wakizashi|itcf_show_holster_when_drawn, 321 , weight(1.25)|difficulty(0)|spd_rtng(108) | weapon_length(65)|swing_damage(25 , cut) | thrust_damage(19 ,  pierce),imodbits_sword ],
 ["court_dress", "Court Dress", [("court_dress",0)], itp_type_body_armor|itp_covers_legs|itp_civilian   ,0, 348 , weight(4)|abundance(100)|head_armor(0)|body_armor(14)|leg_armor(4)|difficulty(0) ,imodbits_cloth ],
-["rich_outfit", "Rich Outfit", [("merchant_outf",0)], itp_type_body_armor|itp_covers_legs|itp_civilian   ,0, 348 , weight(4)|abundance(100)|head_armor(0)|body_armor(16)|leg_armor(4)|difficulty(0) ,imodbits_cloth ],
-["khergit_guard_armor", "Lamellar Guard Armor", [("lamellar_armor_a",0)], itp_type_body_armor|itp_covers_legs   ,0,
-3048 , weight(25)|abundance(100)|head_armor(0)|body_armor(50)|leg_armor(18)|difficulty(0) ,imodbits_armor ],
-["felt_steppe_cap", "Tundra Cap", [("noel_helmet",0)], itp_type_head_armor   ,0, 237 , weight(2)|abundance(100)|head_armor(16)|body_armor(0)|leg_armor(0) ,imodbits_cloth ],
-["khergit_helmet", "Nomad's Helmet", [("noel_helmet",0)], itp_type_head_armor   ,0, 361 , weight(2)|abundance(100)|head_armor(36)|body_armor(0)|leg_armor(0) ,imodbits_cloth ],
-["khergit_guard_boots",  "Lamellar Guard Boots", [("lamellar_boots_a",0)], itp_type_foot_armor | itp_attach_armature,0, 254 , weight(1)|abundance(100)|head_armor(0)|body_armor(0)|leg_armor(20)|difficulty(0) ,imodbits_cloth ],
+# ["rich_outfit", "Rich Outfit", [("merchant_outf",0)], itp_type_body_armor|itp_covers_legs|itp_civilian   ,0, 348 , weight(4)|abundance(100)|head_armor(0)|body_armor(16)|leg_armor(4)|difficulty(0) ,imodbits_cloth ],
+# ["khergit_guard_armor", "Lamellar Guard Armor", [("lamellar_armor_a",0)], itp_type_body_armor|itp_covers_legs   ,0,
+# 3048 , weight(25)|abundance(100)|head_armor(0)|body_armor(50)|leg_armor(18)|difficulty(0) ,imodbits_armor ],
+# ["felt_steppe_cap", "Tundra Cap", [("noel_helmet",0)], itp_type_head_armor   ,0, 237 , weight(2)|abundance(100)|head_armor(16)|body_armor(0)|leg_armor(0) ,imodbits_cloth ],
+# ["khergit_helmet", "Nomad's Helmet", [("noel_helmet",0)], itp_type_head_armor   ,0, 361 , weight(2)|abundance(100)|head_armor(36)|body_armor(0)|leg_armor(0) ,imodbits_cloth ],
+# ["khergit_guard_boots",  "Lamellar Guard Boots", [("lamellar_boots_a",0)], itp_type_foot_armor | itp_attach_armature,0, 254 , weight(1)|abundance(100)|head_armor(0)|body_armor(0)|leg_armor(20)|difficulty(0) ,imodbits_cloth ],
+
+# ["heraldic_mail_with_surcoat_for_tableau", "{!}Heraldic Mail with Surcoat", [("heraldic_armor_new_a",0)], itp_type_body_armor |itp_covers_legs ,0,
+#  1, weight(22)|abundance(100)|head_armor(0)|body_armor(1)|leg_armor(1),imodbits_armor,
+#  [heraldic("tableau_heraldic_armor_a")]],
+# ["mail_boots_for_tableau", "Mail Boots", [("mail_boots_a",0)], itp_type_foot_armor | itp_attach_armature  ,0,
+#  1, weight(3)|abundance(100)|head_armor(0)|body_armor(0)|leg_armor(1) ,imodbits_armor ],
+#NEW ITEMS
+#for africans
+["nubian_sandals", "Sandals", [("nubian_sandals",0)], itp_type_foot_armor |itp_civilian | itp_attach_armature ,0,
+ 30 , weight(1)|abundance(100)|head_armor(0)|body_armor(0)|leg_armor(6)|difficulty(0) ,imodbits_cloth ],
+
+["cow_1","Cow", [("cow_mod_a",0)], 0, 0, #produces milk
+ 1400,abundance(40)|hit_points(60)|body_armor(6)|horse_speed(18)|horse_maneuver(26)|horse_charge(12)|horse_scale(91),imodbits_horse_basic],
+
+["items_end", "Items End", [("shield_round_a",0)], 0, 0, 1, 0, 0],
 
 ["keys", "Ring of Keys", [("throwing_axe_a",0)], itp_type_one_handed_wpn |itp_primary|itp_bonus_against_shield,itc_scimitar,
 240, weight(5)|spd_rtng(98) | swing_damage(29,cut)|max_ammo(5)|weapon_length(53),imodbits_thrown ],
@@ -3414,21 +3429,6 @@ weight(1)|abundance(80)|head_armor(24)|body_armor(14)|leg_armor(6)|difficulty(0)
 
 ["practice_bow_2","Practice Bow", [("hunting_bow",0), ("hunting_bow_carry",ixmesh_carry)], itp_type_bow |itp_primary|itp_two_handed,itcf_shoot_bow|itcf_carry_bow_back, 0, weight(1.5)|spd_rtng(90) | shoot_speed(40) | thrust_damage(21, blunt),imodbits_bow ],
 ["practice_arrows_2","Practice Arrows", [("arena_arrow",0),("flying_missile",ixmesh_flying_ammo),("quiver", ixmesh_carry)], itp_type_arrows, itcf_carry_quiver_back, 0,weight(1.5)|weapon_length(95)|max_ammo(80),imodbits_missile],
-
-["heraldic_mail_with_surcoat_for_tableau", "{!}Heraldic Mail with Surcoat", [("heraldic_armor_new_a",0)], itp_type_body_armor |itp_covers_legs ,0,
- 1, weight(22)|abundance(100)|head_armor(0)|body_armor(1)|leg_armor(1),imodbits_armor,
- [heraldic("tableau_heraldic_armor_a")]],
-["mail_boots_for_tableau", "Mail Boots", [("mail_boots_a",0)], itp_type_foot_armor | itp_attach_armature  ,0,
- 1, weight(3)|abundance(100)|head_armor(0)|body_armor(0)|leg_armor(1) ,imodbits_armor ],
-#NEW ITEMS
-#for africans
-["nubian_sandals", "Sandals", [("nubian_sandals",0)], itp_type_foot_armor |itp_civilian | itp_attach_armature ,0,
- 30 , weight(1)|abundance(100)|head_armor(0)|body_armor(0)|leg_armor(6)|difficulty(0) ,imodbits_cloth ],
-
-["cow_1","Cow", [("cow_mod_a",0)], 0, 0, #produces milk
- 1400,abundance(40)|hit_points(60)|body_armor(6)|horse_speed(18)|horse_maneuver(26)|horse_charge(12)|horse_scale(91),imodbits_horse_basic],
-
-["items_end", "Items End", [("shield_round_a",0)], 0, 0, 1, 0, 0],
 
 #animal walkers
 ["animal_donkey","Donkey", [("wild_donkey",0)], itp_type_animal|itp_disable_agent_sounds, 0, 10, abundance(10)|hit_points(30)|body_armor(5)|difficulty(11)|horse_speed(20)|horse_maneuver(100)|horse_charge(100),imodbits_none],

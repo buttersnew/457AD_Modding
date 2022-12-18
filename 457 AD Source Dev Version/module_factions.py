@@ -154,10 +154,10 @@ factions = [
   ("minor_factions_end",  "{!}minor_factions_end", 0, 0.9, [], []), 
   #religions
   ("roman_christians","Chalcedonian Christians", 0, 0.5,[("arian_christians",-0.05),("coptic_christians",-0.05),("pagans",-0.05),("zoroastrians",-0.05),("kingdom_1", 0.9),("kingdom_2", 0.9)], [], 0xFFFFFF), #very friendly with the romans
-  ("arian_christians","Arian Christians", 0, 0.5,[("roman_christians",-0.05),("coptic_christians",-0.05),("pagans",-0.05),("zoroastrians",-0.05)], [], 0xFFFFFF),
-  ("coptic_christians","Miaphysite Christians", 0, 0.5,[("arian_christians",-0.05),("roman_christians",-0.05),("pagans",-0.05),("zoroastrians",-0.05)], [], 0xFFFFFF),
   ("pagans","Pagans", 0, 0.5,[("arian_christians",-0.05),("coptic_christians",-0.05),("roman_christians",-0.05),("zoroastrians",-0.05)], [], 0xFFFFFF),
+  ("arian_christians","Arian Christians", 0, 0.5,[("roman_christians",-0.05),("coptic_christians",-0.05),("pagans",-0.05),("zoroastrians",-0.05)], [], 0xFFFFFF),
   ("zoroastrians","Zoroastrians", 0, 0.5,[("arian_christians",-0.05),("coptic_christians",-0.05),("pagans",-0.05),("roman_christians",-0.05),("kingdom_6", 0.9)], [], 0xFFFFFF), #very friendly with the sassanids
+  ("coptic_christians","Miaphysite Christians", 0, 0.5,[("arian_christians",-0.05),("roman_christians",-0.05),("pagans",-0.05),("zoroastrians",-0.05)], [], 0xFFFFFF),
   ("roman_pagans","Greco-Roman Pagans", 0, 0.5,[("arian_christians",-0.05),("coptic_christians",-0.05),("pagans",-0.05),("roman_christians",-0.05),("zoroastrians",-0.05),("kingdom_1", 0.1),("kingdom_2", -0.01)], [], 0xFFFFFF), #likes wre, dislikes ere
 
   ("jews","Jews", 0, 0.5,[("arian_christians",-0.05),("coptic_christians",-0.05),("pagans",-0.05),("roman_christians",-0.05),("zoroastrians",-0.05),("roman_pagans",-0.05)], [], 0xFFFFFF), #used for later

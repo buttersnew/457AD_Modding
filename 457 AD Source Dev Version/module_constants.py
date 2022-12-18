@@ -1321,62 +1321,18 @@ equip_the_player                       = 1
 ###########################################################################################################################
 
 # character backgrounds
-cb_noble = 6
-cb_merchant = 5
-cb_guard = 4
-cb_forester = 3
-cb_nomad = 2
-cb_thief = 1
-cb_priest = 0
+cb_slave = 0
+cb_freeman = 1
+cb_noble = 2
 
-cb2_page = 8
-cb2_apprentice = 7
-cb2_urchin  = 6
-cb2_steppe_child = 5
-cb2_merchants_helper = 4
-cb2_vassal = 9
-##diplomacy start+ add background constants
-dplmc_cb2_mummer = 3
-dplmc_cb2_courtier = 2
-dplmc_cb2_noble = 1
-dplmc_cb2_acolyte = 0
-##diplomacy end+
+cb2_strong = 0
+cb2_thin = 1
+cb2_weak = 2
 
-# diplomacy start+ add background constants
-floris_cb3_slaver = 12
-floris_cb3_bandit = 11
-floris_cb3_gladiator = 10
-floris_cb3_thief = 9
-dplmc_cb3_bravo = 8
-dplmc_cb3_merc = 7
-# diplomacy end+
-cb3_poacher = 6
-cb3_craftsman = 5
-cb3_peddler = 4
-# diplomacy start+ add background constants
-dplmc_cb3_preacher = 3
-# diplomacy end+
-cb3_troubadour = 2
-cb3_student = 1
-cb3_squire = 0
-cb3_lady_in_waiting = 0
-
-floris_cb4_duty = 6
-cb4_revenge = 5
-cb4_loss    = 4
-cb4_wanderlust =  3
-##diplomacy start+ add background constants
-dplmc_cb4_fervor = 2
-##diplomacy end+
-cb4_disown  = 1
-cb4_greed  = 0
-
-kingdom_1 = 5
-kingdom_2 = 4
-kingdom_3 = 3
-kingdom_4 = 2
-kingdom_5 = 1
-kingdom_6 = 0
+cb3_genius = 0
+cb3_shrewd = 1
+cb3_normal = 2
+cb3_dull = 3
 
 #NPC system changes end
 #Encounter types
@@ -2042,13 +1998,13 @@ books_end = reference_books_end
 horses_begin = "itm_sumpter_horse"
 horses_end = "itm_arrows"
 weapons_begin = "itm_wooden_stick"
-weapons_end = "itm_wooden_shield"
-ranged_weapons_begin = "itm_darts"
-ranged_weapons_end = "itm_torch"
+weapons_end = "itm_tab_shield_round_a"
+ranged_weapons_begin = "itm_stones"
+ranged_weapons_end = "itm_torch_old"
 armors_begin = "itm_leather_gloves"
 armors_end = "itm_wooden_stick"
-shields_begin = "itm_wooden_shield"
-shields_end = ranged_weapons_begin
+shields_begin = "itm_tab_shield_round_a"
+shields_end = "itm_lyre"
 
 coop_new_items_end = all_items_end
 

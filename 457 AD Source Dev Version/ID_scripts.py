@@ -884,3 +884,5 @@ script_calculate_season_light = 882
 script_cf_start_arran_revolt = 883
 script_center_get_capital = 884
 script_cf_check_building_finished = 885
+script_store_number_of_wars = 886
+script_personality_modifier = 887

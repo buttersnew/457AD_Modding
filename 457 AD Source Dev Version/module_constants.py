@@ -58,7 +58,6 @@ slot_item_multiplayer_availability_linked_list_begin = 61 #temporary, can be mov
 ##  AGENT SLOTS            #############################
 ########################################################
 
-slot_agent_target_entry_point     = 0
 slot_agent_target_x_pos           = 1
 slot_agent_target_y_pos           = 2
 slot_agent_is_alive_before_retreat= 3

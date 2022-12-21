@@ -19974,8 +19974,376 @@ goods, and books will never be sold. ^^You can change some settings here freely.
      ]
   ),
 
-  (
-    "dplmc_notification_defensive_declared",0,
+("notification_decide_defensive_war",0,
+    "{s1} has declared war against your {s22} {s2}.^^{s57}^^How do you wish to react?",
+    "none",
+    [
+        (try_begin),
+            (faction_slot_eq, "$g_notification_menu_var2", slot_faction_tributary_of, "$players_kingdom"),
+            (str_store_string, s22, "@tributary vassal"),
+        (else_try),
+            (str_store_string, s22, "@ally"),
+        (try_end),
+        
+        (call_script, "script_npc_decision_checklist_peace_or_war", "$g_notification_menu_var1", "$g_notification_menu_var2", -1),
+        (str_store_string, s57, reg1),
+
+        (str_store_faction_name, s1, "$g_notification_menu_var1"),
+        (str_store_faction_name, s2, "$g_notification_menu_var2"),
+
+        (set_fixed_point_multiplier, 100),
+        (position_set_x, pos0, 65),
+        (position_set_y, pos0, 30),
+        (position_set_z, pos0, 170),
+        (store_sub, ":faction_1", "$g_notification_menu_var1", kingdoms_begin),
+        (store_sub, ":faction_2", "$g_notification_menu_var2", kingdoms_begin),
+        (val_mul, ":faction_1", 128),
+        (val_add, ":faction_1", ":faction_2"),
+        (set_game_menu_tableau_mesh, "tableau_2_factions_mesh", ":faction_1", pos0),
+      ],
+    [
+      ("continue",[],"Try to enforce peace by threatening {s1} with joining the war. [costs 1,000 denars to send message]",
+       [
+        (try_begin),
+            (store_troop_gold, reg0, "trp_player"),
+            (lt, reg0, 1000),
+            (display_message, "@You have not enough money!", color_bad_news),
+        (else_try),
+            (store_add, ":slot_provocation_days", "$players_kingdom", slot_faction_provocation_days_with_factions_begin),
+            (val_sub, ":slot_provocation_days", kingdoms_begin),
+            (faction_set_slot, "$g_notification_menu_var1", ":slot_provocation_days", 15),
+            
+            (faction_get_slot, ":leader", "$g_notification_menu_var2", slot_faction_leader),
+            (call_script, "script_change_player_relation_with_troop", ":leader", -10),
+           
+            (jump_to_menu, "mnu_threat_war_reaction"),
+            (troop_remove_gold, "trp_player", 1000),
+        (try_end),
+       ]),
+      ("continue",[],"Follow {s2} in the war.",
+       [
+        (faction_get_slot, ":leader", "$g_notification_menu_var2", slot_faction_leader),
+        (call_script, "script_change_player_relation_with_troop", ":leader", 10),
+        
+        (call_script, "script_diplomacy_start_war_between_kingdoms", "$players_kingdom", "$g_notification_menu_var1", logent_faction_declares_war_to_fulfil_pact),
+        (change_screen_return),
+       ]),
+      ("continue",[],"Break your agreement with {s2}.",
+       [
+        (call_script, "script_change_player_honor", -25),
+        (call_script, "script_change_troop_renown", "trp_player", -50),
+        
+        (try_begin),
+            (faction_slot_eq, "$g_notification_menu_var2", slot_faction_tributary_of, "$players_kingdom"),
+            (faction_set_slot, "$g_notification_menu_var2", slot_faction_tributary_of, 0),
+        (try_end),
+        
+        (store_add, ":truce_slot_a", "$g_notification_menu_var2", slot_faction_truce_days_with_factions_begin),
+        (val_sub, ":truce_slot_a", kingdoms_begin),
+        (faction_set_slot, "$players_kingdom", ":truce_slot_a", 0),
+
+        (store_add, ":truce_slot_a", "$players_kingdom", slot_faction_truce_days_with_factions_begin),
+        (val_sub, ":truce_slot_a", kingdoms_begin),
+        (faction_set_slot, "$g_notification_menu_var2", ":truce_slot_a", 0),
+
+        (store_add, ":slot_provocation_days", "$players_kingdom", slot_faction_provocation_days_with_factions_begin),
+        (val_sub, ":slot_provocation_days", kingdoms_begin),
+        (faction_set_slot, "$g_notification_menu_var2", ":slot_provocation_days", 30),
+        
+        (faction_get_slot, ":leader", "$g_notification_menu_var2", slot_faction_leader),
+        (call_script, "script_change_player_relation_with_troop", ":leader", -100),
+        
+        (str_store_faction_name, s4, "$players_kingdom"),
+        (display_log_message, "@{s4} broke its agreement with {s2}"),
+        
+        (change_screen_return),
+       ]),
+    ]
+),
+
+("notification_decide_offensive_war",0,
+    "Your ally {s1} has declared war against {s2}.^^{s57}^^How do you wish to react?",
+    "none",
+    [
+        (call_script, "script_npc_decision_checklist_peace_or_war", "$g_notification_menu_var1", "$g_notification_menu_var2", -1),
+        (str_store_string, s57, reg1),
+
+        (str_store_faction_name, s1, "$g_notification_menu_var1"),
+        (str_store_faction_name, s2, "$g_notification_menu_var2"),
+
+        (set_fixed_point_multiplier, 100),
+        (position_set_x, pos0, 65),
+        (position_set_y, pos0, 30),
+        (position_set_z, pos0, 170),
+        (store_sub, ":faction_1", "$g_notification_menu_var1", kingdoms_begin),
+        (store_sub, ":faction_2", "$g_notification_menu_var2", kingdoms_begin),
+        (val_mul, ":faction_1", 128),
+        (val_add, ":faction_1", ":faction_2"),
+        (set_game_menu_tableau_mesh, "tableau_2_factions_mesh", ":faction_1", pos0),
+      ],
+    [
+      ("continue",[],"Try to persuade {s1} to stop the war. [costs 1,000 denars to send message]",
+       [
+        (try_begin),
+            (store_troop_gold, reg0, "trp_player"),
+            (lt, reg0, 1000),
+            (display_message, "@You have not enough money.", color_bad_news),
+        (else_try),
+            (store_add, ":slot_provocation_days", "$players_kingdom", slot_faction_provocation_days_with_factions_begin),
+            (val_sub, ":slot_provocation_days", kingdoms_begin),
+            (faction_set_slot, "$g_notification_menu_var1", ":slot_provocation_days", 15),
+            # (faction_get_slot, ":leader", "$g_notification_menu_var2", slot_faction_leader),
+            # (call_script, "script_change_player_relation_with_troop", ":leader", -10),
+            (jump_to_menu, "mnu_persuade_war_reaction"),
+            (troop_remove_gold, "trp_player", 1000),
+        (try_end),
+       ]),
+      ("continue",[],"Follow {s1} in the war.",
+       [
+        (faction_get_slot, ":leader", "$g_notification_menu_var1", slot_faction_leader),
+        (call_script, "script_change_player_relation_with_troop", ":leader", 10),
+        
+        (call_script, "script_diplomacy_start_war_between_kingdoms", "$players_kingdom", "$g_notification_menu_var2", logent_faction_declares_war_to_fulfil_pact),
+        (change_screen_return),
+       ]),
+      ("continue",[],"Break your alliance with {s1}.",
+       [
+        (call_script, "script_change_player_honor", -25),
+        (call_script, "script_change_troop_renown", "trp_player", -50),
+        
+        (try_begin),
+            (faction_slot_eq, "$g_notification_menu_var1", slot_faction_tributary_of, "$players_kingdom"),
+            (faction_set_slot, "$g_notification_menu_var1", slot_faction_tributary_of, 0),
+        (try_end),
+        
+        (store_add, ":truce_slot_a", "$g_notification_menu_var1", slot_faction_truce_days_with_factions_begin),
+        (val_sub, ":truce_slot_a", kingdoms_begin),
+        (faction_set_slot, "$players_kingdom", ":truce_slot_a", 0),
+
+        (store_add, ":truce_slot_a", "$players_kingdom", slot_faction_truce_days_with_factions_begin),
+        (val_sub, ":truce_slot_a", kingdoms_begin),
+        (faction_set_slot, "$g_notification_menu_var1", ":truce_slot_a", 0),
+
+        (store_add, ":slot_provocation_days", "$players_kingdom", slot_faction_provocation_days_with_factions_begin),
+        (val_sub, ":slot_provocation_days", kingdoms_begin),
+        (faction_set_slot, "$g_notification_menu_var1", ":slot_provocation_days", 30),
+        
+        (faction_get_slot, ":leader", "$g_notification_menu_var1", slot_faction_leader),
+        (call_script, "script_change_player_relation_with_troop", ":leader", -100),
+        
+        (str_store_faction_name, s4, "$players_kingdom"),
+        (display_log_message, "@{s4} broke its agreement with {s2}"),
+        
+        (change_screen_return),
+       ]),
+    ]
+),
+
+("threat_war_reaction",0,
+    "{s57}",
+    "none",[
+    (assign, ":player_strength", 0),
+    (assign, ":enemy_strength", 10),
+	  (try_for_parties, ":party_no"),
+        (party_is_active, ":party_no"),
+        (store_faction_of_party, ":faction_no", ":party_no"),
+        (this_or_next|eq, ":faction_no", "$players_kingdom"),
+        (eq, ":faction_no", "$g_notification_menu_var1"),
+        
+        (store_party_size_wo_prisoners, ":party_value", ":party_no"),#use size of party
+        (try_begin),
+            (is_between, ":party_no", towns_begin, towns_end),
+            (val_div, ":party_value", 300),##average size 1200 -> 4
+        (else_try),	
+            (is_between, ":party_no", castles_begin, castles_end),
+            (val_div, ":party_value", 250),##average size 700 -> 3
+        (else_try),	
+            (party_get_template_id, ":template", ":party_no"),
+            (eq, ":template", "pt_kingdom_hero_party"),
+            (val_div, ":party_value", 100),##average size 400 -> 4
+        (else_try),#nero claudius begin
+            (eq, ":template", "pt_patrol_party"),
+            (val_div, ":party_value", 50),##average size 200 -> 4
+        (else_try),
+            (assign, ":party_value", 0),
+		    (try_end),
+		
+        (try_begin),
+            (eq, ":faction_no", "$g_notification_menu_var1"),
+            (val_add, ":enemy_strength", ":party_value"),
+        (else_try),
+            (val_add, ":player_strength", ":party_value"),
+        (try_end),
+	  (try_end),
+    (call_script, "script_store_number_of_wars", "$players_kingdom"),
+    (assign, ":number_of_wars_player", reg0),
+    (call_script, "script_store_number_of_wars", "$g_notification_menu_var1"),
+    (assign, ":number_of_wars_enemy", reg0),
+    
+    (store_sub, ":modifier_enemy_1", 50, ":number_of_wars_enemy"),
+    (store_sub, ":modifier_player_1", 50, ":number_of_wars_player"),
+    
+    (store_add, ":modifier_enemy_2", 50, ":number_of_wars_player"),
+    (store_add, ":modifier_player_2", 50, ":number_of_wars_enemy"),
+    
+    (val_mul, ":enemy_strength", ":modifier_enemy_1"),
+    (val_div, ":enemy_strength", 50),
+    (val_mul, ":enemy_strength", ":modifier_enemy_2"),
+    (val_div, ":enemy_strength", 50),
+    
+    (val_mul, ":player_strength", ":modifier_player_1"),
+    (val_div, ":player_strength", 50),
+    (val_mul, ":player_strength", ":modifier_player_2"),
+    (val_div, ":player_strength", 50),
+    
+    (faction_get_slot, ":leader", "$g_notification_menu_var1", slot_faction_leader),
+    (call_script, "script_personality_modifier", ":leader"),
+    (val_mul, ":enemy_strength", reg0),
+    (val_div, ":enemy_strength", 100),
+    
+    (call_script, "script_troop_get_player_relation", ":leader"),
+    (assign, ":relation", reg0),
+    (try_begin),
+        (lt, ":relation", -75),
+        (val_mul, ":enemy_strength", 2),
+    (try_end),
+    
+    (val_div, ":relation", 10),
+    (val_add, ":player_strength", ":relation"),
+    
+    (try_begin),
+        (ge, "$cheat_mode", 1),
+        (assign, reg11, ":player_strength"),
+        (assign, reg12, ":enemy_strength"),
+        (display_message, "@player_strength: {reg11}, enemy_strength: {reg12}"),
+    (try_end),
+    (str_store_faction_name, s1, "$g_notification_menu_var1"),
+    (str_store_faction_name, s2, "$g_notification_menu_var2"),
+    (str_store_troop_name, s3, ":leader"),
+    
+    (try_begin),
+        (gt, ":player_strength", ":enemy_strength"),
+
+        (store_mul, reg40, ":enemy_strength", 1000),
+        (val_clamp, reg40, 5000, 750001),
+        
+        (str_store_string, s57, "@Messengers are send and soon you recieve news that {s3} of {s1} has re-thought his actions. He send you a gift of {reg40} denars and will not future attack the {s2}"),
+        (assign, "$temp1", 1),
+    (else_try),
+        (str_store_string, s57, "@Messengers are send and soon you recieve news that {s3} of {s1} will attack the {s2} nevertheless. You are now forced to join the war."),
+        (assign, "$temp1", -1),
+    (try_end),
+    ],
+    
+    [
+      ("continue",[],"Continue",
+       [
+        (try_begin),
+            (eq, "$temp1", -1),
+            (call_script, "script_diplomacy_start_war_between_kingdoms", "$players_kingdom", "$g_notification_menu_var1", logent_faction_declares_war_to_fulfil_pact),
+        (else_try),
+            (call_script, "script_diplomacy_start_peace_between_kingdoms", "$g_notification_menu_var2", "$g_notification_menu_var1", 0),
+
+            (try_begin),
+                (gt, "$g_player_chamberlain", 0),
+                (call_script, "script_dplmc_pay_into_treasury", reg40),
+            (else_try),
+                (troop_add_gold, "trp_player", reg40),
+            (try_end),
+            
+            (faction_get_slot, ":leader", "$g_notification_menu_var2", slot_faction_leader),
+            (call_script, "script_change_player_relation_with_troop", ":leader", -10),
+        (try_end),
+        (jump_to_menu, "mnu_auto_return_to_map"),
+       ]),
+    ]
+),
+("persuade_war_reaction",0,
+    "{s57}",
+    "none",
+    [
+    (call_script, "script_store_number_of_wars", "$g_notification_menu_var1"),
+    (store_mul, ":player_strength", reg0, 10),
+        
+    (faction_get_slot, ":leader", "$g_notification_menu_var1", slot_faction_leader),
+
+    (call_script, "script_troop_get_player_relation", ":leader"),
+    (assign, ":relation", reg0),
+    (val_mul, ":relation", 2),
+    (val_add, ":player_strength", ":relation"),
+
+    (call_script, "script_personality_modifier", ":leader"),
+    (assign, ":leader_modifier", reg0),##250-100
+    (val_div, ":leader_modifier", 100),#3/2-1
+    (val_div, ":player_strength", ":leader_modifier"),
+    
+    (try_begin),
+        (ge, "$cheat_mode", 1),
+        (assign, reg11, ":player_strength"),
+        (display_message, "@player_strength: {reg11}"),
+    (try_end),
+    (str_store_faction_name, s1, "$g_notification_menu_var1"),
+    (str_store_faction_name, s2, "$g_notification_menu_var2"),
+    (str_store_troop_name, s3, ":leader"),
+    
+    
+    (try_begin),
+        (gt, ":player_strength", 100),
+        (str_store_string, s57, "@Messengers are send and soon you recieve news that {s3} of {s1} has re-thought his actions. He send you a best wishes and will not attack the {s2}."),
+        (assign, "$temp1", 1),
+    (else_try),
+        (str_store_string, s57, "@Messengers are send and soon you recieve news that {s3} of {s1} will attack the {s2} nevertheless."),
+        (assign, "$temp1", -1),
+    (try_end),
+    ],
+    
+    [
+      ("continue",[(eq, "$temp1", 1),],"Continue",
+       [
+        (call_script, "script_diplomacy_start_peace_between_kingdoms", "$g_notification_menu_var2", "$g_notification_menu_var1", 0),
+        (faction_get_slot, ":leader", "$g_notification_menu_var1", slot_faction_leader),
+        (call_script, "script_change_player_relation_with_troop", ":leader", -10),
+        (jump_to_menu, "mnu_auto_return_to_map"),
+       ]),     
+       ("continue",[(eq, "$temp1", -1),],"Do not join this war and break your alliance!",
+       [
+        (call_script, "script_change_player_honor", -25),
+        (call_script, "script_change_troop_renown", "trp_player", -50),
+        
+        (try_begin),
+            (faction_slot_eq, "$g_notification_menu_var1", slot_faction_tributary_of, "$players_kingdom"),
+            (faction_set_slot, "$g_notification_menu_var1", slot_faction_tributary_of, 0),
+        (try_end),
+        
+        (store_add, ":truce_slot_a", "$g_notification_menu_var1", slot_faction_truce_days_with_factions_begin),
+        (val_sub, ":truce_slot_a", kingdoms_begin),
+        (faction_set_slot, "$players_kingdom", ":truce_slot_a", 0),
+
+        (store_add, ":truce_slot_a", "$players_kingdom", slot_faction_truce_days_with_factions_begin),
+        (val_sub, ":truce_slot_a", kingdoms_begin),
+        (faction_set_slot, "$g_notification_menu_var1", ":truce_slot_a", 0),
+
+        (store_add, ":slot_provocation_days", "$players_kingdom", slot_faction_provocation_days_with_factions_begin),
+        (val_sub, ":slot_provocation_days", kingdoms_begin),
+        (faction_set_slot, "$g_notification_menu_var1", ":slot_provocation_days", 30),
+        
+        (faction_get_slot, ":leader", "$g_notification_menu_var1", slot_faction_leader),
+        (call_script, "script_change_player_relation_with_troop", ":leader", -100),
+        
+        (str_store_faction_name, s4, "$players_kingdom"),
+        (display_log_message, "@{s4} broke its agreement with {s1}"),        
+        (jump_to_menu, "mnu_auto_return_to_map"),
+       ]),       
+       ("continue",[(eq, "$temp1", -1),],"Help your ally by declaring war.",
+       [
+        (call_script, "script_diplomacy_start_war_between_kingdoms", "$players_kingdom", "$g_notification_menu_var2", logent_faction_declares_war_to_fulfil_pact),
+        (jump_to_menu, "mnu_auto_return_to_map"),
+       ]),
+    ]
+),
+
+
+("dplmc_notification_defensive_declared",0,
     "Defensive Pact^^{s1} and {s2} have agreed to a defensive pact!^{s57}",
     "none",
     [

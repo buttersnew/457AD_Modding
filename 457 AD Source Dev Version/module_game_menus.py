@@ -40,68 +40,37 @@ from compiler import *
 ####################################################################################################################
 
 game_menus = [
-  ("start_game_0",menu_text_color(0xFF000000)|mnf_disable_all_keys,
+("start_game_0",menu_text_color(0xFF000000)|mnf_disable_all_keys,
   ##diplomacy begin
     "Welcome, adventurer, to 457 AD for Mount & Blade: Warband.^^You have three start options: ^^Royal Sandbox: Play as one of the many famous rulers of the 5th century AD.^^Lordly Sandbox: Play as a lord of one of the many factions.^^Normal Sandbox: Default sandbox start. Begin from nothing and build up your path.^^^^In honor of PILOS",
   ##diplomacy end
   "none",
     [(allow_ironman,0), ],
-    [
-#     ("continue",[],"Continue...",
-#       [
-       #SB : randomized quick start
-#        (try_begin),
-#          (this_or_next|key_is_down, key_left_shift),
-#          (key_is_down, key_right_shift),
-#          (assign, "$g_disable_condescending_comments", 4),
-#          (store_random_in_range, "$character_gender", tf_male, tf_female + 1),
-#          (troop_set_type, "trp_player", "$character_gender"),
-#          (store_random_in_range, "$background_type", cb_noble, cb_priest + 1),
-#          (store_random_in_range, "$background_answer_2", cb2_page, dplmc_cb2_acolyte + 1),
-#          (store_random_in_range, "$background_answer_3", dplmc_cb3_bravo, cb3_student + 1),
-#          (store_random_in_range, "$background_answer_4", cb4_revenge, cb4_greed + 1),
-#          (str_store_string, s13, "@Perhaps you have forgotten the face of your father."),
-#          (assign, "$cheat_mode", 1),
-#          (jump_to_menu, "mnu_choose_skill"),
-#        (else_try),
-#          [(start_presentation, "prsnt_mcc_character_creation"),
-#          ]
-#        (try_end),
-#        ]
-#       ),
-
-  #HISPANIA 1200, rey
-    ("starting_as_king",[],"Royal Sandbox",
-      [
+  [
+    ("starting_as_king",[],"Royal Sandbox",[
       (assign, "$temp_troop", "trp_kingdom_1_lord"),
-      (start_presentation, "prsnt_select_king"),
-      #(jump_to_menu, "mnu_start_king_1"),
       (assign, "$jugador_rey", 1),
       (assign,"$character_gender",tf_male),
-       ]
-      ),
+      (start_presentation, "prsnt_select_king"),
+    ]),
 
-    ("starting_as_lord",[],"Lordly Sandbox",
-      [(jump_to_menu, "mnu_start_lord_1"),
-          (assign, "$jugador_rey", -1),(assign, "$jugador_lord", 0),
-          (assign,"$character_gender",tf_male),
-       ]
-      ),
+    ("starting_as_lord",[],"Lordly Sandbox",[
+      (assign, "$temp_troop", "trp_kingdom_1_lord"),
+      (assign, "$jugador_rey", -1),
+      (assign,"$character_gender",tf_male),
+      (start_presentation, "prsnt_select_lord"),
+    ]),
 
-    ("continue",[],"Normal Sandbox",
-       [
+    ("continue",[],"Normal Sandbox",[
         (assign, "$background_answer_4", slot_religion_chalcedonian),
         (assign, "$background_answer_5", "fac_culture_1"),
         (start_presentation, "prsnt_mcc_character_creation"),
-        ]
-      ),
+      ]),
 
-      ("go_back",[],"Go back",
-       [
-         (change_screen_quit),
-       ]),
-    ]
-  ),
+    ("go_back",[],"Go back",[
+      (change_screen_quit),
+    ]),
+]),
 
 ("start_phase_2",mnf_disable_all_keys, #start_phase_2_5
 "{!}",
@@ -948,826 +917,25 @@ game_menus = [
 #        ),
 #     ]
 #   ),
-
-
-  (
-    "choose_skill",mnf_disable_all_keys,
-    "Only you know exactly what caused you to give up your old life and become an adventurer. {s13}",
+("choose_skill",mnf_disable_all_keys,
+    "You have made some choices. You will not be able to change them later after the game starts. Would you like to keep them and continue?",
     "none",
+    [ 
+      (try_begin),
+          (eq, "$background_type", cb_noble),
+          (neg|troop_slot_ge, "trp_player", slot_troop_banner_scene_prop, 1),
+          (assign, "$g_presentation_next_presentation", -1),
+          (start_presentation, "prsnt_banner_selection"),
+      (try_end),
+    ],
     [
+    ("go_back_dot",[],"Continue.",[
       (change_screen_return),
-    # (assign,"$current_string_reg",10),
-    # (assign, ":difficulty", 0),
-
-    # (try_begin),
-    #   (eq, "$character_gender", tf_female),
-    #   (str_store_string, s14, "str_woman"),
-    #   (val_add, ":difficulty", 1),
-    # (else_try),
-    #   (str_store_string, s14, "str_man"),
-    # (try_end),
-
-    # (try_begin),
-    #       (eq,"$background_type",cb_noble),
-    #   (str_store_string, s15, "str_noble"),
-    #   (val_sub, ":difficulty", 1),
-    # (else_try),
-    #   (str_store_string, s15, "str_common"),
-    # (try_end),
-
-    # (try_begin),
-    #   (eq, ":difficulty", -1),
-    #   (str_store_string, s16, "str_may_find_that_you_are_able_to_take_your_place_among_calradias_great_lords_relatively_quickly"),
-    # (else_try),
-    #   (eq, ":difficulty", 0),
-    #   (str_store_string, s16, "str_may_face_some_difficulties_establishing_yourself_as_an_equal_among_calradias_great_lords"),
-    # (else_try),
-    #   (eq, ":difficulty", 1),
-    #   (str_store_string, s16, "str_may_face_great_difficulties_establishing_yourself_as_an_equal_among_calradias_great_lords"),
-    # (try_end),
-	],
-    [
-##      ("start_swordsman",[],"Swordsmanship.",[
-##        (assign, "$starting_skill", 1),
-##        (str_store_string, s14, "@You are particularly talented at swordsmanship."),
-##        (jump_to_menu,"mnu_past_life_explanation"),
-##        ]),
-##      ("start_archer",[],"Archery.",[
-##        (assign, "$starting_skill", 2),
-##        (str_store_string, s14, "@You are particularly talented at archery."),
-##        (jump_to_menu,"mnu_past_life_explanation"),
-##        ]),
-##      ("start_medicine",[],"Medicine.",[
-##        (assign, "$starting_skill", 3),
-##        (str_store_string, s14, "@You are particularly talented at medicine."),
-##        (jump_to_menu,"mnu_past_life_explanation"),
-##        ]),
-#       ("begin_adventuring",[],"Become an adventurer and ride to your destiny.",[
-
-      
-#            (set_show_messages, 0),
-
-           
-#            (try_begin),
-#              (eq, "$character_gender", tf_male),
-#              (troop_raise_attribute, "trp_player",ca_strength,1),
-#              (troop_raise_attribute, "trp_player",ca_charisma,1),
-#            (else_try),
-#              (troop_raise_attribute, "trp_player",ca_agility,1),
-#              (troop_raise_attribute, "trp_player",ca_intelligence,1),
-#            (try_end),
-
-#            (troop_raise_attribute, "trp_player",ca_strength,1),
-#            (troop_raise_attribute, "trp_player",ca_agility,1),
-#            (troop_raise_attribute, "trp_player",ca_charisma,1),
-
-#            (troop_raise_skill, "trp_player","skl_leadership",1),
-#            (troop_raise_skill, "trp_player","skl_riding",1),
-# ##           (try_begin),
-# ##             (eq, "$starting_skill", 1),
-# ##             (troop_raise_attribute, "trp_player",ca_agility,1),
-# ##             (troop_raise_attribute, "trp_player",ca_strength,1),
-# ##             (troop_raise_skill, "trp_player",skl_power_strike,2),
-# ##             (troop_raise_proficiency, "trp_player",0,30),
-# ##             (troop_raise_proficiency, "trp_player",1,20),
-# ##           (else_try),
-# ##             (eq, "$starting_skill", 2),
-# ##             (troop_raise_attribute, "trp_player",ca_strength,2),
-# ##             (troop_raise_skill, "trp_player",skl_power_draw,2),
-# ##             (troop_raise_proficiency, "trp_player",3,50),
-# ##           (else_try),
-# ##             (troop_raise_attribute, "trp_player",ca_intelligence,1),
-# ##             (troop_raise_attribute, "trp_player",ca_charisma,1),
-# ##             (troop_raise_skill, "trp_player",skl_first_aid,1),
-# ##             (troop_raise_skill, "trp_player",skl_wound_treatment,1),
-# ##             (troop_add_item, "trp_player","itm_winged_mace",0),
-# ##             (troop_raise_proficiency, "trp_player",0,15),
-# ##             (troop_raise_proficiency, "trp_player",1,15),
-# ##             (troop_raise_proficiency, "trp_player",2,15),
-# ##           (try_end),
-
-
-#       (try_begin),
-#         (eq,"$background_type",cb_noble),
-#         (eq,"$character_gender",tf_male),
-#         (troop_raise_attribute, "trp_player",ca_intelligence,1),
-#         (troop_raise_attribute, "trp_player",ca_charisma,2),
-#         (troop_raise_skill, "trp_player",skl_weapon_master,1),
-#         (troop_raise_skill, "trp_player",skl_power_strike,1),
-#         (troop_raise_skill, "trp_player",skl_riding,1),
-#         (troop_raise_skill, "trp_player",skl_tactics,1),
-#         (troop_raise_skill, "trp_player",skl_leadership,1),
-#         (troop_raise_proficiency, "trp_player",wpt_one_handed_weapon,30),
-#         (troop_raise_proficiency, "trp_player",wpt_two_handed_weapon,30),
-#         (troop_raise_proficiency, "trp_player",wpt_polearm,30),
-
-#         (troop_add_item, "trp_player","itm_round_shield_wood_1",imod_battered),
-#         (troop_set_slot, "trp_player", slot_troop_renown, 100),
-#         (call_script, "script_change_player_honor", 3),
-
-
-# ##        (troop_add_item, "trp_player","itm_red_gambeson",imod_plain),
-# ##        (troop_add_item, "trp_player","itm_sword",imod_plain),
-# ##        (troop_add_item, "trp_player","itm_dagger",imod_balanced),
-# ##        (troop_add_item, "trp_player","itm_woolen_hose",0),
-# ##        (troop_add_item, "trp_player","itm_dried_meat",0),
-# ##        (troop_add_item, "trp_player","itm_saddle_horse",imod_plain),
-#         (troop_add_gold, "trp_player", 100),
-#       (else_try),
-#         (eq,"$background_type",cb_noble),
-#         (eq,"$character_gender",tf_female),
-#         (troop_raise_attribute, "trp_player",ca_intelligence,2),
-#         (troop_raise_attribute, "trp_player",ca_charisma,1),
-#         (troop_raise_skill, "trp_player",skl_wound_treatment,1),
-#         (troop_raise_skill, "trp_player",skl_riding,2),
-#         (troop_raise_skill, "trp_player",skl_first_aid,1),
-#         (troop_raise_skill, "trp_player",skl_leadership,1),
-#         (troop_raise_proficiency, "trp_player",wpt_one_handed_weapon,20),
-
-#         (troop_set_slot, "trp_player", slot_troop_renown, 50),
-#         (troop_add_item, "trp_player","itm_round_shield_wood_1",imod_battered),
-
-# ##        (troop_add_item, "trp_player","itm_dress",imod_sturdy),
-# ##        (troop_add_item, "trp_player","itm_dagger",imod_watered_steel),
-# ##        (troop_add_item, "trp_player","itm_woolen_hose",0),
-# ##        (troop_add_item, "trp_player","itm_hunting_crossbow",0),
-# ##        (troop_add_item, "trp_player","itm_bolts",0),
-# ##        (troop_add_item, "trp_player","itm_smoked_fish",0),
-# ##        (troop_add_item, "trp_player","itm_courser",imod_spirited),
-#         (troop_add_gold, "trp_player", 100),
-#       (else_try),
-#         (eq,"$background_type",cb_merchant),
-#         (troop_raise_attribute, "trp_player",ca_intelligence,2),
-#         (troop_raise_attribute, "trp_player",ca_charisma,1),
-#         (troop_raise_skill, "trp_player",skl_riding,1),
-#         (troop_raise_skill, "trp_player",skl_leadership,1),
-#         (troop_raise_skill, "trp_player",skl_trade,2),
-#         (troop_raise_skill, "trp_player",skl_inventory_management,1),
-#         (troop_raise_proficiency, "trp_player",wpt_two_handed_weapon,10),
-
-# ##        (troop_add_item, "trp_player","itm_leather_jacket",0),
-# ##        (troop_add_item, "trp_player","itm_leather_boots",0),
-# ##        (troop_add_item, "trp_player","itm_fur_hat",0),
-# ##        (troop_add_item, "trp_player","itm_dagger",0),
-# ##        (troop_add_item, "trp_player","itm_hunting_crossbow",0),
-# ##        (troop_add_item, "trp_player","itm_bolts",0),
-# ##        (troop_add_item, "trp_player","itm_smoked_fish",0),
-# ##        (troop_add_item, "trp_player","itm_saddle_horse",0),
-# ##        (troop_add_item, "trp_player","itm_sumpter_horse",0),
-# ##        (troop_add_item, "trp_player","itm_salt",0),
-# ##        (troop_add_item, "trp_player","itm_salt",0),
-# ##        (troop_add_item, "trp_player","itm_salt",0),
-# ##        (troop_add_item, "trp_player","itm_pottery",0),
-# ##        (troop_add_item, "trp_player","itm_pottery",0),
-
-#         (troop_add_gold, "trp_player", 250),
-#         (troop_set_slot, "trp_player", slot_troop_renown, 20),
-#       (else_try),
-#         (eq,"$background_type",cb_guard),
-#         (troop_raise_attribute, "trp_player",ca_strength,1),
-#         (troop_raise_attribute, "trp_player",ca_agility,1),
-#         (troop_raise_attribute, "trp_player",ca_charisma,1),
-#         (troop_raise_skill, "trp_player","skl_ironflesh",1),
-#         (troop_raise_skill, "trp_player","skl_power_strike",1),
-#         (troop_raise_skill, "trp_player","skl_weapon_master",1),
-#         (troop_raise_skill, "trp_player","skl_leadership",1),
-#         (troop_raise_skill, "trp_player","skl_trainer",1),
-#         (troop_raise_proficiency, "trp_player",wpt_one_handed_weapon,30),
-#         (troop_raise_proficiency, "trp_player",wpt_two_handed_weapon,25),
-#         (troop_raise_proficiency, "trp_player",wpt_polearm,40),
-#         (troop_raise_proficiency, "trp_player",wpt_throwing,20),
-#         (troop_add_item, "trp_player","itm_round_shield_wood_1",imod_battered),
-
-# ##        (troop_add_item, "trp_player","itm_leather_jerkin",imod_ragged),
-# ##        (troop_add_item, "trp_player","itm_skullcap",imod_rusty),
-# ##        (troop_add_item, "trp_player","itm_spear",0),
-# ##        (troop_add_item, "trp_player","itm_arming_sword",imod_chipped),
-# ##        (troop_add_item, "trp_player","itm_hunting_crossbow",0),
-# ##        (troop_add_item, "trp_player","itm_hunter_boots",0),
-# ##        (troop_add_item, "trp_player","itm_leather_gloves",imod_ragged),
-# ##        (troop_add_item, "trp_player","itm_bolts",0),
-# ##        (troop_add_item, "trp_player","itm_smoked_fish",0),
-# ##        (troop_add_item, "trp_player","itm_saddle_horse",imod_swaybacked),
-#         (troop_add_gold, "trp_player", 50),
-#         (troop_set_slot, "trp_player", slot_troop_renown, 10),
-#       (else_try),
-#         (eq,"$background_type",cb_forester),
-#         (troop_raise_attribute, "trp_player",ca_strength,1),
-#         (troop_raise_attribute, "trp_player",ca_agility,2),
-#         (troop_raise_skill, "trp_player","skl_power_draw",1),
-#         (troop_raise_skill, "trp_player","skl_tracking",1),
-#         (troop_raise_skill, "trp_player","skl_pathfinding",1),
-#         (troop_raise_skill, "trp_player","skl_spotting",1),
-#         (troop_raise_skill, "trp_player","skl_athletics",1),
-#         (troop_raise_proficiency, "trp_player",wpt_two_handed_weapon,20),
-#         (troop_raise_proficiency, "trp_player",wpt_archery,40),
-# ##        (troop_add_item, "trp_player","itm_short_bow",imod_bent),
-# ##        (troop_add_item, "trp_player","itm_arrows",0),
-# ##        (troop_add_item, "trp_player","itm_axe",imod_chipped),
-# ##        (troop_add_item, "trp_player","itm_rawhide_coat",0),
-# ##        (troop_add_item, "trp_player","itm_hide_boots",0),
-# ##        (troop_add_item, "trp_player","itm_dried_meat",0),
-# ##        (troop_add_item, "trp_player","itm_sumpter_horse",imod_heavy),
-# ##        (troop_add_item, "trp_player","itm_furs",0),
-#         (troop_add_gold, "trp_player", 30),
-#       (else_try),
-#         (eq,"$background_type",cb_nomad),
-#         (eq,"$character_gender",tf_male),
-#         (troop_raise_attribute, "trp_player",ca_strength,1),
-#         (troop_raise_attribute, "trp_player",ca_agility,1),
-#         (troop_raise_attribute, "trp_player",ca_intelligence,1),
-#         (troop_raise_skill, "trp_player","skl_power_draw",1),
-#         (troop_raise_skill, "trp_player","skl_horse_archery",1),
-#         (troop_raise_skill, "trp_player","skl_pathfinding",1),
-#         (troop_raise_skill, "trp_player","skl_riding",2),
-#         (troop_raise_proficiency, "trp_player",wpt_one_handed_weapon,20),
-#         (troop_raise_proficiency, "trp_player",wpt_archery,40),
-#         (troop_raise_proficiency, "trp_player",wpt_throwing,30),
-#         (troop_add_item, "trp_player","itm_round_shield_wood_1",imod_battered),
-# ##        (troop_add_item, "trp_player","itm_javelin",imod_bent),
-# ##        (troop_add_item, "trp_player","itm_sword_khergit_1",imod_rusty),
-# ##        (troop_add_item, "trp_player","itm_nomad_armor",0),
-# ##        (troop_add_item, "trp_player","itm_hide_boots",0),
-# ##        (troop_add_item, "trp_player","itm_horse_meat",0),
-# ##        (troop_add_item, "trp_player","itm_steppe_horse",0),
-#         (troop_add_gold, "trp_player", 15),
-#         (troop_set_slot, "trp_player", slot_troop_renown, 10),
-#       (else_try),
-#         (eq,"$background_type",cb_nomad),
-#         (eq,"$character_gender",tf_female),
-#         (troop_raise_attribute, "trp_player",ca_strength,1),
-#         (troop_raise_attribute, "trp_player",ca_agility,1),
-#         (troop_raise_attribute, "trp_player",ca_intelligence,1),
-#         (troop_raise_skill, "trp_player","skl_wound_treatment",1),
-#         (troop_raise_skill, "trp_player","skl_first_aid",1),
-#         (troop_raise_skill, "trp_player","skl_pathfinding",1),
-#         (troop_raise_skill, "trp_player","skl_riding",2),
-#         (troop_raise_proficiency, "trp_player",wpt_one_handed_weapon,10),
-#         (troop_raise_proficiency, "trp_player",wpt_archery,40),
-#         (troop_raise_proficiency, "trp_player",wpt_throwing,10),
-#         (troop_add_item, "trp_player","itm_round_shield_wood_1",imod_battered),
-# ##        (troop_add_item, "trp_player","itm_javelin",imod_bent),
-# ##        (troop_add_item, "trp_player","itm_sickle",imod_plain),
-# ##        (troop_add_item, "trp_player","itm_nomad_armor",0),
-# ##        (troop_add_item, "trp_player","itm_hide_boots",0),
-# ##        (troop_add_item, "trp_player","itm_steppe_horse",0),
-# ##        (troop_add_item, "trp_player","itm_grain",0),
-#         (troop_add_gold, "trp_player", 20),
-#       (else_try),
-#         (eq,"$background_type",cb_thief),
-#         (troop_raise_attribute, "trp_player",ca_agility,3),
-#         (troop_raise_skill, "trp_player","skl_athletics",2),
-#         (troop_raise_skill, "trp_player","skl_power_throw",1),
-#         (troop_raise_skill, "trp_player","skl_inventory_management",1),
-#         (troop_raise_skill, "trp_player","skl_looting",1),
-#         (troop_raise_proficiency, "trp_player",wpt_one_handed_weapon,30),
-#         (troop_raise_proficiency, "trp_player",wpt_throwing,40),
-#         (troop_add_item, "trp_player","itm_throwing_knives",0),
-# ##        (troop_add_item, "trp_player","itm_stones",0),
-# ##        (troop_add_item, "trp_player","itm_cudgel",imod_plain),
-# ##        (troop_add_item, "trp_player","itm_dagger",imod_rusty),
-# ##        (troop_add_item, "trp_player","itm_shirt",imod_tattered),
-# ##        (troop_add_item, "trp_player","itm_new_hood_d",imod_tattered),
-# ##        (troop_add_item, "trp_player","itm_wrapping_boots",imod_ragged),
-#         (troop_add_gold, "trp_player", 25),
-#      (else_try), #SB : re-enable priests
-#        (eq,"$background_type",cb_priest),
-#        (troop_raise_attribute, "trp_player",ca_strength,1),
-#        (troop_raise_attribute, "trp_player",ca_intelligence,2),
-#        (troop_raise_attribute, "trp_player",ca_charisma,1),
-#        (troop_raise_skill, "trp_player","skl_wound_treatment",1),
-#        (troop_raise_skill, "trp_player","skl_leadership",1),
-#        (troop_raise_skill, "trp_player","skl_prisoner_management",1),
-#        (troop_raise_proficiency, "trp_player", wpt_one_handed_weapon, 20),
-#        (troop_add_item, "trp_player","itm_robe",0),
-#        # (troop_add_item, "trp_player","itm_wrapping_boots",0), #SB : remove most of these, cb3 adds equipment
-#        # (troop_add_item, "trp_player","itm_club",0),
-#        (troop_add_item, "trp_player","itm_grain",imod_large_bag),
-#        # (troop_add_item, "trp_player","itm_sumpter_horse",0), #SB: I guess it's a donkey or something
-#        (troop_add_gold, "trp_player", 10),
-#        (troop_set_slot, "trp_player", slot_troop_renown, 10),
-#       (try_end),
-
-#     (try_begin),
-#         (eq,"$background_answer_2",cb2_page),
-#         (troop_raise_attribute, "trp_player",ca_charisma,1),
-#         (troop_raise_attribute, "trp_player",ca_strength,1),
-#         (troop_raise_skill, "trp_player","skl_power_strike",1),
-#         (troop_raise_skill, "trp_player","skl_persuasion",1),
-#         (troop_raise_proficiency, "trp_player",wpt_one_handed_weapon,35),
-#         (troop_raise_proficiency, "trp_player",wpt_polearm,25),
-#     (else_try),
-#         (eq,"$background_answer_2",cb2_apprentice),
-#         (troop_raise_attribute, "trp_player",ca_intelligence,1),
-#         (troop_raise_attribute, "trp_player",ca_strength,1),
-#         (troop_raise_skill, "trp_player","skl_engineer",1),
-#         (troop_raise_skill, "trp_player","skl_trade",1),
-#     (else_try),
-#         (eq,"$background_answer_2",cb2_urchin),
-#         (troop_raise_attribute, "trp_player",ca_agility,1),
-#         (troop_raise_attribute, "trp_player",ca_intelligence,1),
-#         (troop_raise_skill, "trp_player","skl_spotting",1),
-#         (troop_raise_skill, "trp_player","skl_looting",1),
-#         (troop_raise_proficiency, "trp_player",wpt_one_handed_weapon,25),
-#         (troop_raise_proficiency, "trp_player",wpt_throwing,15),
-#     (else_try),
-#         (eq,"$background_answer_2",cb2_steppe_child),
-#         (troop_raise_attribute, "trp_player",ca_strength,1),
-#         (troop_raise_attribute, "trp_player",ca_agility,1),
-#         (troop_raise_skill, "trp_player","skl_horse_archery",1),
-#         (troop_raise_skill, "trp_player","skl_power_throw",1),
-#         (troop_raise_proficiency, "trp_player",wpt_archery,30),
-#         (call_script,"script_change_troop_renown", "trp_player", 5),
-#     (else_try),
-#         (eq,"$background_answer_2",cb2_merchants_helper),
-#         (troop_raise_attribute, "trp_player",ca_intelligence,1),
-#         (troop_raise_attribute, "trp_player",ca_charisma,1),
-#         (troop_raise_skill, "trp_player","skl_inventory_management",1),
-#         (troop_raise_skill, "trp_player","skl_trade",1),
-# 	(else_try),
-#        (eq,"$background_answer_2",dplmc_cb2_mummer),
-#        (troop_raise_attribute, "trp_player",ca_intelligence,1),
-#        (troop_raise_attribute, "trp_player",ca_charisma,1),
-#        # (troop_raise_skill, "trp_player",skl_leadership,1), #SB : +2 attr, +2 skill
-#        (troop_raise_skill, "trp_player",skl_athletics,1),
-#        (troop_raise_skill, "trp_player",skl_riding,1),
-#        (troop_raise_proficiency, "trp_player",wpt_two_handed_weapon,15),
-#        (troop_raise_proficiency, "trp_player",wpt_polearm,15),
-#        (call_script,"script_change_troop_renown", "trp_player", 15),
-# 	(else_try),
-#        (eq,"$background_answer_2",dplmc_cb2_courtier),
-#        (troop_raise_attribute, "trp_player",ca_charisma,2), #SB : lower to +2
-#        (troop_raise_attribute, "trp_player",ca_agility,1),
-#        (troop_raise_skill, "trp_player","skl_weapon_master",1),
-#        (troop_raise_skill, "trp_player","skl_persuasion",1), #add this I guess from page
-#        (troop_raise_proficiency, "trp_player",wpt_one_handed_weapon,20),
-#        (troop_raise_proficiency, "trp_player",wpt_polearm,10), #this is way too much wpt for a courtier
-#        (troop_raise_proficiency, "trp_player",wpt_crossbow, 15),
-#        (call_script,"script_change_troop_renown", "trp_player", 20),
-# 	(else_try),
-#        (eq,"$background_answer_2",dplmc_cb2_noble),
-#        (troop_raise_attribute, "trp_player",ca_intelligence,1),
-#        (troop_raise_attribute, "trp_player",ca_charisma,2),
-#        (troop_raise_skill, "trp_player","skl_leadership",1),
-#        (troop_raise_skill, "trp_player","skl_tactics",1),
-#        (troop_raise_proficiency, "trp_player",wpt_one_handed_weapon,40),
-#        (troop_raise_proficiency, "trp_player",wpt_polearm,40),
-#        (call_script,"script_change_troop_renown", "trp_player", 25),
-#        #SB : add background renown/honor/rtr
-#        (val_add, "$player_right_to_rule", 1),
-# 	(else_try),
-#        (eq,"$background_answer_2",dplmc_cb2_acolyte),
-#        (troop_raise_attribute, "trp_player",ca_agility,1),
-#        (troop_raise_attribute, "trp_player",ca_intelligence,1),
-#        (troop_raise_attribute, "trp_player",ca_charisma,1),
-#        (troop_raise_skill, "trp_player",skl_leadership,1),
-#        (troop_raise_skill, "trp_player",skl_surgery,1),
-#        (troop_raise_skill, "trp_player",skl_first_aid,1),
-#        (troop_raise_proficiency, "trp_player",wpt_polearm,30),
-#        (call_script,"script_change_troop_renown", "trp_player", 5),
-#     (else_try),
-#         (eq,"$background_answer_2",cb2_vassal),
-#         (troop_raise_attribute, "trp_player",ca_charisma,3),
-#         (troop_raise_attribute, "trp_player",ca_strength,2),
-#         (troop_raise_skill, "trp_player","skl_power_strike",1),
-#         (troop_raise_skill, "trp_player","skl_leadership",2),
-#         (troop_raise_skill, "trp_player","skl_persuasion",1),
-#         (troop_raise_proficiency, "trp_player",wpt_one_handed_weapon,35),
-#         (troop_raise_proficiency, "trp_player",wpt_polearm,25),
-#         (val_add, "$player_right_to_rule", 5),
-# 	(try_end),
-
-# 	(try_begin), #SB :re-enable 3x cb3 options, adding 1x body armor and weapon + food
-#        (eq,"$background_answer_3",dplmc_cb3_bravo),
-#        (troop_raise_attribute, "trp_player",ca_strength,1),
-#        (troop_raise_skill, "trp_player","skl_power_strike",1),
-#        (troop_raise_skill, "trp_player","skl_shield",1),
-#        (troop_add_gold, "trp_player", 40),
-#        # (try_begin),
-#        # (this_or_next|player_has_item,"itm_sword"),
-#        # (troop_has_item_equipped,"trp_player","itm_sword"),
-#        # (troop_remove_item, "trp_player","itm_sword"),
-#        # (try_end),
-#        # (try_begin),
-#        # (this_or_next|player_has_item,"itm_arming_sword"),
-#        # (troop_has_item_equipped,"trp_player","itm_arming_sword"),
-#        # (troop_remove_item, "trp_player","itm_arming_sword"),
-#        # (try_end),
-#        # (troop_add_item, "trp_player","itm_short_sword",0),
-#        # (troop_add_item, "trp_player","itm_wooden_shield",imod_battered),
-#        (store_random_in_range, ":shield_item", "itm_tab_shield_round_a", "itm_tab_shield_round_c"),
-#        (troop_add_item, "trp_player",":shield_item",imod_heavy),
-#        (store_random_in_range, ":armor_item", "itm_roman_subarmalis_1", "itm_roman_subarmalis_7"),
-#        (store_random_in_range, ":armor_imod", imod_tattered, imod_reinforced),
-#        (troop_add_item, "trp_player",":armor_item",":armor_imod"),
-#        (troop_add_item, "trp_player", "itm_ankle_boots", 0),
-#        #store a random sword
-#        (store_random_in_range, ":weapon_item", "itm_sword_viking_1", "itm_hunnic_spatha"),
-# #       (try_begin), #2+4 offset for scimitar + sarranid swords
-# #         (lt, ":weapon_item", "itm_sword_medieval_a"),
-# #         (val_sub, ":weapon_item", "itm_long_voulge"),
-# #         (val_add, ":weapon_item", "itm_scimitar"),
-# #       (try_end),
-#        (troop_add_item, "trp_player",":weapon_item"),
-#        (store_random_in_range, ":food_item", "itm_dried_meat", "itm_grain"),
-#        (troop_add_item, "trp_player",":food_item"),
-#        (troop_raise_proficiency, "trp_player",wpt_one_handed_weapon,30),
-#        (troop_raise_proficiency, "trp_player",wpt_throwing,20),
-#    (else_try),
-#        (eq,"$background_answer_3",dplmc_cb3_merc),
-#        (troop_raise_attribute, "trp_player",ca_strength,2),
-#        (troop_raise_attribute, "trp_player",ca_agility,1),
-#        (troop_raise_skill, "trp_player",skl_weapon_master,1),
-#        (troop_raise_skill, "trp_player",skl_shield,1),
-#        # (try_begin),
-#        # (this_or_next|player_has_item,"itm_hide_boots"),
-#        # (troop_has_item_equipped,"trp_player","itm_hide_boots"),
-#        # (troop_remove_item, "trp_player","itm_hide_boots"),
-#        # (try_end),
-#        #store crap gear here, this depends on Native's item ordering
-#        (store_random_in_range, ":helmet_item", "itm_leather_warrior_cap", "itm_intercisa_helmet_1"),
-#        (store_random_in_range, ":weapon_item", "itm_seax_1", "itm_long_seax_3"),
-#        (store_random_in_range, ":armor_item", "itm_roman_subarmalis_1", "itm_roman_subarmalis_7"),
-#        (store_random_in_range, ":boots_item", "itm_carbatinae_1", "itm_ankle_boots"),
-#        (store_random_in_range, ":helmet_imod", imod_tattered, imod_reinforced),
-#        (store_random_in_range, ":weapon_imod", imod_crude, imod_deadly),
-#        (store_random_in_range, ":armor_imod", imod_tattered, imod_reinforced),
-       
-#        #SB : pick 1 set for each faction
-#        (store_random_in_range, ":faction_no", npc_kingdoms_begin, npc_kingdoms_end),
-#        (try_begin),
-#          (eq, ":faction_no", "fac_kingdom_1"),
-#          (store_random_in_range, ":helmet_item", "itm_leather_warrior_cap", "itm_intercisa_helmet_1"),
-#          (store_random_in_range, ":weapon_item", "itm_spear", "itm_roman_spear_4"),
-#        (else_try),
-#          (eq, ":faction_no", "fac_kingdom_2"),
-#          (store_random_in_range, ":helmet_item", "itm_old_spangenhelm_2", "itm_full_helm"),
-#        (else_try),
-#          (eq, ":faction_no", "fac_kingdom_3"), #original items
-#          (assign, ":helmet_item", "itm_narona_bandhelm"),
-#          (store_random_in_range, ":weapon_item", "itm_spear", "itm_roman_spear_4"),
-#          (assign, ":helmet_imod", imod_crude),
-#        (else_try),
-#          (eq, ":faction_no", "fac_kingdom_4"), #pick axes, some are fairly expensive
-#          (store_random_in_range, ":weapon_item","itm_sword_viking_1", "itm_sword_viking_2"),
-#          (assign, ":helmet_item", 0),
-#        (else_try),
-#          (eq, ":faction_no", "fac_kingdom_6"), #a fairly complete set of gear
-#          (troop_add_item, "trp_player","itm_skullcap",imod_hardened),
-#          (store_random_in_range, ":boots_item", "itm_carbatinae_1", "itm_ankle_boots"),
-#          #(store_random_in_range, ":helmet_item", "itm_eastern_skullcap_1", "itm_eastern_skullcap_4"),
-#          # (assign, ":weapon_item","itm_sarranid_two_handed_mace_1"),
-# #      (else_try),
-# #         (eq, ":faction_no", "fac_kingdom_7"),
-# #         (store_random_in_range, ":helmet_item", "itm_ridge_helm_a", "itm_spangenhelm_a"),
-# #         (store_random_in_range, ":weapon_item", "itm_imperial_sword", "itm_gothic_spatha_a"),
-# #      (else_try),
-# #         (eq, ":faction_no", "fac_kingdom_8"),
-# #         (store_random_in_range, ":helmet_item", "itm_ridge_helm_a", "itm_spangenhelm_a"),
-# #         (store_random_in_range, ":boots_item", "itm_rus_boots", "itm_ankle_boots_purple"),
-#        (try_end),
-#        (try_begin),
-#          (gt, ":helmet_item", 0),
-#          (troop_add_item, "trp_player", ":helmet_item", ":helmet_imod"),
-#        (try_end),
-#        (try_begin),
-#          (gt, ":weapon_item", 0),
-#          (try_begin),
-#            (call_script, "script_dplmc_troop_can_use_item", "trp_player", ":weapon_item", ":weapon_imod"),
-#            (eq, reg0, 1),
-#            (troop_add_item, "trp_player", ":weapon_item", ":weapon_imod"),
-#          (else_try), #use a low-requirement common spear, or highest wpt_proficiency I guess
-#            (store_random_in_range, ":weapon_item", "itm_spear", "itm_roman_spear_4"),
-#            (troop_add_item, "trp_player", ":weapon_item", ":weapon_imod"),
-#          (try_end),
-#        (try_end),
-#        (try_begin),
-#          (gt, ":armor_item", 0),
-#          (try_begin),
-#            (call_script, "script_dplmc_troop_can_use_item", "trp_player", ":armor_item", ":armor_imod"),
-#            (eq, reg0, 1),
-#            (troop_add_item, "trp_player", ":armor_item", ":armor_imod"),
-#          (else_try), #use a low-requirement gambeson
-#            (store_random_in_range, ":armor_item", "itm_thick_coat_1", "itm_thick_coat_6"),
-#            (troop_add_item, "trp_player", ":armor_item", ":armor_imod"),
-#          (try_end),
-#        (try_end),
-#        (try_begin),
-#          (gt, ":boots_item", 0),
-#          (troop_add_item, "trp_player", ":boots_item", 0),
-#        (try_end),
-       
-#        (store_random_in_range, ":food_item", "itm_cattle_meat", "itm_siege_supply"),
-#        (troop_add_item, "trp_player",":food_item"),
-#        # (troop_add_gold, "trp_player", 20),
-#        # (troop_raise_proficiency, "trp_player",wpt_polearm,20),
-#        (try_for_range, ":unused", 0, 4),
-#          (store_random_in_range, ":wpt", wpt_one_handed_weapon, wpt_firearm),
-#          (troop_raise_proficiency, "trp_player",":wpt",25), #"taught you how to wield any weapon you desired"
-#        (try_end),
-#    (else_try),
-#         (eq,"$background_answer_3",cb3_poacher),
-#         (troop_raise_attribute, "trp_player",ca_strength,1),
-#         (troop_raise_attribute, "trp_player",ca_agility,1),
-#         (troop_raise_skill, "trp_player","skl_power_draw",1),
-#         (troop_raise_skill, "trp_player","skl_tracking",1),
-#         (troop_raise_skill, "trp_player","skl_spotting",1),
-#         (troop_raise_skill, "trp_player","skl_athletics",1),
-#         (troop_add_gold, "trp_player", 10),
-#         (troop_raise_proficiency, "trp_player",wpt_polearm,20),
-#         (troop_raise_proficiency, "trp_player",wpt_archery,45),
-
-#         (troop_add_item, "trp_player","itm_basic_axe",imod_chipped),
-#         (troop_add_item, "trp_player","itm_rawhide_coat",0),
-#         (troop_add_item, "trp_player","itm_wrapping_boots",0),
-#         (troop_add_item, "trp_player","itm_hunting_bow",0),
-#         (troop_add_item, "trp_player","itm_barbed_arrows",0),
-# #        (troop_add_item, "trp_player","itm_sumpter_horse",imod_heavy),
-#         (troop_add_item, "trp_player","itm_dried_meat",0),
-#         (troop_add_item, "trp_player","itm_dried_meat",0),
-#         (troop_add_item, "trp_player","itm_furs",0),
-#         (troop_add_item, "trp_player","itm_furs",0),
-#     (else_try),
-#         (eq,"$background_answer_3",cb3_craftsman),
-#         (troop_raise_attribute, "trp_player",ca_strength,1),
-#         (troop_raise_attribute, "trp_player",ca_intelligence,1),
-
-#         (troop_raise_skill, "trp_player","skl_weapon_master",1),
-#         (troop_raise_skill, "trp_player","skl_engineer",1),
-#         (troop_raise_skill, "trp_player","skl_tactics",1),
-#         (troop_raise_skill, "trp_player","skl_trade",1),
-
-#         (troop_raise_proficiency, "trp_player",wpt_one_handed_weapon,15),
-#         (troop_raise_proficiency, "trp_player",wpt_two_handed_weapon,25),
-#         (troop_add_gold, "trp_player", 100),
-
-
-#         (troop_add_item, "trp_player","itm_ankle_boots",),
-#         (troop_add_item, "trp_player","itm_linen_tunic",0),
-
-# #        (troop_add_item, "trp_player","itm_imperial_spatha_d", imod_balanced),
-#         (troop_add_item, "trp_player","itm_hammer",0),
-#         (troop_add_item, "trp_player","itm_seax_8",imod_balanced),
-#         (troop_add_item, "trp_player","itm_tools",0),
-# #        (troop_add_item, "trp_player","itm_saddle_horse",imod_swaybacked),
-#         (troop_add_item, "trp_player","itm_smoked_fish",0),
-#     (else_try),
-#         (eq,"$background_answer_3",cb3_peddler),
-#         (troop_raise_attribute, "trp_player",ca_charisma,1),
-#         (troop_raise_attribute, "trp_player",ca_intelligence,1),
-#         (troop_raise_skill, "trp_player","skl_riding",1),
-#         (troop_raise_skill, "trp_player","skl_trade",1),
-#         (troop_raise_skill, "trp_player","skl_pathfinding",1),
-#         (troop_raise_skill, "trp_player","skl_inventory_management",1),
-
-#         (troop_add_item, "trp_player","itm_leather_gloves",imod_plain),
-#         (troop_add_gold, "trp_player", 320),
-#         (troop_raise_proficiency, "trp_player",wpt_polearm,15),
-
-#         (troop_add_item, "trp_player","itm_coarse_tunic",0),
-#         (troop_add_item, "trp_player","itm_wrapping_boots",imod_ragged),
-#         (troop_add_item, "trp_player","itm_woolen_cap_5",0),
-#         (troop_add_item, "trp_player","itm_staff",0),        
-#         (troop_add_item, "trp_player","itm_saddle_horse",0),
-#         (troop_add_item, "trp_player","itm_sumpter_horse",0),
-
-#         (troop_add_item, "trp_player","itm_linen",0),
-#         (troop_add_item, "trp_player","itm_pottery",0),
-#         (troop_add_item, "trp_player","itm_wool",0),
-#         (troop_add_item, "trp_player","itm_wool",0),
-#         (troop_add_item, "trp_player","itm_smoked_fish",0),
-#    (else_try),
-#        (eq,"$background_answer_3",dplmc_cb3_preacher),
-#        (troop_raise_attribute, "trp_player",ca_strength,1),
-#        (troop_raise_attribute, "trp_player",ca_charisma,1),
-#        (troop_raise_skill, "trp_player","skl_shield",1),
-#        (troop_raise_skill, "trp_player","skl_wound_treatment",1),
-#        (troop_raise_skill, "trp_player","skl_first_aid",1),
-#        (troop_raise_skill, "trp_player","skl_surgery",1),
-#        (troop_add_item, "trp_player","itm_leather_gloves",imod_ragged),
-#        (troop_add_item, "trp_player","itm_quarter_staff",imod_heavy),
-#        #remove monk stuff, add pilgrim stuff
-#        (troop_add_item, "trp_player", "itm_robe"),
-#        # (troop_remove_item, "trp_player", "itm_new_hood_d"),
-# #       (troop_add_item, "trp_player", "itm_pilgrim_disguise"),
-# #       (troop_add_item, "trp_player", "itm_pilgrim_hood"),
-#        (troop_add_item, "trp_player", "itm_wrapping_boots"),
-#        (troop_add_item, "trp_player", "itm_cheese"), #add 1x food
-#        (troop_add_gold, "trp_player", 20),
-#        (troop_raise_proficiency, "trp_player",wpt_polearm,20),
-#     (else_try),
-#         (eq,"$background_answer_3",cb3_troubadour),
-#         (troop_raise_attribute, "trp_player",ca_charisma,2),
-
-#         (troop_raise_skill, "trp_player","skl_weapon_master",1),
-#         (troop_raise_skill, "trp_player","skl_persuasion",1),
-#         (troop_raise_skill, "trp_player","skl_leadership",1),
-#         (troop_raise_skill, "trp_player","skl_pathfinding",1),
-
-#         (troop_add_gold, "trp_player", 40),
-#         (troop_raise_proficiency, "trp_player",wpt_one_handed_weapon,25),
-#         (troop_raise_proficiency, "trp_player",wpt_polearm,15),
-
-#         (troop_add_item, "trp_player","itm_green_tunic",0),
-#         (troop_add_item, "trp_player","itm_ankle_boots",imod_sturdy),
-#         (troop_add_item, "trp_player","itm_leather_warrior_cap",0),
-#         (troop_add_item, "trp_player","itm_basic_axe",0),
-#         (troop_add_item, "trp_player","itm_spear",0),
-# #        (troop_add_item, "trp_player","itm_saddle_horse",0),
-#         (troop_add_item, "trp_player","itm_smoked_fish",0),
-#     (else_try), #used by vassal
-#         (eq,"$background_answer_3",cb3_squire),
-#         (troop_raise_attribute, "trp_player",ca_strength,1),
-#         (troop_raise_attribute, "trp_player",ca_agility,1),
-#         (troop_raise_skill, "trp_player","skl_riding",1),
-#         (troop_raise_skill, "trp_player","skl_weapon_master",1),
-#         (troop_raise_skill, "trp_player","skl_power_strike",1),
-#         (troop_raise_skill, "trp_player","skl_leadership",1),
-
-#         (troop_add_gold, "trp_player", 100),
-#         (troop_raise_proficiency, "trp_player",wpt_one_handed_weapon,40),
-#         (troop_raise_proficiency, "trp_player",wpt_two_handed_weapon,20),
-#         (troop_raise_proficiency, "trp_player",wpt_polearm,40),
-#         (troop_raise_proficiency, "trp_player",wpt_archery,15),
-#         (troop_raise_proficiency, "trp_player",wpt_crossbow,5),
-#         (troop_raise_proficiency, "trp_player",wpt_throwing,10),
-
-# #        (troop_add_item, "trp_player","itm_roman_shirt_cape_1",0),
-# #        (troop_add_item, "trp_player","itm_caped_tunic_3"),
-# #        (troop_add_item, "trp_player","itm_ankle_boots",0),
-# #        (troop_add_item, "trp_player","itm_imperial_spatha_b",0),
-#         (troop_add_item, "trp_player","itm_spear",0),
-#         (troop_add_item, "trp_player","itm_saddle_horse",0),
-#         (troop_add_item, "trp_player","itm_smoked_fish",0),
-#         (troop_add_item, "trp_player","itm_tab_shield_round_d",0),
-#     (else_try),
-#         (eq,"$background_answer_3",cb3_lady_in_waiting),
-#         (eq,"$character_gender",tf_female),
-#         (troop_raise_attribute, "trp_player",ca_intelligence,1),
-#         (troop_raise_attribute, "trp_player",ca_charisma,1),
-
-#         (troop_raise_skill, "trp_player","skl_persuasion",2),
-#         (troop_raise_skill, "trp_player","skl_riding",1),
-#         (troop_raise_skill, "trp_player","skl_wound_treatment",1),
-
-#         (troop_add_item, "trp_player","itm_seax_8", 0),
-#         (troop_add_item, "trp_player","itm_hunting_bow",0),
-#         (troop_add_item, "trp_player","itm_arrows",0),
-#         (troop_add_item, "trp_player","itm_courser", imod_spirited),
-#         (troop_add_item, "trp_player","itm_woolen_hood",imod_sturdy),
-#         (troop_add_item, "trp_player","itm_woolen_dress",imod_sturdy),
-#         (troop_add_gold, "trp_player", 100),
-#         (troop_raise_proficiency, "trp_player",wpt_one_handed_weapon,20),
-#         (troop_raise_proficiency, "trp_player",wpt_crossbow,15),
-#         (troop_add_item, "trp_player","itm_smoked_fish",0),
-#     (else_try),
-#         (eq,"$background_answer_3",cb3_student),
-#         (troop_raise_attribute, "trp_player",ca_intelligence,2),
-
-#         (troop_raise_skill, "trp_player","skl_weapon_master",1),
-#         (troop_raise_skill, "trp_player","skl_surgery",1),
-#         (troop_raise_skill, "trp_player","skl_wound_treatment",1),
-#         (troop_raise_skill, "trp_player","skl_persuasion",1),
-
-#         (troop_add_gold, "trp_player", 90),
-#         (troop_raise_proficiency, "trp_player",wpt_one_handed_weapon,20),
-#         (troop_raise_proficiency, "trp_player",wpt_archery,20),
-
-#         (troop_add_item, "trp_player","itm_linen_tunic",imod_sturdy),
-#         (troop_add_item, "trp_player","itm_wrapping_boots",0),
-#         (troop_add_item, "trp_player","itm_seax_8", imod_rusty),
-# #        (troop_add_item, "trp_player","itm_hunting_bow", 0),
-# #        (troop_add_item, "trp_player","itm_arrows", 0),
-# #        (troop_add_item, "trp_player","itm_saddle_horse",imod_swaybacked),
-#         (troop_add_item, "trp_player","itm_smoked_fish",0),
-#         (store_random_in_range, ":book_no", books_begin, books_end),
-#         (troop_add_item, "trp_player",":book_no",0),
-#     (try_end),
-
-#       (try_begin),
-#         (eq,"$background_answer_4",cb4_revenge),
-#         (troop_raise_attribute, "trp_player",ca_strength,2),
-#         (troop_raise_skill, "trp_player","skl_power_strike",1),
-#       (else_try),
-#         (eq,"$background_answer_4",cb4_loss),
-#         (troop_raise_attribute, "trp_player",ca_charisma,2),
-#         (troop_raise_skill, "trp_player","skl_ironflesh",1),
-#       (else_try),
-#         (eq,"$background_answer_4",cb4_wanderlust),
-#         (troop_raise_attribute, "trp_player",ca_agility,2),
-#         (troop_raise_skill, "trp_player","skl_pathfinding",1),
-#       (else_try),
-#         (eq,"$background_answer_4",dplmc_cb4_fervor),
-#         (troop_raise_attribute, "trp_player",ca_charisma,1),
-#         (troop_raise_skill, "trp_player",skl_wound_treatment,1),
-#         (troop_raise_proficiency, "trp_player",wpt_throwing,10), #wait what
-#       (else_try),
-#         (eq,"$background_answer_4",cb4_disown),
-#         (troop_raise_attribute, "trp_player",ca_strength,1),
-#         (troop_raise_attribute, "trp_player",ca_intelligence,1),
-#         (troop_raise_skill, "trp_player","skl_weapon_master",1),
-#       (else_try),
-#         (eq,"$background_answer_4",cb4_greed),
-#         (troop_raise_attribute, "trp_player",ca_agility,1),
-#         (troop_raise_attribute, "trp_player",ca_intelligence,1),
-#         (troop_raise_skill, "trp_player","skl_looting",1),
-#       (try_end),
-
-#       #SB : pre-allocate disguises
-#       (try_begin),
-#         (assign, ":disguise", disguise_pilgrim), #always available
-#         #farmer, acquired from not picking inappropriate noble/priestly options
-#         (try_begin),
-#           (neq, "$background_type", cb_noble),
-#           (neq, "$background_type", cb_priest),
-#           (neq, "$background_answer_2", cb2_page),
-#           (neq, "$background_answer_2", dplmc_cb2_courtier),
-#           (neq, "$background_answer_2", dplmc_cb2_noble),
-#           (neq, "$background_answer_2", dplmc_cb2_acolyte),
-#           (is_between, "$background_answer_3", cb3_poacher, dplmc_cb3_preacher),
-#           (val_add, ":disguise", disguise_farmer),
-#         (try_end),
-#         (try_begin),
-#           (this_or_next|eq, "$background_type", cb_forester),
-#           (this_or_next|eq, "$background_answer_2", cb2_steppe_child),
-#           (eq, "$background_answer_3", cb3_poacher),
-#           (val_add, ":disguise", disguise_hunter),
-#         (try_end),
-#         (try_begin),
-#           (this_or_next|eq, "$background_type", cb_merchant),
-#           (this_or_next|eq, "$background_answer_2", cb2_merchants_helper),
-#           (eq, "$background_answer_3", cb3_peddler),
-#           (val_add, ":disguise", disguise_merchant),
-#         (try_end),
-#         (try_begin),
-#           (this_or_next|eq, "$background_type", cb_guard),
-#           (this_or_next|eq, "$background_answer_3", dplmc_cb3_bravo),
-#           (this_or_next|eq, "$background_answer_3", dplmc_cb3_merc),
-#           (this_or_next|eq, "$background_answer_3", cb3_troubadour),
-#           (eq, "$background_answer_3", cb3_squire),
-#           (val_add, ":disguise", disguise_guard),
-#         (try_end),
-#         (try_begin),
-#           (this_or_next|eq, "$background_answer_2", dplmc_cb2_mummer),
-# #          (eq, "$background_answer_3", cb3_troubadour),
-#           (val_add, ":disguise", disguise_bard),
-#         (try_end),
-#       (try_end),
-#       (troop_set_slot, "trp_player", slot_troop_player_disguise_sets, ":disguise"),
-
-#       #TODO parse skill bonus, split it up
-#       (call_script, "script_build_background_answer_story", 0),
-#       (add_info_page_note_from_sreg, ip_character_backgrounds, 1, s10, 0),
-#       (add_info_page_note_from_sreg, ip_character_backgrounds, 2, s11, 0),
-#       (add_info_page_note_from_sreg, ip_character_backgrounds, 3, s12, 0),
-#       (add_info_page_note_from_sreg, ip_character_backgrounds, 4, s13, 0),
-#       # (add_info_page_note_from_sreg, ip_character_backgrounds, 1, "str_s0", 0),
-#       (try_begin),
-#         (this_or_next|eq, "$background_type", cb_noble),
-#         (eq, "$background_type", cb_vassal),
-#         (jump_to_menu, "mnu_auto_return"),
-# #normal_banner_begin
-#         (start_presentation, "prsnt_banner_selection"),
-# #custom_banner_begin
-# #             (start_presentation, "prsnt_custom_banner"),
-#       (else_try),
-#         (change_screen_return, 0),
-#       (try_end),
-#        (troop_add_gold, "trp_player", 100),
-       
-#        #this seems unused
-#         # (try_begin),
-#             # (gt, "$g_start_faction", 0),
-#             # (call_script, "script_player_join_faction", "$g_start_faction"),
-#             # (assign, "$player_has_homage" ,1),
-#             # (assign, "$g_player_banner_granted", 1),
-#             # (try_begin),
-#               # (call_script, "script_cf_select_random_village_with_faction", "$g_start_faction"),
-#               # (call_script, "script_give_center_to_lord", reg0, "trp_player", 0),
-#               # (faction_get_slot, ":faction_leader", "$g_start_faction", slot_faction_leader),
-#               # (call_script, "script_add_log_entry", logent_liege_grants_fief_to_vassal, ":faction_leader",  reg0, "trp_player", "$g_start_faction"),
-#             # (try_end),
-#             # (try_begin), #tom - add various goods
-#     # #      (troop_add_gold, "trp_player", 1000),
-#           # # (faction_get_slot,":culture", "$g_start_faction", slot_faction_culture),
-#     # #      (faction_get_slot,":fac_troop", ":culture", slot_faction_tier_6_troop),
-#     # #      (call_script, "script_equip_companion", "trp_player",":fac_troop"), #equip player
-#           # #Generic armor + weapons
-#                 # (troop_add_item,"trp_player", "itm_saddle_horse"),
-#                 # (troop_add_item,"trp_player", "itm_war_spear"),
-#                 # (troop_add_item,"trp_player", "itm_bread"),
-#                 # (troop_add_item,"trp_player", "itm_butter"),
-#             # (try_end),
-#         # (try_end),     
-
-
-#       (set_show_messages, 1),
-#         ]),
-      ("go_back_dot",[],"Go back.",[
-        (change_screen_quit),
-        ]),
-    ]
-  ),
+      ]),
+    ("go_back_dot",[],"Go back.",[
+      (jump_to_menu, "mnu_start_game_0"),
+      ]),
+]),
 
   (
     "past_life_explanation",mnf_disable_all_keys,
@@ -23607,24 +22775,24 @@ goods, and books will never be sold. ^^You can change some settings here freely.
   # ),
 
 #new starting as king/emperor
-  ("start_king_1",mnf_disable_all_keys,
-   "Select your King",
-   "none",
-   [(set_background_mesh, "mesh_pic_intro"),],
-   [
-  ("kingdom_wre",[],"Emperor Majorian of the Western Roman Empire",[(jump_to_menu, "mnu_start_king_wre"),]),
-  ("kingdom_ere",[],"Emperor Leo of the Eastern Roman Empire",[(jump_to_menu, "mnu_start_king_ere"),]),   
-  ("kingdom_vis",[],"Rex Theodoric II of the Visigoths",[(jump_to_menu, "mnu_start_king_vis"),]),    
-  ("kingdom_ost",[],"Rex Valamir of the Ostrogoths",[(jump_to_menu, "mnu_start_king_ost"),]),
-  ("kingdom_frank",[],"Rex Childeric of the Franks",[(jump_to_menu, "mnu_start_king_frank"),]),
-  ("kingdom_sas",[],"Shahanshah Hormizd III of the Sassanid Empire",[(jump_to_menu, "mnu_start_king_sassanid"),]),
-  ("kingdom_vandal",[],"Vandalrice Gaiseric of the Kingdom of the Vandals and Alans",[(jump_to_menu, "mnu_start_king_vandals"),]),
-  ("kingdom_iberia",[],"King Vakhtang of Iberia",[(jump_to_menu, "mnu_start_king_iberia"),]),
-  ("kingdom_huns",[],"Dengizich of the Huns",[(jump_to_menu, "mnu_start_king_huns"),]),
-  ("kingdom_britons",[],"Ambrosius Aurelianus of the Britons",[(jump_to_menu, "mnu_start_king_britons"),]),
-  ("go_back",[],"Go back",[(jump_to_menu,"mnu_start_game_0"),]),
-    ]
-  ),
+  # ("start_king_1",mnf_disable_all_keys,
+  #  "Select your King",
+  #  "none",
+  #  [(set_background_mesh, "mesh_pic_intro"),],
+  #  [
+  # ("kingdom_wre",[],"Emperor Majorian of the Western Roman Empire",[(jump_to_menu, "mnu_start_king_wre"),]),
+  # ("kingdom_ere",[],"Emperor Leo of the Eastern Roman Empire",[(jump_to_menu, "mnu_start_king_ere"),]),   
+  # ("kingdom_vis",[],"Rex Theodoric II of the Visigoths",[(jump_to_menu, "mnu_start_king_vis"),]),    
+  # ("kingdom_ost",[],"Rex Valamir of the Ostrogoths",[(jump_to_menu, "mnu_start_king_ost"),]),
+  # ("kingdom_frank",[],"Rex Childeric of the Franks",[(jump_to_menu, "mnu_start_king_frank"),]),
+  # ("kingdom_sas",[],"Shahanshah Hormizd III of the Sassanid Empire",[(jump_to_menu, "mnu_start_king_sassanid"),]),
+  # ("kingdom_vandal",[],"Vandalrice Gaiseric of the Kingdom of the Vandals and Alans",[(jump_to_menu, "mnu_start_king_vandals"),]),
+  # ("kingdom_iberia",[],"King Vakhtang of Iberia",[(jump_to_menu, "mnu_start_king_iberia"),]),
+  # ("kingdom_huns",[],"Dengizich of the Huns",[(jump_to_menu, "mnu_start_king_huns"),]),
+  # ("kingdom_britons",[],"Ambrosius Aurelianus of the Britons",[(jump_to_menu, "mnu_start_king_britons"),]),
+  # ("go_back",[],"Go back",[(jump_to_menu,"mnu_start_game_0"),]),
+  #   ]
+  # ),
 #western roman emperor
 #Old aka anthemius
 # ("start_king_wre",menu_text_color(0xFF000000)|mnf_disable_all_keys,
@@ -23642,290 +22810,290 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 #  ("go_back",[],"Go back.",[(jump_to_menu,"mnu_start_king_1"),]),
 # ]
 # ),
- ("start_king_wre",menu_text_color(0xFF000000)|mnf_disable_all_keys,
- "Imperator Caesar Iulius Valerius Majorianus Augustus:\
-  ^\
-  ^You are Majorian, Emperor of the Pars Occidentalis, the western regions of the Roman Empire. Loyal friend of Flavius Aetius, the Roman general who saved the Empire at the Catalaunian Plains defeating Attila, you proclaimed yourself emperor after Burco, a loyal comes, defeated a group of Alamans who were raiding Liguria.\
-  ^\
-  ^With your power and your soldiers you have now the chance to reclaim the lost provinces in Gallia, Hiberia and Africa. Many lands were lost to the barbarians escaping the Huns: your predecessors failed in the quest, but now it's your turn to restore the glory of Rome. This is the last chance of the Empire, if you fail, there will be no one else to prevent some Germanic tribes, or treacherous foederatus generals, to take Ravenna, Milan or even Rome from you.\
-  ^\
-  ^\
-  ^Majorian will start at war on mutiple fronts: the Burgundians, the Visigoths and the Vandals are all hostile to your power and they occupy some of your richest regions you ought to reconquer for them. Picking Majorian's start, you will have some of the most powerful units in the entire game available in Ravenna to recruit, as well as your ordinary and efficent regular roman soldiers.\
-  ^\
-  ^Make sure to have enough gold to fill your coffers to pay your troops and make sure your many generals are happy with the land and military promotions you give them. Proceed carefully, if the germanic invaders manage to weaken you, more barbarian states will declare war on you, trying to invade Italy.\
-  ^\
-  ^Your northern provinces, controlled by Syagrius, are cut off from the main body of your controlled territories, but the Franks could be useful allies in fighting the Burgundians and reconquer the biggest chunk of Gaul. The Visigoths are indeed your toughest adversaries as they recently mangled the small Kingdom of the Suebi in northern Spain: they have no other enemy but you and the rogue bands of bagaudae raiding the mountainous regions of Northern Spain.\
-  ^\
-  ^The Vandals instead are strong in Carthage and the large amount of cities orbitating around the north-African capital allow their kingdom to store immense amounts of wealth. Although, they are being harassed by the Mauri and other tribes and might become soon an easy target. Better if to pick one enemy at once and do not waste too much manpower and wealth trying to fight them all at the same time: if taken alone, most of those post-roman barbarian kingdoms will be no match for you.\
-  ^\
-  ^Difficulty: Easy\
-  ^\
-  ^Starting allies: Salian Franks (tributaries)\
-  ^\
-  ^Starting enemies: Kingdom of the Visigoths, Kingdom of the Burgundians, Kingdom of the Vandals",
- "none",
- [(set_background_mesh, "mesh_pic_roman_start"),],
- [
-  ("go_reign",[],"Continue",[(assign, "$jugador_rey", 1),(call_script, "script_player_is_king", "fac_kingdom_1"),(change_screen_return),]),      
-  ("go_back",[],"Go back.",[(jump_to_menu,"mnu_start_king_1"),]),
- ]
- ),
- ("start_king_ere",menu_text_color(0xFF000000)|mnf_disable_all_keys,
- "Imperator Caesar Flavius Valerius Leo Augustus:\
-  ^\
-  ^You are Leo the First, Emperor of the East and you rule from the mighty and new city of Constantinople, built by the old Emperor himself. The old Aspar believed himself to be the brightest, he was convinced he would have been your master once you became Emperor. Pah! You're better than that, you outsmart him and all the other generals in tactical thought and wisdom... And I do believe it's time to show him who is the true Emperor of the Pars Orientalis.\
-  ^However, your internal threats aren't the only enemies you're going to face: the situation in your eastern provinces is worrisome. The King of Kings, the persian Shahanshah, is rallying his troops and is about to attack Edessa, Theodosiopolis or Damascus. Our long story of conflicts with the Persians is old and tormented, but it is finally time to put an end to this and secure our eastern borders and the Caucasus once and for all. Pay also attention to the West, Majorian might need your assistence.\
-  ^\
-  ^Unlike for the Western Roman Empire, you have one main opponent that, in turn, is way stronger than most of the barbarian kingdoms north of the Danube. Your fortresses in the East are poorly defended and your generals struggle to reach Constantinople from distant provinces such as Egypt. Plan your campaigns carefully and protect your allies, such as the Kingdom of Lazika, from the hordes of the steppes.\
-  ^In Egypt, furthermore, the myaphisite subjects of the Empire are upset with your rule and might revolt soon, this might keep some of your generals busy in the south and draw part of your manpower away from the Levant and Armenia. The Sasanid Empire is your equal in terms of economy and size of your army so expect large scale engagements and a long and exhausting conflict for your Eastern borders. Make sure to defeat the Persians on open field and go straight to their capital, Ctesiphon. If you manage to conquer it, the way to the East will be open to you and their other cities will fall easier than expected.\
-  ^\
-  ^Difficulty: Medium\
-  ^\
-  ^Starting allies: Kingdom of Lazika (tributaries), Tauri (tributaries)\
-  ^\
-  ^Starting enemies: Eranshar, Kingdom of Kartli, Huns",
- "none",
- [(set_background_mesh, "mesh_pic_roman_start"),],
- [
-  ("go_reign",[],"Continue",[(assign, "$jugador_rey", 2),(call_script, "script_player_is_king", "fac_kingdom_2"),(change_screen_return),]),     
-  ("go_back",[],"Go back.",[(jump_to_menu,"mnu_start_king_1"),]),
- ]
- ),
- ("start_king_vis",menu_text_color(0xFF000000)|mnf_disable_all_keys,
- "Theodoric II, King of the Visigoths:\
-  ^\
-  ^You are Theodoric the Second, son of Theodoric the First, the great hero and martyr of the Catalaunian Plains, where he was killed by Attila's forces in battle. You do not forget the blood you shed for the Empire, nor how little they repaid your kin for your sacrifices. There isn't a single gothic male, within your domains, that do not have their knees swollen, their arms wounded and their heads damaged by spears, arrows and stones while serving Rome.\
-  ^You remember how your father lost his life fighting for Aetius! And now... Now the new Emperor, Majorian, is coming to reclaim the lands rightfully given to you for your people to settle! You can't tolerate this injustice. You will break Majorian, as you just did with the Suebi in Iberia..\
-  ^\
-  ^Theodoric the Second benefits from one of the best starts among the barbarian kingdoms in Europe. He has a large domain, comprised of Aquitania and almost whole of Iberia and is at the head of a powerful army. In Tolosa you will have the chance to recruit the Gardingi, one of the strongest cavalry units in the game, as well as your regular gothic troops and indigenous iberian allies.\
-  ^Beware Majorian, the Roman Empire is way stronger than you and their armies more professional and better armed: make sure to lay a trap for them and fight them only in tactical advantage or numerical superiority, such as near your cities.\
-  ^Make sure to get all the support you can from the Burgundians: the Vandals will hardly help as they are far and already fighting the Mauri. Also, pay a closer look to the Suebi. If Majorian manages to weaken you, they might declare war on you to reclaim their lost land in Spain.\
-  ^\
-  ^Difficulty: Hard\
-  ^\
-  ^Starting allies: Kingdom of the Burgundians\
-  ^\
-  ^Starting enemies: Imperium Romanorum Pars Occidentalis",
- "none",
- [(set_background_mesh, "mesh_pic_gothic_start"),],
- [
-  ("go_reign",[],"Continue",[(assign, "$jugador_rey", 3),(call_script, "script_player_is_king", "fac_kingdom_3"),(change_screen_return),]),      
-  ("go_back",[],"Go back.",[(jump_to_menu,"mnu_start_king_1"),]),
- ]
- ),
- ("start_king_ost",menu_text_color(0xFF000000)|mnf_disable_all_keys,
- "Valamir, King of the Ostrogoths:\
-  ^\
-  ^You are Valamir, king of the Eastern Goths, ruler of the Feld, the great plains of the Danube river. Your prowess is known far and wide as you helped your brothers Gepids in freeing your peoples from the yoke of the Huns, few years back. Now you are free, and with many opportunities in front.\
-  ^First of all, secure your domains in the great plains of the Danube: the tribes of the Skirii, Heruli, Rugii and the Sarmatians fear you and might attack you soon as members of a newborn, anti-gothic, coalition. The two new emperors, Majorian and Leo, are far and busy with their own fights, but if they will ever stregthen their position be sure: they will come for you. King of the Eastern Goths, saddle your horses and grab your spear, there is much to be done.\
-  ^\
-  ^Valamis is at the head of the strongest faction in the Danube area, if we do not count the Eastern Roman Empire. This is an interesting start as it allows you to expand quickly against the smaller tribes of Eastern Germans living along the great river. However, beware: your many vassals serving you might soon turn unhappy if you don't grant them land so be quick, strike first, strike hard and force them into obedience.\
-  ^You have acess to good quality horsemen and a good number of pannonian Huns that settled there during the time of Attila. This gives you a tactical advantage against your neighbours, make sure to use your army at the best of their possibilities and expand your realm to provide a large income for your tribe.\
-  ^\
-  ^Difficulty: Medium\
-  ^\
-  ^Starting allies: None\
-  ^\
-  ^Starting enemies: None",
- "none",
- [(set_background_mesh, "mesh_pic_gothic_start"),],
- [
-  ("go_reign",[],"Continue",[(assign, "$jugador_rey", 4),(call_script, "script_player_is_king", "fac_kingdom_4"),(change_screen_return),]),      
-  ("go_back",[],"Go back.",[(jump_to_menu,"mnu_start_king_1"),]),
- ]
- ),
- ("start_king_frank",menu_text_color(0xFF000000)|mnf_disable_all_keys,
- "Childeric, King of the Salian Franks:\
-  ^\
-  ^You are Childeric, king of the Salian Franks. Your dinasty is destined to greatness: you arose from the dark forests of Germania and befriended the Romans that respect you and value you as great allies at the border of Gallia. Your kin valiantly helped against Attila, few years before at the battle of the Catalaunian plains, and now again are called to help the Romans in their struggle as the new emperor, Majorian, is in peril due to the many tribes that swathe through Gaul the years before.\
-  ^Mayhaps, in this time of confusion, it will be the time to outshine your ancestors, unite the Frankish tribes and expand your domains at the expense of the other nations surrounding you. The Franks ought to rule, and so they shall.\
-  ^\
-  ^The Frankish start is, again, a good germanic start for those who seek an interesting challenge without exhausting confrontations against bigger enemies. You will start tied to Majorian's diplomatic stances, but you will soon be able to field a large army to conquer the Ripuarian Franks, subjugate the Frisians and confront both Saxons and Alamans in their own turf.\
-  ^Use the first stages of the conflicts against the Burgundians and the Visigoths, while helping Rome, to forge your veteran army and amass spoil of wars as the campaigns you will be engaged in after are going to be wealth consuming. Your army is indeed balanced, as you have acess to a good western germanic roster and quality regional troops as well as the famous Antrustiones. \
-  ^\
-  ^Difficulty: Medium\
-  ^\
-  ^Starting allies: Imperium Romanorum Pars Occidentalis\
-  ^\
-  ^Starting enemies: Visigoths, Burgundians.",
- "none",
- [(set_background_mesh, "mesh_pic_germanic_start"),],
- [
-  ("go_reign",[],"Continue",[(assign, "$jugador_rey", 5),(call_script, "script_player_is_king", "fac_kingdom_7"),(change_screen_return),]),      
-  ("go_back",[],"Go back.",[(jump_to_menu,"mnu_start_king_1"),]),
- ]
- ), 
- ("start_king_sassanid",menu_text_color(0xFF000000)|mnf_disable_all_keys,
- "Hormizd III, Shahanshah of the Sassanid Empire:\
- ^\
- ^Oh great Shahansha, Hormizd the Third, your power outshines all the other monarchs and your glory is known from Hrwm to Qin. There is no greater empire than yours and no braver warriors than your soldiers. Your many subjects acclaim your power while your enemies fear you, such as the 'Emperor' from Constantinople.\
- ^In the past, when your family was finally recognised as the supreme authority in the realm, the men from the West tried to crush your forces many times but at the end you always managed to prevail. Now, it is finally time to turn your glare West, towards their rich cities and wealthy lands.\
- ^At the same time, it is of outmost importance to regain the lost provinces in the East, captured by the Xun decades before, such as Sogdia or the lands of the Kusans. Your fate is to rule the Earth, oh King of Kings, and with your supreme authority lead our through struggles and victories.\
- ^\
- ^The Sasanid start mirrors the Eastern Roman one. You have one main enemy (untill we add the Iranian Huns next update) that has, more or less, your same power and wealth as well as a strong tributary kingdom in the Caucasus. Your strategy is, of course, to rule in the Levant and in Egypt, taking those lands from the Romans. To do that, you will need your vassals to help you as well the ability to make them support you on large scale campaigns.\
- ^You start with a good economy and with excellent troops recruitable in your cities. Make large use of your horsemen, as the Romans beat you in infantry engagement, and you will make sure to have a great advantage against them. Furthermore, by increasing your piety and relationship with the zoroastrian world, you will be rewarded with champions heavily armed and recruitable in zoroastrian temples.\
- ^\
- ^Difficulty: Easy\
- ^\
- ^Starting allies: Kingdom of Kartli (tributaries)\
- ^\
- ^Starting enemies: Imperium Romanorum Pars Orientalis, Kingdom of Lazika",
- "none",
- [(set_background_mesh, "mesh_pic_sassanid_start"),],
- [
-  ("go_reign",[],"Continue",[(assign, "$jugador_rey", 6),(call_script, "script_player_is_king", "fac_kingdom_6"),(change_screen_return),]),     
-  ("go_back",[],"Go back.",[(jump_to_menu,"mnu_start_king_1"),]),
- ]
- ),
- ("start_king_vandals",menu_text_color(0xFF000000)|mnf_disable_all_keys,
- "Gaiseric, King of the Vandals and Alans:\
- ^\
- ^Great King Gaiseric! You, that led us across the pillars of Hercules and gave us a new home: Carthage! The great city of these seas. Locals told us this city was once a great enemy of Rome. Ah, the irony! As now it belongs to us, for whom the eternal city should be turned into ashes. Gaiseric, your realm couldn't be more prosperous: our lands are rich and the other nations pay us well for the wheat our subjects produce! However, the new emperor, Majorian, eyes our golden shores with envy.\
- ^He wants to reconquer Africa and steal it from our very own hands! This cannot be. And what can we say about the Mauri from Altava? Those folks think they can have it all. No. They won't have nothing. The Vandals and the Alans will prevail once more and we will make the Mauri and the Romans bend to our knee. You have the power to do it, king Gaiseric.\
- ^\
- ^The Vandal start is challenging and not adviced for beginners. The Vandals begin with a strong faction and rich fiefs, they have a decent army and a large income that can support a good retinue. However, they immediatly start at war with two factions: the Romano-Mauri of the Kingdom of Altava, which are very close to your faction, and the Western Roman Empire led by Majorian.\
- ^They're both strong opponents, with the Romans being largely superior to you in wealth and power. There are also some minor tribes south of Libya and a rogue band of Austurian kidnapping your peasant parties in Numidia.\
- ^All these things make the Vandal start a quite challenging one. Your best tactic is to immediatly weaken the Romano-Mauri and hope Majorian will delay his campaign to focus on the Visigoths and the Burgundians north. If you manage to reunite North-Africa under a single banner or have the Romano-Mauri become your tributaries, you will  have a chance to resist against Majorian. However, it is no easy businness and will require a campaign of exhausting fights.\
- ^\
- ^Difficulty: Hard\
- ^\
- ^Starting allies: None\
- ^\
- ^Starting enemies: Imperium Romanorum Pars Occidentalis, Kingdom of Altava, Austuriani",
- "none",
- [(set_background_mesh, "mesh_pic_gothic_start"),],
- [
-  ("go_reign",[],"Continue",[(assign, "$jugador_rey", 7),(call_script, "script_player_is_king", "fac_kingdom_15"),(change_screen_return),]),     
-  ("go_back",[],"Go back.",[(jump_to_menu,"mnu_start_king_1"),]),
- ]
- ),
- ("start_king_iberia",menu_text_color(0xFF000000)|mnf_disable_all_keys,
- "Vakhtang, King of the Iberians:\
- ^\
- ^You are King Vakhtang, the supreme ruler of Kartli, Iberia in western chronicles. Your family has come from Persia ages ago to rule over the vast lands at the feet of the Caucasus mountains... And they did wonders! Your realm is rich, but surrounded by daring wolves. The Sasanids claim they have authority over your realm and we, sadly, are still too strong to face them. But this will change soon.\
- ^They are too focused to fight the Romans to care about us... And when the time will come, we will strike. The Kingdom of Lazika, west, rules over lands that are rightfully ours. We have to rally our army and show them who's stronger.\
- ^North of our towns live the Alans and the barbarians of the mountains, as well as the Huns: we have to pay attention to those nations as they are used to raid our settlements at summer. In time, Kartli will rise and you, King Vakhtang, will be the uncontested ruler of the Caucasus.\
- ^\
- ^Kartli starts as a vassal state of the Sasanids. Your diplomacy is strictly tied to the Shahanshah's decision and therefore you will start at war with both the Romans and Lazika. It's your chance to expand west and claim the Kingdom of Lazika for your own.\
- ^However, beware: Lazika is in decline but they can still field a strong army and are defended by their barbarian clientes in the North, such as the Abasgoi, and of course the Romans who keep Lazika as their tributary state. Your roster is solid, but your economy is not.\
- ^Make sure to amass wealth and gold before assaulting the cities in the Colchis. Once secured the Kingdom of Lazika, you will get the chance to look North, in the lands of the Alans. They have been severely weakened by the arrival of the Huns one century before and now live at the feet of the mountains pressured by more hordes North.\
- ^One thing you have to avoid: do not anger the Sasanids as they are far stronger than you and you will need the whole Caucasus on your side to be able to resist them.\
- ^\
- ^Difficulty: Medium\
- ^\
- ^Starting allies: Eranshar (you are their tributaries)\
- ^\
- ^Starting enemies: Kingdom of Lazika, Imperium Romanorum Pars Orientalis",
- "none",
- [(set_background_mesh, "mesh_pic_roman_start"),],
- [
-  ("go_reign",[],"Continue",[(assign, "$jugador_rey", 8),(call_script, "script_player_is_king", "fac_kingdom_16"),(change_screen_return),]),     
-  ("go_back",[],"Go back.",[(jump_to_menu,"mnu_start_king_1"),]),
- ]
- ),
- ("start_king_huns",menu_text_color(0xFF000000)|mnf_disable_all_keys,
- "Dengizich, King of the Huns:\
- ^\
- ^Dengizich, son of the Great Attila. You are the king of the Huns... But what's left of us now? When your father died, many tribes revolted and left our Empire. Our subject nations of the Gepids, Ostrogoths, Skirii and Rugii too decided to turn against you and even killed your brother! This cannot be. The world will be ruled by us and no one else.\
- ^Dengizich, it's now or never: the time to reclaim your father's domains and to force your subjects into submission. First, the tribes that refuse to rejoin your empire need to be crushed: the Saragurs, Oghurs and Onogurs think you are weak and cannot protect them from the Sabirs. It's time to prove they're wrong.\
- ^After them, the Gepids, west, led the coalition that defeated your brother Ellak at the battle of Nedao, where he lost his life. It's time to avenge him. And when you will finally settle all these unresolved issues with your neighboring nations there will be one left unpaid bill to solve. One with Rome and Constantinople. You will continue what your father started.\
- ^\
- ^The Hunni start is indeed one of the most peculiar and fun starts in the game and mixes challenges with an interesting gameplay. You start with a medium-sized faction and few tributaries, one of which is quite powerful (Alania). Around you there will be several rebel hordes you have to defeat.\
- ^Once the rebellious hordes are dealth with you will have the chance to immediatly expand west and invade the Gepids and possibly the other small polities of the Danube basin. Once your imperium reached a certain extent, you will have the chance to engage with the Eastern Roman Empire and possibly even helps it collapse.\
- ^However, beware: your army is diverse and full of good units, but horse archers aren't easy to use on the battlefield. Their skirmishing behavior is excellent against infantry but makes them an easy target for the enemy cavalry. Make sure to have a composite army with good footmen and heavy horsemen to help your horse archers annihilate your enemy.\
- ^\
- ^Difficulty: Medium/Easy\
- ^\
- ^Starting allies: Alania (your tributaries), Bosporan Kingdom (tributaries)\
- ^\
- ^Starting enemies: Imperium Romanorum Pars Orientalis, Gepids, Sabirs.",
- "none",
- [(set_background_mesh, "mesh_pic_gothic_start"),],
- [
-  ("go_reign",[],"Continue",[(assign, "$jugador_rey", 9),(call_script, "script_player_is_king", "fac_kingdom_23"),(change_screen_return),]),     
-  ("go_back",[],"Go back.",[(jump_to_menu,"mnu_start_king_1"),]),
- ]
- ), 
- ("start_king_britons",menu_text_color(0xFF000000)|mnf_disable_all_keys,
- "Ambrosius Aurelianus, King of the Britons:\
- ^\
- ^Ambrosius Aurelianus, last hope of the Britons in this times of great peril. Lead us to victory against the invading forces of Saxons, Angles, Jutes and Frisians coming from the continent to burn our farms, destroy our city and settle with their most terrible kinsmen. We can't let this to happen: rally the men of Britannia and our allies and make them fight against the banner of Rome and Christ once more.\
- ^Terrible enemies are ramming our doors, not only the Germans from beyond the sea but also the Picts from the North aim to conquer our cities and the Scoti from Hibernia are eager to turn us into their slaves. Listen to our plea, Ambrosius, and save us from our enemies. Rome might have abandoned us, but we still hold her dearly in our hearts.\
- ^\
- ^The Romano-Briton start is challenging because you will start at war with several enemies at the same time. They are all weaker and smaller than you, but they can hurt you badly if you don't manage the conflict in the right way. To make things worse, the germanic holdings are still mostly beyond and sea and to reach them will require time and vassals willing to follow you in long distance conflicts.\
- ^Your army is organised according to roman fashion, but you don't have neither the infrastructures nor the wealth to arm and train them the same way Ravenna and Constantinople did. However, you won't lack elite units and good mounted troops as well as regional auxiliary units to support you and it is possible your economy will be good enough to sustain your army.\
- ^Make sure, however, to reconquer the settlements lost to the Germans on the coast: from there they will have hard times campaigning in Britannia and you will be finally safe.\
- ^\
- ^Difficulty: Medium\
- ^\
- ^Starting allies: None\
- ^\
- ^Starting enemies: Saxons, Jutes, Angles, Frisians, Picts, Scoti",
- "none",
- [(set_background_mesh, "mesh_pic_roman_start"),],
- [
-  ("go_reign",[],"Continue",[(assign, "$jugador_rey", 10),(call_script, "script_player_is_king", "fac_kingdom_13"),(change_screen_return),]),     
-  ("go_back",[],"Go back.",[(jump_to_menu,"mnu_start_king_1"),]),
- ]
- ), 
+#  ("start_king_wre",menu_text_color(0xFF000000)|mnf_disable_all_keys,
+#  "Imperator Caesar Iulius Valerius Majorianus Augustus:\
+#   ^\
+#   ^You are Majorian, Emperor of the Pars Occidentalis, the western regions of the Roman Empire. Loyal friend of Flavius Aetius, the Roman general who saved the Empire at the Catalaunian Plains defeating Attila, you proclaimed yourself emperor after Burco, a loyal comes, defeated a group of Alamans who were raiding Liguria.\
+#   ^\
+#   ^With your power and your soldiers you have now the chance to reclaim the lost provinces in Gallia, Hiberia and Africa. Many lands were lost to the barbarians escaping the Huns: your predecessors failed in the quest, but now it's your turn to restore the glory of Rome. This is the last chance of the Empire, if you fail, there will be no one else to prevent some Germanic tribes, or treacherous foederatus generals, to take Ravenna, Milan or even Rome from you.\
+#   ^\
+#   ^\
+#   ^Majorian will start at war on mutiple fronts: the Burgundians, the Visigoths and the Vandals are all hostile to your power and they occupy some of your richest regions you ought to reconquer for them. Picking Majorian's start, you will have some of the most powerful units in the entire game available in Ravenna to recruit, as well as your ordinary and efficent regular roman soldiers.\
+#   ^\
+#   ^Make sure to have enough gold to fill your coffers to pay your troops and make sure your many generals are happy with the land and military promotions you give them. Proceed carefully, if the germanic invaders manage to weaken you, more barbarian states will declare war on you, trying to invade Italy.\
+#   ^\
+#   ^Your northern provinces, controlled by Syagrius, are cut off from the main body of your controlled territories, but the Franks could be useful allies in fighting the Burgundians and reconquer the biggest chunk of Gaul. The Visigoths are indeed your toughest adversaries as they recently mangled the small Kingdom of the Suebi in northern Spain: they have no other enemy but you and the rogue bands of bagaudae raiding the mountainous regions of Northern Spain.\
+#   ^\
+#   ^The Vandals instead are strong in Carthage and the large amount of cities orbitating around the north-African capital allow their kingdom to store immense amounts of wealth. Although, they are being harassed by the Mauri and other tribes and might become soon an easy target. Better if to pick one enemy at once and do not waste too much manpower and wealth trying to fight them all at the same time: if taken alone, most of those post-roman barbarian kingdoms will be no match for you.\
+#   ^\
+#   ^Difficulty: Easy\
+#   ^\
+#   ^Starting allies: Salian Franks (tributaries)\
+#   ^\
+#   ^Starting enemies: Kingdom of the Visigoths, Kingdom of the Burgundians, Kingdom of the Vandals",
+#  "none",
+#  [(set_background_mesh, "mesh_pic_roman_start"),],
+#  [
+#   ("go_reign",[],"Continue",[(assign, "$jugador_rey", 1),(call_script, "script_player_is_king", "fac_kingdom_1"),(change_screen_return),]),      
+#   ("go_back",[],"Go back.",[(jump_to_menu,"mnu_start_king_1"),]),
+#  ]
+#  ),
+#  ("start_king_ere",menu_text_color(0xFF000000)|mnf_disable_all_keys,
+#  "Imperator Caesar Flavius Valerius Leo Augustus:\
+#   ^\
+#   ^You are Leo the First, Emperor of the East and you rule from the mighty and new city of Constantinople, built by the old Emperor himself. The old Aspar believed himself to be the brightest, he was convinced he would have been your master once you became Emperor. Pah! You're better than that, you outsmart him and all the other generals in tactical thought and wisdom... And I do believe it's time to show him who is the true Emperor of the Pars Orientalis.\
+#   ^However, your internal threats aren't the only enemies you're going to face: the situation in your eastern provinces is worrisome. The King of Kings, the persian Shahanshah, is rallying his troops and is about to attack Edessa, Theodosiopolis or Damascus. Our long story of conflicts with the Persians is old and tormented, but it is finally time to put an end to this and secure our eastern borders and the Caucasus once and for all. Pay also attention to the West, Majorian might need your assistence.\
+#   ^\
+#   ^Unlike for the Western Roman Empire, you have one main opponent that, in turn, is way stronger than most of the barbarian kingdoms north of the Danube. Your fortresses in the East are poorly defended and your generals struggle to reach Constantinople from distant provinces such as Egypt. Plan your campaigns carefully and protect your allies, such as the Kingdom of Lazika, from the hordes of the steppes.\
+#   ^In Egypt, furthermore, the myaphisite subjects of the Empire are upset with your rule and might revolt soon, this might keep some of your generals busy in the south and draw part of your manpower away from the Levant and Armenia. The Sasanid Empire is your equal in terms of economy and size of your army so expect large scale engagements and a long and exhausting conflict for your Eastern borders. Make sure to defeat the Persians on open field and go straight to their capital, Ctesiphon. If you manage to conquer it, the way to the East will be open to you and their other cities will fall easier than expected.\
+#   ^\
+#   ^Difficulty: Medium\
+#   ^\
+#   ^Starting allies: Kingdom of Lazika (tributaries), Tauri (tributaries)\
+#   ^\
+#   ^Starting enemies: Eranshar, Kingdom of Kartli, Huns",
+#  "none",
+#  [(set_background_mesh, "mesh_pic_roman_start"),],
+#  [
+#   ("go_reign",[],"Continue",[(assign, "$jugador_rey", 2),(call_script, "script_player_is_king", "fac_kingdom_2"),(change_screen_return),]),     
+#   ("go_back",[],"Go back.",[(jump_to_menu,"mnu_start_king_1"),]),
+#  ]
+#  ),
+#  ("start_king_vis",menu_text_color(0xFF000000)|mnf_disable_all_keys,
+#  "Theodoric II, King of the Visigoths:\
+#   ^\
+#   ^You are Theodoric the Second, son of Theodoric the First, the great hero and martyr of the Catalaunian Plains, where he was killed by Attila's forces in battle. You do not forget the blood you shed for the Empire, nor how little they repaid your kin for your sacrifices. There isn't a single gothic male, within your domains, that do not have their knees swollen, their arms wounded and their heads damaged by spears, arrows and stones while serving Rome.\
+#   ^You remember how your father lost his life fighting for Aetius! And now... Now the new Emperor, Majorian, is coming to reclaim the lands rightfully given to you for your people to settle! You can't tolerate this injustice. You will break Majorian, as you just did with the Suebi in Iberia..\
+#   ^\
+#   ^Theodoric the Second benefits from one of the best starts among the barbarian kingdoms in Europe. He has a large domain, comprised of Aquitania and almost whole of Iberia and is at the head of a powerful army. In Tolosa you will have the chance to recruit the Gardingi, one of the strongest cavalry units in the game, as well as your regular gothic troops and indigenous iberian allies.\
+#   ^Beware Majorian, the Roman Empire is way stronger than you and their armies more professional and better armed: make sure to lay a trap for them and fight them only in tactical advantage or numerical superiority, such as near your cities.\
+#   ^Make sure to get all the support you can from the Burgundians: the Vandals will hardly help as they are far and already fighting the Mauri. Also, pay a closer look to the Suebi. If Majorian manages to weaken you, they might declare war on you to reclaim their lost land in Spain.\
+#   ^\
+#   ^Difficulty: Hard\
+#   ^\
+#   ^Starting allies: Kingdom of the Burgundians\
+#   ^\
+#   ^Starting enemies: Imperium Romanorum Pars Occidentalis",
+#  "none",
+#  [(set_background_mesh, "mesh_pic_gothic_start"),],
+#  [
+#   ("go_reign",[],"Continue",[(assign, "$jugador_rey", 3),(call_script, "script_player_is_king", "fac_kingdom_3"),(change_screen_return),]),      
+#   ("go_back",[],"Go back.",[(jump_to_menu,"mnu_start_king_1"),]),
+#  ]
+#  ),
+#  ("start_king_ost",menu_text_color(0xFF000000)|mnf_disable_all_keys,
+#  "Valamir, King of the Ostrogoths:\
+#   ^\
+#   ^You are Valamir, king of the Eastern Goths, ruler of the Feld, the great plains of the Danube river. Your prowess is known far and wide as you helped your brothers Gepids in freeing your peoples from the yoke of the Huns, few years back. Now you are free, and with many opportunities in front.\
+#   ^First of all, secure your domains in the great plains of the Danube: the tribes of the Skirii, Heruli, Rugii and the Sarmatians fear you and might attack you soon as members of a newborn, anti-gothic, coalition. The two new emperors, Majorian and Leo, are far and busy with their own fights, but if they will ever stregthen their position be sure: they will come for you. King of the Eastern Goths, saddle your horses and grab your spear, there is much to be done.\
+#   ^\
+#   ^Valamis is at the head of the strongest faction in the Danube area, if we do not count the Eastern Roman Empire. This is an interesting start as it allows you to expand quickly against the smaller tribes of Eastern Germans living along the great river. However, beware: your many vassals serving you might soon turn unhappy if you don't grant them land so be quick, strike first, strike hard and force them into obedience.\
+#   ^You have acess to good quality horsemen and a good number of pannonian Huns that settled there during the time of Attila. This gives you a tactical advantage against your neighbours, make sure to use your army at the best of their possibilities and expand your realm to provide a large income for your tribe.\
+#   ^\
+#   ^Difficulty: Medium\
+#   ^\
+#   ^Starting allies: None\
+#   ^\
+#   ^Starting enemies: None",
+#  "none",
+#  [(set_background_mesh, "mesh_pic_gothic_start"),],
+#  [
+#   ("go_reign",[],"Continue",[(assign, "$jugador_rey", 4),(call_script, "script_player_is_king", "fac_kingdom_4"),(change_screen_return),]),      
+#   ("go_back",[],"Go back.",[(jump_to_menu,"mnu_start_king_1"),]),
+#  ]
+#  ),
+#  ("start_king_frank",menu_text_color(0xFF000000)|mnf_disable_all_keys,
+#  "Childeric, King of the Salian Franks:\
+#   ^\
+#   ^You are Childeric, king of the Salian Franks. Your dinasty is destined to greatness: you arose from the dark forests of Germania and befriended the Romans that respect you and value you as great allies at the border of Gallia. Your kin valiantly helped against Attila, few years before at the battle of the Catalaunian plains, and now again are called to help the Romans in their struggle as the new emperor, Majorian, is in peril due to the many tribes that swathe through Gaul the years before.\
+#   ^Mayhaps, in this time of confusion, it will be the time to outshine your ancestors, unite the Frankish tribes and expand your domains at the expense of the other nations surrounding you. The Franks ought to rule, and so they shall.\
+#   ^\
+#   ^The Frankish start is, again, a good germanic start for those who seek an interesting challenge without exhausting confrontations against bigger enemies. You will start tied to Majorian's diplomatic stances, but you will soon be able to field a large army to conquer the Ripuarian Franks, subjugate the Frisians and confront both Saxons and Alamans in their own turf.\
+#   ^Use the first stages of the conflicts against the Burgundians and the Visigoths, while helping Rome, to forge your veteran army and amass spoil of wars as the campaigns you will be engaged in after are going to be wealth consuming. Your army is indeed balanced, as you have acess to a good western germanic roster and quality regional troops as well as the famous Antrustiones. \
+#   ^\
+#   ^Difficulty: Medium\
+#   ^\
+#   ^Starting allies: Imperium Romanorum Pars Occidentalis\
+#   ^\
+#   ^Starting enemies: Visigoths, Burgundians.",
+#  "none",
+#  [(set_background_mesh, "mesh_pic_germanic_start"),],
+#  [
+#   ("go_reign",[],"Continue",[(assign, "$jugador_rey", 5),(call_script, "script_player_is_king", "fac_kingdom_7"),(change_screen_return),]),      
+#   ("go_back",[],"Go back.",[(jump_to_menu,"mnu_start_king_1"),]),
+#  ]
+#  ), 
+#  ("start_king_sassanid",menu_text_color(0xFF000000)|mnf_disable_all_keys,
+#  "Hormizd III, Shahanshah of the Sassanid Empire:\
+#  ^\
+#  ^Oh great Shahansha, Hormizd the Third, your power outshines all the other monarchs and your glory is known from Hrwm to Qin. There is no greater empire than yours and no braver warriors than your soldiers. Your many subjects acclaim your power while your enemies fear you, such as the 'Emperor' from Constantinople.\
+#  ^In the past, when your family was finally recognised as the supreme authority in the realm, the men from the West tried to crush your forces many times but at the end you always managed to prevail. Now, it is finally time to turn your glare West, towards their rich cities and wealthy lands.\
+#  ^At the same time, it is of outmost importance to regain the lost provinces in the East, captured by the Xun decades before, such as Sogdia or the lands of the Kusans. Your fate is to rule the Earth, oh King of Kings, and with your supreme authority lead our through struggles and victories.\
+#  ^\
+#  ^The Sasanid start mirrors the Eastern Roman one. You have one main enemy (untill we add the Iranian Huns next update) that has, more or less, your same power and wealth as well as a strong tributary kingdom in the Caucasus. Your strategy is, of course, to rule in the Levant and in Egypt, taking those lands from the Romans. To do that, you will need your vassals to help you as well the ability to make them support you on large scale campaigns.\
+#  ^You start with a good economy and with excellent troops recruitable in your cities. Make large use of your horsemen, as the Romans beat you in infantry engagement, and you will make sure to have a great advantage against them. Furthermore, by increasing your piety and relationship with the zoroastrian world, you will be rewarded with champions heavily armed and recruitable in zoroastrian temples.\
+#  ^\
+#  ^Difficulty: Easy\
+#  ^\
+#  ^Starting allies: Kingdom of Kartli (tributaries)\
+#  ^\
+#  ^Starting enemies: Imperium Romanorum Pars Orientalis, Kingdom of Lazika",
+#  "none",
+#  [(set_background_mesh, "mesh_pic_sassanid_start"),],
+#  [
+#   ("go_reign",[],"Continue",[(assign, "$jugador_rey", 6),(call_script, "script_player_is_king", "fac_kingdom_6"),(change_screen_return),]),     
+#   ("go_back",[],"Go back.",[(jump_to_menu,"mnu_start_king_1"),]),
+#  ]
+#  ),
+#  ("start_king_vandals",menu_text_color(0xFF000000)|mnf_disable_all_keys,
+#  "Gaiseric, King of the Vandals and Alans:\
+#  ^\
+#  ^Great King Gaiseric! You, that led us across the pillars of Hercules and gave us a new home: Carthage! The great city of these seas. Locals told us this city was once a great enemy of Rome. Ah, the irony! As now it belongs to us, for whom the eternal city should be turned into ashes. Gaiseric, your realm couldn't be more prosperous: our lands are rich and the other nations pay us well for the wheat our subjects produce! However, the new emperor, Majorian, eyes our golden shores with envy.\
+#  ^He wants to reconquer Africa and steal it from our very own hands! This cannot be. And what can we say about the Mauri from Altava? Those folks think they can have it all. No. They won't have nothing. The Vandals and the Alans will prevail once more and we will make the Mauri and the Romans bend to our knee. You have the power to do it, king Gaiseric.\
+#  ^\
+#  ^The Vandal start is challenging and not adviced for beginners. The Vandals begin with a strong faction and rich fiefs, they have a decent army and a large income that can support a good retinue. However, they immediatly start at war with two factions: the Romano-Mauri of the Kingdom of Altava, which are very close to your faction, and the Western Roman Empire led by Majorian.\
+#  ^They're both strong opponents, with the Romans being largely superior to you in wealth and power. There are also some minor tribes south of Libya and a rogue band of Austurian kidnapping your peasant parties in Numidia.\
+#  ^All these things make the Vandal start a quite challenging one. Your best tactic is to immediatly weaken the Romano-Mauri and hope Majorian will delay his campaign to focus on the Visigoths and the Burgundians north. If you manage to reunite North-Africa under a single banner or have the Romano-Mauri become your tributaries, you will  have a chance to resist against Majorian. However, it is no easy businness and will require a campaign of exhausting fights.\
+#  ^\
+#  ^Difficulty: Hard\
+#  ^\
+#  ^Starting allies: None\
+#  ^\
+#  ^Starting enemies: Imperium Romanorum Pars Occidentalis, Kingdom of Altava, Austuriani",
+#  "none",
+#  [(set_background_mesh, "mesh_pic_gothic_start"),],
+#  [
+#   ("go_reign",[],"Continue",[(assign, "$jugador_rey", 7),(call_script, "script_player_is_king", "fac_kingdom_15"),(change_screen_return),]),     
+#   ("go_back",[],"Go back.",[(jump_to_menu,"mnu_start_king_1"),]),
+#  ]
+#  ),
+#  ("start_king_iberia",menu_text_color(0xFF000000)|mnf_disable_all_keys,
+#  "Vakhtang, King of the Iberians:\
+#  ^\
+#  ^You are King Vakhtang, the supreme ruler of Kartli, Iberia in western chronicles. Your family has come from Persia ages ago to rule over the vast lands at the feet of the Caucasus mountains... And they did wonders! Your realm is rich, but surrounded by daring wolves. The Sasanids claim they have authority over your realm and we, sadly, are still too strong to face them. But this will change soon.\
+#  ^They are too focused to fight the Romans to care about us... And when the time will come, we will strike. The Kingdom of Lazika, west, rules over lands that are rightfully ours. We have to rally our army and show them who's stronger.\
+#  ^North of our towns live the Alans and the barbarians of the mountains, as well as the Huns: we have to pay attention to those nations as they are used to raid our settlements at summer. In time, Kartli will rise and you, King Vakhtang, will be the uncontested ruler of the Caucasus.\
+#  ^\
+#  ^Kartli starts as a vassal state of the Sasanids. Your diplomacy is strictly tied to the Shahanshah's decision and therefore you will start at war with both the Romans and Lazika. It's your chance to expand west and claim the Kingdom of Lazika for your own.\
+#  ^However, beware: Lazika is in decline but they can still field a strong army and are defended by their barbarian clientes in the North, such as the Abasgoi, and of course the Romans who keep Lazika as their tributary state. Your roster is solid, but your economy is not.\
+#  ^Make sure to amass wealth and gold before assaulting the cities in the Colchis. Once secured the Kingdom of Lazika, you will get the chance to look North, in the lands of the Alans. They have been severely weakened by the arrival of the Huns one century before and now live at the feet of the mountains pressured by more hordes North.\
+#  ^One thing you have to avoid: do not anger the Sasanids as they are far stronger than you and you will need the whole Caucasus on your side to be able to resist them.\
+#  ^\
+#  ^Difficulty: Medium\
+#  ^\
+#  ^Starting allies: Eranshar (you are their tributaries)\
+#  ^\
+#  ^Starting enemies: Kingdom of Lazika, Imperium Romanorum Pars Orientalis",
+#  "none",
+#  [(set_background_mesh, "mesh_pic_roman_start"),],
+#  [
+#   ("go_reign",[],"Continue",[(assign, "$jugador_rey", 8),(call_script, "script_player_is_king", "fac_kingdom_16"),(change_screen_return),]),     
+#   ("go_back",[],"Go back.",[(jump_to_menu,"mnu_start_king_1"),]),
+#  ]
+#  ),
+#  ("start_king_huns",menu_text_color(0xFF000000)|mnf_disable_all_keys,
+#  "Dengizich, King of the Huns:\
+#  ^\
+#  ^Dengizich, son of the Great Attila. You are the king of the Huns... But what's left of us now? When your father died, many tribes revolted and left our Empire. Our subject nations of the Gepids, Ostrogoths, Skirii and Rugii too decided to turn against you and even killed your brother! This cannot be. The world will be ruled by us and no one else.\
+#  ^Dengizich, it's now or never: the time to reclaim your father's domains and to force your subjects into submission. First, the tribes that refuse to rejoin your empire need to be crushed: the Saragurs, Oghurs and Onogurs think you are weak and cannot protect them from the Sabirs. It's time to prove they're wrong.\
+#  ^After them, the Gepids, west, led the coalition that defeated your brother Ellak at the battle of Nedao, where he lost his life. It's time to avenge him. And when you will finally settle all these unresolved issues with your neighboring nations there will be one left unpaid bill to solve. One with Rome and Constantinople. You will continue what your father started.\
+#  ^\
+#  ^The Hunni start is indeed one of the most peculiar and fun starts in the game and mixes challenges with an interesting gameplay. You start with a medium-sized faction and few tributaries, one of which is quite powerful (Alania). Around you there will be several rebel hordes you have to defeat.\
+#  ^Once the rebellious hordes are dealth with you will have the chance to immediatly expand west and invade the Gepids and possibly the other small polities of the Danube basin. Once your imperium reached a certain extent, you will have the chance to engage with the Eastern Roman Empire and possibly even helps it collapse.\
+#  ^However, beware: your army is diverse and full of good units, but horse archers aren't easy to use on the battlefield. Their skirmishing behavior is excellent against infantry but makes them an easy target for the enemy cavalry. Make sure to have a composite army with good footmen and heavy horsemen to help your horse archers annihilate your enemy.\
+#  ^\
+#  ^Difficulty: Medium/Easy\
+#  ^\
+#  ^Starting allies: Alania (your tributaries), Bosporan Kingdom (tributaries)\
+#  ^\
+#  ^Starting enemies: Imperium Romanorum Pars Orientalis, Gepids, Sabirs.",
+#  "none",
+#  [(set_background_mesh, "mesh_pic_gothic_start"),],
+#  [
+#   ("go_reign",[],"Continue",[(assign, "$jugador_rey", 9),(call_script, "script_player_is_king", "fac_kingdom_23"),(change_screen_return),]),     
+#   ("go_back",[],"Go back.",[(jump_to_menu,"mnu_start_king_1"),]),
+#  ]
+#  ), 
+#  ("start_king_britons",menu_text_color(0xFF000000)|mnf_disable_all_keys,
+#  "Ambrosius Aurelianus, King of the Britons:\
+#  ^\
+#  ^Ambrosius Aurelianus, last hope of the Britons in this times of great peril. Lead us to victory against the invading forces of Saxons, Angles, Jutes and Frisians coming from the continent to burn our farms, destroy our city and settle with their most terrible kinsmen. We can't let this to happen: rally the men of Britannia and our allies and make them fight against the banner of Rome and Christ once more.\
+#  ^Terrible enemies are ramming our doors, not only the Germans from beyond the sea but also the Picts from the North aim to conquer our cities and the Scoti from Hibernia are eager to turn us into their slaves. Listen to our plea, Ambrosius, and save us from our enemies. Rome might have abandoned us, but we still hold her dearly in our hearts.\
+#  ^\
+#  ^The Romano-Briton start is challenging because you will start at war with several enemies at the same time. They are all weaker and smaller than you, but they can hurt you badly if you don't manage the conflict in the right way. To make things worse, the germanic holdings are still mostly beyond and sea and to reach them will require time and vassals willing to follow you in long distance conflicts.\
+#  ^Your army is organised according to roman fashion, but you don't have neither the infrastructures nor the wealth to arm and train them the same way Ravenna and Constantinople did. However, you won't lack elite units and good mounted troops as well as regional auxiliary units to support you and it is possible your economy will be good enough to sustain your army.\
+#  ^Make sure, however, to reconquer the settlements lost to the Germans on the coast: from there they will have hard times campaigning in Britannia and you will be finally safe.\
+#  ^\
+#  ^Difficulty: Medium\
+#  ^\
+#  ^Starting allies: None\
+#  ^\
+#  ^Starting enemies: Saxons, Jutes, Angles, Frisians, Picts, Scoti",
+#  "none",
+#  [(set_background_mesh, "mesh_pic_roman_start"),],
+#  [
+#   ("go_reign",[],"Continue",[(assign, "$jugador_rey", 10),(call_script, "script_player_is_king", "fac_kingdom_13"),(change_screen_return),]),     
+#   ("go_back",[],"Go back.",[(jump_to_menu,"mnu_start_king_1"),]),
+#  ]
+#  ), 
 
-#start as lord
-  ("start_lord_1",mnf_disable_all_keys,
-   "Select a culture group.",
-   "none",
-   [(set_background_mesh, "mesh_pic_intro"),],
-   [
-  ("choice_roman",[],"Roman",[(jump_to_menu,"mnu_start_lord_romans"),]),
-  ("choice_germanic",[],"Germanic",[(jump_to_menu,"mnu_start_lord_germanic"),]),
-  ("choice_others",[],"Others",[(jump_to_menu,"mnu_start_lord_eastern"),]),
-  ("go_back",[],"Go back",[(jump_to_menu,"mnu_start_game_0"),]),
-    ]
-  ),
+# #start as lord
+#   ("start_lord_1",mnf_disable_all_keys,
+#    "Select a culture group.",
+#    "none",
+#    [(set_background_mesh, "mesh_pic_intro"),],
+#    [
+#   ("choice_roman",[],"Roman",[(jump_to_menu,"mnu_start_lord_romans"),]),
+#   ("choice_germanic",[],"Germanic",[(jump_to_menu,"mnu_start_lord_germanic"),]),
+#   ("choice_others",[],"Others",[(jump_to_menu,"mnu_start_lord_eastern"),]),
+#   ("go_back",[],"Go back",[(jump_to_menu,"mnu_start_game_0"),]),
+#     ]
+#   ),
   
-  ("start_lord_romans",mnf_disable_all_keys,
-   "Select a faction to join.",
-   "none",
-   [(set_background_mesh, "mesh_pic_intro"),],
-   [
-  ("menu_wre_lord",[],"Western Roman Empire",[(assign, "$jugador_lord", 1),(call_script, "script_player_is_lord"),(change_screen_return),]),
-  ("menu_ere_lord",[],"Eastern Roman Empire",[(assign, "$jugador_lord", 2),(call_script, "script_player_is_lord"),(change_screen_return),]),   
-  ("menu_briton_lord",[],"Romano-Britons",[(assign, "$jugador_lord", 13),(call_script, "script_player_is_lord"),(change_screen_return),]),
-  ("menu_mauri_lord",[],"Romano-Mauri",[(assign, "$jugador_lord", 18),(call_script, "script_player_is_lord"),(change_screen_return),]),
-  ("go_back",[],"Go back",[(jump_to_menu,"mnu_start_lord_1"),]),
-    ]
-  ),
+#   ("start_lord_romans",mnf_disable_all_keys,
+#    "Select a faction to join.",
+#    "none",
+#    [(set_background_mesh, "mesh_pic_intro"),],
+#    [
+#   ("menu_wre_lord",[],"Western Roman Empire",[(assign, "$jugador_lord", 1),(call_script, "script_player_is_lord"),(change_screen_return),]),
+#   ("menu_ere_lord",[],"Eastern Roman Empire",[(assign, "$jugador_lord", 2),(call_script, "script_player_is_lord"),(change_screen_return),]),   
+#   ("menu_briton_lord",[],"Romano-Britons",[(assign, "$jugador_lord", 13),(call_script, "script_player_is_lord"),(change_screen_return),]),
+#   ("menu_mauri_lord",[],"Romano-Mauri",[(assign, "$jugador_lord", 18),(call_script, "script_player_is_lord"),(change_screen_return),]),
+#   ("go_back",[],"Go back",[(jump_to_menu,"mnu_start_lord_1"),]),
+#     ]
+#   ),
 
-  ("start_lord_germanic",mnf_disable_all_keys,
-   "Select a faction to join.",
-   "none",
-   [(set_background_mesh, "mesh_pic_intro"),],
-   [ 
-  ("menu_visigoth_lord",[],"Visigoths",[(assign, "$jugador_lord", 3),(call_script, "script_player_is_lord"),(change_screen_return),]),    
-  ("menu_ostrogoth_lord",[],"Ostrogoths",[(assign, "$jugador_lord", 4),(call_script, "script_player_is_lord"),(change_screen_return),]),
-  ("menu_frankish_lord",[],"Salian Franks",[(assign, "$jugador_lord", 7),(call_script, "script_player_is_lord"),(change_screen_return),]),
-  ("menu_suebi_lord",[],"Suebi",[(assign, "$jugador_lord", 8),(call_script, "script_player_is_lord"),(change_screen_return),]),
-  ("menu_gepid_lord",[],"Gepids",[(assign, "$jugador_lord", 11),(call_script, "script_player_is_lord"),(change_screen_return),]),
-  ("menu_saxon_lord",[],"Saxons",[(assign, "$jugador_lord", 12),(call_script, "script_player_is_lord"),(change_screen_return),]),
-  ("menu_vandal_lord",[],"Vandals",[(assign, "$jugador_lord", 14),(call_script, "script_player_is_lord"),(change_screen_return),]),
-  ("menu_lombard_lord",[],"Langobards",[(assign, "$jugador_lord", 16),(call_script, "script_player_is_lord"),(change_screen_return),]),
-  ("go_back",[],"Go back",[(jump_to_menu,"mnu_start_lord_1"),]),
-    ]
-  ),
+#   ("start_lord_germanic",mnf_disable_all_keys,
+#    "Select a faction to join.",
+#    "none",
+#    [(set_background_mesh, "mesh_pic_intro"),],
+#    [ 
+#   ("menu_visigoth_lord",[],"Visigoths",[(assign, "$jugador_lord", 3),(call_script, "script_player_is_lord"),(change_screen_return),]),    
+#   ("menu_ostrogoth_lord",[],"Ostrogoths",[(assign, "$jugador_lord", 4),(call_script, "script_player_is_lord"),(change_screen_return),]),
+#   ("menu_frankish_lord",[],"Salian Franks",[(assign, "$jugador_lord", 7),(call_script, "script_player_is_lord"),(change_screen_return),]),
+#   ("menu_suebi_lord",[],"Suebi",[(assign, "$jugador_lord", 8),(call_script, "script_player_is_lord"),(change_screen_return),]),
+#   ("menu_gepid_lord",[],"Gepids",[(assign, "$jugador_lord", 11),(call_script, "script_player_is_lord"),(change_screen_return),]),
+#   ("menu_saxon_lord",[],"Saxons",[(assign, "$jugador_lord", 12),(call_script, "script_player_is_lord"),(change_screen_return),]),
+#   ("menu_vandal_lord",[],"Vandals",[(assign, "$jugador_lord", 14),(call_script, "script_player_is_lord"),(change_screen_return),]),
+#   ("menu_lombard_lord",[],"Langobards",[(assign, "$jugador_lord", 16),(call_script, "script_player_is_lord"),(change_screen_return),]),
+#   ("go_back",[],"Go back",[(jump_to_menu,"mnu_start_lord_1"),]),
+#     ]
+#   ),
 
-  ("start_lord_eastern",mnf_disable_all_keys,
-   "Select a faction to join.",
-   "none",
-   [(set_background_mesh, "mesh_pic_intro"),],
-   [
-  ("menu_pictish_lord",[],"Picts",[(assign, "$jugador_lord", 5),(call_script, "script_player_is_lord"),(change_screen_return),]),
-  ("menu_sassanid_lord",[],"Sassanid",[(assign, "$jugador_lord", 6),(call_script, "script_player_is_lord"),(change_screen_return),]),
-  ("menu_iberian_lord",[],"Caucasian Iberians",[(assign, "$jugador_lord", 15),(call_script, "script_player_is_lord"),(change_screen_return),]),
-  ("menu_hun_lord",[],"Huns",[(assign, "$jugador_lord", 19),(call_script, "script_player_is_lord"),(change_screen_return),]),
-  ("menu_lazikan_lord",[],"Lazika",[(assign, "$jugador_lord", 20),(call_script, "script_player_is_lord"),(change_screen_return),]),
-  ("menu_alan_lord",[],"Alania",[(assign, "$jugador_lord", 21),(call_script, "script_player_is_lord"),(change_screen_return),]),
-  ("go_back",[],"Go back",[(jump_to_menu,"mnu_start_lord_1"),]),
-    ]
-  ),
+#   ("start_lord_eastern",mnf_disable_all_keys,
+#    "Select a faction to join.",
+#    "none",
+#    [(set_background_mesh, "mesh_pic_intro"),],
+#    [
+#   ("menu_pictish_lord",[],"Picts",[(assign, "$jugador_lord", 5),(call_script, "script_player_is_lord"),(change_screen_return),]),
+#   ("menu_sassanid_lord",[],"Sassanid",[(assign, "$jugador_lord", 6),(call_script, "script_player_is_lord"),(change_screen_return),]),
+#   ("menu_iberian_lord",[],"Caucasian Iberians",[(assign, "$jugador_lord", 15),(call_script, "script_player_is_lord"),(change_screen_return),]),
+#   ("menu_hun_lord",[],"Huns",[(assign, "$jugador_lord", 19),(call_script, "script_player_is_lord"),(change_screen_return),]),
+#   ("menu_lazikan_lord",[],"Lazika",[(assign, "$jugador_lord", 20),(call_script, "script_player_is_lord"),(change_screen_return),]),
+#   ("menu_alan_lord",[],"Alania",[(assign, "$jugador_lord", 21),(call_script, "script_player_is_lord"),(change_screen_return),]),
+#   ("go_back",[],"Go back",[(jump_to_menu,"mnu_start_lord_1"),]),
+#     ]
+#   ),
 
   ( "holy_lance_messenger",menu_text_color(0xFF000000)|mnf_disable_all_keys,
     "A messenger approaches, galloping. He stops in front of you, takes a breath and shouts:^^" +

@@ -23013,7 +23013,7 @@ mission_templates = [
   ),
 
 
-  ( "noricum_battle",mtf_battle_mode|mtf_synch_inventory,charge,
+("noricum_battle",mtf_battle_mode|mtf_synch_inventory,charge,
     "You lead your men to battle.",
     [
      (1,mtef_defenders|mtef_team_0,0,aif_start_alarmed,65,[]),
@@ -23071,21 +23071,7 @@ mission_templates = [
         (call_script, "script_apply_death_effect_on_courage_scores", ":dead_agent_no", ":killer_agent_no"),
        ]),
 
-      common_battle_tab_press,
       immersive_troops,
-
-      (ti_question_answered, 0, 0, [],
-       [(store_trigger_param_1,":answer"),
-        (eq,":answer",0),
-        (assign, "$pin_player_fallen", 0),
-        (try_begin),
-          (store_mission_timer_a, ":elapsed_time"),
-          (gt, ":elapsed_time", 20),
-          (str_store_string, s5, "str_retreat"),
-          (call_script, "script_simulate_retreat", 10, 20, 1),
-        (try_end),
-        (call_script, "script_count_mission_casualties_from_agents"),
-        (finish_mission,0),]),
 
       (ti_before_mission_start, 0, 0, [],
        [
@@ -23161,8 +23147,10 @@ mission_templates = [
                  (lt,":num_attackers",6)],
            [(add_reinforcements_to_entry,3,7),(val_add,"$attacker_reinforcement_stage",1)]),
 
-      #common_battle_check_victory_condition,
-      #common_battle_victory_display,
+      (ti_tab_pressed, 0, 0, [],
+        [
+          (display_message,"str_cannot_leave_now"),
+      ]),
 
       (1, 4, ti_once,
         [

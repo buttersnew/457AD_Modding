@@ -6809,16 +6809,6 @@ simple_triggers = [
   
   #+freelancer end  
 
-## CCP 1.1+ ##
-# TRIGGER: Warband 1.151 workaround to prompt a player without a banner to pick one post character creation.
-(1,
-  [
-    (map_free),
-    (eq, "$player_needs_a_banner", 1),
-    (assign, "$player_needs_a_banner", 0),
-    (start_presentation, "prsnt_banner_selection"),
-  ]),
-## CCP 1.1- ##
  #simple trigger that checks if player has enough renown to start quest or not, as well as place quest starter NPC is specific tavern
   #spawns the unqiue hordes
   (72,

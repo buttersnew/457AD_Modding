@@ -189,8 +189,8 @@ scenes = [
 
 #REGIONAL MAPS
 
- ("sea_battle_mediterranean", sf_generate, "none", "none", (0, 0), (100, 100), -0.5, "0x00000001300000000005194a000041ef00005ae800003c55 ",[], [], "outer_terrain_beach_med"),
- ("sea_battle_north_europe", sf_generate, "none", "none", (0, 0), (100, 100), -0.5, "0x00000001300000000005194a000041ef00005ae800003c55 ",[], [], "outer_terrain_beach"),
+ ("sea_battle_mediterranean", sf_generate, "none", "none", (0, 0), (100, 100), -0.5, "0x00000001300000000005194a000041ef00005ae800003c55 ",[], [], "outer_terrain_beach_rotated"),
+ ("sea_battle_north_europe", sf_generate, "none", "none", (0, 0), (100, 100), -0.5, "0x00000001300000000005194a000041ef00005ae800003c55 ",[], [], "outer_terrain_beach_rotated"),
  
  ("forest_battle_plain_roman", sf_generate, "none", "none", (0, 0), (100, 100), -0.5, "0x00000001300000000005194a000041ef00005ae800003c55 ",[], [], "outer_terrain_forest"),
 

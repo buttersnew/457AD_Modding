@@ -21626,5 +21626,461 @@ presentations = [
     # ]),        
 ]),        
 
+("select_king", 0, 0, [
+    (ti_on_presentation_load,
+      [
+    (presentation_set_duration, 999999),
+    (set_fixed_point_multiplier, 1000),
+    
+    (try_for_range, ":slot", trp_temp_array_a, 1, 30),
+        (troop_set_slot, "trp_temp_array_a", ":slot", -1),
+        (troop_set_slot, "trp_temp_array_b", ":slot", -1),
+    (try_end),
 
-  ]
+    (troop_set_slot, "trp_temp_array_a", 1, "fac_kingdom_1"),
+    (troop_set_slot, "trp_temp_array_a", 2, "fac_kingdom_2"),
+    (troop_set_slot, "trp_temp_array_a", 3, "fac_kingdom_3"),
+    (troop_set_slot, "trp_temp_array_a", 4, "fac_kingdom_4"),
+    (troop_set_slot, "trp_temp_array_a", 5, "fac_kingdom_7"),
+    (troop_set_slot, "trp_temp_array_a", 6, "fac_kingdom_6"),
+    (troop_set_slot, "trp_temp_array_a", 7, "fac_kingdom_15"),
+    (troop_set_slot, "trp_temp_array_a", 8, "fac_kingdom_16"),
+    (troop_set_slot, "trp_temp_array_a", 9, "fac_kingdom_23"),
+    (troop_set_slot, "trp_temp_array_a", 10, "fac_kingdom_13"),
+
+    #init variables
+    (assign, ":num_lords", 0),
+    (try_for_range, ":slot", 1, 30),
+        (troop_slot_ge, "trp_temp_array_a", ":slot", kingdoms_begin),
+        (val_add, ":num_lords", 1),
+    (try_end),
+    
+    # #0. BACKROUND
+    (create_mesh_overlay, reg0, "mesh_load_window"),
+    (position_set_x, pos1, -1),
+    (position_set_y, pos1, -1),
+    (overlay_set_position, reg0, pos1),
+    (position_set_x, pos1, 1002),
+    (position_set_y, pos1, 1002),
+    (overlay_set_size, reg0, pos1),
+    
+    (try_begin),
+        (gt, "$temp_troop", -1),
+
+        (create_text_overlay, reg1, "@Selected Ruler:", 0),
+        (position_set_x, pos1, 25),
+        (position_set_y, pos1, 720),
+        (overlay_set_position, reg1, pos1),
+        # (overlay_set_color, reg1, 0x00007F),
+        (position_set_x, pos1, 900),
+        (position_set_y, pos1, 900),
+        (overlay_set_size, reg1, pos1),
+
+        (create_mesh_overlay_with_tableau_material, reg0, -1, "tableau_troop_note_mesh", "$temp_troop"),
+        (position_set_x, pos1, 10),
+        (position_set_y, pos1, 540),
+        (overlay_set_position, reg0, pos1),
+        (position_set_x, pos1, 500),
+        (position_set_y, pos1, 500),
+        (overlay_set_size, reg0, pos1),
+
+        (store_add, ":string", "$jugador_rey", "str_wre_description"),
+        (val_sub, ":string", 1),
+        (str_store_string, s0, ":string"),
+        (create_text_overlay, reg1, s0, tf_scrollable_style_2),
+        (position_set_x, pos1, 535),
+        (position_set_y, pos1, 50),
+        (overlay_set_position, reg1, pos1),
+
+        (position_set_x, pos1, 415),
+        (position_set_y, pos1, 450),
+        (overlay_set_area_size, reg1, pos1),
+        (set_container_overlay, reg1),
+        (set_container_overlay, -1),
+
+        #statistics
+        (create_text_overlay, reg1, "@Settlement", 0),
+        (position_set_x, pos1, 1000),
+        (position_set_y, pos1, 1000),
+        (overlay_set_size, reg1, pos1), 
+        (position_set_x, pos1, 295), # Higher, means more toward the right
+        (position_set_y, pos1, 725), # Higher, means more toward the top
+        (overlay_set_position, reg1, pos1),
+
+        (create_text_overlay, reg1, "@Type", 0),
+        (position_set_x, pos1, 1000),
+        (position_set_y, pos1, 1000),
+        (overlay_set_size, reg1, pos1), 
+        (position_set_x, pos1, 270+180), # Higher, means more toward the right
+        (position_set_y, pos1, 725), # Higher, means more toward the top
+        (overlay_set_position, reg1, pos1),
+
+        (create_text_overlay, reg1, "@Garrison", 0),
+        (position_set_x, pos1, 1000),
+        (position_set_y, pos1, 1000),
+        (overlay_set_size, reg1, pos1), 
+        (position_set_x, pos1, 270+250), # Higher, means more toward the right
+        (position_set_y, pos1, 725), # Higher, means more toward the top
+        (overlay_set_position, reg1, pos1),
+
+        (create_text_overlay, reg1, "@Wealth", 0),
+        (position_set_x, pos1, 1000),
+        (position_set_y, pos1, 1000),
+        (overlay_set_size, reg1, pos1), 
+        (position_set_x, pos1, 270+310), # Higher, means more toward the right
+        (position_set_y, pos1, 725), # Higher, means more toward the top
+        (overlay_set_position, reg1, pos1),
+
+        (str_clear, s0),
+        (create_text_overlay, reg1, s0, tf_scrollable_style_2),
+        (position_set_x, pos1, 270),
+        (position_set_y, pos1, 550),
+        (overlay_set_position, reg1, pos1),
+        (position_set_x, pos1, 360),
+        (position_set_y, pos1, 150),
+        (overlay_set_area_size, reg1, pos1),
+        (set_container_overlay, reg1),
+
+        #get number of lines
+        (assign, ":line_number", 0),
+        (try_for_range, ":towns", walled_centers_begin, walled_centers_end),
+            (store_faction_of_party, ":faction", ":towns"),
+            (faction_slot_eq, ":faction", slot_faction_leader, "$temp_troop"),
+            (val_add, ":line_number", 1),
+        (try_end),
+        (val_sub, ":line_number", 1),
+        (store_mul, ":cur_y", ":line_number", 27),
+
+        (try_for_range, ":towns", walled_centers_begin, walled_centers_end),
+            (store_faction_of_party, ":faction", ":towns"),
+            (faction_slot_eq, ":faction", slot_faction_leader, "$temp_troop"),
+            (str_store_party_name, s1, ":towns"),
+
+            (create_text_overlay, reg1, "@{s1}", 0),
+            (position_set_x, pos1, 900),
+            (position_set_y, pos1, 900),
+            (overlay_set_size, reg1, pos1),
+            (position_set_x, pos1, 25),
+            (position_set_y, pos1, ":cur_y"),
+            (overlay_set_position, reg1, pos1),
+
+            (try_begin),
+                (is_between, ":towns", castles_begin, castles_end),
+                (str_store_string, s1, "@Fortress"),
+            (else_try),
+                (str_store_string, s1, "@Town"),
+            (try_end),
+            (create_text_overlay, reg1, "@{s1}", 0),
+            (position_set_x, pos1, 900),
+            (position_set_y, pos1, 900),
+            (overlay_set_size, reg1, pos1),
+            (position_set_x, pos1, 180),
+            (position_set_y, pos1, ":cur_y"),
+            (overlay_set_position, reg1, pos1),
+
+            (store_party_size, reg0, ":towns"),
+            (create_text_overlay, reg1, "@{reg0}", 0),
+            (position_set_x, pos1, 900),
+            (position_set_y, pos1, 900),
+            (overlay_set_size, reg1, pos1),
+            (position_set_x, pos1, 250),
+            (position_set_y, pos1, ":cur_y"),
+            (overlay_set_position, reg1, pos1),
+
+            (party_get_slot, reg0, ":towns", slot_center_capital),
+            (create_text_overlay, reg1, "@{reg0}", 0),
+            (position_set_x, pos1, 900),
+            (position_set_y, pos1, 900),
+            (overlay_set_size, reg1, pos1),
+            (position_set_x, pos1, 310),
+            (position_set_y, pos1, ":cur_y"),
+            (overlay_set_position, reg1, pos1),
+
+            (val_sub, ":cur_y", 27),
+        (try_end),
+        (set_container_overlay, -1),
+
+        #statistics
+        (create_text_overlay, reg1, "@Total", 0),
+        (position_set_x, pos1, 1000),
+        (position_set_y, pos1, 1000),
+        (overlay_set_size, reg1, pos1), 
+        (position_set_x, pos1, 295+375), # Higher, means more toward the right
+        (position_set_y, pos1, 725), # Higher, means more toward the top
+        (overlay_set_position, reg1, pos1),
+
+        (str_clear, s0),
+        (create_text_overlay, reg1, s0, tf_scrollable_style_2),
+        (position_set_x, pos1, 270+375),
+        (position_set_y, pos1, 550),
+        (overlay_set_position, reg1, pos1),
+        (position_set_x, pos1, 360),
+        (position_set_y, pos1, 150),
+        (overlay_set_area_size, reg1, pos1),
+        (set_container_overlay, reg1),
+
+        #get number of lines
+        (assign, ":line_number", 1+1+1+1-1),
+        (store_mul, ":cur_y", ":line_number", 27),
+
+        (assign, ":total_wealth", 0),
+        (assign, ":total_garrison", 0),
+        (try_for_range, ":towns", centers_begin, centers_end),
+            (store_faction_of_party, ":faction", ":towns"),
+            (faction_slot_eq, ":faction", slot_faction_leader, "$temp_troop"),
+            (party_get_slot, reg0, ":towns", slot_center_capital),
+            (val_add, ":total_wealth", reg0),
+            (try_begin),
+                (is_between, ":towns", walled_centers_begin, walled_centers_end),
+                (store_party_size_wo_prisoners, reg0, ":towns"),
+                (val_add, ":total_garrison", reg0),
+            (try_end),
+        (try_end),
+        (assign, ":total_lords", 0),
+        (assign, ":total_army", 0),
+        (try_for_range, ":lords", active_npcs_begin, active_npcs_end),
+            (troop_slot_eq, ":lords", slot_troop_occupation, slto_kingdom_hero),
+            (store_faction_of_troop, ":faction", ":lords"),
+            (faction_slot_eq, ":faction", slot_faction_leader, "$temp_troop"),
+            (val_add, ":total_lords", 1),
+            (troop_get_slot, ":leaded_party", ":lords", slot_troop_leaded_party),
+            (party_is_active, ":leaded_party"),
+            (store_party_size_wo_prisoners, reg0, ":leaded_party"),
+            (val_add, ":total_army", reg0),
+        (try_end),
+
+        (create_text_overlay, reg1, "@Wealth", 0),
+        (position_set_x, pos1, 900),
+        (position_set_y, pos1, 900),
+        (overlay_set_size, reg1, pos1),
+        (position_set_x, pos1, 25),
+        (position_set_y, pos1, ":cur_y"),
+        (overlay_set_position, reg1, pos1),
+
+        (assign, reg0, ":total_wealth"),
+        (create_text_overlay, reg1, "@{reg0}", 0),
+        (position_set_x, pos1, 900),
+        (position_set_y, pos1, 900),
+        (overlay_set_size, reg1, pos1),
+        (position_set_x, pos1, 180),
+        (position_set_y, pos1, ":cur_y"),
+        (overlay_set_position, reg1, pos1),
+
+        (val_sub, ":cur_y", 27),
+
+        (create_text_overlay, reg1, "@Garrison size", 0),
+        (position_set_x, pos1, 900),
+        (position_set_y, pos1, 900),
+        (overlay_set_size, reg1, pos1),
+        (position_set_x, pos1, 25),
+        (position_set_y, pos1, ":cur_y"),
+        (overlay_set_position, reg1, pos1),
+
+        (assign, reg0, ":total_garrison"),
+        (create_text_overlay, reg1, "@{reg0}", 0),
+        (position_set_x, pos1, 900),
+        (position_set_y, pos1, 900),
+        (overlay_set_size, reg1, pos1),
+        (position_set_x, pos1, 180),
+        (position_set_y, pos1, ":cur_y"),
+        (overlay_set_position, reg1, pos1),
+
+        (val_sub, ":cur_y", 27),
+
+        (create_text_overlay, reg1, "@Army size", 0),
+        (position_set_x, pos1, 900),
+        (position_set_y, pos1, 900),
+        (overlay_set_size, reg1, pos1),
+        (position_set_x, pos1, 25),
+        (position_set_y, pos1, ":cur_y"),
+        (overlay_set_position, reg1, pos1),
+
+        (assign, reg0, ":total_army"),
+        (create_text_overlay, reg1, "@{reg0}", 0),
+        (position_set_x, pos1, 900),
+        (position_set_y, pos1, 900),
+        (overlay_set_size, reg1, pos1),
+        (position_set_x, pos1, 180),
+        (position_set_y, pos1, ":cur_y"),
+        (overlay_set_position, reg1, pos1),
+
+        (val_sub, ":cur_y", 27),
+
+        (create_text_overlay, reg1, "@Number of Lords", 0),
+        (position_set_x, pos1, 900),
+        (position_set_y, pos1, 900),
+        (overlay_set_size, reg1, pos1),
+        (position_set_x, pos1, 25),
+        (position_set_y, pos1, ":cur_y"),
+        (overlay_set_position, reg1, pos1),
+
+        (assign, reg0, ":total_lords"),
+        (create_text_overlay, reg1, "@{reg0}", 0),
+        (position_set_x, pos1, 900),
+        (position_set_y, pos1, 900),
+        (overlay_set_size, reg1, pos1),
+        (position_set_x, pos1, 180),
+        (position_set_y, pos1, ":cur_y"),
+        (overlay_set_position, reg1, pos1),
+
+        (val_sub, ":cur_y", 27),
+
+        (set_container_overlay, -1),
+    (try_end),
+
+    # Back to menu - graphical button
+    (create_game_button_overlay, reg1, "@Return"),
+    (position_set_x, pos1, 300),
+    (position_set_y, pos1, 10),
+    (overlay_set_position, reg1, pos1),
+    (assign, "$g_jrider_faction_report_Return_to_menu", reg1),
+
+    # Back to menu - graphical button
+    (create_game_button_overlay, reg1, "@Continue"),
+    (position_set_x, pos1, 700),
+    (position_set_y, pos1, 10),
+    (overlay_set_position, reg1, pos1),
+    (assign, "$g_jrider_faction_filter", reg1),
+
+    ##creat a lines
+    (create_mesh_overlay, reg1, "mesh_white_plane"),
+    (overlay_set_color, reg1, 0x000000),#line color
+    (position_set_x, pos3, 200000),
+    (position_set_y, pos3, 50),
+    (overlay_set_size, reg1, pos3),
+    (position_set_x, pos3, 0),
+    (position_set_y, pos3, 530),
+    (overlay_set_position, reg1, pos3),
+
+    (create_text_overlay, reg1, "@Famous Kings and Emperors:", tf_left_align),
+    (position_set_x, pos1, 25), # Higher, means more toward the right
+    (position_set_y, pos1, 510), # Higher, means more toward the top
+    (overlay_set_position, reg1, pos1),
+    (overlay_set_color, reg1, 0x00007F),
+    (position_set_x, pos1, 900),
+    (position_set_y, pos1, 900),
+    (overlay_set_size, reg1, pos1),
+    
+    # # clear the string globals that we'll use
+    (str_clear, s0),
+    # (str_clear, s20),
+    # (str_clear, s21),
+    # (str_clear, s23),
+    # (str_clear, s24),
+    # # Scrollable area (all the next overlay will be contained in this, s0 sets the scrollbar)
+    (create_text_overlay, reg1, s0, tf_scrollable_style_2),
+    (position_set_x, pos1, 50),
+    (position_set_y, pos1, 50),
+    (overlay_set_position, reg1, pos1),
+    (position_set_x, pos1, 450),
+    (position_set_y, pos1, 450),
+    (overlay_set_area_size, reg1, pos1),
+     
+    # (position_set_x, pos1, 0),
+    (val_sub, ":num_lords", 1),
+    (store_div, ":y_name", ":num_lords", 2),##get y for size of the scrollable overlay
+    (val_mul, ":y_name", 250),
+    (assign, ":x_name", 20),
+    #text size
+    (position_set_x, pos2, 900),
+    (position_set_y, pos2, 900),
+    
+    # (assign, ":slot", 0),
+    (set_container_overlay, reg1),#start scroll    
+    (try_for_range, ":slot", 1, 30),
+        (troop_get_slot, ":faction", "trp_temp_array_a", ":slot"),
+        (gt, ":faction", -1),
+        (faction_get_slot, ":active_npc", ":faction", slot_faction_leader),
+        (is_between, ":active_npc", kings_begin, kings_end),
+        # (str_store_troop_name, s1, ":active_npc"),
+        # (assign, reg0, ":x_name"),
+        # (assign, reg1, ":y_name"),
+        # (display_message, "@{s1}: ({reg0}, {reg1})"),
+        (neq, "$temp_troop", ":active_npc"),
+        (try_begin),
+            (ge, ":x_name", 460),
+            (assign, ":x_name", 0),
+            (val_sub, ":y_name", 220),
+        (try_end),
+       
+
+        (create_mesh_overlay_with_tableau_material, reg0, -1, "tableau_troop_note_mesh", ":active_npc"),
+        (position_set_x, pos1, ":x_name"),
+        (position_set_y, pos1, ":y_name"),
+        (overlay_set_position, reg0, pos1),
+        (position_set_x, pos3, 500),
+        (position_set_y, pos3, 500),
+        (overlay_set_size, reg0, pos3),
+
+        # #creat button
+        (create_image_button_overlay, reg10, "mesh_longer_button", "mesh_longer_button"),
+        (overlay_set_position, reg10, pos1),
+        (position_set_x, pos3, 1000),
+        (position_set_y, pos3, 2000),
+        (overlay_set_size, reg10, pos3),       
+        (overlay_set_alpha, reg10, 0),
+        (overlay_set_color, reg10, 0xDDDDDD),      
+        (troop_set_slot, "trp_temp_array_b", ":slot", reg10),
+
+        (str_store_troop_name, s22, ":active_npc"),
+        (create_text_overlay, reg1, "@{s22}", tf_left_align),
+        (position_set_x, pos1, ":x_name"), 
+        (store_sub, ":y_new", ":y_name", 20),
+        (position_set_y, pos1, ":y_new"), 
+        (overlay_set_position, reg1, pos1),
+        (overlay_set_size, reg1, pos2),
+
+        (str_store_faction_name, s21, ":faction"),
+        (create_text_overlay, reg1, "@{s21}", tf_left_align),
+        (position_set_x, pos1, ":x_name"), 
+        (store_sub, ":y_new", ":y_name", 40),
+        (position_set_y, pos1, ":y_new"), 
+        (overlay_set_position, reg1, pos1),
+        (overlay_set_size, reg1, pos2),
+
+        (val_add, ":x_name", 230),
+    (try_end),
+    (set_container_overlay, -1),#end scroll
+  ]),
+   ## Check for buttonpress
+  (ti_on_presentation_event_state_change,[
+    (store_trigger_param_1, ":button_pressed_id"),
+    (try_begin),
+        (eq, ":button_pressed_id", "$g_jrider_faction_report_Return_to_menu"), # pressed  (Return to menu)
+        (jump_to_menu, "mnu_start_game_0"),
+        (presentation_set_duration, 0),
+    (else_try),
+        (assign, ":end", 30),
+        (try_for_range, ":slot", 1, ":end"),
+            (troop_slot_eq, "trp_temp_array_b", ":slot", ":button_pressed_id"),
+            (troop_get_slot, ":faction", "trp_temp_array_a", ":slot"),
+            (assign, "$jugador_rey", ":slot"),
+            (assign, ":end", -1),
+        (try_end),
+        (eq, ":end", -1),
+        (faction_get_slot, "$temp_troop", ":faction", slot_faction_leader),
+        (start_presentation, "prsnt_select_king"),
+    (else_try),
+        (eq, ":button_pressed_id", "$g_jrider_faction_filter"),
+        (store_troop_faction, ":faction", "$temp_troop"),
+        (call_script, "script_player_is_king", ":faction"),
+        (presentation_set_duration, 0),
+        (jump_to_menu, "mnu_auto_return"),
+    (try_end),
+  ]), 
+    
+  (ti_on_presentation_run, [
+    (try_begin),
+        (key_clicked, key_space),
+        (set_fixed_point_multiplier, 1000),
+        (mouse_get_position, pos31),
+
+        (position_get_x, reg31, pos31),
+        (position_get_y, reg32, pos31),
+
+        (display_message, "@X: {reg31} | Y: {reg32}"),        
+    (try_end),
+  ]),
+]),
+
+]#end of file

@@ -6369,6 +6369,166 @@ Even in the last case, the player can make formations up to four lines by orderi
 ("background_religion_coptic", "Your parents believed in Christos and in God, his powerful father. Christos preached equality and love. Yet, the Christians are quarreling about the correct understanging of Christos words and his nature. You and your parents follow the Coptic interpretation, which says that Christos is one nature from two natures: the Logos Incarnate. You never understood what this means, but you know that whatever the other Christian sects preach is wrong."),
 ("background_religion_roman_paganism", "Your parents believed in the old Roman Gods. You learned that the Gods are arbitrary and fallible as the humans are. Thus you need to make sacrifices to appease them and recieve their favor. You always listen with excitement to the old tales of the Illias and the Aeneid."),
 
+("diplo_casus_expired_reparations_accepted","In order to avoid war they decide to accept the demand. A sum of {reg40} denars has been paid as tribute."),      
+("diplo_casus_expired_reparations_refused_war","They refuse the demand and declare war!"),
+
+
+("wre_description", "Imperator Caesar Iulius Valerius Majorianus Augustus:\
+  ^\
+  ^You are Majorian, Emperor of the Pars Occidentalis, the western regions of the Roman Empire. Loyal friend of Flavius Aetius, the Roman general who saved the Empire at the Catalaunian Plains defeating Attila, you proclaimed yourself emperor after Burco, a loyal comes, defeated a group of Alamans who were raiding Liguria.\
+  ^\
+  ^With your power and your soldiers you have now the chance to reclaim the lost provinces in Gallia, Hiberia and Africa. Many lands were lost to the barbarians escaping the Huns: your predecessors failed in the quest, but now it's your turn to restore the glory of Rome. This is the last chance of the Empire, if you fail, there will be no one else to prevent some Germanic tribes, or treacherous foederatus generals, to take Ravenna, Milan or even Rome from you.\
+  ^\
+  ^\
+  ^Majorian will start at war on mutiple fronts: the Burgundians, the Visigoths and the Vandals are all hostile to your power and they occupy some of your richest regions you ought to reconquer for them. Picking Majorian's start, you will have some of the most powerful units in the entire game available in Ravenna to recruit, as well as your ordinary and efficent regular roman soldiers.\
+  ^\
+  ^Make sure to have enough gold to fill your coffers to pay your troops and make sure your many generals are happy with the land and military promotions you give them. Proceed carefully, if the germanic invaders manage to weaken you, more barbarian states will declare war on you, trying to invade Italy.\
+  ^\
+  ^Your northern provinces, controlled by Syagrius, are cut off from the main body of your controlled territories, but the Franks could be useful allies in fighting the Burgundians and reconquer the biggest chunk of Gaul. The Visigoths are indeed your toughest adversaries as they recently mangled the small Kingdom of the Suebi in northern Spain: they have no other enemy but you and the rogue bands of bagaudae raiding the mountainous regions of Northern Spain.\
+  ^\
+  ^The Vandals instead are strong in Carthage and the large amount of cities orbitating around the north-African capital allow their kingdom to store immense amounts of wealth. Although, they are being harassed by the Mauri and other tribes and might become soon an easy target. Better if to pick one enemy at once and do not waste too much manpower and wealth trying to fight them all at the same time: if taken alone, most of those post-roman barbarian kingdoms will be no match for you.\
+  ^\
+  ^Difficulty: Easy\
+  ^\
+  ^Starting allies: Salian Franks (tributaries)\
+  ^\
+  ^Starting enemies: Kingdom of the Visigoths, Kingdom of the Burgundians, Kingdom of the Vandals"),
+
+("ere_description","Imperator Caesar Flavius Valerius Leo Augustus:\
+  ^\
+  ^You are Leo the First, Emperor of the East and you rule from the mighty and new city of Constantinople, built by the old Emperor himself. The old Aspar believed himself to be the brightest, he was convinced he would have been your master once you became Emperor. Pah! You're better than that, you outsmart him and all the other generals in tactical thought and wisdom... And I do believe it's time to show him who is the true Emperor of the Pars Orientalis.\
+  ^However, your internal threats aren't the only enemies you're going to face: the situation in your eastern provinces is worrisome. The King of Kings, the persian Shahanshah, is rallying his troops and is about to attack Edessa, Theodosiopolis or Damascus. Our long story of conflicts with the Persians is old and tormented, but it is finally time to put an end to this and secure our eastern borders and the Caucasus once and for all. Pay also attention to the West, Majorian might need your assistence.\
+  ^\
+  ^Unlike for the Western Roman Empire, you have one main opponent that, in turn, is way stronger than most of the barbarian kingdoms north of the Danube. Your fortresses in the East are poorly defended and your generals struggle to reach Constantinople from distant provinces such as Egypt. Plan your campaigns carefully and protect your allies, such as the Kingdom of Lazika, from the hordes of the steppes.\
+  ^In Egypt, furthermore, the myaphisite subjects of the Empire are upset with your rule and might revolt soon, this might keep some of your generals busy in the south and draw part of your manpower away from the Levant and Armenia. The Sasanid Empire is your equal in terms of economy and size of your army so expect large scale engagements and a long and exhausting conflict for your Eastern borders. Make sure to defeat the Persians on open field and go straight to their capital, Ctesiphon. If you manage to conquer it, the way to the East will be open to you and their other cities will fall easier than expected.\
+  ^\
+  ^Difficulty: Medium\
+  ^\
+  ^Starting allies: Kingdom of Lazika (tributaries), Tauri (tributaries)\
+  ^\
+  ^Starting enemies: Eranshar, Kingdom of Kartli, Huns"),
+
+("visigoth_description","Theodoric II, King of the Visigoths:\
+  ^\
+  ^You are Theodoric the Second, son of Theodoric the First, the great hero and martyr of the Catalaunian Plains, where he was killed by Attila's forces in battle. You do not forget the blood you shed for the Empire, nor how little they repaid your kin for your sacrifices. There isn't a single gothic male, within your domains, that do not have their knees swollen, their arms wounded and their heads damaged by spears, arrows and stones while serving Rome.\
+  ^You remember how your father lost his life fighting for Aetius! And now... Now the new Emperor, Majorian, is coming to reclaim the lands rightfully given to you for your people to settle! You can't tolerate this injustice. You will break Majorian, as you just did with the Suebi in Iberia..\
+  ^\
+  ^Theodoric the Second benefits from one of the best starts among the barbarian kingdoms in Europe. He has a large domain, comprised of Aquitania and almost whole of Iberia and is at the head of a powerful army. In Tolosa you will have the chance to recruit the Gardingi, one of the strongest cavalry units in the game, as well as your regular gothic troops and indigenous iberian allies.\
+  ^Beware Majorian, the Roman Empire is way stronger than you and their armies more professional and better armed: make sure to lay a trap for them and fight them only in tactical advantage or numerical superiority, such as near your cities.\
+  ^Make sure to get all the support you can from the Burgundians: the Vandals will hardly help as they are far and already fighting the Mauri. Also, pay a closer look to the Suebi. If Majorian manages to weaken you, they might declare war on you to reclaim their lost land in Spain.\
+  ^\
+  ^Difficulty: Hard\
+  ^\
+  ^Starting allies: Kingdom of the Burgundians\
+  ^\
+  ^Starting enemies: Imperium Romanorum Pars Occidentalis"),
+
+("ostrogoth_description","Valamir, King of the Ostrogoths:\
+  ^\
+  ^You are Valamir, king of the Eastern Goths, ruler of the Feld, the great plains of the Danube river. Your prowess is known far and wide as you helped your brothers Gepids in freeing your peoples from the yoke of the Huns, few years back. Now you are free, and with many opportunities in front.\
+  ^First of all, secure your domains in the great plains of the Danube: the tribes of the Skirii, Heruli, Rugii and the Sarmatians fear you and might attack you soon as members of a newborn, anti-gothic, coalition. The two new emperors, Majorian and Leo, are far and busy with their own fights, but if they will ever stregthen their position be sure: they will come for you. King of the Eastern Goths, saddle your horses and grab your spear, there is much to be done.\
+  ^\
+  ^Valamis is at the head of the strongest faction in the Danube area, if we do not count the Eastern Roman Empire. This is an interesting start as it allows you to expand quickly against the smaller tribes of Eastern Germans living along the great river. However, beware: your many vassals serving you might soon turn unhappy if you don't grant them land so be quick, strike first, strike hard and force them into obedience.\
+  ^You have acess to good quality horsemen and a good number of pannonian Huns that settled there during the time of Attila. This gives you a tactical advantage against your neighbours, make sure to use your army at the best of their possibilities and expand your realm to provide a large income for your tribe.\
+  ^\
+  ^Difficulty: Medium\
+  ^\
+  ^Starting allies: None\
+  ^\
+  ^Starting enemies: None"),
+
+("franks_description","Childeric, King of the Salian Franks:\
+  ^\
+  ^You are Childeric, king of the Salian Franks. Your dinasty is destined to greatness: you arose from the dark forests of Germania and befriended the Romans that respect you and value you as great allies at the border of Gallia. Your kin valiantly helped against Attila, few years before at the battle of the Catalaunian plains, and now again are called to help the Romans in their struggle as the new emperor, Majorian, is in peril due to the many tribes that swathe through Gaul the years before.\
+  ^Mayhaps, in this time of confusion, it will be the time to outshine your ancestors, unite the Frankish tribes and expand your domains at the expense of the other nations surrounding you. The Franks ought to rule, and so they shall.\
+  ^\
+  ^The Frankish start is, again, a good germanic start for those who seek an interesting challenge without exhausting confrontations against bigger enemies. You will start tied to Majorian's diplomatic stances, but you will soon be able to field a large army to conquer the Ripuarian Franks, subjugate the Frisians and confront both Saxons and Alamans in their own turf.\
+  ^Use the first stages of the conflicts against the Burgundians and the Visigoths, while helping Rome, to forge your veteran army and amass spoil of wars as the campaigns you will be engaged in after are going to be wealth consuming. Your army is indeed balanced, as you have acess to a good western germanic roster and quality regional troops as well as the famous Antrustiones. \
+  ^\
+  ^Difficulty: Medium\
+  ^\
+  ^Starting allies: Imperium Romanorum Pars Occidentalis\
+  ^\
+  ^Starting enemies: Visigoths, Burgundians."),
+
+("sassanid_description","Hormizd III, Shahanshah of the Sassanid Empire:\
+ ^\
+ ^Oh great Shahansha, Hormizd the Third, your power outshines all the other monarchs and your glory is known from Hrwm to Qin. There is no greater empire than yours and no braver warriors than your soldiers. Your many subjects acclaim your power while your enemies fear you, such as the 'Emperor' from Constantinople.\
+ ^In the past, when your family was finally recognised as the supreme authority in the realm, the men from the West tried to crush your forces many times but at the end you always managed to prevail. Now, it is finally time to turn your glare West, towards their rich cities and wealthy lands.\
+ ^At the same time, it is of outmost importance to regain the lost provinces in the East, captured by the Xun decades before, such as Sogdia or the lands of the Kusans. Your fate is to rule the Earth, oh King of Kings, and with your supreme authority lead our through struggles and victories.\
+ ^\
+ ^The Sasanid start mirrors the Eastern Roman one. You have one main enemy (untill we add the Iranian Huns next update) that has, more or less, your same power and wealth as well as a strong tributary kingdom in the Caucasus. Your strategy is, of course, to rule in the Levant and in Egypt, taking those lands from the Romans. To do that, you will need your vassals to help you as well the ability to make them support you on large scale campaigns.\
+ ^You start with a good economy and with excellent troops recruitable in your cities. Make large use of your horsemen, as the Romans beat you in infantry engagement, and you will make sure to have a great advantage against them. Furthermore, by increasing your piety and relationship with the zoroastrian world, you will be rewarded with champions heavily armed and recruitable in zoroastrian temples.\
+ ^\
+ ^Difficulty: Easy\
+ ^\
+ ^Starting allies: Kingdom of Kartli (tributaries)\
+ ^\
+ ^Starting enemies: Imperium Romanorum Pars Orientalis, Kingdom of Lazika"),
+
+("vandal_description","Gaiseric, King of the Vandals and Alans:\
+ ^\
+ ^Great King Gaiseric! You, that led us across the pillars of Hercules and gave us a new home: Carthage! The great city of these seas. Locals told us this city was once a great enemy of Rome. Ah, the irony! As now it belongs to us, for whom the eternal city should be turned into ashes. Gaiseric, your realm couldn't be more prosperous: our lands are rich and the other nations pay us well for the wheat our subjects produce! However, the new emperor, Majorian, eyes our golden shores with envy.\
+ ^He wants to reconquer Africa and steal it from our very own hands! This cannot be. And what can we say about the Mauri from Altava? Those folks think they can have it all. No. They won't have nothing. The Vandals and the Alans will prevail once more and we will make the Mauri and the Romans bend to our knee. You have the power to do it, king Gaiseric.\
+ ^\
+ ^The Vandal start is challenging and not adviced for beginners. The Vandals begin with a strong faction and rich fiefs, they have a decent army and a large income that can support a good retinue. However, they immediatly start at war with two factions: the Romano-Mauri of the Kingdom of Altava, which are very close to your faction, and the Western Roman Empire led by Majorian.\
+ ^They're both strong opponents, with the Romans being largely superior to you in wealth and power. There are also some minor tribes south of Libya and a rogue band of Austurian kidnapping your peasant parties in Numidia.\
+ ^All these things make the Vandal start a quite challenging one. Your best tactic is to immediatly weaken the Romano-Mauri and hope Majorian will delay his campaign to focus on the Visigoths and the Burgundians north. If you manage to reunite North-Africa under a single banner or have the Romano-Mauri become your tributaries, you will  have a chance to resist against Majorian. However, it is no easy businness and will require a campaign of exhausting fights.\
+ ^\
+ ^Difficulty: Hard\
+ ^\
+ ^Starting allies: None\
+ ^\
+ ^Starting enemies: Imperium Romanorum Pars Occidentalis, Kingdom of Altava, Austuriani"),
+
+("iberian_description","Vakhtang, King of the Iberians:\
+ ^\
+ ^You are King Vakhtang, the supreme ruler of Kartli, Iberia in western chronicles. Your family has come from Persia ages ago to rule over the vast lands at the feet of the Caucasus mountains... And they did wonders! Your realm is rich, but surrounded by daring wolves. The Sasanids claim they have authority over your realm and we, sadly, are still too strong to face them. But this will change soon.\
+ ^They are too focused to fight the Romans to care about us... And when the time will come, we will strike. The Kingdom of Lazika, west, rules over lands that are rightfully ours. We have to rally our army and show them who's stronger.\
+ ^North of our towns live the Alans and the barbarians of the mountains, as well as the Huns: we have to pay attention to those nations as they are used to raid our settlements at summer. In time, Kartli will rise and you, King Vakhtang, will be the uncontested ruler of the Caucasus.\
+ ^\
+ ^Kartli starts as a vassal state of the Sasanids. Your diplomacy is strictly tied to the Shahanshah's decision and therefore you will start at war with both the Romans and Lazika. It's your chance to expand west and claim the Kingdom of Lazika for your own.\
+ ^However, beware: Lazika is in decline but they can still field a strong army and are defended by their barbarian clientes in the North, such as the Abasgoi, and of course the Romans who keep Lazika as their tributary state. Your roster is solid, but your economy is not.\
+ ^Make sure to amass wealth and gold before assaulting the cities in the Colchis. Once secured the Kingdom of Lazika, you will get the chance to look North, in the lands of the Alans. They have been severely weakened by the arrival of the Huns one century before and now live at the feet of the mountains pressured by more hordes North.\
+ ^One thing you have to avoid: do not anger the Sasanids as they are far stronger than you and you will need the whole Caucasus on your side to be able to resist them.\
+ ^\
+ ^Difficulty: Medium\
+ ^\
+ ^Starting allies: Eranshar (you are their tributaries)\
+ ^\
+ ^Starting enemies: Kingdom of Lazika, Imperium Romanorum Pars Orientalis"),
+
+("hun_description","Dengizich, King of the Huns:\
+ ^\
+ ^Dengizich, son of the Great Attila. You are the king of the Huns... But what's left of us now? When your father died, many tribes revolted and left our Empire. Our subject nations of the Gepids, Ostrogoths, Skirii and Rugii too decided to turn against you and even killed your brother! This cannot be. The world will be ruled by us and no one else.\
+ ^Dengizich, it's now or never: the time to reclaim your father's domains and to force your subjects into submission. First, the tribes that refuse to rejoin your empire need to be crushed: the Saragurs, Oghurs and Onogurs think you are weak and cannot protect them from the Sabirs. It's time to prove they're wrong.\
+ ^After them, the Gepids, west, led the coalition that defeated your brother Ellak at the battle of Nedao, where he lost his life. It's time to avenge him. And when you will finally settle all these unresolved issues with your neighboring nations there will be one left unpaid bill to solve. One with Rome and Constantinople. You will continue what your father started.\
+ ^\
+ ^The Hunni start is indeed one of the most peculiar and fun starts in the game and mixes challenges with an interesting gameplay. You start with a medium-sized faction and few tributaries, one of which is quite powerful (Alania). Around you there will be several rebel hordes you have to defeat.\
+ ^Once the rebellious hordes are dealth with you will have the chance to immediatly expand west and invade the Gepids and possibly the other small polities of the Danube basin. Once your imperium reached a certain extent, you will have the chance to engage with the Eastern Roman Empire and possibly even helps it collapse.\
+ ^However, beware: your army is diverse and full of good units, but horse archers aren't easy to use on the battlefield. Their skirmishing behavior is excellent against infantry but makes them an easy target for the enemy cavalry. Make sure to have a composite army with good footmen and heavy horsemen to help your horse archers annihilate your enemy.\
+ ^\
+ ^Difficulty: Medium/Easy\
+ ^\
+ ^Starting allies: Alania (your tributaries), Bosporan Kingdom (tributaries)\
+ ^\
+ ^Starting enemies: Imperium Romanorum Pars Orientalis, Gepids, Sabirs."),
+
+("arthus_description","Ambrosius Aurelianus, King of the Britons:\
+ ^\
+ ^Ambrosius Aurelianus, last hope of the Britons in this times of great peril. Lead us to victory against the invading forces of Saxons, Angles, Jutes and Frisians coming from the continent to burn our farms, destroy our city and settle with their most terrible kinsmen. We can't let this to happen: rally the men of Britannia and our allies and make them fight against the banner of Rome and Christ once more.\
+ ^Terrible enemies are ramming our doors, not only the Germans from beyond the sea but also the Picts from the North aim to conquer our cities and the Scoti from Hibernia are eager to turn us into their slaves. Listen to our plea, Ambrosius, and save us from our enemies. Rome might have abandoned us, but we still hold her dearly in our hearts.\
+ ^\
+ ^The Romano-Briton start is challenging because you will start at war with several enemies at the same time. They are all weaker and smaller than you, but they can hurt you badly if you don't manage the conflict in the right way. To make things worse, the germanic holdings are still mostly beyond and sea and to reach them will require time and vassals willing to follow you in long distance conflicts.\
+ ^Your army is organised according to roman fashion, but you don't have neither the infrastructures nor the wealth to arm and train them the same way Ravenna and Constantinople did. However, you won't lack elite units and good mounted troops as well as regional auxiliary units to support you and it is possible your economy will be good enough to sustain your army.\
+ ^Make sure, however, to reconquer the settlements lost to the Germans on the coast: from there they will have hard times campaigning in Britannia and you will be finally safe.\
+ ^\
+ ^Difficulty: Medium\
+ ^\
+ ^Starting allies: None\
+ ^\
+ ^Starting enemies: Saxons, Jutes, Angles, Frisians, Picts, Scoti"),
+
 #utility for skill names
 ]+[
 ("skl_"+skills[x][0], skills[x][1]) for x in range(0, len(skills))]

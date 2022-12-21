@@ -1064,19 +1064,24 @@ simple_triggers = [
 			(val_sub, ":slot_provocation_days", kingdoms_begin),
 			(faction_get_slot, ":provocation_days", "$g_faction_diplomacy", ":slot_provocation_days"),
 			(try_begin),
-				(ge, ":provocation_days", 1),
-				(try_begin),#factions already at war
-					(store_relation, ":relation", "$g_faction_diplomacy", ":faction_2"),
-					(lt, ":relation", 0),
-					(faction_set_slot, "$g_faction_diplomacy", ":slot_provocation_days", 0),
-				(else_try), #Provocation expires
-					(eq, ":provocation_days", 1),
-#					(call_script, "script_add_notification_menu", "mnu_notification_casus_belli_expired", "$g_faction_diplomacy", ":faction_2"),
-					(faction_set_slot, "$g_faction_diplomacy", ":slot_provocation_days", 0),
-				(else_try),
-					(val_sub, ":provocation_days", 1),
-					(faction_set_slot, "$g_faction_diplomacy", ":slot_provocation_days", ":provocation_days"),
-				(try_end),
+				  (ge, ":provocation_days", 1),
+          (try_begin),#factions already at war
+              (store_relation, ":relation", "$g_faction_diplomacy", ":faction_2"),
+              (lt, ":relation", 0),
+              (faction_set_slot, "$g_faction_diplomacy", ":slot_provocation_days", 0),
+          (else_try), #Provocation expires
+              (eq, ":provocation_days", 1),
+              (try_begin),
+                  (faction_slot_eq, "$g_faction_diplomacy", slot_faction_leader, "trp_player"),
+                  (call_script, "script_add_notification_menu", "mnu_notification_casus_belli_decide_player", "$g_faction_diplomacy", ":faction_2"),
+              (else_try),
+                  (call_script, "script_add_notification_menu", "mnu_notification_casus_belli_decide", "$g_faction_diplomacy", ":faction_2"),
+              (try_end),
+              (faction_set_slot, "$g_faction_diplomacy", ":slot_provocation_days", 0),
+          (else_try),
+              (val_sub, ":provocation_days", 1),
+              (faction_set_slot, "$g_faction_diplomacy", ":slot_provocation_days", ":provocation_days"),
+          (try_end),
 			(try_end),
 
 			(try_begin), #at war

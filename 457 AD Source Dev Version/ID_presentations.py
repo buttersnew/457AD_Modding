@@ -64,3 +64,4 @@ prsnt_mcc_character_creation = 62
 prsnt_barracks = 63
 prsnt_troop_detail = 64
 prsnt_center_management = 65
+prsnt_select_king = 66

@@ -42,7 +42,7 @@ from compiler import *
 game_menus = [
   ("start_game_0",menu_text_color(0xFF000000)|mnf_disable_all_keys,
   ##diplomacy begin
-    "Welcome, adventurer, to 457 AD for Mount & Blade: Warband. Before beginning the game you must create your character. Remember that in the late antiquity society depicted in the game, war and politics are usually dominated by male members of the nobility. That does not however mean that you should not choose to play a female character, or one who is not of noble birth. Male nobles may have a somewhat easier start, but women and commoners can attain all of the same goals -- and in fact may have a much more interesting if more challenging early game.",
+    "Welcome, adventurer, to 457 AD for Mount & Blade: Warband.^^You have three start options: ^^Royal Sandbox: Play as one of the many famous rulers of the 5th century AD.^^Lordly Sandbox: Play as a lord of one of the many factions.^^Normal Sandbox: Default sandbox start. Begin from nothing and build up your path.^^^^In honor of PILOS",
   ##diplomacy end
   "none",
     [(allow_ironman,0), ],
@@ -71,21 +71,24 @@ game_menus = [
 #       ),
 
   #HISPANIA 1200, rey
-    ("starting_as_king",[],"Start as a king...",
-      [(jump_to_menu, "mnu_start_king_1"),
-      (assign, "$jugador_rey", 0),
+    ("starting_as_king",[],"Royal Sandbox",
+      [
+      (assign, "$temp_troop", "trp_kingdom_1_lord"),
+      (start_presentation, "prsnt_select_king"),
+      #(jump_to_menu, "mnu_start_king_1"),
+      (assign, "$jugador_rey", 1),
       (assign,"$character_gender",tf_male),
        ]
       ),
 
-    ("starting_as_lord",[],"Start as a vassal...",
+    ("starting_as_lord",[],"Lordly Sandbox",
       [(jump_to_menu, "mnu_start_lord_1"),
           (assign, "$jugador_rey", -1),(assign, "$jugador_lord", 0),
           (assign,"$character_gender",tf_male),
        ]
       ),
 
-    ("continue",[],"Start as a commoner...",
+    ("continue",[],"Normal Sandbox",
        [
         (assign, "$background_answer_4", slot_religion_chalcedonian),
         (assign, "$background_answer_5", "fac_culture_1"),
@@ -952,6 +955,7 @@ game_menus = [
     "Only you know exactly what caused you to give up your old life and become an adventurer. {s13}",
     "none",
     [
+      (change_screen_return),
     # (assign,"$current_string_reg",10),
     # (assign, ":difficulty", 0),
 
@@ -9903,8 +9907,17 @@ TOTAL:  {reg5}"),
       ("village_manage",
       [
         (call_script, "script_cf_village_normal_cond", "$current_town"), #SB : script condition
-        (party_slot_eq, "$current_town", slot_town_lord, "trp_player")
-        ]
+        (assign, reg0, 0),
+        (try_begin),
+          (store_faction_of_party, ":fac", "$current_town"),
+          (faction_slot_eq, ":fac", slot_faction_leader, "trp_player"),
+          (faction_slot_ge, ":fac", dplmc_slot_faction_centralization, 1),
+          (assign, reg0, 1),
+        (else_try),
+          (party_slot_eq, "$current_town", slot_town_lord, "trp_player"),
+          (assign, reg0, 1),
+        (try_end),
+        (eq, reg0, 1),        ]
        ,"Manage this village.",
        [
         (assign, "$g_next_menu", "mnu_village"),
@@ -13362,11 +13375,21 @@ TOTAL:  {reg5}"),
       ("walled_center_manage",
       [
         (neg|party_slot_eq, "$current_town", slot_village_state, svs_under_siege),
-        (party_slot_eq, "$current_town", slot_town_lord, "trp_player"),
-        (assign, reg0, 1),
+        (assign, reg0, 0),
         (try_begin),
-          (party_slot_eq, "$current_town", slot_party_type, spt_castle),
-          (assign, reg0, 0),
+            (store_faction_of_party, ":fac", "$current_town"),
+            (faction_slot_eq, ":fac", slot_faction_leader, "trp_player"),
+            (faction_slot_ge, ":fac", dplmc_slot_faction_centralization, 1),
+            (assign, reg0, 1),
+        (else_try),
+            (party_slot_eq, "$current_town", slot_town_lord, "trp_player"),
+            (assign, reg0, 1),
+        (try_end),
+        (eq, reg0, 1),
+        #(assign, reg0, 1),
+        (try_begin),
+            (party_slot_eq, "$current_town", slot_party_type, spt_castle),
+            (assign, reg0, 0),
         (try_end),
        ],
        "Manage this {reg0?town:castle}.",
@@ -19973,6 +19996,234 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         ]),
      ]
   ),
+
+("notification_casus_belli_decide_player",0,
+    "Your realm has suffered provocations from the people of {s2}. You still haven't reacted to the provocations."
+    +" You can declare war using this casus belli or demand tribute as reparation."
+    +" If you decide to ignore the matter you will suffer a loss of authority.",
+    "none",
+    [
+        
+        
+        (str_store_faction_name, s2, "$g_notification_menu_var2"),
+
+        (set_fixed_point_multiplier, 100),
+        (position_set_x, pos0, 65),
+        (position_set_y, pos0, 30),
+        (position_set_z, pos0, 170),
+        (store_sub, ":faction_1", "$g_notification_menu_var1", kingdoms_begin),
+        (store_sub, ":faction_2", "$g_notification_menu_var2", kingdoms_begin),
+        (val_mul, ":faction_1", 128),
+        (val_add, ":faction_1", ":faction_2"),
+        (set_game_menu_tableau_mesh, "tableau_2_factions_mesh", ":faction_1", pos0),
+        
+        
+        (call_script, "script_count_parties_of_faction_and_party_type", "$g_notification_menu_var2", spt_town),
+        (store_mul, reg40, reg0, 8000),
+        (call_script, "script_count_parties_of_faction_and_party_type", "$g_notification_menu_var2", spt_castle),
+        (val_mul, reg0, 4000),
+      ],
+    [
+        ("tribute",[],"Demand a tribute of {reg40} denars",
+        [
+            (jump_to_menu, "mnu_decide_ai_tribute"),
+        ]),
+        
+        ("war",[],"Declare war!",
+        [
+            (call_script, "script_diplomacy_start_war_between_kingdoms", "$g_notification_menu_var1", "$g_notification_menu_var2", 1),
+            (jump_to_menu, "mnu_auto_return_to_map"),
+        ]),
+        
+        ("ignore",[],"Ignore the situation",
+        [
+            (jump_to_menu, "mnu_notification_casus_belli_expired"),
+        ]),
+    ]
+),
+
+("notification_tribute_demanded",0,
+    "Due to recent provocations from your subjects, the {s1} demand reparations and tributes of {reg40} denars from you. How do you react?"
+    " Refusing the demand will lead to war!",
+    "none",
+    [
+        
+        
+        (str_store_faction_name, s1, "$g_notification_menu_var1"),
+        (str_store_faction_name, s2, "$g_notification_menu_var2"),
+
+        (set_background_mesh, "mesh_pic_messenger"),
+        
+        (call_script, "script_count_parties_of_faction_and_party_type", "$g_notification_menu_var2", spt_town),
+        (store_mul, reg40, reg0, 8000),
+        (call_script, "script_count_parties_of_faction_and_party_type", "$g_notification_menu_var2", spt_castle),
+        (val_mul, reg0, 4000),
+        (val_add, reg40, reg0),
+      ],
+    [
+        ("continue",[
+            (store_troop_gold, ":gold", "trp_player"),
+            (ge, ":gold", reg40),
+        ],"Pay the tribute.",
+        [
+            (store_mul, ":gold_lost", reg40, -1),
+            (troop_remove_gold, "trp_player",  ":gold_lost"),
+            (jump_to_menu, "mnu_auto_return_to_map"),
+            
+            (faction_get_slot, ":leader_1", "$g_notification_menu_var1", slot_faction_leader),
+            (call_script, "script_add_to_troop_wealth", ":leader_1", reg40),
+        ]),
+        
+        ("continue",[],"Refuse.",
+        [
+            (call_script, "script_diplomacy_start_war_between_kingdoms", "$g_notification_menu_var1", "$g_notification_menu_var2", 0),
+            (jump_to_menu, "mnu_auto_return_to_map"),
+        ]),
+    ]
+),
+
+("decide_ai_tribute",0,
+    "You demand reparations and tributes from {s2}.^{s4}",
+    "none",
+    [
+        
+        
+        (store_random_in_range, ":rand_normal", -50, 50),
+        (store_random_in_range, ":rand", -50, 50),
+        (val_add, ":rand_normal", ":rand"),
+        (val_abs, ":rand_normal"),
+        #should be normal distributed with expectation value at 50
+        
+        (assign, reg40, 0),
+        
+        (call_script, "script_npc_decision_checklist_peace_or_war", "$g_notification_menu_var2", "$g_notification_menu_var1", -1),
+        (assign, ":faction_2_to_1", reg0),
+        
+        (assign, ":explain_string", "str_none"),
+        (try_begin),
+            (faction_get_slot, ":leader_2", "$g_notification_menu_var2", slot_faction_leader),
+            (try_begin),
+                (this_or_next|troop_slot_eq, ":leader_2", slot_lord_reputation_type, lrep_martial),
+                (this_or_next|troop_slot_eq, ":leader_2", slot_lord_reputation_type, lrep_debauched),
+                (troop_slot_eq, ":leader_2", slot_lord_reputation_type, lrep_cunning),
+                (val_sub, ":faction_2_to_1", 1),
+            (try_end),
+            (ge, ":faction_2_to_1", 0),
+            (call_script, "script_count_parties_of_faction_and_party_type", "$g_notification_menu_var2", spt_town),
+            (store_mul, reg40, reg0, 8000),
+            (call_script, "script_count_parties_of_faction_and_party_type", "$g_notification_menu_var2", spt_castle),
+            (val_mul, reg0, 4000),
+            (val_add, reg40, reg0),
+            (troop_add_gold, "trp_player", reg40),
+            (assign, ":explain_string", "str_diplo_casus_expired_reparations_accepted"),
+        (else_try),
+            (assign, ":explain_string", "str_diplo_casus_expired_reparations_refused_war"),
+            (call_script, "script_diplomacy_start_war_between_kingdoms", "$g_notification_menu_var1", "$g_notification_menu_var2", 0),
+        (try_end),
+        
+        (str_store_string, s4, ":explain_string"),
+        
+        (str_store_faction_name, s1, "$g_notification_menu_var1"),
+        (str_store_faction_name, s2, "$g_notification_menu_var2"),
+
+        (set_background_mesh, "mesh_pic_messenger"),
+      ],
+    [
+        ("continue",[],"Continue",
+        [
+            (jump_to_menu, "mnu_auto_return_to_map"),
+        ]),
+    ]
+),
+
+("notification_casus_belli_decide",0,
+    "The {s1} has suffered provocations from {s2}. {s3} demand reparations and tributes from {s2}.^{s4}",
+    "none",
+    [
+        
+        
+        (store_random_in_range, ":rand_normal", -50, 50),
+        (store_random_in_range, ":rand", -50, 50),
+        (val_add, ":rand_normal", ":rand"),
+        (val_abs, ":rand_normal"),
+        #should be normal distributed with expectation value at 50
+        
+        (assign, reg40, 0),
+        
+        (call_script, "script_npc_decision_checklist_peace_or_war", "$g_notification_menu_var1", "$g_notification_menu_var2", -1),
+        (assign, ":faction_1_to_2", reg0),
+        
+        (call_script, "script_npc_decision_checklist_peace_or_war", "$g_notification_menu_var2", "$g_notification_menu_var1", -1),
+        (assign, ":faction_2_to_1", reg0),
+        
+        (faction_get_slot, ":leader_1", "$g_notification_menu_var1", slot_faction_leader),
+        (try_begin),
+            (this_or_next|troop_slot_eq, ":leader_1", slot_lord_reputation_type, lrep_martial),
+            (this_or_next|troop_slot_eq, ":leader_1", slot_lord_reputation_type, lrep_debauched),
+            (troop_slot_eq, ":leader_1", slot_lord_reputation_type, lrep_cunning),
+            (val_sub, ":faction_1_to_2", 1),
+        (try_end),
+        (str_store_troop_name, s3, ":leader_1"),
+        
+        (assign, ":explain_string", "str_none"),
+        (try_begin),
+            (lt,  ":faction_1_to_2", 0),
+            (le, ":rand_normal", 50),
+            (call_script, "script_diplomacy_start_war_between_kingdoms", "$g_notification_menu_var1", "$g_notification_menu_var2", 1),
+            (jump_to_menu, "mnu_auto_return_to_map"),
+        (else_try),
+            (le,  ":faction_1_to_2", 0),
+            (le, ":rand_normal", 80),
+            (try_begin),
+                (faction_get_slot, ":leader_2", "$g_notification_menu_var2", slot_faction_leader),
+                (eq, ":leader_2", "trp_player"),
+                (jump_to_menu, "mnu_notification_tribute_demanded"),
+            (else_try),
+                (try_begin),
+                    (this_or_next|troop_slot_eq, ":leader_2", slot_lord_reputation_type, lrep_martial),
+                    (this_or_next|troop_slot_eq, ":leader_2", slot_lord_reputation_type, lrep_debauched),
+                    (troop_slot_eq, ":leader_2", slot_lord_reputation_type, lrep_cunning),
+                    (val_sub, ":faction_2_to_1", 1),
+                (try_end),
+                (ge, ":faction_2_to_1", 0),
+                (call_script, "script_count_parties_of_faction_and_party_type", "$g_notification_menu_var2", spt_town),
+                (store_mul, reg40, reg0, 8000),
+                (call_script, "script_count_parties_of_faction_and_party_type", "$g_notification_menu_var2", spt_castle),
+                (val_mul, reg0, 4000),
+                (val_add, reg40, reg0),
+                (call_script, "script_add_to_troop_wealth", ":leader_1", reg40),
+                (assign, ":explain_string", "str_diplo_casus_expired_reparations_accepted"),
+            (else_try),
+                (assign, ":explain_string", "str_diplo_casus_expired_reparations_refused_war"),
+                (call_script, "script_diplomacy_start_war_between_kingdoms", "$g_notification_menu_var1", "$g_notification_menu_var2", 0),
+            (try_end),
+        (else_try),
+            (jump_to_menu, "mnu_notification_casus_belli_expired"),
+        (try_end),
+        
+        (str_store_string, s4, ":explain_string"),
+        
+        (str_store_faction_name, s1, "$g_notification_menu_var1"),
+        (str_store_faction_name, s2, "$g_notification_menu_var2"),
+
+        (set_fixed_point_multiplier, 100),
+        (position_set_x, pos0, 65),
+        (position_set_y, pos0, 30),
+        (position_set_z, pos0, 170),
+        (store_sub, ":faction_1", "$g_notification_menu_var1", kingdoms_begin),
+        (store_sub, ":faction_2", "$g_notification_menu_var2", kingdoms_begin),
+        (val_mul, ":faction_1", 128),
+        (val_add, ":faction_1", ":faction_2"),
+        (set_game_menu_tableau_mesh, "tableau_2_factions_mesh", ":faction_1", pos0),
+
+      ],
+    [
+        ("continue",[],"Continue",
+        [
+            (jump_to_menu, "mnu_auto_return_to_map"),
+        ]),
+    ]
+),
 
 ("notification_decide_tributary_war_decleration",0,
     "Your tributary vassal {s1} wants to declared war against {s2}.^^{s57}^^How do you wish to react? As they are your vassals you can force them to hold off from such plans. Or you use this opporunity to declare war without penalities.",

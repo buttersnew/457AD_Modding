@@ -45,7 +45,7 @@ game_menus = [
     "Welcome, adventurer, to 457 AD for Mount & Blade: Warband. Before beginning the game you must create your character. Remember that in the late antiquity society depicted in the game, war and politics are usually dominated by male members of the nobility. That does not however mean that you should not choose to play a female character, or one who is not of noble birth. Male nobles may have a somewhat easier start, but women and commoners can attain all of the same goals -- and in fact may have a much more interesting if more challenging early game.",
   ##diplomacy end
   "none",
-    [],
+    [(allow_ironman,0), ],
     [
 #     ("continue",[],"Continue...",
 #       [

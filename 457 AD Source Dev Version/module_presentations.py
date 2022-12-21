@@ -18162,7 +18162,7 @@ presentations = [
     (overlay_set_size, "$g_presentation_obj_father", pos1),
     (overlay_add_item, "$g_presentation_obj_father", "@Slave"),
     (overlay_add_item, "$g_presentation_obj_father", "@Freeman"),
-    (overlay_add_item, "$g_presentation_obj_father", "@Noble"),
+    (overlay_add_item, "$g_presentation_obj_father", "@Lesser Noble"),
 
     (overlay_set_val, "$g_presentation_obj_father", "$background_type"),
     (val_sub, ":cur_y", 40),
@@ -18186,6 +18186,7 @@ presentations = [
     (overlay_add_item, "$g_presentation_obj_early", "@Strong"),
     (overlay_add_item, "$g_presentation_obj_early", "@Agile"),
     (overlay_add_item, "$g_presentation_obj_early", "@Weak"),
+    (overlay_set_val, "$g_presentation_obj_early", "$background_answer_2"),
     (val_sub, ":cur_y", 40),
 
     (create_text_overlay, reg1, "@Mind:", tf_center_justify),

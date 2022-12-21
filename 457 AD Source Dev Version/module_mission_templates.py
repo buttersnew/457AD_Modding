@@ -1533,7 +1533,12 @@ immersive_troops = ( #sounds troops will make in battle?
       ##        (display_message, "@{s5} animation id: low body {reg0} , upper body {reg1}"),
       
       (agent_get_party_id, ":agent_party", ":agent"),
-      (party_get_num_companions, ":num_men", ":agent_party"),
+      (try_begin),
+        (gt, ":agent_party", -1),
+        (party_get_num_companions, ":num_men", ":agent_party"),
+      (else_try),
+        (assign, ":num_men", 41),
+      (try_end),
       #   (agent_get_simple_behavior, ":agent_sb", ":agent"),
       (agent_get_combat_state, ":agent_cs", ":agent"),
       (try_begin),

@@ -19974,6 +19974,45 @@ goods, and books will never be sold. ^^You can change some settings here freely.
      ]
   ),
 
+("notification_decide_tributary_war_decleration",0,
+    "Your tributary vassal {s1} wants to declared war against {s2}.^^{s57}^^How do you wish to react? As they are your vassals you can force them to hold off from such plans. Or you use this opporunity to declare war without penalities.",
+    "none",
+    [
+        (call_script, "script_npc_decision_checklist_peace_or_war", "$g_notification_menu_var1", "$g_notification_menu_var2", -1),
+        (str_store_string, s57, reg1),
+
+        (str_store_faction_name, s1, "$g_notification_menu_var1"),
+        (str_store_faction_name, s2, "$g_notification_menu_var2"),
+
+        (set_fixed_point_multiplier, 100),
+        (position_set_x, pos0, 65),
+        (position_set_y, pos0, 30),
+        (position_set_z, pos0, 170),
+        (store_sub, ":faction_1", "$g_notification_menu_var1", kingdoms_begin),
+        (store_sub, ":faction_2", "$g_notification_menu_var2", kingdoms_begin),
+        (val_mul, ":faction_1", 128),
+        (val_add, ":faction_1", ":faction_2"),
+        (set_game_menu_tableau_mesh, "tableau_2_factions_mesh", ":faction_1", pos0),
+      ],
+    [
+      ("continue",[],"Force them to hold off from such plans!",
+       [
+        (faction_get_slot, ":leader", "$g_notification_menu_var1", slot_faction_leader),
+        (call_script, "script_change_player_relation_with_troop", ":leader", -25),
+        (change_screen_return),
+       ]),
+      ("continue",[],"Follow {s1} in the war.",
+       [
+        (faction_get_slot, ":leader", "$g_notification_menu_var1", slot_faction_leader),
+        (call_script, "script_change_player_relation_with_troop", ":leader", 10),
+
+        (call_script, "script_diplomacy_start_war_between_kingdoms", "$players_kingdom", "$g_notification_menu_var2", logent_faction_declares_war_to_fulfil_pact),
+        (call_script, "script_diplomacy_start_war_between_kingdoms", "$g_notification_menu_var1", "$g_notification_menu_var2", 1),
+        (change_screen_return),
+       ]),
+    ]
+),
+
 ("notification_decide_defensive_war",0,
     "{s1} has declared war against your {s22} {s2}.^^{s57}^^How do you wish to react?",
     "none",

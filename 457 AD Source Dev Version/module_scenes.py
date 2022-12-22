@@ -574,24 +574,24 @@ scenes = [
 
   ("town_31_castle",sf_indoors,"viking_interior_keep_a", "bo_viking_interior_keep_a", (-100,-100),(100,100),-100,"0",
     ["exit"],["town_31_seneschal"]),
-  ("town_32_castle",sf_indoors,"viking_interior_keep_a", "bo_viking_interior_keep_a", (-100,-100),(100,100),-100,"0",
-    ["exit"],["town_32_seneschal"]),
+  ("town_32_castle",sf_indoors, "interior_prison_i", "bo_interior_prison_i", (-100, -100), (100, 100), -100, "0",
+    ["exit"], ["town_32_seneschal"]),
 
   ("town_33_castle",sf_indoors, "interior_castle_d_roman", "bo_interior_castle_d", (-100,-100),(100,100),-100,"0",
     ["exit"],["town_33_seneschal"]),
 
-  ("town_34_castle",sf_indoors, "interior_castle_d_roman", "bo_interior_castle_d", (-100,-100),(100,100),-100,"0",
+  ("town_34_castle",sf_indoors, "viking_interior_keep_a", "bo_viking_interior_keep_a", (-100,-100),(100,100),-100,"0",
     ["exit"],["town_34_seneschal"]),
 
   ("town_35_castle",sf_indoors, "byzantine_interior", "bo_brewery_interior", (-100,-100),(100,100),-100,"0",
     ["exit"],["town_35_seneschal"]),
 
-  ("town_36_castle",sf_indoors, "byzantine_interior", "bo_brewery_interior", (-100,-100),(100,100),-100,"0",
+  ("town_36_castle",sf_indoors, "interior_castle_j", "bo_interior_castle_j", (-100,-100),(100,100),-100,"0",
     ["exit"],["town_36_seneschal"]),
 
   ("town_37_castle",sf_indoors, "interior_castle_g_square_keep", "bo_interior_castle_g_square_keep", (-100,-100),(100,100),-100,"0",
     ["exit"],["town_37_seneschal"]),
-  ("town_38_castle",sf_indoors, "byzantine_interior", "bo_brewery_interior", (-100,-100),(100,100),-100,"0",
+  ("town_38_castle",sf_indoors, "viking_interior_keep_a", "bo_viking_interior_keep_a", (-100,-100),(100,100),-100,"0",
     ["exit"],["town_38_seneschal"]),
   ("town_39_castle",sf_indoors, "byzantine_interior", "bo_brewery_interior", (-100,-100),(100,100),-100,"0",
     ["exit"],["town_39_seneschal"]),
@@ -680,7 +680,7 @@ scenes = [
     ["exit"],[]),
   ("town_33_tavern",sf_indoors, "interior_castle_d_roman", "bo_interior_castle_d", (-100,-100),(100,100),-100,"0",
     ["exit"],[]),
-  ("town_34_tavern",sf_indoors, "interior_castle_d_roman", "bo_interior_castle_d", (-100,-100),(100,100),-100,"0",
+  ("town_34_tavern",sf_indoors, "viking_interior_tavern_a", "bo_viking_interior_tavern_a", (-100,-100),(100,100),-100,"0",
     ["exit"],[]),
   ("town_35_tavern",sf_indoors, "roman_tavern", "bo_roman_tavern", (-100,-100),(100,100),-100,"0",
     ["exit"],[]),
@@ -691,7 +691,7 @@ scenes = [
 
   ("town_37_tavern",sf_indoors, "interior_town_house_steppe_d", "bo_interior_town_house_steppe_d", (-100,-100),(100,100),-100,"0",
     ["exit"],[]),
-  ("town_38_tavern",sf_indoors, "interior_castle_d_roman", "bo_interior_castle_d", (-100,-100),(100,100),-100,"0",
+  ("town_38_tavern",sf_indoors, "viking_interior_tavern_a", "bo_viking_interior_tavern_a", (-100,-100),(100,100),-100,"0",
     ["exit"],[]),
   ("town_39_tavern",sf_indoors, "interior_castle_d_roman", "bo_interior_castle_d", (-100,-100),(100,100),-100,"0",
     ["exit"],[]),

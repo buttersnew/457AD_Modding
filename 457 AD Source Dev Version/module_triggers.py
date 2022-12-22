@@ -1115,6 +1115,7 @@ triggers = [
     (eq, ":castle_18_faction", "fac_player_supporters_faction"),
     (eq, ":castle_21_faction", "fac_player_supporters_faction"),
 ],[
+    (dialog_box, "@You have conquered Gaul!", "@Roma invicta!"),
     (call_script, "script_end_quest", "qst_conquest_gaul"), #ends the quest
     (call_script, "script_change_troop_renown", "trp_player", 250),
     (troop_add_item, "trp_player", "itm_caesar_gladius", 0), #gets special gladius
@@ -1140,6 +1141,7 @@ triggers = [
     (eq, ":castle_55_faction", "fac_player_supporters_faction"),
     (eq, ":castle_60_faction", "fac_player_supporters_faction"),
 ],[
+    (dialog_box, "@You have conquered Hispania!", "@Roma invicta!"),
     (call_script, "script_end_quest", "qst_conquest_hispania"), #ends the quest
     (call_script, "script_change_troop_renown", "trp_player", 200),
     (troop_add_gold, "trp_player", 50000),
@@ -1166,6 +1168,7 @@ triggers = [
     (eq, ":castle_78_faction", "fac_player_supporters_faction"),
     (eq, ":castle_79_faction", "fac_player_supporters_faction"),
 ],[
+    (dialog_box, "@You have conquered Africa!", "@Roma invicta!"),
     (call_script, "script_end_quest", "qst_conquest_africa"), #ends the quest
     (call_script, "script_change_troop_renown", "trp_player", 200),
     (troop_add_gold, "trp_player", 50000),
@@ -1194,6 +1197,7 @@ triggers = [
     (eq, ":castle_73_faction", "fac_player_supporters_faction"),
     (eq, ":castle_74_faction", "fac_player_supporters_faction"),
 ],[
+    (dialog_box, "@You have conquered Britannia, the island is now united under your banner!", "@Victory!"),
     (call_script, "script_end_quest", "qst_unite_britannia"), #ends the quest
     (call_script, "script_change_troop_renown", "trp_player", 220),
     (troop_add_item, "trp_player", "itm_excalibur", 0), #gets special sword
@@ -1210,6 +1214,7 @@ triggers = [
     (eq, ":castle_53_faction", "fac_player_supporters_faction"),
     (eq, ":castle_60_faction", "fac_player_supporters_faction"),
 ],[
+    (dialog_box, "@You have conquered the Suebi lands!", "@Victory!"),
     (call_script, "script_end_quest", "qst_conquest_suebi"), #ends the quest
     (call_script, "script_change_troop_renown", "trp_player", 150),
     (troop_add_gold, "trp_player", 10000),
@@ -1224,6 +1229,7 @@ triggers = [
     (eq, ":castle_12_faction", "fac_player_supporters_faction"),
     (eq, ":castle_21_faction", "fac_player_supporters_faction"),
 ],[
+    (dialog_box, "@You have conquered the North of Gaul!", "@Victory!"),
     (call_script, "script_end_quest", "qst_conquest_northern_gaul"), #ends the quest
     (call_script, "script_change_troop_renown", "trp_player", 150),
     (troop_add_gold, "trp_player", 10000),
@@ -1236,6 +1242,7 @@ triggers = [
     (eq, ":town_1_faction", "fac_player_supporters_faction"),
     (eq, ":castle_30_faction", "fac_player_supporters_faction"),
 ],[
+    (dialog_box, "@You have conquered the Ripuari lands!", "@Victory!"),
     (call_script, "script_end_quest", "qst_conquest_ripuari"), #ends the quest
     (call_script, "script_change_troop_renown", "trp_player", 100),
     (troop_add_gold, "trp_player", 8000),
@@ -1252,6 +1259,7 @@ triggers = [
     (eq, ":castle_67_faction", "fac_player_supporters_faction"),
     (eq, ":castle_72_faction", "fac_player_supporters_faction"),
 ],[
+    (dialog_box, "@You have conquered the Sacon lands!", "@Victory!"),
     (call_script, "script_end_quest", "qst_conquest_saxons"), #ends the quest
     (call_script, "script_change_troop_renown", "trp_player", 150),
     (troop_add_gold, "trp_player", 12000),
@@ -1266,6 +1274,7 @@ triggers = [
     (eq, ":castle_56_faction", "fac_player_supporters_faction"),
     (eq, ":castle_66_faction", "fac_player_supporters_faction"),
 ],[
+    (dialog_box, "@You have conquered the Alemmani lands!", "@Victory!"),
     (call_script, "script_end_quest", "qst_conquest_alemmani"), #ends the quest
     (call_script, "script_change_troop_renown", "trp_player", 150),
     (troop_add_gold, "trp_player", 10000),
@@ -1282,6 +1291,7 @@ triggers = [
     (eq, ":castle_78_faction", "fac_player_supporters_faction"),
     (eq, ":castle_79_faction", "fac_player_supporters_faction"),
 ],[
+    (dialog_box, "@You have conquered Africa!", "@Victory!"),
     (call_script, "script_end_quest", "qst_conquest_mauri"), #ends the quest
     (call_script, "script_change_troop_renown", "trp_player", 150),
     (troop_add_gold, "trp_player", 12000),
@@ -1292,6 +1302,7 @@ triggers = [
     (store_faction_of_party, ":castle_20_faction", "p_castle_30"),
     (eq, ":castle_20_faction", "fac_player_supporters_faction"),
 ],[
+    (dialog_box, "@You have conquered Sicily!", "@Victory!"),
     (call_script, "script_end_quest", "qst_conquest_sicily"), #ends the quest
     (call_script, "script_change_troop_renown", "trp_player", 50),
     (troop_add_gold, "trp_player", 5000),
@@ -1302,7 +1313,7 @@ triggers = [
     (store_faction_of_party, ":town_12_faction", "p_town_12"),#player must conquer apahida as the huns to get special reward
     (eq, ":town_12_faction", "fac_player_supporters_faction"),
 ],[
-    (jump_to_menu, "mnu_hun_messenger"),
+    (call_script, "script_add_notification_menu", "mnu_hun_messenger", 0, 0),
     (troop_add_gold, "trp_player", 10000),
 ]),
 

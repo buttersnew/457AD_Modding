@@ -45,17 +45,17 @@ game_menus = [
     "Welcome, adventurer, to 457 AD for Mount & Blade: Warband.^^You have three start options: ^^Royal Sandbox: Play as one of the many famous rulers of the 5th century AD.^^Lordly Sandbox: Play as a lord of one of the many factions.^^Normal Sandbox: Default sandbox start. Begin from nothing and build up your path.^^^^In honor of PILOS",
   ##diplomacy end
   "none",
-    [(allow_ironman,0), ],
+    [],
   [
     ("starting_as_king",[],"Royal Sandbox",[
-      (assign, "$temp_troop", "trp_kingdom_1_lord"),
+      (assign, "$temp_troop", -1),
       (assign, "$jugador_rey", 1),
       (assign,"$character_gender",tf_male),
       (start_presentation, "prsnt_select_king"),
     ]),
 
     ("starting_as_lord",[],"Lordly Sandbox",[
-      (assign, "$temp_troop", "trp_kingdom_1_lord"),
+      (assign, "$temp_troop", -1),
       (assign, "$jugador_rey", -1),
       (assign,"$character_gender",tf_male),
       (start_presentation, "prsnt_select_lord"),

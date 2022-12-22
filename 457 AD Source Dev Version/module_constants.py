@@ -670,7 +670,6 @@ slot_center_head_sheep			= 226 #sausages, wool
 slot_center_head_horses		 	= 227 #horses can be a trade item used in tracking but which are never offered for sale
 
 slot_center_acres_pasture       = 228 #pasture area for grazing of cattles and sheeps, if this value is high then number of cattles and sheeps increase faster
-slot_production_sources_begin = 229
 slot_center_acres_grain			= 229 #grain
 slot_center_acres_olives        = 230 #olives
 slot_center_acres_vineyard		= 231 #fruit
@@ -686,22 +685,22 @@ slot_center_kirmiz_farms		= 238 #dyes
 
 slot_center_iron_deposits       = 239 #iron
 slot_center_fur_traps			= 240 #furs
+slot_center_silver_deposits	    = 241
 
-slot_center_mills				= 241 #bread
-slot_center_breweries			= 242 #ale
-slot_center_wine_presses		= 243 #wine
-slot_center_olive_presses		= 244 #oil
+slot_center_mills				= 242 #bread
+slot_center_breweries			= 243 #ale
+slot_center_wine_presses		= 244 #wine
+slot_center_olive_presses		= 245 #oil
 
-slot_center_linen_looms			= 245 #linen
-slot_center_silk_looms          = 246 #velvet
-slot_center_wool_looms          = 247 #wool cloth
+slot_center_linen_looms			= 246 #linen
+slot_center_silk_looms          = 247 #velvet
+slot_center_wool_looms          = 248 #wool cloth
 
-slot_center_pottery_kilns		= 248 #pottery
-slot_center_smithies			= 249 #tools
-slot_center_tanneries			= 250 #leatherwork
-slot_center_silver_deposits			= 251 #naval stores - uses timber, pitch, and linen
-
+slot_center_pottery_kilns		= 249 #pottery
+slot_center_smithies			= 250 #tools
+slot_center_tanneries			= 251 #leatherwork
 slot_center_household_gardens   = 252 #cabbages
+
 slot_production_sources_end = 253
 
 slot_center_religion = 254 # 1 -roman christian, 2 -pagan, 3 arian, 4 zoroastrian, 5 coptic

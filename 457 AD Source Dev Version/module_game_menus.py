@@ -4399,13 +4399,7 @@ TOTAL:  {reg5}"),
        (str_store_string, s11, "@Your companions carry you away from the fighting."),
 		 ##diplomacy start+ Test gender with script
        #(troop_get_type, ":is_female", "trp_player"),#<- replaced
-       (try_begin),
-         #(eq, ":is_female", 1),#<- replaced
-         (eq, tf_female, "$character_gender"),#<- added
-         (set_background_mesh, "mesh_pic_wounded_fem"),
-       (else_try),
-         (set_background_mesh, "mesh_pic_wounded"),
-       (try_end),
+       (set_background_mesh, "mesh_pic_wounded"),
 		 ##diplomacy end+
      (else_try),
        (eq, "$g_battle_result", 1),
@@ -5754,11 +5748,6 @@ TOTAL:  {reg5}"),
             (jump_to_menu, "mnu_besiegers_camp_with_allies"),
           (try_end),
         (else_try),
-        #+freelancer end
-          #(eq, ":is_female", 1),#<- replaced
-		  (eq, "$character_gender", tf_female),#<- added
-          (set_background_mesh, "mesh_pic_siege_sighted_fem"),
-        (else_try),
           (set_background_mesh, "mesh_pic_siege_sighted"),
         (try_end),
 		  ##diplomacy end+
@@ -6797,15 +6786,8 @@ TOTAL:  {reg5}"),
     "You are laying siege to {s1}. {s2} {s3}",
     "none",
     [
-          ##diplomacy start+ test gender with script
-        #(troop_get_type, ":is_female", "trp_player"),#<- replaced
-        (try_begin),
-          #(eq, ":is_female", 1),#<- replaced
-          (eq, "$character_gender", tf_female),#<- added
-          (set_background_mesh, "mesh_pic_siege_sighted_fem"),
-        (else_try),
-          (set_background_mesh, "mesh_pic_siege_sighted"),
-        (try_end),
+
+        (set_background_mesh, "mesh_pic_siege_sighted"),
           ##diplomacy end+
         (assign, "$g_siege_force_wait", 0),
         (try_begin),
@@ -7102,17 +7084,6 @@ TOTAL:  {reg5}"),
     "{s1}",
     "none",
     [
-		  # ##diplomacy start+ test gender with script
-        # #(troop_get_type, ":is_female", "trp_player"),#<- replaced
-        # (try_begin),
-          # #(eq, ":is_female", 1),#<- replaced
-		  # (eq, "$character_gender", tf_female),#<- added
-          # (set_background_mesh, "mesh_pic_siege_sighted_fem"),
-        # (else_try),
-          # (set_background_mesh, "mesh_pic_siege_sighted"),
-        # (try_end),
-		  # ##diplomacy end+
-        #SB : sally picture more appropriate
         (set_background_mesh, "mesh_pic_sally_out"),
         (assign, ":result", "$g_battle_result"),#will be reset at script_encounter_calculate_fit
         (call_script, "script_encounter_calculate_fit"),
@@ -13935,14 +13906,9 @@ TOTAL:  {reg5}"),
  {s1} won't be happy, but some silver will placate {reg4?her:him} better than nothing at all...",
 ##diplomacy end+
     "none",
-    [#SB : set up picture
-     (try_begin),
-       (eq, "$character_gender", tf_male),
-       (set_background_mesh, "mesh_pic_escape_1"),
-     (else_try),
-       (eq, "$character_gender", tf_male),
-       (set_background_mesh, "mesh_pic_escape_1_fem"),
-     (try_end),
+    [
+    (set_background_mesh, "mesh_pic_escape_1"),
+
      (str_store_party_name, s3, "$current_town"),
      (quest_get_slot, ":quest_giver", "qst_collect_taxes", slot_quest_giver_troop),
      ##diplomacy start+ store gender of quest giver in reg4
@@ -16072,16 +16038,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     "none",
     [
         (play_cue_track, "track_escape"),
-          ##diplomacy start+ test gender with script
-        #(troop_get_type, ":is_female", "trp_player"),#<- replaced
-        (try_begin),
-          #(eq, ":is_female", 1),#<- replaced
-          (eq, "$character_gender", tf_female),#<- added
-          (set_background_mesh, "mesh_pic_escape_1_fem"),
-        (else_try),
-          (set_background_mesh, "mesh_pic_escape_1"),
-        (try_end),
-          ##diplomacy end+
+        (set_background_mesh, "mesh_pic_escape_1"),
     ],
     [
       ("continue",[],"Continue...",
@@ -16107,17 +16064,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     "You are quickly surrounded by guards who take away your weapons. With curses and insults, they throw you into the dungeon where you must while away the miserable days of your captivity.",
     "none",
     [
-          ##diplomacy start+ test gender with script
-        #(troop_get_type, ":is_female", "trp_player"),#<- replaced
-        (try_begin),
-          #(eq, ":is_female", 1),#<- replaced
-          (eq, "$character_gender", tf_female),#<- added
-          (set_background_mesh, "mesh_pic_prisoner_fem"),
-        (else_try),
-          (set_background_mesh, "mesh_pic_prisoner_man"),
-        (try_end),
-          ##diplomacy end+
-        #SB : deduct relation here, probably
+        (set_background_mesh, "mesh_pic_prisoner_man"),
         (call_script, "script_change_player_relation_with_center", "$g_encountered_party", -1),
     ],
     [
@@ -16138,16 +16085,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
  The guards are outraged and beat you savagely before throwing you back into the cell for God knows how long...",
     "none",
     [
-		  ##diplomacy start+ test gender with script
-        #(troop_get_type, ":is_female", "trp_player"),#<-replaced
-        (try_begin),
-          #(eq, ":is_female", 1),#<-replaced
-		  (eq, "$character_gender", tf_female),#<- added
-          (set_background_mesh, "mesh_pic_prisoner_fem"),
-        (else_try),
-          (set_background_mesh, "mesh_pic_prisoner_man"),
-        (try_end),
-		  ##diplomacy end+
+       (set_background_mesh, "mesh_pic_prisoner_man"),
    ],
     [
       ("continue",[],"Continue...",
@@ -16381,26 +16319,16 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       ]),
     ]
   ),
-  (
-    "captivity_castle_remain",mnf_scale_picture|mnf_disable_all_keys,
+
+("captivity_castle_remain",mnf_scale_picture|mnf_disable_all_keys,
     "More days pass in the darkness of your cell. You get through them as best you can,\
  enduring the kicks and curses of the guards, watching your underfed body waste away more and more...",
     "none",
     [
-		  ##diplomacy start+ test gender with script
-        #(troop_get_type, ":is_female", "trp_player"),#<- replaced
-        (try_begin),
-          #(eq, ":is_female", 1),#<- replaced
-		  (eq, "$character_gender", tf_female),#<- added
-          (set_background_mesh, "mesh_pic_prisoner_fem"),
-        (else_try),
-          (set_background_mesh, "mesh_pic_prisoner_man"),
-        (try_end),
-		  ##diplomacy end+
+        (set_background_mesh, "mesh_pic_prisoner_man"),
         (store_random_in_range, ":random_hours", 16, 22),
         (call_script, "script_stay_captive_for_hours", ":random_hours"),
         (assign,"$auto_menu", "mnu_captivity_castle_check"),
-
     ],
     [
       ("continue",[],"Continue...",
@@ -16408,8 +16336,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
            (assign, "$g_player_is_captive", 1),
            (change_screen_return),
         ]),
-    ]
-  ),
+]),
 
   (
 ##diplomacy end+ fix gender of pronoun
@@ -17392,29 +17319,27 @@ goods, and books will never be sold. ^^You can change some settings here freely.
      ]
   ),
 
-  (
-    "notification_one_faction_left",0,
-    "Calradia Conquered by One Kingdom^^{s1} has defeated all rivals and stands as the sole kingdom.",
+("notification_one_faction_left",0,
+    "World Conquered by One Kingdom^^{s1} has defeated all rivals and stands as the sole kingdom.",
     "none",
     [
-      (str_store_faction_name, s1, "$g_notification_menu_var1"),
-      (set_fixed_point_multiplier, 100),
-      (position_set_x, pos0, 65),
-      (position_set_y, pos0, 30),
-      (position_set_z, pos0, 170),
-      (try_begin),
-        (is_between, "$g_notification_menu_var1", "fac_kingdom_1", kingdoms_end), #Excluding player kingdom
-        (set_game_menu_tableau_mesh, "tableau_faction_note_mesh_for_menu", "$g_notification_menu_var1", pos0),
-      (else_try),
-        (set_game_menu_tableau_mesh, "tableau_faction_note_mesh_banner", "$g_notification_menu_var1", pos0),
-      (try_end),
-	  (try_begin),
-		(faction_slot_eq, "$g_notification_menu_var1", slot_faction_leader, "trp_player"),
-		(unlock_achievement, ACHIEVEMENT_THE_GOLDEN_THRONE),
-	  (else_try),
-		(unlock_achievement, ACHIEVEMENT_MANIFEST_DESTINY),
-	  (try_end),
-
+        (str_store_faction_name, s1, "$g_notification_menu_var1"),
+        (set_fixed_point_multiplier, 100),
+        (position_set_x, pos0, 65),
+        (position_set_y, pos0, 30),
+        (position_set_z, pos0, 170),
+        (try_begin),
+            (is_between, "$g_notification_menu_var1", "fac_kingdom_1", kingdoms_end), #Excluding player kingdom
+            (set_game_menu_tableau_mesh, "tableau_faction_note_mesh_for_menu", "$g_notification_menu_var1", pos0),
+        (else_try),
+            (set_game_menu_tableau_mesh, "tableau_faction_note_mesh_banner", "$g_notification_menu_var1", pos0),
+        (try_end),
+        (try_begin),
+            (faction_slot_eq, "$g_notification_menu_var1", slot_faction_leader, "trp_player"),
+            (unlock_achievement, ACHIEVEMENT_THE_GOLDEN_THRONE),
+        (else_try),
+          (unlock_achievement, ACHIEVEMENT_MANIFEST_DESTINY),
+        (try_end),
         (try_begin),
             (troop_get_type, ":is_female", "trp_player"),
             (eq, ":is_female", 1),
@@ -17425,11 +17350,9 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       ("continue",[],"Continue...",
        [(change_screen_return),
         ]),
-     ]
-  ),
+]),
 
-  (
-    "notification_oath_renounced_faction_defeated",0,
+("notification_oath_renounced_faction_defeated",0,
     "Your Old Faction was Defeated^^You won the battle against {s1}! This ends your struggle which started after you renounced your oath to them.",
     "none",
     [
@@ -17449,11 +17372,9 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       ("continue",[],"Continue...",
        [(change_screen_return),
         ]),
-     ]
-  ),
+]),
 
-  (
-    "notification_center_lost",0,
+("notification_center_lost",0,
     "An Estate was Lost^^You have lost {s1} to {s2}.",
     "none",
     [
@@ -18147,10 +18068,6 @@ goods, and books will never be sold. ^^You can change some settings here freely.
           (party_slot_eq, "$g_encountered_party", slot_party_ai_substate, 1), #used in place of global variable
           (str_store_string, s3, "str_bandit_hideout_failure"),
           (set_background_mesh, "mesh_pic_wounded"),
-          (try_begin),
-            (eq, "$character_gender", tf_female),
-            (set_background_mesh, "mesh_pic_wounded_fem"),
-          (try_end),
         (else_try),
           (party_slot_eq, "$g_encountered_party", slot_party_ai_substate, 2), #used in place of global variable
           (str_store_string, s3, "str_bandit_hideout_success"),

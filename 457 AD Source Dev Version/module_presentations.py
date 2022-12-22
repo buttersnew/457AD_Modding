@@ -22400,8 +22400,10 @@ presentations = [
     # (assign, ":slot", 0),
     (set_container_overlay, reg1),#start scroll    
     (try_for_range, ":slot", npc_kingdoms_begin, npc_kingdoms_end),
+        (faction_slot_eq, ":slot", slot_faction_state, sfs_active),
         (faction_get_slot, ":active_npc", ":slot", slot_faction_leader),
         (is_between, ":active_npc", kings_begin, kings_end),
+        (troop_slot_eq, ":active_npc", slot_troop_occupation, slto_kingdom_hero),
         # (str_store_troop_name, s1, ":active_npc"),
         # (assign, reg0, ":x_name"),
         # (assign, reg1, ":y_name"),

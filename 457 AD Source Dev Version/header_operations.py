@@ -99,6 +99,7 @@ check_quest_concluded           = 204 # (check_quest_concluded,<quest_id>),
 
 is_trial_version                = 250 # (is_trial_version),
 is_edit_mode_enabled            = 255 # (is_edit_mode_enabled),
+is_cheat_mode_enabled           =  53 # (is_cheat_mode_enabled),
 
 options_get_damage_to_player    = 260 # (options_get_damage_to_player, <destination>), #0 = 1/4, 1 = 1/2, 2 = 1/1
 options_set_damage_to_player    = 261 # (options_set_damage_to_player, <value>), #0 = 1/4, 1 = 1/2, 2 = 1/1
@@ -1820,6 +1821,7 @@ can_fail_operations = [ge,
                        check_quest_concluded,
                        is_trial_version,
                        is_edit_mode_enabled,
+                       is_cheat_mode_enabled,
                        troop_slot_eq,
                        party_slot_eq,
                        faction_slot_eq,

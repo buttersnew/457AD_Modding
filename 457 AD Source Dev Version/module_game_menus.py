@@ -927,6 +927,14 @@ game_menus = [
           (assign, "$g_presentation_next_presentation", -1),
           (start_presentation, "prsnt_banner_selection"),
       (try_end),
+      (try_begin),
+          (is_edit_mode_enabled),
+          (display_message, "@WARNING: EDIT MODE IS ENABLED", message_alert),
+      (try_end),
+      (try_begin),
+          (is_cheat_mode_enabled),
+          (display_message, "@cheats are enabled, PILOS is watching", message_negative),
+      (try_end),
     ],
     [
     ("go_back_dot",[],"Continue.",[

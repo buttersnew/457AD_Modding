@@ -2355,7 +2355,12 @@ TOTAL:  {reg5}"),
       ("camp_action",[],"Take an action.",
        [(jump_to_menu, "mnu_camp_action"),
         ]
-       ),
+       ),#scn_wedding
+      # ("camp_action",[],"Work on wedding scene.",
+      #  [(jump_to_scene, "scn_wedding"),
+      #  (change_screen_mission),
+      #   ]
+      #  ),
       ("camp_wait_here",[],"Wait here for some time.",
        [
            (assign,"$g_camp_mode", 1),

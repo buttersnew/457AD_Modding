@@ -1078,12 +1078,13 @@ triggers = [
 
 (24,0,22,[],[
     (try_begin),
-    (troop_clear_inventory, "trp_old_palace_farmer"),
+        (troop_clear_inventory, "trp_old_palace_farmer"),
         (troop_add_items,"trp_old_palace_farmer", "itm_cabbages",30),
     (try_end),   
 ]),
+
 #triggers every 12 days
-(288.5,0,22,[(faction_slot_eq, "fac_kingdom_8", slot_faction_state, sfs_active),],[ #checks if the suebi are still alive
+(12*24,0,24,[(faction_slot_eq, "fac_kingdom_8", slot_faction_state, sfs_active),],[ #checks if the suebi are still alive
     (store_faction_of_party, ":town_23_faction", "p_town_23"), #now to check to town
     (try_begin),
       (eq, ":town_23_faction", "fac_kingdom_8"),
@@ -1095,7 +1096,8 @@ triggers = [
     (try_end),
 ]),
 
-(2,0,ti_once,[(check_quest_active,"qst_conquest_gaul"),],[
+(24,0,ti_once,[
+    (check_quest_active,"qst_conquest_gaul"),
     (store_faction_of_party, ":town_3_faction", "p_town_3"),
     (store_faction_of_party, ":town_5_faction", "p_town_5"),
     (store_faction_of_party, ":town_15_faction", "p_town_15"),
@@ -1104,24 +1106,23 @@ triggers = [
     (store_faction_of_party, ":castle_14_faction", "p_castle_14"),
     (store_faction_of_party, ":castle_18_faction", "p_castle_18"),
     (store_faction_of_party, ":castle_21_faction", "p_castle_21"),
-    (try_begin),
-      (eq, ":town_3_faction", "fac_player_supporters_faction"),
-      (eq, ":town_5_faction", "fac_player_supporters_faction"),
-      (eq, ":town_15_faction", "fac_player_supporters_faction"),
-      (eq, ":town_16_faction", "fac_player_supporters_faction"),
-      (eq, ":castle_12_faction", "fac_player_supporters_faction"),
-      (eq, ":castle_14_faction", "fac_player_supporters_faction"),
-      (eq, ":castle_18_faction", "fac_player_supporters_faction"),
-      (eq, ":castle_21_faction", "fac_player_supporters_faction"),
-
-      (call_script, "script_end_quest", "qst_conquest_gaul"), #ends the quest
-      (call_script, "script_change_troop_renown", "trp_player", 250),
-      (troop_add_item, "trp_player", "itm_caesar_gladius", 0), #gets special gladius
-      (troop_add_gold, "trp_player", 50000),
-    (try_end),
+    (eq, ":town_3_faction", "fac_player_supporters_faction"),
+    (eq, ":town_5_faction", "fac_player_supporters_faction"),
+    (eq, ":town_15_faction", "fac_player_supporters_faction"),
+    (eq, ":town_16_faction", "fac_player_supporters_faction"),
+    (eq, ":castle_12_faction", "fac_player_supporters_faction"),
+    (eq, ":castle_14_faction", "fac_player_supporters_faction"),
+    (eq, ":castle_18_faction", "fac_player_supporters_faction"),
+    (eq, ":castle_21_faction", "fac_player_supporters_faction"),
+],[
+    (call_script, "script_end_quest", "qst_conquest_gaul"), #ends the quest
+    (call_script, "script_change_troop_renown", "trp_player", 250),
+    (troop_add_item, "trp_player", "itm_caesar_gladius", 0), #gets special gladius
+    (troop_add_gold, "trp_player", 50000),
 ]),
 
-(2,0,ti_once,[(check_quest_active,"qst_conquest_hispania"),],[
+(24,0,ti_once,[
+    (check_quest_active,"qst_conquest_hispania"),
     (store_faction_of_party, ":town_23_faction", "p_town_23"),  #starts with towns first - player must own most of hispania
     (store_faction_of_party, ":town_25_faction", "p_town_25"), 
     (store_faction_of_party, ":town_40_faction", "p_town_40"), 
@@ -1130,22 +1131,22 @@ triggers = [
     (store_faction_of_party, ":castle_53_faction", "p_castle_53"),
     (store_faction_of_party, ":castle_55_faction", "p_castle_55"),
     (store_faction_of_party, ":castle_60_faction", "p_castle_60"),
-    (try_begin),
-      (eq, ":town_23_faction", "fac_player_supporters_faction"), #towns
-      (eq, ":town_25_faction", "fac_player_supporters_faction"),
-      (eq, ":town_40_faction", "fac_player_supporters_faction"),
-      (eq, ":castle_4_faction", "fac_player_supporters_faction"), #castles
-      (eq, ":castle_33_faction", "fac_player_supporters_faction"),
-      (eq, ":castle_53_faction", "fac_player_supporters_faction"),
-      (eq, ":castle_55_faction", "fac_player_supporters_faction"),
-      (eq, ":castle_60_faction", "fac_player_supporters_faction"),
-      (call_script, "script_end_quest", "qst_conquest_hispania"), #ends the quest
-      (call_script, "script_change_troop_renown", "trp_player", 200),
-      (troop_add_gold, "trp_player", 50000),
-    (try_end),
+    (eq, ":town_23_faction", "fac_player_supporters_faction"), #towns
+    (eq, ":town_25_faction", "fac_player_supporters_faction"),
+    (eq, ":town_40_faction", "fac_player_supporters_faction"),
+    (eq, ":castle_4_faction", "fac_player_supporters_faction"), #castles
+    (eq, ":castle_33_faction", "fac_player_supporters_faction"),
+    (eq, ":castle_53_faction", "fac_player_supporters_faction"),
+    (eq, ":castle_55_faction", "fac_player_supporters_faction"),
+    (eq, ":castle_60_faction", "fac_player_supporters_faction"),
+],[
+    (call_script, "script_end_quest", "qst_conquest_hispania"), #ends the quest
+    (call_script, "script_change_troop_renown", "trp_player", 200),
+    (troop_add_gold, "trp_player", 50000),
 ]),
 
-(2,0,ti_once,[(check_quest_active,"qst_conquest_africa"),],[
+(24,0,ti_once,[
+    (check_quest_active,"qst_conquest_africa"),
     (store_faction_of_party, ":town_17_faction", "p_town_17"),  #starts with towns first - player must own most of hispania
     (store_faction_of_party, ":town_34_faction", "p_town_34"), 
     (store_faction_of_party, ":town_35_faction", "p_town_35"), 
@@ -1155,23 +1156,23 @@ triggers = [
     (store_faction_of_party, ":castle_40_faction", "p_castle_40"),
     (store_faction_of_party, ":castle_78_faction", "p_castle_78"),
     (store_faction_of_party, ":castle_79_faction", "p_castle_79"),
-    (try_begin),
-      (eq, ":town_17_faction", "fac_player_supporters_faction"), #towns
-      (eq, ":town_34_faction", "fac_player_supporters_faction"),
-      (eq, ":town_35_faction", "fac_player_supporters_faction"),
-      (eq, ":castle_8_faction", "fac_player_supporters_faction"), #castles
-      (eq, ":castle_22_faction", "fac_player_supporters_faction"),
-      (eq, ":castle_39_faction", "fac_player_supporters_faction"),
-      (eq, ":castle_40_faction", "fac_player_supporters_faction"),
-      (eq, ":castle_78_faction", "fac_player_supporters_faction"),
-      (eq, ":castle_79_faction", "fac_player_supporters_faction"),
-      (call_script, "script_end_quest", "qst_conquest_africa"), #ends the quest
-      (call_script, "script_change_troop_renown", "trp_player", 200),
-      (troop_add_gold, "trp_player", 50000),
-    (try_end),
+    (eq, ":town_17_faction", "fac_player_supporters_faction"), #towns
+    (eq, ":town_34_faction", "fac_player_supporters_faction"),
+    (eq, ":town_35_faction", "fac_player_supporters_faction"),
+    (eq, ":castle_8_faction", "fac_player_supporters_faction"), #castles
+    (eq, ":castle_22_faction", "fac_player_supporters_faction"),
+    (eq, ":castle_39_faction", "fac_player_supporters_faction"),
+    (eq, ":castle_40_faction", "fac_player_supporters_faction"),
+    (eq, ":castle_78_faction", "fac_player_supporters_faction"),
+    (eq, ":castle_79_faction", "fac_player_supporters_faction"),
+],[
+    (call_script, "script_end_quest", "qst_conquest_africa"), #ends the quest
+    (call_script, "script_change_troop_renown", "trp_player", 200),
+    (troop_add_gold, "trp_player", 50000),
 ]),
 
-(1,0,ti_once,[(check_quest_active,"qst_unite_britannia"),],[
+(24,0,ti_once,[
+    (check_quest_active,"qst_unite_britannia"),
     (store_faction_of_party, ":town_2_faction", "p_town_2"),  #starts with towns first - player must own britannia
     (store_faction_of_party, ":town_18_faction", "p_town_18"), 
     (store_faction_of_party, ":town_24_faction", "p_town_24"),
@@ -1182,144 +1183,135 @@ triggers = [
     (store_faction_of_party, ":castle_58_faction", "p_castle_58"),
     (store_faction_of_party, ":castle_73_faction", "p_castle_73"),
     (store_faction_of_party, ":castle_74_faction", "p_castle_74"),
-    (try_begin),
-      (eq, ":town_2_faction", "fac_player_supporters_faction"), #towns
-      (eq, ":town_18_faction", "fac_player_supporters_faction"),
-      (eq, ":town_24_faction", "fac_player_supporters_faction"),
-      (eq, ":castle_2_faction", "fac_player_supporters_faction"), #castles
-      (eq, ":castle_15_faction", "fac_player_supporters_faction"),
-      (eq, ":castle_50_faction", "fac_player_supporters_faction"),
-      (eq, ":castle_57_faction", "fac_player_supporters_faction"),
-      (eq, ":castle_58_faction", "fac_player_supporters_faction"),
-      (eq, ":castle_73_faction", "fac_player_supporters_faction"),
-      (eq, ":castle_74_faction", "fac_player_supporters_faction"),
-
-      (call_script, "script_end_quest", "qst_unite_britannia"), #ends the quest
-      (call_script, "script_change_troop_renown", "trp_player", 220),
-      (troop_add_item, "trp_player", "itm_excalibur", 0), #gets special sword
-      (troop_add_item, "trp_player", "itm_arthur_shield", 0), #gets special shield
-      (troop_add_gold, "trp_player", 30000),
-    (try_end),
+    (eq, ":town_2_faction", "fac_player_supporters_faction"), #towns
+    (eq, ":town_18_faction", "fac_player_supporters_faction"),
+    (eq, ":town_24_faction", "fac_player_supporters_faction"),
+    (eq, ":castle_2_faction", "fac_player_supporters_faction"), #castles
+    (eq, ":castle_15_faction", "fac_player_supporters_faction"),
+    (eq, ":castle_50_faction", "fac_player_supporters_faction"),
+    (eq, ":castle_57_faction", "fac_player_supporters_faction"),
+    (eq, ":castle_58_faction", "fac_player_supporters_faction"),
+    (eq, ":castle_73_faction", "fac_player_supporters_faction"),
+    (eq, ":castle_74_faction", "fac_player_supporters_faction"),
+],[
+    (call_script, "script_end_quest", "qst_unite_britannia"), #ends the quest
+    (call_script, "script_change_troop_renown", "trp_player", 220),
+    (troop_add_item, "trp_player", "itm_excalibur", 0), #gets special sword
+    (troop_add_item, "trp_player", "itm_arthur_shield", 0), #gets special shield
+    (troop_add_gold, "trp_player", 30000),
 ]),
 
-(2,0,ti_once,[(check_quest_active,"qst_conquest_suebi"),],[
+(24,0,ti_once,[
+    (check_quest_active,"qst_conquest_suebi"),
     (store_faction_of_party, ":town_23_faction", "p_town_23"),
     (store_faction_of_party, ":castle_53_faction", "p_castle_53"),
     (store_faction_of_party, ":castle_60_faction", "p_castle_60"),
-    (try_begin),
-      (eq, ":town_23_faction", "fac_player_supporters_faction"),
-      (eq, ":castle_53_faction", "fac_player_supporters_faction"),
-      (eq, ":castle_60_faction", "fac_player_supporters_faction"),
-
-      (call_script, "script_end_quest", "qst_conquest_suebi"), #ends the quest
-      (call_script, "script_change_troop_renown", "trp_player", 150),
-      (troop_add_gold, "trp_player", 10000),
-    (try_end),
+    (eq, ":town_23_faction", "fac_player_supporters_faction"),
+    (eq, ":castle_53_faction", "fac_player_supporters_faction"),
+    (eq, ":castle_60_faction", "fac_player_supporters_faction"),
+],[
+    (call_script, "script_end_quest", "qst_conquest_suebi"), #ends the quest
+    (call_script, "script_change_troop_renown", "trp_player", 150),
+    (troop_add_gold, "trp_player", 10000),
 ]),
 
-(2,0,ti_once,[(check_quest_active,"qst_conquest_northern_gaul"),],[
+(24,0,ti_once,[
+    (check_quest_active,"qst_conquest_northern_gaul"),
     (store_faction_of_party, ":town_15_faction", "p_town_15"),
     (store_faction_of_party, ":castle_12_faction", "p_castle_12"),
     (store_faction_of_party, ":castle_21_faction", "p_castle_21"),
-    (try_begin),
-      (eq, ":town_15_faction", "fac_player_supporters_faction"),
-      (eq, ":castle_12_faction", "fac_player_supporters_faction"),
-      (eq, ":castle_21_faction", "fac_player_supporters_faction"),
-
-      (call_script, "script_end_quest", "qst_conquest_northern_gaul"), #ends the quest
-      (call_script, "script_change_troop_renown", "trp_player", 150),
-      (troop_add_gold, "trp_player", 10000),
-    (try_end),
+    (eq, ":town_15_faction", "fac_player_supporters_faction"),
+    (eq, ":castle_12_faction", "fac_player_supporters_faction"),
+    (eq, ":castle_21_faction", "fac_player_supporters_faction"),
+],[
+    (call_script, "script_end_quest", "qst_conquest_northern_gaul"), #ends the quest
+    (call_script, "script_change_troop_renown", "trp_player", 150),
+    (troop_add_gold, "trp_player", 10000),
 ]),
 
-(2,0,ti_once,[(check_quest_active,"qst_conquest_ripuari"),],[
+(24,0,ti_once,[
+    (check_quest_active,"qst_conquest_ripuari"),
     (store_faction_of_party, ":town_1_faction", "p_town_1"),
     (store_faction_of_party, ":castle_30_faction", "p_castle_30"),
-    (try_begin),
-      (eq, ":town_1_faction", "fac_player_supporters_faction"),
-      (eq, ":castle_30_faction", "fac_player_supporters_faction"),
-
-      (call_script, "script_end_quest", "qst_conquest_ripuari"), #ends the quest
-      (call_script, "script_change_troop_renown", "trp_player", 100),
-      (troop_add_gold, "trp_player", 8000),
-    (try_end),
+    (eq, ":town_1_faction", "fac_player_supporters_faction"),
+    (eq, ":castle_30_faction", "fac_player_supporters_faction"),
+],[
+    (call_script, "script_end_quest", "qst_conquest_ripuari"), #ends the quest
+    (call_script, "script_change_troop_renown", "trp_player", 100),
+    (troop_add_gold, "trp_player", 8000),
 ]),
 
-(2,0,ti_once,[(check_quest_active,"qst_conquest_saxons"),],[
+(24,0,ti_once,[
+    (check_quest_active,"qst_conquest_saxons"),
     (store_faction_of_party, ":town_32_faction", "p_town_32"),
     (store_faction_of_party, ":castle_11_faction", "p_castle_11"),
     (store_faction_of_party, ":castle_67_faction", "p_castle_67"),
     (store_faction_of_party, ":castle_72_faction", "p_castle_72"),
-    (try_begin),
-      (eq, ":town_32_faction", "fac_player_supporters_faction"),
-      (eq, ":castle_11_faction", "fac_player_supporters_faction"),
-      (eq, ":castle_67_faction", "fac_player_supporters_faction"),
-      (eq, ":castle_72_faction", "fac_player_supporters_faction"),
-
-      (call_script, "script_end_quest", "qst_conquest_saxons"), #ends the quest
-      (call_script, "script_change_troop_renown", "trp_player", 150),
-      (troop_add_gold, "trp_player", 12000),
-    (try_end),
+    (eq, ":town_32_faction", "fac_player_supporters_faction"),
+    (eq, ":castle_11_faction", "fac_player_supporters_faction"),
+    (eq, ":castle_67_faction", "fac_player_supporters_faction"),
+    (eq, ":castle_72_faction", "fac_player_supporters_faction"),
+],[
+    (call_script, "script_end_quest", "qst_conquest_saxons"), #ends the quest
+    (call_script, "script_change_troop_renown", "trp_player", 150),
+    (troop_add_gold, "trp_player", 12000),
 ]),
 
-(2,0,ti_once,[(check_quest_active,"qst_conquest_alemmani"),],[
+(24,0,ti_once,[
+    (check_quest_active,"qst_conquest_alemmani"),
     (store_faction_of_party, ":town_14_faction", "p_town_14"),
     (store_faction_of_party, ":castle_56_faction", "p_castle_56"),
     (store_faction_of_party, ":castle_66_faction", "p_castle_66"),
-    (try_begin),
-      (eq, ":town_14_faction", "fac_player_supporters_faction"),
-      (eq, ":castle_56_faction", "fac_player_supporters_faction"),
-      (eq, ":castle_66_faction", "fac_player_supporters_faction"),
-
-      (call_script, "script_end_quest", "qst_conquest_alemmani"), #ends the quest
-      (call_script, "script_change_troop_renown", "trp_player", 150),
-      (troop_add_gold, "trp_player", 10000),
-    (try_end),
+    (eq, ":town_14_faction", "fac_player_supporters_faction"),
+    (eq, ":castle_56_faction", "fac_player_supporters_faction"),
+    (eq, ":castle_66_faction", "fac_player_supporters_faction"),
+],[
+    (call_script, "script_end_quest", "qst_conquest_alemmani"), #ends the quest
+    (call_script, "script_change_troop_renown", "trp_player", 150),
+    (troop_add_gold, "trp_player", 10000),
 ]),
 
-(2,0,ti_once,[(check_quest_active,"qst_conquest_mauri"),],[
+(24,0,ti_once,[
+    (check_quest_active,"qst_conquest_mauri"),
     (store_faction_of_party, ":town_34_faction", "p_town_34"),
     (store_faction_of_party, ":castle_39_faction", "p_castle_39"),
     (store_faction_of_party, ":castle_78_faction", "p_castle_78"),
     (store_faction_of_party, ":castle_79_faction", "p_castle_79"),
-    (try_begin),
-      (eq, ":town_34_faction", "fac_player_supporters_faction"),
-      (eq, ":castle_39_faction", "fac_player_supporters_faction"),
-      (eq, ":castle_78_faction", "fac_player_supporters_faction"),
-      (eq, ":castle_79_faction", "fac_player_supporters_faction"),
-
-      (call_script, "script_end_quest", "qst_conquest_mauri"), #ends the quest
-      (call_script, "script_change_troop_renown", "trp_player", 150),
-      (troop_add_gold, "trp_player", 12000),
-    (try_end),
+    (eq, ":town_34_faction", "fac_player_supporters_faction"),
+    (eq, ":castle_39_faction", "fac_player_supporters_faction"),
+    (eq, ":castle_78_faction", "fac_player_supporters_faction"),
+    (eq, ":castle_79_faction", "fac_player_supporters_faction"),
+],[
+    (call_script, "script_end_quest", "qst_conquest_mauri"), #ends the quest
+    (call_script, "script_change_troop_renown", "trp_player", 150),
+    (troop_add_gold, "trp_player", 12000),
 ]),
 
-(2,0,ti_once,[(check_quest_active,"qst_conquest_sicily"),],[
+(24,0,ti_once,[
+    (check_quest_active,"qst_conquest_sicily"),
     (store_faction_of_party, ":castle_20_faction", "p_castle_30"),
-    (try_begin),
-      (eq, ":castle_20_faction", "fac_player_supporters_faction"),
-      (call_script, "script_end_quest", "qst_conquest_sicily"), #ends the quest
-      (call_script, "script_change_troop_renown", "trp_player", 50),
-      (troop_add_gold, "trp_player", 5000),
-    (try_end),
+    (eq, ":castle_20_faction", "fac_player_supporters_faction"),
+],[
+    (call_script, "script_end_quest", "qst_conquest_sicily"), #ends the quest
+    (call_script, "script_change_troop_renown", "trp_player", 50),
+    (troop_add_gold, "trp_player", 5000),
 ]),
 
-
-
-
-(2,0,ti_once,[(eq, "$jugador_rey", 9),],[
-    (store_faction_of_party, ":town_12_faction", "p_town_12"),  #player must conquer apahida as the huns to get special reward
-    (try_begin),
-      (eq, ":town_12_faction", "fac_player_supporters_faction"), #towns
-      (jump_to_menu, "mnu_hun_messenger"),
-      (troop_add_gold, "trp_player", 10000),
-    (try_end),
+(24,0,ti_once,[
+    (eq, "$jugador_rey", 9),
+    (store_faction_of_party, ":town_12_faction", "p_town_12"),#player must conquer apahida as the huns to get special reward
+    (eq, ":town_12_faction", "fac_player_supporters_faction"),
+],[
+    (jump_to_menu, "mnu_hun_messenger"),
+    (troop_add_gold, "trp_player", 10000),
 ]),
 
-(24*7,0,ti_once,[(eq, "$unique_sword_crafted", 2),],[
-  (dialog_box, "@A messenger approaches your warband, carrying the sword wayland has forged for you...", "@A messenger approaches your warband"),
-  (assign, "$unique_sword_crafted", 3),
-  (troop_add_item, "trp_player", "itm_nagelring", 0),
+(24*7,0,ti_once,[
+    (eq, "$unique_sword_crafted", 2),
+],[
+    (dialog_box, "@A messenger approaches your warband, carrying the sword wayland has forged for you...", "@A messenger approaches your warband"),
+    (assign, "$unique_sword_crafted", 3),
+    (troop_add_item, "trp_player", "itm_nagelring", 0),
 ]),
 #+freelancer start
 

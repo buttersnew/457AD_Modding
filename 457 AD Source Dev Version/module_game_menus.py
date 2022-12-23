@@ -19324,7 +19324,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 ),
 
 ("notification_decide_tributary_war_decleration",0,
-    "Your tributary vassal {s1} wants to declared war against {s2}.^^{s57}^^How do you wish to react? As they are your vassals you can force them to hold off from such plans. Or you use this opporunity to declare war without penalities.",
+    "Your tributary vassal {s1} wants to declared war against {s2}.^^{s57}^^How do you wish to react? As they are your vassals you can force them to hold off from such plans. Or you use this opportunity to declare war without penalities.",
     "none",
     [
         (call_script, "script_npc_decision_checklist_peace_or_war", "$g_notification_menu_var1", "$g_notification_menu_var2", -1),

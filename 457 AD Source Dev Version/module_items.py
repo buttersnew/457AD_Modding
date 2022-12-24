@@ -780,6 +780,10 @@ items = [
 ["thorsberg_tunic_roman_4", "Tunic", [("thorsberg_tunic_roman_4",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 100 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_gothic+culture_roman ],
 ["thorsberg_tunic_roman_5", "Tunic", [("thorsberg_tunic_roman_5",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 100 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_gothic+culture_roman ],
 
+["thorsberg_tunic_coptic_1", "Tunic", [("thorsberg_tunic_coptic_1",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 100 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_roman ],
+["thorsberg_tunic_coptic_2", "Tunic", [("thorsberg_tunic_coptic_2",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 100 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_roman ],
+["thorsberg_tunic_coptic_3", "Tunic", [("thorsberg_tunic_coptic_3",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 100 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_roman ],
+
 #roman peasant tunic - used by romans, sassanids + caucasian lower tier troops/peasants
 ["roman_peasant_tunic_1", "Simple White Tunic", [("roman_peasant_tunic_1",0)], itp_type_body_armor|itp_merchandise|itp_covers_legs|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_roman+culture_sassanid+culture_caucasian ],
 ["roman_peasant_tunic_2", "Simple Red Tunic", [("roman_peasant_tunic_2",0)], itp_type_body_armor|itp_merchandise|itp_covers_legs|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_roman+culture_sassanid+culture_caucasian ],
@@ -795,11 +799,15 @@ items = [
 ["roman_peasant_tunic_12", "Simple Orange Tunic", [("roman_peasant_tunic_12",0)], itp_type_body_armor|itp_merchandise|itp_covers_legs|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_roman+culture_sassanid+culture_caucasian ],
 ["roman_peasant_tunic_13", "Simple Green Tunic", [("roman_peasant_tunic_13",0)], itp_type_body_armor|itp_merchandise|itp_covers_legs|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_roman+culture_sassanid+culture_caucasian ],
 ["roman_peasant_tunic_14", "Simple Yellow Tunic", [("roman_peasant_tunic_14",0)], itp_type_body_armor|itp_merchandise|itp_covers_legs|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_roman+culture_sassanid+culture_caucasian ],
+["roman_peasant_tunic_15", "Tunica Manicata", [("roman_peasant_tunic_15",0)], itp_type_body_armor|itp_merchandise|itp_covers_legs|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_roman ],
+["roman_peasant_tunic_16", "Tunica Manicata", [("roman_peasant_tunic_16",0)], itp_type_body_armor|itp_merchandise|itp_covers_legs|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_roman ],
 
 ["arabian_peasant_tunic_1", "Striped Tunic", [("arabian_peasant_tunic_1",0)], itp_type_body_armor|itp_merchandise|itp_covers_legs|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_sassanid ], #for arabs
 ["arabian_peasant_tunic_2", "Striped Tunic", [("arabian_peasant_tunic_2",0)], itp_type_body_armor|itp_merchandise|itp_covers_legs|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_sassanid ], #for arabs
 ["arabian_peasant_tunic_3", "Striped Tunic", [("arabian_peasant_tunic_3",0)], itp_type_body_armor|itp_merchandise|itp_covers_legs|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_sassanid ], #for arabs
 ["arabian_peasant_tunic_4", "Striped Tunic", [("arabian_peasant_tunic_4",0)], itp_type_body_armor|itp_merchandise|itp_covers_legs|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_sassanid ], #for arabs
+
+["berber_tunic_1", "Tunic", [("berber_tunic_1",0)], itp_type_body_armor|itp_merchandise|itp_covers_legs|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_roman ], 
 
 #coptic tunics by fabio
 ["coptic_tunic_1", "Tunica Manicata", [("coptic_tunic_1",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
@@ -1257,6 +1265,14 @@ items = [
 ["roman_subarmalis_lauriacenses", "Subarmalis", [("roman_subarmalis_lauriacenses",0)], itp_unique|itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, #for lanciarii lauriacenses
  800 , weight(6)|abundance(60)|head_armor(0)|body_armor(30)|leg_armor(11)|difficulty(0) ,imodbits_cloth, [], culture_roman ],
 
+["coptic_subarmalis_1", "Subarmalis", [("coptic_subarmalis_1",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0,
+ 800 , weight(6)|abundance(60)|head_armor(0)|body_armor(30)|leg_armor(11)|difficulty(0) ,imodbits_cloth, [], [fac_culture_empire] ], #for coptic units
+["coptic_subarmalis_2", "Subarmalis", [("coptic_subarmalis_2",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0,
+ 800 , weight(6)|abundance(60)|head_armor(0)|body_armor(30)|leg_armor(11)|difficulty(0) ,imodbits_cloth, [], [fac_culture_empire] ], #for coptic units
+["coptic_subarmalis_3", "Subarmalis", [("coptic_subarmalis_3",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0,
+ 800 , weight(6)|abundance(60)|head_armor(0)|body_armor(30)|leg_armor(11)|difficulty(0) ,imodbits_cloth, [], [fac_culture_empire] ], #for coptic units
+
+
 ["padded_leather", "Padded Leather", [("leather_armor_b",0)], itp_type_body_armor|itp_covers_legs|itp_civilian,0,890 , weight(12)|abundance(100)|head_armor(0)|body_armor(36)|leg_armor(10)|difficulty(0) ,imodbits_leather, [], culture_germanic ],
 ["tribal_warrior_outfit", "Tribal Warrior Outfit", [("tribal_warrior_outfit_a_new",0)], itp_type_body_armor  |itp_covers_legs|itp_civilian ,0,890 , weight(14)|abundance(100)|head_armor(0)|body_armor(36)|leg_armor(10)|difficulty(0) ,imodbits_leather ],
 ["leather_armor_c", "Leather over Tunic", [("saxon_leather_vest_blue",0)], itp_merchandise| itp_type_body_armor|itp_covers_legs|itp_civilian ,0, 890 , weight(6)|abundance(60)|head_armor(0)|body_armor(36)|leg_armor(8)|difficulty(4) ,imodbits_leather, [], culture_germanic ],
@@ -1535,6 +1551,13 @@ items = [
  3200 , weight(14)|abundance(20)|head_armor(0)|body_armor(52)|leg_armor(12)|difficulty(9) ,imodbits_scale, [], culture_roman ], #romans
 ["roman_scale_7", "Squamata", [("roman_scale_7_1",0),("roman_scale_7_2",imodbit_reinforced),("roman_scale_7_3",imodbit_lordly),], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
  3200 , weight(14)|abundance(20)|head_armor(0)|body_armor(52)|leg_armor(12)|difficulty(9) ,imodbits_scale, [], culture_roman ], #romans
+
+["coptic_scale_1", "Squamata", [("coptic_scale_1_1",0),("coptic_scale_1_2",imodbit_reinforced),("coptic_scale_1_3",imodbit_lordly),], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3200 , weight(14)|abundance(20)|head_armor(0)|body_armor(52)|leg_armor(12)|difficulty(9) ,imodbits_scale, [], [fac_culture_empire] ], #copts
+["coptic_scale_2", "Squamata", [("coptic_scale_2_1",0),("coptic_scale_2_2",imodbit_reinforced),("coptic_scale_2_3",imodbit_lordly),], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3200 , weight(14)|abundance(20)|head_armor(0)|body_armor(52)|leg_armor(12)|difficulty(9) ,imodbits_scale, [], [fac_culture_empire] ], #copts
+["coptic_scale_3", "Squamata", [("coptic_scale_3_1",0),("coptic_scale_3_2",imodbit_reinforced),("coptic_scale_3_3",imodbit_lordly),], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3200 , weight(14)|abundance(20)|head_armor(0)|body_armor(52)|leg_armor(12)|difficulty(9) ,imodbits_scale, [], [fac_culture_empire] ], #copts
 
 ["western_scholae_scale_1", "Squamata", [("western_scholae_scale_1_1",0),("western_scholae_scale_1_2",imodbit_reinforced),("western_scholae_scale_1_3",imodbit_lordly),], itp_unique|itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
  3200 , weight(14)|abundance(20)|head_armor(0)|body_armor(52)|leg_armor(12)|difficulty(9) ,imodbits_scale, [], [fac_culture_empire] ], #scholae

@@ -206,6 +206,10 @@ party_templates = [
   ("culture_minor_2_reinforcements_b", "{!}Slavic Reinforcements", 0, 0, fac_commoners, 0, [(trp_slav_footman,6,15),(trp_standard_bearer,1,1)]),
   ("culture_minor_2_reinforcements_c", "{!}Slavic Reinforcements", 0, 0, fac_commoners, 0, [(trp_slav_horseman,2,5),(trp_slav_horsearcher,2,5)]),
 
+  ("culture_minor_3_reinforcements_a", "{!}Coptic Reinforcements", 0, 0, fac_commoners, 0, [(trp_coptic_youth,4,10),(trp_coptic_footman,4,10)]),
+  ("culture_minor_3_reinforcements_b", "{!}Coptic Reinforcements", 0, 0, fac_commoners, 0, [(trp_coptic_footman,3,8),(trp_coptic_watchman,3,7),(trp_standard_bearer,1,1)]),
+  ("culture_minor_3_reinforcements_c", "{!}Coptic Reinforcements", 0, 0, fac_commoners, 0, [(trp_coptic_guard,2,5),(trp_eques_sexto_dalmatae,2,5)]),
+
   ("culture_minor_4_reinforcements_a", "{!}Frisian Reinforcements", 0, 0, fac_commoners, 0, [(trp_frisian_freeman,8,20)]),
   ("culture_minor_4_reinforcements_b", "{!}Frisian Reinforcements", 0, 0, fac_commoners, 0, [(trp_frisian_freeman,6,15),(trp_standard_bearer,1,1)]),
   ("culture_minor_4_reinforcements_c", "{!}Frisian Reinforcements", 0, 0, fac_commoners, 0, [(trp_frisian_companion,4,10)]),

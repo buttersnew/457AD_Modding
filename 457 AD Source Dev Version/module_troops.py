@@ -410,7 +410,7 @@ scale_roman_2 = [itm_457_scale_hauberk_1,itm_457_scale_hauberk_2] #heavy scale -
 tunics_coptic_1 = [itm_coptic_tunic_1,itm_coptic_tunic_2,itm_coptic_tunic_3,itm_coptic_tunic_4,itm_roman_military_tunic_1,itm_roman_military_tunic_2,itm_roman_peasant_tunic_1,itm_roman_peasant_tunic_2,itm_roman_peasant_tunic_3,itm_roman_peasant_tunic_4,itm_roman_peasant_tunic_5,itm_roman_peasant_tunic_6,itm_thorsberg_tunic_1]
 tunics_coptic_2 = [itm_coptic_tunic_5,itm_coptic_tunic_6,itm_coptic_tunic_7,itm_thorsberg_tunic_8,itm_thorsberg_tunic_roman_1,itm_thorsberg_tunic_roman_2]
 cloaks_coptic_1 = [itm_thorsberg_tunic_cloak_1,itm_thorsberg_tunic_cloak_8,itm_thorsberg_tunic_roman_cloak_1,itm_thorsberg_tunic_roman_cloak_2]
-subarmalis_coptic = [itm_roman_subarmalis_1,itm_roman_subarmalis_6,itm_roman_subarmalis_7]
+subarmalis_coptic = [itm_roman_subarmalis_1,itm_roman_subarmalis_6,itm_roman_subarmalis_7,itm_coptic_subarmalis_1,itm_coptic_subarmalis_2,itm_coptic_subarmalis_3]
 mail_coptic_1 = [itm_kemathen_mail_1,itm_kemathen_mail_6,itm_kemathen_mail_rich_5,itm_kemathen_mail_roman_1,itm_kemathen_mail_roman_2]
 #persians
 tunics_persian_peasants = [itm_roman_peasant_tunic_1,itm_roman_peasant_tunic_2,itm_roman_peasant_tunic_3,itm_roman_peasant_tunic_10,itm_roman_peasant_tunic_11,itm_roman_peasant_tunic_12,itm_roman_peasant_tunic_13,itm_roman_peasant_tunic_14] #simple colors, similar to roman designs
@@ -2635,20 +2635,20 @@ troops = [
    def_attrib_lvl_18|level(18),wp_one_handed (170) | wp_two_handed (100) | wp_polearm (170) | wp_archery (160) | wp_crossbow (100) | wp_throwing (160) | wp_firearm(100),knows_ironflesh_4|knows_power_strike_5|knows_power_draw_5|knows_athletics_3|knows_riding_5|knows_horse_archery_5,caucaus_face_1, caucaus_face_2], 
 
 #Coptic Rebels
-  ["coptic_youth","Coptic Youth (Masmatos)","Coptic Youth (Masmatoi)",tf_guarantee_basic|tf_guarantee_ranged,0,0,fac_coptic_rebels, #skirmisher
+  ["coptic_youth","Coptic Youth (Masmatos)","Coptic Youth (Masmatoi)",tf_guarantee_basic|tf_guarantee_ranged,0,0,fac_culture_minor_3, #skirmisher
    [itm_wrapping_boots,itm_dark_bag_1,itm_dark_bag_2,itm_dark_bag_3,itm_roman_spear_1,itm_securis,itm_roman_arming_cap_1,itm_roman_arming_cap_2,itm_javelin,itm_javelin]+pannonian_hats+shields_simple+shoes_roman+tunics_coptic_1,
    def_attrib_skirmisher|level(13),wp_one_handed(130)|wp_two_handed(110)|wp_polearm(140)|wp_throwing(120)|wp_archery(100),knows_skirmisher,coptic_face_1, coptic_face_2],
 
-  ["coptic_watchman","Coptic Watchman (Anurshe)","Coptic Watchmen (Anurshe)",tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_ranged,0,0,fac_coptic_rebels, #archer
-   [itm_ankle_boots,itm_wrapping_boots,itm_ballana_spatha,itm_haditha_1,itm_roman_arming_cap_1,itm_roman_arming_cap_2,itm_strong_bow,itm_roman_arrows_2,itm_roman_arrows_2]+shoes_roman+tunics_coptic_1+tunics_coptic_2+cloaks_coptic_1,
+  ["coptic_watchman","Coptic Watchman (Anurshe)","Coptic Watchmen (Anurshe)",tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_ranged,0,0,fac_culture_minor_3, #archer
+   [itm_ankle_boots,itm_wrapping_boots,itm_ballana_spatha,itm_haditha_1,itm_narona_bandhelm_cloth,itm_roman_arming_cap_1,itm_roman_arming_cap_2,itm_strong_bow,itm_roman_arrows_2,itm_roman_arrows_2]+shoes_roman+tunics_coptic_1+tunics_coptic_2+cloaks_coptic_1,
    def_attrib_lvl_18|level(17),wp_one_handed(150)|wp_two_handed(150)|wp_polearm(150)|wp_throwing(130)|wp_archery(150),knows_archer,coptic_face_1, coptic_face_2],
 
-  ["coptic_footman","Coptic Footman (Matos)","Coptic Footman (Matoi)",tf_guarantee_basic,0,0,fac_coptic_rebels,
-   [itm_ankle_boots,itm_wrapping_boots,itm_roman_spear_3,itm_roman_spear_4,itm_ballana_spatha,itm_intercisa_helmet_1,itm_intercisa_helmet_2,itm_haditha_1,itm_roman_arming_cap_1,itm_roman_arming_cap_2]+shields_coptic+shoes_roman+tunics_coptic_2+cloaks_coptic_1+subarmalis_coptic,
+  ["coptic_footman","Coptic Footman (Matos)","Coptic Footman (Matoi)",tf_guarantee_basic,0,0,fac_culture_minor_3,
+   [itm_ankle_boots,itm_wrapping_boots,itm_roman_spear_3,itm_roman_spear_4,itm_ballana_spatha,itm_intercisa_helmet_1,itm_intercisa_helmet_2,itm_haditha_1,itm_narona_bandhelm_cloth,itm_roman_arming_cap_1,itm_roman_arming_cap_2]+shields_coptic+shoes_roman+tunics_coptic_2+cloaks_coptic_1+subarmalis_coptic,
    def_attrib_lvl_18|level(18),wp_one_handed(170)|wp_two_handed(150)|wp_polearm(180)|wp_throwing(160)|wp_archery(100),knows_lvl_18_inf|knows_shield_5|knows_power_strike_3,coptic_face_1, coptic_face_2],
 
-  ["coptic_guard","Coptic Guard (Refteshma)","Coptic Guards (Refteshma)",tf_mounted|tf_guarantee_basic|tf_guarantee_helmet,0,0,fac_coptic_rebels,
-   [itm_intercisa_helmet_1,itm_intercisa_helmet_2,itm_augst_helmet_1,itm_iatrus_1,itm_intercisa_helmet_gilded_1,itm_haditha_1,itm_burgh_helmet_1,itm_koblenz_helmet_1,itm_christies_helmet_1,itm_roman_spear_2_c1,itm_roman_spear_2_c2,itm_roman_spear_2_c3,itm_sword_khergit_3,itm_round_shield_roman_25]+shields_coptic+shoes_roman+mail_coptic_1+scale_roman_1,
+  ["coptic_guard","Coptic Guard (Refteshma)","Coptic Guards (Refteshma)",tf_mounted|tf_guarantee_basic|tf_guarantee_helmet,0,0,fac_culture_minor_3,
+   [itm_coptic_scale_1,itm_coptic_scale_2,itm_coptic_scale_3,itm_intercisa_helmet_1,itm_intercisa_helmet_2,itm_augst_helmet_1,itm_iatrus_1,itm_intercisa_helmet_gilded_1,itm_haditha_1,itm_narona_bandhelm_mail,itm_narona_bandhelm,itm_burgh_helmet_1,itm_koblenz_helmet_1,itm_christies_helmet_1,itm_roman_spear_2_c1,itm_roman_spear_2_c2,itm_roman_spear_2_c3,itm_sword_khergit_3,itm_round_shield_roman_25]+shields_coptic+shoes_roman+mail_coptic_1,
    def_attrib_lvl_23|level(23),wp_one_handed(200)|wp_two_handed(190)|wp_polearm(210)|wp_throwing(190)|wp_archery(100),knows_lvl_23_inf|knows_shield_7|knows_power_strike_4,coptic_face_1, coptic_face_2],
 
 #arab bandits

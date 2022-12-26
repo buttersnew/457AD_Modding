@@ -394,7 +394,7 @@ furs_wolf = [itm_wolf_skin_1,itm_wolf_skin_2]
 #new tunic groups
 
 #romans
-tunics_roman_military = [itm_roman_military_tunic_1,itm_roman_military_tunic_2,itm_thorsberg_tunic_1,itm_thorsberg_tunic_8] #red battle tunics
+tunics_roman_military = [itm_roman_military_tunic_1,itm_roman_military_tunic_2,itm_thorsberg_tunic_1,itm_thorsberg_tunic_8,itm_thorsberg_tunic_simple_6] #red battle tunics
 tunics_roman_marines = [itm_roman_military_tunic_3,itm_thorsberg_tunic_10] #simple blue tunics
 tunics_roman_peasant = [itm_roman_peasant_tunic_1,itm_roman_peasant_tunic_2,itm_roman_peasant_tunic_3,itm_roman_peasant_tunic_4,itm_roman_peasant_tunic_5,itm_roman_peasant_tunic_6,itm_roman_peasant_tunic_10,itm_roman_peasant_tunic_11,itm_roman_peasant_tunic_12,itm_roman_peasant_tunic_13] #simple colors, designs
 tunics_roman_civilian = [itm_roman_peasant_tunic_7,itm_roman_peasant_tunic_8,itm_roman_peasant_tunic_9,itm_coptic_tunic_white,itm_coptic_tunic_1,itm_coptic_tunic_2,itm_coptic_tunic_3,itm_coptic_tunic_4,itm_coptic_tunic_5,itm_coptic_tunic_6,itm_coptic_tunic_7,itm_coptic_tunic_8] #well off, basic coptic designs
@@ -461,7 +461,7 @@ subarmalis_briton = [itm_roman_subarmalis_2,itm_roman_subarmalis_5,itm_roman_sub
 mail_briton_1 = [itm_kemathen_mail_8,itm_kemathen_mail_roman_1,itm_kemathen_mail_roman_2]
 mail_briton_2 = [itm_kemathen_mail_roman_3,itm_kemathen_mail_rich_4,itm_kemathen_mail_rich_5]
 #romano-mauri
-tunics_mauri_1 = [itm_roman_peasant_tunic_1,itm_roman_peasant_tunic_2,itm_roman_peasant_tunic_6,itm_roman_peasant_tunic_4]
+tunics_mauri_1 = [itm_roman_peasant_tunic_1,itm_roman_peasant_tunic_2,itm_roman_peasant_tunic_6,itm_berber_tunic_1]
 tunics_mauri_2 = [itm_roman_peasant_tunic_9,itm_coptic_tunic_3,itm_roman_military_tunic_2,itm_thorsberg_tunic_roman_4,itm_thorsberg_tunic_roman_1]
 cloaks_mauri_1 = [itm_thorsberg_tunic_roman_cloak_1,itm_thorsberg_tunic_roman_cloak_4]
 subarmalis_mauri = [itm_roman_subarmalis_1,itm_roman_subarmalis_7]
@@ -701,6 +701,8 @@ horses_cataphract = [itm_nisean_cataphract_1,itm_nisean_cataphract_2,itm_nisean_
 horses_pictish_1 = [itm_marcagnos_1,itm_marcagnos_2,itm_marcagnos_3,itm_marcagnos_4]
 horses_pictish_2 = [itm_marcos_1,itm_marcos_2,itm_marcos_3,itm_marcos_4]
 
+horses_alan_1 = [itm_alan_horse_1,itm_alan_horse_2,itm_alan_horse_3,itm_alan_horse_4]
+horses_alan_2 = [itm_steppe_cata_1,itm_steppe_cata_2,itm_steppe_cata_3,itm_steppe_cata_4]
 #Generic weapons tiers for germanic troops //// OLD ////
 #basic equipment for tier 1 units, have basic bow + arrow
 
@@ -1678,7 +1680,7 @@ troops = [
    def_attrib_lvl_18|level(18),wp_one_handed (160) | wp_two_handed (180) | wp_polearm (180) | wp_archery (75) | wp_crossbow (75) | wp_throwing (100),knows_lvl_18_inf|knows_power_strike_5,caucaus_face_1, caucaus_face_2], 
 
   ["caucasian_alan_mercenary","Alan Mercenary","Alan Mercenaries",tf_mounted|tf_guarantee_horse|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_ranged|tf_guarantee_polearm,0,0,fac_culture_8,
-   [itm_khergit_bow,itm_khergit_arrows,itm_hunnic_spatha,itm_heavy_lance,itm_sassanid_cavalry_boots_2,itm_nomad_boots,itm_kaftan_alan_red,itm_kaftan_alan_green,itm_kaftan_alan_blue,itm_khudashevsky_helmet_1,itm_old_spangenhelm_2,itm_khudashevsky_helmet_2,itm_kalhkni_helmet_mail,itm_kalhkni_helmet_1,itm_kalhkni_helmet_2]+horses_hunnic_1,
+   [itm_khergit_bow,itm_khergit_arrows,itm_hunnic_spatha,itm_heavy_lance,itm_sassanid_cavalry_boots_2,itm_nomad_boots,itm_kaftan_alan_red,itm_kaftan_alan_green,itm_kaftan_alan_blue,itm_khudashevsky_helmet_1,itm_old_spangenhelm_2,itm_khudashevsky_helmet_2,itm_kalhkni_helmet_mail,itm_kalhkni_helmet_1,itm_kalhkni_helmet_2]+horses_alan_1,
    def_attrib_lvl_20|level(20),wp_one_handed(190)|wp_two_handed(190)|wp_polearm(190)|wp_throwing(140)|wp_archery(180),knows_riding_7|knows_horse_archery_6|knows_power_draw_6|knows_ironflesh_4|knows_power_strike_5|knows_athletics_4|knows_power_throw_3|knows_inventory_management_3,sarmatian_face_1, sarmatian_face_2],
 
   ["adyghe_warrior","Adyghe Warrior","Adyghe Warriors",tf_guarantee_basic|tf_guarantee_ranged,0,0,fac_culture_8,
@@ -1687,7 +1689,7 @@ troops = [
    def_attrib_lvl_20|level(20),wp_one_handed(210)|wp_two_handed(200)|wp_polearm(180)|wp_throwing(210)|wp_archery(80)|wp_firearm(80),knows_lvl_23_inf|knows_power_strike_7|knows_shield_2,caucaus_face_1, caucaus_face_2],
 
   ["mazkut_cataphract","Maz'Kut Cataphract","Maz'Kut Cataphracts",tf_mounted|tf_guarantee_armor|tf_guarantee_boots|tf_guarantee_polearm|tf_guarantee_helmet|tf_guarantee_horse,0,0,fac_culture_16,
-   [itm_heavy_lance,itm_tab_shield_small_round_c,itm_hunnic_spatha,itm_caucasian_cataphract_3,itm_sassanid_simple_boots_1,itm_sassanid_cavalry_boots_2,itm_khergit_leather_boots,itm_kalhkni_helmet_mail,itm_kalhkni_helmet_1,itm_kalhkni_helmet_2,itm_rozhdestvensky_helmet_mail,itm_khudashevsky_helmet_3,itm_khudashevsky_helmet_2]+horses_cataphract_common,
+   [itm_heavy_lance,itm_tab_shield_small_round_c,itm_hunnic_spatha,itm_caucasian_cataphract_3,itm_sassanid_simple_boots_1,itm_sassanid_cavalry_boots_2,itm_khergit_leather_boots,itm_kalhkni_helmet_mail,itm_kalhkni_helmet_1,itm_kalhkni_helmet_2,itm_rozhdestvensky_helmet_mail,itm_khudashevsky_helmet_3,itm_khudashevsky_helmet_2]+horses_alan_2,
    def_attrib_lvl_28|level(28),wp_one_handed(210)|wp_two_handed(50)|wp_polearm(250)|wp_archery(180)|wp_throwing(60)|wp_crossbow(60)|wp_firearm(60),knows_cataphract,sarmatian_face_1, sarmatian_face_2],
 
 #AOR FOR MINOR FACTION
@@ -1701,7 +1703,7 @@ troops = [
    def_attrib_lvl_20|level(20),wp_one_handed(180)|wp_two_handed(170)|wp_polearm(200)|wp_throwing(160)|wp_archery(80)|wp_firearm(80),knows_lvl_18_inf|knows_shield_4|knows_power_strike_6,caucaus_face_1, caucaus_face_2],
 
   ["zikhes_horseman","Zikhes Horseman","Zikhes Horsemen",tf_mounted|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_polearm|tf_guarantee_horse|tf_guarantee_helmet,0,0,fac_culture_8,
-   [itm_sassanid_cavalry_boots_1,itm_hunter_boots,itm_kaftan_alan_blue,itm_kaftan_alan_green,itm_luchistoe_mail_11,itm_khudashevsky_helmet_1,itm_khudashevsky_helmet_2,itm_djurso_spatha,itm_light_lance,itm_spear_sword,itm_strong_bow,itm_roman_arrows_2]+horses_hunnic_1,
+   [itm_sassanid_cavalry_boots_1,itm_hunter_boots,itm_kaftan_alan_blue,itm_kaftan_alan_green,itm_luchistoe_mail_11,itm_khudashevsky_helmet_1,itm_khudashevsky_helmet_2,itm_djurso_spatha,itm_light_lance,itm_spear_sword,itm_strong_bow,itm_roman_arrows_2]+horses_alan_1,
    def_attrib_lvl_23|level(23),wp_one_handed(180)|wp_two_handed(150)|wp_polearm(200)|wp_throwing(180)|wp_archery(160),knows_lvl_23_cav|knows_shield_4|knows_power_strike_6|knows_horse_archery_5,caucaus_face_1, caucaus_face_2],
 
   ["lekh_warrior","Lekh Warrior","Lekh Warriors",tf_guarantee_armor|tf_guarantee_boots|tf_guarantee_ranged|tf_guarantee_shield,0,0,fac_culture_8,
@@ -1713,7 +1715,7 @@ troops = [
    def_attrib_lvl_20|level(20),wp_one_handed(190)|wp_two_handed(170)|wp_polearm(190)|wp_throwing(160)|wp_archery(80)|wp_firearm(80),knows_lvl_18_inf|knows_shield_5|knows_power_strike_5,caucaus_face_1, caucaus_face_2],
 
   ["lekh_horseman","Lekh Horseman","Lekh Horsemen",tf_mounted|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_polearm|tf_guarantee_horse|tf_guarantee_helmet,0,0,fac_culture_8,
-   [itm_sassanid_cavalry_boots_1,itm_hunter_boots,itm_kaftan_alan_white,itm_kaftan_alan_red,itm_kaftan_alan_7,itm_luchistoe_mail_13,itm_hunnic_phrygian_leather,itm_hunnic_phrygian_3,itm_hunnic_phrygian_5,itm_kalhkni_helmet_mail,itm_kalhkni_helmet_1,itm_kalhkni_helmet_2,itm_ingushetia_spatha,itm_poleaxe,itm_concave_shield_yellow_small_1,itm_concave_shield_leather_small_3,itm_tab_shield_small_round_c]+horses_hunnic_1,
+   [itm_sassanid_cavalry_boots_1,itm_hunter_boots,itm_kaftan_alan_white,itm_kaftan_alan_red,itm_kaftan_alan_7,itm_luchistoe_mail_13,itm_hunnic_phrygian_leather,itm_hunnic_phrygian_3,itm_hunnic_phrygian_5,itm_kalhkni_helmet_mail,itm_kalhkni_helmet_1,itm_kalhkni_helmet_2,itm_ingushetia_spatha,itm_poleaxe,itm_concave_shield_yellow_small_1,itm_concave_shield_leather_small_3,itm_tab_shield_small_round_c]+horses_alan_1,
    def_attrib_lvl_23|level(23),wp_one_handed(180)|wp_two_handed(150)|wp_polearm(200)|wp_throwing(180)|wp_archery(160),knows_lvl_23_cav|knows_shield_4|knows_power_strike_6,caucaus_face_1, caucaus_face_2],
 
 #MAURI
@@ -1778,7 +1780,7 @@ troops = [
    def_attrib_lvl_23|level(23),wp_one_handed(190)|wp_two_handed(190)|wp_polearm(200)|wp_throwing(200)|wp_archery(170),knows_athletics_5|knows_riding_6|knows_power_throw_2|knows_horse_archery_5|knows_power_strike_7|knows_power_draw_7|knows_ironflesh_6|knows_inventory_management_3,hunnic_face_1, hunnic_face_2],
 
   ["hunnic_veteran","Hunnic Veteran","Hun Veterans",tf_mounted|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_horse|tf_guarantee_shield,0,0,fac_culture_12,
-   [itm_heavy_greaves,itm_sarranid_boots_b,itm_sassanid_cavalry_boots_1,itm_sassanid_cavalry_boots_2,itm_kaftan_lamellar_1,itm_kaftan_lamellar_5,itm_kaftan_lamellar_6,itm_leather_gloves,itm_kalhkni_helmet_1,itm_kalhkni_helmet_2,itm_khudashevsky_helmet_3,itm_kishpek_helmet_mail,itm_concesti_helmet,itm_turaevo_helmet,itm_turaevo_helmet_aventail,itm_pannonhalma_spatha,itm_djurso_spatha,itm_heavy_lance,itm_khergit_arrows,itm_niya_bow_2]+horses_hunnic_2+horses_hunnic_3,
+   [itm_heavy_greaves,itm_sarranid_boots_b,itm_sassanid_cavalry_boots_1,itm_sassanid_cavalry_boots_2,itm_kaftan_lamellar_1,itm_kaftan_lamellar_5,itm_kaftan_lamellar_6,itm_leather_gloves,itm_kalhkni_helmet_1,itm_kalhkni_helmet_2,itm_khudashevsky_helmet_3,itm_kishpek_helmet_mail,itm_concesti_helmet,itm_turaevo_helmet,itm_turaevo_helmet_aventail,itm_pannonhalma_spatha,itm_djurso_spatha,itm_heavy_lance,itm_khergit_arrows,itm_niya_bow_2]+horses_hunnic_3+horses_alan_2,
    def_attrib_lvl_28|level(28),wp_one_handed(230)|wp_two_handed(220)|wp_polearm(240)|wp_throwing(230)|wp_archery(180),knows_riding_8|knows_horse_archery_6|knows_power_strike_7|knows_power_draw_8|knows_ironflesh_7|knows_inventory_management_3|knows_athletics_5|knows_shield_2,hunnic_face_1, hunnic_face_2],
 
   ["hunnic_prison_guard","Prison Guard","Prison Guards",tf_mounted|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_horse|tf_guarantee_shield,0,0,fac_culture_12,
@@ -1801,7 +1803,7 @@ troops = [
    def_attrib_lvl_23|level(23),wp_one_handed(190)|wp_two_handed(150)|wp_polearm(190)|wp_throwing(150)|wp_archery(190),knows_athletics_5|knows_riding_6|knows_horse_archery_5|knows_power_strike_7|knows_power_draw_6|knows_ironflesh_7|knows_inventory_management_3,hunnic_face_1, hunnic_face_2],
 
   ["meotian_horseman","Maeotian Horseman","Maeotian Horsemen",tf_mounted|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_horse|tf_guarantee_ranged,0,0,fac_culture_12,
-   [itm_nomad_boots,itm_simple_shoes,itm_sassanid_cavalry_boots_1,itm_sassanid_cavalry_boots_2,itm_kaftan_alan_red,itm_kaftan_alan_blue,itm_kaftan_alan_green,itm_rozhdestvensky_helmet_leather,itm_rozhdestvensky_helmet_mail,itm_tarasovsky_1784_helmet_leather,itm_tarasovsky_1784_helmet_mail_2,itm_old_spangenhelm_3,itm_woolen_cap,itm_woolen_cap_c,itm_woolen_cap_2,itm_hunnic_phrygian_4,itm_hunnic_phrygian_5,itm_hunnic_phrygian_6,itm_hunnic_spatha,itm_polehammer,itm_ad_small_shield_2,itm_kerch_shield_6,itm_cavalry_javelins]+horses_hunnic_1,
+   [itm_nomad_boots,itm_simple_shoes,itm_sassanid_cavalry_boots_1,itm_sassanid_cavalry_boots_2,itm_kaftan_alan_red,itm_kaftan_alan_blue,itm_kaftan_alan_green,itm_rozhdestvensky_helmet_leather,itm_rozhdestvensky_helmet_mail,itm_tarasovsky_1784_helmet_leather,itm_tarasovsky_1784_helmet_mail_2,itm_old_spangenhelm_3,itm_woolen_cap,itm_woolen_cap_c,itm_woolen_cap_2,itm_hunnic_phrygian_4,itm_hunnic_phrygian_5,itm_hunnic_phrygian_6,itm_hunnic_spatha,itm_polehammer,itm_ad_small_shield_2,itm_kerch_shield_6,itm_cavalry_javelins]+horses_alan_1,
    def_attrib_lvl_18|level(17),wp_one_handed(160)|wp_two_handed(150)|wp_polearm(170)|wp_throwing(170)|wp_archery(170),knows_common|knows_riding_6|knows_power_throw_6|knows_horse_archery_5|knows_power_strike_4|knows_power_draw_3|knows_ironflesh_2,sarmatian_face_1, sarmatian_face_2],
 
 
@@ -1823,8 +1825,8 @@ troops = [
    [itm_nubian_sandals,itm_coptic_tunic_2,itm_coptic_tunic_7,itm_coptic_tunic_8,itm_war_bow,itm_long_bow,itm_bodkin_arrows,itm_bodkin_arrows,itm_nubian_spear_3,itm_hide_helmet,itm_nubian_leather_helmet]+tunics_nubians,
    def_attrib_lvl_20|level(20),wp_one_handed(190)|wp_two_handed(80)|wp_polearm(200)|wp_archery(210)|wp_firearm(100),knows_athletics_6|knows_ironflesh_6|knows_power_strike_7|knows_power_draw_9|knows_power_throw_2|knows_riding_3|knows_weapon_master_5|knows_inventory_management_3,nubian_face_1, nubian_face_2],
 
-  ["nubian_horseman","Nubian Horseman","Nubian Horsemen",tf_mounted|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_shield|tf_guarantee_polearm|tf_guarantee_horse,0,0,fac_culture_15,
-   [itm_nubian_sandals,itm_coptic_tunic_2,itm_coptic_tunic_7,itm_coptic_tunic_8,itm_kemathen_mail_10,itm_kemathen_mail_roman_2,itm_roman_subarmalis_3,itm_hide_helmet,itm_nubian_leather_helmet,itm_haditha_1,itm_burgh_helmet_1,itm_burgh_helmet_mail,itm_burgh_helmet_light,itm_round_shield_roman_small_28,itm_tab_shield_small_round_c,itm_concave_shield_leather_small_1,itm_concave_shield_leather_small_2,itm_concave_shield_leather_small_3,itm_nubian_shield_1,itm_nubian_shield_2,itm_cavalry_javelins,itm_late_roman_spear_1,itm_ballana_spatha]+horses_nubian_1+horses_nubian_2,
+  ["nubian_horseman","Nubian Horseman","Nubian Horsemen",tf_mounted|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_shield|tf_guarantee_polearm|tf_guarantee_horse,0,0,fac_culture_15,
+   [itm_nubian_sandals,itm_coptic_tunic_2,itm_coptic_tunic_7,itm_coptic_tunic_8,itm_kemathen_mail_10,itm_kemathen_mail_roman_2,itm_mail_african_1,itm_roman_subarmalis_3,itm_hide_helmet,itm_nubian_leather_helmet,itm_haditha_1,itm_burgh_helmet_1,itm_burgh_helmet_mail,itm_burgh_helmet_light,itm_round_shield_roman_small_28,itm_tab_shield_small_round_c,itm_concave_shield_leather_small_1,itm_concave_shield_leather_small_2,itm_concave_shield_leather_small_3,itm_nubian_shield_1,itm_nubian_shield_2,itm_cavalry_javelins,itm_late_roman_spear_1,itm_ballana_spatha]+horses_nubian_1+horses_nubian_2,
    def_attrib_lvl_28|level(28),wp_one_handed(230)|wp_two_handed(140)|wp_polearm(240)|wp_throwing(240)|wp_archery(150)|wp_firearm(100),knows_lvl_28_cav|knows_shield_2|knows_power_strike_8|knows_horse_archery_5,nubian_face_1, nubian_face_2],
 
   ["nubian_deserter","Nubian Deserter","Nubian Deserters",tf_guarantee_armor|tf_guarantee_shield|tf_guarantee_polearm,0,0,fac_culture_15,
@@ -1847,24 +1849,24 @@ troops = [
    def_attrib_skirmisher|level(13),wp_one_handed(120)|wp_two_handed(130)|wp_polearm(130)|wp_archery(150)|wp_throwing(160)|wp_crossbow(30)|wp_firearm(150),knows_skirmisher,sarmatian_face_1, sarmatian_face_2],
 
   ["caucasian_alan_tribesman","Alan Tribesman","Alan Tribesmen",tf_mounted|tf_guarantee_horse|tf_guarantee_armor|tf_guarantee_boots|tf_guarantee_ranged,0,0,fac_culture_16,
-   [itm_simple_shoes,itm_wrapping_boots,itm_nomad_boots,itm_roman_peasant_tunic_1,itm_roman_peasant_tunic_10,itm_roman_peasant_tunic_12,itm_roman_peasant_tunic_13,itm_roman_peasant_tunic_14,itm_woolen_cap_c,itm_woolen_cap,itm_woolen_cap_b,itm_woolen_cap_6,itm_kaftan_alan_red,itm_kaftan_alan_blue,itm_kaftan_alan_green,itm_kaftan_alan_white,itm_medium_spear_4,itm_strong_bow,itm_roman_arrows_2,itm_roman_arrows_2]+horses_hunnic_1,
+   [itm_simple_shoes,itm_wrapping_boots,itm_nomad_boots,itm_roman_peasant_tunic_1,itm_roman_peasant_tunic_10,itm_roman_peasant_tunic_12,itm_roman_peasant_tunic_13,itm_roman_peasant_tunic_14,itm_woolen_cap_c,itm_woolen_cap,itm_woolen_cap_b,itm_woolen_cap_6,itm_kaftan_alan_red,itm_kaftan_alan_blue,itm_kaftan_alan_green,itm_kaftan_alan_white,itm_medium_spear_4,itm_strong_bow,itm_roman_arrows_2,itm_roman_arrows_2]+horses_alan_1,
    def_attrib_lvl_18|level(18),wp_one_handed(170)|wp_two_handed(170)|wp_polearm(170)|wp_archery(160)|wp_throwing(150)|wp_crossbow(50)|wp_firearm(80),knows_lvl_18_cav|knows_power_strike_4|knows_horse_archery_4,sarmatian_face_1, sarmatian_face_2],
 
   ["caucasian_alan_retainer","Alan Retainer","Alan Retainers",tf_mounted|tf_guarantee_armor|tf_guarantee_boots|tf_guarantee_polearm|tf_guarantee_helmet|tf_guarantee_horse,0,0,fac_culture_16, #will replace with proper sword when finished!
    [itm_simple_shoes,itm_wrapping_boots,itm_nomad_boots,itm_sassanid_cavalry_boots_1,itm_sassanid_cavalry_boots_2,itm_kaftan_alan_red,itm_kaftan_alan_blue,itm_kaftan_alan_green,itm_kaftan_alan_white,itm_kaftan_alan_1,itm_kaftan_alan_2,itm_kaftan_alan_3,itm_kaftan_alan_4,itm_kaftan_alan_7,itm_kaftan_lamellar_1,itm_kaftan_lamellar_2,itm_kaftan_lamellar_3,itm_kaftan_lamellar_4,itm_kaftan_lamellar_9,itm_kaftan_lamellar_10,itm_kaftan_lamellar_11,
-   itm_woolen_cap_c,itm_woolen_cap,itm_woolen_cap_b,itm_woolen_cap_6,itm_rozhdestvensky_helmet_leather,itm_kishpek_helmet_leather,itm_khudashevsky_helmet_1,itm_khudashevsky_helmet_2,itm_rozhdestvensky_helmet_mail,itm_kishpek_helmet_mail,itm_kalhkni_helmet_mail,itm_kalhkni_helmet_1,itm_kalhkni_helmet_2,itm_heavy_lance,itm_spear_sword,itm_klin_yar_spatha,itm_hunnic_spatha,itm_battle_axe_2]+horses_hunnic_2,
+   itm_woolen_cap_c,itm_woolen_cap,itm_woolen_cap_b,itm_woolen_cap_6,itm_rozhdestvensky_helmet_leather,itm_kishpek_helmet_leather,itm_khudashevsky_helmet_1,itm_khudashevsky_helmet_2,itm_rozhdestvensky_helmet_mail,itm_kishpek_helmet_mail,itm_kalhkni_helmet_mail,itm_kalhkni_helmet_1,itm_kalhkni_helmet_2,itm_heavy_lance,itm_spear_sword,itm_klin_yar_spatha,itm_hunnic_spatha,itm_battle_axe_2]+horses_alan_1,
    def_attrib_lvl_23|level(23),wp_one_handed(200)|wp_two_handed(220)|wp_polearm(210)|wp_archery(160)|wp_throwing(110)|wp_crossbow(30)|wp_firearm(80),knows_lvl_23_cav|knows_power_strike_7|knows_shield_2|knows_horse_archery_5,sarmatian_face_1, sarmatian_face_2],
 
   ["caucasian_alan_companion","Alan Companion","Alan Companions",tf_mounted|tf_guarantee_armor|tf_guarantee_boots|tf_guarantee_polearm|tf_guarantee_helmet|tf_guarantee_horse,0,0,fac_culture_16,
    [itm_heavy_greaves,itm_sassanid_cavalry_boots_1,itm_sassanid_cavalry_boots_2,itm_sarranid_boots_b,itm_kaftan_lamellar_1,itm_kaftan_lamellar_2,itm_kaftan_lamellar_3,itm_kaftan_lamellar_4,itm_kaftan_lamellar_11,itm_alan_cataphract_1,itm_leather_gloves,
-   itm_kalhkni_helmet_1,itm_kalhkni_helmet_2,itm_kishpek_helmet_mail,itm_rozhdestvensky_helmet_mail,itm_khudashevsky_helmet_2,itm_khudashevsky_helmet_3,itm_heavy_lance,itm_spear_sword,itm_klin_yar_spatha]+horses_hunnic_3+horses_cataphract_common,
+   itm_kalhkni_helmet_1,itm_kalhkni_helmet_2,itm_kishpek_helmet_mail,itm_rozhdestvensky_helmet_mail,itm_khudashevsky_helmet_2,itm_khudashevsky_helmet_3,itm_heavy_lance,itm_spear_sword,itm_klin_yar_spatha]+horses_alan_2,
    def_attrib_lvl_28|level(28),wp_one_handed(220)|wp_two_handed(230)|wp_polearm(240)|wp_archery(160)|wp_throwing(60)|wp_crossbow(60)|wp_firearm(60),knows_lvl_28_cav|knows_power_strike_8|knows_shield_3,sarmatian_face_1, sarmatian_face_2],
 
   ["caucasian_alan_deserter","Alan Deserter","Alan Deserters",tf_guarantee_armor|tf_guarantee_boots|tf_guarantee_polearm|tf_guarantee_shield,0,0,fac_culture_16,
    [itm_simple_shoes,itm_wrapping_boots,itm_nomad_boots,itm_woolen_cap_c,itm_woolen_cap,itm_woolen_cap_b,itm_woolen_cap_6,itm_wicker_shields_rectangular_1,itm_wicker_shields_rectangular_2,itm_wicker_shields_rectangular_3,itm_spiked_club,itm_spiked_mace,itm_winged_mace,itm_fighting_axe,itm_bearded_axe_1,itm_glaive,itm_medium_spear_3,itm_medium_spear_4,itm_javelin]+tunics_alans_1,
    def_attrib_lvl_18|level(17),wp_one_handed(160)|wp_two_handed(130)|wp_polearm(175)|wp_archery(90)|wp_throwing(160)|wp_crossbow(30)|wp_firearm(80),knows_lvl_18_inf|knows_shield_6|knows_power_strike_2,sarmatian_face_1, sarmatian_face_2],
   ["caucasian_alan_messenger","Alan Messenger","Alan Messengers",tf_mounted|tf_guarantee_horse|tf_guarantee_armor|tf_guarantee_boots|tf_guarantee_ranged,0,0,fac_culture_16,
-   [itm_simple_shoes,itm_wrapping_boots,itm_nomad_boots,itm_woolen_cap_c,itm_woolen_cap,itm_woolen_cap_b,itm_woolen_cap_6,itm_kaftan_alan_red,itm_kaftan_alan_blue,itm_kaftan_alan_green,itm_kaftan_alan_white,itm_kaftan_alan_1,itm_medium_spear_4,itm_fighting_axe,itm_strong_bow,itm_roman_arrows_2,itm_roman_arrows_2]+horses_hunnic_1,
+   [itm_simple_shoes,itm_wrapping_boots,itm_nomad_boots,itm_woolen_cap_c,itm_woolen_cap,itm_woolen_cap_b,itm_woolen_cap_6,itm_kaftan_alan_red,itm_kaftan_alan_blue,itm_kaftan_alan_green,itm_kaftan_alan_white,itm_kaftan_alan_1,itm_medium_spear_4,itm_fighting_axe,itm_strong_bow,itm_roman_arrows_2,itm_roman_arrows_2]+horses_alan_1,
    def_attrib_lvl_20|level(20),wp_one_handed(170)|wp_two_handed(170)|wp_polearm(170)|wp_archery(160)|wp_throwing(150)|wp_crossbow(50)|wp_firearm(80),knows_riding_5|knows_ironflesh_2|knows_power_strike_2|knows_power_draw_4|knows_horse_archery_6|knows_weapon_master_2|knows_inventory_management_2,sarmatian_face_1, sarmatian_face_2],
   ["caucasian_alan_prison_guard","Prison Guard","Prison Guards",tf_mounted|tf_guarantee_armor|tf_guarantee_boots|tf_guarantee_polearm|tf_guarantee_helmet|tf_guarantee_horse,0,0,fac_culture_16,
    [itm_sassanid_cavalry_boots_1,itm_sassanid_cavalry_boots_2,itm_sarranid_boots_b,itm_kaftan_lamellar_1,itm_kaftan_lamellar_2,itm_kaftan_lamellar_3,itm_kaftan_lamellar_4,itm_kaftan_lamellar_11,itm_kalhkni_helmet_mail,itm_kalhkni_helmet_1,itm_kalhkni_helmet_2,itm_kishpek_helmet_mail,itm_rozhdestvensky_helmet_mail,itm_khudashevsky_helmet_2,itm_khudashevsky_helmet_3,itm_spear_sword,itm_klin_yar_spatha,itm_tab_shield_small_round_c],
@@ -2000,7 +2002,7 @@ troops = [
    def_attrib_lvl_23|level(22),wp_one_handed(190)|wp_two_handed(190)|wp_polearm(215)|wp_archery(120)|wp_throwing(190),knows_lvl_23_inf|knows_shield_7|knows_power_strike_3,roman_face_1, roman_face_2],
   #Slightly higher shield, ironflesh skills - Gallia
   ["pedes_defensores_seniores","Pedes Defensores Seniores","Pedites Defensores Seniores",tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_shield|tf_guarantee_helmet|tf_guarantee_polearm,0,0,fac_kingdom_1,
-   [itm_late_roman_spear_2,itm_sword_khergit_3,itm_war_darts,itm_oval_shield_defensores_seniores,itm_deurne_campagi_1,itm_deurne_campagi_3,itm_intercisa_helmet_1,itm_intercisa_helmet_2,itm_augst_helmet_1,itm_iatrus_1,itm_christies_helmet_1,itm_narona_bandhelm_mail,itm_narona_bandhelm,itm_intercisa_helmet_silvered_1,itm_intercisa_helmet_silvered_2,itm_augst_helmet_2]+subarmalis_roman+mail_roman_1,
+   [itm_late_roman_spear_2,itm_sword_khergit_3,itm_war_darts,itm_oval_shield_defensores_seniores,itm_deurne_campagi_1,itm_deurne_campagi_3,itm_roman_mail_1,itm_roman_mail_2,itm_intercisa_helmet_1,itm_intercisa_helmet_2,itm_augst_helmet_1,itm_iatrus_1,itm_christies_helmet_1,itm_narona_bandhelm_mail,itm_narona_bandhelm,itm_intercisa_helmet_silvered_1,itm_intercisa_helmet_silvered_2,itm_augst_helmet_2]+subarmalis_roman+mail_roman_1,
    def_attrib_lvl_23|level(22),wp_one_handed(190)|wp_two_handed(190)|wp_polearm(190)|wp_archery(120)|wp_throwing(190),knows_lvl_23_inf|knows_shield_8|knows_power_strike_2|knows_ironflesh_8,roman_face_1, roman_face_2],
   #Javelins, quality spears - Dalmatia
   ["pedes_lanciarii_lauriacenses","Pedes Lanciarii Lauriacenses","Pedites Lanciarii Lauriacenses",tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_shield|tf_guarantee_helmet|tf_guarantee_polearm,0,0,fac_kingdom_1,
@@ -2009,28 +2011,28 @@ troops = [
 #Comitatenses
   #Above average throwing skill - Italia
   ["pedes_mattiarii_iuniores","Pedes Mattiarii Iuniores","Pedites Mattiarii Iuniores",tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_shield|tf_guarantee_helmet,0,0,fac_kingdom_1,
-   [itm_sword_khergit_4,itm_war_darts,itm_war_darts,itm_deurne_campagi_4,itm_deurne_campagi_5,itm_iatrus_1,itm_iatrus_2,itm_intercisa_helmet_1,itm_intercisa_helmet_2,itm_intercisa_helmet_gilded_1,itm_intercisa_helmet_gilded_2,itm_oval_shield_mattiarii]+mail_roman_1,
+   [itm_sword_khergit_4,itm_war_darts,itm_war_darts,itm_deurne_campagi_4,itm_deurne_campagi_5,itm_roman_mail_1,itm_roman_mail_2,itm_roman_mail_3,itm_iatrus_1,itm_iatrus_2,itm_intercisa_helmet_1,itm_intercisa_helmet_2,itm_intercisa_helmet_gilded_1,itm_intercisa_helmet_gilded_2,itm_oval_shield_mattiarii]+mail_roman_1,
    def_attrib_lvl_25|level(25),wp_one_handed(210)|wp_two_handed(150)|wp_polearm(190)|wp_archery(120)|wp_throwing(240),knows_athletics_6|knows_riding_2|knows_ironflesh_7|knows_power_throw_7|knows_weapon_master_6|knows_inventory_management_4|knows_shield_5|knows_power_strike_5,roman_face_1, roman_face_2],
   #Higher weapon, defenses skills - Dalmatia
   ["pedes_propugnatores_iuniores","Pedes Propugnatores Iuniores","Pedites Propugnatores Iuniores",tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_shield|tf_guarantee_helmet|tf_guarantee_polearm,0,0,fac_kingdom_1,
-   [itm_late_roman_spear_1,itm_late_roman_spear_2,itm_aquincum_spatha_1,itm_spiculum,itm_deurne_campagi_1,itm_deurne_campagi_5,itm_iatrus_1,itm_iatrus_2,itm_narona_bandhelm,itm_narona_bandhelm_mail,itm_christies_helmet_1,itm_burgh_helmet_1,itm_burgh_helmet_2,itm_koblenz_helmet_1,itm_koblenz_helmet_2,itm_oval_shield_propugnatores_iuniores]+mail_roman_1,
+   [itm_late_roman_spear_1,itm_late_roman_spear_2,itm_aquincum_spatha_1,itm_spiculum,itm_deurne_campagi_1,itm_deurne_campagi_5,itm_roman_mail_1,itm_roman_mail_2,itm_roman_mail_3,itm_iatrus_1,itm_iatrus_2,itm_narona_bandhelm,itm_narona_bandhelm_mail,itm_christies_helmet_1,itm_burgh_helmet_1,itm_burgh_helmet_2,itm_koblenz_helmet_1,itm_koblenz_helmet_2,itm_oval_shield_propugnatores_iuniores]+mail_roman_1,
    def_attrib_lvl_25|level(25),wp_one_handed(200)|wp_two_handed(170)|wp_polearm(200)|wp_archery(120)|wp_throwing(200),knows_athletics_5|knows_riding_2|knows_ironflesh_7|knows_power_throw_6|knows_power_draw_2|knows_weapon_master_5|knows_inventory_management_4|knows_shield_7|knows_power_strike_4,roman_face_1, roman_face_2],
   #Higher 1 handed skills - Gallia
   ["pedes_ursarienses","Pedes Ursarienses","Pedites Ursarienses",tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_shield|tf_guarantee_helmet,0,0,fac_kingdom_1,
-   [itm_samson_spatha_2_rich,itm_spiculum,itm_spiculum,itm_deurne_campagi_1,itm_deurne_campagi_4,itm_intercisa_helmet_1,itm_intercisa_helmet_gilded_1,itm_narona_bandhelm_mail,itm_narona_bandhelm,itm_christies_helmet_1,itm_oval_shield_ursarienses]+mail_roman_1,
+   [itm_samson_spatha_2_rich,itm_spiculum,itm_spiculum,itm_deurne_campagi_1,itm_deurne_campagi_4,itm_roman_mail_1,itm_roman_mail_2,itm_roman_mail_3,itm_intercisa_helmet_1,itm_intercisa_helmet_gilded_1,itm_narona_bandhelm_mail,itm_narona_bandhelm,itm_christies_helmet_1,itm_oval_shield_ursarienses]+mail_roman_1,
    def_attrib_lvl_25|level(25),wp_one_handed(220)|wp_two_handed(160)|wp_polearm(190)|wp_archery(120)|wp_throwing(210),knows_athletics_5|knows_riding_2|knows_ironflesh_7|knows_power_throw_6|knows_power_draw_2|knows_weapon_master_5|knows_inventory_management_4|knows_shield_5|knows_power_strike_7,roman_face_1, roman_face_2],
 #Aux. Palatina
   #Quality weapon skills - Italia
   ["pedes_cornuti_seniores","Pedes Cornuti Seniores","Pedites Cornuti Seniores",tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_shield|tf_guarantee_helmet|tf_guarantee_polearm,0,0,fac_kingdom_1,
-   [itm_late_roman_spear_1,itm_arabian_sword_b,itm_spiculum,itm_deurne_campagi_greaves_4,itm_deurne_campagi_greaves_5,itm_iatrus_1,itm_iatrus_2,itm_burgh_helmet_1,itm_burgh_helmet_2,itm_christies_helmet_1,itm_augsburg_1_helmet,itm_oval_shield_5]+mail_roman_1+scale_roman_1,
+   [itm_late_roman_spear_1,itm_arabian_sword_b,itm_spiculum,itm_deurne_campagi_greaves_4,itm_deurne_campagi_greaves_5,itm_roman_mail_2,itm_roman_mail_4,itm_iatrus_1,itm_iatrus_2,itm_burgh_helmet_1,itm_burgh_helmet_2,itm_christies_helmet_1,itm_augsburg_1_helmet,itm_oval_shield_5]+mail_roman_1+scale_roman_1,
    def_attrib_lvl_28|level(28),wp_one_handed(240)|wp_two_handed(150)|wp_polearm(240)|wp_archery(120)|wp_throwing(220),knows_lvl_28_inf|knows_shield_4|knows_power_strike_8,roman_face_1, roman_face_2],
   #Quality defensive skills, good spears - Gallia
   ["pedes_mattiaci_seniores","Pedes Mattiaci Seniores","Pedites Mattiaci Seniores",tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_shield|tf_guarantee_helmet|tf_guarantee_polearm,0,0,fac_kingdom_1,
-   [itm_late_roman_spear_1,itm_sword_khergit_4,itm_war_darts,itm_deurne_campagi_greaves_4,itm_deurne_campagi_greaves_5,itm_457_scale_hauberk_1,itm_iatrus_2,itm_koblenz_helmet_1,itm_koblenz_helmet_2,itm_burgh_helmet_2,itm_christies_helmet_1,itm_oval_shield_mattiaci]+mail_roman_1,
+   [itm_late_roman_spear_1,itm_sword_khergit_4,itm_war_darts,itm_deurne_campagi_greaves_4,itm_deurne_campagi_greaves_5,itm_roman_mail_4,itm_457_scale_hauberk_1,itm_iatrus_2,itm_koblenz_helmet_1,itm_koblenz_helmet_2,itm_burgh_helmet_2,itm_christies_helmet_1,itm_oval_shield_mattiaci]+mail_roman_1,
    def_attrib_lvl_28|level(28),wp_one_handed(220)|wp_two_handed(150)|wp_polearm(230)|wp_archery(120)|wp_throwing(220),knows_lvl_28_inf|knows_shield_8|knows_power_strike_4,roman_face_1, roman_face_2],
   #High one handed skills, has francisca - Dalmatia
   ["pedes_tungri","Pedes Tungri","Pedites Tungri",tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_shield|tf_guarantee_helmet,0,0,fac_kingdom_1,
-   [itm_sword_khergit_4,itm_heavy_throwing_axes,itm_heavy_throwing_axes,itm_deurne_campagi_greaves_3,itm_deurne_campagi_greaves_6,itm_457_scale_hauberk_1,itm_intercisa_helmet_gilded_1,itm_intercisa_helmet_rich_3,itm_augsburg_2_helmet,itm_iatrus_2,itm_gultlingen_helmet_plume,itm_concave_shield_roman_18]+mail_roman_1,
+   [itm_sword_khergit_4,itm_heavy_throwing_axes,itm_heavy_throwing_axes,itm_deurne_campagi_greaves_3,itm_deurne_campagi_greaves_6,itm_roman_mail_3,itm_457_scale_hauberk_1,itm_intercisa_helmet_gilded_1,itm_intercisa_helmet_rich_3,itm_augsburg_2_helmet,itm_iatrus_2,itm_gultlingen_helmet_plume,itm_concave_shield_roman_18]+mail_roman_1,
    def_attrib_lvl_28|level(28),wp_one_handed(240)|wp_two_handed(150)|wp_polearm(220)|wp_archery(120)|wp_throwing(230),knows_lvl_28_inf|knows_shield_6|knows_power_strike_6,roman_face_1, roman_face_2],
   #Spears, slightly lower level - Italia
   ["pedes_felices_valentinianenses","Pedes Placidi Felices Valentinianenses","Pedites Placidi Felices Valentinianenses",tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_shield|tf_guarantee_helmet|tf_guarantee_polearm,0,0,fac_kingdom_1,
@@ -2038,7 +2040,7 @@ troops = [
    def_attrib_lvl_28|level(27),wp_one_handed(230)|wp_two_handed(150)|wp_polearm(230)|wp_archery(120)|wp_throwing(220),knows_lvl_28_inf|knows_shield_7|knows_power_strike_5,roman_face_1, roman_face_2],
   #Quality sword skills/good quality sword - Italia
   ["pedes_heruli_seniores","Pedes Heruli Seniores","Pedites Heruli Seniores",tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_shield|tf_guarantee_helmet,0,0,fac_kingdom_1,
-   [itm_samson_spatha_2_rich,itm_round_shield_germanic_4,itm_deurne_campagi_greaves_4,itm_deurne_campagi_greaves_5,itm_deurne_campagi_greaves_6,itm_augst_helmet_rich_plume_2,itm_intercisa_helmet_rich_plume_3,itm_intercisa_helmet_rich_plume_4]+mail_roman_1,
+   [itm_samson_spatha_2_rich,itm_round_shield_germanic_4,itm_deurne_campagi_greaves_4,itm_deurne_campagi_greaves_5,itm_deurne_campagi_greaves_6,itm_roman_mail_3,itm_roman_mail_4,itm_augst_helmet_rich_plume_2,itm_intercisa_helmet_rich_plume_3,itm_intercisa_helmet_rich_plume_4]+mail_roman_1,
    def_attrib_lvl_28|level(28),wp_one_handed(245)|wp_two_handed(220)|wp_polearm(225)|wp_archery(120)|wp_throwing(230),knows_lvl_28_inf|knows_shield_5|knows_power_strike_7,germanic_face_1, germanic_face_2],
   #Unique archer - Dalmatia
   ["miles_sagittarii_venatores","Miles Sagittarii Venatores","Milites Sagittarii Venatores",tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_ranged,0,0,fac_kingdom_1,
@@ -2060,11 +2062,11 @@ troops = [
    def_attrib_lvl_30|level(30),wp_one_handed(230)|wp_two_handed(150)|wp_polearm(230)|wp_throwing(150)|wp_crossbow(150)|wp_archery(180),knows_lvl_30_cav|knows_shield_4|knows_power_strike_8|knows_horse_archery_5,sarmatian_face_1, sarmatian_face_2],
 #Equites stablesiani Italiciani - vexillationes comitatenses - Italia
   ["eques_stablesiani_italiciani","Eques Stablesiani Italiciani","Equites Stablesiani Italiciani",tf_mounted|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_shield|tf_guarantee_helmet|tf_guarantee_horse,0,0,fac_kingdom_1,
-   [itm_deurne_campagi_greaves_2,itm_deurne_campagi_greaves_5,itm_kemathen_mail_rich_8,itm_concave_shield_stablesiani,itm_arabian_sword_b,itm_koblenz_helmet_2,itm_koblenz_helmet_3,itm_concesti_helmet,itm_augsburg_2_helmet,itm_heteny_helmet_1]+mail_roman_1+horses_roman_3,
+   [itm_deurne_campagi_greaves_2,itm_deurne_campagi_greaves_5,itm_roman_mail_2,itm_roman_mail_4,itm_kemathen_mail_rich_8,itm_concave_shield_stablesiani,itm_arabian_sword_b,itm_koblenz_helmet_2,itm_koblenz_helmet_3,itm_concesti_helmet,itm_augsburg_2_helmet,itm_heteny_helmet_1]+mail_roman_1+horses_roman_3,
    def_attrib_lvl_25|level(25),wp_one_handed(210)|wp_two_handed(130)|wp_polearm(190)|wp_throwing(130)|wp_crossbow(130)|wp_archery(130),knows_lvl_23_cav|knows_shield_6|knows_power_strike_5,roman_face_1, roman_face_2],
 #Equites prima Gallia - vexillationes comitatenses - Gallia
   ["eques_prima_gallia","Eques Prima Gallia","Equites Prima Gallia",tf_mounted|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_shield|tf_guarantee_helmet|tf_guarantee_horse|tf_guarantee_polearm,0,0,fac_kingdom_1,
-   [itm_deurne_campagi_greaves_5,itm_deurne_campagi_greaves_6,itm_narona_bandhelm_mail,itm_narona_bandhelm,itm_intercisa_helmet_1,itm_koblenz_helmet_1,itm_gultlingen_helmet_mail,itm_christies_helmet_1,itm_concave_shield_roman_16,itm_roman_spear_4,itm_indesheim_spatha_rich]+mail_roman_1+horses_roman_1+horses_roman_2,
+   [itm_deurne_campagi_greaves_5,itm_deurne_campagi_greaves_6,itm_roman_mail_1,itm_roman_mail_3,itm_narona_bandhelm_mail,itm_narona_bandhelm,itm_intercisa_helmet_1,itm_koblenz_helmet_1,itm_gultlingen_helmet_mail,itm_christies_helmet_1,itm_concave_shield_roman_16,itm_roman_spear_4,itm_indesheim_spatha_rich]+mail_roman_1+horses_roman_1+horses_roman_2,
    def_attrib_lvl_25|level(25),wp_one_handed(200)|wp_two_handed(130)|wp_polearm(200)|wp_throwing(190)|wp_crossbow(130)|wp_archery(130),knows_lvl_23_cav|knows_shield_5|knows_power_strike_5,roman_face_1, roman_face_2],
 #Equites Honoriani Taifali iuniores - vexillationes comitatenses - Gallia
   ["eques_honoriani_taifali_iuniores","Eques Honoriani Taifali Iuniores","Equites Honoriani Taifali Iuniores",tf_mounted|tf_guarantee_horse|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_shield|tf_guarantee_polearm,0,0,fac_kingdom_1,
@@ -2072,7 +2074,7 @@ troops = [
    def_attrib_lvl_25|level(25),wp_one_handed(200)|wp_two_handed(130)|wp_polearm(200)|wp_throwing(190)|wp_crossbow(130)|wp_archery(130),knows_lvl_23_cav|knows_shield_4|knows_power_strike_6|knows_horse_archery_5,roman_face_1, roman_face_2],
 #Equites Batavi seniores - vexillationes palatinae - Gallia
   ["eques_batavi_seniores","Eques Batavi Seniores","Equites Batavi Seniores",tf_mounted|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_shield|tf_guarantee_helmet|tf_guarantee_horse|tf_guarantee_polearm,0,0,fac_kingdom_1,
-   [itm_deurne_campagi_greaves_1,itm_deurne_campagi_greaves_6,itm_koblenz_helmet_1,itm_gultlingen_helmet,itm_gultlingen_helmet_plume,itm_heteny_helmet_1,itm_augsburg_2_helmet,itm_augsburg_1_helmet,itm_christies_helmet_1,itm_concave_shield_roman_17,itm_late_roman_spear_1,itm_samson_spatha_2_rich]+mail_roman_1+scale_roman_2+horses_roman_3,
+   [itm_deurne_campagi_greaves_1,itm_deurne_campagi_greaves_6,itm_roman_mail_2,itm_roman_mail_4,itm_koblenz_helmet_1,itm_gultlingen_helmet,itm_gultlingen_helmet_plume,itm_heteny_helmet_1,itm_augsburg_2_helmet,itm_augsburg_1_helmet,itm_christies_helmet_1,itm_concave_shield_roman_17,itm_late_roman_spear_1,itm_samson_spatha_2_rich]+mail_roman_1+scale_roman_2+horses_roman_3,
    def_attrib_lvl_28|level(28),wp_one_handed(220)|wp_two_handed(130)|wp_polearm(210)|wp_throwing(210)|wp_crossbow(130)|wp_archery(130),knows_lvl_28_cav|knows_shield_5|knows_power_strike_7,roman_face_1, roman_face_2],
 
 #ERE
@@ -2094,35 +2096,35 @@ troops = [
 #Comitatenses
   #better equipment compared to counterparts, stronger defensively, made to last until 637 ;^) - per orientem, limitis aegypti
   ["pedes_quinta_macedonica","Pedes Quinta Macedonica","Pedites Quinta Macedonica",tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_shield|tf_guarantee_helmet|tf_guarantee_polearm,0,0,fac_kingdom_2,
-   [itm_late_roman_spear_1,itm_roman_spear_4,itm_aquincum_spatha_2,itm_war_darts,itm_deurne_campagi_1,itm_deurne_campagi_2,itm_deurne_campagi_5,itm_roman_lorum_fasciari_5,itm_roman_lorum_fasciari_6,itm_roman_subarmalis_legio_v,itm_kemathen_mail_8,itm_roman_scale_4,itm_iatrus_1,itm_iatrus_2,itm_haditha_1,itm_intercisa_helmet_1,itm_intercisa_helmet_gilded_1,itm_augst_helmet_1,itm_augst_helmet_3,itm_narona_bandhelm_cloth,itm_narona_bandhelm,itm_narona_bandhelm_mail,itm_oval_shield_4],
+   [itm_late_roman_spear_1,itm_roman_spear_4,itm_aquincum_spatha_2,itm_war_darts,itm_deurne_campagi_1,itm_deurne_campagi_2,itm_deurne_campagi_5,itm_roman_lorum_fasciari_5,itm_roman_lorum_fasciari_6,itm_roman_subarmalis_legio_v,itm_kemathen_mail_8,itm_roman_mail_3,itm_roman_scale_4,itm_iatrus_1,itm_iatrus_2,itm_haditha_1,itm_intercisa_helmet_1,itm_intercisa_helmet_gilded_1,itm_augst_helmet_1,itm_augst_helmet_3,itm_narona_bandhelm_cloth,itm_narona_bandhelm,itm_narona_bandhelm_mail,itm_oval_shield_4],
    def_attrib_lvl_25|level(25),wp_one_handed(200)|wp_two_handed(150)|wp_polearm(200)|wp_archery(120)|wp_throwing(190),knows_athletics_6|knows_riding_2|knows_ironflesh_7|knows_power_throw_6|knows_weapon_master_5|knows_inventory_management_4|knows_shield_8|knows_power_strike_4,roman_face_1, roman_face_2],
   #above average one handed skill, uses maces, throwing darts, spears - per thracias
   ["pedes_tzaanni","Pedes Tzaanni","Pedites Tzaanni",tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_shield|tf_guarantee_helmet,0,0,fac_kingdom_2,
-   [itm_deurne_campagi_1,itm_deurne_campagi_2,itm_deurne_campagi_6,itm_mace_roman_1,itm_late_roman_spear_1,itm_war_darts,itm_iatrus_1,itm_koblenz_helmet_1,itm_intercisa_helmet_1,itm_oval_shield_tzaanni]+mail_roman_1,
+   [itm_deurne_campagi_1,itm_deurne_campagi_2,itm_deurne_campagi_6,itm_roman_mail_2,itm_mace_roman_1,itm_late_roman_spear_1,itm_war_darts,itm_iatrus_1,itm_koblenz_helmet_1,itm_intercisa_helmet_1,itm_oval_shield_tzaanni]+mail_roman_1,
    def_attrib_lvl_25|level(25),wp_one_handed(210)|wp_two_handed(190)|wp_polearm(190)|wp_archery(120)|wp_throwing(190),knows_athletics_6|knows_riding_2|knows_ironflesh_7|knows_power_throw_6|knows_power_draw_2|knows_weapon_master_5|knows_inventory_management_4|knows_shield_5|knows_power_strike_7,caucaus_face_1, caucaus_face_2],
   #possible aux? has access to good sword, throwing spear, slightly higher level + skills
   ["pedes_augustenses","Pedes Augustenses","Pedites Augustenses",tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_shield|tf_guarantee_helmet|tf_guarantee_polearm,0,0,fac_kingdom_2,
-   [itm_deurne_campagi_5,itm_roman_lorum_fasciari_5,itm_roman_greaves_5,itm_intercisa_helmet_1,itm_haditha_1,itm_iatrus_1,itm_iatrus_2,itm_narona_bandhelm,itm_narona_bandhelm_mail,itm_narona_bandhelm_leather,itm_arabian_sword_b,itm_spiculum,itm_oval_shield_augustenses]+mail_roman_1,
+   [itm_deurne_campagi_5,itm_roman_lorum_fasciari_5,itm_roman_greaves_5,itm_roman_mail_2,itm_intercisa_helmet_1,itm_haditha_1,itm_iatrus_1,itm_iatrus_2,itm_narona_bandhelm,itm_narona_bandhelm_mail,itm_narona_bandhelm_leather,itm_arabian_sword_b,itm_spiculum,itm_oval_shield_augustenses]+mail_roman_1,
    def_attrib_lvl_25|level(25),wp_one_handed(190)|wp_two_handed(150)|wp_polearm(190)|wp_archery(120)|wp_throwing(190),knows_athletics_6|knows_riding_2|knows_ironflesh_7|knows_power_throw_6|knows_power_draw_2|knows_weapon_master_5|knows_inventory_management_4|knows_shield_7|knows_power_strike_5,roman_face_1, roman_face_2],
   #per orientem - good sword skills
   ["pedes_decima_gemina","Pedes Decima Gemina","Pedites Decima Gemina",tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_shield|tf_guarantee_helmet,0,0,fac_kingdom_2,
-   [itm_deurne_campagi_1,itm_roman_lorum_fasciari_5,itm_457_scale_hauberk_1,itm_iatrus_1,itm_iatrus_2,itm_haditha_1,itm_intercisa_helmet_1,itm_intercisa_helmet_gilded_1,itm_christies_helmet_1,itm_indesheim_spatha_rich,itm_concave_shield_roman_26]+mail_roman_1,
+   [itm_deurne_campagi_1,itm_roman_lorum_fasciari_5,itm_roman_mail_3,itm_457_scale_hauberk_1,itm_iatrus_1,itm_iatrus_2,itm_haditha_1,itm_intercisa_helmet_1,itm_intercisa_helmet_gilded_1,itm_christies_helmet_1,itm_indesheim_spatha_rich,itm_concave_shield_roman_26]+mail_roman_1,
    def_attrib_lvl_25|level(25),wp_one_handed(215)|wp_two_handed(150)|wp_polearm(180)|wp_archery(120)|wp_throwing(180),knows_athletics_6|knows_riding_2|knows_ironflesh_8|knows_power_throw_5|knows_weapon_master_5|knows_inventory_management_4|knows_shield_6|knows_power_strike_6,roman_face_1, roman_face_2],
 #Aux. Palatina
   ["pedes_regii_east","Pedes Regii Orientalis","Pedites Regii Orientalis",tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_shield|tf_guarantee_helmet|tf_guarantee_polearm,0,0,fac_kingdom_2,
-   [itm_late_roman_spear_1,itm_arabian_sword_b,itm_war_darts,itm_deurne_campagi_greaves_4,itm_deurne_campagi_greaves_5,itm_457_scale_hauberk_2,itm_457_scale_hauberk_5,itm_iatrus_1,itm_iatrus_2,itm_koblenz_helmet_1,itm_koblenz_helmet_2,itm_intercisa_helmet_rich_3,itm_augsburg_2_helmet,itm_augsburg_1_helmet,itm_concesti_helmet,itm_heteny_helmet_1,itm_oval_shield_regii_east],
+   [itm_late_roman_spear_1,itm_arabian_sword_b,itm_war_darts,itm_deurne_campagi_greaves_4,itm_deurne_campagi_greaves_5,itm_roman_mail_4,itm_457_scale_hauberk_2,itm_457_scale_hauberk_5,itm_iatrus_1,itm_iatrus_2,itm_koblenz_helmet_1,itm_koblenz_helmet_2,itm_intercisa_helmet_rich_3,itm_augsburg_2_helmet,itm_augsburg_1_helmet,itm_concesti_helmet,itm_heteny_helmet_1,itm_oval_shield_regii_east],
    def_attrib_lvl_28|level(28),wp_one_handed(220)|wp_two_handed(150)|wp_polearm(220)|wp_archery(120)|wp_throwing(220),knows_lvl_28_inf|knows_shield_7|knows_power_strike_5,roman_face_1, roman_face_2],
   #Quality weapon skills, has similar javs to excubitors
   ["pedes_thraces","Pedes Thraces","Pedites Thraces",tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_shield|tf_guarantee_helmet|tf_guarantee_polearm,0,0,fac_kingdom_2,
-   [itm_late_roman_spear_2,itm_sword_khergit_4,itm_roman_javelin,itm_deurne_campagi_greaves_1,itm_deurne_campagi_greaves_2,itm_iatrus_1,itm_haditha_1,itm_intercisa_helmet_1,itm_intercisa_helmet_2,itm_augst_helmet_1,itm_narona_bandhelm_mail,itm_narona_bandhelm,itm_christies_helmet_1,itm_oval_shield_thraces]+mail_roman_1,
+   [itm_late_roman_spear_2,itm_sword_khergit_4,itm_roman_javelin,itm_deurne_campagi_greaves_1,itm_deurne_campagi_greaves_2,itm_roman_mail_1,itm_roman_mail_4,itm_iatrus_1,itm_haditha_1,itm_intercisa_helmet_1,itm_intercisa_helmet_2,itm_augst_helmet_1,itm_narona_bandhelm_mail,itm_narona_bandhelm,itm_christies_helmet_1,itm_oval_shield_thraces]+mail_roman_1,
    def_attrib_lvl_28|level(28),wp_one_handed(240)|wp_two_handed(150)|wp_polearm(240)|wp_archery(120)|wp_throwing(220),knows_lvl_28_inf|knows_shield_6|knows_power_strike_6,roman_face_1, roman_face_2],
   #Primi Theodosiani - Presentalis I
   ["pedes_primi_theodosiani","Pedes Primi Theodosiani","Pedites Primi Theodosiani",tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_shield|tf_guarantee_helmet|tf_guarantee_polearm,0,0,fac_kingdom_2,
-   [itm_late_roman_spear_1,itm_sword_khergit_4,itm_war_darts,itm_deurne_campagi_greaves_1,itm_deurne_campagi_greaves_3,itm_intercisa_helmet_gilded_1,itm_iatrus_2,itm_intercisa_helmet_rich_3,itm_koblenz_helmet_2,itm_augsburg_2_helmet,itm_concesti_helmet,itm_christies_helmet_1,itm_heteny_helmet_1,itm_augsburg_1_helmet,itm_oval_shield_primi_theodosiani]+greaves_roman+mail_roman_1,
+   [itm_late_roman_spear_1,itm_sword_khergit_4,itm_war_darts,itm_deurne_campagi_greaves_1,itm_deurne_campagi_greaves_3,itm_roman_mail_3,itm_roman_mail_4,itm_intercisa_helmet_gilded_1,itm_iatrus_2,itm_intercisa_helmet_rich_3,itm_koblenz_helmet_2,itm_augsburg_2_helmet,itm_concesti_helmet,itm_christies_helmet_1,itm_heteny_helmet_1,itm_augsburg_1_helmet,itm_oval_shield_primi_theodosiani]+greaves_roman+mail_roman_1,
    def_attrib_lvl_28|level(28),wp_one_handed(220)|wp_two_handed(150)|wp_polearm(220)|wp_archery(120)|wp_throwing(220),knows_lvl_28_inf|knows_shield_5|knows_power_strike_7,roman_face_1, roman_face_2],
   #Victores - Presenatlis I
   ["pedes_victores","Pedes Victores","Pedites Victores",tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_shield|tf_guarantee_helmet|tf_guarantee_polearm,0,0,fac_kingdom_2,
-   [itm_late_roman_spear_1,itm_indesheim_spatha_rich,itm_war_darts,itm_deurne_campagi_greaves_1,itm_deurne_campagi_greaves_4,itm_457_scale_hauberk_4,itm_intercisa_helmet_gilded_plume_1,itm_intercisa_helmet_rich_plume_3,itm_intercisa_helmet_rich_plume_1,itm_iatrus_2,itm_augsburg_1_helmet,itm_koblenz_crested_2,itm_koblenz_crested_3,itm_concesti_helmet,itm_heteny_helmet_1,itm_christies_helmet_crest_1,itm_christies_helmet_crest_2,itm_oval_shield_victores]+mail_roman_1,
+   [itm_late_roman_spear_1,itm_indesheim_spatha_rich,itm_war_darts,itm_deurne_campagi_greaves_1,itm_deurne_campagi_greaves_4,itm_roman_mail_1,itm_roman_mail_4,itm_457_scale_hauberk_4,itm_intercisa_helmet_gilded_plume_1,itm_intercisa_helmet_rich_plume_3,itm_intercisa_helmet_rich_plume_1,itm_iatrus_2,itm_augsburg_1_helmet,itm_koblenz_crested_2,itm_koblenz_crested_3,itm_concesti_helmet,itm_heteny_helmet_1,itm_christies_helmet_crest_1,itm_christies_helmet_crest_2,itm_oval_shield_victores]+mail_roman_1,
    def_attrib_lvl_28|level(28),wp_one_handed(230)|wp_two_handed(150)|wp_polearm(230)|wp_archery(140)|wp_throwing(220),knows_lvl_28_inf|knows_shield_8|knows_power_strike_4,roman_face_1, roman_face_2],
 
   #will eventually add in the Felices Theodosiani 
@@ -2159,7 +2161,7 @@ troops = [
    def_attrib_lvl_23|level(23),wp_one_handed(190)|wp_two_handed(100)|wp_polearm(190)|wp_throwing(220),knows_lvl_23_cav|knows_power_strike_4|knows_shield_4|knows_horse_archery_5,roman_face_1, roman_face_2],
   #Equites tertii stablesiani - http://lukeuedasarson.com/NDequitesTertiiStablesiani.html
   ["eques_tertii_stablesiani","Eques Tertii Stablesiani","Equites Tertii Stablesiani",tf_mounted|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_shield|tf_guarantee_helmet|tf_guarantee_horse,0,0,fac_kingdom_2,
-   [itm_round_shield_roman_small_4,itm_arabian_sword_b,itm_deurne_campagi_greaves_5,itm_deurne_campagi_greaves_6,itm_koblenz_helmet_2,itm_iatrus_1,itm_iatrus_2,itm_koblenz_helmet_3,itm_christies_helmet_1,itm_augsburg_2_helmet,itm_intercisa_helmet_gilded_1,itm_intercisa_helmet_rich_3]+mail_roman_1+scale_roman_1+horses_roman_3,
+   [itm_round_shield_roman_small_4,itm_arabian_sword_b,itm_deurne_campagi_greaves_5,itm_deurne_campagi_greaves_6,itm_roman_mail_4,itm_koblenz_helmet_2,itm_iatrus_1,itm_iatrus_2,itm_koblenz_helmet_3,itm_christies_helmet_1,itm_augsburg_2_helmet,itm_intercisa_helmet_gilded_1,itm_intercisa_helmet_rich_3]+mail_roman_1+scale_roman_1+horses_roman_3,
    def_attrib_lvl_25|level(25),wp_one_handed(230)|wp_two_handed(130)|wp_polearm(200)|wp_throwing(130)|wp_crossbow(130)|wp_archery(130),knows_athletics_2|knows_riding_6|knows_ironflesh_7|knows_power_throw_6|knows_weapon_master_5|knows_inventory_management_4|knows_shield_7|knows_power_strike_5,roman_face_1, roman_face_2],
   #Equites armigeri seniores orientales - http://lukeuedasarson.com/NDequitesArmigeriSenioresOrientales.html
   ["eques_armigeri_seniores_orientales","Eques Armigeri Seniores Orientales","Equites Armigeri Seniores Orientales",tf_mounted|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_horse|tf_guarantee_polearm,0,0,fac_kingdom_2,
@@ -2265,7 +2267,7 @@ troops = [
    def_attrib_lvl_20|level(20),wp_one_handed(220) | wp_two_handed (190) | wp_polearm(190) | wp_archery(100) | wp_crossbow(10) | wp_throwing(220) | wp_firearm(200),knows_lvl_18_inf|knows_athletics_7|knows_shield_5|knows_power_strike_5,roman_face_1, roman_face_2],
 
   ["bucellarius","Bucellarius","Bucellarii",tf_mounted|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_horse|tf_guarantee_shield|tf_guarantee_polearm,0,0,fac_culture_empire, #primarily melee guard cavalry, well equipped -> role of HA will come later with Belisarius
-   [itm_kemathen_mail_1,itm_kemathen_mail_8,itm_kemathen_mail_rich_5,itm_kemathen_mail_rich_9,itm_heteny_helmet_1,itm_iatrus_2,itm_burgh_helmet_2,itm_intercisa_helmet_gilded_1,itm_intercisa_helmet_rich_3,itm_concesti_helmet,itm_gultlingen_helmet_plume,itm_gultlingen_helmet_feathers,itm_augsburg_1_helmet,itm_augsburg_2_helmet,itm_tsaritsyno_2_2,itm_christies_helmet_1,itm_koblenz_helmet_1,itm_sword_khergit_4,itm_late_roman_spear_1,itm_tab_shield_small_round_c]+greaves_roman+horses_roman_4+scale_roman_1+scale_roman_2,
+   [itm_kemathen_mail_1,itm_kemathen_mail_8,itm_kemathen_mail_rich_5,itm_kemathen_mail_rich_9,itm_banded_armor,itm_khergit_elite_armor,itm_heteny_helmet_1,itm_iatrus_2,itm_burgh_helmet_2,itm_intercisa_helmet_gilded_1,itm_intercisa_helmet_rich_3,itm_concesti_helmet,itm_gultlingen_helmet_plume,itm_gultlingen_helmet_feathers,itm_augsburg_1_helmet,itm_augsburg_2_helmet,itm_tsaritsyno_2_2,itm_christies_helmet_1,itm_koblenz_helmet_1,itm_sword_khergit_4,itm_late_roman_spear_1,itm_tab_shield_small_round_c]+greaves_roman+horses_roman_4+scale_roman_2,
    def_attrib_lvl_28|level(28),wp_one_handed(230)|wp_two_handed(230)|wp_polearm(230)|wp_archery(150)|wp_throwing(160)|wp_crossbow(140)|wp_firearm(140),knows_ironflesh_8|knows_power_draw_5|knows_riding_6|knows_athletics_6|knows_horse_archery_6|knows_power_strike_7|knows_inventory_management_3|knows_shield_4,man_face_1, man_face_2],
 
   #team thugs - player will 
@@ -2504,11 +2506,11 @@ troops = [
    def_attrib_lvl_18|level(17),wp_one_handed(170)|wp_two_handed(150)|wp_polearm(190)|wp_archery(120)|wp_throwing(150)|wp_crossbow(70)|wp_firearm(70),knows_lvl_18_cav|knows_shield_2|knows_power_strike_4|knows_horse_archery_5,sarmatian_face_1, sarmatian_face_2],
 
   ["western_alan_lancer","Eques Alae Alanorum","Equites Alae Alanorum",tf_mounted|tf_guarantee_armor|tf_guarantee_boots|tf_guarantee_polearm|tf_guarantee_horse,0,0,fac_culture_minor_9,
-   [itm_simple_shoes,itm_wrapping_boots,itm_ankle_boots,itm_thorsberg_tunic_cloak_1,itm_thorsberg_tunic_cloak_9,itm_kemathen_mail_1,itm_kemathen_mail_9,itm_iatrus_helmet_mail,itm_intercisa_helmet_1,itm_iatrus_1,itm_augst_helmet_1,itm_light_lance,itm_aquincum_spatha_2]+horses_eastern_germanic_2+horses_eastern_germanic_3,
+   [itm_simple_shoes,itm_wrapping_boots,itm_ankle_boots,itm_thorsberg_tunic_cloak_1,itm_thorsberg_tunic_cloak_9,itm_kemathen_mail_1,itm_kemathen_mail_9,itm_iatrus_helmet_mail,itm_intercisa_helmet_1,itm_iatrus_1,itm_augst_helmet_1,itm_light_lance,itm_aquincum_spatha_2]+horses_eastern_germanic_2+horses_eastern_germanic_3+horses_alan_1,
    def_attrib_lvl_23|level(23),wp_one_handed(190)|wp_two_handed(190)|wp_polearm(230)|wp_archery(140)|wp_throwing(150)|wp_crossbow(70)|wp_firearm(70),knows_lvl_23_cav|knows_shield_2|knows_power_strike_6|knows_horse_archery_5,sarmatian_face_1, sarmatian_face_2],
 
   ["western_alan_cataphract","Eques Cataphracti Alanorum","Equites Cataphracti Alanorum",tf_mounted|tf_guarantee_armor|tf_guarantee_boots|tf_guarantee_helmet|tf_guarantee_polearm|tf_guarantee_horse,0,0,fac_culture_minor_9,
-   [itm_wrapping_boots,itm_heavy_greaves,itm_kemathen_mail_1,itm_kemathen_mail_9,itm_koblenz_helmet_1,itm_christies_helmet_1,itm_burgh_helmet_1,itm_iatrus_1,itm_burgh_helmet_2,itm_iatrus_2,itm_koblenz_helmet_2,itm_kishpek_helmet_mail,itm_heavy_lance,itm_beja_spatha,itm_strong_bow,itm_khergit_bow,itm_roman_arrows_2]+horses_eastern_germanic_3,
+   [itm_wrapping_boots,itm_heavy_greaves,itm_kemathen_mail_1,itm_kemathen_mail_9,itm_koblenz_helmet_1,itm_christies_helmet_1,itm_burgh_helmet_1,itm_iatrus_1,itm_burgh_helmet_2,itm_iatrus_2,itm_koblenz_helmet_2,itm_kishpek_helmet_mail,itm_heavy_lance,itm_beja_spatha,itm_strong_bow,itm_khergit_bow,itm_roman_arrows_2]+horses_eastern_germanic_3+horses_alan_2,
    def_attrib_lvl_28|level(28),wp_one_handed(220)|wp_two_handed(220)|wp_polearm(260)|wp_archery(160)|wp_throwing(150)|wp_crossbow(70)|wp_firearm(70),knows_cataphract,sarmatian_face_1, sarmatian_face_2],
 
 #TAIFALS
@@ -2662,7 +2664,7 @@ troops = [
    def_attrib_lvl_13|level(13),wp_one_handed(110)|wp_polearm(100)|wp_firearm(150),knows_lvl_13_inf|knows_power_strike_4|knows_shield_2,coptic_face_1, coptic_face_2],
 
   ["samaritan_rebel","Samaritan Rebel","Samaritan Rebels",tf_guarantee_basic|tf_guarantee_helmet,0,0,fac_samaritan_rebels, #rebelled in 484, if I add judaism in the future, could rebel if player is ERE and has low relations with judaism
-   [itm_deurne_campagi_1,itm_deurne_campagi_3,itm_coat_of_plates_red,itm_warlord_coif_2,itm_late_roman_spear_2,itm_ballana_spatha,itm_round_shield_roman_15,itm_concave_shield_red_1],
+   [itm_deurne_campagi_1,itm_deurne_campagi_3,itm_coat_of_plates_red,itm_haditha_1,itm_late_roman_spear_2,itm_ballana_spatha,itm_round_shield_roman_15,itm_concave_shield_red_1],
    def_attrib_lvl_20|level(20),wp_one_handed(200)|wp_polearm(200),knows_lvl_18_inf|knows_shield_6|knows_power_strike_6,coptic_face_1, coptic_face_2],
 
 #latin bandit names
@@ -2934,15 +2936,15 @@ troops = [
 
 #Relgious troops
   ["roman_priest","Chalcedonian Priest","Chalcedonian Priests",tf_guarantee_boots|tf_guarantee_armor,0,0,fac_roman_christians,
-   [itm_wrapping_boots,itm_robes_church,itm_knife],
+   [itm_wrapping_boots,itm_late_roman_priest,itm_knife],
    def_attrib|level(8),wp(90),knows_common,roman_face_1, roman_face_2],
 
   ["arian_priest","Arian Priest","Arian Priests",tf_guarantee_boots|tf_guarantee_armor,0,0,fac_arian_christians,
-   [itm_wrapping_boots,itm_robes_church,itm_knife],
+   [itm_wrapping_boots,itm_late_roman_priest,itm_knife],
    def_attrib|level(8),wp(90),knows_common,germanic_face_1, germanic_face_2],
 
   ["coptic_priest","Miaphysite Priest","Miaphysite Priests",tf_guarantee_boots|tf_guarantee_armor,0,0,fac_coptic_christians,
-   [itm_wrapping_boots,itm_robes_church,itm_knife],
+   [itm_wrapping_boots,itm_late_roman_priest,itm_knife],
    def_attrib|level(8),wp(90),knows_common,roman_face_1, roman_face_2],
 
   ["pagan_priest","Pagan Priest","Pagan Priests",tf_guarantee_boots|tf_guarantee_armor,0,0,fac_pagans,
@@ -3137,9 +3139,9 @@ troops = [
 #wp_one_handed(300)|wp_two_handed(250)|wp_polearm(230)|wp_archery(100)|wp_crossbow(100)|wp_throwing(100)|wp_firearm(100)
 
 #Was Anthemius
-["kingdom_1_lord",  "Flavius Julius Valerius Majorianus Augustus",  "Majorianus",  tf_hero, 0,reserved,  fac_kingdom_1,[itm_nisean_cataphract_1, (itm_roman_squamata_emperor,imod_lordly), itm_roman_emperor_tunic, itm_crown_1, itm_roman_lorum_fasciari_6, itm_roman_greaves_6, itm_tab_shield_small_round_c, itm_arabian_sword_d, itm_berk_helmet], knight_attrib_5,wp_one_handed(310)|wp_two_handed(250)|wp_polearm(300)|wp_archery(100)|wp_crossbow(100)|wp_throwing(100)|wp_firearm(100),knight_skills_6|knows_trainer_8, 0x000000060e002045345251b69369b4db00000000001d36e20000000000000000],
+["kingdom_1_lord",  "Flavius Julius Valerius Majorianus Augustus",  "Majorianus",  tf_hero, 0,reserved,  fac_kingdom_1,[itm_nisean_cataphract_1, (itm_roman_squamata_emperor,imod_lordly), itm_coptic_tunic_emperor_2, itm_crown_1, itm_roman_lorum_fasciari_6, itm_roman_greaves_6, itm_tab_shield_small_round_c, itm_arabian_sword_d, itm_berk_helmet], knight_attrib_5,wp_one_handed(310)|wp_two_handed(250)|wp_polearm(300)|wp_archery(100)|wp_crossbow(100)|wp_throwing(100)|wp_firearm(100),knight_skills_6|knows_trainer_8, 0x000000060e002045345251b69369b4db00000000001d36e20000000000000000],
 
-["kingdom_2_lord",  "Flavius Valerius Leo Augustus",  "Leo Marcellus",  tf_hero, 0,reserved,  fac_kingdom_2,[itm_nisean_cataphract_1, (itm_roman_squamata_emperor,imod_lordly), itm_roman_emperor_tunic, itm_crown_1, itm_roman_lorum_fasciari_6, itm_roman_greaves_6,  itm_tab_shield_small_round_c, itm_arabian_sword_d, itm_berk_helmet], knight_attrib_5,wp_one_handed(300)|wp_two_handed(260)|wp_polearm(310)|wp_archery(140)|wp_crossbow(100)|wp_throwing(100)|wp_firearm(100),knight_skills_5|knows_trainer_5, 0x00000007ac005002325251c69b6db8da00000000001d36db0000000000000000],
+["kingdom_2_lord",  "Flavius Valerius Leo Augustus",  "Leo Marcellus",  tf_hero, 0,reserved,  fac_kingdom_2,[itm_nisean_cataphract_1, (itm_roman_squamata_emperor,imod_lordly), itm_coptic_tunic_emperor_1, itm_crown_1, itm_roman_lorum_fasciari_6, itm_roman_greaves_6,  itm_tab_shield_small_round_c, itm_arabian_sword_d, itm_berk_helmet], knight_attrib_5,wp_one_handed(300)|wp_two_handed(260)|wp_polearm(310)|wp_archery(140)|wp_crossbow(100)|wp_throwing(100)|wp_firearm(100),knight_skills_5|knows_trainer_5, 0x00000007ac005002325251c69b6db8da00000000001d36db0000000000000000],
 #Theodoric II, was Euric
 ["kingdom_3_lord",  "Reiks Theodoric II",  "Theodoric II",  tf_hero, 0,reserved,  fac_kingdom_3,[itm_nisean_roman_2, itm_coptic_tunic_8, itm_simple_shoes, itm_deurne_campagi_greaves_2, itm_457_scale_hauberk_1, itm_sword_viking_3, itm_tab_shield_round_e, itm_berk_helmet],knight_attrib_5,wp_one_handed(300)|wp_two_handed(270)|wp_polearm(310)|wp_archery(100)|wp_crossbow(100)|wp_throwing(100)|wp_firearm(100),knight_skills_4|knows_trainer_5,0x000000021d00414144db8a4a9b6db91a00000000001db6ea0000000000000000],
 #was Theodemir
@@ -3567,9 +3569,9 @@ troops = [
   ["kingdom_13_lady_4","Efrddyl","Efrddyl",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_13,  [    itm_roman_noble_dress_sleeveless_3,  itm_wrapping_boots], def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x000000021f0450074723444f4c22379c00000000001e96f40000000000000000],
   ["kingdom_13_lady_5","Cadwy","Cadwy",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_13, [      itm_roman_noble_dress_3 ,   itm_wrapping_boots],     def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x000000001c00300a189491a15ca228e400000000001d55430000000000000000],
 
-  ["kingdom_14_lady_1","Gisa","Gisa",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_14, [      itm_court_dress ,   itm_wrapping_boots],     def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x00000008910c00024a545aa93371450c00000000001cc6e20000000000000000],
-  ["kingdom_14_lady_2","Blandia","Blandia",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_14, [      itm_court_dress ,   itm_wrapping_boots],     def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x0000000fe30c50011925725ad44c471e00000000000cd8cd0000000000000000],
-  ["kingdom_14_lady_3","Clovia","Clovia",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_14,  [    itm_peasant_dress, itm_wrapping_boots], def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x0000000000044004551d35971471ba8c00000000001e59360000000000000000],
+  ["kingdom_14_lady_1","Gisa","Gisa",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_14, [      itm_dress_4 ,   itm_wrapping_boots],     def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x00000008910c00024a545aa93371450c00000000001cc6e20000000000000000],
+  ["kingdom_14_lady_2","Blandia","Blandia",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_14, [      itm_dress_5 ,   itm_wrapping_boots],     def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x0000000fe30c50011925725ad44c471e00000000000cd8cd0000000000000000],
+  ["kingdom_14_lady_3","Clovia","Clovia",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_14,  [    itm_dress_6, itm_wrapping_boots], def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x0000000000044004551d35971471ba8c00000000001e59360000000000000000],
 
   ["kingdom_15_lady_1","Eudocia","Eudocia",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_15, [ itm_dress_4, itm_wrapping_boots],     def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x000000002e10200107632d675a92b8ad00000000001e45620000000000000000],
   ["kingdom_15_lady_2","Bruttia","Bruttia",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_15, [itm_dress_6, itm_wrapping_boots],     def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x000000054f08100232636aa90d6e194b00000000001e43130000000000000000],
@@ -4960,7 +4962,7 @@ troops = [
 
   ["old_palace_farmer","Old Farmer","Old Farmer",tf_hero|tf_guarantee_boots|tf_guarantee_armor|tf_is_merchant, scn_diocletians_palace|entry(1), reserved, fac_kingdom_1,[itm_ankle_boots,itm_coarse_tunic],def_attrib_lvl_13|level(10),wp(100),knows_ironflesh_2|knows_power_strike_2|knows_athletics_2,0x0000000fcf00418536db6db6db6db6db00000000001db6db0000000000000000],
 
-  ["diocletian","Mysterious Man","Mysterious Man",tf_hero|tf_guarantee_boots|tf_guarantee_armor, scn_diocletians_palace|entry(11), reserved, fac_kingdom_1,[itm_roman_lorum_fasciari_6,itm_roman_emperor_tunic,itm_crown_1],def_attrib_lvl_30|level(30),wp(400),knows_ironflesh_10|knows_power_strike_10|knows_athletics_10,0x0000000ffb0090854a5974b71b71492300000000001db6e30000000000000000],
+  ["diocletian","Mysterious Man","Mysterious Man",tf_hero|tf_guarantee_boots|tf_guarantee_armor, scn_diocletians_palace|entry(11), reserved, fac_kingdom_1,[itm_roman_lorum_fasciari_6,itm_coptic_tunic_emperor_1,itm_crown_1],def_attrib_lvl_30|level(30),wp(400),knows_ironflesh_10|knows_power_strike_10|knows_athletics_10,0x0000000ffb0090854a5974b71b71492300000000001db6e30000000000000000],
 
   ["german_bard","Frumirus","Frumirus",tf_hero|tf_guarantee_boots|tf_guarantee_armor, scn_town_23_tavern|entry(12), reserved, fac_commoners,[itm_wrapping_boots,itm_thorsberg_tunic_simple_1],def_attrib|level(3),wp(80),knows_common,0x000000049e002408555b6db69badb2db00000000001db71a0000000000000000],
 

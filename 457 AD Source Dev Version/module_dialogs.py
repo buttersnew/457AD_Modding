@@ -50359,7 +50359,7 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
    "Thank you for telling me your story.", "close_window", []],
 
   [trp_aurelian_fanatic, "start", [],
-   "Oh hello, he he! Praise sol!", "aurelian_fanatic_intro_1", []],
+   "Oh hello, he he! Praise Sol!", "aurelian_fanatic_intro_1", []],
   [trp_aurelian_fanatic|plyr, "aurelian_fanatic_intro_1", [(eq, "$g_aurelian_hint", 1),],
    "I heard from someone you have access to some special armor. Tell me about it.", "aurelian_armor_1", []],
   [trp_aurelian_fanatic|plyr, "aurelian_fanatic_intro_1", [(is_between,"$g_aurelian_hint",2,6)],

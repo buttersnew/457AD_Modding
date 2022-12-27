@@ -4937,23 +4937,23 @@ troops = [
   ["antiquarian","Antiquarian","Antiquarian",tf_hero|tf_is_merchant,0,reserved, fac_commoners,[itm_deurne_campagi_1,itm_coptic_tunic_5,itm_pannonian_cap_6],def_attrib_lvl_18|level(19),wp(180),knows_ironflesh_6|knows_power_strike_3|knows_athletics_5, 0x0000000b1600308236db6db6db6db6db00000000001db6db0000000000000000],
 
   #RELIGIOUS HEADS - Chalcedonian
-  ["jerusalem_patriarch","Patriarch Juvenal of Jerusalem","Juvenal of Jerusalem",tf_hero|tf_guarantee_boots|tf_guarantee_armor, 0, reserved, fac_roman_christians,[itm_wrapping_boots,itm_robes_church],def_attrib|level(3),wp(80),knows_wound_treatment_3,0x0000000fc00004823adb6dcadb6dbadb00000000001db6dc0000000000000000],
+  ["jerusalem_patriarch","Patriarch Juvenal of Jerusalem","Juvenal of Jerusalem",tf_hero|tf_guarantee_boots|tf_guarantee_armor, 0, reserved, fac_roman_christians,[itm_wrapping_boots,itm_late_roman_priest],def_attrib|level(3),wp(80),knows_wound_treatment_3,0x0000000fc00004823adb6dcadb6dbadb00000000001db6dc0000000000000000],
 
-  ["bishop_of_rome","Pope Leo","Pope Leo",tf_hero|tf_guarantee_boots|tf_guarantee_armor, 0, reserved, fac_roman_christians,[itm_wrapping_boots,itm_robes_church],def_attrib|level(3),wp(80),knows_wound_treatment_3,0x0000000fff000085469b6e46e36db6db00000000001db6d10000000000000000],
+  ["bishop_of_rome","Pope Leo","Pope Leo",tf_hero|tf_guarantee_boots|tf_guarantee_armor, 0, reserved, fac_roman_christians,[itm_wrapping_boots,itm_late_roman_priest],def_attrib|level(3),wp(80),knows_wound_treatment_3,0x0000000fff000085469b6e46e36db6db00000000001db6d10000000000000000],
 
-  ["bishop_of_alexandria","Patriarch Proterius of Alexandria","Proterius of Alexandria",tf_hero|tf_guarantee_boots|tf_guarantee_armor, 0, reserved, fac_roman_christians,[itm_wrapping_boots,itm_robes_church],def_attrib|level(3),wp(80),knows_wound_treatment_3,0x0000000c24003144369b6e46e28db6db00000000001db6dc0000000000000000],
+  ["bishop_of_alexandria","Patriarch Proterius of Alexandria","Proterius of Alexandria",tf_hero|tf_guarantee_boots|tf_guarantee_armor, 0, reserved, fac_roman_christians,[itm_wrapping_boots,itm_late_roman_priest],def_attrib|level(3),wp(80),knows_wound_treatment_3,0x0000000c24003144369b6e46e28db6db00000000001db6dc0000000000000000],
 
-  ["bishop_of_constantinople","Patriarch Anatolius of Constantinople","Anatolius of Constantinople",tf_hero|tf_guarantee_boots|tf_guarantee_armor, 0, reserved, fac_roman_christians,[itm_wrapping_boots,itm_robes_church],def_attrib|level(3),wp(80),knows_wound_treatment_3,0x0000000ffc0014c3369b69a6e28db6db00000000001db6dc0000000000000000],
+  ["bishop_of_constantinople","Patriarch Anatolius of Constantinople","Anatolius of Constantinople",tf_hero|tf_guarantee_boots|tf_guarantee_armor, 0, reserved, fac_roman_christians,[itm_wrapping_boots,itm_late_roman_priest],def_attrib|level(3),wp(80),knows_wound_treatment_3,0x0000000ffc0014c3369b69a6e28db6db00000000001db6dc0000000000000000],
 
-  ["bishop_of_antioch","Patriarch Basil of Antioch","Basil of Antioch",tf_hero|tf_guarantee_boots|tf_guarantee_armor, 0, reserved, fac_roman_christians, [itm_wrapping_boots,itm_robes_church],def_attrib|level(3),wp(80),knows_wound_treatment_3,0x0000000c2e00214e369b69a6e28db6db00000000001db6dc0000000000000000],
+  ["bishop_of_antioch","Patriarch Basil of Antioch","Basil of Antioch",tf_hero|tf_guarantee_boots|tf_guarantee_armor, 0, reserved, fac_roman_christians, [itm_wrapping_boots,itm_late_roman_priest],def_attrib|level(3),wp(80),knows_wound_treatment_3,0x0000000c2e00214e369b69a6e28db6db00000000001db6dc0000000000000000],
   #Bishop of Aquae flavae
-  ["hydatius","Hydatius","Hydatius",tf_hero, 0, reserved, fac_kingdom_1,[itm_wrapping_boots,itm_robes_church],def_attrib_lvl_20|level(19),wp(180),knows_ironflesh_2|knows_power_strike_2|knows_athletics_2,0x0000000a270040871b9472485248ab1200000000001da6e00000000000000000],
+  ["hydatius","Hydatius","Hydatius",tf_hero, 0, reserved, fac_kingdom_1,[itm_wrapping_boots,itm_late_roman_priest],def_attrib_lvl_20|level(19),wp(180),knows_ironflesh_2|knows_power_strike_2|knows_athletics_2,0x0000000a270040871b9472485248ab1200000000001da6e00000000000000000],
 
-  ["chalcedonian_bishops_end","Bishop","Bishop",tf_hero, 0, reserved, fac_roman_christians, [itm_wrapping_boots,itm_robes_church],def_attrib|level(3),wp(80),knows_wound_treatment_3,0x0000000c2e00214e369b69a6e28db6db00000000001db6dc0000000000000000],
+  ["chalcedonian_bishops_end","Bishop","Bishop",tf_hero, 0, reserved, fac_roman_christians, [itm_wrapping_boots,itm_late_roman_priest],def_attrib|level(3),wp(80),knows_wound_treatment_3,0x0000000c2e00214e369b69a6e28db6db00000000001db6dc0000000000000000],
 
   #COPTIC
   ["coptic_pope","Pope Timothy II of Alexandria","Pope Timothy II of Alexandria",tf_hero|tf_guarantee_boots|tf_guarantee_armor, 0, reserved, fac_coptic_christians,
-   [itm_wrapping_boots,itm_robes_church],
+   [itm_wrapping_boots,itm_late_roman_priest],
    def_attrib|level(3),wp(80),knows_wound_treatment_3,0x00000003f50040c2529b6926e28db6db00000000001db7120000000000000000],
 
   ["palace_farmer","Farmer","Farmers",tf_guarantee_armor|tf_guarantee_boots|tf_guarantee_ranged,no_scene,reserved,fac_commoners,

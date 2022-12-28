@@ -1354,7 +1354,7 @@ strings = [
   ("npc15_home_description_2", "If I will ever retire I'll come here, buy myself a good house, find a good wife and have a bunch of kids. In this changing world, with barbarians at every corner, this is one of the few places that will survive the test of time."),
   ("npc16_home_description_2", "However, here we are. My homeland, my kinsmen, are fighting against the Empire in the West, that you call East, but they can't manage win. In time, my glorious Emperor will breach the walls of Constantinople and conquer all those lands that lie beyond."),
   ("npc17_home_description_2", "But he's strong! If I die, I have to go before him and he will ask: what's the rule of steel? If I dont know it, he will cast me away. That's Godan, powerful in the Valhall!"),
-  ("npc18_home_description_2", "... But all those that shed their blood for you? They're like dead already, if your name cannot live after your dead, you're dead already. Am I annoying you with these things? I'm sorry, after some time together you probably understood I'm not the most positive person you can meet."),
+  ("npc18_home_description_2", "... But all those that shed their blood for you? They're like dead already, if your name cannot live after your death, you're dead already. Am I annoying you with these things? I'm sorry, after some time together you probably understood I'm not the most positive person you can meet."),
   ("npc19_home_description_2", "People are poor, we certainly do not feel great future in this God forsaken land. And yet something keeps us there. I expect that if we ever move out, it would be some event of history note!"),
   ("npc20_home_description_2", "Unfished - you shouldn't see this"),
 

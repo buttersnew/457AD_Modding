@@ -12064,58 +12064,27 @@ TOTAL:  {reg5}"),
             (set_visitor,":entry",":troop",":dna"),
             (assign,":bard",1),
           (else_try),
-          ####JustStan changes begin
-          (store_faction_of_party, ":current_town_faction", "$current_town"),
-          (try_begin),
-          (this_or_next|eq, ":current_town_faction", "fac_kingdom_1"),# Roman townsfolk in taverns
-          (this_or_next|eq, ":current_town_faction", "fac_kingdom_2"),
-          (this_or_next|eq, ":current_town_faction", "fac_kingdom_13"),
-          (eq, ":current_town_faction", "fac_kingdom_22"),
-          (store_random_in_range, ":town_walker", "trp_imperial_town_walker_1", "trp_pict_town_walker_1"),
-          #(else_try),
-          #(eq, ":current_town_faction", "fac_kingdom_2"),# Roman townsfolk in taverns
-          #(store_random_in_range, ":town_walker", "trp_imperial_town_walker_1", "trp_pict_town_walker_1"),
-          (else_try),
-          (eq, ":current_town_faction", "fac_kingdom_5"),# Celtic townsfolk in tavern
-          (store_random_in_range, ":town_walker", "trp_pict_town_walker_1", "trp_nubian_townsman"),
-          (else_try),
-          (eq, ":current_town_faction", "fac_kingdom_6"),# Sarranid townsfolk in taverns
-          (store_random_in_range, ":town_walker", "trp_sarranid_townsman", "trp_imperial_town_walker_1"),
-          #(else_try),
-          #(eq, ":current_town_faction", "fac_kingdom_13"),# Roman townsfolk in taverns
-          #(store_random_in_range, ":town_walker", "trp_imperial_town_walker_1", "trp_pict_town_walker_1"),
-          #(else_try),
-          #(eq, ":current_town_faction", "fac_kingdom_22"),# Roman townsfolk in taverns
-          #(store_random_in_range, ":town_walker", "trp_imperial_town_walker_1", "trp_pict_town_walker_1"),
-          (else_try),
-          (eq, ":current_town_faction", "fac_kingdom_23"),# Khergit townsfolk in taverns
-          (store_random_in_range, ":town_walker", "trp_khergit_townsman", "trp_sarranid_townsman"),
-          (else_try),
-          (this_or_next|eq, ":current_town_faction", "fac_kingdom_25"),# nubian townsfolk in taverns
-          (eq, ":current_town_faction", "fac_kingdom_26"),
-          (store_random_in_range, ":town_walker", "trp_nubian_townsman", "trp_caucasian_townsman"),
-          (else_try),
-          (this_or_next|eq, ":current_town_faction", "fac_kingdom_16"),# caucasian
-          (eq, ":current_town_faction", "fac_kingdom_24"),
-          (store_random_in_range, ":town_walker", "trp_caucasian_townsman", "trp_village_walker_1"),
-          (else_try),
-          (store_random_in_range,":town_walker", "trp_town_walker_1", "trp_khergit_townsman"),
-          (try_end),
+            ####JustStan changes begin
+            (store_faction_of_party, ":current_town_faction", "$current_town"),
+            (faction_get_slot, ":current_town_culture", ":current_town_faction", slot_faction_culture),
+            
+            (store_random_in_range, ":walker_slot", 0, 4),
+            (val_add, ":walker_slot", slot_faction_town_walker_male_troop),
+            (faction_get_slot, ":town_walker", ":current_town_culture", ":walker_slot"),
           ####JustStan changes end
-            (store_random_in_range,":dna",0,1000),
             (mission_tpl_entry_clear_override_items,"mt_town_default",":entry"),
             (store_random_in_range,":r",0,10),
             (try_begin),
               (gt,":r",2),
               (mission_tpl_entry_add_override_item,"mt_town_default",":entry","itm_tavern_cup"),
             (try_end),
-            (set_visitor,":entry",":town_walker",":dna"),
+            (set_visitor,":entry",":town_walker"),
           (try_end),
-      (try_end),
+        (try_end),
       #dedal end
-             (change_screen_mission),
-           (try_end),
-        ],"Door to the tavern."),
+        (change_screen_mission),
+      (try_end),
+    ],"Door to the tavern."),
 
 #      ("town_smithy",[
 #          (eq,"$entry_to_town_forbidden",0),
@@ -25884,14 +25853,14 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     ]),
 
   ( "event_03",menu_text_color(0xFF000000)|mnf_disable_all_keys, #huns
-    "You spot a small group of 3 huns approach your party. They ask for your acquaintance, and wish to join you for a small fee of 300 siliquae.",
+    "You spot a small group of huns approaching your party. They ask for your acquaintance, and wish to join you for a small fee of 300 siliquae.",
     "none",
     [],
     [
       ("choice_3_1",[(store_troop_gold,":money","trp_player"),(gt,":money",299)],"Take them in.",
         [
           (display_message, "@They gather their supplies and join your ranks."),
-          (party_add_members, "p_main_party", "trp_refugee", 5),
+          (party_add_members, "p_main_party", "trp_hunnic_skirmisher", 3),
           (troop_remove_gold,"trp_player",300),
           (change_screen_return, 0),
         ]

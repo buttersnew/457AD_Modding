@@ -803,8 +803,10 @@ custom_commander_critical_strike =(
 improved_horse_archer_ai = [
 
   (0, 0, ti_once, [
+  ], [
+    (ge, "$cheat_mode", 1),
     (assign, "$g_tracker", -1),
-  ], []),
+  ]),
 
   (1, 0, 0, [
     (eq,"$g_battle_won",0),
@@ -826,10 +828,11 @@ improved_horse_archer_ai = [
                 (agent_has_item_equipped, ":agent", ":r"),
                 (assign, ":ranged", 1),
             (try_end),
-            (eq, ":ranged", 1),
 
+            (eq, ":ranged", 1),
             (agent_get_team, ":team", ":agent"),
             (agent_get_division, ":division", ":agent"),
+
             (team_get_weapon_usage_order, ":weapon_usage_order", ":team", ":division"),
             (team_get_movement_order, ":movement_order", ":team", ":division"),
             (team_get_hold_fire_order, ":hold_fire", ":team", ":division"),
@@ -873,15 +876,15 @@ improved_horse_archer_ai = [
             (gt, ":closest_agent", -1),
 
             (try_begin),
-                (assign, ":radious", 5500), 
+                (assign, ":radious", 8000), 
                 (assign, ":nearest_enemy_range", 8500), 
-                (assign, ":skrimish_angle", 10), 
+                # (assign, ":skrimish_angle", 10), 
                 (try_begin),
                     (eq, ":type", itp_type_thrown),
-                    (assign, ":nearest_enemy_range", 8500), 
-                    (assign, ":radious", 4500),
+                    (assign, ":nearest_enemy_range", 7500), 
+                    (assign, ":radious", 7000),
                 (try_end),
-                (call_script, "script_horse_archer_skirmish", ":agent", ":closest_agent", ":nearest_enemy", ":radious", ":nearest_enemy_range", ":skrimish_angle"),     
+                (call_script, "script_horse_archer_skirmish", ":agent", ":closest_agent", ":nearest_enemy", ":radious", ":nearest_enemy_range"),     
                 (try_begin), ##shooot more often
                     (gt, ":nearest_enemy", 200),
                     (lt, ":nearest_enemy", 7500),

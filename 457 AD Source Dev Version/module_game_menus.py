@@ -25884,14 +25884,14 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     ]),
 
   ( "event_03",menu_text_color(0xFF000000)|mnf_disable_all_keys, #huns
-    "You spot a small group of 3 huns approach your party. They ask for your acquaintance, and wish to join you for a small fee of 300 siliquae.",
+    "You spot a small group of huns approaching your party. They ask for your acquaintance, and wish to join you for a small fee of 300 siliquae.",
     "none",
     [],
     [
       ("choice_3_1",[(store_troop_gold,":money","trp_player"),(gt,":money",299)],"Take them in.",
         [
           (display_message, "@They gather their supplies and join your ranks."),
-          (party_add_members, "p_main_party", "trp_refugee", 5),
+          (party_add_members, "p_main_party", "trp_hunnic_skirmisher", 3),
           (troop_remove_gold,"trp_player",300),
           (change_screen_return, 0),
         ]

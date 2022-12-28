@@ -6491,7 +6491,7 @@ Even in the last case, the player can make formations up to four lines by orderi
 
 ("iberian_description","Vakhtang, King of the Iberians:\
  ^\
- ^You are King Vakhtang, the supreme ruler of Kartli, Iberia in western chronicles. Your family has come from Persia ages ago to rule over the vast lands at the feet of the Caucasus mountains... And they did wonders! Your realm is rich, but surrounded by daring wolves. The Sasanids claim they have authority over your realm and we, sadly, are still too strong to face them. But this will change soon.\
+ ^You are King Vakhtang, the supreme ruler of Kartli, Iberia in western chronicles. Your family has come from Persia ages ago to rule over the vast lands at the feet of the Caucasus mountains... And they did wonders! Your realm is rich, but surrounded by daring wolves. The Sasanids claim they have authority over your realm and we, sadly, are not as strong to face them. But this will change soon.\
  ^They are too focused to fight the Romans to care about us... And when the time will come, we will strike. The Kingdom of Lazika, west, rules over lands that are rightfully ours. We have to rally our army and show them who's stronger.\
  ^North of our towns live the Alans and the barbarians of the mountains, as well as the Huns: we have to pay attention to those nations as they are used to raid our settlements at summer. In time, Kartli will rise and you, King Vakhtang, will be the uncontested ruler of the Caucasus.\
  ^\

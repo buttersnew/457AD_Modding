@@ -800,108 +800,113 @@ custom_commander_critical_strike =(
       (try_end),
     ])
 
-improved_horse_archer_ai = (1.5, 0, 0, [
+improved_horse_archer_ai = [
+
+  (0, 0, ti_once, [
+    (assign, "$g_tracker", -1),
+  ], []),
+
+  (1, 0, 0, [
     (eq,"$g_battle_won",0),
-    ], [
-(set_fixed_point_multiplier, 100),
-(try_for_agents, ":agent"),
-    (agent_is_active, ":agent"),
-    (agent_is_alive, ":agent"),
-    (agent_is_human, ":agent"),
-    (agent_is_non_player, ":agent"),
-    (try_begin),
-        (agent_slot_eq, ":agent", slot_agent_is_running_away, 0), #Isn't routing.  
-        (agent_get_horse, ":horse", ":agent"),
-        (gt, ":horse", 0), #mounted
-        (agent_get_ammo, ":ammo_left", ":agent"),
-        (gt, ":ammo_left", 0),
-        (assign, ":ranged", 0),
-        (try_for_range, ":r", "itm_stones", "itm_cavalry_javelins"),
-            (agent_has_item_equipped, ":agent", ":r"),
-            (assign, ":ranged", 1),
-        (try_end),
-        (eq, ":ranged", 1),
-
-        (agent_get_team, ":team", ":agent"),
-        (agent_get_division, ":division", ":agent"),
-        (team_get_weapon_usage_order, ":weapon_usage_order", ":team", ":division"),
-        (team_get_movement_order, ":movement_order", ":team", ":division"),
-        (team_get_hold_fire_order, ":hold_fire", ":team", ":division"),
-        (neg|eq, ":hold_fire", aordr_hold_your_fire),
-        (neg|eq, ":weapon_usage_order", wordr_use_melee_weapons),
-        (eq, ":movement_order", mordr_charge),        
-        
-        ##equip script
-        ##mounted troops use bows n shit
+  ], [
+    (set_fixed_point_multiplier, 100),
+    (try_for_agents, ":agent"),
+        (agent_is_active, ":agent"),
+        (agent_is_alive, ":agent"),
+        (agent_is_human, ":agent"),
+        (agent_is_non_player, ":agent"),
         (try_begin),
-            (assign, ":c", 1),
+            (agent_slot_eq, ":agent", slot_agent_is_running_away, 0), #Isn't routing.  
+            (agent_get_horse, ":horse", ":agent"),
+            (gt, ":horse", 0), #mounted
+            (agent_get_ammo, ":ammo_left", ":agent"),
+            (gt, ":ammo_left", 0),
+            (assign, ":ranged", 0),
+            (try_for_range, ":r", "itm_hunting_bow", "itm_light_throwing_axes"),
+                (agent_has_item_equipped, ":agent", ":r"),
+                (assign, ":ranged", 1),
+            (try_end),
+            (eq, ":ranged", 1),
+
+            (agent_get_team, ":team", ":agent"),
+            (agent_get_division, ":division", ":agent"),
+            (team_get_weapon_usage_order, ":weapon_usage_order", ":team", ":division"),
+            (team_get_movement_order, ":movement_order", ":team", ":division"),
+            (team_get_hold_fire_order, ":hold_fire", ":team", ":division"),
+            (neq, ":hold_fire", aordr_hold_your_fire),
+            (neq, ":weapon_usage_order", wordr_use_melee_weapons),
+            (eq, ":movement_order", mordr_charge),        
+            
+            ##equip script
+            ##mounted troops use bows n shit
             (try_begin),
-                (agent_get_wielded_item, ":item", ":agent", 0),
-                (is_between, ":item", 1, "itm_items_end"),
-                (item_get_type, ":type", ":item"),
-                (this_or_next|eq, ":type", itp_type_thrown),
-                (eq, ":type", itp_type_bow),
-                (assign, ":c", 0),#block if already equipped
+                (assign, ":c", 1),
+                (try_begin),
+                    (agent_get_wielded_item, ":item", ":agent", 0),
+                    (is_between, ":item", 1, "itm_items_end"),
+                    (item_get_type, ":type", ":item"),
+                    (this_or_next|eq, ":type", itp_type_thrown),
+                    (eq, ":type", itp_type_bow),
+                    (assign, ":c", 0),#block if already equipped
+                (try_end),
+                (eq, ":c", 1),
+                (try_for_range, reg0, 0, 4),
+                    (agent_get_item_slot, ":item", ":agent", reg0),
+                    (is_between, ":item", 1, "itm_items_end"),
+                    #(gt, ":item", 0),
+                    (item_get_type, ":type", ":item"),
+                    (this_or_next|eq, ":type", itp_type_thrown),
+                    (eq, ":type", itp_type_bow),
+                    (agent_set_wielded_item, ":agent", ":item"),
+                    (assign, reg0, -1), ##break
+                (try_end),
             (try_end),
-            (eq, ":c", 1),
-            (try_for_range, reg0, 0, 4),
-                (agent_get_item_slot, ":item", ":agent", reg0),
-                (is_between, ":item", 1, "itm_items_end"),
-                #(gt, ":item", 0),
-                (item_get_type, ":type", ":item"),
-                (this_or_next|eq, ":type", itp_type_thrown),
-                (eq, ":type", itp_type_bow),
-                (agent_set_wielded_item, ":agent", ":item"),
-                (assign, reg0, -1), ##break
-            (try_end),
-        (try_end),
-        
-        (agent_get_wielded_item, ":item", ":agent", 0),
-        (item_get_type, ":type", ":item"),
-        (this_or_next|eq, ":type", itp_type_thrown),
-        (eq, ":type", itp_type_bow),
+            
+            (agent_get_wielded_item, ":item", ":agent", 0),
+            (item_get_type, ":type", ":item"),
+            (this_or_next|eq, ":type", itp_type_thrown),
+            (eq, ":type", itp_type_bow),
 
-        (call_script, "script_get_first_closest_enemy_distance", ":agent", ":team", 200), # Find distance of nearest 3 enemies
-        (assign, ":nearest_enemy", reg18),
-        (assign, ":closest_agent", reg19),         
-        (gt, ":closest_agent", -1),
+            (call_script, "script_get_first_closest_enemy_distance", ":agent", ":team", 200), # Find distance of nearest 3 enemies
+            (assign, ":nearest_enemy", reg18),
+            (assign, ":closest_agent", reg19),         
+            (gt, ":closest_agent", -1),
 
-        (try_begin),
-            (assign, ":radious", 6500), 
-            (assign, ":nearest_enemy_range", 9000), 
-            (assign, ":skrimish_angle", 12), 
-            #(agent_get_wielded_item,":item", ":agent", 0),
-            (try_begin), #if thrown, reduce by 3
-                (eq, ":type", itp_type_thrown),
-                (assign, ":nearest_enemy_range", 3000), 
-                (assign, ":radious", 3500), 
-                (val_mul, ":skrimish_angle", 3), 
+            (try_begin),
+                (assign, ":radious", 5500), 
+                (assign, ":nearest_enemy_range", 8500), 
+                (assign, ":skrimish_angle", 10), 
+                (try_begin),
+                    (eq, ":type", itp_type_thrown),
+                    (assign, ":nearest_enemy_range", 8500), 
+                    (assign, ":radious", 4500),
+                (try_end),
+                (call_script, "script_horse_archer_skirmish", ":agent", ":closest_agent", ":nearest_enemy", ":radious", ":nearest_enemy_range", ":skrimish_angle"),     
+                (try_begin), ##shooot more often
+                    (gt, ":nearest_enemy", 200),
+                    (lt, ":nearest_enemy", 7500),
+                    (store_random_in_range, ":random", 0, 10),
+                    (le, ":random", 2),
+                    (agent_get_attack_action, ":action", ":agent"),
+                    (eq, ":action", 0), #free
+                    (agent_get_combat_state, ":agent_cs", ":agent"),
+                    (neq, ":agent_cs", 7), #NEG does not see target
+                    (this_or_next|eq, ":type", itp_type_thrown),
+                    (eq, ":type", itp_type_bow),
+                    #(eq, ":type", itp_type_crossbow),
+                    (agent_set_attack_action, ":agent", 0, 0),
+                (try_end),      
             (try_end),
-            (call_script, "script_horse_archer_skirmish", ":agent", ":closest_agent", ":nearest_enemy", ":radious", ":nearest_enemy_range", ":skrimish_angle"),     
-            # (try_begin), ##shooot more often
-                # (gt, ":nearest_enemy", 150),
-                # (lt, ":nearest_enemy", 9500),
-                # (store_random_in_range, ":random", 0, 10),
-                # (le, ":random", 2),
-                # (agent_get_attack_action, ":action", ":agent"),
-                # (eq, ":action", 0), #free
-                # (agent_get_combat_state, ":agent_cs", ":agent"),
-                # (neq, ":agent_cs", 7), #NEG does not see target
-                # (this_or_next|eq, ":type", itp_type_thrown),
-                # (eq, ":type", itp_type_bow),
-                # #(eq, ":type", itp_type_crossbow),
-                # (agent_set_attack_action, ":agent", 0, 0),
-            # (try_end),      
+        (else_try), #clear horse archer skirmisher ai
+            (agent_slot_eq, ":agent", slot_agent_is_in_scripted_mode, 1),
+            (agent_set_slot, ":agent", slot_agent_is_in_scripted_mode, 0),
+            (agent_clear_scripted_mode, ":agent"),
+            (call_script, "script_equip_best_melee_weapon", ":agent", 0, 0, 0),
+            # (agent_force_rethink, ":agent"),
         (try_end),
-    (else_try), #clear horse archer skirmisher ai
-        (agent_slot_eq, ":agent", slot_agent_is_in_scripted_mode, 1),
-        (agent_set_slot, ":agent", slot_agent_is_in_scripted_mode, 0),
-        (agent_clear_scripted_mode, ":agent"),
-        (call_script, "script_equip_best_melee_weapon", ":agent", 0, 0, 0),
-        # (agent_force_rethink, ":agent"),
     (try_end),
-(try_end),
-    ])
+  ])
+]
 
 #battle notifications
 common_battle_prepare = (
@@ -1850,13 +1855,12 @@ custom_commander_hero_wounded =(
     ])
 
 enhanced_common_battle_triggers = [
-  improved_horse_archer_ai,
   cheer_trigger,
   custom_commander_critical_strike,
   custom_commander_hero_wounded,
   miracles,
   equipment_randomization,
-]
+] + improved_horse_archer_ai
 
 enhanced_common_siege_triggers = [
   custom_commander_critical_strike,

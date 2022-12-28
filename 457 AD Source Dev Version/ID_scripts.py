@@ -887,3 +887,4 @@ script_cf_check_building_finished = 885
 script_store_number_of_wars = 886
 script_personality_modifier = 887
 script_set_player_face_according_culture = 888
+script_troop_default_division = 889

@@ -20213,7 +20213,7 @@ presentations = [
         (overlay_set_area_size, "$g_presentation_obj_admin_panel_container", pos1),
         
         (assign, ":number_of_lines", 6),
-        (try_for_range, ":production_side", slot_center_head_cattle, slot_center_fishing_fleet),
+        (try_for_range, ":production_side", slot_center_head_cattle, slot_production_sources_end),
             (party_get_slot, reg22, "$g_encountered_party", ":production_side"),
             (gt, reg22, 0),
             (val_add, ":number_of_lines", 1),

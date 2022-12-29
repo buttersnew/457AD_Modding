@@ -1606,7 +1606,7 @@ scenes = [
   ("sporoi_town",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000300005000007a1e800000b5400003ad100005795",
     [],[],"outer_terrain_forest"),  
   ("panticapaeum",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000130000500000d2348000078ee00001f09000071c6",
-    [],[],"sea_outer_terrain_2"),  
+    [],[],"outer_terrain_beach"),  
   ("abagasian_town",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000001300000000005194a000041ef00005ae800003c55",
     [],[],"sea_outer_terrain_1"), 
   ("tauri_town",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000003000000000036cd5000041ef00005ae800003c55",

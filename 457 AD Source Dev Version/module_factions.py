@@ -35,7 +35,7 @@ factions = [
   ("culture_3",  "Romano-Briton", 0, 0.9, [], []),
   ("culture_4",  "Northern Germanic", 0, 0.9, [], []),
   ("culture_5",  "Pictish", 0, 0.9, [], []),
-  ("culture_6",  "Sassanid", 0, 0.9, [], []),
+  ("culture_6",  "Persian", 0, 0.9, [], []),
   ("culture_empire",  "Roman", 0, 0.9, [], []),
   ("culture_7",  "Western Germanic", 0, 0.9, [], []), 
   ("culture_8",  "Caucasian", 0, 0.9, [], []), 

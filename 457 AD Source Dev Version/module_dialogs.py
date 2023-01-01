@@ -43276,6 +43276,7 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
      (eq,"$random_quest_no", "qst_destroy_bandit_lair"),
    (quest_get_slot, ":bandit_lair", "qst_destroy_bandit_lair", slot_quest_target_party),
    (party_get_template_id, ":bandit_type", ":bandit_lair"),
+   (this_or_next|eq, ":bandit_type", "pt_sea_raider_lair_2"),
    (eq, ":bandit_type", "pt_sea_raider_lair"),
    ],
   "The raiders are likely to have laid up their ships in a well-concealed cove, somewhere along the coastline, preferably next to a small stream where they have some water. The best way to discover its location would be to find a group of saxon raiders who appear to be heading back to their base to resupply, and follow them.", "merchant_quest_track_bandit_lair_choice",
@@ -46010,7 +46011,14 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
     (leave_encounter),
     ]],
     
-   
+    [party_tpl|pt_saxon_raiders,"start", [
+    (eq, "$g_encountered_party_faction", "fac_outlaws"), #first stack should always be a bandit
+    #sea raiders skull-drinking dialogue
+    ],
+   "I will drink from your skull!", "battle_reason_stated",[
+   (play_sound, "snd_encounter_sea_raiders"),
+   ]], 
+
     [party_tpl|pt_sea_raiders,"start", [
     (eq, "$g_encountered_party_faction", "fac_outlaws"), #first stack should always be a bandit
     #sea raiders skull-drinking dialogue
@@ -46120,6 +46128,7 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
         (eq, "$g_encountered_party_template", "pt_steppe_bandits"),
         (play_sound, "snd_encounter_steppe_bandits"),
       (else_try),
+        (this_or_next|eq, "$g_encountered_party_template", "pt_sea_raiders"),
         (eq, "$g_encountered_party_template", "pt_sea_raiders"),
         (play_sound, "snd_encounter_sea_raiders"),
       (else_try),

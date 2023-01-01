@@ -543,27 +543,28 @@ slot_center_has_irigation            = 139  #village
 
 slot_center_has_messenger_post       = 140 #town, castle, village
 slot_center_has_guard                = 141 #town, castle, village
-slot_center_has_fishport             = 142 #town, castle, village
-slot_center_has_roads                = 143 #town, castle, village
-slot_center_has_hosptial             = 144 #town, castle, village
+slot_center_has_temple               = 142 #town, castle, village
+slot_center_has_fishport             = 143 #town, castle, village
+slot_center_has_roads                = 144 #town, castle, village
+slot_center_has_hosptial             = 145 #town, castle, village
 
-slot_center_change_culture_town      = 145 #town, castle
-slot_center_has_prisoner_tower       = 146 #town, castle
-slot_center_has_fire_fighter         = 147 #town, castle
-slot_center_has_training_grounds     = 148 #town, castle
-slot_center_has_slave_market 	     = 149 #town, castle
-slot_center_has_barracks             = 150 #town, castle
-slot_center_has_sewers               = 151 #town, castle
-slot_center_has_industry             = 152 #town, castle
-slot_center_has_loom                 = 153 #town, castle
-slot_center_has_smith                = 154 #town, castle
-slot_center_has_port                 = 155 #town, castle
+slot_center_change_culture_town      = 146 #town, castle
+slot_center_has_prisoner_tower       = 147 #town, castle
+slot_center_has_fire_fighter         = 148 #town, castle
+slot_center_has_training_grounds     = 149 #town, castle
+slot_center_has_slave_market 	     = 150 #town, castle
+slot_center_has_barracks             = 151 #town, castle
+slot_center_has_sewers               = 152 #town, castle
+slot_center_has_industry             = 153 #town, castle
+slot_center_has_loom                 = 154 #town, castle
+slot_center_has_smith                = 155 #town, castle
+slot_center_has_port                 = 156 #town, castle
 ##this are player only buildinga
-slot_center_has_forum   		     = 156 #town, castle
-slot_center_has_theatre   		     = 157 #town, castle
-slot_center_has_triumph   		     = 158 #town, castle
-slot_center_has_water   		     = 159 #town, castle
-slot_center_has_temple               = 160 #town, castle
+slot_center_has_forum   		     = 157 #town, castle
+slot_center_has_theatre   		     = 158 #town, castle
+slot_center_has_triumph   		     = 159 #town, castle
+slot_center_has_water   		     = 160 #town, castle
+
 slot_center_has_temple_god           = 161 #town, castle
  ## player only ends
 

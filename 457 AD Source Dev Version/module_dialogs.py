@@ -37497,7 +37497,8 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   ], "The last minstrel that attempted to gain entrance was chased out of town tarred and feathered. I doubt you wish the same fate.", "close_window",[]],
 
 
-  [anyone,"start", [(eq, "$talk_context", 0),(faction_slot_eq, "$g_encountered_party_faction", slot_faction_castle_guard_troop, "$g_talk_troop")],
+  [anyone,"start", [(eq, "$talk_context", 0),(faction_slot_eq, "$g_encountered_party_faction", slot_faction_castle_guard_troop, "$g_talk_troop"),
+  (neg|is_between, "$g_encountered_party_faction", minor_kingdoms_begin, minor_kingdoms_end),],
    "What do you want?", "castle_guard_intro_1",[]],
   [anyone|plyr,"castle_guard_intro_1", [],
    "I want to enter the hall and speak to the lord.", "castle_guard_intro_2",[]],

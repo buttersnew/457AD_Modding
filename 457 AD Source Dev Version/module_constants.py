@@ -1688,10 +1688,10 @@ kingdom_titles_male_begin = "str_faction_title_male_player"
 kingdom_titles_female_begin = "str_faction_title_female_player"
 
 major_cultures_begin = "fac_culture_1"
-major_cultures_end   = "fac_major_cultures_end"
+major_cultures_end   = "fac_culture_minor_1"
 
 minor_cultures_begin = "fac_culture_minor_1"
-minor_cultures_end   = "fac_minor_cultures_end"
+minor_cultures_end   = "fac_player_faction"
 
 ##diplomacy start+
 cultures_begin = "fac_culture_1"

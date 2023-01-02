@@ -43,11 +43,8 @@ factions = [
   ("culture_12",  "Hunnic", 0, 0.9, [], []), 
   ("culture_15",  "Nubian", 0, 0.9, [], []), 
   ("culture_16",  "Caucasian Alan", 0, 0.9, [], []), 
-
-  ("major_cultures_end",  "{!}major_cultures_end", 0, 0.9, [], []), 
-
   #minor cultures
-  ("culture_minor_1",  "Cantabrian", 0, 0.9, [], []), 
+  ("culture_minor_1",  "Hispano-Roman", 0, 0.9, [], []), 
   ("culture_minor_2",  "Slavic", 0, 0.9, [], []), 
   ("culture_minor_3",  "Coptic", 0, 0.9, [], []), 
   ("culture_minor_4",  "Frisian", 0, 0.9, [], []), 
@@ -56,8 +53,6 @@ factions = [
   ("culture_minor_7",  "Scandzae", 0, 0.9, [], []), 
   ("culture_minor_8",  "Tetraxitae Gothic", 0, 0.9, [], []), 
   ("culture_minor_9",  "Western Alan", 0, 0.9, [], []), 
-
-  ("minor_cultures_end",  "{!}minor_cultures_end", 0, 0.9, [], []), 
 
   ("player_faction","Player Faction",0, 0.9, [], []),
   ("player_supporters_faction","Player's Supporters",0, 0.9, [("player_faction",1.00),("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("coptic_rebels", -0.05),("berber_rebels", -0.05),("armenian_rebels", -0.05)], [], 0xFF4433), #changed name so that can tell difference if shows up on map

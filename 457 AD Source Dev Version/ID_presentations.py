@@ -66,3 +66,4 @@ prsnt_troop_detail = 64
 prsnt_center_management = 65
 prsnt_select_king = 66
 prsnt_select_lord = 67
+prsnt_faction_troop_trees = 68

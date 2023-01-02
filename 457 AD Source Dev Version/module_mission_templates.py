@@ -6143,20 +6143,7 @@ mission_templates = [
      (agent_get_troop_id, ":killer_agent_troop_no", ":killer_agent_no"),
 
      (try_begin),
-       (this_or_next|eq, ":dead_agent_troop_no", "trp_gothic_prison_guard"),
-       (this_or_next|eq, ":dead_agent_troop_no", "trp_eastern_germanic_prison_guard"),
-       (this_or_next|eq, ":dead_agent_troop_no", "trp_briton_prison_guard"),
-       (this_or_next|eq, ":dead_agent_troop_no", "trp_northern_germanic_prison_guard"),
-       (this_or_next|eq, ":dead_agent_troop_no", "trp_pictish_prison_guard"),
-       (this_or_next|eq, ":dead_agent_troop_no", "trp_sassanid_prison_guard"),
-       (this_or_next|eq, ":dead_agent_troop_no", "trp_western_germanic_prison_guard"),
-       (this_or_next|eq, ":dead_agent_troop_no", "trp_caucasian_prison_guard"),
-       (this_or_next|eq, ":dead_agent_troop_no", "trp_mauri_prison_guard"),
-       (this_or_next|eq, ":dead_agent_troop_no", "trp_hunnic_prison_guard"),
-       (this_or_next|eq, ":dead_agent_troop_no", "trp_nubian_prison_guard"),
-       (this_or_next|eq, ":dead_agent_troop_no", "trp_caucasian_alan_prison_guard"),
-       (eq, ":dead_agent_troop_no", "trp_roman_prison_guard"),
-
+       (faction_slot_eq, "$g_encountered_party_faction", slot_faction_prison_guard_troop, ":dead_agent_troop_no"),
        (eq, ":killer_agent_troop_no", "trp_player"),
 
        #SB : proper string
@@ -8089,19 +8076,7 @@ mission_templates = [
         (agent_get_troop_id, ":killer_agent_troop_no", ":killer_agent_no"),
 
         (try_begin),
-           (this_or_next|eq, ":dead_agent_troop_no", "trp_gothic_prison_guard"),
-           (this_or_next|eq, ":dead_agent_troop_no", "trp_eastern_germanic_prison_guard"),
-           (this_or_next|eq, ":dead_agent_troop_no", "trp_briton_prison_guard"),
-           (this_or_next|eq, ":dead_agent_troop_no", "trp_northern_germanic_prison_guard"),
-           (this_or_next|eq, ":dead_agent_troop_no", "trp_pictish_prison_guard"),
-           (this_or_next|eq, ":dead_agent_troop_no", "trp_sassanid_prison_guard"),
-           (this_or_next|eq, ":dead_agent_troop_no", "trp_western_germanic_prison_guard"),
-           (this_or_next|eq, ":dead_agent_troop_no", "trp_caucasian_prison_guard"),
-           (this_or_next|eq, ":dead_agent_troop_no", "trp_mauri_prison_guard"),
-           (this_or_next|eq, ":dead_agent_troop_no", "trp_hunnic_prison_guard"),
-           (this_or_next|eq, ":dead_agent_troop_no", "trp_nubian_prison_guard"),
-           (this_or_next|eq, ":dead_agent_troop_no", "trp_caucasian_alan_prison_guard"),
-           (eq, ":dead_agent_troop_no", "trp_roman_prison_guard"),
+          (faction_slot_eq, "$g_encountered_party_faction", slot_faction_prison_guard_troop, ":dead_agent_troop_no"),
            
           (eq, ":killer_agent_troop_no", "trp_player"),
 

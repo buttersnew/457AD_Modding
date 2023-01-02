@@ -458,11 +458,11 @@ game_menus = [
         ]
        ),
       ## CC
-     # ("action_view_troop_trees",[],"View troop trees.",
-     #  [
-     #   (start_presentation, "prsnt_faction_troop_trees"),
-     #   ]
-     #  ),  
+     ("action_view_troop_trees",[],"View unit rosters.",
+      [
+       (start_presentation, "prsnt_faction_troop_trees"),
+       ]
+      ),  
      # ("action_view_troop_trees_minor",[],"View troop trees (continued).",
      #  [
      #   (start_presentation, "prsnt_faction_troop_trees_minor"),

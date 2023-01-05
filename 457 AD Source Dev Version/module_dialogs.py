@@ -50002,9 +50002,13 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
    "What? He thinks that protecting my own estate is treason? He really is a tyrant! You'll never take me in, guards, to arms!", "close_window", [
     (quest_set_slot,"qst_agrippinus_quest",slot_quest_current_state, 2), #starts the battle
    ]],
-
+  
+  #event_triggered for dialogues started by map conversation
+  [trp_lupicinus, "event_triggered", [(quest_slot_eq,"qst_agrippinus_quest",slot_quest_current_state, 5),], 
+  "Are you {playername}? I have an important request for you!","lupicinus_talk_1",[]],
   [trp_lupicinus, "start", [(quest_slot_eq,"qst_agrippinus_quest",slot_quest_current_state, 5),], 
   "Are you {playername}? I have an important request for you!","lupicinus_talk_1",[]],
+
   [anyone|plyr, "lupicinus_talk_1", [], 
   "I am {playername}. Who are you, and what do you need?","lupicinus_talk_2",[]],
   [anyone, "lupicinus_talk_2", [], 
@@ -50018,8 +50022,12 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   (change_screen_return),
   ]],
 
+  #event_triggered for dialogues started by map conversation
+  [trp_lupicinus, "event_triggered", [(quest_slot_eq,"qst_agrippinus_quest",slot_quest_current_state, 7),], 
+  "{playername}! I am glad you were able to convince the emperor to pardon Agrippinus!","lupicinus_talk_reward_1",[]],
   [trp_lupicinus, "start", [(quest_slot_eq,"qst_agrippinus_quest",slot_quest_current_state, 7),], 
   "{playername}! I am glad you were able to convince the emperor to pardon Agrippinus!","lupicinus_talk_reward_1",[]],
+
   [anyone, "lupicinus_talk_reward_1", [], 
   "Agrippinus sends his regards, as well as a gift for saving him. Take this, it is for you!", "close_window",[
   (call_script, "script_end_quest", "qst_agrippinus_quest"),
@@ -50032,7 +50040,9 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   (leave_encounter),
   (change_screen_return),
   ]],
-
+  #event_triggered for dialogues started by map conversation
+  [trp_lupicinus, "event_triggered", [], 
+  "Yes?","close_window",[(leave_encounter),(change_screen_return)]],
   [trp_lupicinus, "start", [], 
   "Yes?","close_window",[(leave_encounter),(change_screen_return)]],
 

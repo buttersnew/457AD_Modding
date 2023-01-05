@@ -26008,6 +26008,7 @@ I will use this to make amends to those you have wronged, and I will let it be k
 (quest_set_slot,"qst_agrippinus_quest",slot_quest_current_state, 4), 
 (call_script, "script_change_troop_renown", "trp_player", 8),
 (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 20),
+(add_quest_note_from_sreg, "qst_agrippinus_quest", 5, "@You have returned Agrippinus successfully. However, you have a strong feeling that this is not the end of the story.",0),
 ]],
 
 [anyone|plyr,"lord_talk", [
@@ -31583,7 +31584,7 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
    [anyone,"lord_tell_mission_agrippinus_2", [
   ], "Expect resistance, {playername}. Agrippinus has great wealth and skill in combat. I doubt he will come quietly. He should be at his villa, west of Lutetia.", "lord_pretalk",
    [(call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 10),
-   (str_store_string, s2, "@Agrippinus is suspected of treason. Majorian wishes that he be arrested, and taken to him."),
+   (str_store_string, s2, "@Agrippinus is suspected of treason. Majorian wishes that he be arrested, and taken to him. Find him inside his villa near Lutetia (Gaul)."),
    (call_script, "script_start_quest", "qst_agrippinus_quest", "$g_talk_troop"),
    (enable_party, "p_agrippinus_quest_villa"),
    (assign, "$g_agrippinus_quest", 1),

@@ -22010,7 +22010,7 @@ mission_templates = [
       ]),      
     ],),
 
-  ("dragons_lair_visit",0,-1,
+  ("dragons_lair_visit",mtf_battle_mode,-1,
     "dragons_lair visit",
     [(0,mtef_scene_source|mtef_team_0,af_override_horse,0,1,[]),
       (1,mtef_visitor_source|mtef_team_1,af_override_horse,0,1,[]),
@@ -22040,14 +22040,7 @@ mission_templates = [
           (team_set_relation, 1, 2, 0),
           (team_set_relation, 2, 0, 0),
           (team_set_relation, 2, 1, 0),
-      ]),
-      
-      (ti_escape_pressed, 0, 0, [
-          (lt,"$dragons_lair_explored",4),
-      ], [
-          (assign,"$dragons_lair_explored",0),
-          (jump_to_menu, "mnu_dragons_lair"),
-          (finish_mission),
+          (mission_enable_talk),
       ]),
       
       (0.1, 0, ti_once,
@@ -22105,8 +22098,10 @@ mission_templates = [
           (call_script, "script_combat_music_set_situation_with_culture"),
       ]),
       
-      (ti_inventory_key_pressed, 0, 0, [(set_trigger_result,1)], []),
-      (ti_tab_pressed, 0, 0, [(set_trigger_result,1)], []),
+      (ti_tab_pressed, 0, 0, [], 
+      [
+        (display_message, "str_cannot_leave_now"),
+        (set_trigger_result,0)]),
       
       (1, 4, ti_once,
         [

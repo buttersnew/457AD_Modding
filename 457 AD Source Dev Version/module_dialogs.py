@@ -49985,10 +49985,10 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
    "Zamb!", "zamb_man_1", [
     (store_random_in_range, ":rand", 0, 100), #5% chance to get random item
     (try_begin),
-      (lt, ":rand", 6),
-      (store_random_in_range, ":random_item", "itm_thorsberg_tunic_simple_1", "itm_roman_javelin"),
-      (troop_add_item, "trp_player",":random_item"),
-    (try_end),  
+      (lt, ":rand", 10),
+      (neg|player_has_item, "trp_player", "itm_rock_of_zamb"),
+      (troop_add_item, "trp_player","itm_rock_of_zamb"),
+    (try_end),
    ]],
 
   [trp_agrippinus, "start", [(eq, "$g_talk_troop_met", 0),(check_quest_active,"qst_agrippinus_quest"),(quest_slot_eq,"qst_agrippinus_quest",slot_quest_current_state, 1),],

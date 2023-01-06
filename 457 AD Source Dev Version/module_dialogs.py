@@ -1720,7 +1720,12 @@ dialogs = [
     (is_between, "$g_encountered_party_template", "pt_aestii_party", "pt_minor_faction_levies"),
     ],
    "Greetings to you!", "garamanten_talk",[]],
-   
+
+  [party_tpl|pt_sporoi_party,"start", [ 
+    (is_between, "$g_encountered_party_template", "pt_aestii_party", "pt_minor_faction_levies"),
+    ],
+   "Greetings to you!", "garamanten_talk",[]],
+
   [party_tpl|pt_bosphoran_party,"start", [ 
     (is_between, "$g_encountered_party_template", "pt_aestii_party", "pt_minor_faction_levies"),
     ],

@@ -4815,6 +4815,7 @@ troops = [
   ["abagasian_merchant_2","Merchant","Merchants",tf_hero|tf_randomize_face|tf_is_merchant, no_scene, reserved, fac_commoners,[itm_sassanid_cavalry_boots_1,itm_skirmisher_tunic_2],def_attrib|level(6),wp(80),knows_common,caucaus_face_1, caucaus_face_2], #sells gear - shared
 
   ["tauri_merchant_1","Merchant","Merchants",tf_hero|tf_randomize_face|tf_is_merchant, no_scene, reserved, fac_commoners,[itm_wrapping_boots,itm_coptic_tunic_1],def_attrib|level(6),wp(80),knows_common,roman_face_1, roman_face_2], #sells goods - shared
+  ["tauri_merchant_2","Merchant","Merchants",tf_hero|tf_randomize_face|tf_is_merchant, no_scene, reserved, fac_commoners,[itm_wrapping_boots,itm_coptic_tunic_1],def_attrib|level(6),wp(80),knows_common,roman_face_1, roman_face_2], #sells goods - shared
 
   ["augundzi_merchant_1","Merchant","Merchants",tf_hero|tf_randomize_face|tf_is_merchant, no_scene, reserved, fac_commoners,[itm_obenaltendorf_shoes_1,itm_thorsberg_tunic_9],def_attrib|level(6),wp(80),knows_common,germanic_face_1, germanic_face_2], #sells goods - hides, leather, fish, grain
   ["augundzi_merchant_2","Merchant","Merchants",tf_hero|tf_randomize_face|tf_is_merchant, no_scene, reserved, fac_commoners,[itm_obenaltendorf_shoes_2,itm_thorsberg_tunic_12],def_attrib|level(6),wp(80),knows_common,germanic_face_1, germanic_face_2], #sells gear - shields, sword(s)?
@@ -5185,6 +5186,9 @@ upgrade(troops,"hunnic_retainer","hunnic_veteran")
 
 #nubians
 upgrade(troops,"nubian_bowman","nubian_archer")
+
+#frisians
+upgrade(troops,"frisian_freeman","frisian_companion")
 
 #alans
 upgrade2(troops,"caucasian_alan_skirmisher","caucasian_alan_footman","caucasian_alan_tribesman")

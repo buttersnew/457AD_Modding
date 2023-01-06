@@ -22520,17 +22520,21 @@ presentations = [
       (overlay_set_position, "$g_presentation_obj_1", pos1),
       # factions
       (store_sub, ":num_factions", minor_cultures_end, major_cultures_begin),
-      (store_add, ":num_pages", ":num_factions", 3),
-      
+      (store_add, ":num_pages", ":num_factions", 3),#bandits and others
+      (val_add, ":num_pages", ":num_factions", 2),#legions
+
       ## page names, from bottom to top
       (overlay_add_item, "$g_presentation_obj_1", "@Others"),
       (overlay_add_item, "$g_presentation_obj_1", "@Outlaws"),
       (overlay_add_item, "$g_presentation_obj_1", "@Mercenaries and Peasants"),
+      (overlay_add_item, "$g_presentation_obj_1", "@Western Roman Legions"),
+      (overlay_add_item, "$g_presentation_obj_1", "@Eastern Roman Legions"),
       (try_for_range_backwards, ":page_no", 0, ":num_factions"),
         (store_add, ":faction_no", ":page_no", major_cultures_begin),
         (str_store_faction_name, s0, ":faction_no"),
         (overlay_add_item, "$g_presentation_obj_1", s0),
       (try_end),
+
       (store_sub, ":presentation_obj_val", ":num_pages", "$g_selected_page"),
       (val_sub, ":presentation_obj_val", 1),
       (overlay_set_val, "$g_presentation_obj_1", ":presentation_obj_val"),
@@ -22891,7 +22895,8 @@ presentations = [
       (try_begin),
         (eq, ":object", "$g_presentation_obj_1"),
         (store_sub, ":num_pages", minor_cultures_end, major_cultures_begin),
-        (val_add, ":num_pages", 3),
+        (val_add, ":num_pages", 3),#bandits and others
+        (val_add, ":num_pages", 2),#legions
         (store_sub, "$g_selected_page", ":num_pages", ":value"),
         (val_sub, "$g_selected_page", 1),
         (assign, "$g_selected_troop", 0), 

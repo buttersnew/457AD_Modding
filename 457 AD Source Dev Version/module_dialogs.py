@@ -48958,7 +48958,11 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   [trp_mithraist_leader, "mithraist_leader_talk_donate_1", [], #after player donates
    "Thank you for the donation, {playername}.", "close_window", []],
 
-  [trp_mithraist_leader|plyr, "mithraist_leader_talk_met", [(eq, "$g_player_faith", 6),(store_troop_gold,":money","trp_player"),(gt,":money",299),], #player is of the religion
+  [trp_mithraist_leader|plyr, "mithraist_leader_talk_met", [
+    (eq, "$g_player_faith", 6),
+    (store_troop_gold,":money","trp_player"),
+    (gt,":money",299),
+    (troops_can_join, 1),], #player is of the religion
    "I would like to hire a priest (300 siliquae).", "mithraist_leader_talk_hire", [(troop_remove_gold, "trp_player", 300),(party_add_members, "p_main_party","trp_roman_pagan_priest",1),]],
   [trp_mithraist_leader, "mithraist_leader_talk_hire", [],
    "Very well.", "close_window", []],
@@ -49322,7 +49326,12 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
    "Welcome to the true faith, {playername}.", "close_window", []],
   [anyone, "chalcedonian_bishop_talk_donate_1", [], #after player donates
    "Thank you for the donation, {playername}.", "close_window", []],
-  [anyone|plyr, "chalcedonian_bishop_talk", [(eq, "$g_player_faith", 1),(store_troop_gold,":money","trp_player"),(gt,":money",299),], #player is of the religion
+  [anyone|plyr, "chalcedonian_bishop_talk", [
+    (eq, "$g_player_faith", 1),
+    (store_troop_gold,":money","trp_player"),
+    (gt,":money",299),
+    (troops_can_join, 1),
+    ], #player is of the religion
    "I would like to hire a priest (300 siliquae).", "chalcedonian_bishop_talk_hire", [(troop_remove_gold, "trp_player", 300),(party_add_members, "p_main_party","trp_roman_priest",1),]],
   [anyone, "chalcedonian_bishop_talk_hire", [], #after player converts
    "Very well.", "chalcedonian_bishop_talk", []],
@@ -49371,7 +49380,11 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
    "Welcome to the true faith, {playername}.", "close_window", []],
   [trp_coptic_pope, "coptic_pope_talk_donate_1", [], #after player donates
    "Thank you for the donation, {playername}.", "close_window", []],
-  [trp_coptic_pope|plyr, "coptic_pope_talk_1", [(eq, "$g_player_faith", 5),(store_troop_gold,":money","trp_player"),(gt,":money",299),], #player is of the religion
+  [trp_coptic_pope|plyr, "coptic_pope_talk_1", [
+    (eq, "$g_player_faith", 5),
+    (store_troop_gold,":money","trp_player"),
+    (gt,":money",299),
+    (troops_can_join, 1),], #player is of the religion
    "I would like to hire a priest (300 siliquae).", "coptic_pope_talk_hire", [(troop_remove_gold, "trp_player", 300),(party_add_members, "p_main_party","trp_coptic_priest",1),]],
   [trp_coptic_pope, "coptic_pope_talk_hire", [], #after player converts
    "Very well.", "coptic_pope_talk_1", []],
@@ -50258,7 +50271,11 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   [trp_severinus, "severinus_talk_donate_1", [], #after player donates
    "Thank you for the donation, {playername}.", "close_window", []],
 
-  [trp_severinus|plyr, "severinus_talk_1", [(eq, "$g_player_faith", 1),(store_troop_gold,":money","trp_player"),(gt,":money",299),], #player is of the religion
+  [trp_severinus|plyr, "severinus_talk_1", [
+    (eq, "$g_player_faith", 1),
+    (store_troop_gold,":money","trp_player"),
+    (gt,":money",299),
+    (troops_can_join, 1),], #player is of the religion
    "I would like to hire a priest (300 siliquae).", "severinus_talk_1", [(troop_remove_gold, "trp_player", 300),(party_add_members, "p_main_party","trp_roman_priest",1),]],
 
   [trp_severinus|plyr, "severinus_talk_1", [(eq, "$g_severinus_quest", 1)],
@@ -51913,7 +51930,11 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   [trp_roman_abbot, "roman_abbot_talk_donate_1", [], #after player donates
    "Thank you for the donation, {playername}.", "close_window", []],
 
-  [trp_roman_abbot|plyr, "roman_abbot_talk_1", [(eq, "$g_player_faith", 1),(store_troop_gold,":money","trp_player"),(gt,":money",299),], #player is of the religion
+  [trp_roman_abbot|plyr, "roman_abbot_talk_1", [
+    (eq, "$g_player_faith", 1),
+    (store_troop_gold,":money","trp_player"),
+    (gt,":money",299),
+     (troops_can_join, 1),], #player is of the religion
    "I would like to hire a priest (300 siliquae).", "roman_abbot_talk_hire", [(troop_remove_gold, "trp_player", 300),(party_add_members, "p_main_party","trp_roman_priest",1),]],
   [trp_roman_abbot, "roman_abbot_talk_hire", [], #after player converts
    "Very well.", "roman_abbot_talk_1", []],
@@ -51949,7 +51970,11 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
    "Welcome to the true faith, {playername}.", "close_window", []],
   [trp_arian_abbot, "arian_abbot_talk_donate_1", [], #after player donates
    "Thank you for the donation, {playername}.", "close_window", []],
-  [trp_arian_abbot|plyr, "arian_abbot_talk_1", [(eq, "$g_player_faith", 3),(store_troop_gold,":money","trp_player"),(gt,":money",299),], #player is of the religion
+  [trp_arian_abbot|plyr, "arian_abbot_talk_1", [
+    (eq, "$g_player_faith", 3),
+    (store_troop_gold,":money","trp_player"),
+    (gt,":money",299),
+    (troops_can_join, 1),], #player is of the religion
    "I would like to hire a priest (300 siliquae).", "arian_abbot_talk_hire", [(troop_remove_gold, "trp_player", 300),(party_add_members, "p_main_party","trp_arian_priest",1),]],
   [trp_arian_abbot, "arian_abbot_talk_hire", [], #after player converts
    "Very well.", "arian_abbot_talk_1", []],
@@ -51987,7 +52012,11 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
    "Welcome to the true faith, {playername}.", "close_window", []],
   [trp_coptic_abbot, "coptic_abbot_talk_donate_1", [], #after player donates
    "Thank you for the donation, {playername}.", "close_window", []],
-  [trp_coptic_abbot|plyr, "coptic_abbot_talk_1", [(eq, "$g_player_faith", 5),(store_troop_gold,":money","trp_player"),(gt,":money",299),], #player is of the religion
+  [trp_coptic_abbot|plyr, "coptic_abbot_talk_1", [
+    (eq, "$g_player_faith", 5),
+    (store_troop_gold,":money","trp_player"),
+    (gt,":money",299),
+    (troops_can_join, 1),], #player is of the religion
    "I would like to hire a priest (300 siliquae).", "coptic_abbot_talk_hire", [(troop_remove_gold, "trp_player", 300),(party_add_members, "p_main_party","trp_coptic_priest",1),]],
   [trp_coptic_abbot, "coptic_abbot_talk_hire", [], #after player converts
    "Very well.", "coptic_abbot_talk_1", []],
@@ -52023,7 +52052,12 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
    "Welcome to the true faith, {playername}.", "close_window", []],
   [trp_pagan_high_priest, "pagan_high_priest_talk_donate_1", [], #after player donates
    "Thank you for the donation, {playername}.", "close_window", []],
-  [trp_pagan_high_priest|plyr, "pagan_high_priest_talk_1", [(eq, "$g_player_faith", 2),(store_troop_gold,":money","trp_player"),(gt,":money",299),], #player is of the religion
+  [trp_pagan_high_priest|plyr, "pagan_high_priest_talk_1", [
+    (eq, "$g_player_faith", 2),
+    (store_troop_gold,":money","trp_player"),
+    (gt,":money",299),
+    (troops_can_join, 1),
+    ], #player is of the religion
    "I would like to hire a priest (300 siliquae).", "pagan_high_priest_talk_hire", [(troop_remove_gold, "trp_player", 300),(party_add_members, "p_main_party","trp_pagan_priest",1),]],
   [trp_pagan_high_priest, "pagan_high_priest_talk_hire", [],
    "Very well.", "pagan_high_priest_talk_1", []],
@@ -52053,16 +52087,29 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
           (troop_set_slot, "trp_player", slot_troop_controversy, ":controversy"),
           (assign, "$g_player_converted", 1),
    ]],
-  [trp_zoroastrian_high_priest|plyr, "zoroastrian_high_priest_talk_1", [(eq, "$g_player_faith", 4),(store_troop_gold,":money","trp_player"),(gt,":money",499),], #player is of the religion
+  [trp_zoroastrian_high_priest|plyr, "zoroastrian_high_priest_talk_1", [
+    (eq, "$g_player_faith", 4),
+    (store_troop_gold,":money","trp_player"),
+    (gt,":money",499),
+    (troops_can_join, 1),], #player is of the religion
    "I would like to donate 500 siliquae to the temple.", "zoroastrian_high_priest_talk_donate_1", [(troop_remove_gold, "trp_player", 500),(call_script, "script_change_player_relation_with_faction", "fac_zoroastrians", 5),]],
   [trp_zoroastrian_high_priest, "zoroastrian_high_priest_talk_convert_1", [], #after player converts
    "Welcome to the true faith, {playername}.", "close_window", []],
   [trp_zoroastrian_high_priest, "zoroastrian_high_priest_talk_donate_1", [], #after player donates
    "Thank you for the donation, {playername}.", "close_window", []],
-  [trp_zoroastrian_high_priest|plyr, "zoroastrian_high_priest_talk_1", [(eq, "$g_player_faith", 4),(store_troop_gold,":money","trp_player"),(gt,":money",299),], #player is of the religion
+  [trp_zoroastrian_high_priest|plyr, "zoroastrian_high_priest_talk_1", [
+    (eq, "$g_player_faith", 4),
+    (store_troop_gold,":money","trp_player"),
+    (gt,":money",299),
+    (troops_can_join, 1),], #player is of the religion
    "I would like to hire a priest (300 siliquae).", "zoroastrian_high_priest_talk_hire", [(troop_remove_gold, "trp_player", 300),(party_add_members, "p_main_party","trp_zoroastrian_priest",1),]],
 
-  [trp_zoroastrian_high_priest|plyr, "zoroastrian_high_priest_talk_1", [(eq, "$g_player_faith", 4),(store_troop_gold,":money","trp_player"),(gt,":money",499),(troop_slot_ge, "trp_player", slot_troop_renown, 300),], #player is of the religion and has money, needs 300 renown to hire
+  [trp_zoroastrian_high_priest|plyr, "zoroastrian_high_priest_talk_1", [
+    (eq, "$g_player_faith", 4),
+    (store_troop_gold,":money","trp_player"),
+    (gt,":money",499),(troop_slot_ge, "trp_player", slot_troop_renown, 300),
+    (troops_can_join, 1),
+    ], #player is of the religion and has money, needs 300 renown to hire
    "I would like to hire a champion (500 siliquae).", "zoroastrian_high_priest_talk_hire", [(troop_remove_gold, "trp_player", 500),(party_add_members, "p_main_party","trp_persian_hero",1),]],
 
   [trp_zoroastrian_high_priest, "zoroastrian_high_priest_talk_hire", [],
@@ -52122,7 +52169,11 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   [trp_roman_pagan_high_priest, "roman_pagan_high_priest_talk_donate_1", [], #after player donates
    "Thank you for the donation, {playername}.", "close_window", []],
 
-  [trp_roman_pagan_high_priest|plyr, "roman_pagan_high_priest_talk_1", [(eq, "$g_player_faith", 6),(store_troop_gold,":money","trp_player"),(gt,":money",299),], #player is of the religion
+  [trp_roman_pagan_high_priest|plyr, "roman_pagan_high_priest_talk_1", [
+    (eq, "$g_player_faith", 6),
+    (store_troop_gold,":money","trp_player"),
+    (gt,":money",299),
+    (troops_can_join, 1),], #player is of the religion
    "I would like to hire a priest (300 siliquae).", "roman_pagan_high_priest_talk_hire", [(troop_remove_gold, "trp_player", 300),(party_add_members, "p_main_party","trp_roman_pagan_priest",1),]],
   [trp_roman_pagan_high_priest, "roman_pagan_high_priest_talk_hire", [],
    "Very well.", "roman_pagan_high_priest_talk_1", []],

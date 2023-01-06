@@ -22521,7 +22521,7 @@ presentations = [
       # factions
       (store_sub, ":num_factions", minor_cultures_end, major_cultures_begin),
       (store_add, ":num_pages", ":num_factions", 3),#bandits and others
-      (val_add, ":num_pages", ":num_factions", 2),#legions
+      (val_add, ":num_pages", 2),#legions
 
       ## page names, from bottom to top
       (overlay_add_item, "$g_presentation_obj_1", "@Others"),

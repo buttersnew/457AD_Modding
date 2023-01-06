@@ -4958,7 +4958,7 @@ troops = [
 
   ["axumite_merchant","Kaleb","Kaleb",tf_hero|tf_is_merchant, scn_town_21_castle|entry(11), reserved, fac_commoners,[itm_nomad_boots,itm_coptic_tunic_10],def_attrib_lvl_30|level(30),wp(260),knows_ironflesh_7|knows_power_strike_5|knows_shield_5|knows_athletics_7,0x0000000c3f0160c6535c6dba3271a51300000000001d36ca0000000000000000],
 
-  ["persian_hero","Pahlavan","Pahlavans",tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet, no_scene, reserved, fac_culture_6,[itm_sassanid_simple_boots_2,itm_tsaritsyno_1_light,itm_tsaritsyno_1_veiled,itm_sassanid_cataphract_helmet_1,itm_sassanid_cataphract_helmet_2,itm_sassanid_cataphract_helmet_3,itm_sassanid_greatsword],def_attrib_lvl_30|level(30),wp_one_handed(230)|wp_two_handed(250),knows_ironflesh_8|knows_power_strike_6|knows_athletics_5,persian_face_1, persian_face_2]+mail_persian_coat_2,
+  ["persian_hero","Pahlavan","Pahlavans",tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet, no_scene, reserved, fac_culture_6,[itm_sassanid_simple_boots_2,itm_tsaritsyno_1_light,itm_tsaritsyno_1_veiled,itm_sassanid_cataphract_helmet_1,itm_sassanid_cataphract_helmet_2,itm_sassanid_cataphract_helmet_3,itm_sassanid_greatsword]+mail_persian_coat_2,def_attrib_lvl_30|level(30),wp_one_handed(230)|wp_two_handed(250),knows_ironflesh_8|knows_power_strike_6|knows_athletics_5,persian_face_1, persian_face_2],
 
   ["pilos_cultist","Mysterious Man","Mysterious Man",tf_hero,0,reserved, fac_commoners,[itm_coptic_tunic_2,itm_deurne_campagi_1,itm_pilos_helmet],def_attrib_lvl_18|level(19),wp(180),knows_ironflesh_6|knows_power_strike_3|knows_athletics_5, 0x00000006370023427f135636f5e8af2000000000001e36c20000000000000000],
 

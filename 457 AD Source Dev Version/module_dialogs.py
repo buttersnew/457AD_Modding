@@ -26027,6 +26027,7 @@ I will use this to make amends to those you have wronged, and I will let it be k
 (quest_set_slot,"qst_agrippinus_quest",slot_quest_current_state, 4), 
 (call_script, "script_change_troop_renown", "trp_player", 8),
 (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 20),
+(add_quest_note_from_sreg, "qst_agrippinus_quest", 5, "@You have returned Agrippinus successfully. However, you have a strong feeling that this is not the end of the story.",0),
 ]],
 
 [anyone|plyr,"lord_talk", [
@@ -31602,7 +31603,7 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
    [anyone,"lord_tell_mission_agrippinus_2", [
   ], "Expect resistance, {playername}. Agrippinus has great wealth and skill in combat. I doubt he will come quietly. He should be at his villa, west of Lutetia.", "lord_pretalk",
    [(call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 10),
-   (str_store_string, s2, "@Agrippinus is suspected of treason. Majorian wishes that he be arrested, and taken to him."),
+   (str_store_string, s2, "@Agrippinus is suspected of treason. Majorian wishes that he be arrested, and taken to him. Find him inside his villa near Lutetia (Gaul)."),
    (call_script, "script_start_quest", "qst_agrippinus_quest", "$g_talk_troop"),
    (enable_party, "p_agrippinus_quest_villa"),
    (assign, "$g_agrippinus_quest", 1),
@@ -50003,10 +50004,10 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
    "Zamb!", "zamb_man_1", [
     (store_random_in_range, ":rand", 0, 100), #5% chance to get random item
     (try_begin),
-      (lt, ":rand", 6),
-      (store_random_in_range, ":random_item", "itm_thorsberg_tunic_simple_1", "itm_roman_javelin"),
-      (troop_add_item, "trp_player",":random_item"),
-    (try_end),  
+      (lt, ":rand", 10),
+      (neg|player_has_item, "trp_player", "itm_rock_of_zamb"),
+      (troop_add_item, "trp_player","itm_rock_of_zamb"),
+    (try_end),
    ]],
 
   [trp_agrippinus, "start", [(eq, "$g_talk_troop_met", 0),(check_quest_active,"qst_agrippinus_quest"),(quest_slot_eq,"qst_agrippinus_quest",slot_quest_current_state, 1),],
@@ -50021,9 +50022,13 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
    "What? He thinks that protecting my own estate is treason? He really is a tyrant! You'll never take me in, guards, to arms!", "close_window", [
     (quest_set_slot,"qst_agrippinus_quest",slot_quest_current_state, 2), #starts the battle
    ]],
-
+  
+  #event_triggered for dialogues started by map conversation
+  [trp_lupicinus, "event_triggered", [(quest_slot_eq,"qst_agrippinus_quest",slot_quest_current_state, 5),], 
+  "Are you {playername}? I have an important request for you!","lupicinus_talk_1",[]],
   [trp_lupicinus, "start", [(quest_slot_eq,"qst_agrippinus_quest",slot_quest_current_state, 5),], 
   "Are you {playername}? I have an important request for you!","lupicinus_talk_1",[]],
+
   [anyone|plyr, "lupicinus_talk_1", [], 
   "I am {playername}. Who are you, and what do you need?","lupicinus_talk_2",[]],
   [anyone, "lupicinus_talk_2", [], 
@@ -50037,8 +50042,12 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   (change_screen_return),
   ]],
 
+  #event_triggered for dialogues started by map conversation
+  [trp_lupicinus, "event_triggered", [(quest_slot_eq,"qst_agrippinus_quest",slot_quest_current_state, 7),], 
+  "{playername}! I am glad you were able to convince the emperor to pardon Agrippinus!","lupicinus_talk_reward_1",[]],
   [trp_lupicinus, "start", [(quest_slot_eq,"qst_agrippinus_quest",slot_quest_current_state, 7),], 
   "{playername}! I am glad you were able to convince the emperor to pardon Agrippinus!","lupicinus_talk_reward_1",[]],
+
   [anyone, "lupicinus_talk_reward_1", [], 
   "Agrippinus sends his regards, as well as a gift for saving him. Take this, it is for you!", "close_window",[
   (call_script, "script_end_quest", "qst_agrippinus_quest"),
@@ -50051,7 +50060,9 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   (leave_encounter),
   (change_screen_return),
   ]],
-
+  #event_triggered for dialogues started by map conversation
+  [trp_lupicinus, "event_triggered", [], 
+  "Yes?","close_window",[(leave_encounter),(change_screen_return)]],
   [trp_lupicinus, "start", [], 
   "Yes?","close_window",[(leave_encounter),(change_screen_return)]],
 

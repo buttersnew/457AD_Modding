@@ -24704,13 +24704,14 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     [
       ("talk_to_lupicinus",[],
         "Talk to the man.",[
-          (modify_visitors_at_site,"scn_conversation_scene"),#player entry point 16, and then 17, 18, 19 for NPC's, opposite the player. 17 must be g_talk troop
-          (reset_visitors),
-          (set_visitor,0,"trp_player"),
-          (set_visitor,17,"trp_lupicinus"),
-          (set_jump_mission,"mt_conversation_encounter"),
-          (jump_to_scene,"scn_conversation_scene"),
-          (change_screen_map_conversation, "trp_lupicinus"),
+          (call_script, "script_setup_troop_meeting", "trp_lupicinus", -1),
+          #(modify_visitors_at_site,"scn_conversation_scene"),#player entry point 16, and then 17, 18, 19 for NPC's, opposite the player. 17 must be g_talk troop
+          #(reset_visitors),
+          #(set_visitor,0,"trp_player"),
+          #(set_visitor,17,"trp_lupicinus"),
+          #(set_jump_mission,"mt_conversation_encounter"),
+          #(jump_to_scene,"scn_conversation_scene"),
+          #(change_screen_map_conversation, "trp_lupicinus"),
       ]),
 
      ("leave",[(neg|check_quest_active,"qst_agrippinus_quest"),],"Leave",[(leave_encounter),(change_screen_return)]),

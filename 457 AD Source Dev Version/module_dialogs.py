@@ -758,25 +758,6 @@ dialogs = [
   [],
   "Thank you for shopping.", "close_window",[]],
   
-  [trp_tauri_merchant_2, "start", [],
-   "Hello there! Interested in my goods?", "tauri_merchant_2_merchant_talk_1", []],
-  [trp_tauri_merchant_2|plyr, "tauri_merchant_2_merchant_talk_1", [],
-   "I'll take a look...", "tauri_merchant_2_merchant_talk_shop_1", []],
-  [trp_tauri_merchant_2|plyr, "tauri_merchant_2_merchant_talk_1", [],
-   "Nevermind.", "close_window", []],
-
-  [anyone, "tauri_merchant_2_merchant_talk_shop_1",
-  [ (troop_clear_inventory, "$g_talk_troop"), 
-    (troop_add_item,"$g_talk_troop","itm_securis", 0),  
-    (troop_add_item,"$g_talk_troop","itm_throwing_spears", 0),  
-    (troop_add_item,"$g_talk_troop","itm_round_shield_roman_9", 0),  
-    ],
-  "Very good.", "tauri_merchant_2_merchant_talk_trade_1",
-  [(change_screen_trade),]],   
-  [anyone, "tauri_merchant_2_merchant_talk_trade_1",
-  [],
-  "Thank you for shopping.", "close_window",[]],
-
 #augundzi merchants
   [trp_augundzi_merchant_1, "start", [],
    "Hello there! Interested in my goods?", "augundzi_merchant_1_merchant_talk_1", []],

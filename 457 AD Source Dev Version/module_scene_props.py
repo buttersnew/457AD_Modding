@@ -3834,7 +3834,7 @@ scene_props = [
 		(assign, "$gate_breached",0),
 		(entry_point_get_position,pos1,39), # put aggravator agent for enemies to bash the gate prop
 		(set_spawn_position, pos1),
-		(spawn_agent,"trp_gate_aggravator"),
+		(spawn_agent,"trp_watchman"),
 		(assign, "$gate_aggravator_agent", reg0),
 		(agent_set_no_dynamics, "$gate_aggravator_agent", 1),
 		(agent_set_team, "$gate_aggravator_agent", 6),

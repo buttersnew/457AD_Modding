@@ -3827,50 +3827,8 @@ scene_props = [
 
 #added destructable gate
 
-("castle_g_gate_house_door_a_destructable",sokf_show_hit_point_bar|sokf_destructible|spr_hit_points(1000),"castle_g_gate_house_door_a","bo_castle_g_gate_house_door_a",   [
-   (ti_on_scene_prop_init, [
-   	    (store_trigger_param_1, ":instance_no"),
-        (scene_prop_set_hit_points, ":instance_no", 1000),
-		(assign, "$gate_breached",0),
-		(entry_point_get_position,pos1,39), # put aggravator agent for enemies to bash the gate prop
-		(set_spawn_position, pos1),
-		(spawn_agent,"trp_watchman"),
-		(assign, "$gate_aggravator_agent", reg0),
-		(agent_set_no_dynamics, "$gate_aggravator_agent", 1),
-		(agent_set_team, "$gate_aggravator_agent", 6),
-		(team_give_order, 6, grc_everyone, mordr_hold),
-		(team_give_order, 6, grc_everyone, mordr_stand_ground),
-		(team_set_order_position, 6, grc_everyone, pos1),
-	]),
-   (ti_on_scene_prop_destroy, [
-		(store_trigger_param_1, ":instance_no"),
-		(prop_instance_get_starting_position, pos1, ":instance_no"),
-		(position_rotate_x, pos1, 85),
-		(prop_instance_animate_to_position, ":instance_no", pos1, 400), #animate in 4 second
-		(play_sound, "snd_dummy_destroyed"),
-		(display_message,"@Gate is breached!"),
-		(assign, "$gate_breached",1),
-		(call_script, "script_remove_agent", "$gate_aggravator_agent"), #remove gate aggravator agent
-		
-		(scene_prop_get_num_instances,":max_barriers","spr_ai_limiter_gate_breached"),	#move away all dependent barriers
-		(try_begin),
-			(gt, ":max_barriers",0),
-			(try_for_range,":count",0,":max_barriers"),
-				(scene_prop_get_instance,":instance_no", "spr_ai_limiter_gate_breached", ":count"),
-				(prop_instance_get_starting_position, pos1, ":instance_no"),
-				(position_move_z,pos1,-10000),
-				(prop_instance_set_position,":instance_no",pos1),
-			(try_end),
-		(try_end),
-   ]),
-   (ti_on_scene_prop_hit,
-    [(play_sound, "snd_dummy_hit"),
-	(particle_system_burst, "psys_dummy_smoke", pos1, 3),
-	(particle_system_burst, "psys_dummy_straw", pos1, 10),
-	(entry_point_get_position,pos1,39),
-	(agent_set_position, "$gate_aggravator_agent", pos1), # place gate aggravator agent to proper position
-    ]),
-]),
+("castle_g_gate_house_door_a_destructable",sokf_show_hit_point_bar|sokf_destructible|spr_hit_points(1000),"castle_g_gate_house_door_a","bo_castle_g_gate_house_door_a",   
+[]),
 
 ("ai_limiter_gate_breached" ,sokf_invisible|sokf_type_ai_limiter|sokf_moveable,"barrier_8m" ,"bo_barrier_8m" , []), # all instances moved away when gate_destructible is destroyed
 

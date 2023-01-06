@@ -10186,7 +10186,7 @@ TOTAL:  {reg5}"),
     (party_get_num_prisoners, ":prisoners", "p_main_party"),
     (ge, ":prisoners", 1),],"Drop off all non-hero prisoners.",[
     (assign, "$g_move_heroes", 0), 
-    (call_script, "script_party_add_party_prisoners", "$g_encountered_party", "p_main_party"),
+    (call_script, "script_party_prisoners_add_party_prisoners", "$g_encountered_party", "p_main_party"),
     (call_script, "script_party_remove_all_prisoners", "p_main_party"),     
     ]),       
       

@@ -2422,8 +2422,8 @@ troops = [
 
   ["frisian_companion","Frisesk Companion","Frisesk Companions",tf_mounted|tf_guarantee_horse|tf_guarantee_basic|tf_guarantee_helmet,0,0,fac_culture_minor_4,
    [itm_friesian_1,itm_friesian_2,itm_deurne_campagi_2,itm_deurne_campagi_5,itm_obenaltendorf_shoes_1,itm_obenaltendorf_shoes_2,itm_kemathen_mail_3,itm_kemathen_mail_12,itm_kemathen_mail_rich_2,itm_kemathen_mail_rich_3,itm_kemathen_mail_rich_5,itm_triveres_mail,itm_augst_helmet_3,itm_burgh_helmet_1,itm_augsburg_2_helmet_mail,
-   itm_tab_shield_small_round_c,itm_concave_shield_germanic_small_1,itm_round_shield_germanic_small_22,itm_war_spear_3,itm_arabian_sword_b]+horses_germanic_4,
-   def_attrib_lvl_28|level(27),wp_one_handed(250)|wp_two_handed(240)|wp_polearm(240)|wp_throwing(230)|wp_archery(100),knows_lvl_28_cav|knows_shield_6|knows_power_strike_8,germanic_face_1, germanic_face_2]+angons,
+   itm_tab_shield_small_round_c,itm_concave_shield_germanic_small_1,itm_round_shield_germanic_small_22,itm_war_spear_3,itm_arabian_sword_b]+horses_germanic_4+angons,
+   def_attrib_lvl_28|level(27),wp_one_handed(250)|wp_two_handed(240)|wp_polearm(240)|wp_throwing(230)|wp_archery(100),knows_lvl_28_cav|knows_shield_6|knows_power_strike_8,germanic_face_1, germanic_face_2],
 
 #AESTII
   ["aestii_skirmisher","Aestii Skirmisher (Karaitis)","Aestii Skirmishers (Karaitis)",tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_ranged,0,0,fac_culture_minor_5,

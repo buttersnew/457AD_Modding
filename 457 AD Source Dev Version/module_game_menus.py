@@ -4724,11 +4724,11 @@ TOTAL:  {reg5}"),
 		  ##diplomacy start+
 		  #Here: we jump to rubik's autoloot from CC if applicable instead of using the standard loot screen
 		  (try_begin),
-            (neq, "$freelancer_state", 1),  #Caba freelancer fixes chief
-			(call_script, "script_cf_dplmc_player_party_meets_autoloot_conditions"),
-			(assign, "$dplmc_return_menu", "mnu_total_victory"),
-			(assign, "$lord_selected", "trp_player"),
-			(jump_to_menu, "mnu_dplmc_manage_loot_pool"),
+          (neq, "$freelancer_state", 1),  #Caba freelancer fixes chief
+          (call_script, "script_cf_dplmc_player_party_meets_autoloot_conditions"),
+          (assign, "$dplmc_return_menu", "mnu_total_victory"),
+          (assign, "$lord_selected", "trp_player"),
+          (jump_to_menu, "mnu_dplmc_manage_loot_pool"),
 		  (else_try),
 			#Old behavior:
 			(change_screen_loot, "trp_temp_troop"),
@@ -5890,7 +5890,7 @@ TOTAL:  {reg5}"),
             (troop_sort_inventory, "trp_temp_troop"),
             (try_begin),
               (call_script, "script_cf_dplmc_player_party_meets_autoloot_conditions"),
-              (assign, "$dplmc_return_menu", "$g_siege_final_menu"),
+              (assign, "$dplmc_return_menu", "mnu_besiegers_camp_with_allies"),
               (assign, "$lord_selected", "trp_player"),
               (jump_to_menu, "mnu_dplmc_manage_loot_pool"),
             (else_try),

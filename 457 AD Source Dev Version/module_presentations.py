@@ -21593,7 +21593,7 @@ presentations = [
     (presentation_set_duration, 999999),
     (set_fixed_point_multiplier, 1000),
     
-    (try_for_range, ":slot", trp_temp_array_a, 1, 30),
+    (try_for_range, ":slot", 1, 30),
         (troop_set_slot, "trp_temp_array_a", ":slot", -1),
         (troop_set_slot, "trp_temp_array_b", ":slot", -1),
     (try_end),

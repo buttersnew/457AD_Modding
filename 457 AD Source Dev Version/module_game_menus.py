@@ -940,8 +940,8 @@ game_menus = [
     ("go_back_dot",[],"Continue.",[
       (change_screen_return),
       ]),
-    ("go_back_dot",[],"Go back.",[
-      (jump_to_menu, "mnu_start_game_0"),
+    ("go_back_dot",[],"Return to main menu.",[
+      (change_screen_quit),
       ]),
 ]),
 

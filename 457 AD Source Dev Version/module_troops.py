@@ -1374,7 +1374,7 @@ troops = [
 #MERCS FOR BRITAIN
   ["attecotti_raider","Attecotti Raider (Mor-Lathr)","Attecotti Raiders (Mor-Lathr)",tf_guarantee_armor|tf_guarantee_ranged,0,0,fac_culture_5,
    [itm_simple_shoes,itm_woolen_hose,itm_wrapping_boots,itm_thorsberg_tunic_simple_2,itm_thorsberg_tunic_simple_4,itm_thorsberg_tunic_simple_6,itm_thorsberg_tunic_simple_7,itm_pictish_hood_1,itm_pictish_hood_2,itm_pictish_hood_3,itm_brown_hood1,itm_pict_axe_b,itm_jarid,itm_jarid,itm_pict_shield_4,itm_concave_shield_blue_small_2,itm_round_shield_blue_small_2,itm_round_shield_blue_small_3],
-   def_attrib_lvl_18|level(15),wp_one_handed(16)|wp_polearm(150)|wp_throwing(180)|wp_archery(150),knows_skirmisher|knows_ironflesh_5|knows_power_strike_5,celtic_face_1, celtic_face_2],
+   def_attrib_lvl_18|level(15),wp_one_handed(160)|wp_polearm(150)|wp_throwing(180)|wp_archery(150),knows_skirmisher|knows_ironflesh_5|knows_power_strike_5,celtic_face_1, celtic_face_2],
 
   ["angle_mercenary","Angle Warrior (Duguthi)","Angle Warriors (Duguthi)",tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_shield|tf_guarantee_polearm,0,0,fac_culture_3,
    [itm_ankle_boots,itm_wrapping_boots,itm_simple_shoes,itm_seax_2,itm_war_spear,itm_battle_axe_5,itm_thorsberg_tunic_simple_5,itm_leather_armor_d,itm_thorsberg_tunic_cloak_4,itm_kemathen_mail_4,itm_intercisa_helmet_2,itm_burgh_helmet_1,itm_burgh_helmet_mail,itm_burgh_helmet_light,itm_triveres_leather,itm_triveres_mail,itm_drengsted_helmet_mail,itm_drengsted_helmet_leather,itm_round_shield_green_1,itm_round_shield_green_2,itm_round_shield_germanic_5,itm_round_shield_roman_17,itm_iatrus_helmet_mail] + angons,

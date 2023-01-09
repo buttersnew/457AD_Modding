@@ -208,7 +208,7 @@ parties = [
   #new castles 8/23/21
   ("castle_82", "Siracena", icon_castle_b|pf_castle, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (95.76, 86.28), [], 260),            #[swycartographr] prev. coords: (26.24, 74.5)
   ("castle_83", "Seraca", icon_castle_b|pf_castle, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (122.53, 82.1), [], 260),              #[swycartographr] prev. coords: (52.3, 68.5)
-  ("castle_84", "Ulpia_Triana_Sarmizegetusa", icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-37.56, 69.21), [], 260), #unique scene 
+  ("castle_84", "Ulpia_Traiana_Sarmizegetusa", icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-37.56, 69.21), [], 260), #unique scene 
   ("castle_85", "Dierna", icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-51.41, 57.85), [], 260),  
   ("castle_86", "Bassiana", icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-63.13,57.92), [], 260),  
 

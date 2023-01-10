@@ -23208,7 +23208,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       (jump_to_menu, "mnu_settlement_looted"),
       (try_end),],
     [
-    ("enter",[(eq,"$town_nighttime",0),],"Visit the village.",[
+    ("enter",[],"Visit the village.",[
            (try_begin),
              (eq,"$town_nighttime",1),
              (display_message,"str_monastery_night",0xFFFFAAAA),
@@ -23940,7 +23940,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       (jump_to_menu, "mnu_settlement_looted"),
       (try_end),],
     [
-    ("enter",[(eq,"$town_nighttime",0),],"Visit the roman temple.",[
+    ("enter",[],"Visit the roman temple.",[
            (try_begin),
              (eq,"$town_nighttime",1),
              (display_message,"str_monastery_night",0xFFFFAAAA),

@@ -49342,7 +49342,7 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   [anyone, "chalcedonian_grail_talk_1", [],
    "You found the grail? Glory to God! Although it is not much, take this for the trouble, {playername}, for returning the grail to the true church.", "chalcedonian_bishop_talk", [
    (troop_remove_item,"trp_player","itm_holy_grail"),
-   (call_script, "script_change_player_relation_with_faction", "fac_roman_christians", 20),fac_co
+   (call_script, "script_change_player_relation_with_faction", "fac_roman_christians", 20),
    (troop_add_gold, "trp_player", 4000),
    (call_script, "script_change_player_honor", 5),
    (val_add, "$piety", 10), 

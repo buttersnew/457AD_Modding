@@ -17508,12 +17508,12 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       (position_set_x, pos0, 65),
       (position_set_y, pos0, 30),
       (position_set_z, pos0, 170),
-      (try_begin),
-        (is_between, "$g_notification_menu_var1", npc_kingdoms_begin, kingdoms_end), #Excluding player kingdom
-        (set_game_menu_tableau_mesh, "tableau_faction_note_mesh_for_menu", "$g_notification_menu_var1", pos0),
-      (else_try),
+      # (try_begin),
+      #   (is_between, "$g_notification_menu_var1", npc_kingdoms_begin, kingdoms_end), #Excluding player kingdom
+      #   (set_game_menu_tableau_mesh, "tableau_faction_note_mesh_for_menu", "$g_notification_menu_var1", pos0),
+      # (else_try),
         (set_game_menu_tableau_mesh, "tableau_faction_note_mesh_banner", "$g_notification_menu_var1", pos0),
-      (try_end),
+      # (try_end),
       ],
     [
       ("continue",[],"Continue...",

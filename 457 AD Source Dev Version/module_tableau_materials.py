@@ -987,10 +987,9 @@ tableaus = [
        (cur_tableau_set_camera_position, pos5),
        ]),
 
-  ("faction_note_mesh_for_menu", 0, "tableau_with_transparency", 1024, 512, 0, 0, 450, 225,
+  ("faction_note_mesh_for_menu", 0, "tableau_with_transparency", 1024, 1024, 0, 0, 200, 200,
    [
      (store_script_param, ":faction_no", 1),
-     (cur_tableau_set_background_color, 0xFFFFFFFF),
      (set_fixed_point_multiplier, 100),
      (try_begin),
        (faction_get_slot, ":leader_troop", ":faction_no", slot_faction_leader),
@@ -1006,6 +1005,7 @@ tableaus = [
        (cur_tableau_set_camera_parameters, 0, 210, 210, 0, 100000),
      (try_end),
      ]),
+  
 
   # USE faction_note_mesh_banner instead!!!
   # ("faction_note_mesh", 0, "pic_arms_swadian", 1024, 512, 0, 0, 500, 250,

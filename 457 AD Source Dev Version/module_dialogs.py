@@ -1022,7 +1022,7 @@ dialogs = [
 
 #AESTII QUEST
 [trp_aestii_king,"start", [(check_quest_active, "qst_aestii_rebel_quest"),(quest_slot_eq, "qst_aestii_rebel_quest", slot_quest_current_state, 5),],
-"You! Common cry of curs, whose breath I hate as reeks of the rotten fens. Traitors and villains! You came with your host looking for a fight and you shall have one, sword to sword! And you, playername, cursed be your name: I shall have your head on a spike!", "aestii_before_battle_talk_1",[(call_script, "script_change_player_relation_with_troop", "trp_aestii_king",-80),]],   
+"You! Common cry of curs, whose breath I hate as reeks of the rotten fens. Traitors and villains! You came with your host looking for a fight and you shall have one, sword to sword! And you, {playername}, cursed be your name: I shall have your head on a spike!", "aestii_before_battle_talk_1",[(call_script, "script_change_player_relation_with_troop", "trp_aestii_king",-80),]],   
 [anyone|other(trp_aestii_rebel_king),"aestii_before_battle_talk_1", [],
 "There is no more to be said but he is banished as enemy of my people! Death!", "close_window",[
     (jump_to_menu, "mnu_attack_minor_town"),

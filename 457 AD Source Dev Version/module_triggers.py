@@ -1299,7 +1299,7 @@ triggers = [
 
 (24,0,ti_once,[
     (check_quest_active,"qst_conquest_sicily"),
-    (store_faction_of_party, ":castle_20_faction", "p_castle_30"),
+    (store_faction_of_party, ":castle_20_faction", "p_castle_20"),
     (eq, ":castle_20_faction", "fac_player_supporters_faction"),
 ],[
     (dialog_box, "@You have conquered Sicily!", "@Victory!"),

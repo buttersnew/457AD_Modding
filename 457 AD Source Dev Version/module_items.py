@@ -1675,14 +1675,8 @@ items = [
  8200 , weight(32)|abundance(5)|head_armor(0)|body_armor(64)|leg_armor(20)|difficulty(15) ,imodbits_scale, [], culture_sassanid ],
 ["sassanid_heavy_mail_3", "Persian Cataphract Mail", [("sassanid_heavy_mail_3",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0,
  8200 , weight(32)|abundance(5)|head_armor(0)|body_armor(64)|leg_armor(20)|difficulty(15) ,imodbits_scale, [], culture_sassanid ],
-["sassanid_heavy_mail_4", "Persian Cataphract Mail", [("sassanid_heavy_mail_4",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0,
- 8200 , weight(32)|abundance(5)|head_armor(0)|body_armor(64)|leg_armor(20)|difficulty(15) ,imodbits_scale, [], culture_sassanid ],
 
 ["sassanid_plated_mail_1", "Persian Cataphract Mail", [("sassanid_plated_mail_1",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0,
- 8700 , weight(36)|abundance(1)|head_armor(0)|body_armor(68)|leg_armor(20)|difficulty(17) ,imodbits_scale, [], culture_sassanid ],
-["sassanid_plated_mail_2", "Persian Cataphract Mail", [("sassanid_plated_mail_2",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0,
- 8700 , weight(36)|abundance(1)|head_armor(0)|body_armor(68)|leg_armor(20)|difficulty(17) ,imodbits_scale, [], culture_sassanid ],
-["sassanid_plated_mail_3", "Persian Cataphract Mail", [("sassanid_plated_mail_3",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0,
  8700 , weight(36)|abundance(1)|head_armor(0)|body_armor(68)|leg_armor(20)|difficulty(17) ,imodbits_scale, [], culture_sassanid ],
 
 #others
@@ -1914,7 +1908,6 @@ weight(1)|abundance(80)|head_armor(24)|body_armor(14)|leg_armor(6)|difficulty(0)
 
 ["triveres_leather", "Bandhelm with Leather", [("triveres_leather",0),("triveres_leather_inv",ixmesh_inventory)], itp_type_head_armor|itp_attach_armature|itp_merchandise,0,865 , weight(1.25)|abundance(50)|head_armor(42)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], culture_germanic+culture_gothic ],
 
-
 #Sassanid Crossband Helmets
 ["sassanid_helmet_cloth_1", "Crossband Helmet", [("sassanid_helmet_cloth_1",0),("sassanid_helmet_cloth_1_inv",ixmesh_inventory)], itp_merchandise|itp_attach_armature|itp_type_head_armor,0,865 , weight(1.25)|abundance(40)|head_armor(42)|body_armor(0)|leg_armor(0)|difficulty(2) ,imodbits_plate, [], culture_sassanid  ],
 ["sassanid_helmet_cloth_2", "Crossband Helmet", [("sassanid_helmet_cloth_2",0),("sassanid_helmet_cloth_2_inv",ixmesh_inventory)], itp_merchandise|itp_attach_armature|itp_type_head_armor,0,865 , weight(1.25)|abundance(40)|head_armor(42)|body_armor(0)|leg_armor(0)|difficulty(2) ,imodbits_plate, [], culture_sassanid  ],
@@ -2012,17 +2005,16 @@ weight(1)|abundance(80)|head_armor(24)|body_armor(14)|leg_armor(6)|difficulty(0)
 ["fernpass_helmet_3", "Ridge Helmet with Mail", [("fernpass_helmet_3",0),("fernpass_helmet_3_inv",ixmesh_inventory)], itp_type_head_armor|itp_attach_armature|itp_merchandise,0,1105 , weight(1.55)|abundance(40)|head_armor(45)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate ],
 
 #Spangenhelms/Ridge Helmets Heavy
-#Generic
 
+["breda_helmet_1", "Segmented Helmet", [("breda_helmet_1",0),("breda_helmet_1_inv",ixmesh_inventory)], itp_type_head_armor|itp_attach_armature|itp_merchandise,0,1115, weight(1.8)|abundance(22)|head_armor(47)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], [fac_culture_2,fac_culture_16] ],
+["breda_helmet_plume_1", "Segmented Helmet with Plume", [("breda_helmet_plume_1",0),("breda_helmet_1_inv",ixmesh_inventory)], itp_type_head_armor|itp_attach_armature|itp_merchandise,0,1115, weight(1.85)|abundance(22)|head_armor(47)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], [fac_culture_2,fac_culture_16] ],
+
+#Generic
 ["fernpass_helmet_1", "Ridge Helmet", [("fernpass_helmet_1",0),("fernpass_helmet_1_inv",ixmesh_inventory)], itp_type_head_armor|itp_attach_armature|itp_merchandise,0,1230, weight(2.0)|abundance(30)|head_armor(46)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], culture_germanic+culture_gothic+culture_roman ],
 
 ["tsaritsyno_2_2", "Gilded Spangenhelm with Mail", [("tsaritsyno_2_2",0),("tsaritsyno_2_inv",ixmesh_inventory)], itp_merchandise|itp_attach_armature|itp_type_head_armor,0,1140 , weight(1.5)|abundance(30)|head_armor(45)|body_armor(0)|leg_armor(0)|difficulty(6) ,imodbits_plate, [], culture_roman ],
 
 ["kalhkni_helmet_mail", "Lamellenhelm", [("kalhkni_helmet_mail",0),("kalhkni_helmet_mail_inv",ixmesh_inventory)], itp_type_head_armor|itp_attach_armature|itp_merchandise,0,1130, weight(1.5)|abundance(30)|head_armor(46)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], culture_caucasian+culture_hunnic+culture_alan ],
-
-#["coptic_scale_coif_1", "Scale Coif", [("coptic_scale_coif_1",0),("coptic_scale_coif_1_inv",ixmesh_inventory)], itp_attach_armature|itp_type_head_armor,0,1245 , weight(2.0)|abundance(10)|head_armor(48)|body_armor(0)|leg_armor(0)|difficulty(7) ,imodbits_plate, [], [fac_culture_empire,fac_culture_6] ],
-
-["tarasovo_helmet_1", "Eastern Bandhelm", [("tarasovo_helmet_1",0),("tarasovo_helmet_1_inv",ixmesh_inventory)], itp_type_head_armor|itp_attach_armature|itp_merchandise,0,1130, weight(1.5)|abundance(30)|head_armor(46)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], culture_hunnic+culture_alan ],
 
 ["turaevo_helmet", "Rich Bandhelm", [("charerg_turaevo",0),("charerg_turaevo_inv",ixmesh_inventory)], itp_type_head_armor|itp_attach_armature|itp_merchandise,0,1130, weight(1.5)|abundance(30)|head_armor(46)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], culture_hunnic+culture_alan ],
 ["turaevo_helmet_aventail", "Rich Bandhelm", [("turaevo_aventail",0),("turaevo_aventail_inv",ixmesh_inventory)], itp_type_head_armor|itp_attach_armature|itp_merchandise,0,1230, weight(2.5)|abundance(20)|head_armor(48)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], culture_hunnic+culture_alan ],
@@ -2068,6 +2060,10 @@ weight(1)|abundance(80)|head_armor(24)|body_armor(14)|leg_armor(6)|difficulty(0)
 ["sassanid_lamellenhelm_5", "Lamellenhelm with Mail", [("sassanid_lamellenhelm_5",0),("sassanid_lamellenhelm_5_inv",ixmesh_inventory)], itp_merchandise|itp_attach_armature|itp_type_head_armor,0,1230 , weight(2.5)|abundance(22)|head_armor(48)|body_armor(0)|leg_armor(0)|difficulty(7) ,imodbits_plate, [], culture_sassanid ],
 
 ["tarasovsky_782", "Gilded Spangenhelm", [("tarasovsky_782",0),("tarasovsky_782_inv",ixmesh_inventory)], itp_merchandise|itp_attach_armature|itp_type_head_armor,0,1430 , weight(2.5)|abundance(20)|head_armor(48)|body_armor(0)|leg_armor(0)|difficulty(6) ,imodbits_plate, [], culture_hunnic ],
+
+["tarasovo_helmet_1", "Eastern Bandhelm", [("tarasovo_helmet_1",0),("tarasovo_helmet_1_inv",ixmesh_inventory)], itp_type_head_armor|itp_attach_armature|itp_merchandise,0,1430, weight(1.75)|abundance(30)|head_armor(48)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], culture_hunnic+culture_alan ],
+
+["komi_ridge_helmet_1", "Eastern Ridge Helmet", [("komi_ridge_helmet_1",0),("komi_ridge_helmet_1_inv",ixmesh_inventory)], itp_type_head_armor|itp_attach_armature,0,1430, weight(1.75)|abundance(30)|head_armor(48)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], culture_hunnic+culture_alan ],
 
 #veiled
 ["veiled_helmet_4", "Monopartite Helmet with Veil", [("batumi_cataphract",0),("batumi_cataphract_inv",ixmesh_inventory)], itp_merchandise|itp_attach_armature|itp_type_head_armor|itp_covers_beard,0,3600 , weight(4.25)|abundance(20)|head_armor(50)|body_armor(0)|leg_armor(0)|difficulty(7) ,imodbits_plate, [], culture_caucasian ],

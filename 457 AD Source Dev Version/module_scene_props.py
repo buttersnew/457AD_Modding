@@ -3408,7 +3408,7 @@ scene_props = [
   ( "statue_female_tld"                          ,0,"statue_female_tld","bo_statue_female_tld",[]),
   ( "tld_statue_base"                          ,0,"tld_statue_base","bo_tld_statue_base",[]),
   ( "tld_altar"                          ,0,"tld_altar","bo_tld_altar",[]),
-
+  ( "pilos_altar"                          ,0,"pilos_altar","bo_tld_statue_base",[]),
 
 	( "terrain_steppe_plane_01"                    ,0,"terrain_steppe_plane_01","bo_terrain_plane_01",[]),
 	( "terrain_steppe_cliff_01"                    ,0,"terrain_steppe_cliff_01","bo_terrain_cliff_01",[]),

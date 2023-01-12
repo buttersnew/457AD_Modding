@@ -18693,58 +18693,62 @@ presentations = [
         (assign, "$troop_tree_counter", 0),        
         
         # ##pic of troop
-        (store_mul, reg2, "$temp_troop", 2), #picture with weapons (see script_add_troop_to_cur_tableau_for_party)
-        (create_mesh_overlay_with_tableau_material, reg1, -1, "tableau_troop_tree_pic", reg2),
-        (overlay_set_val, reg1, "$temp_troop"),
-        
-        (position_set_x, pos1, 200),
-        (position_set_y, pos1, 350),
-        (overlay_set_position, reg1, pos1),
+        (try_begin),
+            (gt, "$temp_troop", 0),
+            (store_mul, reg2, "$temp_troop", 2), #picture with weapons (see script_add_troop_to_cur_tableau_for_party)
+            (create_mesh_overlay_with_tableau_material, reg1, -1, "tableau_troop_tree_pic", reg2),
+            (overlay_set_val, reg1, "$temp_troop"),
+            
+            (position_set_x, pos1, 200),
+            (position_set_y, pos1, 350),
+            (overlay_set_position, reg1, pos1),
 
-        # # create button
-        # (create_image_button_overlay, reg10, "mesh_longer_button", "mesh_longer_button"),
-        # (overlay_set_position, reg10, pos1),
-        # (position_set_x, pos1, Troop_Tree_Tableau_Height),
-        # (position_set_y, pos1, Troop_Tree_Tableau_Width),
-        # (overlay_set_size, reg10, pos1),
-        # (overlay_set_alpha, reg10, 0),
-        # (overlay_set_color, reg10, 0xDDDDDD),
-        
-        
-        (troop_set_slot, "trp_temp_array_a", 0, "$temp_troop"),
+            # # create button
+            # (create_image_button_overlay, reg10, "mesh_longer_button", "mesh_longer_button"),
+            # (overlay_set_position, reg10, pos1),
+            # (position_set_x, pos1, Troop_Tree_Tableau_Height),
+            # (position_set_y, pos1, Troop_Tree_Tableau_Width),
+            # (overlay_set_size, reg10, pos1),
+            # (overlay_set_alpha, reg10, 0),
+            # (overlay_set_color, reg10, 0xDDDDDD),
+            
+            
+            (troop_set_slot, "trp_temp_array_a", 0, "$temp_troop"),
 
-        (position_set_x, pos1, Troop_Tree_Tableau_Height/2),
-        (position_set_y, pos1, Troop_Tree_Tableau_Width/2),
-        
-        (overlay_set_size, reg1, pos1),   
+            (position_set_x, pos1, Troop_Tree_Tableau_Height/2),
+            (position_set_y, pos1, Troop_Tree_Tableau_Width/2),
+            
+            (overlay_set_size, reg1, pos1),   
 
-        (position_set_x, pos2, 1100),
-        (position_set_y, pos2, 1100), 
-##troop name
-        (str_store_troop_name, s2, "$temp_troop"),       
-        (create_text_overlay, reg1, "@Selected troop: {s2}", tf_center_justify),
-        (position_set_x, pos1, 320),
-        (position_set_y, pos1, 330),
-        (overlay_set_position, reg1, pos1),
-        (overlay_set_size, reg1, pos2),
-       ##creat button  
-        (create_image_button_overlay, reg10, "mesh_longer_button", "mesh_longer_button"),
-        (overlay_set_position, reg10, pos1),
-        (overlay_set_size, reg10, pos2),       
-        (overlay_set_alpha, reg10, 0),
-        (overlay_set_color, reg10, 0xDDDDDD),
-        
-        (troop_set_slot, "trp_temp_array_b", 0, reg10),
-##troop detail
-        (call_script, "script_game_get_troop_wage", "$temp_troop", 0),
-        (assign, reg40, reg0),
-        (call_script, "script_game_get_join_cost", "$temp_troop"),
-        (assign, reg41, reg0), 
-        (create_text_overlay, reg1, "@Wage: {reg40} siliquae. Recruitment cost: {reg41} siliquae", tf_center_justify),
-        (position_set_x, pos1, 320),
-        (position_set_y, pos1, 290),
-        (overlay_set_position, reg1, pos1),
-        (overlay_set_size, reg1, pos2),
+            (position_set_x, pos2, 1100),
+            (position_set_y, pos2, 1100), 
+    ##troop name
+            (str_store_troop_name, s2, "$temp_troop"),       
+            (create_text_overlay, reg1, "@Selected troop: {s2}", tf_center_justify),
+            (position_set_x, pos1, 320),
+            (position_set_y, pos1, 330),
+            (overlay_set_position, reg1, pos1),
+            (overlay_set_size, reg1, pos2),
+          ##creat button  
+            (create_image_button_overlay, reg10, "mesh_longer_button", "mesh_longer_button"),
+            (overlay_set_position, reg10, pos1),
+            (overlay_set_size, reg10, pos2),       
+            (overlay_set_alpha, reg10, 0),
+            (overlay_set_color, reg10, 0xDDDDDD),
+            
+            (troop_set_slot, "trp_temp_array_b", 0, reg10),
+    ##troop detail
+            (call_script, "script_game_get_troop_wage", "$temp_troop", 0),
+            (assign, reg40, reg0),
+            (call_script, "script_game_get_join_cost", "$temp_troop"),
+            (assign, reg41, reg0), 
+            (create_text_overlay, reg1, "@Wage: {reg40} siliquae. Recruitment cost: {reg41} siliquae", tf_center_justify),
+            (position_set_x, pos1, 320),
+            (position_set_y, pos1, 290),
+            (overlay_set_position, reg1, pos1),
+            (overlay_set_size, reg1, pos2),
+        (try_end),
+
 ###make definitions for troop list:
         (assign, ":slot_no_troop", 1),    
         (assign, ":slot_no_id", 1),
@@ -19862,33 +19866,37 @@ presentations = [
           (try_end), 
         (else_try),
           (eq, ":object_id", "$g_presentation_input"),
-          (store_troop_gold, ":g", "trp_player"),
+          (try_begin),
+            (gt, "$temp_troop", 0),
+            (store_troop_gold, ":g", "trp_player"),
 
-          (assign, ":slot_troop_type", slot_center_volunteer_troop_amount),
-          #nero: this is to check if a troop is noble or not
-          (try_begin),
-            (call_script, "script_cf_is_noble", "$temp_troop"),#add additional noble troops to this script
-            (assign, ":slot_troop_type", slot_center_volunteer_noble_troop_amount),
-          (try_end),
-          
-          (party_get_slot, ":recruits", "$current_town", ":slot_troop_type"),
-          (try_begin),
-            (ge, ":recruits", reg43),
-            (troops_can_join, reg43),
-            (ge, ":g", reg44),
-            #(presentation_set_duration, 0),
-            (party_add_members, "p_main_party", "$temp_troop", reg43),         
-            (troop_remove_gold, "trp_player", reg44),
-            (start_presentation, "prsnt_barracks"),
-            (val_sub, ":recruits", reg43),
-            (party_set_slot, "$current_town", ":slot_troop_type", ":recruits"),
+            (assign, ":slot_troop_type", slot_center_volunteer_troop_amount),
+            #nero: this is to check if a troop is noble or not
+            (try_begin),
+              (call_script, "script_cf_is_noble", "$temp_troop"),#add additional noble troops to this script
+              (assign, ":slot_troop_type", slot_center_volunteer_noble_troop_amount),
+            (try_end),
+            
+            (party_get_slot, ":recruits", "$current_town", ":slot_troop_type"),
+            (try_begin),
+              (ge, ":recruits", reg43),
+              (troops_can_join, reg43),
+              (ge, ":g", reg44),
+              #(presentation_set_duration, 0),
+              (party_add_members, "p_main_party", "$temp_troop", reg43),         
+              (troop_remove_gold, "trp_player", reg44),
+              (start_presentation, "prsnt_barracks"),
+              (val_sub, ":recruits", reg43),
+              (party_set_slot, "$current_town", ":slot_troop_type", ":recruits"),
+            (else_try),
+              (lt, ":recruits", reg43),
+              (display_message, "@There are not enough recruits available!"),
+            (else_try),
+              (display_message, "@You don't have enough space in your party, or you don't have enough siliquae!"),
+            (try_end),
           (else_try),
-            (lt, ":recruits", reg43),
-            (display_message, "@There are not enough recruits available!"),
-          (else_try),
-            (display_message, "@You don't have enough space in your party, or you don't have enough siliquae!"),
+            (display_message, "@Select a troop!"),
           (try_end),
-          
         (else_try),
           (eq, ":object_id", "$g_presentation_obj_30"),
           (assign, reg43, ":value"),

@@ -18642,7 +18642,7 @@ presentations = [
         (position_set_y, pos1, 1000),
         (overlay_set_size, "$g_presentation_obj_28", pos1),        
         
-        (store_party_size_wo_prisoners, reg1, "p_main_party"),
+        (store_party_size_wo_prisoners, ":party_size", "p_main_party"),
         (call_script, "script_calculate_weekly_party_wage", "p_main_party"),
         (assign, reg2, reg0),
         
@@ -18650,7 +18650,7 @@ presentations = [
         (assign, reg3, reg0),
         
         (store_troop_gold, reg4, "trp_player"),
-        
+        (assign, reg1, ":party_size"),
         (create_text_overlay, "$g_presentation_obj_27", "@Party size: {reg1} men, Party wage: {reg2} siliquae, ^Party limit: {reg3} men. Your gold: {reg4} siliquae.", tf_left_align),
         (position_set_x, pos1, 40),
         (position_set_y, pos1, 660),
@@ -18660,7 +18660,8 @@ presentations = [
         (overlay_set_size, "$g_presentation_obj_27", pos1),
 
 #for recruitment limitation
-        (party_get_slot, reg2, "$current_town", slot_center_volunteer_noble_troop_amount),
+        (party_get_slot, ":num_nobles", "$current_town", slot_center_volunteer_noble_troop_amount),
+        (assign, reg2, ":num_nobles"),
         (create_text_overlay, reg1, "@Available nobles: {reg2}", tf_left_align),
         (position_set_x, pos1, 40),
         (position_set_y, pos1, 625),
@@ -18668,8 +18669,8 @@ presentations = [
         (position_set_x, pos1, 920),
         (position_set_y, pos1, 920),
         (overlay_set_size, reg1, pos1),        
-        (party_get_slot, reg2, "$current_town", slot_center_volunteer_troop_amount),
-        
+        (party_get_slot, ":num_peasants", "$current_town", slot_center_volunteer_troop_amount),
+        (assign, reg2, ":num_peasants"),
         (create_text_overlay, reg1, "@Available commoners: {reg2}", tf_left_align),
         (position_set_x, pos1, 40),
         (position_set_y, pos1, 610),
@@ -18678,7 +18679,18 @@ presentations = [
         (position_set_y, pos1, 920),
         (overlay_set_size, reg1, pos1),
 
-        
+        (assign, "$g_max", 1),
+        (try_begin),
+            (gt, "$temp_troop", 0),
+            (try_begin),    
+                (call_script, "script_cf_is_noble", "$temp_troop"),
+                (assign, "$g_max", ":num_nobles"),
+            (else_try),
+                (assign, "$g_max", ":num_peasants"),
+            (try_end),
+        (try_end),
+        (val_min, "$g_max", ":party_size"),
+
         # Alert that click opens detail
         (create_text_overlay, reg1, "@(Click on the name to select a unit and click again to show unit details)", tf_left_align),
         (position_set_x, pos1, 530),
@@ -19799,6 +19811,7 @@ presentations = [
         (position_set_y, pos1, Screen_Border_Width),
         (overlay_set_position, "$presentation_leave_button", pos1),        
         #reg41 join cost, reg43 number of recruits, reg44 total cost
+        (val_min, reg43, "$g_max"),
         (store_mul, reg44, reg43, reg41),
         ##explenation text
         (create_text_overlay, "$g_presentation_obj_29", "@Recruit {reg43} troops for {reg44} siliquae.", tf_center_justify),
@@ -19810,7 +19823,7 @@ presentations = [
         (overlay_set_size, "$g_presentation_obj_29", pos1),
         
         ##slider
-        (create_slider_overlay, "$g_presentation_obj_30", 1, 20),
+        (create_slider_overlay, "$g_presentation_obj_30", 0, "$g_max"),
         (position_set_x, pos2, 225),
         (position_set_y, pos2, 150),        
         (overlay_set_position, "$g_presentation_obj_30", pos2),

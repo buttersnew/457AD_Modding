@@ -18642,15 +18642,15 @@ presentations = [
         (position_set_y, pos1, 1000),
         (overlay_set_size, "$g_presentation_obj_28", pos1),        
         
-        (store_party_size_wo_prisoners, ":party_size", "p_main_party"),
         (call_script, "script_calculate_weekly_party_wage", "p_main_party"),
         (assign, reg2, reg0),
         
         (call_script, "script_game_get_party_companion_limit", "p_main_party"),
-        (assign, reg3, reg0),
+        (assign, ":companion_limit", reg0),
+        (assign, reg3, ":companion_limit"),
         
         (store_troop_gold, reg4, "trp_player"),
-        (assign, reg1, ":party_size"),
+        (store_party_size_wo_prisoners, reg1, "p_main_party"),
         (create_text_overlay, "$g_presentation_obj_27", "@Party size: {reg1} men, Party wage: {reg2} siliquae, ^Party limit: {reg3} men. Your gold: {reg4} siliquae.", tf_left_align),
         (position_set_x, pos1, 40),
         (position_set_y, pos1, 660),
@@ -18682,14 +18682,14 @@ presentations = [
         (assign, "$g_max", 1),
         (try_begin),
             (gt, "$temp_troop", 0),
-            (try_begin),    
+            (try_begin),
                 (call_script, "script_cf_is_noble", "$temp_troop"),
                 (assign, "$g_max", ":num_nobles"),
             (else_try),
                 (assign, "$g_max", ":num_peasants"),
             (try_end),
         (try_end),
-        (val_min, "$g_max", ":party_size"),
+        (val_min, "$g_max", ":companion_limit"),
 
         # Alert that click opens detail
         (create_text_overlay, reg1, "@(Click on the name to select a unit and click again to show unit details)", tf_left_align),
@@ -20018,7 +20018,7 @@ presentations = [
         (change_screen_return,0),
       (try_end),
   ]),
- ]),
+]),
 
 
 

@@ -12856,28 +12856,7 @@ TOTAL:  {reg5}"),
     #       (try_end), 
     #    ]),
 
-    ("recruit_volunteers_town_1",[(is_between, "$current_town",
-        towns_begin, towns_end),]
-       ,"Recruit Volunteers.",
-       [
-
-        (try_begin), 
-          (troop_slot_ge, "trp_player", slot_troop_renown, 100), #need high renown to hire troops
-         (try_begin),
-           (call_script, "script_cf_enter_center_location_bandit_check"),
-         (else_try),
-           (assign, "$temp_troop", -1),
-           (assign, reg43, 1),
-           (assign, "$temp4", 1),
-           (start_presentation, "prsnt_barracks"),
-         (try_end),
-        (else_try),
-             (display_message,"@You need more renown to hire troops from here.",0xFFFFAAAA), 
-        (try_end), 
-        ]),
-
-    ("recruit_volunteers_castle_1",[(is_between, "$current_town",
-        castles_begin, castles_end),]
+    ("recruit_volunteers_town_1",[(eq, "$sneaked_into_town", disguise_none),]
        ,"Recruit Volunteers.",
        [
 

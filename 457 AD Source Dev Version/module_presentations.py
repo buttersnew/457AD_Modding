@@ -18659,7 +18659,7 @@ presentations = [
         (position_set_y, pos1, 920),
         (overlay_set_size, "$g_presentation_obj_27", pos1),
 
-#for recruitment limitation
+        #for recruitment limitation
         (party_get_slot, ":num_nobles", "$current_town", slot_center_volunteer_noble_troop_amount),
         (assign, reg2, ":num_nobles"),
         (create_text_overlay, reg1, "@Available nobles: {reg2}", tf_left_align),
@@ -18761,7 +18761,7 @@ presentations = [
             (overlay_set_size, reg1, pos2),
         (try_end),
 
-###make definitions for troop list:
+    ###make definitions for troop list:
         (assign, ":slot_no_troop", 1),    
         (assign, ":slot_no_id", 1),
         
@@ -19147,7 +19147,7 @@ presentations = [
               (eq, "$current_town", "p_town_21"),        
               (eq, ":troop", "trp_coptic_youth"),
               (assign, ":c", 1),
-##########################################################################
+  ####################################################################
             #and now for the roman AOR!
             (else_try), #Quinta Macedonica
               (this_or_next|eq, "$current_town", "p_castle_9"),
@@ -19936,7 +19936,7 @@ presentations = [
         (try_end),
     ]),     
     
-]), #end troop tree
+]), #end barracks
 
 ("troop_detail", 0, mesh_load_window, [
     (ti_on_presentation_load,

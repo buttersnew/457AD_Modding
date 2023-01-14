@@ -18642,15 +18642,15 @@ presentations = [
         (position_set_y, pos1, 1000),
         (overlay_set_size, "$g_presentation_obj_28", pos1),        
         
-        (store_party_size_wo_prisoners, ":party_size", "p_main_party"),
         (call_script, "script_calculate_weekly_party_wage", "p_main_party"),
         (assign, reg2, reg0),
         
         (call_script, "script_game_get_party_companion_limit", "p_main_party"),
-        (assign, reg3, reg0),
+        (assign, ":companion_limit", reg0),
+        (assign, reg3, ":companion_limit"),
         
         (store_troop_gold, reg4, "trp_player"),
-        (assign, reg1, ":party_size"),
+        (store_party_size_wo_prisoners, reg1, "p_main_party"),
         (create_text_overlay, "$g_presentation_obj_27", "@Party size: {reg1} men, Party wage: {reg2} siliquae, ^Party limit: {reg3} men. Your gold: {reg4} siliquae.", tf_left_align),
         (position_set_x, pos1, 40),
         (position_set_y, pos1, 660),
@@ -18659,7 +18659,7 @@ presentations = [
         (position_set_y, pos1, 920),
         (overlay_set_size, "$g_presentation_obj_27", pos1),
 
-#for recruitment limitation
+        #for recruitment limitation
         (party_get_slot, ":num_nobles", "$current_town", slot_center_volunteer_noble_troop_amount),
         (assign, reg2, ":num_nobles"),
         (create_text_overlay, reg1, "@Available nobles: {reg2}", tf_left_align),
@@ -18682,14 +18682,14 @@ presentations = [
         (assign, "$g_max", 1),
         (try_begin),
             (gt, "$temp_troop", 0),
-            (try_begin),    
+            (try_begin),
                 (call_script, "script_cf_is_noble", "$temp_troop"),
                 (assign, "$g_max", ":num_nobles"),
             (else_try),
                 (assign, "$g_max", ":num_peasants"),
             (try_end),
         (try_end),
-        (val_min, "$g_max", ":party_size"),
+        (val_min, "$g_max", ":companion_limit"),
 
         # Alert that click opens detail
         (create_text_overlay, reg1, "@(Click on the name to select a unit and click again to show unit details)", tf_left_align),
@@ -18761,7 +18761,7 @@ presentations = [
             (overlay_set_size, reg1, pos2),
         (try_end),
 
-###make definitions for troop list:
+    ###make definitions for troop list:
         (assign, ":slot_no_troop", 1),    
         (assign, ":slot_no_id", 1),
         
@@ -19147,7 +19147,7 @@ presentations = [
               (eq, "$current_town", "p_town_21"),        
               (eq, ":troop", "trp_coptic_youth"),
               (assign, ":c", 1),
-##########################################################################
+  ####################################################################
             #and now for the roman AOR!
             (else_try), #Quinta Macedonica
               (this_or_next|eq, "$current_town", "p_castle_9"),
@@ -19936,7 +19936,7 @@ presentations = [
         (try_end),
     ]),     
     
-]), #end troop tree
+]), #end barracks
 
 ("troop_detail", 0, mesh_load_window, [
     (ti_on_presentation_load,
@@ -20018,7 +20018,7 @@ presentations = [
         (change_screen_return,0),
       (try_end),
   ]),
- ]),
+]),
 
 
 

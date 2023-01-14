@@ -555,6 +555,7 @@ dialogs = [
     (troop_add_item,"$g_talk_troop","itm_suvorovsky_helmet_mail", 0),  
     (troop_add_item,"$g_talk_troop","itm_tarasovsky_782_mail", 0),  
     (troop_add_item,"$g_talk_troop","itm_tarasovsky_782", 0),  
+    (troop_add_item,"$g_talk_troop","itm_komi_ridge_helmet_1", 0),  
     ],
   "Very good.", "morden_merchant_2_merchant_talk_trade_1",
   [(change_screen_trade),]],   

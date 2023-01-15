@@ -12606,22 +12606,27 @@ TOTAL:  {reg5}"),
 	  #Other option to add troops to garrison
       ("dplmc_castle_give_troops",
       [
-		(party_get_slot, ":town_lord", "$current_town", slot_town_lord),
-		(store_faction_of_party, ":castle_faction", "$g_encountered_party"),
-		(is_between, ":castle_faction", kingdoms_begin, kingdoms_end),
+        (party_get_slot, ":town_lord", "$current_town", slot_town_lord),
+        (is_between, "$g_encountered_party_faction", kingdoms_begin, kingdoms_end),
 
-		#The player can add troops but not remove them:
-		#Not owned by the player
-		(neq, ":town_lord", "trp_player"),
-		#Not unassigned
-		(ge, ":town_lord", heroes_begin),
-		#Not owned by the player's spouse
-		(neg|troop_slot_eq, "trp_player", slot_troop_spouse, ":town_lord"),
-		(neg|troop_slot_eq, ":town_lord", slot_troop_spouse, "trp_player"),
-		#But nevertheless the owner will accept troops
-		(call_script, "script_dplmc_player_can_give_troops_to_troop", ":town_lord"),
-
-        (ge, reg0, 1),
+        #The player can add troops but not remove them:
+        #Not owned by the player
+        (neq, ":town_lord", "trp_player"),
+        
+        #But nevertheless the owner will accept troops
+        (assign, reg1, 0),
+        (try_begin),
+            (gt, ":town_lord", 1),
+            (neg|troop_slot_eq, ":town_lord", slot_troop_spouse, "trp_player"),
+            (neg|troop_slot_eq, "trp_player", slot_troop_spouse, ":town_lord"),
+            (call_script, "script_dplmc_player_can_give_troops_to_troop", ":town_lord"),
+            (ge, reg0, 1),
+            (assign, reg1, 1),
+        (else_try),
+            (le, ":town_lord", -1),
+            (assign, reg1, 1),
+        (try_end),
+        (eq, reg1, 1),
       ],
       "Give troops to the garrison (cannot remove)",
       [

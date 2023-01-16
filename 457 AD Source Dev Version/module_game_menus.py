@@ -27753,7 +27753,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         (try_begin),
             (lt, ":stack_no", ":end"),
             (party_stack_get_troop_id, ":troop_no", "p_main_party", ":stack_no"),
-            (party_stack_get_size, ":size", ":troop_no"),
+            (party_stack_get_size, ":size", "p_main_party", ":stack_no"),
             (val_min, ":size", 3),
             (set_visitors, 0, ":troop_no", ":size"),
             (val_add, ":stack_no", 1),

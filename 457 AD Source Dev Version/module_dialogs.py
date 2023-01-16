@@ -308,6 +308,60 @@ dialogs = [
   [anyone|plyr,"start",[(eq,"$talk_context",tc_tavern_talk),(is_between,"$g_talk_troop","trp_musican_male","trp_musicans_end")],
    "This person looks quite busy. I think I shouldn't interrupt...","close_window",[]],
 
+
+ #event_triggered for dialogues started by map conversation
+  [anyone, "event_triggered", [
+    (store_conversation_troop, "$g_talk_troop"),
+    (eq, "$g_talk_troop", "trp_lupicinus"),
+    (quest_slot_eq,"qst_agrippinus_quest",slot_quest_current_state, 5),], 
+  "Are you {playername}? I have an important request for you!","lupicinus_talk_1",[]],
+  [trp_lupicinus, "start", [(quest_slot_eq,"qst_agrippinus_quest",slot_quest_current_state, 5),], 
+  "Are you {playername}? I have an important request for you!","lupicinus_talk_1",[]],
+
+  [anyone|plyr, "lupicinus_talk_1", [], 
+  "I am {playername}. Who are you, and what do you need?","lupicinus_talk_2",[]],
+  [anyone, "lupicinus_talk_2", [], 
+  "I am Lupicinus, abbot of the monastery in Iurensium. I heard you were the one who captured Agrippinus and turned him in to Majorian, who is your friend. He has escaped, and is taking refuge in the Church of Saint Peter.", "lupicinus_talk_3",[]],
+  [anyone, "lupicinus_talk_3", [], 
+  "I wish to plead the innocence of my friend. He is a good man; a pious Christian. He has always been close to me, and a friend of the great Aignan of Aurelianorum. He is only trapped in a rivalry between Ricimer and Majorian. Please, plead to the emperor that he is innocent.", "lupicinus_talk_4",[]],
+  [anyone|plyr, "lupicinus_talk_4", [], 
+  "Very well, I will talk to Majorian.","close_window",[
+  (quest_set_slot,"qst_agrippinus_quest",slot_quest_current_state, 6),
+  (leave_encounter),
+  (change_screen_return),
+  ]],
+
+  #event_triggered for dialogues started by map conversation
+  [anyone, "event_triggered", [
+    (store_conversation_troop, "$g_talk_troop"),
+    (eq, "$g_talk_troop", "trp_lupicinus"),
+    (quest_slot_eq,"qst_agrippinus_quest",slot_quest_current_state, 7),], 
+  "{playername}! I am glad you were able to convince the emperor to pardon Agrippinus!","lupicinus_talk_reward_1",[]],
+  [trp_lupicinus, "start", [(quest_slot_eq,"qst_agrippinus_quest",slot_quest_current_state, 7),], 
+  "{playername}! I am glad you were able to convince the emperor to pardon Agrippinus!","lupicinus_talk_reward_1",[]],
+
+  [anyone, "lupicinus_talk_reward_1", [], 
+  "Agrippinus sends his regards, as well as a gift for saving him. Take this, it is for you!", "close_window",[
+  (call_script, "script_end_quest", "qst_agrippinus_quest"),
+  (add_xp_as_reward, 1000),
+  (call_script, "script_troop_add_gold", "trp_player", 5000),
+  (call_script, "script_change_player_honor", 5),
+  (call_script, "script_change_troop_renown", "trp_player", 2),
+  (val_add, "$piety", 5), 
+  (call_script, "script_change_player_relation_with_faction", "fac_roman_christians", 8),
+  (leave_encounter),
+  (change_screen_return),
+  ]],
+  #event_triggered for dialogues started by map conversation
+  [anyone, "event_triggered", [
+    (store_conversation_troop, "$g_talk_troop"),
+    (eq, "$g_talk_troop", "trp_lupicinus"),
+  ], 
+  "Yes?","close_window",[(leave_encounter),(change_screen_return)]],
+  [trp_lupicinus, "start", [], 
+  "Yes?","close_window",[(leave_encounter),(change_screen_return)]],
+
+
 #MINOR FACTION MERCHANTS
 #aestii merchants
   [trp_aestii_merchant_1, "start", [],
@@ -50025,49 +50079,6 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
     (quest_set_slot,"qst_agrippinus_quest",slot_quest_current_state, 2), #starts the battle
    ]],
   
-  #event_triggered for dialogues started by map conversation
-  [trp_lupicinus, "event_triggered", [(quest_slot_eq,"qst_agrippinus_quest",slot_quest_current_state, 5),], 
-  "Are you {playername}? I have an important request for you!","lupicinus_talk_1",[]],
-  [trp_lupicinus, "start", [(quest_slot_eq,"qst_agrippinus_quest",slot_quest_current_state, 5),], 
-  "Are you {playername}? I have an important request for you!","lupicinus_talk_1",[]],
-
-  [anyone|plyr, "lupicinus_talk_1", [], 
-  "I am {playername}. Who are you, and what do you need?","lupicinus_talk_2",[]],
-  [anyone, "lupicinus_talk_2", [], 
-  "I am Lupicinus, abbot of the monastery in Iurensium. I heard you were the one who captured Agrippinus and turned him in to Majorian, who is your friend. He has escaped, and is taking refuge in the Church of Saint Peter.", "lupicinus_talk_3",[]],
-  [anyone, "lupicinus_talk_3", [], 
-  "I wish to plead the innocence of my friend. He is a good man; a pious Christian. He has always been close to me, and a friend of the great Aignan of Aurelianorum. He is only trapped in a rivalry between Ricimer and Majorian. Please, plead to the emperor that he is innocent.", "lupicinus_talk_4",[]],
-  [anyone|plyr, "lupicinus_talk_4", [], 
-  "Very well, I will talk to Majorian.","close_window",[
-  (quest_set_slot,"qst_agrippinus_quest",slot_quest_current_state, 6),
-  (leave_encounter),
-  (change_screen_return),
-  ]],
-
-  #event_triggered for dialogues started by map conversation
-  [trp_lupicinus, "event_triggered", [(quest_slot_eq,"qst_agrippinus_quest",slot_quest_current_state, 7),], 
-  "{playername}! I am glad you were able to convince the emperor to pardon Agrippinus!","lupicinus_talk_reward_1",[]],
-  [trp_lupicinus, "start", [(quest_slot_eq,"qst_agrippinus_quest",slot_quest_current_state, 7),], 
-  "{playername}! I am glad you were able to convince the emperor to pardon Agrippinus!","lupicinus_talk_reward_1",[]],
-
-  [anyone, "lupicinus_talk_reward_1", [], 
-  "Agrippinus sends his regards, as well as a gift for saving him. Take this, it is for you!", "close_window",[
-  (call_script, "script_end_quest", "qst_agrippinus_quest"),
-  (add_xp_as_reward, 1000),
-  (call_script, "script_troop_add_gold", "trp_player", 5000),
-  (call_script, "script_change_player_honor", 5),
-  (call_script, "script_change_troop_renown", "trp_player", 2),
-  (val_add, "$piety", 5), 
-  (call_script, "script_change_player_relation_with_faction", "fac_roman_christians", 8),
-  (leave_encounter),
-  (change_screen_return),
-  ]],
-  #event_triggered for dialogues started by map conversation
-  [trp_lupicinus, "event_triggered", [], 
-  "Yes?","close_window",[(leave_encounter),(change_screen_return)]],
-  [trp_lupicinus, "start", [], 
-  "Yes?","close_window",[(leave_encounter),(change_screen_return)]],
-
   [trp_isaurian_king, "start", [(check_quest_active,"qst_founding_the_excubitors"),(quest_slot_eq,"qst_founding_the_excubitors",slot_quest_current_state, 1),],
    "Hello there. What do you need?", "isaurian_king_talk_intro_1", []],
   [trp_isaurian_king|plyr, "isaurian_king_talk_intro_1", [(str_store_troop_name_link, s3, "trp_kingdom_2_lord"),],

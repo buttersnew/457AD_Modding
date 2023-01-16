@@ -24678,7 +24678,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     "none",
     [],
     [
-      ("talk_to_lupicinus",[],
+      ("talk_to_lupicinus",[(check_quest_active,"qst_agrippinus_quest"),],
         "Talk to the man.",[
           (call_script, "script_setup_troop_meeting", "trp_lupicinus", -1),
           #(modify_visitors_at_site,"scn_conversation_scene"),#player entry point 16, and then 17, 18, 19 for NPC's, opposite the player. 17 must be g_talk troop

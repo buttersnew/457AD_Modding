@@ -2741,7 +2741,7 @@ weight(1)|abundance(80)|head_armor(24)|body_armor(14)|leg_armor(6)|difficulty(0)
  700 , weight(3)|difficulty(8)|abundance(10)|spd_rtng(84) | weapon_length(67)|swing_damage(28 , blunt) | thrust_damage(0 ,  pierce),imodbits_mace, [], culture_roman ],
 ["mace_roman_2", "Excubitor Mace", [("excubitor_mace",0)], itp_type_one_handed_wpn|itp_can_knock_down| itp_primary|itp_wooden_parry, itc_scimitar|itcf_carry_mace_left_hip,
  700 , weight(3)|difficulty(8)|abundance(10)|spd_rtng(84) | weapon_length(67)|swing_damage(32 , blunt) | thrust_damage(0 ,  pierce),imodbits_mace, [], culture_roman ],
-["rgani_mace", "Caucasian Spiked Mace", [("rgani_mace",0)], itp_merchandise|itp_type_one_handed_wpn|itp_can_knock_down|itp_wooden_parry, itc_longsword|itcf_carry_mace_left_hip,
+["rgani_mace", "Caucasian Spiked Mace", [("rgani_mace",0)], itp_merchandise|itp_type_one_handed_wpn|itp_can_knock_down|itp_primary|itp_wooden_parry, itc_longsword|itcf_carry_mace_left_hip,
  720 , weight(3.5)|abundance(20)|difficulty(8)|spd_rtng(83)|weapon_length(61)|swing_damage(29 , pierce) | thrust_damage(26 ,  blunt),imodbits_sword_high, [], culture_caucasian ], #caucasians
 
 

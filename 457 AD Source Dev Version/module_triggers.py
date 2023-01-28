@@ -9,6 +9,9 @@ from header_troops import *
 from module_constants import *
 
 from compiler import *
+
+# Efe
+from efe_triggers import *
 ####################################################################################################################
 #  Each trigger contains the following fields:
 # 1) Check interval: How frequently this trigger will be checked
@@ -1501,3 +1504,5 @@ triggers = [
 #+freelancer end
 
 ]
+
+triggers = triggers + efe_triggers

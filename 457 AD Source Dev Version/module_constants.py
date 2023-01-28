@@ -6,6 +6,9 @@ from ID_troops import *
 
 from compiler import *
 from header_triggers import *
+
+# Efe
+from efe_constants import *
 ##############################################################
 # These constants are used in various files.
 # If you need to define a value that will be used in those files,

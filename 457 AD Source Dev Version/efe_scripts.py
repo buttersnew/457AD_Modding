@@ -117,7 +117,8 @@ efe_scripts = [
 
 ("cf_update_sieged_center_texts", [
 
-(try_for_parties, ":sieged_centers"),
+(try_for_range, ":sieged_centers", walled_centers_begin, walled_centers_end),
+#(try_for_parties, ":sieged_centers"),
   (party_is_active, ":sieged_centers"),
   (party_slot_eq, ":sieged_centers", slot_village_state, svs_under_siege),
   (call_script, "script_calculate_starvation_days_left_to_surrender", ":sieged_centers"),

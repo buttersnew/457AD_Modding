@@ -124,6 +124,9 @@ efe_scripts = [
   (assign, reg50, reg0),
   (party_get_slot, ":sieger", ":sieged_centers", slot_center_is_besieged_by),
   (str_store_party_name, s5, ":sieger"),
+  (store_faction_of_party, ":faction_sieger", ":sieger"),
+  (faction_get_color, ":sieger_color", ":faction_sieger"),
+  (assign, reg40, ":sieger_color"),
   (call_script, "script_center_get_food_consumption", ":sieged_centers"),
   (assign, reg2, reg0),
   (call_script, "script_center_get_food_store_limit", ":sieged_centers"),
@@ -131,7 +134,7 @@ efe_scripts = [
   (party_get_slot, reg4, ":sieged_centers", slot_party_food_store),
   (call_script, "script_get_siege_duration_in_hours", ":sieged_centers"),
   (assign, reg9, reg0),
-  (party_set_extra_text, ":sieged_centers", "@(Under Siege)^~~~^- Sieger -^~~~{s5}^Siege is ongoing for {reg9} hours.^~~~^- Food Stores -^~~~^{reg4}/{reg3} - {reg2} (Daily Consumption)^~~~^Starvation will start in {reg50} days."),
+  (party_set_extra_text, ":sieged_centers", "@(Under Siege)^~~~^- Sieger -^~~~^{s5}^Siege is ongoing for {reg9} hours.^~~~^- Food Stores -^~~~^{reg4}/{reg3} - {reg2} (Daily Consumption)^~~~^Starvation will start in {reg50} days.", reg40),
 (try_end),
 
 ]),

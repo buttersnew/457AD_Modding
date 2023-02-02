@@ -2955,28 +2955,29 @@ TOTAL:  {reg5}"),
 
       ##diplomacy begin+
       ##Custom player kingdom vassal titles, credit Caba'drin start
-       ("action_change_vassal_title",
-        [
-        #SB : allow action if co-ruler of $players_kingdom
-          (assign, ":is_coruler", -1),
-          (try_begin),
-            (store_and, ":name_set", "$players_kingdom_name_set", rename_kingdom),
-            (eq, ":name_set", rename_kingdom),
-            (faction_slot_eq, "fac_player_supporters_faction", slot_faction_state, sfs_active),
-            (faction_slot_eq, "fac_player_supporters_faction", slot_faction_leader, "trp_player"),
-            (assign, ":is_coruler", 1),
-          (else_try),
-            (is_between, "$players_kingdom", npc_kingdoms_begin, npc_kingdoms_end),
-            (call_script, "script_dplmc_get_troop_standing_in_faction", "trp_player", "$players_kingdom"),
-            (ge, reg0, DPLMC_FACTION_STANDING_LEADER_SPOUSE),
-            (assign, ":is_coruler", 1),
-          (try_end),
-          (eq, ":is_coruler", 1),
-        ],
-        "Change titles of nobility.",
-        [(start_presentation, "prsnt_dplmc_set_vassal_title"),
-        ]
-       ),
+      #  ("action_change_vassal_title",
+      #   [
+      #   #SB : allow action if co-ruler of $players_kingdom
+      #     (assign, ":is_coruler", -1),
+      #     (try_begin),
+      #       (store_and, ":name_set", "$players_kingdom_name_set", rename_kingdom),
+      #       (eq, ":name_set", rename_kingdom),
+      #       (faction_slot_eq, "fac_player_supporters_faction", slot_faction_state, sfs_active),
+      #       (faction_slot_eq, "fac_player_supporters_faction", slot_faction_leader, "trp_player"),
+      #       (assign, ":is_coruler", 1),
+      #     (else_try),
+      #       (is_between, "$players_kingdom", npc_kingdoms_begin, npc_kingdoms_end),
+      #       (call_script, "script_dplmc_get_troop_standing_in_faction", "trp_player", "$players_kingdom"),
+      #       (ge, reg0, DPLMC_FACTION_STANDING_LEADER_SPOUSE),
+      #       (assign, ":is_coruler", 1),
+      #     (try_end),
+      #     (eq, ":is_coruler", 1),
+      #   ],
+      #   "Change titles of nobility.",
+      #   [(start_presentation, "prsnt_dplmc_set_vassal_title"),
+      #   ]
+      #  ),
+
        ("action_change_policies",
         [
           (gt, "$cheat_mode", 0),

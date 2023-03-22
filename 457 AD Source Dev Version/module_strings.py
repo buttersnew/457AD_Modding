@@ -5679,6 +5679,7 @@ Even in the last case, the player can make formations up to four lines by orderi
   ("round_shields_roman_26","round_shields_roman_26"),
   ("round_shields_roman_27","round_shields_roman_27"), #aetius shield
   ("round_shields_roman_28","round_shields_roman_28"),
+  ("round_shields_roman_29","round_shields_roman_29"),
 
   ("round_shields_domestici","round_shields_domestici"),
 

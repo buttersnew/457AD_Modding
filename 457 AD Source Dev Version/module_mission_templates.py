@@ -41,7 +41,7 @@ pilgrim_disguise = [itm_roman_civilian_hood_closed_3,itm_roman_peasant_tunic_10,
 farmer_disguise = [itm_woolen_cap_2, itm_roman_peasant_tunic_1, itm_cleaver, itm_battle_fork, itm_stones, itm_wrapping_boots]
 hunter_disguise = [itm_hunting_bow,itm_barbed_arrows, itm_roman_civilian_hood_closed_2, itm_leather_gloves, itm_roman_peasant_tunic_10, itm_long_seax_4, itm_wrapping_boots]
 merchant_disguise = [itm_deurne_campagi_3,itm_roman_peasant_tunic_5,itm_pannonian_cap_6,itm_sword_khergit_2]
-guard_disguise = [itm_deurne_campagi_1,itm_kemathen_mail_15,itm_narona_bandhelm_mail,itm_tab_shield_round_d,itm_sword_medieval_a,itm_war_spear]
+guard_disguise = [itm_deurne_campagi_1,itm_kemathen_mail_15,itm_narona_helmet_mail,itm_tab_shield_round_d,itm_sword_medieval_a,itm_war_spear]
 bard_disguise = [itm_deurne_campagi_2,itm_lyre,itm_coptic_tunic_4,itm_winged_mace]
 
 #note that these are usually male clothing, especially farmer_disguise, need some female ones as well
@@ -20804,7 +20804,7 @@ mission_templates = [
         [(set_party_battle_mode),
           (try_for_agents, ":cur_agent"),
             (agent_get_troop_id, ":cur_agent_troop", ":cur_agent"),
-            (this_or_next|eq, ":cur_agent_troop", "trp_suebi_swordsman"),
+            (this_or_next|eq, ":cur_agent_troop", "trp_western_germanic_retainer"),
             (this_or_next|eq, ":cur_agent_troop", "trp_western_germanic_freeman"),
             (this_or_next|eq, ":cur_agent_troop", "trp_steppe_rider"),
             (eq, ":cur_agent_troop", "trp_steppe_cataphract"),

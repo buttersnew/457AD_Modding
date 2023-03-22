@@ -745,6 +745,28 @@ items = [
  78 , weight(14)|abundance(10)|head_armor(0)|body_armor(10)|leg_armor(10)|difficulty(7) ,imodbits_armor, [], culture_germanic ],
 
 #new tunics - asher + fabio
+
+#new vertex colored thorsberg tunics - asher 3/19/23
+["tunic_1", "Tunic", [("tunic_1",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_roman+culture_germanic+culture_gothic+culture_celtic ],
+["tunic_2", "Tunic", [("tunic_2",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_roman+culture_germanic+culture_gothic+culture_celtic ],
+["tunic_3", "Tunic", [("tunic_3",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_roman+culture_germanic+culture_gothic+culture_celtic ],
+["tunic_4", "Tunic", [("tunic_4",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_roman+culture_germanic+culture_gothic+culture_celtic ],
+["tunic_5", "Tunic", [("tunic_5",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_roman+culture_germanic+culture_gothic+culture_celtic ],
+["tunic_6", "Tunic", [("tunic_6",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_roman+culture_germanic+culture_gothic+culture_celtic ],
+["tunic_7", "Tunic", [("tunic_7",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_roman+culture_germanic+culture_gothic+culture_celtic ],
+["tunic_8", "Tunic", [("tunic_8",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_roman+culture_germanic+culture_gothic+culture_celtic ],
+["tunic_9", "Tunic", [("tunic_9",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_roman+culture_germanic+culture_gothic+culture_celtic ],
+
+["tunic_1_cloak", "Tunic with Cloak", [("tunic_1_cloak",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 135 , weight(2.75)|abundance(60)|head_armor(0)|body_armor(18)|leg_armor(10)|difficulty(0) ,imodbits_cloth, [], culture_roman+culture_germanic+culture_gothic+culture_celtic ],
+["tunic_2_cloak", "Tunic with Cloak", [("tunic_2_cloak",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 135 , weight(2.75)|abundance(60)|head_armor(0)|body_armor(18)|leg_armor(10)|difficulty(0) ,imodbits_cloth, [], culture_roman+culture_germanic+culture_gothic+culture_celtic ],
+["tunic_3_cloak", "Tunic with Cloak", [("tunic_3_cloak",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 135 , weight(2.75)|abundance(60)|head_armor(0)|body_armor(18)|leg_armor(10)|difficulty(0) ,imodbits_cloth, [], culture_roman+culture_germanic+culture_gothic+culture_celtic ],
+["tunic_4_cloak", "Tunic with Cloak", [("tunic_4_cloak",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 135 , weight(2.75)|abundance(60)|head_armor(0)|body_armor(18)|leg_armor(10)|difficulty(0) ,imodbits_cloth, [], culture_roman+culture_germanic+culture_gothic+culture_celtic ],
+["tunic_5_cloak", "Tunic with Cloak", [("tunic_5_cloak",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 135 , weight(2.75)|abundance(60)|head_armor(0)|body_armor(18)|leg_armor(10)|difficulty(0) ,imodbits_cloth, [], culture_roman+culture_germanic+culture_gothic+culture_celtic ],
+["tunic_6_cloak", "Tunic with Cloak", [("tunic_6_cloak",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 135 , weight(2.75)|abundance(60)|head_armor(0)|body_armor(18)|leg_armor(10)|difficulty(0) ,imodbits_cloth, [], culture_roman+culture_germanic+culture_gothic+culture_celtic ],
+["tunic_7_cloak", "Tunic with Cloak", [("tunic_7_cloak",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 135 , weight(2.75)|abundance(60)|head_armor(0)|body_armor(18)|leg_armor(10)|difficulty(0) ,imodbits_cloth, [], culture_roman+culture_germanic+culture_gothic+culture_celtic ],
+["tunic_8_cloak", "Tunic with Cloak", [("tunic_8_cloak",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 135 , weight(2.75)|abundance(60)|head_armor(0)|body_armor(18)|leg_armor(10)|difficulty(0) ,imodbits_cloth, [], culture_roman+culture_germanic+culture_gothic+culture_celtic ],
+["tunic_9_cloak", "Tunic with Cloak", [("tunic_9_cloak",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 135 , weight(2.75)|abundance(60)|head_armor(0)|body_armor(18)|leg_armor(10)|difficulty(0) ,imodbits_cloth, [], culture_roman+culture_germanic+culture_gothic+culture_celtic ],
+
 #thorsberg
 ["thorsberg_tunic_simple_1", "Tunic", [("thorsberg_tunic_simple_1",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_germanic+culture_gothic+culture_celtic ],
 ["thorsberg_tunic_simple_2", "Tunic", [("thorsberg_tunic_simple_2",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_germanic+culture_gothic+culture_celtic ],
@@ -1323,6 +1345,75 @@ items = [
  3000 , weight(16.5)|abundance(30)|head_armor(0)|body_armor(52)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_germanic+culture_gothic ],
 
 #new mail armors, by asher
+
+#vertex colored mail, by asher 3/19/23
+["battered_mail_1", "Mail Shirt", [("battered_mail_1_1",0),("battered_mail_1_2",imodbits_good)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 2850 , weight(18)|abundance(28)|head_armor(0)|body_armor(48)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_roman+culture_germanic+culture_gothic+culture_celtic ],
+["battered_mail_2", "Mail Shirt", [("battered_mail_2_1",0),("battered_mail_2_2",imodbits_good)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 2850 , weight(18)|abundance(28)|head_armor(0)|body_armor(48)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_roman+culture_germanic+culture_gothic+culture_celtic ],
+["battered_mail_3", "Mail Shirt", [("battered_mail_3_1",0),("battered_mail_3_2",imodbits_good)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 2850 , weight(18)|abundance(28)|head_armor(0)|body_armor(48)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_roman+culture_germanic+culture_gothic+culture_celtic ],
+
+["battered_mail_1_cloak", "Mail Shirt with Cloak", [("battered_mail_1_cloak",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 2900 , weight(19.75)|abundance(26)|head_armor(0)|body_armor(50)|leg_armor(16)|difficulty(11) ,imodbits_mail, [], culture_roman+culture_germanic+culture_gothic+culture_celtic ],
+["battered_mail_2_cloak", "Mail Shirt with Cloak", [("battered_mail_2_cloak",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 2900 , weight(19.75)|abundance(26)|head_armor(0)|body_armor(50)|leg_armor(16)|difficulty(11) ,imodbits_mail, [], culture_roman+culture_germanic+culture_gothic+culture_celtic ],
+["battered_mail_3_cloak", "Mail Shirt with Cloak", [("battered_mail_3_cloak",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 2900 , weight(19.75)|abundance(26)|head_armor(0)|body_armor(50)|leg_armor(16)|difficulty(11) ,imodbits_mail, [], culture_roman+culture_germanic+culture_gothic+culture_celtic ],
+
+["common_mail_short_1", "Mail Shirt", [("common_mail_short_1_1",0),("common_mail_short_1_2",imodbits_good)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3050 , weight(18)|abundance(24)|head_armor(0)|body_armor(50)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_roman+culture_germanic+culture_gothic+culture_celtic ],
+["common_mail_short_2", "Mail Shirt", [("common_mail_short_2_1",0),("common_mail_short_2_2",imodbits_good)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3050 , weight(18)|abundance(24)|head_armor(0)|body_armor(50)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_roman+culture_germanic+culture_gothic+culture_celtic ],
+["common_mail_short_3", "Mail Shirt", [("common_mail_short_3_1",0),("common_mail_short_3_2",imodbits_good)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3050 , weight(18)|abundance(24)|head_armor(0)|body_armor(50)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_roman+culture_germanic+culture_gothic+culture_celtic ],
+["common_mail_short_4", "Mail Shirt", [("common_mail_short_4_1",0),("common_mail_short_4_2",imodbits_good)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3050 , weight(18)|abundance(24)|head_armor(0)|body_armor(50)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_roman+culture_germanic+culture_gothic+culture_celtic ],
+["common_mail_short_5", "Mail Shirt", [("common_mail_short_5_1",0),("common_mail_short_5_2",imodbits_good)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3050 , weight(18)|abundance(24)|head_armor(0)|body_armor(50)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_roman+culture_germanic+culture_gothic+culture_celtic ],
+["common_mail_short_6", "Mail Shirt", [("common_mail_short_6_1",0),("common_mail_short_6_2",imodbits_good)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3050 , weight(18)|abundance(24)|head_armor(0)|body_armor(50)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_roman+culture_germanic+culture_gothic+culture_celtic ],
+
+["common_mail_short_1_cloak", "Mail Shirt with Cloak", [("common_mail_short_1_cloak",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3050 , weight(19.75)|abundance(22)|head_armor(0)|body_armor(52)|leg_armor(16)|difficulty(11) ,imodbits_mail, [], culture_roman+culture_germanic+culture_gothic+culture_celtic ],
+["common_mail_short_2_cloak", "Mail Shirt with Cloak", [("common_mail_short_2_cloak",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3050 , weight(19.75)|abundance(22)|head_armor(0)|body_armor(52)|leg_armor(16)|difficulty(11) ,imodbits_mail, [], culture_roman+culture_germanic+culture_gothic+culture_celtic ],
+["common_mail_short_3_cloak", "Mail Shirt with Cloak", [("common_mail_short_3_cloak",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3050 , weight(19.75)|abundance(22)|head_armor(0)|body_armor(52)|leg_armor(16)|difficulty(11) ,imodbits_mail, [], culture_roman+culture_germanic+culture_gothic+culture_celtic ],
+["common_mail_short_4_cloak", "Mail Shirt with Cloak", [("common_mail_short_4_cloak",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3050 , weight(19.75)|abundance(22)|head_armor(0)|body_armor(52)|leg_armor(16)|difficulty(11) ,imodbits_mail, [], culture_roman+culture_germanic+culture_gothic+culture_celtic ],
+["common_mail_short_5_cloak", "Mail Shirt with Cloak", [("common_mail_short_5_cloak",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3050 , weight(19.75)|abundance(22)|head_armor(0)|body_armor(52)|leg_armor(16)|difficulty(11) ,imodbits_mail, [], culture_roman+culture_germanic+culture_gothic+culture_celtic ],
+["common_mail_short_6_cloak", "Mail Shirt with Cloak", [("common_mail_short_6_cloak",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3050 , weight(19.75)|abundance(22)|head_armor(0)|body_armor(52)|leg_armor(16)|difficulty(11) ,imodbits_mail, [], culture_roman+culture_germanic+culture_gothic+culture_celtic ],
+
+["common_mail_long_1", "Mail Shirt", [("common_mail_long_1_1",0),("common_mail_long_1_2",imodbits_good)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3420 , weight(23)|abundance(18)|head_armor(0)|body_armor(56)|leg_armor(14)|difficulty(13) ,imodbits_mail, [], culture_roman+culture_germanic+culture_gothic+culture_celtic ],
+["common_mail_long_2", "Mail Shirt", [("common_mail_long_2_1",0),("common_mail_long_2_2",imodbits_good)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3420 , weight(23)|abundance(18)|head_armor(0)|body_armor(56)|leg_armor(14)|difficulty(13) ,imodbits_mail, [], culture_roman+culture_germanic+culture_gothic+culture_celtic ],
+["common_mail_long_3", "Mail Shirt", [("common_mail_long_3_1",0),("common_mail_long_3_2",imodbits_good)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3420 , weight(23)|abundance(18)|head_armor(0)|body_armor(56)|leg_armor(14)|difficulty(13) ,imodbits_mail, [], culture_roman+culture_germanic+culture_gothic+culture_celtic ],
+["common_mail_long_4", "Mail Shirt", [("common_mail_long_4_1",0),("common_mail_long_4_2",imodbits_good)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3420 , weight(23)|abundance(18)|head_armor(0)|body_armor(56)|leg_armor(14)|difficulty(13) ,imodbits_mail, [], culture_roman+culture_germanic+culture_gothic+culture_celtic ],
+["common_mail_long_5", "Mail Shirt", [("common_mail_long_5_1",0),("common_mail_long_5_2",imodbits_good)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3420 , weight(23)|abundance(18)|head_armor(0)|body_armor(56)|leg_armor(14)|difficulty(13) ,imodbits_mail, [], culture_roman+culture_germanic+culture_gothic+culture_celtic ],
+["common_mail_long_6", "Mail Shirt", [("common_mail_long_6_1",0),("common_mail_long_6_2",imodbits_good)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3420 , weight(23)|abundance(18)|head_armor(0)|body_armor(56)|leg_armor(14)|difficulty(13) ,imodbits_mail, [], culture_roman+culture_germanic+culture_gothic+culture_celtic ],
+
+["common_mail_long_1_cloak", "Mail Shirt with Cloak", [("common_mail_long_1_cloak",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3560 , weight(25)|abundance(16)|head_armor(0)|body_armor(58)|leg_armor(16)|difficulty(13) ,imodbits_mail, [], culture_roman+culture_germanic+culture_gothic+culture_celtic ],
+["common_mail_long_2_cloak", "Mail Shirt with Cloak", [("common_mail_long_2_cloak",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3560 , weight(25)|abundance(16)|head_armor(0)|body_armor(58)|leg_armor(16)|difficulty(13) ,imodbits_mail, [], culture_roman+culture_germanic+culture_gothic+culture_celtic ],
+["common_mail_long_3_cloak", "Mail Shirt with Cloak", [("common_mail_long_3_cloak",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3560 , weight(25)|abundance(16)|head_armor(0)|body_armor(58)|leg_armor(16)|difficulty(13) ,imodbits_mail, [], culture_roman+culture_germanic+culture_gothic+culture_celtic ],
+["common_mail_long_4_cloak", "Mail Shirt with Cloak", [("common_mail_long_4_cloak",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3560 , weight(25)|abundance(16)|head_armor(0)|body_armor(58)|leg_armor(16)|difficulty(13) ,imodbits_mail, [], culture_roman+culture_germanic+culture_gothic+culture_celtic ],
+["common_mail_long_5_cloak", "Mail Shirt with Cloak", [("common_mail_long_5_cloak",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3560 , weight(25)|abundance(16)|head_armor(0)|body_armor(58)|leg_armor(16)|difficulty(13) ,imodbits_mail, [], culture_roman+culture_germanic+culture_gothic+culture_celtic ],
+["common_mail_long_6_cloak", "Mail Shirt with Cloak", [("common_mail_long_6_cloak",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3560 , weight(25)|abundance(16)|head_armor(0)|body_armor(58)|leg_armor(16)|difficulty(13) ,imodbits_mail, [], culture_roman+culture_germanic+culture_gothic+culture_celtic ],
+
+
 ["mail_african_1", "Mail Shirt", [("mail_african_1",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian ,0,
  3400 , weight(12.5)|abundance(25)|head_armor(0)|body_armor(50)|leg_armor(14)|difficulty(10) ,imodbits_mail, [(ti_on_init_item,[(call_script, "script_init_short_tunic_arms"),]),], culture_african ],
 
@@ -1867,7 +1958,6 @@ weight(1)|abundance(80)|head_armor(24)|body_armor(14)|leg_armor(6)|difficulty(0)
 
 ["leather_warrior_cap", "Leather Warrior Cap", [("generic_leather_helmet_cloth_inv",0)], itp_type_head_armor  |itp_civilian ,0, 300 , weight(1)|abundance(100)|head_armor(26)|body_armor(0)|leg_armor(0)|difficulty(0) ,imodbits_cloth ],
 ["skullcap", "Leather Warrior Cap", [("generic_leather_helmet_cloth_inv",0)],itp_type_head_armor   ,0, 300 , weight(1.0)|abundance(100)|head_armor(26)|body_armor(0)|leg_armor(0)|difficulty(0) ,imodbits_cloth ],
-["generic_leather_helmet_cloth", "Leather Cap", [("generic_leather_helmet_cloth",0),("generic_leather_helmet_cloth_inv",ixmesh_inventory)], itp_merchandise|itp_type_head_armor |itp_attach_armature ,0, 320 , weight(1.0)|abundance(90)|head_armor(27)|body_armor(0)|leg_armor(0)|difficulty(0) ,imodbits_cloth ],
 
 ["hide_helmet", "Hide Helmet", [("hide_helmet",0),("hide_helmet_inv",ixmesh_inventory)], itp_merchandise|itp_type_head_armor|itp_attach_armature ,0, 200 , weight(1.0)|abundance(40)|head_armor(29)|body_armor(0)|leg_armor(0)|difficulty(0) ,imodbits_cloth, [], culture_african ], #for the nubians
 ["nubian_leather_helmet", "Hide Helmet", [("nubian_leather_helmet",0),("nubian_leather_helmet_inv",ixmesh_inventory)], itp_merchandise|itp_type_head_armor|itp_attach_armature ,0, 340 , weight(1.0)|abundance(40)|head_armor(32)|body_armor(0)|leg_armor(0)|difficulty(0) ,imodbits_cloth, [], culture_african ], #for the nubians
@@ -1893,20 +1983,16 @@ weight(1)|abundance(80)|head_armor(24)|body_armor(14)|leg_armor(6)|difficulty(0)
 ["old_spangenhelm_2", "Spangenhelm", [("old_spangenhelmcheek",0)], itp_type_head_armor,0, 740 , weight(1.5)|abundance(50)|head_armor(40)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate ],
 #Roman
 ["burgh_helmet_light", "Ridge Helmet", [("burgh_helmet_light",0),("burgh_helmet_light_inv",ixmesh_inventory)], itp_type_head_armor|itp_attach_armature|itp_merchandise,0,700 , weight(1.5)|abundance(50)|head_armor(39)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], culture_germanic+culture_gothic+culture_celtic ],
+["christies_helmet_light", "Ridge Helmet", [("christies_helmet_light",0),("christies_helmet_light_inv",ixmesh_inventory)], itp_type_head_armor|itp_attach_armature|itp_merchandise,0,700 , weight(1.5)|abundance(50)|head_armor(39)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], culture_germanic+culture_gothic+culture_celtic ],
 
-["narona_bandhelm_leather", "Bandhelm", [("narona_bandhelm_leather",0),("narona_bandhelm_leather_inv",ixmesh_inventory)], itp_type_head_armor|itp_attach_armature|itp_merchandise,0,740 , weight(1.25)|abundance(50)|head_armor(40)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], culture_roman ],
-["narona_bandhelm_cloth", "Bandhelm", [("narona_bandhelm_cloth",0),("narona_bandhelm_cloth_inv",ixmesh_inventory)], itp_type_head_armor|itp_attach_armature|itp_merchandise,0,740 , weight(1.25)|abundance(50)|head_armor(40)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], culture_roman ],
-
-["triveres_cloth", "Bandhelm", [("triveres_cloth",0),("triveres_cloth_inv",ixmesh_inventory)], itp_type_head_armor|itp_attach_armature|itp_merchandise,0,740 , weight(1.25)|abundance(50)|head_armor(40)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], culture_germanic+culture_gothic ],
+["narona_helmet_leather", "Bandhelm", [("narona_helmet_leather",0),("narona_helmet_1_inv",ixmesh_inventory)], itp_type_head_armor|itp_attach_armature|itp_merchandise,0,740 , weight(1.25)|abundance(50)|head_armor(40)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], culture_roman ],
 
 ["kerch_lamellenhelm_light", "Lamellenhelm", [("kerch_lamellenhelm_light",0),("kerch_lamellenhelm_light_inv",ixmesh_inventory)], itp_type_head_armor|itp_attach_armature|itp_merchandise,0,740 , weight(1.5)|abundance(50)|head_armor(41)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], culture_hunnic+culture_alan ],
 
-["batumi_helmet_cloth", "Monopartite Helmet with Cloth", [("batumi_cloth",0),("batumi_cloth_inv",ixmesh_inventory)], itp_merchandise|itp_attach_armature|itp_type_head_armor,0,865 , weight(1.25)|abundance(40)|head_armor(42)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], culture_caucasian ],
-["batumi_helmet_leather", "Monopartite Helmet with Leather", [("batumi_leather",0),("batumi_leather_inv",ixmesh_inventory)], itp_merchandise|itp_attach_armature|itp_type_head_armor,0,920 , weight(1.25)|abundance(40)|head_armor(43)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], culture_caucasian ],
+["batumi_helmet_leather", "Monopartite Helmet with Leather", [("batumi_helmet_leather",0),("batumi_helmet_1_inv",ixmesh_inventory)], itp_merchandise|itp_attach_armature|itp_type_head_armor,0,920 , weight(1.25)|abundance(40)|head_armor(43)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], culture_caucasian ],
+["staritsa_helmet_leather", "Monopartite Helmet with Leather", [("staritsa_helmet_leather",0),("staritsa_helmet_1_inv",ixmesh_inventory)], itp_merchandise|itp_attach_armature|itp_type_head_armor,0,920 , weight(1.25)|abundance(40)|head_armor(43)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], culture_caucasian ],
 
-["suvorovsky_helmet_cloth", "Decorated Monopartite Helmet with Cloth", [("suvorovsky_helmet_cloth",0),("suvorovsky_helmet_inv",ixmesh_inventory)], itp_merchandise|itp_attach_armature|itp_type_head_armor,0,865 , weight(1.25)|abundance(40)|head_armor(42)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], culture_hunnic+culture_alan ],
-
-["triveres_leather", "Bandhelm with Leather", [("triveres_leather",0),("triveres_leather_inv",ixmesh_inventory)], itp_type_head_armor|itp_attach_armature|itp_merchandise,0,865 , weight(1.25)|abundance(50)|head_armor(42)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], culture_germanic+culture_gothic ],
+["triveres_leather", "Bandhelm with Leather", [("triveres_helmet_leather",0),("triveres_helmet_1_inv",ixmesh_inventory)], itp_type_head_armor|itp_attach_armature|itp_merchandise,0,865 , weight(1.25)|abundance(50)|head_armor(42)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], culture_germanic+culture_gothic ],
 
 #Sassanid Crossband Helmets
 ["sassanid_helmet_cloth_1", "Crossband Helmet", [("sassanid_helmet_cloth_1",0),("sassanid_helmet_cloth_1_inv",ixmesh_inventory)], itp_merchandise|itp_attach_armature|itp_type_head_armor,0,865 , weight(1.25)|abundance(40)|head_armor(42)|body_armor(0)|leg_armor(0)|difficulty(2) ,imodbits_plate, [], culture_sassanid  ],
@@ -1918,13 +2004,7 @@ weight(1)|abundance(80)|head_armor(24)|body_armor(14)|leg_armor(6)|difficulty(0)
 
 ["khudashevsky_helmet_1", "Stacked Helmet", [("khudashevsky_helmet_1",0),("khudashevsky_helmet_1_inv",ixmesh_inventory)], itp_merchandise|itp_attach_armature|itp_type_head_armor,0,900 , weight(2.5)|abundance(40)|head_armor(42)|body_armor(0)|leg_armor(0)|difficulty(3) ,imodbits_plate, [], culture_hunnic+culture_alan ],
 
-["tsaritsyno_2_1", "Gilded Spangenhelm", [("tsaritsyno_2_1",0),("tsaritsyno_2_1_inv",ixmesh_inventory)], itp_merchandise|itp_attach_armature|itp_type_head_armor,0,1000 , weight(1.25)|abundance(40)|head_armor(43)|body_armor(0)|leg_armor(0)|difficulty(6) ,imodbits_plate, [], culture_roman ],
-
-["tsaritsyno_1_simple", "Eastern Bandhelm", [("tsaritsyno_1_simple",0),("tsaritsyno_1_light_inv",ixmesh_inventory)], itp_merchandise|itp_attach_armature|itp_type_head_armor,0,900 , weight(1.75)|abundance(40)|head_armor(43)|body_armor(0)|leg_armor(0)|difficulty(7) ,imodbits_plate, [], culture_sassanid+culture_caucasian+culture_hunnic ],
-
 ["rozhdestvensky_helmet_leather", "Lamellenhelm", [("rozhdestvensky_helmet_leather",0),("rozhdestvensky_helmet_inv",ixmesh_inventory)], itp_merchandise|itp_attach_armature|itp_type_head_armor,0,865 , weight(1.5)|abundance(30)|head_armor(42)|body_armor(0)|leg_armor(0)|difficulty(3) ,imodbits_plate, [], culture_caucasian+culture_hunnic+culture_alan ],
-
-["kishpek_helmet_leather", "Rich Lamellenhelm", [("kishpek_helmet_leather",0),("kishpek_helmet_inv",ixmesh_inventory)], itp_merchandise|itp_attach_armature|itp_type_head_armor,0,942 , weight(1.5)|abundance(30)|head_armor(43)|body_armor(0)|leg_armor(0)|difficulty(3) ,imodbits_plate, [], culture_caucasian+culture_hunnic+culture_alan ],
 
 #Roman
 ["iatrus_helmet_mail", "Ridge Helmet with Mail", [("iatrus_helmet_mail",0),("iatrus_helmet_mail_inv",ixmesh_inventory)], itp_type_head_armor|itp_attach_armature|itp_merchandise,0,900 , weight(1.5)|abundance(40)|head_armor(43)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], culture_germanic+culture_gothic+culture_celtic ],
@@ -1934,8 +2014,10 @@ weight(1)|abundance(80)|head_armor(24)|body_armor(14)|leg_armor(6)|difficulty(0)
 ["old_spangenhelm_3", "Spangenhelm", [("old_spangenhelmaven",0)], itp_type_head_armor,0, 1045 , weight(2)|abundance(30)|head_armor(44)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate ],
 
 ["burgh_helmet_mail", "Ridge Helmet with Mail", [("burgh_helmet_mail",0), ("burgh_helmet_mail_inv",ixmesh_inventory)], itp_type_head_armor | itp_fit_to_head | itp_attach_armature ,0, 1045 , weight(1.5)|abundance(30)|head_armor(44)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], culture_germanic ],
+["christies_helmet_mail", "Ridge Helmet with Mail", [("christies_helmet_mail",0), ("christies_helmet_mail_inv",ixmesh_inventory)], itp_type_head_armor | itp_fit_to_head | itp_attach_armature ,0, 1045 , weight(1.5)|abundance(30)|head_armor(44)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], culture_germanic ],
 
-["batumi_helmet_aventail", "Monopartite Helmet with Mail", [("batumi_mail",0),("batumi_mail_inv",ixmesh_inventory)], itp_merchandise|itp_attach_armature|itp_type_head_armor,0,1055 , weight(1.50)|abundance(30)|head_armor(44)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], culture_caucasian ],
+["batumi_helmet_aventail", "Monopartite Helmet with Mail", [("batumi_helmet_mail",0),("batumi_helmet_1_inv",ixmesh_inventory)], itp_merchandise|itp_attach_armature|itp_type_head_armor,0,1055 , weight(1.50)|abundance(30)|head_armor(44)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], culture_caucasian ],
+["staritsa_helmet_mail", "Monopartite Helmet with Mail", [("staritsa_helmet_mail",0),("staritsa_helmet_1_inv",ixmesh_inventory)], itp_merchandise|itp_attach_armature|itp_type_head_armor,0,1055 , weight(1.50)|abundance(30)|head_armor(44)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], culture_caucasian ],
 
 ["suvorovsky_helmet_mail", "Decorated Monopartite Helmet with Mail", [("suvorovsky_helmet_mail",0),("suvorovsky_helmet_inv",ixmesh_inventory)], itp_merchandise|itp_attach_armature|itp_type_head_armor,0,1055 , weight(1.50)|abundance(30)|head_armor(44)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], culture_hunnic+culture_alan ],
 
@@ -1945,16 +2027,20 @@ weight(1)|abundance(80)|head_armor(24)|body_armor(14)|leg_armor(6)|difficulty(0)
 ["kerch_lamellenhelm", "Lamellenhelm", [("kerch_lamellenhelm",0),("kerch_lamellenhelm_inv",ixmesh_inventory)], itp_merchandise|itp_attach_armature|itp_type_head_armor,0,1050 , weight(2)|abundance(45)|head_armor(44)|body_armor(0)|leg_armor(0) ,imodbits_plate, [], culture_sassanid+culture_caucasian ],
 
 ["haditha_1", "Band Helmet", [("haditha_1",0),("haditha_1_inv",ixmesh_inventory)], itp_type_head_armor|itp_attach_armature|itp_merchandise,0,1045 , weight(1.5)|abundance(40)|head_armor(44)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], culture_roman ],
-["haditha_crested_1", "Band Helmet with Crest", [("haditha_crested_1",0),("haditha_crested_1_inv",ixmesh_inventory)], itp_type_head_armor|itp_attach_armature|itp_merchandise,0,1045 , weight(1.5)|abundance(40)|head_armor(44)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], culture_roman ],
+
+["narona_helmet_mail", "Bandhelm with Mail", [("narona_helmet_mail",0),("narona_helmet_1_inv",ixmesh_inventory)], itp_type_head_armor|itp_attach_armature|itp_merchandise,0,1045 , weight(1.55)|abundance(30)|head_armor(44)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], culture_roman ],
+["narona_helmet", "Bandhelm", [("narona_helmet",0),("narona_helmet_inv",ixmesh_inventory)], itp_type_head_armor|itp_attach_armature|itp_merchandise,0,1045 , weight(1.55)|abundance(30)|head_armor(44)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], culture_roman ],
+
+["triveres_mail", "Bandhelm with Mail", [("triveres_helmet_mail",0),("triveres_helmet_1_inv",ixmesh_inventory)], itp_type_head_armor|itp_attach_armature|itp_merchandise,0,1045 , weight(1.55)|abundance(40)|head_armor(44)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate ],
 
 #new intercisa styled helmets 4/11/22
 ["intercisa_helmet_1", "Ridge Helmet", [("intercisa_helmet_1",0),("intercisa_helmet_1_inv",ixmesh_inventory),("intercisa_helmet_old_1",imodbits_bad),("intercisa_helmet_old_1_inv",imodbits_bad|ixmesh_inventory)], itp_type_head_armor|itp_attach_armature|itp_merchandise,0,1045 , weight(1.5)|abundance(40)|head_armor(44)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], culture_roman+culture_germanic+culture_gothic ],
 ["intercisa_helmet_2", "Ridge Helmet", [("intercisa_helmet_2",0),("intercisa_helmet_2_inv",ixmesh_inventory),("intercisa_helmet_old_2",imodbits_bad),("intercisa_helmet_old_2_inv",imodbits_bad|ixmesh_inventory)], itp_type_head_armor|itp_attach_armature|itp_merchandise,0,1045 , weight(1.5)|abundance(40)|head_armor(44)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], culture_roman+culture_germanic+culture_gothic ],
 ["augst_helmet_1", "Ridge Helmet", [("augst_helmet_1",0),("augst_helmet_1_inv",ixmesh_inventory),("augst_helmet_old",imodbits_bad),("augst_helmet_old_inv",imodbits_bad|ixmesh_inventory)], itp_type_head_armor|itp_attach_armature|itp_merchandise,0,1045 , weight(1.5)|abundance(40)|head_armor(44)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], culture_roman+culture_germanic+culture_gothic ],
 
-["intercisa_helmet_silvered_1", "Silvered Ridge Helmet", [("intercisa_helmet_silvered_1",0),("intercisa_helmet_silvered_1_inv",ixmesh_inventory)], itp_type_head_armor|itp_attach_armature|itp_merchandise,0,1150 , weight(1.5)|abundance(35)|head_armor(44)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], culture_roman ],
-["intercisa_helmet_silvered_2", "Silvered Ridge Helmet", [("intercisa_helmet_silvered_2",0),("intercisa_helmet_silvered_2_inv",ixmesh_inventory)], itp_type_head_armor|itp_attach_armature|itp_merchandise,0,1150 , weight(1.5)|abundance(35)|head_armor(44)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], culture_roman ],
-["augst_helmet_2", "Silvered Ridge Helmet", [("augst_helmet_2",0),("augst_helmet_2_inv",ixmesh_inventory)], itp_type_head_armor|itp_attach_armature|itp_merchandise,0,1150 , weight(1.5)|abundance(35)|head_armor(44)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], culture_roman ],
+["intercisa_helmet_silvered_1", "Ridge Helmet", [("intercisa_helmet_silvered_1",0),("intercisa_helmet_silvered_1_inv",ixmesh_inventory)], itp_type_head_armor|itp_attach_armature|itp_merchandise,0,1150 , weight(1.5)|abundance(35)|head_armor(44)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], culture_roman ],
+["intercisa_helmet_silvered_2", "Ridge Helmet", [("intercisa_helmet_silvered_2",0),("intercisa_helmet_silvered_2_inv",ixmesh_inventory)], itp_type_head_armor|itp_attach_armature|itp_merchandise,0,1150 , weight(1.5)|abundance(35)|head_armor(44)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], culture_roman ],
+["augst_helmet_2", "Ridge Helmet", [("augst_helmet_2",0),("augst_helmet_2_inv",ixmesh_inventory)], itp_type_head_armor|itp_attach_armature|itp_merchandise,0,1150 , weight(1.5)|abundance(35)|head_armor(44)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], culture_roman ],
 
 ["intercisa_helmet_gilded_1", "Gilded Ridge Helmet", [("intercisa_helmet_gilded_1",0),("intercisa_helmet_gilded_1_inv",ixmesh_inventory)], itp_type_head_armor|itp_attach_armature|itp_merchandise,0,1150 , weight(1.5)|abundance(30)|head_armor(44)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], culture_roman ],
 ["intercisa_helmet_gilded_2", "Gilded Ridge Helmet", [("intercisa_helmet_gilded_2",0),("intercisa_helmet_gilded_2_inv",ixmesh_inventory)], itp_type_head_armor|itp_attach_armature|itp_merchandise,0,1150 , weight(1.5)|abundance(30)|head_armor(44)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], culture_roman ],
@@ -1965,16 +2051,16 @@ weight(1)|abundance(80)|head_armor(24)|body_armor(14)|leg_armor(6)|difficulty(0)
 ["intercisa_helmet_plume_2", "Ridge Helmet with Crest", [("intercisa_helmet_plume_2",0),("intercisa_helmet_plume_2_inv",ixmesh_inventory)], itp_type_head_armor|itp_attach_armature|itp_merchandise,0,1045 , weight(1.5)|abundance(40)|head_armor(44)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], culture_roman ],
 ["augst_helmet_plume_1", "Ridge Helmet with Crest", [("augst_helmet_plume_1",0),("augst_helmet_plume_1_inv",ixmesh_inventory)], itp_type_head_armor|itp_attach_armature|itp_merchandise,0,1045 , weight(1.5)|abundance(40)|head_armor(44)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], culture_roman ],
 
-["intercisa_helmet_silvered_plume_1", "Silvered Ridge Helmet with Crest", [("intercisa_helmet_silvered_plume_1",0),("intercisa_helmet_silvered_plume_1_inv",ixmesh_inventory)], itp_type_head_armor|itp_attach_armature|itp_merchandise,0,1150 , weight(1.5)|abundance(35)|head_armor(44)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], culture_roman ],
-["intercisa_helmet_silvered_plume_2", "Silvered Ridge Helmet with Crest", [("intercisa_helmet_silvered_plume_2",0),("intercisa_helmet_silvered_plume_2_inv",ixmesh_inventory)], itp_type_head_armor|itp_attach_armature|itp_merchandise,0,1150 , weight(1.5)|abundance(35)|head_armor(44)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], culture_roman ],
-["augst_helmet_plume_2", "Silvered Ridge Helmet with Crest", [("augst_helmet_plume_2",0),("augst_helmet_plume_2_inv",ixmesh_inventory)], itp_type_head_armor|itp_attach_armature|itp_merchandise,0,1150 , weight(1.5)|abundance(35)|head_armor(44)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], culture_roman ],
+["intercisa_helmet_silvered_plume_1", "Ridge Helmet with Crest", [("intercisa_helmet_silvered_plume_1",0),("intercisa_helmet_silvered_plume_1_inv",ixmesh_inventory)], itp_type_head_armor|itp_attach_armature|itp_merchandise,0,1150 , weight(1.5)|abundance(35)|head_armor(44)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], culture_roman ],
+["intercisa_helmet_silvered_plume_2", "Ridge Helmet with Crest", [("intercisa_helmet_silvered_plume_2",0),("intercisa_helmet_silvered_plume_2_inv",ixmesh_inventory)], itp_type_head_armor|itp_attach_armature|itp_merchandise,0,1150 , weight(1.5)|abundance(35)|head_armor(44)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], culture_roman ],
+["augst_helmet_plume_2", "Ridge Helmet with Crest", [("augst_helmet_plume_2",0),("augst_helmet_plume_2_inv",ixmesh_inventory)], itp_type_head_armor|itp_attach_armature|itp_merchandise,0,1150 , weight(1.5)|abundance(35)|head_armor(44)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], culture_roman ],
 
 ["intercisa_helmet_gilded_plume_1", "Gilded Ridge Helmet with Crest", [("intercisa_helmet_gilded_plume_1",0),("intercisa_helmet_gilded_plume_1_inv",ixmesh_inventory)], itp_type_head_armor|itp_attach_armature|itp_merchandise,0,1150 , weight(1.5)|abundance(30)|head_armor(44)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], culture_roman ],
 ["intercisa_helmet_gilded_plume_2", "Gilded Ridge Helmet with Crest", [("intercisa_helmet_gilded_plume_2",0),("intercisa_helmet_gilded_plume_2_inv",ixmesh_inventory)], itp_type_head_armor|itp_attach_armature|itp_merchandise,0,1150 , weight(1.5)|abundance(30)|head_armor(44)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], culture_roman ],
 ["augst_helmet_plume_3", "Gilded Ridge Helmet with Crest", [("augst_helmet_plume_3",0),("augst_helmet_plume_3_inv",ixmesh_inventory)], itp_type_head_armor|itp_attach_armature|itp_merchandise,0,1150 , weight(1.5)|abundance(30)|head_armor(44)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], culture_roman ],
 
 #Metal Crested (uncommon - only augst variant)
-["augst_helmet_crested_1", "Silvered Ridge Helmet with Crest", [("augst_helmet_crested_1",0),("augst_helmet_crested_1_inv",ixmesh_inventory)], itp_type_head_armor|itp_attach_armature|itp_merchandise,0,1150 , weight(1.5)|abundance(30)|head_armor(44)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], culture_roman ],
+["augst_helmet_crested_1", "Ridge Helmet with Crest", [("augst_helmet_crested_1",0),("augst_helmet_crested_1_inv",ixmesh_inventory)], itp_type_head_armor|itp_attach_armature|itp_merchandise,0,1150 , weight(1.5)|abundance(30)|head_armor(44)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], culture_roman ],
 ["augst_helmet_crested_2", "Gilded Ridge Helmet with Crest", [("augst_helmet_crested_2",0),("augst_helmet_crested_2_inv",ixmesh_inventory)], itp_type_head_armor|itp_attach_armature|itp_merchandise,0,1150 , weight(1.5)|abundance(30)|head_armor(44)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], culture_roman ],
 
 #sassanid helmets with mail
@@ -1991,33 +2077,20 @@ weight(1)|abundance(80)|head_armor(24)|body_armor(14)|leg_armor(6)|difficulty(0)
 ["khudashevsky_helmet_2", "Stacked Helmet with Mail", [("khudashevsky_helmet_2",0),("khudashevsky_helmet_2_inv",ixmesh_inventory)], itp_merchandise|itp_attach_armature|itp_type_head_armor,0,1145 , weight(2.0)|abundance(30)|head_armor(46)|body_armor(0)|leg_armor(0)|difficulty(6) ,imodbits_plate, [], culture_hunnic+culture_alan ],
 ["khudashevsky_helmet_3", "Stacked Helmet with Mail", [("khudashevsky_helmet_3",0),("khudashevsky_helmet_3_inv",ixmesh_inventory)], itp_merchandise|itp_attach_armature|itp_type_head_armor,0,1245 , weight(2.5)|abundance(30)|head_armor(48)|body_armor(0)|leg_armor(0)|difficulty(7) ,imodbits_plate, [], culture_hunnic+culture_alan ],
 
-["tsaritsyno_1_light", "Eastern Bandhelm with Mail", [("tsaritsyno_1_light",0),("tsaritsyno_1_light_inv",ixmesh_inventory)], itp_merchandise|itp_attach_armature|itp_type_head_armor,0,1045 , weight(1.75)|abundance(32)|head_armor(46)|body_armor(0)|leg_armor(0)|difficulty(7) ,imodbits_plate, [], culture_sassanid+culture_caucasian+culture_hunnic ],
-
 ["rozhdestvensky_helmet_mail", "Lamellenhelm with Mail", [("rozhdestvensky_helmet_mail",0),("rozhdestvensky_helmet_inv",ixmesh_inventory)], itp_merchandise|itp_attach_armature|itp_type_head_armor,0,1045 , weight(2.25)|abundance(30)|head_armor(45)|body_armor(0)|leg_armor(0)|difficulty(6) ,imodbits_plate, [], culture_caucasian+culture_hunnic+culture_alan ],
 
 ["kishpek_helmet_mail", "Rich Lamellenhelm with Mail", [("kishpek_helmet_mail",0),("kishpek_helmet_inv",ixmesh_inventory)], itp_merchandise|itp_attach_armature|itp_type_head_armor,0,1145 , weight(2.25)|abundance(30)|head_armor(46)|body_armor(0)|leg_armor(0)|difficulty(6) ,imodbits_plate, [], culture_caucasian+culture_hunnic+culture_alan ],
-
-["narona_bandhelm_mail", "Bandhelm with Mail", [("narona_bandhelm_mail",0),("narona_bandhelm_mail_inv",ixmesh_inventory)], itp_type_head_armor|itp_attach_armature|itp_merchandise,0,1045 , weight(1.55)|abundance(30)|head_armor(44)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], culture_roman ],
-["narona_bandhelm", "Bandhelm with Mail", [("narona_bandhelm",0),("narona_bandhelm_inv",ixmesh_inventory)], itp_type_head_armor|itp_attach_armature|itp_merchandise,0,1045 , weight(1.55)|abundance(30)|head_armor(44)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], culture_roman ],
-
-["triveres_mail", "Bandhelm with Mail", [("triveres_mail",0),("triveres_mail_inv",ixmesh_inventory)], itp_type_head_armor|itp_attach_armature|itp_merchandise,0,1045 , weight(1.55)|abundance(40)|head_armor(44)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate ],
-
-["fernpass_helmet_3", "Ridge Helmet with Mail", [("fernpass_helmet_3",0),("fernpass_helmet_3_inv",ixmesh_inventory)], itp_type_head_armor|itp_attach_armature|itp_merchandise,0,1105 , weight(1.55)|abundance(40)|head_armor(45)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate ],
 
 #Spangenhelms/Ridge Helmets Heavy
 
 ["breda_helmet_1", "Segmented Helmet", [("breda_helmet_1",0),("breda_helmet_1_inv",ixmesh_inventory)], itp_type_head_armor|itp_attach_armature|itp_merchandise,0,1115, weight(1.8)|abundance(22)|head_armor(47)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], [fac_culture_2,fac_culture_16] ],
 ["breda_helmet_plume_1", "Segmented Helmet with Plume", [("breda_helmet_plume_1",0),("breda_helmet_1_inv",ixmesh_inventory)], itp_type_head_armor|itp_attach_armature|itp_merchandise,0,1115, weight(1.85)|abundance(22)|head_armor(47)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], [fac_culture_2,fac_culture_16] ],
 
-#Generic
-["fernpass_helmet_1", "Ridge Helmet", [("fernpass_helmet_1",0),("fernpass_helmet_1_inv",ixmesh_inventory)], itp_type_head_armor|itp_attach_armature|itp_merchandise,0,1230, weight(2.0)|abundance(30)|head_armor(46)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], culture_germanic+culture_gothic+culture_roman ],
+["tsaritsyno_1", "Eastern Bandhelm", [("tsaritsyno_1_helmet",0),("tsaritsyno_1_helmet_inv",ixmesh_inventory)], itp_merchandise|itp_attach_armature|itp_type_head_armor,0,1050 , weight(2.25)|abundance(30)|head_armor(46)|body_armor(0)|leg_armor(0)|difficulty(6) ,imodbits_plate, [], culture_sassanid+culture_caucasian+culture_hunnic ],
 
-["tsaritsyno_2_2", "Gilded Spangenhelm with Mail", [("tsaritsyno_2_2",0),("tsaritsyno_2_inv",ixmesh_inventory)], itp_merchandise|itp_attach_armature|itp_type_head_armor,0,1140 , weight(1.5)|abundance(30)|head_armor(45)|body_armor(0)|leg_armor(0)|difficulty(6) ,imodbits_plate, [], culture_roman ],
-
-["kalhkni_helmet_mail", "Lamellenhelm", [("kalhkni_helmet_mail",0),("kalhkni_helmet_mail_inv",ixmesh_inventory)], itp_type_head_armor|itp_attach_armature|itp_merchandise,0,1130, weight(1.5)|abundance(30)|head_armor(46)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], culture_caucasian+culture_hunnic+culture_alan ],
+["tsaritsyno_2_helmet", "Gilded Spangenhelm with Mail", [("tsaritsyno_2_helmet",0),("tsaritsyno_2_helmet_inv",ixmesh_inventory)], itp_attach_armature|itp_type_head_armor,0,1140 , weight(1.5)|abundance(30)|head_armor(45)|body_armor(0)|leg_armor(0)|difficulty(6) ,imodbits_plate, [], culture_roman ], #chersoneus
 
 ["turaevo_helmet", "Rich Bandhelm", [("charerg_turaevo",0),("charerg_turaevo_inv",ixmesh_inventory)], itp_type_head_armor|itp_attach_armature|itp_merchandise,0,1130, weight(1.5)|abundance(30)|head_armor(46)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], culture_hunnic+culture_alan ],
-["turaevo_helmet_aventail", "Rich Bandhelm", [("turaevo_aventail",0),("turaevo_aventail_inv",ixmesh_inventory)], itp_type_head_armor|itp_attach_armature|itp_merchandise,0,1230, weight(2.5)|abundance(20)|head_armor(48)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], culture_hunnic+culture_alan ],
 
 ["tarasovsky_782_mail", "Gilded Spangenhelm with Mail", [("tarasovsky_782_mail",0),("tarasovsky_782_mail_inv",ixmesh_inventory)], itp_type_head_armor|itp_attach_armature|itp_merchandise,0,1230, weight(2.0)|abundance(30)|head_armor(46)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], culture_hunnic ],
 
@@ -2044,14 +2117,12 @@ weight(1)|abundance(80)|head_armor(24)|body_armor(14)|leg_armor(6)|difficulty(0)
 ["augsburg_2_helmet_mail", "Ornate Ridge Helmet with Mail", [("augsburg_2_helmet_mail",0),("augsburg_2_helmet_mail_inv",ixmesh_inventory)], itp_type_head_armor|itp_attach_armature|itp_merchandise,0,1190, weight(2.0)|abundance(30)|head_armor(47)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], culture_germanic+culture_gothic ],
 
 #Germanic
-["fernpass_helmet_2", "Ridge Helmet with Mail", [("fernpass_helmet_2",0),("fernpass_helmet_2_inv",ixmesh_inventory),("fernpass_helmet_4",imodbits_good),("fernpass_helmet_4_inv",imodbits_good|ixmesh_inventory)], itp_type_head_armor|itp_attach_armature|itp_merchandise,0,1230, weight(2.25)|abundance(22)|head_armor(48)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], culture_roman+culture_germanic+culture_gothic ],
+["fernpass_helmet_1", "Imitation Ridge Helmet", [("fernpass_helmet_1",0),("fernpass_helmet_1_inv",ixmesh_inventory)], itp_type_head_armor|itp_attach_armature|itp_merchandise,0,1230, weight(2.25)|abundance(22)|head_armor(48)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], culture_roman+culture_germanic+culture_gothic ],
 
 #Eastern
 ["kerch_lamellenhelm_gilded", "Gilded Lamellenhelm", [("kerch_lamellenhelm_gilded",0),("kerch_lamellenhelm_gilded_inv",ixmesh_inventory)], itp_merchandise|itp_attach_armature|itp_type_head_armor,0,1230 , weight(2)|abundance(20)|head_armor(48)|body_armor(0)|leg_armor(0) ,imodbits_plate, [], culture_sassanid+culture_caucasian ],
-["tsaritsyno_1", "Eastern Bandhelm", [("tsaritsyno_1",0),("tsaritsyno_1_inv",ixmesh_inventory)], itp_merchandise|itp_attach_armature|itp_type_head_armor,0,1230 , weight(2.5)|abundance(30)|head_armor(48)|body_armor(0)|leg_armor(0)|difficulty(6) ,imodbits_plate, [], culture_sassanid+culture_caucasian+culture_hunnic ],
 
 ["kalhkni_helmet_1", "Lamellenhelm", [("kalhkni_helmet_1",0),("kalhkni_helmet_1_inv",ixmesh_inventory)], itp_type_head_armor|itp_attach_armature|itp_merchandise,0,1230, weight(1.5)|abundance(30)|head_armor(48)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], culture_caucasian+culture_hunnic+culture_alan ],
-["kalhkni_helmet_2", "Lamellenhelm", [("kalhkni_helmet_2",0),("kalhkni_helmet_2_inv",ixmesh_inventory)], itp_type_head_armor|itp_attach_armature|itp_merchandise,0,1230, weight(1.5)|abundance(30)|head_armor(48)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], culture_caucasian+culture_hunnic+culture_alan ],
 
 ["sassanid_helmet_mail_4", "Crossband Helmet with Mail", [("sassanid_helmet_mail_4",0),("sassanid_helmet_mail_4_inv",ixmesh_inventory)], itp_merchandise|itp_attach_armature|itp_type_head_armor,0,1230 , weight(2.5)|abundance(22)|head_armor(48)|body_armor(0)|leg_armor(0)|difficulty(7) ,imodbits_plate, [], culture_sassanid ],
 ["sassanid_helmet_mail_5", "Crossband Helmet with Mail", [("sassanid_helmet_mail_5",0),("sassanid_helmet_mail_5_inv",ixmesh_inventory)], itp_merchandise|itp_attach_armature|itp_type_head_armor,0,1230 , weight(2.5)|abundance(22)|head_armor(48)|body_armor(0)|leg_armor(0)|difficulty(7) ,imodbits_plate, [], culture_sassanid ],
@@ -3053,6 +3124,7 @@ weight(1)|abundance(80)|head_armor(24)|body_armor(14)|leg_armor(6)|difficulty(0)
 ["round_shield_roman_26", "Round Shield", [("round_shield_2",0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_round_shield, 450 , weight(3.5)|hit_points(420)|body_armor(10)|spd_rtng(86)|shield_width(45),imodbits_shield, [(ti_on_init_item,[(cur_item_set_material, "str_round_shields_roman_26"),]),], culture_roman ],
 ["round_shield_roman_27", "Old Round Shield", [("round_shield_2",0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_round_shield, 450 , weight(3.5)|hit_points(420)|body_armor(10)|spd_rtng(86)|shield_width(45),imodbits_shield, [(ti_on_init_item,[(cur_item_set_material, "str_round_shields_roman_27"),]),], culture_roman ],
 ["round_shield_roman_28", "Round Shield", [("round_shield_1",0)], itp_type_shield|itp_wooden_parry, itcf_carry_round_shield, 450 , weight(3.5)|hit_points(420)|body_armor(10)|spd_rtng(86)|shield_width(45),imodbits_shield, [(ti_on_init_item,[(cur_item_set_material, "str_round_shields_roman_28"),]),], culture_roman ], #not really used for anything
+["round_shield_roman_29", "Round Shield", [("concave_shield_large_2",0)], itp_type_shield|itp_wooden_parry, itcf_carry_round_shield, 450 , weight(3.5)|hit_points(420)|body_armor(10)|spd_rtng(86)|shield_width(45),imodbits_shield, [(ti_on_init_item,[(cur_item_set_material, "str_round_shields_roman_29"),]),], culture_roman ], #tertio augustani - unique african AOR legion for mauri
 
 ["round_shield_roman_small_1", "Round Shield", [("round_shield_small_3",0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_round_shield, 450 , weight(2.0)|hit_points(400)|body_armor(12)|spd_rtng(90)|shield_width(35),imodbits_shield, [(ti_on_init_item,[(cur_item_set_material, "str_round_shields_roman_1"),]),], culture_roman ],
 ["round_shield_roman_small_2", "Round Shield", [("round_shield_small_1",0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_round_shield, 450 , weight(2.0)|hit_points(400)|body_armor(12)|spd_rtng(90)|shield_width(35),imodbits_shield, [(ti_on_init_item,[(cur_item_set_material, "str_round_shields_roman_2"),]),], culture_roman ],
@@ -3164,7 +3236,7 @@ weight(1)|abundance(80)|head_armor(24)|body_armor(14)|leg_armor(6)|difficulty(0)
 ["concave_shield_germanic_21", "Round Shield", [("concave_shield_2",0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_round_shield, 450 , weight(3.5)|hit_points(500)|body_armor(12)|spd_rtng(88)|shield_width(42),imodbits_shield, [(ti_on_init_item,[(cur_item_set_material, "str_round_shields_germanic_21"),]),], culture_germanic+culture_gothic ],
 ["concave_shield_germanic_22", "Round Shield", [("concave_shield_3",0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_round_shield, 450 , weight(3.5)|hit_points(500)|body_armor(12)|spd_rtng(88)|shield_width(42),imodbits_shield, [(ti_on_init_item,[(cur_item_set_material, "str_round_shields_germanic_22"),]),], culture_germanic+culture_gothic ],
 ["concave_shield_germanic_23", "Round Shield", [("concave_shield_3",0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_round_shield, 450 , weight(3.5)|hit_points(500)|body_armor(12)|spd_rtng(88)|shield_width(42),imodbits_shield, [(ti_on_init_item,[(cur_item_set_material, "str_round_shields_germanic_23"),]),], culture_germanic+culture_gothic ],
-["concave_shield_germanic_24", "Round Shield", [("concave_shield_3",0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_round_shield, 450 , weight(3.5)|hit_points(500)|body_armor(12)|spd_rtng(88)|shield_width(42),imodbits_shield, [(ti_on_init_item,[(cur_item_set_material, "str_round_shields_germanic_24"),]),], culture_germanic+culture_gothic ],
+["concave_shield_germanic_24", "Round Shield", [("concave_shield_large_1",0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_round_shield, 500 , weight(4)|hit_points(500)|body_armor(13)|spd_rtng(87)|shield_width(47),imodbits_shield, [(ti_on_init_item,[(cur_item_set_material, "str_round_shields_germanic_24"),]),], culture_roman ],
 ["concave_shield_germanic_25", "Round Shield", [("concave_shield_2",0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_round_shield, 450 , weight(3.5)|hit_points(500)|body_armor(12)|spd_rtng(88)|shield_width(42),imodbits_shield, [(ti_on_init_item,[(cur_item_set_material, "str_round_shields_germanic_25"),]),], culture_germanic+culture_gothic ],
 ["concave_shield_germanic_26", "Round Shield", [("concave_shield_3",0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_round_shield, 450 , weight(3.5)|hit_points(500)|body_armor(12)|spd_rtng(88)|shield_width(42),imodbits_shield, [(ti_on_init_item,[(cur_item_set_material, "str_round_shields_germanic_26"),]),], culture_germanic+culture_gothic ],
 
@@ -3224,6 +3296,7 @@ weight(1)|abundance(80)|head_armor(24)|body_armor(14)|leg_armor(6)|difficulty(0)
 ["concave_shield_roman_26", "Round Shield", [("concave_shield_large_1",0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_round_shield, 500 , weight(4)|hit_points(500)|body_armor(13)|spd_rtng(87)|shield_width(47),imodbits_shield, [(ti_on_init_item,[(cur_item_set_material, "str_round_shields_roman_26"),]),], [fac_culture_empire] ], #Decima Gemina
 #no 27 - used for unique shield
 ["concave_shield_roman_28", "Round Shield", [("concave_shield_large_1",0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_round_shield, 500 , weight(4)|hit_points(500)|body_armor(13)|spd_rtng(87)|shield_width(47),imodbits_shield, [(ti_on_init_item,[(cur_item_set_material, "str_round_shields_roman_28"),]),], [fac_culture_empire] ], #Huqoq mosaic
+["concave_shield_roman_29", "Round Shield", [("concave_shield_large_1",0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_round_shield, 500 , weight(4)|hit_points(500)|body_armor(13)|spd_rtng(87)|shield_width(47),imodbits_shield, [(ti_on_init_item,[(cur_item_set_material, "str_round_shields_roman_29"),]),], [fac_culture_empire] ], #invicti seniores
 
 #for limitanei cav
 ["concave_shield_roman_small_1", "Round Shield", [("concave_shield_small_1",0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_round_shield, 450 , weight(2.5)|hit_points(450)|body_armor(14)|spd_rtng(90)|shield_width(37),imodbits_shield, [(ti_on_init_item,[(cur_item_set_material, "str_round_shields_roman_1"),]),], culture_roman ],

@@ -5563,9 +5563,9 @@ TOTAL:  {reg5}"),
           (set_visitor,20,"trp_steppe_rider"),
           
           #entry points 25-29 for elite guards
-          (set_visitor,25,"trp_suebi_swordsman"),
-          (set_visitor,26,"trp_suebi_swordsman"),
-          (set_visitor,27,"trp_suebi_swordsman"),
+          (set_visitor,25,"trp_western_germanic_retainer"),
+          (set_visitor,26,"trp_western_germanic_retainer"),
+          (set_visitor,27,"trp_western_germanic_retainer"),
           (set_visitor,28,"trp_steppe_cataphract"),
           (set_visitor,29,"trp_steppe_cataphract"),
           
@@ -13312,7 +13312,7 @@ TOTAL:  {reg5}"),
                     (display_message, "@You have been gifted a new helmet for your victory.", 0xFF0000),
                   (else_try), #hunnic
                     (party_slot_eq, "$current_town", slot_center_culture, "fac_culture_12"),
-                    (troop_add_item, "trp_player", "itm_kalhkni_helmet_mail", 0),
+                    (troop_add_item, "trp_player", "itm_kalhkni_helmet_1", 0),
                     (display_message, "@You have been gifted a new helmet for your victory.", 0xFF0000),
                   (else_try), #alan
                     (party_slot_eq, "$current_town", slot_center_culture, "fac_culture_16"),

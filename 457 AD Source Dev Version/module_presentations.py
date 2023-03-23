@@ -19150,46 +19150,54 @@ presentations = [
   ####################################################################
             #and now for the roman AOR!
             (else_try), #Quinta Macedonica
+              (faction_slot_eq, "$players_kingdom", slot_faction_culture, "fac_culture_empire"),
               (this_or_next|eq, "$current_town", "p_castle_9"),
               (this_or_next|eq, "$current_town", "p_castle_25"),
               (eq, "$current_town", "p_town_21"),        
               (eq, ":troop", "trp_pedes_quinta_macedonica"),
               (assign, ":c", 1),  
             (else_try), #Tzaanni
+              (faction_slot_eq, "$players_kingdom", slot_faction_culture, "fac_culture_empire"),
               (this_or_next|eq, "$current_town", "p_castle_23"),
               (eq, "$current_town", "p_castle_31"),        
               (eq, ":troop", "trp_pedes_tzaanni"),
               (assign, ":c", 1),  
             (else_try), #Eastern Regii
+              (faction_slot_eq, "$players_kingdom", slot_faction_culture, "fac_culture_empire"),
               (this_or_next|eq, "$current_town", "p_castle_26"),
               (this_or_next|eq, "$current_town", "p_castle_52"),
               (eq, "$current_town", "p_town_7"),        
               (eq, ":troop", "trp_pedes_regii_east"),
               (assign, ":c", 1),  
             (else_try), #Augustenses
+              (faction_slot_eq, "$players_kingdom", slot_faction_culture, "fac_culture_empire"),
               (this_or_next|eq, "$current_town", "p_castle_13"),
               (this_or_next|eq, "$current_town", "p_castle_25"),
               (eq, "$current_town", "p_town_6"),        
               (eq, ":troop", "trp_pedes_augustenses"),
               (assign, ":c", 1), 
             (else_try), #Thraces
+              (faction_slot_eq, "$players_kingdom", slot_faction_culture, "fac_culture_empire"),
               (this_or_next|eq, "$current_town", "p_castle_52"),
               (eq, "$current_town", "p_town_6"),        
               (this_or_next|eq, ":troop", "trp_pedes_thraces"),
               (eq, ":troop", "trp_pedes_matiarii_iuniores"),
               (assign, ":c", 1), 
             (else_try), #Scythae
+              (faction_slot_eq, "$players_kingdom", slot_faction_culture, "fac_culture_empire"),
               (this_or_next|eq, "$current_town", "p_town_21"),
               (eq, "$current_town", "p_town_39"),        
               (eq, ":troop", "trp_pedes_scythae"),
               (assign, ":c", 1), 
             (else_try), #Daci/comites
+              (faction_slot_eq, "$players_kingdom", slot_faction_culture, "fac_culture_empire"),
               (this_or_next|eq, "$current_town", "p_castle_9"),
               (eq, "$current_town", "p_town_21"),        
               (this_or_next|eq, ":troop", "trp_pedes_daci"),
               (eq, ":troop", "trp_comites_sagittarius_armeni"),
               (assign, ":c", 1),
             (else_try), #transtigritani + decima gemina
+              (faction_slot_eq, "$players_kingdom", slot_faction_culture, "fac_culture_empire"),
               (this_or_next|eq, "$current_town", "p_castle_23"),
               (this_or_next|eq, "$current_town", "p_castle_27"),
               (eq, "$current_town", "p_town_38"),  
@@ -19197,25 +19205,30 @@ presentations = [
               (eq, ":troop", "trp_pedes_decima_gemina"),
               (assign, ":c", 1),
             (else_try), #other ere troops
+              (faction_slot_eq, "$players_kingdom", slot_faction_culture, "fac_culture_empire"),
               (eq, "$current_town", "p_town_38"),        
               (this_or_next|eq, ":troop", "trp_eques_tertii_stablesiani"),
               (eq, ":troop", "trp_eques_armigeri_seniores_orientales"),
               (assign, ":c", 1),
             (else_try), #other ere troops
+              (faction_slot_eq, "$players_kingdom", slot_faction_culture, "fac_culture_empire"),
               (eq, "$current_town", "p_town_36"),        
               (eq, ":troop", "trp_pedes_theodosiaci"),
               (assign, ":c", 1),
             (else_try), #pontinenses
+              (faction_slot_eq, "$players_kingdom", slot_faction_culture, "fac_culture_empire"),
               (this_or_next|eq, "$current_town", "p_castle_1"),
               (eq, "$current_town", "p_town_8"),        
               (this_or_next|eq, ":troop", "trp_pedes_pontinenses"),
               (eq, ":troop", "trp_pedes_cornuti_seniores"),
               (assign, ":c", 1),
             (else_try), #mattiarii_iuniores
+              (faction_slot_eq, "$players_kingdom", slot_faction_culture, "fac_culture_empire"),
               (eq, "$current_town", "p_castle_16"),        
               (eq, ":troop", "trp_pedes_mattiarii_iuniores"),
               (assign, ":c", 1),
             (else_try), #cornuti, comites alani, moesiaci seniores
+              (faction_slot_eq, "$players_kingdom", slot_faction_culture, "fac_culture_empire"),
               (eq, "$current_town", "p_town_13"),        
               (this_or_next|eq, ":troop", "trp_pedes_cornuti_seniores"),
               (this_or_next|eq, ":troop", "trp_pedes_felices_valentinianenses"),
@@ -19223,12 +19236,14 @@ presentations = [
               (eq, ":troop", "trp_comites_alani"),
               (assign, ":c", 1),
             (else_try), #mattiaci_seniores
+              (faction_slot_eq, "$players_kingdom", slot_faction_culture, "fac_culture_empire"),
               (this_or_next|eq, "$current_town", "p_castle_20"),
               (eq, "$current_town", "p_town_11"),        
               (this_or_next|eq, ":troop", "trp_pedes_moesiaci_seniores"),
               (eq, ":troop", "trp_eques_stablesiani_italiciani"),
               (assign, ":c", 1),
             (else_try), #gallia
+              (faction_slot_eq, "$players_kingdom", slot_faction_culture, "fac_culture_empire"),
               (this_or_next|eq, "$current_town", "p_castle_12"),
               (this_or_next|eq, "$current_town", "p_castle_21"),
               (eq, "$current_town", "p_town_15"),        
@@ -19240,6 +19255,7 @@ presentations = [
               (eq, ":troop", "trp_eques_batavi_seniores"),
               (assign, ":c", 1),
             (else_try), #dalmatia
+              (faction_slot_eq, "$players_kingdom", slot_faction_culture, "fac_culture_empire"),
               (eq, "$current_town", "p_town_9"),        
               (this_or_next|eq, ":troop", "trp_pedes_lanciarii_lauriacenses"),
               (this_or_next|eq, ":troop", "trp_pedes_propugnatores_iuniores"),
@@ -19247,6 +19263,7 @@ presentations = [
               (eq, ":troop", "trp_miles_sagittarii_venatores"),
               (assign, ":c", 1),
             (else_try), #presentalis I
+              (faction_slot_eq, "$players_kingdom", slot_faction_culture, "fac_culture_empire"),
               (this_or_next|eq, "$current_town", "p_castle_13"),
               (this_or_next|eq, "$current_town", "p_castle_25"),
               (this_or_next|eq, "$current_town", "p_castle_35"),
@@ -19256,17 +19273,20 @@ presentations = [
               (eq, ":troop", "trp_pedes_lanciarii_seniores"),
               (assign, ":c", 1),
             (else_try), #presenatlis II
+              (faction_slot_eq, "$players_kingdom", slot_faction_culture, "fac_culture_empire"),
               (this_or_next|eq, "$current_town", "p_castle_24"),
               (eq, "$current_town", "p_town_39"),        
               (eq, ":troop", "trp_pedes_lanciarii_iuniores"),
               (assign, ":c", 1),
             (else_try), #Equites Clibanarii Parthi
+              (faction_slot_eq, "$players_kingdom", slot_faction_culture, "fac_culture_empire"),
               (this_or_next|eq, "$current_town", "p_town_7"),
               (this_or_next|eq, "$current_town", "p_town_39"),
               (eq, "$current_town", "p_town_41"),        
               (eq, ":troop", "trp_eques_clibanarii_parthi"),
               (assign, ":c", 1),
             (else_try), #AOR limes arabica
+              (faction_slot_eq, "$players_kingdom", slot_faction_culture, "fac_culture_empire"),
               (this_or_next|eq, "$current_town", "p_castle_41"),
               (this_or_next|eq, "$current_town", "p_castle_46"),
               (this_or_next|eq, "$current_town", "p_town_21"),
@@ -19276,6 +19296,7 @@ presentations = [
               (eq, ":troop", "trp_dromodarius"),
               (assign, ":c", 1),
             (else_try), #Equites sexto Dalmatae
+              (faction_slot_eq, "$players_kingdom", slot_faction_culture, "fac_culture_empire"),
               (this_or_next|eq, "$current_town", "p_castle_9"),
               (eq, "$current_town", "p_town_21"),        
               (eq, ":troop", "trp_eques_sexto_dalmatae"),

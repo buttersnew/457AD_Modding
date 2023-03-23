@@ -2026,7 +2026,7 @@ weight(1)|abundance(80)|head_armor(24)|body_armor(14)|leg_armor(6)|difficulty(0)
 
 ["kerch_lamellenhelm", "Lamellenhelm", [("kerch_lamellenhelm",0),("kerch_lamellenhelm_inv",ixmesh_inventory)], itp_merchandise|itp_attach_armature|itp_type_head_armor,0,1050 , weight(2)|abundance(45)|head_armor(44)|body_armor(0)|leg_armor(0) ,imodbits_plate, [], culture_sassanid+culture_caucasian ],
 
-["haditha_1", "Band Helmet", [("haditha_1",0),("haditha_1_inv",ixmesh_inventory)], itp_type_head_armor|itp_attach_armature|itp_merchandise,0,1045 , weight(1.5)|abundance(40)|head_armor(44)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], culture_roman ],
+["haditha_1", "Band Helmet", [("haditha_helmet_1",0),("haditha_helmet_1_inv",ixmesh_inventory)], itp_type_head_armor|itp_attach_armature|itp_merchandise,0,1045 , weight(1.5)|abundance(40)|head_armor(44)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], culture_roman ],
 
 ["narona_helmet_mail", "Bandhelm with Mail", [("narona_helmet_mail",0),("narona_helmet_1_inv",ixmesh_inventory)], itp_type_head_armor|itp_attach_armature|itp_merchandise,0,1045 , weight(1.55)|abundance(30)|head_armor(44)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], culture_roman ],
 ["narona_helmet", "Bandhelm", [("narona_helmet",0),("narona_helmet_inv",ixmesh_inventory)], itp_type_head_armor|itp_attach_armature|itp_merchandise,0,1045 , weight(1.55)|abundance(30)|head_armor(44)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], culture_roman ],
@@ -2205,10 +2205,9 @@ weight(1)|abundance(80)|head_armor(24)|body_armor(14)|leg_armor(6)|difficulty(0)
 
 ["sassanid_helmet_shah", "Shah's Helmet", [("sassanid_helmet_shah",0),("sassanid_helmet_shah_inv",ixmesh_inventory)], itp_unique|itp_covers_beard|itp_attach_armature|itp_type_head_armor   ,0, 3600 , weight(8.5)|abundance(1)|head_armor(55)|body_armor(0)|leg_armor(0)|difficulty(8) ,imodbits_armor, [], culture_sassanid ],
 
-["gultlingen_helmet_mail", "Ornate Spangenhelm with Mail", [("gultlingen_helmet_mail",0),("gultlingen_helmet_mail_inv",ixmesh_inventory)], itp_merchandise|itp_attach_armature|itp_type_head_armor ,0,1850 , weight(1.25)|abundance(4)|head_armor(52)|body_armor(0)|leg_armor(0)|difficulty(8) ,imodbits_plate, [], [fac_culture_empire] ], #only sold in roman territories
-["gultlingen_helmet", "Ornate Spangenhelm", [("gultlingen_helmet",0),("gultlingen_helmet_inv",ixmesh_inventory)], itp_merchandise|itp_attach_armature|itp_type_head_armor ,0,1850 , weight(1.75)|abundance(2)|head_armor(53)|body_armor(0)|leg_armor(0)|difficulty(8) ,imodbits_plate, [], [fac_culture_empire] ], #only sold in roman territories
-["gultlingen_helmet_plume", "Ornate Spangenhelm with Plume", [("gultlingen_helmet_plume",0),("gultlingen_helmet_inv",ixmesh_inventory)], itp_merchandise|itp_attach_armature|itp_type_head_armor ,0,1850 , weight(1.75)|abundance(2)|head_armor(53)|body_armor(0)|leg_armor(0)|difficulty(8) ,imodbits_plate, [], [fac_culture_empire] ], #only sold in roman territories
-["gultlingen_helmet_feathers", "Ornate Spangenhelm with Feathers", [("gultlingen_helmet_feathers",0),("gultlingen_helmet_inv",ixmesh_inventory)], itp_merchandise|itp_attach_armature|itp_type_head_armor ,0,1850 , weight(1.75)|abundance(2)|head_armor(53)|body_armor(0)|leg_armor(0)|difficulty(8) ,imodbits_plate, [], [fac_culture_empire] ], #only sold in roman territories
+["gultlingen_helmet", "Ornate Spangenhelm", [("gultlingen_helmet",0),("gultlingen_helmet_inv",ixmesh_inventory)], itp_attach_armature|itp_type_head_armor ,0,1850 , weight(1.75)|abundance(2)|head_armor(54)|body_armor(0)|leg_armor(0)|difficulty(8) ,imodbits_plate, [], [fac_culture_empire] ], #only sold in roman territories
+["gultlingen_helmet_plume", "Ornate Spangenhelm with Plume", [("gultlingen_helmet_plume",0),("gultlingen_helmet_inv",ixmesh_inventory)], itp_attach_armature|itp_type_head_armor ,0,1850 , weight(1.75)|abundance(2)|head_armor(54)|body_armor(0)|leg_armor(0)|difficulty(8) ,imodbits_plate, [], [fac_culture_empire] ], #only sold in roman territories
+["gultlingen_helmet_feathers", "Ornate Spangenhelm with Feathers", [("gultlingen_helmet_feathers",0),("gultlingen_helmet_inv",ixmesh_inventory)], itp_attach_armature|itp_type_head_armor ,0,1850 , weight(1.75)|abundance(2)|head_armor(54)|body_armor(0)|leg_armor(0)|difficulty(8) ,imodbits_plate, [], [fac_culture_empire] ], #only sold in roman territories
 
 
 #Crowns

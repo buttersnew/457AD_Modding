@@ -67,7 +67,7 @@ party_templates = [
   ("pirates","Piratae",icon_axeman|carries_goods(2),0,fac_outlaws,bandit_personality,[(trp_pirate,9,60)]),
   ("bagaudae_army_event","Bagaudae Army",icon_germanic_army|carries_goods(5),0,fac_forest_bandits,bandit_personality,[(trp_forest_bandit_recruit,50,155),(trp_forest_bandit,45,125),(trp_bagaudae_footman,35,80)]),
   ("gallaecian_rebels","Gallaecian Rebels",icon_peasant|carries_goods(8),0,fac_minor_gallaeci,soldier_personality,[(trp_hibero_roman_venator,20,40),(trp_hibero_roman_rusticus,15,25),(trp_hibero_roman_defensor,10,20)]),
-  ("foederati_rebels","Foederati Rebels",icon_khergit_horseman_b|carries_goods(2),0,fac_deserters,bandit_personality,[(trp_iuvenis_foederatus,20,40),(trp_hunnic_horse_archer,20,30),(trp_miles_foederatus,10,20)]), #mix of huns, foederati troops - some time before majorians major campaigns, unruly federates + huns ravaged the countryside
+  ("foederati_rebels","Foederati Rebels",icon_khergit_horseman_b|carries_goods(2),0,fac_deserters,bandit_personality,[(trp_miles_foederatus_germani,20,40),(trp_miles_foederatus_gothorum,20,30),(trp_eques_symmachi_hunnorum,10,20)]), #mix of huns, foederati troops - some time before majorians major campaigns, unruly federates + huns ravaged the countryside
 
   #SB : fix icon
   ("merchant_caravan","Merchant Caravan",icon_mule|carries_goods(20)|pf_auto_remove_in_town|pf_quest_party,0,fac_commoners,escorted_merchant_personality,[(trp_caravan_master,1,1),(trp_caravan_guard,5,25)]),
@@ -193,9 +193,9 @@ party_templates = [
   ("kingdom_16_reinforcements_b", "{!}Alan Reinforcements", 0, 0, fac_commoners, 0, [(trp_caucasian_alan_footman,2,5),(trp_caucasian_alan_tribesman,3,6),(trp_barsil_horse_archer,1,4),(trp_draco_bearer,1,1)]),
   ("kingdom_16_reinforcements_c", "{!}Alan Reinforcements", 0, 0, fac_commoners, 0, [(trp_aursa_rider,1,4),(trp_caucasian_alan_retainer,3,6)]),  
 
-  ("kingdom_empire_reinforcements_a", "{!}Roman Reinforcements", 0, 0, fac_commoners, 0, [(trp_tiro_limitanei,5,16),(trp_exculator_limitanei,3,4)]),
-  ("kingdom_empire_reinforcements_b", "{!}Roman Reinforcements", 0, 0, fac_commoners, 0, [(trp_pedes_limitanei,4,10),(trp_sagittarius_limitanei,3,6),(trp_iuvenis_foederatus,2,7),(trp_imperial_signifer,1,1)]),
-  ("kingdom_empire_reinforcements_c", "{!}Roman Reinforcements", 0, 0, fac_commoners, 0, [(trp_pedes_psuedo,2,6),(trp_eques_promoti,1,3),(trp_centenarius,1,1)]),
+  ("kingdom_empire_reinforcements_a", "{!}Roman Reinforcements", 0, 0, fac_commoners, 0, [(trp_tiro,4,10),(trp_exculator,2,4),(trp_eques_mauri,2,6)]),
+  ("kingdom_empire_reinforcements_b", "{!}Roman Reinforcements", 0, 0, fac_commoners, 0, [(trp_pedes,4,10),(trp_sagittarius,3,6),(trp_eques_ala,2,7),(trp_imperial_signifer,1,1)]),
+  ("kingdom_empire_reinforcements_c", "{!}Roman Reinforcements", 0, 0, fac_commoners, 0, [(trp_eques_scutarii,2,6),(trp_eques_cataphractarii,1,3),(trp_centenarius,1,1)]),
 
   #minor cultures - could potentially be adopted by the player?
   ("culture_minor_1_reinforcements_a", "{!}Cantabrian Reinforcements", 0, 0, fac_commoners, 0, [(trp_latro_vasconius,8,20)]),
@@ -235,29 +235,29 @@ party_templates = [
   ("culture_minor_9_reinforcements_c", "{!}Western Alan Reinforcements", 0, 0, fac_commoners, 0, [(trp_western_alan_cataphract,4,10)]),
   #special party templates for specific lords
   #Majorian - will be stronger than most party templates
-  ("kingdom_1_lord_reinforcements_a", "{!}majorian_reinforcements_a", 0, 0, fac_commoners, 0, [(trp_tiro_limitanei,3,7),(trp_exculator_limitanei,1,3),(trp_western_alan_rider,2,4),(trp_iuvenis_foederatus,2,6)]), #greater amount of federate troops
-  ("kingdom_1_lord_reinforcements_b", "{!}majorian_reinforcements_b", 0, 0, fac_commoners, 0, [(trp_hunnic_horse_archer,2,5),(trp_pedes_felices_valentinianenses,2,4),(trp_western_alan_lancer,2,4),(trp_miles_foederatus,2,5),(trp_imperial_signifer,1,1)]), #huns
-  ("kingdom_1_lord_reinforcements_c", "{!}majorian_reinforcements_c", 0, 0, fac_commoners, 0, [(trp_pedes_ioviani_seniores,2,4),(trp_schola_gentilium_west,2,4),(trp_schola_scutariorum_west,2,4),(trp_centenarius,1,1)]), #has schola
+  ("kingdom_1_lord_reinforcements_a", "{!}majorian_reinforcements_a", 0, 0, fac_commoners, 0, [(trp_miles_foederatus_gothorum,3,7),(trp_exculator,1,3),(trp_western_alan_rider,2,4),(trp_eques_mauri,1,3),(trp_eques_ala,1,3)]), #greater amount of federate troops
+  ("kingdom_1_lord_reinforcements_b", "{!}majorian_reinforcements_b", 0, 0, fac_commoners, 0, [(trp_miles_iuniorum_italicorum,4,8),(trp_eques_symmachi_hunnorum,2,5),(trp_miles_foederatus_germani,2,5),(trp_imperial_signifer,1,1)]), #huns
+  ("kingdom_1_lord_reinforcements_c", "{!}majorian_reinforcements_c", 0, 0, fac_commoners, 0, [(trp_pedes_domestici,2,4),(trp_schola_gentilium_west,2,4),(trp_schola_scutariorum_west,2,4),(trp_centenarius,1,1)]), #has schola
   #Comes Rei Militaris Arbogast - mix of romans and franks
-  ("knight_1_8_reinforcements_a", "{!}roman_frankish_reinforcements_a", 0, 0, fac_commoners, 0, [(trp_tiro_limitanei,3,6),(trp_western_germanic_freeman,3,9),(trp_western_germanic_skirmisher,3,5)]), #mix of roman + frankish infantry, skirmishers
-  ("knight_1_8_reinforcements_b", "{!}roman_frankish_reinforcements_b", 0, 0, fac_commoners, 0, [(trp_chauci_archer,2,5),(trp_pedes_limitanei,2,5),(trp_chamavi_footman,2,5),(trp_imperial_signifer,1,1)]), #mix of roman infantry, archers, frankish infantry
-  ("knight_1_8_reinforcements_c", "{!}roman_frankish_reinforcements_c", 0, 0, fac_commoners, 0, [(trp_pedes_psuedo,1,5),(trp_frankish_optimas,3,5)]),
+  ("knight_1_8_reinforcements_a", "{!}roman_frankish_reinforcements_a", 0, 0, fac_commoners, 0, [(trp_tiro,3,6),(trp_western_germanic_freeman,3,9),(trp_western_germanic_skirmisher,3,5)]), #mix of roman + frankish infantry, skirmishers
+  ("knight_1_8_reinforcements_b", "{!}roman_frankish_reinforcements_b", 0, 0, fac_commoners, 0, [(trp_chauci_archer,2,5),(trp_pedes,2,5),(trp_chamavi_footman,2,5),(trp_imperial_signifer,1,1)]), #mix of roman infantry, archers, frankish infantry
+  ("knight_1_8_reinforcements_c", "{!}roman_frankish_reinforcements_c", 0, 0, fac_commoners, 0, [(trp_eques_scutarii,1,5),(trp_frankish_optimas,3,5)]),
   #Tuldila - mix of federate infantry, huns
-  ("knight_1_12_reinforcements_a", "{!}Tuldila reinforcements", 0, 0, fac_commoners, 0, [(trp_hunnic_horse_archer,4,10),(trp_iuvenis_foederatus,4,10)]),
-  ("knight_1_12_reinforcements_b", "{!}Tuldila reinforcements", 0, 0, fac_commoners, 0, [(trp_hunnic_horse_archer,3,8),(trp_miles_foederatus,3,7),(trp_imperial_signifer,1,1)]),
-  ("knight_1_12_reinforcements_c", "{!}Tuldila reinforcements", 0, 0, fac_commoners, 0, [(trp_optimas_foederatus,2,5),(trp_hunnic_retainer,2,5),(trp_centenarius,1,1)]),
+  ("knight_1_12_reinforcements_a", "{!}Tuldila reinforcements", 0, 0, fac_commoners, 0, [(trp_eques_symmachi_hunnorum,4,10),(trp_miles_foederatus_gothorum,4,10)]),
+  ("knight_1_12_reinforcements_b", "{!}Tuldila reinforcements", 0, 0, fac_commoners, 0, [(trp_eques_symmachi_hunnorum,3,8),(trp_miles_foederatus_gothorum,3,7),(trp_imperial_signifer,1,1)]),
+  ("knight_1_12_reinforcements_c", "{!}Tuldila reinforcements", 0, 0, fac_commoners, 0, [(trp_bucellarius,2,5),(trp_eques_scutarii,2,5),(trp_centenarius,1,1)]),
   #For Leo I
-  ("kingdom_2_lord_reinforcements_a", "{!}leo reinforcements", 0, 0, fac_commoners, 0, [(trp_tiro_limitanei,4,11),(trp_exculator_limitanei,3,5),(trp_iuvenis_foederatus,1,4)]), #east less reliant on foederati, limitanei troops, has horse archers
-  ("kingdom_2_lord_reinforcements_b", "{!}leo reinforcements", 0, 0, fac_commoners, 0, [(trp_eques_sagittarii,2,5),(trp_sagittarius_limitanei,2,6),(trp_pedes_limitanei,4,9),(trp_imperial_signifer,1,1)]),
-  ("kingdom_2_lord_reinforcements_c", "{!}leo reinforcements", 0, 0, fac_commoners, 0, [(trp_pedes_matiarii_iuniores,2,4),(trp_schola_scutariorum_east,2,4),(trp_schola_gentilium_east,2,4),(trp_centenarius,1,1)]), #has schola
+  ("kingdom_2_lord_reinforcements_a", "{!}leo reinforcements", 0, 0, fac_commoners, 0, [(trp_tiro,4,11),(trp_exculator,3,5),(trp_miles_foederatus_gothorum,1,4)]), #east less reliant on foederati, limitanei troops, has horse archers
+  ("kingdom_2_lord_reinforcements_b", "{!}leo reinforcements", 0, 0, fac_commoners, 0, [(trp_eques_sagittarii,2,5),(trp_sagittarius,2,6),(trp_pedes_matiarii_iuniores,4,9),(trp_imperial_signifer,1,1)]),
+  ("kingdom_2_lord_reinforcements_c", "{!}leo reinforcements", 0, 0, fac_commoners, 0, [(trp_pedes_domestici,2,4),(trp_schola_scutariorum_east,2,4),(trp_schola_gentilium_east,2,4),(trp_centenarius,1,1)]), #has schola
 
-  ("kingdom_2_lord_reinforcements_excubuitors", "{!}leo reinforcements", 0, 0, fac_commoners, 0, [(trp_excubitor,1,3),(trp_pedes_matiarii_iuniores,1,3),(trp_schola_scutariorum_east,1,3),(trp_schola_gentilium_east,1,3),(trp_centenarius,1,1)]), #additional bucellarii? maybe will be used for scholae?
+  ("kingdom_2_lord_reinforcements_excubuitors", "{!}leo reinforcements", 0, 0, fac_commoners, 0, [(trp_excubitor,2,6),(trp_schola_scutariorum_east,1,3),(trp_schola_gentilium_east,1,3),(trp_centenarius,1,1)]), #additional bucellarii? maybe will be used for scholae?
   #Zeno / Tarasikodissa - isaurian troops
   ("knight_2_7_reinforcements_c", "{!}Tarasikodissa reinforcements", 0, 0, fac_commoners, 0, [(trp_isaurian_infantry,2,5),(trp_miles_prima_isaura_sagitarria,1,5),(trp_centenarius,1,1)]),
   #theoderic strabo
-  ("knight_2_11_reinforcements_a", "{!}Theoderic Strabo Reinforcements", 0, 0, fac_commoners, 0, [(trp_iuvenis_foederatus,5,16),(trp_gothic_skirmisher,3,4)]), #moesian gothic + foederati troops
-  ("knight_2_11_reinforcements_b", "{!}Theoderic Strabo Reinforcements", 0, 0, fac_commoners, 0, [(trp_moesian_goth,3,8),(trp_miles_foederatus,2,6),(trp_imperial_signifer,1,1)]),
-  ("knight_2_11_reinforcements_c", "{!}Theoderic Strabo Reinforcements", 0, 0, fac_commoners, 0, [(trp_moesian_goth,2,5),(trp_optimas_foederatus,1,3),(trp_eques_alae,1,3)]),
+  ("knight_2_11_reinforcements_a", "{!}Theoderic Strabo Reinforcements", 0, 0, fac_commoners, 0, [(trp_miles_foederatus_gothorum,5,16),(trp_gothic_skirmisher,3,4)]), #foederati
+  ("knight_2_11_reinforcements_b", "{!}Theoderic Strabo Reinforcements", 0, 0, fac_commoners, 0, [(trp_miles_foederatus_gothorum,3,8),(trp_eques_symmachi_hunnorum,2,6),(trp_imperial_signifer,1,1)]),
+  ("knight_2_11_reinforcements_c", "{!}Theoderic Strabo Reinforcements", 0, 0, fac_commoners, 0, [(trp_eques_scutarii,2,5),(trp_bucellarius,2,6)]),
   #cantabrians
   ("knight_3_4_reinforcements_a", "{!}cantabrian_reinforcements_a", 0, 0, fac_commoners, 0, [(trp_latro_vasconius,3,6),(trp_forest_bandit_recruit,3,9),(trp_gothic_freeman,3,5)]), #mix of roman + frankish infantry, skirmishers
   ("knight_3_4_reinforcements_b", "{!}cantabrian_reinforcements_b", 0, 0, fac_commoners, 0, [(trp_forest_bandit,2,5),(trp_hibero_roman_venator,2,5),(trp_hibero_roman_rusticus,2,5),(trp_standard_bearer,1,1),(trp_gothic_mounted_skirmisher,1,3)]), #mix of roman infantry, archers, frankish infantry
@@ -292,17 +292,17 @@ party_templates = [
   ("knight_23_6_reinforcements_c", "{!}Alan Reinforcements", 0, 0, fac_commoners, 0, [(trp_caucasian_alan_retainer,2,4),(trp_caucasian_alan_companion,1,2)]),  
 
   #western roman empire reinforcements
-  ("wre_lord_reinforcements_a", "{!}western roman empire reinforcements", 0, 0, fac_commoners, 0, [(trp_tiro_limitanei,4,9),(trp_exculator_limitanei,2,4),(trp_iuvenis_foederatus,2,7)]), #west more reliant on foederati, limitanei troops
-  ("wre_lord_reinforcements_b", "{!}western roman empire reinforcements", 0, 0, fac_commoners, 0, [(trp_eques_dalmatae,2,5),(trp_sagittarius_limitanei,2,6),(trp_pedes_limitanei,4,9),(trp_imperial_signifer,1,1)]),
-  ("wre_lord_reinforcements_c", "{!}western roman empire reinforcements", 0, 0, fac_commoners, 0, [(trp_optimas_foederatus,1,3),(trp_pedes_psuedo,2,4),(trp_eques_promoti,1,4),(trp_centenarius,1,1)]),
+  ("wre_lord_reinforcements_a", "{!}western roman empire reinforcements", 0, 0, fac_commoners, 0, [(trp_tiro,3,6),(trp_exculator,2,4),(trp_miles_foederatus_germani,1,4),(trp_miles_foederatus_gothorum,1,4),(trp_eques_mauri,1,2)]), #west more reliant on foederati
+  ("wre_lord_reinforcements_b", "{!}western roman empire reinforcements", 0, 0, fac_commoners, 0, [(trp_eques_ala,2,5),(trp_sagittarius,2,6),(trp_pedes,4,9),(trp_imperial_signifer,1,1)]),
+  ("wre_lord_reinforcements_c", "{!}western roman empire reinforcements", 0, 0, fac_commoners, 0, [(trp_pedes,1,3),(trp_eques_promoti,2,4),(trp_eques_scutarii,1,4),(trp_centenarius,1,1)]),
   #eastern roman empire reinforcements
-  ("ere_lord_reinforcements_a", "{!}eastern roman empire reinforcements", 0, 0, fac_commoners, 0, [(trp_tiro_limitanei,4,11),(trp_exculator_limitanei,3,5),(trp_iuvenis_foederatus,1,4)]), #east less reliant on foederati, limitanei troops, has horse archers
-  ("ere_lord_reinforcements_b", "{!}eastern roman empire reinforcements", 0, 0, fac_commoners, 0, [(trp_eques_sagittarii,2,5),(trp_sagittarius_limitanei,2,6),(trp_pedes_limitanei,4,9),(trp_imperial_signifer,1,1)]),
-  ("ere_lord_reinforcements_c", "{!}eastern roman empire reinforcements", 0, 0, fac_commoners, 0, [(trp_pedes_psuedo,2,5),(trp_eques_promoti,1,3),(trp_eques_cataphractarii,0,2),(trp_centenarius,1,1)]),
+  ("ere_lord_reinforcements_a", "{!}eastern roman empire reinforcements", 0, 0, fac_commoners, 0, [(trp_tiro,4,11),(trp_exculator,3,5),(trp_eques_mauri,1,4)]), 
+  ("ere_lord_reinforcements_b", "{!}eastern roman empire reinforcements", 0, 0, fac_commoners, 0, [(trp_eques_ala,2,5),(trp_sagittarius,2,6),(trp_pedes,4,9),(trp_imperial_signifer,1,1)]),
+  ("ere_lord_reinforcements_c", "{!}eastern roman empire reinforcements", 0, 0, fac_commoners, 0, [(trp_pedes,1,3),(trp_eques_scutarii,1,4),(trp_eques_cataphractarii,1,3),(trp_centenarius,1,1)]),
   #garrison reinforcements
-  ("roman_garrison_reinforcements_a", "{!}Roman Garrison Reinforcements", 0, 0, fac_commoners, 0, [(trp_vigilia,4,10),(trp_exculator_limitanei,4,10)]),
-  ("roman_garrison_reinforcements_b", "{!}Roman Garrison Reinforcements", 0, 0, fac_commoners, 0, [(trp_pedes_burgarius,3,8),(trp_sagittarius_limitanei,3,7)]),
-  ("roman_garrison_reinforcements_c", "{!}Roman Garrison Reinforcements", 0, 0, fac_commoners, 0, [(trp_pedes_burgarius,4,10)]),
+  ("roman_garrison_reinforcements_a", "{!}Roman Garrison Reinforcements", 0, 0, fac_commoners, 0, [(trp_tiro,4,10),(trp_exculator,4,10)]),
+  ("roman_garrison_reinforcements_b", "{!}Roman Garrison Reinforcements", 0, 0, fac_commoners, 0, [(trp_pedes,3,8),(trp_sagittarius,3,7)]),
+  ("roman_garrison_reinforcements_c", "{!}Roman Garrison Reinforcements", 0, 0, fac_commoners, 0, [(trp_pedes,4,10)]),
 
   #vandals - technically eastern germans, have access to some alan troops
   ("kingdom_vandal_reinforcements_a", "{!}Vandal Reinforcements", 0, 0, fac_commoners, 0, [(trp_eastern_germanic_skirmisher,2,5),(trp_eastern_germanic_spearman,4,10),(trp_gaetuli_warrior,2,5)]),
@@ -321,7 +321,7 @@ party_templates = [
   ("kingdom_burgundian_reinforcements_b", "{!}Burgundian Reinforcements", 0, 0, fac_commoners, 0, [(trp_western_germanic_freeman,3,9),(trp_burgundian_tracker,3,6),(trp_standard_bearer,1,1)]),
   ("kingdom_burgundian_reinforcements_c", "{!}Burgundian Reinforcements", 0, 0, fac_commoners, 0, [(trp_western_germanic_retainer,1,4),(trp_burgundian_oathtaker,3,4),(trp_western_germanic_companion,0,2)]),
 
-  ("kingdom_frank_reinforcements_a", "{!}Frankish Reinforcements", 0, 0, fac_commoners, 0, [(trp_western_germanic_skirmisher,2,6),(trp_bructeri_skirmisher,2,4),(trp_western_germanic_freeman,4,10)]),
+  ("kingdom_frank_reinforcements_a", "{!}Frankish Reinforcements", 0, 0, fac_commoners, 0, [(trp_western_germanic_skirmisher,2,4),(trp_bructeri_skirmisher,2,4),(trp_western_germanic_freeman,2,6),(trp_miles_romani,2,6)]),
   ("kingdom_frank_reinforcements_b", "{!}Frankish Reinforcements", 0, 0, fac_commoners, 0, [(trp_western_germanic_freeman,3,6),(trp_chamavi_footman,2,5),(trp_chauci_archer,1,4),(trp_standard_bearer,1,1)]),
   ("kingdom_frank_reinforcements_c", "{!}Frankish Reinforcements", 0, 0, fac_commoners, 0, [(trp_frankish_optimas,4,8),(trp_western_germanic_companion,0,2)]),
 
@@ -359,7 +359,7 @@ party_templates = [
   ("kingdom_balthi_king_reinforcements_c", "{!}visigoth king Reinforcements", 0, 0, fac_commoners, 0, [(trp_gothic_footman,1,3),(trp_gothic_horseman,1,3),(trp_roxolani_horseman,1,3),(trp_visigoth_guard,2,3)]),
 
   ("kingdom_gallaeci_reinforcements_a", "{!}Gallaeci Reinforcements", 0, 0, fac_commoners, 0, [(trp_hibero_roman_venator,4,10),(trp_hibero_roman_rusticus,4,10)]), #mix of gallaeci, germans, romans + limited bagadua
-  ("kingdom_gallaeci_reinforcements_b", "{!}Gallaeci Reinforcements", 0, 0, fac_commoners, 0, [(trp_miles_romani,3,9),(trp_sagittarius_limitanei,3,6),(trp_standard_bearer,1,1)]),
+  ("kingdom_gallaeci_reinforcements_b", "{!}Gallaeci Reinforcements", 0, 0, fac_commoners, 0, [(trp_miles_romani,3,9),(trp_sagittarius,3,6),(trp_standard_bearer,1,1)]),
   ("kingdom_gallaeci_reinforcements_c", "{!}Gallaeci Reinforcements", 0, 0, fac_commoners, 0, [(trp_hibero_roman_defensor,3,7),(trp_bucellarius,1,3)]),
 
   #caucasian factions
@@ -382,34 +382,35 @@ party_templates = [
 #Each template gets a centenarius at tier 3
   #for specific lords/positions in WRE
   #Magister Militum per Gallia - based off of the Magiter Equitum's Gallic command
-  ("gallia_a", "{!}Per Gallia Reinforcements", 0, 0, fac_commoners, 0, [(trp_tiro_limitanei,2,5),(trp_pedes_defensores_seniores,2,5),(trp_exculator_limitanei,2,4),(trp_iuvenis_foederatus,2,4),(trp_western_alan_rider,2,4)]),
-  ("gallia_b", "{!}Per Gallia Reinforcements", 0, 0, fac_commoners, 0, [(trp_eques_dalmatae,3,8),(trp_pedes_ursarienses,5,10),(trp_imperial_signifer,1,1)]),
-  ("gallia_c", "{!}Per Gallia Reinforcements", 0, 0, fac_commoners, 0, [(trp_pedes_mattiaci_seniores,2,4),(trp_eques_prima_gallia,2,4),(trp_eques_batavi_seniores,2,4),(trp_centenarius,1,1)]),
-  #Magister Militum per Dalmatia - based off of Comes Illyricum's command
-  ("dalmatia_a", "{!}Per Dalmatia Reinforcements", 0, 0, fac_commoners, 0, [(trp_tiro_limitanei,2,6),(trp_pedes_lanciarii_lauriacenses,3,6),(trp_exculator_limitanei,3,6),(trp_iuvenis_foederatus,2,4)]),
-  ("dalmatia_b", "{!}Per Dalmatia Reinforcements", 0, 0, fac_commoners, 0, [(trp_hunnic_horse_archer,4,9),(trp_pedes_propugnatores_iuniores,4,9),(trp_imperial_signifer,1,1)]),
-  ("dalmatia_c", "{!}Per Dalmatia Reinforcements", 0, 0, fac_commoners, 0, [(trp_pedes_tungri,3,6),(trp_miles_sagittarii_venatores,3,6),(trp_centenarius,1,1)]),
-  #Magister Utriusque Militiae - based off of Magister Pedium's italian command - split between emperor, M.U.M
-  ("utriusque_a", "{!}Magister Utriusque Militiae Reinforcements", 0, 0, fac_commoners, 0, [(trp_tiro_limitanei,2,6),(trp_pedes_pontinenses,3,6),(trp_exculator_limitanei,3,6),(trp_iuvenis_foederatus,2,4)]),
-  ("utriusque_b", "{!}Magister Utriusque Militiae Reinforcements", 0, 0, fac_commoners, 0, [(trp_eques_stablesiani_italiciani,2,6),(trp_pedes_mattiarii_iuniores,6,12),(trp_imperial_signifer,1,1)]),
-  ("utriusque_c", "{!}Magister Utriusque Militiae Reinforcements", 0, 0, fac_commoners, 0, [(trp_comites_alani,2,4),(trp_pedes_cornuti_seniores,2,4),(trp_pedes_moesiaci_seniores,2,4),(trp_centenarius,1,1)]),
+  ("gallia_a", "{!}Per Gallia Reinforcements", 0, 0, fac_commoners, 0, [(trp_tiro,4,8),(trp_exculator,2,4),(trp_miles_foederatus_germani,2,6),(trp_western_alan_rider,2,4)]),
+  ("gallia_b", "{!}Per Gallia Reinforcements", 0, 0, fac_commoners, 0, [(trp_eques_honoriani_taifali_iuniores,3,8),(trp_pedes_defensores_seniores,5,10),(trp_imperial_signifer,1,1)]),
+  ("gallia_c", "{!}Per Gallia Reinforcements", 0, 0, fac_commoners, 0, [(trp_bucellarius,2,4),(trp_eques_batavi_seniores,2,8),(trp_centenarius,1,1)]),
+  #Magister Militum per Dalmatia - based off of Comes Illyricum's command - known to be well equipped, have scythians (huns + goths)
+  ("dalmatia_a", "{!}Per Dalmatia Reinforcements", 0, 0, fac_commoners, 0, [(trp_pedes_lanciarii_lauriacenses,5,12),(trp_exculator,3,6),(trp_eques_symmachi_hunnorum,2,4)]),
+  ("dalmatia_b", "{!}Per Dalmatia Reinforcements", 0, 0, fac_commoners, 0, [(trp_miles_foederatus_gothorum,4,9),(trp_miles_sagittarii_venatores,4,9),(trp_imperial_signifer,1,1)]),
+  ("dalmatia_c", "{!}Per Dalmatia Reinforcements", 0, 0, fac_commoners, 0, [(trp_pedes_felices_valentinianenses,3,6),(trp_bucellarius,3,6),(trp_centenarius,1,1)]),
+  #Magister Utriusque Militiae - based off of Magister Pedium's italian command
+  ("utriusque_a", "{!}Magister Utriusque Militiae Reinforcements", 0, 0, fac_commoners, 0, [(trp_pedes_defensores_seniores,3,8),(trp_exculator,3,4),(trp_miles_foederatus_germani,2,6),(trp_western_alan_rider,2,4)]),
+  ("utriusque_b", "{!}Magister Utriusque Militiae Reinforcements", 0, 0, fac_commoners, 0, [(trp_eques_stablesiani_italiciani,2,6),(trp_pedes_invicti_seniores,6,12),(trp_imperial_signifer,1,1)]),
+  ("utriusque_c", "{!}Magister Utriusque Militiae Reinforcements", 0, 0, fac_commoners, 0, [(trp_comites_alani,3,6),(trp_pedes_ioviani_seniores,3,6),(trp_centenarius,1,1)]),
   #for specific lords/positions in ERE
+  #Praesentalis will be stronger than the other positions
   #Magister Militum Praesentalis I
-  ("presentalis_1_a", "{!}Presentalis I Reinforcements", 0, 0, fac_commoners, 0, [(trp_tiro_limitanei,5,12),(trp_exculator_limitanei,3,6),(trp_iuvenis_foederatus,1,2),(trp_sagittarius_limitanei,1,2)]),
-  ("presentalis_1_b", "{!}Presentalis I Reinforcements", 0, 0, fac_commoners, 0, [(trp_eques_sagittarii,2,6),(trp_pedes_primi_theodosiani,3,6),(trp_pedes_victores,3,6),(trp_imperial_signifer,1,1)]),
-  ("presentalis_1_c", "{!}Presentalis I Reinforcements", 0, 0, fac_commoners, 0, [(trp_pedes_lanciarii_seniores,2,4),(trp_pedes_matiarii_iuniores,1,4),(trp_eques_clibanarii_parthi,1,4),(trp_centenarius,1,1)]),
+  ("presentalis_1_a", "{!}Presentalis I Reinforcements", 0, 0, fac_commoners, 0, [(trp_pedes_primi_theodosiani,3,8),(trp_eques_dalmatae,2,4),(trp_exculator,2,6),(trp_sagittarius,2,4)]),
+  ("presentalis_1_b", "{!}Presentalis I Reinforcements", 0, 0, fac_commoners, 0, [(trp_eques_sagittarii,2,4),(trp_eques_scutarii,2,3),(trp_eques_cataphractarii,1,3),(trp_pedes_victores,3,8),(trp_imperial_signifer,1,1)]),
+  ("presentalis_1_c", "{!}Presentalis I Reinforcements", 0, 0, fac_commoners, 0, [(trp_pedes_lanciarii_seniores,2,4),(trp_pedes_matiarii_iuniores,1,4),(trp_eques_clibanarii,1,4),(trp_centenarius,1,1)]),
   #Magister Militum Praesentalis II
-  ("presentalis_2_a", "{!}Presentalis II Reinforcements", 0, 0, fac_commoners, 0, [(trp_tiro_limitanei,5,12),(trp_exculator_limitanei,3,6),(trp_iuvenis_foederatus,1,2),(trp_sagittarius_limitanei,1,2)]),
-  ("presentalis_2_b", "{!}Presentalis II Reinforcements", 0, 0, fac_commoners, 0, [(trp_eques_sagittarii,2,6),(trp_pedes_regii_east,3,6),(trp_pedes_thraces,3,6),(trp_imperial_signifer,1,1)]),
-  ("presentalis_2_c", "{!}Presentalis II Reinforcements", 0, 0, fac_commoners, 0, [(trp_pedes_scythae,2,4),(trp_pedes_lanciarii_iuniores,2,4),(trp_comites_sagittarius_armeni,2,4),(trp_centenarius,1,1)]),
+  ("presentalis_2_a", "{!}Presentalis II Reinforcements", 0, 0, fac_commoners, 0, [(trp_pedes_thraces,3,7),(trp_eques_sexto_dalmatae,2,5),(trp_exculator,2,6),(trp_sagittarius,2,4)]),
+  ("presentalis_2_b", "{!}Presentalis II Reinforcements", 0, 0, fac_commoners, 0, [(trp_eques_scutarii,2,6),(trp_pedes_regii_east,4,8),(trp_eques_cataphractarii,2,4),(trp_imperial_signifer,1,1)]),
+  ("presentalis_2_c", "{!}Presentalis II Reinforcements", 0, 0, fac_commoners, 0, [(trp_pedes_scythae,2,4),(trp_pedes_daci,2,4),(trp_comites_sagittarius_armeni,2,4),(trp_centenarius,1,1)]),
   #Magister Militum per Orientem
-  ("orientem_a", "{!}Per Orientem Reinforcements", 0, 0, fac_commoners, 0, [(trp_tiro_limitanei,2,5),(trp_exculator_limitanei,2,4),(trp_roman_slinger,1,3),(trp_pedes_theodosiaci,1,4),(trp_pedes_transtigritani,3,6)]),
-  ("orientem_b", "{!}Per Orientem Reinforcements", 0, 0, fac_commoners, 0, [(trp_eques_sagittarii,2,4),(trp_pedes_quinta_macedonica,2,5),(trp_pedes_decima_gemina,2,5),(trp_pedes_decima_gemina,2,4),(trp_imperial_signifer,1,1)]),
-  ("orientem_c", "{!}Per Orientem Reinforcements", 0, 0, fac_commoners, 0, [(trp_pedes_quinta_macedonica,1,3),(trp_pedes_decima_gemina,1,3),(trp_eques_tertii_stablesiani,2,3),(trp_eques_armigeri_seniores_orientales,2,3),(trp_centenarius,1,1)]),
+  ("orientem_a", "{!}Per Orientem Reinforcements", 0, 0, fac_commoners, 0, [(trp_pedes_transtigritani,6,11),(trp_miles_prima_isaura_sagitarria,2,4),(trp_roman_slinger,1,3),(trp_pedes_theodosiaci,1,4)]),
+  ("orientem_b", "{!}Per Orientem Reinforcements", 0, 0, fac_commoners, 0, [(trp_eques_sagittarii,2,4),(trp_pedes_quinta_macedonica,2,5),(trp_pedes_decima_gemina,2,5),(trp_eques_scutarii,2,4),(trp_imperial_signifer,1,1)]),
+  ("orientem_c", "{!}Per Orientem Reinforcements", 0, 0, fac_commoners, 0, [(trp_bucellarius,2,4),(trp_eques_tertii_stablesiani,2,4),(trp_eques_armigeri_seniores_orientales,2,4),(trp_centenarius,1,1)]),
   #Comes Limitis Aegypti
-  ("aegypti_a", "{!}Comes Limitis Aegypti Reinforcements", 0, 0, fac_commoners, 0, [(trp_tiro_limitanei,5,12),(trp_exculator_limitanei,3,6),(trp_sagittarius_limitanei,2,4)]),
-  ("aegypti_b", "{!}Comes Limitis Aegypti Reinforcements", 0, 0, fac_commoners, 0, [(trp_eques_sagittarii,2,6),(trp_eques_sexto_dalmatae,3,6),(trp_pedes_quinta_macedonica,3,6),(trp_imperial_signifer,1,1)]),
-  ("aegypti_c", "{!}Comes Limitis Aegypti Reinforcements", 0, 0, fac_commoners, 0, [(trp_pedes_daci,2,5),(trp_pedes_quinta_macedonica,2,3),(trp_eques_alae,2,4),(trp_centenarius,1,1)]),
+  ("aegypti_a", "{!}Comes Limitis Aegypti Reinforcements", 0, 0, fac_commoners, 0, [(trp_pedes_quinta_macedonica,5,12),(trp_exculator,3,6),(trp_sagittarius,2,4)]),
+  ("aegypti_b", "{!}Comes Limitis Aegypti Reinforcements", 0, 0, fac_commoners, 0, [(trp_eques_indiginae,2,6),(trp_eques_ala,3,6),(trp_pedes_quinta_macedonica,3,6),(trp_imperial_signifer,1,1)]),
+  ("aegypti_c", "{!}Comes Limitis Aegypti Reinforcements", 0, 0, fac_commoners, 0, [(trp_pedes_quinta_macedonica,4,8),(trp_eques_stablesiani,2,4),(trp_centenarius,1,1)]),
   #Spahbed
   ("spahbed_a", "{!}eran-spahbed Reinforcements", 0, 0, fac_commoners, 0, [(trp_kurdish_javelinman,2,5),(trp_kurdish_slinger,1,5),(trp_sassanid_levy,4,7),(trp_daylamite_hillman,1,3)]),
   ("spahbed_b", "{!}eran-spahbed Reinforcements", 0, 0, fac_commoners, 0, [(trp_sassanid_footman,2,6),(trp_armenian_bowman,2,4),(trp_gilan_horseman,1,3),(trp_chionite_horse_archer,1,3),(trp_sassanid_standard_bearer,1,1)]),
@@ -421,9 +422,16 @@ party_templates = [
   #Magister Officiorum - east
   ("officiorum_east_c", "{!}Magister Officiorum Reinforcements", 0, 0, fac_commoners, 0, [(trp_schola_scutariorum_east,3,6),(trp_schola_gentilium_east,3,6),(trp_centenarius,1,1)]),
   #Magister Militum per Thracias
-  ("thracias_a", "{!}Per Thracias Reinforcements", 0, 0, fac_commoners, 0, [(trp_tiro_limitanei,5,12),(trp_exculator_limitanei,3,5),(trp_sagittarius_limitanei,2,5)]),
+  ("thracias_a", "{!}Per Thracias Reinforcements", 0, 0, fac_commoners, 0, [(trp_pedes_augustenses,3,6),(trp_pedes_tzaanni,3,6),(trp_exculator,2,5),(trp_sagittarius,2,5)]),
   ("thracias_b", "{!}Per Thracias Reinforcements", 0, 0, fac_commoners, 0, [(trp_eques_sagittarii,2,6),(trp_pedes_tzaanni,3,6),(trp_pedes_augustenses,3,6),(trp_imperial_signifer,1,1)]),
-  ("thracias_c", "{!}Per Thracias Reinforcements", 0, 0, fac_commoners, 0, [(trp_pedes_tzaanni,2,5),(trp_pedes_augustenses,2,5),(trp_eques_cataphractarii,2,2),(trp_centenarius,1,1)]),
+  ("thracias_c", "{!}Per Thracias Reinforcements", 0, 0, fac_commoners, 0, [(trp_eques_stablesiani,3,6),(trp_eques_cataphractarii,3,6),(trp_centenarius,1,1)]),
+
+  #eventually with have Magister Militum per Illyricum
+  #lanciarii iuniores (comitatenses)
+  #sagitarii lecti (auxilia palatina)
+  #ascarii iuniores (auxilia palatina)
+  #britones seniores (palatina)
+  #germaniciani seniores (comitatenses) - had both "equites" and another listing, probably shared the same pattern?
 
   ("steppe_bandit_lair" ,"Iazyges Bandit Lair",icon_bandit_lair|carries_goods(2)|pf_is_static|pf_hide_defenders,0,fac_neutral,bandit_personality,[(trp_steppe_bandit,5,20)]),
   ("taiga_bandit_lair","Germanic Bandit Lair",icon_bandit_lair|carries_goods(2)|pf_is_static|pf_hide_defenders,0,fac_neutral,bandit_personality,[(trp_taiga_bandit,5,20)]),

@@ -426,7 +426,7 @@ presentations = [
 
       (try_begin),
         (eq, "$g_quick_battle_team_2_faction", "fac_kingdom_1"),
-        (assign, ":cur_troop", "trp_pedes_psuedo"),
+        (assign, ":cur_troop", "trp_pedes"),
       (else_try),
         (eq, "$g_quick_battle_team_2_faction", "fac_kingdom_2"),
         (assign, ":cur_troop", "trp_eques_clibanarii"),
@@ -18796,7 +18796,7 @@ presentations = [
         (assign, ":c", 0),
 
             (eq, ":c", 0),
-            (try_begin), #AOR olibrones - Gaul, Italy + Hispania , towns only
+            (try_begin), #AOR miles romani - Gaul, Italy
               (this_or_next|eq, "$current_town", "p_castle_4"),  
               (this_or_next|eq, "$current_town", "p_castle_21"),
               (this_or_next|eq, "$current_town", "p_castle_53"), 
@@ -18813,9 +18813,44 @@ presentations = [
               (this_or_next|eq, "$current_town", "p_town_23"), 
               (this_or_next|eq, "$current_town", "p_town_25"),  
               (eq, "$current_town", "p_town_40"), 
-              (this_or_next|eq, ":troop", "trp_vigilia"),
-              (this_or_next|eq, ":troop", "trp_olibrones"),
               (eq, ":troop", "trp_miles_romani"),
+              (assign, ":c", 1),
+            (else_try), #AOR foderati goths
+              (this_or_next|eq, "$current_town", "p_castle_13"), 
+              (this_or_next|eq, "$current_town", "p_castle_16"), 
+              (this_or_next|eq, "$current_town", "p_castle_18"), 
+              (this_or_next|eq, "$current_town", "p_castle_21"), 
+              (this_or_next|eq, "$current_town", "p_castle_25"), 
+              (this_or_next|eq, "$current_town", "p_castle_52"),  
+              (this_or_next|eq, "$current_town", "p_town_6"),      
+              (this_or_next|eq, "$current_town", "p_town_7"),  
+              (this_or_next|eq, "$current_town", "p_town_8"), 
+              (this_or_next|eq, "$current_town", "p_town_9"), 
+              (this_or_next|eq, "$current_town", "p_town_13"), 
+              (eq, "$current_town", "p_town_36"), 
+              (eq, ":troop", "trp_miles_foederatus_gothorum"),
+              (assign, ":c", 1),
+            (else_try), #AOR foderati germans
+              (this_or_next|eq, "$current_town", "p_castle_1"), 
+              (this_or_next|eq, "$current_town", "p_castle_12"), 
+              (this_or_next|eq, "$current_town", "p_castle_18"), 
+              (this_or_next|eq, "$current_town", "p_castle_21"), 
+              (this_or_next|eq, "$current_town", "p_castle_37"), 
+              (this_or_next|eq, "$current_town", "p_town_8"), 
+              (this_or_next|eq, "$current_town", "p_town_13"), 
+              (eq, "$current_town", "p_town_15"), 
+              (eq, ":troop", "trp_miles_foederatus_germani"),
+              (assign, ":c", 1),
+            (else_try), #AOR foderati huns
+              (this_or_next|eq, "$current_town", "p_castle_13"), 
+              (this_or_next|eq, "$current_town", "p_castle_16"), 
+              (this_or_next|eq, "$current_town", "p_castle_25"), 
+              (this_or_next|eq, "$current_town", "p_town_6"), 
+              (this_or_next|eq, "$current_town", "p_town_7"), 
+              (this_or_next|eq, "$current_town", "p_town_9"), 
+              (this_or_next|eq, "$current_town", "p_town_13"), 
+              (eq, "$current_town", "p_town_36"), 
+              (eq, ":troop", "trp_eques_symmachi_hunnorum"),
               (assign, ":c", 1),
             (else_try), #AOR western alans
               (this_or_next|eq, "$current_town", "p_castle_8"), 
@@ -19029,11 +19064,6 @@ presentations = [
               (this_or_next|eq, ":troop", "trp_gothic_skirmisher"),
               (eq, ":troop", "trp_gothic_horseman"),
               (assign, ":c", 1),
-            (else_try), #moesian aor
-              (this_or_next|eq, "$current_town", "p_castle_13"),
-              (eq, "$current_town", "p_castle_25"),        
-              (eq, ":troop", "trp_moesian_goth"),
-              (assign, ":c", 1),
             (else_try), #rugii aor
               (this_or_next|eq, "$current_town", "p_castle_51"),
               (this_or_next|eq, "$current_town", "p_castle_71"),
@@ -19205,45 +19235,34 @@ presentations = [
               (eq, "$current_town", "p_town_36"),        
               (eq, ":troop", "trp_pedes_theodosiaci"),
               (assign, ":c", 1),
-            (else_try), #pontinenses
-              (this_or_next|eq, "$current_town", "p_castle_1"),
-              (eq, "$current_town", "p_town_8"),        
-              (this_or_next|eq, ":troop", "trp_pedes_pontinenses"),
-              (eq, ":troop", "trp_pedes_cornuti_seniores"),
-              (assign, ":c", 1),
-            (else_try), #mattiarii_iuniores
-              (eq, "$current_town", "p_castle_16"),        
-              (eq, ":troop", "trp_pedes_mattiarii_iuniores"),
-              (assign, ":c", 1),
-            (else_try), #cornuti, comites alani, moesiaci seniores
+            (else_try), #ravenna
               (eq, "$current_town", "p_town_13"),        
-              (this_or_next|eq, ":troop", "trp_pedes_cornuti_seniores"),
-              (this_or_next|eq, ":troop", "trp_pedes_felices_valentinianenses"),
-              (this_or_next|eq, ":troop", "trp_pedes_ioviani_seniores"),
-              (eq, ":troop", "trp_comites_alani"),
+              (eq, ":troop", "trp_miles_iuniorum_italicorum"),
               (assign, ":c", 1),
-            (else_try), #mattiaci_seniores
+            (else_try), #MUM
               (this_or_next|eq, "$current_town", "p_castle_20"),
-              (eq, "$current_town", "p_town_11"),        
-              (this_or_next|eq, ":troop", "trp_pedes_moesiaci_seniores"),
-              (eq, ":troop", "trp_eques_stablesiani_italiciani"),
+              (this_or_next|eq, "$current_town", "p_castle_37"),
+              (this_or_next|eq, "$current_town", "p_town_8"),   
+              (this_or_next|eq, "$current_town", "p_town_11"),        
+              (eq, "$current_town", "p_town_13"),  
+              (this_or_next|eq, ":troop", "trp_pedes_defensores_seniores"),
+              (this_or_next|eq, ":troop", "trp_pedes_invicti_seniores"),
+              (this_or_next|eq, ":troop", "trp_pedes_ioviani_seniores"),
+              (this_or_next|eq, ":troop", "trp_eques_stablesiani_italiciani"),
+              (eq, ":troop", "trp_comites_alani"),
               (assign, ":c", 1),
             (else_try), #gallia
               (this_or_next|eq, "$current_town", "p_castle_12"),
               (this_or_next|eq, "$current_town", "p_castle_21"),
               (eq, "$current_town", "p_town_15"),        
               (this_or_next|eq, ":troop", "trp_pedes_defensores_seniores"),
-              (this_or_next|eq, ":troop", "trp_pedes_ursarienses"),
-              (this_or_next|eq, ":troop", "trp_pedes_mattiaci_seniores"),
-              (this_or_next|eq, ":troop", "trp_eques_prima_gallia"),
               (this_or_next|eq, ":troop", "trp_eques_honoriani_taifali_iuniores"),
               (eq, ":troop", "trp_eques_batavi_seniores"),
               (assign, ":c", 1),
             (else_try), #dalmatia
               (eq, "$current_town", "p_town_9"),        
               (this_or_next|eq, ":troop", "trp_pedes_lanciarii_lauriacenses"),
-              (this_or_next|eq, ":troop", "trp_pedes_propugnatores_iuniores"),
-              (this_or_next|eq, ":troop", "trp_pedes_tungri"),
+              (this_or_next|eq, ":troop", "trp_pedes_felices_valentinianenses"),
               (eq, ":troop", "trp_miles_sagittarii_venatores"),
               (assign, ":c", 1),
             (else_try), #presentalis I
@@ -19260,12 +19279,6 @@ presentations = [
               (eq, "$current_town", "p_town_39"),        
               (eq, ":troop", "trp_pedes_lanciarii_iuniores"),
               (assign, ":c", 1),
-            (else_try), #Equites Clibanarii Parthi
-              (this_or_next|eq, "$current_town", "p_town_7"),
-              (this_or_next|eq, "$current_town", "p_town_39"),
-              (eq, "$current_town", "p_town_41"),        
-              (eq, ":troop", "trp_eques_clibanarii_parthi"),
-              (assign, ":c", 1),
             (else_try), #AOR limes arabica
               (this_or_next|eq, "$current_town", "p_castle_41"),
               (this_or_next|eq, "$current_town", "p_castle_46"),
@@ -19281,15 +19294,15 @@ presentations = [
               (eq, ":troop", "trp_eques_sexto_dalmatae"),
               (assign, ":c", 1),
             #ROMAN AOR END
-            (else_try), #gallo-romans under frankish service
-              (this_or_next|eq, "$current_town", "p_castle_12"),
-              (eq, "$current_town", "p_town_15"),        
-              (eq, ":troop", "trp_gallic_infantry"),
-              (assign, ":c", 1),
-            (else_try), #Arborychoi
-              (eq, "$current_town", "p_town_29"),        
-              (eq, ":troop", "trp_miles_arborychoi"),
-              (assign, ":c", 1),
+            #(else_try), #gallo-romans under frankish service
+            #  (this_or_next|eq, "$current_town", "p_castle_12"),
+            #  (eq, "$current_town", "p_town_15"),        
+            #  (eq, ":troop", "trp_gallic_infantry"),
+            #  (assign, ":c", 1),
+            #(else_try), #Arborychoi
+            #  (eq, "$current_town", "p_town_29"),        
+            #  (eq, ":troop", "trp_miles_arborychoi"),
+            #  (assign, ":c", 1),
             (else_try), #arthurian knights
               (eq, "$g_can_hire_arthurian_knights", 1),
               (this_or_next|eq, "$current_town", "p_town_18"),
@@ -19393,7 +19406,6 @@ presentations = [
             (else_try), #gallaeci
               (eq, "$current_town", "p_gallaeci_village"),   
               (this_or_next|eq, ":troop", "trp_miles_romani"),
-              (this_or_next|eq, ":troop", "trp_pedes_burgarius"),
               (eq, ":troop", "trp_eques_cantabri"),
               (assign, ":c", 1),
             (else_try), #sporoi
@@ -19530,21 +19542,20 @@ presentations = [
                 (assign, ":c", 1), 
               (else_try),  
                 (eq, ":culture", "fac_culture_empire"), #romans - this is where the fun begins!
-                (this_or_next|eq, ":troop", "trp_tiro_limitanei"), #recruit limitanei
-                (this_or_next|eq, ":troop", "trp_eques_limitanei"), #limitanei horseman
-                (this_or_next|eq, ":troop", "trp_exculator_limitanei"), #skirmisher
-                (this_or_next|eq, ":troop", "trp_sagittarius_limitanei"), #archer
-                (this_or_next|eq, ":troop", "trp_eques_dalmatae"), #mounted skirmisher
-                (this_or_next|eq, ":troop", "trp_eques_sagittarii"), #horse archer
-                (this_or_next|eq, ":troop", "trp_eques_cataphractarii"), #recruit cataphracts
-                (this_or_next|eq, ":troop", "trp_vigilia"), #recruit burgarii
-                (this_or_next|eq, ":troop", "trp_iuvenis_foederatus"), #recruit foederati
-                (this_or_next|eq, ":troop", "trp_eques_alae"), #recruit foederati
-                (this_or_next|eq, ":troop", "trp_roman_slinger"), #recruit slingers
-                (this_or_next|eq, ":troop", "trp_imperial_signifer"), #recruit signifers
-                (this_or_next|eq, ":troop", "trp_roman_marine"), #recruit marines
-                (this_or_next|eq, ":troop", "trp_bucellarius"), #recruit bucellarii - noble troop
-                (eq, ":troop", "trp_centenarius"), #centenarius
+                (this_or_next|eq, ":troop", "trp_tiro"), 
+                (this_or_next|eq, ":troop", "trp_exculator"), 
+                (this_or_next|eq, ":troop", "trp_sagittarius"), 
+                (this_or_next|eq, ":troop", "trp_eques_mauri"), 
+                (this_or_next|eq, ":troop", "trp_eques_ala"),
+                (this_or_next|eq, ":troop", "trp_eques_dalmatae"),
+                (this_or_next|eq, ":troop", "trp_eques_sagittarii"), 
+                (this_or_next|eq, ":troop", "trp_eques_scutarii"), 
+                (this_or_next|eq, ":troop", "trp_eques_cataphractarii"),
+                (this_or_next|eq, ":troop", "trp_roman_slinger"), 
+                (this_or_next|eq, ":troop", "trp_imperial_signifer"), 
+                (this_or_next|eq, ":troop", "trp_roman_marine"),
+                (this_or_next|eq, ":troop", "trp_bucellarius"), 
+                (eq, ":troop", "trp_centenarius"),
                 (assign, ":c", 1), 
               (try_end),
             (try_end),
@@ -19757,21 +19768,20 @@ presentations = [
                     (assign, ":c", 1), 
                   (else_try),  
                     (eq, ":culture", "fac_culture_empire"), #romans - this is where the fun begins!
-                    (this_or_next|eq, ":troop", "trp_tiro_limitanei"), #recruit limitanei
-                    (this_or_next|eq, ":troop", "trp_eques_limitanei"), #limitanei horseman
-                    (this_or_next|eq, ":troop", "trp_exculator_limitanei"), #skirmisher
-                    (this_or_next|eq, ":troop", "trp_sagittarius_limitanei"), #archer
-                    (this_or_next|eq, ":troop", "trp_eques_dalmatae"), #mounted skirmisher
-                    (this_or_next|eq, ":troop", "trp_eques_sagittarii"), #horse archer
-                    (this_or_next|eq, ":troop", "trp_eques_cataphractarii"), #recruit cataphracts
-                    (this_or_next|eq, ":troop", "trp_vigilia"), #recruit burgarii
-                    (this_or_next|eq, ":troop", "trp_iuvenis_foederatus"), #recruit foederati
-                    (this_or_next|eq, ":troop", "trp_eques_alae"), #recruit foederati
-                    (this_or_next|eq, ":troop", "trp_roman_slinger"), #recruit slingers
-                    (this_or_next|eq, ":troop", "trp_imperial_signifer"), #recruit signifers
-                    (this_or_next|eq, ":troop", "trp_roman_marine"), #recruit marines
-                    (this_or_next|eq, ":troop", "trp_bucellarius"), #recruit bucellarii - noble troop
-                    (eq, ":troop", "trp_centenarius"), #centenarius
+                    (this_or_next|eq, ":troop", "trp_tiro"), 
+                    (this_or_next|eq, ":troop", "trp_exculator"), 
+                    (this_or_next|eq, ":troop", "trp_sagittarius"), 
+                    (this_or_next|eq, ":troop", "trp_eques_mauri"), 
+                    (this_or_next|eq, ":troop", "trp_eques_ala"),
+                    (this_or_next|eq, ":troop", "trp_eques_dalmatae"),
+                    (this_or_next|eq, ":troop", "trp_eques_sagittarii"), 
+                    (this_or_next|eq, ":troop", "trp_eques_scutarii"), 
+                    (this_or_next|eq, ":troop", "trp_eques_cataphractarii"),
+                    (this_or_next|eq, ":troop", "trp_roman_slinger"), 
+                    (this_or_next|eq, ":troop", "trp_imperial_signifer"), 
+                    (this_or_next|eq, ":troop", "trp_roman_marine"),
+                    (this_or_next|eq, ":troop", "trp_bucellarius"), 
+                    (eq, ":troop", "trp_centenarius"),
                     (assign, ":c", 1), 
                   (try_end),
                 (try_end),

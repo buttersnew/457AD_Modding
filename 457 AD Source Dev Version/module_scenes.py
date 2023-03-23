@@ -1621,7 +1621,14 @@ scenes = [
     [],[],"outer_terrain_forest"),
   ("venedi_town",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000220000500000d23480000540b000076c900003f3f",
     [],[],"outer_terrain_forest"),  
-
+  ("saraguroi_town", sf_generate, "none", "none", (0, 0), (220, 220), -100, "0x0000000220000500000811ff00007c1000000733000040f4",
+    [], [], "outer_terrain_steppe"),
+  ("onoguroi_town", sf_generate, "none", "none", (0, 0), (220, 220), -100, "0x0000000220000500000811ff00007c1000000733000040f4",
+    [], [], "outer_terrain_steppe"),
+  ("kutriguroi_town", sf_generate, "none", "none", (0, 0), (220, 220), -100, "0x0000000220000500000811ff00007c1000000733000040f4",
+    [], [], "outer_terrain_steppe"),
+  ("sabiroi_town", sf_generate, "none", "none", (0, 0), (220, 220), -100, "0x0000000220000500000811ff00007c1000000733000040f4",
+    [], [], "outer_terrain_steppe"),
 
   ("ruins_1",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000300005000003ccf300007c9a00004ca90000122f",
    [],["bonus_chest_5"], "outer_terrain_plain"),

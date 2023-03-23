@@ -610,8 +610,11 @@ parties = [
   ("frisian_village", "Finn's Hall", icon_village_a|pf_minor_town, no_menu, pt_none, fac_minor_frisians, 0, ai_bhvr_hold, 0, (-174.68, 135.89), []), 
   ("vascones_village", "Flaviobriga", icon_castle_a|pf_minor_town, no_menu, pt_none, fac_minor_vascones, 0, ai_bhvr_hold, 0, (-243.57, 43.55), []),
   ("gallaeci_village", "Lucus_Augusti", icon_castle_a|pf_minor_town, no_menu, pt_none, fac_minor_gallaeci, 0, ai_bhvr_hold, 0, (-267.49,42.04), []),
-  ("venedi_village", "Dunepru", icon_village_a|pf_minor_town, no_menu, pt_none, fac_minor_venedi, 0, ai_bhvr_hold, 0, (-6.56, 158.21), []),  
-
+  ("venedi_village", "Dunepru", icon_village_a|pf_minor_town, no_menu, pt_none, fac_minor_venedi, 0, ai_bhvr_hold, 0, (-6.4, 159.72), []),   #[swycartographr] prev. coords: (-6.56, 158.21)
+  ("onoguroi_village", "Campus Onogurorum", icon_village_a|pf_minor_town, no_menu, pt_none, fac_minor_onoguroi, 0, ai_bhvr_hold, 0, (111.7, 126.6), []), #[swycartographr] prev. coords: (-6.56, 158.21)
+  ("saraguroi_village", "Campus Saragurorum", icon_village_a|pf_minor_town, no_menu, pt_none, fac_minor_saraguroi, 0, ai_bhvr_hold, 0, (98.2, 154.34), []), #[swycartographr] prev. coords: (-6.56, 158.21)
+  ("kutriguroi_village", "Campus Kutrigurorum", icon_village_a|pf_minor_town, no_menu, pt_none, fac_minor_kutriguroi, 0, ai_bhvr_hold, 0, (55.04, 132.01), []), #[swycartographr] prev. coords: (-6.56, 158.21)
+  ("sabiroi_village", "Campus Sabirorum", icon_village_a|pf_minor_town, no_menu, pt_none, fac_minor_sabiroi, 0, ai_bhvr_hold, 0, (159.15, 168.09), []), #[swycartographr] prev. coords: (-6.56, 158.21)
   #minor faction villages
 
   ("religious_site_1","Batavis",icon_castle_snow_a|pf_is_static|pf_always_visible|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-107.97, 87.93),[]), #roman 

@@ -408,7 +408,7 @@ party_templates = [
   ("orientem_b", "{!}Per Orientem Reinforcements", 0, 0, fac_commoners, 0, [(trp_eques_sagittarii,2,4),(trp_pedes_quinta_macedonica,2,5),(trp_pedes_decima_gemina,2,5),(trp_eques_scutarii,2,4),(trp_imperial_signifer,1,1)]),
   ("orientem_c", "{!}Per Orientem Reinforcements", 0, 0, fac_commoners, 0, [(trp_bucellarius,2,4),(trp_eques_tertii_stablesiani,2,4),(trp_eques_armigeri_seniores_orientales,2,4),(trp_centenarius,1,1)]),
   #Comes Limitis Aegypti
-  ("aegypti_a", "{!}Comes Limitis Aegypti Reinforcements", 0, 0, fac_commoners, 0, [(trp_tiro,5,12),(trp_exculator,3,6),(trp_sagittarius,2,4)]),
+  ("aegypti_a", "{!}Comes Limitis Aegypti Reinforcements", 0, 0, fac_commoners, 0, [(trp_pedes_quinta_macedonica,5,12),(trp_exculator,3,6),(trp_sagittarius,2,4)]),
   ("aegypti_b", "{!}Comes Limitis Aegypti Reinforcements", 0, 0, fac_commoners, 0, [(trp_eques_indiginae,2,6),(trp_eques_ala,3,6),(trp_pedes_quinta_macedonica,3,6),(trp_imperial_signifer,1,1)]),
   ("aegypti_c", "{!}Comes Limitis Aegypti Reinforcements", 0, 0, fac_commoners, 0, [(trp_pedes_quinta_macedonica,4,8),(trp_eques_stablesiani,2,4),(trp_centenarius,1,1)]),
   #Spahbed

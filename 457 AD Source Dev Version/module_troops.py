@@ -2042,7 +2042,7 @@ troops = [
   #CAVALRY
 #Equites stablesiani Italiciani - vexillationes comitatenses - Italia - sword/shield - only non-domesicti/scholae unit to get deurne helmet
   ["eques_stablesiani_italiciani","Eques Stablesiani Italiciani","Equites Stablesiani Italiciani",tf_mounted|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_shield|tf_guarantee_helmet|tf_guarantee_horse,0,0,fac_kingdom_1,
-   [itm_deurne_campagi_greaves_2,itm_deurne_campagi_greaves_5,itm_roman_mail_2,itm_roman_mail_4,itm_kemathen_mail_rich_8,itm_concave_shield_stablesiani,itm_arabian_sword_b,itm_burgh_helmet_2,itm_christies_helmet_2,itm_iatrus_2,itm_koblenz_helmet_2,itm_deurne_helmet]+mail_roman_1+horses_roman_3,
+   [itm_deurne_campagi_greaves_2,itm_deurne_campagi_greaves_5,itm_concave_shield_stablesiani,itm_arabian_sword_b,itm_burgh_helmet_2,itm_christies_helmet_2,itm_iatrus_2,itm_koblenz_helmet_2,itm_deurne_helmet]+mail_roman_1+horses_roman_3,
    def_attrib_lvl_25|level(24),wp_one_handed(175)|wp_two_handed(150)|wp_polearm(175)|wp_throwing(130)|wp_crossbow(130)|wp_archery(130),knows_lvl_25,roman_face_1, roman_face_2],
 #Equites Honoriani Taifali iuniores - vexillationes comitatenses - Gallia - elite skirmish cavalry
   ["eques_honoriani_taifali_iuniores","Eques Honoriani Taifali Iuniores","Equites Honoriani Taifali Iuniores",tf_mounted|tf_guarantee_horse|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_shield|tf_guarantee_polearm,0,0,fac_kingdom_1,

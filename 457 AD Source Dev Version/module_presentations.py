@@ -19181,6 +19181,11 @@ presentations = [
             #and now for the roman AOR!
             (else_try), #Quinta Macedonica
               (faction_slot_eq, "$players_kingdom", slot_faction_culture, "fac_culture_empire"),
+              (eq, "$current_town", "p_castle_18"),      
+              (eq, ":troop", "trp_miles_musculariorum"),
+              (assign, ":c", 1),  
+            (else_try), #Quinta Macedonica
+              (faction_slot_eq, "$players_kingdom", slot_faction_culture, "fac_culture_empire"),
               (this_or_next|eq, "$current_town", "p_castle_9"),
               (this_or_next|eq, "$current_town", "p_castle_25"),
               (eq, "$current_town", "p_town_21"),        

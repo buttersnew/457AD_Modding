@@ -5740,6 +5740,42 @@ Even in the last case, the player can make formations up to four lines by orderi
   ("kerch_shield_15","kerch_shield_15"),
   ("kerch_shield_wood","kerch_shield_wood"),
 #OVAL SHIELDS
+  ("oval_shields_white_1","oval_shields_white_1"),
+  ("oval_shields_red_1","oval_shields_red_1"),
+  ("oval_shields_blue_1","oval_shields_blue_1"),
+  ("oval_shields_green_1","oval_shields_green_1"),
+  ("oval_shields_yellow_1","oval_shields_yellow_1"),
+  ("oval_shields_leather_1","oval_shields_leather_1"),
+  ("oval_shields_leather_2","oval_shields_leather_2"),
+  #CHI RHO
+  ("oval_shields_chi_rho_1","oval_shields_chi_rho_1"),
+  ("oval_shields_chi_rho_2","oval_shields_chi_rho_2"),
+  ("oval_shields_chi_rho_3","oval_shields_chi_rho_3"),
+  #MISC ROMAN SHIELDS
+  ("oval_shields_limitanei_1","oval_shields_limitanei_1"),
+  ("oval_shields_limitanei_2","oval_shields_limitanei_2"),
+  ("oval_shields_limitanei_3","oval_shields_limitanei_3"),
+  ("oval_shields_limitanei_4","oval_shields_limitanei_4"),
+  #ROMANO-BRITON
+  ("oval_shields_briton_1","oval_shields_briton_1"),
+  #ROMANO-MAURI
+  ("oval_shields_african_1","oval_shields_african_1"),
+  ("oval_shields_african_2","oval_shields_african_2"),
+  #WRE
+  ("oval_shields_west_1","oval_shields_west_1"),
+  ("oval_shields_west_2","oval_shields_west_2"),
+  ("oval_shields_west_3","oval_shields_west_3"),
+  #ERE
+  ("oval_shields_east_1","oval_shields_east_1"),
+  ("oval_shields_east_2","oval_shields_east_2"),
+  ("oval_shields_east_3","oval_shields_east_3"),
+  ("oval_shields_east_4","oval_shields_east_4"),
+  ("oval_shields_east_5","oval_shields_east_5"),
+  ("oval_shields_east_6","oval_shields_east_6"),
+  ("oval_shields_east_7","oval_shields_east_7"),
+
+  ("oval_shields_domestici_1","oval_shields_domestici_1"),
+
   ("oval_shield_wicker","oval_shield_wicker"),
   ("oval_shield_wood_1","oval_shield_wood_1"),
   ("oval_shield_wood_2","oval_shield_wood_2"),

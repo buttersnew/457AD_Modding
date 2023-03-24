@@ -699,23 +699,37 @@ tableaus = [
     (cur_tableau_set_camera_parameters, 0, 200, 200, 0, 100000),
        ]),
 
-  ("oval_shield_tableau", 0, "oval_shield_1", 1024, 1024, 0, 0, 0, 0,
+  #("oval_shield_tableau", 0, "oval_shield_1", 1024, 1024, 0, 0, 0, 0,
+  # [
+  #     (store_script_param, ":banner_mesh", 1),
+  #     (set_fixed_point_multiplier, 100),
+  #     (init_position, pos1),
+  #     (position_set_x, pos1, -46),
+  #     (position_set_y, pos1, 180.5),
+  #     (cur_tableau_add_mesh, ":banner_mesh", pos1, 140, 0),
+  #     (init_position, pos1),
+  #     (position_set_z, pos1, 20),
+  #     (cur_tableau_add_mesh, "mesh_tableau_mesh_oval_shield", pos1, 0, 0),
+  #     (cur_tableau_set_camera_parameters, 0, 200, 200, 0, 100000),
+  #]),
+
+  ("oval_shield_tableau", 0, "oval_shields_white_1", 1024, 1024, 0, 0, 0, 0,
    [
        (store_script_param, ":banner_mesh", 1),
 
        (set_fixed_point_multiplier, 100),
 
        (init_position, pos1),
-       (position_set_x, pos1, -46),
-       (position_set_y, pos1, 180.5),
+       (position_set_x, pos1, -49.75),
+       (position_set_y, pos1, 186.5),
        (cur_tableau_add_mesh, ":banner_mesh", pos1, 140, 0),
        (init_position, pos1),
        (position_set_z, pos1, 20),
-       (cur_tableau_add_mesh, "mesh_tableau_mesh_oval_shield", pos1, 0, 0),
+       (cur_tableau_add_mesh, "mesh_tableau_mesh_oval_shields", pos1, 0, 0),
        (cur_tableau_set_camera_parameters, 0, 200, 200, 0, 100000),
   ]),
 
-  ("oval_shield_tableau_color", 0, "oval_shield_1", 1024, 1024, 0, 0, 0, 0,
+  ("oval_shield_tableau_color", 0, "oval_shields_white_1", 1024, 1024, 0, 0, 0, 0,
    [
     (store_script_param, ":banner_mesh", 1),
 
@@ -728,7 +742,7 @@ tableaus = [
     (init_position, pos1),
     (position_set_z, pos1, 10),
     (val_div, ":banner_mesh", 1000),
-    (val_add, ":banner_mesh", "mesh_tableau_mesh_oval_shield"),
+    (val_add, ":banner_mesh", "mesh_tableau_mesh_oval_shields"),
     (assign, reg3, ":banner_mesh"),
     (cur_tableau_add_mesh, ":banner_mesh", pos1, 0, 0),
     (cur_tableau_set_camera_parameters, 0, 200, 200, 0, 100000),

@@ -286,7 +286,8 @@ meshes = [
   ("tableau_mesh_roman_spear_banner", 0, "tableau_mesh_roman_spear_banner",  0, 0, 0, 0, 0, 0, 5, 5, 5),
   ("tableau_mesh_wickershield",  0, "tableau_mesh_wickershield", 0, 0, 0, 0, 0, 0, 10, 10, 10),
   ("tableau_mesh_round_shields", 0, "tableau_mesh_round_shields",  0, 0, 0, 0, 0, 0, 10, 10, 10),
-  ("tableau_mesh_oval_shield", 0, "tableau_mesh_oval_shield",  0, 0, 0, 0, 0, 0, 10, 10, 10),
+  #("tableau_mesh_oval_shield", 0, "tableau_mesh_oval_shield",  0, 0, 0, 0, 0, 0, 10, 10, 10),
+  ("tableau_mesh_oval_shields", 0, "tableau_mesh_oval_shields",  0, 0, 0, 0, 0, 0, 10, 10, 10),
   
   ("heraldic_map_flag_03", 0, "heraldic_map_flag_03",  0, 0, 0, -90, 0, 90, 1, 1, 1),
   ("tableau_mesh_heraldic_banner_03", 0, "tableau_mesh_heraldic_banner_03", 0, 0, 0, 0, 0, 0, 10, 10, 10),

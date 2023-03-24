@@ -19148,7 +19148,8 @@ presentations = [
             (else_try), #Gaetuli
               (this_or_next|eq, "$current_town", "p_castle_39"),
               (this_or_next|eq, "$current_town", "p_castle_40"),
-              (eq, "$current_town", "p_town_34"),        
+              (eq, "$current_town", "p_town_34"),      
+              (this_or_next|eq, ":troop", "trp_pedes_fortenses"),  
               (this_or_next|eq, ":troop", "trp_gaetuli_warrior"),
               (eq, ":troop", "trp_gaetuli_horseman"),
               (assign, ":c", 1),
@@ -19196,6 +19197,13 @@ presentations = [
               (this_or_next|eq, "$current_town", "p_castle_23"),
               (eq, "$current_town", "p_castle_31"),        
               (eq, ":troop", "trp_pedes_tzaanni"),
+              (assign, ":c", 1),  
+            (else_try), #per illyricum
+              (faction_slot_eq, "$players_kingdom", slot_faction_culture, "fac_culture_empire"),
+              (this_or_next|eq, "$current_town", "p_castle_25"),
+              (eq, "$current_town", "p_castle_52"),        
+              (this_or_next|eq, ":troop", "trp_pedes_lanciarii_iuniores"),
+              (eq, ":troop", "trp_pedes_ascarii_iuniores"),
               (assign, ":c", 1),  
             (else_try), #Eastern Regii
               (faction_slot_eq, "$players_kingdom", slot_faction_culture, "fac_culture_empire"),
@@ -19293,12 +19301,6 @@ presentations = [
               (this_or_next|eq, ":troop", "trp_pedes_primi_theodosiani"),
               (this_or_next|eq, ":troop", "trp_pedes_victores"),
               (eq, ":troop", "trp_pedes_lanciarii_seniores"),
-              (assign, ":c", 1),
-            (else_try), #presenatlis II
-              (faction_slot_eq, "$players_kingdom", slot_faction_culture, "fac_culture_empire"),
-              (this_or_next|eq, "$current_town", "p_castle_24"),
-              (eq, "$current_town", "p_town_39"),        
-              (eq, ":troop", "trp_pedes_lanciarii_iuniores"),
               (assign, ":c", 1),
             (else_try), #AOR limes arabica
               (faction_slot_eq, "$players_kingdom", slot_faction_culture, "fac_culture_empire"),

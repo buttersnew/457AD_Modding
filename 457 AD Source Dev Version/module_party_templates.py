@@ -304,6 +304,23 @@ party_templates = [
   ("roman_garrison_reinforcements_b", "{!}Roman Garrison Reinforcements", 0, 0, fac_commoners, 0, [(trp_pedes,3,8),(trp_sagittarius,3,7)]),
   ("roman_garrison_reinforcements_c", "{!}Roman Garrison Reinforcements", 0, 0, fac_commoners, 0, [(trp_pedes,4,10)]),
 
+  #unique garrison
+  ("ravenna_garrison_reinforcements_a", "{!}Ravenna Garrison Reinforcements", 0, 0, fac_commoners, 0, [(trp_miles_iuniorum_italicorum,4,10),(trp_exculator,4,10)]),
+  ("ravenna_garrison_reinforcements_b", "{!}Ravenna Garrison Reinforcements", 0, 0, fac_commoners, 0, [(trp_miles_iuniorum_italicorum,2,5),(trp_pedes_domestici,1,3),(trp_sagittarius,3,7)]),
+  ("ravenna_garrison_reinforcements_c", "{!}Ravenna Garrison Reinforcements", 0, 0, fac_commoners, 0, [(trp_pedes_domestici,4,10)]),
+
+  ("massalia_garrison_reinforcements_a", "{!}Massalia Garrison Reinforcements", 0, 0, fac_commoners, 0, [(trp_miles_musculariorum,4,10),(trp_exculator,4,10)]),
+  ("massalia_garrison_reinforcements_b", "{!}Massalia Garrison Reinforcements", 0, 0, fac_commoners, 0, [(trp_miles_musculariorum,3,8),(trp_sagittarius,3,7)]),
+  ("massalia_garrison_reinforcements_c", "{!}Massalia Garrison Reinforcements", 0, 0, fac_commoners, 0, [(trp_miles_musculariorum,4,10)]),
+
+  ("constantinople_1_garrison_reinforcements_a", "{!}Constantinople Garrison Reinforcements", 0, 0, fac_commoners, 0, [(trp_tiro,4,10),(trp_exculator,4,10)]),
+  ("constantinople_1_garrison_reinforcements_b", "{!}Constantinople Garrison Reinforcements", 0, 0, fac_commoners, 0, [(trp_pedes,2,5),(trp_pedes_domestici,1,3),(trp_sagittarius,3,7)]),
+  ("constantinople_1_garrison_reinforcements_c", "{!}Constantinople Garrison Reinforcements", 0, 0, fac_commoners, 0, [(trp_pedes_domestici,4,10)]),
+
+  ("constantinople_2_garrison_reinforcements_a", "{!}Constantinople Garrison Reinforcements", 0, 0, fac_commoners, 0, [(trp_tiro,2,6),(trp_isaurian_warrior,2,6),(trp_exculator,4,8)]), #isaurians stationed in cnople
+  ("constantinople_2_garrison_reinforcements_b", "{!}Constantinople Garrison Reinforcements", 0, 0, fac_commoners, 0, [(trp_isaurian_infantry,2,5),(trp_excubitor,1,3),(trp_sagittarius,3,7)]),
+  ("constantinople_2_garrison_reinforcements_c", "{!}Constantinople Garrison Reinforcements", 0, 0, fac_commoners, 0, [(trp_excubitor,4,10)]),
+
   #vandals - technically eastern germans, have access to some alan troops
   ("kingdom_vandal_reinforcements_a", "{!}Vandal Reinforcements", 0, 0, fac_commoners, 0, [(trp_eastern_germanic_skirmisher,2,5),(trp_eastern_germanic_spearman,4,10),(trp_gaetuli_warrior,2,5)]),
   ("kingdom_vandal_reinforcements_b", "{!}Vandal Reinforcements", 0, 0, fac_commoners, 0, [(trp_eastern_germanic_spearman,3,7),(trp_eastern_germanic_mounted_skirmisher,0,2),(trp_western_alan_rider,2,4),(trp_gaetuli_horseman,1,2),(trp_standard_bearer,1,1)]),

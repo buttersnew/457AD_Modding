@@ -4991,6 +4991,17 @@ troops = [
    [itm_deurne_campagi_1,itm_roman_lorum_fasciari_5,itm_roman_leather_boots_1,itm_roman_leather_boots_2,itm_roman_leather_boots_3,itm_deurne_campagi_greaves_1,itm_roman_greaves_5,itm_kemathen_mail_1,itm_kemathen_mail_8,itm_roman_scale_2,itm_sword_viking_3_small,itm_spiculum,itm_spiculum,itm_oval_shield_limitanei_8,itm_oval_shield_red_1,itm_florence_helmet_1],
    def_attrib_lvl_25|level(25),wp(180),knows_lvl_25,roman_face_1, roman_face_2],
 
+### ernak quest characters
+  ["hun_alka",  "Alka",  "Alka",  tf_hero|tf_female, 0,reserved,  fac_minor_onoguroi,
+  [itm_hunter_boots, itm_dress_4], 
+  knight_attrib_5,wp(300),knows_berserker, 0x000000002d00c3cb50db6a451351b6db00000000001db72a0000000000000000],
+  ["sabir_aydar",  "Aydar",  "Aydar",  tf_hero, 0,reserved,  fac_kingdom_23,
+  [itm_hun_rich_horse_3,itm_kaftan_hunnic_2, itm_leather_boots,itm_heavy_greaves,itm_kaftan_lamellar_2,itm_pannonhalma_spatha,itm_mace_sassanid,itm_tab_shield_small_round_c,itm_kishpek_helmet_mail], 
+  knight_attrib_5,wp(300),knows_berserker, 0x000000002d00c3cb50db6a451351b6db00000000001db72a0000000000000000],
+  ["sabir_tatra",  "Tatra",  "Tatra",  tf_hero, 0,reserved,  fac_kingdom_23,
+  [itm_hun_rich_horse_3,itm_kaftan_hunnic_2, itm_leather_boots,itm_heavy_greaves,itm_kaftan_lamellar_2,itm_pannonhalma_spatha,itm_mace_sassanid,itm_tab_shield_small_round_c,itm_kishpek_helmet_mail], 
+  knight_attrib_5,wp(300),knows_berserker, 0x000000002d00c3cb50db6a451351b6db00000000001db72a0000000000000000],
+
 ####finnsburh quest characters
 #DANI are strong hehe
   ["dani_hocing","Hnaef Hocing","Hnaef Hocing",tf_hero,0,0,fac_minor_dani,

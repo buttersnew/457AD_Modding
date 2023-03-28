@@ -11741,6 +11741,11 @@ TOTAL:  {reg5}"),
             (set_visitors, 8, "trp_pilos_cultist", 1),
           (try_end),
 
+          (try_begin),
+            (eq, "$current_town", "p_town_36"),
+            (set_visitors, 8, "trp_caius_cosades", 1),
+          (try_end),
+
            (party_get_slot, ":spawned_troop", "$current_town", slot_town_armorer),
            (set_visitor, 9, ":spawned_troop"),
            (party_get_slot, ":spawned_troop", "$current_town", slot_town_weaponsmith),

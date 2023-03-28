@@ -23097,6 +23097,87 @@ mission_templates = [
       
     ],),
 
+  ("drunkard_duel",mtf_battle_mode,-1, 
+    "bounty_hunter_duel",
+    [(0,mtef_scene_source|mtef_team_0,af_override_horse,0,1,[]),
+      (1,mtef_visitor_source|mtef_team_0,af_override_horse,aif_start_alarmed,20,[]),
+      (2,mtef_visitor_source|mtef_team_0,af_override_horse,aif_start_alarmed,20,[]),
+      (3,mtef_visitor_source|mtef_team_0,af_override_horse,aif_start_alarmed,20,[]),
+      (4,mtef_visitor_source|mtef_team_0,af_override_horse,aif_start_alarmed,20,[]),
+      (5,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
+      (6,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
+      (7,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
+      (8,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
+      (9,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
+      (10,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
+      (11,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
+      (12,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
+      (13,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
+      (14,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
+      (15,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
+      (16,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]), 
+      (17,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
+      (18,mtef_visitor_source|mtef_team_1,af_override_horse,0,1,[]),
+      (19,mtef_visitor_source|mtef_team_1,af_override_horse,0,1,[]),
+      (20,mtef_visitor_source|mtef_team_1,af_override_horse,0,1,[]),
+      (21,mtef_visitor_source|mtef_team_1,af_override_horse,0,1,[]),
+      (22,mtef_visitor_source|mtef_team_1,af_override_horse,0,1,[]),
+      (23,mtef_visitor_source|mtef_team_1,af_override_horse,0,1,[]),
+      (24,mtef_visitor_source|mtef_team_1,af_override_horse,0,1,[]),
+    ], vc_weather +
+    [
+      (ti_before_mission_start, 0, 0, [],
+        [
+          (assign,"$g_battle_result",0),
+          (team_set_relation, 0, 2, -1), # -1 for enemy, 1 for friend, 0 for neutral
+          (team_set_relation,1,2,-1),
+          (team_set_relation,0,1,-1),
+      ]),
+      
+      (1, 4, ti_once, #quest main
+        [
+          (main_hero_fallen),
+          (eq, "$cam_mode", 0),
+        ],
+        [
+          (tutorial_message,"@Despite your confidence, you were defeated by the drunkard..."),        
+          (call_script, "script_change_troop_renown", "trp_player", -10),
+          (call_script, "script_fail_quest", "qst_caius_quest"),          
+          (finish_mission, 1),
+      ]),
+       
+      #Victory normal
+      (ti_inventory_key_pressed, 0, 0, [(set_trigger_result,1)], []),
+      (ti_tab_pressed, 0, 0, [],
+        [
+          (display_message, "str_cannot_leave_now"),
+      ]),
+      (0, 0, ti_once, [],
+        [
+          (call_script, "script_music_set_situation_with_culture", 0), #prison
+      ]),
+      
+      #Premios
+      (2, 0, ti_once, [
+          (neg|conversation_screen_is_active),   (neg|main_hero_fallen),     (num_active_teams_le, 1),
+        ],
+        [
+          (tutorial_message_set_size, 15, 15),
+          (tutorial_message_set_position, 500, 650), #650 for tutorial or mission msg, 450 for dialogs
+          (tutorial_message_set_center_justify, 0),
+          (tutorial_message_set_background, 1),
+          (tutorial_message,"@The hunnic brute lies dead, on his corpse, a shiny object; what Caius was looking to be returned to him."),
+          (call_script, "script_change_troop_renown", "trp_player", 1),
+          (call_script, "script_troop_add_gold", "trp_player", 100),
+          (quest_set_slot,"qst_caius_quest", slot_quest_current_state, 2),
+          (call_script, "script_succeed_quest", "qst_caius_quest"),          
+          (quest_set_slot,"qst_caius_quest",slot_quest_current_state, 2),
+          (mission_cam_animate_to_screen_color, 0xFF000000, 3000),
+          (finish_mission,6),
+      ]),
+      
+    ],),  
+
   ("visit_minor_town",0,-1,
     "visit",
     [

@@ -41590,6 +41590,7 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   (neq,"$g_talk_troop", "trp_german_bard"),
   (neq,"$g_talk_troop", "trp_visigothic_merchant"),
   (neq, "$g_talk_troop", "trp_nero_larper_poet"),
+  (neq, "$g_talk_troop", "trp_hun_drunkard"),
   (neq, "$g_talk_troop", "trp_zamb_man"),
   ],
    "Any orders, {sir/madam}?", "mercenary_after_recruited", []],
@@ -50135,7 +50136,7 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
     
     (str_store_party_name_link, s3, "p_village_55"),
     (display_message, "str_quest_log_updated"),
-    (add_quest_note_from_sreg, "qst_nero_larper_quest", 6, "@In order for Trokondas to provide troops, a rival king by the name of Lydius must be captured. He is leading an army by the village of {s3}",0),
+    (add_quest_note_from_sreg, "qst_founding_the_excubitors", 6, "@In order for Trokondas to provide troops, a rival king by the name of Lydius must be captured. He is leading an army by the village of {s3}",0),
    ]],
 
   [trp_isaurian_king, "start", [(check_quest_active,"qst_founding_the_excubitors"),(quest_slot_eq,"qst_founding_the_excubitors",slot_quest_current_state, 3),],
@@ -50286,6 +50287,163 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   [anyone, "antiquarian_merchant_talk_trade_1",
   [],
   "Thank you for shopping.", "close_window",[]],
+
+  #caius cosades
+ 
+  [trp_caius_cosades, "start", [(eq, "$g_talk_troop_met", 0),],
+   "What? Who are you?", "caius_cosades_intro_1", []],
+  [trp_caius_cosades|plyr, "caius_cosades_intro_1", [],
+   "I am, {playername}. Who are you?", "caius_cosades_intro_2", []],
+  [trp_caius_cosades, "caius_cosades_intro_2", [],
+   "All right, {playername}, since you gave me your name, might as well give you mine. Caius Cosades, ducenarius of the local agentes in rebus, under the Emperor Leo.", "caius_cosades_talk_1", []],
+
+  [trp_caius_cosades, "start", [],
+   "What do you need?", "caius_cosades_talk_1", []],
+
+
+  [trp_caius_cosades|plyr, "caius_cosades_talk_1", [
+  (neg|check_quest_active, "qst_caius_quest"),
+  (quest_slot_eq, "qst_caius_quest", slot_quest_current_state, 0),
+  ],
+   "What are you doing here?", "caius_cosades_talk_quest_1", []],
+  [trp_caius_cosades, "caius_cosades_talk_quest_1", [],
+   "What? Oh. I was stationed here by the emperor to supervise the locals. Or do you mean, here in this run down building?", "caius_cosades_talk_quest_2", []],
+  [trp_caius_cosades, "caius_cosades_talk_quest_2", [],
+   "Well, you do seem like the useful 'adventurer' type... A good cover for some matters that, well I need completed.", "caius_cosades_talk_quest_3", []],
+  [trp_caius_cosades, "caius_cosades_talk_quest_3", [],
+   "Not too long ago, when I was first stationed here, I lost... a precious item that I... uh... procured...", "caius_cosades_talk_quest_4", []], 
+  [trp_caius_cosades, "caius_cosades_talk_quest_4", [],
+   "This brute of a hun stole it from me! Me, a ducenarius of the agentes in rebus, that filth! Doesn't he know who I am? I want you to get it for me.", "caius_cosades_talk_quest_5", []],
+  [trp_caius_cosades|plyr, "caius_cosades_talk_quest_5", [],
+   "So you want me to get this 'item' of yours? Why don't you do it yourself?", "caius_cosades_talk_quest_6", []],
+  [trp_caius_cosades, "caius_cosades_talk_quest_6", [],
+   "I'm the one giving orders around here. Is this too hard for you to understand? I can't get it myself, thats why I want you to get it for me. If you do, I'll pay you well...", "caius_cosades_talk_quest_7", []],
+  [trp_caius_cosades|plyr, "caius_cosades_talk_quest_7", [],
+   "Very well, I'll get it for you. Now where should I go to find it?", "caius_cosades_talk_quest_8", []],
+  [trp_caius_cosades|plyr, "caius_cosades_talk_quest_7", [],
+   "Nevermind, I won't bother getting it for you.", "close_window", []],
+
+  [trp_caius_cosades, "caius_cosades_talk_quest_8", [],
+   "That brutish hun usually likes to hang out at the tavern. Can't really miss him, he stands out from everyone else in this city.", "caius_cosades_talk_quest_9", []],
+  [trp_caius_cosades, "caius_cosades_talk_quest_9", [],
+   "Tell him that Caius wants it back. He'll understand. Try to convince him to return it to you, he's rather slow minded, so he can, hopefully be easily convinced. If you feel the need to, use force if necessary. No one will miss him anyways.", "caius_cosades_talk_quest_10", []],
+  [trp_caius_cosades, "caius_cosades_talk_quest_10", [],
+   "Oh, by the way the item I want back is like a small gilded pot. Don't let him give you something else, if he offers it to you. Now go, you have a job to complete.", "close_window", [
+    (setup_quest_text, "qst_caius_quest"),
+    (str_store_string, s2, "@Caius has ordered you to retrieve a personal item of his, stolen by a hun who frequents the tavern in Chersonesus"),
+    (call_script, "script_start_quest", "qst_caius_quest", "$g_talk_troop"),
+    (quest_set_slot,"qst_caius_quest", slot_quest_current_state, 1),
+    (add_troop_to_site, "trp_hun_drunkard", "scn_town_36_tavern", 12),
+   ]],
+
+  [trp_caius_cosades|plyr, "caius_cosades_talk_1", [(player_has_item,"itm_scythian_bong")],
+   "I got your lost 'object' back.", "caius_cosades_talk_quest_finish_1", []],
+  [trp_caius_cosades, "caius_cosades_talk_quest_finish_1", [],
+   "Good, now give it to me. I have some... stuff... saved for myself. Yeah, here, for helping me out, take this.", "caius_cosades_talk_quest_finish_2", []],
+  [trp_caius_cosades, "caius_cosades_talk_quest_finish_2", [],
+   "This will make the whole ordeal worth while. Also, before you go. Don't mention to anyone that you got this back for me, especially my superiors. Now go, I have business to uh... attend to. Yeah...", "close_window", [
+   (troop_remove_item,"trp_player","itm_scythian_bong"),
+   (troop_add_gold, "trp_player", 1000),
+   (call_script, "script_change_troop_renown", "trp_player", 5),
+   (add_xp_as_reward, 350),
+   (call_script, "script_end_quest", "qst_caius_quest"),
+   ]],
+
+
+  [trp_caius_cosades|plyr, "caius_cosades_talk_1", [],
+   "What is the function of the agentes?", "caius_cosades_talk_agentes_1", []],
+  [trp_caius_cosades, "caius_cosades_talk_agentes_1", [],
+   "The agentes are generally couriers for the emperor, however, some of us, such as myself have other duties. I, for example supervise the local bureaucracy, and sometimes am required to do inspections.", "caius_cosades_talk_agentes_2", []],
+  [trp_caius_cosades, "caius_cosades_talk_agentes_2", [],
+   "Was assigned here not too long ago. I try to stay... low profile, just in case...", "caius_cosades_talk_1", []],
+  [trp_caius_cosades|plyr, "caius_cosades_talk_1", [],
+   "Nevermind, I did not mean to disturb you.", "close_window", []],
+
+  [trp_hun_drunkard, "start", [(check_quest_active,"qst_caius_quest"),
+  (quest_slot_eq,"qst_caius_quest",slot_quest_current_state, 1),],
+   "Who the hell are you? What do you want?", "hun_drunkard_talk_1", []],
+  [trp_hun_drunkard|plyr, "hun_drunkard_talk_1", [],
+   "Hey, you, I know what you have...", "hun_drunkard_talk_2", []],
+  [trp_hun_drunkard, "hun_drunkard_talk_2", [],
+   "Huh... What are you talking about? Wait, oh you mean this shiny thing? It's mine, now leave me alone.", "hun_drunkard_talk_3", []],
+  [trp_hun_drunkard|plyr, "hun_drunkard_talk_3", [],
+   "How about you hand it over to me, or is that too hard for you to understand?", "bounty_hunter_persuasion_1", []],
+  [trp_hun_drunkard, "bounty_hunter_persuasion_1", [],
+   "Huh... what if I don't give it to you...", "bounty_hunter_persuasion_2", []],
+  [trp_hun_drunkard|plyr, "bounty_hunter_persuasion_2", [],
+   "You know, I'm quite familiar with the authorities in this city... Seeing how you're a drunkard, I could easily convince them you are a nuisance and have you removed...", "bounty_hunter_persuasion_3", []],
+  [trp_hun_drunkard|plyr, "bounty_hunter_persuasion_2", [],
+   "Are you slow? Just give me the damn object!", "bounty_hunter_hostile_1", []], 
+
+  [trp_hun_drunkard, "bounty_hunter_persuasion_3", [
+  (store_skill_level, reg1, "skl_persuasion", "trp_player"),
+  (store_random_in_range, reg0, -2, 11),
+  (try_begin),
+     (ge, "$cheat_mode", 1),
+    (display_message, "@{!}Persuasion attempt: skill {reg1} versus random roll {reg0} (-2 through 10)"),
+  (try_end),
+  (le, reg0, reg1),
+  #The persuasion attempt succeeded.
+  ],
+  "Oh, great, I don't need them hauling me out of here again. I've already had enough problems here, I don't need any more. Take it and leave me alone.", "close_window", [
+  (troop_add_item, "trp_player","itm_scythian_bong",0),
+  (remove_troop_from_site,"trp_hun_drunkard","scn_town_36_tavern"),
+  (quest_set_slot,"qst_caius_quest", slot_quest_current_state, 2),
+  (call_script, "script_succeed_quest", "qst_caius_quest"),
+  ]],
+  [trp_hun_drunkard|auto_proceed, "bounty_hunter_persuasion_3", [],
+  #The persuasion attempt failed.  Fall back to the standard behavior.
+  "The only way you'll get it from me is by killing me! If you dare, meet me in the arena to not attract too much attention... I will see you there, scum!", "close_window", [
+    (remove_troop_from_site,"trp_hun_drunkard","scn_town_36_tavern"),
+      (try_begin),
+        (store_troop_health, ":health", "trp_player", 0), #get relative health in 1-100 range and put it into the ":health" variable
+        (lt, ":health", 30),
+        (val_add, ":health", 35),               #add to it the 5%
+        (troop_set_health,   "trp_player", ":health"),   #set it
+      (try_end),
+      (party_get_slot, ":arena_scene", "$current_town", slot_town_arena),
+      (modify_visitors_at_site, ":arena_scene"),
+      (reset_visitors),
+      
+      (set_visitor,0,"trp_player"), #player
+      (assign, ":cur_entry", 1), #no companions, more difficult?
+      (try_for_range, ":companion", companions_begin, companions_end),
+        (main_party_has_troop,":companion"),
+        (set_visitor, ":cur_entry", ":companion"), #companions can help gang up against him
+      (try_end),
+      
+      (set_visitor, 20, "trp_hun_drunkard"),
+      (set_jump_mission, "mt_drunkard_duel"),
+      (jump_to_scene,":arena_scene"),
+      (change_screen_mission),
+  ]],
+
+  [trp_hun_drunkard, "bounty_hunter_hostile_1", [],
+  #The persuasion attempt failed.  Fall back to the standard behavior.
+  "The only way you'll get it from me is by killing me! If you dare, meet me in the arena to not attract too much attention... I will see you there, scum!", "close_window", [
+    (remove_troop_from_site,"trp_hun_drunkard","scn_town_36_tavern"),
+      (try_begin),
+        (store_troop_health, ":health", "trp_player", 0), #get relative health in 1-100 range and put it into the ":health" variable
+        (lt, ":health", 30),
+        (val_add, ":health", 35),               #add to it the 5%
+        (troop_set_health,   "trp_player", ":health"),   #set it
+      (try_end),
+      (party_get_slot, ":arena_scene", "$current_town", slot_town_arena),
+      (modify_visitors_at_site, ":arena_scene"),
+      (reset_visitors),
+      
+      (set_visitor,0,"trp_player"), #player
+      (assign, ":cur_entry", 1), #no companions, more difficult?
+      (try_for_range, ":companion", companions_begin, companions_end),
+        (main_party_has_troop,":companion"),
+        (set_visitor, ":cur_entry", ":companion"), #companions can help gang up against him
+      (try_end),
+      
+      (set_visitor, 20, "trp_hun_drunkard"),
+      (set_jump_mission, "mt_drunkard_duel"),
+      (jump_to_scene,":arena_scene"),
+      (change_screen_mission),
+  ]],
 
   #noricum quest
   [trp_severinus, "start", [],

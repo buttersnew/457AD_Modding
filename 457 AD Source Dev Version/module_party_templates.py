@@ -274,6 +274,10 @@ party_templates = [
   ("knight_6_7_reinforcements_a", "{!}armenian_reinforcements_a", 0, 0, fac_commoners, 0, [(trp_kurdish_javelinman,5,10),(trp_armenian_footman,5,10)]), #Mix of mainly armenian troops
   ("knight_6_7_reinforcements_b", "{!}armenian_reinforcements_b", 0, 0, fac_commoners, 0, [(trp_armenian_footman,4,8),(trp_armenian_bowman,1,3),(trp_kurdish_slinger,2,4),(trp_sassanid_standard_bearer,1,1),(trp_sassanid_cavalry,1,3)]), #mix of mostly armenian infantry, sassanid cavalry
   ("knight_6_7_reinforcements_c", "{!}armenian_reinforcements_c", 0, 0, fac_commoners, 0, [(trp_sassanid_horse_archer,2,6),(trp_armenian_cataphract,1,2),(trp_sassanid_armored_footman,1,2),(trp_sassanid_officer,1,1)]), #Armenian cavalry, sassanid horse archers - primarily cavalry army
+  #mauri king
+  ("kingdom_11_lord_reinforcements_a", "{!}Mauri Reinforcements", 0, 0, fac_commoners, 0, [(trp_mauri_skirmisher,4,10),(trp_mauri_footman,4,10)]),
+  ("kingdom_11_lord_reinforcements_b", "{!}Mauri Reinforcements", 0, 0, fac_commoners, 0, [(trp_mauri_infantry,3,10),(trp_mauri_mounted_skirmisher,3,5),(trp_imperial_signifer,1,1)]),
+  ("kingdom_11_lord_reinforcements_c", "{!}Mauri Reinforcements", 0, 0, fac_commoners, 0, [(trp_pedes_fortenses,2,5),(trp_mauri_companion,2,5)]),
   #ambrosius aurelianus - stronger than the other lords
   ("kingdom_13_lord_reinforcements_a", "{!}arthur Reinforcements", 0, 0, fac_commoners, 0, [(trp_briton_skirmisher,4,10),(trp_briton_footman,4,10)]),
   ("kingdom_13_lord_reinforcements_b", "{!}arthur Reinforcements", 0, 0, fac_commoners, 0, [(trp_briton_footman,3,5),(trp_abulci,2,5),(trp_briton_horseman,1,5),(trp_imperial_signifer,1,1)]),

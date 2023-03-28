@@ -51333,7 +51333,7 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   [trp_aestii_king, "aestii_king_intro_6", [],
    "This is my story, {playername}. As long as you will stay behind these walls you will be my guest.", "aestii_king_intro_7", []],
   [trp_aestii_king|plyr, "aestii_king_intro_7", [],
-   "You give me much honor, Visavaldas.", "minor_faction_king", [(call_script, "script_change_player_relation_with_troop", "trp_aestii_king",5),]],
+   "You give me much honor, Visavaldas.", "minor_faction_king_pretalk", [(call_script, "script_change_player_relation_with_troop", "trp_aestii_king",5),]],
 
   #intro for irish king
   [trp_irish_king, "start", [(eq, "$g_talk_troop_met", 0),],
@@ -51351,7 +51351,7 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   [trp_irish_king, "irish_king_intro_6", [],
    "Teacher and apostle is he. The people have carried the brunt of chains. We have toiled and lived as slaves but Patraic has shown the errors in the ways of our countrymen. Ui Neill will be made to break the chains of servitude that bind the low-born and unlucky. Slavery will end in Inisfail for all time! if they refuse out of sin of pride, then my hand will punish them. God will have mercy for them, but I will not.", "irish_king_intro_7", []],
   [trp_irish_king|plyr, "irish_king_intro_7", [],
-   "I bow my head to your words, you will be a hero of whom the scolaire will commemorate. Go n-eiri an t-adh leat!", "minor_faction_king", []],
+   "I bow my head to your words, you will be a hero of whom the scolaire will commemorate. Go n-eiri an t-adh leat!", "minor_faction_king_pretalk", []],
 
   #garamantian king
   [trp_garamantian_king, "start", [(eq, "$g_talk_troop_met", 0),],
@@ -51369,7 +51369,7 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   [trp_garamantian_king, "garamantian_king_intro_6", [],
    "Gildo once recruited our boys into his army, he praised our prowess, when his other allies faltered. Gildo failed and the bastard Stilicho sent him running but we keep our spears and shields ready, the cowardly Gaetuli who helped the Romans will pay!", "garamantian_king_intro_7", []],
   [trp_garamantian_king|plyr, "garamantian_king_intro_7", [],
-   "Hannibal you are not and there exists men smarter and stronger than Stilicho who serve the two eagles faithfully. Yet I wish you and your struggle luck, for you will need it.", "minor_faction_king", []],
+   "Hannibal you are not and there exists men smarter and stronger than Stilicho who serve the two eagles faithfully. Yet I wish you and your struggle luck, for you will need it.", "minor_faction_king_pretalk", []],
 
   #intro dialogue for the danish king
   [trp_dani_king, "start", [(eq, "$g_talk_troop_met", 0),],
@@ -51383,7 +51383,7 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   [trp_dani_king, "danish_king_intro_4", [],
    "I welcome you with joy. Of this nation I am king, whom women bring gifts and men bear spears and shields. The Danir are a people of lions that I am proud to lead. In the past we valiantly fought the Fenni, the Gautar and the Swehanaz but today we have no enemy but the Jutes, whose lands we crave for our multitude.", "danish_king_intro_5", []],
   [trp_dani_king|plyr, "danish_king_intro_5", [],
-   "I wish you luck in your war and may your Gods assist you, Gramr son of Skjoldr.", "minor_faction_king", [(call_script, "script_change_player_relation_with_troop", "trp_dani_king",5),]],
+   "I wish you luck in your war and may your Gods assist you, Gramr son of Skjoldr.", "minor_faction_king_pretalk", [(call_script, "script_change_player_relation_with_troop", "trp_dani_king",5),]],
 
   #intro dialogue for the morden king
   [trp_morden_king, "start", [(eq, "$g_talk_troop_met", 0),],
@@ -51399,7 +51399,7 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   [trp_morden_king|plyr, "morden_king_intro_5", [],
    "I understand your plight, you have suffered under the rule of stronger, yet now you bring pain to those who are lesser than you, why not try to live in peace, settle down, hang up your sword?", "morden_king_intro_6", []],
   [trp_morden_king, "morden_king_intro_6", [],
-   "You watch your tongue, läntiläinen! In this age the strong prosper and prevail, the weak crumble. Our lifestyle is simple and it is how we like it, We praise Mastorava and our ancestors who guard our way, we crave not an ornate palace or an easy life of a farmer. The wind in our hair when we ride, the fallen enemy at your feet, loot taken after a raid, the deer shot and prepared by hot fire, a beautiful woman to take care of your house, these are what make life worth living!", "minor_faction_king", []],
+   "You watch your tongue, läntiläinen! In this age the strong prosper and prevail, the weak crumble. Our lifestyle is simple and it is how we like it, We praise Mastorava and our ancestors who guard our way, we crave not an ornate palace or an easy life of a farmer. The wind in our hair when we ride, the fallen enemy at your feet, loot taken after a raid, the deer shot and prepared by hot fire, a beautiful woman to take care of your house, these are what make life worth living!", "minor_faction_king_pretalk", []],
 
   #intro dialogue for the sporoi king
   [trp_sporoi_king, "start", [(eq, "$g_talk_troop_met", 0),],
@@ -51419,7 +51419,7 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   [trp_sporoi_king|plyr, "sporoi_king_intro_7", [],
    "I do not believe any doubt about it, your highness. I wish you the best of luck in your conquests, and hold my most sincere hope that your  people will soon be so rich with wealth they may swim in liquid gold!", "sporoi_king_intro_8", []],
   [trp_sporoi_king, "sporoi_king_intro_8", [],
-   "I thank thee, {playername}.", "minor_faction_king", [(call_script, "script_change_player_relation_with_troop", "trp_sporoi_king",5),]],
+   "I thank thee, {playername}.", "minor_faction_king_pretalk", [(call_script, "script_change_player_relation_with_troop", "trp_sporoi_king",5),]],
 
   #intro dialogue for the abagasian king
   [trp_abagasian_king, "start", [(eq, "$g_talk_troop_met", 0),],
@@ -51435,7 +51435,7 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   [trp_abagasian_king|plyr, "abagasian_king_intro_5", [],
    "I meant no offence, esteemed elder. I am just curious to know - how are you planning to find you and your people a way in these uncertain times? Even the greatest empires can fall the next day.", "abagasian_king_intro_6", []],
   [trp_abagasian_king, "abagasian_king_intro_6", [],
-   "I understand what you try to say. But what you are proposing is impossible, my folk yearn for freedom to live, serfdom and paying tribute goes against the spirit of our ancestors. One day we will drive the Romans away and the other tribes will fear us. The Skyfather did not make us to live our lives bowing our heads and praying that raiders do not come to destroy our villages but to carve our own destiny.", "minor_faction_king", []],
+   "I understand what you try to say. But what you are proposing is impossible, my folk yearn for freedom to live, serfdom and paying tribute goes against the spirit of our ancestors. One day we will drive the Romans away and the other tribes will fear us. The Skyfather did not make us to live our lives bowing our heads and praying that raiders do not come to destroy our villages but to carve our own destiny.", "minor_faction_king_pretalk", []],
 
   #intro dialogue for the norwegian king
   [trp_augundzi_king, "start", [(eq, "$g_talk_troop_met", 0),],
@@ -51455,7 +51455,7 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   [trp_augundzi_king|plyr, "augundzi_king_intro_7", [],
    "Yes, I understand your ambitions, great king of the Augundzi. I wish fair weather to you, and good winds to your fishermen.", "augundzi_king_intro_8", []],
   [trp_augundzi_king, "augundzi_king_intro_8", [],
-   "Fair weather to you, {playername}.", "minor_faction_king", []],
+   "Fair weather to you, {playername}.", "minor_faction_king_pretalk", []],
 
   #intro dialogue for the vidivarii king
   [trp_vidivarii_king, "start", [(eq, "$g_talk_troop_met", 0),],
@@ -51473,7 +51473,7 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   [trp_vidivarii_king, "vidivarii_king_intro_6", [],
    "We Vidivarii are not composed of one people, some are Goths, some Veneti and others something entirely else, this causes that we are being pulled to different directions since everyone has a different view of the situation. Just yesterday one of my own kin got into argument with a few Gepid men about the prices and selling of fish that is not of fitting quality, 'filthy and rotting' according to them, he was mortally wounded and these troublemakers were killed and some amongst us call me a swindling merchant, a greedy coward who has no right to lead anyone, but this is not your concern for I will persist, Sijais hails!", "vidivarii_king_intro_7", []],
   [trp_vidivarii_king|plyr, "vidivarii_king_intro_7", [],
-   "I doubt I have the tools to ease this tension, but I wish good luck to you and your people!", "minor_faction_king", []],
+   "I doubt I have the tools to ease this tension, but I wish good luck to you and your people!", "minor_faction_king_pretalk", []],
 
   #intro dialogue for the frisian king
   [trp_frisian_king, "start", [(eq, "$g_talk_troop_met", 0),],
@@ -51495,7 +51495,7 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   [trp_frisian_king, "frisian_king_intro_8", [],
    "You have some nerve to insult me but I can respect your fibre and your angle. You have the same tongue as some of my shield-brothers who demand that we bring a fitting end to the Danish dogs, but my wife says that enough is enough and wants no more corpses for crows. Few have said that I listen my wife too much or called her a common whore, most brutal among us have called for the death of all Danes in the kingdom and that Hildeburh should be beheaded as a show of might. I've yet to decide what I would do, man needs to respect his wife, but his kin must also be listened. I fear of asking the elders because it may look like I cannot make my own decisions and none respect a king who acts like that.", "frisian_king_intro_9", []],
   [trp_frisian_king|plyr, "frisian_king_intro_9", [],
-   "Your worries are greater than mine but I can admire your calculating nature. Good weathers for you! ", "minor_faction_king", []],
+   "Your worries are greater than mine but I can admire your calculating nature. Good weathers for you! ", "minor_faction_king_pretalk", []],
 
   #vascon king
   [trp_vascones_king, "start", [(eq, "$g_talk_troop_met", 0),],
@@ -51511,7 +51511,7 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   [trp_vascones_king|plyr, "vascones_king_intro_5", [],
    "Beware, There are foes around you who wish to see you dead and gone. I wish you good luck for you will need it.", "vascones_king_intro_6", []],
   [trp_vascones_king, "vascones_king_intro_6", [],
-   "I'm aware of them and we will one day drive the Suebi and Goths away from Hispania, it will be ours, I know I will not see that day but my children or their children might. That is our destiny. Some of our comrades have also voiced their concern that Rome might not act favorably towards us since we are half-bandits and I'm ready for that too, but as long as we continue to harry their enemies I believe we are good.", "minor_faction_king", []],
+   "I'm aware of them and we will one day drive the Suebi and Goths away from Hispania, it will be ours, I know I will not see that day but my children or their children might. That is our destiny. Some of our comrades have also voiced their concern that Rome might not act favorably towards us since we are half-bandits and I'm ready for that too, but as long as we continue to harry their enemies I believe we are good.", "minor_faction_king_pretalk", []],
 
   #gallacian
   [trp_gallaeci_king, "start", [(eq, "$g_talk_troop_met", 0),],
@@ -51527,7 +51527,7 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   [trp_gallaeci_king|plyr, "gallaeci_king_intro_5", [],
    "You ask for God's help, but if you may, wouldn’t a sharp axe and a broad shield be of more use than hoping or praying for the best, why not build ships and seek a more peaceful land?", "gallaeci_king_intro_6", []],
   [trp_gallaeci_king, "gallaeci_king_intro_6", [],
-   "You expect me to run tail between my legs because some hardships have hit my people? Never. I acknowledge that we have seen better days. My scouts report that the Romans are preparing to retake this land and bring order once more and yet Suebi kings think they are a match to Ariovistus of old. They test our resolve. Sometimes I wish I could just fish and hunt in peace and that my people could live in tranquility too, but when others give you no peace it must be taken.", "minor_faction_king", []],
+   "You expect me to run tail between my legs because some hardships have hit my people? Never. I acknowledge that we have seen better days. My scouts report that the Romans are preparing to retake this land and bring order once more and yet Suebi kings think they are a match to Ariovistus of old. They test our resolve. Sometimes I wish I could just fish and hunt in peace and that my people could live in tranquility too, but when others give you no peace it must be taken.", "minor_faction_king_pretalk", []],
 
   #venedi
   [trp_venedi_king, "start", [(eq, "$g_talk_troop_met", 0),],
@@ -51543,8 +51543,43 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   [trp_venedi_king|plyr, "venedi_king_intro_5", [],
    "I have heard that later the Goths beat some of you to submission, did you still rise stronger from that too? I find this hard to believe, no man can endure endless punishment, like the city walls he will break when enough damage has been made.", "venedi_king_intro_6", []],
   [trp_venedi_king, "venedi_king_intro_6", [],
-   "Bastards and whoresons, they did do that, but we cannot be killed that easily. We feel that war and dying in battle is natural way of life. Look around you, laws and treaties crumble, tribes are preparing for a great struggle and the empires of old are getting older. I feel that this time they cannot stem the tides that crash towards them, after all only the dead have seen the end of war...", "minor_faction_king", []],
+   "Bastards and whoresons, they did do that, but we cannot be killed that easily. We feel that war and dying in battle is natural way of life. Look around you, laws and treaties crumble, tribes are preparing for a great struggle and the empires of old are getting older. I feel that this time they cannot stem the tides that crash towards them, after all only the dead have seen the end of war...", "minor_faction_king_pretalk", []],
 
+  ##onogur
+  [trp_onoguroi_king, "start", [(eq, "$g_talk_troop_met", 0),],
+  "Who are you? Another warlord come to drive us from our pastures, to carry off our property and our kin? Heed my words, outsider – the only pickings you will take home are your dead. You stand before Ernak, favored son of Attila – the man called ‘scourge of God’ by the Romans. Speak, lout!", "onogur_intro_1", []],
+  [anyone|plyr, "onogur_intro_1", [],
+  "I harbor no intent of aggression, great chief. I am {playername}, a traveler wandering these steppes. I come only to catch my breath, for your camp offers respite from the scorching sun and the biting wind.", "onogur_intro_2", []],
+  [trp_onoguroi_king, "onogur_intro_2", [],
+  "Then you may rest here, {playername} – but do not expect to be greeted by my tribesmen with wine and with welcome, for they face great enmity at this time.", "onogur_ask_1", []],
+  [anyone|plyr, "onogur_ask_1", [],
+  "What ails them, lord?", "onogur_answer_1", []],
+  [trp_onoguroi_king, "onogur_answer_1", [],
+  "Alas, they still bereave the death of my father. The loss of his strong hand shattered our confederacy, turning tribe against tribe as in ancient times. Having no help from my brother Dengizich, the Sabirs – a wicked and cruel people from the east, seized on our disunity to subdue us. Now a Sabir may simply walk into our camp and demand anything – our animals, our warriors, even our daughters, and no one may rebuke him. Bah! Why must an heir of Atilla pay tribute to a lowly chief such as theirs?", "onogur_answer_2", []],
+  [anyone|plyr, "onogur_answer_2", [],
+  "The Sabirs may reign for the time being, but I can sense the hardiness of your people. Countless tribes have vanished beneath the tide of eastern conquerors, yet the Onogurs appear determined to endure. I know that you will lead them to greatness – perhaps your line may even complete that which your forebearer began at Utus in 447.", "onogur_answer_3", []],
+  [trp_onoguroi_king, "onogur_answer_3", [],
+  "Hm… You are more perceptive than I took you for, {playername}. Our shamans do indeed foretell the coming of a great unifier – one sure to restore our pride and to avenge our suffering. Perhaps someday your fate may intwine with ours, but for now farewell.", "minor_faction_king_pretalk", []],
+
+  #saraguroi
+  [trp_saraguroi_king, "start", [(eq, "$g_talk_troop_met", 0),],
+  "Look at you, walking in here without any regard for your own safety and the surroundings at hand. Do you know where you are cub? Do you know whose camp you’ve walked in?", "saraghur_chief_intro_1", []],
+  [anyone|plyr, "saraghur_chief_intro_1", [],
+  "Pardon my intrusion great one. I’ve heard stories of your exceptional victory against the tribe of the Akatziri. I’ve come here seeking answers.", "saraghur_chief_intro_2", []],
+  [trp_saraguroi_king, "saraghur_chief_intro_2", [],
+  "Your pardon is accepted, however, know with certainty that if you raise a hand against my people…. your skull will make a fine drinking cup indeed. Now, to the matter at hand. What is it you dare ask?", "saraghur_chief_question_1", []],
+  [anyone|plyr, "saraghur_chief_question_1", [],
+  "On my way here I’ve been pondering on two questions, and two question only. What makes a chief brave enough to attack a subject tribe of the Huns and what motivates the warriors of said chief to fight as fanatically as a rabid beast cornered by its enemies?", "saraghur_chief_question_2", []],
+  [trp_saraguroi_king, "saraghur_chief_question_2", [],
+  "The answers that you seek hide somewhere in your own questions cub. The unfortunate truth, that admittedly I’ve been unwilling to share with other strangers so far, is that we have been forced out of our own home by the unrest further East. Indeed, we are a cornered animal fighting for its own survival.", "saraghur_chief_answer_1", []],
+  [anyone|plyr, "saraghur_chief_answer_1", [],
+  "I admire the tenacity of your people in this struggle great one. However, you did not answer my first question. Are you really that brave to openly lead raiding parties against Hunnic subjects without fear of retaliation from their side?", "saraghur_chief_question_3", []],
+  [trp_saraguroi_king, "saraghur_chief_question_3", [],
+  "My father used to say that you can’t have bravery without fear, since bravery comes in spite of fear, not due to the lack of it. A wise man that should’ve listened to his own words more. I’m not foolish enough to lead a prolonged conflict against the Huns. For my people to survive I need to make peace with them.", "saraghur_chief_answer_2", []],
+  [anyone|plyr, "saraghur_chief_answer_2", [],
+  "What do you have in mind?", "saraghur_chief_question_4", []],
+  [trp_saraguroi_king, "saraghur_chief_question_4", [],
+  "Even as we speak, my shaman and advisors are already preparing gifts that will be sent to the Hunnic lords. You may stop by to help them, or you may not, that is entirely your decision. For now you are welcome in our camp. I have a strange feeling that you may yet play a part in the ordeal my people find themselves in.", "minor_faction_king_pretalk", []],
 
   [anyone, "start",
   [

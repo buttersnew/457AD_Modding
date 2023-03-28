@@ -1396,6 +1396,12 @@ slot_quest_target_dna               = 13
 slot_quest_target_item              = 14
 slot_quest_object_faction           = 15
 
+#only used for ernak quest
+slot_quest_target_onoguroi          = 13
+slot_quest_target_saraguroi         = 14
+slot_quest_target_kutriguroi        = 15
+
+
 slot_quest_target_state             = 16
 slot_quest_object_state             = 17
 

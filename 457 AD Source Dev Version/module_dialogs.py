@@ -19636,6 +19636,78 @@ I knew that I had found someone worthy of becoming my vassal.", "lord_invite_1",
 (assign, "$g_leave_encounter", 1),
 ]],
 
+##ernak quest
+[trp_knight_23_8|plyr,"lord_talk", [
+  (neg|check_quest_active, "qst_ernak_quest"),
+  (quest_slot_eq, "qst_ernak_quest", slot_quest_current_state, 0),
+  (neg|faction_slot_eq, "$g_talk_troop_faction", slot_faction_leader, "trp_player"),#is not vassal
+],
+  "Brave Ernak, I wish to serve your lineage and earn your favour. Is there something you need me to do?",
+"ernak_quest_intro_1",[]],
+[anyone,"ernak_quest_intro_1", [
+  (troop_slot_ge, "trp_player", slot_troop_renown, 350),
+],
+  " {playername}, you must know. When I was just a kid, a fortune-teller prophesied my father, who often seeked wisdom from those in contact with the Gods and the magic spirits that crowd our world, that my older brothers would have failed him but I would have been the one able to restore his bloodline.",
+"ernak_quest_intro_2",[]],
+[anyone,"ernak_quest_intro_1", [
+],
+  "Standing on your feet you ask to serve me? Go and travel around the world. Earn your name and get experience first, as I only accept the brave and the renowned.^^(Hint: Need at least 350 renown)",
+"lord_pretalk",[]],
+
+[anyone,"ernak_quest_intro_2", [
+],
+  "I don’t know what the Gods had in store for me, but I know I must fulfil my fate by restoring the old power our people had under my father, during the glory days of the Hunnic Empire.^^Sadly, our people were severely weakened after the battle of Nedao, where our former subjects, Gepids and Ostrogoths among many, defeated my brother’s armies and we were forced to retreat along the shores of the Pontus.",
+"ernak_quest_intro_3",[]],
+
+[anyone,"ernak_quest_intro_3", [
+],
+  "Now my brother, Dengizich, rules over a large part of the Huns. I love him and I do not desire his blood, nor I wish to start a feud within our family as we already mourned too much. Therefore, me and my host will need to find new subjects and new wealth for our kin.",
+"ernak_quest_intro_4",[]],
+
+[anyone,"ernak_quest_intro_4", [
+],
+  "It has come to my attention that some others of our former subjects left our empire, such is the case of the Onogurs, Kutrigurs and Saragurs. These tribes are hunnic at heart and followed my father to battle countless times, but ever since he died, they decided to leave and return to their old lifestyle, freely roaming the steppes.^^However, it seems a new menace is emerging from the east, the Sabirs. A people unknown to us, they hail from the endless steppes of the east and ever since they reached the mouth of the Ra, they repeatedly engaged fights against the Onogurs, Kutrigurs and Saragurs.",
+"ernak_quest_intro_5",[]],
+
+[anyone,"ernak_quest_intro_5", [
+],
+  "My brother is not able to protect them, he’s too focused on his internal affairs on the Bosphorus. However, if I wish to propose myself as the new leader of this confederacy, they will need to trust me. This is my task for you, {playername}. Go meet their tribal chiefs, tell them Ernak, the son of Attila, wishes to protect them from their enemies and see what they need and how we can help them.",
+"ernak_quest_intro_6",[]],
+
+[anyone|plyr,"ernak_quest_intro_6", [
+],
+  "Aye, Ernak son of Attila. I will do what you ask. I will visit these hunnic tribes and will let you know of their answers.",
+"ernak_quest_intro_accepted",[]],
+
+[anyone|plyr,"ernak_quest_intro_6", [
+],
+  "I am sorry, generous lord Ernak, but I don’t think I’m ready for this task. I hope you will find someone else to help you in your struggle.",
+"lord_pretalk",[
+  (quest_set_slot, "qst_ernak_quest", slot_quest_current_state, -1)
+]],
+
+[anyone,"ernak_quest_intro_accepted", [
+],
+  "Very well. Now leave and report to me once you have news.",
+"lord_pretalk",[
+    (str_store_troop_name_link, s13, "$g_talk_troop"),
+    (setup_quest_text, "qst_ernak_quest"),
+
+    (str_store_faction_name_link, s3, "fac_minor_onoguroi"),
+    (str_store_faction_name_link, s4, "fac_minor_saraguroi"),
+    (str_store_faction_name_link, s5, "fac_minor_kutriguroi"),
+
+    (str_store_string, s2, "@{s13}, son of Attila, asked you to travel to the {s3}, {s4} and {s5} to offer them his protection."),
+
+    (call_script, "script_start_quest", "qst_ernak_quest", "$g_talk_troop"),
+    (quest_set_slot, "qst_ernak_quest", slot_quest_current_state, 1),
+
+    (quest_set_slot, "qst_ernak_quest", slot_quest_target_onoguroi, 1),
+    (quest_set_slot, "qst_ernak_quest", slot_quest_target_saraguroi, 1),
+    (quest_set_slot, "qst_ernak_quest", slot_quest_target_kutriguroi, 1),
+
+    (call_script, "script_troop_change_relation_with_troop", "trp_player", "$g_talk_troop", 10),
+]],
 
 [trp_kingdom_17_lord|plyr,"lord_talk", [(eq, "$g_glory_to_great_lombardy", 0)],
   "Glory to great Lombardy!", "glory_to_great_lombardy",[]],
@@ -51316,7 +51388,112 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
    (assign, "$g_battle_result", 1),
    (mission_disable_talk),
    ]],
-   
+  
+## ERNAK QUEST DIALOGUES
+  [trp_saraguroi_king, "start", [(quest_slot_eq, "qst_ernak_quest", slot_quest_target_saraguroi, 1),],
+   "Welcome, stranger,what brings you to our camp?", "ernak_quest_saraguroi_intro_1", []],
+  [anyone|plyr, "ernak_quest_saraguroi_intro_1", [],
+   "I am a messenger from Ernak. He has sent me to speak with you.", "ernak_quest_saraguroi_intro_2", []],
+  [anyone, "ernak_quest_saraguroi_intro_2", [],
+   "What does he want?", "ernak_quest_saraguroi_intro_3", []],
+  [anyone|plyr, "ernak_quest_saraguroi_intro_3", [],
+   "He wants your help in fighting the Sabirs. He knows that you are a strong tribe and that you could be a valuable ally in this fight.", "ernak_quest_saraguroi_intro_4", []],
+  [anyone, "ernak_quest_saraguroi_intro_4", [],
+   "We are not interested in joining forces with Ernak or any other clan. We left the Huns because we wanted to be free, and we do not want to be bound to another leader.", "ernak_quest_saraguroi_intro_5", []],
+  [anyone|plyr, "ernak_quest_saraguroi_intro_5", [],
+   "I understand your concerns, but if you do not join forces with Ernak, the Sabirs will continue to ravage these lands. They will not stop until they have taken everything from you. What can we do to convince you that Ernak is a good lord who cares for his subjects' prerogatives?", "ernak_quest_saraguroi_intro_6", []],
+  [anyone, "ernak_quest_saraguroi_intro_6", [],
+   "Prove it to us. Reach the village of the Lekhs on the mountains and exert tribute from them. Show us that Ernak's servants are fair and just rulers who treat their subjects with respect.", 
+   "ernak_quest_saraguroi_intro_7", []],
+  [anyone|plyr, "ernak_quest_saraguroi_intro_7", [],
+   "I accept. I will meet the Lekh’s representatives and demand tribute.", 
+   "ernak_quest_saraguroi_intro_8", []],
+  [anyone, "ernak_quest_saraguroi_intro_8", [],
+   "Good. If you succeed, we will consider your offer. But be warned, we will not join any coalition blindly.",
+   "close_window", [
+    (finish_mission, 3),
+    (mission_cam_animate_to_screen_color, 0xFF000000, 2000),
+    (jump_to_menu, "mnu_auto_return_to_map"),
+    (enable_party, "p_village_of_the_lekhs"),
+    (quest_set_slot, "qst_ernak_quest", slot_quest_target_saraguroi, 2),
+    (add_quest_note_from_sreg, "qst_ernak_quest", 5, "@Saraguroi task: Find the village of the Lekhs and demand tribute from them.",0),
+   ]],
+
+  [trp_onoguroi_king, "start", [(quest_slot_eq, "qst_ernak_quest", slot_quest_target_onoguroi, 1),],
+   "Greetings, traveler. What brings you to our humble camp?", "ernak_quest_onoguroi_intro_1", []],
+  [anyone|plyr, "ernak_quest_onoguroi_intro_1", [],
+   "I come in the name of Ernak, son of Attila. He has sent me to speak with you and to offer you his protection, as long as you join his clan.", 
+   "ernak_quest_onoguroi_intro_2", []],
+  [anyone, "ernak_quest_onoguroi_intro_2", [],
+   "Ernak? I remember him well. He was just a boy when I first saw him. I heard he has become quite a warrior and a leader. But why would he offer us his protection?", 
+   "ernak_quest_onoguroi_intro_3", []],
+  [anyone|plyr, "ernak_quest_onoguroi_intro_3", [],
+   "Because he knows that the Sabirs have been raiding your camp, and he believes that together we can defeat them.", 
+   "ernak_quest_onoguroi_intro_4", []],
+  [anyone, "ernak_quest_onoguroi_intro_4", [],
+   "The Sabirs... They have been a thorn in our side for too long. But I fear that we are not strong enough to fight them. We left the Huns because we thought they were too weak, and we wanted to build a better future for ourselves. But it seems that we are still too weak, and our future is uncertain.",
+   "ernak_quest_onoguroi_intro_5", []],
+  [anyone|plyr, "ernak_quest_onoguroi_intro_5", [],
+   "I understand your concerns, but I believe that together we can defeat the Sabirs. And I am willing to prove myself to you and your kinsmen.",
+   "ernak_quest_onoguroi_intro_6", []],
+  [anyone, "ernak_quest_onoguroi_intro_6", [],
+   "Prove yourself, you say? Very well. My daughter, Alka, was kidnapped by a band of Sabirs led by a rogue chief named Tatra. I need you to find where this specific group of Sabirs is hiding, report to me, and join us as we attack the camp and free my daughter. If you succeed, I will join Ernak and make sure to have good words for you with the other tribes: the Kutrigurs and the Saragurs.",
+   "ernak_quest_onoguroi_intro_7", []],
+  [anyone|plyr, "ernak_quest_onoguroi_intro_7", [],
+   "I accept your challenge. I will find your daughter and bring her back to you.", 
+   "ernak_quest_onoguroi_intro_8", []],
+  [anyone, "ernak_quest_onoguroi_intro_8", [],
+   "Good. I have faith in you, young warrior. But be careful. The Sabirs are not to be underestimated.",
+   "close_window", [
+    (finish_mission, 3),
+    (mission_cam_animate_to_screen_color, 0xFF000000, 2000),
+    (jump_to_menu, "mnu_auto_return_to_map"),
+    (enable_party, "p_camp_of_tatra"),
+    (quest_set_slot, "qst_ernak_quest", slot_quest_target_onoguroi, 2),
+    (str_store_troop_name_link, s3, "$g_talk_troop"),
+    (add_quest_note_from_sreg, "qst_ernak_quest", 6, "@Onoguroi task: Find the camp of Tatra and then report back to {s3}.",0),
+   ]],
+
+  [trp_kutriguroi_king, "start", [(quest_slot_eq, "qst_ernak_quest", slot_quest_target_kutriguroi, 1),],
+   "Whom we have here?", 
+   "ernak_quest_kutriguroi_intro_1", []],
+  [anyone|plyr, "ernak_quest_kutriguroi_intro_1", [],
+   "My name is {playername} and I am prince Ernak’s messenger. Hail to you, oh famous sire.",
+   "ernak_quest_kutriguroi_intro_2", []],
+  [anyone, "ernak_quest_kutriguroi_intro_2", [],
+   "And what business do you have with us, representative of Ernak?",
+   "ernak_quest_kutriguroi_intro_3", []],
+  [anyone|plyr, "ernak_quest_kutriguroi_intro_3", [],
+   "I come to discuss the future of the Huns. The Sabir ambassador here seems to be trying to sway you to join forces with Khan Gostun, who seeks to expand his horde westward. But why should the Kutrigurs side with the Sabirs when they pushed your people west and stole your lands near the river Raha?",
+   "ernak_quest_kutriguroi_intro_4", []],
+  [anyone|other(trp_sabir_aydar), "ernak_quest_kutriguroi_intro_4", [],
+   "You speak of ancient history, servant of the prince. The Sabirs and the Kutrigurs have been enemies for many years, but now is the time to put aside our differences and unite against our common enemies. With Gostun's forces, we can defeat any who dare stand against us and carve out a new territory for ourselves.",
+   "ernak_quest_kutriguroi_intro_5", []],
+  [anyone, "ernak_quest_kutriguroi_intro_5", [],
+   "It is true that the power of the Huns has waned since the death of Attila. I am not sure that you and Ernak can provide the protection that we need.",
+   "ernak_quest_kutriguroi_intro_6", []],
+  [anyone|plyr, "ernak_quest_kutriguroi_intro_6", [],
+   "But if the Kutrigurs join Gostun, they will show the other Huns that they are nothing but tame dogs rather than wolves of the steppes. The Kutrigurs, as Huns, should stay with the Huns and not with the Sabirs.",
+   "ernak_quest_kutriguroi_intro_7", []],
+  [anyone, "ernak_quest_kutriguroi_intro_7", [],
+   "Very well, let us see who can prove their worth. We Saragurs did hear legends about an old king who ruled over the steppes centuries ago, I wish to find his panoply to bring fame to my kin. Retrieve King Farzoy's helmet from the ruins of Olbia Pontica, we believe it is buried somewhere there. Whoever brings it to the Saragurs will gain their allegiance, while the other will have to flee in shame.",
+   "ernak_quest_kutriguroi_intro_8", []],
+  [anyone|plyr, "ernak_quest_kutriguroi_intro_8", [],
+   "I accept the challenge!",
+   "ernak_quest_kutriguroi_intro_9", [
+   ]],
+  [anyone|other(trp_sabir_aydar), "ernak_quest_kutriguroi_intro_9", [],
+   "I accept the challenge!",
+   "close_window", [
+    (finish_mission, 3),
+    (mission_cam_animate_to_screen_color, 0xFF000000, 2000),
+    (jump_to_menu, "mnu_auto_return_to_map"),
+    (enable_party, "p_ruins_of_oplia_pontica"),
+    (quest_set_slot, "qst_ernak_quest", slot_quest_target_kutriguroi, 2),
+    (add_quest_note_from_sreg, "qst_ernak_quest", 7, "@Kutriguroi task: Travel to the ruins of Olpia Pontica and find the ancient helmet of Farzoy.",0),
+   ]],
+### ERNAK QUEST DIALOGUES END
+
 #aestii king
   [trp_aestii_king, "start", [(eq, "$g_talk_troop_met", 0),],
    "Who's yonder, that appears as he lost his path?", "aestii_king_intro_1", []],

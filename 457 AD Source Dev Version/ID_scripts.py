@@ -893,4 +893,5 @@ script_troop_tree_recursive_detect_max_tier = 891
 script_prsnt_line = 892
 script_get_page_no_of_troop_tree_for_troop_on = 893
 script_cf_troop_is_no_prison_castle_guard = 894
-script_efe_init = 895
+script_setup_minor_faction_king_meeting = 895
+script_efe_init = 896

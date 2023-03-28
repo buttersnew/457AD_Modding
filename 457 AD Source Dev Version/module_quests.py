@@ -565,6 +565,10 @@ quests = [
  ("caius_quest", "Caius's Orders", 0, 
   "{!}"
  ),    
+
+ ("ernak_quest", "Sky-gods", 0, 
+  "{!}"
+ ),    
 #TO BE DONE QUESTS
 
  ("suebi_civil_war", "Faltra's Rebellion Placeholder", 0, 

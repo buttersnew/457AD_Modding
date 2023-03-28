@@ -400,3 +400,6 @@ mnu_finnsburg_revenge_final = 398
 mnu_finn_quest_final_banquet_1 = 399
 mnu_finn_quest_final_banquet_2 = 400
 mnu_visit_nero = 401
+mnu_onoguroi_intro = 402
+mnu_saraguroi_intro = 403
+mnu_kutriguroi_intro = 404

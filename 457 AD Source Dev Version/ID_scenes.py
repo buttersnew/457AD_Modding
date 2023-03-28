@@ -798,4 +798,6 @@ scn_cutscene_longboat_fleet = 795
 scn_finns_hall_interior = 796
 scn_church = 797
 scn_imperial_palace = 798
+scn_village_of_lekhs = 799
+scn_ruins_of_olpia_pontica = 800
 scn_exit = 100000

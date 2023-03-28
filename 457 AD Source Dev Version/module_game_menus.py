@@ -25174,6 +25174,24 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     "In the distance you see {s50}. It is the capital of the {s51}.^^{s52}^^{s49}",
     "none",
     [
+    (try_begin),
+        (check_quest_active, "qst_ernak_quest"),
+        (quest_slot_eq, "qst_ernak_quest", slot_quest_current_state, 1),
+        (try_begin),
+            (quest_slot_eq, "qst_ernak_quest", slot_quest_target_onoguroi, 1),
+            (eq, "$g_encountered_party", "p_onoguroi_village"),
+            (jump_to_menu, "mnu_onoguroi_intro"),
+        (else_try),
+            (quest_slot_eq, "qst_ernak_quest", slot_quest_target_saraguroi, 1),
+            (eq, "$g_encountered_party", "p_saraguroi_village"),
+            (jump_to_menu, "mnu_saraguroi_intro"),
+        (else_try),
+            (quest_slot_eq, "qst_ernak_quest", slot_quest_target_kutriguroi, 1),
+            (eq, "$g_encountered_party", "p_kutriguroi_village"),
+            (jump_to_menu, "mnu_kutriguroi_intro"),
+        (try_end),
+    (try_end),
+
     (str_clear, s49),
     (try_begin),
         (check_quest_active, "qst_finnsburh_quest_2"),
@@ -25205,31 +25223,31 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         (jump_to_menu, "mnu_settlement_looted"),
     (try_end),
 
-  (assign, "$current_town","$g_encountered_party"),
-  (store_faction_of_party, ":fac", "$g_encountered_party"),
-  (str_store_faction_name, s51, ":fac"),  
+    (assign, "$current_town","$g_encountered_party"),
+    (store_faction_of_party, ":fac", "$g_encountered_party"),
+    (str_store_faction_name, s51, ":fac"),  
 
-  (try_begin),
-    (party_get_slot, ":center_lord", "$current_town", slot_town_lord),
-    (ge, ":center_lord", 0),
-    (set_fixed_point_multiplier, 100),
-    (position_set_x, pos0, 70),
-    (position_set_y, pos0, 5),
-    (position_set_z, pos0, 75),
-    (set_game_menu_tableau_mesh, "tableau_troop_note_mesh", ":center_lord", pos0),
-  (try_end),
+    (try_begin),
+        (party_get_slot, ":center_lord", "$current_town", slot_town_lord),
+        (ge, ":center_lord", 0),
+        (set_fixed_point_multiplier, 100),
+        (position_set_x, pos0, 70),
+        (position_set_y, pos0, 5),
+        (position_set_z, pos0, 75),
+        (set_game_menu_tableau_mesh, "tableau_troop_note_mesh", ":center_lord", pos0),
+    (try_end),
 
-  (str_store_party_name, s50, "$g_encountered_party"),
-  (str_clear, s52),
-  (try_begin),
-    (store_relation, ":faction_relation", ":fac", "fac_player_supporters_faction"),
-    (lt, ":faction_relation", 0), 
-    (str_store_string, s52, "@The {s51} are hostile to you."),
-  (try_end),
-  (try_begin),
-    (faction_slot_eq, "$g_encountered_party_faction", slot_faction_player_tributary, 1),
-    (str_store_string, s52, "@The {s51} are a tributary of you. You may hire new troops here."),
-  (try_end),  
+    (str_store_party_name, s50, "$g_encountered_party"),
+    (str_clear, s52),
+    (try_begin),
+        (store_relation, ":faction_relation", ":fac", "fac_player_supporters_faction"),
+        (lt, ":faction_relation", 0), 
+        (str_store_string, s52, "@The {s51} are hostile to you."),
+    (try_end),
+    (try_begin),
+        (faction_slot_eq, "$g_encountered_party_faction", slot_faction_player_tributary, 1),
+        (str_store_string, s52, "@The {s51} are a tributary of you. You may hire new troops here."),
+    (try_end),  
     ],
     [
   ("sneak_into",
@@ -27913,28 +27931,70 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     ],),   
  
 #################BIG CHUNGUS FINNSBURG QUEST END
-    
- ("visit_nero",0,
+("visit_nero",0,
     "You open the door and enter a long shaft. You follow it. You feel like have walked through this tunnel before. After a while you see light at the end of the tunnel. In front of you stretches a large garden, or at least what is left of it. The Romans seem to be using this place as dump. It stinks disgustingly. Right behind the garden you spot the ruins of a palace complex. You climb up a stair to enter it.",
     "none", [
     ],
     [
     ("option_1", [],"Continue.",
     [
-    (assign, "$temp", 2),
-    (set_jump_mission, "mt_visit_rome_secrets"),
-    (modify_visitors_at_site,"scn_imperial_palace"),
-    (reset_visitors),
-    (set_visitor, 0, "trp_player"),
-    (jump_to_scene, "scn_imperial_palace"),
-    (change_screen_mission),
+      (assign, "$temp", 2),
+      (set_jump_mission, "mt_visit_rome_secrets"),
+      (modify_visitors_at_site,"scn_imperial_palace"),
+      (reset_visitors),
+      (set_visitor, 0, "trp_player"),
+      (jump_to_scene, "scn_imperial_palace"),
+      (change_screen_mission),
     ]),
+],),
 
-  
-    ],),  
-    
-#end of file
- ]
+### ERNAK QUEST
+("onoguroi_intro",0,
+    "The great steppes stretched out before you, a vast expanse of grass and dirt that seemed to go on forever. In the distance, you could see the camp of the Onogurs, a tribe of fierce warriors who had left the Huns after Attila's death. You inform them that you have been sent by Ernak, son of Attila, to speak with their chief, Atalgar, and convince him to join Ernak's clan in a grand alliance. You are led to Atalgar's tent, where the chief sat cross-legged on a furskin rug, surrounded by his advisors. Atalgar is an old man, with a lined face and a mane of white hair. His eyes are sharp and wise, and he welcomes you with a mix of curiosity and suspicion.",
+    "none", [
+      (set_background_mesh, "mesh_pic_khergit"),
+    ],
+    [
+    ("option_1", [],"Continue.",
+    [
+      (call_script, "script_setup_minor_Faction_king_meeting"),
+    ]),
+],),
+("saraguroi_intro",0,
+    "You see a wide-open space with dozens of yurts scattered throughout. The yurts are made of felt, with wooden frames and a central opening for smoke to escape. The camp is alive with activity, with women cooking over open fires and children playing and chasing each other around.^^In the center of the camp, there is a large yurt that stands out from the others. It is adorned with colorful tapestries and banners, and guards stand at the entrance, watching everyone who passes by. This is clearly the dwelling of the Saragur chieftain, Bulyak.^^You approache the guards and announce that you are send by Ernak to speak with Bulyak. The guards nod and allow you to pass into the yurt. Inside, you find Bulyak seated on a large rug, surrounded by his advisors and warriors.^^Bulyak is a tall man with a muscular build, and his face bears the scars of many battles. He wears a fur-lined robe and a leather belt adorned with a large silver buckle. His eyes are sharp and intelligent, and he greets you with a nod.",
+    "none", [
+      (set_background_mesh, "mesh_pic_khergit"),
+    ],
+    [
+    ("option_1", [],"Continue.",
+    [
+      (call_script, "script_setup_minor_Faction_king_meeting"),
+    ]),
+],),
+("kutriguroi_intro",0,
+    "As you approach the Kutrigur camp, you spot Ilterish conversing with a mysterious Hun. As he drew closer, the Hun revealed himself as Aydar, an ambassador of the Sabirs, and began attempting to persuade Ilterish to join forces with Khan Gostun.",
+    "none", [
+      (set_background_mesh, "mesh_pic_khergit"),
+    ],
+    [
+    ("option_1", [],"Continue.",
+    [
+        (party_get_slot, ":meeting_scene", "$g_encountered_party", slot_town_center),
+        (faction_get_slot, ":meeting_troop", "$g_encountered_party_faction", slot_faction_leader),
+        (set_jump_mission, "mt_longboat_landing_1"),
+        (assign, "$g_next_menu", "mnu_auto_return_to_map"),
+        (modify_visitors_at_site, ":meeting_scene"),
+        (reset_visitors),    
+        (assign, "$temp", ":meeting_troop"),
+        (set_visitor, 35, ":meeting_troop"),
+        (set_visitor, 35,"trp_sabir_aydar"),
+        (set_visitor, 0, "trp_player"),
+        (jump_to_scene, ":meeting_scene"),
+        (change_screen_mission),
+    ]),
+],),
+
+]#end of file
  
 #Freelance shit, fuck freelancer shit
 pre_join_freelancer = [

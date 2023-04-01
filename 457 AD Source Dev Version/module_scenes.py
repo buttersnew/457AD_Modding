@@ -1731,5 +1731,8 @@ scenes = [
   [], [], "outer_terrain_plain"),
   ("ruins_of_olpia_pontica", sf_generate, "none", "none", (0, 0), (240, 240), -0.5, "0x00000000300005000003ccf300007c9a00004ca90000122f",
   [], [], "outer_terrain_plain"),
-
+  ("the_oath", sf_generate, "none", "none", (0, 0), (240, 240), -0.5, "0x00000000300005000003ccf300007c9a00004ca90000122f",
+  [], [], "outer_terrain_plain"),
+  ("final_battle", sf_generate, "none", "none", (0, 0), (240, 240), -0.5, "0x00000000300005000003ccf300007c9a00004ca90000122f",
+  [], [], "outer_terrain_plain"),
 ]

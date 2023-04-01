@@ -1795,7 +1795,7 @@ troops = [
    itm_hunnic_spatha,itm_khergit_bow,itm_khergit_arrows,itm_light_lance]+hats_huns+horses_hunnic_1+horses_hunnic_2,
    def_attrib_lvl_23|level(23),wp_one_handed(175)|wp_two_handed(175)|wp_polearm(175)|wp_throwing(170)|wp_archery(170),knows_athletics_5|knows_riding_6|knows_power_throw_2|knows_horse_archery_5|knows_power_strike_7|knows_power_draw_7|knows_ironflesh_6|knows_inventory_management_3,hunnic_face_1, hunnic_face_2],
 
-  ["hunnic_veteran","Hunnic Veteran","Hun Veterans",tf_mounted|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_horse|tf_guarantee_shield,0,0,fac_culture_12,
+  ["hunnic_veteran","Hunnic Veteran","Hun Veterans",tf_mounted|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_horse|tf_guarantee_polearm,0,0,fac_culture_12,
    [itm_heavy_greaves,itm_sarranid_boots_b,itm_sassanid_cavalry_boots_1,itm_sassanid_cavalry_boots_2,itm_kaftan_lamellar_1,itm_kaftan_lamellar_5,itm_kaftan_lamellar_6,itm_leather_gloves,itm_kalhkni_helmet_1,itm_khudashevsky_helmet_3,itm_kishpek_helmet_mail,itm_concesti_helmet,itm_turaevo_helmet,itm_pannonhalma_spatha,itm_djurso_spatha,itm_heavy_lance,itm_khergit_arrows,itm_niya_bow_2]+horses_hunnic_3+horses_alan_2,
    def_attrib_lvl_28|level(28),wp_one_handed(205)|wp_two_handed(205)|wp_polearm(205)|wp_throwing(230)|wp_archery(170),knows_riding_8|knows_horse_archery_6|knows_power_strike_7|knows_power_draw_8|knows_ironflesh_7|knows_inventory_management_3|knows_athletics_5|knows_shield_2,hunnic_face_1, hunnic_face_2],
 
@@ -2576,6 +2576,19 @@ troops = [
   ["african_mercenary","Subsaharan Mercenary","Subsaharan Mercenaries",tf_guarantee_polearm|tf_guarantee_armor|tf_guarantee_shield|tf_guarantee_helmet,0,0,fac_minor_garamantians,
    [itm_african_kilt_1,itm_a_exomis_1,itm_african_band_1,itm_african_band_2,itm_turban,itm_desert_turban,itm_wicker_round_shield,itm_nubian_shield_2,itm_heavy_spear_1,itm_throwing_spear_2],
    def_attrib_lvl_21|level(20),wp_one_handed(170)|wp_polearm(170)|wp_throwing(170),knows_lvl_21|knows_power_strike_6,nubian_face_1, nubian_face_2],
+
+#sabir
+  ["sabir_horse_archer","Sabir Horse Archer","Sabir Horse Archers",tf_mounted|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_horse|tf_guarantee_ranged,0,0,fac_minor_sabiroi,
+   [itm_nomad_boots,itm_sarranid_boots_b,itm_kaftan_hunnic_green,itm_kaftan_hunnic_white,itm_kaftan_eastern_2,itm_be_hunnic_cap_2,itm_be_hunnic_cap_4,itm_hunnic_phrygian_3,itm_hunnic_phrygian_6,itm_isakovsky_helmet_cloth,itm_khergit_bow,itm_niya_bow_2,itm_khergit_arrows,itm_khergit_arrows,itm_sword_khergit_1]+horses_hunnic_1,
+   def_attrib_lvl_18|level(18),wp_one_handed(140)|wp_two_handed(130)|wp_polearm(130)|wp_throwing(130)|wp_archery(175),knows_common|knows_riding_6|knows_horse_archery_7|knows_power_strike_2|knows_power_draw_6|knows_ironflesh_2,hunnic_face_1, hunnic_face_2],
+
+  ["sabir_amazon","Sabir Amazon","Sabir Amazons",tf_female|tf_mounted|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_horse|tf_guarantee_ranged,0,0,fac_minor_sabiroi,
+   [itm_nomad_boots,itm_sarranid_boots_b,itm_kaftan_hunnic_green,itm_kaftan_hunnic_white,itm_kaftan_hunnic_3,itm_kaftan_eastern_2,itm_khergit_bow,itm_khergit_arrows,itm_light_lance,itm_sword_khergit_1]+horses_hunnic_1,
+   def_attrib_lvl_21|level(21),wp_one_handed(170)|wp_two_handed(160)|wp_polearm(160)|wp_throwing(130)|wp_archery(170),knows_lvl_21|knows_power_draw_5|knows_horse_archery_6,woman_face_1, woman_face_2],
+
+  ["sabir_cataphract","Sabir Cataphract","Sabir Cataphracts",tf_mounted|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_horse|tf_guarantee_polearm,0,0,fac_minor_sabiroi,
+   [itm_heavy_greaves,itm_kaftan_lamellar_9,itm_kaftan_lamellar_10,itm_kaftan_lamellar_13,itm_isakovsky_helmet_1,itm_tarasovo_helmet_1,itm_isakovsky_helmet_mail,itm_suvorovsky_helmet_mail,itm_heavy_lance,itm_battle_axe,itm_khergit_arrows,itm_niya_bow_2]+horses_hunnic_3+horses_alan_2,
+   def_attrib_lvl_28|level(28),wp_one_handed(210)|wp_two_handed(210)|wp_polearm(210)|wp_throwing(230)|wp_archery(165),knows_riding_8|knows_horse_archery_6|knows_power_strike_7|knows_power_draw_8|knows_ironflesh_7|knows_inventory_management_3|knows_athletics_5|knows_shield_2,hunnic_face_1, hunnic_face_2],
 
 #armenian rebels
   ["armenian_bandit","Armenian Bandit","Armenian Bandits",tf_guarantee_ranged|tf_guarantee_boots|tf_guarantee_armor,0,0,fac_armenian_rebels, #has spear, dagger, potential shield, bow, arrows + sling

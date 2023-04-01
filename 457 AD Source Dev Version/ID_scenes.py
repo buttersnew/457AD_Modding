@@ -801,4 +801,6 @@ scn_church = 798
 scn_imperial_palace = 799
 scn_village_of_lekhs = 800
 scn_ruins_of_olpia_pontica = 801
+scn_the_oath = 802
+scn_final_battle = 803
 scn_exit = 100000

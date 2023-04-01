@@ -514,7 +514,7 @@ party_templates = [
   ("saraguroi_party","Saraguroi Warriors",icon_axeman|carries_goods(30)|pf_show_faction,0,fac_minor_saraguroi,bandit_personality,[(trp_hunnic_horse_archer,10,20),(trp_hunnic_retainer,10,20),(trp_hunnic_skirmisher,5,10),(trp_hunnic_veteran,5,10)]),
   ("onoguroi_party","Onoguroi Warriors",icon_axeman|carries_goods(30)|pf_show_faction,0,fac_minor_onoguroi,bandit_personality,[(trp_hunnic_horse_archer,10,20),(trp_hunnic_retainer,10,20),(trp_hunnic_skirmisher,5,10),(trp_hunnic_veteran,5,10)]),
   ("kutriguroi_party","Kutriguroi Warriors",icon_axeman|carries_goods(30)|pf_show_faction,0,fac_minor_kutriguroi,bandit_personality,[(trp_hunnic_horse_archer,10,20),(trp_hunnic_retainer,10,20),(trp_hunnic_skirmisher,5,10),(trp_hunnic_veteran,5,10)]),
-  ("sabiroi_party","Sabiroi Warriors",icon_axeman|carries_goods(30)|pf_show_faction,0,fac_minor_sabiroi,bandit_personality,[(trp_hunnic_horse_archer,10,20),(trp_hunnic_retainer,10,20),(trp_hunnic_skirmisher,5,10),(trp_hunnic_veteran,5,10)]),
+  ("sabiroi_party","Sabiroi Warriors",icon_axeman|carries_goods(30)|pf_show_faction,0,fac_minor_sabiroi,bandit_personality,[(trp_sabir_horse_archer,20,40),(trp_sabir_cataphract,10,20)]),
 
 
   ("minor_faction_levies", "Levies", icon_axeman|pf_show_faction|pf_always_visible, soldier_personality, fac_commoners, 0, []),

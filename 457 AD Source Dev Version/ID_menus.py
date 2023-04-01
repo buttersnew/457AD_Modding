@@ -403,3 +403,7 @@ mnu_visit_nero = 401
 mnu_onoguroi_intro = 402
 mnu_saraguroi_intro = 403
 mnu_kutriguroi_intro = 404
+mnu_kutriguroi_victory = 405
+mnu_ruins_of_olpia_pontica = 406
+mnu_olpia_victory = 407
+mnu_ernak_defeat = 408

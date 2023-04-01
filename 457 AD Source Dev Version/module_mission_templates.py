@@ -25188,4 +25188,63 @@ mission_templates = [
     
     ]),
 
+
+### ernak quest missions
+("olpia_mission",mtf_battle_mode,-1,
+    "plundering a settlement",
+    [
+      (0,mtef_visitor_source|mtef_team_0,af_override_horse,aif_start_alarmed,1,[]),#player
+      (1,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#player
+      (2,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#guard
+	    (3,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#legatus
+      (4,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#legatus
+      (5,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#unused
+      (6,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#unused
+      (7,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#unused
+      (8,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#spectators
+      (9,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#spectators
+      (10,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#spectators
+      (11,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#spectators
+      (12,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#spectators
+      (13,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#spectators
+      (14,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#spectators
+      (15,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#spectators
+      (16,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#spectators
+    ],
+   vc_weather + [
+   
+ 
+    (ti_before_mission_start,0,0,[],[
+      (call_script, "script_music_set_situation_with_culture", mtf_sit_ambushed),
+      (assign, "$g_battle_result", 0),
+      (team_set_relation, 0,1,-1),
+      (team_set_relation, 1,0,-1),
+    ]),
+
+    common_battle_tab_press,  
+    
+    (1,3,0,[
+      (this_or_next|main_hero_fallen),
+      (num_active_teams_le, 1),
+      (eq, "$g_battle_result", 0),
+    ],[
+      (try_begin),
+          (neg|main_hero_fallen),
+          (assign, "$g_next_menu", "mnu_olpia_victory"),
+          (call_script, "script_change_troop_renown", "trp_player", 5),
+          (add_xp_as_reward, 500),
+      (else_try),
+          (assign, "$g_next_menu", "mnu_ernak_defeat"),
+      (try_end),
+      (jump_to_menu, "$g_next_menu"),
+      (assign, "$g_battle_result", 1),
+      (finish_mission, 3),
+      (mission_cam_animate_to_screen_color, 0xFF000000, 2000),
+    ]),      
+ 
+    common_inventory_not_available,
+]),
+
+
+
 ]

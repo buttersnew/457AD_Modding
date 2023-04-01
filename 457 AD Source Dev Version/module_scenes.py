@@ -1728,7 +1728,7 @@ scenes = [
   ## ernak quest
   ("village_of_lekhs", sf_generate, "none", "none", (0, 0), (240, 240), -0.5, "0x00000002300000000004fd4a000041ef00005ae800003c55",
   [], [], "outer_terrain_plain"),
-  ("ruins_of_olpia_pontica", sf_generate, "none", "none", (0, 0), (240, 240), -0.5, "0x00000002300000000004fd4a000041ef00005ae800003c55",
+  ("ruins_of_olpia_pontica", sf_generate, "none", "none", (0, 0), (240, 240), -0.5, "0x00000000300005000003ccf300007c9a00004ca90000122f",
   [], [], "outer_terrain_plain"),
 
 ]

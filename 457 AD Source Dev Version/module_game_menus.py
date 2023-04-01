@@ -25189,6 +25189,10 @@ goods, and books will never be sold. ^^You can change some settings here freely.
             (quest_slot_eq, "qst_ernak_quest", slot_quest_target_kutriguroi, 1),
             (eq, "$g_encountered_party", "p_kutriguroi_village"),
             (jump_to_menu, "mnu_kutriguroi_intro"),
+        (else_try),
+            (quest_slot_eq, "qst_ernak_quest", slot_quest_target_kutriguroi, 2),
+            (eq, "$g_encountered_party", "p_kutriguroi_village"),
+            (jump_to_menu, "mnu_kutriguroi_victory"),
         (try_end),
     (try_end),
 
@@ -27991,6 +27995,196 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         (set_visitor, 0, "trp_player"),
         (jump_to_scene, ":meeting_scene"),
         (change_screen_mission),
+    ]),
+],),
+("kutriguroi_victory",0,
+    "Your arrival is already eagerly awaited. The warriors greet you and lead you to their chief. The Sabir ambassador is also here.",
+    "none", [
+      (set_background_mesh, "mesh_pic_khergit"),
+    ],
+    [
+    ("option_1", [],"Continue.",
+    [
+        (party_get_slot, ":meeting_scene", "$g_encountered_party", slot_town_center),
+        (faction_get_slot, ":meeting_troop", "$g_encountered_party_faction", slot_faction_leader),
+        (set_jump_mission, "mt_longboat_landing_1"),
+        (assign, "$g_next_menu", "mnu_auto_return_to_map"),
+        (modify_visitors_at_site, ":meeting_scene"),
+        (reset_visitors),    
+        (assign, "$temp", ":meeting_troop"),
+        (set_visitor, 35, ":meeting_troop"),
+        (set_visitor, 35,"trp_sabir_aydar"),
+        (set_visitor, 0, "trp_player"),
+        (jump_to_scene, ":meeting_scene"),
+        (change_screen_mission),
+    ]),
+],),
+
+("village_of_the_lekhs",0,
+    "{s20}",
+    "none", [
+      (try_begin),
+          (check_quest_active, "qst_ernak_quest"),
+          (quest_slot_eq, "qst_ernak_quest", slot_quest_target_saraguroi, 2),
+          (str_store_string, s20, "@Ambush! The Lekhs are attacking!"),
+      (else_try),
+          (str_store_string, s20, "@You spot a small village in the distance."),
+      (try_end),
+      (set_background_mesh, "mesh_pic_khergit"),
+  ],
+    [
+    ("option_1", [
+        (check_quest_active, "qst_ernak_quest"),
+        (quest_slot_eq, "qst_ernak_quest", slot_quest_target_saraguroi, 2),
+    ],"Continue.",
+    [
+        (assign, "$g_battle_result", 0),
+        (assign, "$g_engaged_enemy", 1),
+        (assign, "$g_next_menu", "mnu_lekh_victory"),#victory menu
+        (assign, "$temp4", "mnu_ernak_defeat"),#victory menu
+        (set_party_battle_mode), 
+        (set_jump_mission,"mt_lead_charge_quest"),#can be used for any quest battle
+        (jump_to_scene, "scn_battle_caucasian_mountains_6"),
+
+        (change_screen_mission),
+    ]),
+
+    ("option_2", [
+        (neg|quest_slot_eq, "qst_ernak_quest", slot_quest_target_saraguroi, 2),
+    ],"Leave.",
+    [
+      (change_screen_map),
+    ]),
+],),
+("lekh_victory",0,
+    "You defeated the Lekh ambush. Their chief is already awaiting you in their village. It is time for negotiations.^^You approach the village. All of a sudden, a cloud darkens the sky and all birds are gone. A thunder roams in the distance. For a moment, you think you hear a voice whispering:^'All creaturs living in the vast steppe, from the flowers to the horses, call for blood to grow.'",
+    "none", [
+      (set_background_mesh, "mesh_pic_victory"),
+      (party_set_flags, "p_village_of_the_lekhs", pf_hide_defenders, 0),
+    ],
+    [
+    ("option_1", [
+    ],"Continue.",
+    [
+        (set_jump_mission, "mt_visit_lekhs"),
+        (modify_visitors_at_site, "scn_village_of_lekhs"),
+        (reset_visitors),
+        (set_visitor, 35, "trp_lekh_chief"),
+        (set_visitor, 19, "trp_caucasian_townswoman"),
+        (set_visitor, 18, "trp_caucasian_townswoman"),
+        (set_visitor, 17, "trp_caucasian_townswoman"),
+        (set_visitor, 16, "trp_caucasian_townswoman"),
+        (set_visitor, 15, "trp_caucasian_townswoman"),
+        (set_visitor, 14, "trp_caucasian_townswoman"),
+        (set_visitor, 13, "trp_caucasian_townswoman"),
+        (set_visitor, 12, "trp_caucasian_townswoman"),
+        (set_visitor, 11, "trp_caucasian_townswoman"),
+        (set_visitor, 10, "trp_caucasian_townswoman"),
+        (set_visitor, 9, "trp_caucasian_townswoman"),
+        (set_visitor, 8, "trp_caucasian_townswoman"),
+        (set_visitor, 7, "trp_caucasian_townswoman"),
+        (set_visitor, 6, "trp_caucasian_townswoman"),
+        (set_visitor, 5, "trp_caucasian_townswoman"),
+        (set_visitor, 4, "trp_caucasian_townswoman"),
+        (set_visitor, 3, "trp_caucasian_townswoman"),
+        (set_visitor, 2, "trp_caucasian_townswoman"),
+        (set_visitor, 1, "trp_caucasian_townswoman"),
+        (set_visitor, 0, "trp_player"),
+        (jump_to_scene, "scn_village_of_lekhs"),
+        (change_screen_mission),
+    ]),
+],),
+("lekh_plunder",0,
+    "You give the order to plunder the village. There is no resistance.",
+    "none", [
+      (set_background_mesh, "mesh_pic_victory"),
+    ],
+    [
+    ("option_1", [
+    ],"Continue.",
+    [
+        (set_jump_mission, "mt_lekh_plunder"),
+        (modify_visitors_at_site, "scn_village_of_lekhs"),
+        (reset_visitors),
+        (try_for_range, ":entry", 1, 20),
+            (set_visitors, ":entry", "trp_caucasian_townswoman", 3),
+        (try_end),
+        (jump_to_scene, "scn_village_of_lekhs"),
+        (jump_to_menu, "mnu_auto_return_to_map"),
+        (change_screen_mission),
+    ]),
+],),
+
+("ruins_of_olpia_pontica",0,
+    "{s20}",
+    "none", [
+      (try_begin),
+          (check_quest_active, "qst_ernak_quest"),
+          (quest_slot_eq, "qst_ernak_quest", slot_quest_target_kutriguroi, 2),
+          (str_store_string, s20, "@As you approach the ruins of Olbia Pontica, you are struck by the desolation of the once thriving Greco-Sarmatian city. The place is now a barren wasteland, devoid of any semblance of civilization. The old port lies abandoned, its docks broken and rotting, while the main town is in ruins, its buildings reduced to rubble and dust.^^Amidst this desolation, you can see a few huts scattered here and there, their roofs sagging and their walls crumbling. The only signs of life come from the horses tied around the ruins, their whinnies and neighs echoing through the empty streets.^^As you make your way through the ruins, you notice a gruesome sight: the heads of bandits, impaled on spikes, their empty eyes staring out at the desolation around them. Clearly, the Sabirs have been here before you, and they have dealt with the bandits in their own brutal way.^^You must proceed with caution, for the Sabirs are still lurking in the ruins, waiting for anyone who might challenge their claim to the ancient artifact. As you move through the desolate streets, you can hear Sabir voices, their harsh words echoing through the ruins."),
+      (else_try),
+          (str_store_string, s20, "@You spot the ruins of Olpia Pontica in the distance."),
+      (try_end),
+      (set_background_mesh, "mesh_pic_looted_village"),
+    ],
+    [
+    ("option_1", [
+        (check_quest_active, "qst_ernak_quest"),
+        (quest_slot_eq, "qst_ernak_quest", slot_quest_target_kutriguroi, 2),
+    ],"Continue.",
+    [
+        (set_jump_mission, "mt_olpia_mission"),
+        (modify_visitors_at_site, "scn_ruins_of_olpia_pontica"),
+        (reset_visitors),
+        (set_visitor, 7, "trp_sabir_bandit"),
+        (set_visitor, 6, "trp_sabir_bandit"),
+        (set_visitor, 5, "trp_sabir_bandit"),
+        (set_visitor, 4, "trp_sabir_bandit"),
+        (set_visitor, 3, "trp_sabir_bandit"),
+        (set_visitor, 2, "trp_sabir_bandit"),
+        (set_visitor, 1, "trp_sabir_bandit"),
+        (set_visitor, 0, "trp_player"),
+        (jump_to_scene, "scn_ruins_of_olpia_pontica"),
+        (change_screen_mission),
+    ]),
+    ("option_2", [],"Leave.",
+    [
+      (change_screen_map),
+    ]),
+],),
+
+("olpia_victory",0,
+    "You have defeated the Sabirs. Among the loot you find the Ancient helmet of Farzoy. It is rusty, old and ugly. Return to the Kutriguroi and bring their chief the helmet.^^While you stand there looking at the dead you hear a thunder in the distance. It reminds you of the power and majesty of nature, which has both shaped and been shaped by the people who once called this place home. Even now, birds fly around, a living link to the past that echoes through the ages.",
+    "none", [
+      (set_background_mesh, "mesh_pic_victory"),
+    ],
+    [
+    ("option_1", [],"Continue.",
+    [
+      (call_script, "script_change_troop_renown", "trp_player", 10),
+      (quest_set_slot, "qst_ernak_quest", slot_quest_target_kutriguroi, 3),
+      (add_quest_note_from_sreg, "qst_ernak_quest", 7, "@Kutriguroi task (Completed): You have obtained the ancient helmet of Farzoy, return to the Kutriguroi.",0),
+      (jump_to_menu, "mnu_auto_return_to_map"),
+
+    ]),
+
+],),
+
+("ernak_defeat",0,
+    "You have been defeated. Ernak's task has failed!",
+    "none", [
+      (set_background_mesh, "mesh_pic_defeat"),
+    ],
+    [
+    ("option_1", [],"Continue.",
+    [
+
+      (call_script, "script_change_troop_renown", "trp_player", -50),
+      (call_script, "script_change_player_relation_with_troop", "trp_knight_23_8", -200),
+      (quest_set_slot, "qst_ernak_quest", slot_quest_current_state, -2),
+      (call_script, "script_fail_quest", "qst_ernak_quest"),
+      (call_script, "script_end_quest", "qst_ernak_quest"),
+      (jump_to_menu, "mnu_auto_return_to_map"),
     ]),
 ],),
 

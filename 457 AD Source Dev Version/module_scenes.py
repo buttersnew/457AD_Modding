@@ -247,7 +247,8 @@ scenes = [
  ("battle_caucasian_mountains_3", sf_generate, "none", "none", (0, 0), (100, 100), -0.5, "0x0000000233a789630009364e000060510000724400003221",[], [], "outer_terrain_mountain"),
  ("battle_caucasian_mountains_4", sf_generate, "none", "none", (0, 0), (100, 100), -0.5, "0x0000000233a789630009364e00000a5f0000475a00002ea3",[], [], "outer_terrain_mountain"),
  ("battle_caucasian_mountains_5", sf_generate, "none", "none", (0, 0), (100, 100), -0.5, "0x00000002b3a789630009364e0000697200005efa00003e36",[], [], "outer_terrain_mountain"),
- 
+ ("battle_caucasian_mountains_6", sf_generate, "none", "none", (0, 0), (100, 100), -0.5, "0x0000000230000500000329e400005cce00003f9200002e90",[], [], "outer_terrain_mountain"),
+
  ("battle_central_anatolia", sf_generate, "none", "none", (0, 0), (100, 100), -0.5, "0x00000002206006e30008be27000060d50000026e000003de",[], [], "outer_terrain_steppe_3"),
  ("battle_central_anatolia_2", sf_generate, "none", "none", (0, 0), (100, 100), -0.5, "0x00000000200012e30009725e000024bc000066590000127e",[], [], "outer_terrain_steppe_3"),
  ("battle_central_anatolia_3", sf_generate, "none", "none", (0, 0), (100, 100), -0.5, "0x00000000200012e30009725e00007f1a0000629a00001b19",[], [], "outer_terrain_steppe_3"),
@@ -1726,9 +1727,12 @@ scenes = [
   [], ["bonus_chest_10"], "outer_terrain_plain"),
 
   ## ernak quest
-  ("village_of_lekhs", sf_generate, "none", "none", (0, 0), (240, 240), -0.5, "0x00000002300000000004fd4a000041ef00005ae800003c55",
+  ("village_of_lekhs", sf_generate, "none", "none", (0, 0), (240, 240), -0.5, "0x00000000300005000005695d00007fbc00005de100006275",
   [], [], "outer_terrain_plain"),
-  ("ruins_of_olpia_pontica", sf_generate, "none", "none", (0, 0), (240, 240), -0.5, "0x00000002300000000004fd4a000041ef00005ae800003c55",
+  ("ruins_of_olpia_pontica", sf_generate, "none", "none", (0, 0), (240, 240), -0.5, "0x00000000300005000003ccf300007c9a00004ca90000122f",
   [], [], "outer_terrain_plain"),
-
+  ("the_oath", sf_generate, "none", "none", (0, 0), (240, 240), -0.5, "0x00000000300005000003ccf300007c9a00004ca90000122f",
+  [], [], "outer_terrain_plain"),
+  ("final_battle", sf_generate, "none", "none", (0, 0), (240, 240), -0.5, "0x00000000300005000003ccf300007c9a00004ca90000122f",
+  [], [], "outer_terrain_plain"),
 ]

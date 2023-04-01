@@ -1270,7 +1270,7 @@ strings = [
   ("npc21_personalitymatch_speech", "{Sir/Madame}, Siestrzewit is an exceptional man. I have often find myself in his company and he has even taken upon himself to teach me the way the Huns use their bows. Not that I would need it, but it has been very helpful in understanding the enemy"),
   ("npc22_personalitymatch_speech", "General. I want to tell you something. Rufinus is truly and outstanding individual, a Roman, a great fighter and an officer. I like to think that my father was something like him. Keep him close and let him help you and we may achieve great things, I know it!"),
 
-  ("npc1_personalitymatch_speech_b", "Without good honest souls like him to bring silver into calradia, scoundrels like me would have a hard time in life, I'll warrant. I'm glad to have him with us."),
+  ("npc1_personalitymatch_speech_b", "Without good honest souls like him to bring silver, scoundrels like me would have a hard time in life, I'll warrant. I'm glad to have him with us."),
   ("npc2_personalitymatch_speech_b", "Based on how he did in that last fight, I'd say that I'd trust my back to him any day, although I'd still keep a hand on my purse."),
   ("npc3_personalitymatch_speech_b", "I also confess that I find him a truly delightful companion, a man of both wit and manners. Perhaps, perhaps... Ah, but I say too much. Good day, {sir/madame}."),
   ("npc4_personalitymatch_speech_b", "Even if we come from different corners of the world we are alike! Our facial features couldnt be so different and yet I am proudly calling him my brother."),

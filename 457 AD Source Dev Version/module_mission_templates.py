@@ -6781,8 +6781,6 @@ mission_templates = [
          (agent_set_slot, ":agent_no", slot_agent_courage_score, ":initial_courage_score"),
          ]),
 
-      common_battle_init_banner,
-
       (ti_on_agent_killed_or_wounded, 0, 0, [],
        [
         (store_trigger_param_1, ":dead_agent_no"),
@@ -6882,12 +6880,6 @@ mission_templates = [
         (assign, "$defender_reinforcement_limit_increased", 1),
       (try_end),
       #new (25.11.09) ends
-
-
-
-
-
-
       (lt,"$defender_reinforcement_stage","$g_defender_reinforcement_limit"),
                  (store_mission_timer_a,":mission_time"),
                  (ge,":mission_time",10),
@@ -23977,7 +23969,7 @@ mission_templates = [
       (0,mtef_visitor_source,af_override_horse,aif_start_alarmed,1,[]),#player
       (1,mtef_visitor_source,af_override_horse,aif_start_alarmed,1,[]),#player
       (2,mtef_visitor_source,af_override_horse,aif_start_alarmed,1,[]),#guard
-	  (3,mtef_visitor_source,af_override_horse,aif_start_alarmed,1,[]),#legatus
+      (3,mtef_visitor_source,af_override_horse,aif_start_alarmed,1,[]),#legatus
       (4,mtef_visitor_source,af_override_horse,aif_start_alarmed,1,[]),#legatus
       (5,mtef_visitor_source,af_override_horse,aif_start_alarmed,1,[]),#unused
       (6,mtef_visitor_source,af_override_horse,aif_start_alarmed,1,[]),#unused
@@ -24168,9 +24160,10 @@ mission_templates = [
     (mission_cam_animate_to_screen_color, 0xFF000000, 2000),
     ]),      
  
-    common_inventory_not_available,]),
+    common_inventory_not_available,
+]),
     
-    ("finns_hall_battle",mtf_battle_mode,-1,
+("finns_hall_battle",mtf_battle_mode,-1,
     "plundering a settlement",
     [
       (0,mtef_visitor_source|mtef_team_0,af_override_horse,aif_start_alarmed,1,[]),#player
@@ -24390,16 +24383,17 @@ mission_templates = [
  
     (0, 0, 2, [],
     [
-    (try_for_agents, ":agent_no"),
-        (agent_is_human, ":agent_no"),
-        (agent_is_alive, ":agent_no"),
-        (agent_ai_set_always_attack_in_melee, ":agent_no", 1),
-    (try_end),
+      (try_for_agents, ":agent_no"),
+          (agent_is_human, ":agent_no"),
+          (agent_is_alive, ":agent_no"),
+          (agent_ai_set_always_attack_in_melee, ":agent_no", 1),
+      (try_end),
     ]),
  
-    common_inventory_not_available,]),
+    common_inventory_not_available,
+]),
     
-    ("finn_camp_battle",mtf_battle_mode,-1,
+("finn_camp_battle",mtf_battle_mode,-1,
     "plundering a settlement",
     [
       (0,mtef_visitor_source|mtef_team_2,af_override_horse,aif_start_alarmed,1,[]),#player
@@ -24621,10 +24615,11 @@ mission_templates = [
         ]),
  
  
-    common_inventory_not_available,]),
+    common_inventory_not_available,
+]),
     
     
-  ("fleet_cutscene",mtf_battle_mode,-1,
+("fleet_cutscene",mtf_battle_mode,-1,
     "plundering a settlement",
     [
       (0,mtef_scene_source,af_override_horse,0,1,[]),#player
@@ -25190,6 +25185,91 @@ mission_templates = [
 
 
 ### ernak quest missions
+("visit_lekhs",mtf_battle_mode,-1,
+    "plundering a settlement",
+    [
+      (0,mtef_visitor_source|mtef_team_0,af_override_horse,aif_start_alarmed,1,[]),#player
+      (1,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#player
+      (2,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#guard
+	    (3,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#legatus
+      (4,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#legatus
+      (5,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#unused
+      (6,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#unused
+      (7,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#unused
+      (8,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#spectators
+      (9,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#spectators
+      (10,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#spectators
+      (11,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#spectators
+      (12,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#spectators
+      (13,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#spectators
+      (14,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#spectators
+      (15,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#spectators
+      (16,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#spectators
+      (17,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#spectators
+      (18,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#spectators
+      (19,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#spectators
+      (20,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#spectators
+      (21,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#spectators
+      (21,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#spectators
+      (22,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#spectators
+      (23,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#spectators
+      (24,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#spectators
+      (25,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#spectators
+      (26,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#spectators
+      (27,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#spectators
+      (28,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#spectators
+      (29,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#spectators
+      (30,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#spectators
+      (31,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#spectators
+      (32,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#spectators
+      (33,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#spectators
+      (34,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#spectators
+      (35,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#spectators
+      (36,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#spectators
+    ],
+   vc_weather + [
+    
+    (0,8,0,[],
+      [
+        (try_for_agents,":agent_no"),
+            (agent_is_alive,":agent_no"),
+            (agent_is_human,":agent_no"),
+            (agent_get_troop_id, ":troop_no", ":agent_no"),
+            (eq, ":troop_no", "trp_caucasian_townswoman"),
+            
+            (assign, ":continue_walk", 0),
+            (store_random_in_range, ":continue_walk", 1, 100),
+            (try_begin),
+                (le, ":continue_walk", 40),
+                (agent_set_stand_animation, ":agent_no", "anim_stand_man"),
+                (agent_set_walk_forward_animation, ":agent_no", "anim_walk_forward"),
+                (agent_set_animation, ":agent_no", "anim_stand_man"),
+                (agent_set_animation_progress, ":agent_no", 10),
+                
+                (agent_get_position, pos1, ":agent_no"),
+                (store_random_in_range, ":points", 1, 30),
+                (entry_point_get_position, pos2, ":points"),
+                (agent_set_speed_limit, ":agent_no", 1),
+                (agent_set_scripted_destination, ":agent_no", pos2),
+            (try_end),
+        (try_end),
+    ]),
+
+    (ti_before_mission_start,0,0,[],[
+      (call_script, "script_music_set_situation_with_culture", mtf_sit_ambushed),
+      (assign, "$g_battle_result", 0),
+      (team_set_relation, 0,1,1),
+      (team_set_relation, 1,0,1),
+      (mission_enable_talk),
+    ]),
+    (ti_tab_pressed, 0, 0,
+      [
+          (display_message, "str_cannot_leave_now"), #SB : message
+      ], []), 
+ 
+    common_inventory_not_available,
+]),
+
 ("olpia_mission",mtf_battle_mode,-1,
     "plundering a settlement",
     [
@@ -25221,7 +25301,14 @@ mission_templates = [
       (team_set_relation, 1,0,-1),
     ]),
 
-    common_battle_tab_press,  
+      (ti_tab_pressed, 0, 0, [],
+        [
+          (try_begin),
+            (eq, "$g_battle_won", 1),
+          (else_try),
+            (display_message,"str_can_not_retreat"),
+          (try_end),
+      ]),
     
     (1,3,0,[
       (this_or_next|main_hero_fallen),
@@ -25243,8 +25330,431 @@ mission_templates = [
     ]),      
  
     common_inventory_not_available,
+]+ dplmc_battle_mode_triggers + enhanced_common_battle_triggers),
+
+("lead_charge_quest", mtf_battle_mode|mtf_synch_inventory,charge,
+    "You lead your men to battle.",
+    [
+     (1,mtef_defenders|mtef_team_0,0,aif_start_alarmed,65,[]),
+     (0,mtef_defenders|mtef_team_0,0,aif_start_alarmed,0,[]),
+     (4,mtef_attackers|mtef_team_1,0,aif_start_alarmed,65,[]),
+     (4,mtef_attackers|mtef_team_1,0,aif_start_alarmed,0,[]),
+     ], vc_weather +
+    [
+
+      (ti_after_mission_start, 0, ti_once, [], [
+        (mission_cam_set_screen_color, 0xFF000000),
+        (mission_cam_animate_to_screen_color, 0x00000000, 3000),
+      ]),	
+      
+      (ti_on_agent_spawn, 0, 0, [],
+       [
+         (store_trigger_param_1, ":agent_no"),
+         (call_script, "script_agent_reassign_team", ":agent_no"),
+
+         (assign, ":initial_courage_score", 5000),
+
+         (agent_get_troop_id, ":troop_id", ":agent_no"),
+         (store_character_level, ":troop_level", ":troop_id"),
+         (val_mul, ":troop_level", 35),
+         (val_add, ":initial_courage_score", ":troop_level"), #average : 20 * 35 = 700
+
+         (store_random_in_range, ":randomized_addition_courage", 0, 3000), #average : 1500
+         (val_add, ":initial_courage_score", ":randomized_addition_courage"),
+
+         (agent_get_party_id, ":agent_party", ":agent_no"),
+         (party_get_morale, ":cur_morale", ":agent_party"),
+
+         (store_sub, ":morale_effect_on_courage", ":cur_morale", 70),
+         (val_mul, ":morale_effect_on_courage", 30), #this can effect morale with -2100..900
+         (val_add, ":initial_courage_score", ":morale_effect_on_courage"),
+         (agent_set_slot, ":agent_no", slot_agent_courage_score, ":initial_courage_score"),
+        ]),
+
+      (ti_on_agent_killed_or_wounded, 0, 0, [],
+       [
+        (store_trigger_param_1, ":dead_agent_no"),
+        (store_trigger_param_2, ":killer_agent_no"),
+        (store_trigger_param_3, ":is_wounded"),
+
+        (try_begin),
+          (ge, ":dead_agent_no", 0),
+          (neg|agent_is_ally, ":dead_agent_no"),
+          (agent_is_human, ":dead_agent_no"),
+          (agent_get_troop_id, ":dead_agent_troop_id", ":dead_agent_no"),
+          (party_add_members, "p_total_enemy_casualties", ":dead_agent_troop_id", 1), #addition_to_p_total_enemy_casualties
+          (eq, ":is_wounded", 1),
+          (party_wound_members, "p_total_enemy_casualties", ":dead_agent_troop_id", 1),
+        (try_end),
+
+        (call_script, "script_apply_death_effect_on_courage_scores", ":dead_agent_no", ":killer_agent_no"),
+      ]),
+
+      (ti_tab_pressed, 0, 0, [],
+        [
+          (try_begin),
+            (store_mission_timer_a,":mission_time"),
+            (ge,":mission_time",10),
+            (eq, "$g_battle_won", 1),
+            (call_script, "script_count_mission_casualties_from_agents"),
+            (jump_to_menu, "$g_next_menu"),
+            (mission_cam_animate_to_screen_color, 0xFF000000, 3000),
+            (finish_mission, 3),
+          (else_try),
+            (display_message,"str_cannot_leave_now"),
+          (try_end),
+      ]),
+
+      immersive_troops,
+
+      (ti_before_mission_start, 0, 0, [],
+       [
+         (team_set_relation, 0, 2, 1),
+         (team_set_relation, 1, 3, 1),
+         (call_script, "script_place_player_banner_near_inventory_bms"),
+
+         (party_clear, "p_routed_enemies"),
+
+         (assign, "$g_latest_order_1", 1),
+         (assign, "$g_latest_order_2", 1),
+         (assign, "$g_latest_order_3", 1),
+         (assign, "$g_latest_order_4", 1),
+        ]),
+
+
+      (0, 0, ti_once, [], [
+          (assign,"$g_battle_won",0),
+          (assign,"$defender_reinforcement_stage",0),
+          (assign,"$attacker_reinforcement_stage",0),
+          (call_script, "script_place_player_banner_near_inventory"),
+          (call_script, "script_combat_music_set_situation_with_culture"),
+          (assign, "$g_defender_reinforcement_limit", 2),
+          ##diplomacy begin
+          (call_script, "script_init_death_cam"),
+          # (assign, "$g_dplmc_charge_when_dead", 0),
+          ##diplomacy end
+      ]),
+
+      common_music_situation_update,
+      common_battle_check_friendly_kills,
+
+      (1, 0, 5, [
+            #new (25.11.09) starts (sdsd = TODO : make a similar code to also helping ally encounters)
+            #count all total (not dead) enemy soldiers (in battle area + not currently placed in battle area)
+            (call_script, "script_party_count_members_with_full_health", "p_collective_enemy"),
+            (assign, ":total_enemy_soldiers", reg0),
+
+            #decrease number of agents already in battle area to find all number of reinforcement enemies
+            (assign, ":enemy_soldiers_in_battle_area", 0),
+            (try_for_agents,":cur_agent"),
+              (agent_is_human, ":cur_agent"),
+              (agent_get_party_id, ":agent_party", ":cur_agent"),
+              (try_begin),
+                (neq, ":agent_party", "p_main_party"),
+                (neg|agent_is_ally, ":cur_agent"),
+                (val_add, ":enemy_soldiers_in_battle_area", 1),
+              (try_end),
+            (try_end),
+            (store_sub, ":total_enemy_reinforcements", ":total_enemy_soldiers", ":enemy_soldiers_in_battle_area"),
+
+            (try_begin),
+              (lt, ":total_enemy_reinforcements", 15),
+              (ge, "$defender_reinforcement_stage", 2),
+              (eq, "$defender_reinforcement_limit_increased", 0),
+              (val_add, "$g_defender_reinforcement_limit", 1),
+              (assign, "$defender_reinforcement_limit_increased", 1),
+            (try_end),
+            (lt,"$defender_reinforcement_stage","$g_defender_reinforcement_limit"),
+            (store_mission_timer_a,":mission_time"),
+            (ge,":mission_time",10),
+            (store_normalized_team_count,":num_defenders", 0),
+            (lt,":num_defenders",6)],
+      [ (add_reinforcements_to_entry,0,45),
+        (assign, "$defender_reinforcement_limit_increased", 0),
+        (val_add,"$defender_reinforcement_stage",1)
+      ]),
+
+      (1, 0, 5, [(lt,"$attacker_reinforcement_stage",2),
+                 (store_mission_timer_a,":mission_time"),
+                 (ge,":mission_time",10),
+                 (store_normalized_team_count,":num_attackers", 1),
+                 (lt,":num_attackers",6)],
+      [(add_reinforcements_to_entry,3,45),(val_add,"$attacker_reinforcement_stage",1)]),
+
+      (1, 60, ti_once,[
+        (store_mission_timer_a,":mission_time"),
+        (ge,":mission_time",10),
+        (all_enemies_defeated, 5),
+        (this_or_next|eq, "$g_dplmc_battle_continuation", 0),
+        (neg|main_hero_fallen),
+
+        (set_mission_result,1),
+        (display_message,"str_msg_battle_won"),
+        (assign,"$g_battle_won",1),
+        (assign, "$g_battle_result", 1),
+        (call_script, "script_play_victorious_sound"),
+      ],[
+        (call_script, "script_count_mission_casualties_from_agents"),
+        (jump_to_menu, "$g_next_menu"),
+        (mission_cam_animate_to_screen_color, 0xFF000000, 3000),
+        (finish_mission, 3),
+      ]),
+
+      (10, 0, 0, [(eq,"$g_battle_won",1),],
+      [
+        (display_message,"str_msg_battle_won"),
+      ]),
+
+      (1, 4, 0,
+      ##diplomacy end
+      [(main_hero_fallen)],
+        [
+          ##diplomacy begin
+          (try_begin),
+              (call_script, "script_cf_dplmc_battle_continuation"),
+          (else_try),
+              ##diplomacy end
+              (assign, "$pin_player_fallen", 1),
+              (str_store_string, s5, "str_retreat"),
+              (call_script, "script_simulate_retreat", 10, 20, 1),
+              (assign, "$g_battle_result", -1),
+              (set_mission_result,-1),
+              (call_script, "script_count_mission_casualties_from_agents"),
+              (jump_to_menu, "$temp4"),
+              (finish_mission,0),
+          (try_end),
+      ]),
+
+      common_battle_inventory,
+
+      (3, 0, 0, [
+          (try_for_agents, ":agent_no"),
+            (agent_is_human, ":agent_no"),
+            (agent_is_alive, ":agent_no"),
+            (store_mission_timer_a,":mission_time"),
+            (ge,":mission_time",3),
+            (call_script, "script_decide_run_away_or_not", ":agent_no", ":mission_time"),
+          (try_end),
+      ], []),
+
+      common_battle_order_panel,
+      common_battle_order_panel_tick,
+    ] + dplmc_battle_mode_triggers + dplmc_horse_cull + utility_triggers + battle_panel_triggers + extended_battle_menu + common_division_data + division_order_processing + real_deployment + formations_triggers + AI_triggers + jacobhinds_morale_triggers + enhanced_common_battle_triggers + battle_notifications + ai_horn,  #SB : horse cull
+),
+
+("lekh_plunder", mtf_battle_mode,-1,
+    "plundering a settlement",
+    [ (1,mtef_team_0, 0,aif_start_alarmed,10,[]),
+      (30,mtef_visitor_source|mtef_team_1,af_override_horse,0,1,[]),
+      (31,mtef_visitor_source|mtef_team_1,af_override_horse,0,1,[]),
+      (32,mtef_visitor_source|mtef_team_1,af_override_horse,0,1,[]),
+      (33,mtef_visitor_source|mtef_team_1,af_override_horse,0,1,[]),
+      (34,mtef_visitor_source|mtef_team_1,af_override_horse,0,1,[]),
+      (35,mtef_visitor_source|mtef_team_1,af_override_horse,0,1,[]),
+      (36,mtef_visitor_source|mtef_team_1,af_override_horse,0,1,[]),
+      (37,mtef_visitor_source|mtef_team_1,af_override_horse,0,1,[]),
+      (38,mtef_visitor_source|mtef_team_1,af_override_horse,0,1,[]),
+      (39,mtef_visitor_source|mtef_team_1,af_override_horse,0,1,[]),
+      (40,mtef_visitor_source|mtef_team_1,af_override_horse,0,1,[]),
+    ], vc_weather +
+    [
+      common_inventory_not_available,
+      common_battle_init_banner,
+
+      (0, 0, ti_once, [],		# Let it burn
+        [
+          
+          (set_fixed_point_multiplier, 100),
+          (assign, reg1, "psys_village_fire_big"),
+
+          (assign, reg2, "psys_war_smoke_tall"),
+          (assign, reg3, 0),
+          (assign, ":counter", 0),
+          (try_for_prop_instances, ":curr_instance", -1, somt_object),
+             (lt, ":counter", 15),	#not more then 60 part sys, now 25 since people get performance issues
+             (prop_instance_get_scene_prop_kind, ":scene_prop_kind", ":curr_instance"),
+             (is_between, ":scene_prop_kind", "spr_scythian_hut_1", "spr_scythian_wagon"),            
+             (shuffle_range, 1, 4),
+              (neq, reg1, 0),
+              (val_add, ":counter", 1),
+              (try_for_range, ":unused", 0, 4),
+                (store_random_in_range, ":rand23", -150, 150),
+                (position_set_x, pos1, ":rand23"),
+                (store_random_in_range, ":rand23", -150, 150),
+                (position_set_y, pos1, ":rand23"),
+                (store_random_in_range, ":rand23", 50, 150),
+                (position_set_z, pos1, ":rand23"),
+                (prop_instance_add_particle_system, ":curr_instance", reg1, pos1),
+                (eq, reg1, "psys_village_fire_big"),
+                (position_move_z, pos1, 100),
+                (prop_instance_add_particle_system, ":curr_instance", "psys_village_fire_smoke_big", pos1),
+                #(prop_instance_play_sound, ":curr_instance", "snd_fire", sf_looping),
+              (end_try),
+          (try_end),
+      ]),
+
+      (ti_on_agent_spawn, 0.5, 0, [],
+        [
+          (store_trigger_param_1, ":agent_no"),
+          (agent_is_human, ":agent_no"),
+          (agent_is_ally, ":agent_no"),
+          (agent_get_wielded_item, ":old_item" , ":agent_no", 1),
+          (try_begin),
+            (gt, ":old_item" , 0),
+            (agent_unequip_item, ":agent_no", ":old_item"),
+          (end_try),
+          (agent_equip_item, ":agent_no", "itm_torch"),
+          (agent_set_wielded_item, ":agent_no", "itm_torch"),
+      ]),
+      
+      (ti_before_mission_start, 0, 0, [],
+        [
+          (assign, "$tutorial_state", 0),	#reusing other variable...
+          (assign,"$g_battle_result",0),
+          (call_script, "script_change_banners_and_chest")
+        ]),
+      
+      (0, 0, ti_once, [],	# make part of them run around/flee
+        [
+          (try_for_agents, ":agent_no"),
+            # (agent_get_troop_id, ":troop_no", ":agent_no"),
+            # (eq, ":troop_no", "trp_townsman"),
+            (neg|agent_is_ally, ":agent_no"),
+            (agent_set_slot, ":agent_no",  slot_agent_is_running_away, 1),
+            (store_random_in_range, ":chance", 1, 101),
+            (le, ":chance", 40),	# 40% want to fight at beginning
+            (agent_set_slot, ":agent_no",  slot_agent_is_running_away, 0),
+            (assign, reg1, "itm_quarter_staff"),
+            (assign, reg2, "itm_knife"),
+            (assign, reg3, "itm_butchering_knife"),
+            (assign, reg4, "itm_dagger"),
+            (assign, reg5, "itm_shortened_spear"),
+            (assign, reg6, "itm_spear"),
+            (assign, reg7, "itm_stones"),
+            (assign, reg8, "itm_staff"),
+            (assign, reg9, "itm_wooden_stick"),
+            (shuffle_range, 1, 10),
+            (agent_equip_item, ":agent_no", reg1, 1),
+            (agent_set_wielded_item, ":agent_no", reg1),
+          (try_end),
+          #also make player knock down only
+          (get_player_agent_no, ":player_agent"),
+          (agent_set_no_death_knock_down_only, ":player_agent", 1),
+      ]),
+      
+      (3, 0, 0, [],	# keep them fleeing
+        [
+          (try_for_agents, ":agent_no"),
+            (agent_slot_ge, ":agent_no",  slot_agent_is_running_away, 1),
+            (neg|agent_is_ally, ":agent_no"),
+            (store_random_in_range, ":rand", 32, 40),
+            (entry_point_get_position, pos2, ":rand"),
+            (agent_start_running_away, ":agent_no", pos2),
+          (try_end),
+      ]),
+      
+      (ti_on_agent_hit, 0, 0, [],		# make damaged agents flee
+        [
+          (store_trigger_param, ":inflicted_agent_id", 1),
+          #(store_trigger_param, ":dealer_agent_id", 2),
+          (store_trigger_param, ":inflicted_damage", 3),
+          #(get_player_agent_no, ":player_agent"),
+          #(eq, ":dealer_agent_id", ":player_agent"),
+          (agent_is_active, ":inflicted_agent_id"),
+          (agent_is_human, ":inflicted_agent_id"),
+          (agent_is_alive, ":inflicted_agent_id"),
+          (neg|agent_is_ally, ":inflicted_agent_id"),
+          (store_agent_hit_points, ":hp", ":inflicted_agent_id"),
+          (this_or_next|lt, ":hp", 75),
+          (gt, ":inflicted_damage", 10),
+          (store_random_in_range, ":rand", 10, 41),
+          (entry_point_get_position, pos2, ":rand"),
+          (agent_start_running_away, ":inflicted_agent_id", pos2),
+          (agent_slot_eq, ":inflicted_agent_id",  slot_agent_is_running_away, 0),
+          (agent_set_slot, ":inflicted_agent_id",  slot_agent_is_running_away, 1),
+          #throw away weapon:
+          (agent_get_wielded_item, ":weapon", ":inflicted_agent_id", 0),
+          (ge, ":weapon", 1),
+          (agent_unequip_item, ":inflicted_agent_id", ":weapon"),
+      ]),
+      
+      (ti_on_agent_killed_or_wounded, 0, 0, [],
+        [
+          (store_trigger_param_1, ":dead_agent_no"),
+          #(store_trigger_param_2, ":killer_agent_no"),
+          (try_begin),
+            (ge, ":dead_agent_no", 0),
+            (neg|agent_is_ally, ":dead_agent_no"),
+            (agent_is_human, ":dead_agent_no"),
+            (agent_get_troop_id, ":dead_agent_troop_id", ":dead_agent_no"),
+            (party_add_members, "p_total_enemy_casualties", ":dead_agent_troop_id", 1), #addition_to_p_total_enemy_casualties
+           # (agent_slot_eq, ":dead_agent_no", slot_agent_vc_wounded, 1),	#new
+           # (party_wound_members, "p_total_enemy_casualties", ":dead_agent_troop_id", 1),
+          (try_end),
+          #(call_script, "script_apply_death_effect_on_courage_scores", ":dead_agent_no", ":killer_agent_no"),
+      ]),
+      
+      (ti_tab_pressed, 0, 0, [],
+        [
+          (eq, "$tutorial_state", 0),
+          (assign, "$tutorial_state", 1),
+      ]),
+      
+      (1, 1, ti_once,
+        [
+          (this_or_next|main_hero_fallen),
+          (num_active_teams_le,1)
+        ],
+        [
+          (eq, "$tutorial_state", 0),
+          (assign, "$tutorial_state", 1),
+      ]),
+      
+      (1, 180, ti_once, [],	#end mission after 3 minutes
+        [
+          (eq, "$tutorial_state", 0),
+          (assign, "$tutorial_state", 1),
+      ]),
+      
+      (1, 2, ti_once,
+        [
+          (eq, "$tutorial_state", 1),
+          (assign, "$tutorial_state", 2),
+        ],
+        [
+          (set_fixed_point_multiplier, 100),
+          (try_begin),
+            (mission_cam_set_mode, 1, 0, 0),
+            (set_camera_in_first_person, 0),
+            #get scene boundaries
+            (init_position, pos11),
+            (get_scene_boundaries, pos10, pos11),
+            (position_get_x, ":scene_max_x", pos11),
+            (position_get_y, ":scene_max_y", pos11),
+            #get center of map
+            (val_div, ":scene_max_x", 2),
+            (val_div, ":scene_max_y", 2),
+            (position_set_x, pos11, ":scene_max_x"),
+            (position_set_y, pos11, ":scene_max_y"),
+            (entry_point_get_position, pos10, 0),#that spawn is always there
+            (call_script, "script_point_y_toward_position", pos10, pos11),
+            #pos10 points now in direction of center
+            (position_move_y, pos10, -7000),
+            (position_move_z, pos10, 2200),
+            (position_rotate_x, pos8, -35),
+            (mission_cam_animate_to_position, pos10, 6000),
+          (try_end),
+      ]),
+      
+      (1, 10, ti_once,
+        [
+          (eq, "$tutorial_state", 2),
+          (assign, "$tutorial_state", 3),
+        ],
+        [
+          (stop_all_sounds, 1),
+          (finish_mission,3),
+      ]),
 ]),
 
-
-
-]
+]#end of file

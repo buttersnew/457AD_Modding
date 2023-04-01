@@ -28019,6 +28019,102 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         (change_screen_mission),
     ]),
 ],),
+
+("village_of_the_lekhs",0,
+    "{s20}",
+    "none", [
+      (try_begin),
+          (check_quest_active, "qst_ernak_quest"),
+          (quest_slot_eq, "qst_ernak_quest", slot_quest_target_saraguroi, 2),
+          (str_store_string, s20, "@Ambush! The Lekhs are attacking!"),
+      (else_try),
+          (str_store_string, s20, "@You spot a small village in the distance."),
+      (try_end),
+      (set_background_mesh, "mesh_pic_khergit"),
+  ],
+    [
+    ("option_1", [
+        (check_quest_active, "qst_ernak_quest"),
+        (quest_slot_eq, "qst_ernak_quest", slot_quest_target_saraguroi, 2),
+    ],"Continue.",
+    [
+        (assign, "$g_battle_result", 0),
+        (assign, "$g_engaged_enemy", 1),
+        (assign, "$g_next_menu", "mnu_lekh_victory"),#victory menu
+        (assign, "$temp4", "mnu_ernak_defeat"),#victory menu
+        (set_party_battle_mode), 
+        (set_jump_mission,"mt_lead_charge_quest"),#can be used for any quest battle
+        (jump_to_scene, "scn_battle_caucasian_mountains_6"),
+
+        (change_screen_mission),
+    ]),
+
+    ("option_2", [
+        (neg|quest_slot_eq, "qst_ernak_quest", slot_quest_target_saraguroi, 2),
+    ],"Leave.",
+    [
+      (change_screen_map),
+    ]),
+],),
+("lekh_victory",0,
+    "You defeated the Lekh ambush. Their chief is already awaiting you in their village. It is time for negotiations.^^You approach the village. All of a sudden, a cloud darkens the sky and all birds are gone. A thunder roams in the distance. For a moment, you think you hear a voice whispering:^'All creaturs living in the vast steppe, from the flowers to the horses, call for blood to grow.'",
+    "none", [
+      (set_background_mesh, "mesh_pic_victory"),
+      (party_set_flags, "p_village_of_the_lekhs", pf_hide_defenders, 0),
+    ],
+    [
+    ("option_1", [
+    ],"Continue.",
+    [
+        (set_jump_mission, "mt_visit_lekhs"),
+        (modify_visitors_at_site, "scn_village_of_lekhs"),
+        (reset_visitors),
+        (set_visitor, 35, "trp_lekh_chief"),
+        (set_visitor, 19, "trp_caucasian_townswoman"),
+        (set_visitor, 18, "trp_caucasian_townswoman"),
+        (set_visitor, 17, "trp_caucasian_townswoman"),
+        (set_visitor, 16, "trp_caucasian_townswoman"),
+        (set_visitor, 15, "trp_caucasian_townswoman"),
+        (set_visitor, 14, "trp_caucasian_townswoman"),
+        (set_visitor, 13, "trp_caucasian_townswoman"),
+        (set_visitor, 12, "trp_caucasian_townswoman"),
+        (set_visitor, 11, "trp_caucasian_townswoman"),
+        (set_visitor, 10, "trp_caucasian_townswoman"),
+        (set_visitor, 9, "trp_caucasian_townswoman"),
+        (set_visitor, 8, "trp_caucasian_townswoman"),
+        (set_visitor, 7, "trp_caucasian_townswoman"),
+        (set_visitor, 6, "trp_caucasian_townswoman"),
+        (set_visitor, 5, "trp_caucasian_townswoman"),
+        (set_visitor, 4, "trp_caucasian_townswoman"),
+        (set_visitor, 3, "trp_caucasian_townswoman"),
+        (set_visitor, 2, "trp_caucasian_townswoman"),
+        (set_visitor, 1, "trp_caucasian_townswoman"),
+        (set_visitor, 0, "trp_player"),
+        (jump_to_scene, "scn_village_of_lekhs"),
+        (change_screen_mission),
+    ]),
+],),
+("lekh_plunder",0,
+    "You give the order to plunder the village. There is no resistance.",
+    "none", [
+      (set_background_mesh, "mesh_pic_victory"),
+    ],
+    [
+    ("option_1", [
+    ],"Continue.",
+    [
+        (set_jump_mission, "mt_lekh_plunder"),
+        (modify_visitors_at_site, "scn_village_of_lekhs"),
+        (reset_visitors),
+        (try_for_range, ":entry", 1, 20),
+            (set_visitors, ":entry", "trp_caucasian_townswoman", 3),
+        (try_end),
+        (jump_to_scene, "scn_village_of_lekhs"),
+        (jump_to_menu, "mnu_auto_return_to_map"),
+        (change_screen_mission),
+    ]),
+],),
+
 ("ruins_of_olpia_pontica",0,
     "{s20}",
     "none", [
@@ -28090,8 +28186,8 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       (call_script, "script_end_quest", "qst_ernak_quest"),
       (jump_to_menu, "mnu_auto_return_to_map"),
     ]),
-
 ],),
+
 ]#end of file
  
 #Freelance shit, fuck freelancer shit

@@ -25107,7 +25107,7 @@ mission_templates = [
         (else_try),
             (ge, ":cur_time", 5),
             (tutorial_message_set_background, 1),
-            (tutorial_message, "@The Roman catacombs are Ancient underground burial places. They were also used as hideouts by the early Christians, at the time when Christianity was persecuted."),
+            (tutorial_message, "@The Roman catacombs are an ancient underground burial place. They were also used as hideouts by the early Christians, at the time when Christianity was persecuted."),
         (try_end),
       ]),
       
@@ -25126,7 +25126,7 @@ mission_templates = [
         (else_try),
             (ge, ":cur_time", 135),
             (tutorial_message_set_background, 1),
-            (tutorial_message, "@You don't know why, but everything here looks so familiar. It seems to you that you have visited this place before."), #lmao ancestrial memories
+            (tutorial_message, "@You don't know why, but everything here looks so familiar. It seems that you have visited this place before."), #lmao ancestrial memories
         (else_try),
             (eq, ":cur_time", 125),
             (tutorial_message, -1),
@@ -25156,7 +25156,7 @@ mission_templates = [
             (mission_cam_set_screen_color, 0xFF000000),
             (mission_cam_animate_to_screen_color, 0x4D000000, 2000),
             (tutorial_message_set_background, 1),
-            (tutorial_message, "@All of the sudden the disgusting stench is gone. You smell perfume. You hear a female voice laugh. You hear the calming sound of a lyre. Then all of a sudden you smell the disgusting stench again, the sounds are gone too. Maybe it was just a hallucination caused by the stench?"),
+            (tutorial_message, "@All of the sudden the disgusting stench is gone. You smell perfume. You hear a female voice laugh. You hear the calming sound of a lyre. Then all of a sudden you smell the putrid stench again, and the sounds faded away. Maybe it was just a hallucination caused by the smell?"),
         (else_try),
             (eq, ":cur_time", 30),
             (tutorial_message, -1),
@@ -25164,7 +25164,7 @@ mission_templates = [
         (else_try),
             (eq, ":cur_time", 20),
             (tutorial_message_set_background, 1),
-            (tutorial_message, "@Most likely, this place was once the home of Emperor Nero. Ironically, it stinks incredible. The Romans seem to use it as a dump."),
+            (tutorial_message, "@Most likely, this place was once the home of Emperor Nero. Ironically, it stinks incredibly. The locals seem to use it as a dump."),
         (else_try),
             (eq, ":cur_time", 5),
             (tutorial_message_set_background, 1),

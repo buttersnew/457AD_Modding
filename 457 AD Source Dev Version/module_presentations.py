@@ -17604,7 +17604,7 @@ presentations = [
         (val_sub, ":y_pos", Screen_Text_Height),
         
         #EXPANSION - ARCHERS ROUTING
-        (create_text_overlay, reg1, "@Disable ranged melee morale penalty: ", tf_right_align),
+        (create_text_overlay, reg1, "@Enable ranged melee morale penalty: ", tf_right_align),
         (position_set_y, pos0, ":y_pos"),
         (overlay_set_position, reg1, pos0),
         
@@ -17614,7 +17614,7 @@ presentations = [
         (position_set_y, pos1, reg2),
         (overlay_set_position, "$form_options_overlay_5", pos1),
         
-        (overlay_set_val, "$form_options_overlay_5", "$ArcherRoute_Off"),
+        (overlay_set_val, "$form_options_overlay_5", "$g_ranged_moral_penality"),
         
         (val_sub, ":y_pos", Screen_Text_Height),
 
@@ -17668,7 +17668,7 @@ presentations = [
           (assign, "$FormAI_AI_no_defense", ":value"),
         (else_try),
           (eq, ":object", "$form_options_overlay_5"),
-          (assign, "$ArcherRoute_Off", ":value"),
+          (assign, "$g_ranged_moral_penality", ":value"),
         (else_try),
           (eq, ":object", "$form_options_overlay_6"),
           (assign, "$Battle_not_On", ":value"),

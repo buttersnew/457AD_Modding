@@ -24428,29 +24428,15 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       ("ambush",[],
        "Its an ambush!",
        [
-       (modify_visitors_at_site,"scn_ambush_plains_forest"),
-       (reset_visitors),
-       (set_visitor,1,"trp_player"), #player
-       (call_script, "script_party_count_fit_for_battle", "p_main_party"),
-
-       (set_visitors,5,"trp_forest_bandit_recruit", 5), #archers
-       (set_visitors,6,"trp_forest_bandit_recruit", 5), #archers
-       (set_visitors,7,"trp_forest_bandit_recruit", 5), #archers
-       (set_visitors,8,"trp_forest_bandit_recruit", 5), #archers
-       (set_visitors,9,"trp_forest_bandit_recruit", 5), #archers
-       (set_visitors,10,"trp_forest_bandit_recruit", 5), #archers
-       (set_visitors,11,"trp_forest_bandit_recruit", 5), #archers
-
-       (set_visitors,12,"trp_forest_bandit", 4), #infantry
-       (set_visitors,13,"trp_forest_bandit", 4), #infantry
-       (set_visitors,14,"trp_forest_bandit", 4), #infantry
-       (set_visitors,15,"trp_forest_bandit", 4), #infantry
-       (set_visitors,16,"trp_bagaudae_footman", 4), #infantry
-
-       (set_jump_mission,"mt_lead_charge_ambushed"),       
-       (jump_to_scene, "scn_ambush_plains_forest"),
-       (change_screen_mission), 
-        ]),      
+        (assign, "$g_battle_result", 0),
+        (assign, "$g_engaged_enemy", 1),
+        (assign, "$g_next_menu", "mnu_bagadua_ambush_won"),#victory menu
+        (assign, "$temp4", "mnu_bagadua_ambush_lost"),#victory menu
+        (set_party_battle_mode), 
+        (set_jump_mission,"mt_lead_charge_quest_ambushed"),#can be used for any quest battle
+        (jump_to_scene, "scn_ambush_plains_forest"),
+        (change_screen_mission),
+    ]),      
 ]), 
 
   ("bagadua_ambush_won",0,
@@ -24474,7 +24460,11 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       ("continue", [], "Continue...",
         [
         (leave_encounter),
-        (change_screen_return),
+        (jump_to_menu, "mnu_auto_return_to_map"),
+        (heal_party, "p_bagadua_fort"),
+        (party_add_members, "p_bagadua_fort", "trp_forest_bandit_recruit", 10),
+        (party_add_members, "p_bagadua_fort", "trp_forest_bandit", 2),
+        (party_add_members, "p_bagadua_fort", "trp_bagaudae_footman", 2),
       ]),
     ]),
 

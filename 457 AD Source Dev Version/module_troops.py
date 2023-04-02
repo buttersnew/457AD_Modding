@@ -176,7 +176,7 @@ knows_skirmisher = knows_athletics_5|knows_riding_2|knows_ironflesh_3|knows_powe
 knows_archer = knows_athletics_5|knows_riding_2|knows_ironflesh_4|knows_power_throw_6|knows_power_draw_6|knows_weapon_master_5|knows_inventory_management_4|knows_shield_2|knows_power_strike_2 #36 points
 knows_horse_archer = knows_athletics_3|knows_riding_5|knows_ironflesh_3|knows_power_throw_6|knows_power_draw_6|knows_weapon_master_5|knows_inventory_management_3|knows_horse_archery_5 #36 points
 knows_cataphract = knows_athletics_2|knows_riding_6|knows_ironflesh_8|knows_power_throw_4|knows_power_draw_6|knows_weapon_master_6|knows_inventory_management_4|knows_power_strike_6|knows_horse_archery_4 #lvl 28 - 46 pts
-knows_berserker = knows_ironflesh_10|knows_power_strike_10|knows_power_throw_8|knows_athletics_10|knows_weapon_master_6|knows_inventory_management_4
+knows_berserker = knows_ironflesh_10|knows_power_strike_10|knows_power_throw_8|knows_athletics_10|knows_weapon_master_10|knows_inventory_management_4|knows_riding_10|knows_horse_archery_10
 
 knows_lord_1 = knows_riding_3|knows_trade_2|knows_inventory_management_2|knows_tactics_4|knows_prisoner_management_4|knows_leadership_7
 
@@ -5017,7 +5017,7 @@ troops = [
   knight_attrib_5,wp(300),knows_berserker, 0x00000002800cc14c41156a451a563b1a00000000001d46ec0000000000000000],
   ["sabir_tatra",  "Tatra",  "Tatra",  tf_hero, 0,reserved,  fac_kingdom_23,
   [itm_hun_rich_horse_3,itm_kaftan_hunnic_green,itm_leather_boots,itm_kaftan_lamellar_9,itm_borok_spatha,itm_tarasovo_helmet_1], 
-  knight_attrib_5,wp(300),knows_berserker, 0x00000000110ce24b74ce26451a563b1a00000000001e28da0000000000000000],
+  knight_attrib_5,wp(400),knows_berserker, 0x00000000110ce24b74ce26451a563b1a00000000001e28da0000000000000000],
   ["lekh_chief","Lekh Chief","Lekh Chiefs",tf_guarantee_basic,0,0,fac_culture_8,
    [itm_hunter_boots,itm_sassanid_cavalry_boots_1,itm_kaftan_alan_white,itm_kaftan_alan_red,itm_kaftan_alan_7,itm_luchistoe_mail_13,itm_fur_hat,itm_hunnic_phrygian_leather,itm_hunnic_phrygian_3,itm_hunnic_phrygian_5,itm_woolen_cap_c,itm_woolen_cap_2,itm_kalhkni_helmet_1,itm_war_spear,itm_ringsword_1,itm_throwing_spear_2,itm_battle_axe_2,itm_oval_shield_yellow_2,itm_oval_shield_leather_1],
    def_attrib_lvl_21|level(21),wp_one_handed(175)|wp_two_handed(150)|wp_polearm(155)|wp_throwing(175)|wp_archery(80)|wp_firearm(80),knows_lvl_18,caucaus_face_1, caucaus_face_2],

@@ -3831,7 +3831,7 @@ custom_commander_camera = (
     (try_end),
 
     #compared to other deathcams these values are kept between missions
-    (ge, ":player_agent", 0),
+    (agent_is_active, ":player_agent", 0),
     (assign, ":continue", 0),
     (try_begin),
       (key_is_down, "$g_camera_adjust_add"),
@@ -23949,7 +23949,7 @@ mission_templates = [
     ],[
     (mission_enable_talk),
     (start_mission_conversation, "$temp"),
-    ]),     
+    ]),
     
     (0,0,0,[
     (eq, "$g_battle_result", 1),
@@ -25179,16 +25179,15 @@ mission_templates = [
     (call_script, "script_music_set_situation_with_culture", mtf_sit_ambushed),
     ]),          
 
-    common_inventory_not_available,
-    
-    ]),
+    common_inventory_not_available, 
+]),
 
 
 ### ernak quest missions
 ("visit_lekhs",mtf_battle_mode,-1,
     "plundering a settlement",
     [
-      (0,mtef_visitor_source|mtef_team_0,af_override_horse,aif_start_alarmed,1,[]),#player
+      (0,mtef_visitor_source|mtef_team_0,0,aif_start_alarmed,1,[]),#player
       (1,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#player
       (2,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#guard
 	    (3,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#legatus
@@ -25292,8 +25291,10 @@ mission_templates = [
       (16,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#spectators
     ],
    vc_weather + [
-   
- 
+      dplmc_horse_speed,
+      poisoned_arrows_hit,
+      poisoned_arrows_damage,
+  
     (ti_before_mission_start,0,0,[],[
       (call_script, "script_music_set_situation_with_culture", mtf_sit_ambushed),
       (assign, "$g_battle_result", 0),
@@ -25409,17 +25410,18 @@ mission_templates = [
 
       (ti_before_mission_start, 0, 0, [],
        [
-         (team_set_relation, 0, 2, 1),
-         (team_set_relation, 1, 3, 1),
-         (call_script, "script_place_player_banner_near_inventory_bms"),
+          (team_set_relation, 0, 2, 1),
+          (team_set_relation, 1, 3, 1),
+          (call_script, "script_place_player_banner_near_inventory_bms"),
 
-         (party_clear, "p_routed_enemies"),
+          (party_clear, "p_routed_enemies"),
 
-         (assign, "$g_latest_order_1", 1),
-         (assign, "$g_latest_order_2", 1),
-         (assign, "$g_latest_order_3", 1),
-         (assign, "$g_latest_order_4", 1),
-        ]),
+          (assign, "$g_latest_order_1", 1),
+          (assign, "$g_latest_order_2", 1),
+          (assign, "$g_latest_order_3", 1),
+          (assign, "$g_latest_order_4", 1),
+          (assign, "$FormAI_AI_no_defense", 0),#enable it for battle
+      ]),
 
 
       (0, 0, ti_once, [], [
@@ -25541,6 +25543,214 @@ mission_templates = [
       common_battle_order_panel_tick,
     ] + dplmc_battle_mode_triggers + dplmc_horse_cull + utility_triggers + battle_panel_triggers + extended_battle_menu + common_division_data + division_order_processing + real_deployment + formations_triggers + AI_triggers + jacobhinds_morale_triggers + enhanced_common_battle_triggers + battle_notifications + ai_horn,  #SB : horse cull
 ),
+
+("ernak_final_battle",mtf_battle_mode,-1,
+    "plundering a settlement",
+    [
+    (0,mtef_visitor_source|mtef_team_0,0,aif_start_alarmed,1,[]),#
+    (1,mtef_visitor_source|mtef_team_0,0,aif_start_alarmed,1,[]),#
+    (2,mtef_visitor_source|mtef_team_0,0,aif_start_alarmed,1,[]),#
+    (3,mtef_visitor_source|mtef_team_0,0,aif_start_alarmed,1,[]),#
+    (4,mtef_visitor_source|mtef_team_0,0,aif_start_alarmed,1,[]),#
+    (5,mtef_visitor_source|mtef_team_0,0,aif_start_alarmed,1,[]),#
+    (6,mtef_visitor_source|mtef_team_0,0,aif_start_alarmed,1,[]),#
+    (7,mtef_visitor_source|mtef_team_0,0,aif_start_alarmed,1,[]),#
+    (8,mtef_visitor_source|mtef_team_0,0,aif_start_alarmed,1,[]),#
+    (9,mtef_visitor_source|mtef_team_0,0,aif_start_alarmed,1,[]),#
+    (10,mtef_visitor_source|mtef_team_0,0,aif_start_alarmed,1,[]),#
+    (11,mtef_visitor_source|mtef_team_0,0,aif_start_alarmed,1,[]),#
+    (12,mtef_visitor_source|mtef_team_0,0,aif_start_alarmed,1,[]),#
+    (13,mtef_visitor_source|mtef_team_0,0,aif_start_alarmed,1,[]),#
+    (14,mtef_visitor_source|mtef_team_0,0,aif_start_alarmed,1,[]),#
+    (15,mtef_visitor_source|mtef_team_0,0,aif_start_alarmed,1,[]),#
+    (16,mtef_visitor_source|mtef_team_1,0,aif_start_alarmed,1,[]),#
+    (17,mtef_visitor_source|mtef_team_1,0,aif_start_alarmed,1,[]),#
+    (18,mtef_visitor_source|mtef_team_1,0,aif_start_alarmed,1,[]),#
+    (19,mtef_visitor_source|mtef_team_1,0,aif_start_alarmed,1,[]),#
+    (20,mtef_visitor_source|mtef_team_1,0,aif_start_alarmed,1,[]),#
+    (21,mtef_visitor_source|mtef_team_1,0,aif_start_alarmed,1,[]),#
+    (22,mtef_visitor_source|mtef_team_1,0,aif_start_alarmed,1,[]),#
+    (23,mtef_visitor_source|mtef_team_1,0,aif_start_alarmed,1,[]),#
+    (24,mtef_visitor_source|mtef_team_1,0,aif_start_alarmed,1,[]),#
+    (25,mtef_visitor_source|mtef_team_1,0,aif_start_alarmed,1,[]),#
+    (26,mtef_visitor_source|mtef_team_1,0,aif_start_alarmed,1,[]),#
+    (27,mtef_visitor_source|mtef_team_1,0,aif_start_alarmed,1,[]),#
+    (28,mtef_visitor_source|mtef_team_1,0,aif_start_alarmed,1,[]),#
+    (29,mtef_visitor_source|mtef_team_1,0,aif_start_alarmed,1,[]),#
+    (30,mtef_visitor_source|mtef_team_1,0,aif_start_alarmed,1,[]),#
+    (31,mtef_visitor_source|mtef_team_1,0,aif_start_alarmed,1,[]),#
+    (32,mtef_visitor_source|mtef_team_1,0,aif_start_alarmed,1,[]),#
+    (33,mtef_visitor_source|mtef_team_0,0,aif_start_alarmed,1,[]),#
+    (34,mtef_visitor_source|mtef_team_0,0,aif_start_alarmed,1,[]),#
+    (35,mtef_visitor_source|mtef_team_0,0,aif_start_alarmed,1,[]),#
+    (36,mtef_visitor_source|mtef_team_0,0,aif_start_alarmed,1,[]),#
+    (37,mtef_visitor_source|mtef_team_0,0,aif_start_alarmed,1,[]),#
+    ],vc_weather +
+    [
+
+      (ti_after_mission_start, 0, ti_once, [], [
+        (mission_cam_set_screen_color, 0xFF000000),
+        (mission_cam_animate_to_screen_color, 0x00000000, 3000),
+      ]),	
+      
+      (ti_on_agent_spawn, 0, 0, [],
+       [
+         (store_trigger_param_1, ":agent_no"),
+         (call_script, "script_agent_reassign_team", ":agent_no"),
+
+         (assign, ":initial_courage_score", 5000),
+
+         (agent_get_troop_id, ":troop_id", ":agent_no"),
+         (store_character_level, ":troop_level", ":troop_id"),
+         (val_mul, ":troop_level", 35),
+         (val_add, ":initial_courage_score", ":troop_level"), #average : 20 * 35 = 700
+
+         (store_random_in_range, ":randomized_addition_courage", 0, 3000), #average : 1500
+         (val_add, ":initial_courage_score", ":randomized_addition_courage"),
+
+         (assign, ":cur_morale", 100),
+
+         (store_sub, ":morale_effect_on_courage", ":cur_morale", 70),
+         (val_mul, ":morale_effect_on_courage", 30), #this can effect morale with -2100..900
+         (val_add, ":initial_courage_score", ":morale_effect_on_courage"),
+         (agent_set_slot, ":agent_no", slot_agent_courage_score, ":initial_courage_score"),
+        ]),
+
+      (ti_on_agent_killed_or_wounded, 0, 0, [],
+       [
+        (store_trigger_param_1, ":dead_agent_no"),
+        (store_trigger_param_2, ":killer_agent_no"),
+        (store_trigger_param_3, ":is_wounded"),
+
+        (try_begin),
+          (ge, ":dead_agent_no", 0),
+          (neg|agent_is_ally, ":dead_agent_no"),
+          (agent_is_human, ":dead_agent_no"),
+          (agent_get_troop_id, ":dead_agent_troop_id", ":dead_agent_no"),
+          (party_add_members, "p_total_enemy_casualties", ":dead_agent_troop_id", 1), #addition_to_p_total_enemy_casualties
+          (eq, ":is_wounded", 1),
+          (party_wound_members, "p_total_enemy_casualties", ":dead_agent_troop_id", 1),
+        (try_end),
+
+        (call_script, "script_apply_death_effect_on_courage_scores", ":dead_agent_no", ":killer_agent_no"),
+      ]),
+
+      immersive_troops,
+
+      (ti_before_mission_start, 0, 0, [],
+      [
+        (assign, "$tutorial_state", 0),
+        (team_set_relation, 0, 1, 1),
+        (team_set_relation, 1, 0, 1),
+      ]),
+      
+      (4,0,ti_once,[
+        (this_or_next|main_hero_fallen),
+        (num_active_teams_le, 1),
+      ],[
+        (stop_all_sounds),
+        (mission_cam_animate_to_screen_color, 0xFF000000, 3000),
+        (finish_mission,4),
+        (assign, "$temp", 2),
+        (try_begin),
+            (main_hero_fallen),
+            (assign, "$temp", 1),
+        (try_end),
+        (jump_to_menu, "mnu_ernak_final_battle_victory"),    
+      ]),
+          
+      (ti_tab_pressed,0,0,[],[
+        (display_message, "str_cannot_leave_now"),
+      ]),
+     
+      (0,0,0,[],
+      [
+        (store_mission_timer_a, ":cur_time"),
+        (set_fixed_point_multiplier, 100),
+        (try_begin),
+            (neg|conversation_screen_is_active),
+            (ge, ":cur_time", 160),
+            (eq, "$tutorial_state", 6),
+            (tutorial_message_set_background, 0),
+            (tutorial_message, -1),
+            (val_add, "$tutorial_state", 1),
+        (else_try),
+            (neg|conversation_screen_is_active),
+            (ge, ":cur_time", 60),
+            (eq, "$tutorial_state", 5),
+            (tutorial_message_set_background, 1),
+            (tutorial_message, "@The Huns cheer to Ernak's words and, invigorated by their leader's bold spirit, charge with their horses towards the enemy, on the great steppes of Scythia. The last ride of the Huns... Or a new beginning?"),
+            (val_add, "$tutorial_state", 1),
+        (else_try),
+            (ge, ":cur_time", 52),
+            (eq, "$tutorial_state", 4),
+            (val_add, "$tutorial_state", 1), #
+            (start_mission_conversation, "trp_sabiroi_king"),
+        (else_try),
+            (ge, ":cur_time", 50),
+            (eq, "$tutorial_state", 3),
+            (mission_cam_set_mode, 0, 1000, 0),
+            (val_add, "$tutorial_state", 1),    
+        (else_try),   
+            (ge, ":cur_time", 25),
+            (eq, "$tutorial_state", 2),
+            (entry_point_get_position, pos9, 40),
+            (mission_cam_animate_to_position, pos9, 25000, 0),  
+            (val_add, "$tutorial_state", 1), 
+            (try_for_agents, ":agent"),
+                (agent_is_alive, ":agent"),
+                (agent_is_human, ":agent"),
+                (store_random_in_range, ":r", 0, 2),
+                (eq, ":r", 0),
+                (call_script,"script_agent_perform_warcry", ":agent"),          
+            (try_end),          
+        (else_try),
+            (ge, ":cur_time", 5),
+            (eq, "$tutorial_state", 1),
+            (entry_point_get_position, pos9, 39),
+            (mission_cam_animate_to_position, pos9, 25000, 0),  
+            (val_add, "$tutorial_state", 1),   
+
+            (try_for_agents, ":agent"),
+                (agent_is_alive, ":agent"),
+                (agent_is_human, ":agent"),
+                (store_random_in_range, ":r", 0, 2),
+                (eq, ":r", 0),
+                (call_script,"script_agent_perform_warcry", ":agent"),          
+            (try_end),          
+        (else_try),
+            (eq, "$tutorial_state", 0),
+            (mission_cam_set_mode, 1, 0, 0),
+            (set_camera_in_first_person, 0),
+            (init_position, pos10),
+            (entry_point_get_position, pos10, 38),
+            (mission_cam_set_position, pos10),
+            (val_add, "$tutorial_state", 1),    
+        (try_end),
+      ]),
+      (3, 0, 0, [
+        (try_for_agents, ":agent_no"),
+            (agent_is_human, ":agent_no"),
+            (agent_is_alive, ":agent_no"),
+            (store_mission_timer_a,":mission_time"),
+            (ge,":mission_time",3),
+            (call_script, "script_decide_run_away_or_not", ":agent_no", ":mission_time"),
+        (try_end),
+      ], []),
+
+      common_music_situation_update,
+      common_battle_check_friendly_kills,
+
+      common_inventory_not_available,
+      common_battle_order_panel,
+      common_battle_order_panel_tick,
+      dplmc_horse_speed,
+      passable_allies,
+      poisoned_arrows_hit,
+      poisoned_arrows_damage,
+    ] + dplmc_horse_cull + utility_triggers + battle_panel_triggers + extended_battle_menu + common_division_data + division_order_processing + real_deployment + formations_triggers + AI_triggers + jacobhinds_morale_triggers + enhanced_common_battle_triggers + battle_notifications + ai_horn,  #SB : horse cull
+),
+
 
 ("lekh_plunder", mtf_battle_mode,-1,
     "plundering a settlement",
@@ -25754,6 +25964,22 @@ mission_templates = [
         [
           (stop_all_sounds, 1),
           (finish_mission,3),
+      ]),
+
+      # inflict casualities on player party
+      (ti_on_agent_killed_or_wounded, 0, 0, [],
+      [
+        (store_trigger_param_1, ":dead_agent"),
+        (store_trigger_param_3, ":is_wounded"),
+        (agent_get_troop_id, ":troop", ":dead_agent"),
+        (main_party_has_troop, ":troop"),
+        (try_begin),
+            (this_or_next|eq, ":is_wounded", 1),
+            (troop_is_hero, ":troop"),
+            (party_wound_members, "p_main_party", ":troop", 1),
+        (else_try),
+            (party_remove_members, "p_main_party", ":troop", 1),
+        (try_end),
       ]),
 ]),
 

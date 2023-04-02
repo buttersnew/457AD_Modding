@@ -25190,7 +25190,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
             (eq, "$g_encountered_party", "p_kutriguroi_village"),
             (jump_to_menu, "mnu_kutriguroi_intro"),
         (else_try),
-            (quest_slot_eq, "qst_ernak_quest", slot_quest_target_kutriguroi, 2),
+            (quest_slot_eq, "qst_ernak_quest", slot_quest_target_kutriguroi, 3),
             (eq, "$g_encountered_party", "p_kutriguroi_village"),
             (jump_to_menu, "mnu_kutriguroi_victory"),
         (try_end),
@@ -27965,7 +27965,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     ]),
 ],),
 ("saraguroi_intro",0,
-    "You see a wide-open space with dozens of yurts scattered throughout. The yurts are made of felt, with wooden frames and a central opening for smoke to escape. The camp is alive with activity, with women cooking over open fires and children playing and chasing each other around.^^In the center of the camp, there is a large yurt that stands out from the others. It is adorned with colorful tapestries and banners, and guards stand at the entrance, watching everyone who passes by. This is clearly the dwelling of the Saragur chieftain, Bulyak.^^You approache the guards and announce that you are send by Ernak to speak with Bulyak. The guards nod and allow you to pass into the yurt. Inside, you find Bulyak seated on a large rug, surrounded by his advisors and warriors.^^Bulyak is a tall man with a muscular build, and his face bears the scars of many battles. He wears a fur-lined robe and a leather belt adorned with a large silver buckle. His eyes are sharp and intelligent, and he greets you with a nod.",
+    "As you approach the Kutrigur camp, you spot Ilterish conversing with a mysterious Hun. As he drew closer, the Hun revealed himself as Aydar, an ambassador of the Sabirs, and began attempting to persuade Ilterish to join forces with Khan Gostun.",
     "none", [
       (set_background_mesh, "mesh_pic_khergit"),
     ],
@@ -27976,7 +27976,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     ]),
 ],),
 ("kutriguroi_intro",0,
-    "As you approach the Kutrigur camp, you spot Ilterish conversing with a mysterious Hun. As he drew closer, the Hun revealed himself as Aydar, an ambassador of the Sabirs, and began attempting to persuade Ilterish to join forces with Khan Gostun.",
+    "You see a wide-open space with dozens of yurts scattered throughout. The yurts are made of felt, with wooden frames and a central opening for smoke to escape. The camp is alive with activity, with women cooking over open fires and children playing and chasing each other around.^^In the center of the camp, there is a large yurt that stands out from the others. It is adorned with colorful tapestries and banners, and guards stand at the entrance, watching everyone who passes by. This is clearly the dwelling of the Saragur chieftain, Bulyak.^^You approache the guards and announce that you are send by Ernak to speak with Bulyak. The guards nod and allow you to pass into the yurt. Inside, you find Bulyak seated on a large rug, surrounded by his advisors and warriors.^^Bulyak is a tall man with a muscular build, and his face bears the scars of many battles. He wears a fur-lined robe and a leather belt adorned with a large silver buckle. His eyes are sharp and intelligent, and he greets you with a nod.",
     "none", [
       (set_background_mesh, "mesh_pic_khergit"),
     ],
@@ -27992,7 +27992,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         (assign, "$temp", ":meeting_troop"),
         (set_visitor, 35, ":meeting_troop"),
         (set_visitor, 35,"trp_sabir_aydar"),
-        (set_visitor, 0, "trp_player"),
+        (set_visitor, 13, "trp_player"),
         (jump_to_scene, ":meeting_scene"),
         (change_screen_mission),
     ]),
@@ -28014,7 +28014,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         (assign, "$temp", ":meeting_troop"),
         (set_visitor, 35, ":meeting_troop"),
         (set_visitor, 35,"trp_sabir_aydar"),
-        (set_visitor, 0, "trp_player"),
+        (set_visitor, 13, "trp_player"),
         (jump_to_scene, ":meeting_scene"),
         (change_screen_mission),
     ]),
@@ -28045,7 +28045,6 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         (set_party_battle_mode), 
         (set_jump_mission,"mt_lead_charge_quest"),#can be used for any quest battle
         (jump_to_scene, "scn_battle_caucasian_mountains_6"),
-
         (change_screen_mission),
     ]),
 
@@ -28136,13 +28135,13 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         (set_jump_mission, "mt_olpia_mission"),
         (modify_visitors_at_site, "scn_ruins_of_olpia_pontica"),
         (reset_visitors),
-        (set_visitor, 7, "trp_sabir_bandit"),
-        (set_visitor, 6, "trp_sabir_bandit"),
-        (set_visitor, 5, "trp_sabir_bandit"),
-        (set_visitor, 4, "trp_sabir_bandit"),
-        (set_visitor, 3, "trp_sabir_bandit"),
-        (set_visitor, 2, "trp_sabir_bandit"),
-        (set_visitor, 1, "trp_sabir_bandit"),
+        (set_visitor, 7, "trp_sabir_horse_archer"),
+        (set_visitor, 6, "trp_sabir_cataphract"),
+        (set_visitor, 5, "trp_sabir_horse_archer"),
+        (set_visitor, 4, "trp_sabir_cataphract"),
+        (set_visitor, 3, "trp_sabir_horse_archer"),
+        (set_visitor, 2, "trp_sabir_cataphract"),
+        (set_visitor, 1, "trp_sabir_horse_archer"),
         (set_visitor, 0, "trp_player"),
         (jump_to_scene, "scn_ruins_of_olpia_pontica"),
         (change_screen_mission),
@@ -28178,7 +28177,6 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     [
     ("option_1", [],"Continue.",
     [
-
       (call_script, "script_change_troop_renown", "trp_player", -50),
       (call_script, "script_change_player_relation_with_troop", "trp_knight_23_8", -200),
       (quest_set_slot, "qst_ernak_quest", slot_quest_current_state, -2),
@@ -28188,7 +28186,245 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     ]),
 ],),
 
+("camp_of_tatra",0,
+    "You spot a camp in the distance.",
+    "none", [
+      (set_background_mesh, "mesh_pic_khergit"),
+    ],
+    [
+    ("option_1", [(quest_slot_eq, "qst_ernak_quest", slot_quest_target_onoguroi, 4),],"Join the forces of the Onogurs.",
+    [
+        (jump_to_menu, "mnu_camp_of_tatra_speech"),
+    ]),
+    ("option_1", [],"Leave.",
+    [
+      (change_screen_map),
+    ]),
+]),
+("camp_of_tatra_speech",0,
+    "As the party arrived at the Sabir camp, they were greeted by the imposing figure of Tatra, a rough warlord from the steppes with a thick beard and piercing eyes. He looked at the group with disdain, sizing them up and down as if they were nothing more than cattle.",
+    "none", [
+      (set_background_mesh, "mesh_pic_khergit"),
+    ],
+    [
+    ("option_1", [],"Continue.",
+    [
+      (quest_set_slot, "qst_ernak_quest", slot_quest_target_onoguroi, 5),
+      (set_jump_mission, "mt_longboat_landing_1"),
+      (assign, "$g_next_menu", "mnu_camp_of_tatra_battle"),
+      (modify_visitors_at_site, "scn_onoguroi_town"),
+      (reset_visitors),
+      (assign, "$temp", "trp_sabir_tatra"),
+      (set_visitor, 13, "trp_onoguroi_king"),
+      (set_visitor, 35, "trp_sabir_tatra"),
+      (set_visitor, 13, "trp_player"),
+      (jump_to_scene, "scn_onoguroi_town"),
+      (change_screen_mission),
+    ]),
+]),
+("camp_of_tatra_battle",0,
+    "A> last sacrifice is made to the sky-gods. During the ceremony a falcoon is sighted. This is a good omen. The warriors are ready and battle can start.",
+    "none", [
+      (set_background_mesh, "mesh_pic_khergit"),
+    ],
+    [
+    ("option_1", [],"Ride, ride, ride!",
+    [
+        (quest_set_slot, "qst_ernak_quest", slot_quest_target_onoguroi, 6),
+        (party_quick_attach_to_current_battle, "p_onoguroi_village", 0),
+        (assign, "$g_battle_result", 0),
+        (assign, "$g_engaged_enemy", 1),
+        (assign, "$g_next_menu", "mnu_tartar_victory"),#victory menu
+        (assign, "$temp4", "mnu_ernak_defeat"),#victory menu
+        (set_party_battle_mode), 
+        (set_jump_mission,"mt_lead_charge_quest"),#can be used for any quest battle
+        (jump_to_scene, "scn_random_scene_new_steppe_custom_10"),
+        (change_screen_mission),
+    ]),
+
+]),
+
+("tartar_victory",0,
+    "The battle is won and the steppe is red with the blood of the Sabirs. Alka is found and safe.^^The Onogurs loot everything that has at least some value. Then they fetch some bottles to get drunk. You sit there and observe everything closely. Suddenly, Alka approaches.",
+    "none", [
+      (set_background_mesh, "mesh_pic_victory"),
+    ],
+    [
+    ("option_1", [],"Continue.",
+    [
+      (quest_set_slot, "qst_ernak_quest", slot_quest_target_onoguroi, 7),
+      (set_jump_mission, "mt_longboat_landing_1"),
+      (assign, "$g_next_menu", "mnu_camp_of_tatra_battle"),
+      (modify_visitors_at_site, "scn_onoguroi_town"),
+      (reset_visitors),
+      (assign, "$temp", "trp_hun_alka"),
+      (set_visitor, 14, "trp_onoguroi_king"),
+      (set_visitor, 35, "trp_hun_alka"),
+      (set_visitor, 13, "trp_player"),
+      (jump_to_scene, "scn_onoguroi_town"),
+      (change_screen_mission),
+    ]),
+],),
+
+("ernak_oath",0,
+    "You follow Ernak through his camp. Now you notice the multitude of warriors that are gathered in and around it. You have never seen as many Huns in your whole life lifetime. The sound of neighing horses and clashing weapons filled the air as you pass through the throngs of soldiers.^^At the center of the camp, the chieftains are waiting, flanked by their trusted advisors and generals. The chieftains greet prince Ernak and you. They thank you for your efforts in reuniting the tribes.",
+    "none", [
+      (set_background_mesh, "mesh_pic_khergit"),
+    ],
+    [
+    ("option_1", [],"Continue.",
+    [
+      (set_jump_mission, "mt_longboat_landing_1"),
+      (assign, "$g_next_menu", "mnu_ernak_feast"),
+      (modify_visitors_at_site, "scn_the_oath"),
+      (reset_visitors),
+      (assign, "$temp", "trp_knight_23_8"),
+      (set_visitor, 0, "trp_player"),
+      (set_visitor, 1, "trp_knight_23_8"),
+      (set_visitor, 2, "trp_onoguroi_king"),
+      (set_visitor, 3, "trp_saraguroi_king"),
+      (set_visitor, 4, "trp_kutriguroi_king"),
+      (try_for_range, ":entry", 5, 35),
+          (set_visitors, ":entry", "trp_hunnic_horse_archer", 2),
+      (try_end),
+      (jump_to_scene, "scn_the_oath"),
+      (change_screen_mission),
+    ]),
+],),
+
+("ernak_feast",0,
+    "After the battle comes the feast and after the feast the battle. Everyone knows that the Sabirs are waiting for a chance to attack, but nevertheless the warriors celebrate with great joy.^^As the feast continues, Ilterish, Bulyak and Atalgar sit together and laugh heartily, reminiscing about their past adventures and battles. They were clearly happy to have each other as allies and Ernak as their leader.^^But their joy was short-lived. Suddenly, the sound of a galloping horse echoed throughout the camp, catching everyone's attention. The warriors looked up and saw a lone rider approaching them. It is Aydar, the Sabir messanger.",
+    "none", [
+      (set_background_mesh, "mesh_pic_khergit"),
+    ],
+    [
+    ("option_1", [],"Continue.",
+    [
+      (set_jump_mission, "mt_longboat_landing_1"),
+      (assign, "$g_next_menu", "mnu_ernak_final_battle"),
+      (modify_visitors_at_site, "scn_the_oath"),
+      (reset_visitors),
+      (assign, "$temp", "trp_knight_23_8"),
+      (set_visitor, 0, "trp_player"),
+      (set_visitor, 1, "trp_knight_23_8"),
+      (mission_tpl_entry_set_override_flags, "mt_longboat_landing_1", 36, 0),
+      (set_visitor, 36, "trp_sabir_aydar"),
+      (jump_to_scene, "scn_the_oath"),
+      (change_screen_mission),
+    ]),
+],),
+
+("ernak_final_battle",0,
+    "Aydar rides away with the bird, mouse, frog and five arrows, visibly confused. Ernak knows the time Gostun would have spent trying to decipher the message was for him very valuable as it allows himself to prepare the warriors and saddle the horses.^^An entire day passes. Finally Ernak sallies outside the camp leading his army, towards Gostun's host.",
+    "none", [
+      (set_background_mesh, "mesh_pic_khergit"),
+    ],
+    [
+    ("option_1", [],"Continue.",
+    [
+      (assign,"$g_battle_won",0),
+      (quest_set_slot, "qst_ernak_quest", slot_quest_current_state, 5),
+      (set_jump_mission, "mt_ernak_final_battle"),
+      #1-15 huns
+      #16-30 sabirs
+      #31,32 sabir heroes
+      #33 ernak
+      #34,35,36,37 player and other kings
+      (modify_visitors_at_site, "scn_final_battle"),
+      (reset_visitors),    
+      (set_visitor, 34, "trp_player"),
+      (set_visitor, 33, "trp_knight_23_8"),
+      (set_visitor, 35, "trp_kutriguroi_king"),
+      (set_visitor, 36, "trp_saraguroi_king"),
+      (set_visitor, 37, "trp_onoguroi_king"),
+      (set_visitor, 31, "trp_sabir_aydar"),
+      (set_visitor, 32, "trp_sabiroi_king"),
+      
+      (assign, ":stack_no", 1),
+      (party_get_num_companion_stacks, ":end", "p_main_party"),
+      (try_for_range, ":entry", 1, 16),
+          (set_visitors, ":entry", "trp_hunnic_skirmisher", 1),
+          (set_visitors, ":entry", "trp_hunnic_horse_archer", 5),
+          (set_visitors, ":entry", "trp_hunnic_veteran", 1),
+          (try_begin),
+              (lt, ":stack_no", ":end"),
+              (party_stack_get_troop_id, ":troop_no", "p_main_party", ":stack_no"),
+              (party_stack_get_size, ":size", "p_main_party", ":stack_no"),
+              (ge, ":size", 1),
+              (val_min, ":size", 2),
+              (set_visitors, ":entry", ":troop_no", ":size"),
+              (val_add, ":stack_no", 1),
+          (try_end),
+          (quest_slot_eq, "qst_ernak_quest", slot_quest_target_saraguroi, 20),
+          (set_visitors, ":entry", "trp_lekh_horseman", 1),
+      (try_end),
+
+      (try_for_range, ":entry", 16, 31),
+          (set_visitors, ":entry", "trp_sabir_horse_archer", 5),
+          (set_visitors, ":entry", "trp_sabir_cataphract", 2),
+      (try_end),
+      (jump_to_scene, "scn_final_battle"),
+      (change_screen_mission),
+    ]),
+],),
+
+("ernak_final_battle_victory",0,
+    "The aftermath of the battle between the Huns and the Sabirs is one of devastation for the latter. The Sabirs suffer a crushing defeat at the hands of the Huns, led by prince Ernak, son of Attila. The battlefield is strewn with the bodies of the fallen Sabirs, and the survivors are fleeing towards the river Raha, hoping to escape the wrath of the victorious Huns.^^Meanwhile, Prince Ernak is hailed as a hero by his people. He has proven his mettle in battle and has secured a decisive victory over his enemies.^^The Huns celebrated their triumph with great fervour, with the leaders of the tribes gathering to honour the prince and his army.",
+    "none", [
+      #temp = 1 player killed, temp = 2 player life
+      (set_background_mesh, "mesh_pic_victory"),
+      (try_begin),
+          (eq, "$temp", 1),
+      (else_try),
+          (add_xp_as_reward, 1000),
+          (troop_add_gold, "trp_player", 5000),
+          (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 15),
+          (call_script, "script_change_player_relation_with_troop", "trp_kutriguroi_king", 15),
+          (call_script, "script_change_player_relation_with_troop", "trp_onoguroi_king", 15),
+          (call_script, "script_change_player_relation_with_troop", "trp_saraguroi_king", 15),
+          (call_script, "script_change_player_relation_with_troop", "trp_kingdom_23_lord", 5),
+          (call_script, "script_change_player_relation_with_faction", "$g_talk_troop_faction", 5),
+      (try_end),
+    ],
+    [
+    ("option_1", [],"Continue.",
+    [
+      (set_jump_mission, "mt_longboat_landing_1"),
+      (assign, "$g_next_menu", "mnu_ernak_final_feast"),
+      (assign, "$temp", "trp_knight_23_8"),
+      (quest_set_slot, "qst_ernak_quest", slot_quest_current_state, 6),
+      (set_jump_mission, "mt_longboat_landing_1"),
+      (modify_visitors_at_site, "scn_the_oath"),
+      (reset_visitors),    
+      (set_visitor, 0, "trp_player"),
+      (set_visitor, 1, "trp_knight_23_8"),
+      (set_visitor, 2, "trp_onoguroi_king"),
+      (set_visitor, 3, "trp_saraguroi_king"),
+      (set_visitor, 3, "trp_kutriguroi_king"),
+      (set_visitor, 4, "trp_hun_alka"),
+      (jump_to_scene, "scn_the_oath"),
+      (change_screen_mission),
+    ]),
+],),
+
+("ernak_final_feast",0,
+    "Following victory over the Sabirs, Prince Ernak held a grand banquet to celebrate his triumph and mark the occasion of his marriage to Alka, daughter of Atalgar, chief of the Onogurs. The banquet is a lavish affair, with food, wine, and music flowing freely, as the Huns celebrate their prince's achievements.^^The marriage between Ernak and Alka is a significant event, cementing the alliance between the Huns and the Onogurs. The couple was joined in matrimony with great pomp and ceremony, with the leaders of the tribes bearing witness to the union.^^The feasting and revelry continues long into the night, as the Huns celebrate the victories of their prince, the marriage and the future of their tribe. The feast itself remains in your memory only as a vague dream. Only the countless stars shining in the endless sky stay clearly in your mind. and the shaman invoking the sky-gods.",
+    "none", [
+      (set_background_mesh, "mesh_pic_khergit"),
+    ],
+    [
+    ("option_1", [],"Continue.",
+    [
+      (add_xp_as_reward, 2500),
+      (quest_set_slot, "qst_ernak_quest", slot_quest_current_state, 7),
+      (call_script, "script_succeed_quest", "qst_ernak_quest"),
+      (call_script, "script_end_quest", "qst_ernak_quest"),
+      (jump_to_menu, "mnu_auto_return_to_map"),
+    ]),
+],),
+
 ]#end of file
+
  
 #Freelance shit, fuck freelancer shit
 pre_join_freelancer = [

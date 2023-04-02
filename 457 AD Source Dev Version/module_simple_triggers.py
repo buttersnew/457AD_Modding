@@ -1681,6 +1681,7 @@ simple_triggers = [
     (call_script, "script_get_max_skill_of_player_party", "skl_spotting"),
     (store_add, ":spotting", reg0, 3),
     (val_div, ":spotting", 2), #1 to 9 now
+    (val_add, ":spotting", 1), #1 to 9 now
     (try_for_parties, ":bandit_camp"),
       (gt, ":bandit_camp", "p_spawn_points_end"),
       #Can't have party is active here, because it will fail for inactive parties
@@ -7329,7 +7330,18 @@ simple_triggers = [
    (set_shader_param_float, "@vSeason", "$shader_season"),
    
    # (assign, "$declare_war_curb_power", 1), 
-  ]),
+   (try_begin),
+      (check_quest_active, "qst_ernak_quest"),
+      (quest_slot_eq, "qst_ernak_quest", slot_quest_target_onoguroi, 10),
+      (quest_slot_ge, "qst_ernak_quest", slot_quest_target_saraguroi, 10),
+      (quest_slot_eq, "qst_ernak_quest", slot_quest_target_kutriguroi, 4),
+      (quest_slot_eq, "qst_ernak_quest", slot_quest_current_state, 1),
+      (quest_set_slot, "qst_ernak_quest", slot_quest_current_state, 2),
+      (str_store_troop_name_link, s22, "trp_knight_23_8"),
+      (add_quest_note_from_sreg, "qst_ernak_quest", 8, "@All tribes accepted your proposal. Return to {s22} and report him about the news.", 0),
+      (tutorial_box, "@All tribes accepted your proposal. Report to Ernak about your success.", "@Ernak's offer"),
+   (try_end),
+]),
 
 (24,## SIMULATING WEATHER
   [

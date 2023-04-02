@@ -89,4 +89,5 @@ mt_visit_rome_secrets = 87
 mt_visit_lekhs = 88
 mt_olpia_mission = 89
 mt_lead_charge_quest = 90
-mt_lekh_plunder = 91
+mt_ernak_final_battle = 91
+mt_lekh_plunder = 92

@@ -19669,6 +19669,12 @@ presentations = [
                 (this_or_next|eq, ":troop", "trp_venedi_warrior"),
                 (eq, ":troop", "trp_venedi_nobleman"),
                 (assign, ":c", 1),  
+              (else_try), #sabir
+                (eq, "$g_encountered_party", "p_sabiroi_village"),
+                (this_or_next|eq, ":troop", "trp_sabir_horse_archer"),
+                (this_or_next|eq, ":troop", "trp_sabir_amazon"),
+                (eq, ":troop", "trp_sabir_cataphract"),
+                (assign, ":c", 1),  
               (try_end),
             (try_end),
 

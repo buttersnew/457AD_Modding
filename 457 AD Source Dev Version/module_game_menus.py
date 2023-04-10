@@ -16821,7 +16821,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 
   (
     "notification_player_faction_active",0,
-    "You now possess land in your name, without being tied to any kingdom. This makes you a monarch in your own right, with your court temporarily located at {s12}. However, the other kings in Calradia will at first consider you a threat, for if any upstart warlord can grab a throne, then their own legitimacy is called into question.^^You may find it desirable at this time to pledge yourself to an existing kingdom. If you want to continue as a sovereign monarch, then your first priority should be to establish an independent right to rule. You can establish your right to rule through several means -- marrying into a high-born family, recruiting new lords, governing your lands, treating with other kings, or dispatching your companions on missions.^^At any rate, your first step should be to appoint a chief minister from among your companions, to handle affairs of state. Different companions have different capabilities.^You may appoint new ministers from time to time. You may also change the location of your court, by speaking to the minister.",
+    "You now possess land in your name, without being tied to any kingdom. This makes you a monarch in your own right, with your court temporarily located at {s12}. However, the other kings will at first consider you a threat, for if any upstart warlord can grab a throne, then their own legitimacy is called into question.^^You may find it desirable at this time to pledge yourself to an existing kingdom. If you want to continue as a sovereign monarch, then your first priority should be to establish an independent right to rule. You can establish your right to rule through several means -- marrying into a high-born family, recruiting new lords, governing your lands, treating with other kings, or dispatching your companions on missions.^^At any rate, your first step should be to appoint a chief minister from among your companions, to handle affairs of state. Different companions have different capabilities.^You may appoint new ministers from time to time. You may also change the location of your court, by speaking to the minister.",
     "none",
     [
       (set_fixed_point_multiplier, 100),
@@ -20644,7 +20644,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         (eq, "$g_notification_menu_var2", "$g_notification_menu_var1"),
         ##nested diplomacy end+
         #SB : some fixes
-        (str_store_string, s11, "@{playername}, ^^I always knew you were a bad egg, since the day you have pledged allegiance to my clan. ^Did you really think you could set my family against me? You've dropped your mask, you snake! You are an infliction, and I will not bear it anymore. ^Hereby, I disown and ban you from my house. I have urged my family to fight you, and I will warn all Calradian lords of your infamy. ^Tremble with fear, for now you have a deadly enemy! ^^{s9}."),
+        (str_store_string, s11, "@{playername}, ^^I always knew you were a bad egg, since the day you have pledged allegiance to my clan. ^Did you really think you could set my family against me? You've dropped your mask, you snake! You are an infliction, and I will not bear it anymore. ^Hereby, I disown and ban you from my house. I have urged my family to fight you, and I will warn all lords of your infamy. ^Tremble with fear, for now you have a deadly enemy! ^^{s9}."),
       (else_try),
         ##nested diplomacy start+ (2) Fix a bug from the Diplomacy 3.3.2 version of this menu by getting your ex-affiliate
 	    #from "$g_notification_menu_var2" instead of "$g_player_affiliated_troop".
@@ -20998,7 +20998,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
   ),
 
   ("dplmc_start_select_prejudice",menu_text_color(0xFF000000)|mnf_disable_all_keys,
-    "In the traditional medieval society depicted in the game, war and politics are usually dominated by male members of the nobility.  Beacuse of this, a female character can face initial prejudice, and some opportunities open to men will not be available (although a woman will also have some opportunities a man will not).  Some players might find distasteful, so if you want you can ignore that aspect of society in Calradia.^^You can later change your mind through the options in the Camp menu.",
+    "In the traditional medieval society depicted in the game, war and politics are usually dominated by male members of the nobility.  Beacuse of this, a female character can face initial prejudice, and some opportunities open to men will not be available (although a woman will also have some opportunities a man will not).  Some players might find distasteful, so if you want you can ignore that aspect of society.^^You can later change your mind through the options in the Camp menu.",
     "none",
     [],
     [
@@ -25329,17 +25329,17 @@ goods, and books will never be sold. ^^You can change some settings here freely.
   ], 
     "Attack the town.", 
   [
-          (try_begin),
-            (call_script, "script_party_count_members_with_full_health", "p_main_party"), #player must have 100 troops fit for battle, ie not injured
-            (gt, reg0, 100),
-            (party_set_morale, "$g_encountered_party", 100),#enemy has high morale
-            (jump_to_menu, "mnu_attack_minor_town"),
-            (faction_get_slot, ":troop", "$g_encountered_party_faction", slot_faction_leader),
-            (call_script, "script_change_player_relation_with_faction", "$g_encountered_party_faction", -120),#make sure you are at war
-            (call_script, "script_change_player_relation_with_troop", ":troop", -10),
-          (else_try),
-            (display_message,"@You need to have at least 100 men fit for battle."),
-          (try_end),
+    # (try_begin),
+    #     (call_script, "script_party_count_members_with_full_health", "p_main_party"), #player must have 100 troops fit for battle, ie not injured
+    #     (gt, reg0, 100),
+    (party_set_morale, "$g_encountered_party", 100),#enemy has high morale
+    (jump_to_menu, "mnu_attack_minor_town"),
+    (faction_get_slot, ":troop", "$g_encountered_party_faction", slot_faction_leader),
+    (call_script, "script_change_player_relation_with_faction", "$g_encountered_party_faction", -120),#make sure you are at war
+    (call_script, "script_change_player_relation_with_troop", ":troop", -10),
+    # (else_try),
+    #     (display_message,"@You need to have at least 100 men fit for battle."),
+    # (try_end),
   ]),
     
   ("king_meet",

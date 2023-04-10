@@ -40905,11 +40905,12 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
    [],  "Never mind.", "tavern_traveler_pretalk", []],
 
   #SB : varying costs
-  [anyone, "tavern_traveler_companion_location_ask_2", [(str_store_troop_name, s15, "$temp")], "I guess I know where {s15} is. For 30 siliquae, I'll tell you.", "tavern_traveler_companion_location_ask_money", [
-  (store_character_level, "$temp_2", "$temp"),
-  (val_mul, "$temp_2", 5),
-  (assign, reg1, "$temp_2"),
-  
+  [anyone, "tavern_traveler_companion_location_ask_2", [
+    (str_store_troop_name, s15, "$temp")
+    (store_character_level, "$temp_2", "$temp"),
+    (val_mul, "$temp_2", 5),
+    (assign, reg1, "$temp_2"),
+  ], "I guess I know where {s15} is. For {reg1} siliquae, I'll tell you.", "tavern_traveler_companion_location_ask_money", [
   ]],
 
   [anyone|plyr, "tavern_traveler_companion_location_ask_money",
@@ -40919,7 +40920,7 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
      ], "All right. Here is the money.", "tavern_traveler_companion_location_tell",
    [
      (troop_remove_gold, "trp_player", "$temp_2"),
-     ]],
+    ]],
 
   [anyone|plyr, "tavern_traveler_companion_location_ask_money", [], "Never mind, I don't want to know.", "tavern_traveler_pretalk", []],
 
@@ -50375,10 +50376,12 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
    "I'll bite. Give me some of it and I'll be gone.", "burgundian_looter_talk_bribe_1", []],
   [trp_burgundian_looter, "burgundian_looter_talk_bribe_1", [],
    "Ah, very good. Take some of this gold. It'll fetch a good price. Now piss off!", "close_window", [
-   (quest_set_slot,"qst_dragon_quest", slot_quest_current_state, 4),
-   (call_script, "script_change_player_honor", -5),
-   (troop_add_items, "trp_player", "itm_quest_gold",2),
-   (assign,"$dragons_lair_explored",3),]],
+    (quest_set_slot,"qst_dragon_quest", slot_quest_current_state, 4),
+    (call_script, "script_change_player_honor", -5),
+    (troop_add_items, "trp_player", "itm_quest_gold",2),
+    (assign,"$dragons_lair_explored",3),
+    (add_quest_note_from_sreg, "qst_dragon_quest", 6, "@It turned out the 'dragon' was just a group of bandits. You decided to help them. Report back to the village elder the the 'dragon' was too strong.",0), 
+  ]],
 
   [trp_burgundian_looter, "start", [],
    "Yes?", "close_window", []],

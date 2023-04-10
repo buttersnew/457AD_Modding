@@ -40906,7 +40906,7 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
 
   #SB : varying costs
   [anyone, "tavern_traveler_companion_location_ask_2", [
-    (str_store_troop_name, s15, "$temp")
+    (str_store_troop_name, s15, "$temp"),
     (store_character_level, "$temp_2", "$temp"),
     (val_mul, "$temp_2", 5),
     (assign, reg1, "$temp_2"),

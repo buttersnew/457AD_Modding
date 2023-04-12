@@ -1728,35 +1728,48 @@ troops = [
    def_attrib_lvl_23|level(23),wp_one_handed(180)|wp_two_handed(150)|wp_polearm(200)|wp_throwing(180)|wp_archery(160),knows_lvl_23,caucaus_face_1, caucaus_face_2],
 
 #MAURI
-  ["mauri_skirmisher","Exculcator Romano-Mauri","Exculcatores Romano-Mauri",tf_mounted|tf_guarantee_armor|tf_guarantee_ranged,0,0,fac_culture_11,
-   [itm_throwing_spears,itm_throwing_spears,itm_roman_spear_4,itm_wrapping_boots]+tunics_mauri_1+shoes_roman+pannonian_hats+shields_simple,
+#ROMANO-MAURI - MIX OF TRIBAL/SEMI-ROMANIZED TROOPS, FULLY ROMANIZED BERBERS
+  #tribal skirmishers
+  ["ferentarius_indiginae_africani","Ferentarius Indiginae Africani","Ferentarii Indiginae Africani",tf_mounted|tf_guarantee_armor|tf_guarantee_ranged|tf_guarantee_shield,0,0,fac_culture_11,
+   [itm_throwing_spears,itm_throwing_spears,itm_a_exomis_1,itm_a_exomis_2,itm_a_exomis_3,itm_roman_spear_2]+shields_simple,
    def_attrib_skirmisher|level(13),wp_one_handed(100)|wp_polearm(110)|wp_throwing(130),knows_skirmisher,mauri_face_1, mauri_face_2],
+  #tribal horse-skrimishers
+  ["eques_indiginae_africani","Eques Indiginae Africani","Equites Indiginae Africani",tf_mounted|tf_guarantee_horse|tf_guarantee_armor|tf_guarantee_ranged|tf_guarantee_shield,0,0,fac_culture_11,
+   [itm_a_exomis_1,itm_a_exomis_2,itm_a_exomis_3,itm_roman_spear_3,itm_cavalry_javelins,itm_cavalry_javelins,itm_bareback_horse_1]+shields_simple+horses_mauri_1,
+   def_attrib_lvl_18|level(17),wp_one_handed(140)|wp_polearm(140)|wp_throwing(155),knows_lvl_18|knows_horse_archery_5|knows_power_strike_4,mauri_face_1, mauri_face_2],
+  #armed citizens militia
+  ["civis_armatura_mauri","Civis Armatura Romano-Mauri","Civites Armaturae Romano-Mauri",tf_guarantee_basic,0,0,fac_culture_11,
+   [itm_roman_spear_3,(itm_sword_khergit_3,imod_rusty),itm_javelin,(itm_intercisa_helmet_1,imod_battered),(itm_intercisa_helmet_2,imod_battered),itm_burgh_helmet_light,itm_burgh_helmet_mail,itm_oval_shield_leather_3,itm_oval_shield_leather_4,itm_oval_shield_berber_1,itm_oval_shield_white_1]+tunics_mauri_1+tunics_mauri_2+cloaks_mauri_1+shoes_roman+pannonian_hats,
+   def_attrib_lvl_18|level(18),wp_one_handed(130)|wp_two_handed(120)|wp_polearm(130)|wp_throwing(130)|wp_archery(100),knows_lvl_18,mauri_face_1, mauri_face_2],
+  #Remaining Limitanei in the African Limes, in a situation on the Rhine, may have held their own position and worked (militarily) for local mauri warlords
+  ["pedes_limitis_mauri","Pedes Limitis Romano-Mauri","Pedites Limitis Romano-Mauri",tf_guarantee_basic|tf_guarantee_helmet,0,0,fac_culture_11,
+   [itm_sword_khergit_3,itm_late_roman_spear_1,itm_spiculum,itm_battered_mail_1,itm_intercisa_helmet_1,itm_intercisa_helmet_2,itm_burgh_helmet_1,itm_iatrus_1,itm_oval_shield_green_1,itm_oval_shield_green_2,itm_oval_shield_red_1]+shoes_roman+cloaks_roman+subarmalis_roman+mail_roman_1,
+   def_attrib_lvl_21|level(21),wp_one_handed(155)|wp_two_handed(150)|wp_polearm(150)|wp_archery(120)|wp_throwing(165),knows_lvl_21,mauri_face_1, mauri_face_2],
+  #given bow, sword, lance, shield, as there seemed to be a lot of horse-archers stationed in Northern Africa
+  ["eques_romano_mauri","Eques Romano-Mauri","Equites Romano-Mauri",tf_mounted|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_horse|tf_guarantee_polearm,0,0,fac_culture_11,
+   [itm_light_lance,itm_sword_khergit_3,itm_strong_bow,itm_roman_arrows_1,itm_concave_shield_red_small_1,itm_concave_shield_green_small_1,itm_battered_mail_1,itm_intercisa_helmet_1,itm_intercisa_helmet_2,itm_burgh_helmet_1,itm_iatrus_1]+shoes_roman+mail_roman_1+horses_mauri_1+horses_mauri_2,
+   def_attrib_lvl_21|level(21),wp_one_handed(155)|wp_two_handed(150)|wp_polearm(160)|wp_archery(140)|wp_throwing(100),knows_lvl_21|knows_horse_archery_5,mauri_face_1, mauri_face_2],
+  #heavy cataphract cavalry
+  ["eques_cataphractarii_mauri","Eques Cataphractarus Romano-Mauri","Equites Cataphractarii Romano-Mauri",tf_mounted|tf_guarantee_horse|tf_guarantee_basic|tf_guarantee_helmet,0,0,fac_culture_11,
+   [itm_heavy_lance,itm_samson_spatha_2_rich,itm_concave_shield_red_small_1,itm_concave_shield_green_small_1,itm_457_scale_hauberk_2,itm_burgh_helmet_1,itm_burgh_helmet_2,itm_iatrus_1,itm_iatrus_2,itm_koblenz_helmet_1,itm_jarak_helmet_1]+greaves_roman+shoes_roman+mail_roman_2+horses_mauri_3,
+   def_attrib_lvl_28|level(28),wp_one_handed(210)|wp_polearm(220)|wp_throwing(200),knows_lvl_28|knows_horse_archery_5,mauri_face_1, mauri_face_2],
 
-  ["mauri_footman","Pedes Romano-Mauri","Pedites Romano-Mauri",tf_mounted|tf_guarantee_polearm|tf_guarantee_armor|tf_guarantee_shield,0,0,fac_culture_11,
-   [itm_throwing_spears,itm_roman_spear_2,itm_roman_spear_3,itm_securis,itm_dagger,itm_oval_shield_green_1,itm_oval_shield_yellow_1,itm_concave_shield_red_1,itm_concave_shield_green_1,itm_concave_shield_yellow_1,itm_round_shield_mauri_1,itm_oval_shield_leather_1,itm_oval_shield_leather_2,itm_oval_shield_leather_3,
-   itm_iatrus_helmet_light,(itm_intercisa_helmet_1,imod_battered),(itm_intercisa_helmet_2,imod_battered)]+tunics_mauri_1+tunics_mauri_2+cloaks_mauri_1+shoes_roman+pannonian_hats,
-   def_attrib_lvl_18|level(18),wp_one_handed(130)|wp_two_handed(120)|wp_polearm(140)|wp_throwing(140),knows_lvl_18,mauri_face_1, mauri_face_2],
+  #SPECIAL LEGIONS
+  ["pedes_fortenses","Pedes Fortenses","Pedites Fortenses",tf_mounted|tf_guarantee_basic,0,0,fac_culture_11,
+   [itm_deurne_campagi_2,itm_common_mail_short_1,itm_common_mail_short_4,itm_common_mail_short_5,itm_augst_helmet_2,itm_intercisa_helmet_rich_3,itm_haditha_1,itm_burgh_helmet_1,itm_burgh_helmet_2,itm_oval_shield_berber_4,itm_jarid,itm_polehammer,itm_ballana_spatha],
+   def_attrib_lvl_21|level(21),wp_one_handed(165)|wp_two_handed(150)|wp_polearm(150)|wp_archery(120)|wp_throwing(160),knows_lvl_21,mauri_face_1, mauri_face_2],
 
-  ["mauri_infantry","Miles Romano-Mauri","Milites Romano-Mauri",tf_mounted|tf_guarantee_basic,0,0,fac_culture_11,
-   [itm_throwing_spears,itm_roman_spear_4,itm_late_roman_spear_1,itm_sword_khergit_3,
-   itm_concave_shield_mauri_1,itm_concave_shield_mauri_2,itm_concave_shield_mauri_3,itm_concave_shield_mauri_4,itm_concave_shield_mauri_5,itm_oval_shield_red_2,itm_oval_shield_green_1,itm_oval_shield_yellow_1,itm_oval_shield_berber_1,itm_oval_shield_berber_2,itm_oval_shield_berber_3,itm_oval_shield_berber_4,itm_tab_shield_heater_a,itm_tab_shield_round_e,
-   itm_intercisa_helmet_1,itm_intercisa_helmet_2,itm_augst_helmet_1,itm_christies_helmet_1,itm_intercisa_helmet_2,itm_iatrus_1,itm_koblenz_helmet_1,itm_burgh_helmet_1,itm_iatrus_helmet_mail]+shoes_roman+pannonian_hats+cloaks_mauri_1+subarmalis_mauri+mail_mauri_1,
-   def_attrib_lvl_23|level(23),wp_one_handed(175)|wp_two_handed(160)|wp_polearm(180)|wp_throwing(180),knows_lvl_23,mauri_face_1, mauri_face_2],
+  ["pedes_tertio_augustani","Pedes Tertio Augustani","Pedites Tertio Augustani",tf_mounted|tf_guarantee_basic,0,0,fac_culture_11,
+   [itm_deurne_campagi_1,itm_common_mail_short_5,itm_burgh_helmet_1,itm_iatrus_1,itm_narona_helmet_mail,itm_oval_shield_berber_3,itm_late_roman_spear_2,itm_sword_viking_a_long],
+   def_attrib_lvl_21|level(21),wp_one_handed(155)|wp_two_handed(150)|wp_polearm(175)|wp_archery(120)|wp_throwing(155),knows_lvl_21,mauri_face_1, mauri_face_2],
 
-  ["mauri_mounted_skirmisher","Eques Romano-Mauri","Equites Romano-Mauri",tf_mounted|tf_guarantee_horse|tf_guarantee_armor|tf_guarantee_ranged|tf_guarantee_shield,0,0,fac_culture_11,
-   [itm_cavalry_javelins,itm_cavalry_javelins,itm_roman_spear_3,itm_securis,itm_wrapping_boots,itm_concave_shield_leather_small_1,itm_concave_shield_leather_small_2,itm_concave_shield_leather_small_3,itm_round_shield_mauri_small_1,itm_wicker_round_shield,itm_bareback_horse_1]+tunics_mauri_1+tunics_mauri_2+cloaks_mauri_1+subarmalis_mauri+shields_simple+shoes_roman+pannonian_hats+horses_mauri_1,
-   def_attrib_lvl_18|level(18),wp_one_handed(130)|wp_polearm(140)|wp_throwing(145),knows_lvl_18|knows_horse_archery_4,mauri_face_1, mauri_face_2],
-
-  ["mauri_companion","Comes Romano-Mauri","Comites Romano-Mauri",tf_mounted|tf_guarantee_horse|tf_guarantee_basic|tf_guarantee_helmet,0,0,fac_culture_11,
-   [itm_leather_gloves,itm_cavalry_javelins,itm_long_decorated_spear1,itm_long_decorated_spear2,itm_long_decorated_spear3,itm_late_roman_spear_1,itm_sword_khergit_4,itm_457_scale_hauberk_2,itm_banded_armor,itm_vaegir_elite_armor,itm_khergit_elite_armor,
-   itm_koblenz_helmet_1,itm_koblenz_helmet_2,itm_koblenz_helmet_3,itm_intercisa_helmet_gilded_1,itm_intercisa_helmet_gilded_2,itm_christies_helmet_1,itm_intercisa_helmet_rich_3,itm_augst_helmet_3,itm_augst_helmet_rich_2,itm_augsburg_2_helmet,itm_augsburg_1_helmet,itm_heteny_helmet_1,
-   itm_concave_shield_mauri_small_5,itm_concave_shield_roman_8,itm_tab_shield_small_round_c]+greaves_roman+shoes_roman+mail_mauri_1+mail_mauri_2+scale_roman_1+horses_mauri_2+horses_mauri_3,
-   def_attrib_lvl_28|level(28),wp_one_handed(200)|wp_polearm(215)|wp_throwing(220),knows_lvl_28|knows_horse_archery_4,mauri_face_1, mauri_face_2],
+  ["pedes_mauri_tonantes_seniores","Pedes Mauri Tonantes Seniores","Pedites Mauri Tonantes Seniores",tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_shield|tf_guarantee_helmet|tf_guarantee_polearm,0,0,fac_culture_11,
+   [itm_oval_shield_berber_2,itm_samson_spatha_2_rich,itm_late_roman_spear_2,itm_throwing_spears,itm_burgh_helmet_2,itm_augst_helmet_3,itm_intercisa_helmet_rich_3,itm_augsburg_2_helmet]+greaves_roman+mail_roman_2,
+   def_attrib_lvl_25|level(25),wp_one_handed(185)|wp_two_handed(150)|wp_polearm(190)|wp_archery(120)|wp_throwing(190),knows_lvl_25,mauri_face_1, mauri_face_2],
 
   ["mauri_deserter","Transfuga Romano-Mauri","Transfugae Romano-Mauri",tf_mounted|tf_guarantee_polearm|tf_guarantee_armor|tf_guarantee_shield,0,0,fac_culture_11,
-   [itm_throwing_spears,itm_roman_spear_2,itm_roman_spear_3,itm_securis,itm_dagger,itm_oval_shield_green_1,itm_oval_shield_yellow_1,itm_concave_shield_red_1,itm_concave_shield_green_1,itm_concave_shield_yellow_1,itm_round_shield_mauri_1,itm_oval_shield_leather_1,itm_oval_shield_leather_2,itm_oval_shield_leather_3,
-   itm_iatrus_helmet_light,(itm_intercisa_helmet_1,imod_battered),(itm_intercisa_helmet_2,imod_battered)]+tunics_mauri_1+tunics_mauri_2+cloaks_mauri_1+shoes_roman+pannonian_hats,
-   def_attrib_lvl_18|level(18),wp_one_handed(130)|wp_two_handed(120)|wp_polearm(140)|wp_throwing(140),knows_lvl_18,mauri_face_1, mauri_face_2],
+   [itm_roman_spear_3,(itm_sword_khergit_3,imod_rusty),itm_javelin,(itm_intercisa_helmet_1,imod_battered),(itm_intercisa_helmet_2,imod_battered),itm_burgh_helmet_light,itm_burgh_helmet_mail,itm_oval_shield_leather_3,itm_oval_shield_leather_4,itm_oval_shield_berber_1,itm_oval_shield_white_1]+tunics_mauri_1+tunics_mauri_2+cloaks_mauri_1+shoes_roman+pannonian_hats,
+   def_attrib_lvl_18|level(18),wp_one_handed(130)|wp_two_handed(120)|wp_polearm(130)|wp_throwing(130)|wp_archery(100),knows_lvl_18,mauri_face_1, mauri_face_2],
   ["mauri_messenger","Mauri Messenger","Mauri Messenger",tf_mounted|tf_guarantee_basic,0,0,fac_culture_11,
    [itm_wrapping_boots,itm_cavalry_javelins,itm_roman_spear_3,itm_securis]+shoes_roman+tunics_mauri_2+subarmalis_mauri+horses_mauri_2,
    def_attrib_lvl_25|level(25),wp(180),knows_lvl_25,mauri_face_1, mauri_face_2],
@@ -1775,10 +1788,6 @@ troops = [
   ["gaetuli_horseman","Gaetuli Horseman","Gaetuli Horsemen",tf_mounted|tf_guarantee_horse|tf_guarantee_armor|tf_guarantee_ranged|tf_guarantee_shield,0,0,fac_culture_11,
    [itm_imperial_common_shirt,itm_a_exomis_1,itm_a_exomis_2,itm_roman_spear_3,itm_cavalry_javelins,itm_cavalry_javelins,itm_bareback_horse_1]+shields_simple+horses_mauri_1,
    def_attrib_lvl_18|level(18),wp_one_handed(140)|wp_polearm(140)|wp_throwing(155),knows_lvl_18|knows_horse_archery_5|knows_power_strike_4|knows_shield_2,mauri_face_1, mauri_face_2],
-
-  ["pedes_fortenses","Pedes Fortenses","Pedites Fortenses",tf_mounted|tf_guarantee_basic,0,0,fac_culture_11,
-   [itm_deurne_campagi_2,itm_common_mail_short_1,itm_common_mail_long_1,itm_common_mail_short_4,itm_common_mail_long_4,itm_common_mail_short_5,itm_common_mail_long_5,itm_augst_helmet_2,itm_intercisa_helmet_rich_3,itm_haditha_1,itm_burgh_helmet_1,itm_burgh_helmet_2,itm_oval_shield_berber_4,itm_jarid,itm_polehammer,itm_ballana_spatha],
-   def_attrib_lvl_25|level(25),wp_one_handed(195)|wp_two_handed(150)|wp_polearm(185)|wp_archery(120)|wp_throwing(195),knows_lvl_25,mauri_face_1, mauri_face_2],
 
 #HUNS
   ["hunnic_skirmisher","Hunnic Skirmisher","Hun Skirmishers",tf_mounted|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_horse|tf_guarantee_ranged,0,0,fac_culture_12,
@@ -5144,9 +5153,9 @@ upgrade(troops,"caucasian_levy","caucasian_footman")
 upgrade(troops,"caucasian_nobleman","caucasian_cataphract")
 
 #romano-mauri
-upgrade(troops,"mauri_skirmisher","mauri_mounted_skirmisher")
-upgrade(troops,"mauri_mounted_skirmisher","mauri_companion")
-upgrade(troops,"mauri_footman","mauri_infantry")
+upgrade(troops,"ferentarius_indiginae_africani","eques_indiginae_africani")
+upgrade(troops,"civis_armatura_mauri","pedes_limitis_mauri")
+upgrade(troops,"eques_romano_mauri","eques_cataphractarii_mauri")
 
 #le huns
 upgrade(troops,"hunnic_skirmisher","hunnic_horse_archer")

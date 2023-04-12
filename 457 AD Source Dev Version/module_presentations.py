@@ -489,7 +489,7 @@ presentations = [
         (assign, ":cur_troop", "trp_eastern_germanic_companion"),
       (else_try),
         (eq, "$g_quick_battle_team_2_faction", "fac_kingdom_22"),
-        (assign, ":cur_troop", "trp_mauri_companion"),
+        (assign, ":cur_troop", "trp_pedes_mauri_tonantes_seniores"),
       (else_try),
         (eq, "$g_quick_battle_team_2_faction", "fac_kingdom_23"),
         (assign, ":cur_troop", "trp_hunnic_veteran"),
@@ -19150,6 +19150,8 @@ presentations = [
               (this_or_next|eq, "$current_town", "p_castle_40"),
               (eq, "$current_town", "p_town_34"),      
               (this_or_next|eq, ":troop", "trp_pedes_fortenses"),  
+              (this_or_next|eq, ":troop", "trp_pedes_tertio_augustani"),  
+              (this_or_next|eq, ":troop", "trp_pedes_mauri_tonantes_seniores"),  
               (this_or_next|eq, ":troop", "trp_gaetuli_warrior"),
               (eq, ":troop", "trp_gaetuli_horseman"),
               (assign, ":c", 1),
@@ -19541,9 +19543,9 @@ presentations = [
                 (assign, ":c", 1), 
               (else_try),  
                 (eq, ":culture", "fac_culture_11"), #mauri
-                (this_or_next|eq, ":troop", "trp_mauri_skirmisher"), #t1
-                (this_or_next|eq, ":troop", "trp_mauri_footman"), #t3 inf.
-                (eq, ":troop", "trp_mauri_mounted_skirmisher"), #noble
+                (this_or_next|eq, ":troop", "trp_ferentarius_indiginae_africani"), 
+                (this_or_next|eq, ":troop", "trp_civis_armatura_mauri"), 
+                (eq, ":troop", "trp_eques_romano_mauri"), 
                 (assign, ":c", 1), 
               (else_try),  
                 (eq, ":culture", "fac_culture_12"), #hunnic - also different, entirely cav
@@ -19773,9 +19775,9 @@ presentations = [
                     (assign, ":c", 1), 
                   (else_try),  
                     (eq, ":culture", "fac_culture_11"), #mauri
-                    (this_or_next|eq, ":troop", "trp_mauri_skirmisher"), #t1
-                    (this_or_next|eq, ":troop", "trp_mauri_footman"), #t3 inf.
-                    (eq, ":troop", "trp_mauri_mounted_skirmisher"), #noble
+                    (this_or_next|eq, ":troop", "trp_ferentarius_indiginae_africani"), 
+                    (this_or_next|eq, ":troop", "trp_civis_armatura_mauri"), 
+                    (eq, ":troop", "trp_eques_romano_mauri"), 
                     (assign, ":c", 1), 
                   (else_try),  
                     (eq, ":culture", "fac_culture_12"), #hunnic - also different, entirely cav

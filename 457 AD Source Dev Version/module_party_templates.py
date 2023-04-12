@@ -177,9 +177,9 @@ party_templates = [
   ("kingdom_8_reinforcements_b", "{!}Caucasian Reinforcements", 0, 0, fac_commoners, 0, [(trp_caucasian_levy,3,10),(trp_caucasian_archer,3,5),(trp_caucasian_standard_bearer,1,1)]),
   ("kingdom_8_reinforcements_c", "{!}Caucasian Reinforcements", 0, 0, fac_commoners, 0, [(trp_caucasian_footman,1,3),(trp_caucasian_nobleman,3,7)]),
 
-  ("kingdom_11_reinforcements_a", "{!}Mauri Reinforcements", 0, 0, fac_commoners, 0, [(trp_mauri_skirmisher,4,10),(trp_mauri_footman,4,10)]),
-  ("kingdom_11_reinforcements_b", "{!}Mauri Reinforcements", 0, 0, fac_commoners, 0, [(trp_mauri_footman,3,10),(trp_mauri_mounted_skirmisher,3,5),(trp_imperial_signifer,1,1)]),
-  ("kingdom_11_reinforcements_c", "{!}Mauri Reinforcements", 0, 0, fac_commoners, 0, [(trp_mauri_infantry,2,5),(trp_mauri_mounted_skirmisher,2,5)]),
+  ("kingdom_11_reinforcements_a", "{!}Mauri Reinforcements", 0, 0, fac_commoners, 0, [(trp_ferentarius_indiginae_africani,4,10),(trp_civis_armatura_mauri,4,10)]),
+  ("kingdom_11_reinforcements_b", "{!}Mauri Reinforcements", 0, 0, fac_commoners, 0, [(trp_pedes_limitis_mauri,2,6),(trp_sagittarius,1,4),(trp_eques_indiginae_africani,3,5),(trp_imperial_signifer,1,1)]),
+  ("kingdom_11_reinforcements_c", "{!}Mauri Reinforcements", 0, 0, fac_commoners, 0, [(trp_pedes_limitis_mauri,2,5),(trp_eques_romano_mauri,2,5)]),
 
   ("kingdom_12_reinforcements_a", "{!}Hunnic Reinforcements", 0, 0, fac_commoners, 0, [(trp_crimean_gothic_skirmisher,2,6),(trp_hunnic_horse_archer,3,8),(trp_crimean_gothic_freeman,3,6)]), #mix of huns, goths, and other AOREs
   ("kingdom_12_reinforcements_b", "{!}Hunnic Reinforcements", 0, 0, fac_commoners, 0, [(trp_hunnic_horse_archer,2,6),(trp_akatziri_tribesman,2,6),(trp_meotian_horseman,2,5),(trp_draco_bearer,1,1)]),
@@ -275,9 +275,10 @@ party_templates = [
   ("knight_6_7_reinforcements_b", "{!}armenian_reinforcements_b", 0, 0, fac_commoners, 0, [(trp_armenian_footman,4,8),(trp_armenian_bowman,1,3),(trp_kurdish_slinger,2,4),(trp_sassanid_standard_bearer,1,1),(trp_sassanid_cavalry,1,3)]), #mix of mostly armenian infantry, sassanid cavalry
   ("knight_6_7_reinforcements_c", "{!}armenian_reinforcements_c", 0, 0, fac_commoners, 0, [(trp_sassanid_horse_archer,2,6),(trp_armenian_cataphract,1,2),(trp_sassanid_armored_footman,1,2),(trp_sassanid_officer,1,1)]), #Armenian cavalry, sassanid horse archers - primarily cavalry army
   #mauri king
-  ("kingdom_11_lord_reinforcements_a", "{!}Mauri Reinforcements", 0, 0, fac_commoners, 0, [(trp_mauri_skirmisher,4,10),(trp_mauri_footman,4,10)]),
-  ("kingdom_11_lord_reinforcements_b", "{!}Mauri Reinforcements", 0, 0, fac_commoners, 0, [(trp_mauri_infantry,3,10),(trp_mauri_mounted_skirmisher,3,5),(trp_imperial_signifer,1,1)]),
-  ("kingdom_11_lord_reinforcements_c", "{!}Mauri Reinforcements", 0, 0, fac_commoners, 0, [(trp_pedes_fortenses,2,5),(trp_mauri_companion,2,5)]),
+  ("kingdom_11_lord_reinforcements_a", "{!}Mauri Reinforcements", 0, 0, fac_commoners, 0, [(trp_ferentarius_indiginae_africani,4,10),(trp_civis_armatura_mauri,4,10)]),
+  ("kingdom_11_lord_reinforcements_b", "{!}Mauri Reinforcements", 0, 0, fac_commoners, 0, [(trp_pedes_fortenses,2,5),(trp_pedes_tertio_augustani,2,5),(trp_sagittarius,1,3),(trp_eques_romano_mauri,1,3),(trp_imperial_signifer,1,1)]),
+  ("kingdom_11_lord_reinforcements_c", "{!}Mauri Reinforcements", 0, 0, fac_commoners, 0, [(trp_pedes_mauri_tonantes_seniores,2,5),(trp_eques_cataphractarii_mauri,2,5)]),
+
   #ambrosius aurelianus - stronger than the other lords
   ("kingdom_13_lord_reinforcements_a", "{!}arthur Reinforcements", 0, 0, fac_commoners, 0, [(trp_briton_skirmisher,4,10),(trp_briton_footman,4,10)]),
   ("kingdom_13_lord_reinforcements_b", "{!}arthur Reinforcements", 0, 0, fac_commoners, 0, [(trp_briton_footman,3,5),(trp_abulci,2,5),(trp_briton_horseman,1,5),(trp_imperial_signifer,1,1)]),
@@ -487,7 +488,7 @@ party_templates = [
 
   ("heruli_horde","Heruli Horde",icon_flagbearer_b|carries_goods(20)|pf_show_faction,0,fac_heruli,soldier_personality,[(trp_heruli_slave,150,250),(trp_heruli_warrior,100,160),(trp_scandinavian_freeman,40,80),(trp_scandinavian_retainer,15,30),(trp_heruli_king,1,1)]),
 
-  ("mauri_rebel_horde","Austuriani Rebel Horde",icon_khergit|carries_goods(20)|pf_show_faction,0,fac_berber_rebels,bandit_personality,[(trp_mauri_mounted_skirmisher,80,160),(trp_desert_bandit,20,60),(trp_mauri_skirmisher,40,80),(trp_mauri_footman,30,50)]),
+  ("mauri_rebel_horde","Austuriani Rebel Horde",icon_khergit|carries_goods(20)|pf_show_faction,0,fac_berber_rebels,bandit_personality,[(trp_eques_indiginae_africani,80,160),(trp_desert_bandit,20,60),(trp_ferentarius_indiginae_africani,40,80),(trp_civis_armatura_mauri,30,50)]),
 
   ("ostrogothic_army","Ostrogothic Army",icon_germanic_army|carries_goods(20)|pf_show_faction,0,fac_kingdom_4,soldier_personality,[(trp_gothic_freeman,40,75),(trp_gothic_skirmisher,10,30),(trp_gothic_mounted_skirmisher,10,20),(trp_gothic_horseman,5,10),(trp_gothic_companion,1,1)]), #balance out so that ostrogoths do not get completely destroyed
 

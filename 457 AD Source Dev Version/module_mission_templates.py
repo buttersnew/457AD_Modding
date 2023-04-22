@@ -2059,7 +2059,6 @@ jacobhinds_morale_triggers = [
   jacobhinds_battle_ratio_calculate,
   jacobhinds_morale_recover,
   jacobhinds_ranged_melee_morale_penalty,
-
 ]
 #End of New morale system
 
@@ -6749,12 +6748,11 @@ mission_templates = [
     [
     small_battle_check,
     (ti_after_mission_start, 0, ti_once, [], [
-    (mission_cam_set_screen_color, 0xFF000000),
-    (mission_cam_animate_to_screen_color, 0x00000000, 3000),
+      (mission_cam_set_screen_color, 0xFF000000),
+      (mission_cam_animate_to_screen_color, 0x00000000, 3000),
     ]),	
     
-      (ti_on_agent_spawn, 0, 0, [],
-       [
+      (ti_on_agent_spawn, 0, 0, [],[
          (store_trigger_param_1, ":agent_no"),
          (call_script, "script_agent_reassign_team", ":agent_no"),
 
@@ -6779,10 +6777,9 @@ mission_templates = [
          #morale effect = min : -2100(party morale is 0), average : 0(party morale is 70), max : 900(party morale is 100)
          #min starting : 3600, max starting  : 9600, average starting : 7200
          (agent_set_slot, ":agent_no", slot_agent_courage_score, ":initial_courage_score"),
-         ]),
+        ]),
 
-      (ti_on_agent_killed_or_wounded, 0, 0, [],
-       [
+      (ti_on_agent_killed_or_wounded, 0, 0, [],[
         (store_trigger_param_1, ":dead_agent_no"),
         (store_trigger_param_2, ":killer_agent_no"),
         (store_trigger_param_3, ":is_wounded"),
@@ -6804,13 +6801,13 @@ mission_templates = [
         (try_end),
 
         (call_script, "script_apply_death_effect_on_courage_scores", ":dead_agent_no", ":killer_agent_no"),
-       ]),
+      ]),
 
       common_battle_tab_press,
       immersive_troops,
 
-      (ti_question_answered, 0, 0, [],
-       [(store_trigger_param_1,":answer"),
+      (ti_question_answered, 0, 0, [],[
+        (store_trigger_param_1,":answer"),
         (eq,":answer",0),
         (assign, "$pin_player_fallen", 0),
         (try_begin),
@@ -6820,21 +6817,21 @@ mission_templates = [
           (call_script, "script_simulate_retreat", 10, 20, 1),
         (try_end),
         (call_script, "script_count_mission_casualties_from_agents"),
-        (finish_mission,0),]),
+        (finish_mission,0),
+      ]),
 
-      (ti_before_mission_start, 0, 0, [],
-       [
-         (team_set_relation, 0, 2, 1),
-         (team_set_relation, 1, 3, 1),
-         (call_script, "script_place_player_banner_near_inventory_bms"),
+      (ti_before_mission_start, 0, 0, [],[
+        (team_set_relation, 0, 2, 1),
+        (team_set_relation, 1, 3, 1),
+        (call_script, "script_place_player_banner_near_inventory_bms"),
 
-         (party_clear, "p_routed_enemies"),
+        (party_clear, "p_routed_enemies"),
 
-         (assign, "$g_latest_order_1", 1),
-         (assign, "$g_latest_order_2", 1),
-         (assign, "$g_latest_order_3", 1),
-         (assign, "$g_latest_order_4", 1),
-         ]),
+        (assign, "$g_latest_order_1", 1),
+        (assign, "$g_latest_order_2", 1),
+        (assign, "$g_latest_order_3", 1),
+        (assign, "$g_latest_order_4", 1),
+      ]),
 
 
       (0, 0, ti_once, [], [(assign,"$g_battle_won",0),

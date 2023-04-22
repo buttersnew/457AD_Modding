@@ -9084,16 +9084,16 @@ TOTAL:  {reg5}"),
        ]
        ,"Recruit Volunteers.",
        [
-            (try_begin), #chief anadido
-         (troop_slot_ge, "trp_player", slot_troop_renown, 35), #higher renown cost to recruit troops to form an army - more realistic for the period
-         (try_begin),
-           (call_script, "script_cf_enter_center_location_bandit_check"),
-         (else_try),
-           (jump_to_menu, "mnu_recruit_volunteers"),
-         (try_end),
-       (else_try), #chief anadido
-             (display_message,"@You need more renown or to ask the Village Elder for help.",0xFFFFAAAA), #chief anadido
-           (try_end), #chief anadido
+        (try_begin), #chief anadido
+          (troop_slot_ge, "trp_player", slot_troop_renown, 35), #higher renown cost to recruit troops to form an army - more realistic for the period
+          (try_begin),
+            (call_script, "script_cf_enter_center_location_bandit_check"),
+          (else_try),
+            (jump_to_menu, "mnu_recruit_volunteers"),
+          (try_end),
+        (else_try), #chief anadido
+          (display_message,"@You need more renown or to ask the Village Elder for help.",0xFFFFAAAA), #chief anadido
+        (try_end), #chief anadido
         ]),
       ("village_center",[(call_script, "script_cf_village_normal_cond", "$current_town"), #SB : script condition
        ]

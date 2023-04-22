@@ -45476,13 +45476,29 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
 
 
 
-
-  [anyone|plyr,"village_elder_talk", [(call_script, "script_cf_village_recruit_volunteers_cond"),       (store_troop_gold,":money","trp_player"),
+[anyone|plyr,"village_elder_talk", [(call_script, "script_cf_village_recruit_volunteers_cond"),       (store_troop_gold,":money","trp_player"),
         (gt,":money",49),
 ],
-   "I need help finding men who want to join me. Of course, here's a reward of 50 coins for you.", "village_elder_recruit_start",[
-       (troop_remove_gold, "trp_player", 50),
+   "I need help finding men who want to join me. Of course, here's a reward of 50 coins for you.", "village_elder_recruit_start_bribe",[
 ]],
+[anyone,"village_elder_recruit_start_bribe", [
+    (party_get_slot, ":num_volunteers", "$current_town", slot_center_volunteer_troop_amount),
+    (party_get_free_companions_capacity, ":free_capacity", "p_main_party"),
+    (val_min, ":num_volunteers", ":free_capacity"),
+    (store_troop_gold, ":gold", "trp_player"),
+    (val_sub, ":gold", 50),
+    (store_div, ":gold_capacity", ":gold", 10),#10 denars per man
+    (val_min, ":num_volunteers", ":gold_capacity"),
+    (le, ":num_volunteers", 0),
+],
+   "Ha! You can't even hold your promises. You don't have enough gold or party capaticity to hire the available troops.", "village_elder_pretalk",[
+]],
+[anyone,"village_elder_recruit_start_bribe", [
+],
+   "Sure, but give me the coins first.", "village_elder_recruit_start",[
+    (troop_remove_gold, "trp_player", 50),
+]],
+
 
   [anyone|plyr,"village_elder_talk", [],
    "[Leave]", "close_window",[]],

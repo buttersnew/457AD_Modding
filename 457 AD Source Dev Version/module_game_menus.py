@@ -20761,12 +20761,12 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         ]),
 
       ## sb : charge + deathcam
-      ("dplmc_charge_when_dead",[ (eq, "$g_dplmc_battle_continuation", 0),(assign, reg0, "$g_dplmc_charge_when_dead"),],
-        "{reg0?Dis:En}able troops charging upon battle continuation.",
-       [
-           (store_sub, "$g_dplmc_charge_when_dead", 1, "$g_dplmc_charge_when_dead"),
-           # (jump_to_menu, "mnu_dplmc_preferences"),
-        ]),
+      # ("dplmc_charge_when_dead",[ (eq, "$g_dplmc_battle_continuation", 0),(assign, reg0, "$g_dplmc_charge_when_dead"),],
+      #   "{reg0?Dis:En}able troops charging upon battle continuation.",
+      #  [
+      #      (store_sub, "$g_dplmc_charge_when_dead", 1, "$g_dplmc_charge_when_dead"),
+      #      # (jump_to_menu, "mnu_dplmc_preferences"),
+      #   ]),
         
       ("dplmc_deathcam_keys",[ (eq, "$g_dplmc_battle_continuation", 0),],"Redefine camera keys.",
        [

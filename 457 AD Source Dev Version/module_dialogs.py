@@ -45491,7 +45491,7 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
     (val_min, ":num_volunteers", ":gold_capacity"),
     (le, ":num_volunteers", 0),
 ],
-   "Ha! You can't even hold your promises. You don't have enough gold or party capaticity to hire the available troops.", "village_elder_pretalk",[
+   "Ha! You can't even hold your promises. You don't have enough gold or the leadership to hire the available troops.", "village_elder_pretalk",[ #leadership = party capacity
 ]],
 [anyone,"village_elder_recruit_start_bribe", [
 ],

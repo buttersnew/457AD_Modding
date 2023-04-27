@@ -21385,8 +21385,7 @@ presentations = [
                 (assign, ":player_can_draw_from_garrison", 1),
             (else_try), #option 3 - town was captured by player
                 (lt, ":town_lord", 0), #ie, unassigned
-                (store_faction_of_party, ":castle_faction", "$g_encountered_party"),
-                (eq, "$players_kingdom", ":castle_faction"),
+                (eq, "$players_kingdom", "$g_encountered_party_faction"),
 
                 (eq, "$g_encountered_party", "$g_castle_requested_by_player"),
 
@@ -21394,8 +21393,7 @@ presentations = [
                 (assign, ":player_can_draw_from_garrison", 1),
             (else_try),
                 (lt, ":town_lord", 0), #ie, unassigned
-                (store_faction_of_party, ":castle_faction", "$g_encountered_party"),
-                (eq, "$players_kingdom", ":castle_faction"),
+                (eq, "$players_kingdom", "$g_encountered_party_faction"),
 
                 (store_party_size_wo_prisoners, ":party_size", "$g_encountered_party"),
                 (eq, ":party_size", 0),
@@ -21404,14 +21402,17 @@ presentations = [
                 (assign, ":player_can_draw_from_garrison", 1),
             (else_try),
                 (party_slot_ge, "$g_encountered_party", slot_town_lord, active_npcs_begin),
-                (store_faction_of_party, ":castle_faction", "$g_encountered_party"),
-                (eq, "$players_kingdom", ":castle_faction"),
+                (eq, "$players_kingdom", "$g_encountered_party_faction"),
                 ##diplomacy start+ can arise if using this to represent polygamy
                 (this_or_next|troop_slot_eq, ":town_lord", slot_troop_spouse, "trp_player"),
                 (troop_slot_eq, "trp_player", slot_troop_spouse, ":town_lord"),
                 (this_or_next|is_between, ":town_lord", heroes_begin, kingdom_ladies_end),
                 ##diplomacy end+
                 (troop_slot_eq, "trp_player", slot_troop_spouse, ":town_lord"),
+                (assign, ":player_can_draw_from_garrison", 1),
+            (else_try),
+                (faction_slot_eq, "$g_encountered_party_faction", slot_faction_leader, "trp_player"),
+                (faction_slot_ge, "$g_encountered_party_faction", dplmc_slot_faction_centralization, 3),
                 (assign, ":player_can_draw_from_garrison", 1),
             (try_end),
             (eq, ":player_can_draw_from_garrison", 1),      

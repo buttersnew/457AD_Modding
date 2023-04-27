@@ -6051,7 +6051,7 @@ Even in the last case, the player can make formations up to four lines by orderi
 ("messenger_post_name_rome", "Messenger Post"),
 ("messenger_post_description_rome", "A messenger post lets the inhabitants send you a message whenever enemies are nearby, even if you are far away from here. It will cost 250 siliquae a month to maintain (costs will be paid from rents)."),
 ("prison_tower_name_rome", "Prison"),
-("prison_tower_description_rome", "A prison reduces the chance of captives held here running away successfully. A prisoner tower also allows you to torture your prisoners."),
+("prison_tower_description_rome", "A prison reduces the chance of captives held here running away successfully."),
 
 ("forum_name_rome", "Forum"),
 ("forum_description_rome", "Your own forum, the Forum {playername}, is a sign of power. It will increase your renown, your relation with this center and tariff income. It will also increase your reputation and gain you experience."),

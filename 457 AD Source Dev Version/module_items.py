@@ -756,6 +756,10 @@ items = [
 ["tunic_7", "Tunic", [("tunic_7",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_roman+culture_germanic+culture_gothic+culture_celtic ],
 ["tunic_8", "Tunic", [("tunic_8",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_roman+culture_germanic+culture_gothic+culture_celtic ],
 ["tunic_9", "Tunic", [("tunic_9",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_roman+culture_germanic+culture_gothic+culture_celtic ],
+["tunic_10", "Tunic", [("tunic_10",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_roman+culture_germanic+culture_gothic+culture_celtic ],
+["tunic_11", "Tunic", [("tunic_11",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_roman+culture_germanic+culture_gothic+culture_celtic ],
+["tunic_12", "Tunic", [("tunic_12",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_roman+culture_germanic+culture_gothic+culture_celtic ],
+["tunic_13", "Tunic", [("tunic_13",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_roman+culture_germanic+culture_gothic+culture_celtic ],
 
 ["tunic_1_cloak", "Tunic with Cloak", [("tunic_1_cloak",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 135 , weight(2.75)|abundance(60)|head_armor(0)|body_armor(18)|leg_armor(10)|difficulty(0) ,imodbits_cloth, [], culture_roman+culture_germanic+culture_gothic+culture_celtic ],
 ["tunic_2_cloak", "Tunic with Cloak", [("tunic_2_cloak",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 135 , weight(2.75)|abundance(60)|head_armor(0)|body_armor(18)|leg_armor(10)|difficulty(0) ,imodbits_cloth, [], culture_roman+culture_germanic+culture_gothic+culture_celtic ],
@@ -766,6 +770,10 @@ items = [
 ["tunic_7_cloak", "Tunic with Cloak", [("tunic_7_cloak",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 135 , weight(2.75)|abundance(60)|head_armor(0)|body_armor(18)|leg_armor(10)|difficulty(0) ,imodbits_cloth, [], culture_roman+culture_germanic+culture_gothic+culture_celtic ],
 ["tunic_8_cloak", "Tunic with Cloak", [("tunic_8_cloak",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 135 , weight(2.75)|abundance(60)|head_armor(0)|body_armor(18)|leg_armor(10)|difficulty(0) ,imodbits_cloth, [], culture_roman+culture_germanic+culture_gothic+culture_celtic ],
 ["tunic_9_cloak", "Tunic with Cloak", [("tunic_9_cloak",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 135 , weight(2.75)|abundance(60)|head_armor(0)|body_armor(18)|leg_armor(10)|difficulty(0) ,imodbits_cloth, [], culture_roman+culture_germanic+culture_gothic+culture_celtic ],
+["tunic_10_cloak", "Tunic with Cloak", [("tunic_10_cloak",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 135 , weight(2.75)|abundance(60)|head_armor(0)|body_armor(18)|leg_armor(10)|difficulty(0) ,imodbits_cloth, [], culture_roman+culture_germanic+culture_gothic+culture_celtic ],
+["tunic_11_cloak", "Tunic with Cloak", [("tunic_11_cloak",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 135 , weight(2.75)|abundance(60)|head_armor(0)|body_armor(18)|leg_armor(10)|difficulty(0) ,imodbits_cloth, [], culture_roman+culture_germanic+culture_gothic+culture_celtic ],
+["tunic_12_cloak", "Tunic with Cloak", [("tunic_12_cloak",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 135 , weight(2.75)|abundance(60)|head_armor(0)|body_armor(18)|leg_armor(10)|difficulty(0) ,imodbits_cloth, [], culture_roman+culture_germanic+culture_gothic+culture_celtic ],
+["tunic_13_cloak", "Tunic with Cloak", [("tunic_13_cloak",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 135 , weight(2.75)|abundance(60)|head_armor(0)|body_armor(18)|leg_armor(10)|difficulty(0) ,imodbits_cloth, [], culture_roman+culture_germanic+culture_gothic+culture_celtic ],
 
 #thorsberg
 ["thorsberg_tunic_simple_1", "Tunic", [("thorsberg_tunic_simple_1",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [], culture_germanic+culture_gothic+culture_celtic ],
@@ -1412,6 +1420,29 @@ items = [
  3560 , weight(25)|abundance(16)|head_armor(0)|body_armor(58)|leg_armor(16)|difficulty(13) ,imodbits_mail, [], culture_roman+culture_germanic+culture_gothic+culture_celtic ],
 ["common_mail_long_6_cloak", "Mail Shirt with Cloak", [("common_mail_long_6_cloak",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
  3560 , weight(25)|abundance(16)|head_armor(0)|body_armor(58)|leg_armor(16)|difficulty(13) ,imodbits_mail, [], culture_roman+culture_germanic+culture_gothic+culture_celtic ],
+
+#mail with decorative gilded rings - reserved for king/emperor's guards, lords
+["rich_mail_1", "Rich Mail Shirt", [("rich_mail_1",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3380 , weight(18)|abundance(10)|head_armor(0)|body_armor(52)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_roman+culture_germanic+culture_gothic ],
+["rich_mail_2", "Rich Mail Shirt", [("rich_mail_2",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3380 , weight(18)|abundance(10)|head_armor(0)|body_armor(52)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_roman+culture_germanic+culture_gothic ],
+["rich_mail_3", "Rich Mail Shirt", [("rich_mail_3",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3380 , weight(18)|abundance(10)|head_armor(0)|body_armor(52)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_roman+culture_germanic+culture_gothic ],
+["rich_mail_4", "Rich Mail Shirt", [("rich_mail_4",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3380 , weight(18)|abundance(10)|head_armor(0)|body_armor(52)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_roman+culture_germanic+culture_gothic ],
+
+#mail with torc/maniakion - rare, possibly only to be ordered via special merchants - only for lords (and verrry limited troops)
+["rich_mail_3_m", "Rich Mail Shirt with Maniakion", [("rich_mail_3_m1",0),("rich_mail_3_m2",imodbits_good)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0, #roman only - very rare?
+ 3650 , weight(18)|abundance(2)|head_armor(0)|body_armor(53)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_roman ],
+
+["rich_mail_1_cloak", "Rich Mail Shirt with Cloak", [("rich_mail_1_cloak",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3490 , weight(19.75)|abundance(10)|head_armor(0)|body_armor(54)|leg_armor(16)|difficulty(11) ,imodbits_mail, [], culture_roman+culture_germanic+culture_gothic ],
+["rich_mail_2_cloak", "Rich Mail Shirt with Cloak", [("rich_mail_2_cloak",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3490 , weight(19.75)|abundance(10)|head_armor(0)|body_armor(54)|leg_armor(16)|difficulty(11) ,imodbits_mail, [], culture_roman+culture_germanic+culture_gothic ],
+["rich_mail_3_cloak", "Rich Mail Shirt with Cloak", [("rich_mail_3_cloak",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3490 , weight(19.75)|abundance(10)|head_armor(0)|body_armor(54)|leg_armor(16)|difficulty(11) ,imodbits_mail, [], culture_roman+culture_germanic+culture_gothic ],
+["rich_mail_4_cloak", "Rich Mail Shirt with Cloak", [("rich_mail_4_cloak",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3490 , weight(19.75)|abundance(10)|head_armor(0)|body_armor(54)|leg_armor(16)|difficulty(11) ,imodbits_mail, [], culture_roman+culture_germanic+culture_gothic ],
 
 
 ["mail_african_1", "Mail Shirt", [("mail_african_1",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian ,0,

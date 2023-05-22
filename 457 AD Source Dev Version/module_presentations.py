@@ -19922,7 +19922,6 @@ presentations = [
           (try_end),
         (else_try),
           (eq, ":object_id", "$g_presentation_input"),
-          (assign, reg43, ":value"),
           (try_begin),
             (gt, "$temp_troop", 0),
             (store_troop_gold, ":g", "trp_player"),

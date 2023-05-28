@@ -510,6 +510,9 @@ quests = [
   "{!}None"
  ),
 
+ ("the_wolfmen", "The Wolf Headed Men", 0,
+  "{!}None"
+ ),
 #CONQUEST QUESTS
  ("conquest_gaul", "The Reconquest of Gaul", 0, #WRE
   "{!}Just as Julius Caesar conquered Gaul 500 years ago, you must conquer the lands once again."

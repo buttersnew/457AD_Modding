@@ -20438,7 +20438,6 @@ mission_templates = [
     (call_script, "script_change_troop_renown", "trp_player", 25),
     (call_script, "script_troop_add_gold", "trp_player", 625),
         (troop_add_item, "trp_player","itm_kemathen_mail_12",0),
-        (troop_add_item, "trp_player","itm_ranja", 0),
        (mission_disable_talk),
                         (assign,"$g_historia2",1),                        
        ]),
@@ -20449,6 +20448,147 @@ mission_templates = [
     ],
   ),
        #roman baths chief acaba
+
+  ("wolfman_forest",0,-1, #
+    "forest",
+    [(0,mtef_scene_source|mtef_team_0,af_override_horse,0,1,[]),
+      (1,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
+      (2,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
+      (3,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
+      (4,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
+      (5,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
+      (6,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
+      (7,mtef_visitor_source|mtef_team_2,af_override_horse,0,1,[]),
+      (8,mtef_visitor_source|mtef_team_2,af_override_horse,0,1,[]),
+      (9,mtef_visitor_source|mtef_team_2,af_override_horse,0,1,[]),
+      (10,mtef_visitor_source|mtef_team_2,af_override_horse,0,1,[]),
+      (11,mtef_visitor_source|mtef_team_2,af_override_horse,0,1,[]),
+      (12,mtef_visitor_source|mtef_team_2,af_override_horse,0,1,[]),
+      (13,mtef_visitor_source|mtef_team_2,af_override_horse,0,1,[]),
+      (14,mtef_visitor_source|mtef_team_2,af_override_horse,0,1,[]),
+      (15,mtef_visitor_source|mtef_team_2,af_override_horse,0,1,[]),
+      (16,mtef_visitor_source|mtef_team_2,af_override_horse,0,1,[]),
+    ], vc_weather +
+    [
+      (0, 0, ti_once, [
+          (tutorial_message_set_size, 15, 15),
+          (tutorial_message_set_position, 650, 650), #650 for tutorial or mission msg, 450 for dialogs
+          (tutorial_message_set_center_justify, 0),
+          ], []),
+      
+      (ti_before_mission_start, 0, 0, [
+        ],
+        [
+          (team_set_relation, 0, 1, 0),  #Teams
+          (team_set_relation, 0, 2, 0),
+          (team_set_relation, 1, 0, 0),
+          (team_set_relation, 1, 2, 0),
+          (team_set_relation, 2, 0, 0),
+          (team_set_relation, 2, 1, 0),
+      ]),
+      
+      #(ti_escape_pressed, 0, 0, [
+      #    (check_quest_active,"qst_the_wolfmen"),
+      #    (quest_slot_eq,"qst_the_wolfmen",slot_quest_current_state,7), #violence?
+      #  ], [
+      #    (quest_set_slot,"qst_the_wolfmen",slot_quest_current_state, 1), #return to stage 1?
+      #    (finish_mission),
+      #    (leave_encounter),
+      #    (change_screen_return),
+      #]),    
+
+      (1, 4, ti_once,
+        [ (neg|conversation_screen_is_active),
+          (neg|is_presentation_active, "prsnt_battle"),
+          (neg|is_presentation_active, "prsnt_order_display"),
+          (check_quest_active,"qst_the_wolfmen"),(quest_slot_eq,"qst_the_wolfmen",slot_quest_current_state,7),
+          (this_or_next|main_hero_fallen),
+          (all_enemies_defeated, 5),
+          (eq, "$cam_mode", 0),
+        ],
+        [
+          (try_begin),
+            (main_hero_fallen),
+            (display_message, "@You have lost the battle against the cynocephali. They think you're dead...",color_good_news),
+            (call_script, "script_change_troop_renown", "trp_player", -10),
+            (call_script, "script_fail_quest", "qst_the_wolfmen"),
+            (disable_party, "p_wolfmen_lair"),
+            (finish_mission),
+            (leave_encounter),
+            (change_screen_return),
+          (else_try),
+            (tutorial_message_set_background, 1),
+            (tutorial_message,"@You have defeated the ferocious cynocephali, and now whatever valuables they have are yours for the taking..."),
+            (call_script, "script_troop_add_gold", "trp_player", 850),
+            (troop_add_item, "trp_player","itm_ranja", 0),
+            (call_script, "script_end_quest", "qst_the_wolfmen"),
+            (call_script, "script_change_troop_renown", "trp_player", 50),
+            (call_script, "script_change_player_honor", 2),
+            (add_xp_as_reward,1000),
+            (mission_cam_animate_to_screen_color, 0xFF000000, 3000),
+            (disable_party, "p_wolfmen_lair"),
+            (finish_mission,4),
+            (leave_encounter),
+            (change_screen_return),
+          (try_end),
+      ]),
+      
+      
+      (0.1, 0, ti_once,
+        [
+          (neg|conversation_screen_is_active),
+          (neg|is_presentation_active, "prsnt_battle"),
+          (neg|is_presentation_active, "prsnt_order_display"),
+          (check_quest_active,"qst_the_wolfmen"),(quest_slot_eq,"qst_the_wolfmen",slot_quest_current_state,7),
+        ],
+        [
+          (mission_disable_talk), #ya no conversaciones
+          (team_set_relation, 0, 1, -1),  #Teams
+          (team_set_relation, 0, 2, -1),
+          (team_set_relation, 1, 0, -1),
+          (team_set_relation, 1, 2, -1),
+          (team_set_relation, 2, 0, -1),
+          (team_set_relation, 2, 1, -1),
+          (set_party_battle_mode),
+      ]),
+   
+
+      (ti_on_agent_spawn, 0, 0, [],
+        [
+          (store_trigger_param_1, ":agent"),
+          (agent_get_troop_id, ":troop", ":agent"),
+          (neq, ":troop", "trp_player"),
+          (troop_is_hero, ":troop"),
+          (main_party_has_troop, ":troop"),
+          
+          (get_player_agent_no, ":player"),
+          (agent_get_team, ":playerteam", ":player"),
+          (agent_get_position,pos1,":player"),
+          
+          (agent_set_team, ":agent", ":playerteam"),
+          (agent_set_division, ":agent", 8),
+          (agent_add_relation_with_agent, ":agent", ":player", 1),
+          (agent_set_is_alarmed, ":agent", 1),
+          (set_show_messages, 0),
+          (team_give_order, ":playerteam", 8, mordr_follow), #Division 8 to avoid potential conflicts
+          (set_show_messages, 1),
+      ]),
+
+      (0,7,0,[(eq, "$cam_time", 1),],
+        [
+          (tutorial_message, -1),
+          (tutorial_message_set_background, 0),
+          (assign, "$cam_time", 0),
+      ]),
+      
+      (0, 0, ti_once, [], [
+          (call_script, "script_combat_music_set_situation_with_culture"),
+      ]),
+      
+      common_inventory_not_available,
+      (ti_tab_pressed, 0, 0, [(set_trigger_result,1)], []),
+
+    ],),
 
 #hunnic ruins quest
   ("dungeon_ruins_2",0,-1,

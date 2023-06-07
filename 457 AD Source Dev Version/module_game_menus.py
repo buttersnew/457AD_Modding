@@ -25159,6 +25159,66 @@ goods, and books will never be sold. ^^You can change some settings here freely.
      ("leave",[],"Leave",[(leave_encounter),(change_screen_return)]),
     ]),  
 
+
+#wolfmen/cynocephalus quest
+  ("wolfmen_forest",0,
+    "You have arrived in a thick forest. Who knows what might be lurking here...",
+    "none",
+    [
+    (try_begin),
+      (store_time_of_day,reg12),
+      (ge,reg12,5),
+      (lt,reg12,21),
+      (assign,"$town_nighttime",0),
+    (else_try),
+      (assign,"$town_nighttime",1),
+    (try_end),
+    ],
+    [
+      ("continue_day",[(eq,"$town_nighttime",0),],"Come back at night...",
+      [(leave_encounter),(change_screen_return)]),
+
+      ("continue_night",[(eq,"$town_nighttime",1),],"Walk around the forest...",[
+          (try_begin),
+            (store_troop_health, ":health", "trp_player", 0), #get relative health in 1-100 range and put it into the ":health" variable
+            (lt, ":health", 30),
+            (val_add, ":health", 35),               #add to it the 5%
+            (troop_set_health,   "trp_player", ":health"),   #set it
+          (try_end),
+          
+          (set_jump_mission,"mt_wolfman_forest"),
+          (modify_visitors_at_site,"scn_wolfmen_lair"),
+          (reset_visitors),
+
+          (assign, ":cur_entry", 1), #entry points 1 to 7
+          (try_for_range, ":companion", companions_begin, companions_end),
+            (le, ":cur_entry", 7),
+            (main_party_has_troop,":companion"),
+            (set_visitor, ":cur_entry", ":companion"),
+            (val_add, ":cur_entry", 1),
+          (try_end),
+          
+          (set_visitor,8,"trp_berserker_leader"),
+          
+          (set_visitor,9,"trp_cynocephalus"), #warriors
+          (set_visitor,10,"trp_cynocephalus"),
+          (set_visitor,11,"trp_cynocephalus"),
+          (set_visitor,12,"trp_cynocephalus"),
+          (set_visitor,13,"trp_cynocephalus"),
+          (set_visitor,14,"trp_cynocephalus"),
+          (set_visitor,15,"trp_cynocephalus"),
+          
+          (set_jump_entry, 0),
+          (scene_set_slot, "scn_wolfmen_lair", slot_scene_visited, 1),
+          
+          (jump_to_scene,"scn_wolfmen_lair"),
+          (change_screen_mission),
+    ]),
+
+    ("leave",[],"Leave",[(leave_encounter),(change_screen_return)]),
+    ]), 
+
+
 #MINOR FACTIONS
   ( "minor_faction_town",menu_text_color(0xFF000000)|mnf_disable_all_keys,
     "In the distance you see {s50}. It is the capital of the {s51}.^^{s52}^^{s49}",

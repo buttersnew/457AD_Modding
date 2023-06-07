@@ -1192,7 +1192,7 @@ troops = [
 
   #lombards
   ["cynocephalus","Cynocephalus","Cynocephali",tf_guarantee_basic,0,0,fac_culture_2,
-   [itm_simple_shoes,itm_wrapping_boots,itm_pants_7,itm_pants_8,itm_pants_9,itm_throwing_spears,itm_war_spear,itm_sword_viking_3,itm_round_shield_germanic_12,itm_round_shield_germanic_21]+furs_wolf,
+   [itm_simple_shoes,itm_wrapping_boots,itm_pants_7,itm_pants_8,itm_pants_9,itm_throwing_spears,itm_war_spear,itm_sword_viking_3,itm_round_shield_germanic_12,itm_round_shield_germanic_19,itm_round_shield_germanic_21]+furs_wolf,
    def_attrib_lvl_23|level(23),wp_one_handed(190)|wp_two_handed(190)|wp_polearm(190)|wp_archery(100)|wp_crossbow(100)|wp_throwing(190),knows_berserker,germanic_face_1, germanic_face_2],
   ["charudes_retainer","Charudes Retainer","Charudes Retainers",tf_mounted|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_shield|tf_guarantee_helmet,0,0,fac_culture_2,
    [itm_tab_shield_round_d,itm_tunic_5_cloak,itm_tunic_4_cloak,itm_common_mail_short_3_cloak,itm_breda_helmet_1,itm_fernpass_helmet_1,itm_triveres_mail,itm_burgh_helmet_mail,itm_burgh_helmet_light,itm_sword_viking_3,itm_round_shield_germanic_11,itm_round_shield_germanic_12,itm_round_shield_germanic_14,itm_round_shield_germanic_20]+shoes_generic+angons,
@@ -1207,7 +1207,7 @@ troops = [
 
   #shared with the scirii
   ["limigantes_rebel","Limigantes Rebel","Limigantes Rebels",tf_guarantee_armor|tf_guarantee_boots|tf_guarantee_ranged|tf_guarantee_shield,0,0,fac_culture_2,
-   [itm_javelin,itm_javelin,itm_roman_spear_1,itm_winged_mace,itm_thorsberg_tunic_simple_1,itm_thorsberg_tunic_simple_2,itm_thorsberg_tunic_simple_3]+shoes_generic+shields_simple+shields_small,
+   [itm_javelin,itm_javelin,itm_roman_spear_1,itm_winged_mace,itm_tunic_1,itm_tunic_2,itm_tunic_3]+shoes_generic+shields_simple+shields_small,
    def_attrib_skirmisher|level(13),wp_one_handed(110)|wp_two_handed(100)|wp_polearm(100)|wp_archery(100)|wp_throwing(120),knows_skirmisher,sarmatian_face_1, sarmatian_face_2],
 
   #silingi - shared between the lombards + vandals
@@ -4998,6 +4998,10 @@ troops = [
   ["caius_cosades","Caius Cosades","Caius Cosades",tf_hero,0,0,fac_commoners,[itm_roman_leather_boots_1,itm_pants_9],def_attrib_lvl_30|level(30),wp(220),knows_ironflesh_10|knows_power_strike_10|knows_power_throw_10|knows_athletics_10,0x0000000fc00c7010559a6de914a928ea00000000001d275a0000000000000000],
 
   ["hun_drunkard","Drunk Hun","Drunk Hun",tf_hero|tf_allways_fall_dead, no_scene, reserved, fac_commoners,[itm_sassanid_cavalry_boots_1,itm_kaftan_lamellar_8,itm_pannonhalma_spatha,itm_rozhdestvensky_helmet_leather],def_attrib_lvl_25|level(25),wp_one_handed(180)|wp_two_handed(180)|wp_polearm(180)|wp_throwing(180)|wp_archery(160),knows_lvl_25,0x00000004ff0ce3cd54d7855512713adb00000000001cebfb0000000000000000],
+
+  #wolfmen quest
+  ["berserker_leader","Cynocephalus Leader","Cynocephalus Leader",tf_hero|tf_allways_fall_dead, no_scene, reserved, fac_commoners,[itm_wrapping_boots,itm_common_mail_short_4,itm_wolf_skin_1,itm_concave_shield_germanic_26,itm_sword_viking_2],def_attrib_lvl_30|level(30),wp_one_handed(260)|wp_two_handed(200)|wp_polearm(260)|wp_throwing(250)|wp_archery(180),knows_lvl_30,0x00000007400001c41cdb6daaec6db6db00000000001e37250000000000000000],
+
 
 #shitpost troops
   ["shitpost_unit","Langobardi Crossbow Cataphract Looter","Langobardi Crossbow Cataphract Looters",tf_mounted|tf_guarantee_all,0,0,fac_commoners,

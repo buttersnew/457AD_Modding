@@ -5577,6 +5577,13 @@ Even in the last case, the player can make formations up to four lines by orderi
   ("accessories_canteen","accessories_canteen"),
   ("accessories_end","accessories_pouch"),
   
+  #pictish accessories
+  ("pictish_backpack","pictish_backpack"),
+  ("pictish_satchel", "pictish_satchel"),
+  ("pictish_horn",    "pictish_horn"),
+  ("pictish_chain",   "pictish_chain"),
+  ("pictish_end",   "pictish_backpack"),
+
 #new cloaks by asher
   #a - to be used by thorsburg tunic
   #b - to be used by others

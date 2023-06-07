@@ -545,6 +545,7 @@ parties = [
   ("village_of_the_lekhs", "Village of the Lekhs", pf_disabled|icon_village_a|pf_is_static, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (138, 79.07), [(trp_lekh_warrior,150,0),(trp_lekh_retainer,50,0)]), #[swycartographr] prev. coords: (-6.56, 158.21) #[swycartographr] prev. coords: (159.15, 168.09)
   ("ruins_of_oplia_pontica", "Ruins of Olpia Pontica", pf_disabled|icon_bandit_lair|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (13.93, 87.64), []), #[swycartographr] prev. coords: (-6.56, 158.21) #[swycartographr] prev. coords: (159.15, 168.09)
   ("camp_of_tatra", "Camp of Tatra", pf_disabled|icon_bandit_lair|pf_is_static, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (133.96, 156.33), [(trp_sabir_tatra, 1, 0),(trp_sabir_horse_archer,100,0),(trp_sabir_cataphract,50,0)]), #[swycartographr] prev. coords: (-6.56, 158.21) #[swycartographr] prev. coords: (159.15, 168.09)
+  ("wolfmen_lair","Forest",pf_disabled|icon_castle_snow_b|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-80.6,127.09),[]),
 
   #("champion_lair","Forest_Hideout",pf_disabled|icon_castle_snow_b|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(65.58,-3.78),[]), #not used just yet
 

@@ -20250,6 +20250,28 @@ I knew that I had found someone worthy of becoming my vassal.", "lord_invite_1",
   (assign, "$g_glory_to_great_lombardy", 1),
 ]],
 
+[trp_kingdom_17_lord|plyr,"lord_talk", [
+(eq, "$g_wolf_quest", 2),
+(neg|check_quest_active, "qst_the_wolfmen"),
+(ge, "$g_talk_troop_faction_relation", 0),
+(quest_slot_eq, "qst_the_wolfmen", slot_quest_current_state, 0),],
+  "I was told you employ wolf-warriors. I wish to know more about them.", "wolfmen_quest_intro_1",[]],
+
+[anyone, "wolfmen_quest_intro_1", [],
+  "Ah yes, my finest warriors, the cynocephali. Ferocious men who strike fear into the enemies of the Langobardi! What do you wish to know about them?", "wolfmen_quest_intro_2",[]],
+[anyone|plyr, "wolfmen_quest_intro_2", [],
+  "I wish to seek out where they gather.", "wolfmen_quest_intro_3",[]],
+[anyone, "wolfmen_quest_intro_3", [],
+  "A group of them gather north of Eburodunum, deep in the woods. If you wish to seek them out, they tend to gather at night. However, they are rather untrustworthy of outsiders, and you may need to prove yourself first to them...", "lord_pretalk",[
+    (assign, "$g_wolf_quest", 3),
+    (setup_quest_text, "qst_the_wolfmen"),
+    (str_store_party_name, s5, "p_town_31"),
+    (str_store_string, s2, "@In your search to find the rumored cynocephali, the king of the Langobards has directed you north of {s5}, where they gather in the woods at night."),
+    (call_script, "script_start_quest", "qst_the_wolfmen", "$g_talk_troop"),
+    (quest_set_slot, "qst_the_wolfmen", slot_quest_current_state, 1),
+    (enable_party, "p_wolfmen_lair"),
+  ]],
+
 [trp_kingdom_1_lord|plyr,"lord_talk", [(eq, "$majorian_dialog", 0),],
   "Hail to you, Augustus! I am {playername}, and I came to bring you my respects.","majorian_unique_dialogue_1",[]],
 [anyone, "majorian_unique_dialogue_1", [],
@@ -47509,6 +47531,13 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   (eq, "$g_aurelian_hint" , 0),
   ], "There's some crazy old man here in town that keeps rambling about some special armor he has.", "town_dweller_talk",[(assign, "$g_aurelian_hint", 1)]],
 
+  [anyone,"town_dweller_ask_rumor", [ #must be pagan
+  (party_get_slot, ":religion_center", "$current_town", slot_center_religion),                             
+  (eq, ":religion_center", slot_religion_paganism),
+  (le, "$g_wolf_quest" , 1),
+  ], "I've heard rumors of warriors that take on the form of a wolf deep in Germania. What a fearsome sight to see...", "town_dweller_talk",[(assign, "$g_wolf_quest", 1)]],
+
+
   [anyone,"town_dweller_ask_rumor", [
   (store_skill_level, reg0, "skl_persuasion", "trp_player"),
   (store_sub, reg0, -5, reg0),
@@ -52731,6 +52760,14 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
    "I would like to hire a priest (300 siliquae).", "pagan_high_priest_talk_hire", [(troop_remove_gold, "trp_player", 300),(party_add_members, "p_main_party","trp_pagan_priest",1),]],
   [trp_pagan_high_priest, "pagan_high_priest_talk_hire", [],
    "Very well.", "pagan_high_priest_talk_1", []],
+
+  [trp_pagan_high_priest|plyr, "pagan_high_priest_talk_1", [(eq, "$g_wolf_quest", 1)],
+   "I heard rumors of wolf-warriors that live in Germania. Do you know about such men?", "pagan_high_priest_talk_wolf_1", [(assign, "$g_wolf_quest", 2),]],
+  [trp_pagan_high_priest, "pagan_high_priest_talk_wolf_1", [],
+   "Ah yes, the wolf-warriors... They are fearsome warriors dedicated to Wotan, fight almost as if they are savages. I heard they live in the forests in Germania. The Langobard king has used them to terrify and raid his neighbours.", "pagan_high_priest_talk_wolf_2", []],
+  [trp_pagan_high_priest, "pagan_high_priest_talk_wolf_2", [],
+   "If you wish to learn more about them, it would be best to ask the king yourself.", "pagan_high_priest_talk_1", []],
+
 
   [trp_pagan_high_priest|plyr, "pagan_high_priest_talk_1", [],
    "I do not need a man of faith right now, farewell.", "close_window", []],

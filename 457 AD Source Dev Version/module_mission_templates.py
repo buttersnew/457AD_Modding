@@ -21438,7 +21438,7 @@ mission_templates = [
               (agent_get_troop_id, ":troop_no", ":agent"),
               (try_begin),
                 (neq, ":cur_team", 0),
-                (is_between, ":troop_no", "trp_visigothic_merchant", "trp_nero_larper_poet"),
+                (is_between, ":troop_no", "trp_visigothic_merchant", "trp_gandhara_mercenary"),
                 (agent_set_team, ":agent", 2),
                 (agent_ai_set_aggressiveness, ":agent", 5),
                 (agent_set_is_alarmed, ":agent", 1),

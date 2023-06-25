@@ -101,7 +101,7 @@ factions = [
   ("forest_bandits","Bagaudae", 0, 0.5,[("commoners",-0.2),("merchants",-0.5),("manhunters",-0.6),("player_faction",-0.15),("kingdom_1",-0.75),("kingdom_3",-0.75),("kingdom_8",0.5)], [], 0x888888),
   ("undeads","{!}Undeads", max_player_rating(-30), 0.5,[("commoners",-0.7),("player_faction",-0.5)], []),
   ("slavers","{!}Slavers", 0, 0.1, [], []),
-  ("peasant_rebels","{!}Peasant Rebels", 0, 1.0,[("noble_refugees",-1.0),("player_faction",-0.4)], []),
+  ("peasant_rebels","Rebels", 0, 1.0,[("kingdom_1",-0.4),("kingdom_2",-0.4)], [], 0x5c2222), #used for roman rebels
   ("noble_refugees","{!}Noble Refugees", 0, 0.5,[], []),
   #new bandit faction, based on berber rebels (laguatan) who fought against the Romans + Vandals in the 4th - 6th centuries. Went under the label of Austuriani
   ("berber_rebels","Austuriani", 0, 0.5,[("commoners",-0.2),("merchants",-0.5),("manhunters",-0.6),("player_faction",-0.15),("kingdom_1",-0.5),("kingdom_2",-0.5),("kingdom_15",-1),("kingdom_22",0.75)], [], 0x888888), #0x3db8ca

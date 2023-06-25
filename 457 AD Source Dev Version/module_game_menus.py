@@ -11725,6 +11725,13 @@ TOTAL:  {reg5}"),
           (try_end),
 
           (try_begin),
+            (eq, "$current_town", "p_town_8"),
+            (neg|check_quest_active,"qst_nero_larper_quest"),
+            (quest_slot_eq,"qst_nero_larper_quest",slot_quest_current_state, 6),            
+            (set_visitors, 50, "trp_nero_larper", 1),
+          (try_end),
+
+          (try_begin),
             (eq, "$current_town", "p_town_12"),
             (try_begin),
               (check_quest_active,"qst_sword_of_mars"),

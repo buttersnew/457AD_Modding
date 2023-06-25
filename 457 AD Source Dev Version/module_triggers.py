@@ -1096,6 +1096,31 @@ triggers = [
     (try_end),
 ]),
 
+#nero larper events
+(24*5,0,ti_once,[ #becoming a beggar in Rome
+  (neg|check_quest_active,"qst_nero_larper_quest"),
+  (quest_slot_eq,"qst_nero_larper_quest",slot_quest_current_state, 2),
+],[
+  (quest_set_slot,"qst_nero_larper_quest",slot_quest_current_state, 6), #so he shows up in Rome
+]),
+
+(24*5,0,ti_once,[ #storming the palace
+  (neg|check_quest_active,"qst_nero_larper_quest"),
+  (quest_slot_eq,"qst_nero_larper_quest",slot_quest_current_state, 3),
+],[
+  (dialog_box, "@While travelling, you hear news that a man claiming to be Nero stormed the Domus Augusti in Rome, with a small group of supporters. During a scuffle with the Palatini, he was struck down and killed...", "@While travelling..."),
+  (quest_set_slot,"qst_nero_larper_quest",slot_quest_current_state, 5),
+]),
+
+(24*5,0,ti_once,[ #leading armed rebellion
+  (neg|check_quest_active,"qst_nero_larper_quest"),
+  (quest_slot_eq,"qst_nero_larper_quest",slot_quest_current_state, 4),
+],[
+  (dialog_box, "@A messenger approaches your warband, bringing news of rebellion! A man claiming to Nero has hired an army and marched on Rome!", "@A messenger approaches your warband"),
+  (spawn_around_party, "p_town_8", "pt_nero_rebel_army"),
+  (quest_set_slot,"qst_nero_larper_quest",slot_quest_current_state, 5),
+]),
+
 (24,0,ti_once,[
     (check_quest_active,"qst_conquest_gaul"),
     (store_faction_of_party, ":town_3_faction", "p_town_3"),

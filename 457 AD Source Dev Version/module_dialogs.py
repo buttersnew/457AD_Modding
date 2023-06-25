@@ -40780,18 +40780,6 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
 	 # (try_end),
      ]],
 
-  [anyone|plyr, "tavern_traveler_talk", [(eq, "$g_nero_quest", 0),], "Hear anything interesting on your travels?", "tavern_traveler_nero_larper_quest_1", []],
-
-  [anyone, "tavern_traveler_nero_larper_quest_1", [], "There's rumors that there is a man claiming to be Nero reborn. They save he lives in an old grove, where some claim to see nymphs. This grove is somewhere in Greece, however I do not know the exact location...", "tavern_traveler_nero_larper_quest_2", []],
-
-  [anyone|plyr, "tavern_traveler_nero_larper_quest_2", [(assign, "$g_nero_quest", 1),], "Thank you, farewell.", "close_window", [
-  (setup_quest_text, "qst_nero_larper_quest"),
-  (str_store_string, s2, "@A man claims to be Nero reborn. Travellers say he's somewhere in Greece..."),
-  (call_script, "script_start_quest", "qst_nero_larper_quest", "$g_talk_troop"),
-  (quest_set_slot,"qst_nero_larper_quest",slot_quest_current_state, 1),  
-  (enable_party, "p_grove_of_nymphs"),
-  ]],
-
   [anyone|plyr, "tavern_traveler_talk", [],
    "Farewell.", "close_window", []],
 
@@ -42006,7 +41994,6 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   (neq,"$g_talk_troop","trp_bishop_of_antioch"),
   (neq,"$g_talk_troop", "trp_german_bard"),
   (neq,"$g_talk_troop", "trp_visigothic_merchant"),
-  (neq, "$g_talk_troop", "trp_nero_larper_poet"),
   (neq, "$g_talk_troop", "trp_hun_drunkard"),
   (neq, "$g_talk_troop", "trp_zamb_man"),
   ],
@@ -47531,12 +47518,22 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   (eq, "$g_aurelian_hint" , 0),
   ], "There's some crazy old man here in town that keeps rambling about some special armor he has.", "town_dweller_talk",[(assign, "$g_aurelian_hint", 1)]],
 
-  [anyone,"town_dweller_ask_rumor", [ #must be pagan
+  [anyone,"town_dweller_ask_rumor", [ #settlement must be pagan
   (party_get_slot, ":religion_center", "$current_town", slot_center_religion),                             
   (eq, ":religion_center", slot_religion_paganism),
   (le, "$g_wolf_quest" , 1),
-  ], "I've heard rumors of warriors that take on the form of a wolf deep in Germania. What a fearsome sight to see...", "town_dweller_talk",[(assign, "$g_wolf_quest", 1)]],
+  ], "I've heard rumors of ferocious warriors that take on the form of a wolf deep in Germania called cynocephali. They supposedly feast on the blood of men. What a fearsome sight to see...", "town_dweller_talk",[(assign, "$g_wolf_quest", 1)]],
 
+  [anyone,"town_dweller_ask_rumor", [ #must be in greece
+  (this_or_next|eq, "$current_town", "p_village_4"), 
+  (this_or_next|eq, "$current_town", "p_village_13"),
+  (this_or_next|eq, "$current_town", "p_village_62"), 
+  (this_or_next|eq, "$current_town", "p_village_83"), 
+  (this_or_next|eq, "$current_town", "p_village_201"),
+  (this_or_next|eq, "$current_town", "p_village_250"),
+  (eq, "$current_town", "p_town_7"), 
+  (eq, "$g_nero_quest" , 0),
+  ], "I've heard that there is some madman who is claiming to be Nero living out in Greece somewhere... What a crazy thing to hear!", "town_dweller_talk",[(assign, "$g_nero_quest", 1),(enable_party, "p_grove_of_nymphs")]],
 
   [anyone,"town_dweller_ask_rumor", [
   (store_skill_level, reg0, "skl_persuasion", "trp_player"),
@@ -48018,6 +48015,21 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   #(party_set_ai_behavior, "pt_attilas_bastard_son_rescued", ai_bhvr_hold),
   #(party_set_flags, "pt_attilas_bastard_son_rescued", pf_default_behavior, 0),
   #]],
+
+  #pretender nero party
+  [party_tpl|pt_nero_rebel_army,"start", [
+  (eq,"$talk_context",tc_party_encounter),
+  (neq, "$g_talk_troop", "pt_nero_rebel_army"),
+  ], 
+  "Ah, my loyal servant, do you see the legion that I have raised to take back my Empire?", "nero_rebel_army_talk_1",[]],
+  [party_tpl|pt_nero_rebel_army|plyr,"nero_rebel_army_talk_1", [], "How are you planning to take back the empire?", "nero_rebel_army_talk_2",[]],
+  [party_tpl|pt_nero_rebel_army,"nero_rebel_army_talk_2", [], "Ah, you see, I've hired an army so I can besiege the eternal city and take it for myself... I need to do this quickly before the pretender emperor claims it first.", "nero_rebel_army_talk_3",[]],
+  [party_tpl|pt_nero_rebel_army,"nero_rebel_army_talk_3", [], "Now, enough talking, servant. I have an empire to conquer!", "nero_rebel_army_talk_1",[]],
+
+  [party_tpl|pt_nero_rebel_army|plyr,"nero_rebel_army_talk_1", [], "I am sorry, Imperator, I stop you...", "nero_rebel_army_attack_1",[]],
+  [party_tpl|pt_nero_rebel_army,"nero_rebel_army_attack_1", [], "How dare you! Men, serve me this insolent traitor's head on a platter!", "close_window",[[encounter_attack]]],
+
+  [party_tpl|pt_nero_rebel_army|plyr,"nero_rebel_army_talk_1", [], "Farewell, my Imperator.", "close_window",[]],
 
 
 ######################################
@@ -50222,70 +50234,67 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
    "Yes?", "close_window", []],
 
 
-  [trp_nero_larper, "start", [(eq, "$g_talk_troop_met", 0),(check_quest_active,"qst_nero_larper_quest"),(quest_slot_eq,"qst_nero_larper_quest",slot_quest_current_state, 1)],
-   "Who are you? What are you even doing here, they never told me anyone was coming?!", "nero_larper_intro_1", []],
+  [trp_nero_larper, "start", [(eq, "$g_talk_troop_met", 0),(neg|check_quest_active,"qst_nero_larper_quest"),(quest_slot_eq,"qst_nero_larper_quest",slot_quest_current_state, 0)],
+   "Who are you? What the hell are you doing here?!", "nero_larper_intro_1", []],
   [trp_nero_larper|plyr, "nero_larper_intro_1", [],
-   "They? Who are they? Nevermind. I was told that there is someone who claims to be Nero reborn living here. Do you know of such a character?", "nero_larper_intro_2", []],   
+   "Are you the one who claims to be Nero reborn?", "nero_larper_intro_2", []],   
   [trp_nero_larper, "nero_larper_intro_2", [],
    "Oh? I know who you are talking about, it's me, of course! You plebian! You couldn't even recongnize your true emperor?!", "nero_larper_intro_3", []],
   [trp_nero_larper, "nero_larper_intro_3", [],
-   "And how have you not seen them? The nymphs? They are all over the place here. There's a reason we call this place the grove of the nymphs...", "nero_larper_intro_4", []],
-  [trp_nero_larper|plyr, "nero_larper_intro_4", [],
-   "You're crazy... I don't see any nymphs!", "nero_larper_intro_5", []],
-  [trp_nero_larper, "nero_larper_intro_5", [],
-   "Of course you don't. You do seem useful though...", "nero_larper_intro_6", []],   
-  [trp_nero_larper|plyr, "nero_larper_intro_6", [],
-   "What do you need me to do?.", "nero_larper_intro_7", []],
-  [trp_nero_larper, "nero_larper_intro_7", [],
-   "Well, first fetch me some wine. I need to know if you're actually useful...", "nero_larper_intro_8", []],   
-  [trp_nero_larper|plyr, "nero_larper_intro_8", [],
-   "Very well, I will return with some wine...", "close_window", [
-  (quest_set_slot,"qst_nero_larper_quest", slot_quest_current_state, 2),
-  (display_message, "str_quest_log_updated"),
-  (add_quest_note_from_sreg, "qst_nero_larper_quest", 5, "@A man claiming to be Nero reborn has tasked you with bringing him some wine...",0),
-   ]],  
+   "Now what do you want with me?", "nero_larper_talk_normal_1", []],
 
+  [trp_nero_larper, "start", [],
+   "Yes? What do you need?", "nero_larper_talk_normal_1", []],
 
-  [trp_nero_larper, "start", [(check_quest_active,"qst_nero_larper_quest"),(quest_slot_eq,"qst_nero_larper_quest",slot_quest_current_state, 2),],
-   "Ah, you're back. What do you need?", "nero_larper_talk_normal_1", []],
-
-  [trp_nero_larper|plyr, "nero_larper_talk_normal_1", [(player_has_item,"itm_wine"),],
-   "Here, I have your wine", "nero_larper_talk_normal_2", []],
-  [trp_nero_larper, "nero_larper_talk_normal_2", [],
-   "Oh, thank you. Finally, I've needed some wine forever now.", "nero_larper_talk_normal_3", [
-   (troop_remove_item,"trp_player","itm_wine"),]],
-  [trp_nero_larper, "nero_larper_talk_normal_3", [],
-   "Now that you've proven yourself useful, I have an imporant task for you. As you should know, I am a poet and musician at heart. I had a lyre that dated back to my reign 400 years ago. However, some wandering poet by the name of Longinus stole it from me while we travelled together...", "nero_larper_talk_normal_4", []],
-  [trp_nero_larper, "nero_larper_talk_normal_4", [],
-   "I want you to hunt him down and get my lyre back. He claims to be from Ephesus. Now, go get me my lyre!", "close_window", [
-  (quest_set_slot,"qst_nero_larper_quest", slot_quest_current_state, 3),
-  (display_message, "str_quest_log_updated"),
-  (str_store_party_name_link, s3, "p_town_41"),
-  (add_quest_note_from_sreg, "qst_nero_larper_quest", 6, "@Nero's lyre was stolen from him by a wandering poet by the name of Longinus who claims to be from {s3}",0),
-  (add_troop_to_site, "trp_nero_larper_poet", "scn_town_41_tavern", 12),
+  [trp_nero_larper|plyr, "nero_larper_talk_normal_1", [(eq, "$g_nero_quest", 1)], #will start the quest
+   "Why do you think you are Nero reborn?", "nero_larper_quest_intro_1", []],
+  [trp_nero_larper, "nero_larper_quest_intro_1", [],
+   "You see, I was once a travelling merchant, before I found out about my true identity. I would travel all across the empire, from Italia, to Aegypt, and Mauritania. I would often talk to locals, and I heard legends and stories from some how they believed that Nero would come back to destroy Rome... And those filthy Christians.", "nero_larper_quest_intro_2", []],   
+  [trp_nero_larper, "nero_larper_quest_intro_2", [],
+   "At first I thought nothing of these stories. However, one night while I slept, I was given a revelation from the gods. In this dream I saw a man dressed as a great emperor surrounded by many of the gods approach me. He looked at me and told me he was Nero, and he was sent by the gods to relay an important message to me.", "nero_larper_quest_intro_3", []],   
+  [trp_nero_larper, "nero_larper_quest_intro_3", [],
+   "He told me that I was chosen to be the vessel in which Nero will come back to the world. From there, I realized that all of those stories that I heard about him were all along, about me! I soon moved to a land my former self was rather... familiar with. This is why I am here.", "nero_larper_quest_intro_4", []],   
+  [trp_nero_larper|plyr, "nero_larper_quest_intro_4", [],
+   "Now what are you going to do?", "nero_larper_quest_intro_5", []],
+  [trp_nero_larper|plyr, "nero_larper_quest_intro_4", [],
+   "You're a mad man... Farewell...", "close_window", []],
+  [trp_nero_larper, "nero_larper_quest_intro_5", [],
+   "Well you seem like the useful sort. How would you like to serve your Imperator in a very important task...", "nero_larper_quest_intro_6", []],   
+  [trp_nero_larper|plyr, "nero_larper_quest_intro_6", [],
+   "What do you need me to do?", "nero_larper_quest_intro_7", []],
+  [trp_nero_larper, "nero_larper_quest_intro_7", [],
+   "I was also told in the dream that my precious lyre lies in wait in the ruins of my palace out in Rome. I wish for you to find and return it to me, and I will reward you well.", "nero_larper_quest_intro_8", []],   
+  [trp_nero_larper|plyr, "nero_larper_quest_intro_8", [],
+   "Why not do it yourself?", "nero_larper_quest_intro_9", []],
+  [trp_nero_larper, "nero_larper_quest_intro_9", [],
+   "Rummaging through ruins and muck is no task for any emperor! I wish to make my return to Rome with an object and song that would make the citizens of the great empire remember their great emperor. I cannot spoil my entrance into the great city without the lyre. That is why I need you, my servant to find it for me.", "nero_larper_quest_intro_10", []],   
+  [trp_nero_larper|plyr, "nero_larper_quest_intro_10", [],
+   "Very well, I will find it my Imperator.", "close_window", [
+  (assign, "$g_nero_quest", 2),
+  (setup_quest_text, "qst_nero_larper_quest"),
+  (str_store_party_name_link, s3, "p_town_8"),
+  (str_store_string, s2, "@A man claiming to be Nero tasked you to find his lyre, hidden in the ruins of his palace in {s3}"),
+  (call_script, "script_start_quest", "qst_nero_larper_quest", "$g_talk_troop"),
+  (quest_set_slot,"qst_nero_larper_quest",slot_quest_current_state, 1),  
+  (troop_add_item, "trp_bonus_chest_10", "itm_nero_lyre"), 
    ]],
-  [trp_nero_larper|plyr, "nero_larper_talk_normal_1", [],
-   "Nevermind.", "close_window", []],
 
-  [trp_nero_larper, "start", [(check_quest_active,"qst_nero_larper_quest"),(this_or_next|quest_slot_eq,"qst_nero_larper_quest",slot_quest_current_state, 3),(quest_slot_eq,"qst_nero_larper_quest",slot_quest_current_state, 4),],
-   "Ah, you're back. Do you have my precious lyre yet!?", "nero_larper_talk_lyre_1", []],
-
-  [trp_nero_larper|plyr, "nero_larper_talk_lyre_1", [(player_has_item,"itm_nero_lyre"),],
-   "Here, I have your lyre", "nero_larper_talk_lyre_2", []],
-  [trp_nero_larper, "nero_larper_talk_lyre_2", [],
-   "Oh, finally! My beautiful harp returns to the true Nero once more!", "nero_larper_talk_lyre_3", [
+  [trp_nero_larper|plyr, "nero_larper_talk_normal_1", [(player_has_item,"itm_nero_lyre"),(check_quest_active,"qst_nero_larper_quest"),(quest_slot_eq,"qst_nero_larper_quest",slot_quest_current_state, 1)],
+   "Here, I found your lyre.", "nero_larper_talk_lyre_1", []],
+  [trp_nero_larper, "nero_larper_talk_lyre_1", [],
+   "Oh, finally! My beautiful possession returns to the true Nero once more!", "nero_larper_talk_lyre_2", [
   (troop_remove_item,"trp_player","itm_nero_lyre"),]],
+  [trp_nero_larper, "nero_larper_talk_lyre_2", [],
+   "Here, let me sing you a beautiful song!", "nero_larper_talk_lyre_3", []],
   [trp_nero_larper, "nero_larper_talk_lyre_3", [],
-   "Here, let me sing you a beautiful song!", "nero_larper_talk_lyre_4", []],
-  [trp_nero_larper, "nero_larper_talk_lyre_4", [],
     "O radiant son of Leto, Ruler of Tenedos, Chios, Chrysos,^"+
     "Are you, he who, having in his care^"+ 
     "The sacred city of Ilion,^"+
     "Could yield it to Argive anger,^"+
     "And suffer sacred altars,^"+
     "Which blazed unceasingly to his honor,^"+ 
-    "To be stained with Trojan blood?", "nero_larper_talk_lyre_5_1", []],
-  [trp_nero_larper, "nero_larper_talk_lyre_5_1", [],
+    "To be stained with Trojan blood?", "nero_larper_talk_lyre_4", []],
+  [trp_nero_larper, "nero_larper_talk_lyre_4", [],
     "Aged men raised trembling hands to you,^"+ 
     "O you of the far-shooting silver bow,^"+ 
     "Mothers from the depth of their breasts^"+ 
@@ -50304,126 +50313,66 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
     "But who can raise from dust and ashes^"+
     "That day of fire, disaster, ruin?^"+
     "O Smintheus, where were you then?" , "nero_larper_talk_lyre_6", []],
-
-  [trp_nero_larper|plyr, "nero_larper_talk_lyre_6", [], #increased relations for the roman pagans, decreased for christians
-   "That was beautiful!", "nero_larper_talk_lyre_7", [
-    (call_script, "script_set_player_relation_with_faction", "fac_roman_pagans", 2),
-    (call_script, "script_set_player_relation_with_faction", "fac_roman_christians", -2),
-   ]],
-  [trp_nero_larper|plyr, "nero_larper_talk_lyre_6", [],
-   "You're even reciting poems written by that tyrant? You really are a madman!", "nero_larper_talk_lyre_8_2", []],
-
+  [trp_nero_larper, "nero_larper_talk_lyre_6", [],
+   "Ah, what a beautiful song. My past self composed this 400 years ago! Don't you know of my great poetical and musical ability?!", "nero_larper_talk_lyre_7", []],
   [trp_nero_larper, "nero_larper_talk_lyre_7", [],
-   "Of course it is! My first form composed this 400 years ago! Don't you know of his great poetical and musical ability?!", "nero_larper_talk_lyre_8_1", []],
-  [trp_nero_larper|plyr, "nero_larper_talk_lyre_8_1", [], #egging on the Nero larper will result in quest being finished with large gold sum
-   "Of course, how could I forget!", "nero_larper_talk_lyre_9", []],
-
-  [trp_nero_larper|plyr, "nero_larper_talk_lyre_8_1", [], #copied over for the first option
-   "I know who you are really, you're not Nero. Longinus told me everything. Now that you're done with your little act, give me that lyre back!", "nero_larper_talk_lyre_aggressive_1", []],
-
-  [trp_nero_larper|plyr, "nero_larper_talk_lyre_8_2", [],
-   "I know who you are really, you're not Nero. Longinus told me everything. Now that you're done with your little act, give me that lyre back!", "nero_larper_talk_lyre_aggressive_1", []],
-
-  [trp_nero_larper, "nero_larper_talk_lyre_aggressive_1", [],
-   "What are you talking about? You dare threaten the true Emperor?! Then die you fool!", "close_window", [
-   (assign,"$nero_interaction",1),
-   ]],
-
-  [trp_nero_larper, "nero_larper_talk_lyre_9", [],
-   "Here, for all you've done for me, I, your gracious Imperator, will reward you. Take this for your troubles.", "nero_larper_talk_lyre_10", [
-   (call_script, "script_troop_add_gold", "trp_player", 5000),
-   (call_script, "script_change_player_right_to_rule", 5),
-   ]],
-
-  [trp_nero_larper|plyr, "nero_larper_talk_lyre_10", [],
-   "Thank you, Imperator!", "close_window", [
-   (add_xp_as_reward, 4000),
+   "Now, I must return to Rome to once again rule the empire! Now, how should I go about that, my faithful servant?", "nero_larper_talk_lyre_8", []],
+  [trp_nero_larper|plyr, "nero_larper_talk_lyre_8", [], 
+   "You should go to the center of the city and sing to the people, so they recognize your rule!", "nero_larper_talk_rome_sing_1", []],
+  [trp_nero_larper, "nero_larper_talk_rome_sing_1", [],
+   "Yes, the people will instantly recongnize my musical prowess, and will support my ascension to the throne! Thank you, my servant. You will be rewarded with much wealth when I ascend to the throne!", "close_window", [
+   (add_xp_as_reward, 1000),
    (call_script, "script_end_quest", "qst_nero_larper_quest"),
    (disable_party, "p_grove_of_nymphs"),
-   (remove_troop_from_site,"trp_nero_larper_poet","scn_town_41_tavern"),
+   (quest_set_slot,"qst_nero_larper_quest",slot_quest_current_state, 2), #option 1  
    ]],
-
-  [trp_nero_larper|plyr, "nero_larper_talk_lyre_1", [],
-   "Nevermind.", "close_window", []],
-
-  [trp_nero_larper, "start", [],
-   "Yes?", "close_window", []],
-
-  [trp_nero_larper_poet, "start", [(check_quest_active,"qst_nero_larper_quest"),(quest_slot_eq,"qst_nero_larper_quest",slot_quest_current_state, 3)],
-   "Who are you and what do you need?", "nero_larper_poet_1", []],
-  [trp_nero_larper_poet|plyr, "nero_larper_poet_1", [],
-   "I heard that you possess Nero's lyre, give it to me now!", "nero_larper_poet_aggressive_1", []],   
-  [trp_nero_larper_poet|plyr, "nero_larper_poet_1", [],
-   "I was told you have possession of a special lyre?", "nero_larper_poet_2", []],
-
-  [trp_nero_larper_poet, "nero_larper_poet_aggressive_1", [],
-   "What! Who sent you?! Please don't hurt me!", "nero_larper_poet_aggressive_2", []],
-  [trp_nero_larper_poet, "nero_larper_poet_aggressive_2", [],
-   "Wait, did he send you?", "nero_larper_poet_aggressive_3", []],
-  [trp_nero_larper_poet|plyr, "nero_larper_poet_aggressive_3", [],
-   "I was sent by a man who claims to be Nero reborn....", "nero_larper_poet_aggressive_4", []],
-  [trp_nero_larper_poet, "nero_larper_poet_aggressive_4", [],
-   "Oh, him. Avoid him, he's a crazed man! We used to travel together, and one day while we were talking some peasants in Mauritania we learned that many believe in the legend that Nero will return once again. To the Christians he is the antichrist, and to those who were pagans, their saviour....", "nero_larper_poet_aggressive_5", []],
-  [trp_nero_larper_poet, "nero_larper_poet_aggressive_5", [],
-   "He then started to believe that he was the reincarnation of Nero and tried to take the lyre from me. My family has possessed Nero's lyre for generations, and he tried to kill me for it, so I ran away. I guess if he's going to continue to send mercenaries to kill me, I might as well give you the lyre. It's not worth my life.", "nero_larper_poet_aggressive_6", []],
-  [trp_nero_larper_poet|plyr, "nero_larper_poet_aggressive_6", [],
-   "Well, I'll take the lyre. Hopefully he will leave you alone. Farewell...", "close_window", [
-   (troop_add_item, "trp_player", "itm_nero_lyre",0),
-   (quest_set_slot,"qst_nero_larper_quest", slot_quest_current_state, 4),
-   ]],
-
-  [trp_nero_larper_poet, "nero_larper_poet_2", [],
-   "Oh, and who told you that?", "nero_larper_poet_3", []],
-  [trp_nero_larper_poet|plyr, "nero_larper_poet_3", [],
-   "A man who claims to be Nero reborn.", "nero_larper_poet_4", []],
-  [trp_nero_larper_poet, "nero_larper_poet_4", [],
-   "It is true that I possession of what we believe to be Nero's lyre. My family during his reign worked in his court, and some how got in possession of the lyre after his death. It's been our special heirloom ever since.", "nero_larper_poet_5", []],
-  [trp_nero_larper_poet, "nero_larper_poet_5", [],
-   "But avoid that man like the plague. His real name is Hilarius Pupienus Maximus. He is crazy. We used to travel together, singing songs and reciting poems all through out the Empire. One day while we were in a village in Mauritania we were told of the Nero Redivivus legend.", "nero_larper_poet_6", []],
-  [trp_nero_larper_poet, "nero_larper_poet_6", [],
-   "The tale goes that after his death, Nero would return once more, taking revenge on Rome, or the Christians depending on their view. To the pagans he is a saviour, to the Christians, doom... The theologian Augustine of Hippo wrote about this legend, and how it is still alive today.", "nero_larper_poet_7", []],
-  [trp_nero_larper_poet, "nero_larper_poet_7", [],
-   "Well, I suppose he took it to heart, and began to believe he was Nero's reincarnated form. He started to claim to all that he was Nero, playing and singing the songs Nero wrote. Then he started seeing nymphs. One day, he tried to kill me, for I revealed to him my secret about the lyre, and claimed the nymphs told him to!", "nero_larper_poet_8", []],
-  [trp_nero_larper_poet, "nero_larper_poet_8", [],
-   "Since he continues to intend to kill me, I see no worth in holding onto the lyre. Take it, I have no desire to die for it. If you value my life and yours, you should kill him when you return...", "nero_larper_poet_9", []],
-  [trp_nero_larper_poet|plyr, "nero_larper_poet_9", [],
-   "Farewell and thank you for the lyre.", "close_window", [
-   (troop_add_item, "trp_player", "itm_nero_lyre",0),
-   (quest_set_slot,"qst_nero_larper_quest", slot_quest_current_state, 4),
-   ]],
-
-  [trp_nero_larper_poet, "start", [(check_quest_active,"qst_nero_larper_quest"),(quest_slot_eq,"qst_nero_larper_quest",slot_quest_current_state, 5)],
-   "Oh, you're back!?", "nero_larper_poet_finish_1", []],
-  [trp_nero_larper_poet|plyr, "nero_larper_poet_finish_1", [],
-   "I have dealth with Hilarius Pupienus Maximus. He won't be bothering you any more. Here, take your lyre back.", "nero_larper_poet_finish_2", []],   
-  [trp_nero_larper_poet, "nero_larper_poet_finish_2", [],
-   "Wait you killed him! Oh, I never wished death upon him, but at least I won't be killed! Here, for what you've done for me, keep the lyre. I have no desire for it any more, not with what has happened over it.", "nero_larper_poet_finish_3", []],
-  [trp_nero_larper_poet|plyr, "nero_larper_poet_finish_3", [],
-   "No, I insist, keep it.", "nero_larper_poet_finish_4_1", []],   
-  [trp_nero_larper_poet, "nero_larper_poet_finish_4_1", [],
-   "Thank you, {playername}! I will use this to sing your name throughout the land, praising you and your great actions! Here, take this as compensation.", "close_window", [
-   (add_xp_as_reward, 4000),
-   (call_script, "script_troop_add_gold", "trp_player", 3000),
-   (call_script, "script_change_player_right_to_rule", 5),
-   (call_script, "script_change_troop_renown", "trp_player", 10),
-   (troop_remove_item,"trp_player","itm_nero_lyre_final"),
+  [trp_nero_larper|plyr, "nero_larper_talk_lyre_8", [], 
+   "You are the Imperator, of course! Storm the palace and demand to sit on your rightful throne!", "nero_larper_talk_rome_palace_1", []],
+  [trp_nero_larper, "nero_larper_talk_rome_palace_1", [],
+   "Ah yes, you are right! It is MY throne of course, the guards would understand. Thank you, my servant. When I return to the throne, I will reward you with a new villa and a great title in my new Empire!", "close_window", [
+   (add_xp_as_reward, 1000),
    (call_script, "script_end_quest", "qst_nero_larper_quest"),
-   (remove_troop_from_site,"trp_nero_larper_poet","scn_town_41_tavern"),
+   (disable_party, "p_grove_of_nymphs"),
+   (quest_set_slot,"qst_nero_larper_quest",slot_quest_current_state, 3), #option 2  
    ]],
-
-  [trp_nero_larper_poet|plyr, "nero_larper_poet_finish_3", [],
-   "Thank you, take care, Longinus.", "nero_larper_poet_finish_4_2", []],   
-  [trp_nero_larper_poet, "nero_larper_poet_finish_4_2", [],
-   "Thank you, {playername}! I will sing your name throughout the land, praising you and your great deeds. Take care, my friend!", "close_window", [
-   (add_xp_as_reward, 4000),
-   (call_script, "script_change_player_right_to_rule", 7),
-   (call_script, "script_change_troop_renown", "trp_player", 10),
+  [trp_nero_larper|plyr, "nero_larper_talk_lyre_8", [], 
+   "The Empire is lost, my Imperator. You must take it back by force!", "nero_larper_talk_rome_army_1", []],
+  [trp_nero_larper, "nero_larper_talk_rome_army_1", [],
+   "Ah yes, the empire is over-run by my greatest enemies... Those so called 'Christians'. I must hire an army and change this. Thank you, my loyal servant. I must get to this at once!", "close_window", [
+   (add_xp_as_reward, 1000),
    (call_script, "script_end_quest", "qst_nero_larper_quest"),
-   (remove_troop_from_site,"trp_nero_larper_poet","scn_town_41_tavern"),
+   (disable_party, "p_grove_of_nymphs"),
+   (quest_set_slot,"qst_nero_larper_quest",slot_quest_current_state, 4), #option 3  
    ]],
+  [trp_nero_larper|plyr, "nero_larper_talk_lyre_8", [], #violent
+   "You said you would pay me? Where the hell is my reward you madman?", "nero_larper_talk_lyre_aggressive_1", []],
+  [trp_nero_larper, "nero_larper_talk_lyre_aggressive_1", [],
+   "What are you talking about? Isn't being my servant the greatest reward for a plebian like you? Do you know what misbehaved servants deserve? Death!", "close_window", [(assign,"$nero_interaction",1)]],
 
-  [trp_nero_larper_poet, "start", [],
-   "Yes?", "close_window", []], 
+  [trp_nero_larper|plyr, "nero_larper_talk_normal_1", [], #background details about the location
+   "Why is this placed known as the grove of the nymphs?", "nero_larper_nymph_1", []],
+  [trp_nero_larper, "nero_larper_nymph_1", [],
+   "This was once known as a sacred place to the ancients, and they claimed they would see and interact with nymphs here. When I purchased this land, I was told once great philosophers studied and debated here as well.", "nero_larper_nymph_2", []],
+  [trp_nero_larper, "nero_larper_nymph_2", [],
+   "Now, what else do you need from your Imperator?", "nero_larper_talk_normal_1", []],
+
+  [trp_nero_larper|plyr, "nero_larper_talk_normal_1", [],
+   "Nevermind, I will leave you be.", "close_window", []],
+
+
+  [trp_nero_larper, "start", [(neg|check_quest_active,"qst_nero_larper_quest"),(quest_slot_eq,"qst_nero_larper_quest",slot_quest_current_state, 6)], #when in Rome
+   "Ah yes, my loyal servant, what do you need? Can you spare your Imperator a siliquae or two?", "nero_larper_talk_rome_1", []],
+  [trp_nero_larper|plyr, "nero_larper_talk_rome_1", [],
+   "Why are you begging on the street?", "nero_larper_talk_begging_1", []],
+  [trp_nero_larper, "nero_larper_talk_begging_1", [],
+   "I took your advice, and decided to travel here. I sadly ran out of money on my travels here... There are many things an emperor needs to survive.", "nero_larper_talk_begging_2", []],
+  [trp_nero_larper, "nero_larper_talk_begging_2", [],
+   "I thought with my entrance into Rome, I would be declared emperor, however the authorities threatened to haul me off to jail. How dare they do that to their rightful emperor?", "nero_larper_talk_begging_3", []],
+  [trp_nero_larper, "nero_larper_talk_begging_3", [],
+   "Now, here I am, playing my lyre in hopes the plebians realize their Imperator has returned...", "nero_larper_talk_rome_1", []],
+  [trp_nero_larper|plyr, "nero_larper_talk_rome_1", [],
+   "Nevermind, I will leave you be.", "close_window", []],
+
 
   [trp_silingi_chief, "start", [(eq, "$g_talk_troop_met", 0),(check_quest_active,"qst_silingi_quest"),(quest_slot_eq,"qst_silingi_quest",slot_quest_current_state, 1)],
    "Who are you, outsider...", "silingi_chief_intro_1", []],

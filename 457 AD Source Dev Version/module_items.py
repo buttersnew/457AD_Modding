@@ -954,16 +954,7 @@ items = [
 ["skirmisher_tunic_3", "Tunic with Sheepskin", [("skirmisher_tunic_3",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth ],
 ["skirmisher_tunic_4", "Tunic with Sheepskin", [("skirmisher_tunic_4",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 80 , weight(1)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(6)|difficulty(0) ,imodbits_cloth ],
 
-["khergit_vest_a", "Riding Kaftan", [("khergit_vest_a",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 120 , weight(1)|abundance(100)|head_armor(0)|body_armor(14)|leg_armor(12)|difficulty(0) ,imodbits_cloth, [], culture_sassanid+culture_caucasian ],
-["khergit_vest_b", "Riding Kaftan", [("khergit_vest_b",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 120 , weight(1)|abundance(100)|head_armor(0)|body_armor(14)|leg_armor(12)|difficulty(0) ,imodbits_cloth, [], culture_sassanid+culture_caucasian ],
-["khergit_vest_c", "Riding Kaftan", [("khergit_vest_c",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 120 , weight(1)|abundance(100)|head_armor(0)|body_armor(14)|leg_armor(12)|difficulty(0) ,imodbits_cloth, [], culture_sassanid+culture_caucasian ],
-["khergit_vest_d", "Riding Kaftan", [("khergit_vest_d",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 120 , weight(1)|abundance(100)|head_armor(0)|body_armor(14)|leg_armor(12)|difficulty(0) ,imodbits_cloth, [], culture_sassanid+culture_caucasian ],
-
 ["roman_arabian_kaftan", "Arabian Kaftan", [("roman_arabian_kaftan",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 120 , weight(1)|abundance(100)|head_armor(0)|body_armor(14)|leg_armor(12)|difficulty(0) ,imodbits_cloth, [], [fac_culture_empire,fac_culture_6] ],
-
-["steppe_kaftan_1", "Riding Kaftan", [("steppe_kaftan_1",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 120 , weight(1)|abundance(100)|head_armor(0)|body_armor(14)|leg_armor(12)|difficulty(0) ,imodbits_cloth, [], culture_sassanid+culture_caucasian ],
-["steppe_kaftan_2", "Riding Kaftan", [("steppe_kaftan_2",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 120 , weight(1)|abundance(100)|head_armor(0)|body_armor(14)|leg_armor(12)|difficulty(0) ,imodbits_cloth, [], culture_sassanid+culture_caucasian ],
-["steppe_kaftan_3", "Riding Kaftan", [("steppe_kaftan_3",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 120 , weight(1)|abundance(100)|head_armor(0)|body_armor(14)|leg_armor(12)|difficulty(0) ,imodbits_cloth, [], culture_sassanid+culture_caucasian ],
 
 #simple kaftans first
 ["kaftan_hunnic_red", "Red Kaftan", [("kaftan_hunnic_red",0)], itp_type_body_armor|itp_covers_legs|itp_merchandise|itp_civilian,0, 500 , weight(2)|abundance(100)|head_armor(0)|body_armor(20)|leg_armor(14)|difficulty(0) ,imodbits_cloth, [], culture_hunnic+culture_alan+culture_caucasian ],
@@ -1077,22 +1068,6 @@ items = [
 ["linen_shirt", "Linen Tunic", [("white_linen_shirt",0)], itp_type_body_armor|itp_covers_legs|itp_civilian,0, 148 , weight(2)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(10)|difficulty(0) ,imodbits_cloth ],
 ["sleeveless_tunic", "Linen Tunic", [("white_linen_shirt",0)], itp_type_body_armor|itp_covers_legs|itp_civilian,0, 148 , weight(2)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(10)|difficulty(0) ,imodbits_cloth ],
 
-["long_shirt_1", "Blue Tunic", [("BL_NT_Blue01",0)], itp_type_body_armor|itp_covers_legs|itp_civilian,0, 148 , weight(2)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(10)|difficulty(0) ,imodbits_cloth ],
-["long_shirt_2", "Green Tunic", [("BL_NT_Blue07",0)], itp_type_body_armor|itp_covers_legs|itp_civilian,0, 148 , weight(2)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(10)|difficulty(0) ,imodbits_cloth ],
-["long_shirt_3", "Blue Tunic", [("BL_NT_Blue04",0)], itp_type_body_armor|itp_covers_legs|itp_civilian,0, 148 , weight(2)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(10)|difficulty(0) ,imodbits_cloth ],
-["long_shirt_4", "Green Tunic", [("BL_NT_Green01",0)], itp_type_body_armor|itp_covers_legs|itp_civilian,0, 148 , weight(2)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(10)|difficulty(0) ,imodbits_cloth ],
-["long_shirt_5", "Blue Tunic", [("BL_NT_Green03",0)], itp_type_body_armor|itp_covers_legs|itp_civilian,0, 148 , weight(2)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(10)|difficulty(0) ,imodbits_cloth ],
-["long_shirt_6", "Red Tunic", [("BL_NT_Red01",0)], itp_type_body_armor|itp_covers_legs|itp_civilian,0, 148 , weight(2)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(10)|difficulty(0) ,imodbits_cloth ],
-["long_shirt_7", "Red Tunic", [("BL_NT_Red04",0)], itp_type_body_armor|itp_covers_legs|itp_civilian,0, 148 , weight(2)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(10)|difficulty(0) ,imodbits_cloth ],
-["long_shirt_8", "Blue Tunic", [("BL_NT_Red05",0)], itp_type_body_armor|itp_covers_legs|itp_civilian,0, 148 , weight(2)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(10)|difficulty(0) ,imodbits_cloth ],
-["long_shirt_9", "Red Tunic", [("frankish_long_tunic",0)], itp_type_body_armor|itp_covers_legs|itp_civilian,0, 148 , weight(2)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(10)|difficulty(0) ,imodbits_cloth ],
-["long_shirt_10", "Blue Tunic", [("BL_NT_Blue02",0)], itp_type_body_armor|itp_covers_legs|itp_civilian,0, 148 , weight(2)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(10)|difficulty(0) ,imodbits_cloth ],
-["long_shirt_11", "Red Tunic", [("BL_NT_Red02",0)], itp_type_body_armor|itp_covers_legs|itp_civilian,0, 148 , weight(2)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(10)|difficulty(0) ,imodbits_cloth ],
-["long_shirt_12", "Red Tunic", [("BL_NT_Red03",0)], itp_type_body_armor|itp_covers_legs|itp_civilian,0, 148 , weight(2)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(10)|difficulty(0) ,imodbits_cloth ],
-["long_shirt_13", "Green Tunic", [("BL_NT_Green02",0)], itp_type_body_armor|itp_covers_legs|itp_civilian,0, 148 , weight(2)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(10)|difficulty(0) ,imodbits_cloth ],
-["long_shirt_14", "Green Tunic", [("BL_NT_Green101",0)], itp_type_body_armor|itp_covers_legs|itp_civilian,0, 148 , weight(2)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(10)|difficulty(0) ,imodbits_cloth ],
-["long_shirt_15", "Red Tunic", [("BL_NT_Red121",0)], itp_type_body_armor|itp_covers_legs|itp_civilian,0, 148 , weight(2)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(10)|difficulty(0) ,imodbits_cloth ],
-
 ["short_tunic", "White Tunic", [("arena_tunicW_new",0)], itp_type_body_armor |itp_civilian |itp_covers_legs ,0,
  148, weight(2)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(10)|difficulty(0) ,imodbits_cloth ],
  ["red_tunic", "Red Tunic", [("arena_tunicR_new",0)], itp_merchandise| itp_type_body_armor |itp_civilian |itp_covers_legs ,0,
@@ -1124,15 +1099,6 @@ items = [
 ["garamantian_armor_1", "Tunic with Pelt", [("garamantian_armor_1",0)], itp_type_body_armor|itp_covers_legs|itp_civilian ,0, 
 400 , weight(2.5)|abundance(10)|head_armor(0)|body_armor(20)|leg_armor(10)|difficulty(0) ,imodbits_cloth, 
 [(ti_on_init_item,[(call_script, "script_init_short_tunic_arms"),]),], ],
-
-["nomad_leather_vest_1", "Leather Vest", [("khergit_vest_a_new",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs|itp_civilian ,0,
- 360 , weight(4)|abundance(90)|head_armor(0)|body_armor(20)|leg_armor(12)|difficulty(0) ,imodbits_leather, [], culture_hunnic+culture_alan ],
-["nomad_leather_vest_2", "Leather Vest", [("khergit_vest_b_new",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs|itp_civilian ,0,
- 360 , weight(4)|abundance(90)|head_armor(0)|body_armor(20)|leg_armor(12)|difficulty(0) ,imodbits_leather, [], culture_hunnic+culture_alan ],
-["nomad_leather_vest_3", "Leather Vest", [("khergit_vest_c_new",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs|itp_civilian ,0,
- 360 , weight(4)|abundance(90)|head_armor(0)|body_armor(20)|leg_armor(12)|difficulty(0) ,imodbits_leather, [], culture_hunnic+culture_alan ],
-["nomad_leather_vest_4", "Leather Vest", [("khergit_vest_d_new",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs|itp_civilian ,0,
- 360 , weight(4)|abundance(90)|head_armor(0)|body_armor(20)|leg_armor(12)|difficulty(0) ,imodbits_leather, [], culture_hunnic+culture_alan ],
 
 ["late_roman_priest", "Vestments", [("late_roman_priest",0)], itp_type_body_armor |itp_civilian |itp_covers_legs ,0,
  400, weight(4)|abundance(10)|head_armor(0)|body_armor(14)|leg_armor(10)|difficulty(0) ,imodbits_cloth ],

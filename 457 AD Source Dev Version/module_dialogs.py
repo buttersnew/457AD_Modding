@@ -50491,6 +50491,16 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
     (try_end),
    ]],
 
+#lol
+  [trp_chudjak, "start", [],
+   "It's so over for Romecels. The west has fallen...", "chudjak_1", []],
+  [trp_chudjak|plyr, "chudjak_1", [],
+   "What the hell are you talking about?", "chudjak_2", []],
+  [trp_chudjak, "chudjak_2", [],
+   "Tfw no qt 3.14 gothic gf... Total Germani death...", "chudjak_3", []],
+  [trp_chudjak|plyr, "chudjak_3", [],
+   "You're crazy....", "close_window", []],
+
   [trp_agrippinus, "start", [(eq, "$g_talk_troop_met", 0),(check_quest_active,"qst_agrippinus_quest"),(quest_slot_eq,"qst_agrippinus_quest",slot_quest_current_state, 1),],
    "Hello there. What are you doing here at my villa?", "agrippinus_talk_battle_1", []],
   [trp_agrippinus|plyr, "agrippinus_talk_battle_1", [],
@@ -50967,6 +50977,36 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
 
   [trp_severinus_companion|plyr, "severinus_companion_talk_normal_1", [],
    "Farewell, friend.", "close_window", []],
+
+
+  [trp_berserker_leader, "start", [(eq, "$g_talk_troop_met", 0),],
+   "Who goes there, stranger?", "berserker_leader_talk_main_1", []],
+
+  [trp_berserker_leader, "start", [(neq, "$g_wolf_quest", 4),],
+   "Yes, what is it, foreigner?", "berserker_leader_talk_main_1", []],
+
+  [trp_berserker_leader, "start", [(eq, "$g_wolf_quest", 4),],
+   "Yes, what is it, friend?", "berserker_leader_talk_main_1", []],
+
+  [trp_berserker_leader|plyr, "berserker_leader_talk_main_1", [], #ask about them
+   "Who are you people?", "berserker_leader_talk_info_1", []],
+  [trp_berserker_leader, "berserker_leader_talk_info_1", [],
+   "insert flavor text here", "berserker_leader_talk_info_2", []],
+  [trp_berserker_leader, "berserker_leader_talk_info_2", [],
+   "insert flavor text here", "berserker_leader_talk_main_1", []],
+
+  #[trp_berserker_leader|plyr, "berserker_leader_talk_main_1", [(eq, "$g_player_faith", 2),(check_quest_active, "qst_the_wolfmen"),(quest_slot_eq, "qst_the_wolfmen", slot_quest_current_state, 1),], #join and properly start the quest, must be pagan
+  # "I wish to join your host.", "berserker_leader_talk_quest_1", []],
+
+  [trp_berserker_leader|plyr, "berserker_leader_talk_main_1", [(check_quest_active, "qst_the_wolfmen"),(quest_slot_eq, "qst_the_wolfmen", slot_quest_current_state, 1),], #option to kill them
+   "You filthy beasts who feast on the flesh of men, die!", "berserker_leader_talk_attack_1", []],
+  [trp_berserker_leader, "berserker_leader_talk_attack_1", [],
+   "Ha, you think you can take on me and my warriors? I will get great joy striking you down!", "close_window", [
+    (quest_set_slot,"qst_the_wolfmen",slot_quest_current_state, 8), #sets to 8 (for now) to make everyone attack
+   ]],
+  [trp_berserker_leader|plyr, "berserker_leader_talk_main_1", [], 
+   "Farewell.", "close_window", []],
+
 
   #ZERCON/ZERKON - will speak sort of weird
   [trp_zerkon, "start", [],

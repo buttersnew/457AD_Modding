@@ -5857,6 +5857,12 @@ Even in the last case, the player can make formations up to four lines by orderi
   ("exomis_body_1_mid","exomis_body_1_mid"),
   ("exomis_body_1_light","exomis_body_1_light"),
 
+  ("pants_body_white","pants_body_white"),
+  ("pants_body_black","pants_body_black"),
+  ("pants_body_brown","pants_body_brown"),
+  ("pants_body_mid",  "pants_body_mid"),
+  ("pants_body_light","pants_body_light"),
+
 ##wrong religion:
 ("no_suit_religion", "You can't possibly think of marrying into my family since you do not even believe in the same gods! Convert first, then we may discuss this topic again."),
 

@@ -109,6 +109,10 @@ slot_agent_direction        = 41
 slot_agent_banner           = 42
 
 slot_agent_horse_rider      = 43
+
+slot_agent_berserk_modeon         = 44	#berserker chief mode on
+slot_agent_berserk_use_cooldown   = 45
+slot_agent_berserk_cooldown       = 46
 #slot_agent_new_division = 46
 
 ########################################################

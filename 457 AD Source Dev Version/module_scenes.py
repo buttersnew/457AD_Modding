@@ -1736,7 +1736,7 @@ scenes = [
   ("final_battle", sf_generate, "none", "none", (0, 0), (240, 240), -0.5, "0x00000000300005000003ccf300007c9a00004ca90000122f",
   [], [], "outer_terrain_steppe"),
 
-  ("wolfmen_lair",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000b0010c1600053d4f0000124100004fd800003ac5",
+  ("wolfmen_lair",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000bc60cbb68005ad6800000a2400005f5c00007f21",
     [],[],"outer_terrain_forest"),  
 
 ]

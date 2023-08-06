@@ -41,7 +41,7 @@ pilgrim_disguise = [itm_roman_civilian_hood_closed_3,itm_roman_peasant_tunic_10,
 farmer_disguise = [itm_woolen_cap_2, itm_roman_peasant_tunic_1, itm_cleaver, itm_battle_fork, itm_stones, itm_wrapping_boots]
 hunter_disguise = [itm_hunting_bow,itm_barbed_arrows, itm_roman_civilian_hood_closed_2, itm_leather_gloves, itm_roman_peasant_tunic_10, itm_long_seax_4, itm_wrapping_boots]
 merchant_disguise = [itm_deurne_campagi_3,itm_roman_peasant_tunic_5,itm_pannonian_cap_6,itm_sword_khergit_2]
-guard_disguise = [itm_deurne_campagi_1,itm_kemathen_mail_15,itm_narona_helmet_mail,itm_tab_shield_round_d,itm_sword_medieval_a,itm_war_spear]
+guard_disguise = [itm_deurne_campagi_1,itm_battered_mail_1_cloak,itm_narona_helmet_mail,itm_tab_shield_round_d,itm_sword_medieval_a,itm_war_spear]
 bard_disguise = [itm_deurne_campagi_2,itm_lyre,itm_coptic_tunic_4,itm_winged_mace]
 
 #note that these are usually male clothing, especially farmer_disguise, need some female ones as well
@@ -1863,6 +1863,82 @@ enhanced_common_battle_triggers = [
   custom_commander_hero_wounded,
   miracles,
   equipment_randomization,
+
+  # berserker_ai_mode
+  (ti_on_agent_spawn, 0, 0, [],
+    [
+      (store_trigger_param_1, ":agent_no"),
+      (agent_get_troop_id, ":troop_id", ":agent_no"),
+      (this_or_next|eq,":troop_id","trp_cynocephalus"), #cynocephalus
+      (eq,":troop_id","trp_berserker_leader"), #cynocephalus leader
+      (agent_set_slot,":agent_no",slot_agent_berserk_modeon,0),
+  ]),
+
+  (0, 20, 0,
+    [
+      (store_mission_timer_a, ":cur_time"),
+      (gt, ":cur_time", 15),#
+    ],
+    [
+      (try_for_agents, ":agent"),
+        (agent_is_human, ":agent"),
+        (agent_is_alive, ":agent"),
+        (agent_is_active,":agent"),
+        (agent_slot_eq,":agent",slot_agent_berserk_modeon,0),
+        (agent_get_troop_id, ":troop_id", ":agent"),
+        (this_or_next|eq,":troop_id","trp_cynocephalus"), #cynocephalus
+        (eq,":troop_id","trp_berserker_leader"), #cynocephalus leader
+        (store_random_in_range, ":rand", 0, 25),
+        (le, ":rand", 1),#
+        (call_script, "script_berserkermode_fortroop_on", ":agent"),
+      (try_end),
+  ]),
+  
+  (ti_on_agent_hit, 0, 0,
+    [
+      (store_mission_timer_a, ":cur_time"),
+      (gt, ":cur_time", 20),
+    ],
+    [
+      (assign, ":reg0_backup", reg0),
+      (store_trigger_param, ":inflicted_agent_id", 1),
+      # (store_trigger_param, ":dealer_agent_id", 2),
+      # (store_trigger_param, ":inflicted_damage", 3),
+      
+      (agent_is_active,":inflicted_agent_id"),
+      (agent_is_human, ":inflicted_agent_id"),
+      (agent_is_alive, ":inflicted_agent_id"),
+      
+      (agent_get_troop_id, ":troop_id", ":inflicted_agent_id"),
+      (this_or_next|eq,":troop_id","trp_cynocephalus"), #cynocephalus
+      (eq,":troop_id","trp_berserker_leader"), #cynocephalus leader
+      
+      (agent_slot_eq,":inflicted_agent_id",slot_agent_berserk_modeon,0),
+      (store_random_in_range, ":rand", 0, 4),
+      (ge, ":rand", 1),
+      (call_script, "script_berserkermode_fortroop_on", ":inflicted_agent_id"),
+      (assign, reg0, ":reg0_backup"),
+  ]),
+  
+  (0, 15, 0, #berserker mode drop
+    [
+      (store_mission_timer_a, ":cur_time"),
+      (gt, ":cur_time", 10),#
+    ],
+    [
+      (try_for_agents, ":agent"),
+        (agent_is_human, ":agent"),
+        (agent_is_alive, ":agent"),
+        (agent_is_active,":agent"),
+        (agent_slot_eq,":agent",slot_agent_berserk_modeon,1),
+        (agent_get_troop_id, ":troop_id", ":agent"),
+        (this_or_next|eq,":troop_id","trp_cynocephalus"), #cynocephalus
+        (eq,":troop_id","trp_berserker_leader"), #cynocephalus leader
+        (call_script, "script_berserk_cooldown_modeai_tigger", ":agent"),
+      (try_end),
+  ]),
+
+
 ] + improved_horse_archer_ai
 
 enhanced_common_siege_triggers = [
@@ -20437,7 +20513,7 @@ mission_templates = [
     (call_script, "script_change_player_honor", 15),
     (call_script, "script_change_troop_renown", "trp_player", 25),
     (call_script, "script_troop_add_gold", "trp_player", 625),
-        (troop_add_item, "trp_player","itm_kemathen_mail_12",0),
+        (troop_add_item, "trp_player","itm_common_mail_short_6",0),
        (mission_disable_talk),
                         (assign,"$g_historia2",1),                        
        ]),
@@ -20487,21 +20563,11 @@ mission_templates = [
           (team_set_relation, 2, 1, 0),
       ]),
       
-      #(ti_escape_pressed, 0, 0, [
-      #    (check_quest_active,"qst_the_wolfmen"),
-      #    (quest_slot_eq,"qst_the_wolfmen",slot_quest_current_state,7), #violence?
-      #  ], [
-      #    (quest_set_slot,"qst_the_wolfmen",slot_quest_current_state, 1), #return to stage 1?
-      #    (finish_mission),
-      #    (leave_encounter),
-      #    (change_screen_return),
-      #]),    
-
       (1, 4, ti_once,
         [ (neg|conversation_screen_is_active),
           (neg|is_presentation_active, "prsnt_battle"),
           (neg|is_presentation_active, "prsnt_order_display"),
-          (check_quest_active,"qst_the_wolfmen"),(quest_slot_eq,"qst_the_wolfmen",slot_quest_current_state,7),
+          (check_quest_active,"qst_the_wolfmen"),(quest_slot_eq,"qst_the_wolfmen",slot_quest_current_state,8),
           (this_or_next|main_hero_fallen),
           (all_enemies_defeated, 5),
           (eq, "$cam_mode", 0),
@@ -20539,7 +20605,7 @@ mission_templates = [
           (neg|conversation_screen_is_active),
           (neg|is_presentation_active, "prsnt_battle"),
           (neg|is_presentation_active, "prsnt_order_display"),
-          (check_quest_active,"qst_the_wolfmen"),(quest_slot_eq,"qst_the_wolfmen",slot_quest_current_state,7),
+          (check_quest_active,"qst_the_wolfmen"),(quest_slot_eq,"qst_the_wolfmen",slot_quest_current_state,8),
         ],
         [
           (mission_disable_talk), #ya no conversaciones
@@ -20581,9 +20647,15 @@ mission_templates = [
           (assign, "$cam_time", 0),
       ]),
       
-      (0, 0, ti_once, [], [
-          (call_script, "script_combat_music_set_situation_with_culture"),
-      ]),
+#TEMPERED     SET DARKNESS AND MUSIC FOR DUNGEON
+      (0, 0, ti_once, [], 
+     [
+        (call_script, "script_music_set_situation_with_culture", 0), #prison
+          (store_random_in_range, ":fog_distance", 25, 50),
+          (store_random_in_range, ":haze_power", 25, 65),
+          (set_global_haze_amount, ":haze_power"),
+          (set_fog_distance, ":fog_distance", 0x131313),
+       ]),
       
       common_inventory_not_available,
       (ti_tab_pressed, 0, 0, [(set_trigger_result,1)], []),

@@ -638,6 +638,10 @@ parties = [
   ("religious_site_14","Irminsul",icon_castle_snow_b|pf_is_static|pf_always_visible|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-156.34,132.32),[]), #pagan 
   ("religious_site_15","Monastery_of_Lerina",icon_castle_snow_a|pf_is_static|pf_always_visible|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-165.82,36.74),[]), #roman 
   ("religious_site_16","Monastery_of_Saint_Martin",icon_castle_snow_a|pf_is_static|pf_always_visible|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-210.1,72.77),[]), #roman 
+  #siwa - for roman pagans (egyptian)
+  #stone circle for celtic pagans
+  #?? for pagans in the steppes
+  
   #animal spawns
   ("deer_spawn_point" ,"the wilderness",pf_disabled|pf_is_static, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-143.69,109.36),[]), 
   ("boar_spawn_point" ,"the wilderness",pf_disabled|pf_is_static, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-185.14,75.49),[]), 

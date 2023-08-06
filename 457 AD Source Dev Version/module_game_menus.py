@@ -11722,6 +11722,7 @@ TOTAL:  {reg5}"),
           (try_begin),
             (eq, "$current_town", "p_town_8"),
             (set_visitors, 8, "trp_antiquarian", 1),
+            (set_visitors, 13, "trp_chudjak", 1),
           (try_end),
 
           (try_begin),
@@ -13230,13 +13231,13 @@ TOTAL:  {reg5}"),
                     (this_or_next|party_slot_eq, "$current_town", slot_center_culture, "fac_culture_2"),
                     (this_or_next|party_slot_eq, "$current_town", slot_center_culture, "fac_culture_4"),
                     (party_slot_eq, "$current_town", slot_center_culture, "fac_culture_7"),
-                    (troop_add_item, "trp_player", "itm_kemathen_mail_15", 0),#mail
+                    (troop_add_item, "trp_player", "itm_common_mail_short_6", 0),#mail
                     (display_message, "@You have been gifted a coat of mail for your victory.", 0xFF0000),
                   (else_try), #roman
                     (this_or_next|party_slot_eq, "$current_town", slot_center_culture, "fac_culture_3"),
                     (this_or_next|party_slot_eq, "$current_town", slot_center_culture, "fac_culture_empire"),
                     (party_slot_eq, "$current_town", slot_center_culture, "fac_culture_11"),
-                    (troop_add_item, "trp_player", "itm_kemathen_mail_1", 0),#mail
+                    (troop_add_item, "trp_player", "itm_common_mail_short_1", 0),#mail
                     (display_message, "@You have been gifted a coat of mail for your victory.", 0xFF0000),
                   (else_try), #sassanid - caucasian
                     (this_or_next|party_slot_eq, "$current_town", slot_center_culture, "fac_culture_6"),
@@ -13250,11 +13251,11 @@ TOTAL:  {reg5}"),
                     (display_message, "@You have been gifted a lamellar vest for your victory.", 0xFF0000),
                   (else_try), #nubian
                     (party_slot_eq, "$current_town", slot_center_culture, "fac_culture_15"),
-                    (troop_add_item, "trp_player", "itm_kemathen_mail_10", 0),#mail
+                    (troop_add_item, "trp_player", "itm_battered_mail_1", 0),#mail
                     (display_message, "@You have been gifted an imported Roman mail shirt for your victory.", 0xFF0000),
                   (else_try), #pictish
                     (party_slot_eq, "$current_town", slot_center_culture, "fac_culture_5"),
-                    (troop_add_item, "trp_player", "itm_kemathen_mail_16", 0),#mail
+                    (troop_add_item, "trp_player", "itm_pictish_mail_5", 0),#mail
                     (display_message, "@You have been gifted an imported Roman mail shirt for your victory.", 0xFF0000),
                   (try_end),
             (else_try),
@@ -23689,8 +23690,8 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     ]
   ),   
 
-  ("pagan_monastery",0,
-    "You enter the sacred grove, enthralled by its mystical, sombre atmoshpere...",
+  ("germanic_pagan_monastery",0,
+    "You enter the sacred grove, enthralled by its mystical, sombre atmoshpere... This grove is dedicated to one the gods of the Germanic pantheon",
     "none",
     [(try_begin),
       (party_slot_eq, "$g_encountered_party", slot_party_been_sacked, 1),
@@ -23710,11 +23711,6 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     (try_end),  
     (assign, "$g_mt_mode", tcm_default),      
     (reset_visitors),
-    #(try_begin),
-    #  (try_for_range, ":visiterator", 2, 20),
-    #    (set_visitor, ":visiterator", "trp_imperial_town_walker_1",),
-    #  (try_end),
-    #(try_end),
     (set_visitor, 1, "trp_pagan_high_priest"),
     (set_visitor,1,"trp_pagan_priest"),
     (set_visitor,2,"trp_pagan_priest"),
@@ -23726,7 +23722,6 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     (set_visitor,8,"trp_farmer"),
     (set_visitor,9,"trp_farmer"),
     (set_visitor,10,"trp_farmer"),
-    #(call_script, "script_init_town_walkers"),
     (set_jump_entry, 0),
 
     (set_jump_mission,"mt_religious_center_pagan"), 
@@ -23746,6 +23741,15 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     (try_end), 
     (change_screen_mission),
 ]),
+
+      ("paganism_dedication_germanic",[(eq,"$g_paganism_dedication",0),],"Dedicate yourself to the Germanic gods.",
+    [
+      (val_add, "$piety", 1), #increase in piety
+      (assign, "$g_paganism_dedication", 1),
+      (call_script, "script_change_player_relation_with_faction", "fac_pagans", 5),
+      (display_message,"@You have dedicated yourself to the gods within the Germanic pantheon.",0x6495ed),    
+      (change_screen_return),   
+    ]),
 
       ("monasteries_menu_2_church",[(eq,"$prayer",0),(eq,"$g_player_faith",2)],"Pray to the gods for strength (+1 piety, 1 hour).",
     [

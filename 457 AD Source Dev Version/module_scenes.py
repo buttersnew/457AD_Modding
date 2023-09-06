@@ -1701,6 +1701,12 @@ scenes = [
     [],[],"outer_terrain_desert"),  
   ("arian_monastery",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000023007a3b20005795e0000706d0000381800000bbc",
     [],[],"outer_terrain_plain"),  
+  ("celtic_stone_circle",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000006300654ac00062d910000635800007c9600005d35",
+    [],[], "outer_terrain_plain"),
+  ("steppe_shrine",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000006300654ac00062d910000635800007c9600005d35",
+    [],[], "outer_terrain_steppe"),
+  ("siwa",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000005000050000048d260000248b00007aa200007107",
+    [],[],"outer_terrain_desert"),  
 
   ("duel_plain_forest", sf_generate, "none", "none", (0, 0), (200, 200), -0.5, "0x00000000300005000005495000002ee4000032f600000753",
     [],[], "outer_terrain_plain"),

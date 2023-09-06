@@ -8771,7 +8771,7 @@ TOTAL:  {reg5}"),
           (str_store_string, s15, "@^This is a Zoroastrian village."),  
         (else_try),
           (eq, ":religion_center", slot_religion_coptic),
-          (str_store_string, s15, "@^This is a Miaphysite Christian village."),  
+          (str_store_string, s15, "@^This is a Non-Chalcedonian Christian village."),  
         (else_try),
           (eq, ":religion_center", slot_religion_roman_paganism),
           (str_store_string, s15, "@^This is a Roman Pagan village."),  
@@ -11194,7 +11194,7 @@ TOTAL:  {reg5}"),
           (str_store_string, s15, "@^This is a Zoroastrian settlement."),  
         (else_try),
           (eq, ":religion_center", slot_religion_coptic),
-          (str_store_string, s15, "@^This is a Miaphysite Christian settlement."),  
+          (str_store_string, s15, "@^This is a Non-Chalcedonian Christian settlement."),  
         (else_try),
           (eq, ":religion_center", slot_religion_roman_paganism),
           (str_store_string, s15, "@^This is a Roman Pagan settlement."),
@@ -23089,7 +23089,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     (troop_set_slot, "trp_player", slot_troop_religion, slot_religion_zoroastrianism),   
     (change_screen_return),   
     ]),
-      ("religion_coptic",[],"You are a Miaphysite Christian.",
+      ("religion_coptic",[],"You are a Non-Chalcedonian Christian.",
     [
     (assign, "$g_player_faith",5),   
     (troop_set_slot, "trp_player", slot_troop_religion, slot_religion_coptic),
@@ -23690,7 +23690,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     ]
   ),   
 
-  ("germanic_pagan_monastery",0,
+  ("germanic_pagan_grove",0,
     "You enter the sacred grove, enthralled by its mystical, sombre atmoshpere... This grove is dedicated to one the gods of the Germanic pantheon",
     "none",
     [(try_begin),
@@ -23742,7 +23742,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     (change_screen_mission),
 ]),
 
-      ("paganism_dedication_germanic",[(eq,"$g_paganism_dedication",0),],"Dedicate yourself to the Germanic gods.",
+      ("paganism_dedication_germanic",[(eq,"$g_player_faith",2),(eq,"$g_paganism_dedication",0),],"Dedicate yourself to the Germanic gods.",
     [
       (val_add, "$piety", 1), #increase in piety
       (assign, "$g_paganism_dedication", 1),
@@ -23979,6 +23979,323 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     (change_screen_mission),
     (try_end),
 ]),
+      ("paganism_dedication_roman",[(eq,"$g_player_faith",6),(eq,"$g_paganism_roman_dedication",0),],"Dedicate yourself to the Roman gods.",
+    [
+      (val_add, "$piety", 1), #increase in piety
+      (assign, "$g_paganism_roman_dedication", 1),
+      (call_script, "script_change_player_relation_with_faction", "fac_pagans", 5),
+      (display_message,"@You have dedicated yourself to the gods within the Roman pantheon.",0x6495ed),    
+      (change_screen_return),   
+    ]),
+
+      ("monasteries_menu_2_church",[(eq,"$prayer",0),(eq,"$g_player_faith",6)],"Make a sacrifice (+1 piety, 1 hour).",
+    [
+      (rest_for_hours, 1, 5, 0),
+      (val_add, "$piety", 1), #pray for piety 
+      #(call_script, "script_change_player_honor", 2),
+      (call_script, "script_change_player_relation_with_faction", "fac_roman_pagans", 3),
+      #(display_message,"@After an hour of praying, you feel closer to the gods.",0x6495ed),
+      (assign, "$prayer",1),         
+    (change_screen_return),   
+    ]),
+      ("monasteries_menu_3_eulogy",[(store_troop_gold,":player_gold", "trp_player"),(gt, ":player_gold", 200),(eq,"$memorial_performed",0)],"Ask for a memorial service for your dead companions (+5 honor, +2 piety, -200 siliquae, +10 morale, 2 hours).",
+    [
+      (rest_for_hours, 2, 5, 0),
+      (call_script, "script_change_player_party_morale", 10),
+      (troop_remove_gold, "trp_player", 200),  
+      (call_script, "script_change_player_honor", 5), 
+      (val_add, "$piety", 2), #pray for piety
+      (assign, "$memorial_performed",1),        
+    (change_screen_return),   
+    ]),     
+      ("monasteries_menu_4_donate",[(store_troop_gold,":player_gold", "trp_player"),(gt, ":player_gold", 500),(eq,"$g_player_faith",6)],"Donate 500 siliquae.",
+    [
+      #(call_script, "script_change_player_party_morale", 5),
+      (troop_remove_gold, "trp_player", 500),  
+      (val_add, "$piety", 3),
+      (call_script, "script_change_player_honor", 8),    
+      (call_script, "script_change_player_relation_with_faction", "fac_roman_pagans", 5),
+    (change_screen_return),   
+    ]),   
+      ("monasteries_menu_5_raid",[],"Raid the temple for gold and valuables.", #(eq, "$monastery_raid_check", 0)
+    [ 
+    (call_script, "script_change_player_party_morale", 10),
+    (call_script, "script_change_player_honor", -5),       
+    (call_script, "script_change_troop_renown", "trp_player", 5),
+    (call_script, "script_change_player_relation_with_faction", "fac_roman_pagans", -15), 
+    (call_script, "script_change_player_relation_with_faction", "fac_roman_christians", 2),
+    
+    (troop_get_slot, ":player_religion", "trp_player", slot_troop_religion),
+    (try_begin),
+      (eq, ":player_religion", slot_religion_roman_paganism),
+      (val_sub, "$piety", 10), #sacking religious locations of your religion will lower piety
+    (else_try),
+      (val_add, "$piety", 2), #sacking other religion's locations will give a small boost to piety (ie sword of the faith)
+    (try_end),
+
+    (store_random_in_range, ":monastery_gold", 400, 1850),
+    (troop_add_gold, "trp_player", ":monastery_gold"),
+    (store_random_in_range, ":monastery_raid_hours", 2, 8),
+    (rest_for_hours, ":monastery_raid_hours", 5, 1),
+    #(assign, "$monastery_raid_check",1),   
+
+    #(call_script, "script_change_party_icon_loot_state", "$g_encountered_party", 1),
+    #(party_add_particle_system, "$g_encountered_party", "psys_map_village_fire"),
+    #(party_add_particle_system, "$g_encountered_party", "psys_map_village_fire_smoke"),
+    #(party_set_slot, "$g_encountered_party", slot_village_smoke_added, 1),
+    (party_set_slot,"$g_encountered_party", slot_party_been_sacked, 1), #has to recover for 14 days before being pillaged again
+    (set_background_mesh, "mesh_pic_looted_village"),
+    (play_sound, "snd_cow_moo"),
+    (party_clear, "$g_encountered_party"),
+    (str_store_party_name, s3, "$g_encountered_party"),
+
+    (change_screen_return),   
+    ]), 
+     ("leave",[],"Leave the temple.",[(leave_encounter),(change_screen_return)]),
+    ]
+  ),  
+
+  ("celtic_pagan_grove",0,
+    "You approach the ancient stone circles, enthralled by its mystical, sombre atmoshpere... This grove is dedicated to one the gods of the Celtic pantheon",
+    "none",
+    [(try_begin),
+      (party_slot_eq, "$g_encountered_party", slot_party_been_sacked, 1),
+      (jump_to_menu, "mnu_settlement_looted"),
+      (try_end),],
+    [
+    ("enter",[],"Visit the stone circles.",[
+    (try_begin),
+      (eq, "$g_encountered_party", "p_religious_site_17"),
+      (modify_visitors_at_site,"scn_celtic_stone_circle"),
+    (try_end),  
+    (assign, "$g_mt_mode", tcm_default),      
+    (reset_visitors),
+    (set_visitor, 1, "trp_pagan_high_priest"),
+    (set_visitor,2,"trp_pagan_priest"),
+    (set_visitor,3,"trp_pagan_priest"),
+    (set_visitor,4,"trp_refugee"),
+    (set_visitor,5,"trp_refugee"),
+    (set_visitor,6,"trp_refugee"),
+    (set_visitor,7,"trp_farmer"),
+    (set_visitor,8,"trp_farmer"),
+    (set_visitor,9,"trp_farmer"),
+    (set_visitor,10,"trp_farmer"),
+    (set_jump_entry, 0),
+
+    (set_jump_mission,"mt_religious_center_pagan"), 
+
+    (try_begin),
+      (eq, "$g_encountered_party", "p_religious_site_17"),
+      (scene_set_slot, "scn_celtic_stone_circle", slot_scene_visited, 1),
+      (jump_to_scene,"scn_celtic_stone_circle"),
+    (try_end), 
+    (change_screen_mission),
+]),
+
+      ("paganism_dedication_celtic",[(eq,"$g_player_faith",2),(eq,"$g_paganism_dedication",0),],"Dedicate yourself to the Celtic gods.",
+    [
+      (val_add, "$piety", 1), #increase in piety
+      (assign, "$g_paganism_dedication", 2),
+      (call_script, "script_change_player_relation_with_faction", "fac_pagans", 5),
+      (display_message,"@You have dedicated yourself to the gods within the Germanic pantheon.",0x6495ed),    
+      (change_screen_return),   
+    ]),
+
+      ("monasteries_menu_2_church",[(eq,"$prayer",0),(eq,"$g_player_faith",2)],"Pray to the gods for strength (+1 piety, 1 hour).",
+    [
+      (rest_for_hours, 1, 5, 0),
+      (val_add, "$piety", 1), #pray for piety 
+      #(call_script, "script_change_player_honor", 1),
+      (call_script, "script_change_player_relation_with_faction", "fac_pagans", 2),
+      (display_message,"@After an hour of praying, you feel closer to the gods.",0x6495ed),
+      (assign, "$prayer",1),         
+    (change_screen_return),   
+    ]),
+      ("monasteries_menu_3_eulogy",[(store_troop_gold,":player_gold", "trp_player"),(gt, ":player_gold", 200),(eq,"$memorial_performed",0)],"Ask for a memorial service for your dead companions (+5 honor, +2 piety, -200 siliquae, +10 morale, 2 hours).",
+    [
+      (rest_for_hours, 2, 5, 0),
+      (call_script, "script_change_player_party_morale", 10),
+      (troop_remove_gold, "trp_player", 200),  
+      (call_script, "script_change_player_honor", 5), 
+      (val_add, "$piety", 2), #pray for piety
+      (assign, "$memorial_performed",1),        
+    (change_screen_return),   
+    ]),     
+      ("monasteries_menu_4_donate",[(store_troop_gold,":player_gold", "trp_player"),(gt, ":player_gold", 500),(eq,"$g_player_faith",2)],"Donate 500 siliquae.",
+    [
+      #(call_script, "script_change_player_party_morale", 5),
+      (troop_remove_gold, "trp_player", 500),  
+      (val_add, "$piety", 3),
+      (call_script, "script_change_player_honor", 8),    
+      (call_script, "script_change_player_relation_with_faction", "fac_pagans", 5),
+    (change_screen_return),   
+    ]),   
+      ("monasteries_menu_5_raid",[],"Raid the sanctuary for gold and valuables.", #(eq, "$monastery_raid_check", 0)
+    [ 
+    (call_script, "script_change_player_party_morale", 10),
+    (call_script, "script_change_player_honor", -5),       
+    (call_script, "script_change_troop_renown", "trp_player", 5),
+    (call_script, "script_change_player_relation_with_faction", "fac_kingdom_5", -5),
+    (call_script, "script_change_player_relation_with_faction", "fac_pagans", -10), 
+
+    (troop_get_slot, ":player_religion", "trp_player", slot_troop_religion),
+    (try_begin),
+      (eq, ":player_religion", slot_religion_paganism),
+      (val_sub, "$piety", 10), #sacking religious locations of your religion will lower piety
+    (else_try),
+      (val_add, "$piety", 2), #sacking other religion's locations will give a small boost to piety (ie sword of the faith)
+    (try_end),
+    
+    (store_random_in_range, ":monastery_gold", 400, 1850),
+    (troop_add_gold, "trp_player", ":monastery_gold"),
+    (store_random_in_range, ":monastery_raid_hours", 2, 8),
+    (rest_for_hours, ":monastery_raid_hours", 5, 1),
+    #(assign, "$monastery_raid_check",1),   
+
+    #(call_script, "script_change_party_icon_loot_state", "$g_encountered_party", 1),
+    #(party_add_particle_system, "$g_encountered_party", "psys_map_village_fire"),
+    #(party_add_particle_system, "$g_encountered_party", "psys_map_village_fire_smoke"),
+    #(party_set_slot, "$g_encountered_party", slot_village_smoke_added, 1),
+    (party_set_slot,"$g_encountered_party", slot_party_been_sacked, 1), #has to recover for 14 days before being pillaged again
+    (set_background_mesh, "mesh_pic_looted_village"),
+    (play_sound, "snd_cow_moo"),
+    (party_clear, "$g_encountered_party"),
+    (str_store_party_name, s3, "$g_encountered_party"),
+
+    (change_screen_return),   
+    ]), 
+     ("leave",[],"Leave the stone circles.",[(leave_encounter),(change_screen_return)]),
+    ]
+  ),  
+
+  ("shamanism_altar",0,
+    "You approach the ancient stone circles, enthralled by its mystical, sombre atmoshpere... This grove is dedicated to one the gods of the Steppe pantheon",
+    "none",
+    [(try_begin),
+      (party_slot_eq, "$g_encountered_party", slot_party_been_sacked, 1),
+      (jump_to_menu, "mnu_settlement_looted"),
+      (try_end),],
+    [
+    #("enter",[],"Visit the stone circles.",[
+    #(try_begin),
+    #  (eq, "$g_encountered_party", "p_religious_site_17"),
+    #  (modify_visitors_at_site,"scn_celtic_stone_circle"),
+    #(try_end),  
+    #(assign, "$g_mt_mode", tcm_default),      
+    #(reset_visitors),
+    #(set_visitor, 1, "trp_pagan_high_priest"),
+    #(set_visitor,2,"trp_pagan_priest"),
+    #(set_visitor,3,"trp_pagan_priest"),
+    #(set_visitor,4,"trp_refugee"),
+    #(set_visitor,5,"trp_refugee"),
+    #(set_visitor,6,"trp_refugee"),
+    #(set_visitor,7,"trp_farmer"),
+    #(set_visitor,8,"trp_farmer"),
+    #(set_visitor,9,"trp_farmer"),
+    #(set_visitor,10,"trp_farmer"),
+    #(set_jump_entry, 0),
+    #(set_jump_mission,"mt_religious_center_pagan"), 
+    #(try_begin),
+    #  (eq, "$g_encountered_party", "p_religious_site_17"),
+    #  (scene_set_slot, "scn_celtic_stone_circle", slot_scene_visited, 1),
+    #  (jump_to_scene,"scn_celtic_stone_circle"),
+    #(try_end), 
+    #(change_screen_mission),
+#]),
+
+      ("paganism_dedication_steppe",[(eq,"$g_player_faith",2),(eq,"$g_paganism_dedication",0),],"Dedicate yourself to the gods of the shamans.",
+    [
+      (val_add, "$piety", 1), #increase in piety
+      (assign, "$g_paganism_dedication", 3),
+      (call_script, "script_change_player_relation_with_faction", "fac_pagans", 5),
+      (display_message,"@You have dedicated yourself to the gods within the steppe pantheon.",0x6495ed),    
+      (change_screen_return),   
+    ]),
+
+      ("monasteries_menu_2_church",[(eq,"$prayer",0),(eq,"$g_player_faith",2)],"Pray to the gods for strength (+1 piety, 1 hour).",
+    [
+      (rest_for_hours, 1, 5, 0),
+      (val_add, "$piety", 1), #pray for piety 
+      #(call_script, "script_change_player_honor", 1),
+      (call_script, "script_change_player_relation_with_faction", "fac_pagans", 2),
+      (display_message,"@After an hour of praying, you feel closer to the gods.",0x6495ed),
+      (assign, "$prayer",1),         
+    (change_screen_return),   
+    ]),
+      ("monasteries_menu_3_eulogy",[(store_troop_gold,":player_gold", "trp_player"),(gt, ":player_gold", 200),(eq,"$memorial_performed",0)],"Ask for a memorial service for your dead companions (+5 honor, +2 piety, -200 siliquae, +10 morale, 2 hours).",
+    [
+      (rest_for_hours, 2, 5, 0),
+      (call_script, "script_change_player_party_morale", 10),
+      (troop_remove_gold, "trp_player", 200),  
+      (call_script, "script_change_player_honor", 5), 
+      (val_add, "$piety", 2), #pray for piety
+      (assign, "$memorial_performed",1),        
+    (change_screen_return),   
+    ]),     
+      ("monasteries_menu_4_donate",[(store_troop_gold,":player_gold", "trp_player"),(gt, ":player_gold", 500),(eq,"$g_player_faith",2)],"Donate 500 siliquae.",
+    [
+      #(call_script, "script_change_player_party_morale", 5),
+      (troop_remove_gold, "trp_player", 500),  
+      (val_add, "$piety", 3),
+      (call_script, "script_change_player_honor", 8),    
+      (call_script, "script_change_player_relation_with_faction", "fac_pagans", 5),
+    (change_screen_return),   
+    ]),   
+      ("monasteries_menu_5_raid",[],"Raid the sanctuary for gold and valuables.", #(eq, "$monastery_raid_check", 0)
+    [ 
+    (call_script, "script_change_player_party_morale", 10),
+    (call_script, "script_change_player_honor", -5),       
+    (call_script, "script_change_troop_renown", "trp_player", 5),
+    (call_script, "script_change_player_relation_with_faction", "fac_kingdom_23", -5),
+    (call_script, "script_change_player_relation_with_faction", "fac_pagans", -10), 
+
+    (troop_get_slot, ":player_religion", "trp_player", slot_troop_religion),
+    (try_begin),
+      (eq, ":player_religion", slot_religion_paganism),
+      (val_sub, "$piety", 10), #sacking religious locations of your religion will lower piety
+    (else_try),
+      (val_add, "$piety", 2), #sacking other religion's locations will give a small boost to piety (ie sword of the faith)
+    (try_end),
+    
+    (store_random_in_range, ":monastery_gold", 400, 1850),
+    (troop_add_gold, "trp_player", ":monastery_gold"),
+    (store_random_in_range, ":monastery_raid_hours", 2, 8),
+    (rest_for_hours, ":monastery_raid_hours", 5, 1),
+    #(assign, "$monastery_raid_check",1),   
+
+    #(call_script, "script_change_party_icon_loot_state", "$g_encountered_party", 1),
+    #(party_add_particle_system, "$g_encountered_party", "psys_map_village_fire"),
+    #(party_add_particle_system, "$g_encountered_party", "psys_map_village_fire_smoke"),
+    #(party_set_slot, "$g_encountered_party", slot_village_smoke_added, 1),
+    (party_set_slot,"$g_encountered_party", slot_party_been_sacked, 1), #has to recover for 14 days before being pillaged again
+    (set_background_mesh, "mesh_pic_looted_village"),
+    (play_sound, "snd_cow_moo"),
+    (party_clear, "$g_encountered_party"),
+    (str_store_party_name, s3, "$g_encountered_party"),
+
+    (change_screen_return),   
+    ]), 
+     ("leave",[],"Leave the altar.",[(leave_encounter),(change_screen_return)]),
+    ]
+  ),  
+
+  ("egyptian_temple",0,
+    "You visit Siwa, one of the few places maintaining the traditions of the Aegyptians of old...",
+    "none",
+    [(try_begin),
+      (party_slot_eq, "$g_encountered_party", slot_party_been_sacked, 1),
+      (jump_to_menu, "mnu_settlement_looted"),
+      (try_end),],
+    [
+
+      ("paganism_dedication_egyptian",[(eq,"$g_player_faith",6),(eq,"$g_paganism_roman_dedication",0),],"Dedicate yourself to the Aegyptian gods.",
+    [
+      (val_add, "$piety", 1), #increase in piety
+      (assign, "$g_paganism_roman_dedication", 2),
+      (call_script, "script_change_player_relation_with_faction", "fac_pagans", 5),
+      (display_message,"@You have dedicated yourself to the gods within the Aegyptian pantheon.",0x6495ed),    
+      (change_screen_return),   
+    ]),
 
       ("monasteries_menu_2_church",[(eq,"$prayer",0),(eq,"$g_player_faith",6)],"Make a sacrifice (+1 piety, 1 hour).",
     [

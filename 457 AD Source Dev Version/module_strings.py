@@ -5538,7 +5538,7 @@ Even in the last case, the player can make formations up to four lines by orderi
 
   ("com_roman_christian", "{s1}^^Religion: Chalcedonian Christianity"),
   ("com_arian_christian", "{s1}^^Religion: Arian Christianity"),
-  ("com_coptic_christian", "{s1}^^Religion: Miaphysite Christianity"),
+  ("com_coptic_christian", "{s1}^^Religion: Non-Chalcedonian Christianity"),
   ("com_pagan", "{s1}^^Religion: Pagan"),  
   ("com_zoroastrianism", "{s1}^^Religion: Zoroastrianism"),
   ("com_roman_paganism", "{s1}^^Religion: Roman Paganism"),
@@ -6428,7 +6428,7 @@ Even in the last case, the player can make formations up to four lines by orderi
 ("background_religion_paganism", "Your parents worshipped the Old Gods, the Gods people worshipped long time ago, before Rome brought all those Eastern cults, first and foremost Christianity, into your home lands. You always listened with fear and excitment the old tales about the creation of the Gods and their tricks."),
 ("background_religion_arianism", "Your parents believed in Christos and in God, his powerful father. Christos preached equality and love. Yet, the Christians are quarreling about the correct understanging of Christos words and his nature. You and your parents follow the Arian interpretation, which says that Christos, the Son of God, did not always exist but was made before time by God the Father. You never understood what this means, but you know that whatever the other Christian sects preaches is wrong."),
 ("background_religion_zoroastrianism", "Your parents were devout worshippers of Ahura Mazda. You learned about the importance of the four elements, from which the fire is the most important one. Fire and clean water are agents of ritual purity."),
-("background_religion_coptic", "Your parents believed in Christos and in God, his powerful father. Christos preached equality and love. Yet, the Christians are quarreling about the correct understanging of Christos words and his nature. You and your parents follow the Coptic interpretation, which says that Christos is one nature from two natures: the Logos Incarnate. You never understood what this means, but you know that whatever the other Christian sects preaches is wrong."),
+("background_religion_coptic", "Your parents believed in Christos and in God, his powerful father. Christos preached equality and love. Yet, the Christians are quarreling about the correct understanging of Christos words and his nature. You and your parents reject the Chalcedonian interpretation, which says that Christos was one hypostasis in two natures. You never understood what this means, but you know that whatever the other Christian sects preaches is wrong."),
 ("background_religion_roman_paganism", "Your parents believed in the old Roman Gods. You learned that the Gods are arbitrary and fallible as the humans are. Thus you need to make sacrifices to appease them and recieve their favor. You always listen with excitement to the old tales of the Illias and the Aeneid."),
 
 ("diplo_casus_expired_reparations_accepted","In order to avoid war they decide to accept the demand. A sum of {reg40} denars has been paid as tribute."),      

@@ -1096,6 +1096,73 @@ triggers = [
     (try_end),
 ]),
 
+#religion related stat increases for faith
+(24,0,ti_once,[
+  (gt,"$piety",40), #high piety
+  (eq,"$g_faith_stat_increase",0),
+],[
+  (troop_get_slot, ":player_religion", "trp_player", slot_troop_religion),
+  (try_begin),
+    (eq, ":player_religion", slot_religion_chalcedonian),
+    (troop_raise_attribute, "trp_player",ca_intelligence,1),
+    (troop_raise_attribute, "trp_player",ca_charisma,1),
+    (dialog_box, "@Your dedication to God has increased some of your attributes!", "@Your faith..."),
+    (assign,"$g_faith_stat_increase",1),
+  (else_try),
+    (eq, ":player_religion", slot_religion_paganism), #Germanic paganism
+    (eq,"$g_paganism_dedication",1),
+    (troop_raise_attribute, "trp_player",ca_strength,2),
+    (dialog_box, "@Your dedication to the Germanic gods has increased some of your attributes!", "@Your faith..."),
+    (assign,"$g_faith_stat_increase",1),
+  (else_try),
+    (eq, ":player_religion", slot_religion_paganism), #Celtic paganism
+    (eq,"$g_paganism_dedication",2),
+    (troop_raise_attribute, "trp_player",ca_strength,1),
+    (troop_raise_attribute, "trp_player",ca_agility,1),
+    (dialog_box, "@Your dedication to the Celtic gods has increased some of your attributes!", "@Your faith..."),
+    (assign,"$g_faith_stat_increase",1),
+  (else_try),
+    (eq, ":player_religion", slot_religion_paganism), #Steppe paganism/Shamanism
+    (eq,"$g_paganism_dedication",3),
+    (troop_raise_attribute, "trp_player",ca_agility,2),
+    (dialog_box, "@Your dedication to the skyfather has increased some of your attributes!", "@Your faith..."),
+    (assign,"$g_faith_stat_increase",1),
+  (else_try),
+    (eq, ":player_religion", slot_religion_arianism),
+    (troop_raise_attribute, "trp_player",ca_intelligence,1),
+    (troop_raise_attribute, "trp_player",ca_charisma,1),
+    (dialog_box, "@Your dedication to God has increased some of your attributes!", "@Your faith..."),
+    (assign,"$g_faith_stat_increase",1),
+  (else_try),
+    (eq, ":player_religion", slot_religion_zoroastrianism), #zoroastrianism
+    (eq,"$g_paganism_dedication",1),
+    (troop_raise_attribute, "trp_player",ca_strength,1),
+    (troop_raise_attribute, "trp_player",ca_intelligence,1),
+    (dialog_box, "@Your dedication to Ahura Mazda has increased some of your attributes!", "@Your faith..."),
+    (assign,"$g_faith_stat_increase",1),
+  (else_try),
+    (eq, ":player_religion", slot_religion_coptic),
+    (troop_raise_attribute, "trp_player",ca_intelligence,1),
+    (troop_raise_attribute, "trp_player",ca_charisma,1),
+    (dialog_box, "@Your dedication to God has increased some of your attributes!", "@Your faith..."),
+    (assign,"$g_faith_stat_increase",1),
+  (else_try),
+    (eq, ":player_religion", slot_religion_roman_paganism), #Roman paganism
+    (eq,"$g_paganism_roman_dedication",1),
+    (troop_raise_attribute, "trp_player",ca_intelligence,2), #le intellectual big brain reddit
+    (dialog_box, "@Your dedication to the Roman gods has increased some of your attributes!", "@Your faith..."),
+    (assign,"$g_faith_stat_increase",1),
+  (else_try),
+    (eq, ":player_religion", slot_religion_roman_paganism), #Egyptian paganism
+    (eq,"$g_paganism_roman_dedication",2),
+    (troop_raise_attribute, "trp_player",ca_strength,1),
+    (troop_raise_attribute, "trp_player",ca_charisma,1),
+    (dialog_box, "@Your dedication to the Aegyptian gods has increased some of your attributes!", "@Your faith..."),
+    (assign,"$g_faith_stat_increase",1),
+  (else_try),
+  (try_end)
+]),
+
 #nero larper events
 (24*5,0,ti_once,[ #becoming a beggar in Rome
   (neg|check_quest_active,"qst_nero_larper_quest"),

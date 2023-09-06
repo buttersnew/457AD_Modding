@@ -1187,11 +1187,11 @@ items = [
  600 , weight(7)|abundance(60)|head_armor(0)|body_armor(28)|leg_armor(8)|difficulty(0) ,imodbits_leather, [], culture_sassanid ],
 #Mail Armor
 
-["brigandine_red", "Mail Shirt", [("mercenary_mail_3",0)],itp_merchandise|itp_type_body_armor|itp_covers_legs,0,
+["brigandine_red", "Mail Shirt", [("battered_mail_1_1",0)],itp_merchandise|itp_type_body_armor|itp_covers_legs,0,
  3000 , weight(16.5)|abundance(30)|head_armor(0)|body_armor(52)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_germanic+culture_gothic ],
-["mail_shirt", "Mail Shirt", [("mercenary_mail_1",0)], itp_merchandise|itp_type_body_armor  |itp_covers_legs ,0,
+["mail_shirt", "Mail Shirt", [("battered_mail_2_1",0)], itp_merchandise|itp_type_body_armor  |itp_covers_legs ,0,
  3000 , weight(16.5)|abundance(30)|head_armor(0)|body_armor(52)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_germanic+culture_gothic ],
-["byrnie", "Mail Shirt", [("mercenary_mail_2",0)], itp_merchandise|itp_type_body_armor  |itp_covers_legs ,0,
+["byrnie", "Mail Shirt", [("battered_mail_3_1",0)], itp_merchandise|itp_type_body_armor  |itp_covers_legs ,0,
  3000 , weight(16.5)|abundance(30)|head_armor(0)|body_armor(52)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_germanic+culture_gothic ],
 
 #new mail armors, by asher

@@ -516,7 +516,6 @@ parties = [
 
   ("four_ways_inn","Four_Ways_Inn",icon_village_a|pf_disabled|pf_is_static|pf_always_visible|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(4.8, -39.6),[]),
   ("test_scene","test_scene",icon_village_a|pf_disabled|pf_is_static|pf_always_visible|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(10.8, -19.6),[]),
-  #("test_scene","test_scene",icon_village_a|pf_is_static|pf_always_visible|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(10.8, -19.6),[]),
   ("battlefields","battlefields",pf_disabled|icon_village_a|pf_is_static|pf_always_visible|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(10.8, -16.6),[]),
   ("dhorak_keep","Dhorak_Keep",icon_town|pf_disabled|pf_is_static|pf_always_visible|pf_no_label|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-50,-58),[]),
 
@@ -628,8 +627,8 @@ parties = [
   ("religious_site_4","Monastery_of_Saint_Anthony",icon_castle_snow_a|pf_is_static|pf_always_visible|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(60.98,-97.53),[]), #coptic 
   ("religious_site_5","Arian_Monastery",icon_castle_snow_a|pf_is_static|pf_always_visible|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-212.02,49.17),[]), #arian 
   ("religious_site_6","Arian_Monastery",icon_castle_snow_a|pf_is_static|pf_always_visible|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-137.79,-40.93),[]), #arian 
-  ("religious_site_7","Grove_of_Nerthus",icon_castle_snow_b|pf_is_static|pf_always_visible|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-128.07,163.56),[]), #pagan 
-  ("religious_site_8","Donar's_Oak",icon_castle_snow_b|pf_is_static|pf_always_visible|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-138.54,105.63),[]), #pagan 
+  ("religious_site_7","Grove_of_Nerthus",icon_castle_snow_b|pf_is_static|pf_always_visible|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-128.07,163.56),[]), #germanic pagan 
+  ("religious_site_8","Donar's_Oak",icon_castle_snow_b|pf_is_static|pf_always_visible|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-138.54,105.63),[]), #germanic pagan 
   ("religious_site_9","Aphrodisias",icon_castle_snow_b|pf_is_static|pf_always_visible|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(17.25,-3.84),[]), #greco-roman paganism 
   ("religious_site_10","Great_Fire_of_Adur_Farnbag",icon_castle_snow_b|pf_is_static|pf_always_visible|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(236.84,-39.66),[]), #zoroastrian 
   ("religious_site_11","Great_Fire_of_Adur_Gushnap",icon_castle_snow_b|pf_is_static|pf_always_visible|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(138.16,51.05),[]), #zoroastrian 
@@ -638,8 +637,11 @@ parties = [
   ("religious_site_14","Irminsul",icon_castle_snow_b|pf_is_static|pf_always_visible|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-156.34,132.32),[]), #pagan 
   ("religious_site_15","Monastery_of_Lerina",icon_castle_snow_a|pf_is_static|pf_always_visible|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-165.82,36.74),[]), #roman 
   ("religious_site_16","Monastery_of_Saint_Martin",icon_castle_snow_a|pf_is_static|pf_always_visible|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-210.1,72.77),[]), #roman 
+  ("religious_site_17","Stone_Circle",icon_castle_snow_b|pf_is_static|pf_always_visible|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-222.81,139.23),[]), #celtic pagan 
+  ("religious_site_18","Altar_to_the_Skyfather",icon_castle_snow_b|pf_is_static|pf_always_visible|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(45.91, 112),[]), #shamanism
+  ("religious_site_19","Siwa",icon_castle_snow_b|pf_is_static|pf_always_visible|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-1.96, -101.9),[]), #egyptian paganism
+
   #siwa - for roman pagans (egyptian)
-  #stone circle for celtic pagans
   #?? for pagans in the steppes
   
   #animal spawns

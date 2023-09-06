@@ -2951,9 +2951,17 @@ troops = [
    [itm_wrapping_boots,itm_robes_church,itm_knife],
    def_attrib|level(8),wp(90),knows_common,roman_face_1, roman_face_2],
 
-  ["pagan_high_priest","Pagan High Priest","Pagan High Priests",tf_hero,scn_pagan_grove|entry(1),reserved,fac_pagans,
+  ["pagan_high_priest","Germanic Pagan Priest","Germanic Pagan Priests",tf_hero,scn_pagan_grove|entry(1),reserved,fac_pagans,
    [itm_wrapping_boots,itm_robe,itm_sarranid_cloth_robe_b,itm_knife],
    def_attrib|level(8),wp(90),knows_common,germanic_face_1, germanic_face_2],
+
+  ["celtic_pagan_priest","Celtic Pagan Priest","Celtic Pagan Priests",tf_hero,scn_celtic_stone_circle|entry(1),reserved,fac_pagans,
+   [itm_wrapping_boots,itm_robe,itm_sarranid_cloth_robe_b,itm_knife],
+   def_attrib|level(8),wp(90),knows_common,celtic_face_1, celtic_face_2],
+
+  ["steppe_pagan_priest","Shaman","Shamen",tf_hero,scn_steppe_shrine|entry(1),reserved,fac_pagans,
+   [itm_wrapping_boots,itm_robe,itm_sarranid_cloth_robe_b,itm_knife],
+   def_attrib|level(8),wp(90),knows_common,hunnic_face_1, hunnic_face_2],
 
   ["zoroastrian_high_priest","Zoroastrian Moabadan-Moabad","Zoroastrian Moabadan-Moabads",tf_hero,scn_fire_temple|entry(1),reserved,fac_zoroastrians,
    [itm_wrapping_boots,itm_persian_tunic_15,itm_knife],

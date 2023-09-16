@@ -11470,6 +11470,7 @@ TOTAL:  {reg5}"),
         #possibly replace "the" with "your"
         ],"Go to the {reg4?Lady:Lord}'s hall{s1}.",
        [
+
            (try_begin),
              (this_or_next|eq, "$all_doors_locked", 1),
              (gt, "$sneaked_into_town", disguise_none),
@@ -11494,6 +11495,7 @@ TOTAL:  {reg5}"),
              (call_script, "script_enter_court", "$current_town"),
              (party_set_slot, "$current_town", slot_party_temp_slot_1, 0), #SB : visit filter
            (try_end),
+
         ], "Door to the castle."),
 
 

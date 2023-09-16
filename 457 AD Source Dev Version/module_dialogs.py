@@ -32294,20 +32294,21 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
   (neg|check_quest_active, "qst_battle_of_garigliano"),
   (neg|check_quest_active, "qst_agrippinus_quest"),
   (eq, "$g_agrippinus_quest", 0),
-  ], "Yes, {playername}. A rival of mine, Agrippinus, former Magister Militum per Gallias, has been funding his own regiment of bucellarii.\
- I fear that he may use this army to rebel against me, creating disorder in the empire once more. I ask you of this, {playername}, arrest him at once, to avoid the inevitable.", "lord_tell_mission_agrippinus_1",
+  ], "Yes, {playername}. I have heard rumors that a former Magister Militum, a man named Agrippinus, is plotting to cede some our territory in Gaul to the barbarians, from my loyal friend, Aegidius.\
+ I wish for you to investigate this matter with a loyal agentes in rebus, a man named Iacobus. Report to him on any details you may find about Agrippinus.", "lord_tell_mission_agrippinus_1",
    [
    ]],  
    [anyone|plyr,"lord_tell_mission_agrippinus_1", [
-  ], "Very well, I will arrest him for you.", "lord_tell_mission_agrippinus_2",
+  ], "Very well, I will investigate him for you.", "lord_tell_mission_agrippinus_2",
    [
    ]],   
    [anyone,"lord_tell_mission_agrippinus_2", [
-  ], "Expect resistance, {playername}. Agrippinus has great wealth and skill in combat. I doubt he will come quietly. He should be at his villa, west of Lutetia.", "lord_pretalk",
+  ], "I have recently assigned Iacobus to Augusta Suessionum. Speak to him first. If you do have to arrest Agrippinus expect resistance, {playername}. Agrippinus has great wealth and skill in combat. I doubt he will come quietly. Good luck.", "lord_pretalk",
    [(call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 10),
-   (str_store_string, s2, "@Agrippinus is suspected of treason. Majorian wishes that he be arrested, and taken to him. Find him inside his villa near Lutetia (Gaul)."),
+   (str_store_party_name, s3, "p_castle_12"),
+   (str_store_string, s2, "@Agrippinus is suspected of treason. Majorian wishes for you to investigate this matter with a man named Iacobus. Iacobus is currently in {s3}."),
    (call_script, "script_start_quest", "qst_agrippinus_quest", "$g_talk_troop"),
-   (enable_party, "p_agrippinus_quest_villa"),
+   #(enable_party, "p_agrippinus_quest_villa"),
    (assign, "$g_agrippinus_quest", 1),
    (quest_set_slot,"qst_agrippinus_quest", slot_quest_current_state, 1),
    ]], 
@@ -39878,16 +39879,16 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   [anyone,"tavernkeeper_job_result_2", [], "I'll keep my ears open for other opportunities. You may want to ask again from time to time.", "close_window",[]],
 
 
-  [anyone|plyr,"tavernkeeper_talk", [(eq, "$dragons_lair_explored", 0),(neg|check_quest_active,"qst_dragon_quest")],
-    "Have you heard anything interesting lately?", "tavernkeeper_dragon_quest",[]],
-  [anyone,"tavernkeeper_dragon_quest",
-    [], "Hmm... I've heard from others that the village elder of Arus is looking for someone to kill a dragon for him. You ought to go talk to him...", "close_window", [
-      (str_store_party_name_link, s3, "p_village_157"),
-      (setup_quest_text, "qst_dragon_quest"),
-      (str_store_string, s2, "@The village elder of {s3} claims to need someone to kill a dragon for him..."),
-      (call_script, "script_start_quest", "qst_dragon_quest", "$g_talk_troop"),
-      (quest_set_slot,"qst_dragon_quest",slot_quest_current_state, 1),
-    ]],
+  #[anyone|plyr,"tavernkeeper_talk", [(eq, "$dragons_lair_explored", 0),(neg|check_quest_active,"qst_dragon_quest")], #dragon quest removed 9/11/23
+  #  "Have you heard anything interesting lately?", "tavernkeeper_dragon_quest",[]],
+  #[anyone,"tavernkeeper_dragon_quest",
+  #  [], "Hmm... I've heard from others that the village elder of Arus is looking for someone to kill a dragon for him. You ought to go talk to him...", "close_window", [
+  #    (str_store_party_name_link, s3, "p_village_157"),
+  #    (setup_quest_text, "qst_dragon_quest"),
+  #    (str_store_string, s2, "@The village elder of {s3} claims to need someone to kill a dragon for him..."),
+  #    (call_script, "script_start_quest", "qst_dragon_quest", "$g_talk_troop"),
+  #    (quest_set_slot,"qst_dragon_quest",slot_quest_current_state, 1),
+  #  ]],
 
 
   [anyone|plyr,"tavernkeeper_talk", [],
@@ -44764,88 +44765,88 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
    "Strangers come and go to our village, {s0}. If he is hiding here, you will surely find him if you look around.", "close_window",[]],#changed {sir/madam} to {s0}
   ##diplomacy end+
 
-  [anyone|plyr,"village_elder_talk", [(eq,"$g_talk_troop", "trp_village_157_elder"),
-      (check_quest_active, "qst_dragon_quest"),
-      (quest_slot_eq,"qst_dragon_quest",slot_quest_current_state,1),
-      (eq, "$g_encountered_party_type", spt_village)
-      ], "Swarta? I heard that you needed a mercenary?", "village_elder_dragon_intro_1",[]],
+  #[anyone|plyr,"village_elder_talk", [(eq,"$g_talk_troop", "trp_village_157_elder"),
+  #    (check_quest_active, "qst_dragon_quest"),
+  #    (quest_slot_eq,"qst_dragon_quest",slot_quest_current_state,1),
+  #    (eq, "$g_encountered_party_type", spt_village)
+  #    ], "Swarta? I heard that you needed a mercenary?", "village_elder_dragon_intro_1",[]],
 
-  [anyone|plyr,"village_elder_talk", [(eq,"$g_talk_troop", "trp_village_157_elder"), #killed
-      (check_quest_active, "qst_dragon_quest"),
-      (quest_slot_eq,"qst_dragon_quest",slot_quest_current_state,3),
-      (eq, "$g_encountered_party_type", spt_village)
-      ], "I have killed the 'dragon'", "village_elder_dragon_killed_1",[]],
+  #[anyone|plyr,"village_elder_talk", [(eq,"$g_talk_troop", "trp_village_157_elder"), #killed
+  #    (check_quest_active, "qst_dragon_quest"),
+  #    (quest_slot_eq,"qst_dragon_quest",slot_quest_current_state,3),
+  #    (eq, "$g_encountered_party_type", spt_village)
+  #    ], "I have killed the 'dragon'", "village_elder_dragon_killed_1",[]],
 
-  [anyone|plyr,"village_elder_talk", [(eq,"$g_talk_troop", "trp_village_157_elder"), #bribed
-      (check_quest_active, "qst_dragon_quest"),
-      (quest_slot_eq,"qst_dragon_quest",slot_quest_current_state,4),
-      (eq, "$g_encountered_party_type", spt_village)
-      ], "The dragon was too strong, I wounded it and it retreated. You should be safe, for now.", "village_elder_dragon_bribed_1",[]],
+  #[anyone|plyr,"village_elder_talk", [(eq,"$g_talk_troop", "trp_village_157_elder"), #bribed
+  #    (check_quest_active, "qst_dragon_quest"),
+  #    (quest_slot_eq,"qst_dragon_quest",slot_quest_current_state,4),
+  #    (eq, "$g_encountered_party_type", spt_village)
+  #    ], "The dragon was too strong, I wounded it and it retreated. You should be safe, for now.", "village_elder_dragon_bribed_1",[]],
 
-  [anyone, "village_elder_dragon_intro_1", [], "Ah, finally! I've sent messengers everywhere to see if someone could help! " +
-    "The villagers claim that we are being provoked by a dragon! I didn't believe them at first, but as of late several of our fields have been burned and our cattle stolen. Its not like typical marauders to burn valuable crops! " +
-    "I wish for you, please hunt down and kill this beast!","village_elder_dragon_intro_2",[
-      (call_script, "script_change_player_relation_with_center", "$g_encountered_party", 15),
-  ]],
-  [anyone|plyr,"village_elder_dragon_intro_2", [
-      ], "Stop! A dragon? Now, where may this dragon be?", "village_elder_dragon_intro_3", [
-  ]],
-  [anyone,"village_elder_dragon_intro_3", [], 
-  "The men of the village claim it lives in a cave just northwest of here. If you kill it for us, I will pay you as best as we can.", "village_elder_dragon_intro_4", [
-  ]],
-  [anyone|plyr,"village_elder_dragon_intro_4", [
-      ], "Very well, I will kill this dragon.", "close_window", [
-      (str_store_party_name_link, s3, "p_village_157"),
-      (add_quest_note_from_sreg, "qst_dragon_quest", 5, "@The village elder of {s3} has requested you hunt down and defeat a dragon, who is supposedly northwest of the village.",0),
+ # [anyone, "village_elder_dragon_intro_1", [], "Ah, finally! I've sent messengers everywhere to see if someone could help! " +
+ #   "The villagers claim that we are being provoked by a dragon! I didn't believe them at first, but as of late several of our fields have been burned and our cattle stolen. Its not like typical marauders to burn valuable crops! " +
+ #   "I wish for you, please hunt down and kill this beast!","village_elder_dragon_intro_2",[
+ #     (call_script, "script_change_player_relation_with_center", "$g_encountered_party", 15),
+ # ]],
+ # [anyone|plyr,"village_elder_dragon_intro_2", [
+ #     ], "Stop! A dragon? Now, where may this dragon be?", "village_elder_dragon_intro_3", [
+ # ]],
+ # [anyone,"village_elder_dragon_intro_3", [], 
+ # "The men of the village claim it lives in a cave just northwest of here. If you kill it for us, I will pay you as best as we can.", "village_elder_dragon_intro_4", [
+ # ]],
+ # [anyone|plyr,"village_elder_dragon_intro_4", [
+ #     ], "Very well, I will kill this dragon.", "close_window", [
+ #     (str_store_party_name_link, s3, "p_village_157"),
+ #     (add_quest_note_from_sreg, "qst_dragon_quest", 5, "@The village elder of {s3} has requested you hunt down and defeat a dragon, who is supposedly northwest of the village.",0),
       #(setup_quest_text, "qst_dragon_quest"),
       #(str_store_string, s2, "@The village elder of {s3} has requested you hunt down and defeat a dragon, who is supposedly northwest of the village."),
-      (quest_set_slot,"qst_dragon_quest",slot_quest_current_state, 2), #stage 2 of the quest, 3 will be if he's killed, 4 if he bribes the player
-      (enable_party, "p_dragons_lair"),
-      (set_global_cloud_amount, 50),
-      (set_global_haze_amount, 80),
-  ]],
+ #     (quest_set_slot,"qst_dragon_quest",slot_quest_current_state, 2), #stage 2 of the quest, 3 will be if he's killed, 4 if he bribes the player
+ #     (enable_party, "p_dragons_lair"),
+ #     (set_global_cloud_amount, 50),
+ #     (set_global_haze_amount, 80),
+ # ]],
 
-  [anyone, "village_elder_dragon_killed_1", [], "You did? That's great news! We are saved! Thank you! " +
-    "Tell me, how did you kill it? We must know so we may sing songs in your name!","village_elder_dragon_killed_2",[
-      (call_script, "script_change_player_relation_with_center", "$g_encountered_party", 20),
-  ]],
-  [anyone|plyr,"village_elder_dragon_killed_2", [
-      ], "Ah yes, the 'dragon'. You were fooled by a group of bandits who were protecting their stache. Regardless, I defeated them for you.", "village_elder_dragon_killed_3", [
-  ]],
-  [anyone,"village_elder_dragon_killed_3", [], 
-  "Oh, really? They fooled all of us for sure. Now, your reward. We're just poor farmers, but we've pooled together what we have which is 900 siliquae. I wish we could pay more, but this is all we have.", "village_elder_dragon_killed_4", [
-  ]],
+  #[anyone, "village_elder_dragon_killed_1", [], "You did? That's great news! We are saved! Thank you! " +
+  #  "Tell me, how did you kill it? We must know so we may sing songs in your name!","village_elder_dragon_killed_2",[
+  #    (call_script, "script_change_player_relation_with_center", "$g_encountered_party", 20),
+  #]],
+  #[anyone|plyr,"village_elder_dragon_killed_2", [
+  #    ], "Ah yes, the 'dragon'. You were fooled by a group of bandits who were protecting their stache. Regardless, I defeated them for you.", "village_elder_dragon_killed_3", [
+  #]],
+  #[anyone,"village_elder_dragon_killed_3", [], 
+  #"Oh, really? They fooled all of us for sure. Now, your reward. We're just poor farmers, but we've pooled together what we have which is 900 siliquae. I wish we could pay more, but this is all we have.", "village_elder_dragon_killed_4", [
+  #]],
   #now for the choices...
-  [anyone|plyr,"village_elder_dragon_killed_4", [
-      ], "No need, keep the money. The bandit's stache of treasue is more than enough for me.", "village_elder_dragon_killed_5", [
-      (call_script, "script_change_player_relation_with_center", "$g_encountered_party", 10),
-      (call_script, "script_change_player_honor", 20),
-  ]],
-  [anyone|plyr,"village_elder_dragon_killed_4", [
-      ], "Thank you, I graciously accept.", "village_elder_dragon_killed_5", [
-    (call_script, "script_change_player_honor", 5),
-    (call_script, "script_troop_add_gold", "trp_player", 900),
-  ]],
-  [anyone,"village_elder_dragon_killed_5", [], 
-  "Thank you {sir/madam}. You helped us all, and we will sing about you for ages, even though in the end it was not a dragon.", "close_window", [
-  (add_xp_as_reward, 1250),
-  (call_script, "script_change_troop_renown", "trp_player", 15),
-  (call_script, "script_end_quest", "qst_dragon_quest"),
-  (disable_party, "p_dragons_lair"),
-  ]],
+  #[anyone|plyr,"village_elder_dragon_killed_4", [
+  #    ], "No need, keep the money. The bandit's stache of treasue is more than enough for me.", "village_elder_dragon_killed_5", [
+  #    (call_script, "script_change_player_relation_with_center", "$g_encountered_party", 10),
+  #    (call_script, "script_change_player_honor", 20),
+  #]],
+  #[anyone|plyr,"village_elder_dragon_killed_4", [
+  #    ], "Thank you, I graciously accept.", "village_elder_dragon_killed_5", [
+  #  (call_script, "script_change_player_honor", 5),
+  #  (call_script, "script_troop_add_gold", "trp_player", 900),
+  #]],
+  #[anyone,"village_elder_dragon_killed_5", [], 
+  #"Thank you {sir/madam}. You helped us all, and we will sing about you for ages, even though in the end it was not a dragon.", "close_window", [
+  #(add_xp_as_reward, 1250),
+  #(call_script, "script_change_troop_renown", "trp_player", 15),
+  #(call_script, "script_end_quest", "qst_dragon_quest"),
+  #(disable_party, "p_dragons_lair"),
+  #],
 
-  [anyone,"village_elder_dragon_bribed_1", [], 
-  "That's awful. However, at least the dragon is gone for the time being. Now, your reward. Although you did not kill the dragon, you still helped us. We're just poor farmers, but we've pooled together what we have which is 900 siliquae. I wish we could pay more, but this is all we have.", "village_elder_dragon_bribed_2", [
-  ]],
-  [anyone|plyr,"village_elder_dragon_bribed_2", [
-      ], "Thank you, I graciously accept.", "close_window", [
-    (call_script, "script_change_player_honor", -5),
-    (call_script, "script_troop_add_gold", "trp_player", 900),
-    (add_xp_as_reward, 1250),
-    (call_script, "script_change_troop_renown", "trp_player", 10),
-    (call_script, "script_end_quest", "qst_dragon_quest"),
-    (disable_party, "p_dragons_lair"),
-  ]],
+  #[anyone,"village_elder_dragon_bribed_1", [], 
+  #"That's awful. However, at least the dragon is gone for the time being. Now, your reward. Although you did not kill the dragon, you still helped us. We're just poor farmers, but we've pooled together what we have which is 900 siliquae. I wish we could pay more, but this is all we have.", "village_elder_dragon_bribed_2", [
+  #]],
+  #[anyone|plyr,"village_elder_dragon_bribed_2", [
+  #    ], "Thank you, I graciously accept.", "close_window", [
+  #  (call_script, "script_change_player_honor", -5),
+  #  (call_script, "script_troop_add_gold", "trp_player", 900),
+  #  (add_xp_as_reward, 1250),
+  #  (call_script, "script_change_troop_renown", "trp_player", 10),
+  #  (call_script, "script_end_quest", "qst_dragon_quest"),
+  #  (disable_party, "p_dragons_lair"),
+  #]],
 
   [anyone|plyr,"village_elder_talk", [(store_partner_quest,":elder_quest"),(ge,":elder_quest",0)],
    "About the task you asked of me...", "village_elder_active_mission_1",[]],
@@ -47535,6 +47536,37 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   (eq, "$g_nero_quest" , 0),
   ], "I've heard that there is some madman who is claiming to be Nero living out in Greece somewhere... What a crazy thing to hear!", "town_dweller_talk",[(assign, "$g_nero_quest", 1),(enable_party, "p_grove_of_nymphs")]],
 
+  #agrippinus quest
+  [anyone,"town_dweller_ask_rumor", [
+  (this_or_next|eq, "$current_town", "p_village_23"),   
+  (this_or_next|eq, "$current_town", "p_village_70"),  
+  (eq, "$current_town", "p_town_12"), #lutetia
+  (check_quest_active,"qst_agrippinus_quest"),     
+  (quest_slot_eq,"qst_agrippinus_quest",slot_quest_current_state, 2),
+  ], "I've heard that a very influential man around here, I think his name is... Agrippinus? Is currently hosting a lavish party at his private villa, east of Aurelianorum.", "town_dweller_talk",[
+  (quest_set_slot,"qst_agrippinus_quest",slot_quest_current_state, 3),
+  ]],
+
+  [anyone,"town_dweller_ask_rumor", [
+  (this_or_next|eq, "$current_town", "p_village_23"),   
+  (this_or_next|eq, "$current_town", "p_village_70"),  
+  (eq, "$current_town", "p_town_12"), #lutetia
+  (check_quest_active,"qst_agrippinus_quest"),     
+  (quest_slot_eq,"qst_agrippinus_quest",slot_quest_current_state, 3),
+  ], "There's been a man looking to hire former soldiers and mercenaries around here. He hasn't given a reason to why he needs those men, but why should I care? I'm not a soldier or anything... Oh, I think his name was Agrippinus if you are interested...", "town_dweller_talk",[
+  (quest_set_slot,"qst_agrippinus_quest",slot_quest_current_state, 4),
+  ]],
+
+  [anyone,"town_dweller_ask_rumor", [
+  (eq, "$current_town", "p_town_12"), #lutetia only
+  (check_quest_active,"qst_agrippinus_quest"),     
+  (quest_slot_eq,"qst_agrippinus_quest",slot_quest_current_state, 4),
+  ], "There's been this rather drunk courier in the tavern, keeps screaming about some strange letter he has to deliver, and how he'd rather drink then work. Talk about a reliable courier service...", "town_dweller_talk",[
+  (quest_set_slot,"qst_agrippinus_quest",slot_quest_current_state, 5),
+  (add_troop_to_site, "trp_roman_local_1", "scn_town_21_tavern", 12),
+  ]],
+
+
   [anyone,"town_dweller_ask_rumor", [
   (store_skill_level, reg0, "skl_persuasion", "trp_player"),
   (store_sub, reg0, -5, reg0),
@@ -50205,30 +50237,30 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   [trp_bagaudae_king, "start", [],
    "Yes?", "close_window", []],
 
-  [trp_burgundian_looter, "start", [(check_quest_active,"qst_dragon_quest"),(quest_slot_eq,"qst_dragon_quest",slot_quest_current_state, 2)],
-   "Who the hell are you, and what are you doing here?", "burgundian_looter_talk_1", []],
-  [trp_burgundian_looter|plyr, "burgundian_looter_talk_1", [],
-   "I was told there was a dragon here, are you here to hunt it too?", "burgundian_looter_talk_2", []],
-  [trp_burgundian_looter, "burgundian_looter_talk_2", [],
-   "Dragon? What are you talking about. Oh. I know. You were hired by that village to investiage us. Yeah, we're the so called 'dragon'...", "burgundian_looter_talk_3", []],
-  [trp_burgundian_looter, "burgundian_looter_talk_3", [],
-   "We've been burning their fields and stealing their cattle for a while now. Need them to piss off while we move our stache of treasure, they've been too close for comfort.", "burgundian_looter_talk_4", []],
-  [trp_burgundian_looter|plyr, "burgundian_looter_talk_4", [],
-   "Why are you telling me this?", "burgundian_looter_talk_5", []],
-  [trp_burgundian_looter, "burgundian_looter_talk_5", [],
-   "Ya want some of this treasure? I'll give ya some, only if you piss off and reinforce their 'dragon' lie. If not, we're just gonna kill you. Your choice!", "burgundian_looter_talk_6", []],
-  [trp_burgundian_looter|plyr, "burgundian_looter_talk_6", [],
-   "Very well, prepare to die, scum!", "close_window", [(assign,"$dragons_lair_explored",1),]],
-  [trp_burgundian_looter|plyr, "burgundian_looter_talk_6", [],
-   "I'll bite. Give me some of it and I'll be gone.", "burgundian_looter_talk_bribe_1", []],
-  [trp_burgundian_looter, "burgundian_looter_talk_bribe_1", [],
-   "Ah, very good. Take some of this gold. It'll fetch a good price. Now piss off!", "close_window", [
-    (quest_set_slot,"qst_dragon_quest", slot_quest_current_state, 4),
-    (call_script, "script_change_player_honor", -5),
-    (troop_add_items, "trp_player", "itm_quest_gold",2),
-    (assign,"$dragons_lair_explored",3),
-    (add_quest_note_from_sreg, "qst_dragon_quest", 6, "@It turned out the 'dragon' was just a group of bandits. You decided to help them. Report back to the village elder the the 'dragon' was too strong.",0), 
-  ]],
+  #[trp_burgundian_looter, "start", [(check_quest_active,"qst_dragon_quest"),(quest_slot_eq,"qst_dragon_quest",slot_quest_current_state, 2)],
+  # "Who the hell are you, and what are you doing here?", "burgundian_looter_talk_1", []],
+  #[trp_burgundian_looter|plyr, "burgundian_looter_talk_1", [],
+  # "I was told there was a dragon here, are you here to hunt it too?", "burgundian_looter_talk_2", []],
+  #[trp_burgundian_looter, "burgundian_looter_talk_2", [],
+  # "Dragon? What are you talking about. Oh. I know. You were hired by that village to investiage us. Yeah, we're the so called 'dragon'...", "burgundian_looter_talk_3", []],
+  #[trp_burgundian_looter, "burgundian_looter_talk_3", [],
+  # "We've been burning their fields and stealing their cattle for a while now. Need them to piss off while we move our stache of treasure, they've been too close for comfort.", "burgundian_looter_talk_4", []],
+  #[trp_burgundian_looter|plyr, "burgundian_looter_talk_4", [],
+  # "Why are you telling me this?", "burgundian_looter_talk_5", []],
+  #[trp_burgundian_looter, "burgundian_looter_talk_5", [],
+  # "Ya want some of this treasure? I'll give ya some, only if you piss off and reinforce their 'dragon' lie. If not, we're just gonna kill you. Your choice!", "burgundian_looter_talk_6", []],
+  #[trp_burgundian_looter|plyr, "burgundian_looter_talk_6", [],
+  # "Very well, prepare to die, scum!", "close_window", [(assign,"$dragons_lair_explored",1),]],
+  #[trp_burgundian_looter|plyr, "burgundian_looter_talk_6", [],
+  # "I'll bite. Give me some of it and I'll be gone.", "burgundian_looter_talk_bribe_1", []],
+  #[trp_burgundian_looter, "burgundian_looter_talk_bribe_1", [],
+  # "Ah, very good. Take some of this gold. It'll fetch a good price. Now piss off!", "close_window", [
+  #  (quest_set_slot,"qst_dragon_quest", slot_quest_current_state, 4),
+  #  (call_script, "script_change_player_honor", -5),
+  #  (troop_add_items, "trp_player", "itm_quest_gold",2),
+  #  (assign,"$dragons_lair_explored",3),
+  #  (add_quest_note_from_sreg, "qst_dragon_quest", 6, "@It turned out the 'dragon' was just a group of bandits. You decided to help them. Report back to the village elder the the 'dragon' was too strong.",0), 
+  #]],
 
   [trp_burgundian_looter, "start", [],
    "Yes?", "close_window", []],
@@ -51137,6 +51169,23 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
    "Wrong! Bah, I thought you were better than this!", "aurelian_fanatic_intro_1", [(val_add,"$g_aurelian_hint",1),]],
   [trp_aurelian_fanatic, "aurelian_quiz_fail", [(eq,"$g_aurelian_hint",5)],
    "Wrong! Bah, I was hoping you would complete it! Much of this information is provided to you in this land! Very well, I will see you in another time.", "close_window", [(val_add,"$g_aurelian_hint",1),]],
+
+  #agrippinus quest 2.0
+  [trp_curiosi_james, "start", [(check_quest_active, "qst_agrippinus_quest"),(quest_slot_eq, "qst_agrippinus_quest", slot_quest_current_state, 1)],
+   "Oh hello, there. What do you need?", "curiosi_james_intro_1", []],
+  [trp_curiosi_james|plyr, "curiosi_james_intro_1", [],
+   "I am {playername}, I was ordered by Majorian to meet with you in regards to investigating the allegations against Agrippinus.", "curiosi_james_intro_2", []],
+  [trp_curiosi_james, "curiosi_james_intro_2", [],
+   "Ah, {playername}, I was told you would be coming. My name is Iacobus, . Curiosi of the Agentes in Rebus. I have learned so far that Agrippinus has many ties here in Gallia Lugdunensis, however, I may have aroused suspicion around myself. It would be best if you, instead investigated any local rumors about the man.", "curiosi_james_intro_3", []],
+  [trp_curiosi_james, "curiosi_james_intro_3", [],
+   "It would be best to talk to the locals in Lutetia if they have heard anything interesting about Agrippinus. They may gives us some clues to work with. While you investigate there, I will find out where his villa is located.", "curiosi_james_intro_4", []],
+  [trp_curiosi_james|plyr, "curiosi_james_intro_4", [],
+   "Very well, I will go to Lutetia.", "close_window", [
+  (quest_set_slot,"qst_agrippinus_quest", slot_quest_current_state, 2),
+  (str_store_party_name_link, s3, "p_town_15"),
+  (display_message, "str_quest_log_updated"),
+  (add_quest_note_from_sreg, "qst_agrippinus_quest", 5, "@Iacobus tasked you to investigate the rumors about Agrippinus by talking to the locals in {s3}. He said a good start would be asking the local domesticus (guild master).",0),
+  ]],
 
 #MINOR FACTIONS
 

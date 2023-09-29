@@ -1628,7 +1628,7 @@ items = [
 ["childeric_armor", "Rigid Scale Curiass", [("childeric_armor",0)], itp_type_body_armor|itp_covers_legs ,0,9000 , weight(18)|abundance(20)|head_armor(4)|body_armor(56)|leg_armor(16)|difficulty(8) ,imodbits_scale ], #for childeric I
 ["arthur_scale", "Briton Scale Curiass", [("arthur_scale",0)], itp_unique|itp_type_body_armor|itp_covers_legs ,0,9000 , weight(17)|abundance(10)|head_armor(0)|body_armor(56)|leg_armor(16)|difficulty(8) ,imodbits_scale ],
 ["strabo_armor", "Scale Curiass", [("strabo_armor",0)], itp_unique|itp_type_body_armor|itp_covers_legs ,0,9000 , weight(17)|abundance(10)|head_armor(0)|body_armor(56)|leg_armor(16)|difficulty(8) ,imodbits_scale ],
-["danish_king_mail", "Mail", [("danish_king_mail",0)], itp_unique|itp_type_body_armor|itp_covers_legs ,0, 7000 , weight(17)|abundance(1)|head_armor(0)|body_armor(56)|leg_armor(16)|difficulty(8) ,imodbits_scale ],
+["danish_king_mail", "Mail", [("unique_mail_1",0)], itp_unique|itp_type_body_armor|itp_covers_legs ,0, 7000 , weight(17)|abundance(1)|head_armor(0)|body_armor(56)|leg_armor(16)|difficulty(8) ,imodbits_scale ],
 ["garamantian_king_scale", "Scale Curiass", [("garamantian_king_scale",0)], itp_unique|itp_type_body_armor|itp_covers_legs|itp_civilian ,0, 6000 , weight(15)|abundance(1)|head_armor(0)|body_armor(54)|leg_armor(12)|difficulty(8) ,imodbits_scale, [(ti_on_init_item,[(call_script, "script_init_tunic_legs"),]),], [fac_culture_11] ],
 ["mamluke_mail", "Squamata", [("gaiseric_scale",0)], itp_unique|itp_type_body_armor|itp_covers_legs ,0, 7000 , weight(19)|abundance(15)|head_armor(0)|body_armor(58)|leg_armor(16)|difficulty(13) ,imodbits_scale ],
 ["pictish_mail_king_1", "Rich Mail Shirt", [("pictish_mail_king_1",0)], itp_unique|itp_type_body_armor|itp_covers_legs ,0, 7000 , weight(19.5)|abundance(22)|head_armor(0)|body_armor(56)|leg_armor(18)|difficulty(11) ,imodbits_mail, [], culture_celtic ],
@@ -3455,7 +3455,7 @@ weight(1)|abundance(80)|head_armor(24)|body_armor(14)|leg_armor(6)|difficulty(0)
 
 #["aurelian_scale_armor", "Aurelian's Squamata", [("aurelian_scale_armor",0)], itp_unique|itp_type_body_armor|itp_covers_legs ,0,9000 , weight(18)|abundance(0)|head_armor(0)|body_armor(56)|leg_armor(16)|difficulty(16) ,imodbits_plate ], #high difficulty to prevent early players from using off the bat
 
-["unique_mail_armor", "Rich Mail Shirt", [("danish_king_mail",0)], itp_unique|itp_type_body_armor |itp_covers_legs ,0,9000 , weight(14)|abundance(0)|head_armor(0)|body_armor(54)|leg_armor(15)|difficulty(8) ,imodbits_armor ],
+["unique_mail_armor", "Rich Mail Shirt", [("unique_mail_2",0)], itp_unique|itp_type_body_armor |itp_covers_legs ,0,9000 , weight(14)|abundance(0)|head_armor(0)|body_armor(54)|leg_armor(15)|difficulty(8) ,imodbits_armor ],
 
 ["helmet_of_victory", "Ornate Ridge Helmet", [("victoria_intercisa",0),("victoria_intercisa_inv",ixmesh_inventory)], itp_type_head_armor|itp_attach_armature,0,2450, weight(1.75)|abundance(0)|head_armor(51)|body_armor(0)|leg_armor(0)|difficulty(0) ,imodbits_plate ],
 

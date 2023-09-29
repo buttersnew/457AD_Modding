@@ -323,7 +323,7 @@ parties = [
  ("village_101", "Susa", icon_village_c|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (195.84, -12.13), [], 20),             #[swycartographr] prev. coords: (113.25, -20.39) #[swycartographr] prev. coords: (192.55, -7.91) #[swycartographr] prev. coords: (193.18, -10.62)
  ("village_102", "Niniveh", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (138.35, 9.95), [], 170),          #[swycartographr] prev. coords: (61.5, 1)
  ("village_103", "Ganzak", icon_village_c|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (163.17, 24.5), [], 55),           #[swycartographr] prev. coords: (77.7175, 20.5276) #[swycartographr] prev. coords: (162.32, 20.21)
- ("village_104", "Oxyrhynchus", icon_village_c|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (55.47, -110.91), [], 15),     #[swycartographr] prev. coords: (-16.5, -105)
+ ("village_104", "Oxyrhynchus", icon_village_c|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (55.47, -110.91), [], 15),
  ("village_105", "Singara", icon_village_c|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (123.21, 9.12), [], 10),            #[swycartographr] prev. coords: (50.13, -4.13) #[swycartographr] prev. coords: (52.9, -5.26)
  ("village_106", "Tarsus", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (66.27, -7.34), [], 20),            #[swycartographr] prev. coords: (2.35, -10.5)
  ("village_107", "Tabriz", icon_village_c|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (156.78, 32.1), [], 160),           

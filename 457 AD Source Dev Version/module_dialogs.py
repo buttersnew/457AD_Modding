@@ -309,59 +309,6 @@ dialogs = [
    "This person looks quite busy. I think I shouldn't interrupt...","close_window",[]],
 
 
- #event_triggered for dialogues started by map conversation
-  [anyone, "event_triggered", [
-    (store_conversation_troop, "$g_talk_troop"),
-    (eq, "$g_talk_troop", "trp_lupicinus"),
-    (quest_slot_eq,"qst_agrippinus_quest",slot_quest_current_state, 5),], 
-  "Are you {playername}? I have an important request for you!","lupicinus_talk_1",[]],
-  [trp_lupicinus, "start", [(quest_slot_eq,"qst_agrippinus_quest",slot_quest_current_state, 5),], 
-  "Are you {playername}? I have an important request for you!","lupicinus_talk_1",[]],
-
-  [anyone|plyr, "lupicinus_talk_1", [], 
-  "I am {playername}. Who are you, and what do you need?","lupicinus_talk_2",[]],
-  [anyone, "lupicinus_talk_2", [], 
-  "I am Lupicinus, abbot of the monastery in Iurensium. I heard you were the one who captured Agrippinus and turned him in to Majorian, who is your friend. He has escaped, and is taking refuge in the Church of Saint Peter.", "lupicinus_talk_3",[]],
-  [anyone, "lupicinus_talk_3", [], 
-  "I wish to plead the innocence of my friend. He is a good man; a pious Christian. He has always been close to me, and a friend of the great Aignan of Aurelianorum. He is only trapped in a rivalry between Ricimer and Majorian. Please, plead to the emperor that he is innocent.", "lupicinus_talk_4",[]],
-  [anyone|plyr, "lupicinus_talk_4", [], 
-  "Very well, I will talk to Majorian.","close_window",[
-  (quest_set_slot,"qst_agrippinus_quest",slot_quest_current_state, 6),
-  (leave_encounter),
-  (change_screen_return),
-  ]],
-
-  #event_triggered for dialogues started by map conversation
-  [anyone, "event_triggered", [
-    (store_conversation_troop, "$g_talk_troop"),
-    (eq, "$g_talk_troop", "trp_lupicinus"),
-    (quest_slot_eq,"qst_agrippinus_quest",slot_quest_current_state, 7),], 
-  "{playername}! I am glad you were able to convince the emperor to pardon Agrippinus!","lupicinus_talk_reward_1",[]],
-  [trp_lupicinus, "start", [(quest_slot_eq,"qst_agrippinus_quest",slot_quest_current_state, 7),], 
-  "{playername}! I am glad you were able to convince the emperor to pardon Agrippinus!","lupicinus_talk_reward_1",[]],
-
-  [anyone, "lupicinus_talk_reward_1", [], 
-  "Agrippinus sends his regards, as well as a gift for saving him. Take this, it is for you!", "close_window",[
-  (call_script, "script_end_quest", "qst_agrippinus_quest"),
-  (add_xp_as_reward, 1000),
-  (call_script, "script_troop_add_gold", "trp_player", 5000),
-  (call_script, "script_change_player_honor", 5),
-  (call_script, "script_change_troop_renown", "trp_player", 2),
-  (val_add, "$piety", 5), 
-  (call_script, "script_change_player_relation_with_faction", "fac_roman_christians", 8),
-  (leave_encounter),
-  (change_screen_return),
-  ]],
-  #event_triggered for dialogues started by map conversation
-  [anyone, "event_triggered", [
-    (store_conversation_troop, "$g_talk_troop"),
-    (eq, "$g_talk_troop", "trp_lupicinus"),
-  ], 
-  "Yes?","close_window",[(leave_encounter),(change_screen_return)]],
-  [trp_lupicinus, "start", [], 
-  "Yes?","close_window",[(leave_encounter),(change_screen_return)]],
-
-
 #MINOR FACTION MERCHANTS
 #aestii merchants
   [trp_aestii_merchant_1, "start", [],
@@ -43389,8 +43336,14 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
 
   ]],
 
-
-
+  [anyone|plyr,"mayor_talk",[
+  (check_quest_active, "qst_agrippinus_quest"),
+  (quest_slot_eq,"qst_agrippinus_quest",slot_quest_current_state,5),
+  (eq, "$g_encountered_party", "p_town_12"),
+  ], "I have heard a man was looking to hire some mercenaries?", "mayor_agrippinus_talk_1",[]],
+  [anyone,"mayor_agrippinus_talk_1", [],"Ah that. I believe his name is Agrippinus. He's been sending couriers to look for mercenaries lately.","close_window",[
+  (quest_set_slot,"qst_agrippinus_quest",slot_quest_current_state,6),
+  ]],
 ## SB : add conditional lordship/rulership and flavour text for guildmaster
   [anyone|plyr,"mayor_talk", [], "Goodbye.", "close_window",[]],
   
@@ -47545,6 +47498,8 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   (quest_slot_eq,"qst_agrippinus_quest",slot_quest_current_state, 2),
   ], "I've heard that a very influential man around here, I think his name is... Agrippinus? Is currently hosting a lavish party at his private villa, east of Aurelianorum.", "town_dweller_talk",[
   (quest_set_slot,"qst_agrippinus_quest",slot_quest_current_state, 3),
+  (add_quest_note_from_sreg, "qst_agrippinus_quest", 2, "@Agrippinus is currently residing in his private villa.",0),
+  (enable_party, "p_agrippinus_quest_villa"),
   ]],
 
   [anyone,"town_dweller_ask_rumor", [
@@ -47553,17 +47508,18 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   (eq, "$current_town", "p_town_12"), #lutetia
   (check_quest_active,"qst_agrippinus_quest"),     
   (quest_slot_eq,"qst_agrippinus_quest",slot_quest_current_state, 3),
-  ], "There's been a man looking to hire former soldiers and mercenaries around here. He hasn't given a reason to why he needs those men, but why should I care? I'm not a soldier or anything... Oh, I think his name was Agrippinus if you are interested...", "town_dweller_talk",[
+  ], "I've heard a rumor that Aegidius accused Agrippinus of treason. What a claim, I've heard that Agrippinus is rather angry about his demotion, but I'd doubt he would betray the empire.", "town_dweller_talk",[
   (quest_set_slot,"qst_agrippinus_quest",slot_quest_current_state, 4),
+  (add_quest_note_from_sreg, "qst_agrippinus_quest", 3, "@Agrippinus is rumored to be angry about his demotion by Majorian.",0),
   ]],
 
   [anyone,"town_dweller_ask_rumor", [
   (eq, "$current_town", "p_town_12"), #lutetia only
   (check_quest_active,"qst_agrippinus_quest"),     
   (quest_slot_eq,"qst_agrippinus_quest",slot_quest_current_state, 4),
-  ], "There's been this rather drunk courier in the tavern, keeps screaming about some strange letter he has to deliver, and how he'd rather drink then work. Talk about a reliable courier service...", "town_dweller_talk",[
+  ], "There's been a man looking to hire former soldiers and mercenaries around here, but why should I care? I'm not a soldier or anything... You should talk to the domesticus about it, he may know more if you are interested.", "town_dweller_talk",[
   (quest_set_slot,"qst_agrippinus_quest",slot_quest_current_state, 5),
-  (add_troop_to_site, "trp_roman_local_1", "scn_town_21_tavern", 12),
+  (add_quest_note_from_sreg, "qst_agrippinus_quest", 4, "@Someone has been sending couriers to recruit mercenaries. Speaking to the domesticus (guild master) may reveal more information.",0),
   ]],
 
 
@@ -50532,19 +50488,6 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
    "Tfw no qt 3.14 gothic gf... Total Germani death...", "chudjak_3", []],
   [trp_chudjak|plyr, "chudjak_3", [],
    "You're crazy....", "close_window", []],
-
-  [trp_agrippinus, "start", [(eq, "$g_talk_troop_met", 0),(check_quest_active,"qst_agrippinus_quest"),(quest_slot_eq,"qst_agrippinus_quest",slot_quest_current_state, 1),],
-   "Hello there. What are you doing here at my villa?", "agrippinus_talk_battle_1", []],
-  [trp_agrippinus|plyr, "agrippinus_talk_battle_1", [],
-   "I am, {playername}. I am here for an unfortunate reason. Per Majorian's request, I have come to take you into custody for treason. Please, stand down and come with me.", "agrippinus_talk_battle_2", []],
-  [trp_agrippinus, "agrippinus_talk_battle_2", [],
-   "Treason? And for what reason!", "agrippinus_talk_battle_3", []],
-  [trp_agrippinus|plyr, "agrippinus_talk_battle_3", [],
-   "Majorian is aware of you funding your own private army, and fears you may be a threat against him. If you are using this army for the benefit of the state, then submiting yourself may help you prove yourself innocent...", "agrippinus_talk_battle_4", []],
-  [trp_agrippinus, "agrippinus_talk_battle_4", [],
-   "What? He thinks that protecting my own estate is treason? He really is a tyrant! You'll never take me in, guards, to arms!", "close_window", [
-    (quest_set_slot,"qst_agrippinus_quest",slot_quest_current_state, 2), #starts the battle
-   ]],
   
   [trp_isaurian_king, "start", [(check_quest_active,"qst_founding_the_excubitors"),(quest_slot_eq,"qst_founding_the_excubitors",slot_quest_current_state, 1),],
    "Hello there. What do you need?", "isaurian_king_talk_intro_1", []],
@@ -51178,14 +51121,144 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   [trp_curiosi_james, "curiosi_james_intro_2", [],
    "Ah, {playername}, I was told you would be coming. My name is Iacobus, . Curiosi of the Agentes in Rebus. I have learned so far that Agrippinus has many ties here in Gallia Lugdunensis, however, I may have aroused suspicion around myself. It would be best if you, instead investigated any local rumors about the man.", "curiosi_james_intro_3", []],
   [trp_curiosi_james, "curiosi_james_intro_3", [],
-   "It would be best to talk to the locals in Lutetia if they have heard anything interesting about Agrippinus. They may gives us some clues to work with. While you investigate there, I will find out where his villa is located.", "curiosi_james_intro_4", []],
+   "It would be best to talk to the locals in Lutetia if they have heard anything interesting about Agrippinus. They may gives us some clues to work with. While you investigate there, I will find out what I can on my own.", "curiosi_james_intro_4", []],
   [trp_curiosi_james|plyr, "curiosi_james_intro_4", [],
    "Very well, I will go to Lutetia.", "close_window", [
   (quest_set_slot,"qst_agrippinus_quest", slot_quest_current_state, 2),
   (str_store_party_name_link, s3, "p_town_15"),
   (display_message, "str_quest_log_updated"),
-  (add_quest_note_from_sreg, "qst_agrippinus_quest", 5, "@Iacobus tasked you to investigate the rumors about Agrippinus by talking to the locals in {s3}. He said a good start would be asking the local domesticus (guild master).",0),
+  (add_quest_note_from_sreg, "qst_agrippinus_quest", 1, "@Iacobus tasked you to investigate the rumors about Agrippinus by talking to the locals in {s3}.",0),
   ]],
+
+  [trp_curiosi_james, "start", [],
+   "Yes, what do you need?", "curiosi_james_1", []],
+
+  [trp_curiosi_james|plyr, "curiosi_james_1", [(check_quest_active, "qst_agrippinus_quest"),(quest_slot_ge, "qst_agrippinus_quest", slot_quest_current_state, 3),(quest_slot_lt, "qst_agrippinus_quest", slot_quest_current_state, 7)],
+   "I've learned that Agrippinus's villa is east of Aurelianorum. He is currently hosting a party with many of the notables within Lugdunensis.", "curiosi_james_rumor_1_1", []],
+  [trp_curiosi_james, "curiosi_james_rumor_1_1", [],
+   "It may be worth investigating it then, {playername}. You may be able to talk to the guests to learn more about Agrippinus from their perspective.", "curiosi_james_1", []],
+
+  [trp_curiosi_james|plyr, "curiosi_james_1", [(check_quest_active, "qst_agrippinus_quest"),(quest_slot_ge, "qst_agrippinus_quest", slot_quest_current_state, 4),(quest_slot_lt, "qst_agrippinus_quest", slot_quest_current_state, 7)],
+   "I've heard from the locals that Agrippinus may be angry about his demotion from Magister Militum per Gallia.", "curiosi_james_rumor_2_1", []],
+  [trp_curiosi_james, "curiosi_james_rumor_2_1", [],
+   "This could be a motive for him to collaborate with the barbarians, but a rumor is just a rumor. We need better evidence.", "curiosi_james_1", []],
+
+  [trp_curiosi_james|plyr, "curiosi_james_1", [(check_quest_active, "qst_agrippinus_quest"),(quest_slot_ge, "qst_agrippinus_quest", slot_quest_current_state, 6),(quest_slot_lt, "qst_agrippinus_quest", slot_quest_current_state, 7)],
+   "It seems that Agrippinus has been on a large recruitment campaign.", "curiosi_james_rumor_2_1", []],
+  [trp_curiosi_james, "curiosi_james_rumor_2_1", [],
+   "If he really does plan on betraying the empire, with enough soldiers he could be quite the force to be reckoned with.", "curiosi_james_1", []],
+
+  [trp_curiosi_james|plyr, "curiosi_james_1", [(check_quest_active, "qst_agrippinus_quest"),(quest_slot_ge, "qst_agrippinus_quest", slot_quest_current_state, 4),(quest_slot_lt, "qst_agrippinus_quest", slot_quest_current_state, 7)],
+   "What have you gathered from your investigation?", "curiosi_james_investigation_1", []],
+  [trp_curiosi_james, "curiosi_james_investigation_1", [],
+   "I was able to intercept one of his couriers heading the the lands controlled by the Goths under Theodoric.", "curiosi_james_investigation_2", []],
+  [trp_curiosi_james, "curiosi_james_investigation_2", [],
+   "It seems that he is trying to sort out an alliance with the Goths. However, I did not find anything to indicate this is done in preparation to revolt against Majorian.", "curiosi_james_1", [
+   (add_quest_note_from_sreg, "qst_agrippinus_quest", 6, "@Agrippinus has been sending letters to the Goths under Theodoric to form an alliance.",0),
+   ]],
+
+  [trp_curiosi_james|plyr, "curiosi_james_1", [(check_quest_active, "qst_agrippinus_quest"),(quest_slot_ge, "qst_agrippinus_quest", slot_quest_current_state, 3),(quest_slot_lt, "qst_agrippinus_quest", slot_quest_current_state, 7)],
+   "About Agrippinus...", "curiosi_james_choice_1", []],
+  [trp_curiosi_james, "curiosi_james_choice_1", [],
+   "What conclusion have you come to, {playername}?", "curiosi_james_choice_2", []],
+  [trp_curiosi_james|plyr, "curiosi_james_choice_2", [], #guilty path
+   "I think he is guilty of treason.", "curiosi_james_choice_guilty_1", []],
+  [trp_curiosi_james, "curiosi_james_choice_guilty_1", [],
+   "Well then, we ought to go take him into custody. I doubt he'll turn himself in. Prepare for a fight, {playername}. I will meet you at his villa with my own men.", "close_window", [
+  (quest_set_slot,"qst_agrippinus_quest", slot_quest_current_state, 10),
+   ]],
+
+  [trp_curiosi_james|plyr, "curiosi_james_choice_2", [], #innocent path
+   "I think he is innocent.", "curiosi_james_choice_innocent_1", []],
+  [trp_curiosi_james, "curiosi_james_choice_innocent_1", [],
+   "I'll trust your judgement, {playername}. I will inform Majorian of your decision.", "close_window", [
+  (quest_set_slot,"qst_agrippinus_quest", slot_quest_current_state, 8),
+  (succeed_quest, "qst_agrippinus_quest"),
+   ]],
+  [trp_curiosi_james|plyr, "curiosi_james_choice_2", [],
+   "Nevermind, I have not made up my mind.", "curiosi_james_1", []],
+
+  [trp_curiosi_james|plyr, "curiosi_james_1", [],
+   "Nevermind.", "close_window", []],
+
+  [trp_titus,"start", [(store_current_scene,":current_scene"),
+  (eq,":current_scene","scn_maxi_roman_villa"),
+  (check_quest_active,"qst_agrippinus_quest"),
+  ], "Yes, what do you want?", "aq_titus_1",[]],
+  [trp_titus|plyr, "aq_titus_1", [],
+   "What is your opinion on Agrippinus?", "aq_titus_thoughts_1", []],
+  [trp_titus, "aq_titus_thoughts_1", [],
+   "What about him? He's a very influential man in these lands. I have heard of his exploits in the past, however I am only meeting him now for the first time.", "aq_titus_thoughts_2", []],
+  [trp_titus|plyr, "aq_titus_thoughts_2", [],
+   "What do you think about him hiring mercenaries?", "aq_titus_mercenaries_1", []],
+  [trp_titus|plyr, "aq_titus_thoughts_2", [],
+   "Let's change the topic.", "aq_titus_1", []],
+  [trp_titus, "aq_titus_mercenaries_1", [],
+   "Ah yes, I've heard about that. Do you blame him? The empire is in shambles, and more and more of us richer men are realizing that we are up on our own when it comes to the defense of our estates and lands.", "aq_titus_mercenaries_2", []],
+  [trp_titus, "aq_titus_mercenaries_2", [],
+   "The state cannot afford much of its military, and such has demobilized many of its troops. This makes us vulnerable to attack from the barbarians, as there are less soldiers to keep them at bay. Recently I have begun amassing my own wealth and guards. The day may come where I must defend my estates from those filth.", "aq_titus_mercenaries_3", []],
+  [trp_titus, "aq_titus_mercenaries_3", [],
+   "Therefore, I do not think much of it. I have heard that Aegidius has accused Agrippinus of treason, and I very much doubt Agrippinus will use his forces to revolt against our good emperor.", "aq_titus_mercenaries_4", [
+   (add_quest_note_from_sreg, "qst_agrippinus_quest", 7, "@Titus, a Gallo-Roman, claims hiring mercenaries is not out of the ordinary.",0),
+   ]],
+  [trp_titus|plyr, "aq_titus_mercenaries_4", [],
+   "Thank you for your opinion.", "close_window", []],
+  [trp_titus|plyr, "aq_titus_1", [],
+   "Nevermind, I did not mean to disturb you.", "close_window", []],
+
+
+  [trp_ecdicius_avitus,"start", [(store_current_scene,":current_scene"),
+  (eq,":current_scene","scn_maxi_roman_villa"),
+  (check_quest_active,"qst_agrippinus_quest"),
+  ], "Hello there, what do you need?", "aq_ecdicius_1",[]],
+  [trp_ecdicius_avitus|plyr, "aq_ecdicius_1", [],
+   "Who are you?", "aq_ecdicius_intro_1", []],
+  [trp_ecdicius_avitus, "aq_ecdicius_intro_1", [],
+   "I am Ecdicius Avitus, son of the previous Emperor, Avitus, God rest his soul.", "aq_ecdicius_intro_2", []],
+  [trp_ecdicius_avitus, "aq_ecdicius_intro_2", [],
+   "Now, what do you need?", "aq_ecdicius_1", []],
+  [trp_ecdicius_avitus|plyr, "aq_ecdicius_1", [],
+   "What is your opinion on Agrippinus?", "aq_ecdicius_thoughts_1", []],
+  [trp_ecdicius_avitus, "aq_ecdicius_thoughts_1", [],
+   "Ah yes, Agrippinus, the man we are here to see! He was a loyal supporter of my father during his rather... brief reign. A military man, not only did he serve my father, but he served Valentinian as well.", "aq_ecdicius_thoughts_2", []],
+  [trp_ecdicius_avitus, "aq_ecdicius_thoughts_2", [],
+   "I've heard the accusations against him. Treason? Treachery? Disloyalty to the empire? I will hold my tongue lest I get caught up in this controversy as well. Now go bother someone else about this.", "aq_ecdicius_thoughts_3", []],
+  [trp_ecdicius_avitus|plyr, "aq_ecdicius_thoughts_3", [],
+   "very well, I will leave you be.", "close_window", [
+   (add_quest_note_from_sreg, "qst_agrippinus_quest", 8, "@Ecdicius, son of the previous emperor claims Agrippinus was loyal to his father and the Valentinian. However, he refused to say any more on the matter.",0),
+   ]],
+  [trp_ecdicius_avitus|plyr, "aq_ecdicius_1", [],
+   "Nevermind, I did not mean to disturb you.", "close_window", []],
+
+  [trp_agrippinus, "start", [(store_current_scene,":current_scene"),
+  (eq,":current_scene","scn_maxi_roman_villa"),
+  (check_quest_active,"qst_agrippinus_quest"),],
+   "Hello there. What are you doing here at my villa?", "agrippinus_talk_1", []],
+
+  [trp_agrippinus|plyr, "agrippinus_talk_1", [],
+   "I've heard you are hiring mercenaries. Why do you need them?", "agrippinus_talk_mercenaries_1", []],
+  [trp_agrippinus, "agrippinus_talk_mercenaries_1", [
+  (store_skill_level, reg1, "skl_persuasion", "trp_player"),
+  (store_random_in_range, reg0, -2, 11),
+  (try_begin),
+     (ge, "$cheat_mode", 1),
+    (display_message, "@{!}Persuasion attempt: skill {reg1} versus random roll {reg0} (-2 through 10)"),
+  (try_end),
+  (le, reg0, reg1),
+  #The persuasion attempt succeeded.
+  ],
+  "Much of Lugdunensis is left defenseless, and the Goths and Germans are a constant threat. Although I may not hold the position of Magister Militum, I must do my best to defend my own interests.", "agrippinus_talk_mercenaries_2", [
+  ]],
+  [trp_agrippinus|auto_proceed, "agrippinus_talk_mercenaries_1", [],
+  #The persuasion attempt failed.  Fall back to the standard behavior.
+  "Who the hell are you to even ask me? I have my own reasons.", "agrippinus_talk_mercenaries_2", [
+  ]],
+  [trp_agrippinus, "agrippinus_talk_mercenaries_2", [],
+   "Now, what do you need", "agrippinus_talk_1", []],
+
+  [trp_agrippinus|plyr, "agrippinus_talk_1", [],
+   "Nevermind, I did not mean to disturb you.", "close_window", []],
+
 
 #MINOR FACTIONS
 

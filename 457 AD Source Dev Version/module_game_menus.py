@@ -24489,31 +24489,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 
      ("leave",[],"Leave",[(leave_encounter),(change_screen_return)]),
     ]),  
-
-  ("dragons_lair",0,
-    "You have arrived at the cave the villager's claim to be the dragon's lair. Your men, terrified at the idea of facing a dragon refuse to approch...",
-    "none",
-    [
-      (try_begin),
-        (store_troop_health, ":health", "trp_player", 0), #get relative health in 1-100 range and put it into the ":health" variable
-        (lt, ":health", 30),
-        (val_add, ":health", 50),               #add to it the 5%
-        (troop_set_health,   "trp_player", ":health"),   #set it
-      (try_end),
-    ],
-    [
-      ("approach",[(eq, "$dragons_lair_explored", 0),(quest_slot_eq,"qst_dragon_quest",slot_quest_current_state, 2)],"Look around...",
-    [
-      (modify_visitors_at_site,"scn_dragons_lair"),
-      (reset_visitors,0),
-      (set_visitors,1,"trp_burgundian_looter",1),
-      (set_jump_mission,"mt_dragons_lair_visit"),
-      (jump_to_scene,"scn_dragons_lair"),
-      (change_screen_mission),
-    ]),
-
-     ("leave",[],"Leave",[(leave_encounter),(change_screen_return)]),
-    ]),  
+ 
 
   ("court_of_attila_visit",0,
     "You have found a desolate wooden walled village... the former site of Attila's personal court.",

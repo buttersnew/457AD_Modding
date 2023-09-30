@@ -442,10 +442,6 @@ quests = [
   "{!}None"
  ),
 
- ("roman_pagan_quest_book", "Book for a friend", 0, #unused
-  "{!}None"
- ),
-
  ("mithras_quest", "Syndexioi", 0,
   "{!}None"
  ),
@@ -471,10 +467,6 @@ quests = [
  ),
 
  ("song_of_attila", "Attila's Song", 0,
-  "{!}None"
- ),
-
- ("dragon_quest", "The Dragon", 0, #Village requests player help to rid them of a "dragon", in reality it is bandits scaring away villagers from his gold stache. Player can decide to kill him for the gold + relations with village, give the gold to the village for massive relations + honor increase, or side with the bandit and lie, decreasing relations but giving good gold in return
   "{!}None"
  ),
 
@@ -513,6 +505,10 @@ quests = [
  ("the_wolfmen", "The Wolf Headed Men", 0,
   "{!}None"
  ),
+
+ ("heretical_codex", "A Certain Magical Codex", 0,
+  "{!}None"
+ ), 
 #CONQUEST QUESTS
  ("conquest_gaul", "The Reconquest of Gaul", 0, #WRE
   "{!}Just as Julius Caesar conquered Gaul 500 years ago, you must conquer the lands once again."

@@ -26664,60 +26664,48 @@ I will use this to make amends to those you have wronged, and I will let it be k
 #agrippinus quest
 [anyone|plyr,"lord_talk", [
     (check_quest_active, "qst_agrippinus_quest"),
-    (quest_slot_eq,"qst_agrippinus_quest",slot_quest_current_state, 3),
+    (check_quest_succeeded,"qst_agrippinus_quest"),
     (eq, "$g_talk_troop", "trp_kingdom_1_lord"),
                        ],
-"I have captured Agrippinus.", "lord_agrippinus_captured_1",[]],
+"I have dealt with the whole Agrippinus matter.", "lord_agrippinus_finale_1",[]],
 
-[anyone,"lord_agrippinus_captured_1", [ ],
-"Fantastic news, {playername}. At least he will no longer be a threat to me. Now I will bring him to trial If he is found guilty, he will be executed. Here, for all your trouble, take this.", "lord_talk",[
+[anyone,"lord_agrippinus_finale_1", [
+(quest_slot_eq,"qst_agrippinus_quest",slot_quest_current_state, 8), #innocent
+],
+"I've heard that you determined that Agrippinus was clear of such charges. Aegidius will not be pleased for hearing this, however justice has prevailed. I hope I will not come to regret trusting you with this... Here, take this as a reward. This should be enough to compensate for your time.", "lord_talk",[
 (troop_add_gold, "trp_player", 1500),
-(remove_member_from_party, "trp_agrippinus"),
-(quest_set_slot,"qst_agrippinus_quest",slot_quest_current_state, 4), 
-(call_script, "script_change_troop_renown", "trp_player", 8),
-(call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 20),
-(add_quest_note_from_sreg, "qst_agrippinus_quest", 5, "@You have returned Agrippinus successfully. However, you have a strong feeling that this is not the end of the story.",0),
-]],
-
-[anyone|plyr,"lord_talk", [
-    (check_quest_active, "qst_agrippinus_quest"),
-    (quest_slot_eq,"qst_agrippinus_quest",slot_quest_current_state, 6),
-    (eq, "$g_talk_troop", "trp_kingdom_1_lord"),
-                       ],
-"I wish to talk to you about Agrippinus.", "lord_agrippinus_talk_1",[]],
-
-[anyone,"lord_agrippinus_talk_1", [ ],
-"What about him? I assume you heard he escaped. Do you know where he is?", "lord_agrippinus_talk_2",[
-]],
-
-[anyone|plyr,"lord_agrippinus_talk_2",
-[], 
-"I wish to ask you to pardon him. His friend, the abbot, Lupicinus met with me and asked he be pardoned, citing his relation with the church.", "lord_agrippinus_pardon_1",
-[]],
-[anyone|plyr,"lord_agrippinus_talk_2",
-[], 
-"I do, he is currently taking refuge in the Church of Saint Peter in Rome.", "lord_agrippinus_found_1",
-[]],
-
-[anyone,"lord_agrippinus_pardon_1", [ ],
-"I'll consider it, {playername}. I still do not trust him, however, if he agrees to disband his forces, I will pardon him.", "lord_talk",[
-(quest_set_slot,"qst_agrippinus_quest",slot_quest_current_state, 7), 
-(call_script, "script_succeed_quest", "qst_agrippinus_quest"),
-(disable_party, "p_agrippinus_quest_villa"),
-(assign, "$g_agrippinus_quest", 2),
-(call_script, "script_change_player_honor", "trp_player", 5),
-(call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 5),
-]],
-
-[anyone,"lord_agrippinus_found_1", [ ],
-"I see. Unfortunately I do not have the authority or support to seize him from the Church. However, as long as he is there, he is no longer a threat. Take this as a reward for all your trouble, and per my request, all of Agrippinus's forces are now under your authority.", "lord_talk",[
-(call_script, "script_end_quest", "qst_agrippinus_quest"),
-(troop_add_gold, "trp_player", 4000),
 (add_xp_as_reward, 1000),
-(assign, "$g_agrippinus_quest", 3),
-(call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 25),
+(call_script, "script_change_player_honor", "trp_player", 5), #grants honor
+(call_script, "script_change_troop_renown", "trp_player", 15),
+(call_script, "script_change_player_relation_with_troop", "trp_kingdom_1_lord", 15),
+(call_script, "script_change_player_relation_with_troop", "trp_knight_1_2", -10),
+(call_script, "script_end_quest", "qst_agrippinus_quest"),
 ]],
 
+[anyone,"lord_agrippinus_finale_1", [
+(quest_slot_eq,"qst_agrippinus_quest",slot_quest_current_state, 12), #guilty
+],
+"I heard from Iacobus that you found enough evidence for Agrippinus to be found sentenced for treason. Aegidius will be pleased to hear this. I hope I will not regret counting on you for this, {playername}. Here, take this as a reward. It should be enough to compensate for your time.", "lord_talk",[
+(troop_add_gold, "trp_player", 1500),
+(add_xp_as_reward, 1000),
+(call_script, "script_change_player_right_to_rule", 3),#grants rtr
+(call_script, "script_change_troop_renown", "trp_player", 15),
+(call_script, "script_change_player_relation_with_troop", "trp_kingdom_1_lord", 10),
+(call_script, "script_change_player_relation_with_troop", "trp_knight_1_2", 15),
+(call_script, "script_end_quest", "qst_agrippinus_quest"),
+]],
+
+[anyone,"lord_agrippinus_finale_1", [
+(quest_slot_eq,"qst_agrippinus_quest",slot_quest_current_state, 11), #guilty however, failed to capture him
+],
+"I've heard about your failure to capture Agrippinus, {playername}. Aegidius is not pleased in hearing this. However, I know you are dependable as you have shown to me in the past. Do not let something like this happen again, failure is not an option. Take this as a reward. Not as much compared to what I would have given if you had captured him.", "lord_talk",[
+(troop_add_gold, "trp_player", 1000),
+(add_xp_as_reward, 800),
+(call_script, "script_change_troop_renown", "trp_player", 5),
+(call_script, "script_change_player_relation_with_troop", "trp_kingdom_1_lord", 5),
+(call_script, "script_change_player_relation_with_troop", "trp_knight_1_2", -15),
+(call_script, "script_end_quest", "qst_agrippinus_quest"),
+]],
 
 #excubitors quest
 [anyone|plyr,"lord_talk", [

@@ -3491,6 +3491,8 @@ weight(1)|abundance(80)|head_armor(24)|body_armor(14)|leg_armor(6)|difficulty(0)
 
 ["holy_grail","Cup of Chrestos", [("cup",0),], itp_unique, 0, 1,weight(0.25)|abundance(0)|max_ammo(1),imodbits_none],
 
+["heretical_codex","Strange Codex", [("book_f",0)], itp_type_book, 0, 1,weight(2)|abundance(100),imodbits_none],
+
 ["tavern_cup","Cup",[("dedal_kufelL",0)],itp_type_hand_armor,0, 1, weight(1.0)|abundance(1)|body_armor(0)|difficulty(0),imodbits_none],
 ["dedal_lutnia","Lyre",[("dedal_liraL",0)],	itp_type_hand_armor,0,0,weight(1),0],
 ["dedal_lira","Lyre",[("dedal_liraL",0)],		itp_type_hand_armor,0,0,weight(1),0],

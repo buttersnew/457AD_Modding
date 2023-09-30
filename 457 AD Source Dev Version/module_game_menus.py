@@ -5438,20 +5438,6 @@ TOTAL:  {reg5}"),
     ]
   ),
 
-      ("hidden_forest",0,
-        "You arrive at the deep forest.",
-        "none",
-        [],
-        [("enter",[(eq,"$g_hero_result",0),],"Approach.",
-             [(modify_visitors_at_site,"scn_hidden_forest"),
-              (reset_visitors,0),
-              (set_visitors,1,"trp_old_warrior",1),
-              (set_jump_mission,"mt_old_warrior_mission"),
-              (jump_to_scene,"scn_hidden_forest"),
-              (change_screen_mission),]),
-        ("leave",[],"Leave...",
-       [(change_screen_map),]),
-    ],),
 
     (
         "ruins_1",0,
@@ -24970,27 +24956,6 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         [
           (jump_to_menu,"mnu_quest_agrippinus_villa"),
       ]),
-    ]),
-
-
-  ("lupicinus_encounter",0,
-    "A clergyman seems to be approaching you, asking for an audience with you...",
-    "none",
-    [],
-    [
-      ("talk_to_lupicinus",[(check_quest_active,"qst_agrippinus_quest"),],
-        "Talk to the man.",[
-          (call_script, "script_setup_troop_meeting", "trp_lupicinus", -1),
-          #(modify_visitors_at_site,"scn_conversation_scene"),#player entry point 16, and then 17, 18, 19 for NPC's, opposite the player. 17 must be g_talk troop
-          #(reset_visitors),
-          #(set_visitor,0,"trp_player"),
-          #(set_visitor,17,"trp_lupicinus"),
-          #(set_jump_mission,"mt_conversation_encounter"),
-          #(jump_to_scene,"scn_conversation_scene"),
-          #(change_screen_map_conversation, "trp_lupicinus"),
-      ]),
-
-     ("leave",[(neg|check_quest_active,"qst_agrippinus_quest"),],"Leave",[(leave_encounter),(change_screen_return)]),
     ]),
 
 

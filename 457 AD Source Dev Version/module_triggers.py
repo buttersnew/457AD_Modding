@@ -1058,15 +1058,6 @@ triggers = [
   (add_troop_to_site, "trp_zamb_man", "scn_town_17_tavern", 12),
    ]),
 
-(72,0,ti_once,[(check_quest_active,"qst_agrippinus_quest"),(quest_slot_eq,"qst_agrippinus_quest",slot_quest_current_state, 4)],[ #agrippinus quest
-  (quest_set_slot,"qst_agrippinus_quest", slot_quest_current_state, 5),
-  (jump_to_menu,"mnu_lupicinus_encounter"),
-]),
-
-(24,0,ti_once,[(check_quest_active,"qst_agrippinus_quest"),(quest_slot_eq,"qst_agrippinus_quest",slot_quest_current_state, 7),(check_quest_succeeded, "qst_agrippinus_quest")],[ #agrippinus quest
-  (jump_to_menu,"mnu_lupicinus_encounter"),
-]),
-
 
 (24,0,22,[(eq,"$prayer",1)],[
     (assign, "$prayer", 0),    

@@ -4810,31 +4810,13 @@ troops = [
 
   #MINOR FACTION MERCHANTS END
 
-  #quest NPCs
-  #["old_roman_man","Placus Silius","Placus Silius",tf_hero|tf_randomize_face|tf_guarantee_boots|tf_guarantee_armor, no_scene, reserved, fac_commoners,[itm_coptic_tunic_8, itm_wrapping_boots],def_attrib_elite|level(19),wp(180),knows_ironflesh_10|knows_power_strike_7,man_face_younger_1, man_face_2],
-
   #reusing for extended mithras quest
   ["roman_landowner","Gnaeus Turibius","Gnaeus Turibius",tf_hero|tf_guarantee_boots|tf_guarantee_armor, no_scene, reserved, fac_commoners,[itm_coptic_tunic_13,itm_deurne_campagi_5,itm_arabian_sword_b],def_attrib_lvl_32|level(30),wp(300),knows_ironflesh_10|knows_power_strike_10,0x00000001bf0000823adb6db6db6db6db00000000001db6dd0000000000000000],
 
   ["roman_landowner_wife","Gnaeus Turibius's Wife","Gnaeus Turibius's Wife",tf_female|tf_hero,0,0,fac_commoners,[itm_ankle_boots,itm_roman_noble_dress_2,itm_dagger],def_attrib|level(8),wp(110),knows_common|knows_athletics_3|knows_power_draw_2|knows_power_strike_2|knows_wound_treatment_2,0x0000000ca60c501026db9337b5b63cda00000000001dc4120000000000000000],
 
-  #unused
-  ["gothic_historian","Alatheus","Alatheus",tf_hero|tf_guarantee_boots|tf_guarantee_armor, no_scene, reserved, fac_commoners,[],def_attrib_lvl_32|level(19),wp(180),knows_ironflesh_10|knows_power_strike_7,0x000000018d0000823adb6db6db6db6db00000000001db6dd0000000000000000],
-  ["hunnic_guide","Cniva the Old","Cniva the Old",tf_hero|tf_guarantee_boots|tf_guarantee_armor, no_scene, reserved, fac_commoners,[],def_attrib_lvl_32|level(4),wp(60),knows_common,0x000000019e0010823adb6db6db6db6db00000000001db6dd0000000000000000],
-
   #Will be reused again, for the dragon quest
   ["burgundian_looter","Avaldus","Avaldus",tf_hero|tf_guarantee_helmet, no_scene,0, fac_outlaws,[itm_wrapping_boots,itm_common_mail_short_4,itm_augst_helmet_1,itm_sword_medieval_c,itm_concave_shield_germanic_2],def_attrib_lvl_30|level(30),wp(230),knows_common|knows_riding_3|knows_athletics_4|knows_ironflesh_8|knows_shield_4|knows_power_throw_4,0x00000003de0071433adb6db6db6db6db00000000001db6f10000000000000000],
-
-  #probably won't use but who knows
-  ["burgundian_bandit","Burgundian Bandit","Burgundian Bandits",tf_guarantee_boots|tf_guarantee_armor,0,0,fac_outlaws,
-   [],
-   def_attrib_lvl_18|level(19),wp(190),knows_common|knows_power_throw_4|knows_power_strike_4|knows_ironflesh_4,germanic_face_1, germanic_face_2],  
-  ["old_warrior","old warrior","old warrior",tf_hero|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_ranged,0,0,fac_outlaws,
-   [],
-   def_attrib_lvl_28|level(40),wp(400),knows_ironflesh_10|knows_power_strike_10|knows_power_throw_10|knows_athletics_10|knows_shield_10|knows_wound_treatment_3|knows_surgery_8,0x00000007a6002194125b6db6cb6db6db00000000001db6c30000000000000000],
-  ["hunnic_warlord","Hunnic Warlord","Hunnic Warlords",tf_mounted|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_horse,0,0,fac_black_khergits,
-   [],
-   def_attrib_lvl_23|level(24),wpex(240,250,260,160,160,160),knows_riding_7|knows_ironflesh_8|knows_horse_archery_6|knows_power_draw_6|knows_power_strike_4,0x00000003de00c10336db6db6db6db6db00000000001db6db0000000000000000],
 
   ["sidonius_apollinaris","Sidonius Apollinaris","Sidonius Apollinaris",tf_hero, 0, reserved, fac_kingdom_1,[itm_ankle_boots,itm_coptic_tunic_12],def_attrib|level(3),wp(80),knows_wound_treatment_3,0x000000000000208236db6db6db6db6db00000000001db6e40000000000000000], #also was NOTARII in 458
 
@@ -4996,8 +4978,6 @@ troops = [
   #agrippinus quest
   ["agrippinus", "Agrippinus", "Agrippinus", tf_hero, no_scene, 0, fac_commoners,[itm_deurne_campagi_1,itm_coptic_tunic_3,itm_arabian_sword_b],knight_attrib_5,wp(300),knight_skills_5|knows_trainer_1|knows_trainer_3,0x00000000d900500236db6e46936db2da00000000001d36e20000000000000000],
 
-  ["lupicinus","Abbot Lupicinus","Lupicinus",tf_hero, 0, reserved, fac_roman_christians,[itm_wrapping_boots,itm_robes_church], def_attrib|level(3),wp(80),knows_wound_treatment_3,0x000000096700908f330dae56d26db6db00000000001db6f50000000000000000],
-
   #Agentes in rebus, curiosi were inspectors, or secret agents (at times)
   ["curiosi_james", "Iacobus", "Iacobus", tf_hero, no_scene, 0, fac_commoners,[itm_deurne_campagi_2,itm_tunic_rich_4_cloak,itm_aquincum_spatha_2],def_attrib_lvl_30,wp_one_handed(250)|wp_two_handed(240)|wp_polearm(220)|wp_archery(140)|wp_crossbow(140)|wp_throwing(210)|wp_firearm(100),knows_lvl_30,0x00000007ee10300652596a24a251271200000000001db6a10000000000000000],
 
@@ -5031,6 +5011,8 @@ troops = [
   ["titus","Titus","Titus",tf_hero, 0, reserved, fac_commoners,[itm_deurne_campagi_1,itm_tunic_rich_6_cloak,itm_samson_spatha_2_rich],def_attrib_lvl_28,wp(230),knows_lvl_28,0x00000000131010035f5186255a722ae200000000001e36dd0000000000000000],
   #son of Avitus, would be influntial in the 450s-470s, at one point becoming one of the richest men in gaul. Would also have his own small band of bodyguards
   ["ecdicius_avitus","Ecdicius Avitus","Ecdicius Avitus",tf_hero, 0, reserved, fac_commoners,[itm_deurne_campagi_2,itm_coptic_tunic_9,itm_sword_khergit_4],def_attrib_lvl_28,wp(230),knows_lvl_28,0x00000009ff000004549b7246e396451b00000000001db6e20000000000000000],
+  #for a certain magical codex quest
+  ["corrupt_priest","Shady Priest","Priest",tf_hero, 0, reserved, fac_commoners,[itm_wrapping_boots,itm_robes_church],def_attrib_lvl_18|level(18),wp(180),knows_ironflesh_2|knows_power_strike_2|knows_athletics_2,0x000000096700908f330dae56d26db6db00000000001db6f50000000000000000],
 
 #shitpost troops
   ["shitpost_unit","Langobardi Crossbow Cataphract Looter","Langobardi Crossbow Cataphract Looters",tf_mounted|tf_guarantee_all,0,0,fac_commoners,

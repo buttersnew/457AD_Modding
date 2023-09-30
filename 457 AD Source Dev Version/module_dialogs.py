@@ -3504,10 +3504,6 @@ or you won't be able to hang on to a single man you catch.", "ramun_ask_about_ca
 #  [trp_old_roman_man, "start", [(troop_is_hero, "$g_talk_troop")],
 #   "Yes?", "close_window", []],
 
-#  [party_tpl|pt_raiders,"start", [(eq,"$talk_context",tc_party_encounter),(neq, "$g_talk_troop", "pt_burgundian_raiders"),], "Who are you?", "order2",[]],
-#  [party_tpl|pt_raiders|plyr,"order2", [], "Where is Maximus hiding?", "order3",[]],
-#  [party_tpl|pt_raiders,"order3", [], "I'll never tell you! Prepare to die!", "close_window",[[encounter_attack]]],
-
 #[anyone, "start",
 #[
 #(is_between, "$g_talk_troop", "trp_bagaudae_footman", "trp_black_khergit_horseman"),
@@ -41904,7 +41900,6 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   [anyone, "start", [
   (eq, "$talk_context", tc_tavern_talk),
   (neq, "$g_talk_troop", "trp_jerusalem_patriarch"),
-  (neq, "$g_talk_troop", "trp_gothic_historian"),
   (neq, "$g_talk_troop", "trp_roman_landowner"),
   (neq, "$g_talk_troop", "trp_roman_local_1"),
   (neq, "$g_talk_troop", "trp_roman_local_2"),
@@ -47872,13 +47867,6 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
 
   [anyone|plyr,"regular_member_talk", [], "Nothing. Keep moving.", "close_window",[]],
 
-
-
-#burgundian bandits
-  #[party_tpl|pt_burgundian_raiders,"start", [(eq,"$talk_context",tc_party_encounter),(neq, "$g_talk_troop", "pt_burgundian_raiders"),], "Who are you?", "order2",[]],
-  #[party_tpl|pt_burgundian_raiders|plyr,"order2", [], "Give me Gnaeus Turibius's heirloom!", "order3",[]],
-  #[party_tpl|pt_burgundian_raiders,"order3", [], "Who? What? Whatever, prepare to die!", "close_window",[[encounter_attack]]],
-
 #excubitors quest
   [party_tpl|pt_isaurian_quest_army,"start", [
   (eq,"$talk_context",tc_party_encounter),
@@ -48038,7 +48026,7 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
    "What do you want?", "party_encounter_hostile_defender",
    []],
 
-  [anyone|plyr,"party_encounter_hostile_defender", [(neq, "$g_talk_troop", "pt_burgundian_raiders"),
+  [anyone|plyr,"party_encounter_hostile_defender", [
   (neq, "$g_talk_troop", "pt_isaurian_quest_army"),
   (neq, "$g_talk_troop", "pt_hunimund_horde_quest"),
   (neq, "$g_talk_troop", "pt_aestii_rebel_party"),

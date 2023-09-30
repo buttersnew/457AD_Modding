@@ -96,7 +96,6 @@ party_templates = [
   ("routed_warriors","Routed Enemies",icon_vaegir_knight,0,fac_commoners,soldier_personality,[]),
 
   #quest related parties
-  ("burgundian_raiders","Band of Bandits",icon_axeman|carries_goods(9)|pf_auto_remove_in_town|pf_quest_party,0,fac_neutral,bandit_personality,[(trp_burgundian_looter,1,1),(trp_burgundian_bandit,11,30)]),
   ("raiders","Raiders",icon_axeman|carries_goods(8),0,fac_outlaws,bandit_personality,[(trp_robber,10,35),(trp_bandit,5,15),(trp_brigand,5,9),(trp_bandit_leader,1,1)]),
 
   ("quest_irish_raiders","Irish Raiders",icon_sea_raider|carries_goods(9)|pf_auto_remove_in_town|pf_quest_party,0,fac_neutral,bandit_personality,[]),

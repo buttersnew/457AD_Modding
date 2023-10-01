@@ -26663,7 +26663,7 @@ I will use this to make amends to those you have wronged, and I will let it be k
     (check_quest_succeeded,"qst_agrippinus_quest"),
     (eq, "$g_talk_troop", "trp_kingdom_1_lord"),
                        ],
-"I have dealt with the whole Agrippinus matter.", "lord_agrippinus_finale_1",[]],
+"I have dealt with the Agrippinus matter.", "lord_agrippinus_finale_1",[]],
 
 [anyone,"lord_agrippinus_finale_1", [
 (quest_slot_eq,"qst_agrippinus_quest",slot_quest_current_state, 8), #innocent
@@ -26691,8 +26691,14 @@ I will use this to make amends to those you have wronged, and I will let it be k
 (call_script, "script_end_quest", "qst_agrippinus_quest"),
 ]],
 
-[anyone,"lord_agrippinus_finale_1", [
-(quest_slot_eq,"qst_agrippinus_quest",slot_quest_current_state, 11), #guilty however, failed to capture him
+[anyone|plyr,"lord_talk", [
+    (check_quest_active, "qst_agrippinus_quest"),
+    (check_quest_failed,"qst_agrippinus_quest"),
+    (eq, "$g_talk_troop", "trp_kingdom_1_lord"),
+                       ],
+"I have dealt with the Agrippinus matter.", "lord_agrippinus_finale_failed_1",[]],
+
+[anyone,"lord_agrippinus_finale_failed_1", [
 ],
 "I've heard about your failure to capture Agrippinus, {playername}. Aegidius is not pleased in hearing this. However, I know you are dependable as you have shown to me in the past. Do not let something like this happen again, failure is not an option. Take this as a reward. Not as much compared to what I would have given if you had captured him.", "lord_talk",[
 (troop_add_gold, "trp_player", 1000),
@@ -51123,8 +51129,8 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
    "This could be a motive for him to collaborate with the barbarians, but a rumor is just a rumor. We need better evidence.", "curiosi_james_1", []],
 
   [trp_curiosi_james|plyr, "curiosi_james_1", [(check_quest_active, "qst_agrippinus_quest"),(quest_slot_ge, "qst_agrippinus_quest", slot_quest_current_state, 6),(quest_slot_lt, "qst_agrippinus_quest", slot_quest_current_state, 7)],
-   "It seems that Agrippinus has been on a large recruitment campaign.", "curiosi_james_rumor_2_1", []],
-  [trp_curiosi_james, "curiosi_james_rumor_2_1", [],
+   "It seems that Agrippinus has been on a large recruitment campaign.", "curiosi_james_rumor_3_1", []],
+  [trp_curiosi_james, "curiosi_james_rumor_3_1", [],
    "If he really does plan on betraying the empire, with enough soldiers he could be quite the force to be reckoned with.", "curiosi_james_1", []],
 
   [trp_curiosi_james|plyr, "curiosi_james_1", [(check_quest_active, "qst_agrippinus_quest"),(quest_slot_ge, "qst_agrippinus_quest", slot_quest_current_state, 4),(quest_slot_lt, "qst_agrippinus_quest", slot_quest_current_state, 7)],
@@ -51153,6 +51159,7 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
    "I'll trust your judgement, {playername}. I will inform Majorian of your decision.", "close_window", [
   (quest_set_slot,"qst_agrippinus_quest", slot_quest_current_state, 8),
   (succeed_quest, "qst_agrippinus_quest"),
+  (disable_party, "p_agrippinus_quest_villa"),
    ]],
   [trp_curiosi_james|plyr, "curiosi_james_choice_2", [],
    "Nevermind, I have not made up my mind.", "curiosi_james_1", []],

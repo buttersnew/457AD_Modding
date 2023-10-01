@@ -24880,84 +24880,114 @@ goods, and books will never be sold. ^^You can change some settings here freely.
      ("leave",[],"Leave",[(leave_encounter),(change_screen_return)]),
     ]),    
 
+
   ("quest_agrippinus_villa",0,
     "You have arrived at the villa.",
     "none",
     [],
     [
-      ("enter_villa_attack",[
-        (check_quest_active,"qst_agrippinus_quest"),
-        (quest_slot_eq,"qst_agrippinus_quest",slot_quest_current_state,1),
-        ],"Continue...",[
-          (try_begin),
-            (store_troop_health, ":health", "trp_player", 0), #get relative health in 1-100 range and put it into the ":health" variable
-            (lt, ":health", 30),
-            (val_add, ":health", 35),               #add to it the 5%
-            (troop_set_health,   "trp_player", ":health"),   #set it
-          (try_end),
-          
-          (set_jump_mission,"mt_mithras_quest_villa"),
-          (modify_visitors_at_site,"scn_maxi_roman_villa"),
-          (reset_visitors),
+    ("enter_villa_visit",[
+      (check_quest_active, "qst_agrippinus_quest"),
+      (quest_slot_ge, "qst_agrippinus_quest", slot_quest_current_state, 3),
+      (quest_slot_lt, "qst_agrippinus_quest", slot_quest_current_state, 7)
+        ],"Visit the villa.",[
+    (modify_visitors_at_site,"scn_maxi_roman_villa"),
+    (reset_visitors),   
+    (assign, "$g_mt_mode", tcm_default),      
+    (set_visitor,1,"trp_imperial_town_walker_1"),
+    (set_visitor,2,"trp_imperial_town_walker_1"),
+    (set_visitor,3,"trp_imperial_town_walker_2"),
+    (set_visitor,4,"trp_imperial_town_walker_2"),
+    (set_visitor,5,"trp_bucellarius"),
+    (set_visitor,6,"trp_bucellarius"),
+    (set_visitor,7,"trp_bucellarius"),
+    (set_visitor,8,"trp_agrippinus"),
+    (set_visitor,9,"trp_titus"),
+    (set_visitor,10,"trp_ecdicius_avitus"),
 
-          (assign, ":cur_entry", 1), #entry points 1 to 7
-          (try_for_range, ":companion", companions_begin, companions_end),
-            (le, ":cur_entry", 7),
-            (main_party_has_troop,":companion"),
-            (set_visitor, ":cur_entry", ":companion"),
-            (val_add, ":cur_entry", 1),
-          (try_end),
-          
-          (set_visitor,8,"trp_agrippinus"),
-          
-          (set_visitor,9,"trp_bucellarius"), #his bodyguards
-          (set_visitor,10,"trp_heruli_warrior"),
-          (set_visitor,11,"trp_heruli_warrior"),
-          (set_visitor,12,"trp_miles_romani"),
-          (set_visitor,13,"trp_miles_romani"),
-          (set_visitor,14,"trp_miles_romani"),
-          (set_visitor,15,"trp_miles_romani"),
-          
-          (set_jump_entry, 0),
-          (scene_set_slot, "scn_maxi_roman_villa", slot_scene_visited, 1),
-          
-          (jump_to_scene,"scn_maxi_roman_villa"),
-          (change_screen_mission),
+    (set_jump_entry, 0),
+    (scene_set_slot, "scn_maxi_roman_villa", slot_scene_visited, 1),
+    (set_jump_mission,"mt_diocletian_palace_visit"),
+    (jump_to_scene,"scn_maxi_roman_villa"),
+    (change_screen_mission),  
     ]),
 
-      ("villa_recruit_bucellarii",
-    [(eq, "$g_agrippinus_quest", 3),],
-       "Hire the remaining bucellarii",
-      [
-        (jump_to_menu,"mnu_bucellarii_recruit"),
-    ]),
+    ("plan_villa_raid", [
+      (check_quest_active, "qst_agrippinus_quest"),
+      (quest_slot_eq, "qst_agrippinus_quest", slot_quest_current_state, 10),
+      ], "Raid the villa",
+    [
+      (jump_to_menu, "mnu_raid_agrippinus_villa"),
+    ]),    
 
-     ("leave",[],"Leave",[(leave_encounter),(change_screen_return)]),
+    ("leave",[],"Leave",[(leave_encounter),(change_screen_return)]),
     ]), 
 
+  ("raid_agrippinus_villa",0,
+    "Rallying with Iacobus and his men, you and your companions make your way to the villa in order to arrest Agrippinus. However, as you close in to the villa, Agrippinus and his guards are waiting. He will not turn himself over willingly, there will be a battle...",
+    "none", [],
+    [
 
-
-  ("bucellarii_recruit",0,
-    "30 bucellarii remain at the villa, now looking for someone else to work for...",
-    "none", [ (set_background_mesh, "mesh_pic_recruits"),
-    ],
-    [("hire_troops",[
-        (party_get_free_companions_capacity, ":free_capacity", "p_main_party"),
-        (ge, ":free_capacity", 30),
-      ], "Take them in.",
+    ("option_1",[],"Fight!",
         [
-          (party_add_members,"p_main_party","trp_bucellarius",30),
-          (assign, "$g_agrippinus_quest", 2),
-          (jump_to_menu,"mnu_quest_agrippinus_villa"),
-          (disable_party, "p_agrippinus_quest_villa"), #disables the party after this
-      ]),
+    (assign, "$temp3", 1),
+    (assign, "$temp1", "mnu_raid_agrippinus_villa_won"),
+    (assign, "$temp2", "mnu_raid_agrippinus_villa_lost"),
 
-      ("return_to_town_menu",[],"Head back.",
+    (set_jump_mission, "mt_agrippinus_villa_fight"),
+    (modify_visitors_at_site, "scn_maxi_roman_villa"),
+    (reset_visitors),
+
+    (set_visitor, 1, "trp_player"),
+
+    (assign, ":cur_entry", 1), #add player's companions
+    (try_for_range, ":companion", companions_begin, companions_end),
+      (main_party_has_troop,":companion"),
+      (set_visitor, ":cur_entry", ":companion"),
+    (try_end),
+
+    (set_visitor, 1, "trp_curiosi_james"),
+    (set_visitors, 1, "trp_pedes_domestici", 10),
+    (set_visitors, 1, "trp_pedes", 20),
+
+    (set_visitor, 4, "trp_agrippinus"),
+    (set_visitors, 4, "trp_bucellarius", 10),
+    (set_visitors, 4, "trp_miles_romani", 30),
+
+    (jump_to_scene, "scn_maxi_roman_villa"),
+    (change_screen_mission),
+      ]),
+    ],),
+
+  ("raid_agrippinus_villa_won",0,
+    "After a hard fought battle, Agrippinus surrenders himself to you and Iacobus. Your mission is complete, Agrippinus has been apprehended and now awaits his trial in Rome...",
+    "none", [],
+    [
+
+    ("option_1",[],"Continue...",
         [
-          (jump_to_menu,"mnu_quest_agrippinus_villa"),
-      ]),
-    ]),
+        (quest_set_slot,"qst_agrippinus_quest", slot_quest_current_state, 12),
+        (succeed_quest, "qst_agrippinus_quest"),
+        (disable_party, "p_agrippinus_quest_villa"),
+        (leave_encounter),
+        (change_screen_return),
+        ]),
+    ],),
 
+  ("raid_agrippinus_villa_lost",0,
+    "You have fallen in battle. Agrippinus and his forces take advantage of this and escape from the villa. Majorian will not be happy to hear the news that you have failed the mission...",
+    "none", [],
+    [
+
+    ("option_1",[],"Continue...",
+        [
+        (quest_set_slot,"qst_agrippinus_quest", slot_quest_current_state, 11),
+        (fail_quest, "qst_agrippinus_quest"),
+        (disable_party, "p_agrippinus_quest_villa"),
+        (leave_encounter),
+        (change_screen_return),
+        ]),
+    ],),
 
   ("nubian_bandit_battle",0,
     "You and your men approach the bandit camp. The bandit sentinels notice you, and yell back to their comrades. You prepare for a fight...",

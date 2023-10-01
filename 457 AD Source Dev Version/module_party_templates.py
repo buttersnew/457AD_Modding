@@ -128,6 +128,8 @@ party_templates = [
 
   ("nero_rebel_army","Legio Neronia",icon_roman_army|carries_goods(30)|pf_auto_remove_in_town,0,fac_peasant_rebels,bandit_personality,[(trp_nero_larper_commander,1,1),(trp_miles_romani,200,215),(trp_sagittarius,60,70),(trp_bucellarius,45,55),(trp_imperial_signifer,5,5)]),
 
+  ("agrippinus_rebel_army","Legio Gallia",icon_roman_army|carries_goods(30)|pf_auto_remove_in_town,0,fac_peasant_rebels,bandit_personality,[(trp_agrippinus,1,1),(trp_miles_romani,200,215),(trp_sagittarius,30,50),(trp_bucellarius,45,55),(trp_miles_foederatus_gothorum,50,60)]),
+
 # Caravans
   # ("center_reinforcements","Reinforcements",icon_axeman|carries_goods(16),0,fac_commoners,soldier_personality,[(trp_townsman,5,30),(trp_watchman,4,20)]),  
   #SB : use this instead of directly adding templates

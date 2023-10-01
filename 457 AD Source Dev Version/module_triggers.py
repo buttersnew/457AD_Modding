@@ -1179,6 +1179,21 @@ triggers = [
   (quest_set_slot,"qst_nero_larper_quest",slot_quest_current_state, 5),
 ]),
 
+(24*7,0,ti_once,[ #leading armed rebellion
+  (neg|check_quest_active,"qst_agrippinus_quest"),
+  (quest_slot_eq,"qst_agrippinus_quest",slot_quest_current_state, 11),
+],[
+  (dialog_box, "@A messenger approaches your warband, bringing news of rebellion! The former Magister Militum Per Gallias, Agrippinus has risen up after a failed capture by Majorian!", "@A messenger approaches your warband"),
+  (spawn_around_party, "p_town_8", "pt_agrippinus_rebel_army"),
+]),
+
+(24*7,0,ti_once,[ #escapes trial
+  (neg|check_quest_active,"qst_agrippinus_quest"),
+  (quest_slot_eq,"qst_agrippinus_quest",slot_quest_current_state, 12),
+],[
+  (dialog_box, "@News spreads that Agrippinus has been found guilty of treason and was sentenced to death in Rome, however he was able to escape and how takes refuge in the church of St. Peter!", "@A messenger approaches your warband"),
+]),
+
 (24,0,ti_once,[
     (check_quest_active,"qst_conquest_gaul"),
     (store_faction_of_party, ":town_3_faction", "p_town_3"),

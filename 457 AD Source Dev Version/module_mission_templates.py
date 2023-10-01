@@ -19659,6 +19659,8 @@ mission_templates = [
             (agent_get_troop_id, ":troop_no", ":agent_no"),
             (this_or_next|eq, ":troop_no", "trp_silingi_warrior"),
             (this_or_next|eq, ":troop_no", "trp_refugee"),
+            (this_or_next|eq, ":troop_no", "trp_imperial_town_walker_1"),
+            (this_or_next|eq, ":troop_no", "trp_imperial_town_walker_2"),
             (eq, ":troop_no", "trp_palace_farmer"),
             
             (assign, ":continue_walk", 0),
@@ -22736,6 +22738,112 @@ mission_templates = [
 
     ] + dplmc_battle_mode_triggers + dplmc_horse_cull + utility_triggers + battle_panel_triggers + extended_battle_menu + common_division_data + division_order_processing + real_deployment + formations_triggers + enhanced_common_battle_triggers,
   ),
+
+("agrippinus_villa_fight", mtf_battle_mode,-1,
+    "battle",
+    [ (0,mtef_visitor_source|mtef_team_0, 0,aif_start_alarmed,0,[]),
+      (1,mtef_visitor_source|mtef_team_0, 0,aif_start_alarmed,0,[]),
+      (2,mtef_visitor_source|mtef_team_1, 0,aif_start_alarmed,0,[]),
+      (3,mtef_visitor_source|mtef_team_1, 0,aif_start_alarmed,0,[]),
+      (4,mtef_visitor_source|mtef_team_1, 0,aif_start_alarmed,0,[]),
+    ], vc_weather +
+    [
+    (ti_on_agent_spawn, 0, 0, [],
+   [
+    (store_trigger_param_1, ":agent"),
+    (agent_is_human, ":agent"),
+    (agent_is_ally, ":agent"),
+    (agent_get_troop_id, ":troop", ":agent"),
+    (neq, ":troop", "trp_player"),
+    (try_begin),
+        (troop_is_hero, ":troop"),
+        (agent_set_damage_modifier,  ":agent", 250),
+        (agent_set_accuracy_modifier,  ":agent", 500),
+    (else_try),
+        (agent_set_damage_modifier,  ":agent", 150),
+        (agent_set_accuracy_modifier,  ":agent", 500),
+    (try_end),
+    ]),
+
+
+ (ti_before_mission_start, 0, 0, [
+             ],
+    [
+    (try_begin),
+        (eq, "$temp3", 1),
+        (scene_set_day_time, 16),
+        (set_global_cloud_amount, 0),
+    (try_end),]),
+    common_inventory_not_available,
+    common_battle_init_banner,
+    immersive_troops,
+    common_music_situation_update,
+    common_battle_check_friendly_kills,
+
+    (ti_after_mission_start, 0, 0, [], [(call_script, "script_music_set_situation_with_culture", mtf_sit_fight)]),
+
+    (ti_tab_pressed, 0, 0, [(display_message,"str_cannot_leave_now")], []),
+
+    (1, 10, ti_once, [(this_or_next|main_hero_fallen),(num_active_teams_le,1)],
+    [
+      (try_begin),
+        (main_hero_fallen),
+        (jump_to_menu, "$temp2"),
+      (else_try),
+        (jump_to_menu, "$temp1"),
+      (try_end),
+      (stop_all_sounds, 1),
+      (finish_mission),
+    ]),
+
+    (0, 0, ti_once, [],
+    [
+    (set_fixed_point_multiplier, 100),
+    (set_show_messages, 0),
+    (entry_point_get_position, pos10, 1),
+    (position_get_y, ":y", pos10),
+    (val_add, ":y", 10000),
+    (position_set_y, pos10, ":y"),
+    (team_set_order_position, pos10),
+    (try_for_range, ":cur_group", 0, grc_everyone),
+      (team_give_order, 0, ":cur_group", mordr_hold),
+      (team_give_order, 0, ":cur_group", mordr_spread_out),
+    (try_end),
+
+    (entry_point_get_position, pos10, 4),
+    (position_get_y, ":y", pos10),
+    (val_add, ":y", 10000),
+    (position_set_y, pos10, ":y"),
+    (team_set_order_position, pos10),
+    (try_for_range, ":cur_group", 0, grc_everyone),
+      (team_give_order, 1, ":cur_group", mordr_hold),
+      (team_give_order, 1, ":cur_group", mordr_spread_out),
+    (try_end),
+    (set_show_messages, 1),
+    ]),
+
+    (0, 0, ti_once, [
+    (store_mission_timer_a, ":time"),
+    (gt, ":time", 10),
+    ],
+    [
+
+    (set_show_messages, 0),
+    (try_for_range, ":cur_group", 0, grc_everyone),
+      (team_give_order, 0, ":cur_group", mordr_charge),
+      (team_give_order, 0, ":cur_group", mordr_spread_out),
+    (try_end),
+
+    (try_for_range, ":cur_group", 0, grc_everyone),
+      (team_give_order, 1, ":cur_group", mordr_charge),
+      (team_give_order, 1, ":cur_group", mordr_spread_out),
+    (try_end),
+    (set_show_messages, 1),
+    ]),
+  ] + dplmc_battle_mode_triggers + dplmc_horse_cull + utility_triggers + battle_panel_triggers + extended_battle_menu + common_division_data + division_order_processing + real_deployment + formations_triggers + AI_triggers + jacobhinds_morale_triggers + enhanced_common_battle_triggers + battle_notifications + ai_horn
+),
+
+
 
   ("bounty_hunter_duel",mtf_battle_mode,-1, 
     "bounty_hunter_duel",

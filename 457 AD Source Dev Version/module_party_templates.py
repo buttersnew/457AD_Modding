@@ -103,32 +103,24 @@ party_templates = [
   ("quest_saxon_raiders","Saxon Raiders",icon_sea_raider|carries_goods(9)|pf_auto_remove_in_town|pf_quest_party,0,fac_neutral,bandit_personality,[]),
 
   ("isaurian_quest_army","Isaurian Band",icon_axeman|carries_goods(9)|pf_auto_remove_in_town|pf_quest_party,0,fac_neutral,bandit_personality,[(trp_isaurian_leader,1,1),(trp_mountain_bandit,15,40),(trp_isaurian_warrior,10,30)]),
-
   ("onogur_quest_army","Hunnic Band",icon_khergit_horseman_b|carries_goods(9)|pf_auto_remove_in_town|pf_quest_party,0,fac_neutral,merchant_personality,[(trp_onogur_leader,1,1),(trp_hunnic_horse_archer,15,30),(trp_hunnic_retainer,10,15),(trp_bulgar_horseman,5,10),(trp_bigilas_son,1,1,pmf_is_prisoner)]),
-
   ("attilas_bastard_son_rescued","Oebarsius",icon_khergit_horseman_b|pf_quest_party,0,fac_neutral,merchant_personality,[(trp_attilas_bastard_son,1,1)]),
-
   ("quest_bagaudae","Bagauda",icon_germanic_army|carries_goods(9)|pf_auto_remove_in_town|pf_quest_party,0,fac_forest_bandits,bandit_personality,[(trp_forest_bandit,30,40),(trp_forest_bandit_recruit,15,20),(trp_bagaudae_footman,15,25),(trp_bagaudae_leader,1,1)]), #less than normal
-
   ("hunimund_horde_quest","Hunimund's Army",icon_germanic_army|carries_goods(9)|pf_auto_remove_in_town|pf_quest_party,0,fac_neutral,bandit_personality,[(trp_suebi_king,1,1),(trp_western_germanic_freeman,55,105),(trp_western_germanic_skirmisher,15,40),(trp_steppe_bandit,10,40),(trp_steppe_cataphract,5,15)]),
-
   ("juliobriga_bagadua","Bagaudae Band",icon_archer_1|carries_goods(9)|pf_auto_remove_in_town|pf_quest_party,0,fac_forest_bandits,bandit_personality,[(trp_forest_bandit_recruit,25,35),(trp_forest_bandit,12,21),(trp_bagaudae_footman,5,10)]),
-
   ("quest_vandal_raiders","Vandal Raiders",icon_sea_raider|carries_goods(9)|pf_auto_remove_in_town|pf_quest_party,0,fac_neutral,bandit_personality,[(trp_vandal_raider_leader,1,1),(trp_eastern_germanic_spearman,30,45),(trp_eastern_germanic_mounted_warrior,3,8),(trp_western_alan_lancer,2,5),(trp_gaetuli_horseman,5,15),]),
-
   ("faltras_suebi_band","Faltras's Loyalists",icon_germanic_army|carries_goods(9)|pf_auto_remove_in_town,0,fac_faltras_suebi,soldier_personality,[]),
-
   ("faltras_suebi_army","Faltras's Loyalists",icon_germanic_army|carries_goods(9)|pf_auto_remove_in_town|pf_quest_party,0,fac_neutral,soldier_personality,[]),
-
   ("germanic_raiders","Scamarae",icon_axeman|carries_goods(9)|pf_auto_remove_in_town|pf_quest_party,0,fac_neutral,bandit_personality,[(trp_western_germanic_freeman,30,50),(trp_taiga_bandit,8,15),(trp_western_germanic_bowman,5,10)]),
-
   ("noricum_soldiers","Norici Militia",icon_axeman|carries_goods(9)|pf_auto_remove_in_town|pf_quest_party,0,fac_neutral,soldier_personality,[(trp_noricum_footman,15,20),]),
-
   ("aestii_rebel_party","Aestii Rebels",icon_axeman|carries_goods(50)|pf_quest_party|pf_always_visible,0,fac_neutral,soldier_personality,[(trp_aestii_rebel_king,1,1),(trp_aestii_skirmisher,30,40),(trp_aestii_tribesman,30,40),(trp_sitones_retainer,20,30),(trp_aestii_companion,10,20)]),
+  ("heretical_codex_bandits","Bandits",icon_axeman|carries_goods(9)|pf_auto_remove_in_town|pf_quest_party,0,fac_neutral,bandit_personality,[(trp_burgundian_looter,1,1),(trp_robber,5,35),(trp_bandit,2,15),(trp_brigand,1,5)]),
 
+  #event parties
   ("nero_rebel_army","Legio Neronia",icon_roman_army|carries_goods(30)|pf_auto_remove_in_town,0,fac_peasant_rebels,bandit_personality,[(trp_nero_larper_commander,1,1),(trp_miles_romani,200,215),(trp_sagittarius,60,70),(trp_bucellarius,45,55),(trp_imperial_signifer,5,5)]),
-
   ("agrippinus_rebel_army","Legio Gallia",icon_roman_army|carries_goods(30)|pf_auto_remove_in_town,0,fac_peasant_rebels,bandit_personality,[(trp_agrippinus,1,1),(trp_miles_romani,200,215),(trp_sagittarius,30,50),(trp_bucellarius,45,55),(trp_miles_foederatus_gothorum,50,60)]),
+  ("tuldila_rebels","Foederati Rebels",icon_khergit_horseman_b|carries_goods(30),0,fac_deserters,bandit_personality,[(trp_tuldila,1,1),(trp_miles_foederatus_gothorum,40,60),(trp_eques_symmachi_hunnorum,20,40)]),
+  ("vllibos_rebels","Gothic Rebels",icon_germanic_army|carries_goods(30)|pf_auto_remove_in_town,0,fac_peasant_rebels,bandit_personality,[(trp_vllibos,1,1),(trp_miles_foederatus_gothorum,100,200)]),
 
 # Caravans
   # ("center_reinforcements","Reinforcements",icon_axeman|carries_goods(16),0,fac_commoners,soldier_personality,[(trp_townsman,5,30),(trp_watchman,4,20)]),  

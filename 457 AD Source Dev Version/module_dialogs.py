@@ -18871,13 +18871,15 @@ Here, take this purse of {reg3} siliquae, as I promised. I hope we can travel to
                   (troop_slot_eq,"$g_talk_troop",slot_troop_occupation, slto_kingdom_hero),
                   (neq, "$g_talk_troop", "trp_isaurian_leader"),
                   (neq, "$g_talk_troop", "trp_suebi_king"),
-                  (neq, "$g_talk_troop", "trp_aestii_rebel_king"),], #fix for bandit leader
+                  (neq, "$g_talk_troop", "trp_aestii_rebel_king"),
+                  (neq, "$g_talk_troop", "trp_burgundian_looter"),], #fix for bandit leader
 "{s43}", "defeat_lord_answer",
 [(troop_set_slot, "$g_talk_troop", slot_troop_leaded_party, -1),
 (call_script, "script_lord_comment_to_s43", "$g_talk_troop", "str_surrender_offer_default"),
 (neq, "$g_talk_troop", "trp_isaurian_leader"),
 (neq, "$g_talk_troop", "trp_suebi_king"),
 (neq, "$g_talk_troop", "trp_aestii_rebel_king"),
+(neq, "$g_talk_troop", "trp_burgundian_looter"),
 ]],
 
 [anyone|plyr,"defeat_lord_answer", [],
@@ -18892,10 +18894,10 @@ Here, take this purse of {reg3} siliquae, as I promised. I hope we can travel to
 (call_script, "script_add_log_entry", logent_lord_captured_by_player, "trp_player",  -1, "$g_talk_troop", "$g_talk_troop_faction"),
 ]],
 
-[anyone,"defeat_lord_answer_1", [(neq, "$g_talk_troop", "trp_isaurian_leader"),(neq, "$g_talk_troop", "trp_suebi_king"),(neq, "$g_talk_troop", "trp_aestii_rebel_king"),],
+[anyone,"defeat_lord_answer_1", [(neq, "$g_talk_troop", "trp_isaurian_leader"),(neq, "$g_talk_troop", "trp_suebi_king"),(neq, "$g_talk_troop", "trp_aestii_rebel_king"),(neq, "$g_talk_troop", "trp_burgundian_looter"),],
 "I am at your mercy.", "close_window", []],
 
-[anyone|plyr,"defeat_lord_answer", [(neq, "$g_talk_troop", "trp_isaurian_leader"),(neq, "$g_talk_troop", "trp_suebi_king"),(neq, "$g_talk_troop", "trp_aestii_rebel_king"),],
+[anyone|plyr,"defeat_lord_answer", [(neq, "$g_talk_troop", "trp_isaurian_leader"),(neq, "$g_talk_troop", "trp_suebi_king"),(neq, "$g_talk_troop", "trp_aestii_rebel_king"),(neq, "$g_talk_troop", "trp_burgundian_looter"),],
 "You have fought well. You are free to go.", "defeat_lord_answer_2",
 [(call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 5),
 (call_script, "script_change_player_honor", 3),
@@ -38491,12 +38493,12 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
    [
     ]],
 
-  [anyone,"start", [(eq,"$talk_context",tc_hero_defeated),(neq, "$g_talk_troop", "trp_isaurian_leader"),(neq, "$g_talk_troop", "trp_suebi_king"),(neq, "$g_talk_troop", "trp_aestii_rebel_king"),],
+  [anyone,"start", [(eq,"$talk_context",tc_hero_defeated),(neq, "$g_talk_troop", "trp_isaurian_leader"),(neq, "$g_talk_troop", "trp_suebi_king"),(neq, "$g_talk_troop", "trp_aestii_rebel_king"),(neq, "$g_talk_troop", "trp_burgundian_looter"),],
    "You'll not live long to enjoy your victory. My kinsmen will soon wipe out the stain of this defeat.", "defeat_hero_answer",
    [
     ]],
 
-  [anyone|plyr,"defeat_hero_answer", [(neq, "$g_talk_troop", "trp_isaurian_leader"),(neq, "$g_talk_troop", "trp_suebi_king"),(neq, "$g_talk_troop", "trp_aestii_rebel_king"),],
+  [anyone|plyr,"defeat_hero_answer", [(neq, "$g_talk_troop", "trp_isaurian_leader"),(neq, "$g_talk_troop", "trp_suebi_king"),(neq, "$g_talk_troop", "trp_aestii_rebel_king"),(neq, "$g_talk_troop", "trp_burgundian_looter"),],
    "You are my prisoner now.", "defeat_hero_answer_1",
    [
      (party_add_prisoners, "p_main_party", "$g_talk_troop", 1),#take prisoner
@@ -41931,6 +41933,7 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   (neq,"$g_talk_troop","trp_bishop_of_antioch"),
   (neq,"$g_talk_troop", "trp_german_bard"),
   (neq,"$g_talk_troop", "trp_visigothic_merchant"),
+  (neq,"$g_talk_troop", "trp_corrupt_priest"),
   (neq, "$g_talk_troop", "trp_hun_drunkard"),
   (neq, "$g_talk_troop", "trp_zamb_man"),
   ],
@@ -47888,9 +47891,6 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
 
   [party_tpl|pt_isaurian_quest_army,"isaurian_talk_2", [], "{playername}, do you really think an Isaurian like me will surrender to you? Men, to arms!", "close_window",[[encounter_attack]]],
 
-  #[party_tpl|pt_isaurian_quest_army|plyr,"isaurian_talk_3", [], "Very well, I challenge you to battle.", "isaurian_talk_duel",[]],
-
-  #[party_tpl|pt_isaurian_quest_army,"isaurian_talk_duel", [], "Very well, {playername}.", "close_window",[[encounter_attack]]],
 
   #hunimund quest
   [party_tpl|pt_hunimund_horde_quest,"start", [
@@ -48004,6 +48004,18 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
 
   [party_tpl|pt_nero_rebel_army|plyr,"nero_rebel_army_talk_1", [], "Farewell, my Imperator.", "close_window",[]],
 
+  #a certain magical codex
+  [party_tpl|pt_heretical_codex_bandits,"start", [
+  (eq,"$talk_context",tc_party_encounter),
+  (quest_slot_eq,"qst_heretical_codex",slot_quest_current_state, 1),
+  (neq, "$g_talk_troop", "pt_heretical_codex_bandits"),
+  ],
+  "Who the hell are you and what do you want?", "codex_bandits_talk_1",[]],
+
+  [party_tpl|pt_heretical_codex_bandits|plyr,"codex_bandits_talk_1", [], "I've heard you recently stole a codex from some odd priest. Hand it over now!", "codex_bandits_talk_2",[]],
+
+  [party_tpl|pt_heretical_codex_bandits,"codex_bandits_talk_2", [], "What!? You're talking about that codex? If it is that valuable, I might as well kill you for it!", "close_window",[[encounter_attack]]],
+
 
 ######################################
 # GENERIC PARTY ENCOUNTER
@@ -48039,6 +48051,7 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   (neq, "$g_talk_troop", "pt_isaurian_quest_army"),
   (neq, "$g_talk_troop", "pt_hunimund_horde_quest"),
   (neq, "$g_talk_troop", "pt_aestii_rebel_party"),
+  (neq, "$g_talk_troop", "pt_heretical_codex_bandits"),
   ],
    "Surrender or die!", "party_encounter_hostile_ultimatum_surrender", [
         #SB : add animation
@@ -48411,6 +48424,29 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
 (party_force_add_prisoners, "p_main_party", "trp_aestii_rebel_king", 1),
 (change_screen_map),
 ]],
+
+
+[anyone, "start",
+[
+(is_between, "$g_talk_troop", "trp_roman_landowner_wife", "trp_sidonius_apollinaris"),
+(eq, "$g_talk_troop", "trp_burgundian_looter"),
+(eq,"$talk_context",tc_hero_defeated),
+],
+"Ay! Spare me! Spare my life! Here, I'll give you the codex! Just know the codex is heretical and full of weird spells and incantations! We were going to give it to the Chalcedonian church! I swear! We may be filthy bandits, but at least we're not heretics!", "heretical_codex_win_1",
+[]],
+
+[anyone|plyr, "heretical_codex_win_1",
+[],
+"Very well, since you are relinquishing the codex, I will spare your life. Now go.", "close_window",
+[
+(display_message, "str_quest_log_updated"),
+(add_quest_note_from_sreg, "qst_heretical_codex", 1, "@It seems this 'special' codex is full of strange spells and incantations. Handing it over to the Chalcedonian church may yield a greater reward then what the priest was offering...",0),
+(call_script, "script_change_troop_renown", "trp_player", 5),
+(troop_add_item, "trp_player","itm_heretical_codex",0),
+(succeed_quest, "qst_heretical_codex"),
+(quest_set_slot,"qst_heretical_codex", slot_quest_current_state, 2),
+(change_screen_map),
+]], 
 
 
 #Avaldus after defeat
@@ -49863,6 +49899,20 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
    (call_script, "script_change_troop_renown", "trp_player", 5),
    (add_xp_as_reward, 200),
    ]],
+
+  [anyone|plyr, "chalcedonian_bishop_talk", [(check_quest_active,"qst_heretical_codex"),(quest_slot_eq, "qst_heretical_codex", slot_quest_current_state, 2),(player_has_item,"itm_heretical_codex")],
+   "I found this heretical codex, and figured it would be best to give it to the church for proper destruction.", "heretical_codex_chalcedonian_1", []],
+  [anyone, "heretical_codex_chalcedonian_1", [],"Ah, look what we have here. I heard rumors there was still a copy somewhere. Now these heretical writings will be gone for good. Thank you, {playername}, and God's blessings be upon you, faithful servant.", "chalcedonian_bishop_talk", [
+   (troop_remove_item,"trp_player","itm_heretical_codex"),
+   (troop_add_gold, "trp_player", 100),
+   (call_script, "script_change_troop_renown", "trp_player", 5),
+   (call_script, "script_change_player_honor", 1),
+   (add_xp_as_reward, 450),
+   (val_add, "$piety", 10),
+   (call_script, "script_end_quest", "qst_heretical_codex"),
+   (remove_troop_from_site,"trp_corrupt_priest","scn_town_25_tavern"),
+  ]],
+
   [anyone|plyr, "chalcedonian_bishop_talk", [],
    "I do not need a man of God at this time, farewell.", "close_window", []],
 
@@ -51245,6 +51295,71 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   [trp_agrippinus|plyr, "agrippinus_talk_1", [],
    "Nevermind, I did not mean to disturb you.", "close_window", []],
 
+  #a certain magical codex start - based off of this https://twitter.com/Calthalas/status/1431583137885261828?s=19
+  [trp_corrupt_priest, "start", [(eq, "$g_talk_troop_met", 0),],"Oh, you there. Yes, you. You seem like the mercenary type, would you like a job?", "heretical_codex_intro_1", []],
+
+  [trp_corrupt_priest|plyr, "heretical_codex_intro_1", [],
+   "Yes, what do you need me to do?", "heretical_codex_quest_1", []],
+  [trp_corrupt_priest|plyr, "heretical_codex_intro_1", [],
+   "I do not have the time for one right now...", "close_window", []],
+
+  [trp_corrupt_priest, "heretical_codex_quest_1", [(str_store_party_name_link, s3, "p_town_25")],
+   "You see, while I was travelling to {s3}, I was ambushed by a small group of bandits. I did not have much to offer them when it came to gold, so they instead took a rather... Special codex that I was carrying. I want to hire you to track them down and get this special codex back to me, and only me.", "heretical_codex_quest_2", []],
+  [trp_corrupt_priest|plyr, "heretical_codex_quest_2", [],
+   "What is so special about this codex?", "heretical_codex_quest_3", []],
+  [trp_corrupt_priest, "heretical_codex_quest_3", [],
+   "It is a rare, one of a kind codex. Although to those bandits it may not seem very valuable, to me it has immense value.", "heretical_codex_quest_4", []],
+  [trp_corrupt_priest, "heretical_codex_quest_4", [(str_store_party_name_link, s3, "p_village_75")],
+   "I believe the bandits may be near {s3}. When you secure the codex, return to me and I will reward you rather well for your efforts.", "close_window", [
+    (call_script, "script_start_quest", "qst_heretical_codex", "$g_talk_troop"),
+    (quest_set_slot,"qst_heretical_codex", slot_quest_current_state, 1),
+    (setup_quest_text, "qst_heretical_codex"),
+
+    (set_spawn_radius,2),
+    (spawn_around_party,"p_village_75","pt_heretical_codex_bandits"),
+    (assign, ":quest_target_party", reg0),
+    (quest_set_slot, "qst_heretical_codex", slot_quest_target_party, ":quest_target_party"),
+    (party_set_ai_behavior, ":quest_target_party", ai_bhvr_hold),
+    (party_set_ai_object, ":quest_target_party", "p_main_party"),
+    (party_set_flags, ":quest_target_party", pf_default_behavior, 0),
+
+    (str_store_party_name_link, s3, "p_village_75"),
+    (str_store_string, s2, "@You have been hired by a rather anxious priest who wishes for you to take back a codex stolen by a group of bandits and return it to him. The bandits should be near {s3}."),
+   ]],
+
+
+  [trp_corrupt_priest, "start", [],"Oh, hello there. What do you need?", "heretical_codex_priest_1", []],
+
+  [trp_corrupt_priest|plyr, "heretical_codex_priest_1", [(neg|check_quest_active,"qst_heretical_codex"),(neg|quest_slot_ge, "qst_heretical_codex", slot_quest_current_state, 1),],
+   "Do you still need a mercenary?", "heretical_codex_quest_1", []],
+
+  [trp_corrupt_priest|plyr, "heretical_codex_priest_1", [(check_quest_active,"qst_heretical_codex"),(quest_slot_eq, "qst_heretical_codex", slot_quest_current_state, 2),],
+   "I have dealt with the bandits...", "heretical_codex_finished_1", []],
+  [trp_corrupt_priest, "heretical_codex_finished_1", [],"Very good! Now, were you able to retrieve my codex?", "heretical_codex_finished_2", []],
+
+  [trp_corrupt_priest|plyr, "heretical_codex_finished_2", [(player_has_item,"itm_heretical_codex")],
+   "Here, I was able to take back the codex from the bandits that stole it from you.", "heretical_codex_return_1", []],
+  [trp_corrupt_priest, "heretical_codex_return_1", [],"Ah, very good my mercenary friend. Now, here is your reward for the retrieval of a very, special codex of mine. Now, I ought to get going...", "close_window", [
+   (troop_remove_item,"trp_player","itm_heretical_codex"),
+   (troop_add_gold, "trp_player", 600),
+   (call_script, "script_change_troop_renown", "trp_player", 5),
+   (add_xp_as_reward, 500),
+   (call_script, "script_end_quest", "qst_heretical_codex"),
+   (remove_troop_from_site,"trp_corrupt_priest","scn_town_25_tavern"),
+  ]],
+
+  [trp_corrupt_priest|plyr, "heretical_codex_finished_2", [],
+   "(Lie) Although I defeated the bandits, I could not find the codex...", "heretical_codex_lie_1", []],
+  [trp_corrupt_priest, "heretical_codex_lie_1", [],"What!? Well... At least those pesky bandits are dead... Here, since you took care of the only other people who knew of this codex, take this small reward... Now, I ought to get going...", "close_window", [
+   (troop_add_gold, "trp_player", 200),
+   (call_script, "script_change_troop_renown", "trp_player", 5),
+   (add_xp_as_reward, 600),
+   (call_script, "script_end_quest", "qst_heretical_codex"),
+   (remove_troop_from_site,"trp_corrupt_priest","scn_town_25_tavern"),
+  ]],
+
+  [trp_corrupt_priest|plyr, "heretical_codex_priest_1", [],
+   "Nevermind.", "close_window", []],
 
 #MINOR FACTIONS
 

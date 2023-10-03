@@ -991,19 +991,12 @@ triggers = [
      (assign, "$g_coptic_rebellion_triggered", 1),
    ]),
 
-(72,0,ti_once,[(eq, "$g_player_owns_farm", 1),],[ #several days after the player sides with basilius
-     (set_spawn_radius, 12),
-     (try_for_range, ":unused", 0, 4), # number of invaders to spawn + 1, roughly 200 days
-           (spawn_around_party, "p_town_40", "pt_bagaudae_army_event"),
-     (try_end),  
-     (dialog_box, "@A messenger approaches your warband, bringing news of rebellion! It appears that a large number of Bagadua, under the leadership of Basilius have revolted in Hispania Tarraconensis!", "@A messenger approaches your warband"),
-   ]),
-
 (724,0,ti_once,[(eq, "$g_foederati_event", 0),],[
   (set_spawn_radius, 8),
   (try_for_range, ":unused", 0, 3),
     (spawn_around_party, "p_town_13", "pt_foederati_rebels"),
   (try_end),  
+  (spawn_around_party, "p_town_13", "pt_foederati_rebels"),
   (dialog_box, "@Foederati hired by Majorian for his campaigns have begun to pillage the italian countryside!", "@A messenger approaches your warband"),
   (assign, "$g_foederati_event", 1),
    ]),
@@ -1053,8 +1046,8 @@ triggers = [
      (assign, "$g_battle_of_bolia", 1),
    ]),
 
-(24,0,ti_once,[],[ #adds merchant to tavern, zamb man
-  (add_troop_to_site, "trp_visigothic_merchant", "scn_town_40_tavern", 12),
+(24,0,ti_once,[],[
+  (add_troop_to_site, "trp_corrupt_priest", "scn_town_25_tavern", 12),
   (add_troop_to_site, "trp_zamb_man", "scn_town_17_tavern", 12),
    ]),
 

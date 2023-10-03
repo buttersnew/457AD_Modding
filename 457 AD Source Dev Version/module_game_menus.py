@@ -2003,11 +2003,11 @@ game_menus = [
     (assign, ":party_size_limit", reg0),
 
     (store_skill_level, ":leadership", "skl_leadership", "trp_player"),
-    (val_mul, ":leadership", 5),
+    (val_mul, ":leadership", 10),
     (store_attribute_level, ":charisma", "trp_player", ca_charisma),
 
     (troop_get_slot, ":renown", "trp_player", slot_troop_renown),
-    (val_div, ":renown", 25),
+    (val_div, ":renown", 10),
     (try_begin),
       (gt, ":leadership", 0),
       (str_store_string, s2, "@{!} +"),
@@ -2145,7 +2145,7 @@ game_menus = [
     (party_get_num_companions, reg10, "p_main_party"),
     (str_store_string, s1, "@Current party size is {reg10}/{reg5}.^\
 Current party size modifiers are:^^\
-Base size:  +30^\
+Base size:  +50^\
 Leadership: {s2}{reg1}^\
 Charisma: {s3}{reg2}^\
 Renown: {s4}{reg3}^^\

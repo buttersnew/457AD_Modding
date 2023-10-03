@@ -4815,8 +4815,8 @@ troops = [
 
   ["roman_landowner_wife","Gnaeus Turibius's Wife","Gnaeus Turibius's Wife",tf_female|tf_hero,0,0,fac_commoners,[itm_ankle_boots,itm_roman_noble_dress_2,itm_dagger],def_attrib|level(8),wp(110),knows_common|knows_athletics_3|knows_power_draw_2|knows_power_strike_2|knows_wound_treatment_2,0x0000000ca60c501026db9337b5b63cda00000000001dc4120000000000000000],
 
-  #Will be reused again, for the dragon quest
-  ["burgundian_looter","Avaldus","Avaldus",tf_hero|tf_guarantee_helmet, no_scene,0, fac_outlaws,[itm_wrapping_boots,itm_common_mail_short_4,itm_augst_helmet_1,itm_sword_medieval_c,itm_concave_shield_germanic_2],def_attrib_lvl_30|level(30),wp(230),knows_common|knows_riding_3|knows_athletics_4|knows_ironflesh_8|knows_shield_4|knows_power_throw_4,0x00000003de0071433adb6db6db6db6db00000000001db6f10000000000000000],
+  #will be reused once more!
+  ["burgundian_looter","Avaldus","Avaldus",tf_hero|tf_guarantee_helmet, no_scene,0, fac_outlaws,[itm_wrapping_boots,itm_common_mail_short_4,itm_augst_helmet_1,itm_sword_medieval_c,itm_concave_shield_germanic_2],def_attrib_lvl_25|level(25),wp(180),knows_lvl_25,0x00000003de0071433adb6db6db6db6db00000000001db6f10000000000000000],
 
   ["sidonius_apollinaris","Sidonius Apollinaris","Sidonius Apollinaris",tf_hero, 0, reserved, fac_kingdom_1,[itm_ankle_boots,itm_coptic_tunic_12],def_attrib|level(3),wp(80),knows_wound_treatment_3,0x000000000000208236db6db6db6db6db00000000001db6e40000000000000000], #also was NOTARII in 458
 

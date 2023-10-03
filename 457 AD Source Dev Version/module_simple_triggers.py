@@ -4120,6 +4120,11 @@ simple_triggers = [
          (eq, "$g_player_reading_book", "itm_book_proclus_1"),
          (troop_raise_attribute, "trp_player", ca_intelligence, 2),
          (str_store_string, s2, "@ Your intelligence has increased by 2."),
+       (else_try),
+         (eq, "$g_player_reading_book", "itm_heretical_codex"),
+         (troop_raise_attribute, "trp_player", ca_intelligence, 1),
+         (troop_raise_skill, "trp_player", "skl_first_aid", 1),
+         (str_store_string, s2, "@ Your intelligence and first aid has increased by 1."),
        (try_end),
 
        (unlock_achievement, ACHIEVEMENT_BOOK_WORM),

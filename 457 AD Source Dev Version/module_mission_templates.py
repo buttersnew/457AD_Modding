@@ -21213,124 +21213,6 @@ mission_templates = [
     ],),
 
 
-  ("bagadua_camp_visit",0,-1,
-    "Grove visit",
-    [(0,mtef_scene_source|mtef_team_0,af_override_horse,0,1,[]),
-      (1,mtef_visitor_source|mtef_team_1,af_override_horse,0,1,[]),
-      (2,mtef_visitor_source|mtef_team_2,af_override_horse,0,1,[]),
-      (3,mtef_visitor_source|mtef_team_2,af_override_horse,0,1,[]),
-      (4,mtef_visitor_source|mtef_team_2,af_override_horse,0,1,[]),
-      (5,mtef_visitor_source|mtef_team_2,af_override_horse,0,1,[]),
-      (6,mtef_visitor_source|mtef_team_2,af_override_horse,0,1,[]),
-      (7,mtef_visitor_source|mtef_team_2,af_override_horse,0,1,[]),
-      (8,mtef_visitor_source|mtef_team_2,af_override_horse,0,1,[]),
-    ], vc_weather +
-    [
-      (0, 0, ti_once, [
-          (tutorial_message_set_size, 15, 15),
-          (tutorial_message_set_position, 500, 650), #650 for tutorial or mission msg, 450 for dialogs
-          (tutorial_message_set_center_justify, 0),
-          ], []),
-      
-      #setting up first part - attila's sword location
-      (ti_before_mission_start, 0, 0, [
-          (eq,"$basilius_interaction",0),
-        ],
-        [
-          #teams neutral en principio
-          (team_set_relation, 0, 1, 0),  #Teams
-          (team_set_relation, 0, 2, 0),
-          (team_set_relation, 1, 0, 0),
-          (team_set_relation, 1, 2, 0),
-          (team_set_relation, 2, 0, 0),
-          (team_set_relation, 2, 1, 0),
-      ]),
-      
-      (ti_escape_pressed, 0, 0, [
-          (lt,"$g_bagadua_quest",5),
-      ], [
-          (assign,"$basilius_interaction",0),
-          (jump_to_menu, "mnu_bagadua_fort_enter"),
-          (finish_mission),
-      ]),
-      
-      (0.1, 0, ti_once,
-        [
-          (eq,"$basilius_interaction",1),
-        ],
-        [
-          (mission_disable_talk), #ya no conversaciones
-          (set_party_battle_mode),
-      ]),
-      
-      (0, 0, 0,[
-          (ge,"$basilius_interaction",0),
-          (le,"$basilius_interaction",5),
-          
-          (neg|conversation_screen_is_active),
-          (neg|is_presentation_active, "prsnt_battle"),
-          (neg|is_presentation_active, "prsnt_order_display"),
-        ],
-        [
-          (try_begin),
-            (eq,"$basilius_interaction",1),
-            (assign,"$basilius_interaction",2),
-            (try_for_agents,":agent"),
-              (agent_is_alive,":agent"),
-              (agent_is_human,":agent"),
-              (agent_get_team, ":cur_team", ":agent"),
-              (agent_get_troop_id, ":troop_no", ":agent"),
-              (try_begin),
-                (neq, ":cur_team", 0),
-                (is_between, ":troop_no", "trp_germanic_pagan_quest_npc", "trp_bagaudae_leader"),
-                (agent_set_team, ":agent", 2),
-                (agent_ai_set_aggressiveness, ":agent", 5),
-                (agent_set_is_alarmed, ":agent", 1),
-              (try_end),
-              (team_set_relation, 2, 0, -1),
-              (team_set_relation, 0, 2, -1),
-            (try_end),
-          (try_end),
-      ]),
-
-      (0, 0, ti_once, [], [
-          (call_script, "script_combat_music_set_situation_with_culture"),
-      ]),
-      
-      (ti_inventory_key_pressed, 0, 0, [(set_trigger_result,1)], []),
-      (ti_tab_pressed, 0, 0, [(set_trigger_result,1)], []),
-      
-      (1, 4, ti_once,
-        [
-          (eq,"$basilius_interaction",2),
-          (this_or_next|main_hero_fallen),
-          (all_enemies_defeated, 5),
-        ],
-        [
-          (try_begin),
-            (main_hero_fallen),
-            (call_script, "script_change_troop_renown", "trp_player", -5),
-            (display_message, "@You have lost your fight against Basilius... He thinks you're dead",color_good_news),
-            (mission_cam_animate_to_screen_color, 0xFF000000, 3000),
-            (call_script, "script_fail_quest", "qst_bagadua_quest"),
-            (finish_mission,4),
-          (else_try),
-            (tutorial_message_set_background, 1),
-            (tutorial_message,"@Your fight against Basilius was hard, but you've emerged victorious. You should visit Arvandus now to get your reward."),
-            (call_script, "script_troop_add_gold", "trp_player", 550),
-            #(troop_add_item, "trp_player", "itm_sword_of_mars",0),
-            #(troop_add_item, "trp_player", "itm_lamellar_armor",0),
-            (call_script, "script_change_troop_renown", "trp_player", 10),
-            (quest_set_slot,"qst_bagadua_quest", slot_quest_current_state, 2),
-            (assign,"$basilius_interaction",3),
-            (enable_party, "p_quest_villa"),
-            (mission_cam_animate_to_screen_color, 0xFF000000, 3000),
-            (finish_mission,4),
-            (leave_encounter),
-            (change_screen_return),
-          (try_end),
-      ]),
-    ],),
 
   ("nero_visit",0,-1,
     "Grove of Nymphs visit",
@@ -21401,7 +21283,7 @@ mission_templates = [
               (agent_get_troop_id, ":troop_no", ":agent"),
               (try_begin),
                 (neq, ":cur_team", 0),
-                (is_between, ":troop_no", "trp_visigothic_merchant", "trp_gandhara_mercenary"),
+                (is_between, ":troop_no", "trp_german_bard", "trp_gandhara_mercenary"),
                 (agent_set_team, ":agent", 2),
                 (agent_ai_set_aggressiveness, ":agent", 5),
                 (agent_set_is_alarmed, ":agent", 1),
@@ -21581,8 +21463,9 @@ mission_templates = [
       ]),      
     ],),
 
-  ("quest_villa_attack",0,-1,
-    "villa attack",
+
+  ("abandoned_silver_mine",0,-1, 
+    "Silver Mines",
     [(0,mtef_scene_source|mtef_team_0,af_override_horse,0,1,[]),
       (1,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
       (2,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
@@ -21590,9 +21473,8 @@ mission_templates = [
       (4,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
       (5,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
       (6,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
-      (7,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
+      (7,mtef_visitor_source|mtef_team_2,af_override_horse,0,1,[]),
       (8,mtef_visitor_source|mtef_team_2,af_override_horse,0,1,[]),
-
       (9,mtef_visitor_source|mtef_team_2,af_override_horse,0,1,[]),
       (10,mtef_visitor_source|mtef_team_2,af_override_horse,0,1,[]),
       (11,mtef_visitor_source|mtef_team_2,af_override_horse,0,1,[]),
@@ -21601,31 +21483,19 @@ mission_templates = [
       (14,mtef_visitor_source|mtef_team_2,af_override_horse,0,1,[]),
       (15,mtef_visitor_source|mtef_team_2,af_override_horse,0,1,[]),
       (16,mtef_visitor_source|mtef_team_2,af_override_horse,0,1,[]),
-
-      (30,mtef_visitor_source|mtef_team_2,af_override_horse,0,1,[]),
-      (31,mtef_visitor_source|mtef_team_2,af_override_horse,0,1,[]),
-      (32,mtef_visitor_source|mtef_team_2,af_override_horse,0,1,[]),
-      (33,mtef_visitor_source|mtef_team_2,af_override_horse,0,1,[]),
-      (34,mtef_visitor_source|mtef_team_2,af_override_horse,0,1,[]),
-      (35,mtef_visitor_source|mtef_team_2,af_override_horse,0,1,[]),
-      (36,mtef_visitor_source|mtef_team_2,af_override_horse,0,1,[]),
-      (37,mtef_visitor_source|mtef_team_2,af_override_horse,0,1,[]),
-      (38,mtef_visitor_source|mtef_team_2,af_override_horse,0,1,[]),
-      (39,mtef_visitor_source|mtef_team_2,af_override_horse,0,1,[]),
-      (40,mtef_visitor_source|mtef_team_2,af_override_horse,0,1,[]),
     ], vc_weather +
     [
       (0, 0, ti_once, [
           (tutorial_message_set_size, 15, 15),
-          (tutorial_message_set_position, 500, 650), #650 for tutorial or mission msg, 450 for dialogs
+          (tutorial_message_set_position, 650, 650), #650 for tutorial or mission msg, 450 for dialogs
           (tutorial_message_set_center_justify, 0),
           ], []),
       
       (ti_before_mission_start, 0, 0, [
-          (eq,"$attack_visigothic_merchant",0),
+        (eq,"$basilius_interaction",0),
         ],
         [
-          #teams neutral en principio
+          #teams neutral on start
           (team_set_relation, 0, 1, 0),  #Teams
           (team_set_relation, 0, 2, 0),
           (team_set_relation, 1, 0, 0),
@@ -21634,101 +21504,118 @@ mission_templates = [
           (team_set_relation, 2, 1, 0),
       ]),
       
+
       (ti_escape_pressed, 0, 0, [
-          (lt,"$attack_visigothic_merchant",4),
-      ], [
-          (assign,"$attack_visigothic_merchant",0),
-          (jump_to_menu, "mnu_quest_villa_enter"),
+          (check_quest_active,"qst_bagadua_quest"),
+          (quest_slot_eq,"qst_bagadua_quest",slot_quest_current_state,2),
+        ], [
+          (quest_set_slot,"qst_bagadua_quest",slot_quest_current_state, 1), 
           (finish_mission),
-      ]),
-      
-      (0.1, 0, ti_once,
-        [
-          (eq,"$attack_visigothic_merchant",1),
-        ],
-        [
-          (mission_disable_talk), #ya no conversaciones
-          (set_party_battle_mode),
-      ]),
-      
-      (1, 0, 0,[
-          (ge,"$attack_visigothic_merchant",1),
-          (le,"$attack_visigothic_merchant",2),
-          
-          (neg|conversation_screen_is_active),
-          (neg|is_presentation_active, "prsnt_battle"),
-          (neg|is_presentation_active, "prsnt_order_display"),
-        ],
-        [
-          (try_begin),
-            (eq,"$attack_visigothic_merchant",1),
-
-            (assign,"$attack_visigothic_merchant",2),
-            (try_for_agents,":agent"),
-              (agent_is_alive,":agent"),
-              (agent_is_human,":agent"),
-              (agent_get_team, ":cur_team", ":agent"),
-              (agent_get_troop_id, ":troop_no", ":agent"),
-              (try_begin),
-                (neq, ":cur_team", 0),
-                (is_between, ":troop_no", "trp_german_bard", "trp_dplmc_chamberlain"),
-                (agent_set_team, ":agent", 2),
-                (agent_ai_set_aggressiveness, ":agent", 5),
-                (agent_set_is_alarmed, ":agent", 1),
-              (try_end),
-              (team_set_relation, 2, 0, -1),
-              (team_set_relation, 0, 2, -1),
-            (try_end),
-          (try_end),
-      ]),
-
-      (1, 0, ti_once,
-        [
-          (eq,"$attack_visigothic_merchant",2),
-        ],
-        [
-          (store_current_scene, ":cur_scene"),
-          (modify_visitors_at_site, ":cur_scene"),
-          (store_random_in_range, ":random_entry_point", 9, 15),
-          (add_visitors_to_current_scene, ":random_entry_point", "trp_caravan_guard", 8), #spawns 8 mercenaries to assist in attacking the player
-      ]),
-      
-      (0, 0, ti_once, [], [
-          (call_script, "script_combat_music_set_situation_with_culture"),
-      ]),
-      
-      (ti_inventory_key_pressed, 0, 0, [(set_trigger_result,1)], []),
-      (ti_tab_pressed, 0, 0, [(set_trigger_result,1)], []),
+          (leave_encounter),
+          (change_screen_return),
+      ]),      
       
       (1, 4, ti_once,
-        [
-          (eq,"$attack_visigothic_merchant",2),
+        [ (neg|conversation_screen_is_active),
+          (neg|is_presentation_active, "prsnt_battle"),
+          (neg|is_presentation_active, "prsnt_order_display"),
+          (eq,"$basilius_interaction",1),
           (this_or_next|main_hero_fallen),
           (all_enemies_defeated, 5),
+          (eq, "$cam_mode", 0),
         ],
         [
           (try_begin),
             (main_hero_fallen),
-            (call_script, "script_change_troop_renown", "trp_player", -5),
-            (display_message, "@You have lost the fight against Arvandus and his mercenaries. They think you're dead...",color_good_news),
-            (mission_cam_animate_to_screen_color, 0xFF000000, 3000),
-            (call_script, "script_fail_quest", "qst_mithras_quest"),
-            (finish_mission,4),
+            (display_message, "@You have lost the fight against Basilius, he and his men flee, believing you are dead...",color_good_news),
+            (call_script, "script_change_troop_renown", "trp_player", -15),
+
+            (try_begin), #checks if the quest is active, if so fails it
+              (check_quest_active,"qst_bagadua_quest"),
+              (call_script, "script_fail_quest", "qst_bagadua_quest"),
+            (try_end),
+            
+            (assign, "$abandoned_silver_mine", 1), #basilius was not killed
+            (finish_mission),
+            (leave_encounter),
+            (change_screen_return),
           (else_try),
             (tutorial_message_set_background, 1),
-            (tutorial_message,"@You have killed Arvandus and his bodyguards. You loot the villa for valuables..."),
-            (call_script, "script_troop_add_gold", "trp_player", 1000),
-            (troop_add_items, "trp_player", "itm_wine",3),
-            (quest_set_slot,"qst_bagadua_quest", slot_quest_current_state, 3),
-            (call_script, "script_change_troop_renown", "trp_player", 10),
-            (call_script, "script_change_player_honor", -10),
-            (assign,"$attack_visigothic_merchant",3),
+            (tutorial_message,"@You have killed the so called 'king' of the bagadua, Basilius, ending his banditry once and for all..."),
+            (call_script, "script_troop_add_gold", "trp_player", 675),
+            (call_script, "script_change_troop_renown", "trp_player", 15),
+
+            (try_begin), #checks if the quest is active, if so fails it
+              (check_quest_active,"qst_bagadua_quest"),
+              (call_script, "script_succeed_quest", "qst_bagadua_quest"),
+              (quest_set_slot,"qst_bagadua_quest",slot_quest_current_state, 3),
+              (str_store_troop_name_link, s2, "trp_hydatius"),
+              (add_quest_note_from_sreg, "qst_bagadua_quest", 5, "@Basilius has been killed. Return to {s2} for your reward.",0),
+            (try_end),
+
+            (assign, "$abandoned_silver_mine", 2), #basilius was killed
             (mission_cam_animate_to_screen_color, 0xFF000000, 3000),
             (finish_mission,4),
             (leave_encounter),
             (change_screen_return),
           (try_end),
       ]),
+      
+      
+      (0.1, 0, ti_once,
+        [
+          (neg|conversation_screen_is_active),
+          (neg|is_presentation_active, "prsnt_battle"),
+          (neg|is_presentation_active, "prsnt_order_display"),
+          (eq,"$basilius_interaction",1),
+        ],
+        [
+          (mission_disable_talk), 
+          (team_set_relation, 0, 1, -1),  #Teams
+          (team_set_relation, 0, 2, -1),
+          (team_set_relation, 1, 0, -1),
+          (team_set_relation, 1, 2, -1),
+          (team_set_relation, 2, 0, -1),
+          (team_set_relation, 2, 1, -1),
+          (set_party_battle_mode),
+      ]),
+
+
+      (ti_on_agent_spawn, 0, 0, [],
+        [
+          (store_trigger_param_1, ":agent"),
+          (agent_get_troop_id, ":troop", ":agent"),
+          (neq, ":troop", "trp_player"),
+          (troop_is_hero, ":troop"),
+          (main_party_has_troop, ":troop"),
+          
+          (get_player_agent_no, ":player"),
+          (agent_get_team, ":playerteam", ":player"),
+          (agent_get_position,pos1,":player"),
+          
+          (agent_set_team, ":agent", ":playerteam"),
+          (agent_set_division, ":agent", 8),
+          (agent_add_relation_with_agent, ":agent", ":player", 1),
+          (agent_set_is_alarmed, ":agent", 1),
+          (set_show_messages, 0),
+          (team_give_order, ":playerteam", 8, mordr_follow), #Division 8 to avoid potential conflicts
+          (set_show_messages, 1),
+      ]),
+
+      (0,7,0,[(eq, "$cam_time", 1),],
+        [
+          (tutorial_message, -1),
+          (tutorial_message_set_background, 0),
+          (assign, "$cam_time", 0),
+      ]),
+      
+      (0, 0, ti_once, [], [
+          (call_script, "script_combat_music_set_situation_with_culture"),
+      ]),
+      
+      common_inventory_not_available,
+      (ti_tab_pressed, 0, 0, [(set_trigger_result,1)], []),
+
     ],),
 
   ("mithras_quest_villa",0,-1, #

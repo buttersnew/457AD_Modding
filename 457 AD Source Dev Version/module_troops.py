@@ -1076,6 +1076,11 @@ troops = [
    [itm_deurne_campagi_1,itm_deurne_campagi_2,itm_deurne_campagi_3,itm_khergit_leather_boots,itm_wrapping_boots,itm_tab_shield_small_round_c,itm_christies_helmet_1,itm_burgh_helmet_1,itm_burgh_helmet_2,itm_fernpass_helmet_1,itm_intercisa_helmet_gilded_1,itm_iatrus_1,itm_iatrus_2,itm_concesti_helmet,itm_heteny_helmet_1,itm_jarak_helmet_1,itm_heavy_lance,itm_sword_viking_2]+horses_eastern_germanic_3+shields_gothic_cavalry_2+mail_gothic_1+mail_gothic_2+angons,
    def_attrib_lvl_28|level(28),wp_one_handed(210)|wp_two_handed(190)|wp_polearm(210)|wp_throwing(205)|wp_archery(115),knows_lvl_28,germanic_face_1, germanic_face_2],
 
+   #hundafaths / hundafadeis - will be a gothic "centurion" in visigothic + ostrogothic parties, to show "modernization"/romanization in their armies
+  ["gothic_centurion","Gothic Centurion (Hundafaths)","Gothic Centurions (Hundafadeis)",tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_shield|tf_guarantee_helmet,0,0,fac_culture_1,
+   [itm_deurne_campagi_greaves_2,itm_deurne_campagi_greaves_3,itm_rich_mail_1_cloak,itm_common_mail_long_7,itm_common_mail_long_8,itm_concesti_helmet,itm_burgh_helmet_plume_2,itm_iatrus_plume_2,itm_augst_helmet_crested_rich_1,itm_arabian_sword_b,itm_tab_shield_round_e,itm_angon_1],
+   def_attrib_lvl_28|level(28),wp_one_handed(200)|wp_two_handed(200)|wp_polearm(200)|wp_archery(120)|wp_throwing(200),knows_lvl_28|knows_trainer_5,germanic_face_1, germanic_face_2],
+
   ["gothic_messenger","Gothic Messenger (Airus)","Gothic Messengers (Airus)",tf_mounted|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_gloves|tf_guarantee_horse|tf_guarantee_ranged,0,0,fac_culture_1,
    [itm_narona_helmet_mail,itm_sword_viking_2,itm_cavalry_javelins]+tunics_gothic_1+horses_eastern_germanic_1+shoes_generic,
    def_attrib_lvl_23|level(25),wp(180),knows_common|knows_riding_7|knows_horse_archery_5,germanic_face_1, germanic_face_2],
@@ -4453,6 +4458,10 @@ troops = [
   ["bonus_chest_9","{!}Bonus Chest","{!}Bonus Chest",tf_hero|tf_inactive, 0,reserved,  fac_neutral,[itm_holy_grail],def_attrib|level(18),wp(60),knows_common, 0], #hidden in catacombs in rome
   ["bonus_chest_10","{!}Bonus Chest","{!}Bonus Chest",tf_hero|tf_inactive, 0,reserved,  fac_neutral,[itm_gold_jewelry,itm_gold_jewelry,itm_gold_jewelry,itm_gold_jewelry,itm_ivory,itm_ivory,itm_ivory,itm_ivory,itm_silver,itm_silver,itm_silver,itm_silver],def_attrib|level(18),wp(60),knows_common, 0], #hidden in nero's ruins
 
+  ["silver_mine_chest_1","{!}Bonus Chest","{!}Bonus Chest",tf_hero|tf_inactive, 0,reserved,  fac_neutral,[itm_pottery,itm_pottery,itm_tools,itm_silver],def_attrib|level(18),wp(60),knows_common, 0], 
+  ["silver_mine_chest_2","{!}Bonus Chest","{!}Bonus Chest",tf_hero|tf_inactive, 0,reserved,  fac_neutral,[itm_silver,itm_silver,itm_silver,itm_silver],def_attrib|level(18),wp(60),knows_common, 0], 
+
+
   ["household_possessions","{!}household_possessions","{!}household_possessions",tf_hero|tf_inactive|tf_is_merchant, 0,reserved,  fac_neutral,[],def_attrib|level(18),wp(60),knows_inventory_management_10, 0],
 
 # These are used as arrays in the scripts. #SB : give full inventory
@@ -4844,10 +4853,6 @@ troops = [
 
   ["heruli_king", "Rex Visilaus", "Visilaus", tf_hero, 0, reserved, fac_heruli,[itm_east_germ_warhorse_2, itm_wrapping_boots, itm_tab_shield_small_round_c, itm_common_mail_short_7, itm_concesti_helmet, itm_sword_viking_2],knight_attrib_5,wp(300),knight_skills_5|knows_trainer_1|knows_trainer_3,0x000000068504324534db6db6eb6db6db00000000001db6db0000000000000000],
 
-  ["ghassanid_king", "Phylarch Amr III ibn al-Numan", "Amr III ibn al-Numan", tf_hero, 0, reserved, fac_commoners,[itm_arab_bard_1,itm_heavy_greaves,itm_long_cataphract_mail,itm_heavy_lance,itm_battle_axe,itm_sarranid_horseman_helmet],knight_attrib_5,wp(300),knight_skills_5|knows_trainer_1|knows_trainer_3,0x0000000c2e00f143491b6a58a36db6db00000000001d36d20000000000000000],
-
-  ["salihid_king", "Phylarch Ziyad", "Ziyad", tf_hero, 0, reserved, fac_commoners,[itm_arab_bard_2,itm_heavy_greaves,itm_long_cataphract_mail,itm_heavy_lance,itm_battle_axe,itm_burgh_helmet_1],knight_attrib_5,wp(300),knight_skills_5|knows_trainer_1|knows_trainer_3,0x0000000c2e0114c4491b6a58a36db6db00000000001d36d20000000000000000],
-
   ["persian_champion","Champion","NPC Quest Character",tf_hero, no_scene, reserved, fac_commoners,[itm_sassanid_simple_boots_2,itm_sarranid_horseman_helmet],def_attrib_lvl_18|level(19),wp(250),knows_ironflesh_10|knows_power_strike_7,persian_face_1, persian_face_2],
   #isaurian rival king
   ["isaurian_leader","Regulus Lydius","NPC Quest Character",tf_hero|tf_guarantee_boots|tf_guarantee_armor, no_scene, 0, fac_outlaws,[itm_rich_mail_1_cloak,itm_christies_helmet_1,itm_round_shield_roman_13,itm_ankle_boots,itm_battle_axe],def_attrib_lvl_20|level(19),wp(250),knows_ironflesh_10|knows_power_strike_7,0x000000078a0091436adc8647136db6db00000000001eb6b10000000000000000],
@@ -4856,9 +4861,7 @@ troops = [
   
   ["germanic_pagan_quest_npc","NPC Quest Placeholder","NPC Quest Placeholder",tf_hero|tf_randomize_face|tf_guarantee_boots|tf_guarantee_armor, no_scene, reserved, fac_commoners,[itm_coptic_tunic_2,itm_ankle_boots,itm_sword_medieval_a],def_attrib_lvl_20|level(19),wp(180),knows_ironflesh_10|knows_power_strike_7,germanic_face_1, germanic_face_2],
   
-  ["bagaudae_king","Basilius","Basilius",tf_hero|tf_allways_fall_dead|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_shield, scn_roman_fort|entry(2), reserved, fac_forest_bandits,[itm_wrapping_boots,itm_battered_mail_2_cloak,itm_leather_gloves,itm_intercisa_helmet_2,itm_arabian_sword_a,itm_round_shield_roman_1],def_attrib_lvl_23|level(24),wp(260),knows_ironflesh_8|knows_power_strike_6|knows_shield_3|knows_athletics_5,0x000000059f0060824adb6db6db6daae500000000001db6ea0000000000000000],
-
-  ["bagaudae_leader","Bagauda Leader","Bagadua Leaders",tf_hero, no_scene, 0, fac_forest_bandits,[itm_wrapping_boots,itm_common_mail_short_6_cloak,itm_intercisa_helmet_2,itm_arabian_sword_a,itm_concave_shield_green_2],def_attrib_lvl_23|level(24),wp(230),knows_ironflesh_8|knows_power_strike_6|knows_shield_3|knows_athletics_5,0x000000059f0060824adb6db6db6daae500000000001db6ea0000000000000000],
+  ["bagaudae_king","Basilius","Basilius",tf_hero|tf_allways_fall_dead, no_scene, 0, fac_forest_bandits,[itm_deurne_campagi_2,itm_common_mail_short_1_cloak,itm_florence_helmet_1,itm_arabian_sword_a,itm_round_shield_roman_1],def_attrib_lvl_25|level(25),wp(260),knows_lvl_25,0x00000009650c34c75b918a38536d16db00000000001e96a90000000000000000],
 
   ["priscus","Priscus","Priscus",tf_hero, 0, reserved, fac_kingdom_2,[itm_ankle_boots,itm_coptic_tunic_3],def_attrib_lvl_20|level(19),wp(180),knows_ironflesh_2|knows_power_strike_2|knows_athletics_2,0x0000000f3600314f46da91b6636db6db00000000001db6d20000000000000000],
 
@@ -4950,8 +4953,6 @@ troops = [
 
   ["german_bard","Frumirus","Frumirus",tf_hero|tf_guarantee_boots|tf_guarantee_armor, scn_town_23_tavern|entry(12), reserved, fac_commoners,[itm_wrapping_boots,itm_tunic_4_cloak],def_attrib|level(3),wp(80),knows_common,0x000000049e002408555b6db69badb2db00000000001db71a0000000000000000],
 
-  ["visigothic_merchant","Arvandus the Merchant","Arvandus the Merchant",tf_hero|tf_allways_fall_dead|tf_guarantee_boots|tf_guarantee_armor, 0, reserved, fac_commoners,[itm_wrapping_boots,itm_roman_peasant_tunic_7,itm_sword_viking_3_small],def_attrib_lvl_20|level(20),wp(180),knows_common|knows_ironflesh_10,0x00000009de0014045da27236ea8db6db00000000001db4cd0000000000000000],
-
   #name is actually going to be Hilarius Pupienus Maximus, haha funnie
   ["nero_larper","Nero Redivivus","Nero Redivivus",tf_hero|tf_allways_fall_dead, 0, reserved, fac_commoners,[itm_deurne_campagi_4,itm_coptic_tunic_10,itm_sword_khergit_4,itm_crown_1],def_attrib_lvl_30|level(30),wp(280),knows_lvl_30,0x00000000310010035adc7236dc8dbada00000000001d36e50000000000000000],
 
@@ -4998,7 +4999,7 @@ troops = [
   ["chudjak","Chuddius Maximus","Chuddius Maximus",tf_hero, no_scene, reserved, fac_commoners,[itm_deurne_campagi_3,itm_coptic_tunic_1],def_attrib|level(3),wp(80),knows_common,0x000000003f107005345cae396c93641000000000001d36710000000000000000],
 
   #wolfmen quest
-  ["berserker_leader","Cynocephalus Leader","Cynocephalus Leader",tf_hero|tf_allways_fall_dead, no_scene, reserved, fac_commoners,[itm_wrapping_boots,itm_common_mail_short_4,itm_wolf_skin_1,itm_concave_shield_germanic_26,itm_sword_viking_2],def_attrib_lvl_30|level(30),wp_one_handed(260)|wp_two_handed(200)|wp_polearm(260)|wp_throwing(250)|wp_archery(180),knows_lvl_30,0x00000007400001c41cdb6daaec6db6db00000000001e37250000000000000000],
+  ["berserker_leader","Old Shaman","Cynocephalus Leader",tf_hero|tf_allways_fall_dead, no_scene, reserved, fac_commoners,[itm_wrapping_boots,itm_common_mail_short_4,itm_wolf_skin_1,itm_concave_shield_germanic_26,itm_sword_viking_2],def_attrib_lvl_30|level(30),wp_one_handed(260)|wp_two_handed(200)|wp_polearm(260)|wp_throwing(250)|wp_archery(180),knows_lvl_30,0x00000007400001c41cdb6daaec6db6db00000000001e37250000000000000000],
 
   #varying rebels, other characters
   #will revolt/challenge majorian's rule, eventually killed

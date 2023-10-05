@@ -1686,6 +1686,9 @@ scenes = [
     [],[],"outer_terrain_forest"),  
   ("noricum_refugee_camp",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000300005000004c13100001d3100006d4100001edd",
     [],["bonus_chest_7"],"outer_terrain_forest"),
+  ("abandoned_silver_mine",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000b00005000005e5790000371500000e3500000f71",
+    [],["silver_mine_chest_1"], "outer_terrain_mountain"),  
+
 
   ("christian_monastery",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000023007a3b20005795e0000706d0000381800000bbc",
     [],[],"outer_terrain_plain"),  

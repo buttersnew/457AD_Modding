@@ -213,7 +213,7 @@ items = [
  ["velvet","Fine Cloth", [("trade_goods_tyrian",0)], itp_merchandise|itp_type_goods, 0, 1025,weight(40)|abundance(30),imodbits_none],
 
  ["iron","Iron", [("iron_ore",0)], itp_merchandise|itp_type_goods, 0,264,weight(60)|abundance(60),imodbits_none],
- ["silver","Silver", [("iron_ore",0)], itp_merchandise|itp_type_goods, 0,564,weight(60)|abundance(60),imodbits_none],
+ ["silver","Silver", [("silver_ore",0)], itp_merchandise|itp_type_goods, 0,564,weight(60)|abundance(60),imodbits_none],
  ["tools","Tools", [("medieval_hammer_a",0)], itp_merchandise|itp_type_goods, 0, 410,weight(50)|abundance(90),imodbits_none],
 
  ["raw_leather","Hides", [("trade_goods_leather",0)], itp_merchandise|itp_type_goods, 0, 120,weight(40)|abundance(90),imodbits_none],

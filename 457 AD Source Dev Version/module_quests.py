@@ -450,15 +450,15 @@ quests = [
   "{!}None"
  ),
 
- ("hunimund_quest", "Suebi Raiders", 0,
+ ("hunimund_quest", "Suebi Raiders", 0, #remaking
   "{!}None"
  ),
 
- ("bagadua_quest", "The Bagadua", 0,
+ ("bagadua_quest", "The Bagadua", 0, #remaking
   "{!}None"
  ),
 
- ("nubia_quest", "Journey Down the Nile", 0,
+ ("nubia_quest", "Journey Down the Nile", 0, #will cut
   "{!}None"
  ),
 
@@ -478,7 +478,7 @@ quests = [
   "{!}None"
  ),
 
- ("wayland_quest", "Arts and Crafts", 0,
+ ("wayland_quest", "Arts and Crafts", 0, #will redo/rename
   "{!}None"
  ),
 
@@ -498,17 +498,46 @@ quests = [
   "{!}None"
  ), 
 
+ ("caius_quest", "Caius's Orders", 0, 
+  "{!}"
+ ), 
+
+ ("heretical_codex", "A Certain Magical Codex", 0,
+  "{!}None"
+ ),   
+
+ #UNIQUE MINOR FACTION RELATED QUESTS
  ("aestii_rebel_quest", "The Duke of Taurapilis", 0,
   "{!}None"
  ),
 
+ ("finnsburh_quest", "Battle of Finnsburh Part I", 0, #
+  "{!}"
+ ),    
+ ("finnsburh_quest_2", "Battle of Finnsburh Part II", 0, #
+  "{!}"
+ ),    
+  
+ ("ernak_quest", "Sky-gods", 0, 
+  "{!}"
+ ),    
+
+ ("haddingr_quest", "Haddingr's Revenge", 0, 
+  "{!}"
+ ),   
+#TO BE DONE QUESTS
  ("the_wolfmen", "The Wolf Headed Men", 0,
   "{!}None"
  ),
 
- ("heretical_codex", "A Certain Magical Codex", 0,
+ ("black_river", "The Black River", 0, #by llkk11
   "{!}None"
- ), 
+ ),
+
+ ("revenge_of_paganism", "Revenge of Paganism", 0, #by northwind - will rename
+  "{!}None"
+ ),
+
 #CONQUEST QUESTS
  ("conquest_gaul", "The Reconquest of Gaul", 0, #WRE
   "{!}Just as Julius Caesar conquered Gaul 500 years ago, you must conquer the lands once again."
@@ -554,41 +583,5 @@ quests = [
   "{!}"
  ),    
  
- ("finnsburh_quest", "Battle of Finnsburh Part I", 0, #
-  "{!}"
- ),    
- ("finnsburh_quest_2", "Battle of Finnsburh Part II", 0, #
-  "{!}"
- ),    
-
- ("caius_quest", "Caius's Orders", 0, 
-  "{!}"
- ),    
-
- ("ernak_quest", "Sky-gods", 0, 
-  "{!}"
- ),    
-#TO BE DONE QUESTS
-
- ("suebi_civil_war", "Faltra's Rebellion Placeholder", 0, 
-  "{!}None"
- ),
-
- ("pope_leo_quest", "Placeholder until I get an idea", 0,
-  "{!}None"
- ),
-
- ("coptic_rebellion", "Placeholder until I get an idea", 0,
-  "{!}None"
- ),
-
- ("legacy_of_nedao", "Placeholder until I get an idea", 0,
-  "{!}None"
- ),
-
- ("merchants_war", "Placeholder until I get an idea", 0,
-  "{!}None"
- ),
-
  ("quests_end", "Quests End", 0, "{!}."),
 ]

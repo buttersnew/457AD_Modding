@@ -24700,187 +24700,6 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     ]),  
 #duels
 
-  ("bagadua_fort_start",0,
-    "You and your men approach the ruins of Iuliobriga. Much of the area is overgrown, making it hard to see...",
-    "none",
-    [],
-    [
-      ("continue",[],
-       "Continue to the ruins...",
-       [
-       (jump_to_menu, "mnu_bagadua_fort_ambush"),
-       ]),      
-    ]), 
-
-  ("bagadua_fort_ambush",0,
-    "As you and your men approach the ruins, you see a javelin fly through the brush next to you...",
-    "none",
-    [(set_background_mesh, "mesh_pic_forest_bandits")],
-    [
-      ("ambush",[],
-       "Its an ambush!",
-       [
-        (assign, "$g_battle_result", 0),
-        (assign, "$g_engaged_enemy", 1),
-        (assign, "$g_next_menu", "mnu_bagadua_ambush_won"),#victory menu
-        (assign, "$temp4", "mnu_bagadua_ambush_lost"),#victory menu
-        (set_party_battle_mode), 
-        (set_jump_mission,"mt_lead_charge_quest_ambushed"),#can be used for any quest battle
-        (jump_to_scene, "scn_ambush_plains_forest"),
-        (change_screen_mission),
-    ]),      
-]), 
-
-  ("bagadua_ambush_won",0,
-    "Despite being ambushed, you and your men emerge victorious over the bagadua. " +
-    "You and your men take care of your wounds and continue to Iuliobriga...",
-    "none",
-    [],
-    [
-      ("continue", [], "Continue...",
-        [
-        (jump_to_menu, "mnu_bagadua_fort_enter"),
-      ]),
-    ]),
-
-  ("bagadua_ambush_lost",0,
-    "You and your men were defeated in the ambush, but luckily you escaped. " +
-    "Your anger grows, fueling you once more to take down Basilius...",
-    "none",
-    [],
-    [
-      ("continue", [], "Continue...",
-        [
-        (leave_encounter),
-        (jump_to_menu, "mnu_auto_return_to_map"),
-        (heal_party, "p_bagadua_fort"),
-        (party_add_members, "p_bagadua_fort", "trp_forest_bandit_recruit", 10),
-        (party_add_members, "p_bagadua_fort", "trp_forest_bandit", 2),
-        (party_add_members, "p_bagadua_fort", "trp_bagaudae_footman", 2),
-      ]),
-    ]),
-
-  ("bagadua_fort_enter",0,
-    "You finally reach Iuliobriga. A messenger from the settlement approaches your party, and tells you that Basilius wishes to meet with you...",
-    "none",
-    [
-      (try_begin),
-        (store_troop_health, ":health", "trp_player", 0), #get relative health in 1-100 range and put it into the ":health" variable
-        (lt, ":health", 30),
-        (val_add, ":health", 35),               #add to it the 5%
-        (troop_set_health,   "trp_player", ":health"),   #set it
-      (try_end),
-    ],
-    [
-      ("enter",[(eq,"$basilius_interaction",0)],"Approach the ruins...",
-    [
-      (modify_visitors_at_site,"scn_roman_fort"),
-      (reset_visitors,0),
-      (set_visitors,1,"trp_bagaudae_king",1),
-      (set_jump_mission,"mt_bagadua_camp_visit"),
-      (jump_to_scene,"scn_roman_fort"),
-      (change_screen_mission),
-    ]), 
-
-      ("leave",[],"Leave",[(leave_encounter),(change_screen_return)]),
-    ]),  
-
-  ("bagadua_fort_enter_ally",0,
-    "You approach Iuliobriga.",
-    "none",
-    [],
-    [
-      ("continue", [], "Approach the ruins...",
-        [ 
-          (eq, "$g_encountered_party", "p_bagadua_fort"),
-          (modify_visitors_at_site,"scn_roman_fort"),
-          (reset_visitors),   
-          (assign, "$g_mt_mode", tcm_default),      
-          (set_jump_entry, 1),
-
-          (set_visitor, 2, "trp_bagaudae_king"),
-
-          (set_visitor, 5, "trp_forest_bandit_recruit"),
-          (set_visitor, 6, "trp_forest_bandit_recruit"),
-          (set_visitor, 7, "trp_forest_bandit"),
-          (set_visitor, 8, "trp_forest_bandit"),
-          (set_visitor, 9, "trp_bagaudae_footman"),
-          (set_jump_mission,"mt_visit_town_castle"),
-          (jump_to_scene,"scn_roman_fort"),
-          (change_screen_mission), 
-          #just for testing
-      ]), 
-
-      ("leave",[],"Leave",[(leave_encounter),(change_screen_return)]),
-    ]), 
-
-  ("quest_villa_enter",0,
-    "You have arrived at the villa.",
-    "none",
-    [],
-    [
-      ("enter_villa_quest",[
-        (check_quest_active,"qst_bagadua_quest"),
-        #(eq, "$basilius_interaction",6),
-        (eq, "$attack_visigothic_merchant",0),
-        ],"Continue...",[
-          (try_begin),
-            (store_troop_health, ":health", "trp_player", 0), #get relative health in 1-100 range and put it into the ":health" variable
-            (lt, ":health", 30),
-            (val_add, ":health", 35),               #add to it the 5%
-            (troop_set_health,   "trp_player", ":health"),   #set it
-          (try_end),
-          
-          (set_jump_mission,"mt_quest_villa_attack"),
-          (modify_visitors_at_site,"scn_maxi_roman_villa"),
-          (reset_visitors),
-
-          (assign, ":cur_entry", 1), #entry points 1 to 7
-          (try_for_range, ":companion", companions_begin, companions_end),
-            (le, ":cur_entry", 7),
-            (main_party_has_troop,":companion"),
-            (set_visitor, ":cur_entry", ":companion"),
-            (val_add, ":cur_entry", 1),
-          (try_end),
-          
-          (set_visitor,8,"trp_visigothic_merchant"),
-          
-          (set_jump_entry, 0),
-          (scene_set_slot, "scn_maxi_roman_villa", slot_scene_visited, 1),
-          
-          (jump_to_scene,"scn_maxi_roman_villa"),
-          (change_screen_mission),
-    ]),
-
-      ("enter_villa_visit",[
-      (eq, "$g_player_owns_villa", 1),
-        ],"Visit the villa.",[
-    (modify_visitors_at_site,"scn_maxi_roman_villa"),
-    (reset_visitors),   
-    (assign, "$g_mt_mode", tcm_default),      
-    #(set_visitor, 1, "trp_old_palace_farmer"), #will replace later
-    (set_visitor,1,"trp_palace_farmer"),
-    (set_visitor,2,"trp_palace_farmer"),
-    (set_visitor,3,"trp_palace_farmer"),
-    (set_visitor,4,"trp_palace_farmer"),
-    (set_visitor,5,"trp_palace_farmer"),
-    (set_visitor,6,"trp_palace_farmer"),
-    (set_visitor,7,"trp_palace_farmer"),
-    (set_visitor,8,"trp_palace_farmer"),
-    (set_visitor,9,"trp_palace_farmer"),
-    (set_visitor,10,"trp_palace_farmer"),
-
-    (set_jump_entry, 0),
-    (scene_set_slot, "scn_maxi_roman_villa", slot_scene_visited, 1),
-    (set_jump_mission,"mt_diocletian_palace_visit"),
-    (jump_to_scene,"scn_maxi_roman_villa"),
-    (change_screen_mission),  
-    ]),
-
-     ("leave",[],"Leave",[(leave_encounter),(change_screen_return)]),
-    ]),    
-
-
   ("quest_agrippinus_villa",0,
     "You have arrived at the villa.",
     "none",
@@ -25513,6 +25332,50 @@ goods, and books will never be sold. ^^You can change some settings here freely.
           (scene_set_slot, "scn_wolfmen_lair", slot_scene_visited, 1),
           
           (jump_to_scene,"scn_wolfmen_lair"),
+          (change_screen_mission),
+    ]),
+
+    ("leave",[],"Leave",[(leave_encounter),(change_screen_return)]),
+    ]), 
+
+#abandoned silver mine
+  ("abandoned_silver_mine",0,
+    "Iberia was once known for its abundant silver mines, however as the years have gone by, many of the mines have dried up, leaving them abandoned and in disrepair...",
+    "none",
+    [],
+    [
+      ("explore_mine",[(eq, "$abandoned_silver_mine", 0),],"Explore the mines...",[
+          (try_begin),
+            (store_troop_health, ":health", "trp_player", 0), #get relative health in 1-100 range and put it into the ":health" variable
+            (lt, ":health", 30),
+            (val_add, ":health", 35),               #add to it the 5%
+            (troop_set_health,   "trp_player", ":health"),   #set it
+          (try_end),
+          
+          (set_jump_mission,"mt_abandoned_silver_mine"),
+          (modify_visitors_at_site,"scn_abandoned_silver_mine"),
+          (reset_visitors),
+
+          (assign, ":cur_entry", 1),
+          (try_for_range, ":companion", companions_begin, companions_end),
+            (main_party_has_troop,":companion"),
+            (set_visitor, ":cur_entry", ":companion"),
+          (try_end),
+          
+          (set_visitor,8,"trp_bagaudae_king"),
+          
+          (set_visitor,9,"trp_forest_bandit_recruit"), #guards
+          (set_visitor,10,"trp_forest_bandit_recruit"),
+          (set_visitor,11,"trp_forest_bandit_recruit"),
+          (set_visitor,12,"trp_forest_bandit"),
+          (set_visitor,13,"trp_forest_bandit"),
+          (set_visitor,14,"trp_bagaudae_footman"),
+          (set_visitor,15,"trp_bagaudae_footman"),
+          
+          (set_jump_entry, 0),
+          (scene_set_slot, "scn_abandoned_silver_mine", slot_scene_visited, 1),
+          
+          (jump_to_scene,"scn_abandoned_silver_mine"),
           (change_screen_mission),
     ]),
 

@@ -41932,7 +41932,6 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   (neq,"$g_talk_troop","trp_bishop_of_alexandria"),
   (neq,"$g_talk_troop","trp_bishop_of_antioch"),
   (neq,"$g_talk_troop", "trp_german_bard"),
-  (neq,"$g_talk_troop", "trp_visigothic_merchant"),
   (neq,"$g_talk_troop", "trp_corrupt_priest"),
   (neq, "$g_talk_troop", "trp_hun_drunkard"),
   (neq, "$g_talk_troop", "trp_zamb_man"),
@@ -47471,7 +47470,12 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   (party_get_slot, ":religion_center", "$current_town", slot_center_religion),
   (eq, ":religion_center", slot_religion_paganism),
   (le, "$g_wolf_quest" , 1),
-  ], "I've heard rumors of ferocious warriors that take on the form of a wolf deep in Germania called cynocephali. They supposedly feast on the blood of men. What a fearsome sight to see...", "town_dweller_talk",[(assign, "$g_wolf_quest", 1)]],
+  ], "Ah, you've heard of the Cynocephali, have you? They're a mysterious lot. Fierce warriors, some say. They're said to possess the spirit of beasts, fighting like wild dogs on the battlefield. But mind you, these are just rumors, traveler. I wouldn't want to cross paths with such fierce fighters, that's for certain.", "town_dweller_talk_cynocephali_1",[]],
+
+  [anyone|plyr,"town_dweller_talk_cynocephali_1", [], ": Interesting, indeed. Do you know anyone who might have more information about them?", "town_dweller_talk_cynocephali_2",[]],
+  [anyone,"town_dweller_talk_cynocephali_2", [], "Well, if you're truly curious, you might want to seek out old Eadric, the priest who lives nearby. Folks say he has an ear for these sorts of tales and can spin a good yarn about the Cynocephali and their supposed abilities. Just be careful, though, some say delving too deep into their secrets might lead to more than you bargained for.", "town_dweller_talk_cynocephali_3",[]],
+  [anyone|plyr,"town_dweller_talk_cynocephali_3", [], "Thank you for the advice. I'll look for this Eadric and see if he can shed some light on the matter.", "town_dweller_talk_cynocephali_4",[]],
+  [anyone,"town_dweller_talk_cynocephali_4", [], "Safe travels, traveler. And don't say I didn't warn you about them Cynocephali. May the gods protect you.", "town_dweller_talk",[(assign, "$g_wolf_quest", 1)]],
 
   [anyone,"town_dweller_ask_rumor", [ #must be in greece
   (this_or_next|eq, "$current_town", "p_village_4"),
@@ -49219,22 +49223,6 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
     (jump_to_menu, "mnu_alexandria_zealot_battle"),
     (finish_mission),]],
 
-  #[trp_proclus|plyr, "proclus_talk_met", [(neg|check_quest_active, "qst_roman_pagan_quest"),(eq, "$proclus_book_quest_started", 0),],
-  # "Is there anything else I can do for you?", "proclus_talk_book_quest", []],
-  #[trp_proclus, "proclus_talk_book_quest", [],
-  # "Yes, there is. I've been hunting for copies of several of Plato's works. One of my pupils has told me that there is a merchant in Antioch that has copies of Plato's work. Since I am busy here, would you be able to aquire them for me?", "proclus_talk_book_quest2", []],
-  #[trp_proclus|plyr, "proclus_talk_book_quest2", [],
-  # "Yes, I will get Plato's works for you. Anything else I need to know?", "proclus_talk_book_quest3", []],
-  #[trp_proclus, "proclus_talk_book_quest3", [],
-  # "The merchant's name is Marcellus. He should be somewhere in Antioch, it would be best to check the taverns. Farewell, {playername}.", "close_window", [
-  # (setup_quest_text, "qst_proclus_book_quest"),
-  # (str_store_string, s2, "@Proclus asks of you to retrieve the works for Plato from a merchant named Marcellus in Antioch."),
-  # (call_script, "script_start_quest", "qst_proclus_book_quest", "$g_talk_troop"),
-  # (quest_set_slot,"qst_proclus_book_quest", slot_quest_current_state, 1),
-  # (add_troop_to_site, "trp_roman_pagan_quest_npc_7", "scn_town_38_tavern", 12),
-  # (assign, "$proclus_book_quest_started", 1),
-#]],
-
   [trp_proclus|plyr, "proclus_talk_met", [],
   "I would like to purchase a book.", "proclus_shop_1", []],
 
@@ -49274,27 +49262,6 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
 
   [trp_proclus|plyr, "proclus_talk_met", [],
    "I didn't mean to bother you. Farewell.", "close_window", []],
-
-  #small side quest
-  #[trp_roman_pagan_quest_npc_5, "start", [(eq, "$roman_pagan_quest_book_started", 0),],
-  # "Hello there. I am Flavius Illustrius Pusaeus. You wouldn't happen to travel a lot?", "roman_pagan_quest_npc_5_talk", []],
-  #[trp_roman_pagan_quest_npc_5|plyr, "roman_pagan_quest_npc_5_talk", [],
-  # "I do travel a lot, what do you need?", "roman_pagan_quest_npc_5_talk2", []],
-  #[trp_roman_pagan_quest_npc_5, "roman_pagan_quest_npc_5_talk2", [],
-  # "You wouldn't happen to know Anthemius. If not, that does not matter. He's a good friend of mine. Would you be able to deliver this book to him?", "roman_pagan_quest_npc_5_talk3", []],#
-  #[trp_roman_pagan_quest_npc_5|plyr, "roman_pagan_quest_npc_5_talk3", [],
-  # "If I run into him, I'll deliver the book.", "roman_pagan_quest_npc_5_talk4", []],
-  #[trp_roman_pagan_quest_npc_5, "roman_pagan_quest_npc_5_talk4", [],
-  # "Oh, thank you! And do not worry, Anthemius will grant you a reward for this if you deliver it to him. Here, take this book", "close_window", [
-  # (troop_add_item, "trp_player", "itm_book_roman_pagan_quest", 0),
-  # (str_store_troop_name_link, s3, "trp_knight_2_1"),
-  # (setup_quest_text, "qst_roman_pagan_quest_book"),
-  # (str_store_string, s2, "@Pusaeus has asked you to deliver a book to {s3} for a reward."),
-  # (assign, "$roman_pagan_quest_book_started", 1),
-  # (call_script, "script_start_quest", "qst_roman_pagan_quest_book", "$g_talk_troop"),
-  # (quest_set_slot,"qst_roman_pagan_quest_book", slot_quest_current_state, 1),
-  # (call_script, "script_change_player_relation_with_faction", "fac_roman_pagans", 5),
-  # ]],
 
   [trp_roman_pagan_quest_npc_2, "start", [(troop_is_hero, "$g_talk_troop")],
    "Yes?", "close_window", []],
@@ -49851,6 +49818,68 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   [anyone|plyr, "hydatius_history_talk_2_8", [],
    "I wish you luck, Hydatius. Your cause seems righteous. Hopefully we will meet again.", "close_window", []],
 
+  [anyone|plyr, "chalcedonian_bishop_talk", [(eq, "$g_talk_troop", "trp_hydatius"),(neg|check_quest_active,"qst_bagadua_quest")],
+   "Do you have any tasks for me?", "hydatius_bagadua_quest_1", []],
+  [anyone, "hydatius_bagadua_quest_1", [],
+   "Yes, there has been a pesky bandit by the name of Basilius who is rumored to still be around here in Hispania. He was a self proclaimed 'king' of the bagaudae, and for years would pillage the countryside. However, he was defeated and eventually went into hiding. I fear he may be preparing to go out and pillage again, so I have been hiring mercenaries to hunt him down since he poses a threat to the... fragile stability here.", "hydatius_bagadua_quest_2", []],
+ 
+  [anyone|plyr, "hydatius_bagadua_quest_2", [(neg|check_quest_active,"qst_bagadua_quest"),(eq, "$abandoned_silver_mine", 2)],
+   "Oh, I know of the man you are hunting down. Luckily for you, I have killed him.", "hydatius_bagadua_c_1", []],
+  [anyone, "hydatius_bagadua_c_1", [],
+   "You are quite the effective hire; I haven't even discussed payment and Basilius is already dead. For that, I'll throw in a few extra siliquae. Thank you and God bless. Now be off, I have important work to do.", "close_window", [
+   (troop_add_gold, "trp_player", 1000),
+   (call_script, "script_change_player_honor", 2),
+   (call_script, "script_change_troop_renown", "trp_player", 10),
+   (add_xp_as_reward, 650),
+   ]],
+  [anyone|plyr, "hydatius_bagadua_quest_2", [(neg|check_quest_active,"qst_bagadua_quest"),(eq, "$abandoned_silver_mine", 1)],
+   "Oh, I know the man you are hunting down. I encountered him in an abandoned mine shaft, however... He was able to escape my grasp.", "hydatius_bagadua_f_1", []],
+  [anyone, "hydatius_bagadua_f_1", [],
+   "You let him escape? Well, I'll take for granted that you did not know there was a bounty on his head. At least it confirms my suspicions that Basilius is alive are true. Take this small reward... For your services...", "close_window", [
+   (troop_add_gold, "trp_player", 200),
+   (call_script, "script_change_troop_renown", "trp_player", 2),
+   (add_xp_as_reward, 300),
+   ]],
+  [anyone|plyr, "hydatius_bagadua_quest_2", [],
+   "Ah, a so called 'king' of the bagaudae? Very well, I will help hunt down this brigand.", "hydatius_bagadua_quest_3", []],
+  [anyone, "hydatius_bagadua_quest_3", [],
+   "I figure Basilius is most likely hiding somewhere in northern Hispania. He is a strong warrior, so be prepared for a fight if you do encounter him. Once you dispose of him, return and I will give you your reward.", "close_window", [
+   (setup_quest_text, "qst_bagadua_quest"),
+   (str_store_string, s2, "@Hydatius has hired you to hunt down a leader of the bagaudae, a certain Basilius. He is alleged to be hiding somewhere in northern Hispania."),
+   (call_script, "script_start_quest", "qst_bagadua_quest", "$g_talk_troop"),
+   (quest_set_slot,"qst_bagadua_quest", slot_quest_current_state, 1),
+   ]],
+  [anyone|plyr, "hydatius_bagadua_quest_2", [],
+   "I have no interest in tracking irrelevant bandits, farewell.", "close_window", []],
+
+  [anyone|plyr, "chalcedonian_bishop_talk", [(eq, "$g_talk_troop", "trp_hydatius"),(check_quest_active,"qst_bagadua_quest")],
+   "About Basilius...", "hydatius_bagadua_1", []],
+  [anyone, "hydatius_bagadua_1", [],
+   "Do you have any news on your search for Basilius?", "hydatius_bagadua_2", []],
+ 
+  [anyone|plyr, "hydatius_bagadua_2", [(check_quest_active,"qst_bagadua_quest"),(check_quest_succeeded, "qst_bagadua_quest")],
+   "I encountered him in an abandoned mine shaft with a small group of bandits. They all have been taken care of, Basilius is dead.", "hydatius_bagadua_complete_1", []],
+  [anyone, "hydatius_bagadua_complete_1", [],
+   "Ah, now we don't have to fear any large, organzied bagadua rebellions for hopefully a long while. Thank you, now take this reward. I have much to do.", "close_window", [
+   (troop_add_gold, "trp_player", 800),
+   (call_script, "script_change_player_honor", 2),
+   (call_script, "script_change_troop_renown", "trp_player", 10),
+   (add_xp_as_reward, 650),
+   (call_script, "script_end_quest", "qst_bagadua_quest"),
+   ]],
+
+  [anyone|plyr, "hydatius_bagadua_2", [(check_quest_active,"qst_bagadua_quest"),(check_quest_failed, "qst_bagadua_quest")],
+   "I encountered him in an abandoned mine shaft, however... He was able to escape my grasp.", "hydatius_bagadua_fail_1", []],
+  [anyone, "hydatius_bagadua_fail_1", [],
+   "You what? How dare you let him slip past like that? I am at least pleased to hear that my suspicions about Basilius were right, however, I do not tolerate failure. Now leave, I have much to do.", "close_window", [
+   (add_xp_as_reward, 300),
+   (call_script, "script_end_quest", "qst_bagadua_quest"),
+   ]],
+
+  [anyone|plyr, "hydatius_bagadua_2", [],
+   "Nevermind.", "chalcedonian_bishop_talk", []],
+
+
   [anyone|plyr, "chalcedonian_bishop_talk", [(neq, "$g_player_faith", 1),(neq, "$g_player_converted", 1),], #player is not of the religion
    "I wish be converted to Chalcedonian Christianity.", "chalcedonian_bishop_talk_convert_1", [
           (assign, "$g_player_faith", 1),
@@ -50106,156 +50135,44 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   [trp_german_bard|plyr, "german_bard_talk_normal_1", [],
    "I didn't mean to bother you, farewell.", "close_window", []],
 
-  [trp_visigothic_merchant, "start", [
-  (troop_get_slot, ":player_renown", "trp_player", slot_troop_renown), #gets the player's renown to determine if they can start the quest
-  (ge, ":player_renown", 150),
-  (eq, "$g_bagadua_quest", 0),
-  ],
-   "Oh, you! Yes you. I've heard of you. May I ask you, can you do something for me? I'll pay you handsomely...", "visigothic_merchant_talk_intro_1", []],
-
-  [trp_visigothic_merchant|plyr, "visigothic_merchant_talk_intro_1", [],
-   "Well, it depends, what do you want?", "visigothic_merchant_talk_intro_2", []],
-  [trp_visigothic_merchant, "visigothic_merchant_talk_intro_2", [],
-   "Well, you see, I've been looking for one of you... Hmm, mercenary types to do job for me.", "visigothic_merchant_talk_intro_3", []],
-  [trp_visigothic_merchant, "visigothic_merchant_talk_intro_3", [],
-   "Years ago, the leader of those pesky bandits, the bagadua, a man by the name of Basilius raided various towns here in Tarraconensis. At one point he sacked Turiasso and killed the local bishop. However, years later the Visigoths were sent by the Romans to clean up this mess, and we believed Basilius was killed in battle.", "visigothic_merchant_talk_intro_4", []],
-  [trp_visigothic_merchant, "visigothic_merchant_talk_intro_4", [],
-   "However, it seems that he was not killed, and has been building up an army so he can ravage the lands once again. I need a mercenary, someone like you to hunt him down and kill him. I'll give you all the information you need to know if you take this job, as well as an up front payment of 1000 siliquae...", "visigothic_merchant_talk_intro_5", []],
-  [trp_visigothic_merchant|plyr, "visigothic_merchant_talk_intro_5", [],
-   "Very well, I'll hunt down this Basilius for you.", "visigothic_merchant_talk_intro_5_1", []],
-  [trp_visigothic_merchant|plyr, "visigothic_merchant_talk_intro_5", [
-  (troop_get_slot, ":player_renown", "trp_player", slot_troop_renown), #gets the player's renown to determine if they can start the quest
-  (ge, ":player_renown", 400),],
-   "Only 1000 siliquae? A {man/woman} of my stature is not worth just 1000 siliquae. Make it 2000 and we're talking.", "visigothic_merchant_talk_intro_5_2", []],
-
-  [trp_visigothic_merchant, "visigothic_merchant_talk_intro_5_1", [],
-   "Very well, here's your money. He's supposedly in the old ruins of Iuliobriga, in the lands of the Cantabrians. Be careful, those folk are quite deadly warriors. After you kill him, visit me in my villa, just east of here.", "visigothic_merchant_talk_intro_6", [(call_script, "script_troop_add_gold", "trp_player", 1000),]],
-  [trp_visigothic_merchant, "visigothic_merchant_talk_intro_5_2", [],
-   "Okay fine, I'll make it 2000. Here's your money. He's supposedly in the old ruins of Iuliobriga, in the lands of the Cantabrians. Be careful, those folk are quite deadly warriors. After you kill him, visit me in my villa, just east of here.", "visigothic_merchant_talk_intro_6", [(call_script, "script_troop_add_gold", "trp_player", 2000),]],
-
-  [trp_visigothic_merchant|plyr, "visigothic_merchant_talk_intro_6", [], #starts the quest
-   "Thank you for the money. Off to Iuliobriga I go.", "close_window", [
-   (setup_quest_text, "qst_bagadua_quest"),
-   (str_store_string, s2, "@A man by the name of Arvandus has hired you to hunt down and kill the leader of the bagadua, Basilius. He is currently hiding in the abandoned town of Iuliobriga in Cantabria."),
-   (call_script, "script_start_quest", "qst_bagadua_quest", "$g_talk_troop"),
-   (quest_set_slot,"qst_bagadua_quest", slot_quest_current_state, 1),
-   (enable_party, "p_bagadua_fort"),
-   (remove_troop_from_site,"trp_visigothic_merchant","scn_town_40_tavern"),
-   (assign, "$g_bagadua_quest", 1),
-   ]],
-
-  [trp_visigothic_merchant, "start", [
-  (troop_get_slot, ":player_renown", "trp_player", slot_troop_renown), #if less than required, will refuse to talk to player
-  (lt, ":player_renown", 150),],
-   "Who the hell are you? Piss off!", "close_window", []],
-
-  #quest talk
-  [trp_visigothic_merchant, "start", [(check_quest_active,"qst_bagadua_quest"),],
-   "Did you kill Basilius yet?", "visigothic_merchant_talk_1", []],
-
-  [trp_visigothic_merchant|plyr, "visigothic_merchant_talk_1", [(check_quest_active,"qst_bagadua_quest"),(quest_slot_eq,"qst_bagadua_quest",slot_quest_current_state, 2),],
-   "Yes, he's dead. Now, for my reward", "visigothic_merchant_talk_2", []],
-  [trp_visigothic_merchant, "visigothic_merchant_talk_2", [],
-   "Oh yes, and your reward! Here's 5500 more siliquae for you. Thank you for your services, now move along, I have much work to do.", "close_window", [
-   (add_xp_as_reward, 2500),
-   (call_script, "script_troop_add_gold", "trp_player", 5500),
-   (call_script, "script_end_quest", "qst_bagadua_quest"),
-   (disable_party, "p_quest_villa"),
-   ]],
-
-  [trp_visigothic_merchant|plyr, "visigothic_merchant_talk_1", [(eq, "$basilius_interaction",6),],
-   "No, not yet. But you will be!", "visigothic_merchant_attack", []],
-  [trp_visigothic_merchant, "visigothic_merchant_attack", [],
-   "What the hell!? Guards, help!", "close_window", [(assign, "$attack_visigothic_merchant", 1),]],
-
-  [trp_visigothic_merchant|plyr, "visigothic_merchant_talk_1", [],
-   "No, not yet.", "close_window", []],
-
-  [trp_visigothic_merchant, "start", [],
-   "Yes?", "close_window", []],
-
   #1 = violence
   #x = ally in this instance
 
-  [trp_bagaudae_king, "start", [(eq, "$basilius_interaction", 0),],
-   "I saw that you defeated my ambush, quite impressive. Most who come to kill me are never prepared for one. That is, if I assumed right, that you are here to kill me?", "bagaudae_king_talk_intro_1", []],
-  [trp_bagaudae_king|plyr, "bagaudae_king_talk_intro_1", [],
-   "Well, yes. I was hired by Arvandus to hunt you down and kill you.", "bagaudae_king_talk_intro_2", []],
-  [trp_bagaudae_king, "bagaudae_king_talk_intro_2", [],
-   "I see. Well, I give you an offer that you shouldn't refuse. Instead of killing me, how about you go over and kill that merchant friend of yours. My men and I are known as quite valuable allies, you can even ask the king of the Suebi. If you do kill him, I will also reward you monetarily as well...", "bagaudae_king_talk_intro_3", []],
-  [trp_bagaudae_king|plyr, "bagaudae_king_talk_intro_3", [],
-   "No, I came here to kill you, and that is what I'll do.", "bagaudae_king_talk_duel_1", []],
-  [trp_bagaudae_king|plyr, "bagaudae_king_talk_intro_3", [],
-   "Sure, I'll take up your offer... Now, how much are you going to pay me?", "bagaudae_king_talk_ally_1", []],
+  [trp_bagaudae_king, "start", [],
+   "Who the hell are you? If you're not here to join my band, then get the hell out of my face or I'll gut you like a fish...", "bagaudae_king_talk_1", []],
 
-  [trp_bagaudae_king, "bagaudae_king_talk_duel_1", [],
+  [trp_bagaudae_king|plyr, "bagaudae_king_talk_1", [],
+   "Who and what are the bagaudae?", "bagaudae_king_talk_history_1", []],
+  [trp_bagaudae_king, "bagaudae_king_talk_history_1", [],
+   "We are farmers, laborers and former soldiers who have rebelled against the grinding taxation and oppressive nature of the Romans and their subjects. The rich landowning class, with their harshness and greed, drive many of their subjects; slave or servant to my cause. How can the empire itself be so corrupt that simple farmers must turn to the sword as their only means of survival? For their sake, I lead them in rebellion so that they may gain their freedom.", "bagaudae_king_talk_history_2", []],
+  [trp_bagaudae_king, "bagaudae_king_talk_history_2", [],
+   "Although we, the bagaudae are not united under one common banner, we all share one common goal. I carry on the legacy of our leaders before me, in which we have had many successes in the past centuries, however the fight is not over.", "bagaudae_king_talk_history_2", []],
+
+  [trp_bagaudae_king|plyr, "bagaudae_king_talk_history_2", [],
+   "You are nothing more then bandits and theieves, you claim to fight for freedom yet plunder the countryside; destroying the lands of wealth of those you claim to protect.", "bagaudae_king_talk_history_3", []],
+  [trp_bagaudae_king, "bagaudae_king_talk_history_3", [],
+   "Watch your tongue stranger, or I'll cut it out. You have no sympathies or understanding of our struggles, you filthy pig.", "close_window", []],
+  [trp_bagaudae_king|plyr, "bagaudae_king_talk_history_2", [],
+   "You fight for an admirable cause, Basilius. I wish for victory for you, your men, and first, your ideals. May the common man be liberated from the oppressive rule of the Romans and their subjects!", "bagaudae_king_talk_history_s2", []],
+  [trp_bagaudae_king, "bagaudae_king_talk_history_s2", [],
+   "I see our ideas align, friend. Will you help us free us of our captors?", "close_window", []],
+
+  [trp_bagaudae_king|plyr, "bagaudae_king_talk_1", [(eq, "$basilius_interaction", 0),],
+   "Basilius, you must die for your crimes.", "bagaudae_king_talk_fight_1", []],
+  [trp_bagaudae_king, "bagaudae_king_talk_fight_1", [],
    "Very well, die you bastard!", "close_window", [(assign,"$basilius_interaction",1),]],
 
+  [trp_bagaudae_king|plyr, "bagaudae_king_talk_1", [(eq, "$basilius_interaction", 0),],
+   "Your hideout is rather exposed, and there are mercenaries hunting for you, it would be best if you found somewhere else to set up camp.", "bagaudae_king_talk_ally_1", []],
   [trp_bagaudae_king, "bagaudae_king_talk_ally_1", [],
-   "I'll give you 6000 siliquae after you kill the merchant. Once you do return, I'll also hand over his estate to you.", "bagaudae_king_talk_ally_2", []],
-  [trp_bagaudae_king|plyr, "bagaudae_king_talk_ally_2", [],
-   "I'll return after I kill Arvandus.", "close_window", [(assign,"$basilius_interaction",6),(enable_party, "p_quest_villa"),(assign, "$attack_visigothic_merchant", 0),(assign, "$g_bagadua_quest", 3),]],
-  [trp_bagaudae_king|plyr, "bagaudae_king_talk_ally_2", [],
-   "Actually, I take that back. Die Basilius!", "bagaudae_king_talk_duel_1", [(assign,"$basilius_interaction",1),]],
+   "Ah, so they are really after me. Those bastards. Thank you for the warning, friend. I am in your debt. If someday you find yourself master of your own domain, and swear no fealty to anyone else, I will come to aid in your struggle.", "close_window", [(assign,"$basilius_interaction",3),(assign, "$abandoned_silver_mine", 1),]],
 
-  #[trp_suebi_king, "start", [(troop_is_hero, "$g_talk_troop")],
-  # "Yes?", "close_window", []],
+  [trp_bagaudae_king|plyr, "bagaudae_king_talk_1", [],
+   "Farewell.", "close_window", []],
 
-  [trp_bagaudae_king, "start", [(check_quest_active,"qst_bagadua_quest"),(quest_slot_eq,"qst_bagadua_quest",slot_quest_current_state, 3),(eq, "$attack_visigothic_merchant", 3),],
-   "Have you killed that wretched merchant?", "bagaudae_king_talk_end_1", []],
-
-  [trp_bagaudae_king|plyr, "bagaudae_king_talk_end_1", [(eq, "$attack_visigothic_merchant", 3),],
-   "Yes, he's dead. Now, for my reward?", "bagaudae_king_talk_end_2", []],
-
-  [trp_bagaudae_king, "bagaudae_king_talk_end_2", [],
-   "Ah, good. Here, take this. I feel this is enough for a {man/woman} like you... His villa is also yours to keep.", "close_window", [
-   (add_xp_as_reward, 3000),
-   (call_script, "script_troop_add_gold", "trp_player", 6500),
-   (call_script, "script_end_quest", "qst_bagadua_quest"),
-   (disable_party, "p_bagadua_fort"),
-   (disable_party, "p_quest_villa"),
-   (assign, "$g_player_owns_villa", 0),
-   #(store_relation,":rel","fac_forest_bandits","fac_player_faction"),
-   # (try_begin),
-   #   (lt,":rel",-5),
-   #   (call_script, "script_set_player_relation_with_faction", "fac_forest_bandits", 20),
-   # (else_try),
-   #   (call_script, "script_set_player_relation_with_faction", "fac_forest_bandits", 20),
-   # (try_end),
-
-   ]],
-
-  [trp_bagaudae_king, "start", [],
-   "Yes?", "close_window", []],
-
-  #[trp_burgundian_looter, "start", [(check_quest_active,"qst_dragon_quest"),(quest_slot_eq,"qst_dragon_quest",slot_quest_current_state, 2)],
-  # "Who the hell are you, and what are you doing here?", "burgundian_looter_talk_1", []],
-  #[trp_burgundian_looter|plyr, "burgundian_looter_talk_1", [],
-  # "I was told there was a dragon here, are you here to hunt it too?", "burgundian_looter_talk_2", []],
-  #[trp_burgundian_looter, "burgundian_looter_talk_2", [],
-  # "Dragon? What are you talking about. Oh. I know. You were hired by that village to investiage us. Yeah, we're the so called 'dragon'...", "burgundian_looter_talk_3", []],
-  #[trp_burgundian_looter, "burgundian_looter_talk_3", [],
-  # "We've been burning their fields and stealing their cattle for a while now. Need them to piss off while we move our stache of treasure, they've been too close for comfort.", "burgundian_looter_talk_4", []],
-  #[trp_burgundian_looter|plyr, "burgundian_looter_talk_4", [],
-  # "Why are you telling me this?", "burgundian_looter_talk_5", []],
-  #[trp_burgundian_looter, "burgundian_looter_talk_5", [],
-  # "Ya want some of this treasure? I'll give ya some, only if you piss off and reinforce their 'dragon' lie. If not, we're just gonna kill you. Your choice!", "burgundian_looter_talk_6", []],
-  #[trp_burgundian_looter|plyr, "burgundian_looter_talk_6", [],
-  # "Very well, prepare to die, scum!", "close_window", [(assign,"$dragons_lair_explored",1),]],
-  #[trp_burgundian_looter|plyr, "burgundian_looter_talk_6", [],
-  # "I'll bite. Give me some of it and I'll be gone.", "burgundian_looter_talk_bribe_1", []],
-  #[trp_burgundian_looter, "burgundian_looter_talk_bribe_1", [],
-  # "Ah, very good. Take some of this gold. It'll fetch a good price. Now piss off!", "close_window", [
-  #  (quest_set_slot,"qst_dragon_quest", slot_quest_current_state, 4),
-  #  (call_script, "script_change_player_honor", -5),
-  #  (troop_add_items, "trp_player", "itm_quest_gold",2),
-  #  (assign,"$dragons_lair_explored",3),
-  #  (add_quest_note_from_sreg, "qst_dragon_quest", 6, "@It turned out the 'dragon' was just a group of bandits. You decided to help them. Report back to the village elder the the 'dragon' was too strong.",0),
-  #]],
 
   [trp_burgundian_looter, "start", [],
    "Yes?", "close_window", []],
-
 
   [trp_nero_larper, "start", [(eq, "$g_talk_troop_met", 0),(neg|check_quest_active,"qst_nero_larper_quest"),(quest_slot_eq,"qst_nero_larper_quest",slot_quest_current_state, 0)],
    "Who are you? What the hell are you doing here?!", "nero_larper_intro_1", []],
@@ -52782,6 +52699,9 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
       (store_current_scene,":current_scene"),(eq,":current_scene","scn_noricum_refugee_camp"),
       ], "I'm busy, however you should speak with Aurelios, the property owner.", "close_window",[]],
 
+  [anyone,"start", [(store_conversation_troop, "$g_talk_troop"),(neq, "$g_talk_troop", "trp_bagaudae_king"), 
+      (store_current_scene,":current_scene"),(eq,":current_scene","scn_abandoned_silver_mine"),
+      ], "What do you want? If you're here to join the cause, go bother Basilius.", "close_window",[]],
 
 #CUSTOM DIALOGUES END
 

@@ -454,7 +454,7 @@ quests = [
   "{!}None"
  ),
 
- ("bagadua_quest", "The Bagadua", 0, #remaking
+ ("bagadua_quest", "The Bagadua", 0,
   "{!}None"
  ),
 

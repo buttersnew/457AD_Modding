@@ -1629,7 +1629,7 @@ troops = [
 
 #burgundians 
   ["burgundian_oathtaker","Guarantor Burgundionum","Guarantores Burgundionum",tf_guarantee_basic|tf_guarantee_helmet,0,0,fac_culture_7,
-   [itm_tab_shield_heater_a,itm_oval_shield_red_2,itm_deurne_campagi_1,itm_deurne_campagi_2,itm_deurne_campagi_3,itm_deurne_campagi_5,itm_common_mail_short_5,itm_common_mail_short_1,itm_battered_mail_2,itm_intercisa_helmet_1,itm_intercisa_helmet_2,itm_triveres_mail,itm_fernpass_helmet_1,itm_christies_helmet_1,itm_augsburg_2_helmet,itm_augsburg_1_helmet,itm_augsburg_2_helmet_mail,itm_sword_viking_3_small,itm_war_spear_1]+angons,
+   [itm_tab_shield_heater_a,itm_oval_shield_red_2,itm_deurne_campagi_1,itm_deurne_campagi_2,itm_deurne_campagi_3,itm_deurne_campagi_5,itm_common_mail_short_5,itm_common_mail_short_1,itm_battered_mail_2,itm_intercisa_helmet_1,itm_intercisa_helmet_2,itm_triveres_mail,itm_fernpass_helmet_1,itm_christies_helmet_1,itm_augsburg_2_helmet,itm_augsburg_2_helmet_mail,itm_sword_viking_3_small,itm_war_spear_1]+angons,
    def_attrib_lvl_23|level(23),wp_one_handed(180)|wp_two_handed(170)|wp_polearm(175)|wp_throwing(180)|wp_archery(100),knows_lvl_23,germanic_face_1, germanic_face_2],
 
   ["burgundian_tracker","Vegius Burgundionum","Vegii Burgundionum",tf_guarantee_armor|tf_guarantee_boots|tf_guarantee_ranged,0,0,fac_culture_7,
@@ -1990,12 +1990,18 @@ troops = [
    def_attrib_lvl_28|level(28),wp_one_handed(200)|wp_polearm(215)|wp_throwing(180)|wp_archery(140),knows_cataphract,roman_face_1, roman_face_2],
 
   #FOEDERATI - will be cheaper, however well skilled compared to the more traditional roman units, each one (for gameplay purposes) having specializations
-  #roman militia units - can be recruited in Italy, gaul, hispania + appear in visigothic, burgundian, frankish troop templates. armed with long spear, spatha, plumbata
+  #roman militia units - can be recruited in Italy, gaul, hispania + appear in visigothic, burgundian, ostrogoth, frankish troop templates. armed with long spear, spatha, plumbata
   ["miles_romani","Miles Romani","Milites Romani",tf_guarantee_basic,0,0,fac_culture_empire,
    [itm_tunic_1,itm_tunic_1_cloak,itm_tunic_5,itm_tunic_5_cloak,itm_tunic_9,itm_tunic_9_cloak,itm_battered_mail_1,itm_common_mail_short_1,
    itm_intercisa_helmet_1,itm_intercisa_helmet_2,itm_augst_helmet_1,itm_burgh_helmet_1,itm_narona_helmet_mail,itm_narona_helmet_leather,itm_refitted_ridge_helmet_1,itm_refitted_ridge_helmet_2,
    itm_roman_spear_3,itm_sword_khergit_3,itm_war_darts,itm_oval_shield_red_2]+shoes_roman+pannonian_hats,
    def_attrib_lvl_21|level(20),wp_one_handed(150)|wp_two_handed(140)|wp_polearm(160)|wp_archery(110)|wp_throwing(150),knows_lvl_21,roman_face_1, roman_face_2],
+  #horsemen - will be used for post-roman party templates
+  ["eques_romani","Eques Romani","Equites Romani",tf_mounted|tf_guarantee_basic|tf_guarantee_horse,0,0,fac_culture_empire,
+   [itm_tunic_1,itm_tunic_1_cloak,itm_tunic_5,itm_tunic_5_cloak,itm_tunic_9,itm_tunic_9_cloak,itm_battered_mail_1,itm_common_mail_short_1,
+   itm_burgh_helmet_1,itm_christies_helmet_1,itm_iatrus_1,itm_narona_helmet_mail,itm_narona_helmet_leather,itm_refitted_ridge_helmet_1,itm_refitted_ridge_helmet_2,
+   itm_late_roman_spear_1,itm_sword_medieval_b,itm_concave_shield_red_small_2]+shoes_roman+horses_roman_1+horses_roman_2,
+   def_attrib_lvl_21|level(21),wp_one_handed(155)|wp_two_handed(140)|wp_polearm(155)|wp_archery(110)|wp_throwing(155),knows_lvl_21,roman_face_1, roman_face_2],
   #axe, angon
   ["miles_foederatus_germani","Miles Foederatus Germani","Milites Foederati Germani",tf_guarantee_basic|tf_guarantee_helmet,0,0,fac_culture_empire,
    [itm_wrapping_boots,itm_khergit_leather_boots,itm_tunic_4,itm_tunic_4_cloak,itm_tunic_5,itm_tunic_5_cloak,itm_common_mail_short_4,itm_common_mail_short_1,itm_intercisa_helmet_1,itm_augst_helmet_1,itm_iatrus_1,itm_fernpass_helmet_1,itm_triveres_leather,itm_triveres_mail,itm_tarasovsky_782,
@@ -2350,18 +2356,18 @@ troops = [
    def_attrib_lvl_25|level(25),wp_one_handed(205)|wp_two_handed(180)|wp_polearm(200)|wp_throwing(200),knows_lvl_25|knows_power_strike_7, germanic_face_1, germanic_face_2],
 
 #NORICUM - culture has been dissolved, player can recruit troops from castles!
-  ["noricum_footman","Pedes Norici","Pedites Norici",tf_guarantee_basic,0,0,fac_kingdom_1,
-   [itm_roman_military_tunic_2,itm_roman_peasant_tunic_1,itm_roman_peasant_tunic_3,itm_roman_peasant_tunic_4,itm_roman_peasant_tunic_7,itm_roman_peasant_tunic_10,itm_tunic_1,itm_tunic_5,itm_tunic_7,itm_roman_subarmalis_2,itm_roman_subarmalis_noricum,
-   itm_narona_helmet_mail,itm_intercisa_helmet_1,itm_augst_helmet_1,itm_intercisa_helmet_2,itm_iatrus_1,
-   itm_late_roman_spear_1,itm_securis,itm_oval_shield_blue_1,itm_oval_shield_blue_2,itm_oval_shield_red_2,itm_darts]+shoes_roman+pannonian_hats,
-   def_attrib_lvl_18|level(17),wp_one_handed(130)|wp_polearm(140)|wp_throwing(135)|wp_archery(100),knows_lvl_18|knows_shield_4,roman_face_1, roman_face_2],
+  #["noricum_footman","Pedes Norici","Pedites Norici",tf_guarantee_basic,0,0,fac_kingdom_1,
+  # [itm_roman_military_tunic_2,itm_roman_peasant_tunic_1,itm_roman_peasant_tunic_3,itm_roman_peasant_tunic_4,itm_roman_peasant_tunic_7,itm_roman_peasant_tunic_10,itm_tunic_1,itm_tunic_5,itm_tunic_7,itm_roman_subarmalis_2,itm_roman_subarmalis_noricum,
+  # itm_narona_helmet_mail,itm_intercisa_helmet_1,itm_augst_helmet_1,itm_intercisa_helmet_2,itm_iatrus_1,
+  # itm_late_roman_spear_1,itm_securis,itm_oval_shield_blue_1,itm_oval_shield_blue_2,itm_oval_shield_red_2,itm_darts]+shoes_roman+pannonian_hats,
+  # def_attrib_lvl_18|level(17),wp_one_handed(130)|wp_polearm(140)|wp_throwing(135)|wp_archery(100),knows_lvl_18|knows_shield_4,roman_face_1, roman_face_2],
 
-  ["noricum_horseman","Eques Norici","Equites Norici",tf_mounted|tf_guarantee_basic|tf_guarantee_horse|tf_guarantee_helmet,0,0,fac_kingdom_1,
-   [itm_ankle_boots,itm_roman_military_tunic_2,itm_roman_peasant_tunic_1,itm_roman_peasant_tunic_3,itm_roman_peasant_tunic_4,itm_roman_peasant_tunic_7,itm_tunic_5,itm_tunic_7,
-   itm_roman_subarmalis_2,itm_roman_subarmalis_noricum,itm_common_mail_short_1,itm_common_mail_short_2,
-   itm_leather_gloves,itm_late_roman_spear_1,itm_aquincum_spatha_1,itm_iatrus_1,itm_intercisa_helmet_1,itm_intercisa_helmet_2,itm_augst_helmet_1,itm_narona_helmet,itm_narona_helmet_mail,
-   itm_concave_shield_blue_small_1,itm_concave_shield_white_small_1,itm_cavalry_javelins,itm_cavalry_javelins]+shoes_roman+horses_roman_2,
-   def_attrib_lvl_23|level(22),wp_one_handed(170)|wp_polearm(185)|wp_throwing(190)|wp_archery(100),knows_lvl_23|knows_power_strike_5|knows_horse_archery_5,roman_face_1, roman_face_2],
+  #["noricum_horseman","Eques Norici","Equites Norici",tf_mounted|tf_guarantee_basic|tf_guarantee_horse|tf_guarantee_helmet,0,0,fac_kingdom_1,
+  # [itm_ankle_boots,itm_roman_military_tunic_2,itm_roman_peasant_tunic_1,itm_roman_peasant_tunic_3,itm_roman_peasant_tunic_4,itm_roman_peasant_tunic_7,itm_tunic_5,itm_tunic_7,
+  # itm_roman_subarmalis_2,itm_roman_subarmalis_noricum,itm_common_mail_short_1,itm_common_mail_short_2,
+  # itm_leather_gloves,itm_late_roman_spear_1,itm_aquincum_spatha_1,itm_iatrus_1,itm_intercisa_helmet_1,itm_intercisa_helmet_2,itm_augst_helmet_1,itm_narona_helmet,itm_narona_helmet_mail,
+  # itm_concave_shield_blue_small_1,itm_concave_shield_white_small_1,itm_cavalry_javelins,itm_cavalry_javelins]+shoes_roman+horses_roman_2,
+  # def_attrib_lvl_23|level(22),wp_one_handed(170)|wp_polearm(185)|wp_throwing(190)|wp_archery(100),knows_lvl_23|knows_power_strike_5|knows_horse_archery_5,roman_face_1, roman_face_2],
 
 #FRISIANS
   ["frisian_freeman","Frisesk Freeman","Frisesk Freemen",tf_guarantee_basic,0,0,fac_culture_minor_4,
@@ -4942,6 +4948,9 @@ troops = [
   ["coptic_pope","Pope Timothy II of Alexandria","Pope Timothy II of Alexandria",tf_hero|tf_guarantee_boots|tf_guarantee_armor, 0, reserved, fac_coptic_christians,
    [itm_wrapping_boots,itm_late_roman_priest],
    def_attrib|level(3),wp(80),knows_wound_treatment_3,0x00000003f50040c2529b6926e28db6db00000000001db7120000000000000000],
+   
+  #personal priest in langobard's court - will be used for cynocephali quest
+  ["eadric","Eadric","Eadric",tf_hero|tf_guarantee_boots|tf_guarantee_armor, 0, reserved, fac_pagans,[itm_wrapping_boots,itm_robe],def_attrib|level(3),wp(80),knows_wound_treatment_3,0x0000000fc00004823adb6dcadb6dbadb00000000001db6dc0000000000000000],
 
   ["palace_farmer","Farmer","Farmers",tf_guarantee_armor|tf_guarantee_boots|tf_guarantee_ranged,no_scene,reserved,fac_commoners,
    [itm_wrapping_boots,itm_ankle_boots,itm_straw_hat,itm_leather_cap]+tunics_roman_peasant+hoods_roman_1+hoods_roman_2+hoods_roman_3+pannonian_hats,

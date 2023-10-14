@@ -90,7 +90,7 @@ parties = [
  ####
  ("town_28", "Estakhr", icon_town_desert|pf_town, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (241.01, -22.64), [], 45), 
  #new towns 5/22/20
- ("town_29", "Tornacum", icon_town_old|pf_town, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-180.4, 118.49), [], 170), 
+ ("town_29", "Tornacum", icon_town_old|pf_town, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-178.94, 118.18), [], 170), 
  ("town_30", "Aregalia", icon_town_snow|pf_town, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-123.31, 120.3), [], 170), 
  ("town_31", "Eburodunum", icon_town_snow|pf_town, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-79.54, 112.21), [], 170), 
  ("town_32", "Tulifurdunum", icon_town_snow|pf_town, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-146.15, 130.59), [], 170),
@@ -126,7 +126,7 @@ parties = [
  ("castle_11", "Asciburgium", icon_castle_b|pf_castle, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-161.64, 127.35), [], 75),        #[swycartographr] prev. coords: (-178.52, 121.03)
  ("castle_12", "Augusta_Suessionum", icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-182.58, 96.86), [], 95),  #[swycartographr] prev. coords: (-195.91, 95.37)
  ("castle_13", "Tomis", icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-0.3, 65.58), [], 115),                 #[swycartographr] prev. coords: (-54.6, 53.6)
- ("castle_14", "Vesontio", icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-165.84, 80.91), [], 90), #Nemausus   #[swycartographr] prev. coords: (-183.89, 76.98)
+ ("castle_14", "Genava", icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-163.7, 66.61), [], 90),
  ("castle_15", "Dun_At", icon_castle_b|pf_castle, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-226.16, 176.17), [], 235),            #[swycartographr] prev. coords: (-228.67, 175.54)
  ("castle_16", "Pola", icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-109.47,55.71), [], 45), #was aquilea, -144.56, 52.82 #[swycartographr] prev. coords: (-144.35, 45.9)
  ("castle_17", "Caralis", icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-142.28,-5.41), [], 15), #now moved to sardinia #[swycartographr] prev. coords: (-178.1, -9.4)
@@ -248,7 +248,7 @@ parties = [
  ("village_29", "Gesoriacum", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-185.5, 118.42), [], 170),      #[swycartographr] prev. coords: (-201.38, 111.31)
  ("village_30", "Letocetum", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-217.74, 139.08), [], 170),      #[swycartographr] prev. coords: (-219.7, 136.18)
  ("village_31", "Barium", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-90.24, 16.93), [], 100),            #[swycartographr] prev. coords: (-124.65, 7)
- ("village_32", "Aventicum", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-164.23, 66.13), [], 110),       #[swycartographr] prev. coords: (-185, 64.87)
+ ("village_32", "Aventicum", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-158.68, 72.97), [], 110),       #[swycartographr] prev. coords: (-185, 64.87)
  ("village_33", "Dionysiopolis", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (1.54, 51.51), [], 120),      #[swycartographr] prev. coords: (-53.24, 42.45)
  ("village_34","Vani",  icon_village_c|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(117.16,52.66),[], 40),                    #[swycartographr] prev. coords: (35.34, 50)
  ("village_35", "Tullum", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-162.39, 87.36), [], 170),          #[swycartographr] prev. coords: (-183.56, 87.23)
@@ -263,7 +263,7 @@ parties = [
  ("village_44", "Turris", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-146.5,10.6), [], 130),             #[swycartographr] prev. coords: (-183.4, 4.7)
  ("village_45","Tsunda",  icon_village_c|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(129.58,57.05),[], 40),                  #[swycartographr] prev. coords: (53.31, 49.39)
  ("village_46","Mokvi",  icon_village_c|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(101.82,68.68),[], 40),                   #[swycartographr] prev. coords: (26.68, 60.31)
- ("village_47", "Augustobona", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-179.17, 75.98), [], 170), #now Orleans #[swycartographr] prev. coords: (-203.614, 85.2365) #[swycartographr] prev. coords: (-195.75, 81.93)
+ ("village_47", "Nemetacum", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-184, 111.66), [], 170), 
  ("village_48", "Samosata", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (92.85, 1.85), [], 170),           #[swycartographr] prev. coords: (26, -4.8)
  ("village_49","Urbnisi",  icon_village_c|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(130.27,67.38),[], 40),                 #[swycartographr] prev. coords: (53, 55.8)
  ("village_50", "Barcino", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-198.05, 19.79), [], 170),         #[swycartographr] prev. coords: (-213.4, 21.25)
@@ -302,7 +302,7 @@ parties = [
  ("village_81", "Singidunum", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-63.44, 52.51), [], 20),        #[swycartographr] prev. coords: (-104.23, 50.4) #[swycartographr] prev. coords: (-78.47, 61.99)
  ("village_82","Asparos",  icon_village_c|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(103.79,52.43),[], 40),                 #[swycartographr] prev. coords: (26.51, 46.95)
  ("village_83", "Nicopolis", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-47.3, -8.37), [], 55),         #[swycartographr] prev. coords: (-94.6068, -10.2971) #[swycartographr] prev. coords: (-99.12, -8.16) #[swycartographr] prev. coords: (-95, -11.51)
- ("village_84", "Caesarodunum", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-155.24, 76.15), [], 15),      #[swycartographr] prev. coords: (-222.915, 77.8036) #[swycartographr] prev. coords: (-182.9, 76.44) #[swycartographr] prev. coords: (-179.4, 69.6)
+ ("village_84", "Vesontio", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-164.45, 80.7), [], 15), 
  ("village_85", "Valentia", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-176.5, 49.18), [], 10),          #[swycartographr] prev. coords: (-196.9, 49.4)
  ("village_86", "Apulum", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-30.01, 73.52), [], 35),            #[swycartographr] prev. coords: (-84.6, 62.9)
  ("village_87", "Thagaste", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-155.45, -44.53), [], 160),        #[swycartographr] prev. coords: (-197.207, -30.2992) #[swycartographr] prev. coords: (-189.15, -33.84)

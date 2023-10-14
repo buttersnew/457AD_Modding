@@ -112,7 +112,7 @@ party_templates = [
   ("faltras_suebi_band","Faltras's Loyalists",icon_germanic_army|carries_goods(9)|pf_auto_remove_in_town,0,fac_faltras_suebi,soldier_personality,[]),
   ("faltras_suebi_army","Faltras's Loyalists",icon_germanic_army|carries_goods(9)|pf_auto_remove_in_town|pf_quest_party,0,fac_neutral,soldier_personality,[]),
   ("germanic_raiders","Scamarae",icon_axeman|carries_goods(9)|pf_auto_remove_in_town|pf_quest_party,0,fac_neutral,bandit_personality,[(trp_western_germanic_freeman,30,50),(trp_taiga_bandit,8,15),(trp_western_germanic_bowman,5,10)]),
-  ("noricum_soldiers","Norici Militia",icon_axeman|carries_goods(9)|pf_auto_remove_in_town|pf_quest_party,0,fac_neutral,soldier_personality,[(trp_noricum_footman,15,20),]),
+  ("noricum_soldiers","Norici Militia",icon_axeman|carries_goods(9)|pf_auto_remove_in_town|pf_quest_party,0,fac_neutral,soldier_personality,[(trp_miles_romani,15,20),]),
   ("aestii_rebel_party","Aestii Rebels",icon_axeman|carries_goods(50)|pf_quest_party|pf_always_visible,0,fac_neutral,soldier_personality,[(trp_aestii_rebel_king,1,1),(trp_aestii_skirmisher,30,40),(trp_aestii_tribesman,30,40),(trp_sitones_retainer,20,30),(trp_aestii_companion,10,20)]),
   ("heretical_codex_bandits","Bandits",icon_axeman|carries_goods(9)|pf_auto_remove_in_town|pf_quest_party,0,fac_neutral,bandit_personality,[(trp_burgundian_looter,1,1),(trp_robber,5,35),(trp_bandit,2,15),(trp_brigand,1,5)]),
 
@@ -330,13 +330,13 @@ party_templates = [
   ("kingdom_alaman_reinforcements_b", "{!}Alammani Reinforcements", 0, 0, fac_commoners, 0, [(trp_western_germanic_freeman,4,9),(trp_brisgavi_retainer,2,6),(trp_standard_bearer,1,1)]),
   ("kingdom_alaman_reinforcements_c", "{!}Alammani Reinforcements", 0, 0, fac_commoners, 0, [(trp_western_germanic_retainer,3,5),(trp_bucinobantes_oathgiver,1,3),(trp_western_germanic_companion,0,2)]),
 
-  ("kingdom_suebi_reinforcements_a", "{!}Suebi Reinforcements", 0, 0, fac_commoners, 0, [(trp_western_germanic_skirmisher,4,10),(trp_western_germanic_freeman,4,10)]),
+  ("kingdom_suebi_reinforcements_a", "{!}Suebi Reinforcements", 0, 0, fac_commoners, 0, [(trp_western_germanic_skirmisher,2,6),(trp_western_germanic_freeman,4,7),(trp_miles_romani,2,7)]),
   ("kingdom_suebi_reinforcements_b", "{!}Suebi Reinforcements", 0, 0, fac_commoners, 0, [(trp_western_germanic_freeman,4,9),(trp_quadi_spearman,2,6),(trp_standard_bearer,1,1)]),
   ("kingdom_suebi_reinforcements_c", "{!}Suebi Reinforcements", 0, 0, fac_commoners, 0, [(trp_western_germanic_retainer,3,5),(trp_burii_retainer,1,3),(trp_western_germanic_companion,0,2)]),
 
-  ("kingdom_burgundian_reinforcements_a", "{!}Burgundian Reinforcements", 0, 0, fac_commoners, 0, [(trp_western_germanic_skirmisher,2,6),(trp_western_germanic_freeman,4,7),(trp_miles_romani,2,7)]),
-  ("kingdom_burgundian_reinforcements_b", "{!}Burgundian Reinforcements", 0, 0, fac_commoners, 0, [(trp_western_germanic_freeman,3,9),(trp_burgundian_tracker,3,6),(trp_standard_bearer,1,1)]),
-  ("kingdom_burgundian_reinforcements_c", "{!}Burgundian Reinforcements", 0, 0, fac_commoners, 0, [(trp_western_germanic_retainer,1,4),(trp_burgundian_oathtaker,3,4),(trp_western_germanic_companion,0,2)]),
+  ("kingdom_burgundian_reinforcements_a", "{!}Burgundian Reinforcements", 0, 0, fac_commoners, 0, [(trp_western_germanic_skirmisher,2,6),(trp_western_germanic_freeman,2,4),(trp_miles_romani,6,10)]), #majority roman population, small germanic pop, mostly post-roman troops
+  ("kingdom_burgundian_reinforcements_b", "{!}Burgundian Reinforcements", 0, 0, fac_commoners, 0, [(trp_western_germanic_freeman,1,3),(trp_eques_romani,2,6),(trp_burgundian_tracker,3,6),(trp_standard_bearer,1,1)]),
+  ("kingdom_burgundian_reinforcements_c", "{!}Burgundian Reinforcements", 0, 0, fac_commoners, 0, [(trp_burgundian_oathtaker,4,8),(trp_bucellarius,0,2)]),
 
   ("kingdom_frank_reinforcements_a", "{!}Frankish Reinforcements", 0, 0, fac_commoners, 0, [(trp_western_germanic_skirmisher,2,4),(trp_bructeri_skirmisher,2,4),(trp_western_germanic_freeman,2,6),(trp_miles_romani,2,6)]),
   ("kingdom_frank_reinforcements_b", "{!}Frankish Reinforcements", 0, 0, fac_commoners, 0, [(trp_western_germanic_freeman,3,6),(trp_chamavi_footman,2,5),(trp_chauci_archer,1,4),(trp_standard_bearer,1,1)]),
@@ -349,8 +349,8 @@ party_templates = [
   ("kingdom_gepid_reinforcements_c", "{!}Gepid Reinforcements", 0, 0, fac_commoners, 0, [(trp_gothic_footman,2,5),(trp_gothic_horseman,1,3),(trp_victufali_mounted_warrior,1,3)]), #+1 to help resist against the huns
 
   ("kingdom_rugii_reinforcements_a", "{!}Rugii Reinforcements", 0, 0, fac_commoners, 0, [(trp_gothic_skirmisher,2,8),(trp_gothic_freeman,4,6),(trp_baiuvari_armati,2,6)]), #mix of bavarii, noricum troops
-  ("kingdom_rugii_reinforcements_b", "{!}Rugii Reinforcements", 0, 0, fac_commoners, 0, [(trp_gothic_freeman,2,5),(trp_noricum_footman,1,3),(trp_gothic_mounted_skirmisher,3,5),(trp_standard_bearer,1,1)]),
-  ("kingdom_rugii_reinforcements_c", "{!}Rugii Reinforcements", 0, 0, fac_commoners, 0, [(trp_gothic_footman,1,3),(trp_gothic_horseman,1,4),(trp_noricum_horseman,1,3)]),
+  ("kingdom_rugii_reinforcements_b", "{!}Rugii Reinforcements", 0, 0, fac_commoners, 0, [(trp_gothic_freeman,2,5),(trp_miles_romani,1,3),(trp_gothic_mounted_skirmisher,3,5),(trp_standard_bearer,1,1)]),
+  ("kingdom_rugii_reinforcements_c", "{!}Rugii Reinforcements", 0, 0, fac_commoners, 0, [(trp_gothic_footman,1,3),(trp_gothic_horseman,1,4),(trp_eques_romani,1,3)]),
 
   ("kingdom_lombard_reinforcements_a", "{!}Lombard Reinforcements", 0, 0, fac_commoners, 0, [(trp_eastern_germanic_skirmisher,4,10),(trp_eastern_germanic_spearman,4,10)]),
   ("kingdom_lombard_reinforcements_b", "{!}Lombard Reinforcements", 0, 0, fac_commoners, 0, [(trp_eastern_germanic_spearman,3,8),(trp_eastern_germanic_mounted_skirmisher,3,5),(trp_standard_bearer,1,1)]),

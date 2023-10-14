@@ -18796,9 +18796,12 @@ presentations = [
         (assign, ":c", 0),
 
             (eq, ":c", 0),
-            (try_begin), #AOR miles romani - Gaul, Italy
+            (try_begin), #AOR miles romani - Gaul, Italy, Noricum
+              (this_or_next|eq, "$current_town", "p_castle_3"),
               (this_or_next|eq, "$current_town", "p_castle_4"),
+              (this_or_next|eq, "$current_town", "p_castle_19"),
               (this_or_next|eq, "$current_town", "p_castle_21"),
+              (this_or_next|eq, "$current_town", "p_castle_29"),
               (this_or_next|eq, "$current_town", "p_castle_53"),
               (this_or_next|eq, "$current_town", "p_castle_55"),
               (this_or_next|eq, "$current_town", "p_castle_60"),
@@ -18812,8 +18815,10 @@ presentations = [
               (this_or_next|eq, "$current_town", "p_town_16"),
               (this_or_next|eq, "$current_town", "p_town_23"),
               (this_or_next|eq, "$current_town", "p_town_25"),
+              (this_or_next|eq, "$current_town", "p_town_33"),
               (eq, "$current_town", "p_town_40"),
-              (eq, ":troop", "trp_miles_romani"),
+              (this_or_next|eq, ":troop", "trp_miles_romani"),
+              (eq, ":troop", "trp_eques_romani"),
               (assign, ":c", 1),
             (else_try), #AOR foderati goths
               (this_or_next|eq, "$current_town", "p_castle_13"),
@@ -18865,14 +18870,14 @@ presentations = [
               (this_or_next|eq, ":troop", "trp_frisian_freeman"),
               (eq, ":troop", "trp_frisian_companion"),
               (assign, ":c", 1),
-            (else_try), #AOR noricum
-              (this_or_next|eq, "$current_town", "p_castle_3"),
-              (this_or_next|eq, "$current_town", "p_castle_19"),
-              (this_or_next|eq, "$current_town", "p_castle_29"),
-              (eq, "$current_town", "p_town_33"),
-              (this_or_next|eq, ":troop", "trp_noricum_footman"),
-              (eq, ":troop", "trp_noricum_horseman"),
-              (assign, ":c", 1),
+            #(else_try), #AOR noricum
+            #  (this_or_next|eq, "$current_town", "p_castle_3"),
+            #  (this_or_next|eq, "$current_town", "p_castle_19"),
+            #  (this_or_next|eq, "$current_town", "p_castle_29"),
+            #  (eq, "$current_town", "p_town_33"),
+            #  (this_or_next|eq, ":troop", "trp_noricum_footman"),
+            #  (eq, ":troop", "trp_noricum_horseman"),
+            #  (assign, ":c", 1),
             (else_try), #AOR cantaberian
               (this_or_next|eq, "$current_town", "p_castle_33"),
               (eq, "$current_town", "p_castle_60"),

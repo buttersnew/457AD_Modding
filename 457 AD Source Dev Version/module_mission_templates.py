@@ -19547,7 +19547,7 @@ mission_templates = [
             (agent_get_troop_id, ":troop_no", ":agent_no"),
             (this_or_next|eq, ":troop_no", "trp_imperial_town_walker_1"),
             (this_or_next|eq, ":troop_no", "trp_imperial_town_walker_2"),
-            (this_or_next|eq, ":troop_no", "trp_noricum_footman"),
+            (this_or_next|eq, ":troop_no", "trp_miles_romani"),
             (eq, ":troop_no", "trp_refugee"),
             
             (assign, ":continue_walk", 0),

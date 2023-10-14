@@ -20200,14 +20200,21 @@ I knew that I had found someone worthy of becoming my vassal.", "lord_invite_1",
 (neg|check_quest_active, "qst_the_wolfmen"),
 (ge, "$g_talk_troop_faction_relation", 0),
 (quest_slot_eq, "qst_the_wolfmen", slot_quest_current_state, 0),],
-  "I was told you employ wolf-warriors. I wish to know more about them.", "wolfmen_quest_intro_1",[]],
+  "Oh valorous one, I come seeking knowledge about the Cynocephali, the legendary Langobard warriors. Can you share what you know about them?", "wolfmen_quest_intro_1",[]],
 
-[anyone, "wolfmen_quest_intro_1", [],
-  "Ah yes, my finest warriors, the cynocephali. Ferocious men who strike fear into the enemies of the Langobardi! What do you wish to know about them?", "wolfmen_quest_intro_2",[]],
+[anyone, "wolfmen_quest_intro_1", [(ge, "$g_talk_troop_faction_relation", 30)], #must have +30 relations
+  "Ah, the Cynocephali. These warriors are not mere legends, but a part of our history as they granted us victory over the Assipitti when our kin just landed from the shores of Scandza. They are known for their wild ferocity on the battlefield, channeling the spirits of beasts to fight with unmatched strength and vigor.", "wolfmen_quest_intro_2",[]],
+[anyone, "wolfmen_quest_intro_1", [(neq|ge, "$g_talk_troop_faction_relation", 30)], #rebuked
+  "Ha, and you think I would freely share their secrets to someone like you? Begone, you fool!", "close_window",[]],
+
 [anyone|plyr, "wolfmen_quest_intro_2", [],
-  "I wish to seek out where they gather.", "wolfmen_quest_intro_3",[]],
+  "Your Majesty, is there a way to learn more about their whereabouts? Any guidance you can provide?", "wolfmen_quest_intro_3",[]],
 [anyone, "wolfmen_quest_intro_3", [],
-  "A group of them gather north of Eburodunum, deep in the woods. If you wish to seek them out, they tend to gather at night. However, they are rather untrustworthy of outsiders, and you may need to prove yourself first to them...", "lord_pretalk",[
+  "You show keen interest, traveller. I respect that. The Cynocephali are not mere stories. They dwell within the woods to the east, in a place that holds their secrets. However, be cautious in your pursuit of knowledge. They guard their ways fiercely, and not all who seek them out return unscathed.", "wolfmen_quest_intro_4",[]],
+[anyone|plyr, "wolfmen_quest_intro_4", [],
+  "I am grateful for your wisdom, Your Majesty. I shall approach the woods to the east with care and seek to uncover the truth about the Cynocephali.", "wolfmen_quest_intro_5",[]],
+[anyone, "wolfmen_quest_intro_5", [],
+  "May Wodan favors your quest, and may the ancestors guide you safely through the path you've chosen. Remember, knowledge can come at a price, and some truths are best approached with caution.", "lord_pretalk",[
     (assign, "$g_wolf_quest", 3),
     (setup_quest_text, "qst_the_wolfmen"),
     (str_store_party_name, s5, "p_town_31"),
@@ -52893,14 +52900,6 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   [trp_pagan_high_priest, "pagan_high_priest_talk_hire", [],
    "Very well.", "pagan_high_priest_talk_1", []],
 
-  [trp_pagan_high_priest|plyr, "pagan_high_priest_talk_1", [(eq, "$g_wolf_quest", 1)],
-   "I heard rumors of wolf-warriors that live in Germania. Do you know about such men?", "pagan_high_priest_talk_wolf_1", [(assign, "$g_wolf_quest", 2),]],
-  [trp_pagan_high_priest, "pagan_high_priest_talk_wolf_1", [],
-   "Ah yes, the wolf-warriors... They are fearsome warriors dedicated to Wotan, fight almost as if they are savages. I heard they live in the forests in Germania. The Langobard king has used them to terrify and raid his neighbours.", "pagan_high_priest_talk_wolf_2", []],
-  [trp_pagan_high_priest, "pagan_high_priest_talk_wolf_2", [],
-   "If you wish to learn more about them, it would be best to ask the king yourself.", "pagan_high_priest_talk_1", []],
-
-
   [trp_pagan_high_priest|plyr, "pagan_high_priest_talk_1", [],
    "I do not need a man of faith right now, farewell.", "close_window", []],
 
@@ -53018,6 +53017,46 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
    "Very well.", "roman_pagan_high_priest_talk_1", []],
 
   [trp_roman_pagan_high_priest|plyr, "roman_pagan_high_priest_talk_1", [],
+   "I do not need a man of faith right now, farewell.", "close_window", []],
+
+  [trp_eadric, "start", [],
+   "Good day, {sir/madam}. What do you need?", "eadric_talk_1", []], #opening
+
+  [trp_eadric|plyr, "eadric_talk_1", [(eq,"$g_player_faith",2),(eq,"$g_paganism_dedication",0),], #player is not following the germanic gods
+   "I wish to follow the gods of the Germanic peoples.", "eadric_talk_pantheon_1", [
+      (val_add, "$piety", 1), #increase in piety
+      (assign, "$g_paganism_dedication", 1),
+      (call_script, "script_change_player_relation_with_faction", "fac_pagans", 5),
+      (display_message,"@You have dedicated yourself to the gods within the Germanic pantheon.",0x6495ed),   
+   ]],
+  [trp_eadric, "eadric_talk_pantheon_1", [], #after player converts
+   "Very well, {playername}. I will teach you our ways and beliefs...", "close_window", []],
+
+
+  [trp_eadric|plyr, "eadric_talk_1", [
+    (eq, "$g_player_faith", 2),
+    (store_troop_gold,":money","trp_player"),
+    (gt,":money",299),
+    (troops_can_join, 1),
+    ], #player is of the religion
+   "I would like to hire a priest (300 siliquae).", "eadric_talk_talk_hire", [(troop_remove_gold, "trp_player", 300),(party_add_members, "p_main_party","trp_pagan_priest",1),]],
+  [trp_eadric, "eadric_talk_talk_hire", [],
+   "Very well.", "eadric_talk_1", []],
+
+  [trp_eadric|plyr, "eadric_talk_1", [(eq, "$g_wolf_quest", 1)],
+   "Greetings, good Eadric. I've been told you might have some knowledge about the Cynocephali?", "eadric_talk_wolf_1", [(assign, "$g_wolf_quest", 2),]],
+  [trp_eadric, "eadric_talk_wolf_1", [],
+   "Ah, greetings to you as well, curious traveler. The Cynocephali, indeed a subject of intrigue. These warriors are said to be touched by the spirits of wild creatures and serve the great god Wodan, channeling their ferocity in battle. It is said they have the head of a dog and the body of a human, they fight like beasts and live as outcasts in the woods, where no one will be ever able to find them.", "eadric_talk_wolf_2", []],
+  [trp_eadric|plyr, "eadric_talk_wolf_2", [],
+   "Fascinating, but do you have any insights beyond these tales? How might one learn more or find them?", "eadric_talk_wolf_3", []],
+  [trp_eadric, "eadric_talk_wolf_3", [],
+   "If you wish to delve deeper into the mystery of the Cynocephali, you might consider seeking an audience with the king of the Langobards. He has knowledge that others may not possess as he holds great power over these warriors and can summon them to fight if needed. However, be cautious, for some secrets are better left undisturbed, and meddling with the affairs of such warriors might lead to unforeseen consequences.", "eadric_talk_wolf_4", []],
+  [trp_eadric|plyr, "eadric_talk_wolf_4", [],
+   "I appreciate your guidance. I shall approach the Langobard king and seek the truth behind these tales.", "eadric_talk_wolf_5", []],
+  [trp_eadric, "eadric_talk_wolf_5", [],
+   "May the gods watch over you on your quest for knowledge, and may you find the answers you seek, traveler. Just remember, curiosity can be a double-edged sword.", "close_window", []],
+
+  [trp_eadric|plyr, "eadric_talk_1", [],
    "I do not need a man of faith right now, farewell.", "close_window", []],
 
 

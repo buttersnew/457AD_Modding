@@ -366,14 +366,14 @@ party_templates = [
 
   ("kingdom_amali_reinforcements_a", "{!}ostrogothic Reinforcements", 0, 0, fac_commoners, 0, [(trp_gothic_skirmisher,4,10),(trp_gothic_freeman,4,10)]),
   ("kingdom_amali_reinforcements_b", "{!}ostrogothic Reinforcements", 0, 0, fac_commoners, 0, [(trp_gothic_freeman,2,6),(trp_gothic_mounted_skirmisher,2,3),(trp_alpidzuri_rider,1,3),(trp_tuncarsi_mounted_skirmisher,1,3),(trp_standard_bearer,1,1)]),
-  ("kingdom_amali_reinforcements_c", "{!}ostrogothic Reinforcements", 0, 0, fac_commoners, 0, [(trp_gothic_footman,1,3),(trp_gothic_horseman,2,5),(trp_boisci_lancer,1,3)]),
+  ("kingdom_amali_reinforcements_c", "{!}ostrogothic Reinforcements", 0, 0, fac_commoners, 0, [(trp_gothic_footman,1,3),(trp_gothic_horseman,2,5),(trp_boisci_lancer,1,3),(trp_gothic_centurion,1,1)]),
 
   ("kingdom_balthi_reinforcements_a", "{!}visigoth Reinforcements", 0, 0, fac_commoners, 0, [(trp_gothic_skirmisher,2,6),(trp_gothic_freeman,4,7),(trp_miles_romani,2,7)]),
   ("kingdom_balthi_reinforcements_b", "{!}visigoth Reinforcements", 0, 0, fac_commoners, 0, [(trp_gothic_freeman,3,8),(trp_gothic_mounted_skirmisher,3,5),(trp_standard_bearer,1,1)]),
-  ("kingdom_balthi_reinforcements_c", "{!}visigoth Reinforcements", 0, 0, fac_commoners, 0, [(trp_gothic_footman,1,3),(trp_gothic_horseman,2,4),(trp_roxolani_horseman,1,4)]),
+  ("kingdom_balthi_reinforcements_c", "{!}visigoth Reinforcements", 0, 0, fac_commoners, 0, [(trp_gothic_footman,1,3),(trp_gothic_horseman,2,4),(trp_roxolani_horseman,1,4),(trp_gothic_centurion,1,1)]),
 
-  ("kingdom_amali_king_reinforcements_c", "{!}ostrogothic king Reinforcements", 0, 0, fac_commoners, 0, [(trp_gothic_footman,1,3),(trp_gothic_horseman,1,3),(trp_boisci_lancer,1,3),(trp_ostrogoth_guard,2,3)]),
-  ("kingdom_balthi_king_reinforcements_c", "{!}visigoth king Reinforcements", 0, 0, fac_commoners, 0, [(trp_gothic_footman,1,3),(trp_gothic_horseman,1,3),(trp_roxolani_horseman,1,3),(trp_visigoth_guard,2,3)]),
+  ("kingdom_amali_king_reinforcements_c", "{!}ostrogothic king Reinforcements", 0, 0, fac_commoners, 0, [(trp_gothic_footman,1,3),(trp_gothic_horseman,1,3),(trp_boisci_lancer,1,3),(trp_ostrogoth_guard,2,3),(trp_gothic_centurion,1,1)]),
+  ("kingdom_balthi_king_reinforcements_c", "{!}visigoth king Reinforcements", 0, 0, fac_commoners, 0, [(trp_gothic_footman,1,3),(trp_gothic_horseman,1,3),(trp_roxolani_horseman,1,3),(trp_visigoth_guard,2,3),(trp_gothic_centurion,1,1)]),
 
   ("kingdom_gallaeci_reinforcements_a", "{!}Gallaeci Reinforcements", 0, 0, fac_commoners, 0, [(trp_hibero_roman_venator,4,10),(trp_hibero_roman_rusticus,4,10)]), #mix of gallaeci, germans, romans + limited bagadua
   ("kingdom_gallaeci_reinforcements_b", "{!}Gallaeci Reinforcements", 0, 0, fac_commoners, 0, [(trp_miles_romani,3,9),(trp_sagittarius,3,6),(trp_standard_bearer,1,1)]),
@@ -391,6 +391,10 @@ party_templates = [
   ("kingdom_arran_reinforcements_a", "{!}Caucasian Albania Reinforcements", 0, 0, fac_commoners, 0, [(trp_aghwan_warrior,6,16),(trp_lekh_warrior,2,4)]), #caucasians, lekhs, aghwan
   ("kingdom_arran_reinforcements_b", "{!}Caucasian Albania Reinforcements", 0, 0, fac_commoners, 0, [(trp_sarir_horseman,2,6),(trp_aghwan_archer,2,4),(trp_lekh_retainer,2,6),(trp_caucasian_standard_bearer,1,1)]),
   ("kingdom_arran_reinforcements_c", "{!}Caucasian Albania Reinforcements", 0, 0, fac_commoners, 0, [(trp_albanian_cavalry,2,4),(trp_aghwan_nobleman,1,3),(trp_lekh_horseman,1,3),(trp_sassanid_officer,1,1)]),
+
+  ("kingdom_bagadua_reinforcements_a", "{!}bagadua Reinforcements", 0, 0, fac_commoners, 0, [(trp_miles_romani,4,10),(trp_forest_bandit_recruit,4,10)]),
+  ("kingdom_bagadua_reinforcements_b", "{!}bagadua Reinforcements", 0, 0, fac_commoners, 0, [(trp_bagaudae_footman,4,10),(trp_forest_bandit,3,6),(trp_eques_romani,2,7),(trp_imperial_signifer,1,1)]),
+  ("kingdom_bagadua_reinforcements_c", "{!}bagadua Reinforcements", 0, 0, fac_commoners, 0, [(trp_bucellarius,3,9),(trp_centenarius,1,1)]),
 
 #Max temp 1 : 10-22 - mainly limitanei + foederati, p. com
 #Max temp 2: 8-18 - unique legions of com. aux palatina if needed

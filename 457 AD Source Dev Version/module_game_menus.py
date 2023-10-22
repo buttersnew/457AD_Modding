@@ -26960,6 +26960,27 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       ]),
   ]), 
 
+  ( "recruit_bagadua_lord",menu_text_color(0xFF000000)|mnf_disable_all_keys, 
+    "Basilius, the so called 'king' of the bagadua you let escape approaches you. He requests vassalage.",
+    "none",
+    [],
+    [
+
+      ("choice_1",[],"Accept his vassalage.",
+        [
+          (troop_set_slot, "trp_knight_bagadua_1", slot_troop_occupation, slto_kingdom_hero),
+          (troop_set_note_available,"trp_knight_bagadua_1",1),
+          (troop_set_slot, "trp_knight_bagadua_1", slot_troop_wealth, 90000),
+          (call_script, "script_create_kingdom_hero_party", "trp_knight_bagadua_1", "$g_player_court"),
+          (change_screen_return, 0),
+        ]
+      ),
+      ("choice_2",[],"Reject his offer.",
+        [
+          (change_screen_return, 0),
+        ]),
+    ]),
+
 #+freelancer start
 #menu_world_map_soldier
     ("world_map_soldier",0,

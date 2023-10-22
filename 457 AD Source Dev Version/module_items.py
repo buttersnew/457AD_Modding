@@ -1566,6 +1566,8 @@ items = [
  5900 , weight(21)|abundance(18)|head_armor(0)|body_armor(64)|leg_armor(18)|difficulty(13) ,imodbits_scale, [], culture_caucasian ],
 ["caucasian_scale_4", "Scale Armor", [("caucasian_scale_4",0)], itp_merchandise|itp_type_body_armor  |itp_covers_legs ,0,
  5900 , weight(21)|abundance(18)|head_armor(0)|body_armor(64)|leg_armor(18)|difficulty(13) ,imodbits_scale, [], culture_caucasian ],
+["caucasian_scale_5", "Scale Armor", [("caucasian_scale_5",0)], itp_merchandise|itp_type_body_armor  |itp_covers_legs ,0,
+ 5900 , weight(21)|abundance(18)|head_armor(0)|body_armor(64)|leg_armor(18)|difficulty(13) ,imodbits_scale, [], culture_caucasian ],
 
 #cataphract ~64 body, 20 legs
 ["cataphract_armor_1", "Cataphract Armor", [("sassanid_cataphract_1",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0,

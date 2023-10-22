@@ -1417,6 +1417,14 @@ triggers = [
 ]),
 #+freelancer start
 
+(72,0,ti_once,[
+  (faction_slot_eq, "fac_player_supporters_faction", slot_faction_state, sfs_active), # player faction is active
+  (faction_slot_eq, "fac_player_supporters_faction", slot_faction_leader, "trp_player"), # player is king
+  (eq,"$basilius_interaction",3), #basilius will join the player
+],[
+    (jump_to_menu, "mnu_recruit_bagadua_lord"),
+]),
+
 #  CHECKS IF "$enlisted_party" IS DEFEATED
     (0.0, 0, 0, [
     (eq, "$freelancer_state", 1),

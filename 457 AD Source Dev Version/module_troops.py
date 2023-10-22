@@ -1339,7 +1339,7 @@ troops = [
 
   #germanic heroic-age inspired AOR troops
   ["jute_swordsman","Jute Sword-Keen (Sweordcenan)","Jute Sword-Keen (Sweordcenan)",tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_shield,0,0,fac_culture_4, #swordsman
-   [itm_obenaltendorf_shoes_1,itm_obenaltendorf_shoes_2,itm_wrapping_boots,itm_tunic_rich_1_cloak,itm_rich_mail_5_cloak,itm_common_mail_short_2_cloak,itm_leather_armor_c,itm_burgh_helmet_1,itm_burgh_helmet_mail,itm_drengsted_helmet_mail,itm_tarasovsky_782,itm_arabian_sword_a,itm_concave_shield_germanic_20],
+   [itm_obenaltendorf_shoes_1,itm_obenaltendorf_shoes_2,itm_wrapping_boots,itm_tunic_rich_1_cloak,itm_rich_mail_5_cloak,itm_common_mail_short_2_cloak,itm_leather_armor_c,itm_burgh_helmet_1,itm_burgh_helmet_mail,itm_drengsted_helmet_mail,itm_tarasovsky_782,itm_sword_viking_c_long,itm_concave_shield_germanic_20],
    def_attrib_lvl_28|level(28),wp_one_handed(225)|wp_two_handed(200)|wp_polearm(200)|wp_archery(110)|wp_throwing(190),knows_lvl_28,germanic_face_1, germanic_face_2],
 
   ["angle_hero","Angle Hero (Helethas)","Angle Heroes (Helethas)",tf_mounted|tf_guarantee_horse|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_shield|tf_guarantee_polearm,0,0,fac_culture_4, #cav
@@ -1347,7 +1347,7 @@ troops = [
    def_attrib_lvl_28|level(28),wp_one_handed(205)|wp_two_handed(200)|wp_polearm(210)|wp_archery(110)|wp_throwing(210),knows_lvl_28,germanic_face_1, germanic_face_2],
 
   ["saxon_companion","Saxon Throne-Companion (Seldguman)","Saxon Throne-Companions (Seldgumanni)",tf_guarantee_basic|tf_guarantee_helmet,0,0,fac_culture_4, #sword/spear
-   [itm_obenaltendorf_shoes_1,itm_obenaltendorf_shoes_2,itm_simple_shoes,itm_common_mail_long_3_cloak,itm_rich_mail_11_cloak,itm_burgh_helmet_1,itm_burgh_helmet_2,itm_triveres_mail,itm_tarasovsky_782,itm_arabian_sword_a,itm_war_spear_3,itm_concave_shield_germanic_11],
+   [itm_obenaltendorf_shoes_1,itm_obenaltendorf_shoes_2,itm_simple_shoes,itm_common_mail_long_3_cloak,itm_rich_mail_11_cloak,itm_burgh_helmet_1,itm_burgh_helmet_2,itm_triveres_mail,itm_tarasovsky_782,itm_sword_viking_3,itm_war_spear_3,itm_concave_shield_germanic_11],
    def_attrib_lvl_28|level(28),wp_one_handed(215)|wp_two_handed(210)|wp_polearm(205)|wp_archery(110)|wp_throwing(205),knows_lvl_28,germanic_face_1, germanic_face_2],
 
 #PICTISH
@@ -1630,7 +1630,7 @@ troops = [
 #burgundians 
   ["burgundian_oathtaker","Guarantor Burgundionum","Guarantores Burgundionum",tf_guarantee_basic|tf_guarantee_helmet,0,0,fac_culture_7,
    [itm_tab_shield_heater_a,itm_oval_shield_red_2,itm_deurne_campagi_1,itm_deurne_campagi_2,itm_deurne_campagi_3,itm_deurne_campagi_5,itm_common_mail_short_5,itm_common_mail_short_1,itm_battered_mail_2,itm_intercisa_helmet_1,itm_intercisa_helmet_2,itm_triveres_mail,itm_fernpass_helmet_1,itm_christies_helmet_1,itm_augsburg_2_helmet,itm_augsburg_2_helmet_mail,itm_sword_viking_3_small,itm_war_spear_1]+angons,
-   def_attrib_lvl_23|level(23),wp_one_handed(180)|wp_two_handed(170)|wp_polearm(175)|wp_throwing(180)|wp_archery(100),knows_lvl_23,germanic_face_1, germanic_face_2],
+   def_attrib_lvl_25|level(25),wp_one_handed(190)|wp_two_handed(180)|wp_polearm(190)|wp_archery(100)|wp_throwing(185),knows_lvl_25,germanic_face_1, germanic_face_2],
 
   ["burgundian_tracker","Vegius Burgundionum","Vegii Burgundionum",tf_guarantee_armor|tf_guarantee_boots|tf_guarantee_ranged,0,0,fac_culture_7,
    [itm_strong_bow,itm_long_bow,itm_roman_arrows_1,itm_roman_arrows_1,itm_war_axe,itm_tunic_2,itm_tunic_5,itm_tunic_9,itm_roman_military_tunic_1,itm_germanic_cap_2,itm_woolen_cap_2,itm_woolen_cap_4,itm_woolen_cap_5,itm_pannonian_cap_fur_1,itm_pannonian_cap_fur_2]+shoes_generic,
@@ -3454,6 +3454,9 @@ troops = [
 ["knight_28_3", "Marzban Apsikal", "Apsikal", tf_hero, 0, reserved,  fac_kingdom_28, [itm_niseansas_bard_1, itm_kaftan_eastern_2, itm_sassanid_cavalry_boots_2, itm_heavy_greaves, itm_kaftan_lamellar_13, itm_turaevo_helmet,  itm_pannonhalma_spatha, itm_tab_shield_small_round_c],  knight_attrib_4,wp(260),knight_skills_4|knows_trainer_5, 0x00000004bf00d24d55558a438b6e4b1b00000000001db6a10000000000000000],
 #Lehk Warlord
 ["knight_28_4", "Marzban Ishxananun", "Ishxananun", tf_hero, 0, reserved,  fac_kingdom_28, [itm_niseansas_2, itm_persian_riding_coat_2b, itm_wrapping_boots, itm_heavy_greaves, itm_persian_riding_coat_mail_2, itm_veiled_helmet_4, itm_rgani_mace, itm_tab_shield_small_round_b],  knight_attrib_3,wp(300),knight_skills_4|knows_trainer_5, 0x00000007f40050c53a9a72d5136db51d00000000001db6d20000000000000000],
+
+#if the player frees basilius, will come back and be a lord in the player's kingdom - will be given an oval shield, bow, arrow + sword
+["knight_bagadua_1", "Comes Basilius", "Basilius", tf_hero, 0, reserved,  fac_player_supporters_faction, [ itm_roman_peasant_tunic_5, itm_deurne_campagi_2, itm_deurne_campagi_greaves_2, itm_common_mail_short_1_cloak, itm_florence_helmet_1, itm_arabian_sword_a, itm_strong_bow, itm_roman_arrows_1, itm_tab_shield_heater_a],  knight_attrib_5,wp(290),knight_skills_4|knows_trainer_3|knows_power_draw_5, 0x00000009650c34c75b918a38536d16db00000000001e96a90000000000000000],
 
   ["kingdom_1_pretender",  "Libius Severus", "Libius Severus",  tf_hero|tf_unmoveable_in_party_window, 0,reserved,  fac_kingdom_1,[itm_nisean_cataphract_1,itm_coptic_tunic_10,itm_deurne_campagi_2,itm_deurne_campagi_greaves_2,(itm_roman_scale_5,imod_lordly),itm_sword_viking_3,itm_tab_shield_small_round_c,itm_christies_helmet_2],          lord_attrib,wp(320),knight_skills_5, 0x0000000a6300200236d36db4ab6db6db00000000001d36da0000000000000000],
   ["kingdom_2_pretender",  "Iulius Patricius", "Iulius Patricius",  tf_hero|tf_unmoveable_in_party_window, 0,reserved,  fac_kingdom_2,[itm_nisean_cataphract_2,itm_coptic_tunic_11,itm_deurne_campagi_1,itm_deurne_campagi_greaves_1,(itm_roman_scale_7,imod_lordly),itm_arabian_sword_a,itm_tab_shield_small_round_c,itm_concesti_helmet],    lord_attrib,wp(320),knight_skills_5, 0x000000000a00104244db6dc6a36db6db00000000001db6d30000000000000000],

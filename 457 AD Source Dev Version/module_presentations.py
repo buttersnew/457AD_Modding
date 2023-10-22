@@ -19497,7 +19497,8 @@ presentations = [
                 (eq, ":culture", "fac_culture_1"), #goths
                 (this_or_next|eq, ":troop", "trp_gothic_freeman"),
                 (this_or_next|eq, ":troop", "trp_gothic_skirmisher"),
-                (eq, ":troop", "trp_gothic_horseman"),
+                (this_or_next|eq, ":troop", "trp_gothic_horseman"),
+                (eq, ":troop", "trp_gothic_centurion"),
                 (assign, ":c", 1),
               (else_try),
                 (eq, ":culture", "fac_culture_2"), #vandals

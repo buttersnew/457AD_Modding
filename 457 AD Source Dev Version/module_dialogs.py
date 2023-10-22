@@ -50172,7 +50172,7 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   [trp_bagaudae_king|plyr, "bagaudae_king_talk_1", [(eq, "$basilius_interaction", 0),],
    "Your hideout is rather exposed, and there are mercenaries hunting for you, it would be best if you found somewhere else to set up camp.", "bagaudae_king_talk_ally_1", []],
   [trp_bagaudae_king, "bagaudae_king_talk_ally_1", [],
-   "Ah, so they are really after me. Those bastards. Thank you for the warning, friend. I am in your debt. If someday you find yourself master of your own domain, and swear no fealty to anyone else, I will come to aid in your struggle.", "close_window", [(assign,"$basilius_interaction",3),(assign, "$abandoned_silver_mine", 1),]],
+   "Ah, so they are really after me. Those bastards. Thank you for the warning, friend. I am in your debt. If someday you find yourself master of your own domain, and swear no fealty to anyone else, I will come to aid in your struggle.", "close_window", [(assign,"$basilius_interaction",3),(assign, "$abandoned_silver_mine", 1),(assign,"$basilius_interaction",3),]],
 
   [trp_bagaudae_king|plyr, "bagaudae_king_talk_1", [],
    "Farewell.", "close_window", []],

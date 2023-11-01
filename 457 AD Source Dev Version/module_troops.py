@@ -460,7 +460,7 @@ cloaks_western_germanic_2 = [itm_tunic_rich_2_cloak,itm_tunic_rich_6_cloak,itm_t
 mail_western_germanic_1 = [itm_battered_mail_1_cloak,itm_battered_mail_2,itm_battered_mail_3,itm_common_mail_short_4,itm_common_mail_short_4_cloak]
 mail_western_germanic_2 = [itm_common_mail_long_4,itm_common_mail_long_4_cloak,itm_common_mail_long_1_cloak]
 #culture_8
-tunics_caucasian = [itm_roman_peasant_tunic_1,itm_roman_peasant_tunic_3,itm_roman_peasant_tunic_10,itm_roman_peasant_tunic_13,itm_linen_shirt_1,itm_linen_shirt_2,itm_linen_shirt_10,itm_skirmisher_tunic_1,itm_skirmisher_tunic_4]
+tunics_caucasian = [itm_roman_peasant_tunic_1,itm_roman_peasant_tunic_3,itm_roman_peasant_tunic_10,itm_roman_peasant_tunic_13]
 #britons - mix of military and civilian roman tunics
 tunics_briton_1 = [itm_roman_peasant_tunic_1,itm_roman_peasant_tunic_2,itm_roman_peasant_tunic_3,itm_tunic_1,itm_tunic_5,itm_tunic_7]
 tunics_briton_2 = [itm_roman_peasant_tunic_5,itm_roman_peasant_tunic_6,itm_coptic_tunic_1,itm_coptic_tunic_2,itm_coptic_tunic_7,itm_tunic_rich_4]
@@ -480,7 +480,6 @@ tunics_pictish_1 = [itm_pictish_tunic_1,itm_pictish_tunic_2,itm_pictish_tunic_3,
 mail_pictish_1 = [itm_pictish_mail_1,itm_pictish_mail_2,itm_pictish_mail_3,itm_pictish_mail_4,itm_pictish_mail_5]
 #alans - very simple
 tunics_alans_1 = [itm_tunic_1,itm_tunic_3,itm_tunic_8,itm_tunic_16]
-tunics_alans_2 = [itm_skirmisher_tunic_1,itm_skirmisher_tunic_2,itm_skirmisher_tunic_3,itm_skirmisher_tunic_4]
 #bandits
 tunic_bandits_1 = [itm_tunic_1,itm_tunic_2,itm_tunic_3,itm_roman_peasant_tunic_1,itm_roman_peasant_tunic_10]
 #nubians
@@ -1682,8 +1681,8 @@ troops = [
    def_attrib_lvl_18|level(18),wp_one_handed(150)|wp_two_handed(80)|wp_polearm(145)|wp_throwing(120)|wp_archery(150)|wp_firearm(110),knows_archer,caucaus_face_1, caucaus_face_2],
 
   ["tzanni_footman","Tzanni Footman","Tzanni Footmen",tf_guarantee_basic,0,0,fac_culture_8,
-   [itm_wrapping_boots,itm_simple_shoes,itm_deurne_campagi_1,itm_roman_military_tunic_3,itm_coptic_tunic_2,itm_roman_peasant_tunic_10,itm_roman_peasant_tunic_4,itm_pannonian_cap_fur_1,itm_pannonian_cap_fur_2,itm_batumi_helmet_aventail,itm_intercisa_helmet_1,itm_sarranid_two_handed_mace_1,itm_great_sword,itm_throwing_spear_2,itm_roman_spear_4,itm_oval_shield_limitanei_7,itm_oval_shield_leather_1,itm_oval_shield_blue_1,itm_oval_shield_blue_2],
-   def_attrib_lvl_18|level(18),wp_one_handed(150)|wp_two_handed(150)|wp_polearm(140)|wp_throwing(135)|wp_archery(80)|wp_firearm(80),knows_lvl_18,caucaus_face_1, caucaus_face_2],
+   [itm_wrapping_boots,itm_simple_shoes,itm_deurne_campagi_1,itm_roman_peasant_tunic_4,itm_coptic_tunic_2,itm_caucasian_scale_3,itm_common_mail_short_2,itm_pannonian_cap_fur_1,itm_pannonian_cap_fur_2,itm_batumi_helmet_aventail,itm_intercisa_helmet_1,itm_sarranid_two_handed_mace_1,itm_great_sword,itm_throwing_spear_2,itm_roman_spear_4,itm_oval_shield_leather_1,itm_oval_shield_blue_1,itm_oval_shield_blue_2],
+   def_attrib_lvl_21|level(21),wp_one_handed(160)|wp_two_handed(150)|wp_polearm(150)|wp_archery(100)|wp_throwing(150),knows_lvl_21,caucaus_face_1, caucaus_face_2],
 
   ["sarir_horseman","Sarir Horseman","Sarir Horsemen",tf_mounted|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_polearm|tf_guarantee_horse|tf_guarantee_helmet,0,0,fac_culture_8,
    [itm_sassanid_cavalry_boots_1,itm_sassanid_cavalry_boots_2,itm_kaftan_alan_red,itm_kaftan_alan_white,itm_kaftan_alan_3,itm_persian_riding_coat_3a,itm_persian_riding_coat_3b,itm_tarasovsky_1784_helmet_mail_2,itm_kalhkni_helmet_1,itm_heavy_lance,itm_yrzi_bow_1,itm_roman_arrows_2,itm_warhorse]+horses_hunnic_2,

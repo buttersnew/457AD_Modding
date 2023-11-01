@@ -26966,7 +26966,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     [],
     [
 
-      ("choice_1",[],"Accept his vassalage.",
+      ("choice_1",[],"Accept him.",
         [
           (troop_set_slot, "trp_knight_bagadua_1", slot_troop_occupation, slto_kingdom_hero),
           (troop_set_note_available,"trp_knight_bagadua_1",1),

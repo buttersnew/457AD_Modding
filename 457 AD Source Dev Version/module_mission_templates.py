@@ -20664,6 +20664,142 @@ mission_templates = [
 
     ],),
 
+("wolfmen_ambush",mtf_battle_mode,-1,
+    "ambushed by berserkers",
+    [
+      (0,mtef_visitor_source|mtef_team_0,af_override_horse,aif_start_alarmed,1,[]),#player
+      (1,mtef_visitor_source|mtef_team_0,af_override_horse,aif_start_alarmed,1,[]),#player
+      (2,mtef_visitor_source|mtef_team_2,af_override_horse,aif_start_alarmed,1,[]),#guard
+      (3,mtef_visitor_source|mtef_team_0,af_override_horse,aif_start_alarmed,1,[]),#legatus
+      (4,mtef_visitor_source|mtef_team_0,af_override_horse,aif_start_alarmed,1,[]),#legatus
+      (5,mtef_visitor_source|mtef_team_0,af_override_horse,aif_start_alarmed,1,[]),#unused
+      (6,mtef_visitor_source|mtef_team_0,af_override_horse,aif_start_alarmed,1,[]),#unused
+      (7,mtef_visitor_source|mtef_team_0,af_override_horse,aif_start_alarmed,1,[]),#unused
+      (8,mtef_visitor_source|mtef_team_0,af_override_horse,aif_start_alarmed,1,[]),#spectators
+      (9,mtef_visitor_source|mtef_team_0,af_override_horse,aif_start_alarmed,1,[]),#spectators
+      (10,mtef_visitor_source|mtef_team_0,af_override_horse,aif_start_alarmed,1,[]),#spectators
+      (11,mtef_visitor_source|mtef_team_0,af_override_horse,aif_start_alarmed,1,[]),#spectators
+      (12,mtef_visitor_source|mtef_team_0,af_override_horse,aif_start_alarmed,1,[]),#spectators
+      (13,mtef_visitor_source|mtef_team_0,af_override_horse,aif_start_alarmed,1,[]),#spectators
+      (14,mtef_visitor_source|mtef_team_0,af_override_horse,aif_start_alarmed,1,[]),#spectators
+      (15,mtef_visitor_source|mtef_team_0,af_override_horse,aif_start_alarmed,1,[]),#spectators
+      (16,mtef_visitor_source|mtef_team_0,af_override_horse,aif_start_alarmed,1,[]),#spectators
+      (17,mtef_visitor_source|mtef_team_0,af_override_horse,aif_start_alarmed,1,[]),#spectators
+      (18,mtef_visitor_source|mtef_team_0,af_override_horse,aif_start_alarmed,1,[]),#spectators
+      (19,mtef_visitor_source|mtef_team_0,af_override_horse,aif_start_alarmed,1,[]),#spectators
+      (20,mtef_visitor_source|mtef_team_0,af_override_horse,aif_start_alarmed,1,[]),#spectators
+      (21,mtef_visitor_source|mtef_team_0,af_override_horse,aif_start_alarmed,1,[]),#spectators
+      (22,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#spectators
+      (23,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#spectators
+      (24,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#spectators
+      (25,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#spectators
+      (26,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#spectators
+      (27,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#spectators
+      (28,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#spectators
+      (29,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#spectators
+      (30,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#spectators
+    ],
+   vc_weather + [
+   
+    passable_allies,
+    custom_commander_critical_strike,
+###TO BULLY RETARTED CHEATERS
+    (0, 0, 0, [
+    (this_or_next|key_is_down, key_left_alt),
+    (key_is_down, key_right_alt),
+    (key_is_down, key_f4),
+    (this_or_next|key_is_down, key_left_control),
+    (key_is_down, key_right_control),
+    ],
+    [
+    (get_player_agent_no, ":player"),
+    (agent_deliver_damage_to_agent,":player",":player",10000,"itm_warhammer"),
+    (display_message, "@DIE CHEATER! DIE CHEATER! DIE CHEATER!"),
+    (jump_to_menu, "mnu_wolfmen_ambush_lost"),
+    (finish_mission),
+    (call_script, "script_change_troop_renown", "trp_player", -500),
+    (call_script, "script_change_player_honor", -200),
+    (store_troop_gold, ":gold", "trp_player"),
+    (troop_remove_gold, "trp_player", ":gold"),
+    (troop_clear_inventory, "trp_player"),
+    ]),
+###TO BULLY RETARDED CHEATERS
+    (0, 0, 0, [
+    (this_or_next|key_is_down, key_left_control),
+    (key_is_down, key_right_control),
+    (key_is_down, key_h),
+    ],
+    [
+    (get_player_agent_no, ":player"),
+    (agent_deliver_damage_to_agent,":player",":player",10000,"itm_warhammer"),
+    (display_message, "@DIE CHEATER! DIE CHEATER! DIE CHEATER!"),
+    (jump_to_menu, "mnu_wolfmen_ambush_lost"),
+    (finish_mission),
+    (call_script, "script_change_troop_renown", "trp_player", -500),
+    (call_script, "script_change_player_honor", -200),
+    (store_troop_gold, ":gold", "trp_player"),
+    (troop_remove_gold, "trp_player", ":gold"),
+    (troop_clear_inventory, "trp_player"),
+    ]),
+ 
+    (ti_before_mission_start,0,0,[],[
+    (call_script, "script_music_set_situation_with_culture", mtf_sit_siege),
+    (assign, "$g_battle_result", 0),
+    
+    (try_begin),
+        (eq, "$temp", -2),
+        (team_set_relation, 0,1,1),
+        (team_set_relation, 1,0,1),
+        (team_set_relation, 1,2,1),
+        (team_set_relation, 0,2,1),
+    (else_try),
+        (team_set_relation, 0,1,-1),
+        (team_set_relation, 1,0,-1),
+    (try_end),
+    # (set_cheer_at_no_enemy, 0),
+    ]),
+    
+      (0, 0, ti_once, [], 
+        [
+          (store_random_in_range, ":fog_distance", 25, 50),
+          (store_random_in_range, ":haze_power", 25, 65),
+          (set_global_haze_amount, ":haze_power"),
+          (set_fog_distance, ":fog_distance", 0x131313),
+       ]),    
+
+    (0,5,ti_once,[
+    (main_hero_fallen),
+    ],[
+    (main_hero_fallen),
+    (jump_to_menu, "mnu_wolfmen_ambush_lost"), #player must fall
+    (quest_set_slot, "qst_the_wolfmen", slot_quest_current_state, 3),
+    (finish_mission, 3),
+    (mission_cam_animate_to_screen_color, 0xFF000000, 2000),
+    ]),      
+ 
+    (0, 0, 15, [
+    (store_mission_timer_a, ":timer"),
+    (ge, ":timer", 10),
+    (ge, "$temp", 1),],
+    [
+    (store_random_in_range, ":entry", 15,18),
+    (add_visitors_to_current_scene, ":entry", "trp_cynocephalus", 4),
+    (display_message, "@More enemies have arrived!"),
+    (val_sub, "$temp", 1),
+    ]),
+ 
+    (0, 0, 2, [],
+    [
+      (try_for_agents, ":agent_no"),
+          (agent_is_human, ":agent_no"),
+          (agent_is_alive, ":agent_no"),
+          (agent_ai_set_always_attack_in_melee, ":agent_no", 1),
+      (try_end),
+    ]),
+ 
+    common_inventory_not_available,
+]),
+
 #hunnic ruins quest
   ("dungeon_ruins_2",0,-1,
     "Hunimund's Lair",

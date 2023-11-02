@@ -5012,6 +5012,8 @@ troops = [
   #wolfmen quest
   ["berserker_leader","Old Shaman","Cynocephalus Leader",tf_hero|tf_allways_fall_dead, no_scene, reserved, fac_commoners,[itm_wrapping_boots,itm_common_mail_short_4,itm_wolf_skin_1,itm_concave_shield_germanic_26,itm_sword_viking_2],def_attrib_lvl_30|level(30),wp_one_handed(260)|wp_two_handed(200)|wp_polearm(260)|wp_throwing(250)|wp_archery(180),knows_lvl_30,0x00000007400001c41cdb6daaec6db6db00000000001e37250000000000000000],
 
+  ["cynocephalus_boss","Cynocephalus","Cynocephali",tf_hero|tf_guarantee_basic|tf_guarantee_helmet,0,0,fac_culture_2,[itm_wrapping_boots,itm_pants_7,itm_wolf_skin_1,itm_throwing_spears,itm_war_spear,itm_sword_viking_3_small,itm_concave_shield_germanic_26],def_attrib_lvl_30|level(30),wp_one_handed(260)|wp_two_handed(200)|wp_polearm(260)|wp_throwing(250)|wp_archery(180),knows_lvl_30,0x00000007400001c41cdb6daaec6db6db00000000001e37250000000000000000],
+
   #varying rebels, other characters
   #will revolt/challenge majorian's rule, eventually killed
   ["tuldila","Tuldila","Tuldila",tf_hero|tf_allways_fall_dead, 0, reserved, fac_commoners,[itm_hun_rich_horse_1,itm_deurne_campagi_greaves_2,itm_kaftan_lamellar_7,itm_tab_shield_small_round_c,itm_pannonhalma_spatha,itm_niya_bow_2,itm_khergit_arrows,itm_iatrus_2],knight_attrib_5,wp_one_handed(290)|wp_two_handed(290)|wp_polearm(270)|wp_archery(190)|wp_crossbow(100)|wp_throwing(100)|wp_firearm(100),knight_skills_3|knows_trainer_6, 0x00000007e700b3cc57556db3696d26db00000000001db7290000000000000000],

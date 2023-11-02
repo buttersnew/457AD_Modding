@@ -20214,7 +20214,7 @@ I knew that I had found someone worthy of becoming my vassal.", "lord_invite_1",
 [anyone|plyr, "wolfmen_quest_intro_4", [],
   "I am grateful for your wisdom, Your Majesty. I shall approach the woods to the east with care and seek to uncover the truth about the Cynocephali.", "wolfmen_quest_intro_5",[]],
 [anyone, "wolfmen_quest_intro_5", [],
-  "May Wodan favors your quest, and may the ancestors guide you safely through the path you've chosen. Remember, knowledge can come at a price, and some truths are best approached with caution.", "lord_pretalk",[
+  "May Wodan favor your quest, and may the ancestors guide you safely through the path you've chosen. Remember, knowledge can come at a price, and some truths are best approached with caution.", "lord_pretalk",[
     (assign, "$g_wolf_quest", 3),
     (setup_quest_text, "qst_the_wolfmen"),
     (str_store_party_name, s5, "p_town_31"),

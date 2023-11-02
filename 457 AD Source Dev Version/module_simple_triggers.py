@@ -105,6 +105,16 @@ simple_triggers = [
   (0,
    [
      (try_begin),
+        (check_quest_active, "qst_the_wolfmen"),
+        (quest_slot_ge, "qst_the_wolfmen", slot_quest_current_state, 3),
+        (neg|quest_slot_ge, "qst_the_wolfmen", slot_quest_current_state, 4),
+        (store_current_hours, ":hours"),
+        (quest_slot_eq, "qst_the_wolfmen", slot_quest_gold_reward, ":hours"),
+        (try_begin),
+            (quest_slot_eq, "qst_the_wolfmen", slot_quest_current_state, 3),
+            (jump_to_menu, "mnu_wolfmen_1"),
+        (try_end),
+     (else_try),
        (is_between, "$g_last_rest_center",  centers_begin, centers_end), #SB : proper rest conditions
        (party_get_battle_opponent, ":besieger_party", "$g_last_rest_center"),
        (gt, ":besieger_party", 0),

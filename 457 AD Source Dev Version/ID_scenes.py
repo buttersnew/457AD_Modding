@@ -808,4 +808,5 @@ scn_ruins_of_olpia_pontica = 805
 scn_the_oath = 806
 scn_final_battle = 807
 scn_wolfmen_lair = 808
+scn_wolfmen_ambush = 809
 scn_exit = 100000

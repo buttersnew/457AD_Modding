@@ -1747,5 +1747,8 @@ scenes = [
 
   ("wolfmen_lair",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000bc60cbb68005ad6800000a2400005f5c00007f21",
     [],[],"outer_terrain_forest"),  
+  ("wolfmen_ambush",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000bc66cbe30005d9760000438d00007aec00002978",
+    [],[],"outer_terrain_forest"),  
+
 
 ]

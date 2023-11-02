@@ -25298,44 +25298,103 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       ("continue_day",[(eq,"$town_nighttime",0),],"Come back at night...",
       [(leave_encounter),(change_screen_return)]),
 
-      ("continue_night",[(eq,"$town_nighttime",1),],"Walk around the forest...",[
-          (try_begin),
-            (store_troop_health, ":health", "trp_player", 0), #get relative health in 1-100 range and put it into the ":health" variable
-            (lt, ":health", 30),
-            (val_add, ":health", 35),               #add to it the 5%
-            (troop_set_health,   "trp_player", ":health"),   #set it
-          (try_end),
+      ("continue_night",[(eq,"$town_nighttime",1),
+        (check_quest_active, "qst_the_wolfmen"),
+        (quest_slot_eq, "qst_the_wolfmen", slot_quest_current_state, 1),
+        ],"Set up camp for the night...",[
 
-          (set_jump_mission,"mt_wolfman_forest"),
-          (modify_visitors_at_site,"scn_wolfmen_lair"),
-          (reset_visitors),
-
-          (assign, ":cur_entry", 1), #entry points 1 to 7
-          (try_for_range, ":companion", companions_begin, companions_end),
-            (le, ":cur_entry", 7),
-            (main_party_has_troop,":companion"),
-            (set_visitor, ":cur_entry", ":companion"),
-            (val_add, ":cur_entry", 1),
-          (try_end),
-
-          (set_visitor,8,"trp_berserker_leader"),
-
-          (set_visitor,9,"trp_cynocephalus"), #warriors
-          (set_visitor,10,"trp_cynocephalus"),
-          (set_visitor,11,"trp_cynocephalus"),
-          (set_visitor,12,"trp_cynocephalus"),
-          (set_visitor,13,"trp_cynocephalus"),
-          (set_visitor,14,"trp_cynocephalus"),
-          (set_visitor,15,"trp_cynocephalus"),
-
-          (set_jump_entry, 0),
-          (scene_set_slot, "scn_wolfmen_lair", slot_scene_visited, 1),
-
-          (jump_to_scene,"scn_wolfmen_lair"),
-          (change_screen_mission),
+        (quest_set_slot, "qst_the_wolfmen", slot_quest_current_state, 2), #sets state to 2
+        (jump_to_menu, "mnu_wolfmen_ambush"),
     ]),
 
     ("leave",[],"Leave",[(leave_encounter),(change_screen_return)]),
+    ]),
+
+ ("wolfmen_ambush",0,
+    "You and your host are resting for the night in a clearance in the middle of the woods in Germania while suddenly howling of wolves and frightening cries wake you up. "
+    + "You and your companions quickly grab your weapons, your soldiers are already rushing outside their tents. All you could see in the night is a large number of dark silhouettes approaching you quickly. "
+    + "You draw your sword, whether these are bandits or wolves, you are going to face them. As soon as these dark figures approach you, you realise the Cynocephali have found you first.",
+    "none", [],
+    [
+    ("option_1", [],"Ambush!",
+    [
+      (set_jump_mission, "mt_wolfmen_ambush"),
+      (modify_visitors_at_site, "scn_wolfmen_ambush"),
+      (reset_visitors),
+
+
+      (set_visitor, 22, "trp_player"),
+
+      (assign, ":cur_entry", 23), #entry points 23 to 30
+      (try_for_range, ":companion", companions_begin, companions_end),
+          (le, ":cur_entry", 8),
+          (main_party_has_troop,":companion"),
+          (set_visitor, ":cur_entry", ":companion"),
+          (val_add, ":cur_entry", 1),
+      (try_end),
+
+      # set number of waves player has to fight
+      (try_begin),
+          (quest_slot_eq, "qst_the_wolfmen", slot_quest_current_state, 2),
+          (assign, "$temp", 10000), # # used to count number of waves, having 10,000 waves is like invinite, player is supposed to lose this last fight
+      (try_end),
+
+      (set_visitors, 15, "trp_cynocephalus", 4),
+      (set_visitors, 16, "trp_cynocephalus", 4),
+      (set_visitors, 17, "trp_cynocephalus", 4),
+      (set_visitors, 18, "trp_cynocephalus", 4),
+
+      (jump_to_scene, "scn_wolfmen_ambush"),
+      (change_screen_mission),
+      ]),
+    ]),
+
+  ("wolfmen_ambush_lost",0,
+    "You and your soldiers fought at the best of your abilities but eventually these wolf-warriors got the better of it and manage to wound you and capture you. You wake up some time later, treated and in a wooden cage in a rough encampment in the woods. "
+    + "You can see most of your soldiers in the other cages, your officers as well. Two times per day a man comes to offer you food, you initially refuse but at the end hunger and fatigue push you to accept their offer, your soldiers do the same.",
+    "none",
+    [],
+    [
+
+    ("continue",[],"Continue...",[
+      (store_current_hours, ":cur_hour"),
+      (val_add, ":cur_hour", 24),
+      (quest_set_slot, "qst_the_wolfmen", slot_quest_gold_reward, ":cur_hour"),
+      (rest_for_hours, 30, 10, 0),
+      (change_screen_map),
+      ]),
+    ]),
+
+  ("wolfmen_1",0,
+    "Finally your captors open your cage and set you free, they escort you to the centre of their encampment, next to a fireplace, where the oldest of them resided, a scarred man with a long white beard and a body that still recounted its vigorous youth.",
+    "none",
+    [],
+    [
+
+    ("continue",[],"Talk to the man...",[
+      (quest_set_slot, "qst_the_wolfmen", slot_quest_current_state, 4),
+      (assign, "$temp1", 4),
+      (assign, "$talk_context", 0),
+      (set_jump_mission, "mt_conversation_generic"),
+      (modify_visitors_at_site, "scn_wolfmen_lair"),
+      (reset_visitors),
+      (try_for_range, ":entry", 16, 19),
+          (mission_tpl_entry_set_override_flags, "mt_conversation_generic", ":entry", af_override_horse|af_override_weapons|af_override_head),
+      (try_end),
+
+      (mission_tpl_entry_set_override_flags, "mt_conversation_generic", 0, af_override_everything),
+      (mission_tpl_entry_clear_override_items, "mt_conversation_generic", 0),
+      (mission_tpl_entry_add_override_item, "mt_conversation_generic",0, "itm_linen_tunic"),
+      (mission_tpl_entry_add_override_item, "mt_conversation_generic",0, "itm_wrapping_boots"),
+
+      (set_visitor, 0, "trp_player"),
+      (set_visitor, 16, "trp_berserker_leader"),
+      (set_visitor, 17, "trp_cynocephalus"),
+      (set_visitor, 18, "trp_cynocephalus"),
+      (jump_to_scene, "scn_wolfmen_lair"),
+      (change_screen_mission),
+
+      ]),
     ]),
 
 #abandoned silver mine

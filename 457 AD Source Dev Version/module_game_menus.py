@@ -25397,6 +25397,98 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       ]),
     ]),
 
+  ("wolfmen_duel",0,
+    "The old shaman steps aside and summons an old, strong warrior to come forth. His gaze is feirce, almost as if he is a beast gazing on its prey. He draws his sword, and points it towards you. You have just the time to draw your blade as well that the warrior will begin charging at you. The duel has begun!",
+    "none",
+    [],
+    [
+
+    ("continue",[],"Fight!",[
+       (modify_visitors_at_site,"scn_wolfmen_lair"),
+       (reset_visitors),
+       (set_visitor,0,"trp_player"), #player
+       (set_visitor,1,"trp_cynocephalus_boss"), #warrior
+
+       (set_jump_mission,"mt_wolfmen_duel"),
+       (jump_to_scene, "scn_wolfmen_lair"),
+       (change_screen_mission),
+      ]),
+    ]),
+
+  ("wolfmen_duel_won",0,
+    "The fight was tough but you finally manage to beat the champion. The moment you can strike the final blow you have to decide if to spare the warrior or kill him. Everyone's yelling at you 'DEATH DEATH DEATH!', but what does your soul tell you?",
+    "none",
+    [],
+    [
+     ("choice_1",[],"Kill him!",[
+      (quest_set_slot, "qst_the_wolfmen", slot_quest_current_state, 5),
+      (call_script, "script_change_troop_renown", "trp_player", 10),
+      (assign, "$temp1", 4),
+      (assign, "$talk_context", 0),
+      (set_jump_mission, "mt_conversation_generic"),
+      (modify_visitors_at_site, "scn_wolfmen_lair"),
+      (reset_visitors),
+      (try_for_range, ":entry", 16, 19),
+          (mission_tpl_entry_set_override_flags, "mt_conversation_generic", ":entry", af_override_horse|af_override_weapons|af_override_head),
+      (try_end),
+
+      (mission_tpl_entry_set_override_flags, "mt_conversation_generic", 0, af_override_everything),
+      (mission_tpl_entry_clear_override_items, "mt_conversation_generic", 0),
+      (mission_tpl_entry_add_override_item, "mt_conversation_generic",0, "itm_linen_tunic"),
+      (mission_tpl_entry_add_override_item, "mt_conversation_generic",0, "itm_wrapping_boots"),
+
+      (set_visitor, 0, "trp_player"),
+      (set_visitor, 16, "trp_berserker_leader"),
+      (set_visitor, 17, "trp_cynocephalus"),
+      (set_visitor, 18, "trp_cynocephalus"),
+      (jump_to_scene, "scn_wolfmen_lair"),
+      (change_screen_mission),
+      ]),
+
+     ("choice_2",[],"Spare the warrior.",[
+      (quest_set_slot, "qst_the_wolfmen", slot_quest_current_state, 5),
+      (call_script, "script_change_troop_renown", "trp_player", -10),
+      (assign, "$temp1", 4),
+      (assign, "$talk_context", 0),
+      (set_jump_mission, "mt_conversation_generic"),
+      (modify_visitors_at_site, "scn_wolfmen_lair"),
+      (reset_visitors),
+      (try_for_range, ":entry", 16, 19),
+          (mission_tpl_entry_set_override_flags, "mt_conversation_generic", ":entry", af_override_horse|af_override_weapons|af_override_head),
+      (try_end),
+
+      (mission_tpl_entry_set_override_flags, "mt_conversation_generic", 0, af_override_everything),
+      (mission_tpl_entry_clear_override_items, "mt_conversation_generic", 0),
+      (mission_tpl_entry_add_override_item, "mt_conversation_generic",0, "itm_linen_tunic"),
+      (mission_tpl_entry_add_override_item, "mt_conversation_generic",0, "itm_wrapping_boots"),
+
+      (set_visitor, 0, "trp_player"),
+      (set_visitor, 16, "trp_berserker_leader"),
+      (set_visitor, 17, "trp_cynocephalus"),
+      (set_visitor, 18, "trp_cynocephalus"),
+      (jump_to_scene, "scn_wolfmen_lair"),
+      (change_screen_mission),
+      ]),
+    ]),
+
+
+  ("wolfmen_duel_lost",0,
+    "The warrior cuts your belly open and leaves you rotting on the ground. Your men rush to save you, some of them luckily were experienced healers and manage you treat you. Once you recover, the cynocephali are gone, nowhere to be found.",
+    "none",
+    [],
+    [
+     ("leave",[],"Leave",[
+      (call_script, "script_fail_quest", "qst_the_wolfmen"),
+      (call_script, "script_change_troop_renown", "trp_player", -10),
+      (add_xp_as_reward, 200),
+      (call_script, "script_end_quest", "qst_the_wolfmen"),
+      (disable_party,"p_wolfmen_lair"),
+      (leave_encounter),
+      (change_screen_return),
+      ]),
+    ]),
+
+
 #abandoned silver mine
   ("abandoned_silver_mine",0,
     "Iberia was once known for its abundant silver mines, however as the years have gone by, many of the mines have dried up, leaving them abandoned and in disrepair...",

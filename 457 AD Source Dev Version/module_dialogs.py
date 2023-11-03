@@ -50912,32 +50912,53 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   [trp_severinus_companion|plyr, "severinus_companion_talk_normal_1", [],
    "Farewell, friend.", "close_window", []],
 
+  [trp_berserker_leader, "start", [(check_quest_active, "qst_the_wolfmen"),(quest_slot_eq, "qst_the_wolfmen", slot_quest_current_state, 4),],
+   "Not many dare venturing into these woods... Speak quickly, what do you seek?", "shaman_talk_intro_1", []],
+  [trp_berserker_leader|plyr, "shaman_talk_intro_1", [], 
+   "The king of the Langobards permitted me to look for you. I want to learn your ways.", "shaman_talk_intro_2", []],
+  [trp_berserker_leader, "shaman_talk_intro_2", [],
+   "You are too old to learn them and we don’t like strangers.", "shaman_talk_intro_3", []],
 
-  [trp_berserker_leader, "start", [(eq, "$g_talk_troop_met", 0),],
-   "Who goes there, stranger?", "berserker_leader_talk_main_1", []],
-
-  [trp_berserker_leader, "start", [(neq, "$g_wolf_quest", 4),],
-   "Yes, what is it, foreigner?", "berserker_leader_talk_main_1", []],
-
-  [trp_berserker_leader, "start", [(eq, "$g_wolf_quest", 4),],
-   "Yes, what is it, friend?", "berserker_leader_talk_main_1", []],
-
-  [trp_berserker_leader|plyr, "berserker_leader_talk_main_1", [], #ask about them
-   "Who are you people?", "berserker_leader_talk_info_1", []],
-  [trp_berserker_leader, "berserker_leader_talk_info_1", [],
-   "insert flavor text here", "berserker_leader_talk_info_2", []],
-  [trp_berserker_leader, "berserker_leader_talk_info_2", [],
-   "insert flavor text here", "berserker_leader_talk_main_1", []],
-
-  #[trp_berserker_leader|plyr, "berserker_leader_talk_main_1", [(eq, "$g_player_faith", 2),(check_quest_active, "qst_the_wolfmen"),(quest_slot_eq, "qst_the_wolfmen", slot_quest_current_state, 1),], #join and properly start the quest, must be pagan
-  # "I wish to join your host.", "berserker_leader_talk_quest_1", []],
-
-  [trp_berserker_leader|plyr, "berserker_leader_talk_main_1", [(check_quest_active, "qst_the_wolfmen"),(quest_slot_eq, "qst_the_wolfmen", slot_quest_current_state, 1),], #option to kill them
-   "You filthy beasts who feast on the flesh of men, die!", "berserker_leader_talk_attack_1", []],
-  [trp_berserker_leader, "berserker_leader_talk_attack_1", [],
-   "Ha, you think you can take on me and my warriors? I will get great joy striking you down!", "close_window", [
-    (quest_set_slot,"qst_the_wolfmen",slot_quest_current_state, 8), #sets to 8 (for now) to make everyone attack
+  [trp_berserker_leader|plyr, "shaman_talk_intro_3", [(eq, "$g_player_faith", 2),(eq,"$g_paganism_dedication",1),], #must be a germanic pagan
+   "I am a follower of our ancestral gods and devout to Wodan, the all-father.", "shaman_talk_intro_pagan_1", []],
+  [trp_berserker_leader, "shaman_talk_intro_pagan_1", [],
+   "You must have the blood of a prince, for few ask Wodan for guidance and many instead rely on Nerthus for their crops. We are not farmers, you have to understand this: we live for war. We are born dead, our lives belong to the All-father for we know none of us will die of old age, with offspring and land.", "shaman_talk_intro_pagan_2", []],
+  [trp_berserker_leader, "shaman_talk_intro_pagan_2", [],
+   "The farmers and warriors living in the villages fear us and despise us, but we live a life of glory, magic and fighting. We are the dogs and wolves of Wodan. If you want to become one of us you will have to leave your life behind.", "shaman_talk_intro_pagan_3", []],
+  [trp_berserker_leader|plyr, "shaman_talk_intro_pagan_3", [], 
+   "My fate has been weaved long time ago and Wodan didn’t grant you the privilege of disposing of my life. I will soon be a prince, feared and respected, and I seek your knowledge to increase my power. Teach me the magic ways of the dire dogs that live in these woods and I shall bring your warriors with me, to appease Wodan, in my adventures.", "shaman_talk_intro_pagan_4", [(assign, "$berserker_ability", 1),]], #starts intro to player getting ability
+  [trp_berserker_leader, "shaman_talk_intro_pagan_4", [],
+   "Cut it! You pretend and speak too much, prince. If you really wish to learn our abilities you must prove your valour first. Duel our best champion, prove me you really are chosen by Wodan and that your actions speak louder than words.", "shaman_talk_intro_pagan_5", []],
+  [trp_berserker_leader|plyr, "shaman_talk_intro_pagan_5", [], 
+   "I am ready.", "close_window", [
+  (jump_to_menu, "mnu_wolfmen_duel"),
+  (finish_mission),
    ]],
+
+  [trp_berserker_leader|plyr, "shaman_talk_intro_3", [], #non-germanic pagan
+   "I won’t go back empty-handed. I may not be as young anymore, but I can learn. Prove my valour, let me fight your best champion.", "shaman_talk_intro_other_1", []],
+  [trp_berserker_leader, "shaman_talk_intro_other_1", [],
+   "Very well, we don’t refuse a duel. Wido! Cut the impudent bug to pieces!", "close_window", [
+  (jump_to_menu, "mnu_wolfmen_duel"),
+  (finish_mission),
+   ]],
+
+  [trp_berserker_leader, "start", [(check_quest_active, "qst_the_wolfmen"),(quest_slot_eq, "qst_the_wolfmen", slot_quest_current_state, 5),(eq, "$g_player_faith", 2),(eq,"$g_paganism_dedication",1)], #player wins duel and is germanic pagan
+   "You won! The Gods have spoken, you clearly have Wodan’s favour on your side. You may not be one of us but you fight like a wolf.", "shaman_talk_duel_won_pagan_1", []],
+  [trp_berserker_leader|plyr, "shaman_talk_duel_won_pagan_1", [],
+   "He was a great warrior, but I bested him in combat and I deserve to join the brotherhood now.", "shaman_talk_duel_won_pagan_2", []],
+  [trp_berserker_leader, "shaman_talk_duel_won_pagan_2", [],
+   "Your training begins now. Your warriors will wait in their own camp in the clearance, we shall set them free now. We don’t want them to disturb us. In the next days you will learn what it means to be a wolf-warrior.", "close_window", []],
+
+  [trp_berserker_leader, "start", [(check_quest_active, "qst_the_wolfmen"),(quest_slot_eq, "qst_the_wolfmen", slot_quest_current_state, 5),], #player wins duel and is not germanic pagan
+   "You won! The Gods have spoken. You are not one of us but we revere your strength. There is, although, one last thing we want to see from you before we will allow you to recruit our warriors: you will join us in battle.", "shaman_talk_duel_won_1", []],
+  [trp_berserker_leader|plyr, "shaman_talk_duel_won_1", [],
+   "I want to join the brotherhood of the Cynocephali, I deserve it, I won the duel.", "shaman_talk_duel_won_2", []],
+  [trp_berserker_leader, "shaman_talk_duel_won_2", [],
+   "You deserve nothing, prince. Those who do not follow the old ways may not walk on our path, they shall seek their own. You defeated our best warrior, you have our respect, but you will never be one of ours and there is nothing you can do that will make you change our minds.", "close_window", []],
+
+  [trp_berserker_leader, "start", [], 
+   "Yes, what is it, foreigner?", "berserker_leader_talk_main_1", []],
   [trp_berserker_leader|plyr, "berserker_leader_talk_main_1", [],
    "Farewell.", "close_window", []],
 

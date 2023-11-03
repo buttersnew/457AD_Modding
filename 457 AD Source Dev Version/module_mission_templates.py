@@ -20800,6 +20800,75 @@ mission_templates = [
     common_inventory_not_available,
 ]),
 
+  ("wolfmen_duel",mtf_battle_mode|mtf_commit_casualties,-1,
+    "duel!",
+    [
+      (0, mtef_scene_source|mtef_team_0, af_override_horse, aif_start_alarmed, 1, []), #player start
+      (1, mtef_visitor_source|mtef_team_1, af_override_horse, aif_start_alarmed, 1, []), #opponent start
+
+     ], vc_weather + 
+     [
+
+      custom_commander_critical_strike,
+
+      (ti_on_agent_spawn, 0, 0, [],
+        [
+
+            (store_trigger_param_1, ":agent_no"),
+            (agent_get_troop_id, ":troop_no", ":agent_no"),
+            (eq, ":troop_no", "trp_cynocephalus_boss"),
+
+            (agent_set_no_death_knock_down_only, ":agent_no", 1),
+            (assign, "$temp", 0),
+
+      ]),
+
+      (ti_on_agent_knocked_down, 0, 0, [],
+        [
+          (store_trigger_param_1, ":dead_agent"),
+          (agent_get_troop_id, ":troop", ":dead_agent"),
+          (eq, ":troop", "trp_cynocephalus_boss"),
+          (val_add, "$temp", 1),
+          (try_begin),
+            (gt, "$temp", 2),
+            (agent_set_no_death_knock_down_only, ":dead_agent", 0),
+          (try_end),
+      ]),
+
+      (ti_before_mission_start, 0, ti_once, [], [
+
+      (store_random_in_range, ":fog_distance", 80, 100),
+      (store_random_in_range, ":haze_power", 70, 100),
+      (set_global_haze_amount, ":haze_power"),
+      (set_fog_distance, ":fog_distance", 0x333333),
+      ] ),
+
+      (1, 4, ti_once, [
+          (assign, ":continue", 0),
+          (try_for_agents,":cur_agent"),
+            (agent_get_troop_id,":cur_troop_id",":cur_agent"),
+            (eq,":cur_troop_id","trp_cynocephalus_boss"),
+            (neg|agent_is_alive,":cur_agent"),
+            (assign, ":continue", 1),
+          (try_end),
+          (eq, ":continue", 1),
+        ],
+        [
+          (mission_cam_animate_to_screen_color, 0xFF000000, 3000),
+          (finish_mission,4),
+          (jump_to_menu, "mnu_wolfmen_duel_won"),
+      ]),
+      (1, 4, ti_once,
+        [
+          (main_hero_fallen),
+          #(eq, "$cam_mode", 0),
+        ],
+        [(assign, "$temp", 22),
+          (jump_to_menu, "mnu_wolfmen_duel_lost"),
+          (finish_mission,0),
+      ]),
+    ],),
+
 #hunnic ruins quest
   ("dungeon_ruins_2",0,-1,
     "Hunimund's Lair",

@@ -5010,9 +5010,15 @@ troops = [
   ["chudjak","Chuddius Maximus","Chuddius Maximus",tf_hero, no_scene, reserved, fac_commoners,[itm_deurne_campagi_3,itm_coptic_tunic_1],def_attrib|level(3),wp(80),knows_common,0x000000003f107005345cae396c93641000000000001d36710000000000000000],
 
   #wolfmen quest
-  ["berserker_leader","Old Shaman","Cynocephalus Leader",tf_hero|tf_allways_fall_dead, no_scene, reserved, fac_commoners,[itm_wrapping_boots,itm_common_mail_short_4,itm_wolf_skin_1,itm_concave_shield_germanic_26,itm_sword_viking_2],def_attrib_lvl_30|level(30),wp_one_handed(260)|wp_two_handed(200)|wp_polearm(260)|wp_throwing(250)|wp_archery(180),knows_lvl_30,0x00000007400001c41cdb6daaec6db6db00000000001e37250000000000000000],
+  ["berserker_leader","Old Shaman","Cynocephalus Leader",tf_hero|tf_allways_fall_dead, no_scene, reserved, fac_commoners,[itm_wrapping_boots,itm_common_mail_short_4,itm_wolf_skin_1,itm_concave_shield_germanic_26,itm_sword_viking_2],def_attrib_lvl_30|level(30),wp_one_handed(260)|wp_two_handed(200)|wp_polearm(260)|wp_throwing(250)|wp_archery(180),knows_lvl_30,0x0000000fe20c650755515248aa952b1400000000001d36a90000000000000000],
 
-  ["cynocephalus_boss","Cynocephalus","Cynocephali",tf_hero|tf_guarantee_basic|tf_guarantee_helmet,0,0,fac_culture_2,[itm_wrapping_boots,itm_pants_7,itm_wolf_skin_1,itm_throwing_spears,itm_war_spear,itm_sword_viking_3_small,itm_concave_shield_germanic_26],def_attrib_lvl_30|level(30),wp_one_handed(260)|wp_two_handed(200)|wp_polearm(260)|wp_throwing(250)|wp_archery(180),knows_lvl_30,0x00000007400001c41cdb6daaec6db6db00000000001e37250000000000000000],
+  ["cynocephalus_boss","Cynocephalus","Cynocephali",tf_hero|tf_guarantee_basic|tf_guarantee_helmet,0,0,fac_culture_2,[itm_wrapping_boots,itm_pants_7,itm_wolf_skin_1,itm_throwing_spears,itm_war_spear,itm_sword_viking_3_small,itm_concave_shield_germanic_26],def_attrib_lvl_30|level(30),wp_one_handed(260)|wp_two_handed(200)|wp_polearm(260)|wp_throwing(250)|wp_archery(180),knows_lvl_30,0x0000000cd50c448437118a186c89496400000000001e12f80000000000000000],
+
+  #black river quest
+  ["br_amatus","Amatus","Amatus",tf_hero, 0, reserved, fac_commoners,[itm_deurne_campagi_3,itm_coptic_tunic_11],def_attrib_lvl_28,wp(230),knows_lvl_28,0x0000000b620c50852ada76d8da6db6da00000000001e37130000000000000000],
+  ["br_gerontius","Gerontius","Gerontius",tf_hero,0,0, fac_commoners,[itm_roman_peasant_tunic_4,itm_deurne_campagi_1,itm_concave_shield_leather_small_1,itm_battle_axe_5],def_attrib_lvl_28,wp(230),knows_lvl_28,0x00000007a30ca0c23563adb6db6db6db00000000001db6d20000000000000000],
+  ["br_angelus","Angelus","Angelus",tf_hero, no_scene, 0, fac_commoners,[itm_deurne_campagi_2,itm_common_mail_short_1_cloak,itm_narona_helmet_mail,itm_aquincum_spatha_2,itm_oval_shield_blue_2],def_attrib_lvl_28,wp(230),knows_lvl_28,0x00000006e30c90863765adb6db7526e300000000001db6ca0000000000000000],
+  ["br_hathus","Hathus","Hathus",tf_hero|tf_allways_fall_dead, no_scene, 0, fac_commoners,[itm_wrapping_boots,itm_common_mail_short_7_cloak,itm_breda_helmet_1,itm_sword_viking_1,itm_concave_shield_germanic_21],def_attrib_lvl_25|level(25),wp(260),knows_lvl_25,0x00000007800c628954d590a8a3b13ce300000000001d36f50000000000000000],
 
   #varying rebels, other characters
   #will revolt/challenge majorian's rule, eventually killed

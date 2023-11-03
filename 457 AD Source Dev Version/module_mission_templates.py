@@ -20779,11 +20779,11 @@ mission_templates = [
  
     (0, 0, 15, [
     (store_mission_timer_a, ":timer"),
-    (ge, ":timer", 10),
+    (ge, ":timer", 20),
     (ge, "$temp", 1),],
     [
     (store_random_in_range, ":entry", 15,18),
-    (add_visitors_to_current_scene, ":entry", "trp_cynocephalus", 4),
+    (add_visitors_to_current_scene, ":entry", "trp_cynocephalus", 2),
     (display_message, "@More enemies have arrived!"),
     (val_sub, "$temp", 1),
     ]),

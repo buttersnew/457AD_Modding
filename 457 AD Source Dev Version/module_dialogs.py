@@ -20204,7 +20204,7 @@ I knew that I had found someone worthy of becoming my vassal.", "lord_invite_1",
 
 [anyone, "wolfmen_quest_intro_1", [(ge, "$g_talk_troop_faction_relation", 30)], #must have +30 relations
   "Ah, the Cynocephali. These warriors are not mere legends, but a part of our history as they granted us victory over the Assipitti when our kin just landed from the shores of Scandza. They are known for their wild ferocity on the battlefield, channeling the spirits of beasts to fight with unmatched strength and vigor.", "wolfmen_quest_intro_2",[]],
-[anyone, "wolfmen_quest_intro_1", [(neq|ge, "$g_talk_troop_faction_relation", 30)], #rebuked
+[anyone, "wolfmen_quest_intro_1", [], #rebuked
   "Ha, and you think I would freely share their secrets to someone like you? Begone, you fool!", "close_window",[]],
 
 [anyone|plyr, "wolfmen_quest_intro_2", [],
@@ -41942,6 +41942,7 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   (neq,"$g_talk_troop", "trp_corrupt_priest"),
   (neq, "$g_talk_troop", "trp_hun_drunkard"),
   (neq, "$g_talk_troop", "trp_zamb_man"),
+  (neq, "$g_talk_troop", "trp_eadric"),
   ],
    "Any orders, {sir/madam}?", "mercenary_after_recruited", []],
 
@@ -47479,7 +47480,7 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   (le, "$g_wolf_quest" , 1),
   ], "Ah, you've heard of the Cynocephali, have you? They're a mysterious lot. Fierce warriors, some say. They're said to possess the spirit of beasts, fighting like wild dogs on the battlefield. But mind you, these are just rumors, traveler. I wouldn't want to cross paths with such fierce fighters, that's for certain.", "town_dweller_talk_cynocephali_1",[]],
 
-  [anyone|plyr,"town_dweller_talk_cynocephali_1", [], ": Interesting, indeed. Do you know anyone who might have more information about them?", "town_dweller_talk_cynocephali_2",[]],
+  [anyone|plyr,"town_dweller_talk_cynocephali_1", [], "Interesting, indeed. Do you know anyone who might have more information about them?", "town_dweller_talk_cynocephali_2",[]],
   [anyone,"town_dweller_talk_cynocephali_2", [], "Well, if you're truly curious, you might want to seek out old Eadric, the priest who lives nearby. Folks say he has an ear for these sorts of tales and can spin a good yarn about the Cynocephali and their supposed abilities. Just be careful, though, some say delving too deep into their secrets might lead to more than you bargained for.", "town_dweller_talk_cynocephali_3",[]],
   [anyone|plyr,"town_dweller_talk_cynocephali_3", [], "Thank you for the advice. I'll look for this Eadric and see if he can shed some light on the matter.", "town_dweller_talk_cynocephali_4",[]],
   [anyone,"town_dweller_talk_cynocephali_4", [], "Safe travels, traveler. And don't say I didn't warn you about them Cynocephali. May the gods protect you.", "town_dweller_talk",[(assign, "$g_wolf_quest", 1)]],
@@ -50931,26 +50932,28 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
    "Cut it! You pretend and speak too much, prince. If you really wish to learn our abilities you must prove your valour first. Duel our best champion, prove me you really are chosen by Wodan and that your actions speak louder than words.", "shaman_talk_intro_pagan_5", []],
   [trp_berserker_leader|plyr, "shaman_talk_intro_pagan_5", [], 
    "I am ready.", "close_window", [
-  (jump_to_menu, "mnu_wolfmen_duel"),
+  (quest_set_slot,"qst_severinus_quest", slot_quest_current_state, 5),
   (finish_mission),
+  (jump_to_menu, "mnu_wolfmen_duel"),
    ]],
 
   [trp_berserker_leader|plyr, "shaman_talk_intro_3", [], #non-germanic pagan
    "I won’t go back empty-handed. I may not be as young anymore, but I can learn. Prove my valour, let me fight your best champion.", "shaman_talk_intro_other_1", []],
   [trp_berserker_leader, "shaman_talk_intro_other_1", [],
    "Very well, we don’t refuse a duel. Wido! Cut the impudent bug to pieces!", "close_window", [
-  (jump_to_menu, "mnu_wolfmen_duel"),
+  (quest_set_slot,"qst_severinus_quest", slot_quest_current_state, 5),
   (finish_mission),
+  (jump_to_menu, "mnu_wolfmen_duel"),
    ]],
 
-  [trp_berserker_leader, "start", [(check_quest_active, "qst_the_wolfmen"),(quest_slot_eq, "qst_the_wolfmen", slot_quest_current_state, 5),(eq, "$g_player_faith", 2),(eq,"$g_paganism_dedication",1)], #player wins duel and is germanic pagan
+  [trp_berserker_leader, "start", [(check_quest_active, "qst_the_wolfmen"),(quest_slot_eq, "qst_the_wolfmen", slot_quest_current_state, 6),(eq, "$g_player_faith", 2),(eq,"$g_paganism_dedication",1)], #player wins duel and is germanic pagan
    "You won! The Gods have spoken, you clearly have Wodan’s favour on your side. You may not be one of us but you fight like a wolf.", "shaman_talk_duel_won_pagan_1", []],
   [trp_berserker_leader|plyr, "shaman_talk_duel_won_pagan_1", [],
    "He was a great warrior, but I bested him in combat and I deserve to join the brotherhood now.", "shaman_talk_duel_won_pagan_2", []],
   [trp_berserker_leader, "shaman_talk_duel_won_pagan_2", [],
    "Your training begins now. Your warriors will wait in their own camp in the clearance, we shall set them free now. We don’t want them to disturb us. In the next days you will learn what it means to be a wolf-warrior.", "close_window", []],
 
-  [trp_berserker_leader, "start", [(check_quest_active, "qst_the_wolfmen"),(quest_slot_eq, "qst_the_wolfmen", slot_quest_current_state, 5),], #player wins duel and is not germanic pagan
+  [trp_berserker_leader, "start", [(check_quest_active, "qst_the_wolfmen"),(quest_slot_eq, "qst_the_wolfmen", slot_quest_current_state, 6),], #player wins duel and is not germanic pagan
    "You won! The Gods have spoken. You are not one of us but we revere your strength. There is, although, one last thing we want to see from you before we will allow you to recruit our warriors: you will join us in battle.", "shaman_talk_duel_won_1", []],
   [trp_berserker_leader|plyr, "shaman_talk_duel_won_1", [],
    "I want to join the brotherhood of the Cynocephali, I deserve it, I won the duel.", "shaman_talk_duel_won_2", []],

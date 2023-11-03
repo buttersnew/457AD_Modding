@@ -25327,7 +25327,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 
       (assign, ":cur_entry", 23), #entry points 23 to 30
       (try_for_range, ":companion", companions_begin, companions_end),
-          (le, ":cur_entry", 8),
+          (le, ":cur_entry", 30),
           (main_party_has_troop,":companion"),
           (set_visitor, ":cur_entry", ":companion"),
           (val_add, ":cur_entry", 1),
@@ -25339,10 +25339,10 @@ goods, and books will never be sold. ^^You can change some settings here freely.
           (assign, "$temp", 10000), # # used to count number of waves, having 10,000 waves is like invinite, player is supposed to lose this last fight
       (try_end),
 
-      (set_visitors, 15, "trp_cynocephalus", 4),
-      (set_visitors, 16, "trp_cynocephalus", 4),
-      (set_visitors, 17, "trp_cynocephalus", 4),
-      (set_visitors, 18, "trp_cynocephalus", 4),
+      (set_visitors, 15, "trp_cynocephalus", 2),
+      (set_visitors, 16, "trp_cynocephalus", 2),
+      (set_visitors, 17, "trp_cynocephalus", 2),
+      (set_visitors, 18, "trp_cynocephalus", 2),
 
       (jump_to_scene, "scn_wolfmen_ambush"),
       (change_screen_mission),
@@ -25379,7 +25379,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       (modify_visitors_at_site, "scn_wolfmen_lair"),
       (reset_visitors),
       (try_for_range, ":entry", 16, 19),
-          (mission_tpl_entry_set_override_flags, "mt_conversation_generic", ":entry", af_override_horse|af_override_weapons|af_override_head),
+          (mission_tpl_entry_set_override_flags, "mt_conversation_generic", ":entry", af_override_horse),
       (try_end),
 
       (mission_tpl_entry_set_override_flags, "mt_conversation_generic", 0, af_override_everything),
@@ -25391,6 +25391,15 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       (set_visitor, 16, "trp_berserker_leader"),
       (set_visitor, 17, "trp_cynocephalus"),
       (set_visitor, 18, "trp_cynocephalus"),
+
+      (assign, ":cur_entry", 2), #entry points 2 to 4
+      (try_for_range, ":companion", companions_begin, companions_end),
+        (le, ":cur_entry", 4),
+        (main_party_has_troop,":companion"),
+        (set_visitor, ":cur_entry", ":companion"),
+        (val_add, ":cur_entry", 1),
+      (try_end),
+
       (jump_to_scene, "scn_wolfmen_lair"),
       (change_screen_mission),
 
@@ -25421,7 +25430,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     [],
     [
      ("choice_1",[],"Kill him!",[
-      (quest_set_slot, "qst_the_wolfmen", slot_quest_current_state, 5),
+      (quest_set_slot, "qst_the_wolfmen", slot_quest_current_state, 6),
       (call_script, "script_change_troop_renown", "trp_player", 10),
       (assign, "$temp1", 4),
       (assign, "$talk_context", 0),
@@ -25446,7 +25455,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       ]),
 
      ("choice_2",[],"Spare the warrior.",[
-      (quest_set_slot, "qst_the_wolfmen", slot_quest_current_state, 5),
+      (quest_set_slot, "qst_the_wolfmen", slot_quest_current_state, 6),
       (call_script, "script_change_troop_renown", "trp_player", -10),
       (assign, "$temp1", 4),
       (assign, "$talk_context", 0),

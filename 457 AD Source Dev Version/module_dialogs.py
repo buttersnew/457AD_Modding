@@ -47496,6 +47496,22 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   (eq, "$g_nero_quest" , 0),
   ], "I've heard that there is some madman who is claiming to be Nero living out in Greece somewhere... What a crazy thing to hear!", "town_dweller_talk",[(assign, "$g_nero_quest", 1),(enable_party, "p_grove_of_nymphs")]],
 
+  [anyone,"town_dweller_ask_rumor", [ #must be in n. egypt, palestine - new start for the holy lance quest
+  (this_or_next|eq, "$current_town", "p_village_91"),
+  (this_or_next|eq, "$current_town", "p_village_97"),
+  (this_or_next|eq, "$current_town", "p_village_109"),
+  (this_or_next|eq, "$current_town", "p_village_110"),
+  (this_or_next|eq, "$current_town", "p_village_137"),
+  (this_or_next|eq, "$current_town", "p_village_189"),
+  (this_or_next|eq, "$current_town", "p_village_212"),
+  (this_or_next|eq, "$current_town", "p_town_21"),
+  (eq, "$current_town", "p_town_22"),
+  (eq, "$g_holy_lance_quest" , 0),
+  ], "There's a legend that the lance that pierced the side of Christ is hidden somewhere south of Jerusalem. What a tale!", "town_dweller_talk",[(assign, "$g_holy_lance_quest", 1),
+  (enable_party, "p_holy_lance_cave"),
+  ]],
+
+
   #agrippinus quest
   [anyone,"town_dweller_ask_rumor", [
   (this_or_next|eq, "$current_town", "p_village_23"),

@@ -48458,7 +48458,7 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
 (succeed_quest, "qst_heretical_codex"),
 (quest_set_slot,"qst_heretical_codex", slot_quest_current_state, 2),
 (change_screen_map),
-]], 
+]],
 
 
 #Avaldus after defeat
@@ -49830,7 +49830,7 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
    "Do you have any tasks for me?", "hydatius_bagadua_quest_1", []],
   [anyone, "hydatius_bagadua_quest_1", [],
    "Yes, there has been a pesky bandit by the name of Basilius who is rumored to still be around here in Hispania. He was a self proclaimed 'king' of the bagaudae, and for years would pillage the countryside. However, he was defeated and eventually went into hiding. I fear he may be preparing to go out and pillage again, so I have been hiring mercenaries to hunt him down since he poses a threat to the... fragile stability here.", "hydatius_bagadua_quest_2", []],
- 
+
   [anyone|plyr, "hydatius_bagadua_quest_2", [(neg|check_quest_active,"qst_bagadua_quest"),(eq, "$abandoned_silver_mine", 2)],
    "Oh, I know of the man you are hunting down. Luckily for you, I have killed him.", "hydatius_bagadua_c_1", []],
   [anyone, "hydatius_bagadua_c_1", [],
@@ -49864,7 +49864,7 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
    "About Basilius...", "hydatius_bagadua_1", []],
   [anyone, "hydatius_bagadua_1", [],
    "Do you have any news on your search for Basilius?", "hydatius_bagadua_2", []],
- 
+
   [anyone|plyr, "hydatius_bagadua_2", [(check_quest_active,"qst_bagadua_quest"),(check_quest_succeeded, "qst_bagadua_quest")],
    "I encountered him in an abandoned mine shaft with a small group of bandits. They all have been taken care of, Basilius is dead.", "hydatius_bagadua_complete_1", []],
   [anyone, "hydatius_bagadua_complete_1", [],
@@ -50915,7 +50915,7 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
 
   [trp_berserker_leader, "start", [(check_quest_active, "qst_the_wolfmen"),(quest_slot_eq, "qst_the_wolfmen", slot_quest_current_state, 4),],
    "Not many dare venturing into these woods... Speak quickly, what do you seek?", "shaman_talk_intro_1", []],
-  [trp_berserker_leader|plyr, "shaman_talk_intro_1", [], 
+  [trp_berserker_leader|plyr, "shaman_talk_intro_1", [],
    "The king of the Langobards permitted me to look for you. I want to learn your ways.", "shaman_talk_intro_2", []],
   [trp_berserker_leader, "shaman_talk_intro_2", [],
    "You are too old to learn them and we don’t like strangers.", "shaman_talk_intro_3", []],
@@ -50926,15 +50926,16 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
    "You must have the blood of a prince, for few ask Wodan for guidance and many instead rely on Nerthus for their crops. We are not farmers, you have to understand this: we live for war. We are born dead, our lives belong to the All-father for we know none of us will die of old age, with offspring and land.", "shaman_talk_intro_pagan_2", []],
   [trp_berserker_leader, "shaman_talk_intro_pagan_2", [],
    "The farmers and warriors living in the villages fear us and despise us, but we live a life of glory, magic and fighting. We are the dogs and wolves of Wodan. If you want to become one of us you will have to leave your life behind.", "shaman_talk_intro_pagan_3", []],
-  [trp_berserker_leader|plyr, "shaman_talk_intro_pagan_3", [], 
+  [trp_berserker_leader|plyr, "shaman_talk_intro_pagan_3", [],
    "My fate has been weaved long time ago and Wodan didn’t grant you the privilege of disposing of my life. I will soon be a prince, feared and respected, and I seek your knowledge to increase my power. Teach me the magic ways of the dire dogs that live in these woods and I shall bring your warriors with me, to appease Wodan, in my adventures.", "shaman_talk_intro_pagan_4", [(assign, "$berserker_ability", 1),]], #starts intro to player getting ability
   [trp_berserker_leader, "shaman_talk_intro_pagan_4", [],
    "Cut it! You pretend and speak too much, prince. If you really wish to learn our abilities you must prove your valour first. Duel our best champion, prove me you really are chosen by Wodan and that your actions speak louder than words.", "shaman_talk_intro_pagan_5", []],
-  [trp_berserker_leader|plyr, "shaman_talk_intro_pagan_5", [], 
+  [trp_berserker_leader|plyr, "shaman_talk_intro_pagan_5", [],
    "I am ready.", "close_window", [
-  (quest_set_slot,"qst_severinus_quest", slot_quest_current_state, 5),
-  (finish_mission),
-  (jump_to_menu, "mnu_wolfmen_duel"),
+    (quest_set_slot,"qst_severinus_quest", slot_quest_current_state, 5),
+    (finish_mission),
+    #(jump_to_menu, "mnu_wolfmen_duel"),
+    (assign, "$auto_menu", "mnu_wolfmen_duel"),
    ]],
 
   [trp_berserker_leader|plyr, "shaman_talk_intro_3", [], #non-germanic pagan
@@ -50960,7 +50961,7 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   [trp_berserker_leader, "shaman_talk_duel_won_2", [],
    "You deserve nothing, prince. Those who do not follow the old ways may not walk on our path, they shall seek their own. You defeated our best warrior, you have our respect, but you will never be one of ours and there is nothing you can do that will make you change our minds.", "close_window", []],
 
-  [trp_berserker_leader, "start", [], 
+  [trp_berserker_leader, "start", [],
    "Yes, what is it, foreigner?", "berserker_leader_talk_main_1", []],
   [trp_berserker_leader|plyr, "berserker_leader_talk_main_1", [],
    "Farewell.", "close_window", []],
@@ -52730,7 +52731,7 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
       (store_current_scene,":current_scene"),(eq,":current_scene","scn_noricum_refugee_camp"),
       ], "I'm busy, however you should speak with Aurelios, the property owner.", "close_window",[]],
 
-  [anyone,"start", [(store_conversation_troop, "$g_talk_troop"),(neq, "$g_talk_troop", "trp_bagaudae_king"), 
+  [anyone,"start", [(store_conversation_troop, "$g_talk_troop"),(neq, "$g_talk_troop", "trp_bagaudae_king"),
       (store_current_scene,":current_scene"),(eq,":current_scene","scn_abandoned_silver_mine"),
       ], "What do you want? If you're here to join the cause, go bother Basilius.", "close_window",[]],
 
@@ -53051,7 +53052,7 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
       (val_add, "$piety", 1), #increase in piety
       (assign, "$g_paganism_dedication", 1),
       (call_script, "script_change_player_relation_with_faction", "fac_pagans", 5),
-      (display_message,"@You have dedicated yourself to the gods within the Germanic pantheon.",0x6495ed),   
+      (display_message,"@You have dedicated yourself to the gods within the Germanic pantheon.",0x6495ed),
    ]],
   [trp_eadric, "eadric_talk_pantheon_1", [], #after player converts
    "Very well, {playername}. I will teach you our ways and beliefs...", "close_window", []],

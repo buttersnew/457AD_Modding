@@ -3399,7 +3399,11 @@ weight(1)|abundance(80)|head_armor(24)|body_armor(14)|leg_armor(6)|difficulty(0)
 #starting with weapons
 #can knock down
 ["sword_of_mars", "Sword of Mars", [("sword_of_mars",0),("sword_of_mars_scabbard", ixmesh_carry)], itp_unique|itp_can_knock_down|itp_type_one_handed_wpn|itp_primary, itc_longsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn, 9850 , weight(1.5)|difficulty(0)|spd_rtng(90) | weapon_length(91)|swing_damage(36 , cut)| thrust_damage(22 ,  pierce),imodbits_sword_high ],
-["lance_of_longiunus","Lancea Longini", [("roman_spear_2",0)], itp_unique|itp_type_polearm|itp_offset_lance|itp_primary|itp_wooden_parry, itc_spear_upstab|itcf_carry_spear, 9000 , weight(1.5)|abundance(0)|difficulty(8)|spd_rtng(100) | weapon_length(158)|swing_damage(18 , cut) | thrust_damage(35 ,  pierce),imodbits_polearm],
+
+["lance_of_longiunus", "Lancea Longini", [("holy_lance_ranged",0)], itp_unique|itp_type_thrown|itp_can_penetrate_shield|itp_primary|itp_next_item_as_melee ,itcf_throw_javelin|itp_bonus_against_shield, #super fast and accurate
+9000 , weight(1.75)|difficulty(5)|spd_rtng(90)|shoot_speed(40)|thrust_damage(50 ,  pierce)|max_ammo(1)|weapon_length(120)|accuracy(100),imodbits_polearm ],
+["lance_of_longiunus_melee", "Lancea Longini", [("holy_lance",0)],itp_unique|itp_type_polearm|itp_can_penetrate_shield|itp_crush_through|itp_primary|itp_wooden_parry , itc_spear_upstab|itp_bonus_against_shield,
+9000 , weight(1.75)|difficulty(8)|spd_rtng(97)|swing_damage(18 , cut)|thrust_damage(35 ,  pierce)|weapon_length(180),imodbits_polearm ],
 
 ["rock_of_zamb",  "Rock of Zamb", [("rock4",0)], itp_unique, 0, 1, weight(250), imodbits_none],
 

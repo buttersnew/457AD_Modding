@@ -5573,70 +5573,19 @@ TOTAL:  {reg5}"),
         "holy_lance_cave",0,
         "You arrive at a cave.",
         "none",
+        [],
         [
-            ],
-        [
-            ("enter",[(eq,"$g_holyLanceCave2",0),],"Approach the cave.",
-             [
-                  (set_jump_mission,"mt_holy_lance_mission"),
-                  (modify_visitors_at_site,"scn_holy_lance_cave"),
-                  (reset_visitors),
-    (try_begin),
-        (gt,"trp_monophysite_rebel", 0),
-        (assign,reg(0),"trp_monophysite_rebel"),
-        (assign,reg(1),"trp_monophysite_rebel"),
-        (assign,reg(2),"trp_coptic_watchman"),
-        (assign,reg(3),"trp_coptic_footman"),
-      (else_try),
-        (assign,reg(0),"trp_monophysite_rebel"),
-        (assign,reg(1),"trp_monophysite_rebel"),
-        (assign,reg(2),"trp_coptic_watchman"),
-        (assign,reg(3),"trp_coptic_footman"),
-      (try_end),
-      (shuffle_range,0,4),
-      (set_visitor,1,reg(0)),
-      (set_visitor,2,reg(1)),
-      (set_visitor,3,reg(2)),
-      (set_visitor,4,reg(3)),
-    (set_visitor,5,reg(0)),
-    (set_visitor,6,"trp_coptic_footman"),
-    (set_visitor,7,"trp_coptic_footman"),
-    (set_visitor,8,reg(3)),
-    (set_visitor,9,reg(0)),
-    (set_visitor,10,reg(1)),
-    (set_visitor,11,reg(2)),
-    (set_visitor,12,reg(3)),
-    (set_visitor,13,"trp_coptic_footman"),
-    (set_visitor,14,"trp_coptic_footman"),
-    (set_visitor,15,reg(2)),
-    (set_visitor,16,"trp_coptic_footman"),
-    (set_visitor,17,reg(2)),
-    (set_visitor,18,reg(3)),
-    (set_visitor,19,reg(0)),
-    (set_visitor,20,reg(1)),
-    (set_visitor,21,reg(2)),
-    (set_visitor,22,reg(3)),
-    (set_visitor,23,"trp_monophysite_leader"),
-    (set_visitor,24,"trp_coptic_footman"),
-      (set_jump_entry, 0),
+        ("enter",[],"Explore...",[
+          (set_jump_mission, "mt_explore_secret_place"),
+          (modify_visitors_at_site, "scn_holy_lance_cave"),
+          (reset_visitors),
+          (set_jump_entry, 0),
+          (set_visitor, 1, "trp_holy_lance_keeper"),
+          (jump_to_scene, "scn_holy_lance_cave"),
+          (change_screen_mission),
+          ]),
 
-      (assign, ":cur_entry", 25), #entry points 25 to 30
-      (try_for_range, ":companion", companions_begin, companions_end),
-        (le, ":cur_entry", 30),
-        (main_party_has_troop,":companion"),
-        (set_visitor, ":cur_entry", ":companion"),
-        (val_add, ":cur_entry", 1),
-      (try_end),
-    (scene_set_slot, "scn_holy_lance_cave", slot_scene_visited, 1),
-
-#    (display_message,"@It's cold and smells old, taking you back to another time... a time when Rome ruled the world, and men knew how to construct huge stone buildings with several storeys.",color_good_news),
-
-                 (jump_to_scene,"scn_holy_lance_cave"),
-               (change_screen_mission),
-               ]),
-                 ("leave",[],"Leave...",
-       [(change_screen_map),
-        ]),
+        ("leave",[],"Leave...",[(change_screen_map),]),
     ],
   ),
 
@@ -22974,38 +22923,6 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 #     ]
 #   ),
 
-  ( "holy_lance_messenger",menu_text_color(0xFF000000)|mnf_disable_all_keys,
-    "A messenger approaches, galloping. He stops in front of you, takes a breath and shouts:^^" +
-    "'To the {reg59?woman:man}, named {playername}: my master, the Patriarch of Jerusalem, Juvenal, has sent me. He has heard of you and wants to talk about an important mission. " +
-    "He asks you to visit him in Jerusalem, in the palace.'",
-    "none",
-    [
-      (set_background_mesh, "mesh_pic_messenger"),
-    ],
-    [
-      ("holy_lance_1",[],"Tell the Patriarch that the message has been received, and you will visit him.",
-        [
-          #(call_script, "script_start_quest", "qst_holy_lance_1", "trp_player"),
-          (str_store_party_name_link, s3, "p_town_22"),
-          (str_store_string, s2, "@The Patriarch of Jerusalem, Juvenal has requested your presence. He is located in the palace of {s3}. Apparently he has a task for you."),
-          #(quest_set_slot,"qst_holy_lance_1",slot_quest_current_state, 0), #status 0
-
-          #(add_troop_to_site, "trp_jerusalem_patriarch", "scn_town_22_tavern", 12),
-          (assign, "$g_lance_message_recieved", 1),
-          #(modify_visitors_at_site,"scn_town_22_castle"),
-          #(reset_visitors),
-          #(assign, "$g_mt_mode", tcm_default),
-          #(set_jump_entry, 0),
-          #(set_visitor, 6, "trp_imperial_castle_guard"),
-          #(set_visitor, 7, "trp_imperial_castle_guard"),
-          #(set_visitor, 16, "trp_jerusalem_patriarch"),
-
-          (leave_encounter),
-          #(change_screen_map),
-          (jump_to_menu, "mnu_auto_return_to_map"),#phaiak
-      ]),
-    ]),
-
   ( "mithras_messenger",menu_text_color(0xFF000000)|mnf_disable_all_keys,
     "A messenger approaches, galloping. He stops in front of you, takes a breath and shouts:^^" +
     "'To the {reg59?woman:man}, named {playername}: my master, who shall remain anonymous for now, has sent me to speak with you. " +
@@ -24808,6 +24725,10 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         ]),
     ],),
 
+
+
+
+
   ("nubian_bandit_battle",0,
     "You and your men approach the bandit camp. The bandit sentinels notice you, and yell back to their comrades. You prepare for a fight...",
     "none",
@@ -25438,7 +25359,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       (modify_visitors_at_site, "scn_wolfmen_lair"),
       (reset_visitors),
       (try_for_range, ":entry", 16, 19),
-          (mission_tpl_entry_set_override_flags, "mt_conversation_generic", ":entry", af_override_horse|af_override_weapons|af_override_head),
+          (mission_tpl_entry_set_override_flags, "mt_conversation_generic", ":entry", af_override_horse),
       (try_end),
 
       (mission_tpl_entry_set_override_flags, "mt_conversation_generic", 0, af_override_everything),
@@ -25450,8 +25371,18 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       (set_visitor, 16, "trp_berserker_leader"),
       (set_visitor, 17, "trp_cynocephalus"),
       (set_visitor, 18, "trp_cynocephalus"),
+
+      (assign, ":cur_entry", 2), #entry points 2 to 4
+      (try_for_range, ":companion", companions_begin, companions_end),
+        (le, ":cur_entry", 4),
+        (main_party_has_troop,":companion"),
+        (set_visitor, ":cur_entry", ":companion"),
+        (val_add, ":cur_entry", 1),
+      (try_end),
+
       (jump_to_scene, "scn_wolfmen_lair"),
       (change_screen_mission),
+
       ]),
 
      ("choice_2",[],"Spare the warrior.",[
@@ -25463,7 +25394,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       (modify_visitors_at_site, "scn_wolfmen_lair"),
       (reset_visitors),
       (try_for_range, ":entry", 16, 19),
-          (mission_tpl_entry_set_override_flags, "mt_conversation_generic", ":entry", af_override_horse|af_override_weapons|af_override_head),
+          (mission_tpl_entry_set_override_flags, "mt_conversation_generic", ":entry", af_override_horse),
       (try_end),
 
       (mission_tpl_entry_set_override_flags, "mt_conversation_generic", 0, af_override_everything),
@@ -25475,8 +25406,18 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       (set_visitor, 16, "trp_berserker_leader"),
       (set_visitor, 17, "trp_cynocephalus"),
       (set_visitor, 18, "trp_cynocephalus"),
+
+      (assign, ":cur_entry", 2), #entry points 2 to 4
+      (try_for_range, ":companion", companions_begin, companions_end),
+        (le, ":cur_entry", 4),
+        (main_party_has_troop,":companion"),
+        (set_visitor, ":cur_entry", ":companion"),
+        (val_add, ":cur_entry", 1),
+      (try_end),
+
       (jump_to_scene, "scn_wolfmen_lair"),
       (change_screen_mission),
+
       ]),
     ]),
 
@@ -25497,6 +25438,123 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       ]),
     ]),
 
+
+  ("black_river_pirates",0,
+    "After several hours of rowing, you see a ransacked village on the riverbank. Smoke emanates from several burnt houses in varying states of destruction, some reduced to a single standing wall. "
+    + "There are no bodies - the young were carried off into slavery and the old were thrown into the river torrents, or so you presume. "
+    + "All markers of Roman sophistication - tended gardens, terracotta amphorae, even funerary stelae have been desecrated. Beyond mere robbery, something else is evident here - hatred. "
+    + "Your thoughts are interrupted when a longship emerges from a nearby confluence. A loud crash shakes your vessel. You have been rammed by river pirates! ",
+    "none", [],
+    [
+
+    ("option_1",[],"Fight!",
+        [
+    (assign, "$temp3", 1),
+    (assign, "$temp1", "mnu_black_river_pirates_won"),
+    (assign, "$temp2", "mnu_black_river_lost"),
+
+    (set_jump_mission, "mt_agrippinus_villa_fight"),
+    (modify_visitors_at_site, "scn_maxi_roman_villa"),
+    (reset_visitors),
+
+    (set_visitor, 1, "trp_player"),
+
+    (set_visitor, 1, "trp_br_gerontius"),
+    (set_visitors, 1, "trp_roman_marine", 5),
+
+    (set_visitors, 4, "trp_taiga_bandit", 4),
+    (set_visitors, 4, "trp_eastern_germanic_spearman", 4),
+
+    (jump_to_scene, "scn_maxi_roman_villa"),
+    (change_screen_mission),
+      ]),
+    ],),
+
+  ("black_river_pirates_won",0,
+    "After narrowly fending off your attackers, the longship rows out of sight just as precipitously as it had appeared. Relieved, if somewhat shaken - your shipmates clear the deck of dead pirates before returning to their oars. "
+    + "The surrounding woodland soon vanishes behind the stern of your vessel and a sea of grass devours all that meets the eye - Pannonia. You see a ruined fort in the distance, the sole testament to a bygone Roman occupation for miles. "
+    + "Dozens of defensive structures once dotted the Limes Sarmatiae, most reclaimed by the steppe as the military apparatus of the former province disintegrated. Long have the limitanei abandoned this stretch of river, or so you think - until you spot a handful of soldiers manning the ramparts... ",
+    "none", [],
+    [
+
+    ("option_1",[],"Continue...",
+        [
+        (quest_set_slot,"qst_black_river", slot_quest_current_state, 3),
+        (change_screen_mission),
+        ]),
+    ],),
+
+  ("noricum_limitanei_raiders",0,
+    "Soldiers cry out, a horde of Iazyges have been spotted! You, as well as the limitanei scrambled to prepare to repel the attack...",
+    "none", [],
+    [
+
+    ("option_1",[],"Fight!",
+        [
+    (assign, "$temp3", 1),
+    (assign, "$temp1", "mnu_noricum_limitanei_raiders_won"),
+    (assign, "$temp2", "mnu_black_river_lost"),
+
+    (set_jump_mission, "mt_agrippinus_villa_fight"),
+    (modify_visitors_at_site, "scn_maxi_roman_villa"),
+    (reset_visitors),
+
+    (set_visitor, 1, "trp_player"),
+
+    (set_visitor, 1, "trp_br_gerontius"),
+    (set_visitors, 1, "trp_roman_marine", 5),
+
+    (set_visitors, 4, "trp_taiga_bandit", 4),
+    (set_visitors, 4, "trp_eastern_germanic_spearman", 4),
+
+    (jump_to_scene, "scn_maxi_roman_villa"),
+    (change_screen_mission),
+      ]),
+    ],),
+
+  ("noricum_limitanei_raiders_won",0,
+    "You win the holdout precious time by repelling the Iazyges, for which the tenacious defenders treat you and your weary shipmates to a long night of drinking and feasting. The following morning you receive a parting gift from Angelus - a sword wielded by his father, before resuming your voyage upriver. "
+    + "Several more hours of uneventful rowing follow until at last, you reach the villa - now an uninhabitable ruin shrouded in vegetation. Fearing ghosts - your shipmates refuse to follow you inside the eerie structure, yet its elegance is not lost on you. Marveling at the fresco-adorned walls of the atrium, you contemplate a world where the bright light of Rome shines no more. Would people ever live this splendidly again?",
+    "none", [],
+    [
+
+    ("option_1",[],"Continue...",
+        [
+        (quest_set_slot,"qst_black_river", slot_quest_current_state, 5),
+        #will fill in details
+        (change_screen_mission),
+        ]),
+    ],),
+
+  ("black_river_villa_won",0,
+    "Having dealt with the raucous Langobards, the halls of the villa fall silent. Wasting no time, you begin the arduous task of unearthing Amatus' fortune - eventually finding it beneath a yew tree in the garden. "
+    + "Eyeing what must be around 50,000 siliquae in the hoard, you haul the last of it onto your vessel by sunset. As you sail downriver, you take a final glance at the crumbling villa before it disappears from the horizon - forever vanishing into the mist of time.",
+    "none", [],
+    [
+
+    ("option_1",[],"Continue...",
+        [
+        (quest_set_slot,"qst_black_river", slot_quest_current_state, 7),
+        (succeed_quest, "qst_black_river"),
+        (call_script, "script_troop_add_gold", "trp_player", 50000),
+        (call_script, "script_change_troop_renown", "trp_player", 15),        
+        (leave_encounter),
+        (change_screen_return),
+        ]),
+    ],),
+
+  ("black_river_lost",0, #shared for losing during any of the acts
+    "Your skill is no match for the overwhelming force of the enemy, and you are stricken down in melee. Thinking you dead, they move on to slaughter your shipmates and plunder the vessel before setting it ablaze. You are tossed with the corpses into the Danuvius but cling to debris as you drift downriver, waking up on a sandbar some distance away...",
+    "none", [],
+    [
+    ("option_1",[],"Continue...",
+        [
+        (call_script, "script_change_troop_renown", "trp_player", -10),
+        (call_script, "script_fail_quest", "qst_black_river"),  
+        (leave_encounter),
+        (change_screen_return),
+        ]),
+    ],),
 
 #abandoned silver mine
   ("abandoned_silver_mine",0,

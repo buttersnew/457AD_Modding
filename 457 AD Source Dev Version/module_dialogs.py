@@ -41916,9 +41916,6 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   (eq, "$talk_context", tc_tavern_talk),
   (neq, "$g_talk_troop", "trp_jerusalem_patriarch"),
   (neq, "$g_talk_troop", "trp_roman_landowner"),
-  (neq, "$g_talk_troop", "trp_roman_local_1"),
-  (neq, "$g_talk_troop", "trp_roman_local_2"),
-  (neq, "$g_talk_troop", "trp_roman_local_3"),
   (neq, "$g_talk_troop", "trp_ildico"),
   (neq, "$g_talk_troop", "trp_bigilas"),
   (neq, "$g_talk_troop", "trp_attilas_bastard_son_duel"),
@@ -47511,7 +47508,6 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   (enable_party, "p_holy_lance_cave"),
   ]],
 
-
   #agrippinus quest
   [anyone,"town_dweller_ask_rumor", [
   (this_or_next|eq, "$current_town", "p_village_23"),
@@ -48894,58 +48890,6 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   [trp_maximinus|plyr, "maximinus_talk_normal", [],
    "I didn't mean to bother you. Farewell.", "close_window", []],
 
-  [trp_roman_local_1, "start", [(check_quest_active,"qst_holy_lance"),(quest_slot_eq,"qst_holy_lance",slot_quest_current_state, 1),],
-   "Hello there. What do you need?", "roman_local_1_talk", []],
-  [trp_roman_local_1|plyr, "roman_local_1_talk", [],
-   "I'm interested in information in regards the stolen lance of Longinus. Do you know any information about it?", "roman_local_1_talk2", []],
-  [trp_roman_local_1, "roman_local_1_talk2", [],
-   "Ah yes. I heard that it was lost years ago, and recently it has surfaced once again in the hands of some bandits who claim to have it.", "roman_local_1_talk3", []],
-  [trp_roman_local_1, "roman_local_1_talk3", [],
-   "However, those are mostly just rumors. It would be a good idea to search the area around Alexandria and Jerusalem, the bandits have been spotted in those areas. Maybe they have a hideout hidden somewhere?", "roman_local_1_talk4", []],
-  [trp_roman_local_1|plyr, "roman_local_1_talk4", [],
-   "Thank you for the information.", "close_window", [
-   (remove_troop_from_site,"trp_roman_local_1","scn_town_21_tavern"),
-   (remove_troop_from_site,"trp_roman_local_2","scn_town_22_tavern"),
-   (remove_troop_from_site,"trp_roman_local_3","scn_town_38_tavern"), #remove the other locals to avoid weird loop issue?
-   (setup_quest_text, "qst_holy_lance"),
-   (str_store_string, s2, "@The bandits have a hideout hidden somewhere near Jerusalem and Alexandria."),
-   (enable_party, "p_holy_lance_cave"),]],
-
-  [trp_roman_local_1, "start", [(troop_is_hero, "$g_talk_troop")],
-   "Yes?", "close_window", []],
-
-  [trp_roman_local_2, "start", [(check_quest_active,"qst_holy_lance"),(quest_slot_eq,"qst_holy_lance",slot_quest_current_state, 1),],
-   "Hello there. What do you need?", "roman_local_2_talk", []],
-  [trp_roman_local_2|plyr, "roman_local_2_talk", [],
-   "I'm interested in information in regards the stolen lance of Longinus. Do you know any information about it?", "roman_local_2_talk2", []],
-  [trp_roman_local_2, "roman_local_2_talk2", [],
-   "Ah yes. I heard that it was lost years ago, during the Monophysite rebellion. However, then there has been no more news about the lance since then. However, it is rumoured that a group of former rebels turned bandits have possesion of the lance.", "roman_local_2_talk3", []],
-  [trp_roman_local_2, "roman_local_2_talk3", [],
-   "I know that I have heard of raids from Monophysite rebels around Alexandria and Jerusalem, you ought to check around there. ", "roman_local_2_talk4", []],
-  [trp_roman_local_2|plyr, "roman_local_2_talk4", [],
-   "Thank you for the information.", "close_window", [(remove_troop_from_site,"trp_roman_local_2","scn_town_22_tavern"),
-   (setup_quest_text, "qst_holy_lance"),
-   (enable_party, "p_holy_lance_cave"),
-   (str_store_string, s2, "@The bandits have been raiding the area around Alexandria and Jerusalem, this would be a good place to look for more information."),]],
-
-  [trp_roman_local_2, "start", [(troop_is_hero, "$g_talk_troop")],
-   "Yes?", "close_window", []],
-
-  [trp_roman_local_3, "start", [(check_quest_active,"qst_holy_lance"),(quest_slot_eq,"qst_holy_lance",slot_quest_current_state, 1),],
-   "Hello there. What do you need?", "roman_local_3_talk", []],
-  [trp_roman_local_3|plyr, "roman_local_3_talk", [],
-   "I'm interested in information in regards the stolen lance of Longinus. Do you know any information about it?", "roman_local_3_talk2", []],
-  [trp_roman_local_3, "roman_local_3_talk2", [],
-   "Ah yes. I heard that it was lost years ago, during the Monophysite rebellion. However, there has not been much news here. You would best go down south towards Alexandria to learn more.", "roman_local_3_talk3", []],
-  [trp_roman_local_3|plyr, "roman_local_3_talk3", [],
-   "Thank you for the information.", "close_window", [(remove_troop_from_site,"trp_roman_local_3","scn_town_38_tavern"),
-   (enable_party, "p_holy_lance_cave"),
-   (setup_quest_text, "qst_holy_lance"),
-   (str_store_string, s2, "@A good place to learn more about the disappearance of the lance would be Alexandria and Jerusalem. It would be best to head there and learn more."),]],
-
-  [trp_roman_local_3, "start", [(troop_is_hero, "$g_talk_troop")],
-   "Yes?", "close_window", []],
-
   [trp_wayland, "start", [],
    "Greetings. I am Wayland, well known and legendary smith. What may I get you?", "wayland_1", []],
   [trp_wayland|plyr, "wayland_1", [(eq, "$unique_sword_crafted", 0)],
@@ -49752,62 +49696,6 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
 
   [trp_pilos_cultist|plyr, "pilos_cultist_talk_1", [],
    "I do not need a man of faith right now, farewell.", "close_window", []],
-
-  [trp_jerusalem_patriarch, "start", [(eq, "$g_lance_message_recieved", 1),],
-   "Greetings. I am Juvenal, Patriarch of Jerusalem. I've heard much about you, {playername} and how you've gained a reputation of being a good and honorable person. Due to this reputation, I believe you may be the one to fulfill a task for me.", "holy_lance_talk", []],
-  [trp_jerusalem_patriarch|plyr, "holy_lance_talk", [],
-   "What do you need, father?", "holy_lance_talk2", []],
-  [trp_jerusalem_patriarch, "holy_lance_talk2", [],
-   "In 451, after I had returned the Fourth Ecumenical Council in Chalcedon, I was deposed from my throne by a Monophysite rebellion and a monk named Theodosius was placed as patriarch after I did not reject the rulings of the council. This rebellion caused much havoc and bloodshed, and in the end I was restored to power with help from Imperial troops from Marcian. During this short rebellion, an important relic was lost. I wish for you to hunt it down and return it to the church.", "holy_lance_talk3", []],
-  [trp_jerusalem_patriarch|plyr, "holy_lance_talk3", [],
-   "What is this relic that you wish me to find?", "holy_lance_talk4", []],
-  [trp_jerusalem_patriarch, "holy_lance_talk4", [],
-   "It is the lance of Longinus, the lance that was used to pierce the side of Christ while he was hanging on the cross. It was taken during the chaos, and recently there has been roumors that a local band of former rebels turned bandits are in possession of it.", "holy_lance_talk5", []],
-  [trp_jerusalem_patriarch|plyr, "holy_lance_talk5", [],
-   "I suppose I can help you find it. Where should I start?", "holy_lance_talk6", []],
-  [trp_jerusalem_patriarch, "holy_lance_talk6", [],
-   "The best places to start would be checking in the taverns in Jerusalem, Antiochea, or in Alexandria. There ought to be someone there that would know something about the whereabouts of the bandits.", "holy_lance_talk7", []],
-  [trp_jerusalem_patriarch|plyr, "holy_lance_talk7", [],
-   "Very well, I'll start checking the taverns of the various cities near by.", "close_window", [(setup_quest_text, "qst_holy_lance"),
-   (str_store_string, s2, "@The Patriarch of Jerusalem, Juvenal wishes for you to hunt down information in regards to the whereabouts of the stolen lance of Longinus."),
-   (call_script, "script_start_quest", "qst_holy_lance", "$g_talk_troop"),
-   (quest_set_slot,"qst_holy_lance", slot_quest_current_state, 1),
-   (add_troop_to_site, "trp_roman_local_1", "scn_town_21_tavern", 12), #most information located here, main center of coptic/oriental orthodox church (alexandria)
-   (add_troop_to_site, "trp_roman_local_2", "scn_town_22_tavern", 12), #basic information about the bandits (jerusalem)
-   (add_troop_to_site, "trp_roman_local_3", "scn_town_38_tavern", 12), #some informtaion (antioch)
-   (assign, "$g_lance_message_recieved", 2),
-  ]],
-
-  [trp_jerusalem_patriarch, "start", [
-  (check_quest_active,"qst_holy_lance"),
-  (quest_slot_eq,"qst_holy_lance",slot_quest_current_state, 2),
-  ], #after the player finds the lance
-   "Did you find the lance yet?", "jerusalem_patriarch_lance", []],
-  [trp_jerusalem_patriarch|plyr, "jerusalem_patriarch_lance", [(player_has_item,"itm_lance_of_longiunus")],
-   "Yes, here it is.", "jerusalem_patriarch_lance2", []],
-  [trp_jerusalem_patriarch|plyr, "jerusalem_patriarch_lance", [],
-   "No, I do not have it yet.", "close_window", []],
-  [trp_jerusalem_patriarch, "jerusalem_patriarch_lance2", [],
-   "Wonderful! {playername} I know you are a good and honest person, and I ask of this, would you like to keep the lance?.", "jerusalem_patriarch_lance3", []],
-
-  [trp_jerusalem_patriarch|plyr, "jerusalem_patriarch_lance3", [], #option 1, keep lance, less gold + honor, same renown, same xp
-   "Yes, thank you father.", "jerusalem_patriarch_lance4_1", [(troop_add_gold, "trp_player", 4000),
-   (call_script, "script_change_player_honor", 8),
-   (call_script, "script_change_troop_renown", "trp_player", 55),
-   (add_xp_as_reward, 5000),]],
-
-  [trp_jerusalem_patriarch|plyr, "jerusalem_patriarch_lance3", [], #option 2, give lance to church, increase gold + honor, same xp + renown
-   "No, the church deserves it more than I do.", "jerusalem_patriarch_lance4_2", [(troop_remove_item,"trp_player","itm_lance_of_longiunus"),
-   (troop_add_gold, "trp_player", 5500),
-   (call_script, "script_change_player_honor", 15),
-   (call_script, "script_change_troop_renown", "trp_player", 55),
-   (add_xp_as_reward, 5000),]],
-
-  [trp_jerusalem_patriarch, "jerusalem_patriarch_lance4_1", [], #option 1 reaction
-   "May God grant you victory, {playername}. Farewell and may God be with you.", "close_window", [(call_script, "script_end_quest", "qst_holy_lance"),(disable_party, "p_holy_lance_cave"),]],
-
-  [trp_jerusalem_patriarch, "jerusalem_patriarch_lance4_2", [], #option 1 reaction
-   "Thank you, {playername}. The entire church thanks and welcomes you for what you have done for us. Farewell and may God be with you.", "close_window", [(call_script, "script_end_quest", "qst_holy_lance"),(call_script, "script_change_player_honor", 5),(disable_party, "p_holy_lance_cave"),]],
 
   [anyone, "start", [(is_between,"$g_talk_troop","trp_jerusalem_patriarch", "trp_chalcedonian_bishops_end"),],
    "Good day, {sir/madam}. What do you need?", "chalcedonian_bishop_talk", []], #opening
@@ -51325,6 +51213,199 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
 
   [trp_corrupt_priest|plyr, "heretical_codex_priest_1", [],
    "Nevermind.", "close_window", []],
+
+#Holy lance quest
+  [trp_holy_lance_keeper, "start", [(eq, "$g_talk_troop_met", 0),],
+   "What's this, someone approaches me? What do you need?", "holy_lance_keeper_intro_1", []],
+  [trp_holy_lance_keeper|plyr, "holy_lance_keeper_intro_1", [],
+   "Who are you and what are you doing in this cave, old man?", "holy_lance_keeper_intro_2", []],
+  [trp_holy_lance_keeper, "holy_lance_keeper_intro_2", [],
+   "I am just a simple hermit, now, what do you need?", "holy_lance_keeper_intro_3", []],
+  [trp_holy_lance_keeper|plyr, "holy_lance_keeper_intro_3", [],
+   "I have heard of a legend that the lance of longinus is hidden somewhere near by, do you know anything about how true this tale is?", "holy_lance_keeper_intro_4", []],
+  [trp_holy_lance_keeper, "holy_lance_keeper_intro_4", [],
+   "Ah yes, the lance. That is the reason I live out here in these caves; I am the last keeper of the holy lance. I am a descendent of a family of holy men and women who protect holy relics from destruction.", "holy_lance_keeper_intro_5", []],
+  [trp_holy_lance_keeper, "holy_lance_keeper_intro_5", [],
+   "During the time of the persecutions against us, my ancestors would help transport and protect relics from being destroyed by the Roman authorities. Over time, we have returned many of these relics back to the church, however with the current religious turmoil in the region I have yet to return the lance, fearing it may fall into the hands of heretics or bandits.", "holy_lance_keeper_intro_6", []],
+  [trp_holy_lance_keeper, "holy_lance_keeper_intro_6", [],
+   "The lance not only is a relic for veneration, but also a dangerous weapon, and in the wrong hands can be used for harm.", "holy_lance_keeper_intro_7", []],
+  [trp_holy_lance_keeper|plyr, "holy_lance_keeper_intro_7", [],
+   "Would you give me the lance?", "holy_lance_keeper_intro_8", []],
+  [trp_holy_lance_keeper, "holy_lance_keeper_intro_8", [],
+   "Only if I determine that you are a worthy and good soul, stranger.", "holy_lance_keeper_intro_9", []],
+  [trp_holy_lance_keeper|plyr, "holy_lance_keeper_intro_9", [],
+   "Then, may I ask, am I worthy of the lance?", "holy_lance_keeper_lance_1", []],
+
+  [trp_holy_lance_keeper, "holy_lance_keeper_lance_1", [ #good honor, must be christian of some sort
+  (this_or_next|troop_slot_eq, "trp_player", slot_troop_religion, slot_religion_chalcedonian),
+  (this_or_next|troop_slot_eq, "trp_player", slot_troop_religion, slot_religion_arianism),
+  (troop_slot_eq, "trp_player", slot_troop_religion, slot_religion_coptic),
+  (ge, "$player_honor", 20),],
+   "You are worthy of the lance, use it wisely. If you feel obliged, return it to the church so that it may be venerated by all.", "close_window", [
+   (troop_add_item, "trp_player","itm_lance_of_longiunus",0),
+   (assign, "$g_holy_lance_quest", 2),
+   (add_xp_as_reward,500),   
+   (disable_party, "p_holy_lance_cave"),
+   ]],
+  [trp_holy_lance_keeper, "holy_lance_keeper_lance_1", [
+  (this_or_next|troop_slot_eq, "trp_player", slot_troop_religion, slot_religion_chalcedonian),
+  (this_or_next|troop_slot_eq, "trp_player", slot_troop_religion, slot_religion_arianism),
+  (troop_slot_eq, "trp_player", slot_troop_religion, slot_religion_coptic),
+  (le, "$player_honor", 20),], #rejected as a christian
+   "You are not worthy of the lance at this time, dear stranger.", "close_window", []],
+  [trp_holy_lance_keeper, "holy_lance_keeper_lance_1", [
+  (neg|troop_slot_eq, "trp_player", slot_troop_religion, slot_religion_chalcedonian),
+  (neg|troop_slot_eq, "trp_player", slot_troop_religion, slot_religion_arianism),
+  (neg|troop_slot_eq, "trp_player", slot_troop_religion, slot_religion_coptic),
+  ], #rejected as a non-christian
+   "You do not worship the true God, you are far from deserving of the lance, no matter who you may be...", "close_window", []],
+
+  [trp_holy_lance_keeper, "start", [],
+   "Yes, what is it? What do you need?", "holy_lance_keeper_1", []],
+  [trp_holy_lance_keeper|plyr, "holy_lance_keeper_1", [],
+   "Am I worthy of the lance?", "holy_lance_keeper_lance_1", []],
+  [trp_holy_lance_keeper|plyr, "holy_lance_keeper_1", [],
+   "Nevermind...", "close_window", []],
+
+#Black River Quest
+  [trp_br_amatus, "start", [(eq, "$g_talk_troop_met", 0),], #ACT 1: THE DRUNKEN SENATOR
+   "What's this, a fresh face in the vetus taberna? Come, iuvenis – sit down and have a drink with old Amatus. I can see no pastime more befitting this wretched age than to soothe oneself with sweet wine.", "amatus_intro_1", []],
+  [trp_br_amatus|plyr, "amatus_intro_1", [],
+   "I will share in your wine but not in your woe, for troubled times grant even ordinary men a chance to ascend their station in life. Are most heroes of song not those who achieve greatness amidst turmoil?", "amatus_intro_2", []],
+  [trp_br_amatus, "amatus_intro_2", [],
+   "Heroism is relegated to ballad for a reason, scheming generals and rapacious hordes contend for what meager scraps of greatness remain. I apologize for my cynicism – I am not accustomed to life in a tavern, nor to seeking solace in a bottle. No senator is, yet the weakness of our country wreaks misery and poverty on every echelon of the Roman people. I myself have been parted from my beautiful villa in Pannonia Valeria, along with the wealth buried on its grounds to elude Germani raiders. Alas, I can do nothing but indulge my love of drink to numb the pain.", "amatus_intro_3", []],
+  [trp_br_amatus|plyr, "amatus_intro_3", [],
+   "Why not hire someone to retrieve your hoard? The taverns of Roma are rife with imprudent adventurers.", "amatus_intro_4", []],
+  [trp_br_amatus, "amatus_intro_4", [],
+   "Aye, but I am destitute and none of them work absent siliquae upfront. Only the intelligent and far-sighted – long a scarcity in this city, appreciate the worth of a friend in the senate.", "amatus_intro_5", []],
+
+  [trp_br_amatus|plyr, "amatus_intro_5", [], #accepts the request
+   "Then they are fools. My ambition is greater than silver, tell me the whereabouts of your villa and you will be reunited with your fortune.", "amatus_intro_6", []],
+  [trp_br_amatus|plyr, "amatus_intro_5", [], #declines the request
+   "I do not blame them. The friendship of a drunken fool is poor recompense for the hazard of crossing barbarian country. Farewell.", "close_window", []],
+
+  [trp_br_amatus|plyr, "amatus_intro_6", [], 
+   "Very well. An old friend of mine resides in Sirmium, a mariner named Gerontius. He will ferry you to my villa by way of the river Danuvius but be warned, the voyage is perilous. Even before she was overrun, Pannonia was but an untenable frontier. The deeper you go, the dimmer the light of God shines", "close_window", [
+    (call_script, "script_start_quest", "qst_black_river", "$g_talk_troop"),
+    (quest_set_slot,"qst_black_river", slot_quest_current_state, 1),
+    (setup_quest_text, "qst_black_river"),
+    (str_store_party_name_link, s3, "p_town_10"),
+    (str_store_string, s2, "@An old Roman senator, by the name of Amatus, has hired you to find his hoard of treasures in his abandoned villa in Pannonia Valeria. In order to gain passage to it, you must speak to a mariner by the name of Gerontius in {s3}."),   
+   ]],
+
+  [trp_br_amatus, "start", [],
+   "Yes?", "amatus_1", []],
+  [trp_br_amatus|plyr, "amatus_1", [],
+   "I apologize for my prior insolence, sublimis senator. Allow me to initiate our friendship by reuniting you with your fortune.", "amatus_intro_6", []],
+
+  [trp_br_amatus|plyr, "amatus_1", [(check_quest_active,"qst_black_river"),(quest_slot_eq, "qst_black_river", slot_quest_current_state, 7),],
+   "I have returned with your fortune, senator.", "amatus_finish_1", []],
+  [trp_br_amatus, "amatus_finish_1", [],
+   "By God, I had given up all hope of living to see this day. You cannot begin to comprehend how much you have helped me – it is as though I have been brought back to life. Perhaps all is not yet lost so long as valiant youth and sagacious elders continue to uphold the dream of Rome. You may claim your share of the spoils, and I promise to champion your name in the senate so long as I draw breath. Thank you.", "close_window", [
+   (call_script, "script_change_troop_renown", "trp_player", 30),
+   (troop_remove_gold, "trp_player", 45000),
+   (add_xp_as_reward, 1200),
+   (call_script, "script_end_quest", "qst_black_river"),
+   ]],
+
+  [trp_br_amatus|plyr, "amatus_1", [],
+   "Nevermind.", "close_window", []],
+
+  [trp_br_gerontius, "start", [(eq, "$g_talk_troop_met", 0),(check_quest_active,"qst_black_river"),(quest_slot_eq, "qst_black_river", slot_quest_current_state, 1),], #ACT 2: BY THE DOCKS
+   "You speak to the triarchus of the lusoria Savus. For what purpose do you come to port, landsman?", "gerontius_intro_1", []],
+  [trp_br_gerontius|plyr, "gerontius_intro_1", [],
+   "Ave, sailor. I am {playername}, a friend of Amatus. He tires of languishing in a dim tavern amongst boorish drunks and sordid mercenaries, estranged from the dignity of a senator. His sole hope for redemption lay in Pannonia, where I must sail to recover his forsaken wealth.", "gerontius_intro_2", []],
+  [trp_br_gerontius, "gerontius_intro_2", [],
+   "Ha! So, the old man is still with us?", "gerontius_intro_3", []],
+  [trp_br_gerontius|plyr, "gerontius_intro_3", [],
+   "For now, but drink and despair pull him ever deeper into a grave.", "gerontius_intro_4", []],
+  [trp_br_gerontius, "gerontius_intro_4", [],
+   "I see. You should know that Pannonia is a land bereft of a master, where you may only rely on the protection of your sword.", "gerontius_intro_5", []],
+  [trp_br_gerontius|plyr, "gerontius_intro_5", [],
+   "Is Pannonia not a Gothic domain?", "gerontius_intro_6", []],
+  [trp_br_gerontius, "gerontius_intro_6", [],
+   "Do not confound the half-Romanized Goth of Sirmium with his kinsman beyond the river, a lawless beast governed by no one. Valamir will insist otherwise, but his kingship does not surpass the shore of the Dravus.", "gerontius_intro_7", []],
+  [trp_br_gerontius|plyr, "gerontius_intro_7", [],
+   "Why is that?", "gerontius_intro_8", []],
+  [trp_br_gerontius, "gerontius_intro_8", [],
+   "Starvation and enslavement drove the Gothic denizens of Thracia to revolt during the reign of Emperor Valens. Proving too fierce to subdue, Roman arrogance gave way to bribery – ushering the renegades into Pannonia and Illyricum in exchange for amity. Today, the Goth of Sirmium is content to forget Roman cruelty toward his forefathers so long as his splendor is upheld by tribute.", "gerontius_intro_9", []],
+  [trp_br_gerontius, "gerontius_intro_9", [],
+   "The wild Goth differs – he still lives by warfare and clings to his native ways, making travel in his country dangerous. Few sail upriver anymore, but for Amatus’ sake I will ferry you – if you appreciate what lies ahead.", "gerontius_intro_10", []],
+  [trp_br_gerontius|plyr, "gerontius_intro_10", [],
+   "I fear not an old shipman’s tale. We must set sail at once!", "close_window", [
+   (quest_set_slot,"qst_black_river", slot_quest_current_state, 2),
+   (finish_mission),
+   (jump_to_menu, "mnu_wolfmen_duel"),
+   ]],
+  [trp_br_gerontius|plyr, "gerontius_intro_10", [],
+   "On second thought, I may need a moment to reconsider.", "close_window", []],
+
+  [trp_br_gerontius, "start", [], 
+   "You speak to the triarchus of the lusoria Savus. What do you need, landsman?", "gerontius_1", []],
+  [trp_br_gerontius|plyr, "gerontius_1", [(check_quest_active,"qst_black_river"),(quest_slot_eq, "qst_black_river", slot_quest_current_state, 1),],
+   "I fear not an old shipman’s tale. We must set sail at once!", "close_window", [
+   (quest_set_slot,"qst_black_river", slot_quest_current_state, 2),
+   (finish_mission),
+   (jump_to_menu, "mnu_black_river_pirates"),
+   ]],
+  [trp_br_gerontius|plyr, "gerontius_1", [],
+   "Nevermind.", "close_window", []],
+
+  [trp_br_angelus, "start", [(eq, "$g_talk_troop_met", 0),(check_quest_active,"qst_black_river"),(quest_slot_eq, "qst_black_river", slot_quest_current_state, 3),], #ACT 4: LOST LIMITANEI
+   "Salvete, traveler. Welcome to Castellum Florentiam, the edge of the Latin world.", "angelus_intro_1", []],
+  [anyone|plyr, "angelus_intro_1", [],
+   "Limitanei? How do you receive supplies or even orders out here?", "angelus_intro_2", []],
+  [anyone, "angelus_intro_2", [],
+   "We receive nothing, for Rome left Pannonia and her milites long ago. Most limitanei abandoned their post and fled abruptly, but my father and his comrades remained here. They passed down their regimental insignia to us – their children, as will we to ours. We protect the local cives in exchange for their tribute, although frequent attacks do thin our ranks.", "angelus_intro_3", []],
+  [anyone|plyr, "angelus_intro_3", [],
+   "Attacks? By whom?", "angelus_intro_4", []],
+  [anyone, "angelus_intro_4", [],
+   "The Sarmati, warlike vagabonds brought here to serve as a bulwark against the Germani. Instead, they quickly joined them in crossing the Danuvius to plunder Pannonia – overrunning the limes completely when Emperor Valentinian III forsook the province. Most villae were ruined, their denizens either falling victim to marauding Sarmati or seeking shelter in fortified settlements such as this one.", "angelus_intro_5", []],
+  [anyone|other(trp_pedes), "angelus_intro_5", [],
+   "Sarmati! To arms!",
+   "close_window", [
+   (quest_set_slot,"qst_black_river", slot_quest_current_state, 4),
+   (finish_mission),
+   (jump_to_menu, "mnu_noricum_limitanei_raiders"),   
+   ]],
+
+  [trp_br_hathus, "start", [(check_quest_active,"qst_black_river"),(quest_slot_eq, "qst_black_river", slot_quest_current_state, 5),], #ACT 5: GHOSTS
+   "Well, what have we here – a treasure hunter? Normally trespassers beget punishment of the utmost severity, but I am feeling merciful. What say you? Will you die for your crime, or will you merely be enslaved in recompense?", "hathus_intro_1", []],
+  [anyone|plyr, "hathus_intro_1", [],
+   "The trespasser is you, a vagrant Goth squatting in the residence of a Roman senator!", "hathus_intro_2", []],
+  [anyone, "hathus_intro_2", [],
+   "Ha! We are Langobards, the Goth is to us what the Roman was to him – a decadent coward primed to forfeit the riches of his forefathers. Our ancient enmity began even before we crossed the eastern sea, and it will conclude only when all children of the wolf are thralls to children of the hound – leaving no one to stand between us and the riches of Italy.", "hathus_intro_3", []],
+  [anyone|plyr, "hathus_intro_3", [],
+   "I care not which breed of bandit befouls the property of my patron. You do not belong here.", "hathus_intro_4", []],
+  [anyone, "hathus_intro_4", [],
+   "Oh? Of all the so-called 'Germani', none covet their honor like we do. None have shed such a volume of blood or endured such wretched poverty for the sake of their freedom. Not even the Hunni could shackle us under their yoke, and you expect me to yield to a trifling mercenary? You may still decide your fate – if your patron really is a senator, then he should have no trouble paying your ransom.", "hathus_intro_5", []],
+
+  [anyone|plyr, "hathus_intro_5", [],
+   "No mercenary would be intimidated by your gang of robbers, nor would your boasting fool them into taking you for anything more than a petty rogue. Your hubris will cost you dearly.", "hathus_attack_1", []],
+  [anyone, "hathus_attack_1", [],
+   "Death it is.", "close_window", [
+  (quest_set_slot,"qst_black_river", slot_quest_current_state, 6),
+   ]],
+
+  [anyone|plyr, "hathus_intro_5", [],
+   "Nor should it trouble him to hire a centuria of skilled veterans, who await the return of their scout not far from here. Spare them the labor of wetting their swords and you may live to steal another day.", "hathus_persuasion_1", []],
+  [anyone, "hathus_persuasion_1", [
+  (store_skill_level, reg1, "skl_persuasion", "trp_player"),
+  (store_random_in_range, reg0, -2, 11),
+  (try_begin),
+     (ge, "$cheat_mode", 1),
+    (display_message, "@{!}Persuasion attempt: skill {reg1} versus random roll {reg0} (-2 through 10)"),
+  (try_end),
+  (le, reg0, reg1),
+  ],
+   "Your lord may keep his wretched pile of stone and moss. We will dwell here no more but pray that you do not encounter us on the road.", "close_window", [
+   (finish_mission),
+   (jump_to_menu, "mnu_black_river_villa_won"), #skips past slot 6, which triggers the attack
+   ]], #success
+  [anyone|auto_proceed, "hathus_persuasion_1", [],
+   "Will Jupiter himself strike me down too? You have piqued my curiosity, are you as poor a fighter as you are a liar?", "close_window", [
+   (quest_set_slot,"qst_black_river", slot_quest_current_state, 6),
+   ]], #failure
 
 #MINOR FACTIONS
 

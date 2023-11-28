@@ -21031,265 +21031,6 @@ mission_templates = [
     ],
   ),
 
-
-
-#roman baths mision chief
-     (
-    "holy_lance_mission",mtf_battle_mode,-1,
-    "dungeon",
-    [(0,mtef_scene_source|mtef_team_0,af_override_horse,0,1,[]), #player
-
-   (1,mtef_visitor_source|mtef_team_2,af_override_horse,0,1,[]),
-   (2,mtef_visitor_source|mtef_team_2,af_override_horse,0,1,[]),
-   (3,mtef_visitor_source|mtef_team_2,af_override_horse,0,1,[]),
-   (4,mtef_visitor_source|mtef_team_2,af_override_horse,0,1,[]),
-   (5,mtef_visitor_source|mtef_team_2,af_override_horse,0,1,[]),
-   (6,mtef_visitor_source|mtef_team_2,af_override_horse,0,1,[]),#slave hunter
-   (7,mtef_visitor_source|mtef_team_2,af_override_horse,0,1,[]),
-   (8,mtef_visitor_source|mtef_team_2,af_override_horse,0,1,[]),
-   (9,mtef_visitor_source|mtef_team_2,af_override_horse,0,1,[]),
-   (10,mtef_visitor_source|mtef_team_2,af_override_horse,0,1,[]),
-   (11,mtef_visitor_source|mtef_team_2,af_override_horse,0,1,[]),
-   (12,mtef_visitor_source|mtef_team_2,af_override_horse,0,1,[]),
-   (13,mtef_visitor_source|mtef_team_2,af_override_horse,0,1,[]),
-   (14,mtef_visitor_source|mtef_team_2,af_override_horse,0,1,[]),#slave crusher
-   (15,mtef_visitor_source|mtef_team_2,af_override_horse,0,1,[]),
-   (16,mtef_visitor_source|mtef_team_2,af_override_horse,0,1,[]),
-   (17,mtef_visitor_source|mtef_team_2,af_override_horse,0,1,[]),#slaver chief
-   (18,mtef_visitor_source|mtef_team_2,af_override_horse,0,1,[]),
-   (19,mtef_visitor_source|mtef_team_2,af_override_horse,0,1,[]),
-   (20,mtef_visitor_source|mtef_team_2,af_override_horse,0,1,[]),
-   (21,mtef_visitor_source|mtef_team_2,af_override_horse,0,1,[]),
-   (22,mtef_visitor_source|mtef_team_2,af_override_horse,0,1,[]),
-   (23,mtef_visitor_source|mtef_team_2,af_override_horse,0,1,[]),
-   (24,mtef_visitor_source|mtef_team_2,af_override_horse,0,1,[]),#slave crusher
-#   (25,mtef_visitor_source|mtef_team_1,af_override_horse,0,1,[]),#PRISONERS BEGIN
-#   (26,mtef_visitor_source|mtef_team_1,af_override_horse,0,1,[]),
-#   (27,mtef_visitor_source|mtef_team_1,af_override_horse,0,1,[]),
-#   (28,mtef_visitor_source|mtef_team_1,af_override_horse,0,1,[]),
-#   (29,mtef_visitor_source|mtef_team_1,af_override_horse,0,1,[]),
-#   (30,mtef_visitor_source|mtef_team_1,af_override_horse,0,1,[]),#PRISONERS END
-     ], vc_weather +
-    [
-    
-##      (ti_on_agent_spawn, 0, 0, [],
-##       [ (store_trigger_param_1, ":agent_no"),
-##     (agent_get_troop_id,":troop_id",":agent_no"),
-##     (try_begin),
-##      (is_between,":troop_id",dungeon_prisoners_begin,dungeon_prisoners_end),
-##      (agent_set_slot,":agent_no",slot_agent_tournament_point,0),#using slot to store if agent has been talked to or not in dialogs.py
-##     (try_end),
-##         ]),
-     
-      (ti_before_mission_start, 0, 0, [],
-       [
-     (assign,"$g_battle_result",0),
-     (team_set_relation, 0, 2, -1), # -1 for enemy, 1 for friend, 0 for neutral
-     (team_set_relation,1,2,0),
-     (team_set_relation,0,1,0),    
-         ]),
-
-  (0, 0, ti_once,
-          [
-          (assign, "$defender_team_2", 2),
-          ], []
-  ),
-
-  (0, 0, ti_once,
-          [
-          (set_show_messages, 0),
-          (team_give_order, "$defender_team_2", grc_infantry, mordr_stand_ground),
-          (team_give_order, "$defender_team_2", grc_archers, mordr_stand_ground),
-          (team_give_order, "$defender_team_2", grc_cavalry, mordr_stand_ground),
-          (set_show_messages, 1),
-          ], []
-  ),
-
-                        (0.1, 0, ti_once, [
-            (store_skill_level,":player_sneaking_skill","skl_athletics","trp_player"),
-
-                       
-                       (try_begin),
-                       (eq,":player_sneaking_skill",10),
-                (assign,":sneak_distance",500),
-            (else_try),
-                (eq,":player_sneaking_skill",9),
-                (assign,":sneak_distance",600),
-            (else_try),
-                (eq,":player_sneaking_skill",8),
-                (assign,":sneak_distance",700),
-            (else_try),
-                (eq,":player_sneaking_skill",7),
-                (assign,":sneak_distance",800),
-            (else_try),
-                (eq,":player_sneaking_skill",6),
-                (assign,":sneak_distance",900),
-            (else_try),
-                (eq,":player_sneaking_skill",5),
-                (assign,":sneak_distance",1000),
-            (else_try),
-                (eq,":player_sneaking_skill",4),
-                (assign,":sneak_distance",1100),
-            (else_try),
-                (eq,":player_sneaking_skill",3),
-                (assign,":sneak_distance",1200),
-            (else_try),
-                (eq,":player_sneaking_skill",2),
-                (assign,":sneak_distance",1300),
-            (else_try),
-                (eq,":player_sneaking_skill",1),
-                (assign,":sneak_distance",1400),
-            (else_try),
-                (assign,":sneak_distance",1500),
-           (try_end),
-        (get_player_agent_no,":player_agent"),
-  (agent_get_position,pos1,":player_agent"),
-  (assign,":continue",0),
-  (try_for_agents, ":cur_agent"),
-    (agent_get_troop_id, ":cur_agent_troop", ":cur_agent"),
-    (this_or_next|eq, ":cur_agent_troop", "trp_monophysite_leader"),
-    (this_or_next|eq, ":cur_agent_troop", "trp_coptic_watchman"),
-    (this_or_next|eq, ":cur_agent_troop", "trp_coptic_footman"),
-    (eq, ":cur_agent_troop", "trp_monophysite_rebel"),
-    (agent_get_position,pos2,":cur_agent"),
-    (get_distance_between_positions,":distance",pos1,pos2),
-    (lt,":distance",":sneak_distance"),
-    (assign,":continue",1),
-  (try_end),
-  (eq,":continue",1),
-            ],
-           [(set_party_battle_mode),
-            (try_for_agents, ":cur_agent"),
-              (agent_get_troop_id, ":cur_agent_troop", ":cur_agent"),
-              (eq, ":cur_agent_troop", "trp_coptic_footman"),
-              (agent_set_team, ":cur_agent", 2),
-            (try_end),
-             ]),
-
-#TEMPERED      SETUP KEY AGENTS
-
-    (0,0,ti_once,[],
-    [ (mission_enable_talk),
-      (assign, "$talk_context", tc_hero_freed),
-      (try_for_agents,":cur_agent"),
-        (agent_get_troop_id,":cur_troop_id",":cur_agent"),
-        (try_begin),
-          (eq,":cur_troop_id","trp_coptic_footman"),
-          (assign,"$slaver_1",":cur_agent"),
-        (else_try),
-          (eq,":cur_troop_id","trp_monophysite_leader"),
-          (assign,"$slaver_2",":cur_agent"),
-        (try_end),
-      (try_end),
-    ]),
-    
-#TEMPERED     CHECK FOR DEFEAT AGAINST GUARDS
-    (5, 3, ti_once,
-     [
-     (main_hero_fallen,0),
-     (assign,"$g_spy_rescue_active",-2),
-     (assign,"$g_battle_result",-1),
-     (assign,"$g_encountered_party",-1),
-    (call_script, "script_change_troop_renown", "trp_player", -5),
-    (display_message, "@ Bandits strike you with anger and you fall into a puddle of blood. They think you're dead...",color_good_news),
-            (store_troop_gold, ":gold", "trp_player"),
-     (try_begin),
-    (ge, ":gold", 100),
-    (troop_remove_gold, "trp_player", 100),
-    (else_try),
-    (call_script, "script_change_troop_renown", "trp_player", -5),
-    (try_end),     
-     ],
-     [ 
-      (finish_mission), 
-       ]),
-     
-#TEMPERED     SCRIPT PRISONERS TO FOLLOW PLAYER 
-    (1,1,1,[],
-    [(get_player_agent_no,":player_agent"),
-     (agent_get_position,pos1,":player_agent"),
-     (try_for_agents,":cur_agent"),
-     (agent_get_team  ,":team_no",":cur_agent"),
-     (agent_get_wielded_item,":has_weapon",":cur_agent",0),#Tempered get right hand weapon (-1 for none)
-      (try_begin),
-        (neq,":cur_agent",":player_agent"),
-        (eq,":team_no",0),
-        (eq,":has_weapon",-1),
-          (agent_set_scripted_destination,":cur_agent",pos1,1),
-      (try_end),
-     (try_end),
-     ]),
-#TEMPERED RELEASE PRISONERS FROM SCRIPTED MODE
-
-   (2,0,0,[],
-    [(get_player_agent_no,":player_agent"),
-     (try_for_agents,":cur_agent"),
-     (agent_get_team  ,":team_no",":cur_agent"),
-     (agent_get_wielded_item,":has_weapon",":cur_agent",0),
-      (try_begin),
-        (neq,":cur_agent",":player_agent"),
-        (eq,":team_no",0),
-        (neq,":has_weapon",-1),
-          (agent_clear_scripted_mode,":cur_agent"),
-      (try_end),
-     (try_end),
-     ]),
-     
-#TEMPERED     CHECK FOR VICTORY OVER GUARDS
-    ( 1, 1, ti_once,
-     [
-     (num_active_teams_le, 2),
-     (neg|main_hero_fallen),     
-      ],
-        [
-     (assign, "$g_battle_result", 1),
-     (assign,"$g_encountered_party",-1),
- #    (display_message,"@ The bandits and slavers have been dealt with. The ruins are clear of life once again.",color_good_news),
-    ]), 
-#TEMPERED     CHECK FOR TAB PRESS    
-##      (ti_tab_pressed, 0, 0, [], 
-##     [  
-##      (display_message,"@There is no turning back now!!"),
-##    ]),
-      (ti_inventory_key_pressed, 0, 0, [(set_trigger_result,1)], []),
-      (ti_tab_pressed, 0, 0, [(set_trigger_result,1)], []),
-    
-     
-#TEMPERED     check for key 1
-      (2, 0, ti_once, [ (neg|agent_is_alive,"$slaver_1"),
-                        (eq,"$g_holyLanceCave1",0),
-                        ], 
-     [
-      (display_message,"@__You just killed the bandit leader's bodyguard. On his corpse you find some loot:",color_good_news),
-    (call_script, "script_change_player_honor", 3),
-    (call_script, "script_troop_add_gold", "trp_player", 300),
-    (assign,"$g_holyLanceCave1",1),
-       ]),     
-     
-#TEMPERED     check for key 3
-      (2, 0, ti_once, [ (neg|agent_is_alive,"$slaver_2"),], 
-     [
-      (display_message,"@__You have killed the bandit's leader. You look through his stuff and find what you are looking for -- the Lance of Longinus",color_good_news),
-    (call_script, "script_change_player_honor", 5),
-    (call_script, "script_change_troop_renown", "trp_player", 30),
-    (call_script, "script_troop_add_gold", "trp_player", 500),
-    (setup_quest_text, "qst_holy_lance"),
-    (str_store_string, s2, "@You have the lance of longinus. You should bring this back to Juvenal for your reward."),
-    (troop_add_item, "trp_player","itm_lance_of_longiunus", 0), #unique sword recieved
-    (quest_set_slot,"qst_holy_lance", slot_quest_current_state, 2),
-    (remove_troop_from_site,"trp_roman_local_1","scn_town_21_tavern"), #just to make sure they're gone
-    (remove_troop_from_site,"trp_roman_local_2","scn_town_22_tavern"),
-    (remove_troop_from_site,"trp_roman_local_3","scn_town_38_tavern"),
-    (mission_disable_talk),
-       (assign,"$g_holyLanceCave2",1),                        
-       ]),
-
-(0, 0, 0,[(key_clicked, key_k),
-            (tutorial_message, "@ "),
-], []),
-    ],
-  ),
-
   ("attila_sword_location_visit",0,-1,
     "Grove visit",
     [(0,mtef_scene_source|mtef_team_0,af_override_horse,0,1,[]),
@@ -26137,6 +25878,34 @@ mission_templates = [
       common_battle_order_panel,
       common_battle_order_panel_tick,
     ] + dplmc_battle_mode_triggers + dplmc_horse_cull + utility_triggers + battle_panel_triggers + extended_battle_menu + jacobhinds_morale_triggers + enhanced_common_battle_triggers + battle_notifications + ai_horn,  #SB : horse cull
+),
+
+("explore_secret_place", 0, -1,
+    "Test.",
+    [
+    (0,mtef_scene_source,0,0,1,[]),
+    (1,mtef_visitor_source,af_override_horse,0,1,[]),
+    (2,mtef_visitor_source,af_override_horse,0,1,[]),
+    (3,mtef_visitor_source,af_override_horse,0,1,[]),
+    ], vc_weather +
+    [
+
+        (0, 0, ti_once, [],
+        [
+            (mission_cam_set_screen_color, 0xFF000000),
+            (mission_cam_animate_to_screen_color, 0x00000000, 2000),
+        ]),
+
+        common_inventory_not_available,
+
+        (ti_tab_pressed, 0, 0,
+          [],
+        [
+            (mission_cam_animate_to_screen_color, 0xFF000000, 2500),
+            (finish_mission, 3),
+        ]),
+
+    ]
 ),
 
 ]#end of file

@@ -1637,8 +1637,8 @@ scenes = [
     [],[], "outer_terrain_plain"), #chief sot acaba
   ("hidden_fort",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000b0000500000380e0000027b5000023b900001596",
    [],[], "outer_terrain_plain"),
-  ("holy_lance_cave",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000500005000002e4bd00007bd8000051d300003037",
-   [],[], "outer_terrain_desert"),
+  ("holy_lance_cave",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000500007630005a56b00006e200000319300002f0b",
+   [],["bonus_chest_11"], "outer_terrain_desert"),
   ("court_of_attila",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000300005000005ad6b000063be00001b7300005721",
     [],["bonus_chest_6"], "outer_terrain_plain"),
   ("attila_sword_location",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000300005000002acab0000094d0000144a00003cc5",
@@ -1688,7 +1688,10 @@ scenes = [
     [],["bonus_chest_7"],"outer_terrain_forest"),
   ("abandoned_silver_mine",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000b00005000005e5790000371500000e3500000f71",
     [],["silver_mine_chest_1","silver_mine_chest_2"], "outer_terrain_mountain"),  
-
+  ("wolfmen_lair",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000bc60cbb68005ad6800000a2400005f5c00007f21",
+    [],[],"outer_terrain_forest"),  
+  ("wolfmen_ambush",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000bc66cbe30005d9760000438d00007aec00002978",
+    [],[],"outer_terrain_forest"),  
 
   ("christian_monastery",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000023007a3b20005795e0000706d0000381800000bbc",
     [],[],"outer_terrain_plain"),  
@@ -1744,11 +1747,5 @@ scenes = [
   [], [], "outer_terrain_steppe"),
   ("final_battle", sf_generate, "none", "none", (0, 0), (240, 240), -0.5, "0x00000000300005000003ccf300007c9a00004ca90000122f",
   [], [], "outer_terrain_steppe"),
-
-  ("wolfmen_lair",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000bc60cbb68005ad6800000a2400005f5c00007f21",
-    [],[],"outer_terrain_forest"),  
-  ("wolfmen_ambush",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000bc66cbe30005d9760000438d00007aec00002978",
-    [],[],"outer_terrain_forest"),  
-
 
 ]

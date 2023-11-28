@@ -4465,6 +4465,7 @@ troops = [
   ["bonus_chest_8","{!}Bonus Chest","{!}Bonus Chest",tf_hero|tf_inactive, 0,reserved,  fac_neutral,[itm_aetius_shield,itm_coptic_tunic_10],def_attrib|level(18),wp(60),knows_common, 0], #hidden in ravenna
   ["bonus_chest_9","{!}Bonus Chest","{!}Bonus Chest",tf_hero|tf_inactive, 0,reserved,  fac_neutral,[itm_holy_grail],def_attrib|level(18),wp(60),knows_common, 0], #hidden in catacombs in rome
   ["bonus_chest_10","{!}Bonus Chest","{!}Bonus Chest",tf_hero|tf_inactive, 0,reserved,  fac_neutral,[itm_gold_jewelry,itm_gold_jewelry,itm_gold_jewelry,itm_gold_jewelry,itm_ivory,itm_ivory,itm_ivory,itm_ivory,itm_silver,itm_silver,itm_silver,itm_silver],def_attrib|level(18),wp(60),knows_common, 0], #hidden in nero's ruins
+  ["bonus_chest_11","{!}Bonus Chest","{!}Bonus Chest",tf_hero|tf_inactive, 0,reserved,  fac_neutral,[],def_attrib|level(18),wp(60),knows_common, 0], #hidden in holy lance caves
 
   ["silver_mine_chest_1","{!}Bonus Chest","{!}Bonus Chest",tf_hero|tf_inactive, 0,reserved,  fac_neutral,[itm_pottery,itm_pottery,itm_tools,itm_silver],def_attrib|level(18),wp(60),knows_common, 0], 
   ["silver_mine_chest_2","{!}Bonus Chest","{!}Bonus Chest",tf_hero|tf_inactive, 0,reserved,  fac_neutral,[itm_silver,itm_silver,itm_silver,itm_silver],def_attrib|level(18),wp(60),knows_common, 0], 
@@ -4837,26 +4838,6 @@ troops = [
 
   ["sidonius_apollinaris","Sidonius Apollinaris","Sidonius Apollinaris",tf_hero, 0, reserved, fac_kingdom_1,[itm_ankle_boots,itm_coptic_tunic_12],def_attrib|level(3),wp(80),knows_wound_treatment_3,0x000000000000208236db6db6db6db6db00000000001db6e40000000000000000], #also was NOTARII in 458
 
-  ["roman_local_1","Local","Locals",tf_hero|tf_guarantee_boots|tf_guarantee_armor, no_scene, reserved, fac_kingdom_2,
-   [itm_ankle_boots,itm_coptic_tunic_2],
-   def_attrib|level(6),wp(80),knows_wound_treatment_3,roman_face_1, roman_face_2],
-
-  ["roman_local_2","Local","Locals",tf_hero|tf_guarantee_boots|tf_guarantee_armor, no_scene, reserved, fac_kingdom_2,
-   [itm_ankle_boots,itm_coptic_tunic_3],
-   def_attrib|level(6),wp(80),knows_wound_treatment_3,roman_face_1, roman_face_2],
-
-  ["roman_local_3","Local","Locals",tf_hero|tf_guarantee_boots|tf_guarantee_armor, no_scene, reserved, fac_kingdom_2,
-   [itm_ankle_boots,itm_coptic_tunic_5],
-   def_attrib|level(6),wp(80),knows_wound_treatment_3,roman_face_1, roman_face_2],
-
-  ["monophysite_rebel","Monophysite Rebel","Monophysite Rebels",tf_guarantee_boots|tf_guarantee_armor,0,0,fac_outlaws,
-   [itm_mace_1,itm_winged_mace,itm_roman_spear_2,itm_hunting_bow,itm_arrows,itm_simple_shield_1,itm_simple_shield_2,itm_desert_turban,itm_turban,itm_wrapping_boots]+hoods_roman_2+tunics_roman_peasant+tunics_roman_civilian,
-   def_attrib_lvl_18|level(17),wp_one_handed(180)|wp_two_handed(150)|wp_polearm(195)|wp_throwing(180)|wp_archery(150),knows_common|knows_shield_2|knows_power_strike_2|knows_ironflesh_5,coptic_face_1, coptic_face_2],  
-
-  ["monophysite_leader","Monophysite Leader","Monophysite Leaders",tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_shield,0,0,fac_outlaws,
-   [itm_roman_spear_3,itm_ankle_boots,itm_battered_mail_1,itm_augst_helmet_1,itm_leather_gloves,itm_sword_medieval_a,itm_concave_shield_roman_1],
-   def_attrib_lvl_23|level(22),wp_one_handed(230)|wp_two_handed(150)|wp_polearm(225)|wp_throwing(180)|wp_archery(150),knows_common|knows_shield_4|knows_power_strike_4|knows_ironflesh_7,coptic_face_1, coptic_face_2],  
-
   ["suebi_king", "Rex Hunimund", "Hunimund", tf_hero, no_scene, 0, fac_hunimund_suebi,[itm_east_germ_warhorse_1, itm_wrapping_boots, itm_tab_shield_small_round_c, itm_rich_mail_4_cloak, itm_koblenz_helmet_3, itm_sword_viking_3_small],knight_attrib_5,wp(300),knight_skills_5|knows_trainer_1|knows_trainer_3,0x0000000905004084549c652a9b4dbadb00000000001d36ea0000000000000000],
 
   ["heruli_king", "Rex Visilaus", "Visilaus", tf_hero, 0, reserved, fac_heruli,[itm_east_germ_warhorse_2, itm_wrapping_boots, itm_tab_shield_small_round_c, itm_common_mail_short_7, itm_concesti_helmet, itm_sword_viking_2],knight_attrib_5,wp(300),knight_skills_5|knows_trainer_1|knows_trainer_3,0x000000068504324534db6db6eb6db6db00000000001db6db0000000000000000],
@@ -5033,6 +5014,8 @@ troops = [
   ["ecdicius_avitus","Ecdicius Avitus","Ecdicius Avitus",tf_hero, 0, reserved, fac_commoners,[itm_deurne_campagi_2,itm_coptic_tunic_9,itm_sword_khergit_4],def_attrib_lvl_28,wp(230),knows_lvl_28,0x00000009ff000004549b7246e396451b00000000001db6e20000000000000000],
   #for a certain magical codex quest
   ["corrupt_priest","Shady Priest","Priest",tf_hero, 0, reserved, fac_commoners,[itm_wrapping_boots,itm_robes_church],def_attrib_lvl_18|level(18),wp(180),knows_ironflesh_2|knows_power_strike_2|knows_athletics_2,0x000000096700908f330dae56d26db6db00000000001db6f50000000000000000],
+  #holy lance quest
+  ["holy_lance_keeper","Old Man","Old Man",tf_hero, 0, reserved, fac_commoners,[itm_wrapping_boots,itm_robes_church],def_attrib_lvl_20|level(19),wp(180),knows_ironflesh_2|knows_power_strike_2|knows_athletics_2,0x0000000f3600314f46da91b6636db6db00000000001db6d20000000000000000],
 
 #shitpost troops
   ["shitpost_unit","Langobardi Crossbow Cataphract Looter","Langobardi Crossbow Cataphract Looters",tf_mounted|tf_guarantee_all,0,0,fac_commoners,

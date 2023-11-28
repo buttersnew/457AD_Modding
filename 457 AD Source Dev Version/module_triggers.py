@@ -957,13 +957,6 @@ triggers = [
     (call_script, "script_add_notification_menu", "mnu_event_arran_revolt",0,0),
    ]),
 
-
-(24, 0, ti_once, [  (store_character_level, ":level", "trp_player"),
-  (ge, ":level", 10),
-  (troop_slot_ge, "trp_player", slot_troop_renown, 350),
-  (eq, "$g_player_faith", 1),], #changed so that the player must be chalcedonian to get quest
-[(jump_to_menu, "mnu_holy_lance_messenger"),]),
-
 (24, 0, ti_once, [  
     # (store_character_level, ":level", "trp_player"),
   (troop_slot_ge, "trp_player", slot_troop_renown, 100),

@@ -1313,10 +1313,6 @@ items = [
 ["rich_mail_12", "Rich Mail Shirt", [("rich_mail_12",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
  3380 , weight(18)|abundance(10)|head_armor(0)|body_armor(52)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_roman+culture_germanic+culture_gothic ],
 
-#mail with torc/maniakion - rare, possibly only to be ordered via special merchants - only for lords (and verrry limited troops)
-["rich_mail_3_m", "Rich Mail Shirt with Maniakion", [("rich_mail_3_m1",0),("rich_mail_3_m2",imodbits_good)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0, #roman only - very rare?
- 3650 , weight(18)|abundance(2)|head_armor(0)|body_armor(53)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_roman ],
-
 ["rich_mail_1_cloak", "Rich Mail Shirt with Cloak", [("rich_mail_1_cloak",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
  3490 , weight(19.75)|abundance(10)|head_armor(0)|body_armor(54)|leg_armor(16)|difficulty(11) ,imodbits_mail, [], culture_roman+culture_germanic+culture_gothic ],
 ["rich_mail_2_cloak", "Rich Mail Shirt with Cloak", [("rich_mail_2_cloak",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
@@ -1341,6 +1337,24 @@ items = [
  3490 , weight(19.75)|abundance(10)|head_armor(0)|body_armor(54)|leg_armor(16)|difficulty(11) ,imodbits_mail, [], culture_roman+culture_germanic+culture_gothic ],
 ["rich_mail_12_cloak", "Rich Mail Shirt with Cloak", [("rich_mail_12_cloak",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
  3490 , weight(19.75)|abundance(10)|head_armor(0)|body_armor(54)|leg_armor(16)|difficulty(11) ,imodbits_mail, [], culture_roman+culture_germanic+culture_gothic ],
+
+#mail with torc/maniakion - rare, possibly only to be ordered via special merchants - only for lords (and verrry limited troops)
+["rich_mail_2_m", "Rich Mail Shirt with Maniakion", [("rich_mail_2_m1",0),("rich_mail_2_m2",imodbits_good)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0, #roman only - very rare - for candidati
+ 3650 , weight(18)|abundance(2)|head_armor(0)|body_armor(53)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_roman ],
+["rich_mail_3_m", "Rich Mail Shirt with Maniakion", [("rich_mail_3_m1",0),("rich_mail_3_m2",imodbits_good)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0, #roman only - very rare
+ 3650 , weight(18)|abundance(2)|head_armor(0)|body_armor(53)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_roman ],
+
+#roman only - for domestici troops, green (apparently, according to what Frank Geza/Stilicho told me) appears often in the presence of the Emperor
+["domesticus_mail_short", "Rich Mail Shirt", [("domesticus_mail_short",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3380 , weight(18)|abundance(2)|head_armor(0)|body_armor(52)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_roman],
+["domesticus_mail_short_m", "Rich Mail Shirt with Maniakion", [("domesticus_mail_short_m1",0),("domesticus_mail_short_m2",imodbits_good)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3650 , weight(18)|abundance(2)|head_armor(0)|body_armor(53)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_roman ],
+["domesticus_mail_short_cloak", "Rich Mail Shirt with Cloak", [("domesticus_mail_short_cloak",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3490 , weight(19.75)|abundance(2)|head_armor(0)|body_armor(54)|leg_armor(16)|difficulty(11) ,imodbits_mail, [], culture_roman ],
+["domesticus_mail_long", "Mail Shirt", [("domesticus_mail_long_1_1",0),("domesticus_mail_long_1_2",imodbits_good)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3420 , weight(23)|abundance(4)|head_armor(0)|body_armor(58)|leg_armor(15)|difficulty(13) ,imodbits_mail, [], culture_roman ],
+["scholae_mail_long", "Mail Shirt", [("scholae_mail_long_1_1",0),("scholae_mail_long_1_2",imodbits_good)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
+ 3420 , weight(23)|abundance(4)|head_armor(0)|body_armor(58)|leg_armor(15)|difficulty(13) ,imodbits_mail, [], culture_roman ],
 
 ["pictish_mail_1", "Mail Shirt", [("pictish_mail_1_1",0),("pictish_mail_1_2",imodbits_good)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
  3150 , weight(19)|abundance(22)|head_armor(0)|body_armor(52)|leg_armor(16)|difficulty(11) ,imodbits_mail, [], culture_celtic ],

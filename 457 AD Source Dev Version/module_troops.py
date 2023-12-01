@@ -1045,6 +1045,25 @@ troops = [
 #Skirmisher - Selmandan 
 #Archer - Kamanadar/ Kamanadaran
   
+#GOTHIC/EASTERN GERMANIC TERMS PT2:
+#Freeman - Frijis/Frijai
+#Spearman - Gaizamanna/Gaizamans - can also do Gaizja/Gaizjans
+#Axeman - Aqizja/Aqizjans
+#(short?)swordsman - Mekja/Mekjans
+#(long?)Swordsman - Hairumanna/Hairumans
+#Footman/Infantry/Soldier - Gadrauhts/Gadrauhteis
+#Skirmisher (youth) - Junga/Jungans
+#Bowman - Bugamanna/Bugamans can also do Bugja/Bugjans
+#Scout - Spaikulatur/Spaikulatureis
+#Horseman - Aihvja/Aihvjans (?)
+#Companion - Gasinthja/Gasinthjans
+#Leader/Commander - Hundafaths/Hundafadeis
+#Horseman - Aihwamanna/Aihwamans (?)
+#Horse-Warrior (mounted warrior) - Aihwardrauhts/Aihwadrauhteis
+#Noble - Athalings/Athalingos
+#Shieldman - Skildja/Skildjans
+#"Army" Man (ie soldier) - Harjamanna/Harjamans
+
 #GOTHS
   ["gothic_freeman","Gothic Freeman (Frijis)","Gothic Freemen (Frijai)",tf_guarantee_basic,0,0,fac_culture_1,
    [itm_deurne_campagi_1,itm_deurne_campagi_2,itm_deurne_campagi_3,itm_khergit_leather_boots,itm_wrapping_boots,itm_intercisa_helmet_1,itm_intercisa_helmet_2,itm_narona_helmet_leather,itm_medium_spear_3,itm_medium_spear_4,itm_seax_1,itm_fighting_axe,itm_round_shield_wood_2]+hats_goth+shields_gothic_1+tunics_gothic_1+tunics_gothic_2+cloaks_gothic_1+throwing_spears_1+throwing_spears_2,
@@ -1054,6 +1073,10 @@ troops = [
    [itm_deurne_campagi_1,itm_deurne_campagi_2,itm_deurne_campagi_3,itm_khergit_leather_boots,itm_wrapping_boots,itm_tab_shield_round_d,
    itm_intercisa_helmet_1,itm_intercisa_helmet_2,itm_burgh_helmet_1,itm_burgh_helmet_mail,itm_narona_helmet_mail,itm_fernpass_helmet_1,itm_christies_helmet_1,itm_iatrus_1,itm_war_spear,itm_war_spear_1,itm_long_seax_4,itm_sword_medieval_c]+shields_gothic_2+cloaks_gothic_1+cloaks_gothic_2+mail_gothic_1+angons,
    def_attrib_lvl_23|level(23),wp_one_handed(175)|wp_two_handed(160)|wp_polearm(175)|wp_throwing(165)|wp_archery(100),knows_lvl_23,germanic_face_1, germanic_face_2],
+
+  ["gothic_noble","Gothic Noble (Athalings)","Gothic Nobles (Athalingos)",tf_mounted|tf_guarantee_shield|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_polearm,0,0,fac_culture_1,
+   [itm_deurne_campagi_1,itm_deurne_campagi_2,itm_deurne_campagi_3,itm_khergit_leather_boots,itm_wrapping_boots,itm_christies_helmet_1,itm_burgh_helmet_1,itm_burgh_helmet_2,itm_fernpass_helmet_1,itm_intercisa_helmet_gilded_1,itm_iatrus_1,itm_iatrus_2,itm_concesti_helmet,itm_heteny_helmet_1,itm_jarak_helmet_1,itm_war_spear_1,itm_sword_viking_2,itm_tab_shield_round_e]+shields_gothic_2+mail_gothic_1+angons,
+   def_attrib_lvl_28|level(28),wp_one_handed(200)|wp_two_handed(190)|wp_polearm(210)|wp_throwing(210)|wp_archery(115),knows_lvl_28,germanic_face_1, germanic_face_2],
 
   ["gothic_skirmisher","Gothic Skirmisher (Junga)","Gothic Skirmishers (Jungans)",tf_guarantee_armor|tf_guarantee_boots|tf_guarantee_ranged,0,0,fac_culture_1,
    [itm_deurne_campagi_1,itm_deurne_campagi_2,itm_deurne_campagi_3,itm_khergit_leather_boots,itm_wrapping_boots,itm_new_hood_a,itm_new_hood_e,itm_brown_hood1,itm_seax_8,itm_javelin,itm_javelin,itm_wooden_javelin,itm_wooden_javelin,itm_wooden_spear]+tunics_gothic_1+shields_simple+hats_goth,
@@ -1072,7 +1095,7 @@ troops = [
    def_attrib_lvl_23|level(23),wp_one_handed(170)|wp_two_handed(150)|wp_polearm(180)|wp_throwing(170)|wp_archery(115),knows_lvl_23,germanic_face_1, germanic_face_2],
 
   ["gothic_companion","Gothic Companion (Gasinthja)","Gothic Companions (Gasinthjans)",tf_mounted|tf_guarantee_shield|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_horse|tf_guarantee_polearm,0,0,fac_culture_1,
-   [itm_deurne_campagi_1,itm_deurne_campagi_2,itm_deurne_campagi_3,itm_khergit_leather_boots,itm_wrapping_boots,itm_tab_shield_small_round_c,itm_christies_helmet_1,itm_burgh_helmet_1,itm_burgh_helmet_2,itm_fernpass_helmet_1,itm_intercisa_helmet_gilded_1,itm_iatrus_1,itm_iatrus_2,itm_concesti_helmet,itm_heteny_helmet_1,itm_jarak_helmet_1,itm_heavy_lance,itm_sword_viking_2]+horses_eastern_germanic_3+shields_gothic_cavalry_2+mail_gothic_1+mail_gothic_2+angons,
+   [itm_deurne_campagi_1,itm_deurne_campagi_2,itm_deurne_campagi_3,itm_khergit_leather_boots,itm_wrapping_boots,itm_tab_shield_small_round_c,itm_christies_helmet_1,itm_burgh_helmet_1,itm_burgh_helmet_2,itm_fernpass_helmet_1,itm_intercisa_helmet_gilded_1,itm_iatrus_1,itm_iatrus_2,itm_concesti_helmet,itm_heteny_helmet_1,itm_jarak_helmet_1,itm_heavy_lance,itm_sword_viking_2]+horses_eastern_germanic_3+shields_gothic_cavalry_2+mail_gothic_1+mail_gothic_2,
    def_attrib_lvl_28|level(28),wp_one_handed(210)|wp_two_handed(190)|wp_polearm(210)|wp_throwing(205)|wp_archery(115),knows_lvl_28,germanic_face_1, germanic_face_2],
 
    #hundafaths / hundafadeis - will be a gothic "centurion" in visigothic + ostrogothic parties, to show "modernization"/romanization in their armies
@@ -1095,7 +1118,7 @@ troops = [
 
 #AOR GOTHIC
 #gepids
-  ["iuthungi_scout","Iuthungi Scout","Iuthungi Scouts",tf_mounted|tf_guarantee_armor|tf_guarantee_boots|tf_guarantee_horse|tf_guarantee_ranged,0,0,fac_culture_1,
+  ["iuthungi_scout","Iuthungi Scout (Spaikulatur)","Iuthungi Scouts (Spaikulatureis)",tf_mounted|tf_guarantee_armor|tf_guarantee_boots|tf_guarantee_horse|tf_guarantee_ranged,0,0,fac_culture_1,
    [itm_cavalry_javelins,itm_cavalry_javelins,itm_late_roman_spear_1,itm_fighting_axe,itm_deurne_campagi_2,itm_deurne_campagi_3,itm_tunic_4,itm_tunic_2,itm_tunic_1,itm_tunic_16,itm_pannonian_cap_fur_1,itm_pannonian_cap_fur_2,itm_new_hood_a,itm_new_hood_e,itm_brown_hood1]+horses_eastern_germanic_1+shoes_generic+shields_small,
    def_attrib_lvl_18|level(18),wp_one_handed(130)|wp_two_handed(100)|wp_polearm(140)|wp_throwing(150)|wp_archery(130),knows_lvl_18|knows_horse_archery_5,germanic_face_1, germanic_face_2],
   ["sadages_horse_archer","Sadages Horse Archer","Sadages Horse Archers",tf_mounted|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_horse|tf_guarantee_ranged,0,0,fac_culture_1,
@@ -1121,7 +1144,7 @@ troops = [
    [itm_warhorse,itm_heavy_lance,itm_aquincum_spatha_1,itm_kaftan_alan_3,itm_kaftan_alan_4,itm_kaftan_alan_2,itm_old_spangenhelm_2,itm_tarasovsky_1784_helmet_mail_2,itm_breda_helmet_plume_1,itm_sassanid_cavalry_boots_1,itm_sassanid_cavalry_boots_2]+horses_eastern_germanic_3,
    def_attrib_lvl_21|level(21),wp_one_handed(150)|wp_two_handed(100)|wp_polearm(165)|wp_throwing(160)|wp_archery(130),knows_lvl_21,sarmatian_face_1, sarmatian_face_2],
 
-  ["ostrogoth_guard","Amali Guard (Saiones)","Amali Guards (Saiones)",tf_mounted|tf_guarantee_shield|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_horse|tf_guarantee_polearm,0,0,fac_culture_1,
+  ["ostrogoth_guard","Amali Guard (Sagja)","Amali Guards (Sagjans)",tf_mounted|tf_guarantee_shield|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_horse|tf_guarantee_polearm,0,0,fac_culture_1,
    [itm_khergit_leather_boots,itm_hunter_boots,itm_deurne_campagi_1,itm_deurne_campagi_2,(itm_common_mail_long_2,imod_reinforced),itm_common_mail_long_2_cloak,itm_rich_mail_1,itm_rich_mail_9,itm_scale_armor,itm_cuir_bouilli,itm_fernpass_helmet_1,itm_concesti_helmet,itm_heteny_helmet_1,itm_iatrus_2,itm_christies_helmet_1,itm_christies_helmet_crest_2,itm_heavy_lance,itm_pannonhalma_spatha,itm_tab_shield_small_round_c,itm_tab_shield_round_e]+horses_eastern_germanic_3+horses_cataphract_common,
    def_attrib_lvl_30|level(30),wp_one_handed(225)|wp_two_handed(210)|wp_polearm(230)|wp_throwing(200)|wp_archery(100),knows_lvl_30,germanic_face_1, germanic_face_2],
 
@@ -1148,6 +1171,10 @@ troops = [
    [itm_tab_shield_round_d,itm_leather_armor_d,itm_augst_helmet_1,itm_intercisa_helmet_1,itm_intercisa_helmet_2,itm_koblenz_helmet_light_old,itm_fernpass_helmet_1,itm_burgh_helmet_mail,itm_burgh_helmet_light,itm_sword_medieval_c,itm_long_seax_2,itm_polehammer,itm_throwing_spear_3]+shoes_generic+shields_eastern_germanic_2+cloaks_eastern_germanic_1+cloaks_eastern_germanic_2+mail_eastern_germanic_1,
    def_attrib_lvl_23|level(23),wp_one_handed(175)|wp_two_handed(150)|wp_polearm(175)|wp_throwing(170)|wp_archery(100),knows_lvl_23,germanic_face_1, germanic_face_2],
 
+  ["eastern_germanic_noble","E. Germanic Noble (Athalings)","E. Germanic Nobles (Athalingos)",tf_mounted|tf_guarantee_shield|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_horse|tf_guarantee_polearm,0,0,fac_culture_2,
+   [itm_khergit_leather_boots,itm_deurne_campagi_2,itm_deurne_campagi_3,itm_iatrus_1,itm_iatrus_2,itm_intercisa_helmet_gilded_1,itm_intercisa_helmet_gilded_2,itm_koblenz_helmet_1,itm_koblenz_helmet_2,itm_burgh_helmet_1,itm_burgh_helmet_2,itm_augsburg_2_helmet_mail,itm_fernpass_helmet_1,itm_concesti_helmet,itm_christies_helmet_1,itm_sword_viking_3,itm_throwing_spear_3,itm_tab_shield_round_e]+shields_eastern_germanic_2+mail_eastern_germanic_1,
+   def_attrib_lvl_28|level(28),wp_one_handed(200)|wp_two_handed(200)|wp_polearm(200)|wp_throwing(200)|wp_archery(100),knows_lvl_28,germanic_face_1, germanic_face_2],
+
   ["eastern_germanic_skirmisher","E. Germanic Skirmisher (Junga)","E. Germanic Skirmishers (Jungans)",tf_guarantee_armor|tf_guarantee_boots|tf_guarantee_ranged,0,0,fac_culture_2,
    [itm_javelin,itm_javelin,itm_wooden_javelin,itm_wooden_javelin,itm_wooden_spear,itm_pannonian_cap_fur_1,itm_pannonian_cap_fur_2,itm_woolen_cap,itm_woolen_cap_b,itm_woolen_cap_3,itm_woolen_cap_6,itm_germanic_cap_1,itm_germanic_cap_2,itm_brown_hood1,itm_new_hood_b,itm_new_hood_d,itm_hatchet]+tunics_eastern_germanic_1+shields_simple+shoes_generic,
    def_attrib_lvl_13|level(13),wp_one_handed(105)|wp_two_handed(100)|wp_polearm(105)|wp_archery(100)|wp_throwing(120),knows_skirmisher,germanic_face_1, germanic_face_2],
@@ -1164,7 +1191,7 @@ troops = [
    [itm_tab_shield_small_round_c,itm_tab_shield_small_round_b,itm_leather_armor_d,itm_fernpass_helmet_1,itm_burgh_helmet_mail,itm_burgh_helmet_light,itm_intercisa_helmet_1,itm_intercisa_helmet_2,(itm_intercisa_helmet_1,imod_battered),itm_sword_viking_3,itm_battle_axe_2,itm_war_spear]+shields_eastern_germanic_cavalry_1+horses_eastern_germanic_1+shoes_generic+cloaks_eastern_germanic_1+cloaks_eastern_germanic_2,
    def_attrib_lvl_23|level(23),wp_one_handed(175)|wp_two_handed(150)|wp_polearm(180)|wp_throwing(175)|wp_archery(100),knows_lvl_23,germanic_face_1, germanic_face_2],
 
-  ["eastern_germanic_companion","E. Germanic Companion (Athalings)","E. Germanic Companions (Athalingos)",tf_mounted|tf_guarantee_shield|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_horse|tf_guarantee_polearm,0,0,fac_culture_2,
+  ["eastern_germanic_companion","E. Germanic Companion (Gasinthja)","E. Germanic Companions (Gasinthjans)",tf_mounted|tf_guarantee_shield|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_horse|tf_guarantee_polearm,0,0,fac_culture_2,
    [itm_khergit_leather_boots,itm_deurne_campagi_2,itm_deurne_campagi_3,itm_tab_shield_small_round_c,itm_iatrus_1,itm_iatrus_2,itm_intercisa_helmet_gilded_1,itm_intercisa_helmet_gilded_2,itm_koblenz_helmet_1,itm_koblenz_helmet_2,itm_burgh_helmet_1,itm_burgh_helmet_2,itm_augsburg_2_helmet,itm_augsburg_2_helmet_mail,itm_fernpass_helmet_1,itm_concesti_helmet,itm_christies_helmet_1,itm_heavy_lance,itm_sword_viking_3,itm_battle_axe]+horses_eastern_germanic_2+shields_eastern_germanic_cavalry_2+mail_eastern_germanic_1+mail_eastern_germanic_2,
    def_attrib_lvl_28|level(28),wp_one_handed(205)|wp_two_handed(200)|wp_polearm(210)|wp_throwing(200)|wp_archery(100),knows_lvl_28,germanic_face_1, germanic_face_2],
 
@@ -1303,7 +1330,7 @@ troops = [
   ["northern_germanic_companion","N. Germanic Companion (Herthganauti)","N. Germanic Companions (Herthganauto)",tf_guarantee_basic|tf_guarantee_helmet,0,0,fac_culture_4,
    [itm_tab_shield_round_d,itm_obenaltendorf_shoes_1,itm_obenaltendorf_shoes_2,itm_triveres_mail,itm_burgh_helmet_1,itm_burgh_helmet_2,itm_tarasovsky_782,
    itm_war_spear,itm_poleaxe,itm_sword_viking_c_long,itm_arabian_sword_a,itm_battle_axe_5,itm_battle_axe,itm_seax_10]+shoes_generic+angons+shields_northern_germanic_2+mail_northern_germanic_1+mail_northern_germanic_2,
-   def_attrib_lvl_28|level(28),wp_one_handed(215)|wp_two_handed(205)|wp_polearm(205)|wp_archery(100)|wp_throwing(210),knows_lvl_28,germanic_face_1, germanic_face_2],
+   def_attrib_lvl_28|level(28),wp_one_handed(225)|wp_two_handed(215)|wp_polearm(205)|wp_archery(100)|wp_throwing(215),knows_lvl_28,germanic_face_1, germanic_face_2],
 
   ["northern_germanic_skirmisher","N. Germanic Skirmisher (Juguthi)","N. Germanic Skirmishers (Juguthi)",tf_guarantee_ranged|tf_guarantee_boots|tf_guarantee_armor,0,0,fac_culture_4,
    [itm_javelin,itm_javelin,itm_wooden_javelin,itm_wooden_javelin,itm_obenaltendorf_shoes_1,itm_obenaltendorf_shoes_2,itm_seax_2,itm_club]+tunics_northern_germanic_1+shields_simple+hats_northern,
@@ -1550,6 +1577,18 @@ troops = [
    itm_war_spear,itm_boar_spear,itm_sword_medieval_a,itm_long_seax_3,itm_battle_axe_4]+shoes_generic+shields_western_germanic_2+cloaks_western_germanic_1+cloaks_western_germanic_2+mail_western_germanic_1+angons,
    def_attrib_lvl_23|level(23),wp_one_handed(185)|wp_two_handed(170)|wp_polearm(185)|wp_throwing(175)|wp_archery(100),knows_lvl_23,germanic_face_1, germanic_face_2],
 
+  ["western_germanic_companion","W. Germanic Companion (Gasintho)","W. Germanic Companions (Gasinthos)",tf_mounted|tf_guarantee_shield|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_polearm,0,0,fac_culture_7, #replaced by strong infantry/compaions
+   [itm_deurne_campagi_2,itm_deurne_campagi_3,itm_deurne_campagi_6,itm_obenaltendorf_shoes_2,
+   itm_koblenz_helmet_1,itm_koblenz_helmet_2,itm_burgh_helmet_1,itm_burgh_helmet_2,itm_fernpass_helmet_1,itm_augsburg_2_helmet,itm_augsburg_1_helmet,itm_augsburg_2_helmet_mail,itm_tarasovsky_782,itm_intercisa_helmet_gilded_1,itm_iatrus_1,itm_iatrus_2,
+   itm_war_spear,itm_poleaxe,itm_sword_viking_3_small]+shields_western_germanic_2+mail_western_germanic_1+mail_western_germanic_2+angons,
+   def_attrib_lvl_28|level(28),wp_one_handed(210)|wp_two_handed(200)|wp_polearm(210)|wp_archery(100)|wp_throwing(205),knows_lvl_28,germanic_face_1, germanic_face_2],
+
+  ["western_germanic_horseman","W. Germanic Horseman (Hrossmanna)","W. Germanic Horsemen (Hrossmanni)",tf_mounted|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_horse|tf_guarantee_polearm|tf_guarantee_shield,0,0,fac_culture_7,
+   [itm_tab_shield_small_round_c,itm_tab_shield_small_round_b,itm_deurne_campagi_2,itm_deurne_campagi_3,itm_deurne_campagi_6,itm_obenaltendorf_shoes_2,
+   itm_koblenz_helmet_1,itm_burgh_helmet_1,itm_fernpass_helmet_1,itm_augsburg_2_helmet_mail,itm_tarasovsky_782,itm_intercisa_helmet_gilded_1,itm_iatrus_1,
+   itm_war_spear,itm_poleaxe,itm_sword_viking_3_small]+horses_germanic_3+horses_germanic_4+shields_western_germanic_cavalry_1+mail_western_germanic_1+mail_western_germanic_2+angons,
+   def_attrib_lvl_25|level(25),wp_one_handed(180)|wp_two_handed(160)|wp_polearm(180)|wp_archery(100)|wp_throwing(100),knows_lvl_25,roman_face_1, roman_face_2],
+
   ["western_germanic_skirmisher","W. Germanic Skirmisher (Jugunthi)","W. Germanic Skirmishers (Jugunthi)",tf_guarantee_armor|tf_guarantee_boots|tf_guarantee_ranged,0,0,fac_culture_7,
    [itm_javelin,itm_javelin,itm_deurne_campagi_2,itm_deurne_campagi_3,itm_deurne_campagi_6,itm_obenaltendorf_shoes_2,itm_pannonian_cap_fur_1,itm_pannonian_cap_fur_2,itm_brown_hood1,itm_new_hood_b,itm_new_hood_c,itm_new_hood_d,itm_leather_cap,itm_club,itm_winged_mace]+tunics_western_germanic_1+shields_simple+hats_german+shoes_generic,
    def_attrib_skirmisher|level(13),wp_one_handed(110)|wp_two_handed(100)|wp_polearm(100)|wp_archery(100)|wp_throwing(110),knows_skirmisher,germanic_face_1, germanic_face_2],
@@ -1557,12 +1596,6 @@ troops = [
   ["western_germanic_bowman","W. Germanic Bowman (Bogomanna)","W. Germanic Bowmen (Bogomanni)",tf_guarantee_armor|tf_guarantee_boots|tf_guarantee_ranged,0,0,fac_culture_7,
    [itm_short_bow,itm_hunting_bow,itm_long_bow,itm_germanic_arrows,itm_germanic_arrows,itm_pannonian_cap_fur_1,itm_pannonian_cap_fur_2,itm_deurne_campagi_2,itm_deurne_campagi_3,itm_deurne_campagi_6,itm_obenaltendorf_shoes_2,itm_brown_hood1,itm_new_hood_b,itm_new_hood_c,itm_new_hood_d,itm_leather_cap,itm_battle_axe_1]+tunics_western_germanic_1+hats_german+shoes_generic,
    def_attrib_lvl_18|level(18),wp_one_handed(130)|wp_two_handed(115)|wp_polearm(120)|wp_archery(125)|wp_throwing(110),knows_archer,germanic_face_1, germanic_face_2],
-
-  ["western_germanic_companion","W. Germanic Companion (Gasintho)","W. Germanic Companions (Gasinthos)",tf_mounted|tf_guarantee_shield|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_horse|tf_guarantee_polearm,0,0,fac_culture_7,
-   [itm_tab_shield_small_round_c,itm_tab_shield_small_round_b,itm_deurne_campagi_2,itm_deurne_campagi_3,itm_deurne_campagi_6,itm_obenaltendorf_shoes_2,
-   itm_koblenz_helmet_1,itm_koblenz_helmet_2,itm_burgh_helmet_1,itm_burgh_helmet_2,itm_fernpass_helmet_1,itm_augsburg_2_helmet,itm_augsburg_1_helmet,itm_augsburg_2_helmet_mail,itm_tarasovsky_782,itm_intercisa_helmet_gilded_1,itm_iatrus_1,itm_iatrus_2,
-   itm_war_spear,itm_poleaxe,itm_sword_viking_3_small]+horses_germanic_3+horses_germanic_4+shields_western_germanic_cavalry_1+mail_western_germanic_1+mail_western_germanic_2+angons,
-   def_attrib_lvl_28|level(28),wp_one_handed(240)|wp_two_handed(220)|wp_polearm(240)|wp_throwing(200)|wp_archery(100),knows_lvl_28,germanic_face_1, germanic_face_2],
 
   ["western_germanic_messenger","W. Germanic Messenger","W. Germanic Messengers",tf_mounted|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_gloves|tf_guarantee_horse|tf_guarantee_ranged,0,0,fac_culture_7,
    [itm_tab_shield_round_c,itm_sword_medieval_a,itm_spear,itm_wrapping_boots,itm_intercisa_helmet_1]+tunics_western_germanic_1+horses_germanic_1,
@@ -1607,20 +1640,14 @@ troops = [
 
 #frankish
   ["chamavi_footman","Chamavi Follower (Thegn)","Chamavi Followers (Thegno)",tf_guarantee_basic,0,0,fac_culture_7,
-   [itm_pannonian_cap_fur_1,itm_pannonian_cap_fur_2,itm_deurne_campagi_2,itm_deurne_campagi_3,itm_tunic_9_cloak,itm_tunic_7_cloak,itm_tunic_9,itm_tunic_7,itm_leather_cap,itm_triveres_leather,itm_seax_1,itm_medium_spear_4,itm_battle_axe_3,itm_battle_axe_4,itm_concave_shield_germanic_13,itm_concave_shield_germanic_14,itm_heavy_throwing_axes,itm_heavy_throwing_axes]+shoes_generic+angons,
-   def_attrib_lvl_18|level(18),wp_one_handed(160)|wp_two_handed(130)|wp_polearm(135)|wp_throwing(140)|wp_archery(100),knows_lvl_18,germanic_face_1, germanic_face_2],
+   [itm_deurne_campagi_2,itm_deurne_campagi_3,itm_tunic_rich_6_cloak,itm_common_mail_short_3,itm_battered_mail_3,itm_pannonian_cap_fur_1,itm_pannonian_cap_fur_2,itm_triveres_mail,itm_augst_helmet_2,itm_medium_spear_4,itm_sword_medieval_d_long,itm_concave_shield_germanic_13,itm_concave_shield_germanic_14,itm_heavy_throwing_axes,itm_heavy_throwing_axes]+shoes_generic,
+   def_attrib_lvl_23|level(23),wp_one_handed(185)|wp_two_handed(170)|wp_polearm(170)|wp_throwing(190)|wp_archery(80)|wp_firearm(80),knows_lvl_23,germanic_face_1, germanic_face_2],
   ["bructeri_skirmisher","Bructeri Skirmisher (Jugunthi)","Bructeri Skirmishers (Jugunthi)",tf_guarantee_armor|tf_guarantee_boots|tf_guarantee_ranged,0,0,fac_culture_7,
    [itm_jarid,itm_jarid,itm_tunic_4,itm_tunic_2,itm_tunic_1,itm_pannonian_cap_fur_1,itm_pannonian_cap_fur_2,itm_brown_hood1,itm_leather_cap,itm_battle_axe,itm_seax_1]+shields_small+hats_german+shoes_generic,
    def_attrib_lvl_18|level(16),wp_one_handed(135)|wp_two_handed(90)|wp_polearm(130)|wp_archery(130)|wp_throwing(145),knows_skirmisher|knows_ironflesh_5|knows_power_strike_5,germanic_face_1, germanic_face_2],
   ["chauci_archer","Chauci Bowman (Bogomanna)","Chauci Bowmen (Bogomanni)",tf_guarantee_armor|tf_guarantee_boots|tf_guarantee_ranged,0,0,fac_culture_7,
    [itm_tunic_3,itm_tunic_5,itm_tunic_6,itm_pannonian_cap_fur_1,itm_pannonian_cap_fur_2,itm_woolen_cap_2,itm_woolen_cap_b,itm_brown_hood1,itm_leather_cap,itm_battle_axe_3,itm_seax_1,itm_long_bow,itm_strong_bow,itm_germanic_arrows,itm_germanic_arrows]+hats_german+shoes_generic,
    def_attrib_lvl_18|level(16),wp_one_handed(130)|wp_two_handed(120)|wp_polearm(120)|wp_archery(135)|wp_throwing(120),knows_archer,germanic_face_1, germanic_face_2],
-
-  #Sword, angon, francisca - mix of mail, (limited) scale, tunics, subarmalis, helmets
-  ["frankish_optimas","Optimas Francorum","Optimates Francorum",tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_shield,0,0,fac_culture_empire,
-   [itm_wrapping_boots,itm_simple_shoes,itm_ankle_boots,itm_khergit_leather_boots,itm_deurne_campagi_2,itm_tunic_5_cloak,itm_tunic_6_cloak,itm_tunic_9_cloak,itm_tunic_rich_6_cloak,itm_common_mail_short_1_cloak,itm_common_mail_short_3_cloak,itm_intercisa_helmet_1,itm_intercisa_helmet_2,itm_augst_helmet_1,itm_fernpass_helmet_1,itm_triveres_mail,
-   itm_throwing_axes,itm_throwing_axes,itm_sword_khergit_3,itm_tab_shield_round_d,itm_concave_shield_germanic_13,itm_concave_shield_germanic_14,itm_round_shield_germanic_10,itm_round_shield_germanic_12,itm_round_shield_germanic_14],
-   def_attrib_lvl_23|level(23),wp_one_handed(185)|wp_two_handed(170)|wp_polearm(180)|wp_throwing(185),knows_lvl_23,germanic_face_1, germanic_face_2],
 
   ["antrustion","Antrustio","Antrustiones",tf_mounted|tf_guarantee_shield|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet,0,0,fac_culture_7,
    [itm_khergit_leather_boots,itm_wrapping_boots,itm_deurne_campagi_2,itm_deurne_campagi_5,itm_common_mail_long_5_cloak,itm_rich_mail_8_cloak,itm_rich_mail_10_cloak,itm_457_scale_hauberk_2,itm_intercisa_helmet_gilded_1,itm_intercisa_helmet_rich_3,itm_iatrus_2,itm_fernpass_helmet_1,itm_augsburg_2_helmet,itm_augsburg_1_helmet,itm_christies_helmet_1,itm_tab_shield_round_e,itm_sword_khergit_4,itm_heavy_throwing_axes,itm_heavy_throwing_axes],
@@ -2037,6 +2064,10 @@ troops = [
   ["miles_musculariorum","Miles Musculariorum","Milites Musculariorum",tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_shield|tf_guarantee_helmet|tf_guarantee_polearm,0,0,fac_kingdom_1,
    [itm_deurne_campagi_1,itm_deurne_campagi_4,itm_common_mail_short_1_cloak,itm_common_mail_short_5_cloak,itm_augst_helmet_1,itm_christies_helmet_1,itm_narona_helmet_leather,itm_sword_viking_a_long,itm_war_spear_3,itm_war_darts,itm_oval_shield_blue_2],
    def_attrib_lvl_21|level(21),wp_one_handed(150)|wp_two_handed(150)|wp_polearm(165)|wp_archery(120)|wp_throwing(150),knows_lvl_21,roman_face_1, roman_face_2],
+  #Quintais (raetia)
+  ["eques_ala_primae_flaviae_raetorum","Eques Ala Primae Flaviae Raetorum","Equites Alae Primae Flaviae Raetorum",tf_mounted|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_horse|tf_guarantee_polearm,0,0,fac_culture_empire,
+   [itm_heavy_lance,itm_aquincum_spatha_1,itm_narona_helmet_mail,itm_koblenz_helmet_1,itm_refitted_ridge_helmet_1]+shoes_roman+mail_roman_1+horses_roman_1+horses_roman_2,
+   def_attrib_lvl_21|level(21),wp_one_handed(155)|wp_two_handed(150)|wp_polearm(175)|wp_archery(120)|wp_throwing(130),knows_lvl_21,roman_face_1, roman_face_2],
   #Pseudocomitatenses/Comitatenses
   #Gallia/Italia
   ["pedes_defensores_seniores","Pedes Defensores Seniores","Pedites Defensores Seniores",tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_shield|tf_guarantee_helmet|tf_guarantee_polearm,0,0,fac_kingdom_1,
@@ -2046,6 +2077,14 @@ troops = [
   ["pedes_lanciarii_lauriacenses","Pedes Lanciarii Lauriacenses","Pedites Lanciarii Lauriacenses",tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_shield|tf_guarantee_helmet|tf_guarantee_polearm,0,0,fac_kingdom_1,
    [itm_late_roman_spear_1,itm_roman_spear_4,itm_aquincum_spatha_1,itm_jarid,itm_deurne_campagi_3,itm_deurne_campagi_5,itm_roman_subarmalis_lauriacenses,itm_intercisa_helmet_2,itm_iatrus_1,itm_narona_helmet,itm_burgh_helmet_1,itm_koblenz_helmet_1,itm_narona_helmet_mail,itm_christies_helmet_1,itm_oval_shield_lanciarii_lauriacenses]+mail_roman_1,
    def_attrib_lvl_21|level(21),wp_one_handed(150)|wp_two_handed(165)|wp_polearm(150)|wp_archery(120)|wp_throwing(165),knows_lvl_21,roman_face_1, roman_face_2],
+  #Gallia
+  ["pedes_cortoriacenses","Pedes Cortoriacenses","Pedites Cortoriacenses",tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_shield|tf_guarantee_helmet,0,0,fac_kingdom_1,
+   [itm_deurne_campagi_5,itm_deurne_campagi_6,itm_augst_helmet_2,itm_iatrus_1,itm_triveres_mail,itm_battle_axe_3,itm_oval_shield_cortoriacenses]+mail_roman_1,
+   def_attrib_lvl_21|level(21),wp_one_handed(160)|wp_two_handed(150)|wp_polearm(150)|wp_archery(120)|wp_throwing(160),knows_lvl_21,roman_face_1, roman_face_2],
+  #Dalmatia (raetia)
+  ["pedes_tertiani","Pedes Tertia Italica","Pedites Tertia Italica",tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_shield|tf_guarantee_helmet,0,0,fac_kingdom_1,
+   [itm_deurne_campagi_3,itm_deurne_campagi_5,itm_intercisa_helmet_1,itm_iatrus_1,itm_burgh_helmet_1,itm_aquincum_spatha_1,itm_late_roman_spear_1,itm_spiculum,itm_oval_shield_tertiani]+mail_roman_1,
+   def_attrib_lvl_21|level(21),wp_one_handed(160)|wp_two_handed(150)|wp_polearm(150)|wp_archery(120)|wp_throwing(160),knows_lvl_21,roman_face_1, roman_face_2],
   #AUXILIA PALATINA
   #Dalmatia
   ["pedes_felices_valentinianenses","Pedes Felices Valentinianenses","Pedites Felices Valentinianenses",tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_shield|tf_guarantee_helmet|tf_guarantee_polearm,0,0,fac_kingdom_1,
@@ -5134,12 +5173,14 @@ upgrade(troops,"caravan_guard","mercenary_horseman")
 
 #Goths
 upgrade(troops,"gothic_freeman","gothic_footman")
+upgrade(troops,"gothic_footman","gothic_noble")
 upgrade2(troops,"gothic_skirmisher","gothic_mounted_skirmisher","gothic_bowman")
 upgrade(troops,"gothic_horseman","gothic_companion")
 
 #eastern germans
 upgrade2(troops,"eastern_germanic_skirmisher","eastern_germanic_mounted_skirmisher","eastern_germanic_bowman")
 upgrade(troops,"eastern_germanic_spearman","eastern_germanic_retainer")
+upgrade(troops,"eastern_germanic_retainer","eastern_germanic_noble")
 upgrade(troops,"eastern_germanic_mounted_warrior","eastern_germanic_companion")
 
 #britons
@@ -5163,7 +5204,7 @@ upgrade(troops,"daylamite_hillman","daylamite_infantry")
 
 #western germans
 upgrade(troops,"western_germanic_freeman","western_germanic_retainer")
-upgrade(troops,"western_germanic_retainer","western_germanic_companion")
+upgrade2(troops,"western_germanic_retainer","western_germanic_companion","western_germanic_horseman")
 upgrade(troops,"western_germanic_skirmisher","western_germanic_bowman")
 
 #caucasians

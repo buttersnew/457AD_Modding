@@ -5772,6 +5772,7 @@ Even in the last case, the player can make formations up to four lines by orderi
   ("oval_shields_west_1","oval_shields_west_1"),
   ("oval_shields_west_2","oval_shields_west_2"),
   ("oval_shields_west_3","oval_shields_west_3"),
+  ("oval_shields_west_4","oval_shields_west_4"),
   #ERE
   ("oval_shields_east_1","oval_shields_east_1"),
   ("oval_shields_east_2","oval_shields_east_2"),

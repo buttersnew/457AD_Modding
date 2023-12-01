@@ -18836,14 +18836,13 @@ presentations = [
               (eq, ":troop", "trp_miles_foederatus_gothorum"),
               (assign, ":c", 1),
             (else_try), #AOR foderati germans
-              (this_or_next|eq, "$current_town", "p_castle_1"),
               (this_or_next|eq, "$current_town", "p_castle_12"),
               (this_or_next|eq, "$current_town", "p_castle_18"),
               (this_or_next|eq, "$current_town", "p_castle_21"),
-              (this_or_next|eq, "$current_town", "p_castle_37"),
               (this_or_next|eq, "$current_town", "p_town_8"),
               (this_or_next|eq, "$current_town", "p_town_13"),
-              (eq, "$current_town", "p_town_15"),
+              (this_or_next|eq, "$current_town", "p_town_15"),
+              (eq, "$current_town", "p_town_33"),
               (eq, ":troop", "trp_miles_foederatus_germani"),
               (assign, ":c", 1),
             (else_try), #AOR foderati huns
@@ -18854,6 +18853,7 @@ presentations = [
               (this_or_next|eq, "$current_town", "p_town_7"),
               (this_or_next|eq, "$current_town", "p_town_9"),
               (this_or_next|eq, "$current_town", "p_town_13"),
+              (this_or_next|eq, "$current_town", "p_town_33"),
               (eq, "$current_town", "p_town_36"),
               (eq, ":troop", "trp_eques_symmachi_hunnorum"),
               (assign, ":c", 1),
@@ -18862,6 +18862,7 @@ presentations = [
               (this_or_next|eq, "$current_town", "p_castle_22"),
               (this_or_next|eq, "$current_town", "p_castle_40"),
               (this_or_next|eq, "$current_town", "p_town_17"),
+              (this_or_next|eq, "$current_town", "p_town_33"),
               (eq, "$current_town", "p_town_35"),
               (eq, ":troop", "trp_western_alan_rider"),
               (assign, ":c", 1),
@@ -19005,8 +19006,7 @@ presentations = [
               (eq, "$current_town", "p_town_29"),
               (this_or_next|eq, ":troop", "trp_chamavi_footman"),
               (this_or_next|eq, ":troop", "trp_bructeri_skirmisher"),
-              (this_or_next|eq, ":troop", "trp_chauci_archer"),
-              (eq, ":troop", "trp_frankish_optimas"),
+              (eq, ":troop", "trp_chauci_archer"),
               (assign, ":c", 1),
             (else_try), #gothic AOR! - gepids
               (this_or_next|eq, "$current_town", "p_castle_5"),
@@ -19070,9 +19070,10 @@ presentations = [
               (eq, ":troop", "trp_gothic_horseman"),
               (assign, ":c", 1),
             (else_try), #rugii aor
-              (this_or_next|eq, "$current_town", "p_castle_51"),
+              (this_or_next|eq, "$current_town", "p_castle_1"),
+              (this_or_next|eq, "$current_town", "p_castle_16"),
               (this_or_next|eq, "$current_town", "p_castle_71"),
-              (eq, "$current_town", "p_town_33"),
+              (eq, "$current_town", "p_castle_37"),
               (eq, ":troop", "trp_baiuvari_armati"),
               (assign, ":c", 1),
             (else_try), #armorican aor
@@ -19126,6 +19127,9 @@ presentations = [
               (eq, ":troop", "trp_sarir_horseman"),
               (assign, ":c", 1),
             (else_try), #alpine AOR
+              (this_or_next|eq, "$current_town", "p_castle_1"),
+              (this_or_next|eq, "$current_town", "p_castle_16"),
+              (this_or_next|eq, "$current_town", "p_castle_51"),
               (eq, "$current_town", "p_castle_56"),
               (eq, ":troop", "trp_latro_alpium"),
               (assign, ":c", 1),
@@ -19187,7 +19191,7 @@ presentations = [
               (assign, ":c", 1),
   ####################################################################
             #and now for the roman AOR!
-            (else_try), #Quinta Macedonica
+            (else_try),
               (faction_slot_eq, "$players_kingdom", slot_faction_culture, "fac_culture_empire"),
               (eq, "$current_town", "p_castle_18"),
               (eq, ":troop", "trp_miles_musculariorum"),
@@ -19273,10 +19277,10 @@ presentations = [
             (else_try), #MUM
               (faction_slot_eq, "$players_kingdom", slot_faction_culture, "fac_culture_empire"),
               (this_or_next|eq, "$current_town", "p_castle_20"),
-              (this_or_next|eq, "$current_town", "p_castle_37"),
               (this_or_next|eq, "$current_town", "p_town_8"),
               (this_or_next|eq, "$current_town", "p_town_11"),
-              (eq, "$current_town", "p_town_13"),
+              (this_or_next|eq, "$current_town", "p_town_13"),
+              (eq, "$current_town", "p_town_33"),
               (this_or_next|eq, ":troop", "trp_pedes_defensores_seniores"),
               (this_or_next|eq, ":troop", "trp_pedes_invicti_seniores"),
               (this_or_next|eq, ":troop", "trp_pedes_ioviani_seniores"),
@@ -19289,6 +19293,7 @@ presentations = [
               (this_or_next|eq, "$current_town", "p_castle_21"),
               (eq, "$current_town", "p_town_15"),
               (this_or_next|eq, ":troop", "trp_pedes_defensores_seniores"),
+              (this_or_next|eq, ":troop", "trp_pedes_cortoriacenses"),
               (this_or_next|eq, ":troop", "trp_eques_honoriani_taifali_iuniores"),
               (eq, ":troop", "trp_eques_batavi_seniores"),
               (assign, ":c", 1),
@@ -19296,8 +19301,21 @@ presentations = [
               (faction_slot_eq, "$players_kingdom", slot_faction_culture, "fac_culture_empire"),
               (eq, "$current_town", "p_town_9"),
               (this_or_next|eq, ":troop", "trp_pedes_lanciarii_lauriacenses"),
+              (this_or_next|eq, ":troop", "trp_pedes_tertiani"),
               (this_or_next|eq, ":troop", "trp_pedes_felices_valentinianenses"),
               (eq, ":troop", "trp_miles_sagittarii_venatores"),
+              (assign, ":c", 1),
+            (else_try), #noricum I
+              #(faction_slot_eq, "$players_kingdom", slot_faction_culture, "fac_culture_empire"),
+              (eq, "$current_town", "p_castle_1"),
+              (this_or_next|eq, ":troop", "trp_miles_primorum_noricorum"),
+              (eq, ":troop", "trp_pedes_cohortis_batavorum"),
+              (assign, ":c", 1),
+            (else_try), #raetia II
+              #(faction_slot_eq, "$players_kingdom", slot_faction_culture, "fac_culture_empire"),
+              (eq, "$current_town", "p_castle_51"),
+              (this_or_next|eq, ":troop", "trp_eques_ala_primae_flaviae_raetorum"),
+              (eq, ":troop", "trp_pedes_tertiani"),
               (assign, ":c", 1),
             (else_try), #presentalis I
               (faction_slot_eq, "$players_kingdom", slot_faction_culture, "fac_culture_empire"),
@@ -19539,7 +19557,7 @@ presentations = [
                 (eq, ":culture", "fac_culture_7"), #western germans
                 (this_or_next|eq, ":troop", "trp_western_germanic_freeman"), #t1
                 (this_or_next|eq, ":troop", "trp_western_germanic_skirmisher"), #t3 inf.
-                (eq, ":troop", "trp_western_germanic_companion"), #noble
+                (eq, ":troop", "trp_western_germanic_horseman"), #noble
                 (assign, ":c", 1),
               (else_try),
                 (eq, ":culture", "fac_culture_8"), #caucasians

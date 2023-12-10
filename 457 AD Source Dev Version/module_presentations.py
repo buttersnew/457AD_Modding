@@ -19008,6 +19008,17 @@ presentations = [
               (this_or_next|eq, ":troop", "trp_bructeri_skirmisher"),
               (eq, ":troop", "trp_chauci_archer"),
               (assign, ":c", 1),
+            (else_try), #germanic AOR! - ripaurian limitanei
+              (this_or_next|eq, "$current_town", "p_castle_28"),
+              (this_or_next|eq, "$current_town", "p_castle_30"),
+              (this_or_next|eq, "$current_town", "p_castle_59"),
+              (this_or_next|eq, "$current_town", "p_town_1"),
+              (eq, "$current_town", "p_town_29"),
+              (this_or_next|eq, ":troop", "trp_tiro"),
+              (this_or_next|eq, ":troop", "trp_miles_romani"),
+              (this_or_next|eq, ":troop", "trp_eques_romani"),
+              (eq, ":troop", "trp_miles_foederatus_germani"),
+              (assign, ":c", 1),
             (else_try), #gothic AOR! - gepids
               (this_or_next|eq, "$current_town", "p_castle_5"),
               (this_or_next|eq, "$current_town", "p_castle_84"),

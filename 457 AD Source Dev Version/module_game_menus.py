@@ -11670,6 +11670,14 @@ TOTAL:  {reg5}"),
           (try_end),
 
           (try_begin),
+            (eq, "$current_town", "p_town_10"), #sirmium
+            (check_quest_active,"qst_black_river"),
+            (quest_slot_ge,"qst_black_river",slot_quest_current_state, 1),
+            (set_visitors, 8, "trp_br_gerontius", 1),
+            (set_visitors, 13, "trp_roman_marine", 1),
+          (try_end),
+
+          (try_begin),
             (eq, "$current_town", "p_town_12"),
             (try_begin),
               (check_quest_active,"qst_sword_of_mars"),
@@ -25454,18 +25462,22 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     (assign, "$temp2", "mnu_black_river_lost"),
 
     (set_jump_mission, "mt_agrippinus_villa_fight"),
-    (modify_visitors_at_site, "scn_maxi_roman_villa"),
+    (modify_visitors_at_site, "scn_black_river_ambush"),
     (reset_visitors),
+
+    (try_for_range, ":entry", 1, 4),
+          (mission_tpl_entry_set_override_flags, "mt_agrippinus_villa_fight", ":entry", af_override_horse),
+    (try_end),
 
     (set_visitor, 1, "trp_player"),
 
     (set_visitor, 1, "trp_br_gerontius"),
     (set_visitors, 1, "trp_roman_marine", 5),
 
-    (set_visitors, 4, "trp_taiga_bandit", 4),
-    (set_visitors, 4, "trp_eastern_germanic_spearman", 4),
+    (set_visitors, 4, "trp_taiga_bandit", 8),
+    (set_visitors, 4, "trp_eastern_germanic_spearman", 6),
 
-    (jump_to_scene, "scn_maxi_roman_villa"),
+    (jump_to_scene, "scn_black_river_ambush"),
     (change_screen_mission),
       ]),
     ],),
@@ -25480,11 +25492,63 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     ("option_1",[],"Continue...",
         [
         (quest_set_slot,"qst_black_river", slot_quest_current_state, 3),
+        (set_jump_mission, "mt_visit_minor_town"),
+        (modify_visitors_at_site, "scn_black_river_fort"),
+        (reset_visitors),
+        #guards
+        (set_visitor, 1, "trp_roman_marine"),
+        (set_visitor, 2, "trp_roman_marine"),
+        (set_visitor, 3, "trp_sagittarius"),
+        (set_visitor, 4, "trp_sagittarius"),
+        (set_visitor, 5, "trp_sagittarius"),
+        (set_visitor, 6, "trp_tiro"),
+        (set_visitor, 7, "trp_tiro"),
+        (set_visitor, 8, "trp_roman_civilian"),
+        (set_visitor, 9, "trp_pedes"), #comitatus
+        (set_visitor, 10, "trp_pedes"),
+        (set_visitor, 11, "trp_pedes"),
+        (set_visitor, 12, "trp_eques_stablesiani"),
+        #villagers
+        (set_visitor, 13, "trp_imperial_town_walker_2"),
+        (set_visitor, 14, "trp_imperial_town_walker_1"),
+        (set_visitor, 15, "trp_imperial_town_walker_2"),
+        (set_visitor, 16, "trp_imperial_town_walker_1"),
+        (set_visitor, 17, "trp_imperial_town_walker_2"),
+        (set_visitor, 18, "trp_imperial_town_walker_1"),
+        (set_visitor, 19, "trp_imperial_town_walker_2"),
+        (set_visitor, 20, "trp_imperial_town_walker_1"),
+        (set_visitor, 21, "trp_imperial_town_walker_2"),
+        (set_visitor, 22, "trp_imperial_town_walker_1"),
+        (set_visitor, 23, "trp_imperial_town_walker_2"),
+        (set_visitor, 24, "trp_imperial_town_walker_1"),
+        (set_visitor, 25, "trp_imperial_town_walker_2"),
+        (set_visitor, 26, "trp_imperial_town_walker_1"),
+        (set_visitor, 27, "trp_imperial_town_walker_2"),
+        (set_visitor, 28, "trp_imperial_town_walker_1"),
+        (set_visitor, 29, "trp_imperial_town_walker_2"),
+        (set_visitor, 30, "trp_imperial_town_walker_1"),
+        (set_visitor, 31, "trp_imperial_town_walker_2"),
+        (set_visitor, 32, "trp_imperial_town_walker_1"),
+
+        (set_visitor, 35, "trp_br_angelus"),
+
+        #50 attackers spawn
+        #51 defender cav spawn (attack)
+        #52 defender inf spawn (hold position)
+        #53 defender archers
+        #54 defender archers
+        #55 defender archers
+        #56 defender archers
+        #57 defender archers
+
+        (set_jump_entry, 0),
+        (assign, "$talk_context", tc_town_talk),
+        (jump_to_scene, "scn_black_river_fort"),
         (change_screen_mission),
         ]),
     ],),
 
-  ("noricum_limitanei_raiders",0,
+  ("noricum_sarmatian_attack",0,
     "Soldiers cry out, a horde of Iazyges have been spotted! You, as well as the limitanei scrambled to prepare to repel the attack...",
     "none", [],
     [
@@ -25492,27 +25556,40 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     ("option_1",[],"Fight!",
         [
     (assign, "$temp3", 1),
-    (assign, "$temp1", "mnu_noricum_limitanei_raiders_won"),
+    (assign, "$temp1", "mnu_noricum_sarmatian_attack_won"),
     (assign, "$temp2", "mnu_black_river_lost"),
 
-    (set_jump_mission, "mt_agrippinus_villa_fight"),
-    (modify_visitors_at_site, "scn_maxi_roman_villa"),
+    (set_jump_mission, "mt_noricum_sarmatian_attack"),
+    (modify_visitors_at_site, "scn_black_river_fort"),
     (reset_visitors),
 
-    (set_visitor, 1, "trp_player"),
+    (set_visitor, 58, "trp_player"),
 
-    (set_visitor, 1, "trp_br_gerontius"),
-    (set_visitors, 1, "trp_roman_marine", 5),
+    #Defenders
+    (set_visitors, 51, "trp_eques_dalmatae", 10),
+    (set_visitors, 51, "trp_eques_ala", 10),
+    (set_visitors, 51, "trp_eques_stablesiani", 3),
 
-    (set_visitors, 4, "trp_taiga_bandit", 4),
-    (set_visitors, 4, "trp_eastern_germanic_spearman", 4),
+    (set_visitors, 52, "trp_tiro", 25),
+    (set_visitors, 52, "trp_pedes", 15),
+    (set_visitors, 52, "trp_roman_civilian", 5),
 
-    (jump_to_scene, "scn_maxi_roman_villa"),
+    (set_visitors, 53, "trp_sagittarius", 5),
+    (set_visitors, 54, "trp_sagittarius", 5),
+    (set_visitors, 55, "trp_sagittarius", 5),
+    (set_visitors, 56, "trp_sagittarius", 5),
+    (set_visitors, 57, "trp_sagittarius", 5),
+
+    (set_visitors, 50, "trp_steppe_bandit", 15),
+    (set_visitors, 50, "trp_steppe_rider", 30),
+    (set_visitors, 50, "trp_steppe_cataphract", 10),
+
+    (jump_to_scene, "scn_black_river_fort"),
     (change_screen_mission),
       ]),
     ],),
 
-  ("noricum_limitanei_raiders_won",0,
+  ("noricum_sarmatian_attack_won",0,
     "You win the holdout precious time by repelling the Iazyges, for which the tenacious defenders treat you and your weary shipmates to a long night of drinking and feasting. The following morning you receive a parting gift from Angelus - a sword wielded by his father, before resuming your voyage upriver. "
     + "Several more hours of uneventful rowing follow until at last, you reach the villa - now an uninhabitable ruin shrouded in vegetation. Fearing ghosts - your shipmates refuse to follow you inside the eerie structure, yet its elegance is not lost on you. Marveling at the fresco-adorned walls of the atrium, you contemplate a world where the bright light of Rome shines no more. Would people ever live this splendidly again?",
     "none", [],
@@ -25521,8 +25598,8 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     ("option_1",[],"Continue...",
         [
         (quest_set_slot,"qst_black_river", slot_quest_current_state, 5),
-        #will fill in details
-        (change_screen_mission),
+        (leave_encounter),
+        (change_screen_return),
         ]),
     ],),
 

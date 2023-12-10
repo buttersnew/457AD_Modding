@@ -2054,7 +2054,7 @@ troops = [
    def_attrib_lvl_21|level(21),wp_one_handed(170)|wp_two_handed(150)|wp_polearm(150)|wp_archery(100)|wp_throwing(155),knows_lvl_21,roman_face_1, roman_face_2],
   #Praefectus legionis liburnariorum primorum Noricorum - also active (although poorly armed) from the 460s-470s in noricum
   ["miles_primorum_noricorum","Miles Primorum Noricorum","Milites Primorum Noricorum",tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_shield|tf_guarantee_ranged,0,0,fac_kingdom_1,
-   [itm_deurne_campagi_2,itm_deurne_campagi_3,itm_roman_subarmalis_noricum,itm_intercisa_helmet_1,itm_augst_helmet_1,itm_narona_helmet_mail,itm_mace_roman_1,itm_javelin,itm_javelin,itm_concave_shield_blue_2]+pannonian_hats+tunics_roman_military,
+   [itm_deurne_campagi_2,itm_deurne_campagi_3,itm_tunic_5_cloak,itm_tunic_7_cloak,itm_intercisa_helmet_1,itm_augst_helmet_1,itm_narona_helmet_mail,itm_ballana_spatha,itm_javelin,itm_javelin,itm_concave_shield_blue_2]+pannonian_hats,
    def_attrib_lvl_18|level(18),wp_one_handed(140)|wp_two_handed(130)|wp_polearm(140)|wp_archery(100)|wp_throwing(155),knows_athletics_6|knows_riding_2|knows_ironflesh_6|knows_power_throw_6|knows_power_draw_3|knows_weapon_master_5|knows_inventory_management_3|knows_shield_2|knows_power_strike_5,roman_face_1, roman_face_2],
   #stationed in Ravenna - militum iuniorum Italicorum
   ["miles_iuniorum_italicorum","Miles Iuniorum Italicorum","Milites Iuniorum Italicorum",tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_shield|tf_guarantee_helmet|tf_guarantee_polearm,0,0,fac_kingdom_1,
@@ -2065,7 +2065,7 @@ troops = [
    [itm_deurne_campagi_1,itm_deurne_campagi_4,itm_common_mail_short_1_cloak,itm_common_mail_short_5_cloak,itm_augst_helmet_1,itm_christies_helmet_1,itm_narona_helmet_leather,itm_sword_viking_a_long,itm_war_spear_3,itm_war_darts,itm_oval_shield_blue_2],
    def_attrib_lvl_21|level(21),wp_one_handed(150)|wp_two_handed(150)|wp_polearm(165)|wp_archery(120)|wp_throwing(150),knows_lvl_21,roman_face_1, roman_face_2],
   #Quintais (raetia)
-  ["eques_ala_primae_flaviae_raetorum","Eques Ala Primae Flaviae Raetorum","Equites Alae Primae Flaviae Raetorum",tf_mounted|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_horse|tf_guarantee_polearm,0,0,fac_culture_empire,
+  ["eques_ala_primae_flaviae_raetorum","Eques Ala Primae Flaviae Raetorum","Equites Alae Primae Flaviae Raetorum",tf_mounted|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_horse|tf_guarantee_polearm,0,0,fac_kingdom_1,
    [itm_heavy_lance,itm_aquincum_spatha_1,itm_narona_helmet_mail,itm_koblenz_helmet_1,itm_refitted_ridge_helmet_1]+shoes_roman+mail_roman_1+horses_roman_1+horses_roman_2,
    def_attrib_lvl_21|level(21),wp_one_handed(155)|wp_two_handed(150)|wp_polearm(175)|wp_archery(120)|wp_throwing(130),knows_lvl_21,roman_face_1, roman_face_2],
   #Pseudocomitatenses/Comitatenses
@@ -2077,9 +2077,9 @@ troops = [
   ["pedes_lanciarii_lauriacenses","Pedes Lanciarii Lauriacenses","Pedites Lanciarii Lauriacenses",tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_shield|tf_guarantee_helmet|tf_guarantee_polearm,0,0,fac_kingdom_1,
    [itm_late_roman_spear_1,itm_roman_spear_4,itm_aquincum_spatha_1,itm_jarid,itm_deurne_campagi_3,itm_deurne_campagi_5,itm_roman_subarmalis_lauriacenses,itm_intercisa_helmet_2,itm_iatrus_1,itm_narona_helmet,itm_burgh_helmet_1,itm_koblenz_helmet_1,itm_narona_helmet_mail,itm_christies_helmet_1,itm_oval_shield_lanciarii_lauriacenses]+mail_roman_1,
    def_attrib_lvl_21|level(21),wp_one_handed(150)|wp_two_handed(165)|wp_polearm(150)|wp_archery(120)|wp_throwing(165),knows_lvl_21,roman_face_1, roman_face_2],
-  #Gallia
+  #Gallia (given axe)
   ["pedes_cortoriacenses","Pedes Cortoriacenses","Pedites Cortoriacenses",tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_shield|tf_guarantee_helmet,0,0,fac_kingdom_1,
-   [itm_deurne_campagi_5,itm_deurne_campagi_6,itm_augst_helmet_2,itm_iatrus_1,itm_triveres_mail,itm_battle_axe_3,itm_oval_shield_cortoriacenses]+mail_roman_1,
+   [itm_deurne_campagi_5,itm_deurne_campagi_6,itm_augst_helmet_2,itm_iatrus_1,itm_triveres_mail,itm_battle_axe_3,itm_spiculum,itm_oval_shield_cortoriacenses]+mail_roman_1,
    def_attrib_lvl_21|level(21),wp_one_handed(160)|wp_two_handed(150)|wp_polearm(150)|wp_archery(120)|wp_throwing(160),knows_lvl_21,roman_face_1, roman_face_2],
   #Dalmatia (raetia)
   ["pedes_tertiani","Pedes Tertia Italica","Pedites Tertia Italica",tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_shield|tf_guarantee_helmet,0,0,fac_kingdom_1,
@@ -2239,7 +2239,7 @@ troops = [
 #Candidati - now only used for castle scenes (or if the player wants to recruit them as emperor)
   ["candidatus","Candidatus","Candidati",tf_mounted|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_shield|tf_guarantee_helmet,0,0,fac_culture_empire, #white tunics
    [itm_rich_mail_2_m,(itm_rich_mail_2_m,imod_reinforced),itm_augsburg_1_helmet,itm_jarak_helmet_1,itm_augsburg_2_helmet,itm_gultlingen_helmet_plume,itm_deurne_helmet,itm_concesti_helmet,itm_heteny_helmet_1,itm_berkasovo_2_helmet,itm_indesheim_spatha_rich,itm_tab_shield_heater_a]+greaves_roman,
-   def_attrib_lvl_30|level(30),wp_one_handed(230)|wp_two_handed(220)|wp_polearm(220)|wp_archery(140)|wp_throwing(230),knows_lvl_30,roman_face_1, roman_face_2],
+   def_attrib_lvl_32|level(32),wp_one_handed(240)|wp_two_handed(240)|wp_polearm(240)|wp_archery(160)|wp_throwing(200)|wp_crossbow(150)|wp_firearm(150),knows_ironflesh_9|knows_riding_6|knows_shield_6|knows_athletics_6|knows_power_strike_6|knows_power_draw_5|knows_inventory_management_3,roman_face_1, roman_face_2],
   #Schola scutariorum secunda - dropping secunda, renaming as Occidentalis - Western Roman Empire
   #Melee cav - white tunics
   ["schola_scutariorum_west","Scholarius Scutariorum Occidentalis","Scholarii Scutariorum Occidentalis",tf_mounted|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_horse|tf_guarantee_shield|tf_guarantee_polearm,0,0,fac_culture_empire,
@@ -3188,7 +3188,7 @@ troops = [
 
 ["kingdom_2_lord",  "Flavius Valerius Leo Augustus",  "Leo Marcellus",  tf_hero, 0,reserved,  fac_kingdom_2,[itm_nisean_cataphract_1, (itm_roman_squamata_emperor,imod_lordly), itm_coptic_tunic_emperor_1, itm_crown_1, itm_roman_lorum_fasciari_6, itm_roman_greaves_6,  itm_tab_shield_small_round_c, itm_arabian_sword_d, itm_berk_helmet], knight_attrib_5,wp_one_handed(300)|wp_two_handed(260)|wp_polearm(310)|wp_archery(140)|wp_crossbow(100)|wp_throwing(100)|wp_firearm(100),knight_skills_5|knows_trainer_5, 0x00000007ac005002325251c69b6db8da00000000001d36db0000000000000000],
 #Theodoric II, was Euric
-["kingdom_3_lord",  "Reiks Theodoric II",  "Theodoric II",  tf_hero, 0,reserved,  fac_kingdom_3,[itm_nisean_roman_2, itm_coptic_tunic_8, itm_simple_shoes, itm_deurne_campagi_greaves_2, itm_457_scale_hauberk_1, itm_sword_viking_3, itm_tab_shield_round_e, itm_berk_helmet],knight_attrib_5,wp_one_handed(300)|wp_two_handed(270)|wp_polearm(310)|wp_archery(100)|wp_crossbow(100)|wp_throwing(100)|wp_firearm(100),knight_skills_4|knows_trainer_5,0x000000021d00414144db8a4a9b6db91a00000000001db6ea0000000000000000],
+["kingdom_3_lord",  "Rex Theodoric II",  "Theodoric II",  tf_hero, 0,reserved,  fac_kingdom_3,[itm_nisean_roman_2, itm_coptic_tunic_8, itm_simple_shoes, itm_deurne_campagi_greaves_2, itm_457_scale_hauberk_1, itm_sword_viking_3, itm_tab_shield_round_e, itm_berk_helmet],knight_attrib_5,wp_one_handed(300)|wp_two_handed(270)|wp_polearm(310)|wp_archery(100)|wp_crossbow(100)|wp_throwing(100)|wp_firearm(100),knight_skills_4|knows_trainer_5,0x000000021d00414144db8a4a9b6db91a00000000001db6ea0000000000000000],
 #was Theodemir
 ["kingdom_4_lord",  "Reiks Valamir",  "Valamir",  tf_hero, 0,reserved,  fac_kingdom_4,[itm_nisean_cataphract_4, itm_tunic_10, itm_ankle_boots, itm_deurne_campagi_greaves_3, itm_roman_scale_6, itm_sword_viking_3, itm_tab_shield_round_e, itm_berkasovo_2_helmet],knight_attrib_5,wp_one_handed(310)|wp_two_handed(310)|wp_polearm(280)|wp_archery(100)|wp_crossbow(100)|wp_throwing(100)|wp_firearm(100),knight_skills_6|knows_trainer_5,0x0000000a8000028542db894aa36db51c00000000001db6dc0000000000000000],
 

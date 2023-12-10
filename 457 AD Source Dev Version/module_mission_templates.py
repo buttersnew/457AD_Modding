@@ -22676,7 +22676,78 @@ mission_templates = [
   ] + dplmc_battle_mode_triggers + dplmc_horse_cull + utility_triggers + battle_panel_triggers + extended_battle_menu + common_division_data + division_order_processing + real_deployment + formations_triggers + AI_triggers + jacobhinds_morale_triggers + enhanced_common_battle_triggers + battle_notifications + ai_horn
 ),
 
+("noricum_sarmatian_attack",mtf_battle_mode|mtf_synch_inventory,-1,
+    "battle",
+    [ (50,mtef_team_1, 0,aif_start_alarmed,60,[]), #attackers
+      (51,mtef_team_0, 0,aif_start_alarmed,60,[]), #inf
+      (52,mtef_team_0, 0,aif_start_alarmed,60,[]), #cav
+      (53,mtef_team_0, 0,aif_start_alarmed,60,[]), #archers
+      (54,mtef_team_0, 0,aif_start_alarmed,60,[]), #archers
+      (55,mtef_team_0, 0,aif_start_alarmed,60,[]), #archers
+      (56,mtef_team_0, 0,aif_start_alarmed,60,[]), #archers
+      (57,mtef_team_0, 0,aif_start_alarmed,60,[]), #archers
+      (58,mtef_team_0, 0,aif_start_alarmed,0,[]), #player
+    ], vc_weather +
+    [
 
+      (ti_before_mission_start, 0, 0, [],
+        [
+          (assign,"$g_battle_result",0),
+          (team_set_relation, 0, 2, -1), # -1 for enemy, 1 for friend, 0 for neutral
+          (team_set_relation,1,2,-1),
+          (team_set_relation,0,1,-1),
+      ]),
+
+ (ti_before_mission_start, 0, 0, [
+             ],
+    [
+    (try_begin),
+        (eq, "$temp3", 1),
+        (scene_set_day_time, 16),
+        (set_global_cloud_amount, 0),
+    (try_end),]),
+    common_inventory_not_available,
+    common_battle_init_banner,
+    immersive_troops,
+    common_music_situation_update,
+    common_battle_check_friendly_kills,
+
+      (0, 0, ti_once, #orders for troops
+        [
+          (set_show_messages, 0),
+          (team_give_order, 1, grc_everyone, mordr_stand_closer),
+          (team_give_order, 1, grc_everyone, mordr_charge),
+
+          (team_give_order, 0, grc_infantry, mordr_stand_closer), #infantry shield wall
+          (team_give_order, 0, grc_infantry, mordr_stand_closer),
+          (team_give_order, 0, grc_infantry, mordr_hold),
+
+          (team_give_order, 0, grc_archers, mordr_hold),
+
+          (team_give_order, 0, grc_cavalry, mordr_stand_closer),
+          (team_give_order, 0, grc_cavalry, mordr_charge),
+          (set_show_messages, 1),
+          ], []
+      ),
+
+    (ti_after_mission_start, 0, 0, [], [(call_script, "script_music_set_situation_with_culture", mtf_sit_fight)]),
+
+    (ti_tab_pressed, 0, 0, [(display_message,"str_cannot_leave_now")], []),
+
+    (1, 10, ti_once, [(this_or_next|main_hero_fallen),(num_active_teams_le,1)],
+    [
+      (try_begin),
+        (main_hero_fallen),
+        (jump_to_menu, "$temp2"),
+      (else_try),
+        (jump_to_menu, "$temp1"),
+      (try_end),
+      (stop_all_sounds, 1),
+      (finish_mission),
+    ]),
+
+  ] + dplmc_battle_mode_triggers + dplmc_horse_cull + utility_triggers + battle_panel_triggers + extended_battle_menu + common_division_data + division_order_processing + real_deployment + formations_triggers + AI_triggers + jacobhinds_morale_triggers + enhanced_common_battle_triggers + battle_notifications + ai_horn
+),
 
   ("bounty_hunter_duel",mtf_battle_mode,-1, 
     "bounty_hunter_duel",

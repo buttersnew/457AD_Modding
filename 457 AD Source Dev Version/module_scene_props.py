@@ -570,12 +570,8 @@ scene_props = [
   ("carpet_f",0,"carpet_f","0", []),
 
   ("ship",sokf_moveable,"ship","bo_ship", []),
-
   ("ship_b",sokf_moveable,"ship_b","bo_ship_b", []),
   ("ship_c",sokf_moveable,"ship_c","bo_ship_c", []),
-
-
-
   ("ship_d",sokf_moveable,"ship_d","bo_ship_d", []),
 
   ("snowy_barrel_a",0,"snowy_barrel_a","bo_snowy_barrel_a", []),
@@ -3053,6 +3049,10 @@ scene_props = [
   ("snowy_destroy_tree_b",0,"snowy_destroy_tree_b","bo_snowy_destroy_tree_b", []),  
   ("snowy_destroy_bridge_a",0,"snowy_destroy_bridge_a","bo_snowy_destroy_bridge_a", []),  
   ("snowy_destroy_bridge_b",0,"snowy_destroy_bridge_b","bo_snowy_destroy_bridge_b", []),    
+
+  #New boat scene props
+  ("navis_iusoria_1",sokf_moveable,"navis_iusoria_1","bo_navis_iusoria_1", []),
+  ("navis_iusoria_2",sokf_moveable,"navis_iusoria_2","bo_navis_iusoria_1", []),
 
 #Roman Buildings
 # from 'OSP_new_rome_2.brf': begin (OpenBRF)

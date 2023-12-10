@@ -68,6 +68,7 @@ party_templates = [
   ("bagaudae_army_event","Bagaudae Army",icon_germanic_army|carries_goods(5),0,fac_forest_bandits,bandit_personality,[(trp_forest_bandit_recruit,50,155),(trp_forest_bandit,45,125),(trp_bagaudae_footman,35,80)]),
   ("gallaecian_rebels","Gallaecian Rebels",icon_peasant|carries_goods(8),0,fac_minor_gallaeci,soldier_personality,[(trp_hibero_roman_venator,20,40),(trp_hibero_roman_rusticus,15,25),(trp_hibero_roman_defensor,10,20)]),
   ("foederati_rebels","Foederati Rebels",icon_khergit_horseman_b|carries_goods(2),0,fac_deserters,bandit_personality,[(trp_miles_foederatus_germani,20,40),(trp_miles_foederatus_gothorum,20,30),(trp_eques_symmachi_hunnorum,10,20)]), #mix of huns, foederati troops - some time before majorians major campaigns, unruly federates + huns ravaged the countryside
+  ("alpine_bandits","Latrones Alpinorum",icon_axeman|carries_goods(2),0,fac_outlaws,bandit_personality,[(trp_latro_alpium,5,30),(trp_brigand,0,3)]),
 
   #SB : fix icon
   ("merchant_caravan","Merchant Caravan",icon_mule|carries_goods(20)|pf_auto_remove_in_town|pf_quest_party,0,fac_commoners,escorted_merchant_personality,[(trp_caravan_master,1,1),(trp_caravan_guard,5,25)]),

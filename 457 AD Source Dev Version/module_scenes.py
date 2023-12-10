@@ -1692,6 +1692,12 @@ scenes = [
     [],[],"outer_terrain_forest"),  
   ("wolfmen_ambush",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000bc66cbe30005d9760000438d00007aec00002978",
     [],[],"outer_terrain_forest"),  
+  ("black_river_ambush",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000003000056300053d4f00002f210000542d0000774e", #0x000000003000056380053d4f00002f210000542d0000774e
+    [],[],"outer_terrain_river_1"),  
+  ("black_river_fort",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000030000563000729cd00006123000057a1000024c8",
+    [],[],"outer_terrain_forest"),  
+  ("black_river_villa",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000030000563000729cd00006123000057a1000024c8",
+    [],[],"outer_terrain_forest"),  
 
   ("christian_monastery",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000023007a3b20005795e0000706d0000381800000bbc",
     [],[],"outer_terrain_plain"),  

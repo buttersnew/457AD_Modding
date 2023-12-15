@@ -25460,6 +25460,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     (assign, "$temp3", 1),
     (assign, "$temp1", "mnu_black_river_pirates_won"),
     (assign, "$temp2", "mnu_black_river_lost"),
+    (assign, "$g_battle_result", 0),
 
     (set_jump_mission, "mt_agrippinus_villa_fight"),
     (modify_visitors_at_site, "scn_black_river_ambush"),
@@ -25471,8 +25472,14 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 
     (set_visitor, 1, "trp_player"),
 
+    (assign, ":cur_entry", 1), #add player's companions
+    (try_for_range, ":companion", companions_begin, companions_end),
+      (main_party_has_troop,":companion"),
+      (set_visitor, ":cur_entry", ":companion"),
+    (try_end),
+
     (set_visitor, 1, "trp_br_gerontius"),
-    (set_visitors, 1, "trp_roman_marine", 5),
+    (set_visitors, 1, "trp_roman_marine", 6),
 
     (set_visitors, 4, "trp_taiga_bandit", 8),
     (set_visitors, 4, "trp_eastern_germanic_spearman", 6),
@@ -25549,42 +25556,50 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     ],),
 
   ("noricum_sarmatian_attack",0,
-    "Soldiers cry out, a horde of Iazyges have been spotted! You, as well as the limitanei scrambled to prepare to repel the attack...",
+    "Soldiers cry out, a horde of Iazyges have been spotted! Archers begin to man the walls, while a small force of equites mount their horses to delay the horde. Your companions and crewmates, realizing the situation, disembark to help defend the fort. Both cives and milites quickly arm themselves and form up by the gate -- losing could spell the death of everyone...",
     "none", [],
     [
 
     ("option_1",[],"Fight!",
         [
-    (assign, "$temp3", 1),
     (assign, "$temp1", "mnu_noricum_sarmatian_attack_won"),
     (assign, "$temp2", "mnu_black_river_lost"),
 
-    (set_jump_mission, "mt_noricum_sarmatian_attack"),
     (modify_visitors_at_site, "scn_black_river_fort"),
     (reset_visitors),
 
     (set_visitor, 58, "trp_player"),
 
+    (assign, ":cur_entry", 58), #add player's companions
+    (try_for_range, ":companion", companions_begin, companions_end),
+      (main_party_has_troop,":companion"),
+      (set_visitor, ":cur_entry", ":companion"),
+    (try_end),
+
     #Defenders
-    (set_visitors, 51, "trp_eques_dalmatae", 10),
-    (set_visitors, 51, "trp_eques_ala", 10),
-    (set_visitors, 51, "trp_eques_stablesiani", 3),
+    (set_visitors, 51, "trp_eques_promoti", 20), #25
+    (set_visitors, 51, "trp_eques_stablesiani", 5),
 
-    (set_visitors, 52, "trp_tiro", 25),
-    (set_visitors, 52, "trp_pedes", 15),
-    (set_visitors, 52, "trp_roman_civilian", 5),
+    (set_visitors, 52, "trp_tiro", 20), 
+    (set_visitors, 52, "trp_pedes", 10),
+    (set_visitors, 52, "trp_roman_civilian", 15),
+    (set_visitors, 52, "trp_roman_marine", 6),
 
-    (set_visitors, 53, "trp_sagittarius", 5),
+    (set_visitor, 52,  "trp_br_angelus"), #heros 
+    (set_visitor, 52,  "trp_br_gerontius"), #2
+
+    (set_visitors, 53, "trp_sagittarius", 5), #20
     (set_visitors, 54, "trp_sagittarius", 5),
-    (set_visitors, 55, "trp_sagittarius", 5),
-    (set_visitors, 56, "trp_sagittarius", 5),
-    (set_visitors, 57, "trp_sagittarius", 5),
+    (set_visitors, 55, "trp_sagittarius", 3),
+    (set_visitors, 56, "trp_sagittarius", 3),
+    (set_visitors, 57, "trp_sagittarius", 3),
 
-    (set_visitors, 50, "trp_steppe_bandit", 15),
-    (set_visitors, 50, "trp_steppe_rider", 30),
-    (set_visitors, 50, "trp_steppe_cataphract", 10),
+    (set_visitors, 50, "trp_steppe_bandit", 10),
+    (set_visitors, 50, "trp_steppe_rider", 70),
+    (set_visitors, 50, "trp_steppe_cataphract", 10), #90
 
     (jump_to_scene, "scn_black_river_fort"),
+    (set_jump_mission, "mt_noricum_sarmatian_attack"),
     (change_screen_mission),
       ]),
     ],),
@@ -25598,8 +25613,22 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     ("option_1",[],"Continue...",
         [
         (quest_set_slot,"qst_black_river", slot_quest_current_state, 5),
-        (leave_encounter),
-        (change_screen_return),
+
+        (modify_visitors_at_site,"scn_black_river_villa"),
+        (reset_visitors),
+
+        (set_visitor, 0, "trp_player"),
+
+        (assign, ":cur_entry", 0), #add player's companions
+        (try_for_range, ":companion", companions_begin, companions_end),
+          (main_party_has_troop,":companion"),
+          (set_visitor, ":cur_entry", ":companion"),
+        (try_end),
+
+        (set_visitor,1,"trp_br_hathus"),
+        (set_jump_mission,"mt_br_abandoned_villa_visit"),
+        (jump_to_scene,"scn_black_river_villa"),
+        (change_screen_mission),
         ]),
     ],),
 

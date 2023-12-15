@@ -1696,7 +1696,7 @@ scenes = [
     [],[],"outer_terrain_river_1"),  
   ("black_river_fort",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000030000563000729cd00006123000057a1000024c8",
     [],[],"outer_terrain_forest"),  
-  ("black_river_villa",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000030000563000729cd00006123000057a1000024c8",
+  ("black_river_villa",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000030000500000715c5000057cd000035390000272c",
     [],[],"outer_terrain_forest"),  
 
   ("christian_monastery",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000023007a3b20005795e0000706d0000381800000bbc",

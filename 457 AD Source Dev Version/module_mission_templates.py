@@ -22678,15 +22678,67 @@ mission_templates = [
 
 ("noricum_sarmatian_attack",mtf_battle_mode|mtf_synch_inventory,-1,
     "battle",
-    [ (50,mtef_team_1, 0,aif_start_alarmed,60,[]), #attackers
-      (51,mtef_team_0, 0,aif_start_alarmed,60,[]), #inf
-      (52,mtef_team_0, 0,aif_start_alarmed,60,[]), #cav
-      (53,mtef_team_0, 0,aif_start_alarmed,60,[]), #archers
-      (54,mtef_team_0, 0,aif_start_alarmed,60,[]), #archers
-      (55,mtef_team_0, 0,aif_start_alarmed,60,[]), #archers
-      (56,mtef_team_0, 0,aif_start_alarmed,60,[]), #archers
-      (57,mtef_team_0, 0,aif_start_alarmed,60,[]), #archers
-      (58,mtef_team_0, 0,aif_start_alarmed,0,[]), #player
+    [ 
+        (0, mtef_team_0|mtef_visitor_source, af_override_horse, 0, 1, []),
+        (1, mtef_team_0|mtef_visitor_source, af_override_horse, 0, 1, []),
+        (2, mtef_team_0|mtef_visitor_source, af_override_horse, 0, 1, []),
+        (3, mtef_team_0|mtef_visitor_source, af_override_horse, 0, 1, []),
+        (4, mtef_team_0|mtef_visitor_source, af_override_horse, 0, 1, []),
+        (5, mtef_team_0|mtef_visitor_source, af_override_horse, 0, 1, []),
+        (6, mtef_team_0|mtef_visitor_source, af_override_horse, 0, 1, []),
+        (7, mtef_team_0|mtef_visitor_source, af_override_horse, 0, 1, []),
+        (8, mtef_team_0|mtef_visitor_source, af_override_horse, 0, 1, []),
+        (9, mtef_team_0|mtef_visitor_source, af_override_horse, 0, 1, []),
+        (10, mtef_team_0|mtef_visitor_source, af_override_everything, 0, 1, []),
+        (11, mtef_team_0|mtef_visitor_source, af_override_everything, 0, 1, []),
+        (12, mtef_team_0|mtef_visitor_source, af_override_everything, 0, 1, []),
+        (13, mtef_team_0|mtef_visitor_source, af_override_everything, 0, 1, []),
+        (14, mtef_team_0|mtef_visitor_source, af_override_everything, 0, 1, []),
+        (15, mtef_team_0|mtef_visitor_source, af_override_everything, 0, 1, []),
+        (16, mtef_team_0|mtef_visitor_source, af_override_everything, 0, 1, []),
+        (17, mtef_team_0|mtef_visitor_source, af_override_everything, 0, 1, []),
+        (18, mtef_team_0|mtef_visitor_source, af_override_everything, 0, 1, []),
+        (19, mtef_team_0|mtef_visitor_source, af_override_everything, 0, 1, []),
+        (20, mtef_team_0|mtef_visitor_source, af_override_everything, 0, 1, []),
+        (21, mtef_team_0|mtef_visitor_source, af_override_everything, 0, 1, []),
+        (22, mtef_team_0|mtef_visitor_source, af_override_everything, 0, 1, []),
+        (23, mtef_team_0|mtef_visitor_source, af_override_everything, 0, 1, []),
+        (24, mtef_team_0|mtef_visitor_source, af_override_everything, 0, 1, []),
+        (25, mtef_team_0|mtef_visitor_source, af_override_everything, 0, 1, []),
+        (26, mtef_team_0|mtef_visitor_source, af_override_everything, 0, 1, []),
+        (27, mtef_team_0|mtef_visitor_source, af_override_everything, 0, 1, []),
+        (28, mtef_team_0|mtef_visitor_source, af_override_everything, 0, 1, []),
+        (29, mtef_team_0|mtef_visitor_source, af_override_everything, 0, 1, []),
+        (30, mtef_team_0|mtef_visitor_source, af_override_everything, 0, 1, []),
+        (31, mtef_team_0|mtef_visitor_source, af_override_everything, 0, 1, []),
+        (32, mtef_team_0|mtef_visitor_source, af_override_everything, 0, 1, []),
+        (33, mtef_team_0|mtef_visitor_source, af_override_everything, 0, 1, []),
+        (34, mtef_team_0|mtef_visitor_source, af_override_everything, 0, 1, []),
+        (35, mtef_team_0|mtef_visitor_source, af_override_everything, 0, 1, []),
+        (36, mtef_team_0|mtef_visitor_source, af_override_everything, 0, 1, []),
+        (37, mtef_team_0|mtef_visitor_source, af_override_everything, 0, 1, []),
+        (38, mtef_team_0|mtef_visitor_source, af_override_everything, 0, 1, []),
+        (39, mtef_team_0|mtef_visitor_source, af_override_everything, 0, 1, []),
+        (40, mtef_team_0|mtef_visitor_source, af_override_everything, 0, 1, []),
+        (41, mtef_team_0|mtef_visitor_source, af_override_everything, 0, 1, []),
+        (42, mtef_team_0|mtef_visitor_source, af_override_everything, 0, 1, []),
+        (43, mtef_team_0|mtef_visitor_source, af_override_everything, 0, 1, []),
+        (44, mtef_team_0|mtef_visitor_source, af_override_everything, 0, 1, []),
+        (45, mtef_team_0|mtef_visitor_source, af_override_everything, 0, 1, []),
+        (46, mtef_team_0|mtef_visitor_source, af_override_everything, 0, 1, []),
+        (47, mtef_team_0|mtef_visitor_source, af_override_everything, 0, 1, []),
+        (48, mtef_team_1|mtef_visitor_source, af_override_everything, 0, 1, []),
+        (49, mtef_team_0|mtef_visitor_source, af_override_everything, 0, 1, []),
+
+        (50,mtef_team_1|mtef_visitor_source, 0,aif_start_alarmed,0,[]), #attackers
+        (51,mtef_team_0|mtef_visitor_source, 0,aif_start_alarmed,0,[]), #inf
+        (52,mtef_team_0|mtef_visitor_source, 0,aif_start_alarmed,0,[]), #cav
+        (53,mtef_team_0|mtef_visitor_source, 0,aif_start_alarmed,0,[]), #archers
+        (54,mtef_team_0|mtef_visitor_source, 0,aif_start_alarmed,0,[]), #archers
+        (55,mtef_team_0|mtef_visitor_source, 0,aif_start_alarmed,0,[]), #archers
+        (56,mtef_team_0|mtef_visitor_source, 0,aif_start_alarmed,0,[]), #archers
+        (57,mtef_team_0|mtef_visitor_source, 0,aif_start_alarmed,0,[]), #archers
+        (58,mtef_team_0|mtef_visitor_source, 0,aif_start_alarmed,0,[]), #player
     ], vc_weather +
     [
 
@@ -22697,6 +22749,11 @@ mission_templates = [
           (team_set_relation,1,2,-1),
           (team_set_relation,0,1,-1),
       ]),
+
+      (0, 0, ti_once, [
+          (assign, "$defender_team", 0),
+          (assign, "$attacker_team", 1),
+          ], []),
 
  (ti_before_mission_start, 0, 0, [
              ],
@@ -22711,24 +22768,7 @@ mission_templates = [
     immersive_troops,
     common_music_situation_update,
     common_battle_check_friendly_kills,
-
-      (0, 0, ti_once, #orders for troops
-        [
-          (set_show_messages, 0),
-          (team_give_order, 1, grc_everyone, mordr_stand_closer),
-          (team_give_order, 1, grc_everyone, mordr_charge),
-
-          (team_give_order, 0, grc_infantry, mordr_stand_closer), #infantry shield wall
-          (team_give_order, 0, grc_infantry, mordr_stand_closer),
-          (team_give_order, 0, grc_infantry, mordr_hold),
-
-          (team_give_order, 0, grc_archers, mordr_hold),
-
-          (team_give_order, 0, grc_cavalry, mordr_stand_closer),
-          (team_give_order, 0, grc_cavalry, mordr_charge),
-          (set_show_messages, 1),
-          ], []
-      ),
+    common_siege_refill_ammo,
 
     (ti_after_mission_start, 0, 0, [], [(call_script, "script_music_set_situation_with_culture", mtf_sit_fight)]),
 
@@ -22746,8 +22786,180 @@ mission_templates = [
       (finish_mission),
     ]),
 
-  ] + dplmc_battle_mode_triggers + dplmc_horse_cull + utility_triggers + battle_panel_triggers + extended_battle_menu + common_division_data + division_order_processing + real_deployment + formations_triggers + AI_triggers + jacobhinds_morale_triggers + enhanced_common_battle_triggers + battle_notifications + ai_horn
+      (0, 0, ti_once, #orders for troops
+        [
+          (set_show_messages, 0),
+          (team_give_order, 1, grc_everyone, mordr_stand_closer),
+          (team_give_order, 1, grc_everyone, mordr_charge),
+
+          (team_give_order, 0, grc_infantry, mordr_stand_closer), #infantry shield wall
+          (team_give_order, 0, grc_infantry, mordr_stand_closer),
+          (team_give_order, 0, grc_infantry, mordr_stand_closer),
+          (team_give_order, 0, grc_infantry, mordr_hold),
+
+          (team_give_order, 0, 3, mordr_stand_closer), #polearms shield wall
+          (team_give_order, 0, 3, mordr_stand_closer),
+          (team_give_order, 0, 3, mordr_stand_closer),
+          (team_give_order, 0, 3, mordr_hold),
+
+          (entry_point_get_position, pos10, 52),
+          (team_set_order_position, 0, grc_infantry, pos10),
+          (team_set_order_position, 0, 3, pos10),
+
+          #(entry_point_get_position, pos10, 53),
+          #(team_set_order_position, 0, grc_archers, pos10),
+          (team_give_order, 0, grc_archers, mordr_stand_ground),
+
+          (team_give_order, 0, grc_cavalry, mordr_stand_closer), #mordr_stand_ground
+          (team_give_order, 0, grc_cavalry, mordr_charge),
+          (set_show_messages, 1),
+          ], []
+      ),
+
+  ] + dplmc_battle_mode_triggers + dplmc_horse_cull + utility_triggers + battle_panel_triggers + extended_battle_menu + common_division_data + division_order_processing + real_deployment + formations_triggers + AI_triggers + jacobhinds_morale_triggers + enhanced_common_battle_triggers + battle_notifications
 ),
+
+
+  ("br_abandoned_villa_visit",0,-1,
+    "abandoned villa visit",
+    [(0,mtef_scene_source|mtef_team_0,af_override_horse,0,1,[]),
+      (1,mtef_visitor_source|mtef_team_1,af_override_horse,0,1,[]),
+      (2,mtef_visitor_source|mtef_team_2,af_override_horse,0,1,[]),
+      (3,mtef_visitor_source|mtef_team_2,af_override_horse,0,1,[]),
+      (4,mtef_visitor_source|mtef_team_2,af_override_horse,0,1,[]),
+      (5,mtef_visitor_source|mtef_team_2,af_override_horse,0,1,[]),
+      (6,mtef_visitor_source|mtef_team_2,af_override_horse,0,1,[]),
+      (7,mtef_visitor_source|mtef_team_2,af_override_horse,0,1,[]),
+      (8,mtef_visitor_source|mtef_team_2,af_override_horse,0,1,[]),
+    ], vc_weather +
+    [ 
+      (0, 0, ti_once, [
+          (tutorial_message_set_size, 15, 15),
+          (tutorial_message_set_position, 500, 650), #650 for tutorial or mission msg, 450 for dialogs
+          (tutorial_message_set_center_justify, 0),
+          ], []),
+      
+      (ti_before_mission_start, 0, 0, [
+          (check_quest_active,"qst_black_river"),
+          (quest_slot_eq, "qst_black_river", slot_quest_current_state, 5),
+        ],
+        [
+          #teams neutral en principio
+          (team_set_relation, 0, 1, 0),  #Teams
+          (team_set_relation, 0, 2, 0),
+          (team_set_relation, 1, 0, 0),
+          (team_set_relation, 1, 2, 0),
+          (team_set_relation, 2, 0, 0),
+          (team_set_relation, 2, 1, 0),
+      ]),
+      
+      (ti_escape_pressed, 0, 0, [
+          (quest_slot_eq, "qst_black_river", slot_quest_current_state, 6),
+      ], [
+          (quest_set_slot,"qst_black_river", slot_quest_current_state, 5),
+          (jump_to_menu, "mnu_noricum_sarmatian_attack_won"),
+          (finish_mission),
+      ]),
+      
+      (0.1, 0, ti_once,
+        [
+          (quest_slot_eq, "qst_black_river", slot_quest_current_state, 6),
+        ],
+        [
+          (mission_disable_talk), #ya no conversaciones
+          (set_party_battle_mode),
+      ]),
+      
+      (ti_on_agent_spawn, 0, 0, [],
+        [
+          (store_trigger_param_1, ":agent"),
+          (agent_get_troop_id, ":troop", ":agent"),
+          (neq, ":troop", "trp_player"),
+          (troop_is_hero, ":troop"),
+          (main_party_has_troop, ":troop"),
+          
+          (get_player_agent_no, ":player"),
+          (agent_get_team, ":playerteam", ":player"),
+          (agent_get_position,pos1,":player"),
+          
+          (agent_set_team, ":agent", ":playerteam"),
+          (agent_set_division, ":agent", 8),
+          (agent_add_relation_with_agent, ":agent", ":player", 1),
+          (agent_set_is_alarmed, ":agent", 1),
+          (set_show_messages, 0),
+          (team_give_order, ":playerteam", 8, mordr_follow), #Division 8 to avoid potential conflicts
+          (set_show_messages, 1),
+      ]),
+
+      (1, 0, 0,[
+          (neg|conversation_screen_is_active),
+          (neg|is_presentation_active, "prsnt_battle"),
+          (neg|is_presentation_active, "prsnt_order_display"),
+        ],
+        [
+          (try_begin),
+            (quest_slot_eq, "qst_black_river", slot_quest_current_state, 6),
+            (try_for_agents,":agent"),
+              (agent_is_alive,":agent"),
+              (agent_is_human,":agent"),
+              (agent_get_team, ":cur_team", ":agent"),
+              (agent_get_troop_id, ":troop_no", ":agent"),
+              (try_begin),
+                (neq, ":cur_team", 0),
+                (is_between, ":troop_no", "trp_br_amatus", "trp_tuldila"),
+                (agent_set_team, ":agent", 2),
+                (agent_ai_set_aggressiveness, ":agent", 5),
+                (agent_set_is_alarmed, ":agent", 1),
+              (try_end),
+              (team_set_relation, 2, 0, -1),
+              (team_set_relation, 0, 2, -1),
+            (try_end),
+          (try_end),
+      ]),
+
+      (1, 0, ti_once,
+        [
+          (quest_slot_eq, "qst_black_river", slot_quest_current_state, 6),
+        ],
+        [
+          (store_current_scene, ":cur_scene"),
+          (modify_visitors_at_site, ":cur_scene"),
+          (store_random_in_range, ":random_entry_point", 2, 6),
+          (add_visitors_to_current_scene, ":random_entry_point", "trp_langobard_retainer", 4), #spawns bandits to attack player
+      ]),
+      
+      (0, 0, ti_once, [], [
+          (call_script, "script_combat_music_set_situation_with_culture"),
+      ]),
+      
+      (ti_inventory_key_pressed, 0, 0, [(set_trigger_result,1)], []),
+      (ti_tab_pressed, 0, 0, [(set_trigger_result,1)], []),
+      
+      (1, 4, ti_once,
+        [
+          (quest_slot_eq, "qst_black_river", slot_quest_current_state, 6),
+          (this_or_next|main_hero_fallen),
+          (num_active_teams_le,1),
+        ],
+        [
+          (try_begin),
+            (main_hero_fallen),
+            (call_script, "script_change_troop_renown", "trp_player", -5),
+            (display_message, "@You lost have the fight against the langobards. They think you're dead...",color_good_news),
+            (mission_cam_animate_to_screen_color, 0xFF000000, 3000),
+            (call_script, "script_fail_quest", "qst_black_river"),
+            (jump_to_menu, "mnu_black_river_lost"),
+            (finish_mission,4),
+          (else_try),
+            (tutorial_message_set_background, 1),
+            (quest_set_slot,"qst_black_river", slot_quest_current_state, 7),
+            (call_script, "script_change_troop_renown", "trp_player", 5),
+            (mission_cam_animate_to_screen_color, 0xFF000000, 3000),
+            (jump_to_menu, "mnu_black_river_villa_won"),
+            (finish_mission,4),
+          (try_end),
+      ]),      
+    ],),
 
   ("bounty_hunter_duel",mtf_battle_mode,-1, 
     "bounty_hunter_duel",

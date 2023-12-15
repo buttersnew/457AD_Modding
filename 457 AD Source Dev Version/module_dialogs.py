@@ -51297,7 +51297,7 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
 
   [trp_br_amatus, "start", [],
    "Yes?", "amatus_1", []],
-  [trp_br_amatus|plyr, "amatus_1", [],
+  [trp_br_amatus|plyr, "amatus_1", [(neg|check_quest_active,"qst_black_river"),(neg|quest_slot_ge, "qst_black_river", slot_quest_current_state, 1),],
    "I apologize for my prior insolence, sublimis senator. Allow me to initiate our friendship by reuniting you with your fortune.", "amatus_intro_6", []],
 
   [trp_br_amatus|plyr, "amatus_1", [(check_quest_active,"qst_black_river"),(quest_slot_eq, "qst_black_river", slot_quest_current_state, 7),],
@@ -51353,7 +51353,7 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   [trp_br_gerontius|plyr, "gerontius_1", [],
    "Nevermind.", "close_window", []],
 
-  [trp_br_angelus, "start", [(eq, "$g_talk_troop_met", 0),(check_quest_active,"qst_black_river"),(quest_slot_eq, "qst_black_river", slot_quest_current_state, 3),], #ACT 4: LOST LIMITANEI
+  [trp_br_angelus, "start", [(check_quest_active,"qst_black_river"),(quest_slot_eq, "qst_black_river", slot_quest_current_state, 3),], #ACT 4: LOST LIMITANEI
    "Salvete, traveler. Welcome to Castellum Florentiam, the edge of the Latin world.", "angelus_intro_1", []],
   [anyone|plyr, "angelus_intro_1", [],
    "Limitanei? How do you receive supplies or even orders out here?", "angelus_intro_2", []],
@@ -51362,7 +51362,8 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   [anyone|plyr, "angelus_intro_3", [],
    "Attacks? By whom?", "angelus_intro_4", []],
   [anyone, "angelus_intro_4", [],
-   "The Sarmati, warlike vagabonds brought here to serve as a bulwark against the Germani. Instead, they quickly joined them in crossing the Danuvius to plunder Pannonia – overrunning the limes completely when Emperor Valentinian III forsook the province. Most villae were ruined, their denizens either falling victim to marauding Sarmati or seeking shelter in fortified settlements such as this one.", "angelus_intro_5", []],
+   "The Sarmati, warlike vagabonds brought here to serve as a bulwark against the Germani. Instead, they quickly joined them in crossing the Danuvius to plunder Pannonia – overrunning the limes completely when Emperor Valentinian III forsook the province. Most villae were ruined, their denizens either falling victim to marauding Sarmati or seeking shelter in fortified settlements such as this one.", "angelus_intro_5", [
+   (call_script, "script_set_conversation_troop", "trp_eques_stablesiani"),]],
   [anyone|other(trp_eques_stablesiani), "angelus_intro_5", [],
    "Sarmati! To arms!",
    "close_window", [

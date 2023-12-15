@@ -2277,7 +2277,7 @@ troops = [
    def_attrib_lvl_23|level(23),wp_polearm(190)|wp_one_handed(190)|wp_two_handed(190),knows_lvl_23,roman_face_1, roman_face_2],
 
   ["roman_marine","Marinus","Marini",tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_shield,no_scene,reserved,fac_culture_empire, #dressed in blue, has round shield, javelins, spatha and potential falx
-   [itm_roman_subarmalis_3,itm_roman_subarmalis_4,itm_tunic_7_cloak,itm_common_mail_short_2,itm_common_mail_short_2_cloak,itm_intercisa_helmet_1,itm_intercisa_helmet_2,itm_augst_helmet_1,itm_iatrus_1,itm_christies_helmet_1,itm_koblenz_helmet_1,itm_concave_shield_blue_1,itm_concave_shield_blue_2,itm_concave_shield_blue_3,itm_ballana_spatha,itm_falx,itm_throwing_spears]+shoes_roman+tunics_roman_marines+pannonian_hats,
+   [itm_tunic_7,itm_tunic_7_cloak,itm_roman_subarmalis_3,itm_roman_subarmalis_4,itm_common_mail_short_2,itm_intercisa_helmet_1,itm_intercisa_helmet_2,itm_augst_helmet_1,itm_iatrus_1,itm_christies_helmet_1,itm_koblenz_helmet_1,itm_concave_shield_blue_1,itm_concave_shield_blue_2,itm_concave_shield_blue_3,itm_ballana_spatha,itm_falx,itm_throwing_spears]+shoes_roman+pannonian_hats,
    def_attrib_lvl_21|level(21),wp_one_handed(165)|wp_two_handed(165)|wp_polearm(150)|wp_archery(100)|wp_crossbow(100)|wp_throwing(160)|wp_firearm(160),knows_lvl_21|knows_athletics_7,roman_face_1, roman_face_2],
 
   ["bucellarius","Bucellarius","Bucellarii",tf_mounted|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_horse|tf_guarantee_shield|tf_guarantee_polearm,0,0,fac_culture_empire, #primarily melee guard cavalry, well equipped -> role of HA will come later with Belisarius
@@ -2691,7 +2691,7 @@ troops = [
    def_attrib_lvl_13|level(13),wp_one_handed(110)|wp_polearm(100)|wp_firearm(150),knows_lvl_13|knows_power_strike_4,coptic_face_1, coptic_face_2],
 
   ["samaritan_rebel","Samaritan Rebel","Samaritan Rebels",tf_guarantee_basic|tf_guarantee_helmet,0,0,fac_samaritan_rebels, #rebelled in 484, if I add judaism in the future, could rebel if player is ERE and has low relations with judaism
-   [itm_deurne_campagi_1,itm_deurne_campagi_3,itm_coat_of_plates_red,itm_haditha_1,itm_late_roman_spear_2,itm_ballana_spatha,itm_round_shield_roman_15,itm_concave_shield_red_1],
+   [itm_deurne_campagi_1,itm_deurne_campagi_3,itm_battered_mail_1,itm_haditha_1,itm_late_roman_spear_2,itm_ballana_spatha,itm_oval_shield_leather_2],
    def_attrib_lvl_21|level(20),wp_one_handed(160)|wp_polearm(160),knows_lvl_21|knows_power_strike_6,coptic_face_1, coptic_face_2],
 
 #latin bandit names
@@ -5038,8 +5038,8 @@ troops = [
 
   #black river quest
   ["br_amatus","Amatus","Amatus",tf_hero, 0, reserved, fac_commoners,[itm_deurne_campagi_3,itm_coptic_tunic_11],def_attrib_lvl_28,wp(230),knows_lvl_28,0x0000000b620c50852ada76d8da6db6da00000000001e37130000000000000000],
-  ["br_gerontius","Gerontius","Gerontius",tf_hero,0,0, fac_commoners,[itm_roman_peasant_tunic_4,itm_deurne_campagi_1,itm_concave_shield_leather_small_1,itm_battle_axe_5],def_attrib_lvl_28,wp(230),knows_lvl_28,0x00000007a30ca0c23563adb6db6db6db00000000001db6d20000000000000000],
-  ["br_angelus","Angelus","Angelus",tf_hero, no_scene, 0, fac_commoners,[itm_deurne_campagi_2,itm_common_mail_short_1_cloak,itm_narona_helmet_mail,itm_aquincum_spatha_2,itm_oval_shield_blue_2],def_attrib_lvl_28,wp(230),knows_lvl_28,0x00000006e30c90863765adb6db7526e300000000001db6ca0000000000000000],
+  ["br_gerontius","Gerontius","Gerontius",tf_hero,0,0, fac_commoners,[itm_common_mail_long_2_cloak,itm_refitted_ridge_helmet_2,itm_deurne_campagi_1,itm_concave_shield_blue_small_1,itm_battle_axe_5],def_attrib_lvl_28,wp(230),knows_lvl_28,0x00000007a30ca0c23563adb6db6db6db00000000001db6d20000000000000000],
+  ["br_angelus","Angelus","Angelus",tf_hero, no_scene, 0, fac_commoners,[itm_deurne_campagi_2,itm_common_mail_short_1_cloak,itm_narona_helmet_mail,itm_aquincum_spatha_2,itm_roman_spear_4,itm_oval_shield_blue_2],def_attrib_lvl_28,wp(230),knows_lvl_28,0x00000006e30c90863765adb6db7526e300000000001db6ca0000000000000000],
   ["br_hathus","Hathus","Hathus",tf_hero|tf_allways_fall_dead, no_scene, 0, fac_commoners,[itm_wrapping_boots,itm_common_mail_short_7_cloak,itm_breda_helmet_1,itm_sword_viking_1,itm_concave_shield_germanic_21],def_attrib_lvl_25|level(25),wp(260),knows_lvl_25,0x00000007800c628954d590a8a3b13ce300000000001d36f50000000000000000],
 
   #varying rebels, other characters

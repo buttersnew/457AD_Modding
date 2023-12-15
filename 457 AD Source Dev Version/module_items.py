@@ -269,7 +269,7 @@ items = [
 # Horses: sumpter horse/ pack horse, saddle horse, steppe horse, warm blood, geldling, stallion,   war mount, charger,
 # Carthorse, hunter, heavy hunter, hackney, palfrey, courser, destrier.
 #Mounts/Horses
-["camel","Camel", [("bedyin_camel_a",0)], itp_merchandise|itp_type_horse, 0, 650,abundance(40)|hit_points(210)|body_armor(12)|difficulty(3)|horse_speed(34)|horse_maneuver(46)|horse_charge(40)|horse_scale(100),imodbits_horse_basic|imodbit_champion, [], culture_sassanid ],
+["camel","Camel", [("bedyin_camel_a",0)], itp_merchandise|itp_type_horse, 0, 650,abundance(40)|hit_points(210)|body_armor(12)|difficulty(3)|horse_speed(34)|horse_maneuver(46)|horse_charge(40)|horse_scale(112),imodbits_horse_basic|imodbit_champion, [], culture_sassanid ],
 ["bareback_horse_1","Horse", [("bareback_horse_1",0)], itp_merchandise|itp_type_horse, 0, 1000,abundance(30)|hit_points(110)|body_armor(2)|difficulty(3)|horse_speed(46)|horse_maneuver(42)|horse_charge(12)|horse_scale(92),imodbits_horse_basic, [], [fac_culture_11,fac_culture_15] ], #nubians, mauri
 
 #unused horses

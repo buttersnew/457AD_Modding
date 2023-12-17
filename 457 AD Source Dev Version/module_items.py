@@ -1526,31 +1526,10 @@ items = [
 ["roman_scale_7", "Squamata", [("roman_scale_7_1",0),("roman_scale_7_2",imodbit_reinforced),("roman_scale_7_3",imodbit_lordly),], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
  3200 , weight(12)|abundance(20)|head_armor(0)|body_armor(50)|leg_armor(12)|difficulty(9) ,imodbits_scale, [], culture_roman ], #romans
 
-["coptic_scale_1", "Squamata", [("coptic_scale_1_1",0),("coptic_scale_1_2",imodbit_reinforced),("coptic_scale_1_3",imodbit_lordly),], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
- 3200 , weight(12)|abundance(20)|head_armor(0)|body_armor(50)|leg_armor(12)|difficulty(9) ,imodbits_scale, [], [fac_culture_empire] ], #copts
-["coptic_scale_2", "Squamata", [("coptic_scale_2_1",0),("coptic_scale_2_2",imodbit_reinforced),("coptic_scale_2_3",imodbit_lordly),], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
- 3200 , weight(12)|abundance(20)|head_armor(0)|body_armor(50)|leg_armor(12)|difficulty(9) ,imodbits_scale, [], [fac_culture_empire] ], #copts
-["coptic_scale_3", "Squamata", [("coptic_scale_3_1",0),("coptic_scale_3_2",imodbit_reinforced),("coptic_scale_3_3",imodbit_lordly),], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
- 3200 , weight(12)|abundance(20)|head_armor(0)|body_armor(50)|leg_armor(12)|difficulty(9) ,imodbits_scale, [], [fac_culture_empire] ], #copts
-
 ["western_scholae_scale_1", "Squamata", [("western_scholae_scale_1_1",0),("western_scholae_scale_1_2",imodbit_reinforced),("western_scholae_scale_1_3",imodbit_lordly),], itp_unique|itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
  3200 , weight(12)|abundance(20)|head_armor(0)|body_armor(50)|leg_armor(12)|difficulty(9) ,imodbits_scale, [], [fac_culture_empire] ], #scholae
 ["eastern_scholae_scale_1", "Squamata", [("eastern_scholae_scale_1_1",0),("eastern_scholae_scale_1_2",imodbit_reinforced),("eastern_scholae_scale_1_3",imodbit_lordly),], itp_unique|itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
  3200 , weight(12)|abundance(20)|head_armor(0)|body_armor(50)|leg_armor(12)|difficulty(9) ,imodbits_scale, [], [fac_culture_empire] ], #scholae
-
-["centenarii_scale_1", "Squamata", [("centenarii_scale_1_1",0),("centenarii_scale_1_2",imodbit_reinforced),("centenarii_scale_1_3",imodbit_lordly),], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
- 3200 , weight(12)|abundance(10)|head_armor(0)|body_armor(50)|leg_armor(12)|difficulty(9) ,imodbits_scale, [], culture_roman ], #for centurions
-["centenarii_scale_2", "Squamata", [("centenarii_scale_2_1",0),("centenarii_scale_2_2",imodbit_reinforced),("centenarii_scale_2_3",imodbit_lordly),], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
- 3200 , weight(12)|abundance(10)|head_armor(0)|body_armor(50)|leg_armor(12)|difficulty(9) ,imodbits_scale, [], culture_roman ], #romans
-["centenarii_mail_1", "Rich Mail Shirt", [("centenarii_mail_1",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
- 3200 , weight(16.5)|abundance(10)|head_armor(0)|body_armor(53)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_roman ],
-["centenarii_mail_2", "Rich Mail Shirt", [("centenarii_mail_2",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
- 3200 , weight(16.5)|abundance(10)|head_armor(0)|body_armor(53)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_roman ],
-["candidati_mail_1", "Rich Mail Shirt", [("candidati_mail_1",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0, #for candidati
- 3200 , weight(16.5)|abundance(10)|head_armor(0)|body_armor(53)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_roman ],
-["candidati_mail_2", "Rich Mail Shirt", [("candidati_mail_2",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
- 3200 , weight(16.5)|abundance(10)|head_armor(0)|body_armor(53)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_roman ],
-
 
 #full ~60 body, 18 legs
 

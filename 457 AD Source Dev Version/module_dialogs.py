@@ -2862,7 +2862,7 @@ If you would like to practice your horsemanship, you can take my horse here. The
    "Silence, Sabir! Your treachery has cost you dearly. You are no longer welcome in my camp. Leave, and do not return.",
    "ernak_quest_kutriguroi_finished_5", []],
   [anyone|other(trp_sabir_aydar), "ernak_quest_kutriguroi_finished_5", [],
-   "You will regret this, Ilterish. The Sabirs will not forget your betrayal.",
+   "You will regret this, Bulyak. The Sabirs will not forget your betrayal.",
    "ernak_quest_kutriguroi_finished_6", []],
   [anyone, "ernak_quest_kutriguroi_finished_6", [],
    "Do not worry, my friend. We have made the right choice. The Kutrigurs will stand with you and Prince Ernak against the Sabirs.",

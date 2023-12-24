@@ -25409,12 +25409,12 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     (set_visitors, 51, "trp_eques_promoti", 20), #25
     (set_visitors, 51, "trp_eques_stablesiani", 5),
 
-    (set_visitors, 52, "trp_tiro", 20), 
+    (set_visitors, 52, "trp_tiro", 20),
     (set_visitors, 52, "trp_pedes", 10),
     (set_visitors, 52, "trp_roman_civilian", 15),
     (set_visitors, 52, "trp_roman_marine", 6),
 
-    (set_visitor, 52,  "trp_br_angelus"), #heros 
+    (set_visitor, 52,  "trp_br_angelus"), #heros
     (set_visitor, 52,  "trp_br_gerontius"), #2
 
     (set_visitors, 53, "trp_sagittarius", 5), #20
@@ -25472,7 +25472,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         (quest_set_slot,"qst_black_river", slot_quest_current_state, 7),
         (succeed_quest, "qst_black_river"),
         (call_script, "script_troop_add_gold", "trp_player", 50000),
-        (call_script, "script_change_troop_renown", "trp_player", 15),        
+        (call_script, "script_change_troop_renown", "trp_player", 15),
         (leave_encounter),
         (change_screen_return),
         ]),
@@ -25485,51 +25485,76 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     ("option_1",[],"Continue...",
         [
         (call_script, "script_change_troop_renown", "trp_player", -10),
-        (call_script, "script_fail_quest", "qst_black_river"),  
+        (call_script, "script_fail_quest", "qst_black_river"),
         (leave_encounter),
         (change_screen_return),
         ]),
     ],),
 
 #Battle of Bolia
-  ("battle_of_bolia",0,
-    "Reaching the outskirts of where the coalition of Suebi, Heruli, Gepids and Scirii have encamped, you join forces with Valamir and his allies. After some time, gothic scouts have reported that the coalition forces have left their camp, and have headed towards you and your allies...",
-    "none",
-    [],
-    [
-    ("continue",[],"To battle!",[
+("battle_of_bolia",0,
+  "Reaching the outskirts of where the coalition of Suebi, Heruli, Gepids and Scirii have encamped, you join forces with Valamir and his allies. After some time, gothic scouts have reported that the coalition forces have left their camp, and have headed towards you and your allies...",
+  "none",[
+    ## let allies joins
+    (assign, ":counter", 0),
+    (try_for_parties, ":party_no"),
+      (party_is_active, ":party_no"),
+      (party_stack_get_troop_id, ":leader", ":party_no", 0),
 
-        (quest_set_slot, "qst_battle_of_bolia", slot_quest_current_state, 2),
+      (this_or_next|eq, ":leader", "trp_kingdom_4_lord"),
+      (this_or_next|eq, ":leader", "trp_knight_4_1"),
+      (eq, ":leader", "trp_knight_4_2"),
+      (str_store_troop_name, s22, ":leader"),
+      (display_message, "@{s22} joined the battle on your side!", message_positive),
+      (party_quick_attach_to_current_battle, ":party_no", 0),
+      (val_add, ":counter", 1),
+    (try_end),
+    (try_begin),
+      (lt, ":counter", 3),
+      (display_message, "@Your allies still need time to prepare, come back later.", message_alert),
+    (try_end),
+    (ge, ":counter", 3), # if not all allies joined player cannot start battle
 
-        (try_for_range, ":unused", 0, 1),
-          (party_add_template, "p_coalition_camp", "pt_danubian_suebi_army"),
-          (party_add_template, "p_coalition_camp", "pt_heruli_army"),
-        (try_end),
+    # let enemies join
+    (try_for_range, ":unused", 0, 1),
+      (party_add_template, "p_coalition_camp", "pt_danubian_suebi_army"),
+      (party_add_template, "p_coalition_camp", "pt_heruli_army"),
+    (try_end),
+    (party_quick_attach_to_current_battle, "p_coalition_camp", 1), #enemies
 
-        (party_quick_attach_to_current_battle, "p_coalition_camp", 1), #enemies
+    # calculate battle variables (mainly necessary if there are also allies)
+    (assign, "$g_enemy_party", "$g_encountered_party"),
+    (assign, "$g_ally_party", -1),
+    (call_script, "script_encounter_calculate_fit"),
+    (try_begin),
+      (eq, "$new_encounter", 1),
+      (assign, "$new_encounter", 0),
+      (assign, "$g_encounter_is_in_village", 0),
+      (assign, "$g_encounter_type", 0),
+      (call_script, "script_encounter_init_variables"),
+      (assign, "$encountered_party_hostile", 1),
+      (assign, "$encountered_party_friendly", 0),
+    (try_end),
+  ],[
+  ("continue",[],"To battle!",[
+      (quest_set_slot, "qst_battle_of_bolia", slot_quest_current_state, 2),
+      (assign, "$g_battle_result", 0),
+      (assign, "$g_engaged_enemy", 1),
+      (assign, "$g_next_menu", "mnu_battle_of_bolia_won"),#victory menu
+      (assign, "$temp4", "mnu_battle_of_bolia_lost"),#victory menu
 
-        (try_for_parties, ":party_no"),
-          (party_is_active, ":party_no"),
-          (party_stack_get_troop_id, ":leader", ":party_no", 0),
+      # as its a larger battle we should also calculate battle advantage
+      (call_script, "script_calculate_battle_advantage"),
+      (set_battle_advantage, reg0),
 
-          (this_or_next|eq, ":leader", "trp_kingdom_4_lord"),
-          (this_or_next|eq, ":leader", "trp_knight_4_1"),
-          (eq, ":leader", "trp_knight_4_2"),
-          (party_quick_attach_to_current_battle, ":party_no", 0),
-        (try_end),
-
-        (assign, "$g_battle_result", 0),
-        (assign, "$g_engaged_enemy", 1),
-        (assign, "$g_next_menu", "mnu_battle_of_bolia_won"),#victory menu
-        (assign, "$temp4", "mnu_battle_of_bolia_lost"),#victory menu
-        (set_party_battle_mode),
-        (set_jump_mission,"mt_lead_charge_quest"),#can be used for any quest battle
-        (jump_to_scene, "scn_custom_battle_plains_5"),
-        (change_screen_mission),
-      ]),
+      (set_party_battle_mode),
+      (set_jump_mission,"mt_lead_charge_quest"),#can be used for any quest battle
+      (jump_to_scene, "scn_custom_battle_plains_5"),
+      (change_screen_mission),
     ]),
+]),
 
-  ("battle_of_bolia_won",0, 
+  ("battle_of_bolia_won",0,
     "You win!",
     "none", [],
     [
@@ -25537,7 +25562,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         [
         (quest_set_slot,"qst_battle_of_bolia", slot_quest_current_state, 3),
         (succeed_quest, "qst_battle_of_bolia"),
-        (call_script, "script_change_troop_renown", "trp_player", 50),    
+        (call_script, "script_change_troop_renown", "trp_player", 50),
         (disable_party, "p_coalition_camp"),
         (leave_encounter),
         (change_screen_return),
@@ -25551,7 +25576,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     ("option_1",[],"Continue...",
         [
         (call_script, "script_change_troop_renown", "trp_player", -50),
-        (call_script, "script_fail_quest", "qst_battle_of_bolia"),  
+        (call_script, "script_fail_quest", "qst_battle_of_bolia"),
         (disable_party, "p_coalition_camp"),
         (leave_encounter),
         (change_screen_return),

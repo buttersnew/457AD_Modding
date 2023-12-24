@@ -506,6 +506,9 @@ quests = [
   "{!}None"
  ),   
 
+ ("battle_of_bolia", "Anti-Amal Coalition", 0,
+  "{!}None"
+ ),
  #UNIQUE MINOR FACTION RELATED QUESTS
  ("aestii_rebel_quest", "The Duke of Taurapilis", 0,
   "{!}None"

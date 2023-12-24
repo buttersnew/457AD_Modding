@@ -32288,28 +32288,27 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
 
   #hunimund quest
   [anyone,"lord_tell_mission", [(eq, "$g_talk_troop", "trp_kingdom_4_lord"),
-  (eq, "$g_battle_of_bolia", 1), #check for later, war must have already started
+  #(eq, "$g_battle_of_bolia", 1), #check for later, war must have already started
   (eq, "$g_hunimund_quest", 0),
-  (neg|check_quest_active, "qst_hunimund_quest"),
-  ], "Yes, I have task of great importance, {playername}. One of my enemies whom I defeated, Hunimund, the king of the Suebi in the Danube has been reportedly raiding my lands. He leads an army of brigands and sarmatians.\
- The king refuses to surrender to me, and my generals are too busy to hunt him down and defeat him... {playername}, I have heard you are quite a capable person, and I wish for you to defeat him for me.\
- If you defeat him, bring him to me as a prisoner, and I'll give you quite the reward...", "lord_tell_mission_hunimund",
+  (neg|check_quest_active, "qst_battle_of_bolia"),
+  ], "Yes, I have task of great importance, {playername}. A coalition of Suebi, Rugii, Iazgyes, Heruli and Gepids has formed to oppose my rule.\
+ The kings of the Heruli and Suebi, Visalius and Hunimund have gathered their forces and are ready to march into my kingdom.\
+ As an ally of the Amali dynasty, I wish for you to help join me in this great battle, and help me crush the coalition...", "lord_tell_mission_hunimund",
    [
    ]],
    [anyone|plyr,"lord_tell_mission_hunimund", [
-  ], "I will hunt him down for you.", "lord_tell_mission_hunimund2",
+  ], "I will join you in battle.", "lord_tell_mission_hunimund2",
    [
    ]],
    [anyone,"lord_tell_mission_hunimund2", [
-  ], "Very good! I've heard reports of him setting up camp near Carnutunum.", "lord_pretalk",
-   [(call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 5),
-   (str_store_string, s2, "@Hunt down Hunimund. He should be somewhere near Carnutunum."),
-   (call_script, "script_start_quest", "qst_hunimund_quest", "$g_talk_troop"),
-   #(set_spawn_radius,5),
-   #(spawn_around_party,"p_village_11","pt_hunimund_horde_quest"),
-   (enable_party, "p_hidden_fort"),
+  ], "Very good! I've heard reports of that the coalition is currently camped near Arrabona.", "lord_pretalk",
+   [(call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 10),
+   (str_store_party_name, s3, "p_village_185"),
+   (str_store_string, s2, "@Hunt down Hunimund. He should be somewhere near {s3}."),
+   (call_script, "script_start_quest", "qst_battle_of_bolia", "$g_talk_troop"),
+   (quest_set_slot,"qst_battle_of_bolia", slot_quest_current_state, 1),
+   (enable_party, "p_coalition_camp"),
    (assign, "$g_hunimund_quest", 1),
-   (quest_set_slot,"qst_hunimund_quest", slot_quest_current_state, 1),
    ]],
 
   #silingi quest

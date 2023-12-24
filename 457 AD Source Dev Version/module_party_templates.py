@@ -117,6 +117,10 @@ party_templates = [
   ("aestii_rebel_party","Aestii Rebels",icon_axeman|carries_goods(50)|pf_quest_party|pf_always_visible,0,fac_neutral,soldier_personality,[(trp_aestii_rebel_king,1,1),(trp_aestii_skirmisher,30,40),(trp_aestii_tribesman,30,40),(trp_sitones_retainer,20,30),(trp_aestii_companion,10,20)]),
   ("heretical_codex_bandits","Bandits",icon_axeman|carries_goods(9)|pf_auto_remove_in_town|pf_quest_party,0,fac_neutral,bandit_personality,[(trp_burgundian_looter,1,1),(trp_robber,5,35),(trp_bandit,2,15),(trp_brigand,1,5)]),
 
+  #party size of about 200 each
+  ("danubian_suebi_army","Hunimund's Host",icon_germanic_army|carries_goods(20)|pf_show_faction,0,fac_hunimund_suebi,soldier_personality,[(trp_quadi_spearman,70,100),(trp_western_germanic_bowman,30,50),(trp_steppe_bandit,10,20),(trp_steppe_rider,10,30),(trp_steppe_cataphract,10,20),(trp_suebi_king,1,1)]), #spearmen, bowmen, iazyges
+  ("heruli_army","Visilaus's Host",icon_germanic_army|carries_goods(20)|pf_show_faction,0,fac_heruli,soldier_personality,[(trp_heruli_slave,40,60),(trp_limigantes_rebel,20,50),(trp_heruli_warrior,80,100),(trp_heruli_horseman,20,40),(trp_heruli_king,1,1)]), #spearmen, horsemen, skirmishers
+
   #event parties
   ("nero_rebel_army","Legio Neronia",icon_roman_army|carries_goods(30)|pf_auto_remove_in_town,0,fac_peasant_rebels,bandit_personality,[(trp_nero_larper_commander,1,1),(trp_miles_romani,200,215),(trp_sagittarius,60,70),(trp_bucellarius,45,55),(trp_imperial_signifer,5,5)]),
   ("agrippinus_rebel_army","Legio Gallia",icon_roman_army|carries_goods(30)|pf_auto_remove_in_town,0,fac_peasant_rebels,bandit_personality,[(trp_agrippinus,1,1),(trp_miles_romani,200,215),(trp_sagittarius,30,50),(trp_bucellarius,45,55),(trp_miles_foederatus_gothorum,50,60)]),

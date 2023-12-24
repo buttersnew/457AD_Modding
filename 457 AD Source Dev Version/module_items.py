@@ -2806,14 +2806,6 @@ weight(1)|abundance(80)|head_armor(24)|body_armor(14)|leg_armor(6)|difficulty(0)
 ["steel_shield", "Round Shield", [("woodenshield_small_d",0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_round_shield,  395 , weight(4)|hit_points(320)|body_armor(12)|spd_rtng(690)|shield_width(32),imodbits_shield ],
 ["leathershield_small_b_y", "Round Shield", [("leathershield_small_b_y",0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_round_shield,  395 , weight(4)|hit_points(320)|body_armor(12)|spd_rtng(90)|shield_width(32),imodbits_shield ],
 
-["medium_round_shield_1", "Round Shield", [("woodenshield_medium",0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_round_shield,  395 , weight(3.00)|hit_points(400)|body_armor(12)|spd_rtng(88)|shield_width(40),imodbits_shield],
-["medium_round_shield_2", "Round Shield", [("woodenshield_medium_d",0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_round_shield,  395 , weight(3.00)|hit_points(400)|body_armor(12)|spd_rtng(88)|shield_width(40),imodbits_shield],
-["medium_round_shield_3", "Round Shield", [("leathershield_medium",0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_round_shield,  395 , weight(3.00)|hit_points(400)|body_armor(12)|spd_rtng(88)|shield_width(40),imodbits_shield],
-["medium_round_shield_4", "Round Shield", [("leathershield_medium_d",0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_round_shield,  395 , weight(3.00)|hit_points(400)|body_armor(12)|spd_rtng(88)|shield_width(40),imodbits_shield],
-["medium_round_shield_5", "Round Shield", [("leathershield_medium_b",0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_round_shield,  395 , weight(3.00)|hit_points(400)|body_armor(12)|spd_rtng(88)|shield_width(40),imodbits_shield],
-["medium_round_shield_6", "Round Shield", [("leathershield_medium_y",0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_round_shield,  395 , weight(3.00)|hit_points(400)|body_armor(12)|spd_rtng(88)|shield_width(40),imodbits_shield],
-["medium_round_shield_7", "Round Shield", [("leathershield_medium_d_y",0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_round_shield,  395 , weight(3.00)|hit_points(400)|body_armor(12)|spd_rtng(88)|shield_width(40),imodbits_shield],
-
 #ROUND SHIELDS - THORSBERG
 #90 Width
 #70 Width

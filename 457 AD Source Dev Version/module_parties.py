@@ -539,11 +539,12 @@ parties = [
   ("noricum_refugee_camp","Refugee Camp",pf_disabled|pf_always_visible|icon_village_a|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-92.53, 83.47),[]), #severinus quest 
   ("sarmatian_camp","Campus_Sarmaticum",pf_disabled|icon_village_a|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-72.17, 84.19),[]), #hunimund quest 
   #ernak quest
-  ("village_of_the_lekhs", "Village of the Lekhs", pf_disabled|pf_always_visible|icon_village_a|pf_is_static, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (138, 79.07), [(trp_lekh_warrior,150,0),(trp_lekh_retainer,50,0)]), #[swycartographr] prev. coords: (-6.56, 158.21) #[swycartographr] prev. coords: (159.15, 168.09)
-  ("ruins_of_oplia_pontica", "Ruins of Olpia Pontica", pf_disabled|pf_always_visible|icon_bandit_lair|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (13.93, 87.64), []), #[swycartographr] prev. coords: (-6.56, 158.21) #[swycartographr] prev. coords: (159.15, 168.09)
-  ("camp_of_tatra", "Camp of Tatra", pf_disabled|pf_always_visible|icon_bandit_lair|pf_is_static, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (133.96, 156.33), [(trp_sabir_tatra, 1, 0),(trp_sabir_horse_archer,100,0),(trp_sabir_cataphract,50,0)]), #[swycartographr] prev. coords: (-6.56, 158.21) #[swycartographr] prev. coords: (159.15, 168.09)
+  ("village_of_the_lekhs", "Village of the Lekhs", pf_disabled|pf_always_visible|icon_village_a|pf_is_static, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (138, 79.07), [(trp_lekh_warrior,150,0),(trp_lekh_retainer,50,0)]), 
+  ("ruins_of_oplia_pontica", "Ruins of Olpia Pontica", pf_disabled|pf_always_visible|icon_bandit_lair|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (13.93, 87.64), []), 
+  ("camp_of_tatra", "Camp of Tatra", pf_disabled|pf_always_visible|icon_camp|pf_is_static, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (133.96, 156.33), [(trp_sabir_tatra, 1, 0),(trp_sabir_horse_archer,100,0),(trp_sabir_cataphract,50,0)]), 
   ("wolfmen_lair","Forest",pf_disabled|icon_castle_snow_b|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-80.6,127.09),[]),
   ("abandoned_silver_mine","Abandoned_Silver_Mine",icon_bandit_lair|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-253.03,38.97),[]), #hidden
+  ("coalition_camp","Coalition_Camp",pf_disabled|pf_always_visible|icon_camp|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-88.32, 82.39),[]),
 
   #("champion_lair","Forest_Hideout",pf_disabled|icon_castle_snow_b|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(65.58,-3.78),[]), #not used just yet
 
@@ -638,7 +639,7 @@ parties = [
   ("religious_site_16","Monastery_of_Saint_Martin",icon_castle_snow_a|pf_is_static|pf_always_visible|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-210.1,72.77),[]), #roman 
   ("religious_site_17","Stone_Circle",icon_castle_snow_b|pf_is_static|pf_always_visible|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-222.81,139.23),[]), #celtic pagan 
   ("religious_site_18","Altar_to_the_Skyfather",icon_castle_snow_b|pf_is_static|pf_always_visible|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(45.91, 112),[]), #shamanism
-  ("religious_site_19","Siwa",icon_castle_snow_b|pf_is_static|pf_always_visible|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(4.77, -104.82),[]), #egyptian paganism
+  ("religious_site_19","Siwa",icon_castle_snow_b|pf_is_static|pf_always_visible|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(11.27, -95.77),[]), #egyptian paganism
 
   #siwa - for roman pagans (egyptian)
   #?? for pagans in the steppes

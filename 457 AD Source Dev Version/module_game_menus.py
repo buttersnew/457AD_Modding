@@ -25662,6 +25662,72 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         ]),
     ],),
 
+#Battle of Bolia
+  ("battle_of_bolia",0,
+    "Reaching the outskirts of where the coalition of Suebi, Heruli, Gepids and Scirii have encamped, you join forces with Valamir and his allies. After some time, gothic scouts have reported that the coalition forces have left their camp, and have headed towards you and your allies...",
+    "none",
+    [],
+    [
+    ("continue",[],"To battle!",[
+
+        (quest_set_slot, "qst_battle_of_bolia", slot_quest_current_state, 2),
+
+        (try_for_range, ":unused", 0, 1),
+          (party_add_template, "p_coalition_camp", "pt_danubian_suebi_army"),
+          #(party_add_template, "p_coalition_camp", "pt_heruli_army"),
+        (try_end),
+
+        (party_quick_attach_to_current_battle, "p_coalition_camp", 1), #enemies
+
+        (try_for_parties, ":party_no"),
+          (party_is_active, ":party_no"),
+          (party_stack_get_troop_id, ":leader", ":party_no", 0),
+
+          (this_or_next|eq, ":leader", "trp_kingdom_4_lord"),
+          (this_or_next|eq, ":leader", "trp_knight_4_1"),
+          (eq, ":leader", "trp_knight_4_2"),
+          (party_quick_attach_to_current_battle, ":party_no", 0),
+        (try_end),
+
+        (assign, "$g_battle_result", 0),
+        (assign, "$g_engaged_enemy", 1),
+        (assign, "$g_next_menu", "mnu_battle_of_bolia_won"),#victory menu
+        (assign, "$temp4", "mnu_battle_of_bolia_lost"),#victory menu
+        (set_party_battle_mode),
+        (set_jump_mission,"mt_lead_charge_quest"),#can be used for any quest battle
+        (jump_to_scene, "scn_custom_battle_plains_5"),
+        (change_screen_mission),
+      ]),
+    ]),
+
+  ("battle_of_bolia_won",0, 
+    "You win!",
+    "none", [],
+    [
+    ("option_1",[],"Continue...",
+        [
+        (quest_set_slot,"qst_battle_of_bolia", slot_quest_current_state, 3),
+        (succeed_quest, "qst_battle_of_bolia"),
+        (call_script, "script_change_troop_renown", "trp_player", 50),    
+        (disable_party, "p_coalition_camp"),
+        (leave_encounter),
+        (change_screen_return),
+        ]),
+    ],),
+
+  ("battle_of_bolia_lost",0,
+    "You Lose!",
+    "none", [],
+    [
+    ("option_1",[],"Continue...",
+        [
+        (call_script, "script_change_troop_renown", "trp_player", -50),
+        (call_script, "script_fail_quest", "qst_battle_of_bolia"),  
+        (disable_party, "p_coalition_camp"),
+        (leave_encounter),
+        (change_screen_return),
+        ]),
+    ],),
 #abandoned silver mine
   ("abandoned_silver_mine",0,
     "Iberia was once known for its abundant silver mines, however as the years have gone by, many of the mines have dried up, leaving them abandoned and in disrepair...",
@@ -28784,7 +28850,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     ]),
 ]),
 ("camp_of_tatra_battle",0,
-    "A> last sacrifice is made to the sky-gods. During the ceremony a falcoon is sighted. This is a good omen. The warriors are ready and battle can start.",
+    "A last sacrifice is made to the sky-gods. During the ceremony a falcon is sighted. This is a good omen. The warriors are ready and battle can start.",
     "none", [
       (set_background_mesh, "mesh_pic_khergit"),
     ],

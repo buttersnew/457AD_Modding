@@ -26738,49 +26738,22 @@ I will use this to make amends to those you have wronged, and I will let it be k
 
 #hunimund quest
 [anyone|plyr,"lord_talk", [
-    (quest_slot_eq,"qst_hunimund_quest",slot_quest_current_state, 2),
-    (check_quest_active, "qst_hunimund_quest"),
+    (check_quest_active, "qst_battle_of_bolia"),
+    (check_quest_succeeded, "qst_battle_of_bolia"),
     (eq, "$g_talk_troop", "trp_kingdom_4_lord"),
                        ],
-"I have defeated Hunimund.", "lord_hunimund_defeated",[]],
+"I have returned for my reward.", "lord_hunimund_defeated",[]],
+
 
 [anyone,"lord_hunimund_defeated", [ ],
-"Excellent {playername}. Were you able to capture him?.", "lord_hunimund_defeated2",[
-(call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 10),
-]],
-
-[anyone|plyr,"lord_hunimund_defeated2",
-[
-(party_count_prisoners_of_type, ":num", "p_main_party", "trp_suebi_king"),
-(gt, ":num", 0),
-#(troop_slot_ge, "trp_suebi_king", slot_troop_prisoner_of_party, 1),
-#(main_party_has_troop, "trp_suebi_king"),
-],
-"Yes, I was able to capture him.", "lord_hunimund_captured",
-[(remove_troops_from_prisoners,  "trp_suebi_king", 1),]],
-
-
-[anyone|plyr,"lord_hunimund_defeated2",
-[(neg|main_party_has_troop, "trp_suebi_king"),],
-"No, Hunimund was able to evade capture.", "lord_hunimund_escaped",
-[]],
-
-[anyone,"lord_hunimund_captured", [ ],
 "Excellent work {playername}. Here's your reward, 10,000 siliquae.", "lord_talk",[
 (troop_add_gold, "trp_player", 10000),
-(call_script, "script_end_quest", "qst_hunimund_quest"),
-(call_script, "script_change_player_honor", 1),
+(call_script, "script_end_quest", "qst_battle_of_bolia"),
+(call_script, "script_change_player_honor", 2),
 (call_script, "script_change_troop_renown", "trp_player", 50),
 (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 35),
 ]],
 
-[anyone,"lord_hunimund_escaped", [ ],
-"Oh? He was able to escape? I wanted him captured, however since you defeated his army I will still give you a reward. You'll find it satisfactory...", "lord_talk",[
-(troop_add_gold, "trp_player", 6500),
-(call_script, "script_end_quest", "qst_hunimund_quest"),
-(call_script, "script_change_troop_renown", "trp_player", 30),
-(call_script, "script_change_player_relation_with_troop", "$g_talk_troop", -5),
-]],
 
 #Gaiseric
 [anyone|plyr,"lord_talk", [
@@ -32288,8 +32261,7 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
 
   #hunimund quest
   [anyone,"lord_tell_mission", [(eq, "$g_talk_troop", "trp_kingdom_4_lord"),
-  #(eq, "$g_battle_of_bolia", 1), #check for later, war must have already started
-  (eq, "$g_hunimund_quest", 0),
+  (eq, "$g_battle_of_bolia", 0),
   (neg|check_quest_active, "qst_battle_of_bolia"),
   ], "Yes, I have task of great importance, {playername}. A coalition of Suebi, Rugii, Iazgyes, Heruli and Gepids has formed to oppose my rule.\
  The kings of the Heruli and Suebi, Visalius and Hunimund have gathered their forces and are ready to march into my kingdom.\
@@ -32308,7 +32280,7 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
    (call_script, "script_start_quest", "qst_battle_of_bolia", "$g_talk_troop"),
    (quest_set_slot,"qst_battle_of_bolia", slot_quest_current_state, 1),
    (enable_party, "p_coalition_camp"),
-   (assign, "$g_hunimund_quest", 1),
+   (assign, "$g_battle_of_bolia", 1),
    ]],
 
   #silingi quest
@@ -47916,21 +47888,6 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
 
   [party_tpl|pt_isaurian_quest_army,"isaurian_talk_2", [], "{playername}, do you really think an Isaurian like me will surrender to you? Men, to arms!", "close_window",[[encounter_attack]]],
 
-
-  #hunimund quest
-  [party_tpl|pt_hunimund_horde_quest,"start", [
-  (eq,"$talk_context",tc_party_encounter),
-  (check_quest_active,"qst_hunimund_quest"),
-  (quest_slot_eq,"qst_hunimund_quest",slot_quest_current_state, 1),
-  (neq, "$g_talk_troop", "pt_hunimund_horde_quest"),
-  ],
-  "Who comes there?", "hunimund_talk_1",[]],
-
-  [party_tpl|pt_hunimund_horde_quest|plyr,"hunimund_talk_1", [], "I am {playername}. I was given orders from King Valamir of the Ostrogoths to take you prisoner. Surrender or die!", "hunimund_talk_2",[]],
-
-  [party_tpl|pt_hunimund_horde_quest,"hunimund_talk_2", [], "Very well, {playername}. Men, to arms!", "close_window",[[encounter_attack]]],
-
-
 #onogurs - part of sword of mars quest
 
   [party_tpl|pt_onogur_quest_army,"start", [
@@ -48848,49 +48805,6 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
                    ]],
   [trp_bigilas_son,"start", [], "Can I join your party now?", "attilas_bastard_son_liberated_map",[]],
 
-  #Maximinus - now removed from the game due to not being alive at this point
-  [trp_maximinus, "start", [(check_quest_active,"qst_sword_of_mars"),
-  (quest_slot_eq,"qst_sword_of_mars",slot_quest_current_state, 1),
-  (neq, "$g_talk_troop", "trp_sidonius_apollinaris"),
-  (neq, "$g_talk_troop", "trp_jerusalem_patriarch"),], #conditions just in case
-   "Greetings, I am Maximinus, and who are you?", "maximinus_talk", []],
-  [trp_maximinus|plyr, "maximinus_talk", [],
-   "Are you a former colleague of Priscus?", "maximinus_talk_history", []],
-  [trp_maximinus|plyr, "maximinus_talk", [],
-   "I didn't mean to bother you. Farewell.", "close_window", []],
-  [trp_maximinus, "maximinus_talk_history", [],
-   "Yes, I was the lead ambassador to the huns, with Priscus as my secretary. Why do you ask?", "maximinus_talk_history2", []],
-  [trp_maximinus|plyr, "maximinus_talk_history2", [],
-   "I came to ask you about Attila, and his legendary sword. Do you know anything on the topic?", "maximinus_talk_history3", []],
-  [trp_maximinus, "maximinus_talk_history3", [],
-   "I do not know much about the sword itself, except that it was not with Attila during his burial. Its quite possible the sword was taken. The last person to see his sword must have been his last wife, a woman named Ildico. I believe she is somewhere near the Vistula river, if you are looking for her.", "maximinus_talk_history4", []],
-  [trp_maximinus|plyr, "maximinus_talk_history4", [],
-   "Thank you for the information.", "close_window", [
-   (quest_set_slot,"qst_sword_of_mars", slot_quest_current_state, 2),
-   (add_troop_to_site, "trp_ildico", "scn_town_31_tavern", 12),
-   (display_message, "str_quest_log_updated"),
-   (add_quest_note_from_sreg, "qst_sword_of_mars", 5, "@Attila's last wife, a woman named Ildico may have information of location of the sword, as she was the last person to see the weapon. She is reportedly in the Vistula area, it would be best to check around the towns there to find her.",0),
-   ]],
-
-  [trp_maximinus, "start", [(neq, "$g_talk_troop", "trp_sidonius_apollinaris"),(neq, "$g_talk_troop", "trp_jerusalem_patriarch"),], #conditions just in case
-   "Yes? What do you need?", "maximinus_talk_normal", []],
-
-  [trp_maximinus|plyr, "maximinus_talk_normal", [(eq, "$g_journey_down_nile", 1),(check_quest_active,"qst_nubia_quest"),(quest_slot_eq,"qst_nubia_quest",slot_quest_current_state, 1),],
-   "Kaleb told me that you could spare me some troops to clear out the nubian bandits.", "maximinus_talk_nubia", []],
-  [trp_maximinus, "maximinus_talk_nubia", [],
-   "Yes, here. I have 10 Milites Comitatenses available for you to use. Do you want them?", "maximinus_talk_nubia2", []],
-  [trp_maximinus|plyr, "maximinus_talk_nubia2", [],
-   "Yes, I'll take them", "maximinus_talk_nubia3", []],
-  [trp_maximinus, "maximinus_talk_nubia3", [],
-   "Here, I'll let them know you'll need them. They will join your party soon.", "close_window", [
-   (assign, "$g_journey_down_nile", 2),
-   ]],
-  [trp_maximinus|plyr, "maximinus_talk_nubia2", [],
-   "No thank you, farewell.", "close_window", []],
-
-  [trp_maximinus|plyr, "maximinus_talk_normal", [],
-   "I didn't mean to bother you. Farewell.", "close_window", []],
-
   [trp_wayland, "start", [],
    "Greetings. I am Wayland, well known and legendary smith. What may I get you?", "wayland_1", []],
   [trp_wayland|plyr, "wayland_1", [(eq, "$unique_sword_crafted", 0)],
@@ -49546,120 +49460,6 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
    "Yes? What do you need?", "roman_landowner_wife_talk_simple_1", []],
   [trp_roman_landowner_wife|plyr, "roman_landowner_wife_talk_simple_1", [],
    "Sorry, I did not mean to disturb you.", "close_window", []],
-
-  #hunimund quest
-  [trp_suebi_king, "start", [(check_quest_active,"qst_hunimund_quest"),(quest_slot_eq,"qst_hunimund_quest",slot_quest_current_state, 1),],
-   "Well, I see you've taken out my guards.... I surrender, however I just have one request from you. If you let me go free, I'll give you my axe, but not only that but I will let you recruit some of the best cavalrymen at a fort I occupy...", "hunimund_battle_victory", []],
-
-  [trp_suebi_king|plyr, "hunimund_battle_victory", [],
-   "Very well. You'll go free.", "set_hunimund_free", [
-    (add_xp_as_reward, 5000),
-    (call_script, "script_change_troop_renown", "trp_player", 15),
-    (quest_set_slot,"qst_hunimund_quest", slot_quest_current_state, 2),
-    (store_relation,":rel","fac_hunimund_suebi","fac_player_faction"),
-      (try_begin),
-      (lt,":rel",-5),
-      (call_script, "script_set_player_relation_with_faction", "fac_hunimund_suebi", 10),
-    (else_try),
-      (call_script, "script_change_player_relation_with_faction", "fac_hunimund_suebi", 15),
-    (try_end),
-   ]],
-
-  [trp_suebi_king|plyr, "hunimund_battle_victory", [],
-   "No, you're coming with me.", "close_window", [
-    (add_xp_as_reward, 5000),
-    (call_script, "script_change_troop_renown", "trp_player", 15),
-    (quest_set_slot,"qst_hunimund_quest", slot_quest_current_state, 2),
-    (troop_join_as_prisoner, "trp_suebi_king"),
-   ]],
-
-  [trp_suebi_king, "set_hunimund_free", [],
-   "Thank you. Here's my axe, and the location of the fort is east of Aquincum. You have my thanks.", "close_window", [(troop_add_item, "trp_player", "itm_hunimund_axe"),(quest_set_slot,"qst_hunimund_quest", slot_quest_current_state, 2),(enable_party, "p_sarmatian_camp"),]],
-
-  [trp_axumite_merchant, "start", [(eq, "$g_talk_troop_met", 0),
-  (eq, "$g_journey_down_nile", 0),
-  (neq, "$g_talk_troop", "trp_sidonius_apollinaris"),
-  (neq, "$g_talk_troop", "trp_maximinus"),
-  (neq, "$g_talk_troop", "trp_jerusalem_patriarch"),
-  ], #conditions just in case
-   "Hello there. You wouldn't happen to be looking for a job?", "axumite_merchant_talk", []],
-
-  [trp_axumite_merchant|plyr, "axumite_merchant_talk", [],
-   "Yes, I am looking for a job right now.", "axumite_merchant_talk_quest", []],
-
-  [trp_axumite_merchant|plyr, "axumite_merchant_talk", [],
-   "No, not right now. Farewell.", "close_window", []],
-
-  [trp_axumite_merchant, "axumite_merchant_talk_quest", [],
-   "For years, the Nubians waged war against each other, raiding the Romans, as well as halting much of the trade in the region .Several years ago, a Roman named Maximinus launched a campaign against the Nubians, subjugating them and bringing peace. However, he recently perished, and once again war and strife has broken out.", "axumite_merchant_talk_quest2", []],
-
-  [trp_axumite_merchant, "axumite_merchant_talk_quest2", [],
-   "I am a merchant from the kingdom of Axum, who has been trying to maintain a traderoute. Due to this conflict, a group of Nubian bandits has been raiding our caravans, stealing many of the valuables were are going to be trading up here. However, we have an idea where these bandits are encamped. I wish for you to attack their camp, putting an end to their raiding... We think the bandits are encamped south of Philae", "axumite_merchant_talk_quest3", []],
-
-  [trp_axumite_merchant|plyr, "axumite_merchant_talk_quest3", [],
-   "Very well, I'll clear the bandits out for you.", "close_window", [
-   (setup_quest_text, "qst_nubia_quest"),
-   (str_store_string, s2, "@A group of nubian bandits have been attacking Axumite caravans heading to Alexandria. I have been tasked with attacking their encampment. These bandits are thought to be encamped south of Philae."),
-   (assign, "$g_journey_down_nile", 1),
-   (call_script, "script_start_quest", "qst_nubia_quest", "$g_talk_troop"),
-   (quest_set_slot,"qst_nubia_quest", slot_quest_current_state, 1),
-   (enable_party, "p_nubian_bandit_camp"),
-   ]],
-
-  [trp_axumite_merchant, "start", [(neq, "$g_talk_troop", "trp_sidonius_apollinaris"),(neq, "$g_talk_troop", "trp_jerusalem_patriarch"),(neq, "$g_talk_troop", "trp_maximinus"),], #conditions just in case
-   "Yes? What do you need?", "axumite_merchant_talk_normal", []],
-
-  [trp_axumite_merchant|plyr, "axumite_merchant_talk_normal", [
-  (check_quest_active,"qst_nubia_quest"),
-  (quest_slot_eq,"qst_nubia_quest",slot_quest_current_state, 2),
-  ],
-   "I have defeated the nubian bandits.", "axumite_merchant_talk_quest_finish", []],
-
-  [trp_axumite_merchant, "axumite_merchant_talk_quest_finish", [],
-   "Oh, fantasic! Here, for your service I am giving you 5000 siliquae. Also, feel free to purchase goods from me, I have some extremely rare goods imported from many exotic places!", "axumite_merchant_talk_quest_finish2", []],
-
-  [trp_axumite_merchant|plyr, "axumite_merchant_talk_quest_finish2", [],
-   "Thank you.", "axumite_merchant_talk_normal", [
-    (add_xp_as_reward, 6500),
-    (call_script, "script_change_troop_renown", "trp_player", 15),
-    (call_script, "script_troop_add_gold", "trp_player", 5000),
-    (call_script, "script_end_quest", "qst_nubia_quest"),
-    (assign, "$g_journey_down_nile", 3), #allows player to shop
-   ]],
-
-  [trp_axumite_merchant|plyr, "axumite_merchant_talk_normal", [(eq, "$g_journey_down_nile", 3),],
-  "I would like to purchase some goods from you.", "axumite_merchant_talk_shop_1", []],
-
-  [anyone, "axumite_merchant_talk_shop_1",
-  [ (troop_clear_inventory, "$g_talk_troop"),
-    (troop_add_item,"$g_talk_troop","itm_ivory", 0),
-    (troop_add_item,"$g_talk_troop","itm_ivory", 0),
-    (troop_add_item,"$g_talk_troop","itm_ivory", 0),
-    (troop_add_item,"$g_talk_troop","itm_ivory", 0),
-    (troop_add_item,"$g_talk_troop","itm_ivory", 0),
-    (troop_add_item,"$g_talk_troop","itm_velvet", 0),
-    (troop_add_item,"$g_talk_troop","itm_velvet", 0),
-    (troop_add_item,"$g_talk_troop","itm_spice", 0),
-    (troop_add_item,"$g_talk_troop","itm_spice", 0),
-    (troop_add_item,"$g_talk_troop","itm_gold_jewelry", 0),
-    (troop_add_item,"$g_talk_troop","itm_gold_jewelry", 0),
-    (troop_add_item,"$g_talk_troop","itm_quest_gold", 0),
-    (troop_add_item,"$g_talk_troop","itm_lion_pelt", 0),
-    ],
-  "Very good.", "axumite_merchant_talk_trade_1",
-  [(change_screen_trade),]],
-
-  [anyone, "axumite_merchant_talk_trade_1",
-  [],
-  "Thank you for shopping.", "close_window",[]],
-
-  [trp_axumite_merchant|plyr, "axumite_merchant_talk_normal", [(eq, "$g_journey_down_nile", 0),], #allows the player to reenter quest if they reject it the first time
-   "Do you still need someone for that job you mentioned?", "axumite_merchant_talk_normal_quest", []],
-  [trp_axumite_merchant, "axumite_merchant_talk_normal_quest", [],
-   "Why yes, I am.", "axumite_merchant_talk_quest", []],
-
-  [trp_axumite_merchant|plyr, "axumite_merchant_talk_normal", [],
-   "I didn't mean to bother you. Farewell.", "close_window", []],
 
   [trp_pilos_cultist, "start", [],
    "Good day, {sir/madam}. Would you like to hear the great word of the pilos?", "pilos_cultist_talk_1", []], #opening

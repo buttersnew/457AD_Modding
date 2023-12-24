@@ -111,16 +111,12 @@ factions = [
   ("armenian_rebels","Armenian Rebels", 0, 0.5,[("commoners",-0.05),("merchants",-0.5),("player_faction",-0.05),("kingdom_6",-0.75),("kingdom_2",0.75),("kingdom_16",0.5),("coptic_christians",0.75),("coptic_christians",0.75)], [], 0x888888),
   #Samaritan rebels - revolted in 484 under Zeno, may add them as a small rebel faction?
   ("samaritan_rebels","Samaritan Rebels", 0, 0.5,[("commoners",-0.2),("merchants",-0.5),("manhunters",-0.6),("player_faction",-0.15),("kingdom_1",-0.75),("kingdom_2",-0.75),("kingdom_6",-0.5),("jews",0.75)], [], 0x888888),
-  #gallaecian rebels - pro roman rebels revolting against violent suebi rule
-  #("gallaecian_rebels","Gallaecian Rebels", 0, 0.5,[("commoners",0.1),("merchants",0.1),("manhunters",-0.2),("player_faction",0.0),("kingdom_1",0.75),("kingdom_3",0.15),("kingdom_8",-1)], [], 0x888888),
   #saxon raider
   ("saxons","Saxon Raiders", 0, 0.5,[("commoners",0.1),("merchants",0.1),("manhunters",-0.2),("player_faction",-0.05),("player_supporters_faction",-0.05)], [], 0x888888),
   #suebi civil war
   #starts at war with the ostrogothic kingdom, will be spawned in an event war with scirii, rugii, heruli + suebi vs ostrogoths
   ("hunimund_suebi","Danubian Suebi", 0, 0.5,[("kingdom_4",-0.75),("kingdom_11",0.99),("kingdom_14",0.99),("kingdom_21",0.99)], [], 0x3c5a1b), #lead by hunimund, at war with ostrogoths, will make color orange
   ("heruli","Danubian Heruli", 0, 0.5,[("kingdom_4",-0.75),("kingdom_11",0.99),("kingdom_14",0.99),("kingdom_21",0.99)], [], 0x993322), #lead by Visilaus, at war with ostrogoths
-  # ("ghassanids","Ghassanids", 0, 0.5,[("kingdom_2",0.99),("coptic_christians",0.5),("coptic_rebels", 0.05)], [], 0xef301f), #allied with ERE, war with sassanids
-  # ("salihids","Salihids", 0, 0.5,[("kingdom_2",0.99),("kingdom_6",-0.75)], [], 0xc9ad34), #allied with ERE, war with sassanids, limes arabicus
   ("faltras_suebi","Faltras's Loyalists", 0, 0.5,[("kingdom_8",-0.75)], [], 0x3c5a1b),
 
   #Minor faction features

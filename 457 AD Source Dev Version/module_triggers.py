@@ -977,7 +977,7 @@ triggers = [
 #Invasions Begin
 (4800,0,ti_once,[],[ #4800 for 200 days
      (set_spawn_radius, 8),
-     (try_for_range, ":unused", 0, 6), # number of invaders to spawn + 1, roughly 200 days
+     (try_for_range, ":unused", 1, 6), # number of invaders to spawn + 1, roughly 200 days
            (spawn_around_party, "p_town_21", "pt_coptic_rebellion"),
      (try_end),  
      (dialog_box, "@A messenger approaches your warband, bringing news of rebellion! It appears that a large number of Anti-Chalcedonian Christians have revolted near Alexandria, killing the local patriarch, Proterius!", "@A messenger approaches your warband"),
@@ -986,7 +986,7 @@ triggers = [
 
 (724,0,ti_once,[(eq, "$g_foederati_event", 0),],[
   (set_spawn_radius, 8),
-  (try_for_range, ":unused", 0, 3),
+  (try_for_range, ":unused", 1, 3),
     (spawn_around_party, "p_town_13", "pt_foederati_rebels"),
   (try_end),  
   (spawn_around_party, "p_town_13", "pt_foederati_rebels"),
@@ -995,49 +995,6 @@ triggers = [
    ]),
 
 #Invasions END
-#Battle of Bolia
-(2400,0,ti_once,[(faction_slot_eq, "fac_kingdom_4", slot_faction_state, sfs_active)],[ #2400 for 100 days, checks if ostrogoths are still around
-    (try_begin), #Spawning in the Heruli
-       (store_num_parties_of_template, ":num_parties", "pt_heruli_horde"),
-       (lt,":num_parties",1),
-       (store_random,":spawn_point",num_heruli_horde_spawn_points),
-       (val_add,":spawn_point","p_heruli_spawn_point"),
-       (spawn_around_party,":spawn_point","pt_heruli_horde"),
-     #(assign,"$heruli_horde",reg(0)),
-     #(party_set_banner_icon, "$heruli_horde", "icon_banner_14"),
-     (try_end),
-    (try_begin), #Spawning in the Danubian Suebi
-       (store_num_parties_of_template, ":num_parties", "pt_scirii_horde"),
-       (lt,":num_parties",1),
-       (store_random,":spawn_point",num_scirii_horde_spawn_points),
-       (val_add,":spawn_point","p_scirii_spawn_point"),
-       (spawn_around_party,":spawn_point","pt_scirii_horde"),
-     #(assign,"$scirii_horde",reg(0)),
-     #(party_set_banner_icon, "$scirii_horde", "icon_banner_15"),
-     (try_end),
-
-    (try_begin), #additional ostrogothic armies (3)
-       (store_num_parties_of_template, ":num_parties", "pt_ostrogothic_army"),
-       (lt,":num_parties",3),
-       (store_random,":spawn_point",1),
-       (val_add,":spawn_point","p_village_147"),
-       (spawn_around_party,":spawn_point","pt_ostrogothic_army"),
-     #(assign,"$ostrogothic_horde",reg(0)),
-     #(party_set_banner_icon, "$ostrogothic_horde", "icon_map_flag_kingdom_4"),
-     (try_end),
-
-     (try_begin), #now setting up diplomatic changes
-      (faction_slot_eq, "fac_kingdom_14", slot_faction_state, sfs_active),
-      (call_script, "script_diplomacy_start_war_between_kingdoms", "fac_kingdom_4", "fac_kingdom_14", 0), #Ostrogoths vs Rugii
-     (try_end),
-     (try_begin), #now setting up diplomatic changes
-      (faction_slot_eq, "fac_kingdom_21", slot_faction_state, sfs_active),
-      (call_script, "script_diplomacy_start_war_between_kingdoms", "fac_kingdom_4", "fac_kingdom_21", 0), #Ostrogoths vs Scirii
-     (try_end),
-
-     (dialog_box, "@A messenger approaches your warband, bringing news of war! The Ostrogoths have declared war on their former allies, the Rugii, Heruli, Scirii, and the danubian Suebi, with an attempt to conquer all of Illyria!", "@A messenger approaches your warband"),
-     (assign, "$g_battle_of_bolia", 1),
-   ]),
 
 (24,0,ti_once,[],[
   (add_troop_to_site, "trp_corrupt_priest", "scn_town_25_tavern", 12),

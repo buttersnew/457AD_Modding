@@ -749,6 +749,7 @@ strings = [
 #npc16 = Shapurdukhtak - needs work and rename
 #npc17 = Alachis - done -wlod
 #npc18 = Khaetag - done -wlod
+#npc25 - Iohannes - oliver
 
   ("npc1_intro", "Shalom and may your road always be prosperous, besiyata dishmaya!. Are you looking for an experienced sailor and a man who is blessed by Yahweh? If you are you have found your man, I also have some knowledge about trading and exchanging of goods, prices, spices and so on. Once you are a sailor for long enough you start to learn about all and of course I as an educated man wishing to learn more, and as I said I can also administer spiritual help to your men."),
   ("npc2_intro", "Hello. Would you be so kind as to have a cup with me?"),

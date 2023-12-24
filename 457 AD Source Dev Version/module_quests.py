@@ -450,15 +450,7 @@ quests = [
   "{!}None"
  ),
 
- ("hunimund_quest", "Suebi Raiders", 0, #remaking
-  "{!}None"
- ),
-
  ("bagadua_quest", "The Bagadua", 0,
-  "{!}None"
- ),
-
- ("nubia_quest", "Journey Down the Nile", 0, #will cut
   "{!}None"
  ),
 
@@ -525,10 +517,6 @@ quests = [
   "{!}"
  ),    
 
- ("haddingr_quest", "Haddingr's Revenge", 0, 
-  "{!}"
- ),   
-#TO BE DONE QUESTS
  ("the_wolfmen", "The Wolf Headed Men", 0,
   "{!}None"
  ),
@@ -536,6 +524,15 @@ quests = [
  ("black_river", "The Black River", 0, #by llkk11
   "{!}None"
  ),
+
+ ("scythaboo_quest", "Gothic Violence", 0,
+  "{!}None"
+ ),
+
+#TO BE DONE QUESTS
+ ("haddingr_quest", "Haddingr's Revenge", 0, 
+  "{!}"
+ ),   
 
  ("revenge_of_paganism", "Revenge of Paganism", 0, #by northwind - will rename
   "{!}None"

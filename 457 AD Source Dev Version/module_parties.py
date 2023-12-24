@@ -527,9 +527,8 @@ parties = [
   ("waylands_smithy","Wayland's Smithy",pf_disabled|icon_castle_snow_b|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-224.17, 121.57),[]), 
   ("donar_forest","Forest",pf_disabled|icon_castle_snow_b|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-95.23,142.24),[]), 
   ("abandoned_mithraic_temple","Abandoned Antrum",pf_disabled|icon_castle_snow_b|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-136.05,60.09),[]), 
-  ("nubian_bandit_camp","Bandit Encampment",pf_disabled|icon_bandit_lair|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(96.18,-160.01),[]),
   ("vidigoias_grave","Vidigoia's Grave",pf_disabled|icon_castle_snow_b|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-7.84,68.9),[]), 
-  ("bagadua_fort","Ruins of Iuliobriga",pf_disabled|pf_always_visible|icon_castle_snow_b|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-227.66,29.15),[(trp_bagaudae_footman, 30, 0),(trp_forest_bandit, 20, 0),(trp_forest_bandit_recruit, 30, 0)]), 
+  #("bagadua_fort","Ruins of Iuliobriga",pf_disabled|pf_always_visible|icon_castle_snow_b|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-227.66,29.15),[(trp_bagaudae_footman, 30, 0),(trp_forest_bandit, 20, 0),(trp_forest_bandit_recruit, 30, 0)]), 
   ("grove_of_nymphs","Grove of Nymphs",pf_disabled|icon_castle_snow_b|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-25.65,-19.97),[]), 
   ("sinuessa","Sinuessa",pf_disabled|icon_village_snow_burnt_a|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-107.04,14.81),[]), #roman_village_battle map 
   ("silingi_village","Vicus Silingorum",pf_disabled|icon_village_a|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-68.33,123.08),[]), 
@@ -537,7 +536,6 @@ parties = [
   ("agrippinus_quest_villa","Agrippinus's Villa",pf_disabled|pf_always_visible|icon_village_snow_a|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-182.33,88.54),[]), 
   ("court_of_attila","Attila's Court",pf_disabled|icon_castle_snow_b|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-62.33, 88.26),[]), #sword of attila quest 
   ("noricum_refugee_camp","Refugee Camp",pf_disabled|pf_always_visible|icon_village_a|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-92.53, 83.47),[]), #severinus quest 
-  ("sarmatian_camp","Campus_Sarmaticum",pf_disabled|icon_village_a|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-72.17, 84.19),[]), #hunimund quest 
   #ernak quest
   ("village_of_the_lekhs", "Village of the Lekhs", pf_disabled|pf_always_visible|icon_village_a|pf_is_static, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (138, 79.07), [(trp_lekh_warrior,150,0),(trp_lekh_retainer,50,0)]), 
   ("ruins_of_oplia_pontica", "Ruins of Olpia Pontica", pf_disabled|pf_always_visible|icon_bandit_lair|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (13.93, 87.64), []), 

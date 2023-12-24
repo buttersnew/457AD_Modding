@@ -5509,67 +5509,6 @@ TOTAL:  {reg5}"),
   ),
 
     (
-        "ruins_2",0,
-        "You arrive at some ruins.",
-        "none",
-        [
-            ],
-        [
-            ("enter",[(eq,"$g_hunimund_ruins",0),],"Approach the Ruins.",
-             [
-
-      (try_begin),
-        (store_troop_health, ":health", "trp_player", 0), #get relative health in 1-100 range and put it into the ":health" variable
-        (lt, ":health", 30),
-        (val_add, ":health", 35),               #add to it the 5%
-        (troop_set_health,   "trp_player", ":health"),   #set it
-      (try_end),
-
-      (set_jump_mission,"mt_dungeon_ruins_2"),
-      (modify_visitors_at_site,"scn_hidden_fort"),
-      (reset_visitors),
-      (assign, ":cur_entry", 1), #entry points 1 to 10
-        (try_for_range, ":companion", companions_begin, companions_end),
-          (le, ":cur_entry", 10),
-          (main_party_has_troop,":companion"),
-          (set_visitor, ":cur_entry", ":companion"),
-          (val_add, ":cur_entry", 1),
-        (try_end),
-
-          #enemy basic entry points 11 to 20
-          (set_visitor,11,"trp_western_germanic_freeman"),
-          (set_visitor,12,"trp_western_germanic_freeman"),
-          (set_visitor,13,"trp_western_germanic_freeman"),
-          (set_visitor,14,"trp_western_germanic_freeman"),
-          (set_visitor,15,"trp_western_germanic_freeman"),
-          (set_visitor,16,"trp_western_germanic_freeman"),
-          (set_visitor,17,"trp_western_germanic_freeman"),
-          (set_visitor,18,"trp_steppe_rider"),
-          (set_visitor,19,"trp_steppe_rider"),
-          (set_visitor,20,"trp_steppe_rider"),
-
-          #entry points 25-29 for elite guards
-          (set_visitor,25,"trp_western_germanic_retainer"),
-          (set_visitor,26,"trp_western_germanic_retainer"),
-          (set_visitor,27,"trp_western_germanic_retainer"),
-          (set_visitor,28,"trp_steppe_cataphract"),
-          (set_visitor,29,"trp_steppe_cataphract"),
-
-          #entry point 30 for hunimund
-          (set_visitor,30,"trp_suebi_king"), #hunimund
-        (set_jump_entry, 0),
-
-        (scene_set_slot, "scn_hidden_fort", slot_scene_visited, 1),
-        (jump_to_scene,"scn_hidden_fort"),
-        (change_screen_mission),
-               ]),
-        ("leave",[],"Leave...",
-       [(change_screen_map),
-        ]),
-    ],
-  ),
-
-    (
         "holy_lance_cave",0,
         "You arrive at a cave.",
         "none",
@@ -24329,27 +24268,6 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       ]),
     ]),
 
-  ("town_recruit_iazyges",0,
-    "Some of the horsemen are interested in joining your party.",
-    "none", [ (set_background_mesh, "mesh_pic_recruits"),
-    ],
-    [("hire_garrison",[(store_troop_gold, ":gold", "trp_player"),
-        (call_script, "script_game_get_join_cost", "trp_steppe_bandit"),
-        (assign, reg41, reg0),
-        (val_mul, reg41, 5),
-        (ge, ":gold", reg41),], "Hire them. ({reg41} siliquae)",
-        [
-          (party_add_members,"p_main_party","trp_steppe_bandit",5),
-          (troop_remove_gold,"trp_player", reg41),
-          (party_set_slot,"$g_encountered_party",slot_center_volunteer_troop_type,5),#5 days cooldown
-          (jump_to_menu,"mnu_iazyges_settlement"),
-      ]),
-      ("return_to_town_menu",[],"Head back.",
-        [
-          (jump_to_menu,"mnu_iazyges_settlement"),
-      ]),
-    ]),
-
   ("attila_sword_location",0,
     "You have found the grove that Ildico has told you about. As you look around for the sword, you see a familiar figure approach you.",
     "none",
@@ -24732,74 +24650,6 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         (change_screen_return),
         ]),
     ],),
-
-
-
-
-
-  ("nubian_bandit_battle",0,
-    "You and your men approach the bandit camp. The bandit sentinels notice you, and yell back to their comrades. You prepare for a fight...",
-    "none",
-    [],
-    [
-      ("continue",[],
-       "Continue...",
-       [
-       (assign, "$g_battle_result", 0),
-       (modify_visitors_at_site,"scn_nubian_bandit_camp"),
-       (reset_visitors),
-       (set_visitor,0,"trp_player"), #player
-       (call_script, "script_party_count_fit_for_battle", "p_main_party"),
-
-       (set_visitors,2,"trp_nubian_tribesman", 30), #defending the gate
-       (set_visitors,2,"trp_nubian_warrior", 15),
-
-       (set_visitors,3,"trp_nubian_bowman", 15), #archers
-       (set_visitors,4,"trp_nubian_bowman", 10),
-       (set_visitors,5,"trp_nubian_archer", 7), #two groups for both sides
-       (set_visitors,6,"trp_nubian_archer", 7),
-       #(set_visitors,7,"trp_watchman", 25),
-
-       #(set_visitors,8,"trp_nubian_footman", 20),
-       #(set_visitors,9,"trp_nubian_footman", 20),
-       #(set_visitors,10,"trp_nubian_footman", 20),
-
-       (set_jump_mission,"mt_nubian_bandit_siege"),
-       (jump_to_scene, "scn_nubian_bandit_camp"),
-       (change_screen_mission),
-        ]),
-]),
-
-  (
-    "nubian_bandit_battle_won",0,
-    "You and your men celebrate your victory over the bandits, and plunder the camp for valuables. " +
-    "You ought to return to Kaleb and Maximinus for your reward.",
-    "none",
-    [],
-    [
-      ("continue", [], "Continue...",
-        [(quest_set_slot,"qst_nubia_quest", slot_quest_current_state, 2), #quest state moved forwards to advance the quest
-        (leave_encounter),
-        (change_screen_return),
-        (disable_party, "p_nubian_bandit_camp"),
-      ]),
-    ]),
-
-  (
-    "nubian_bandit_battle_lost",0,
-    "You and your men have been pushed back by the bandits. Many of your soldiers lie dead or wounded." +
-    "Your men regroup, and are ready for another attack...",
-    "none",
-    [],
-    [
-      ("continue", [], "Continue...",
-        [
-        #(quest_set_slot,"qst_nubia_quest", slot_quest_current_state, 2), #quest state moved forwards to advance the quest
-        (leave_encounter),
-        (change_screen_return),
-      ]),
-    ]),
-
 
   ("nero_grove",0,
     "You have found the Grove of the Nymphs.",
@@ -25187,27 +25037,6 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         (change_screen_return),
       ]),
     ]),
-
-  ("iazyges_settlement",0,
-    "As you cross a small stream, you see a small, fortified camp.",
-    "none",
-    [],
-    [
-
-      ("recruit_iazyges",
-    [
-        (party_slot_eq,"$g_encountered_party",slot_center_volunteer_troop_type,0),#can recruit
-        (party_get_free_companions_capacity, ":free_capacity", "p_main_party"),
-        (ge, ":free_capacity", 5),
-      ],
-       "Ask if anyone wants to join you.",
-      [
-        (jump_to_menu,"mnu_town_recruit_iazyges"),
-    ]),
-
-     ("leave",[],"Leave",[(leave_encounter),(change_screen_return)]),
-    ]),
-
 
 #wolfmen/cynocephalus quest
   ("wolfmen_forest",0,
@@ -25674,7 +25503,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 
         (try_for_range, ":unused", 0, 1),
           (party_add_template, "p_coalition_camp", "pt_danubian_suebi_army"),
-          #(party_add_template, "p_coalition_camp", "pt_heruli_army"),
+          (party_add_template, "p_coalition_camp", "pt_heruli_army"),
         (try_end),
 
         (party_quick_attach_to_current_battle, "p_coalition_camp", 1), #enemies
@@ -27282,7 +27111,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     ]),
 
 ("event_arran_revolt",menu_text_color(0xFF000000)|mnf_disable_all_keys,
-    "News from Eranshahr warn you of a new war! The king of Albania, Vache II, relative to the Shahanshah, raised his armies and is now challenging the Shahanshah in order to contest his authority. \
+    "News from Eranshahr warn you of a new war! The king of Arran, Vache II, relative to the Shahanshah, raised his armies and is now challenging the Shahanshah in order to contest his authority. \
   Vache II and his allies have grown strong resentment towards the King of Kings and now they wish to declare themselves independent.^\
   Furthermore, Vache II has exiled the Persian Fire Priests and reembraced his old faith in Christ, that he was forced to abandon some years before.",
     "none",
@@ -27360,7 +27189,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         [
           (troop_set_slot, "trp_knight_bagadua_1", slot_troop_occupation, slto_kingdom_hero),
           (troop_set_note_available,"trp_knight_bagadua_1",1),
-          (troop_set_slot, "trp_knight_bagadua_1", slot_troop_wealth, 90000),
+          (troop_set_slot, "trp_knight_bagadua_1", slot_troop_wealth, 10000),
           (call_script, "script_create_kingdom_hero_party", "trp_knight_bagadua_1", "$g_player_court"),
           (change_screen_return, 0),
         ]

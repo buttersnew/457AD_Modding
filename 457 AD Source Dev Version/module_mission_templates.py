@@ -25901,4 +25901,201 @@ mission_templates = [
     ]
 ),
 
+  ("ambush_riversw",mtf_battle_mode,-1,#Siege Warfare
+    "Forest",
+    [(0,mtef_scene_source|mtef_team_0,af_override_horse,0,1,[]), #player go
+      (1,mtef_scene_source|mtef_team_0,af_override_horse,0,1,[]), #player back
+      (2,mtef_visitor_source|mtef_team_0,af_override_horse,aif_start_alarmed,20,[]),
+      (3,mtef_visitor_source|mtef_team_0,af_override_horse,aif_start_alarmed,20,[]),
+      (4,mtef_visitor_source|mtef_team_0,af_override_horse,aif_start_alarmed,20,[]),
+      (5,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
+      (6,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
+      (7,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
+      (8,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
+      (9,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
+      (10,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
+      (11,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
+      (12,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
+      (13,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
+      (14,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
+      (15,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
+      (16,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
+      (17,mtef_visitor_source|mtef_team_2,af_override_horse,0,1,[]),
+      (18,mtef_visitor_source|mtef_team_2,af_override_horse,0,1,[]),
+      (19,mtef_visitor_source|mtef_team_2,af_override_horse,0,1,[]),
+      (20,mtef_visitor_source|mtef_team_2,af_override_horse,0,1,[]),
+      (21,mtef_visitor_source|mtef_team_2,af_override_horse,0,1,[]),
+      (22,mtef_visitor_source|mtef_team_2,af_override_horse,0,1,[]),
+      (23,mtef_visitor_source|mtef_team_2,af_override_horse,0,1,[]),
+      (24,mtef_visitor_source|mtef_team_2,af_override_horse,0,1,[]),
+      (25,mtef_visitor_source|mtef_team_2,af_override_horse,0,1,[]),
+      (26,mtef_visitor_source|mtef_team_2,af_override_horse,0,1,[]),
+      (27,mtef_visitor_source|mtef_team_2,af_override_horse,0,1,[]),
+      (28,mtef_visitor_source|mtef_team_2,af_override_horse,0,1,[]),
+      (29,mtef_visitor_source|mtef_team_2,af_override_horse,0,1,[]),
+      (30,mtef_visitor_source|mtef_team_2,af_override_horse,0,1,[]),
+      (31,mtef_visitor_source|mtef_team_2,af_override_horse,0,1,[]),
+    ], vc_weather + 
+    [
+      
+      (ti_before_mission_start, 0, 0, [],
+        [
+          (assign,"$g_battle_result",0),
+          (team_set_relation, 0, 2, -1), # -1 for enemy, 1 for friend, 0 for neutral
+          (team_set_relation,1,2,0),
+          (team_set_relation,0,1,-1),
+      ]),
+      
+      
+      (0, 0, ti_once,
+        [
+          (assign, "$attacker_team", 0),
+          (assign, "$defender_team_2", 2),
+          ], []
+      ),
+      
+      (3, 0, ti_once,
+        [
+          (set_show_messages, 0),
+          (team_give_order, "$attacker_team", grc_everyone, mordr_follow),
+          (team_give_order, "$defender_team_2", grc_infantry, mordr_stand_closer),
+          (team_give_order, "$defender_team_2", grc_archers, mordr_stand_closer),
+          (team_give_order, "$defender_team_2", grc_cavalry, mordr_stand_closer),
+          (set_show_messages, 1),
+          ], []
+      ),
+      
+      (0.1, 0, ti_once, [
+          (store_skill_level,":player_sneaking_skill","skl_athletics","trp_player"),
+        #  (val_min, ":player_sneaking_skill", 0),
+          
+          (try_begin),
+            (eq,":player_sneaking_skill",10),
+            (assign,":sneak_distance",5400),
+          (else_try),
+            (eq,":player_sneaking_skill",9),
+            (assign,":sneak_distance",5600),
+          (else_try),
+            (eq,":player_sneaking_skill",8),
+            (assign,":sneak_distance",5800),
+          (else_try),
+            (eq,":player_sneaking_skill",7),
+            (assign,":sneak_distance",6000),
+          (else_try),
+            (eq,":player_sneaking_skill",6),
+            (assign,":sneak_distance",6200),
+          (else_try),
+            (eq,":player_sneaking_skill",5),
+            (assign,":sneak_distance",6400),
+          (else_try),
+            (eq,":player_sneaking_skill",4),
+            (assign,":sneak_distance",6600),
+          (else_try),
+            (eq,":player_sneaking_skill",3),
+            (assign,":sneak_distance",6800),
+          (else_try),
+            (eq,":player_sneaking_skill",2),
+            (assign,":sneak_distance",7000),
+          (else_try),
+            (eq,":player_sneaking_skill",1),
+            (assign,":sneak_distance",7400),
+          (else_try),
+            (assign,":sneak_distance",8000),
+          (try_end),
+          (get_player_agent_no,":player_agent"),
+          (agent_get_position,pos1,":player_agent"),
+          (assign,":continue",0),
+          (try_for_agents, ":cur_agent"),
+            (agent_get_team, ":team", ":cur_agent"),
+            (eq, ":team", 2),
+            (agent_get_position,pos2,":cur_agent"),
+            (get_distance_between_positions,":distance",pos1,pos2),
+            (lt,":distance",":sneak_distance"),
+            (agent_set_team, ":cur_agent", 1),
+            (agent_ai_set_aggressiveness, ":cur_agent", 9),
+            (assign,":continue",1),
+          (try_end),
+          (eq,":continue",1),
+        ],
+        [
+          (set_party_battle_mode),
+      ]),
+      
+      (1, 4, ti_once,
+        [
+          (this_or_next|main_hero_fallen),
+          (all_enemies_defeated, 5),
+          (eq, "$cam_mode", 0),
+        ],
+        [
+          (try_begin),
+            (main_hero_fallen),
+            (assign, "$g_campaign_death", 1),
+            (jump_to_menu, "mnu_captivity_wilderness_taken_prisoner"),
+          (else_try),
+            ##         (set_mission_result,1),
+            ##         (assign, "$g_battle_result", 1),
+            (jump_to_menu, "mnu_emboscada_player"),
+          (try_end),
+          (finish_mission,0),
+      ]),
+      
+      (ti_inventory_key_pressed, 0, 0, [(set_trigger_result,1)], []),
+      (ti_tab_pressed, 0, 0, [(set_trigger_result,1)], []),
+      
+      
+      (0, 0, ti_once, [],
+        [
+          (call_script, "script_music_set_situation_with_culture", 0),
+      ]),
+      
+      (0, 0, ti_once, [
+          (tutorial_message_set_size, 15, 15),
+          (tutorial_message_set_position, 500, 650), #650 for tutorial or mission msg, 450 for dialogs
+          (tutorial_message_set_center_justify, 0),
+          (assign, "$cam_time", 0), #for cam times
+          ], []),
+      
+      (0,0,ti_once,[ (store_mission_timer_a, ":cur_time"),
+          (ge, ":cur_time", 4),
+        ],
+        [
+          (tutorial_message_set_background, 1),
+          (tutorial_message, "@Your mission is to ambush the enemy when they come for water supplies. " +
+          "If you feel lost at some point, press the K key to remember these goals."),
+          (set_fixed_point_multiplier, 100),
+          (assign, "$cam_time", 1),
+          (entry_point_get_position, pos7, 31),
+          (call_script, "script_save_cam_first_person_mode"),
+          (mission_cam_set_mode, 1, 0, 0),
+          (set_camera_in_first_person, 0),
+          (mission_cam_animate_to_position, pos7, 2500, 0),
+      ]),
+      
+      (0,0,0,[ (key_clicked, key_k),],
+        [
+          (tutorial_message_set_background, 1),
+          (tutorial_message, "@Your mission is to ambush the enemy when they come for water supplies. " +
+          "If you feel lost at some point, press the K key to remember these goals."),
+          
+          (assign, "$cam_time", 1),
+          (entry_point_get_position, pos7, 31),
+          (call_script, "script_save_cam_first_person_mode"),
+          (mission_cam_set_mode, 1, 0, 0),
+          (set_camera_in_first_person, 0),
+          (mission_cam_animate_to_position, pos7, 2500, 0),
+      ]),
+      
+      (0,10,0,[(eq, "$cam_time", 1),],
+        [
+          (tutorial_message, -1),
+          (tutorial_message_set_background, 0),
+          (call_script, "script_return_to_cam_first_person_mode_1_sec"),
+          (assign, "$cam_time", 0),
+      ]),
+      
+    ],
+  ),
+
+
 ]#end of file

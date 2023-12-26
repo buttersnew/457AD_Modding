@@ -83,3 +83,4 @@ icon_steppe_lord = 81
 icon_germanic_army = 82
 icon_sassanid_lord = 83
 icon_roman_army = 84
+icon_camp_siege = 85

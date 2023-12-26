@@ -4910,8 +4910,6 @@ troops = [
 
   ["greek_scythaboo","Old Merchant","Old Merchant",tf_hero|tf_is_merchant, scn_court_of_attila|entry(1), reserved, fac_commoners,[itm_sassanid_cavalry_boots_1,itm_kaftan_hunnic_2],def_attrib_lvl_30|level(30),wp(260),knows_ironflesh_10|knows_power_strike_5|knows_power_draw_5|knows_shield_5|knows_athletics_7,0x00000009ff00508e36db8ec8e34db6db00000000001db68a0000000000000000],
 
-  ["maximinus","Maximinus","Maximinus",tf_hero,0,0, fac_commoners,[itm_ankle_boots,itm_coptic_tunic_13,itm_sword_viking_3_small],def_attrib_lvl_30|level(30),wp(260),knows_ironflesh_7|knows_power_strike_5|knows_shield_5|knows_athletics_7,0x00000009ff000004549b7246e396451b00000000001db6e20000000000000000],
-
   ["ildico","Ildico","Ildico",tf_female|tf_hero|tf_guarantee_boots|tf_guarantee_armor,0,0,fac_commoners,[itm_wrapping_boots,itm_dress_4],def_attrib_lvl_9|level(8),wp(110),knows_common|knows_athletics_3|knows_power_draw_2|knows_power_strike_1|knows_wound_treatment_2,0x000000000e004006484a70036989a49c00000000001d53520000000000000000],
 
   ["attilas_bastard_son","Oebarsius","Oebarsius",tf_hero|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_ranged, no_scene, reserved, fac_commoners,[],def_attrib_lvl_30|level(30),wp_one_handed(260)|wp_two_handed(200)|wp_polearm(260)|wp_throwing(250)|wp_archery(180),knows_ironflesh_8|knows_power_strike_7|knows_shield_5|knows_athletics_7|knows_riding_8|knows_power_draw_6|knows_horse_archery_5,0x000000000b00c2895495b240db25352200000000001db6e10000000000000000],

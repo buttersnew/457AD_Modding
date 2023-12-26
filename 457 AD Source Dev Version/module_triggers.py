@@ -912,6 +912,24 @@ triggers = [
 
 #new triggers so cool!
 
+  (24, 0, 0, [(eq, "$g_empieza_asedio", 1),], ####siege warfare, player lose money each day while siege. Sieges are expensive.
+    [
+      (store_troop_gold,":money","trp_player"),
+      (try_begin),
+        (ge,":money",100),
+        (troop_remove_gold, "trp_player", 100),
+        (display_message,"@Each day of the siege, you need to cover a number of expenses. You pay for rewards, digging latrines, cleaning stables, buying and bringing water and food, cooking, entertaining the troops...", 0xFF0000),
+        (store_random_in_range,":chance",1,10),
+        (try_begin),
+          (le,":chance",4),
+          (call_script, "script_change_player_party_morale", -1),
+        (try_end),
+      (else_try),
+        (display_message,"@You do not have money to cover the basic expenses of a siege. This greatly undermines morale.", 0xFF0000),
+        (call_script, "script_change_player_party_morale", -5),
+      (try_end),
+  ]),
+
 (24, 0, ti_once, [ 
   (neq, "$player_has_homage", 0),
   (eq, "$players_kingdom", "fac_kingdom_1"), #WRE

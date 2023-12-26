@@ -795,6 +795,16 @@ slot_center_current_improvement_2_builder   = 273
 
 slot_town_trade_good_prices_begin 			= 274
 
+slot_center_blockaded             = 275 #used for but a single value; global should be used
+slot_center_blockaded_time        = 276 #used for but a single value; global should be used
+slot_center_mantlets_placed       = 277 #used for but a single value; global should be used
+slot_center_latrines              = 278 #used for but a single value; global should be used
+slot_center_ladder_time           = 279 #used for but a single value; global should be used
+slot_center_infiltration_type     = 280 #used for but a single value; global should be used
+slot_center_starvation_time       = 281 #used for but a single value; global should be used
+
+slot_party_messenger_time         = 282 #used for but a single value; global should be used
+
 ##assume 50 trade goods
 #hence slots: 274-324 are for trade goods
 

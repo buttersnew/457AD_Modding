@@ -18440,6 +18440,103 @@ Here, take this purse of {reg3} siliquae, as I promised. I hope we can travel to
 "What do you want?", "player_siege_castle_commander_1", []],
 [anyone|plyr,"player_siege_castle_commander_1", [],
 "Surrender! Your situation is hopeless!", "player_siege_ask_surrender", []],
+#siege warfare chief take castle with hostage
+[anyone|plyr,"player_siege_castle_commander_1", [
+  (party_get_slot, ":town_lord", "$g_encountered_party", slot_town_lord),
+  (gt, ":town_lord", 0),
+  (is_between, ":town_lord", companions_begin, "trp_knight_1_1_wife"),
+  (party_count_prisoners_of_type, ":party_has_prisoner", "p_main_party", ":town_lord"),
+  (str_store_troop_name, s11, ":town_lord"),
+  (gt, ":party_has_prisoner", 0),],
+"I demand your surrender in exchange for the {s11}'s safe return.", "player_hostage_surrender", []],
+  ####hostage surrender Siege warfare
+  [anyone,"player_hostage_surrender", [
+      (assign, ":num_of_centers", 0),
+      (try_for_range, ":cur_center", walled_centers_begin, walled_centers_end),
+        (store_faction_of_party, ":center_faction", ":cur_center"),
+        (eq, ":center_faction", "$g_encountered_party_faction"),
+        (val_add, ":num_of_centers", 1),
+      (try_end),
+      (le, ":num_of_centers", 1),
+    ],
+    "We will not fall for your plot! We shall fight to the last man!", "close_window", []],
+  
+  [anyone,"player_hostage_surrender", [
+      (store_random_in_range, ":rand", 0, 2),
+      (eq, ":rand", 0),
+    ],
+    "Our lord would never forgive us for accepting this deal. We must fight.", "close_window", []],
+  
+  [anyone,"player_hostage_surrender", [
+      #(lt, "$g_enemy_strength", 200),
+      (store_mul,":required_str","$g_enemy_strength",1.5), #total need x1,5 here Player has lord enemy
+      (store_skill_level, ":persuasion_level", "skl_persuasion", "trp_player"), #each rank of persuasion help
+      (store_mul, ":persuasion_m", ":persuasion_level", 10),  #persuasion is the key now
+      (store_mul, ":starving_m", "$g_days_spent_starving", 100), #each day they've starved your side seems x2 stronger
+      (store_add, ":conditions", ":persuasion_m", ":starving_m"),
+      (val_add, ":conditions", 1), #make sure the value is at least 1
+      ####siege warfare chief  moral affect defense
+      (try_begin),
+        (party_slot_eq,"$g_encountered_party",slot_center_blockaded,2), #final
+        (val_add, ":conditions", 60),
+      (try_end),
+      (try_begin),
+        (ge, "$g_listos_para_asalto", 1), #final
+        (val_add, ":conditions", 20),
+      (try_end),
+      (try_begin),
+        (eq, "$g_mantlets_1", 2), #final
+        (val_add, ":conditions", 10),
+      (try_end),
+      (try_begin),
+        (eq, "$g_traicion_interna", 4),
+        (val_add, ":conditions", 60),
+      (try_end),
+      (try_begin),
+        (eq, "$g_infiltracion_interna", 4),
+        (val_add, ":conditions", 40),
+      (try_end),
+      (try_begin),
+        (eq, "$g_cabezas_dentro", 1),
+        (val_add, ":conditions", 30),
+      (try_end),
+      (try_begin),
+        (eq, "$g_campos_cercanos", 3),
+        (val_add, ":conditions", 40),
+      (try_end),
+      (try_begin),
+        (party_get_slot, ":center_relation", "$current_town", slot_center_player_relation), #center relation good relations help
+        (gt, ":center_relation", 0),
+        (val_add, ":conditions", ":center_relation"),
+      (try_end),
+      #siege warfare acaba
+      (lt, ":required_str", ":conditions"),
+      (str_store_party_name, s12, "$g_encountered_party"),
+    ],
+    "Well, we will leave {s12} to you in exchange for our lord. Proceed with the exchange.", "player_hostage_surrender_accepted", []],
+  
+  [anyone,"player_hostage_surrender", [
+    ],
+    "Our lord would never forgive us for accepting this deal. We must fight.", "close_window", []],
+  
+  [anyone|plyr,"player_hostage_surrender_accepted", [(str_store_party_name, s12, "$g_encountered_party"),],
+    "I free your lord. Now leave {s12}.", "player_hostage_surrender_accepted2", [
+      (party_get_slot, ":town_lord", "$g_encountered_party", slot_town_lord),
+      (gt, ":town_lord", 0),
+      (is_between, ":town_lord", companions_begin, "trp_knight_1_1_wife"),
+      (party_count_prisoners_of_type, ":party_has_prisoner", "p_main_party", ":town_lord"),
+      (gt, ":party_has_prisoner", 0),
+      (party_remove_prisoners, "p_main_party", ":town_lord", 1),
+      (call_script, "script_remove_troop_from_prison", ":town_lord"),
+  ]],
+  [anyone,"player_hostage_surrender_accepted2", [],
+    "Very well. Then we leave this place to you. You have won this day.", "close_window", [(assign,"$g_castle_left_to_player",1)]],
+  [anyone|plyr,"player_hostage_surrender_accepted", [],
+    "No, I have thought better of it and stay with our lord.", "player_hostage_surrender_accepted3", []],
+  [anyone,"player_hostage_surrender_accepted3", [],
+    "Then we defend this fort to the death. This parley is done.", "close_window", []],
+
+
 [anyone|plyr,"player_siege_castle_commander_1", [], "Nothing. I'll leave you now.", "close_window", []],
 
 

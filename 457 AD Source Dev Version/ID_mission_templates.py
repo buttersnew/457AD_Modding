@@ -92,3 +92,4 @@ mt_ernak_final_battle = 90
 mt_lekh_plunder = 91
 mt_lead_charge_quest_ambushed = 92
 mt_explore_secret_place = 93
+mt_ambush_riversw = 94

@@ -6392,8 +6392,29 @@ TOTAL:  {reg5}"),
              (assign, reg6, 0),
            (try_end),
            ],
-       "Besiege the {reg6?town:castle} to counter the insurgency.",
+       "Besiege the {reg6?town:fortress} to counter the insurgency.",
        [
+          #siege warfare chief We repit this here for advoid issues.
+          (assign, "$g_empieza_asedio", 1), #variable to begin siege
+          (party_set_slot,"$g_encountered_party",slot_center_blockaded,0),
+          (party_set_slot,"$g_encountered_party",slot_center_blockaded_time,0),
+          (party_set_slot, "$g_encountered_party", slot_center_mantlets_placed, 0),
+          (party_set_slot,"$g_encountered_party",slot_center_ladder_time,0),
+          (party_set_slot,"$g_encountered_party",slot_center_latrines,0),
+          (party_set_slot,"$g_encountered_party",slot_center_infiltration_type,0),
+          (assign, "$g_siege_saneamiento", 0),
+          (assign, "$g_traicion_interna", 0),
+          (assign, "$g_infiltracion_interna", 0),
+          (assign, "$g_campos_cercanos", 0),
+          (assign, "$g_listos_para_asalto", 0),
+          (assign, "$g_mantlets_1", 0),
+          (assign, "$g_cabezas_dentro", 0), #event
+          (assign, "$g_siege_method", 0),
+          (assign, "$g_siege_sallied_out_once", 0),
+          (assign, "$g_days_spent_starving", 0), #siege warfare, important, we use this in dialogs
+          (assign, "$g_next_sally_at", 0), #sally more common siege warfare chief
+          #siege warfare acaba
+
          (assign,"$g_player_besiege_town","$g_encountered_party"),
          (jump_to_menu, "mnu_castle_besiege"),
          ]),
@@ -6436,8 +6457,30 @@ TOTAL:  {reg5}"),
              (assign, reg6, 0),
            (try_end),
            ],
-       "Besiege the {reg6?town:castle}.",
+       "Besiege the {reg6?town:fortress}.",
        [
+
+          #siege warfare chief We repit this here for advoid issues.
+          (assign, "$g_empieza_asedio", 1), #variable to begin siege
+          (party_set_slot,"$g_encountered_party",slot_center_blockaded,0),
+          (party_set_slot,"$g_encountered_party",slot_center_blockaded_time,0),
+          (party_set_slot, "$g_encountered_party", slot_center_mantlets_placed, 0),
+          (party_set_slot,"$g_encountered_party",slot_center_ladder_time,0),
+          (party_set_slot,"$g_encountered_party",slot_center_latrines,0),
+          (party_set_slot,"$g_encountered_party",slot_center_infiltration_type,0),
+          (assign, "$g_siege_saneamiento", 0),
+          (assign, "$g_traicion_interna", 0),
+          (assign, "$g_infiltracion_interna", 0),
+          (assign, "$g_campos_cercanos", 0),
+          (assign, "$g_listos_para_asalto", 0),
+          (assign, "$g_mantlets_1", 0),
+          (assign, "$g_cabezas_dentro", 0), #event
+          (assign, "$g_siege_method", 0),
+          (assign, "$g_siege_sallied_out_once", 0),
+          (assign, "$g_days_spent_starving", 0), #siege warfare, important, we use this in dialogs
+          (assign, "$g_next_sally_at", 0), #sally more common siege warfare chief
+          #siege warfare acaba
+
          (assign,"$g_player_besiege_town","$g_encountered_party"),
          (store_relation, ":relation", "fac_player_supporters_faction", "$g_encountered_party_faction"),
          (val_min, ":relation", -40),
@@ -6463,8 +6506,30 @@ TOTAL:  {reg5}"),
            (assign, reg6, 0),
          (try_end),
            ],
-       "{!}CHEAT: Besiege the {reg6?town:castle}...",
+       "{!}CHEAT: Besiege the {reg6?town:fortress}...",
        [
+
+          #siege warfare chief We repit this here for advoid issues.
+          (assign, "$g_empieza_asedio", 1), #variable to begin siege
+          (party_set_slot,"$g_encountered_party",slot_center_blockaded,0),
+          (party_set_slot,"$g_encountered_party",slot_center_blockaded_time,0),
+          (party_set_slot, "$g_encountered_party", slot_center_mantlets_placed, 0),
+          (party_set_slot,"$g_encountered_party",slot_center_ladder_time,0),
+          (party_set_slot,"$g_encountered_party",slot_center_latrines,0),
+          (party_set_slot,"$g_encountered_party",slot_center_infiltration_type,0),
+          (assign, "$g_siege_saneamiento", 0),
+          (assign, "$g_traicion_interna", 0),
+          (assign, "$g_infiltracion_interna", 0),
+          (assign, "$g_campos_cercanos", 0),
+          (assign, "$g_listos_para_asalto", 0),
+          (assign, "$g_mantlets_1", 0),
+          (assign, "$g_cabezas_dentro", 0), #event
+          (assign, "$g_siege_method", 0),
+          (assign, "$g_siege_sallied_out_once", 0),
+          (assign, "$g_days_spent_starving", 0), #siege warfare, important, we use this in dialogs
+          (assign, "$g_next_sally_at", 0), #sally more common siege warfare chief
+          #siege warfare acaba
+
            (assign,"$g_player_besiege_town","$g_encountered_party"),
            (jump_to_menu, "mnu_castle_besiege"),
            ]),
@@ -6685,6 +6750,15 @@ TOTAL:  {reg5}"),
           (party_set_slot, "$g_encountered_party", slot_center_siege_begin_hours, ":cur_hours"),
           (assign, "$g_siege_method", 0),
           (assign, "$g_siege_sallied_out_once", 0),
+          # Chief siege camp around town Siege warfare icono de asedio
+          #phaiak begin
+          (try_begin),
+            (party_set_extra_icon, "$g_encountered_party", "icon_camp_siege", 0, 0, 0, 0),
+          (try_end),
+          #phaiak end
+          # chief siege camp acaba
+          (assign, "$g_days_spent_starving", 0), #siege warfare, important, we use this in dialogs
+          (assign, "$g_next_sally_at", 0), #sally more common siege warfare chief
           #SB : also add sneak variables here
           (assign, "$last_sneak_attempt_town", "$g_encountered_party"),
           (assign, "$last_sneak_attempt_time", ":cur_hours"),
@@ -6706,35 +6780,168 @@ TOTAL:  {reg5}"),
 
         (try_begin),
           (gt, reg3, 0),
-          (str_store_string, s2, "@The {reg6?town's:castle's} food stores should last for {reg3} more days."),
+          (str_store_string, s2, "@The {reg6?town's:fortress's} food stores should last for {reg3} more days."),
         (else_try),
-          (str_store_string, s2, "@The {reg6?town's:castle's} food stores have run out and the defenders are starving."),
+          (str_store_string, s2, "@The {reg6?town's:fortress's} food stores have run out and the defenders are starving."),
+          #siege warfare chief##############
+          (try_begin),
+            (gt, "$g_days_spent_starving", 6), #6 days left, deffenders tired siege.
+            (jump_to_menu, "mnu_surrender_siege_defenders_starved"),
+          (else_try), #defenders desesperate = sally out to break the siege
+            (gt, "$g_days_spent_starving", 1), #6 days left, deffenders tired siege
+
+            ###add days each 24 h
+            (try_begin),
+              (party_get_slot, ":last_starving_time", "$g_encountered_party", slot_center_starvation_time),
+              (store_current_hours, ":cur_hours"),
+              (store_add, ":add_starving", ":last_starving_time", 24), #x min hours enter sallys
+              (ge, ":cur_hours", ":add_starving"),
+              (val_add, "$g_days_spent_starving", 1), #8 days left, deffenders tired siege
+              (party_set_slot, "$g_encountered_party", slot_center_starvation_time, ":cur_hours"),
+              #(display_message, "@added 1 day to sally2"),
+            (try_end),
+            #
+            # (try_begin),
+              # (party_slot_eq, "$g_encountered_party", slot_party_type, spt_town),
+              # (party_get_slot, ":battle_scene", "$g_encountered_party", slot_town_walls),
+            # (else_try),
+              # (party_get_slot, ":battle_scene", "$g_encountered_party", slot_castle_exterior),
+            # (try_end),
+            (call_script, "script_calculate_battle_advantage"),
+            (assign, ":battle_advantage", reg0),
+            (val_mul, ":battle_advantage", 2),
+            (val_div, ":battle_advantage", 3), #scale down the advantage a bit in sieges.
+            (set_battle_advantage, ":battle_advantage"),
+
+            (try_begin),
+              (store_current_hours, "$g_sally_timer"),
+              (ge, "$g_sally_timer", "$g_next_sally_at"),
+              (store_random_in_range, ":hours", 22,44),
+              (store_add, "$g_next_sally_at", "$g_sally_timer", ":hours"), #x min hours enter sallys
+              (ge, ":hours", 28), #60% chance to deffenders sally out
+
+              (set_party_battle_mode),
+              (assign, "$g_siege_battle_state", 1),
+              (try_begin),
+                (set_jump_mission,"mt_castle_attack_walls_defenders_sally"),
+                (assign, "$g_siege_battle_state", 0),
+              (try_end),
+              (assign, "$cant_talk_to_enemy", 0),
+              (assign, "$g_siege_final_menu", "mnu_castle_besiege"),
+              (assign, "$g_next_menu", "mnu_castle_besiege_inner_battle"),
+              (assign, "$g_siege_method", 0), #reset siege timer
+              (call_script, "script_setup_random_scene"),
+              (jump_to_menu, "mnu_nofood_siege_defenders_sally"),
+            (try_end),
+          (else_try), #defenders desesperate = sally out to break the siege
+            ###add days each 24 h
+            (try_begin),
+              (party_get_slot, ":last_starving_time", "$g_encountered_party", slot_center_starvation_time),
+              (store_current_hours, ":cur_hours"),
+              (store_add, ":add_starving", ":last_starving_time", 24), #x min hours enter sallys
+              (ge, ":cur_hours", ":add_starving"),
+              (val_add, "$g_days_spent_starving", 1), #8 days left, deffenders tired siege
+              (party_set_slot, "$g_encountered_party", slot_center_starvation_time, ":cur_hours"),
+              #(display_message, "@added 1 day to sally"),
+            (else_try),
+              (val_add, "$g_days_spent_starving", 0), #8 days left, deffenders tired siege
+            (try_end),
+            #
+          (try_end),
+          ###siege warfare end
+
         (try_end),
 
-        (str_store_string, s3, "str_empty_string"),
+       # (str_store_string, s3, "str_empty_string"),
+       # (try_begin),
+       #   (ge, "$g_siege_method", 1),
+       #   (store_current_hours, ":cur_hours"),
+       #   (try_begin),
+       #     (lt, ":cur_hours",  "$g_siege_method_finish_hours"),
+       #     (store_sub, reg9, "$g_siege_method_finish_hours", ":cur_hours"),
+       #     (try_begin),
+       #       (eq, "$g_siege_method", 1),
+       #       (str_store_string, s3, "@You're preparing to attack the walls, the work should finish in {reg9} hours."),
+       #     (else_try),
+       #       (eq, "$g_siege_method", 2),
+       #       (str_store_string, s3, "@Your forces are building a siege tower. They estimate another {reg9} hours to complete construction."), #SB : "the build -> construction"
+       #     (try_end),
+       #   (else_try),
+       #     (try_begin),
+       #       (eq, "$g_siege_method", 1),
+       #       (str_store_string, s3, "@You are ready to attack the walls at any time."),
+       #     (else_try),
+       #       (eq, "$g_siege_method", 2),
+       #       (str_store_string, s3, "@The siege tower is built and ready to make an assault."),
+       #     (try_end),
+       #   (try_end),
+       # (try_end),
+
+        ####siege warfare chief
+
+        #string para circunvalacion
+        (str_store_string,s15,"str_circunvalation_none"),
         (try_begin),
-          (ge, "$g_siege_method", 1),
-          (store_current_hours, ":cur_hours"),
-          (try_begin),
-            (lt, ":cur_hours",  "$g_siege_method_finish_hours"),
-            (store_sub, reg9, "$g_siege_method_finish_hours", ":cur_hours"),
-            (try_begin),
-              (eq, "$g_siege_method", 1),
-              (str_store_string, s3, "@You're preparing to attack the walls, the work should finish in {reg9} hours."),
-            (else_try),
-              (eq, "$g_siege_method", 2),
-              (str_store_string, s3, "@Your forces are building a siege tower. They estimate another {reg9} hours to complete construction."), #SB : "the build -> construction"
-            (try_end),
-          (else_try),
-            (try_begin),
-              (eq, "$g_siege_method", 1),
-              (str_store_string, s3, "@You are ready to attack the walls at any time."),
-            (else_try),
-              (eq, "$g_siege_method", 2),
-              (str_store_string, s3, "@The siege tower is built and ready to make an assault."),
-            (try_end),
-          (try_end),
+          (party_slot_eq,"$g_encountered_party",slot_center_blockaded,1),
+          (str_store_string, s15, "@>>Your men are building checkpoints and small camps around {s4} to prevent anyone from going in or out. "+
+          "As long as the blockade is unfinished the town can refill its food supplies.^^"),
+        (else_try),
+          (party_slot_eq,"$g_encountered_party",slot_center_blockaded,2), #final
+          (str_store_string, s15, "@>>Your perimeter control is ready. You have set a perimeter for surveillance around {s4}. No one can enter or leave without the knowledge of your men.^" +
+          "The settlement can no longer refill its food supplies from outside.^^"),
         (try_end),
+
+        (str_store_string,s16,"str_empty_string"),
+        (try_begin),
+          (ge, "$g_listos_para_asalto", 1),
+          (str_store_string,s16,"@>>Your men are ready for assault.^^"),
+        (try_end),
+
+        ####saneamiento chief
+        (str_store_string,s17,"str_empty_string"),
+        (try_begin),
+          (eq, "$g_siege_saneamiento", 2),
+          (str_store_string,s17,"@>>As a disciplined army, your men have made latrines, pipelines, and a pond for their weekly bath. A healthy camp prevents disease.^^"),
+        (try_end),
+
+        (str_store_string,s18,"str_empty_string"),
+        (try_begin),
+          (eq, "$g_mantlets_1", 2),
+          (str_store_string,s18,"@>>Your men have finished building mantlets. Now you can use them to protect your soldiers in the vanguard attack, and your main force for the final charge.^^"),
+        (try_end),
+
+        (str_store_string,s19,"str_empty_string"),
+        (try_begin),
+          (ge, "$g_siege_method", 2),
+          (str_store_string,s19,"@>>Your men have finished making scaling equipment.^^"),
+        (try_end),
+
+        (str_store_string,s20,"str_empty_string"),
+        (try_begin),
+          (eq, "$g_traicion_interna", 3),
+          (str_store_string,s20,"@>>Your attempt to find a traitor in the settlement has failed.^^"),
+        (else_try),
+          (eq, "$g_traicion_interna", 4),
+          (str_store_string,s20,"@>>You have found a traitor within {s7} that has supported your efforts to conquer it. This will make it more receptive to surrendering.^^"),
+        (try_end),
+
+        ####strings infiltrado
+        (str_store_string,s21,"str_empty_string"),
+        (try_begin),
+          (eq, "$g_infiltracion_interna", 3),
+          (str_store_string,s21,"@>>Your attempt to have your men infiltrate {s4} has failed.^^"),
+        (else_try),
+          (eq, "$g_infiltracion_interna", 4),
+          (str_store_string,s21,"@>>Your men have succeeded in infiltrating {s4} and damaging the enemy.^^"),
+        (try_end),
+
+        #####strings quemar campos cercanos
+        (str_store_string,s22,"str_empty_string"),
+        (try_begin),
+          (eq, "$g_campos_cercanos", 3),
+          (str_store_string,s22,"@>>You've managed to pillage the crops and farms nearby.^^"),
+        (try_end),
+        #siege warfare chief
 
         #Check if enemy leaves the castle to us...
         (try_begin),
@@ -6809,6 +7016,28 @@ TOTAL:  {reg5}"),
           (this_or_next|eq, ":enemy_finished", 1),
           (eq, "$g_enemy_surrenders", 1),
 
+          #siege warfare chief
+          (assign, "$g_empieza_asedio", 0),
+          (party_set_slot,"$g_encountered_party",slot_center_blockaded,0),
+          (party_set_slot,"$g_encountered_party",slot_center_blockaded_time,0),
+          (party_set_slot, "$g_encountered_party", slot_center_mantlets_placed, 0),
+          (party_set_slot,"$g_encountered_party",slot_center_ladder_time,0),
+          (party_set_slot,"$g_encountered_party",slot_center_latrines,0),
+          (party_set_slot,"$g_encountered_party",slot_center_infiltration_type,0),
+
+          (assign, "$g_siege_saneamiento", 0),
+          (assign, "$g_traicion_interna", 0),
+          (assign, "$g_infiltracion_interna", 0),
+          (assign, "$g_campos_cercanos", 0),
+          (assign, "$g_listos_para_asalto", 0),
+          (assign, "$g_mantlets_1", 0),
+          (assign, "$g_cabezas_dentro", 0), #event
+          (assign, "$g_siege_method", 0),
+          (assign, "$g_siege_sallied_out_once", 0),
+          (assign, "$g_days_spent_starving", 0), #siege warfare, important, we use this in dialogs
+          (assign, "$g_next_sally_at", 0), #sally more common siege warfare chief
+          #siege warfare acaba
+
           (assign, "$g_next_menu", "mnu_castle_taken"),
           (jump_to_menu, "mnu_total_victory"),
         (else_try),
@@ -6817,6 +7046,29 @@ TOTAL:  {reg5}"),
           (eq, "$g_battle_result", -1),
           (eq, ":main_party_fit_regulars", 0), #all lost (TODO : )
           (assign, "$g_next_menu", "mnu_captivity_start_castle_defeat"),
+
+          #siege warfare chief
+          (assign, "$g_empieza_asedio", 0),
+          (party_set_slot,"$g_encountered_party",slot_center_blockaded,0),
+          (party_set_slot,"$g_encountered_party",slot_center_blockaded_time,0),
+          (party_set_slot, "$g_encountered_party", slot_center_mantlets_placed, 0),
+          (party_set_slot,"$g_encountered_party",slot_center_ladder_time,0),
+          (party_set_slot,"$g_encountered_party",slot_center_latrines,0),
+          (party_set_slot,"$g_encountered_party",slot_center_infiltration_type,0),
+
+          (assign, "$g_siege_saneamiento", 0),
+          (assign, "$g_traicion_interna", 0),
+          (assign, "$g_infiltracion_interna", 0),
+          (assign, "$g_campos_cercanos", 0),
+          (assign, "$g_listos_para_asalto", 0),
+          (assign, "$g_mantlets_1", 0),
+          (assign, "$g_cabezas_dentro", 0), #event
+          (assign, "$g_siege_method", 0),
+          (assign, "$g_siege_sallied_out_once", 0),
+          (assign, "$g_days_spent_starving", 0), #siege warfare, important, we use this in dialogs
+          (assign, "$g_next_sally_at", 0), #sally more common siege warfare chief
+          #siege warfare acaba
+
           (jump_to_menu, "mnu_total_defeat"),
         (try_end),
     ],
@@ -6837,6 +7089,13 @@ TOTAL:  {reg5}"),
           (try_end),
           (call_script, "script_start_courtyard_conversation", ":leader", "$g_encountered_party"),
            ]),
+
+      #########Siege Warfare chief
+      ("siege_warfare_p",[],
+        "Siege Warfare (Planning Siege).", [(jump_to_menu,"mnu_siege_plan"),]),
+      ("siege_assault_p",[],
+        "Siege Warfare (Preparing Assault).", [(jump_to_menu,"mnu_siege_assault")]),
+      #########Siege warfare acaba
 
       ("wait_24_hours",[],"Wait until tomorrow.", [
           (assign,"$auto_besiege_town","$g_encountered_party"),
@@ -6946,9 +7205,716 @@ TOTAL:  {reg5}"),
        [
          (call_script, "script_lift_siege", "$g_player_besiege_town", 0),
          (assign,"$g_player_besiege_town", -1),
+         #siege warfare chief
+         (assign, "$g_empieza_asedio", 0),
+         (party_set_slot,"$g_encountered_party",slot_center_blockaded,0),
+         (party_set_slot,"$g_encountered_party",slot_center_blockaded_time,0),
+         (party_set_slot, "$g_encountered_party", slot_center_mantlets_placed, 0),
+         (party_set_slot,"$g_encountered_party",slot_center_ladder_time,0),
+         (party_set_slot,"$g_encountered_party",slot_center_latrines,0),
+         (party_set_slot,"$g_encountered_party",slot_center_infiltration_type,0),
+         (assign, "$g_siege_saneamiento", 0),
+         (assign, "$g_traicion_interna", 0),
+         (assign, "$g_infiltracion_interna", 0),
+         (assign, "$g_campos_cercanos", 0),
+         (assign, "$g_listos_para_asalto", 0),
+         (assign, "$g_mantlets_1", 0),
+         (assign, "$g_cabezas_dentro", 0), #event
+         (assign, "$g_siege_method", 0),
+         (assign, "$g_siege_sallied_out_once", 0),
+         (assign, "$g_days_spent_starving", 0), #siege warfare, important, we use this in dialogs
+         (assign, "$g_next_sally_at", 0), #sally more common siege warfare chief
+         #siege warfare acaba
          (change_screen_return)]),
     ]
   ),
+
+  ######Siege warfare Chief
+  (
+    "siege_plan",0,
+    "You meet with your advisers to plan the siege and try to conquer {s4} with the least possible casualties. Your strategy could be to reduce the place by famine and demoralization.^^{s15} {s17} {s18} {s19} {s20}",
+    "none",
+    [
+
+      (str_store_party_name,s4,"$current_town"),
+
+      (str_clear, s7),
+      (str_clear, s15),
+      (str_clear, s16),
+      (str_clear, s17),
+      (str_clear, s18),
+      (str_clear, s19),
+      (str_clear, s20),
+
+      #string para circunvalacion
+      (str_store_string,s15,"str_circunvalation_none"),
+      (try_begin),
+        (party_slot_eq,"$g_encountered_party",slot_center_blockaded,1),
+        (str_store_string, s15, "@>>Your men are building checkpoints and small camps around {s4} to prevent anyone from going in or out.^^"),
+      (else_try),
+        (party_slot_eq,"$g_encountered_party",slot_center_blockaded,2), #final
+        (str_store_string, s15, "@>>Your perimeter control is ready. You have set a perimeter for surveillance around {s4}. No one can enter or leave without the knowledge of your men.^" +
+        "This will be beneficial especially when you have to negotiate the surrender of the fortress with its commander.^^"),
+      (try_end),
+      #
+      ####strings traicion
+      (str_store_string,s17,"str_empty_string"),
+      (try_begin),
+        (ge, "$g_traicion_interna", 1),
+        (le, "$g_traicion_interna", 2),
+        (str_store_string,s17,"@>>You have sent men to find a traitor in {s4}.^^"),
+      (else_try),
+        (eq, "$g_traicion_interna", 3),
+        (str_store_string,s17,"@>>Your attempt to find a traitor in the settlement has failed.^^"),
+      (else_try),
+        (eq, "$g_traicion_interna", 4),
+        (str_store_string,s17,"@>>You have found a traitor within {s4} that has supported your efforts to conquer it. This will render it more receptive to surrendering.^^"),
+      (try_end),
+
+      #####strings quemar campos cercanos
+      (str_store_string,s18,"str_empty_string"),
+      (try_begin),
+        (eq, "$g_campos_cercanos", 3),
+        (str_store_string,s18,"@>>You've managed to pillage the crops and farms nearby.^^"),
+      (else_try),
+        (ge, "$g_campos_cercanos", 1),
+        (str_store_string,s18,"@>>Your men are taking crops and ransacking farms close to {s4} on your orders. This will render it more receptive to surrendering.^^"),
+      (try_end),
+      ####strings infiltrado
+      (str_store_string,s19,"str_empty_string"),
+      (try_begin),
+        (ge, "$g_infiltracion_interna", 1),
+        (le, "$g_infiltracion_interna", 2),
+        (str_store_string,s19,"@>>You have sent men to infiltrate {s4}.^^"),
+      (else_try),
+        (eq, "$g_infiltracion_interna", 3),
+        (str_store_string,s19,"@>>Your attempt to have your men infiltrate {s4} has failed.^^"),
+      (else_try),
+        (eq, "$g_infiltracion_interna", 4),
+        (str_store_string,s19,"@>>Your men have succeeded in infiltrating {s4} and damaging the enemy.^^"),
+      (try_end),
+      ####saneamiento chief
+      (str_store_string,s20,"str_empty_string"),
+      (try_begin),
+        (eq, "$g_siege_saneamiento", 0),
+        (str_store_string,s20,"@>>Your camp smells horrible. The ground is muddy, your men defecate between tents, and you see rats running here and there.^^"),
+      (else_try),
+        (ge, "$g_siege_saneamiento", 1),
+        (party_get_slot, ":last_saneamiento_time", "$g_encountered_party", slot_center_latrines),
+        (store_current_hours, ":cur_hours"),
+        (store_add, ":ok_time", ":last_saneamiento_time", 4),
+        (gt, ":cur_hours", ":ok_time"),
+        (str_store_string,s20,"@>>As a disciplined army, your men have made latrines, pipelines and a pond for their weekly bath. A healthy camp prevents disease.^^"),
+        (assign, "$g_siege_saneamiento", 2), #final
+      (else_try),
+        (eq, "$g_siege_saneamiento", 1),
+        (str_store_string,s20,"@>>Your men are digging holes for latrines and taking other measures to prevent disease.^^"),
+      (try_end),
+
+      (call_script, "script_set_town_picture"),
+
+    ],
+    [
+
+      ###siege perimeter control(party_set_slot,"p_main_party",slot_center_blockaded,0),
+      ("build_circunvalation",[
+          (party_slot_eq,"$g_encountered_party",slot_center_blockaded,0),],
+        "Blockade: build checkpoints around {s4}.", [
+
+          (store_party_size_wo_prisoners, ":num_men", "p_main_party"),
+          (assign, reg1, ":num_men"),
+          (display_message, "@Main party size: {reg1} men"),
+          (party_get_num_attached_parties, ":num_attached_parties", "p_main_party"),
+          (try_begin),
+            (ge, ":num_attached_parties", 1),
+            (try_for_range, ":attached_party_rank", 0, ":num_attached_parties"),
+              (party_get_attached_party_with_rank, ":attached_party", "p_main_party", ":attached_party_rank"),
+              (store_party_size_wo_prisoners, ":size", ":attached_party"),
+              (val_add, ":num_men", ":size"),
+              (str_store_party_name, s1, ":attached_party"),
+              (assign, reg1, ":size"),
+              (display_message, "@{s1}: {reg1} men"),
+            (try_end),
+          (try_end),
+
+          (try_begin),
+            (gt, ":num_men", 250), # se muestra si el player tiene por lo menos 250 hombres
+            (jump_to_menu,"mnu_construct_circunvalation"),
+          (else_try),
+            (display_message,"@You need to have more than 250 men for this job."),
+          (try_end),
+      ]),
+
+      ("close_circunvalation",[
+          (party_slot_eq,"$g_encountered_party",slot_center_blockaded,1),
+          (party_get_slot, ":last_blockplace_time", "$g_encountered_party", slot_center_blockaded_time),
+          (store_current_hours, ":cur_hours"),
+
+          (call_script, "script_get_max_skill_of_player_party", "skl_engineer"),
+          (assign, ":max_skill", reg0),
+          (store_sub, reg4, 16, ":max_skill"),
+          (val_mul, reg4, 4),#between 24 and 64 hours
+
+          #      (store_random_in_range,":random_check",80,100),
+          (store_add, ":ok_time", ":last_blockplace_time", reg4), #between 60 and 160 hours
+          (gt, ":cur_hours", ":ok_time"),
+        ],
+        "Checkpoints are finished. Now order active watching.", [
+          #Reduce prosperity of the center by 10
+          (call_script, "script_change_center_prosperity", "$g_encountered_party", -10),
+          (party_get_slot, ":food_stores", "$g_encountered_party", slot_party_food_store),
+          (call_script, "script_center_get_food_store_limit", "$g_encountered_party"),
+          (val_min, ":food_stores", reg0),
+          (party_set_slot, "$g_encountered_party", slot_party_food_store, ":food_stores"),
+          (party_set_slot,"$g_encountered_party",slot_center_blockaded, 2),
+          (jump_to_menu,"mnu_siege_plan"),]),
+      #####circunvalacion acaba
+      #####disfrazarte para entrar en la ciudad e investigar sus defensas
+      ("town_investigar",
+        [
+        ],
+        "Investigate the defenses: try to sneak inside. (Tracking)",
+        [
+
+         #SB : apply different disguises in new system, with outcomes
+        (try_begin),
+          (eq, "$g_dplmc_player_disguise", 1),
+          (troop_get_slot, ":player_disguise", "trp_player", slot_troop_player_disguise_sets),
+          (val_max, ":player_disguise", disguise_pilgrim),
+          (troop_set_slot, "trp_player", slot_troop_player_disguise_sets, ":player_disguise"),
+          # (assign, "$sneaked_into_town", disguise_none), #set no disguise
+          (troop_clear_inventory, "trp_random_town_sequence"), # clear items to bring
+
+          (try_for_range, ":i_slot", 0, ek_food + 1), #dckplmc: bugfix - clear equipped items
+            (troop_set_inventory_slot, "trp_random_town_sequence", ":i_slot", -1),
+          (try_end),
+
+          (store_troop_gold, ":cur_amount", "trp_random_town_sequence"),
+          (troop_remove_gold, "trp_random_town_sequence", ":cur_amount"),#clear gold
+          (assign, "$temp", 0),
+          (assign, "$temp4_1", "mnu_siege_plan"),
+          (jump_to_menu, "mnu_dplmc_choose_disguise"),
+        (else_try),
+          (faction_get_slot, ":player_alarm", "$g_encountered_party_faction", slot_faction_player_alarm),
+          (party_get_num_companions, ":num_men", "p_main_party"),
+          (party_get_num_prisoners, ":num_prisoners", "p_main_party"),
+          (val_add, ":num_men", ":num_prisoners"),
+          (val_mul, ":num_men", 2),
+          (val_div, ":num_men", 3),
+          (store_add, ":get_caught_chance", ":player_alarm", ":num_men"),
+          (store_random_in_range, ":random_chance", 0, 100),
+          (try_begin),
+            (this_or_next|ge, "$cheat_mode", 1),
+            (this_or_next|ge, ":random_chance", ":get_caught_chance"),
+            (eq, "$g_last_defeated_bandits_town", "$g_encountered_party"),
+            (assign, "$g_last_defeated_bandits_town", 0),
+            (assign, "$sneaked_into_town", disguise_pilgrim),
+            (assign, "$town_entered", 1),
+            (jump_to_menu,"mnu_sneak_into_town_suceeded"),
+            (assign, "$g_mt_mode", tcm_disguised),
+          (else_try),
+            (jump_to_menu,"mnu_sneak_into_town_caught"),
+          (try_end),
+        (try_end),
+
+
+      ]),
+
+      #traicion interna
+      ("traicion_interna",
+        [
+          (party_get_slot, ":blockplace_place", "$g_encountered_party", slot_center_blockaded),
+          (ge, ":blockplace_place", 1),
+          (eq, "$g_traicion_interna", 0),
+          (neq, "$g_infiltracion_interna", 1),
+        ],
+        "Find a traitor within the defenses of {s4}.",
+        [
+          (party_get_num_companion_stacks, ":num_stacks","p_main_party"),
+          (assign, ":num_men", 0),
+          (try_for_range, ":i_stack", 0, ":num_stacks"),
+            (party_stack_get_size, ":stack_size","p_main_party",":i_stack"),
+            (val_add, ":num_men", ":stack_size"),
+          (try_end),
+          (try_begin),
+            (gt, ":num_men", 40), # se muestra si el player tiene por lo menos 40 hombres
+            (jump_to_menu,"mnu_traicion_interna2"),
+          (else_try),
+            (display_message,"@You need to have at least 40 men in order to assign some of them to finding a traitor."),
+          (try_end),
+      ]),
+
+      ("traicion_interna3",[           (eq, "$g_traicion_interna", 2),
+        ],
+        "Any news from the men sent in search of a traitor?", [
+          (store_random_in_range, ":rand", 0, 6),
+          (try_begin),
+            (eq, ":rand", 0),
+            (jump_to_menu,"mnu_traicion_resultado5"),
+          (else_try),
+            (eq, ":rand", 1),
+            (jump_to_menu,"mnu_traicion_resultado2"),
+          (else_try),
+            (eq, ":rand", 2),
+            (jump_to_menu,"mnu_traicion_resultado3"),
+          (else_try),
+            (eq, ":rand", 3),
+            (jump_to_menu,"mnu_traicion_resultado4"),
+          (else_try),
+            (jump_to_menu,"mnu_traicion_resultado1"),
+          (try_end),
+      ]),
+
+      ####maniobras de infiltracion chief
+      ("infiltracion_interna",
+        [
+          (party_get_slot, ":blockplace_place", "$g_encountered_party", slot_center_blockaded),
+          (ge, ":blockplace_place", 1),
+          (eq, "$g_infiltracion_interna", 0),
+          (neq, "$g_traicion_interna", 1),
+        ],
+        "Send some men to infiltrate the place.",
+        [
+          (party_get_num_companion_stacks, ":num_stacks","p_main_party"),
+          (assign, ":num_men", 0),
+          (try_for_range, ":i_stack", 0, ":num_stacks"),
+            (party_stack_get_size, ":stack_size","p_main_party",":i_stack"),
+            (val_add, ":num_men", ":stack_size"),
+          (try_end),
+          (try_begin),
+            (gt, ":num_men", 30), # se muestra si el player tiene por lo menos 30 hombres
+            (start_presentation,"prsnt_infiltrationandsabotage"),
+            # (jump_to_menu,"mnu_infiltracion_interna2"),
+          (else_try),
+            (display_message,"@You need more than 30 men, or sending some will leave your camp somewhat unprotected."),
+          (try_end),
+      ]),
+
+      ("infiltracion_interna3",[           (eq, "$g_infiltracion_interna", 2),
+        ],
+        "Any news from the men sent to infiltrate?", [
+          (store_random_in_range, ":rand", 0, 4),
+          (try_begin),
+            (le, ":rand", 1),
+            (try_begin),
+              (party_slot_eq,"$g_encountered_party",slot_center_infiltration_type,1), #water
+              (jump_to_menu,"mnu_infiltracion_resultado4_c"),
+            (else_try),
+              (party_slot_eq,"$g_encountered_party",slot_center_infiltration_type,2), #cattle
+              (jump_to_menu,"mnu_infiltracion_resultado3_c"),
+            (else_try),
+              (party_slot_eq,"$g_encountered_party",slot_center_infiltration_type,3), #food
+              (jump_to_menu,"mnu_infiltracion_resultado3"),
+            (else_try),
+              (party_slot_eq,"$g_encountered_party",slot_center_infiltration_type,4), #morale
+              (jump_to_menu,"mnu_infiltracion_resultado4"),
+            (else_try),
+              (jump_to_menu,"mnu_infiltracion_resultado1"),
+            (try_end),
+          (else_try),
+            (eq, ":rand", 2),
+            (jump_to_menu,"mnu_infiltracion_resultado2"),
+          (else_try),
+            (eq, ":rand", 3),
+            (jump_to_menu,"mnu_infiltracion_resultado5"),
+          (else_try),
+            (jump_to_menu,"mnu_infiltracion_resultado1"),
+          (try_end),
+      ]),
+      ####maniobras de infiltracion chief acaba
+
+      #####construir letrinas, canalizaciones para evitar acumulacion de barro con la lluvia, cavar pozos para suministro de agua
+      ("build_varios",[
+          #obtiene numero de hombres de el ejercito del player
+          (eq, "$g_siege_saneamiento", 0),],
+        "Order the construction of sanitation to prevent disease.", [
+          (party_get_num_companion_stacks, ":num_stacks","p_main_party"),
+          (assign, ":num_men", 0),
+          (try_for_range, ":i_stack", 0, ":num_stacks"),
+            (party_stack_get_size, ":stack_size","p_main_party",":i_stack"),
+            (val_add, ":num_men", ":stack_size"),
+          (try_end),
+          (try_begin),
+            (gt, ":num_men", 10), # se muestra si el player tiene por lo menos 10 hombres
+            ##                (store_current_hours, ":cur_hours"),
+            ##                (party_set_slot, "$g_encountered_party", slot_center_latrines, ":cur_hours"),
+            (jump_to_menu,"mnu_construct_saneamiento"),
+          (else_try),
+            (display_message,"@You need to have more than 10 men in order to do this job."),
+          (try_end),
+      ]),
+      ####construir chief letrinas, canalizaciones y pozos acaba
+      #destruir campos cercanos para obtener comida y empobrecer a la ciudad
+      ("destruir_campos_a",[
+          (eq, "$g_campos_cercanos", 0),],
+        "Pillage farms to replenish your stocks and harm the enemy.", [
+          (party_get_num_companion_stacks, ":num_stacks","p_main_party"),
+          (assign, ":num_men", 0),
+          (try_for_range, ":i_stack", 0, ":num_stacks"),
+            (party_stack_get_size, ":stack_size","p_main_party",":i_stack"),
+            (val_add, ":num_men", ":stack_size"),
+          (try_end),
+          (try_begin),
+            (gt, ":num_men", 80), # se muestra si el player tiene por lo menos 80 hombres
+            (assign, "$g_campos_cercanos", 1),
+          (else_try),
+            (display_message,"@You need to have more than 80 men in order to do this."),
+          (try_end),
+      ]),
+
+      ("destruir_campos_b",[
+          (eq, "$g_campos_cercanos", 2),],
+        "Any news from the men I sent to pillage farms?", [
+          #          (store_current_month, ":cur_month"),
+          (store_random_in_range, ":rand", 0, 3),
+          (try_begin),
+            (le, ":rand", 2),
+            (try_begin),
+              (this_or_next|eq, "$g_cur_month", 3),
+              (this_or_next|eq, "$g_cur_month", 4),
+              (eq, "$g_cur_month", 5),
+              (jump_to_menu,"mnu_campos_cercanos1"),
+            (else_try),
+              (this_or_next|eq, "$g_cur_month", 9),
+              (this_or_next|eq, "$g_cur_month", 10),
+              (eq, "$g_cur_month", 11),
+              (jump_to_menu,"mnu_campos_cercanos2"),
+            (else_try),
+              (this_or_next|eq, "$g_cur_month", 12),
+              (this_or_next|eq, "$g_cur_month", 1),
+              (eq, "$g_cur_month", 2),
+              (jump_to_menu,"mnu_campos_cercanos3"),
+            (else_try),
+              (this_or_next|eq, "$g_cur_month", 6),
+              (this_or_next|eq, "$g_cur_month", 7),
+              (eq, "$g_cur_month", 8),
+              (jump_to_menu,"mnu_campos_cercanos2_c"),
+            (else_try),
+              (jump_to_menu,"mnu_campos_cercanos4"),
+            (try_end),
+          (else_try),
+            (jump_to_menu,"mnu_campos_cercanos4"),
+          (try_end),
+      ]),
+
+
+      ("go_back",[],
+        "Go back.", [(jump_to_menu,"mnu_castle_besiege")]),
+
+      ("testing",[(ge, "$cheat_mode", 1),],
+        "Test siege event.", [(jump_to_menu,"mnu_siege_event_test")]),
+    ]
+  ),
+
+  ###############assault
+  (
+    "siege_assault",0,
+    "Time is of essence, and you fear the arrival of support force for the place. Assaulting will mean heavy casualties, but you have made up your mind.^^{s17} {s18} {s19}",
+    "none",
+    [
+
+      (str_store_party_name,s4,"$current_town"),
+
+      (str_clear, s17),
+      (str_clear, s18),
+      (str_clear, s19),
+      ####listos para asalto
+      (str_store_string,s17,"str_empty_string"),
+      (try_begin),
+        (neq, "$g_listos_para_asalto", 1),
+        (eq, "$g_siege_method", 2),
+        (str_store_string,s17,"@>>The assault equipment is ready. The troops await your orders.^^"),
+      (else_try),
+        (eq, "$g_listos_para_asalto", 1),
+        (this_or_next|eq, "$g_cur_month", 3),
+        (this_or_next|eq, "$g_cur_month", 4),
+        (eq, "$g_cur_month", 5),
+        (str_store_string,s17,"@>>You look at {s4}. Your men are silent while they await your order to attack. Your muscles are tense, hot for battle, but your mind is cold and adrenaline fills your veins^" +
+        "A man breathes deeply. 'Do you smell that?' he asks, 'That is the scent of glory.' 'Are you ready to seize it?'^^"),
+      (else_try),
+        (ge, "$g_listos_para_asalto", 1),
+        (this_or_next|eq, "$g_cur_month", 9),
+        (this_or_next|eq, "$g_cur_month", 10),
+        (eq, "$g_cur_month", 11),
+        (str_store_string,s17,"@>>The steel of the weapons glitters, banners sway in the wind and horns sound. The men whisper, many pray, ingratiate themselves with their god before facing the end of their lives. Up ahead there are only two things: victory or death.^" +
+        "War ... war never changes.^^"),
+      (else_try),
+        (ge, "$g_listos_para_asalto", 1),
+        (this_or_next|eq, "$g_cur_month", 12),
+        (this_or_next|eq, "$g_cur_month", 1),
+        (eq, "$g_cur_month", 2),
+        (str_store_string,s17,"@>>Winter is the worst time to fight, but there you are in the cold months, ready to undertake the conquest of {s4}. Many people think you're a daredevil, others a madman. But this place will be yours, soon.^^"),
+      (else_try),
+        (ge, "$g_listos_para_asalto", 1),
+        (this_or_next|eq, "$g_cur_month", 6),
+        (this_or_next|eq, "$g_cur_month", 7),
+        (eq, "$g_cur_month", 8),
+        (str_store_string,s17,"@>>It's summer and hot -- maybe too hot -- but, at that moment, you do not feel anything. As always before a battle, you set aside time for a few inevitable memories of the past... Then you close your mind and ready it for battle, preparing for even the worst case -- death.^^"),
+      (else_try),
+        (ge, "$g_listos_para_asalto", 1),
+        (str_store_string,s17,"@>>You look at {s4}. Your men are silent while waiting for your order to charge towards death. Your muscles are tense, hot for battle, your mind cold and adrenaline fills your veins^" +
+        "A man breathes deeply. 'Do you smell that?' he asks, 'That is the scent of glory.' 'Are you ready to seize it?'^^"),
+      (try_end),
+
+      (str_store_string,s18,"str_empty_string"),
+      (try_begin),
+        (ge, "$g_mantlets_1", 1),
+        (party_get_slot, ":last_mantles_time", "$g_encountered_party", slot_center_mantlets_placed),
+        (store_current_hours, ":cur_hours"),
+        (call_script, "script_get_max_skill_of_player_party", "skl_engineer"),
+        (assign, ":max_skill", reg0),
+        (store_sub, reg4, 16, ":max_skill"),
+        (val_mul, reg4, 2),
+        (store_add, ":ok_time", ":last_mantles_time", reg4),#between 12 and 32 hours
+        (gt, ":cur_hours", ":ok_time"),
+        (str_store_string,s18,"@>>Your men have finished building the mantlets. Now you can use them to protect your soldiers in the vanguard attack, and your main force for the final charge.^^"),
+        (assign, "$g_mantlets_1", 2), #final
+      (else_try),
+        (eq, "$g_mantlets_1", 1),
+        (str_store_string,s18,"@>>Your men are building mantlets.^^"),
+      (try_end),
+
+      (str_store_string,s19,"str_empty_string"),
+      (try_begin),
+        (ge, "$g_siege_method", 1),
+
+        (party_get_slot, ":last_ladders_time", "$g_encountered_party", slot_center_ladder_time),
+        (store_current_hours, ":cur_hours"),
+        (call_script, "script_get_max_skill_of_player_party", "skl_engineer"),
+        (assign, ":max_skill", reg0),
+        (store_sub, reg4, 16, ":max_skill"),
+        (val_mul, reg4, 2),
+
+        (store_add, ":ok_time", ":last_ladders_time", reg4), #between 24 and 64 hours
+        (gt, ":cur_hours", ":ok_time"),
+        (str_store_string,s19,"@>>Your men have finished building the ladders.^^"),
+        (assign, "$g_siege_method", 2), #final
+      (else_try),
+        (eq, "$g_siege_method", 1),
+        (str_store_string,s19,"@>>Your men are building assault ladders.^^"),
+      (try_end),
+
+      (call_script, "script_set_town_picture"),
+
+      #Check for victory or defeat....
+      (assign, "$g_enemy_party", "$g_encountered_party"),
+      (assign, "$g_ally_party", -1),
+      (str_store_party_name, 1,"$g_encountered_party"),
+      (call_script, "script_encounter_calculate_fit"),
+
+      (assign, reg11, "$g_enemy_fit_for_battle"),
+      (assign, reg10, "$g_friend_fit_for_battle"),
+
+
+      (try_begin),
+        (eq, "$g_leave_encounter",1),
+        (change_screen_return),
+      (else_try),
+        (call_script, "script_party_count_fit_regulars","p_collective_enemy"),
+        (assign, ":enemy_finished", 0),
+        (try_begin),
+          (eq, "$g_battle_result", 1),
+          (assign, ":enemy_finished", 1),
+        (else_try),
+          (this_or_next|le, "$g_enemy_fit_for_battle",0),
+          (le, "$g_enemy_fit_for_battle", "$num_routed_enemies"),  #we do not want routed agents to spawn again in next turn of battle.
+          (ge, "$g_friend_fit_for_battle", 1),
+          (assign, ":enemy_finished", 1),
+        (try_end),
+
+        (this_or_next|eq, ":enemy_finished", 1),
+        (eq, "$g_enemy_surrenders", 1),
+        #siege warfare chief
+        (assign, "$g_empieza_asedio", 0),
+        (party_set_slot,"$g_encountered_party",slot_center_blockaded,0),
+        (party_set_slot,"$g_encountered_party",slot_center_blockaded_time,0),
+        (party_set_slot, "$g_encountered_party", slot_center_mantlets_placed, 0),
+        (party_set_slot,"$g_encountered_party",slot_center_ladder_time,0),
+        (party_set_slot,"$g_encountered_party",slot_center_latrines,0),
+        (party_set_slot,"$g_encountered_party",slot_center_infiltration_type,0),
+
+        (assign, "$g_siege_saneamiento", 0),
+        (assign, "$g_traicion_interna", 0),
+        (assign, "$g_infiltracion_interna", 0),
+        (assign, "$g_campos_cercanos", 0),
+        (assign, "$g_listos_para_asalto", 0),
+        (assign, "$g_mantlets_1", 0),
+        (assign, "$g_cabezas_dentro", 0), #event
+        (assign, "$g_siege_method", 0),
+        (assign, "$g_siege_sallied_out_once", 0),
+        (assign, "$g_days_spent_starving", 0), #siege warfare, important, we use this in dialogs
+        (assign, "$g_next_sally_at", 0), #sally more common siege warfare chief
+        #siege warfare acaba
+
+        (assign, "$g_next_menu", "mnu_castle_taken"),
+        (jump_to_menu, "mnu_total_victory"),
+      (else_try),
+        (call_script, "script_party_count_members_with_full_health", "p_main_party"),
+        (assign, ":main_party_fit_regulars", reg0),
+        (eq, "$g_battle_result", -1),
+        (this_or_next|eq, ":main_party_fit_regulars", 0), #all lost (TODO : )
+        (le, ":main_party_fit_regulars",  "$num_routed_allies"), #we do not want routed agents to spawn again in next turn of battle.
+        (assign, "$g_next_menu", "mnu_captivity_start_castle_defeat"),
+        #siege warfare chief
+        (assign, "$g_empieza_asedio", 0),
+        (party_set_slot,"$g_encountered_party",slot_center_blockaded,0),
+        (party_set_slot,"$g_encountered_party",slot_center_blockaded_time,0),
+        (party_set_slot, "$g_encountered_party", slot_center_mantlets_placed, 0),
+        (party_set_slot,"$g_encountered_party",slot_center_ladder_time,0),
+        (party_set_slot,"$g_encountered_party",slot_center_latrines,0),
+        (party_set_slot,"$g_encountered_party",slot_center_infiltration_type,0),
+
+        (assign, "$g_siege_saneamiento", 0),
+        (assign, "$g_traicion_interna", 0),
+        (assign, "$g_infiltracion_interna", 0),
+        (assign, "$g_campos_cercanos", 0),
+        (assign, "$g_listos_para_asalto", 0),
+        (assign, "$g_mantlets_1", 0),
+        (assign, "$g_cabezas_dentro", 0), #event
+        (assign, "$g_siege_method", 0),
+        (assign, "$g_siege_sallied_out_once", 0),
+        (assign, "$g_days_spent_starving", 0), #siege warfare, important, we use this in dialogs
+        (assign, "$g_next_sally_at", 0), #sally more common siege warfare chief
+        #siege warfare acaba
+        (jump_to_menu, "mnu_total_defeat"),
+      (try_end),
+    ],
+    [
+      #####scout da pinceladas
+      ("scout_investigar",
+        [
+        ],
+        "Call the scouts for a report on {s4}.",
+        [
+          (jump_to_menu,"mnu_informacion_ciudad"),
+      ]),
+
+      ("poniendo_elementos_mantles",
+        [(eq, "$g_mantlets_1", 2),
+          (neq, "$g_listos_para_asalto", 1),
+          (ge, "$g_siege_method", 2),
+          (gt, "$g_friend_fit_for_battle", 3),
+          ##         (store_current_hours, ":cur_hours"),
+          ##         (ge, ":cur_hours",  "$g_siege_method_finish_hours"),
+        ],
+        "Order the vanguard to place the mantlets.", [(assign, "$cant_talk_to_enemy", 0),(jump_to_menu,"mnu_poner_escaleras_mantlets")]),
+
+      ("poniendo_elementos",
+        [(neq, "$g_mantlets_1", 2),
+          (neq, "$g_listos_para_asalto", 1),
+          (ge, "$g_siege_method", 2),
+          (gt, "$g_friend_fit_for_battle", 3),
+          ##         (store_current_hours, ":cur_hours"),
+          ##         (ge, ":cur_hours",  "$g_siege_method_finish_hours"),
+        ],
+        "Order the vanguard to prepare the assault.", [(assign, "$cant_talk_to_enemy", 0),(jump_to_menu,"mnu_poner_escaleras")]),
+
+      ("castle_lead_attack",
+        [
+          (neg|troop_is_wounded, "trp_player"),
+          (eq, "$g_listos_para_asalto", 1),
+          (ge, "$g_siege_method", 2),
+          (gt, "$g_friend_fit_for_battle", 3),
+        ],
+        "The hour has arrived. Lead your soldiers in assault!",
+        [
+          (try_begin),
+            (party_slot_eq, "$g_encountered_party", slot_party_type, spt_town),
+            (party_get_slot, ":battle_scene", "$g_encountered_party", slot_town_walls),
+          (else_try),
+            (party_get_slot, ":battle_scene", "$g_encountered_party", slot_castle_exterior),
+          (try_end),
+
+          (call_script, "script_calculate_renown_value"),
+          (call_script, "script_calculate_battle_advantage"),
+          (assign, ":battle_advantage", reg0),
+          (val_mul, ":battle_advantage", 2),
+          (val_div, ":battle_advantage", 3), #scale down the advantage a bit in sieges.
+          (set_battle_advantage, ":battle_advantage"),
+          (set_party_battle_mode),
+          (assign, "$g_siege_battle_state", 1),
+          (assign, ":siege_sally", 0),
+          (try_begin),
+            (le, ":battle_advantage", -6), #we are outnumbered, defenders sally out
+            (eq, "$g_siege_sallied_out_once", 0),
+            (set_jump_mission,"mt_castle_attack_walls_defenders_sally"),
+            (assign, "$g_siege_battle_state", 0),
+            (assign, ":siege_sally", 1),
+          (else_try),
+            (assign, "$temp4", 0),
+            (set_jump_mission,"mt_castle_attack_walls_ladder"),
+          (try_end),
+          (assign, "$cant_talk_to_enemy", 0),
+          (assign, "$g_siege_final_menu", "mnu_castle_besiege"),
+          (assign, "$g_next_menu", "mnu_castle_besiege_inner_battle"),
+          (assign, "$g_siege_method", 0), #reset siege timer
+          (try_begin),
+            (eq, ":siege_sally", 1),
+            (call_script, "script_setup_random_scene"),
+            (jump_to_menu, "mnu_siege_attack_meets_sally"),
+          (else_try),
+            (jump_to_scene,":battle_scene"),
+            (jump_to_menu, "mnu_battle_debrief"),
+            (change_screen_mission),
+          (try_end),
+      ]),
+      ("attack_stay_back",
+        [
+          (eq, "$g_listos_para_asalto", 1),
+          (ge, "$g_siege_method", 2),
+          (gt, "$g_friend_fit_for_battle", 3),
+        ],
+        "Order your soldiers to assault while you stay back...", [(assign, "$cant_talk_to_enemy", 0),(jump_to_menu,"mnu_castle_attack_walls_simulate2")]),
+
+      ("build_mantlet",
+        [           (eq, "$g_mantlets_1", 0),
+          (neq, "$g_siege_method", 1),
+        ],
+        "Build mantlets.",
+        [
+          (jump_to_menu,"mnu_build_mantles2"),
+          ##                        (assign, "$g_mantlets_1", 1),
+          ##                (store_current_hours, ":cur_hours"),
+          ##                (party_set_slot, "$g_encountered_party", slot_center_mantlets_placed, ":cur_hours"),
+      ]),
+      #siege warfare ram
+      ("build_ladders",[
+          (eq, "$g_siege_method", 0),
+          (neq, "$g_mantlets_1", 1),],
+        "Build equipment and clear the ground for assault.", [(jump_to_menu,"mnu_construct_ladders")]),
+
+      ##no siege towers in dark ages
+      # ("build_siege_tower",[(party_slot_eq, "$current_town", slot_center_siege_with_belfry, 1),(eq, "$g_siege_method", 0)],
+        # "Build a siege tower and other equipment to assault the fortress. Assaults may result in many casualties.", [(jump_to_menu,"mnu_construct_siege_tower")]),
+      ###siege warfare ram chief
+      ##                   ("build_battering_ram", [(party_slot_eq, "$current_town", slot_center_siege_with_ram, 1),
+      ##                             (eq, "$g_siege_method", 0)],
+      ##       "Build a battering ram and equipment to prepare the assault on the fortress . Assaults are unpredictable, and may result in many casualties.", [(jump_to_menu,"mnu_battering_ram")]),
+      ###siege warfare ram acaba
+      ("cheat_castle_lead_attack",[(eq, "$cheat_mode", 1),
+          (eq, "$g_siege_method", 0)],
+        "{!}CHEAT: Instant build equipments.",
+        [
+          (assign, "$g_mantlets_1", 2),
+          (assign, "$g_siege_method", 1),
+          (assign, "$g_siege_method_finish_hours", 0),
+          (jump_to_menu, "mnu_castle_besiege"),
+      ]),
+
+      ("cheat_conquer_castle",[(eq, "$cheat_mode", 1),
+        ],
+        "{!}CHEAT: Instant conquer fortress.",
+        [
+          (assign, "$g_next_menu", "mnu_castle_taken"),
+          (jump_to_menu, "mnu_total_victory"),
+      ]),
+
+      ("go_back",[],
+        "Go back.", [(jump_to_menu,"mnu_castle_besiege")]),
+    ]
+  ),
+
+  #####Siege warfare acaba
 
   (
     "siege_attack_meets_sally",mnf_scale_picture,
@@ -6966,6 +7932,893 @@ TOTAL:  {reg5}"),
        ]),
     ]
   ),
+
+
+  #######siege warfare
+  #Low food = sally out
+  (
+    "nofood_siege_defenders_sally",0,
+    "The lack of food forces the desperate defenders of {s4} to sally out in an attempt to break the siege.",
+    "none",
+    [
+      (set_background_mesh, "mesh_pic_sally_out"),
+      (str_store_party_name,s4,"$current_town"),
+    ],
+    [
+      ("continue",[],
+        "Continue...",
+        [
+          (jump_to_menu, "mnu_battle_debrief"),
+          (change_screen_mission),
+      ]),
+    ]
+  ),
+
+  #surrender for hunger
+  (
+    "surrender_siege_defenders_starved",0,
+    "The defenders of {s4} can hold out no longer. Lack of food has debilitated them. Already the weakest have died of starvation, and in some cases, the need has led to cannibalism.^" +
+    "{s4} is ready to surrender...",
+    "none",
+    [
+      (set_background_mesh, "mesh_pic_victory"),
+      (str_store_party_name,s4,"$current_town"),
+    ],
+    [
+      ("continue",[],
+        "Continue...",
+        [
+          (assign, "$g_enemy_surrenders",1),
+          (jump_to_menu, "mnu_castle_besiege"), #
+      ]),
+    ]
+  ),
+  ############
+  ####SIEGE WARFARE CHIEF menus extras
+  (
+    "castle_attack_walls_simulate2",mnf_disable_all_keys, #vanguardia
+    "{s4}^^Your casualties: {s8}^^Enemy casualties: {s10}",
+    "none",
+    [
+      (set_background_mesh, "mesh_pic_siege_sighted"),
+
+      (try_begin), ###siege warfare
+        (eq, "$g_mantlets_1", 2),
+        (call_script, "script_simulate_battle_with_parties", 1, "$g_enemy_party", 5, 0, 0), ###less difficult
+      (else_try),
+        (call_script, "script_simulate_battle_with_parties", 2, "$g_enemy_party", 7, 0, 0),
+      (try_end),
+
+      (assign, "$no_soldiers_left", 0),
+      (try_begin),
+        (call_script, "script_party_count_members_with_full_health", "p_main_party"),
+        (le, reg0, 0), #(TODO : compare with num_routed_us)
+        (assign, "$no_soldiers_left", 1),
+        (str_store_string, s4, "str_attack_walls_failure"),
+      (else_try),
+        (call_script, "script_party_count_members_with_full_health", "p_collective_enemy"),
+        (le, reg0, 0), #(TODO : compare with num_routed_enemies)
+        (assign, "$no_soldiers_left", 1),
+        (assign, "$g_battle_result", 1),
+        (str_store_string, s4, "str_attack_walls_success"),
+      (else_try),
+        (str_store_string, s4, "str_attack_walls_continue"),
+      (try_end),
+    ],
+    [
+      ("continue",[],"Continue...",[(jump_to_menu,"mnu_siege_assault")]),
+    ]
+  ),
+
+
+
+  (
+    "sneak_into_town_suceeded2",0,
+    "Disguised and under the cover of darkness, you infiltrate {s4}. It's time to scout out their defenses.",
+    "none",
+    [
+      (str_store_party_name,s4,"$current_town"),
+    ],
+    [
+      ("continue",[],"Continue...",
+        [
+          (assign, "$sneaked_into_town",1),
+          (jump_to_menu,"mnu_town"),
+      ]),
+    ]
+  ),
+
+  #labores de saneamiento chief
+  (
+    "construct_saneamiento",0,
+    "Sanitation is important for preventing rats and disease. It is possible to construct latrines and pipelines to prevent the accumulation of mud and filth from the rain, and dig a reservoir to have an available water supply. Do you want to do it?^" +
+    "It will take 4 hours.",
+    "none",
+    [
+
+    ],
+    [
+      ("build_saneamiento",[],
+        "Do it.", [
+          (assign, "$g_siege_saneamiento", 1),
+          (store_current_hours, ":cur_hours"),
+          (party_set_slot, "$g_encountered_party", slot_center_latrines, ":cur_hours"),
+          (call_script, "script_change_player_party_morale", -3),
+          (assign, "$g_siege_saneamiento", 2), #fix problem with saneamiento.
+          (jump_to_menu,"mnu_siege_plan")
+      ]),
+      ("go_back",[],
+        "Go back.", [(jump_to_menu,"mnu_siege_plan")]),
+    ],
+  ),
+  #saneamiento acaba
+  ###block place
+  (
+    "construct_circunvalation",0,
+    "Blockading a place protects your troops during the siege, helps to avoid some enemy skirmishers, and prevents the entry of food and reinforcements. " +
+    "It also lowers enemy's morale and helps you negotiate the surrender of the place.^^" +
+    "As the party member with the highest Engineer skill, ({reg2}), {reg3?you estimate:{s3} estimates} that building the blockade around the place will take {reg4} hours.",
+    "none",
+    [
+      (set_background_mesh, "mesh_pic_siege_sighted"),
+
+      (call_script, "script_get_max_skill_of_player_party", "skl_engineer"),
+      (assign, ":max_skill", reg0),
+      (assign, ":max_skill_owner", reg1),
+      (assign, reg2, ":max_skill"),
+
+      (store_sub, reg4, 16, ":max_skill"),
+      (val_mul, reg4, 4),#between 24 and 64 hours
+
+      (try_begin),
+        (eq, ":max_skill_owner", "trp_player"),
+        (assign, reg3, 1),
+      (else_try),
+        (assign, reg3, 0),
+        (str_store_troop_name, s3, ":max_skill_owner"),
+      (try_end),
+    ],
+    [
+      ("build_circun_cont",[],
+        "Do it.", [
+          (party_set_slot,"$g_encountered_party",slot_center_blockaded,1),
+          (store_current_hours, ":cur_hours"),
+          (party_set_slot, "$g_encountered_party", slot_center_blockaded_time, ":cur_hours"),
+          (jump_to_menu,"mnu_siege_plan"),
+      ]),
+      ("go_back",[],
+        "Go back.", [(jump_to_menu,"mnu_siege_plan")]),
+    ],
+  ),
+
+  ##########
+  ("traicion_interna2",0,
+    "Your siege works begin to demoralize the defenders. Some of your soldiers are willing to contact the garrison or the inhabitants at {s4} and probe if someone would be willing to commit treason and facilitate the conquest. They need 500 denars for the job.",
+    "none",
+    [
+      (str_store_party_name,s4,"$current_town"),
+    ],
+    [
+      ("intentar_traicion",[],
+        "Allow these men to seek out a traitor.", [
+          (store_troop_gold,":money","trp_player"),
+          (try_begin),
+            (gt,":money",499),
+            (troop_remove_gold, "trp_player", 500),
+            (assign, "$g_traicion_interna", 1),
+            (jump_to_menu,"mnu_siege_plan"),
+          (else_try),
+            (display_message,"str_no_money"),
+          (try_end),
+      ]),
+      ("go_back",[],
+        "Go back.", [(jump_to_menu,"mnu_siege_plan")]),
+    ],
+  ),
+
+  ####traicion interna
+  ("traicion_resultado1",0,
+    "They returned without news. No one is willing to become a traitor.",
+    "none", [
+    ],
+    [
+      ("back_behind",[],"Well, bad luck.",
+        [
+          (assign, "$g_traicion_interna", 3),#failed
+          (jump_to_menu,"mnu_siege_plan"),
+      ]),
+    ],
+  ),
+
+  ("traicion_resultado2",0,
+    "Sir! Our men have been discovered near the wall. They are fighting their way out of {s4}. Look over there at the sally port. They are trying to flee, but are surrounded...",
+    "none",
+    [
+
+      (str_store_party_name,s4,"$current_town"),
+    ],
+    [
+      ("ayudar_infiltrados",[],"Order: send an additional group of men to their aid.",
+        [
+          (jump_to_menu,"mnu_traicion_lucha"),
+      ]),
+      ("leave_men",[],"Leave the men to their fate. They knew what was coming.",
+        [
+          (call_script, "script_change_player_honor", -5),
+          (call_script, "script_change_player_party_morale", -6),
+          (assign, "$g_traicion_interna", 3), #failed
+          (jump_to_menu,"mnu_siege_plan"),
+      ]),
+    ],
+  ),
+
+  ("traicion_resultado3",0,
+    "Your men have returned. A traitor within the place has set barns ablaze and will soon flee {s4} and join your army. The enemy will lose much of their food stock because of that.",
+    "none", [
+      (str_store_party_name,s4,"$current_town"),
+    ],
+    [("back_to_siege",[],"Well done.",
+        [
+          (party_get_slot,":cur_food","$g_encountered_party",slot_party_food_store),
+          (try_begin),
+            (ge,":cur_food",4),
+            (store_random_in_range,":burned",40,50),
+            (val_mul,":cur_food",100),
+            (val_add,":burned",100),
+            (val_div,":cur_food",":burned"),
+            (party_set_slot,"$g_encountered_party",slot_party_food_store,":cur_food"),
+            (str_store_party_name,s4,"$g_encountered_party"),
+            (display_message, "@{s4} lost between 40 and 50% of its food reserves.", 0xFF0000),
+          (try_end),
+          (call_script, "script_change_center_prosperity", "$g_encountered_party", -5),
+          (party_add_members, "p_main_party", "trp_watchman", 1),
+          (assign, "$g_traicion_interna", 4), #success
+          (jump_to_menu,"mnu_siege_plan"),
+      ]),
+    ],
+  ),
+
+  ("traicion_resultado4",0,
+    "Your men have returned. They report there is a traitor who knows the routines of the garrison, and he is willing to lead a small force to ambush the enemy when they come to the water supplies, a nearby stream outside the walls...",
+    "none", [ ],
+    [
+      ("atacar_emboscada_player",[],"Go yourself with your closest companions.",
+        [
+          (try_begin),
+            (store_troop_health, ":health", "trp_player", 0), #get relative health in 1-100 range and put it into the ":health" variable
+            (lt, ":health", 30),
+            (val_add, ":health", 35),               #add to it the 5%
+            (troop_set_health,   "trp_player", ":health"),   #set it
+          (try_end),
+
+
+          (store_random_in_range, ":scene_a_usar", 0,3),
+          (try_begin),
+            (eq, ":scene_a_usar", 1),
+            (assign, ":scene_to_use", "scn_custom_battle_plains_2"),
+          (else_try),
+            (eq, ":scene_a_usar", 2),
+            (assign, ":scene_to_use", "scn_custom_battle_plains_5"),
+          (else_try),
+            (assign, ":scene_to_use", "scn_custom_battle_forest_4"),
+          (try_end),
+
+          (set_jump_mission,"mt_ambush_riversw"),
+          (modify_visitors_at_site,":scene_to_use"),
+          #### tropas cambiar por las del asentamiento
+          (assign, "$g_traicion_interna", 4), #success
+          (reset_visitors, 0),
+          (set_visitor,0,"trp_player"), #player
+          (assign, ":cur_entry", 1),
+          (try_for_range, ":companion", companions_begin, companions_end),
+            (lt, ":cur_entry", 16),
+            (main_party_has_troop,":companion"),
+            (set_visitor, ":cur_entry", ":companion"),
+            (val_add, ":cur_entry", 1),
+          (try_end),
+
+          (assign, ":num_troops", 8),
+          (try_for_range, ":unused", 0, ":num_troops"),
+            (call_script, "script_cf_party_remove_random_regular_troop", "$g_encountered_party"),
+            (assign, ":lost_troop", reg0),
+            #(try_for_range, ":visiterator", 17, 18), #possible 17 and 31, but this add 8 enemies each 1 entry point
+            (assign, ":visiterator", 17),
+            (set_visitor, ":visiterator", ":lost_troop"),
+            #  (try_end),
+          (try_end),
+          (jump_to_scene,":scene_to_use"),
+          (change_screen_mission),
+      ]),
+
+      ("atacar_emboscada",[],"Order: send a group of men with the traitor to carry out the ambush.",
+        [
+          (store_random_in_range, ":rand", 0, 3),
+          (try_begin),
+            (eq, ":rand", 0),
+            (jump_to_menu,"mnu_emboscada_victory"),
+          (else_try),
+            (eq, ":rand", 1),
+            (jump_to_menu,"mnu_emboscada_lose"),
+          (else_try),
+            (jump_to_menu,"mnu_emboscada_nada"),
+          (try_end),
+      ]),
+      ("leave_men",[],"It makes me uneasy. Forget about it.",
+        [
+          # (assign, "$g_traicion_interna", 0),
+          (jump_to_menu,"mnu_siege_plan"),
+      ]),
+    ],
+  ),
+  #resultado
+  ("emboscada_player",0,
+    "Moving through the vegetation, you have taken your enemies by surprise and have given a good account of yourselves. Now the garrison will think twice before sending men out.",
+    "none", [ (set_background_mesh, "mesh_pic_mb_warrior_3"),
+    ],
+    [
+      ("emboscada_playerok",[],"Victory!",
+        [
+        (leave_encounter),
+        (jump_to_menu, "mnu_auto_return_to_map"),
+      ]),
+    ],
+  ),
+  #
+  ("emboscada_nada",0,
+    "Your men move under the cover of the vegetation, away from the watchful eyes on the wall, but when they come to the meeting point, there is nobody. The alleged traitor has been discovered or has repented. Your men return disappointed.",
+    "none", [ (set_background_mesh, "mesh_pic_mb_warrior_3"),
+    ],
+    [
+      ("emboscada_nanai",[],"Do not worry. There will be another chance.",
+        [
+          (assign, "$g_traicion_interna", 3), #failed
+          (jump_to_menu,"mnu_siege_plan"),
+      ]),
+    ],
+  ),
+  #
+  ("emboscada_lose",0,
+    "Alarm! Treason! The alleged traitor led your men into an ambush. They are fighting desperately, leaving many men on the field.",
+    "none", [ (set_background_mesh, "mesh_pic_mb_warrior_3"),
+      (store_random_in_range, ":p_leave", 8, 12),
+      (assign, ":num_troops", ":p_leave"),
+      (try_for_range, ":unused", 0, ":num_troops"),
+        (call_script, "script_cf_party_remove_random_regular_troop", "p_main_party"),
+      (try_end),
+    ],
+    [("regreso_lucha",[],"Your worst fears have come true.",
+        [
+          (assign, "$g_traicion_interna", 3), #failed
+          (jump_to_menu,"mnu_siege_plan"),
+      ]),
+    ],
+  ),
+
+  ("emboscada_victory",0,
+    "The traitor leads your men through the night to a hill that controls the path to a well. Your men take up positions in the vegetation, in silence, their faces stained black. At daybreak, your men spot a large group of enemies by the water.^^A battle cry fills the valley as your soldiers fall like a tide of death on the enemy... killing many.",
+    "none", [ (set_background_mesh, "mesh_pic_mb_warrior_3"),
+
+      (store_random_in_range, ":p_leave", 8, 12),
+      (assign, ":num_troops", ":p_leave"),
+      (try_for_range, ":unused", 0, ":num_troops"),
+        (call_script, "script_cf_party_remove_random_regular_troop", "$g_encountered_party"),
+      (try_end),
+    ],
+
+    [("regreso_lucha",[],"Victory!",
+        [
+          (call_script, "script_change_player_party_morale", 3),
+          (assign, "$g_traicion_interna", 4), #success
+          (jump_to_menu,"mnu_siege_plan"),
+      ]),
+    ],
+  ),
+  #
+  ("traicion_resultado5",0,
+    "When your men come back, they tell you they have contacted a man who is in control of rations, and he has promised to raise the price of food to his fellow citizens to sow discontent, making them more likely to abandon the fortress.",
+    "none", [
+    ],
+
+    [("traicion_moral",[],"Perfect!",
+        [
+          (call_script, "script_change_center_prosperity", "$g_encountered_party", -5),
+
+          (store_random_in_range, ":p_leave", 8, 22),
+          (assign, ":num_troops", ":p_leave"),
+          (try_for_range, ":unused", 0, ":num_troops"),
+            (call_script, "script_cf_party_remove_random_regular_troop", "$g_encountered_party"),
+          (try_end),
+          (assign, "$g_traicion_interna", 4), #success
+          (jump_to_menu,"mnu_siege_plan"),
+      ]),
+    ],
+  ),
+
+  #traicion interna
+  ("traicion_lucha",0,
+    "Your men and the enemy fight to the death at the foot of the wall, where everything is unfavorable to your troops. You watch them fighting and retreating towards you. Many bodies are left behind. " +
+    "^^Your casualties: {s8}^^Enemy casualties: {s10}",
+    "none", [
+      (call_script, "script_simulate_battle_with_parties", 11, "$g_enemy_party", 56, 0, 0),
+    ],
+
+    [("regreso_luchar",[],"Well, no one gets left behind.",
+        [
+          (call_script, "script_change_player_honor", 5),
+          (call_script, "script_change_player_party_morale", 5),
+          (assign, "$g_traicion_interna", 3), #failed
+          (jump_to_menu,"mnu_siege_plan"),
+      ]),
+    ],
+  ),
+  ####infiltracion interna chief
+  ("infiltracion_resultado1",0,
+    "They returned without news. They were unable to enter the settlement.",
+    "none", [
+    ],
+    [
+      ("back_behindi",[],"Just bad luck, I guess.",
+        [
+          (party_set_slot,"$g_encountered_party",slot_center_infiltration_type,0),
+          (assign, "$g_infiltracion_interna", 3),
+          (jump_to_menu,"mnu_siege_plan"),
+      ]),
+    ],
+  ),
+
+  ("infiltracion_resultado2",0,
+    "Sir! Our men have been discovered in {s4}. Unfortunately, none have returned. They were all killed or captured.",
+    "none",
+    [
+
+      (str_store_party_name,s4,"$current_town"),
+    ],
+    [
+      ("muertos_infiltrado",[],"Terrible news.",
+        [
+          (call_script, "script_change_player_party_morale", -5),
+
+          (store_random_in_range, ":p_leave", 18, 22),
+          (assign, ":num_troops", ":p_leave"),
+          (try_for_range, ":unused", 0, ":num_troops"),
+            (call_script, "script_cf_party_remove_random_regular_troop", "p_main_party"),
+            (assign, ":lost_troop", reg0),
+            (store_random_in_range, ":random_no", 0, 100),
+            (ge, ":random_no", 50),
+            (party_add_prisoners, "$g_encountered_party", ":lost_troop", 1),
+          (try_end),
+
+          (party_set_slot,"$g_encountered_party",slot_center_infiltration_type,0),
+          (assign, "$g_infiltracion_interna", 3),
+          (jump_to_menu,"mnu_siege_plan"),
+      ]),
+    ],
+  ),
+
+  ("infiltracion_resultado3",0,
+    "Victory! They have managed to burn several food stores. The enemy is demoralized. Perhaps it is time to request their surrender.",
+    "none", [ ],
+
+    [("back_to_siegei",[],"Well, give them a barrel of mead.",
+        [
+          (party_get_slot,":cur_food","$g_encountered_party",slot_party_food_store),
+          (try_begin),
+            (ge,":cur_food",4),
+            (store_random_in_range,":burned",50,60),
+            (val_mul,":cur_food",100),
+            (val_add,":burned",100),
+            (val_div,":cur_food",":burned"),
+            (party_set_slot,"$g_encountered_party",slot_party_food_store,":cur_food"),
+            (str_store_party_name,s4,"$g_encountered_party"),
+            (display_message, "@{s4} lost between 50 and 60% of its food reserves.", 0xFF0000),
+          (try_end),
+          (call_script, "script_change_center_prosperity", "$g_encountered_party", -5),
+          (party_set_slot,"$g_encountered_party",slot_center_infiltration_type,0),
+          (assign, "$g_infiltracion_interna", 4),
+          (jump_to_menu,"mnu_siege_plan"),
+      ]),
+    ],
+  ),
+
+  ("infiltracion_resultado3_c",0,
+    "Victory! They killed many cattle and contaminated the water reserves. The enemy is demoralized and their lord has lost some renown. Perhaps it is time to request their surrender.",
+    "none", [ ],
+
+    [("back_to_siegein",[],"Well, give them a barrel of mead.",
+        [
+          (party_get_slot,":cur_food","$g_encountered_party",slot_party_food_store),
+          (try_begin),
+            (ge,":cur_food",4),
+            (store_random_in_range,":burned",30,40),
+            (val_mul,":cur_food",100),
+            (val_add,":burned",100),
+            (val_div,":cur_food",":burned"),
+            (party_set_slot,"$g_encountered_party",slot_party_food_store,":cur_food"),
+            (str_store_party_name,s4,"$g_encountered_party"),
+            (display_message, "@{s4} lost between 30 and 40% of its food reserves.", 0xFF0000),
+          (try_end),
+          (party_get_slot, ":town_lord", "$g_encountered_party", slot_town_lord),
+          (call_script, "script_change_troop_renown", ":town_lord", -15),
+          (call_script, "script_change_center_prosperity", "$g_encountered_party", -10),
+          (party_set_slot,"$g_encountered_party",slot_center_infiltration_type,0),
+          (assign, "$g_infiltracion_interna", 4),
+          (jump_to_menu,"mnu_siege_plan"),
+      ]),
+    ],
+  ),
+
+
+  ("infiltracion_resultado4",0,
+    "Your men have returned. They said that some warriors are dissatisfied, and some were persuaded to switch to your side. If you agree, they will leave the city at night and join your army. Before they leave, they promise to cause unrest to facilitate the surrender of the place.",
+    "none", [ ],
+
+    [("aceptar_si",[],"They are welcome.",
+        [
+          (store_random_in_range, ":p_leave", 4, 12),
+          (assign, ":num_troops", ":p_leave"),
+          (try_for_range, ":unused", 0, ":num_troops"),
+            (call_script, "script_cf_party_remove_random_regular_troop", "$g_encountered_party"),
+            (assign, ":lost_troop", reg0),
+            (party_add_members, "p_main_party", ":lost_troop", 1),
+          (try_end),
+
+          (party_get_slot,":cur_food","$g_encountered_party",slot_party_food_store),
+          (try_begin),
+            (ge,":cur_food",4),
+            (store_random_in_range,":burned",10,20),
+            (val_mul,":cur_food",100),
+            (val_add,":burned",100),
+            (val_div,":cur_food",":burned"),
+            (party_set_slot,"$g_encountered_party",slot_party_food_store,":cur_food"),
+            (str_store_party_name,s4,"$g_encountered_party"),
+            (display_message, "@{s4} lost between 10 and 20% of its food reserves.", 0xFF0000),
+          (try_end),
+
+          (party_set_slot,"$g_encountered_party",slot_center_infiltration_type,0),
+          (assign, "$g_infiltracion_interna", 4),
+          (jump_to_menu,"mnu_siege_plan"),
+      ]),
+      ("leave_men1",[],"It makes me uneasy. Forget about it.",
+        [
+          (party_set_slot,"$g_encountered_party",slot_center_infiltration_type,0),
+          (assign, "$g_infiltracion_interna", 0),
+          (jump_to_menu,"mnu_siege_plan"),
+      ]),
+    ],
+  ),
+
+  ("infiltracion_resultado4_c",0,
+    "Your men have returned. They said that they poisoned the water of some wells and nearby streams. This should sicken many in the garrison.",
+    "none", [ ],
+
+    [("aceptar_oki",[],"That's good news. It will leave fewer men to defend the wall.",
+        [
+
+          (assign,":party_no","$g_encountered_party"),
+          (party_get_num_companion_stacks, ":num_stacks",":party_no"),
+          (party_get_slot,":party_type",":party_no",slot_party_type),
+          # (assign,":max_no",60),
+          (assign,":start_troop",0),
+          (try_begin),
+            (eq,":party_type",3), #town
+            (assign,":max_no",30), #30%
+            (call_script, "script_change_center_prosperity", ":party_no", -5),
+          (else_try),
+            #(eq,":party_type",2), #fort
+            (assign,":max_no",20), #20%
+            (call_script, "script_change_center_prosperity", ":party_no", -3),
+          (try_end),
+          (party_get_slot, ":food_stores", ":party_no", slot_party_food_store),
+          (call_script, "script_center_get_food_store_limit", ":party_no"),
+          (val_min, ":food_stores", reg0),
+          (party_set_slot, ":party_no", slot_party_food_store, ":food_stores"),
+          (try_for_range, ":stack_no", ":start_troop", ":num_stacks"),
+            (party_stack_get_troop_id,":cur_troop_id",":party_no",":stack_no"),
+            (party_stack_get_size,":num_troops",":party_no",":stack_no"),
+            (val_mul,":num_troops",100),
+            (store_random_in_range,":wounds",10,":max_no"), #10% wounds - 10 to 20 0 30 depend on center type
+            (val_add,":wounds",100),
+            (store_div,":damage",":num_troops",":wounds"),
+            (party_wound_members,":party_no",":cur_troop_id",":damage"),
+            (str_store_party_name,s4,"$g_encountered_party"),
+            (display_message, "@{s4} have between 10 and 30% of its garrison sick for a few days.", 0xFF0000),
+          (try_end),
+
+          (party_set_slot,"$g_encountered_party",slot_center_infiltration_type,0),
+          (assign, "$g_infiltracion_interna", 4),
+          (jump_to_menu,"mnu_siege_plan"),
+      ]),
+      ##        ("leave_men",[],"It makes me uneasy. Forget about it.",
+      ##       [
+      ##                          (party_set_slot,"$g_encountered_party",slot_center_infiltration_type,0),
+      ##                        (assign, "$g_infiltracion_interna", 0),
+      ##                        (jump_to_menu,"mnu_siege_plan"),
+      ##        ]),
+    ],
+  ),
+
+  ("infiltracion_resultado5",0,
+    "Oh, sir. The enemy has sent a bag with the heads of your men. Some of our soldiers have seen it, and fear runs through the camp.",
+    "none", [
+    ],
+
+    [
+      ("infiltracion_morali",[],"Cowards! How can a couple of heads sink the morale of an army? Are they cattle or men?",
+        [
+          (call_script, "script_change_player_party_morale", -10),
+
+          (store_random_in_range, ":p_leave", 18, 22),
+          (assign, ":num_troops", ":p_leave"),
+          (try_for_range, ":unused", 0, ":num_troops"),
+            (call_script, "script_cf_party_remove_random_regular_troop", "p_main_party"),
+          (try_end),
+
+          (party_set_slot,"$g_encountered_party",slot_center_infiltration_type,0),
+          (assign, "$g_infiltracion_interna", 0),
+          (jump_to_menu,"mnu_siege_plan"),
+      ]),
+      ("infiltracion_morali",[],"Avenge the insult to us!",
+        [
+          (call_script, "script_change_player_party_morale", -5),
+          (call_script, "script_change_troop_renown", "trp_player", -10),
+
+          (store_random_in_range, ":p_leave", 18, 22),
+          (assign, ":num_troops", ":p_leave"),
+          (try_for_range, ":unused", 0, ":num_troops"),
+            (call_script, "script_cf_party_remove_random_regular_troop", "p_main_party"),
+          (try_end),
+
+          (party_set_slot,"$g_encountered_party",slot_center_infiltration_type,0),
+          (assign, "$g_infiltracion_interna", 3),
+          (jump_to_menu,"mnu_siege_plan"),
+      ]),
+    ],
+  ),
+  ###infiltracion interna acaba
+
+
+  ###recogida y siembra de cosechas
+  ("campos_cercanos1",0,
+    "Commander, crops and farms were burned, but since this is not the harvest season, it wasn't possible to get food.",
+    "none", [ (set_background_mesh, "mesh_pic_messenger"),
+    ],
+    [
+      ("back_behind_d",[],"Well done, do not worry.",
+        [
+          (assign, "$g_campos_cercanos", 3),
+          (call_script, "script_change_player_honor", -5),
+          (call_script, "script_change_center_prosperity", "$g_encountered_party", -3),
+          (call_script, "script_change_player_relation_with_center", "$current_town", -5),
+          (party_get_slot, ":food_stores", "$g_encountered_party", slot_party_food_store),
+          (call_script, "script_center_get_food_store_limit", "$g_encountered_party"),
+          (val_min, ":food_stores", reg0),
+          (party_set_slot, "$g_encountered_party", slot_party_food_store, ":food_stores"),
+          (jump_to_menu,"mnu_siege_plan"),
+      ]),
+    ],
+  ),
+  ("campos_cercanos2",0,
+    "Commander, crops and farms were burned, and as it is the harvest season, we found an abundance of food.",
+    "none", [ (set_background_mesh, "mesh_pic_messenger"),
+    ],
+    [
+      ("back_behind_c",[],"Well done, food is always welcome.",
+        [
+          (assign, "$g_campos_cercanos", 3),
+          (call_script, "script_change_player_honor", -5),
+          (call_script, "script_change_center_prosperity", "$g_encountered_party", -20),
+          (call_script, "script_change_player_relation_with_center", "$current_town", -10),
+          (troop_add_item, "trp_player","itm_grain",0),
+          (troop_add_item, "trp_player","itm_grain",0),
+          (troop_add_item, "trp_player","itm_grain",0),
+          (troop_add_item, "trp_player","itm_grain",0),
+          (troop_add_item, "trp_player","itm_grain",0),
+          (troop_add_item, "trp_player","itm_cattle_meat",0),
+          (party_get_slot, ":food_stores", "$g_encountered_party", slot_party_food_store),
+          (call_script, "script_center_get_food_store_limit", "$g_encountered_party"),
+          (val_min, ":food_stores", reg0),
+          (party_set_slot, "$g_encountered_party", slot_party_food_store, ":food_stores"),
+          (jump_to_menu,"mnu_siege_plan"),
+      ]),
+    ],
+  ),
+  ("campos_cercanos2_c",0,
+    "Commander, crops and farms were burned. The grain is still green, but edible. We found an abundance of food.",
+    "none", [ (set_background_mesh, "mesh_pic_messenger"),
+    ],
+    [
+      ("back_behind_cc",[],"Well done, food always is welcome.",
+        [
+          (assign, "$g_campos_cercanos", 3),
+          (call_script, "script_change_player_honor", -5),
+          (call_script, "script_change_center_prosperity", "$g_encountered_party", -10),
+          (call_script, "script_change_player_relation_with_center", "$current_town", -10),
+          (troop_add_item, "trp_player","itm_grain",0),
+          (troop_add_item, "trp_player","itm_grain",0),
+          (troop_add_item, "trp_player","itm_grain",0),
+          (party_get_slot, ":food_stores", "$g_encountered_party", slot_party_food_store),
+          (call_script, "script_center_get_food_store_limit", "$g_encountered_party"),
+          (val_min, ":food_stores", reg0),
+          (party_set_slot, "$g_encountered_party", slot_party_food_store, ":food_stores"),
+          (jump_to_menu,"mnu_siege_plan"),
+      ]),
+    ],
+  ),
+  ("campos_cercanos3",0,
+    "Commander, we burned the fields, but as it is after the harvest time, there was no grain left. However, the farmers have left some of their cattle behind.",
+    "none", [ (set_background_mesh, "mesh_pic_messenger"),
+    ],
+    [
+      ("back_behind_bc",[],"Food is always welcome.",
+        [
+          (assign, "$g_campos_cercanos", 3),
+          (call_script, "script_change_player_honor", -5),
+          (call_script, "script_change_center_prosperity", "$g_encountered_party", -10),
+          (call_script, "script_change_player_relation_with_center", "$current_town", -10),
+          (troop_add_item, "trp_player","itm_pork",0),
+          (troop_add_item, "trp_player","itm_pork",0),
+          (troop_add_item, "trp_player","itm_pork",0),
+          (troop_add_item, "trp_player","itm_cattle_meat",0),
+          (troop_add_item, "trp_player","itm_chicken",0),
+          (troop_add_item, "trp_player","itm_cattle_meat",0),
+          (party_get_slot, ":food_stores", "$g_encountered_party", slot_party_food_store),
+          (call_script, "script_center_get_food_store_limit", "$g_encountered_party"),
+          (val_min, ":food_stores", reg0),
+          (party_set_slot, "$g_encountered_party", slot_party_food_store, ":food_stores"),
+          (jump_to_menu,"mnu_siege_plan"),
+      ]),
+    ],
+  ),
+
+  ("campos_cercanos4",0,
+    "We have encountered problems. The fields were burned, but the farmers struck back with support from some members of the garrison.^^Your casualties: {s8}^^Enemy casualties: {s10}",
+    "none", [
+      (set_background_mesh, "mesh_pic_messenger"),
+      (call_script, "script_simulate_battle_with_parties", 23, "$g_enemy_party", 68, 0, 0),
+    ],
+    [
+      ("back_behind_ac",[],"Terrible news!",
+        [
+          (assign, "$g_campos_cercanos", 3),
+          (call_script, "script_change_player_party_morale", -5),
+          (call_script, "script_change_player_honor", -5),
+          (call_script, "script_change_player_relation_with_center", "$current_town", -5),
+          (jump_to_menu,"mnu_siege_plan"),
+      ]),
+    ],
+  ),
+
+  ("poner_escaleras",0, #no mantles
+    "Your vanguard advances, bringing ladders, shovels and other useful siege equipment... A display of men armed with ranged weapons goes forth, attracting the enemy's missiles. Your heart races in its bony cage. Somehow, all battles seem to be the first.^" +
+    "The thrill, terror and sweat are there, always. Your men make a shield formation to protect themselves...^^Your casualties: {s8}^^Enemy casualties: {s10}",
+    "none", [ (set_background_mesh, "mesh_pic_siege_sighted"),
+      (call_script, "script_simulate_battle_with_parties", 25, "$g_enemy_party", 90, 0, 0),
+      #
+    ],
+    [
+      ("back_behind_esc1",[],"Your men have met the enemy. It is your turn...",
+        [
+          (assign, "$g_listos_para_asalto", 1),
+          (jump_to_menu,"mnu_siege_assault"),
+      ]),
+    ],
+  ),
+
+  ("poner_escaleras_mantlets",0, #mantles
+    "Your vanguard advances, bringing ladders, mantlets, shovels and other useful siege equipment... A display of men armed with ranged weapons goes forth, guarded by mantlets, attracting the enemy's missiles. Your heart races in its bony cage. Somehow, all battles seem to be the first.^" +
+    "The thrill, terror and sweat are there, always. Your men make a shield formation to protect themselves, and using the mantlets saves still more lives. " +
+    "^^Your casualties: {s8}^^Enemy casualties: {s10}",
+    "none", [ (set_background_mesh, "mesh_pic_siege_sighted"),
+      (call_script, "script_simulate_battle_with_parties", 41, "$g_enemy_party", 90, 0, 0),
+    ],
+    [
+      ("back_behind_esc2",[],"Your men have met the enemy. It is your time...",
+        [
+          (assign, "$g_listos_para_asalto", 1),
+          (jump_to_menu,"mnu_siege_assault"),
+      ]),
+    ],
+  ),
+
+  ####
+  #####scout reporta datos de ciudad
+("informacion_ciudad",0,#{s10} belongs to {s21}
+  "A scout appears before you: '{s11}^{s12}{s1}{s5}{s17}'",
+  "none",
+  [
+    (str_clear, s10),
+    (str_clear, s21),
+    (str_clear, s11),
+    (str_clear, s12),
+    (str_clear, s3),
+    (str_clear, s16),
+    (set_background_mesh, "mesh_pic_messenger"),
+    #string description
+    ##   (party_get_slot,":town_lord","$current_town",slot_town_lord),
+    ##   (str_store_troop_name,s21,":town_lord"),
+    ##        #
+    ##        (str_store_party_name, s10, "$current_town"),
+
+    (call_script, "script_game_get_center_note", "$current_town", 0),
+    (str_store_string, s11, "@{!}{s0}"),
+    ##    (try_begin),
+    ##      (this_or_next|is_between, "$current_town", towns_begin, towns_end),
+    ##      (is_between, "$current_town", castles_begin, castles_end),
+    ##    (try_end),
+
+    (party_get_slot, ":center_food_store", "$current_town", slot_party_food_store),
+    (call_script, "script_center_get_food_consumption", "$current_town"),
+    (assign, ":food_consumption", reg0),
+    (store_div, reg6, ":center_food_store", ":food_consumption"),
+    (store_party_size_wo_prisoners,reg5, "$current_town"),
+    #(store_party_size, reg5, "$current_town"),
+    (str_store_string, s12, "@It should have food stocks for {reg6} days.^The garrison has {reg5} men."),
+
+    (party_get_num_attached_parties, ":num_attached_parties", "$current_town"),
+    (try_begin),
+      (eq, ":num_attached_parties", 0),
+      (str_clear, s1),
+      (str_clear, s5),
+
+    (else_try),
+        (str_store_string, s1, "@^^The following armies are currently inside:"),
+        (try_for_range, ":attached_party_rank", 0, ":num_attached_parties"),
+            (party_get_attached_party_with_rank, ":attached_party", "$current_town", ":attached_party_rank"),
+            (str_store_party_name, s3, ":attached_party"),
+            (store_party_size, reg1, ":attached_party"),
+            (str_store_string, s5, "@^{s3} with {reg1} troops."),
+        (try_end),
+    (try_end),
+
+      ##     (party_get_slot, ":prosperity", "$current_town", slot_town_prosperity),
+      ##     (val_div, ":prosperity", 20),
+      ##    (try_begin),
+      ##     (eq, ":prosperity", 0),
+      ##       (str_store_string, s16, "@{s10} is a very poor place that"),
+      ##     (else_try),
+      ##       (eq, ":prosperity", 1),
+      ##       (str_store_string, s16, "@{s10} is poor place that"),
+      ##     (else_try),
+      ##       (eq, ":prosperity", 2),
+      ##       (str_store_string, s16, "@{s10} is good place that"),
+      ##     (else_try),
+      ##       (eq, ":prosperity", 3),
+      ##       (str_store_string, s16, "@{s10} is rich place that"),
+      ##     (else_try),
+      ##       (str_store_string, s16, "@{s10} is very rich place that"),
+      ##     (try_end),
+      ##
+      ##    (call_script, "script_update_center_recon_notes", "$current_town"),
+
+      #informacion asedio
+    (str_store_string,s17,"str_empty_string"),
+    (try_begin),
+        (eq, "$current_town", "p_town_27"),
+        (str_store_string,s17,"@^^Next to the Tigris lies the beautiful city of Ktesiphon. The mighty residence of Parthian kings."),
+    (else_try),
+        (eq, "$current_town", "p_town_6"),
+        (str_store_string,s17,"@^^Rome! The city which shall conquer the known world. Can you conquer it?"),
+    (else_try),
+        (eq, "$current_town", "p_town_28"),
+        (str_store_string,s17,"@^^Long time ago Carthage was as mighty as Rome and the center of mediterranean trade. But the Romans do not like rivals. They burned it to the ground and built a new Roman Carthage next to it."),
+    (else_try),
+        (eq, "$current_town", "p_town_20"),
+        (str_store_string,s17,"@^^Alexandria was found by Alexander the Great and became the pearl of Aegypt."),
+    (else_try),
+        (eq, "$current_town", "p_town_19"),
+        (str_store_string,s17,"@^^Hierosolyma! It is the center of the jewish faith. You feel that great trouble lies here."),
+    (else_try),
+        (str_store_string,s17,"@^^This place is just waiting for you to conquer it."),
+    (try_end),
+      #
+  ],[
+    ("regreso_luchain",[],"Thank you. Your information is important!",[
+      (jump_to_menu,"mnu_siege_assault"),
+    ]),
+]),
+
+#################menus extras acaba chief Siege Warfare
+
 
    (
     "castle_besiege_inner_battle",mnf_scale_picture,
@@ -7062,6 +8915,44 @@ TOTAL:  {reg5}"),
     ]
   ),
 
+
+ ####siege warfare
+  (
+    "build_mantles2",0,
+    "The mantlets help protect your men when they have to use assault equipment. They save many lives. " +
+    "As the party member with the highest Engineer skill, ({reg2}), {reg3?you estimate:{s3} estimates} that it will take " +
+    "{reg4} hours to build mantlets.",
+    "none",
+    [(call_script, "script_get_max_skill_of_player_party", "skl_engineer"),
+      (assign, ":max_skill", reg0),
+      (assign, ":max_skill_owner", reg1),
+      (assign, reg2, ":max_skill"),
+
+      (store_sub, reg4, 16, ":max_skill"),
+      (val_mul, reg4, 2),#between 12 and 32 hours
+
+      (try_begin),
+        (eq, ":max_skill_owner", "trp_player"),
+        (assign, reg3, 1),
+      (else_try),
+        (assign, reg3, 0),
+        (str_store_troop_name, s3, ":max_skill_owner"),
+      (try_end),
+      (call_script, "script_set_town_picture"),
+    ],
+    [
+      ("build_mantles",[],
+        "Do it.", [
+          #(assign, "$g_siege_method", 1),
+          (assign, "$g_mantlets_1", 1),
+          (store_current_hours, ":cur_hours"),
+          (party_set_slot, "$g_encountered_party", slot_center_mantlets_placed, ":cur_hours"),
+          (jump_to_menu,"mnu_siege_assault"),
+      ]),
+      ("go_back",[],
+        "Go back.", [(jump_to_menu,"mnu_siege_assault")]),
+    ],
+  ),
 
   (
     "construct_ladders",0,
@@ -7346,16 +9237,38 @@ TOTAL:  {reg5}"),
     ],
   ),
 
-
   (
     "castle_taken",mnf_disable_all_keys,
   ##diplomacy begin
-    "{s3} has fallen to your troops, and you now have full control of the {reg2?town:castle}. You can plunder spoils of war worth {reg3} siliquae.\
-{reg1? You may station troops here to defend it against enemies who may try to recapture it. Also, you should select now whether you will hold the {reg2?town:castle} yourself or give it to a faithful vassal...:}",# Only visible when castle is taken without being a vassal of a kingdom.
+    "{s3} has fallen to your troops, and you now have full control of the {reg2?town:fortress}. You can plunder spoils of war worth {reg3} siliquae.\
+{reg1? You may station troops here to defend it against enemies who may try to recapture it. Also, you should select now whether you will hold the {reg2?town:fortress} yourself or give it to a faithful vassal...:}",# Only visible when castle is taken without being a vassal of a kingdom.
   ##diplomacy end
     "none",
     [
         (party_clear, "$g_encountered_party"),
+
+        #siege warfare chief
+        (assign, "$g_empieza_asedio", 0),
+        (party_set_slot,"$g_encountered_party",slot_center_blockaded,0),
+        (party_set_slot,"$g_encountered_party",slot_center_blockaded_time,0),
+        (party_set_slot, "$g_encountered_party", slot_center_mantlets_placed, 0),
+        (party_set_slot,"$g_encountered_party",slot_center_ladder_time,0),
+        (party_set_slot,"$g_encountered_party",slot_center_latrines,0),
+        (party_set_slot,"$g_encountered_party",slot_center_infiltration_type,0),
+        
+        (assign, "$g_siege_saneamiento", 0),
+        (assign, "$g_traicion_interna", 0),
+        (assign, "$g_infiltracion_interna", 0),
+        (assign, "$g_campos_cercanos", 0),
+        (assign, "$g_listos_para_asalto", 0),
+        (assign, "$g_mantlets_1", 0),
+        (assign, "$g_cabezas_dentro", 0), #event
+        (assign, "$g_siege_method", 0),
+        (assign, "$g_siege_sallied_out_once", 0),
+        (assign, "$g_days_spent_starving", 0), #siege warfare, important, we use this in dialogs
+        (assign, "$g_next_sally_at", 0), #sally more common siege warfare chief
+        #siege warfare acaba
+
         #SB : clear talk_context
         (try_begin),
           (eq, "$talk_context", tc_give_center_to_fief),
@@ -7724,6 +9637,28 @@ TOTAL:  {reg5}"),
  It is time to send word to {s9} about your victory. {s5}",
     "none",
     [
+      #siege warfare chief
+      (assign, "$g_empieza_asedio", 0),
+      (party_set_slot,"$g_encountered_party",slot_center_blockaded,0),
+      (party_set_slot,"$g_encountered_party",slot_center_blockaded_time,0),
+      (party_set_slot, "$g_encountered_party", slot_center_mantlets_placed, 0),
+      (party_set_slot,"$g_encountered_party",slot_center_ladder_time,0),
+      (party_set_slot,"$g_encountered_party",slot_center_latrines,0),
+      (party_set_slot,"$g_encountered_party",slot_center_infiltration_type,0),
+
+      (assign, "$g_siege_saneamiento", 0),
+      (assign, "$g_traicion_interna", 0),
+      (assign, "$g_infiltracion_interna", 0),
+      (assign, "$g_campos_cercanos", 0),
+      (assign, "$g_listos_para_asalto", 0),
+      (assign, "$g_mantlets_1", 0),
+      (assign, "$g_cabezas_dentro", 0), #event
+      (assign, "$g_siege_method", 0),
+      (assign, "$g_siege_sallied_out_once", 0),
+      (assign, "$g_days_spent_starving", 0), #siege warfare, important, we use this in dialogs
+      (assign, "$g_next_sally_at", 0), #sally more common siege warfare chief
+      #siege warfare acaba
+
         (str_store_party_name, s3, "$g_encountered_party"),
         (str_clear, s5),
         (faction_get_slot, ":faction_leader", "$players_kingdom", slot_faction_leader),
@@ -7740,7 +9675,7 @@ TOTAL:  {reg5}"),
           (try_end),
           ##diplomacy start+ fix gender of pronoun
           (call_script, "script_dplmc_store_troop_is_female", ":faction_leader"),
-          (str_store_string, s5, "@However, since you are not a sworn {man/follower} of {s9}, there is no chance {reg0?she:he} would recognize you as the {lord/lady} of this {reg8?town:castle}."),
+          (str_store_string, s5, "@However, since you are not a sworn {man/follower} of {s9}, there is no chance {reg0?she:he} would recognize you as the {lord/lady} of this {reg8?town:fortress}."),
           ##diplomacy end+
         (try_end),
     ],
@@ -12409,7 +14344,7 @@ TOTAL:  {reg5}"),
             (assign, reg0, 0),
         (try_end),
        ],
-       "Manage this {reg0?town:castle}.",
+       "Manage this {reg0?town:fortress}.",
        [
            (assign, "$g_next_menu", "mnu_town"),
            (assign, reg63, 1),
@@ -12918,7 +14853,7 @@ TOTAL:  {reg5}"),
           # (assign, reg6, 0),
         # (try_end),
       # ],
-      # "{!}CHEAT: Besiege the {reg6?town:castle}...",
+      # "{!}CHEAT: Besiege the {reg6?town:fortress}...",
       # [
         # (assign,"$g_player_besiege_town","$g_encountered_party"),
         # (jump_to_menu, "mnu_castle_besiege"),
@@ -15731,6 +17666,12 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     "Stub",
     "none",
     [
+          (try_begin), #siege warfare
+              (eq, "$g_empieza_asedio", 1),
+              (call_script, "script_lift_siege", "$g_player_besiege_town", 0),
+              (assign, "$g_player_besiege_town", -1),
+          (try_end),
+
           (assign, "$g_player_is_captive", 1),
           (try_begin),
             (eq,"$g_player_surrenders",1),
@@ -15747,6 +17688,13 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     "Stub",
     "none",
     [
+
+    (try_begin), #siege warfare
+        (eq, "$g_empieza_asedio", 1),
+        (call_script, "script_lift_siege", "$g_player_besiege_town", 0),
+        (assign, "$g_player_besiege_town", -1),
+    (try_end),   
+     
        (assign, "$g_player_is_captive", 1),
        (assign,"$auto_menu",-1), #We need this since we may come here by something other than auto_menu
        (assign, "$capturer_party", "$g_encountered_party"),
@@ -15771,6 +17719,12 @@ goods, and books will never be sold. ^^You can change some settings here freely.
          (set_achievement_stat, ACHIEVEMENT_BARON_GOT_BACK, ":kingdom_hero_id", 1),
        (try_end),
 
+      (try_begin), #siege warfare
+          (eq, "$g_empieza_asedio", 1),
+          (call_script, "script_lift_siege", "$g_player_besiege_town", 0),
+          (assign, "$g_player_besiege_town", -1),
+      (try_end),
+
        (jump_to_menu, "mnu_captivity_wilderness_taken_prisoner"),
     ],
     []
@@ -15790,6 +17744,12 @@ goods, and books will never be sold. ^^You can change some settings here freely.
           # (assign, "$g_next_menu", "mnu_captivity_castle_taken_prisoner"),
           # (jump_to_menu, "mnu_permanent_damage"),
         # (else_try),
+        (try_begin), #siege warfare
+            (eq, "$g_empieza_asedio", 1),
+            (call_script, "script_lift_siege", "$g_player_besiege_town", 0),
+            (assign, "$g_player_besiege_town", -1),
+        (try_end),
+
           (jump_to_menu, "mnu_captivity_castle_taken_prisoner"),
         # (try_end),
       ],
@@ -15811,6 +17771,11 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         (else_try),
           (jump_to_menu, "mnu_captivity_castle_taken_prisoner"),
         (try_end),
+        (try_begin), #siege warfare
+            (eq, "$g_empieza_asedio", 1),
+            (call_script, "script_lift_siege", "$g_player_besiege_town", 0),
+            (assign, "$g_player_besiege_town", -1),
+        (try_end),
       ],
     []
   ),
@@ -15822,6 +17787,13 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         (assign, "$g_player_is_captive", 1),
         (assign,"$auto_menu",-1),
         (assign, "$capturer_party", "$g_encountered_party"),
+
+        (try_begin), #siege warfare
+            (eq, "$g_empieza_asedio", 1),
+            (call_script, "script_lift_siege", "$g_player_besiege_town", 0),
+            (assign, "$g_player_besiege_town", -1),
+        (try_end),
+
         (try_begin),
           (store_random_in_range, ":random_no", -50, 150),
           (ge, ":random_no", "$g_player_luck"),
@@ -21519,6 +23491,27 @@ goods, and books will never be sold. ^^You can change some settings here freely.
           ],
           "Besiege the center...",
           [
+            #siege warfare chief We repit this here for advoid issues.
+            (assign, "$g_empieza_asedio", 1), #variable to begin siege
+            (party_set_slot,"$g_encountered_party",slot_center_blockaded,0),
+            (party_set_slot,"$g_encountered_party",slot_center_blockaded_time,0),
+            (party_set_slot, "$g_encountered_party", slot_center_mantlets_placed, 0),
+            (party_set_slot,"$g_encountered_party",slot_center_ladder_time,0),
+            (party_set_slot,"$g_encountered_party",slot_center_latrines,0),
+            (party_set_slot,"$g_encountered_party",slot_center_infiltration_type,0),
+            (assign, "$g_siege_saneamiento", 0),
+            (assign, "$g_traicion_interna", 0),
+            (assign, "$g_infiltracion_interna", 0),
+            (assign, "$g_campos_cercanos", 0),
+            (assign, "$g_listos_para_asalto", 0),
+            (assign, "$g_mantlets_1", 0),
+            (assign, "$g_cabezas_dentro", 0), #event
+            (assign, "$g_siege_method", 0),
+            (assign, "$g_siege_sallied_out_once", 0),
+            (assign, "$g_days_spent_starving", 0), #siege warfare, important, we use this in dialogs
+            (assign, "$g_next_sally_at", 0), #sally more common siege warfare chief
+            #siege warfare acaba
+
             (assign,"$g_player_besiege_town","$g_encountered_party"),
             (jump_to_menu, "mnu_castle_besiege"),
           ]),
@@ -26242,6 +28235,62 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         [(change_screen_map),]),
     ],),
 
+  (
+    "siege_event_test",0,
+    "Select an event",
+    "none",
+    [
+
+    ],
+    [
+      ("event04",[],"Event04",[ (jump_to_menu,"mnu_event_siege_04"),],),
+      ("event04",[],"Event05",[ (jump_to_menu,"mnu_event_siege_05"),],),
+      ("event04",[],"Event06",[ (jump_to_menu,"mnu_event_siege_06"),],),
+      ("event04",[],"Event07",[ (jump_to_menu,"mnu_event_siege_07"),],),
+      ("event04",[],"Event08",[ (jump_to_menu,"mnu_event_siege_08"),],),
+      ("event04",[],"Event09",[ (jump_to_menu,"mnu_event_siege_09"),],),
+      ("event04",[],"Event10",[ (jump_to_menu,"mnu_event_siege_10"),],),
+      ("event04",[],"Event11",[ (jump_to_menu,"mnu_event_siege_11"),],),
+      ("event04",[],"Event12",[ (jump_to_menu,"mnu_event_siege_12"),],),
+      ("event04",[],"Event13",[ (jump_to_menu,"mnu_event_siege_13"),],),
+      ("event04",[],"next page",[ (jump_to_menu,"mnu_siege_event_test2"),],),
+
+
+  ],),
+  (
+    "siege_event_test2",0,
+    "Select an event",
+    "none",
+    [    ],
+    [
+      ("event04",[],"Event14",[ (jump_to_menu,"mnu_event_siege_14"),],),
+      ("event04",[],"Event15",[ (jump_to_menu,"mnu_event_siege_15"),],),
+      ("event04",[],"Event16",[ (jump_to_menu,"mnu_event_siege_16"),],),
+      ("event04",[],"Event17",[ (jump_to_menu,"mnu_event_siege_17"),],),
+      ("event04",[],"Event18",[ (jump_to_menu,"mnu_event_siege_18"),],),
+      ("event04",[],"Event19",[ (jump_to_menu,"mnu_event_siege_19"),],),
+      ("event04",[],"Event20",[ (jump_to_menu,"mnu_event_siege_20"),],),
+      ("event04",[],"Event21",[ (jump_to_menu,"mnu_event_siege_21"),],),
+      ("event04",[],"Event22",[ (jump_to_menu,"mnu_event_siege_22"),],),
+      ("event04",[],"Event23",[ (jump_to_menu,"mnu_event_siege_23"),],),
+      ("event04",[],"next page",[ (jump_to_menu,"mnu_siege_event_test3"),],),
+
+
+  ],),
+  (
+    "siege_event_test3",0,
+    "Select an event",
+    "none",
+    [],
+    [
+      ("event04",[],"Event24",[ (jump_to_menu,"mnu_event_siege_24"),],),
+      ("event04",[],"Event25",[ (jump_to_menu,"mnu_event_siege_25"),],),
+      ("event04",[],"Event26",[ (jump_to_menu,"mnu_event_siege_26"),],),
+      ("event04",[],"Event27",[ (jump_to_menu,"mnu_event_siege_27"),],),
+      ("event04",[],"Event28",[ (jump_to_menu,"mnu_event_siege_28"),],),
+      ("event04",[],"Event29",[ (jump_to_menu,"mnu_event_siege_29"),],),
+  ],),
+
 
   ( "event_01",menu_text_color(0xFF000000)|mnf_disable_all_keys, #cow
     "While you and your men are travelling, you spot a lone cow, grazing in a pasture.",
@@ -27152,6 +29201,1516 @@ goods, and books will never be sold. ^^You can change some settings here freely.
        ),
     ]
 ),
+
+#Siege Events
+  ##################
+  #####################SIEGE WARFARE RANDOM EVENTS
+  ####siege warfare random event chief
+  
+  #si no tiene hecho letrinas y saneamiento
+  (
+    "event_siege_01",menu_text_color(0xFF000000)|mnf_disable_all_keys,
+    "One of your advisers tells you that he has found rats in the provisions that your men are eating. This could have been prevented with sanitation!",
+    "none",
+    [(set_background_mesh, "mesh_pic_mb_warrior_1"),
+      
+    ],
+    [
+      ("choice_01_1a",[],"That is terrible! Destroy the contaminated supplies.",
+        [
+          (assign, ":number_of_foods_player_has", 0),
+          (try_for_range, ":cur_edible", food_begin, food_end),
+            
+            (call_script, "script_cf_player_has_item_without_modifier", ":cur_edible", imod_rotten),
+            (val_add, ":number_of_foods_player_has", 1),
+            (store_random_in_range, ":food_lose", 0, 2),
+            (try_begin),
+              (gt, ":number_of_foods_player_has", 0),
+              (try_begin),
+                (eq, ":food_lose", 0), #35%
+                (troop_remove_item, "trp_player", ":cur_edible"),
+              (else_try),
+              (try_end),
+            (else_try),
+              (eq, ":number_of_foods_player_has", 0),
+              (display_message, "@Your men have nothing to eat!", 0xFF0000),
+              (call_script, "script_change_player_party_morale", -8),
+              (assign, ":number_of_foods_player_has", 1),
+              #NPC companion changes begin
+              (try_begin),
+                (call_script, "script_party_count_fit_regulars", "p_main_party"),
+                (gt, reg0, 0),
+                (call_script, "script_objectionable_action", tmt_egalitarian, "str_men_hungry"),
+              (try_end),
+              #NPC companion changes end
+            (try_end),
+          (try_end),
+          (display_message, "@Part of your food was destroyed.", 0xFF0000),
+          (change_screen_return),
+        ]
+      ),
+      ("choice_01_2a",[],"My men must eat. Kill as many rats as you can.",
+        [
+          (jump_to_menu,"mnu_ratas_siege"),
+        ]
+      ),
+    ]
+  ),
+  
+  ###matar ratas submenu
+  ("ratas_siege",0,
+    "Before all the rats are exterminated, many of your men fall sick and die.^^Your casualties: {s8}",
+    "none", [  (set_background_mesh, "mesh_pic_mb_warrior_1"),
+      (call_script, "script_inflict_casualties_to_party", "p_main_party", 8),
+      (call_script, "script_collect_friendly_parties"),
+    ],
+    
+    [("back_to_siegea",[],"Done.",
+        [
+          (call_script, "script_change_player_party_morale", -5),
+          (leave_encounter),
+          (jump_to_menu, "mnu_auto_return_to_map"),#phaiak
+      ]),
+    ],
+  ),
+  #matar ratas acaba
+  #bajas enfermedad
+  (
+    "event_siege_02",menu_text_color(0xFF000000)|mnf_disable_all_keys,
+    "Poor hygiene in your camp has led to dysentery. The men start dying all around you. This could have been prevented with sanitation!",
+    "none",
+    [(set_background_mesh, "mesh_pic_mb_warrior_1"),
+      
+    ],
+    [
+      ("choice_02_1b",[],"Hire a physician to try to help the sick (1000 siliquae).",
+        [
+          (store_troop_gold, ":gold", "trp_player"),
+          (try_begin),
+            (ge, ":gold", 1000),
+            (troop_remove_gold, "trp_player", 1000),
+            (jump_to_menu,"mnu_enfermedad2_siege"),
+          (else_try),
+            (display_message, "@You don't have enough siliquae. How embarrassing!"),
+            (jump_to_menu,"mnu_enfermedad_siege"),
+          (try_end),
+        ]
+      ),
+      ("choice_02_2b",[],"There is nothing I can do.",
+        [
+          (jump_to_menu,"mnu_enfermedad_siege"),
+        ]
+      ),
+      ("choice_02_3b",[],"Pray to your god.",
+        [
+          (jump_to_menu,"mnu_enfermedad3_siege"),
+        ]
+      ),
+      ("choice_02_4b",[
+          (party_get_skill_level, ":heal", "p_main_party", skl_wound_treatment),
+          (ge, ":heal", 5),
+        ],"I or my companions can cure them.",
+        [
+          (jump_to_menu,"mnu_enfermedad4_siege"),
+        ]
+      ),
+    ]
+  ),
+  
+  ("enfermedad_siege",0,
+    "Death governs your camp. Many of your men are sick and dying.^^Your casualties: {s8}",
+    "none", [  (set_background_mesh, "mesh_pic_mb_warrior_1"),
+      (call_script, "script_inflict_casualties_to_party", "p_main_party", 10),
+      (call_script, "script_collect_friendly_parties"),
+    ],
+    
+    [("back_to_siegeb",[],"Damn.",
+        [
+          (call_script, "script_change_player_party_morale", -8),
+          (call_script, "script_change_troop_renown", "trp_player", -10),
+          (call_script, "script_change_player_honor", -5),
+          (leave_encounter),
+          (jump_to_menu, "mnu_auto_return_to_map"),#phaiak
+      ]),
+    ],
+  ),
+  ("enfermedad2_siege",0,
+    "Some men die from the disease, but most manage to recover thanks to the physician you hired.^^Your casualties: {s8}",
+    "none", [  (set_background_mesh, "mesh_pic_mb_warrior_1"),
+      (call_script, "script_inflict_casualties_to_party", "p_main_party", 2),
+      (call_script, "script_collect_friendly_parties"),
+    ],
+    
+    [("back_to_siegeb",[],"Back to siege.",
+        [
+          (call_script, "script_change_player_party_morale", 5),
+          (call_script, "script_change_troop_renown", "trp_player", 5),
+          (call_script, "script_change_player_honor", 1),
+          (leave_encounter),
+          (jump_to_menu, "mnu_auto_return_to_map"),#phaiak
+      ]),
+    ],
+  ),
+  ("enfermedad3_siege",0,
+    "Death governs your camp. Many of your men are sick and dying. Perhaps your god has saved some lives.^^Your casualties: {s8}",
+    "none", [  (set_background_mesh, "mesh_pic_mb_warrior_1"),
+      (call_script, "script_inflict_casualties_to_party", "p_main_party", 9),
+      (call_script, "script_collect_friendly_parties"),
+    ],
+    
+    [("back_to_sieged",[],"Done.",
+        [
+          (call_script, "script_change_player_party_morale", -5),
+          (call_script, "script_change_troop_renown", "trp_player", -15),
+          (leave_encounter),
+          (jump_to_menu, "mnu_auto_return_to_map"),#phaiak
+      ]),
+    ],
+  ),
+  
+  ("enfermedad4_siege",0,
+    "Thanks to your healing abilities, you manage to save many men, but some still die.^^Your casualties: {s8}",
+    "none", [  (set_background_mesh, "mesh_pic_mb_warrior_1"),
+      (call_script, "script_inflict_casualties_to_party", "p_main_party", 2),
+      (call_script, "script_collect_friendly_parties"),
+    ],
+    
+    [("back_to_siegees",[],"Back to siege.",
+        [
+          (call_script, "script_change_player_honor", 1),
+          (leave_encounter),
+          (jump_to_menu, "mnu_auto_return_to_map"),#phaiak
+      ]),
+    ],
+  ),
+  ###bajas enfermedad acaba
+  
+  (
+    "event_siege_03",menu_text_color(0xFF000000)|mnf_disable_all_keys,
+    "There is so much garbage, vermin and other nasty things that your camp seems to be more of a pigsty. Your men are unhappy. This could have been prevented with sanitation!",
+    "none",
+    [ (set_background_mesh, "mesh_pic_mb_warrior_1"),
+    ],
+    [
+      ("choice_03_4c",[
+          (party_get_skill_level, ":leadership", "p_main_party", skl_leadership),
+          (ge, ":leadership", 6),
+        ],"I will give an inspiring speech to gain time.",
+        [
+          (call_script, "script_change_player_party_morale", -1),
+          (change_screen_return),
+        ]
+      ),
+      ("choice_03_2c",[],"I will see what I can do.",
+        [
+          (call_script, "script_change_player_party_morale", -6),
+          (change_screen_return),
+        ]
+      ),
+    ]
+  ),
+  
+  ###acaba enfermedades chief
+  #seguir
+  #eventos incursion, infiltracion y emboscadas
+  (
+    "event_siege_04",menu_text_color(0xFF000000)|mnf_disable_all_keys,
+    "Some enemies have managed to infiltrate at night and burn some of your supplies. Part of your food was destroyed.",
+    "none",
+    [(set_background_mesh, "mesh_pic_messenger"),
+      (assign, ":number_of_foods_player_has", 0),
+      (try_for_range, ":cur_edible", food_begin, food_end),
+        
+        (call_script, "script_cf_player_has_item_without_modifier", ":cur_edible", imod_rotten),
+        (val_add, ":number_of_foods_player_has", 1),
+        (store_random_in_range, ":food_lose", 0, 3),
+        (try_begin),
+          (gt, ":number_of_foods_player_has", 0),
+          (try_begin),
+            (eq, ":food_lose", 0), #25%
+            (troop_remove_item, "trp_player", ":cur_edible"),
+          (else_try),
+          (try_end),
+        (else_try),
+          (eq, ":number_of_foods_player_has", 0),
+          (display_message, "@Your men have nothing to eat!", 0xFF0000),
+          (call_script, "script_change_player_party_morale", -8),
+          (assign, ":number_of_foods_player_has", 1),
+          #NPC companion changes begin
+          (try_begin),
+            (call_script, "script_party_count_fit_regulars", "p_main_party"),
+            (gt, reg0, 0),
+            (call_script, "script_objectionable_action", tmt_egalitarian, "str_men_hungry"),
+          (try_end),
+          #NPC companion changes end
+        (else_try),
+        (try_end),
+      (try_end),
+      (display_message, "@Part of your food was destroyed.", 0xFF0000),
+    ],
+    [
+      ("choice_04_1d",[],"Punish the men who were on duty that night.",
+        [
+          (call_script, "script_change_player_party_morale", -4), #discipline concept need.
+          (call_script, "script_change_troop_renown", "trp_player", 5), #JuJu70- must be a renown change and not duplicate morale malus
+          (display_message,"@Your men think that you are a strong leader."),
+          (change_screen_return),
+        ]
+      ),
+      ("choice_04_2d",[],"No, do nothing!",
+        [
+          (call_script, "script_change_troop_renown", "trp_player", -15),
+          (display_message,"@Your men think that you are a weak leader."),
+          (change_screen_return),
+        ]
+      ),
+    ]
+  ),
+  
+  (
+    "event_siege_05",menu_text_color(0xFF000000)|mnf_disable_all_keys,
+    "During the night, your men captured and executed a group of enemies who tried to infiltrate and burn supplies.^^Enemy casualties: {s8}",
+    "none",
+    [(set_background_mesh, "mesh_pic_messenger"),
+      (call_script, "script_inflict_casualties_to_party", "$g_enemy_party", 4),
+      (party_collect_attachments_to_party, "$g_enemy_party", "p_collective_enemy"),
+    ],
+    [
+      ("choice_05_1e",[],"Congratulate them for doing their job well.",
+        [
+          # (call_script, "script_change_player_party_morale", 5),
+          (change_screen_return),
+        ]
+      ),
+      ("choice_05_2e",[],"Reward each with a brooch (300 siliquae).",
+        [
+          (store_troop_gold, ":gold", "trp_player"),
+          (try_begin),
+            (ge, ":gold", 300),
+            (call_script, "script_change_troop_renown", "trp_player", 5),
+            (call_script, "script_change_player_party_morale", 5),
+            (troop_remove_gold, "trp_player", 300),
+          (else_try),
+            (display_message, "@You don't have enough siliquae. How embarrassing!"),
+    #        (call_script, "script_change_troop_renown", "trp_player", -5),
+          (try_end),
+          (change_screen_return),
+        ]
+      ),
+      ("choice_05_3e",[],"Reward them with a night off with pay (200 siliquae).",
+        [(set_background_mesh, "mesh_pic_mb_warrior_1"),
+          (store_troop_gold, ":gold", "trp_player"),
+          (try_begin),
+            (ge, ":gold", 200),
+            (troop_remove_gold, "trp_player", 200),
+            (call_script, "script_change_player_party_morale", 5),
+          (else_try),
+            (display_message, "@You don't have enough siliquae. How embarrassing!"),
+    #        (call_script, "script_change_troop_renown", "trp_player", -5),
+            (call_script, "script_change_player_party_morale", -2),
+          (try_end),
+          (change_screen_return),
+        ]
+      ),
+      ("choice_05_4e",[],"Do nothing. You are a stern leader.",
+        [
+          (call_script, "script_change_player_party_morale", -5),
+          (call_script, "script_change_player_honor", -5),
+          (display_message,"@Your men think that you are a strong leader."),
+          (change_screen_return),
+        ]
+      ),
+    ]
+  ),
+  
+  
+  (
+    "event_siege_06",menu_text_color(0xFF000000)|mnf_disable_all_keys,
+    "{reg59?Lady:Sir}, our food supply routes may be in danger. Our scouts have discovered enemy raiders behind our lines.^^" +
+    "We could avoid such problems by blockading the place.^^Do you want to send men to protect the routes and pursue the enemy?",
+    "none",
+    [(set_background_mesh, "mesh_pic_messenger"),
+    ],
+    [
+      ("choice_06_1f",[],"Send men.",
+        [
+          (jump_to_menu,"mnu_encuentro_avituallamiento"),
+        ]
+      ),
+      ("choice_06_2f",[ (store_troop_gold, ":gold", "trp_player"),(ge, ":gold", 500),],"Send messengers to pay them off (500 siliquae).",
+        [
+          (troop_remove_gold, "trp_player", 500),
+          (jump_to_menu,"mnu_encuentro_avituallamiento2"),
+        ]
+      ),
+      ("choice_06_3f",[],"Do nothing.",
+        [
+          (assign, ":number_of_foods_player_has", 0),
+          (try_for_range, ":cur_edible", food_begin, food_end),
+            
+            (call_script, "script_cf_player_has_item_without_modifier", ":cur_edible", imod_rotten),
+            (val_add, ":number_of_foods_player_has", 1),
+            (store_random_in_range, ":food_lose", 0, 3),
+            (try_begin),
+              (gt, ":number_of_foods_player_has", 0),
+              (try_begin),
+                (eq, ":food_lose", 0), #25%
+                (troop_remove_item, "trp_player", ":cur_edible"),
+              (else_try),
+              (try_end),
+            (else_try),
+              (eq, ":number_of_foods_player_has", 0),
+              (display_message, "@Your men have nothing to eat!", 0xFF0000),
+              (call_script, "script_change_player_party_morale", -8),
+              (assign, ":number_of_foods_player_has", 1),
+              #NPC companion changes begin
+              (try_begin),
+                (call_script, "script_party_count_fit_regulars", "p_main_party"),
+                (gt, reg0, 0),
+                (call_script, "script_objectionable_action", tmt_egalitarian, "str_men_hungry"),
+              (try_end),
+              #NPC companion changes end
+            (try_end),
+          (try_end),
+          (display_message, "@Part of your food was destroyed.", 0xFF0000),
+          (change_screen_return),
+        ]
+      ),
+    ]
+  ),
+  
+  #submenu encuentro avituallamiento
+  ("encuentro_avituallamiento",0,
+    "You dispatch a group of men to protect and pursue the enemies that plague your supply routes. Your men attempt to corner the enemy to force him to fight until death. There are some losses, but your men manage to win the battle and secure the supply routes.^^Your casualties: {s8}^^Enemy casualties: {s10}",
+    "none", [
+      (call_script, "script_simulate_battle_with_parties", 40, "$g_enemy_party", 40, 0, 0),
+    ],
+    
+    [("back_to_siegeg2",[],"Well done.",
+        [
+          (leave_encounter),
+          (jump_to_menu, "mnu_auto_return_to_map"),#phaiak
+      ]),
+    ],
+  ),
+  ("encuentro_avituallamiento2",0,
+    "{!}{s4}",
+    "none", [
+      
+      (str_clear, s4),
+      (set_background_mesh, "mesh_pic_messenger"),
+      (store_random_in_range, ":options", 0,5),
+      (try_begin),
+        (le, ":options", 1),
+        (call_script, "script_simulate_battle_with_parties", 50, "$g_enemy_party", 50, 0, 0),
+        (str_store_string, s4, "@While your messengers try to negotiate with the enemy raiders, a squad of your men appears by chance, and a battle begins. " +
+        "Your men manage to destroy the looters and fix the problem, but at the cost of some lives.^^Your casualties: {s8}^^Enemy casualties: {s10}"),
+      (else_try),
+        (le, ":options", 3),
+        (str_store_string, s4, "@The enemy raiders accept the deal, take the money, and promise not to attack your supplies for some weeks."),
+        (set_background_mesh, "mesh_pic_messenger"),
+      (else_try),
+        (str_store_string, s4, "@The raiders take the money, kill the messengers, and continue to damage your supply routes."),
+        (set_background_mesh, "mesh_pic_messenger"),
+        
+        #comida
+        (assign, ":number_of_foods_player_has", 0),
+        (try_for_range, ":cur_edible", food_begin, food_end),
+          
+          (call_script, "script_cf_player_has_item_without_modifier", ":cur_edible", imod_rotten),
+          (val_add, ":number_of_foods_player_has", 1),
+          (store_random_in_range, ":food_lose", 0, 3),
+          (try_begin),
+            (gt, ":number_of_foods_player_has", 0),
+            (try_begin),
+              (eq, ":food_lose", 0), #25%
+              (troop_remove_item, "trp_player", ":cur_edible"),
+            (else_try),
+            (try_end),
+          (else_try),
+            (eq, ":number_of_foods_player_has", 0),
+            (display_message, "@Your men have nothing to eat!", 0xFF0000),
+            (call_script, "script_change_player_party_morale", -8),
+            (assign, ":number_of_foods_player_has", 1),
+            #NPC companion changes begin
+            (try_begin),
+              (call_script, "script_party_count_fit_regulars", "p_main_party"),
+              (gt, reg0, 0),
+              (call_script, "script_objectionable_action", tmt_egalitarian, "str_men_hungry"),
+            (try_end),
+            #NPC companion changes end
+          (try_end),
+        (try_end),
+        (display_message, "@Part of your food was destroyed.", 0xFF0000),
+        ###messengers
+        (store_random_in_range, ":p_leave", 4, 8),
+        (assign, ":num_troops", ":p_leave"),
+        (try_for_range, ":unused", 0, ":num_troops"),
+          (call_script, "script_cf_party_remove_random_regular_troop", "p_main_party"),
+        (try_end),
+      (try_end),
+      
+    ],
+    
+    [("back_to_siegeg3",[],"Very well.",
+        [
+          (leave_encounter),
+          (jump_to_menu, "mnu_auto_return_to_map"),#phaiak
+      ]),
+    ],
+  ),
+  ####encuentro avituallamiento acaba
+  
+  
+  (
+    "event_siege_07",menu_text_color(0xFF000000)|mnf_disable_all_keys,
+    "Our scouts have found that the defenders have poisoned the water with dead animals. Do you want to buy water and ask the merchants to bring it via our supply route?",
+    "none",
+    [(set_background_mesh, "mesh_pic_messenger"),
+    ],
+    [
+      ("choice_07_1g",[],"Yes (600 siliquae).",
+        [
+          (store_troop_gold, ":gold", "trp_player"),
+          (try_begin),
+            (ge, ":gold", 600),
+            (troop_remove_gold, "trp_player", 600),
+            (change_screen_return),
+          (else_try),
+            (display_message, "@You don't have enough siliquae. You order water to be rationed and wells to be dug."),
+            (call_script, "script_change_troop_renown", "trp_player", -10),
+            (jump_to_menu,"mnu_sed_siege"),
+          (try_end),
+        ]
+      ),
+      ("choice_07_2g",[],"No. Ration water and dig wells.",
+        [
+          (jump_to_menu,"mnu_sed_siege"),
+        ]
+      ),
+      ("choice_07_3g",[],"Without water, we cannot continue. Abandon the siege.",
+        [
+          (call_script, "script_lift_siege", "$g_player_besiege_town", 0),
+          (assign, "$g_player_besiege_town", -1),
+          (change_screen_return),
+        ]
+      ),
+    ]
+  ),
+  
+  ###perdidas por sed mientras cavan pozos
+  ("sed_siege",0,
+    "Water is running out, and your men weaken. Driven by the madness of thirst, some of them drink poisoned water and die. Finally, a well is completed and you get water for the time being. You can continue the siege.^^Your casualties from poisoned water:{s8}",
+    "none", [  (set_background_mesh, "mesh_pic_messenger"),
+      (call_script, "script_inflict_casualties_to_party", "p_main_party", 4),
+      (call_script, "script_collect_friendly_parties"),
+    ],
+    
+    [("back_to_siegeh",[],"Fate is inexorable.",
+        [
+          (call_script, "script_change_player_party_morale", -5),
+          (call_script, "script_change_troop_renown", "trp_player", -15),
+          (leave_encounter),
+          (jump_to_menu, "mnu_auto_return_to_map"),#phaiak
+      ]),
+    ],
+  ),
+  ####sed acaba
+  
+  (
+    "event_siege_08",menu_text_color(0xFF000000)|mnf_disable_all_keys,
+    "Bad news: one of our men has deserted to the enemy. It may be because of his low morale or because they have offered him money. Whatever it is, the enemy may know our plans.",
+    "none",
+    [(set_background_mesh, "mesh_pic_messenger"),
+    ],
+    [
+      ("choice_08_1h",[],"Offer 400 siliquae. I don't want more desertions.",
+        [
+          (store_troop_gold, ":gold", "trp_player"),
+          (try_begin),
+            (ge, ":gold", 400),
+            (call_script, "script_change_player_party_morale", 5),
+            (troop_remove_gold, "trp_player", 400),
+          (else_try),
+            (display_message, "@You don't have enough siliquae. How embarrassing!"),
+            (call_script, "script_change_player_party_morale", -5),
+   #         (call_script, "script_change_troop_renown", "trp_player", -15),
+          (try_end),
+          (change_screen_return),
+        ]
+      ),
+      ("choice_08_2h",[],"Offer 800 siliquae to minimize temptation.",
+        [
+          (store_troop_gold, ":gold", "trp_player"),
+          (try_begin),
+            (ge, ":gold", 800),
+            (call_script, "script_change_player_party_morale", 4),
+            (troop_remove_gold, "trp_player", 800),
+            (call_script, "script_change_player_party_morale", 10),
+            (call_script, "script_change_troop_renown", "trp_player", 5),
+          (else_try),
+            (display_message, "@You don't have enough siliquae. How embarrassing!"),
+            (call_script, "script_change_player_party_morale", -5),
+      #      (call_script, "script_change_troop_renown", "trp_player", -15),
+          (try_end),
+          (change_screen_return),
+        ]
+      ),
+      ("choice_08_3h",[],"Do not worry. I can always change plans.",
+        [
+          (change_screen_return),
+        ]
+      ),
+    ]
+  ),
+  (
+    "event_siege_09",menu_text_color(0xFF000000)|mnf_disable_all_keys,
+    "A deserter from the enemy has joined our ranks. He has informed us that {s2}.",
+    "none",
+    [(set_background_mesh, "mesh_pic_messenger"),
+      (store_random_in_range, ":rand_no", 1, 10),
+      (try_begin),
+        (ge, ":rand_no", 8),
+        (str_store_string , s2, "@the enemy thinks reinforcements will soon arrive."),
+      (else_try),
+        (ge, ":rand_no", 5),
+        (str_store_string , s2, "@fear and discontent are spreading inside."),
+      (else_try),
+        (ge, ":rand_no", 3),
+        (str_store_string , s2, "@he likes the wife of his former master, and he will fight by your side if you give her to him after the conquest."),
+      (else_try),
+        (ge, ":rand_no", 0),
+        (str_store_string , s2, "@the enemy's morale is low, and we should attack."),
+      (try_end),
+    ],
+    [
+      ("choice_09_1i",[],"He is welcome to our ranks.",
+        [
+          (party_add_members, "p_main_party", "trp_watchman", 1),
+          (call_script, "script_change_player_party_morale", -5),
+          (change_screen_return),
+        ]
+      ),
+      ("choice_09_2i",[],"I do not want deserters among my men. Kill him.",
+        [
+          (call_script, "script_change_player_honor", -5),
+          (change_screen_return),
+        ]
+      ),
+      ("choice_09_3i",[],"I'm sure he's a spy. Return him to the enemy.",
+        [
+          (change_screen_return),
+        ]
+      ),
+    ]
+  ),
+  
+  (
+    "event_siege_10",menu_text_color(0xFF000000)|mnf_disable_all_keys,
+    "Our men and the enemy do not insult each other as much any more, and sometimes talk to each other. This can affect their fighting spirit when we attack. What shall we do?",
+    "none",
+    [
+      (set_background_mesh, "mesh_pic_messenger"),
+    ],
+    [
+      ("choice_10_1j",[],"Allow it. The enemy's fighting spirit is also affected.",
+        [
+          (call_script, "script_change_player_honor", 5),
+          (call_script, "script_change_troop_renown", "trp_player", -15),
+          (change_screen_return),
+        ]
+      ),
+      ("choice_10_2j",[],"What? Forbid it and punish the offenders.",
+        [
+          (call_script, "script_change_player_honor", -5),
+          (call_script, "script_change_player_party_morale", -5),
+          (change_screen_return),
+        ]
+      ),
+    ]
+  ),
+  ###frio invierno bajas
+  (
+    "event_siege_11",menu_text_color(0xFF000000)|mnf_disable_all_keys,
+    "The cold of winter always takes its toll when it comes. Some men have died of cold, flu and other minor illnesses.^^Your casualties: {s8}",
+    "none",
+    [(set_background_mesh, "mesh_pic_messenger"),
+      (call_script, "script_inflict_casualties_to_party", "p_main_party", 4),
+      (call_script, "script_collect_friendly_parties"),
+    ],
+    [
+      ("choice_11_1j",[],"Requiescat in pace.",
+        [
+          (change_screen_return),
+        ]
+      ),
+    ]
+  ),
+  
+  (
+    "event_siege_12",menu_text_color(0xFF000000)|mnf_disable_all_keys,
+    "A farmer comes to you and says that one of your men has raped his daughter, who lives in a village near your siege camp. The farmer desires wergild (compensation) of 100 siliquae. What do you do?",
+    "none",
+    [
+      (set_background_mesh, "mesh_pic_messenger"),
+    ],
+    [
+      ("choice_12_1j",[],"Pay the wergild.",
+        [   (store_troop_gold, ":gold", "trp_player"),
+          (try_begin),
+            (ge, ":gold", 100),
+            (troop_remove_gold, "trp_player", 100),
+            (display_message, "@wergild is paid."),
+            (call_script, "script_change_player_honor", 1),
+            (call_script, "script_change_troop_renown", "trp_player", -5),
+          (else_try),
+            (display_message, "@You don't have enough siliquae. How embarrassing!"),
+      #      (call_script, "script_change_troop_renown", "trp_player", -15),
+          (try_end),
+          (change_screen_return),
+        ]
+      ),
+      ("choice_12_2j",[],"Pay the wergild and punish your warrior.",
+        [   (store_troop_gold, ":gold", "trp_player"),
+          (try_begin),
+            (ge, ":gold", 100),
+            (troop_remove_gold, "trp_player", 100),
+            (display_message, "@The wergild is paid and your warrior whipped."),
+            (call_script, "script_change_player_honor", 1),
+            (call_script, "script_change_player_party_morale", -5),
+          (else_try),
+            (display_message, "@You don't have enough siliquae. How embarrassing!"),
+  #          (call_script, "script_change_troop_renown", "trp_player", -15),
+          (try_end),
+          (change_screen_return),
+        ]
+      ),
+      ("choice_12_3j",[],"Refuse to pay for damage done to the Enemy.",
+        [
+          (call_script, "script_change_player_honor", -5),
+          (call_script, "script_change_player_party_morale", 5),
+          (change_screen_return),
+        ]
+      ),
+      ("choice_12_4j",[],"Kill the farmer and his daughter.",
+        [
+          (call_script, "script_change_player_honor", -10),
+          (jump_to_menu,"mnu_no_paymentandkill"),
+        ]
+      ),
+    ]
+  ),
+  
+  (
+    "no_paymentandkill",menu_text_color(0xFF000000)|mnf_disable_all_keys,
+    "In revenge, the men of the nearby villages joined together and attacked your foraging parties.^^Your casualties: {s8}",
+    "none",
+    [(set_background_mesh, "mesh_pic_messenger"),
+      (call_script, "script_inflict_casualties_to_party", "p_main_party", 3),
+      (call_script, "script_collect_friendly_parties"),
+    ],
+    [
+      ("choice_nppayment_2j",[],"Damn!",
+        [
+          (leave_encounter),
+          (jump_to_menu, "mnu_auto_return_to_map"),#phaiak
+        ]
+      ),
+    ]
+  ),
+  
+  #escaramuza pequena
+  (
+    "event_siege_13",menu_text_color(0xFF000000)|mnf_disable_all_keys,
+    "A group of enemies attacked our men by surprise and then quickly withdrew.^^Your casualties: {s8}^^Enemy casualties: {s10}",
+    "none",
+    [
+      (call_script, "script_simulate_battle_with_parties", 20, "$g_enemy_party", 80, 0, 0),
+    ],
+    [
+      ("choice_13_1b",[],"Be more cautious (Solution: blockade the place).",
+        [
+          (change_screen_return),
+        ]
+      ),
+    ]
+  ),
+  
+  (
+    "event_siege_14",menu_text_color(0xFF000000)|mnf_disable_all_keys,
+    "While foraging, a group of enemies encountered a group of our men.^^Your casualties: {s8}^^Enemy casualties: {s10}",
+    "none",
+    [
+      (call_script, "script_simulate_battle_with_parties", 30, "$g_enemy_party", 30, 0, 0),
+    ],
+    [
+      ("choice_14_1b",[],"Be more cautious (Solution: blockade the place).",
+        [
+          (change_screen_return),
+        ]
+      ),
+    ]
+  ),
+  
+  (
+    "event_siege_15",menu_text_color(0xFF000000)|mnf_disable_all_keys,
+    "We were attacked by an enemy force while raiding neighboring villages. The villagers joined the enemy, causing us many casualties.^^Your casualties: {s8}^^Enemy casualties: {s10}",
+    "none",
+    [
+      (call_script, "script_simulate_battle_with_parties", 30, "$g_enemy_party", 90, 0, 0),
+    ],
+    [
+      ("choice_15_1b",[],"Be more cautious (Solution: blockade the place).",
+        [
+          (change_screen_return),
+        ]
+      ),
+    ]
+  ),
+  
+  (
+    "event_siege_16",menu_text_color(0xFF000000)|mnf_disable_all_keys,
+    "The enemy and our men came upon each other near a river, and the fight for water caused numerous casualties on both sides.^^Your casualties: {s8}^^Enemy casualties: {s10}",
+    "none",
+    [
+      (call_script, "script_simulate_battle_with_parties", 20, "$g_enemy_party", 30, 0, 0),
+    ],
+    [
+      ("choice_16_1b",[],"Be more cautious (Solution: blockade the place).",
+        [
+          (change_screen_return),
+        ]
+      ),
+    ]
+  ),
+  
+  (
+    "event_siege_17",menu_text_color(0xFF000000)|mnf_disable_all_keys,
+    "The enemy sallied out through a secret passage, attacking us before swiftly retreating back to the protection of their walls.^^Your casualties: {s8}^^Enemy casualties: {s10}",
+    "none",
+    [
+      (call_script, "script_simulate_battle_with_parties", 20, "$g_enemy_party", 100, 0, 0),
+    ],
+    [
+      ("choice_17_1b",[],"Be more cautious (Solution: blockade the place).",
+        [
+          (change_screen_return),
+        ]
+      ),
+    ]
+  ),
+  
+  (
+    "event_siege_18",menu_text_color(0xFF000000)|mnf_disable_all_keys,
+    "Some of your men have abducted women from the surrounding villages and brought them to the siege camp for fun.",
+    "none",
+    [(set_background_mesh, "mesh_pic_messenger"),
+      
+    ],
+    [
+      ("choice_18_1b",[],"You allow it and ask for the most beautiful woman.",
+        [
+          (call_script, "script_change_player_honor", -5),
+          (call_script, "script_change_player_party_morale", 5),
+          (party_add_members, "p_main_party", "trp_refugee", 6),
+          (jump_to_menu,"mnu_no_paymentandkill"),
+        ]
+      ),
+      ("choice_18_2b",[],"Order the release of the women and punish the kidnappers.",
+        [
+          (call_script, "script_change_player_party_morale", -10),
+          (call_script, "script_change_player_honor", 5),
+          (change_screen_return),
+        ]
+      ),
+    ]
+  ),
+  
+  (
+    "event_siege_19",menu_text_color(0xFF000000)|mnf_disable_all_keys,
+    "The enemy is trying to break our blockade, and our men are trying to contain them.^^Your casualties: {s8}^^Enemy casualties: {s10}", #enemy desesperate, player adventage
+    "none",
+    [
+      (call_script, "script_simulate_battle_with_parties", 25, "$g_enemy_party", 75, 0, 0),
+    ],
+    [
+      ("choice_19_1b",[],"Send some men while I take others to force them to withdraw.",
+        [
+          (store_random_in_range, ":rand", 0, 7),
+          (try_begin),
+            (le, ":rand", 3),
+            (jump_to_menu,"mnu_no_defendiendo"),
+          (else_try),
+            (jump_to_menu,"mnu_defendiendo_circunvallation"),
+          (try_end),
+        ]
+      ),
+      ("choice_19_2b",[],"Send all the men to protect that part of the circumvallation.",
+        [
+          (store_random_in_range, ":rand", 0, 7),
+          (try_begin),
+            (le, ":rand", 3),
+            (jump_to_menu,"mnu_defendiendo_mal"),
+          (else_try),
+            (jump_to_menu,"mnu_defendiendo_circunvallation"),
+          (try_end),
+        ]
+      ),
+      ("choice_19_3b",[],"Do not worry. Our wall is strong.",
+        [
+          (jump_to_menu,"mnu_no_defendiendo"),
+        ]
+      ),
+    ]
+  ),
+  
+  ###ataque a circunvallation por defensores
+  (
+    "no_defendiendo",menu_text_color(0xFF000000)|mnf_disable_all_keys,
+    "The enemy has overcome our defenses and burned our small camps and checkpoints, breaking our blockade.^^Your casualties: {s8}^^Enemy casualties: {s10}",
+    "none",
+    [
+      (call_script, "script_simulate_battle_with_parties", 20, "$g_enemy_party", 80, 0, 0),
+    ],
+    [
+      ("defendiendo_1bnd",[],"We must build the blockade again.",
+        [
+          (party_set_slot,"$g_encountered_party",slot_center_blockaded,0),
+          (leave_encounter),
+          (jump_to_menu, "mnu_auto_return_to_map"),#phaiak
+        ]
+      ),
+    ]
+  ),
+  (
+    "defendiendo_circunvallation",menu_text_color(0xFF000000)|mnf_disable_all_keys,
+    "We have managed to repel the enemy, who returned to the protection of his walls...^^Your casualties: {s8}^^Enemy casualties: {s10}",
+    "none",
+    [
+      (call_script, "script_simulate_battle_with_parties", 20, "$g_enemy_party", 40, 0, 0),
+    ],
+    [
+      ("defendiendo_1dcir",[],"Well done.",
+        [
+          (leave_encounter),
+          (jump_to_menu, "mnu_auto_return_to_map"),#phaiak
+        ]
+      ),
+    ]
+  ),
+  (
+    "defendiendo_mal",menu_text_color(0xFF000000)|mnf_disable_all_keys,
+    "Another group of enemies took advantage of our troops being here and set fire to another part of our blockade.^^Your casualties: {s8}^^Enemy casualties: {s10}",
+    "none",
+    [
+      (call_script, "script_simulate_battle_with_parties", 30, "$g_enemy_party", 90, 0, 0),
+    ],
+    [
+      ("defendiendo_1mal",[],"Damn!",
+        [
+          (party_set_slot,"$g_encountered_party",slot_center_blockaded,0),
+          (leave_encounter),
+          (jump_to_menu, "mnu_auto_return_to_map"),#phaiak
+        ]
+      ),
+    ]
+  ),
+  #####ataque a circunvallation acaba
+  
+  ###ataque a maquinas de asedio
+  (
+    "event_siege_20",menu_text_color(0xFF000000)|mnf_disable_all_keys,
+    "The enemy is trying to burn our assault equipment.^^Your casualties: {s8}^^Enemy casualties: {s10}",
+    "none",
+    [
+      (call_script, "script_simulate_battle_with_parties", 40, "$g_enemy_party", 120, 0, 0),
+    ],
+    [
+      ("choice_20_1b",[],"Send some men while I take others to force them to withdraw.",
+        [
+          (store_random_in_range, ":rand", 0, 8),
+          (try_begin),
+            (le, ":rand", 3),
+            (jump_to_menu,"mnu_defendiendo_mal_equip"),
+          (else_try),
+            (le, ":rand", 5),
+            (jump_to_menu,"mnu_no_defendiendo_equip"),
+          (else_try),
+            (jump_to_menu,"mnu_defendiendo_equip"),
+          (try_end),
+        ]
+      ),
+      ("choice_20_2b",[],"Quickly. Send all men to protect the equipment.",
+        [
+          (store_random_in_range, ":rand", 0, 8),
+          (try_begin),
+            (le, ":rand", 3),
+            (jump_to_menu,"mnu_defendiendo_mal_equip"),
+          (else_try),
+            (jump_to_menu,"mnu_defendiendo_equip"),
+          (try_end),
+        ]
+      ),
+      ("choice_20_3b",[],"Do not worry. Our men will guard it.",
+        [
+          (jump_to_menu,"mnu_no_defendiendo_equip"),
+        ]
+      ),
+    ]
+  ),
+  ###ataque a equipamiento de asedio
+  (
+    "no_defendiendo_equip",menu_text_color(0xFF000000)|mnf_disable_all_keys,
+    "The enemy has overcome our defenses and burned down our equipment.^^Your casualties: {s8}^^Enemy casualties: {s10}",
+    "none",
+    [
+      (call_script, "script_simulate_battle_with_parties", 25, "$g_enemy_party", 100, 0, 0),
+    ],
+    [
+      ("defendiendo_1bnde",[],"We must begin construction again.",
+        [
+          (assign, "$g_siege_method", 0),
+          (assign, "$g_mantlets_1", 0),
+          (leave_encounter),
+          (jump_to_menu, "mnu_auto_return_to_map"),#phaiak
+        ]
+      ),
+    ]
+  ),
+  (
+    "defendiendo_equip",menu_text_color(0xFF000000)|mnf_disable_all_keys,
+    "We have managed to repel the enemy, who returned to the protection of his walls.^^Your casualties: {s8}^^Enemy casualties: {s10}",
+    "none",
+    [
+      (call_script, "script_simulate_battle_with_parties", 25, "$g_enemy_party", 50, 0, 0),
+    ],
+    [
+      ("defendiendo_1heq",[],"Well done.",
+        [
+          (leave_encounter),
+          (jump_to_menu, "mnu_auto_return_to_map"),#phaiak
+        ]
+      ),
+    ]
+  ),
+  (
+    "defendiendo_mal_equip",menu_text_color(0xFF000000)|mnf_disable_all_keys,
+    "Another group of enemies has surrounded our positions and burned down our siege equipment on the other side.^^Your casualties: {s8}^^Enemy casualties: {s10}",
+    "none",
+    [
+      (call_script, "script_simulate_battle_with_parties", 30, "$g_enemy_party", 90, 0, 0),
+    ],
+    [
+      ("defendiendo_1vmal",[],"Damn!",
+        [
+          (assign, "$g_siege_method", 0),
+          (leave_encounter),
+          (jump_to_menu, "mnu_auto_return_to_map"),#phaiak
+        ]
+      ),
+    ]
+  ),
+  #####ataque a equipamiento acaba
+  
+  
+  #continuamos aqui
+  (
+    "event_siege_21",menu_text_color(0xFF000000)|mnf_disable_all_keys,
+    "Your guards discovered several men trying to sneak out at night to escape your blockade.",
+    "none",
+    [(set_background_mesh, "mesh_pic_messenger"),
+      
+    ],
+    [
+      ("choice_21_1b",[],"Allow them to escape.",
+        [
+          (call_script, "script_change_player_party_morale", -5),
+          (store_random_in_range, ":p_leave", 8, 12),
+          (assign, ":num_troops", ":p_leave"),
+          (try_for_range, ":unused", 0, ":num_troops"),
+            (call_script, "script_cf_party_remove_random_regular_troop", "$g_encountered_party"),
+          (try_end),
+          
+          (change_screen_return),
+        ]
+      ),
+      ("choice_21_2b",[],"Kill them.",
+        [
+          (call_script, "script_change_player_honor", -5),
+          (store_random_in_range, ":p_leave", 8, 12),
+          (assign, ":num_troops", ":p_leave"),
+          (try_for_range, ":unused", 0, ":num_troops"),
+            (call_script, "script_cf_party_remove_random_regular_troop", "$g_encountered_party"),
+          (try_end),
+          (change_screen_return),
+        ]
+      ),
+    ]
+  ),
+  
+  (
+    "event_siege_22",menu_text_color(0xFF000000)|mnf_disable_all_keys,
+    "At night, your guards report that they observed a group of enemies dressed in sheepskins heading to a nearby stream. Right now, they are filling leather sacks with water to bring back to the settlement.",
+    "none",
+    [(set_background_mesh, "mesh_pic_messenger"),
+      
+    ],
+    [
+      ("atacar_emboscada_player2",[],"Go there with any companions who want to join.",
+        [
+          (try_begin),
+            (store_troop_health, ":health", "trp_player", 0), #get relative health in 1-100 range and put it into the ":health" variable
+            (lt, ":health", 30),
+            (val_add, ":health", 35),               #add to it the 5%
+            (troop_set_health,   "trp_player", ":health"),   #set it
+          (try_end),
+          
+          (store_random_in_range, ":scene_a_usar", 0,3),
+          (try_begin),
+            (eq, ":scene_a_usar", 1),
+            (assign, ":scene_to_use", "scn_custom_battle_plains_2"),
+          (else_try),
+            (eq, ":scene_a_usar", 2),
+            (assign, ":scene_to_use", "scn_custom_battle_plains_5"),
+          (else_try),
+            (assign, ":scene_to_use", "scn_custom_battle_forest_4"),
+          (try_end),
+          
+          (set_jump_mission,"mt_ambush_riversw"),
+          (modify_visitors_at_site,":scene_to_use"),
+          #### tropas cambiar por las del asentamiento
+          (reset_visitors, 0),
+          (set_visitor,0,"trp_player"), #player
+          (assign, ":cur_entry", 1),
+          (try_for_range, ":companion", companions_begin, companions_end),
+            (main_party_has_troop,":companion"),
+            (set_visitor, ":cur_entry", ":companion"),
+            (val_add, ":cur_entry", 1),
+          (try_end),
+          
+          (assign, ":num_troops", 8),
+          (try_for_range, ":unused", 0, ":num_troops"),
+            (call_script, "script_cf_party_remove_random_regular_troop", "$g_encountered_party"),
+            (assign, ":lost_troop", reg0),
+            #(try_for_range, ":visiterator", 17, 18), #possible 17 and 31, but this add 8 enemies each 1 entry point
+            (assign, ":visiterator", 17),
+            (set_visitor, ":visiterator", ":lost_troop"),
+            #  (try_end),
+          (try_end),
+          (jump_to_scene,":scene_to_use"),
+          (change_screen_mission),
+      ]),
+      
+      ("choice_22_1b",[],"Send men to ambush the enemy in sheepskins.",
+        [
+          (store_random_in_range, ":rand", 0, 3),
+          (try_begin),
+            (eq, ":rand", 0),
+            (jump_to_menu,"mnu_victoria_ovejas"),
+          (else_try),
+            (eq, ":rand", 1),
+            (jump_to_menu,"mnu_derrota_ovejas"),
+          (else_try),
+            (jump_to_menu,"mnu_tablas_ovejas"),
+          (try_end),
+        ]
+      ),
+      ("choice_22_2b",[],"Do nothing.",
+        [
+          (change_screen_return),
+        ]
+      ),
+    ]
+  ),
+  
+  #####atacar ovejas chief
+  (
+    "victoria_ovejas",menu_text_color(0xFF000000)|mnf_disable_all_keys,
+    "Your soldiers surrounded the enemy in sheepskins and fell upon them by surprise, spreading death.^^Your casualties: {s8}^^Enemy casualties: {s10}",
+    "none",
+    [
+      (call_script, "script_simulate_battle_with_parties", 50, "$g_enemy_party", 30, 0, 0),
+    ],
+    [
+      ("defendiendo_1lovej",[],"Perfect!",
+        [
+          (leave_encounter),
+          (jump_to_menu, "mnu_auto_return_to_map"),#phaiak
+        ]
+      ),
+    ]
+  ),
+  (
+    "derrota_ovejas",menu_text_color(0xFF000000)|mnf_disable_all_keys,
+    "It's a trap! {reg59?Lady:Sir}, the men dressed in sheepskins were a decoy to bring out our men and ambush them. Many were killed before returning to the protection of our circumvallation.^^Your casualties: {s8}^^Enemy casualties: {s10}",
+    "none",
+    [
+      (call_script, "script_simulate_battle_with_parties", 20, "$g_enemy_party", 100, 0, 0),
+    ],
+    [
+      ("defendiendo_1poveja",[],"That is terrible.",
+        [
+          (leave_encounter),
+          (jump_to_menu, "mnu_auto_return_to_map"),#phaiak
+        ]
+      ),
+    ]
+  ),
+  (
+    "tablas_ovejas",menu_text_color(0xFF000000)|mnf_disable_all_keys,
+    "Your soldiers were deployed to surround the enemy, but they were too slow and noisy. The men in sheepskins sensed the threat and returned to the settlement quickly.",
+    "none",
+    [ (set_background_mesh, "mesh_pic_messenger"),
+    ],
+    [
+      ("defendiendo_1oveja2",[],"Well, next time.",
+        [
+          (leave_encounter),
+          (jump_to_menu, "mnu_auto_return_to_map"),#phaiak
+        ]
+      ),
+    ]
+  ),
+  ###atacar ovejas acaba
+  
+  (
+    "event_siege_23",menu_text_color(0xFF000000)|mnf_disable_all_keys,
+    "Today a mercenary who wants to join our ranks came to our camp. He says he is an exile from the place that we are besieging, and he wants revenge.",
+    "none",
+    [
+      (set_background_mesh, "mesh_pic_mb_warrior_1"),
+    ],
+    [
+      ("choice_23_1b",[],"Accept him.",
+        [
+          (party_add_members, "p_main_party", "trp_mercenary_horseman", 1),
+          (call_script, "script_change_player_relation_with_center", "$g_encountered_party", -20),
+          
+          (change_screen_return),
+        ]
+      ),
+      ("choice_23_2b",[],"I don't need more men.",
+        [
+          (change_screen_return),
+        ]
+      ),
+    ]
+  ),
+  
+  (
+    "event_siege_24",menu_text_color(0xFF000000)|mnf_disable_all_keys,
+    "We have accumulated the heads of enemies and dead peasants. Do you want to launch them over the walls to undermine the morale of the enemy and cause disease?",
+    "none",
+    [(set_background_mesh, "mesh_pic_messenger"),
+      
+    ],
+    [
+      ("choice_24_1b",[],"What? You're a crazy maniac. Do not do that!",
+        [
+          (call_script, "script_change_player_honor", 5),
+          (change_screen_return),
+        ]
+      ),
+      ("choice_24_2b",[],"Sure, it will be useful when negotiating their surrender.",
+        [
+          (call_script, "script_change_player_honor", -5),
+          (jump_to_menu,"mnu_cabezas_moral"),
+        ]
+      ),
+    ]
+  ),
+  
+  
+  ###cabezas
+  (
+    "cabezas_moral",menu_text_color(0xFF000000)|mnf_disable_all_keys,
+    "The heads are launched into the settlement. From the outside, you hear the cries and tears of the citizens when they recognize a loved one. War is merciless, and you've proven you're the most terrible of foes.",
+    "none",
+    [ (set_background_mesh, "mesh_pic_messenger"),
+    ],
+    [
+      ("defendiendo_1q",[],"This will help them give up... or die...",
+        [
+          (assign, "$g_cabezas_dentro", 1),
+          (call_script, "script_change_player_party_morale", -5),
+          (call_script, "script_change_troop_renown", "trp_player", 5),
+          (display_message,"@Your men think you're heartless and fear you."),
+          (leave_encounter),
+          (jump_to_menu, "mnu_auto_return_to_map"),#phaiak
+        ]
+      ),
+    ]
+  ),
+  ###cabezas acaba
+  
+  (
+    "event_siege_25",menu_text_color(0xFF000000)|mnf_disable_all_keys,
+    "A merchant offers a group of dancers to entertain your men during the night.",
+    "none",
+    [(set_background_mesh, "mesh_pic_messenger"),
+      
+    ],
+    [
+      ("choice_25_1b",[],"This will just distract and tire my men.",
+        [
+          (call_script, "script_change_player_party_morale", -8),
+          (change_screen_return),
+        ]
+      ),
+      ("choice_25_2b",[],"Hire dancers just for yourself (100 siliquae).",
+        [
+          (store_troop_gold, ":gold", "trp_player"),
+          (try_begin),
+            (ge, ":gold", 100),
+            (troop_remove_gold, "trp_player", 100),
+            (add_xp_as_reward,100),
+            (display_message, "@You feel happy."),
+            (call_script, "script_change_player_party_morale", -4),
+          (else_try),
+            (display_message, "@You don't have enough siliquae. How embarrassing!"),
+    #        (call_script, "script_change_troop_renown", "trp_player", -5),
+          (try_end),
+          (change_screen_return),
+        ]
+      ),
+      ("choice_25_3b",[],"Hire dancers for your men (500 siliquae).",
+        [
+          (store_troop_gold, ":gold", "trp_player"),
+          (try_begin),
+            (ge, ":gold", 500),
+            (troop_remove_gold, "trp_player", 500),
+            (display_message, "@You feel good for helping."),
+            (call_script, "script_change_player_party_morale", 8),
+          (else_try),
+            (display_message, "@You don't have enough siliquae. How embarrassing!"),
+   #         (call_script, "script_change_troop_renown", "trp_player", -5),
+            (call_script, "script_change_player_party_morale", -2),
+          (try_end),
+          (change_screen_return),
+        ]
+      ),
+    ]
+  ),
+  
+  (
+    "event_siege_26",menu_text_color(0xFF000000)|mnf_disable_all_keys,
+    "A group of bandits approaches your camp. As your men reach for their arms, the bandits put down their weapons and say they come in peace. The leader of the bandits steps forward and asks if they may join you.",
+    "none",
+    [
+      (set_background_mesh, "mesh_pic_mb_warrior_1"),
+    ],
+    [
+      ("choice_26_1b",[],"Of course! Such promising men are always welcome!",
+        [
+          (call_script, "script_change_player_party_morale", -8),
+          (call_script, "script_change_player_honor", -2),
+          (party_add_members, "p_main_party", "trp_mountain_bandit", 5),
+          (display_message, "@New troops join your party."),
+          (change_screen_return),
+        ]
+      ),
+      ("choice_26_2b",[],"I'm sorry. We have no room for your kind!",
+        [
+          (display_message, "@The bandits leave, angry."),
+          (change_screen_return),
+        ]
+      ),
+      ("choice_26_3b",[],"Prove yourselves worthy by raiding a village.",
+        [
+          (jump_to_menu,"mnu_sanguinario_p"),
+        ]
+      ),
+      ("choice_26_4b",[],"Kill them all!",
+        [
+          (call_script, "script_troop_add_gold", "trp_player", 100),
+          (call_script, "script_change_player_honor", 1),
+          #   (call_script, "script_change_troop_renown", "trp_player", -10),
+          (display_message, "@Your men kill all the bandits."),
+          (change_screen_return),
+        ]
+      ),
+    ]
+  ),
+  
+  (
+    "sanguinario_p",menu_text_color(0xFF000000)|mnf_disable_all_keys,
+    "After two hours, the bandits return with some loot and someone's head...",
+    "none",
+    [
+      (set_background_mesh, "mesh_pic_mb_warrior_1"),
+      (call_script, "script_troop_add_gold", "trp_player", 500),
+      (call_script, "script_change_player_honor", -10),
+      #   (call_script, "script_change_troop_renown", "trp_player", -10),
+      (call_script, "script_change_player_party_morale", -8),
+    ],
+    [
+      ("choice_26_3b",[],"Well done! An officer will show you to your places.",
+        [
+          (party_add_members, "p_main_party", "trp_mountain_bandit", 5),
+          #     (display_message, "@After tow hours the bandits return with some loot and the chiefs head..."),
+          (change_screen_map),
+        ]
+      ),
+    ]
+  ),
+  
+  (
+    "event_siege_27",menu_text_color(0xFF000000)|mnf_disable_all_keys,
+    "Several merchants approach you wanting to sell goods in the camp that has formed close to yours with the wives of the soldiers, prostitutes, refugees, children and other followers of the army.",
+    "none",
+    [
+      (set_background_mesh, "mesh_pic_messenger"),
+    ],
+    [
+      ("choice_27_1b",[],"They (and their money) are welcome.",
+        [
+          (call_script, "script_troop_add_gold", "trp_player", 400),
+          (call_script, "script_change_player_party_morale", 5),
+          
+          (store_random_in_range, ":p_leave", 5, 10),
+          (assign, ":num_troops", ":p_leave"),
+          (try_for_range, ":unused", 0, ":num_troops"),
+            (call_script, "script_cf_party_remove_random_regular_troop", "p_main_party"),
+          (try_end),
+          (display_message, "@At night, some of your men make off with happy widows."),
+          
+          (change_screen_return), #menos disciplina
+        ]
+      ),
+      ("choice_27_2b",[],"There are enough merchants already.",
+        [
+          (call_script, "script_change_player_party_morale", -5),
+          (change_screen_return), #mas disciplina
+        ]
+      ),
+      ("choice_27_3b",[],"Kill them and steal their money.",
+        [
+          (call_script, "script_change_player_honor", -15),
+          (call_script, "script_change_player_party_morale", -10),
+          #            (call_script, "script_change_troop_renown", "trp_player", -30),
+          (call_script, "script_troop_add_gold", "trp_player", 1600),
+          (change_screen_return),
+        ]
+      ),
+    ]
+  ),
+  
+  (
+    "event_siege_28",menu_text_color(0xFF000000)|mnf_disable_all_keys,
+    "To make the food last longer, the defenders threw out their women, children and elderly. You can see them moving towards your circumvallation, begging for food.",
+    "none",
+    [ (set_background_mesh, "mesh_pic_messenger"),
+    ],
+    [
+      ("choice_28_1b",[],"Send soldiers to kill the children and elderly, taking the women.",
+        [
+          (call_script, "script_change_player_honor", -20),
+          (call_script, "script_change_player_party_morale", 5),
+          #   (call_script, "script_change_troop_renown", "trp_player", -15),
+          (party_add_members, "p_main_party", "trp_refugee", 8),
+          (change_screen_return),
+        ]
+      ),
+      ("choice_28_2b",[(store_troop_gold, ":gold", "trp_player"),(ge, ":gold", 1000),],"Buy food for them (1000 siliquae). Then let them leave.",
+        [
+          (troop_remove_gold, "trp_player", 1000),
+          (display_message, "@You feel good for helping."),
+          (call_script, "script_change_player_honor", 5),
+          (call_script, "script_change_player_party_morale", -5),
+          (call_script, "script_change_troop_renown", "trp_player", -5),
+          (display_message,"@Your men think that you are a weak leader."),
+          (call_script, "script_change_player_relation_with_center", "$g_encountered_party", 10),
+          (display_message,"@Your enemies appreciate your pity. Perhaps this will help you when you negotiate their surrender."),
+          (change_screen_return),
+        ]
+      ),
+      ("choice_28_3b",[],"Do not give them anything. Allow them to die of starvation.",
+        [
+          (call_script, "script_change_player_honor", -5),
+          (call_script, "script_change_troop_renown", "trp_player", 5),
+          (display_message,"@Your men think that you are a strong leader."),
+          (call_script, "script_change_player_relation_with_center", "$g_encountered_party", -10),
+          (display_message, "@You know that in the coming days, dozens of children, women and elderly will die before your eyes, languishing from hunger."),
+          (change_screen_return),
+        ]
+      ),
+    ]
+  ),
+  
+  (
+    "event_siege_29",menu_text_color(0xFF000000)|mnf_disable_all_keys,
+    "One of your soldiers, angered by the long siege, rapes the wife of one of your officers.",
+    "none",
+    [
+      (set_background_mesh, "mesh_pic_messenger"),
+    ],
+    [
+      ("choice_29_1b",[],"Ignore the situation.",
+        [
+          (call_script, "script_change_player_honor", -5),
+          (call_script, "script_change_troop_renown", "trp_player", -5),
+          (display_message,"@Your officer seems upset."),
+          (jump_to_menu,"mnu_lucha_oficial"),
+          (change_screen_return),
+        ]
+      ),
+      ("choice_29_2b",[],"Punish the soldier.",
+        [
+          (call_script, "script_change_player_party_morale", -4),
+          (call_script, "script_change_troop_renown", "trp_player", 5),
+          (display_message,"@Your men think that you are a strong leader."),
+          (display_message,"@Your officer seems upset."),
+          (jump_to_menu,"mnu_lucha_oficial"),
+        ]
+      ),
+      ("choice_29_3b",[],"Execute the soldier.",
+        [
+          (call_script, "script_change_player_party_morale", -8),
+          (call_script, "script_change_troop_renown", "trp_player", 5),
+          (display_message,"@Your men think that you are a very strong leader."),
+          (display_message,"@Your officer seems happy."),
+          
+          (assign, ":num_troops", 1),
+          (try_for_range, ":unused", 0, ":num_troops"),
+            (call_script, "script_cf_party_remove_random_regular_troop", "p_main_party"),
+          (try_end),
+          (change_screen_return),
+        ]
+      ),
+      ("choice_29_4b",[(store_troop_gold, ":gold", "trp_player"),(ge, ":gold", 1000),],"Pay wergild (compensation) to the officer (1000 siliquae).",
+        [
+          (troop_remove_gold, "trp_player", 1000),
+          (display_message, "@The wife is pregnant, and the officer asks for a high compensation. To avoid rumors and problems, you pay."),
+          (change_screen_return),
+        ]
+      ),
+    ]
+  ),
+  
+  ###soldado problematico
+  (
+    "lucha_oficial",menu_text_color(0xFF000000)|mnf_disable_all_keys,
+    "Your officer kills the soldier and there is a brawl between some friends of the soldier and those loyal to your officer, leaving some dead.",
+    "none",
+    [(set_background_mesh, "mesh_pic_messenger"),
+      (store_random_in_range, ":p_leave", 6, 12),
+      (assign, ":num_troops", ":p_leave"),
+      (try_for_range, ":unused", 0, ":num_troops"),
+        (call_script, "script_cf_party_remove_random_regular_troop", "p_main_party"),
+      (try_end),
+      
+      (set_background_mesh, "mesh_pic_mb_warrior_1"),
+    ],
+    [
+      ("defendiendo_1z",[],"That is terrible.",
+        [
+          (leave_encounter),
+          (jump_to_menu, "mnu_auto_return_to_map"),#phaiak
+        ]
+      ),
+    ]
+  ),
+  ####siege warfare acaba chief random event
 
 ("rome_conquered",menu_text_color(0xFF000000)|mnf_disable_all_keys,
     "Once again this century, the ancient capitol of Rome has been taken, this time by the {s22}. The once great city has fallen further into ruin!",

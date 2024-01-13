@@ -451,6 +451,14 @@ party_templates = [
   ("thracias_a", "{!}Per Thracias Reinforcements", 0, 0, fac_commoners, 0, [(trp_pedes_augustenses,3,6),(trp_pedes_tzaanni,3,6),(trp_exculator,2,5),(trp_sagittarius,2,5)]),
   ("thracias_b", "{!}Per Thracias Reinforcements", 0, 0, fac_commoners, 0, [(trp_eques_sagittarii,2,6),(trp_pedes_tzaanni,3,6),(trp_pedes_augustenses,3,6),(trp_imperial_signifer,1,1)]),
   ("thracias_c", "{!}Per Thracias Reinforcements", 0, 0, fac_commoners, 0, [(trp_eques_stablesiani,3,6),(trp_eques_cataphractarii,3,6),(trp_centenarius,1,1)]),
+  #"lesser" positions (ERE)
+  ("dux_foenicis_a", "{!}Dux Foenicis reinforcements", 0, 0, fac_commoners, 0, [(trp_miles_primae_illyriciorum,4,11),(trp_exculator,3,5),(trp_eques_sagittarii,1,4)]), 
+  ("dux_foenicis_b", "{!}Dux Foenicis reinforcements", 0, 0, fac_commoners, 0, [(trp_eques_indiginae,2,5),(trp_sagittarius,2,6),(trp_miles_primae_illyriciorum,4,9),(trp_imperial_signifer,1,1)]),
+  ("dux_foenicis_c", "{!}Dux Foenicis reinforcements", 0, 0, fac_commoners, 0, [(trp_miles_primae_illyriciorum,1,3),(trp_eques_scutarii,1,4),(trp_eques_promoti,1,3),(trp_centenarius,1,1)]),
+
+  ("numeri_isaurorum_a", "{!}numeri isaurorum reinforcements", 0, 0, fac_commoners, 0, [(trp_mountain_bandit,8,18)]), 
+  ("numeri_isaurorum_b", "{!}numeri isaurorum reinforcements", 0, 0, fac_commoners, 0, [(trp_isaurian_warrior,5,12),(trp_sagittarius,3,8),(trp_imperial_signifer,1,1)]),
+  ("numeri_isaurorum_c", "{!}numeri isaurorum reinforcements", 0, 0, fac_commoners, 0, [(trp_isaurian_infantry,3,10),(trp_centenarius,1,1)]),
 
   #eventually with have Magister Militum per Illyricum
   #lanciarii iuniores (comitatenses)

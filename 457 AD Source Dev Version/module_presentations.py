@@ -19491,6 +19491,11 @@ presentations = [
               (assign, ":c", 1),
             (else_try), #other ere troops
               (faction_slot_eq, "$players_kingdom", slot_faction_culture, "fac_culture_empire"),
+              (eq, "$current_town", "p_castle_41"),
+              (eq, ":troop", "trp_miles_primae_illyriciorum"),
+              (assign, ":c", 1),
+            (else_try), #other ere troops
+              (faction_slot_eq, "$players_kingdom", slot_faction_culture, "fac_culture_empire"),
               (eq, "$current_town", "p_town_36"),
               (eq, ":troop", "trp_pedes_theodosiaci"),
               (assign, ":c", 1),

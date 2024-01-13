@@ -1127,7 +1127,7 @@ troops = [
   ["sadagarii_horseman","Sadagarii Horseman","Sadagarii Horsemen",tf_mounted|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_horse|tf_guarantee_ranged|tf_guarantee_polearm,0,0,fac_culture_1,
    [itm_nomad_boots,itm_simple_shoes,itm_kaftan_hunnic_green,itm_roman_spear_4,itm_jarid,itm_jarid]+horses_hunnic_1,
    def_attrib_lvl_18|level(18),wp_one_handed(130)|wp_two_handed(120)|wp_polearm(145)|wp_throwing(145)|wp_archery(120),knows_common|knows_riding_5|knows_horse_archery_5|knows_power_strike_3|knows_power_throw_5|knows_ironflesh_4,hunnic_face_1, hunnic_face_2],
-  ["victufali_mounted_warrior","Victufali Mounted Warrior","Victufali Mounted Warrior",tf_mounted|tf_guarantee_armor|tf_guarantee_boots|tf_guarantee_horse|tf_guarantee_polearm|tf_guarantee_shield,0,0,fac_culture_1,
+  ["victufali_mounted_warrior","Victufali Mounted Warrior (Aihwadrauhteis)","Victufali Mounted Warrior (Aihwardrauhtjos)",tf_mounted|tf_guarantee_armor|tf_guarantee_boots|tf_guarantee_horse|tf_guarantee_polearm|tf_guarantee_shield,0,0,fac_culture_1,
    [itm_late_roman_spear_1,itm_sword_viking_3,itm_deurne_campagi_2,itm_deurne_campagi_1,itm_tunic_9,itm_tunic_16,itm_tunic_9_cloak,itm_tunic_16_cloak,itm_pannonian_cap_fur_1,itm_pannonian_cap_fur_2,itm_woolen_cap_2]+horses_eastern_germanic_2+shoes_generic+shields_small,
    def_attrib_lvl_23|level(23),wp_one_handed(175)|wp_two_handed(140)|wp_polearm(175)|wp_throwing(175)|wp_archery(110),knows_lvl_23,germanic_face_1, germanic_face_2],
   ["daco_roman_militia","Miles Daco-Romani","Milites Daco-Romani",tf_guarantee_basic,0,0,fac_culture_1, #club, spear, oval shield
@@ -1462,7 +1462,7 @@ troops = [
    def_attrib_lvl_32|level(32),wp_one_handed (240) | wp_two_handed (250) | wp_polearm (250) | wp_archery (150) | wp_crossbow (75) | wp_throwing (120),knows_lvl_30|knows_horse_archery_5,persian_face_1, persian_face_2], 
 
  ["sassanid_officer","Persian Officer (Dezhban)","Persian Officers (Dezhban)",tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_shield,0,0,fac_culture_6,
-   [itm_sassanid_cavalry_boots_1,itm_sassanid_cavalry_boots_2,itm_sassanid_helmet_mail_5,itm_leather_gloves,itm_ingushetia_spatha,itm_tab_shield_small_round_c]+mail_persian_3+mail_persian_coat_2,
+   [itm_sassanid_cavalry_boots_1,itm_sassanid_cavalry_boots_2,itm_crossband_helmet_1,itm_sassanid_helmet_mail_5,itm_leather_gloves,itm_ingushetia_spatha,itm_tab_shield_small_round_c]+mail_persian_3+mail_persian_coat_2,
    def_attrib_lvl_28|level(28),wp_one_handed(205)|wp_two_handed(210)|wp_polearm(200)|wp_archery(120)|wp_throwing(170),knows_lvl_28|knows_trainer_4,persian_face_1, persian_face_2], 
 
  ["sassanid_camel_rider","Persian Camel Rider","Persian Camel Riders",tf_mounted|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_horse|tf_guarantee_polearm,0,0,fac_culture_6,
@@ -1470,7 +1470,7 @@ troops = [
    def_attrib_lvl_18|level(18),wp_one_handed (130) | wp_two_handed (130) | wp_polearm (140) | wp_archery (75) | wp_crossbow (75) | wp_throwing (100),knows_lvl_18,persian_face_1, persian_face_2], 
 
  ["sassanid_guard_spearman","Persian Guard (Ham-Harz)","Persian Guards (Ham-Harzan)",tf_guarantee_basic|tf_guarantee_helmet,0,0,fac_culture_6,
-   [itm_sassanid_cavalry_boots_1,itm_sassanid_cavalry_boots_2,itm_polehammer,itm_mace_sassanid,itm_sassanid_cataphract_helmet_1,itm_sassanid_helmet_mail_4,itm_sassanid_helmet_mail_5,itm_wicker_shield_dura_1,itm_wicker_shield_dura_2,itm_wicker_shield_dura_3,itm_tab_shield_pavise_d]+mail_persian_3+mail_persian_4+mail_persian_coat_2,
+   [itm_sassanid_cavalry_boots_1,itm_sassanid_cavalry_boots_2,itm_polehammer,itm_mace_sassanid,itm_crossband_helmet_1,itm_sassanid_cataphract_helmet_1,itm_sassanid_helmet_mail_4,itm_sassanid_helmet_mail_5,itm_wicker_shield_dura_1,itm_wicker_shield_dura_2,itm_wicker_shield_dura_3,itm_tab_shield_pavise_d]+mail_persian_3+mail_persian_4+mail_persian_coat_2,
    def_attrib_lvl_28|level(28),wp_one_handed (205) | wp_two_handed (200) | wp_polearm (205) | wp_archery (75) | wp_crossbow (75) | wp_throwing (160),knows_lvl_28,persian_face_1, persian_face_2], 
 
 #auxiliary
@@ -1680,12 +1680,12 @@ troops = [
    def_attrib_lvl_18|level(17),wp_one_handed(135)|wp_two_handed(100)|wp_polearm(130)|wp_throwing(130)|wp_archery(145),knows_archer,caucaus_face_1, caucaus_face_2],
 
   ["caucasian_nobleman","Caucasian Nobleman","Caucasian Noblemen",tf_mounted|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_polearm|tf_guarantee_horse|tf_guarantee_helmet|tf_guarantee_shield,0,0,fac_culture_8,
-   [itm_wrapping_boots,itm_nomad_boots,itm_caucasian_scale_1,itm_caucasian_scale_2,itm_caucasian_scale_3,itm_caucasian_scale_4,itm_batumi_helmet_aventail,itm_staritsa_helmet_mail,
+   [itm_wrapping_boots,itm_nomad_boots,itm_caucasian_scale_1,itm_caucasian_scale_2,itm_caucasian_scale_3,itm_caucasian_scale_4,itm_batumi_helmet_aventail,itm_staritsa_helmet_mail,itm_crossband_helmet_1,itm_crossband_helmet_2,
    itm_lance,itm_battle_axe_4,itm_strong_bow,itm_barbed_arrows,itm_tab_shield_small_round_b]+horses_persian_2,
    def_attrib_lvl_23|level(23),wp_one_handed(190)|wp_two_handed(150)|wp_polearm(190)|wp_throwing(190)|wp_archery(160),knows_lvl_23|knows_horse_archery_4,caucaus_face_1, caucaus_face_2],
 
   ["caucasian_cataphract","Caucasian Cataphract","Caucasian Cataphracts",tf_mounted|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_polearm|tf_guarantee_horse|tf_guarantee_helmet,0,0,fac_culture_8,
-   [itm_sassanid_cavalry_boots_2,itm_heavy_greaves,itm_caucasian_cataphract_1,itm_caucasian_cataphract_2,itm_caucasian_cataphract_3,itm_batumi_helmet_aventail,itm_staritsa_helmet_mail,itm_tsaritsyno_1,itm_veiled_helmet_4,itm_tsaritsyno_1_veiled,itm_leather_gloves,itm_rgani_mace,itm_heavy_lance,itm_khergit_bow,itm_bodkin_arrows,itm_tab_shield_small_round_c]+horses_cataphract_common,
+   [itm_sassanid_cavalry_boots_2,itm_heavy_greaves,itm_caucasian_cataphract_1,itm_caucasian_cataphract_2,itm_caucasian_cataphract_3,itm_batumi_helmet_aventail,itm_staritsa_helmet_mail,itm_tsaritsyno_1,itm_veiled_helmet_4,itm_tsaritsyno_1_veiled,itm_crossband_helmet_1,itm_crossband_helmet_2,itm_leather_gloves,itm_rgani_mace,itm_heavy_lance,itm_khergit_bow,itm_bodkin_arrows,itm_tab_shield_small_round_c]+horses_cataphract_common,
    def_attrib_lvl_30|level(30),wp_one_handed(230)|wp_two_handed(210)|wp_polearm(220)|wp_throwing(200)|wp_archery(150)|wp_firearm(80),knows_lvl_30|knows_horse_archery_5,caucaus_face_1, caucaus_face_2],
 
   ["caucasian_messenger","Caucasian Messenger","Caucasian Messengers",tf_mounted|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_polearm|tf_guarantee_horse|tf_guarantee_helmet,0,0,fac_culture_8,
@@ -2122,6 +2122,11 @@ troops = [
    def_attrib_lvl_30|level(28),wp_one_handed(220)|wp_two_handed(150)|wp_polearm(200)|wp_throwing(150)|wp_crossbow(150)|wp_archery(170),knows_lvl_28|knows_horse_archery_5,sarmatian_face_1, sarmatian_face_2],
 
 #ERE
+#Limitanei
+  #stationed in Palmyra
+  ["miles_primae_illyriciorum","Miles Primae Illyriciorum","Milites Primae Illyriciorum",tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_shield|tf_guarantee_helmet,0,0,fac_kingdom_2,
+   [itm_deurne_campagi_2,itm_sassanid_simple_boots_2,itm_common_mail_short_5,itm_tunic_9,itm_haditha_1,itm_iatrus_1,itm_roman_arming_cap_1,itm_roman_arming_cap_2,itm_simple_arming_cap,itm_javelin,itm_arab_machete,itm_oval_shield_white_2],
+   def_attrib_lvl_21|level(21),wp_one_handed(155)|wp_two_handed(150)|wp_polearm(150)|wp_archery(120)|wp_throwing(170),knows_lvl_21,arab_face_1, arab_face_2],
 #Pseudocomitatenses
   #per orientem
   ["pedes_transtigritani","Pedes Transtigritani","Pedites Transtigritani",tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_shield|tf_guarantee_helmet|tf_guarantee_polearm,0,0,fac_kingdom_2,
@@ -2722,7 +2727,7 @@ troops = [
    def_attrib_lvl_13|level(12),wp_one_handed(100)|wp_polearm(100)|wp_throwing(140),knows_power_strike_3|knows_athletics_3|knows_power_throw_4|knows_ironflesh_1,roman_face_1, roman_face_2],
 
   #Changed to isaurian - blue + green colors, axemen armed with javelin
-  ["mountain_bandit","Latro Isaurorum","Latrones Isauri",tf_guarantee_armor|tf_guarantee_boots,0,0,fac_mountain_bandits,
+  ["mountain_bandit","Ferentarius Isaurorum","Ferentarius Isauri",tf_guarantee_ranged|tf_guarantee_shield|tf_guarantee_armor|tf_guarantee_boots,0,0,fac_mountain_bandits,
    [itm_simple_shoes,itm_wrapping_boots,itm_ankle_boots,itm_roman_peasant_tunic_1,itm_roman_peasant_tunic_3,itm_roman_peasant_tunic_10,itm_roman_peasant_tunic_4,itm_leather_cap,itm_pannonian_cap_4,itm_pannonian_cap_5,itm_pannonian_cap_fur_1,itm_pannonian_cap_fur_2,itm_narona_helmet_leather,itm_javelin,itm_javelin,itm_fighting_axe,itm_simple_shield_1,itm_simple_shield_2,itm_simple_shield_3,itm_simple_shield_4],
    def_attrib_lvl_18|level(18),wp_one_handed(160)|wp_two_handed(130)|wp_polearm(130)|wp_throwing(160)|wp_archery(130),knows_lvl_18|knows_athletics_6|knows_power_strike_5,roman_face_1, roman_face_2],
 
@@ -2775,6 +2780,10 @@ troops = [
   ["sabir_bandit","Sabir Bandit","Sabir Bandits",tf_mounted|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_horse|tf_guarantee_ranged,0,0,fac_outlaws,
    [itm_nomad_boots,itm_sarranid_boots_b,itm_leather_vest,itm_kaftan_hunnic_red,itm_kaftan_hunnic_blue,itm_kaftan_hunnic_green,itm_kaftan_hunnic_white,itm_kaftan_lamellar_10,itm_hunnic_phrygian_leather,itm_hunnic_phrygian_4,itm_hunnic_phrygian_5,itm_kalhkni_helmet_1,itm_tarasovo_helmet_1,itm_suvorovsky_helmet_mail,itm_khergit_bow,itm_niya_bow_2,itm_khergit_arrows,itm_khergit_arrows,itm_battle_axe_2]+horses_hunnic_1,
    def_attrib_lvl_18|level(18),wp_one_handed(140)|wp_two_handed(130)|wp_polearm(130)|wp_throwing(130)|wp_archery(175),knows_common|knows_riding_6|knows_horse_archery_7|knows_power_strike_2|knows_power_draw_6|knows_ironflesh_2,hunnic_face_1, hunnic_face_2],
+
+  ["taiga_raider","Taiga Raider","Taiga Raiders",tf_mounted|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_horse|tf_guarantee_ranged,0,0,fac_outlaws,
+   [itm_nomad_boots,itm_wrapping_boots,itm_kaftan_alan_blue,itm_kaftan_alan_white,itm_kaftan_lamellar_8,itm_komi_ridge_helmet_1,itm_crossband_helmet_1,itm_khergit_bow,itm_khergit_arrows,itm_sword_khergit_1,itm_round_shield_leather_small_3]+horses_sporoi_1,
+   def_attrib_lvl_21|level(21),wp_one_handed(180)|wp_two_handed(160)|wp_polearm(160)|wp_throwing(130)|wp_archery(150),knows_lvl_21|knows_power_draw_4|knows_horse_archery_4,germanic_face_1, germanic_face_2],
 
   ["irish_raider","Scotos","Scoti",tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_shield,0,0,fac_outlaws,
    [itm_simple_shoes,itm_woolen_hose,itm_pictish_tunic_2,itm_pictish_tunic_3,itm_pictish_tunic_4,itm_pictish_tunic_6,itm_pictish_hood_1,itm_pictish_hood_2,itm_pictish_hood_3,itm_roman_spear_3,itm_pict_axe_a,itm_pict_axe_b,itm_jarid,itm_pict_shield_2,itm_pict_shield_3,itm_pict_shield_7],
@@ -3182,7 +3191,7 @@ troops = [
    str_6|agi_9|int_15|cha_7|level(4),wp_one_handed(90)|wp_two_handed(60)|wp_polearm(60)|wp_archery(60)|wp_crossbow(60)|wp_throwing(60)|wp_firearm(90),
    knows_riding_3|knows_athletics_3|knows_weapon_master_2|knows_inventory_management_3|knows_ironflesh_1|knows_power_strike_1|knows_power_throw_1|knows_trade_3|knows_tactics_3|knows_surgery_3|knows_wound_treatment_3|knows_engineer_3|knows_first_aid_3, #32
    0x00000008db0c80854c9ab6d8eb6db51c00000000001e37120000000000000000],
-  ["npc24","Ladislaus","Ladislaus",tf_hero|tf_unmoveable_in_party_window, 0, reserved,  fac_commoners,[itm_round_shield_leather_small_3,itm_wrapping_boots,itm_baltic_sword_1,itm_throwing_spear_1,itm_tunic_13_cloak],
+  ["npc24","Ladislaus","Ladislaus",tf_hero|tf_unmoveable_in_party_window, 0, reserved,  fac_commoners,[itm_round_shield_leather_small_3,itm_wrapping_boots,itm_baltic_sword_1,itm_throwing_spear_1,itm_tunic_13_cloak,itm_komi_ridge_helmet_1],
    def_attrib_lvl_13|level(13),wp_one_handed(160)|wp_two_handed(120)|wp_polearm(160)|wp_archery(60)|wp_crossbow(60)|wp_throwing(60)|wp_firearm(60),
    knows_power_throw_5|knows_athletics_3|knows_riding_2|knows_shield_2|knows_inventory_management_2|knows_weapon_master_3|knows_power_strike_5|knows_ironflesh_5|knows_first_aid_1, #28
    0x00000001630c6088475489592a95b52400000000001db6eb0000000000000000],
@@ -3296,6 +3305,8 @@ troops = [
 ["knight_2_4", "Comes Limitis Aegypti Dionysius", "Dionysius", tf_hero, 0, reserved,  fac_kingdom_2, [itm_iberian_warhorse_roman_2, itm_coptic_tunic_5, itm_deurne_campagi_3, itm_deurne_campagi_greaves_3, (itm_roman_scale_1,imod_reinforced), itm_tab_shield_small_round_c, itm_sword_viking_3_small, itm_heteny_helmet_1],    knight_attrib_5,wp_one_handed(280)|wp_two_handed(250)|wp_polearm(280)|wp_archery(150)|wp_crossbow(120)|wp_throwing(200)|wp_firearm(120),knight_skills_5|knows_trainer_4, 0x0000000c8800908238db6dba5b6db8db00000000001db6db0000000000000000],
 #Dux Foenicis in 463, would be killed in a rebellion
 ["knight_2_5", "Dux Foenicis Zenodorus", "Zenodorus", tf_hero, 0, reserved,  fac_kingdom_2, [itm_camargue_roman_3, itm_coptic_tunic_9, itm_deurne_campagi_1, itm_deurne_campagi_greaves_3, (itm_roman_scale_2,imod_reinforced),  itm_tab_shield_small_round_c, itm_arabian_sword_a, itm_iatrus_plume_2], knight_attrib_5,wp_one_handed(270)|wp_two_handed(250)|wp_polearm(260)|wp_archery(140)|wp_crossbow(120)|wp_throwing(200)|wp_firearm(120),knight_skills_4|knows_trainer_6, 0x00000008b61040c748596a48e251271200000000001d36ab0000000000000000],
+#Father of St. Sabas, was a tribune of the Numeri Isauri located in Alexandria. Was noted to being there in 457 still, and would continue his military career until his death. Married to a certain "Sophia"
+["knight_2_6", "Tribunus Numeri Isaurorum Iohannes", "Iohannes", tf_hero, 0, reserved,  fac_kingdom_2, [itm_asturco_roman_1, itm_roman_peasant_tunic_15, itm_deurne_campagi_2, itm_deurne_campagi_greaves_2, itm_common_mail_long_5, itm_battle_axe_2, itm_tab_shield_small_round_c, itm_augst_helmet_crested_rich_2], knight_attrib_5,wp_one_handed(300)|wp_two_handed(300)|wp_polearm(200)|wp_archery(170)|wp_crossbow(120)|wp_throwing(280)|wp_firearm(120),knight_skills_4|knows_trainer_4, 0x00000006f6104102591a8a48ea6e2ad200000000001d2ad20000000000000000],
 #Was Zeno, but in this period he went by his Isaurian name, was married to a woman named Arcadia, and later married Ariadne, daughter of Leo
 ["knight_2_7", "Comes Rei Militaris Tarasikodissa", "Tarasikodissa", tf_hero, 0, reserved,  fac_kingdom_2, [itm_asturco_roman_2, itm_roman_peasant_tunic_4, itm_deurne_campagi_2, itm_deurne_campagi_greaves_2, itm_457_scale_hauberk_7, itm_mace_roman_2, itm_tab_shield_small_round_c, itm_augsburg_1_helmet], knight_attrib_5,wp_one_handed(280)|wp_two_handed(280)|wp_polearm(280)|wp_archery(170)|wp_crossbow(120)|wp_throwing(200)|wp_firearm(120),knight_skills_4|knows_trainer_4, 0x00000002bb00108124db6a569b6db4db00000000001db6e20000000000000000],
 #control over eastern castles
@@ -3308,6 +3319,9 @@ troops = [
 ["knight_2_12", "Comes Rei Militaris Stilas", "Stilas", tf_hero, 0, reserved,  fac_kingdom_2, [itm_asturco_roman_1, itm_coptic_tunic_8, itm_deurne_campagi_2, itm_deurne_campagi_greaves_2, itm_rich_mail_3, itm_tab_shield_small_round_c, itm_arabian_sword_a, itm_koblenz_helmet_3],   knight_attrib_5,wp_one_handed(300)|wp_two_handed(250)|wp_polearm(250)|wp_archery(100)|wp_crossbow(120)|wp_throwing(100)|wp_firearm(120),knight_skills_2, 0x00000005d010808254db6dd8ab75b6db00000000001d36f20000000000000000],
 #Flavius Armatus: 0x000000002200604538dc8a495b4db85a00000000001db6ed0000000000000000
 #Anagast: 0x00000004850053c226db6db6cb6db6d900000000001db6d80000000000000000
+
+#Other lords I can add: 
+#Tribunus Ioannes (numeri isaurorum) - alexandria
 
 #Visigoths
 #new lords
@@ -3532,7 +3546,7 @@ troops = [
   ["kingdom_1_lady_14","Comitessa Anastasia","Anastasia",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_1, [      itm_roman_noble_dress_sleeveless_2,       itm_ankle_boots],     def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x000000012300400d371a76451b8e38d300000000001d319b0000000000000000],
 
   ["kingdom_2_lady_1","Comitessa Verina","Verina",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_2, [      itm_roman_noble_dress_1,       itm_ankle_boots],     def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x0000000af40010103aa17646e391d8d300000000001d51530000000000000000],
-  ["kingdom_2_lady_2","Comitessa Ariadne","Ariadne",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_2, [      itm_roman_noble_dress_sleeveless_1,       itm_excubitor_boots],     def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x000000003600400a465a7619234a469a00000000001cd19b0000000000000000],
+  ["kingdom_2_lady_2","Comitessa Ariadne","Ariadne",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_2, [      itm_roman_noble_dress_3,       itm_excubitor_boots],     def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x0000000035004003241975975989469b00000000001cf38b0000000000000000],
   #Wife of Basiliscus
   ["kingdom_2_lady_3","Comitessa Aelia Zenonis","Aelia Zenonis",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_2, [itm_roman_noble_dress_2 ,itm_ankle_boots], def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x000000032c00500b585a7519238a469a00000000001cd18b0000000000000000],
   #No longer daughters of leo, was born later
@@ -3546,6 +3560,8 @@ troops = [
   ["kingdom_2_lady_8","Comitessa Pomponia","Pomponia",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_2,  [    itm_roman_noble_dress_sleeveless_2 ,     itm_wrapping_boots], def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x00000004b100300436dcd1a111a9d2e400000000001db32b0000000000000000],
   ["kingdom_2_lady_9","Comitessa Faustina","Faustina",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_2,  [    itm_roman_noble_dress_sleeveless_4 ,     itm_wrapping_boots], def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x000000000e0050043b142c956da946da00000000001d235b0000000000000000],
   ["kingdom_2_lady_10","Comitessa Honoria","Honoria",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_2,  [    itm_roman_noble_dress_sleeveless_3 ,     itm_wrapping_boots], def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x0000000032001003469ab21b6b8d2b6a00000000001d24d20000000000000000],
+  ["kingdom_2_lady_11","Comitessa Sophia","Marcia Sophia",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_2,  [    itm_roman_noble_dress_sleeveless_1 ,     itm_ankle_boots], def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x000000046000000b3911762db3d24a9a00000000001d33810000000000000000], #married to Iohannes
+
 
   ["kingdom_3_lady_1","Ragnahild","Ragnahild",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_3, [itm_dress_4, itm_wrapping_boots],     def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x00000007c910000107632d675a92b92d00000000001e45620000000000000000],
   ["kingdom_3_lady_2","Nelda","Nelda",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_3, [ itm_dress_8, itm_wrapping_boots],     def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x0000000a4f08100232636aa92c6e395c00000000001e43130000000000000000],

@@ -12906,23 +12906,6 @@ TOTAL:  {reg5}"),
           (set_game_menu_tableau_mesh, "tableau_troop_note_mesh", ":center_lord", pos0),
         (try_end),
 
-        (call_script, "script_update_center_recon_notes", "$current_town"),
-        (assign, "$g_defending_against_siege", 0),
-        (str_clear, s3),
-        (party_get_battle_opponent, ":besieger_party", "$current_town"),
-        (store_faction_of_party, ":encountered_faction", "$g_encountered_party"),
-        (store_relation, ":faction_relation", ":encountered_faction", "fac_player_supporters_faction"),
-        (try_begin),
-          (gt, ":besieger_party", 0),
-          (ge, ":faction_relation", 0),
-          (store_faction_of_party, ":besieger_party_faction", ":besieger_party"),
-          (store_relation, ":besieger_party_relation", ":besieger_party_faction", "fac_player_supporters_faction"),
-          (lt, ":besieger_party_relation", 0),
-          (assign, "$g_defending_against_siege", 1),
-          (assign, "$g_siege_first_encounter", 1),
-          (jump_to_menu, "mnu_siege_started_defender"),
-        (try_end),
-
         (try_begin),
           (is_between, "$g_encountered_party", towns_begin, towns_end),
           (store_sub, ":encountered_town_no", "$g_encountered_party", towns_begin),
@@ -12941,6 +12924,28 @@ TOTAL:  {reg5}"),
             (unlock_achievement, ACHIEVEMENT_MIGRATING_COCONUTS),
           (try_end),
         (try_end),
+
+
+    #notes
+    (call_script, "script_update_center_recon_notes", "$current_town"),
+    #if siege
+    (assign, "$g_defending_against_siege", 0),
+    (str_clear, s3),
+    (party_get_battle_opponent, ":besieger_party", "$current_town"),
+    (store_faction_of_party, ":encountered_faction", "$g_encountered_party"),
+    (store_relation, ":faction_relation", ":encountered_faction", "fac_player_supporters_faction"),
+    (try_begin),
+        (gt, ":besieger_party", 0),
+        (ge, ":faction_relation", 0),
+        (store_faction_of_party, ":besieger_party_faction", ":besieger_party"),
+
+        (store_relation, ":besieger_party_relation", ":besieger_party_faction", "fac_player_supporters_faction"),
+        (lt, ":besieger_party_relation", 0),
+
+        (assign, "$g_defending_against_siege", 1),
+        (assign, "$g_siege_first_encounter", 1),
+        (jump_to_menu, "mnu_siege_started_defender"),
+    (try_end),
 
         #Quest menus
 

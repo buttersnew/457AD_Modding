@@ -460,12 +460,12 @@ party_templates = [
   ("thracias_b", "{!}Per Thracias Reinforcements", 0, 0, fac_commoners, 0, [(trp_eques_sagittarii,2,6),(trp_pedes_tzaanni,3,6),(trp_pedes_augustenses,3,6),(trp_imperial_signifer,1,1)]),
   ("thracias_c", "{!}Per Thracias Reinforcements", 0, 0, fac_commoners, 0, [(trp_eques_stablesiani,3,6),(trp_eques_cataphractarii,3,6),(trp_centenarius,1,1)]),
   #Magister Militum per Illyricum
-  ("illyricum_a", "{!}per Illyricum reinforcements", 0, 0, fac_commoners, 0, [(trp_pedes_lanciarii_iuniores,4,11),(trp_exculator,3,5),(trp_eques_sagittarii,1,4)]), 
-  ("illyricum_b", "{!}per Illyricum reinforcements", 0, 0, fac_commoners, 0, [(trp_pedes_ascarii_iuniores,2,5),(trp_miles_sagittarii_lecti,2,6),(trp_pedes_lanciarii_iuniores,4,9),(trp_imperial_signifer,1,1)]),
+  ("illyricum_a", "{!}per Illyricum reinforcements", 0, 0, fac_commoners, 0, [(trp_pedes_lanciarii_iuniores,6,11),(trp_exculator,3,5),(trp_eques_sagittarii,1,6)]), 
+  ("illyricum_b", "{!}per Illyricum reinforcements", 0, 0, fac_commoners, 0, [(trp_pedes_ascarii_iuniores,2,5),(trp_miles_sagittarii_lecti,2,6),(trp_pedes_lanciarii_iuniores,4,7),(trp_imperial_signifer,1,1)]),
   ("illyricum_c", "{!}per Illyricum reinforcements", 0, 0, fac_commoners, 0, [(trp_pedes_ascarii_iuniores,2,6),(trp_eques_scutarii,1,4),(trp_centenarius,1,1)]),
   #dux foenicis
   ("dux_foenicis_a", "{!}Dux Foenicis reinforcements", 0, 0, fac_commoners, 0, [(trp_miles_primae_illyriciorum,4,11),(trp_exculator,3,5),(trp_eques_sagittarii,1,4)]), 
-  ("dux_foenicis_b", "{!}Dux Foenicis reinforcements", 0, 0, fac_commoners, 0, [(trp_eques_indiginae,2,5),(trp_sagittarius,2,6),(trp_miles_primae_illyriciorum,4,9),(trp_imperial_signifer,1,1)]),
+  ("dux_foenicis_b", "{!}Dux Foenicis reinforcements", 0, 0, fac_commoners, 0, [(trp_eques_indiginae,2,5),(trp_sagittarius,2,6),(trp_miles_primae_illyriciorum,4,7),(trp_imperial_signifer,1,1)]),
   ("dux_foenicis_c", "{!}Dux Foenicis reinforcements", 0, 0, fac_commoners, 0, [(trp_miles_primae_illyriciorum,1,3),(trp_eques_scutarii,1,4),(trp_eques_promoti,1,3),(trp_centenarius,1,1)]),
   #dux armeniae
   ("dux_armeniae_a", "{!}Dux Armeniae reinforcements", 0, 0, fac_commoners, 0, [(trp_tiro,4,11),(trp_exculator,3,5),(trp_eques_sagittarii,1,4)]), 

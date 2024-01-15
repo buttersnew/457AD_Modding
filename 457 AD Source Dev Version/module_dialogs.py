@@ -15408,13 +15408,13 @@ What kind of recruits do you want?", "dplmc_constable_recruit_select",
     (store_faction_of_troop, ":lord_fac", ":lord"),
     (eq, ":lord_fac", "$players_kingdom"), # just to check the lord is part of players faction
     (troop_slot_eq,  ":lord", slot_troop_occupation, slto_kingdom_hero),#to check he is alive
-    (troop_slot_eq,  ":lord", slot_troop_rank,  slot_rank_gallia),
+    (troop_slot_eq,  ":lord", slot_troop_military_title,  mt_gallia),
     (assign, ":continue", 0),
 (try_end),
 (eq, ":continue", 1),
 ],
 "Magister Militum per Gallia", "minister_grant_rank_choose_office_complete",
-[(troop_set_slot, "$lord_selected", slot_troop_rank, slot_rank_gallia),]],
+[(troop_set_slot, "$lord_selected", slot_troop_military_title, mt_gallia),]],
 
 [anyone|plyr, "minister_grant_rank_choose_office",
 [
@@ -15424,13 +15424,13 @@ What kind of recruits do you want?", "dplmc_constable_recruit_select",
     (store_faction_of_troop, ":lord_fac", ":lord"),
     (eq, ":lord_fac", "$players_kingdom"), # just to check the lord is part of players faction
     (troop_slot_eq,  ":lord", slot_troop_occupation, slto_kingdom_hero),#to check he is alive
-    (troop_slot_eq,  ":lord", slot_troop_rank,  slot_rank_dalmatia),
+    (troop_slot_eq,  ":lord", slot_troop_military_title,  mt_dalmatia),
     (assign, ":continue", 0),
 (try_end),
 (eq, ":continue", 1),
 ],
 "Magister Militum per Dalmatia", "minister_grant_rank_choose_office_complete",
-[(troop_set_slot, "$lord_selected", slot_troop_rank, slot_rank_dalmatia),]],
+[(troop_set_slot, "$lord_selected", slot_troop_military_title, mt_dalmatia),]],
 
 [anyone|plyr, "minister_grant_rank_choose_office",
 [
@@ -15440,13 +15440,13 @@ What kind of recruits do you want?", "dplmc_constable_recruit_select",
     (store_faction_of_troop, ":lord_fac", ":lord"),
     (eq, ":lord_fac", "$players_kingdom"), # just to check the lord is part of players faction
     (troop_slot_eq,  ":lord", slot_troop_occupation, slto_kingdom_hero),#to check he is alive
-    (troop_slot_eq,  ":lord", slot_troop_rank,  slot_rank_utriusque),
+    (troop_slot_eq,  ":lord", slot_troop_military_title,  mt_utriusque),
     (assign, ":continue", 0),
 (try_end),
 (eq, ":continue", 1),
 ],
 "Magister Utriusque Militiae", "minister_grant_rank_choose_office_complete",
-[(troop_set_slot, "$lord_selected", slot_troop_rank, slot_rank_utriusque),]],
+[(troop_set_slot, "$lord_selected", slot_troop_military_title, mt_utriusque),]],
 
 #ERE
 [anyone|plyr, "minister_grant_rank_choose_office",
@@ -15457,13 +15457,13 @@ What kind of recruits do you want?", "dplmc_constable_recruit_select",
     (store_faction_of_troop, ":lord_fac", ":lord"),
     (eq, ":lord_fac", "$players_kingdom"), # just to check the lord is part of players faction
     (troop_slot_eq,  ":lord", slot_troop_occupation, slto_kingdom_hero),#to check he is alive
-    (troop_slot_eq,  ":lord", slot_troop_rank,  slot_rank_praesentalis_1),
+    (troop_slot_eq,  ":lord", slot_troop_military_title,  mt_praesentalis_1),
     (assign, ":continue", 0),
 (try_end),
 (eq, ":continue", 1),
 ],
 "Magister Militum Praesentalis I", "minister_grant_rank_choose_office_complete",
-[(troop_set_slot, "$lord_selected", slot_troop_rank, slot_rank_praesentalis_1),]],
+[(troop_set_slot, "$lord_selected", slot_troop_military_title, mt_praesentalis_1),]],
 
 [anyone|plyr, "minister_grant_rank_choose_office",
 [
@@ -15473,13 +15473,13 @@ What kind of recruits do you want?", "dplmc_constable_recruit_select",
     (store_faction_of_troop, ":lord_fac", ":lord"),
     (eq, ":lord_fac", "$players_kingdom"), # just to check the lord is part of players faction
     (troop_slot_eq,  ":lord", slot_troop_occupation, slto_kingdom_hero),#to check he is alive
-    (troop_slot_eq,  ":lord", slot_troop_rank,  slot_rank_praesentalis_2),
+    (troop_slot_eq,  ":lord", slot_troop_military_title,  mt_praesentalis_2),
     (assign, ":continue", 0),
 (try_end),
 (eq, ":continue", 1),
 ],
 "Magister Militum Praesentalis II", "minister_grant_rank_choose_office_complete",
-[(troop_set_slot, "$lord_selected", slot_troop_rank, slot_rank_praesentalis_2),]],
+[(troop_set_slot, "$lord_selected", slot_troop_military_title, mt_praesentalis_2),]],
 
 [anyone|plyr, "minister_grant_rank_choose_office",
 [
@@ -15489,13 +15489,13 @@ What kind of recruits do you want?", "dplmc_constable_recruit_select",
     (store_faction_of_troop, ":lord_fac", ":lord"),
     (eq, ":lord_fac", "$players_kingdom"), # just to check the lord is part of players faction
     (troop_slot_eq,  ":lord", slot_troop_occupation, slto_kingdom_hero),#to check he is alive
-    (troop_slot_eq,  ":lord", slot_troop_rank,  slot_rank_orientem),
+    (troop_slot_eq,  ":lord", slot_troop_military_title,  mt_orientem),
     (assign, ":continue", 0),
 (try_end),
 (eq, ":continue", 1),
 ],
 "Magister Militum per Orientem", "minister_grant_rank_choose_office_complete",
-[(troop_set_slot, "$lord_selected", slot_troop_rank, slot_rank_orientem),]],
+[(troop_set_slot, "$lord_selected", slot_troop_military_title, mt_orientem),]],
 
 [anyone|plyr, "minister_grant_rank_choose_office",
 [
@@ -15505,13 +15505,13 @@ What kind of recruits do you want?", "dplmc_constable_recruit_select",
     (store_faction_of_troop, ":lord_fac", ":lord"),
     (eq, ":lord_fac", "$players_kingdom"), # just to check the lord is part of players faction
     (troop_slot_eq,  ":lord", slot_troop_occupation, slto_kingdom_hero),#to check he is alive
-    (troop_slot_eq,  ":lord", slot_troop_rank,  slot_rank_egypt),
+    (troop_slot_eq,  ":lord", slot_troop_military_title,  mt_egypt),
     (assign, ":continue", 0),
 (try_end),
 (eq, ":continue", 1),
 ],
 "Comes Limits Aegypti", "minister_grant_rank_choose_office_complete",
-[(troop_set_slot, "$lord_selected", slot_troop_rank, slot_rank_egypt),]],
+[(troop_set_slot, "$lord_selected", slot_troop_military_title, mt_egypt),]],
 
 #Sassanid
 [anyone|plyr, "minister_grant_rank_choose_office",
@@ -15522,13 +15522,13 @@ What kind of recruits do you want?", "dplmc_constable_recruit_select",
     (store_faction_of_troop, ":lord_fac", ":lord"),
     (eq, ":lord_fac", "$players_kingdom"), # just to check the lord is part of players faction
     (troop_slot_eq,  ":lord", slot_troop_occupation, slto_kingdom_hero),#to check he is alive
-    (troop_slot_eq,  ":lord", slot_troop_rank,  slot_rank_spahbed),
+    (troop_slot_eq,  ":lord", slot_troop_military_title,  mt_spahbed),
     (assign, ":continue", 0),
 (try_end),
 (eq, ":continue", 1),
 ],
 "Eran-Spahbed", "minister_grant_rank_choose_office_complete",
-[(troop_set_slot, "$lord_selected", slot_troop_rank, slot_rank_spahbed),]],
+[(troop_set_slot, "$lord_selected", slot_troop_military_title, mt_spahbed),]],
 
 #Both
 [anyone|plyr, "minister_grant_rank_choose_office",
@@ -15540,13 +15540,13 @@ What kind of recruits do you want?", "dplmc_constable_recruit_select",
     (store_faction_of_troop, ":lord_fac", ":lord"),
     (eq, ":lord_fac", "$players_kingdom"), # just to check the lord is part of players faction
     (troop_slot_eq,  ":lord", slot_troop_occupation, slto_kingdom_hero),#to check he is alive
-    (troop_slot_eq,  ":lord", slot_troop_rank,  slot_rank_domestici),
+    (troop_slot_eq,  ":lord", slot_troop_military_title,  mt_domestici),
     (assign, ":continue", 0),
 (try_end),
 (eq, ":continue", 1),
 ],
 "Comes Domesticorum", "minister_grant_rank_choose_office_complete",
-[(troop_set_slot, "$lord_selected", slot_troop_rank, slot_rank_domestici),]],
+[(troop_set_slot, "$lord_selected", slot_troop_military_title, mt_domestici),]],
 
 [anyone|plyr, "minister_grant_rank_choose_office",
 [
@@ -15557,13 +15557,13 @@ What kind of recruits do you want?", "dplmc_constable_recruit_select",
     (store_faction_of_troop, ":lord_fac", ":lord"),
     (eq, ":lord_fac", "$players_kingdom"), # just to check the lord is part of players faction
     (troop_slot_eq,  ":lord", slot_troop_occupation, slto_kingdom_hero),#to check he is alive
-    (troop_slot_eq,  ":lord", slot_troop_rank,  slot_rank_officiorum),
+    (troop_slot_eq,  ":lord", slot_troop_military_title,  mt_officiorum),
     (assign, ":continue", 0),
 (try_end),
 (eq, ":continue", 1),
 ],
 "Magister Officiorum", "minister_grant_rank_choose_office_complete",
-[(troop_set_slot, "$lord_selected", slot_troop_rank, slot_rank_officiorum),]],
+[(troop_set_slot, "$lord_selected", slot_troop_military_title, mt_officiorum),]],
 
 [anyone|plyr, "minister_grant_rank_choose_office",
 [],

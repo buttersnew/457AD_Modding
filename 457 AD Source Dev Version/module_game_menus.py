@@ -25035,7 +25035,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     [
     (assign, "$g_can_recruit_schola",1),
     (assign, "$g_can_recruit_domestici",1),
-    (troop_set_slot, "trp_player", slot_troop_rank, slot_rank_officiorum),
+    (troop_set_slot, "trp_player", slot_troop_military_title, mt_officiorum),
     (call_script, "script_change_troop_renown", "trp_player", 100),
     (change_screen_return),
     ]),

@@ -19439,7 +19439,8 @@ presentations = [
               (this_or_next|eq, "$current_town", "p_castle_25"),
               (eq, "$current_town", "p_castle_52"),
               (this_or_next|eq, ":troop", "trp_pedes_lanciarii_iuniores"),
-              (eq, ":troop", "trp_pedes_ascarii_iuniores"),
+              (this_or_next|eq, ":troop", "trp_pedes_ascarii_iuniores"),
+              (eq, ":troop", "trp_miles_sagittarii_lecti"),
               (assign, ":c", 1),
             (else_try), #Eastern Regii
               (faction_slot_eq, "$players_kingdom", slot_faction_culture, "fac_culture_empire"),

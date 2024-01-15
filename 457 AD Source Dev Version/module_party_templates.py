@@ -419,6 +419,14 @@ party_templates = [
   ("utriusque_a", "{!}Magister Utriusque Militiae Reinforcements", 0, 0, fac_commoners, 0, [(trp_pedes_defensores_seniores,3,8),(trp_exculator,3,4),(trp_miles_foederatus_germani,2,6),(trp_western_alan_rider,2,4)]),
   ("utriusque_b", "{!}Magister Utriusque Militiae Reinforcements", 0, 0, fac_commoners, 0, [(trp_eques_stablesiani_italiciani,2,6),(trp_pedes_invicti_seniores,6,12),(trp_imperial_signifer,1,1)]),
   ("utriusque_c", "{!}Magister Utriusque Militiae Reinforcements", 0, 0, fac_commoners, 0, [(trp_comites_alani,3,6),(trp_pedes_ioviani_seniores,3,6),(trp_centenarius,1,1)]),
+  #Comes hispenias - gothic foederati, hispano-roman troops
+  ("hispenias_a", "{!}comes hispenias reinforcements", 0, 0, fac_commoners, 0, [(trp_hibero_roman_rusticus,3,6),(trp_hibero_roman_venator,2,4),(trp_miles_foederatus_gothorum,2,8),(trp_eques_mauri,1,2)]), #west more reliant on foederati
+  ("hispenias_b", "{!}comes hispenias reinforcements", 0, 0, fac_commoners, 0, [(trp_hibero_roman_defensor,2,5),(trp_hibero_roman_venator,2,6),(trp_pedes_invicti_seniores,4,9),(trp_imperial_signifer,1,1)]),
+  ("hispenias_c", "{!}comes hispenias reinforcements", 0, 0, fac_commoners, 0, [(trp_pedes_invicti_seniores,1,3),(trp_eques_promoti,2,4),(trp_eques_scutarii,1,4),(trp_centenarius,1,1)]),
+  #Comes Africae
+  ("africae_a", "{!}comes africae Reinforcements", 0, 0, fac_commoners, 0, [(trp_exculator,2,6),(trp_tiro,4,10),(trp_eques_sagittarii,2,4),]),
+  ("africae_b", "{!}comes africae Reinforcements", 0, 0, fac_commoners, 0, [(trp_pedes_fortenses,2,5),(trp_pedes_tertio_augustani,2,5),(trp_sagittarius,1,3),(trp_eques_sagittarii,1,3),(trp_imperial_signifer,1,1)]),
+  ("africae_c", "{!}comes africae Reinforcements", 0, 0, fac_commoners, 0, [(trp_pedes_mauri_tonantes_seniores,2,4),(trp_eques_stablesiani_italiciani,2,4),(trp_eques_cataphractarii,1,3),(trp_centenarius,1,1)]),
   #for specific lords/positions in ERE
   #Praesentalis will be stronger than the other positions
   #Magister Militum Praesentalis I
@@ -451,11 +459,27 @@ party_templates = [
   ("thracias_a", "{!}Per Thracias Reinforcements", 0, 0, fac_commoners, 0, [(trp_pedes_augustenses,3,6),(trp_pedes_tzaanni,3,6),(trp_exculator,2,5),(trp_sagittarius,2,5)]),
   ("thracias_b", "{!}Per Thracias Reinforcements", 0, 0, fac_commoners, 0, [(trp_eques_sagittarii,2,6),(trp_pedes_tzaanni,3,6),(trp_pedes_augustenses,3,6),(trp_imperial_signifer,1,1)]),
   ("thracias_c", "{!}Per Thracias Reinforcements", 0, 0, fac_commoners, 0, [(trp_eques_stablesiani,3,6),(trp_eques_cataphractarii,3,6),(trp_centenarius,1,1)]),
-  #"lesser" positions (ERE)
+  #Magister Militum per Illyricum
+  ("illyricum_a", "{!}per Illyricum reinforcements", 0, 0, fac_commoners, 0, [(trp_pedes_lanciarii_iuniores,4,11),(trp_exculator,3,5),(trp_eques_sagittarii,1,4)]), 
+  ("illyricum_b", "{!}per Illyricum reinforcements", 0, 0, fac_commoners, 0, [(trp_pedes_ascarii_iuniores,2,5),(trp_miles_sagittarii_lecti,2,6),(trp_pedes_lanciarii_iuniores,4,9),(trp_imperial_signifer,1,1)]),
+  ("illyricum_c", "{!}per Illyricum reinforcements", 0, 0, fac_commoners, 0, [(trp_pedes_ascarii_iuniores,2,6),(trp_eques_scutarii,1,4),(trp_centenarius,1,1)]),
+  #dux foenicis
   ("dux_foenicis_a", "{!}Dux Foenicis reinforcements", 0, 0, fac_commoners, 0, [(trp_miles_primae_illyriciorum,4,11),(trp_exculator,3,5),(trp_eques_sagittarii,1,4)]), 
   ("dux_foenicis_b", "{!}Dux Foenicis reinforcements", 0, 0, fac_commoners, 0, [(trp_eques_indiginae,2,5),(trp_sagittarius,2,6),(trp_miles_primae_illyriciorum,4,9),(trp_imperial_signifer,1,1)]),
   ("dux_foenicis_c", "{!}Dux Foenicis reinforcements", 0, 0, fac_commoners, 0, [(trp_miles_primae_illyriciorum,1,3),(trp_eques_scutarii,1,4),(trp_eques_promoti,1,3),(trp_centenarius,1,1)]),
-
+  #dux armeniae
+  ("dux_armeniae_a", "{!}Dux Armeniae reinforcements", 0, 0, fac_commoners, 0, [(trp_tiro,4,11),(trp_exculator,3,5),(trp_eques_sagittarii,1,4)]), 
+  ("dux_armeniae_b", "{!}Dux Armeniae reinforcements", 0, 0, fac_commoners, 0, [(trp_eques_ala,2,5),(trp_sagittarius,2,6),(trp_pedes_tzaanni,4,9),(trp_imperial_signifer,1,1)]),
+  ("dux_armeniae_c", "{!}Dux Armeniae reinforcements", 0, 0, fac_commoners, 0, [(trp_pedes_tzaanni,1,3),(trp_eques_cataphractarii,2,7),(trp_centenarius,1,1)]),
+  #Dux Daciae ripensis
+  ("dux_daciae_a", "{!}Dux Daciae ripensis reinforcements", 0, 0, fac_commoners, 0, [(trp_tiro,4,11),(trp_exculator,3,5),(trp_eques_dalmatae,1,4)]), 
+  ("dux_daciae_b", "{!}Dux Daciae ripensis reinforcements", 0, 0, fac_commoners, 0, [(trp_eques_dalmatae,2,5),(trp_sagittarius,2,6),(trp_pedes_quinta_macedonica,4,9),(trp_imperial_signifer,1,1)]),
+  ("dux_daciae_c", "{!}Dux Daciae ripensis reinforcements", 0, 0, fac_commoners, 0, [(trp_pedes_quinta_macedonica,2,5),(trp_eques_scutarii,1,5),(trp_centenarius,1,1)]),
+  #Dux Palaestinae
+  ("dux_palaestinae_a", "{!}Dux Palaestinae reinforcements", 0, 0, fac_commoners, 0, [(trp_tiro,2,6),(trp_exculator,2,5),(trp_dromodarius,3,5),(trp_eques_sagittarii,3,6)]), 
+  ("dux_palaestinae_b", "{!}Dux Palaestinae reinforcements", 0, 0, fac_commoners, 0, [(trp_eques_dalmatae,2,5),(trp_sagittarius,2,6),(trp_pedes,4,9),(trp_imperial_signifer,1,1)]),
+  ("dux_palaestinae_c", "{!}Dux Palaestinae reinforcements", 0, 0, fac_commoners, 0, [(trp_pedes,1,3),(trp_eques_scutarii,1,4),(trp_eques_promoti,1,3),(trp_centenarius,1,1)]),
+  #Isuarian Numeri
   ("numeri_isaurorum_a", "{!}numeri isaurorum reinforcements", 0, 0, fac_commoners, 0, [(trp_mountain_bandit,8,18)]), 
   ("numeri_isaurorum_b", "{!}numeri isaurorum reinforcements", 0, 0, fac_commoners, 0, [(trp_isaurian_warrior,5,12),(trp_sagittarius,3,8),(trp_imperial_signifer,1,1)]),
   ("numeri_isaurorum_c", "{!}numeri isaurorum reinforcements", 0, 0, fac_commoners, 0, [(trp_isaurian_infantry,3,10),(trp_centenarius,1,1)]),

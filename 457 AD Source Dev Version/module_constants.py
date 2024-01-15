@@ -980,9 +980,9 @@ slot_troop_original_faction     = 14 # for pretenders
 #slot_troop_loyalty              = 15 #deprecated - this is now derived from other figures
 #slot_troop_player_order_state   = 16 #Deprecated
 #slot_troop_player_order_object  = 17 #Deprecated
-slot_troop_rank	= 15 #used for the new rank system for romans, sassanids + other organized empires
-slot_troop_religion	= 16 #added from VC
-slot_troop_conv = 17 # conversion attempted 0-initial state, 1-tried&failed 2-converted
+#slot_troop_rank	= 15 #used for the new rank system for romans, sassanids + other organized empires
+slot_troop_religion	= 15 #added from VC
+slot_troop_conv = 16 # conversion attempted 0-initial state, 1-tried&failed 2-converted
 #troop_player order state are all deprecated in favor of party_order_state. This has two reasons -- 1) to reset AI if the party is eliminated, and 2) to allow the player at a later date to give orders to leaderless parties, if we want that
 
 
@@ -1258,6 +1258,38 @@ slot_troop_recent_offense_type             = 151 #failure to join army, failure 
 slot_troop_recent_offense_object           = 152 #to whom it happened
 slot_troop_recent_offense_time             = 153
 slot_troop_stance_on_faction_issue         = 154 #when it happened
+
+slot_troop_military_title                  = 155 #unique military title, allows for lord to have unique (stronger) party template
+slot_troop_honorary_title				   = 156 #honorary title for roman/post roman areas
+
+#shared between ERE + WRE
+mt_domestici = 1 #Comes Domesticorum
+mt_officiorum = 2 #Magister Officiorum
+#WRE
+mt_gallia = 3 #Magister Militum per Gallia
+mt_utriusque = 4 #Magister Utriusque Militiae
+mt_dalmatia = 5 #Comes Illyricum
+#lesser ranks
+mt_hispenias = 6 #Granted over Hispania, vacant (open to player if they own Emerita Augusta)
+mt_africae = 7 #Granted over Africa, vacant (open for player if they own carthage?)
+#ERE
+mt_praesentalis_1 = 8 #Magister Militum Praesentalis I - vacant at start
+mt_praesentalis_2 = 9 #Magister Militum Praesentalis II
+mt_orientem = 10 #Magister Militum per Orientem
+mt_thracias = 11 #Magister Militum per Thracias - vacant at start
+mt_illyricum = 12 #Magister Militum per Illyricum
+#lesser ranks
+mt_egypt = 13 #Comes Limits Aegypti
+mt_foenicis = 14 #Dux Foenicis
+mt_armeniae = 15 #Dux Armeniae
+mt_daciae = 16 #Dux Daciae Ripensis
+mt_palaestinae = 17 #Dux Palaestinae
+#Sassanid Persia
+mt_spahbed = 18 #Eran-Spahbed
+
+ht_clarissimus = 1 #first title
+ht_spectabilis = 2 #granted comes title
+ht_illustris = 3 #magister title
 
 tro_failed_to_join_army                    = 1
 tro_failed_to_support_colleague            = 2
@@ -3029,20 +3061,6 @@ slot_religion_zoroastrianism = 4
 slot_religion_coptic = 5
 slot_religion_roman_paganism = 6
 
-#WRE
-slot_rank_none = 0 #none 
-slot_rank_gallia = 1 #Magister Militum per Gallia
-slot_rank_dalmatia = 2 #Used for Marcellenius
-slot_rank_utriusque = 3 #Highest WRE MM position, given to Ricimer
-#ERE
-slot_rank_praesentalis_1 = 4 #Anthemius at start
-slot_rank_praesentalis_2 = 5 #Aspar
-slot_rank_orientem = 6 #Ardabur
-slot_rank_egypt = 7 #Comes Limits Aegypti
-slot_rank_domestici = 8 #Comes Domesticorum
-slot_rank_officiorum = 9 #Magister Officiorum
-slot_rank_spahbed = 10 #Eran-Spahbed
-slot_rank_thracias = 11 #MM per Thracias
 
 minor_towns_begin = "p_aestii_village"
 minor_towns_end   = "p_religious_site_1"

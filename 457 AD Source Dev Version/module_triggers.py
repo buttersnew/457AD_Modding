@@ -933,8 +933,8 @@ triggers = [
 (24, 0, ti_once, [ 
   (neq, "$player_has_homage", 0),
   (eq, "$players_kingdom", "fac_kingdom_1"), #WRE
-  (troop_get_slot, ":rank", "trp_player", slot_troop_rank),
-  (neq, ":rank", slot_rank_officiorum), #cant already have the rank
+  (troop_get_slot, ":rank", "trp_player", slot_troop_military_title),
+  (neq, ":rank", mt_officiorum), #cant already have the rank
   (call_script, "script_troop_get_relation_with_troop", "trp_kingdom_1_lord", "trp_player"),
   (ge, reg0, 40), #need to have high relations
 ],
@@ -943,8 +943,8 @@ triggers = [
 (24, 0, ti_once, [ 
   (neq, "$player_has_homage", 0),
   (eq, "$players_kingdom", "fac_kingdom_2"), #ERE
-  (troop_get_slot, ":rank", "trp_player", slot_troop_rank),
-  (neq, ":rank", slot_rank_officiorum), #cant already have the rank
+  (troop_get_slot, ":rank", "trp_player", slot_troop_military_title),
+  (neq, ":rank", mt_officiorum), #cant already have the rank
   (call_script, "script_troop_get_relation_with_troop", "trp_kingdom_2_lord", "trp_player"),
   (ge, reg0, 40), #need to have high relations
 ],

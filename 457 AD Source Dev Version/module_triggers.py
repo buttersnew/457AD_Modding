@@ -998,7 +998,14 @@ triggers = [
      (try_for_range, ":unused", 1, 6), # number of invaders to spawn + 1, roughly 200 days
            (spawn_around_party, "p_town_21", "pt_coptic_rebellion"),
      (try_end),  
-     (dialog_box, "@A messenger approaches your warband, bringing news of rebellion! It appears that a large number of Anti-Chalcedonian Christians have revolted near Alexandria, killing the local patriarch, Proterius!", "@A messenger approaches your warband"),
+     (dialog_box, "@A messenger approaches your warband, bringing news of rebellion! It appears that a large number of Anti-Chalcedonian Christians have revolted near Alexandria, killing the local patriarch, Proterius! The current Comes Limits Aegypti has been removed, and has been replaced on orders from the Emperor.", "@A messenger approaches your warband"),
+      (try_for_range, ":center", centers_begin, centers_end),
+        (eq, ":center", "p_town_21"), # either is town/castle you want to change
+        (party_slot_eq, ":center", slot_town_lord, "trp_knight_2_4"), # belongs to a specific lord
+        (call_script, "script_give_center_to_lord", ":center", "trp_knight_2_12", 0), #switch it to other shit lord
+        (troop_set_slot, "trp_knight_2_4", slot_troop_military_title, 0),
+        (troop_set_slot, "trp_knight_2_12", slot_troop_military_title, mt_egypt), #new comes aegyptus
+      (try_end),
      (assign, "$g_coptic_rebellion_triggered", 1),
    ]),
 

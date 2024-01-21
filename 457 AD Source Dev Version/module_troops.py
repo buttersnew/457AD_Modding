@@ -2242,7 +2242,7 @@ troops = [
    def_attrib_lvl_30|level(30),wp_one_handed(230)|wp_two_handed(220)|wp_polearm(220)|wp_archery(140)|wp_throwing(230),knows_lvl_30,roman_face_1, roman_face_2],
 #Excubitors
   ["excubitor","Excubitor","Excubitores",tf_mounted|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_shield|tf_guarantee_polearm|tf_guarantee_helmet,0,0,fac_kingdom_2,
-   [itm_excubitor_boots,itm_roman_lorum_fasciari_6,itm_roman_greaves_6,(itm_common_mail_short_5,imod_reinforced),itm_rich_mail_3,itm_rich_mail_3_m,itm_rich_mail_3_cloak,itm_deurne_helmet,itm_jarak_helmet_1,itm_berkasovo_2_helmet,itm_augsburg_2_helmet,itm_gultlingen_helmet_plume,itm_excubitor_shield_1,itm_excubitor_spear,itm_mace_roman_2,itm_indesheim_spatha_rich,itm_roman_javelin],
+   [itm_excubitor_boots,itm_roman_lorum_fasciari_6,itm_roman_greaves_6,itm_rich_mail_3,itm_rich_mail_3_m,itm_rich_mail_3_cloak,itm_deurne_helmet,itm_jarak_helmet_1,itm_berkasovo_2_helmet,itm_augsburg_2_helmet,itm_gultlingen_helmet_plume,itm_excubitor_shield_1,itm_excubitor_spear,itm_mace_roman_2,itm_indesheim_spatha_rich,itm_roman_javelin],
    def_attrib_lvl_35|level(35),wp_one_handed(260)|wp_two_handed(240)|wp_polearm(250)|wp_archery(170)|wp_throwing(250),knows_ironflesh_10|knows_power_strike_8|knows_power_throw_8|knows_athletics_6|knows_shield_6|knows_riding_6|knows_power_draw_5|knows_inventory_management_3,roman_face_1, roman_face_2],
 #Candidati - now only used for castle scenes (or if the player wants to recruit them as emperor)
   ["candidatus","Candidatus","Candidati",tf_mounted|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_shield|tf_guarantee_helmet,0,0,fac_culture_empire, #white tunics
@@ -3030,7 +3030,7 @@ troops = [
    [itm_wrapping_boots,itm_persian_tunic_15],
    def_attrib|level(8),wp(90),knows_common,persian_face_1, persian_face_2],
 
-  ["severinus","Severinus of Noricum","Severinus",tf_hero,scn_fortified_monastery|entry(1),reserved,fac_roman_christians, #St. Severinus of Noricum, would help the people of Noricum in a post roman world
+  ["severinus","Severinus of Noricum","Severinus",tf_hero,0,0,fac_roman_christians, #St. Severinus of Noricum, would help the people of Noricum in a post roman world
    [itm_wrapping_boots,itm_robes_church],
    def_attrib|level(8),wp(90),knows_common,0x00000004eb00300e43196eb8aa712b1300000000001d36d30000000000000000],
 

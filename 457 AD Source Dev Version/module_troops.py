@@ -4844,7 +4844,6 @@ troops = [
   #installed via quest
   ["dani_guthlaf","Guthlaf","Guthlaf",tf_hero,0,0,fac_minor_frisians,[itm_ankle_boots,itm_tunic_12_cloak,itm_round_shield_germanic_19,itm_war_spear_2],knight_attrib_5,wp(300),knows_berserker,0x000000074f00030f46536e7a2951b2d900000000001db6da0000000000000000],
 
-
   #MINOR FACTION KINGS END
   #MINOR FACTION MERCHANTS BEGIN
   ["aestii_merchant_1","Merchant","Merchants",tf_hero|tf_randomize_face|tf_is_merchant, no_scene, reserved, fac_commoners,[itm_wrapping_boots,itm_tunic_1],def_attrib|level(6),wp(80),knows_common,germanic_face_1, germanic_face_2], #sells goods - amber, fur
@@ -4894,6 +4893,24 @@ troops = [
   ["hunn_merchant_2","Merchant","Merchants",tf_hero|tf_randomize_face|tf_is_merchant, no_scene, reserved, fac_commoners,[itm_wrapping_boots,itm_kaftan_hunnic_6],def_attrib|level(6),wp(80),knows_common,hunnic_face_1, hunnic_face_2], #sells goods - shared
 
   #MINOR FACTION MERCHANTS END
+
+  #CHARIOTEERS START
+  #BY DEFAULT ALL HAVE 1 RIDING SKILL, WILL BE RANDOMIZED AT BEGINNING OF GAME
+  #RED
+  ["charioteer_1","Epinicus","Epinicus",tf_hero, no_scene, reserved, fac_red_team,[itm_coptic_tunic_1,itm_deurne_campagi_2,itm_augst_helmet_1],str_10|agi_18|int_8|cha_10|level(13),wp(100),knows_athletics_6|knows_ironflesh_4|knows_power_throw_3|knows_power_draw_3|knows_weapon_master_4|knows_inventory_management_4|knows_horse_archery_3|knows_power_strike_3|knows_shield_1,0x000000001410208534d1ce98eb8cd73100000000001cb75a0000000000000000],
+  ["charioteer_2","Genethlius","Genethlius",tf_hero, no_scene, reserved, fac_red_team,[itm_coptic_tunic_1,itm_deurne_campagi_3,itm_augst_helmet_1],str_10|agi_18|int_8|cha_10|level(13),wp(100),knows_athletics_6|knows_ironflesh_4|knows_power_throw_3|knows_power_draw_3|knows_weapon_master_4|knows_inventory_management_4|knows_horse_archery_3|knows_power_strike_3|knows_shield_1,0x00000005341030422b2c364b2a6ee92b00000000001d24e30000000000000000],
+  #GREEN
+  ["charioteer_3","Iulianus","Iulianus",tf_hero, no_scene, reserved, fac_green_team,[itm_coptic_tunic_3,itm_deurne_campagi_1,itm_augst_helmet_1],str_10|agi_18|int_8|cha_10|level(13),wp(100),knows_athletics_6|knows_ironflesh_4|knows_power_throw_3|knows_power_draw_3|knows_weapon_master_4|knows_inventory_management_4|knows_horse_archery_3|knows_power_strike_3|knows_shield_1,0x0000000af91064041515d137356cd6f100000000001de9130000000000000000],
+  ["charioteer_4","Valerius","Valerius",tf_hero, no_scene, reserved, fac_green_team,[itm_coptic_tunic_3,itm_deurne_campagi_2,itm_augst_helmet_1],str_10|agi_18|int_8|cha_10|level(13),wp(100),knows_athletics_6|knows_ironflesh_4|knows_power_throw_3|knows_power_draw_3|knows_weapon_master_4|knows_inventory_management_4|knows_horse_archery_3|knows_power_strike_3|knows_shield_1,0x000000056110508f44a47dc6f68d672300000000001d54dd0000000000000000],
+  #BLUE
+  ["charioteer_5","Pontius","Pontius",tf_hero, no_scene, reserved, fac_blue_team,[itm_coptic_tunic_2,itm_deurne_campagi_1,itm_augst_helmet_1],str_10|agi_18|int_8|cha_10|level(13),wp(100),knows_athletics_6|knows_ironflesh_4|knows_power_throw_3|knows_power_draw_3|knows_weapon_master_4|knows_inventory_management_4|knows_horse_archery_3|knows_power_strike_3|knows_shield_1,0x000000056810a00a68e58ec4a492491c00000000001e269d0000000000000000],
+  ["charioteer_6","Venantius","Venantius",tf_hero, no_scene, reserved, fac_blue_team,[itm_coptic_tunic_2,itm_deurne_campagi_3,itm_augst_helmet_1],str_10|agi_18|int_8|cha_10|level(13),wp(100),knows_athletics_6|knows_ironflesh_4|knows_power_throw_3|knows_power_draw_3|knows_weapon_master_4|knows_inventory_management_4|knows_horse_archery_3|knows_power_strike_3|knows_shield_1,0x0000000579109085485a59badc7198a100000000001cd4f90000000000000000],
+  #WHITE
+  ["charioteer_7","Senarius","Senarius",tf_hero, no_scene, reserved, fac_white_team,[itm_coptic_tunic_white,itm_deurne_campagi_2,itm_augst_helmet_1],str_10|agi_18|int_8|cha_10|level(13),wp(100),knows_athletics_6|knows_ironflesh_4|knows_power_throw_3|knows_power_draw_3|knows_weapon_master_4|knows_inventory_management_4|knows_horse_archery_3|knows_power_strike_3|knows_shield_1,0x00000005641061442d1d4db89989cb2b00000000001ea6a40000000000000000],
+  ["charioteer_8","Lauricius","Lauricius",tf_hero, no_scene, reserved, fac_white_team,[itm_coptic_tunic_white,itm_deurne_campagi_3,itm_augst_helmet_1],str_10|agi_18|int_8|cha_10|level(13),wp(100),knows_athletics_6|knows_ironflesh_4|knows_power_throw_3|knows_power_draw_3|knows_weapon_master_4|knows_inventory_management_4|knows_horse_archery_3|knows_power_strike_3|knows_shield_1,0x000000054f10810b144929b5548db76100000000001d653b0000000000000000],
+
+  ["charioteer_end","END","END",tf_hero, no_scene, reserved, fac_commoners,[],str_10|agi_18|int_8|cha_10|level(13),wp(100),knows_athletics_6|knows_ironflesh_4|knows_power_throw_3|knows_power_draw_3|knows_weapon_master_4|knows_inventory_management_4|knows_horse_archery_3|knows_power_strike_3|knows_shield_1,0x00000001bf0000823adb6db6db6db6db00000000001db6dd0000000000000000],
+  #CHARIOTEERS END
 
   #reusing for extended mithras quest
   ["roman_landowner","Gnaeus Turibius","Gnaeus Turibius",tf_hero|tf_guarantee_boots|tf_guarantee_armor, no_scene, reserved, fac_commoners,[itm_coptic_tunic_13,itm_deurne_campagi_5,itm_arabian_sword_b],def_attrib_lvl_32|level(30),wp(300),knows_ironflesh_10|knows_power_strike_10,0x00000001bf0000823adb6db6db6db6db00000000001db6dd0000000000000000],

@@ -106,3 +106,5 @@ fac_roman_pagans = 104
 fac_jews = 105
 fac_blue_team = 106
 fac_green_team = 107
+fac_red_team = 108
+fac_white_team = 109

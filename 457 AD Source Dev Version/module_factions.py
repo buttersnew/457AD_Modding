@@ -154,11 +154,13 @@ factions = [
   ("zoroastrians","Zoroastrians", 0, 0.5,[("arian_christians",-0.05),("coptic_christians",-0.05),("pagans",-0.05),("roman_christians",-0.05),("kingdom_6", 0.9)], [], 0xFFFFFF), #very friendly with the sassanids
   ("coptic_christians","Miaphysite Christians", 0, 0.5,[("arian_christians",-0.05),("roman_christians",-0.05),("pagans",-0.05),("zoroastrians",-0.05)], [], 0xFFFFFF),
   ("roman_pagans","Greco-Roman Pagans", 0, 0.5,[("arian_christians",-0.05),("coptic_christians",-0.05),("pagans",-0.05),("roman_christians",-0.05),("zoroastrians",-0.05),("kingdom_1", 0.1),("kingdom_2", -0.01)], [], 0xFFFFFF), #likes wre, dislikes ere
-
   ("jews","Jews", 0, 0.5,[("arian_christians",-0.05),("coptic_christians",-0.05),("pagans",-0.05),("roman_christians",-0.05),("zoroastrians",-0.05),("roman_pagans",-0.05)], [], 0xFFFFFF), #used for later
+  
   #chariot racing teams
-  ("blue_team","Blues",0, 0.1,[("player_faction",0.0),("kingdom_1",0.5),("kingdom_2",0.5)], [],0xFFFFFF),
-  ("green_team","Greens",0, 0.1,[("player_faction",0.0),("kingdom_1",0.5),("kingdom_2",0.5)], [],0xFFFFFF),
+  ("blue_team","Blues",0, 0.1,[("player_faction",0.0),("kingdom_1",0.5),("kingdom_2",0.5)], [],0x0c42c4),
+  ("green_team","Greens",0, 0.1,[("player_faction",0.0),("kingdom_1",0.5),("kingdom_2",0.5)], [],0x2d7b34),
+  ("red_team","Reds",0, 0.1,[("player_faction",0.0),("kingdom_1",0.5),("kingdom_2",0.5)], [],0x8E0D0D),
+  ("white_team","Whites",0, 0.1,[("player_faction",0.0),("kingdom_1",0.5),("kingdom_2",0.5)], [],0xFFFFFF),
 
 ]
 

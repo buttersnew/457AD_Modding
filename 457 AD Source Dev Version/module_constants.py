@@ -3060,6 +3060,7 @@ slot_religion_arianism = 3
 slot_religion_zoroastrianism = 4
 slot_religion_coptic = 5
 slot_religion_roman_paganism = 6
+slot_religion_judaism = 7
 
 
 minor_towns_begin = "p_aestii_village"

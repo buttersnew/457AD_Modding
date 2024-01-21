@@ -19723,528 +19723,8 @@ mission_templates = [
     ]
   ), 
 
-  ("religious_center_pagan",0,-1,
-    "Holy Place",
-    [(0,mtef_scene_source|mtef_team_0,0,0,1,[]),
-      (1,mtef_scene_source|mtef_team_0,0,0,1,[]),
-      (2,mtef_scene_source|mtef_team_0,af_override_horse,0,1,[]),
-      (3,mtef_scene_source|mtef_team_0,af_override_horse,0,1,[]),
-      (4,mtef_scene_source|mtef_team_0,af_override_horse,0,1,[]),
-      (5,mtef_scene_source|mtef_team_0,af_override_horse,0,1,[]),
-      (6,mtef_scene_source|mtef_team_0,af_override_horse,0,1,[]),
-      (7,mtef_scene_source|mtef_team_0,af_override_horse,0,1,[]),
-      
-      (8,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
-      (9,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
-      (10,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
-      (11,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
-    ], vc_weather +
-    [
-      #can_spawn_commoners,
-      (ti_before_mission_start, 0, 0, [], [(call_script, "script_change_banners_and_chest")]),
-      (ti_after_mission_start, 0, 0, [], [(call_script, "script_music_set_situation_with_culture", mtf_sit_town)]),
-      (ti_inventory_key_pressed, 0, 0, [(set_trigger_result,1)], []),
-      
-      (ti_tab_pressed, 0, 0, [(set_trigger_result,1)], []),
-      
-      (ti_on_agent_spawn, 0, 0, [],
-        [
-          (store_trigger_param_1, ":agent_no"),
-          (get_player_agent_no, ":player_agent"),
-          (call_script, "script_init_town_agent", ":agent_no"),
-          (try_begin),
-            (neq, ":player_agent", ":agent_no"),
-            (agent_set_team, ":agent_no", 7),
-          (try_end),
-      ]),
-      
-      # (1, 0, ti_once, [],
-        # [
-          # #(call_script, "script_init_town_walker_agents"),
-          # (play_track, "track_paganholysite", 1),
-      # ]),
-      
-      (0,8,0,[],
-        [
-          (try_for_agents,":agent_no"),
-            (agent_is_alive,":agent_no"),
-            (agent_is_human,":agent_no"),
-            (agent_get_troop_id, ":troop_no", ":agent_no"),
-            (this_or_next|eq, ":troop_no", "trp_refugee"),
-            (this_or_next|eq, ":troop_no", "trp_farmer"),
-            (eq, ":troop_no", "trp_pagan_priest"),
-            
-            (assign, ":continue_walk", 0),
-            (store_random_in_range, ":continue_walk", 1, 100),
-            (try_begin),
-              (le, ":continue_walk", 40),
-              (agent_set_stand_animation, ":agent_no", "anim_stand_man"),
-              (agent_set_walk_forward_animation, ":agent_no", "anim_walk_forward"),
-              (agent_set_animation, ":agent_no", "anim_stand_man"),
-              (agent_set_animation_progress, ":agent_no", 10),
-              
-              (agent_get_position, pos1, ":agent_no"),
-              (store_random_in_range, ":points", 4, 33),
-              (entry_point_get_position, pos2, ":points"),
-              (agent_set_speed_limit, ":agent_no", 1),
-              (agent_set_scripted_destination, ":agent_no", pos2),
-            (try_end),
-          (try_end),
-      ]),
-      
-      (0, 0, ti_once, [],
-        [
-          (party_slot_eq, "$current_town", slot_party_type, spt_town),
-          (call_script, "script_town_init_doors", 0),
-          (try_begin),
-            (eq, "$town_nighttime", 0),
-            (play_sound, "snd_town_ambiance", sf_looping),
-          (try_end),
-      ]),
-       
-      
-      (0, 0, ti_once, [
-          (tutorial_message_set_size, 15, 15),
-          (tutorial_message_set_position, 500, 650), #650 for tutorial or mission msg, 450 for dialogs
-          (tutorial_message_set_center_justify, 0),
-          ], []),
-      
-      (1,0,0,[                        (neg|conversation_screen_is_active),
-          (neg|is_presentation_active, "prsnt_battle"),
-          (neg|is_presentation_active, "prsnt_order_display"),
-          (store_mission_timer_a, ":cur_time"),
-          (le, ":cur_time", 20),
-        ],
-        [
-          (store_mission_timer_a, ":cur_time"),
-          (try_begin),
-            (ge, ":cur_time", 16),
-            (tutorial_message, -1),
-            (tutorial_message_set_background, 0),
-          (else_try),
-            (ge, ":cur_time", 8),
-            (tutorial_message_set_background, 1),
-            #(tutorial_message, "@You can feel the proximity of the gods. You can make sacrifices to the gods. If you're lucky, the gods may hear you and grant your wish."),
-          (try_end),
-      ]),
-      
-      (ti_on_leave_area, 0, 0, [
-          (assign,"$g_leave_town",1),
-          ], []),
-    ]
-  ), 
 
-  ("religious_center_christian",0,-1,
-    "Holy Place",
-    [(0,mtef_scene_source|mtef_team_0,0,0,1,[]),
-      (1,mtef_scene_source|mtef_team_0,0,0,1,[]),
-      (2,mtef_scene_source|mtef_team_0,af_override_horse,0,1,[]),
-      (3,mtef_scene_source|mtef_team_0,af_override_horse,0,1,[]),
-      (4,mtef_scene_source|mtef_team_0,af_override_horse,0,1,[]),
-      (5,mtef_scene_source|mtef_team_0,af_override_horse,0,1,[]),
-      (6,mtef_scene_source|mtef_team_0,af_override_horse,0,1,[]),
-      (7,mtef_scene_source|mtef_team_0,af_override_horse,0,1,[]),
-      
-      (8,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
-      (9,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
-      (10,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
-      (11,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
-      (12,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
-      (13,mtef_visitor_source|mtef_team_0,0,0,1,[]),
-      (14,mtef_visitor_source|mtef_team_0,0,0,1,[]),
-      (15,mtef_visitor_source|mtef_team_0,0,0,1,[]),
-      (16,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
-      (17,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
-      (18,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
-      (19,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
-      (20,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
-      #(21,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
-      #(22,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
-      #(23,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
-      #(24,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
-      #(25,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
-      #(26,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
-      #(27,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
-      #(28,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
-      #(29,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
-      #(30,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),(31,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
-      #(32,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),(33,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
-      #(34,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),(35,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
-      #(36,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),(37,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
-      #(38,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),(39,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
-      #(40,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
-      #(41,mtef_scene_source|mtef_team_0,af_override_horse,0,1,[]),  #for leaving door
-      #(42,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),(43,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
-      #(44,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),(45,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
-      #(46,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),(47,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
-    ], vc_weather +
-    [
-      #can_spawn_commoners,
-      (ti_before_mission_start, 0, 0, [], [(call_script, "script_change_banners_and_chest")]),
-      (ti_after_mission_start, 0, 0, [], [(call_script, "script_music_set_situation_with_culture", mtf_sit_town)]),
-      (ti_inventory_key_pressed, 0, 0, [(set_trigger_result,1)], []),
-      
-      (ti_tab_pressed, 0, 0, [(set_trigger_result,1)], []),
-      
-      (ti_on_agent_spawn, 0, 0, [],
-        [
-          (store_trigger_param_1, ":agent_no"),
-          (get_player_agent_no, ":player_agent"),
-          (call_script, "script_init_town_agent", ":agent_no"),
-          (try_begin),
-            (neq, ":player_agent", ":agent_no"),
-            (agent_set_team, ":agent_no", 7),
-          (try_end),
-      ]),
-      
-      # (1, 0, ti_once, [],
-        # [
-          # #(call_script, "script_init_town_walker_agents"),
-          # (play_track, "track_paganholysite", 1),
-      # ]),
-      
-      (0,8,0,[],
-        [
-          (try_for_agents,":agent_no"),
-            (agent_is_alive,":agent_no"),
-            (agent_is_human,":agent_no"),
-            (agent_get_troop_id, ":troop_no", ":agent_no"),
-            (eq, ":troop_no", "trp_monk"),
-            
-            (assign, ":continue_walk", 0),
-            (store_random_in_range, ":continue_walk", 1, 100),
-            (try_begin),
-              (le, ":continue_walk", 40),
-              (agent_set_stand_animation, ":agent_no", "anim_stand_man"),
-              (agent_set_walk_forward_animation, ":agent_no", "anim_walk_forward"),
-              (agent_set_animation, ":agent_no", "anim_stand_man"),
-              (agent_set_animation_progress, ":agent_no", 10),
-              
-              (agent_get_position, pos1, ":agent_no"),
-              (store_random_in_range, ":points", 4, 33),
-              (entry_point_get_position, pos2, ":points"),
-              (agent_set_speed_limit, ":agent_no", 1),
-              (agent_set_scripted_destination, ":agent_no", pos2),
-            (try_end),
-          (try_end),
-      ]),
-      
-      (0, 0, ti_once, [],
-        [
-          (party_slot_eq, "$current_town", slot_party_type, spt_town),
-          (call_script, "script_town_init_doors", 0),
-          (try_begin),
-            (eq, "$town_nighttime", 0),
-            (play_sound, "snd_town_ambiance", sf_looping),
-          (try_end),
-      ]),
-       
-      
-      (0, 0, ti_once, [
-          (tutorial_message_set_size, 15, 15),
-          (tutorial_message_set_position, 500, 650), #650 for tutorial or mission msg, 450 for dialogs
-          (tutorial_message_set_center_justify, 0),
-          ], []),
-      
-      (1,0,0,[                        (neg|conversation_screen_is_active),
-          (neg|is_presentation_active, "prsnt_battle"),
-          (neg|is_presentation_active, "prsnt_order_display"),
-          (store_mission_timer_a, ":cur_time"),
-          (le, ":cur_time", 20),
-        ],
-        [
-          (store_mission_timer_a, ":cur_time"),
-          (try_begin),
-            (ge, ":cur_time", 16),
-            (tutorial_message, -1),
-            (tutorial_message_set_background, 0),
-          (else_try),
-            (ge, ":cur_time", 8),
-            (tutorial_message_set_background, 1),
-            #(tutorial_message, "@You can feel the proximity of the gods. You can make sacrifices to the gods. If you're lucky, the gods may hear you and grant your wish."),
-          (try_end),
-      ]),
-      
-      (ti_on_leave_area, 0, 0, [
-          (assign,"$g_leave_town",1),
-          ], []),
-    ]
-  ), 
 
-  ("religious_center_zoroastrian",0,-1,
-    "Holy Place",
-    [(0,mtef_scene_source|mtef_team_0,0,0,1,[]),
-      (1,mtef_scene_source|mtef_team_0,0,0,1,[]),
-      (2,mtef_scene_source|mtef_team_0,af_override_horse,0,1,[]),
-      (3,mtef_scene_source|mtef_team_0,af_override_horse,0,1,[]),
-      (4,mtef_scene_source|mtef_team_0,af_override_horse,0,1,[]),
-      (5,mtef_scene_source|mtef_team_0,af_override_horse,0,1,[]),
-      (6,mtef_scene_source|mtef_team_0,af_override_horse,0,1,[]),
-      (7,mtef_scene_source|mtef_team_0,af_override_horse,0,1,[]),
-      
-      (8,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
-      (9,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
-      (10,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
-      #(11,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
-      #(12,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
-      #(13,mtef_visitor_source|mtef_team_0,0,0,1,[]),
-      #(14,mtef_visitor_source|mtef_team_0,0,0,1,[]),
-      #(15,mtef_visitor_source|mtef_team_0,0,0,1,[]),
-      #(16,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
-      #(17,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
-      #(18,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
-      #(19,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
-      #(20,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
-      #(21,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
-      #(22,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
-      #(23,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
-      #(24,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
-      #(25,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
-      #(26,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
-      #(27,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
-      #(28,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
-      #(29,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
-      #(30,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),(31,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
-      #(32,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),(33,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
-      #(34,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),(35,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
-      #(36,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),(37,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
-      #(38,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),(39,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
-      #(40,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
-      #(41,mtef_scene_source|mtef_team_0,af_override_horse,0,1,[]),  #for leaving door
-      #(42,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),(43,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
-      #(44,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),(45,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
-      #(46,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),(47,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
-    ], vc_weather +
-    [
-      #can_spawn_commoners,
-      (ti_before_mission_start, 0, 0, [], [(call_script, "script_change_banners_and_chest")]),
-      (ti_after_mission_start, 0, 0, [], [(call_script, "script_music_set_situation_with_culture", mtf_sit_town)]),
-      (ti_inventory_key_pressed, 0, 0, [(set_trigger_result,1)], []),
-      
-      (ti_tab_pressed, 0, 0, [(set_trigger_result,1)], []),
-      
-      (ti_on_agent_spawn, 0, 0, [],
-        [
-          (store_trigger_param_1, ":agent_no"),
-          (get_player_agent_no, ":player_agent"),
-          (call_script, "script_init_town_agent", ":agent_no"),
-          (try_begin),
-            (neq, ":player_agent", ":agent_no"),
-            (agent_set_team, ":agent_no", 7),
-          (try_end),
-      ]),
-      
-      # (1, 0, ti_once, [],
-        # [
-          # #(call_script, "script_init_town_walker_agents"),
-          # (play_track, "track_paganholysite", 1),
-      # ]),
-      
-      (0,8,0,[],
-        [
-          (try_for_agents,":agent_no"),
-            (agent_is_alive,":agent_no"),
-            (agent_is_human,":agent_no"),
-            (agent_get_troop_id, ":troop_no", ":agent_no"),
-            (eq, ":troop_no", "trp_zoroastrian_priest"),
-            
-            (assign, ":continue_walk", 0),
-            (store_random_in_range, ":continue_walk", 1, 100),
-            (try_begin),
-              (le, ":continue_walk", 40),
-              (agent_set_stand_animation, ":agent_no", "anim_stand_man"),
-              (agent_set_walk_forward_animation, ":agent_no", "anim_walk_forward"),
-              (agent_set_animation, ":agent_no", "anim_stand_man"),
-              (agent_set_animation_progress, ":agent_no", 10),
-              
-              (agent_get_position, pos1, ":agent_no"),
-              (store_random_in_range, ":points", 4, 33),
-              (entry_point_get_position, pos2, ":points"),
-              (agent_set_speed_limit, ":agent_no", 1),
-              (agent_set_scripted_destination, ":agent_no", pos2),
-            (try_end),
-          (try_end),
-      ]),
-      
-      (0, 0, ti_once, [],
-        [
-          (party_slot_eq, "$current_town", slot_party_type, spt_town),
-          (call_script, "script_town_init_doors", 0),
-          (try_begin),
-            (eq, "$town_nighttime", 0),
-            (play_sound, "snd_town_ambiance", sf_looping),
-          (try_end),
-      ]),
-       
-      
-      (0, 0, ti_once, [
-          (tutorial_message_set_size, 15, 15),
-          (tutorial_message_set_position, 500, 650), #650 for tutorial or mission msg, 450 for dialogs
-          (tutorial_message_set_center_justify, 0),
-          ], []),
-      
-      (1,0,0,[                        (neg|conversation_screen_is_active),
-          (neg|is_presentation_active, "prsnt_battle"),
-          (neg|is_presentation_active, "prsnt_order_display"),
-          (store_mission_timer_a, ":cur_time"),
-          (le, ":cur_time", 20),
-        ],
-        [
-          (store_mission_timer_a, ":cur_time"),
-          (try_begin),
-            (ge, ":cur_time", 16),
-            (tutorial_message, -1),
-            (tutorial_message_set_background, 0),
-          (else_try),
-            (ge, ":cur_time", 8),
-            (tutorial_message_set_background, 1),
-            #(tutorial_message, "@You can feel the proximity of the gods. You can make sacrifices to the gods. If you're lucky, the gods may hear you and grant your wish."),
-          (try_end),
-      ]),
-      
-      (ti_on_leave_area, 0, 0, [
-          (assign,"$g_leave_town",1),
-          ], []),
-    ]
-  ), 
-
-  ("religious_center_roman_pagan",0,-1,
-    "Holy Place",
-    [(0,mtef_scene_source|mtef_team_0,0,0,1,[]),
-      (1,mtef_scene_source|mtef_team_0,0,0,1,[]),
-      (2,mtef_scene_source|mtef_team_0,af_override_horse,0,1,[]),
-      (3,mtef_scene_source|mtef_team_0,af_override_horse,0,1,[]),
-      (4,mtef_scene_source|mtef_team_0,af_override_horse,0,1,[]),
-      (5,mtef_scene_source|mtef_team_0,af_override_horse,0,1,[]),
-      (6,mtef_scene_source|mtef_team_0,af_override_horse,0,1,[]),
-      (7,mtef_scene_source|mtef_team_0,af_override_horse,0,1,[]),
-      
-      (8,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
-      (9,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
-      (10,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
-      (11,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
-      (12,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
-      (13,mtef_visitor_source|mtef_team_0,0,0,1,[]),
-      (14,mtef_visitor_source|mtef_team_0,0,0,1,[]),
-      (15,mtef_visitor_source|mtef_team_0,0,0,1,[]),
-      (16,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
-      (17,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
-      (18,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
-      (19,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
-      (20,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
-      #(21,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
-      #(22,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
-      #(23,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
-      #(24,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
-      #(25,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
-      #(26,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
-      #(27,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
-      #(28,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
-      #(29,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
-      #(30,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),(31,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
-      #(32,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),(33,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
-      #(34,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),(35,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
-      #(36,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),(37,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
-      #(38,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),(39,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
-      #(40,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
-      #(41,mtef_scene_source|mtef_team_0,af_override_horse,0,1,[]),  #for leaving door
-      #(42,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),(43,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
-      #(44,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),(45,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
-      #(46,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),(47,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
-    ], vc_weather +
-    [
-      #can_spawn_commoners,
-      (ti_before_mission_start, 0, 0, [], [(call_script, "script_change_banners_and_chest")]),
-      (ti_after_mission_start, 0, 0, [], [(call_script, "script_music_set_situation_with_culture", mtf_sit_town)]),
-      (ti_inventory_key_pressed, 0, 0, [(set_trigger_result,1)], []),
-      
-      (ti_tab_pressed, 0, 0, [(set_trigger_result,1)], []),
-      
-      (ti_on_agent_spawn, 0, 0, [],
-        [
-          (store_trigger_param_1, ":agent_no"),
-          (get_player_agent_no, ":player_agent"),
-          (call_script, "script_init_town_agent", ":agent_no"),
-          (try_begin),
-            (neq, ":player_agent", ":agent_no"),
-            (agent_set_team, ":agent_no", 7),
-          (try_end),
-      ]),
-      
-      # (1, 0, ti_once, [],
-        # [
-          # #(call_script, "script_init_town_walker_agents"),
-          # (play_track, "track_paganholysite", 1),
-      # ]),
-      
-      (0,8,0,[],
-        [
-          (try_for_agents,":agent_no"),
-            (agent_is_alive,":agent_no"),
-            (agent_is_human,":agent_no"),
-            (agent_get_troop_id, ":troop_no", ":agent_no"),
-            (this_or_next|eq, ":troop_no", "trp_roman_pagan_villager_1"),
-            (eq, ":troop_no", "trp_roman_pagan_villager_2"),
-            
-            (assign, ":continue_walk", 0),
-            (store_random_in_range, ":continue_walk", 1, 100),
-            (try_begin),
-              (le, ":continue_walk", 40),
-              (agent_set_stand_animation, ":agent_no", "anim_stand_man"),
-              (agent_set_walk_forward_animation, ":agent_no", "anim_walk_forward"),
-              (agent_set_animation, ":agent_no", "anim_stand_man"),
-              (agent_set_animation_progress, ":agent_no", 10),
-              
-              (agent_get_position, pos1, ":agent_no"),
-              (store_random_in_range, ":points", 4, 33),
-              (entry_point_get_position, pos2, ":points"),
-              (agent_set_speed_limit, ":agent_no", 1),
-              (agent_set_scripted_destination, ":agent_no", pos2),
-            (try_end),
-          (try_end),
-      ]),
-      
-      (0, 0, ti_once, [],
-        [
-          (party_slot_eq, "$current_town", slot_party_type, spt_town),
-          (call_script, "script_town_init_doors", 0),
-          (try_begin),
-            (eq, "$town_nighttime", 0),
-            (play_sound, "snd_town_ambiance", sf_looping),
-          (try_end),
-      ]),
-       
-      
-      (0, 0, ti_once, [
-          (tutorial_message_set_size, 15, 15),
-          (tutorial_message_set_position, 500, 650), #650 for tutorial or mission msg, 450 for dialogs
-          (tutorial_message_set_center_justify, 0),
-          ], []),
-      
-      (1,0,0,[                        (neg|conversation_screen_is_active),
-          (neg|is_presentation_active, "prsnt_battle"),
-          (neg|is_presentation_active, "prsnt_order_display"),
-          (store_mission_timer_a, ":cur_time"),
-          (le, ":cur_time", 20),
-        ],
-        [
-          (store_mission_timer_a, ":cur_time"),
-          (try_begin),
-            (ge, ":cur_time", 16),
-            (tutorial_message, -1),
-            (tutorial_message_set_background, 0),
-          (else_try),
-            (ge, ":cur_time", 8),
-            (tutorial_message_set_background, 1),
-            #(tutorial_message, "@You can feel the proximity of the gods. You can make sacrifices to the gods. If you're lucky, the gods may hear you and grant your wish."),
-          (try_end),
-      ]),
-      
-      (ti_on_leave_area, 0, 0, [
-          (assign,"$g_leave_town",1),
-          ], []),
-    ]
-  ),
 
 #roman baths mision chief
      (
@@ -22830,6 +22310,133 @@ mission_templates = [
       ]),
       
     ],),  
+
+  ("religious_center",0,-1,
+    "Holy Place",
+    [ (0,mtef_scene_source|mtef_team_0,0,0,1,[]), #player
+      (1,mtef_visitor_source|mtef_team_0,0,0,1,[]),
+      (2,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
+      (3,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
+      (4,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
+      (5,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
+      (6,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
+      (7,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
+      
+      (8,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
+      (9,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
+      (10,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
+      (11,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
+      (12,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
+      (13,mtef_visitor_source|mtef_team_0,0,0,1,[]),
+      (14,mtef_visitor_source|mtef_team_0,0,0,1,[]),
+      (15,mtef_visitor_source|mtef_team_0,0,0,1,[]),
+      (16,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
+      (17,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
+      (18,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
+      (19,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
+      (20,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
+    ], vc_weather +
+    [
+      #can_spawn_commoners,
+      (ti_before_mission_start, 0, 0, [], [(call_script, "script_change_banners_and_chest")]),
+      (ti_after_mission_start, 0, 0, [], [(call_script, "script_music_set_situation_with_culture", mtf_sit_town)]),
+      (ti_inventory_key_pressed, 0, 0, [(set_trigger_result,1)], []),
+      
+      (ti_tab_pressed, 0, 0, [(set_trigger_result,1)], []),
+      
+      (ti_on_agent_spawn, 0, 0, [],
+        [
+          (store_trigger_param_1, ":agent_no"),
+          (get_player_agent_no, ":player_agent"),
+          (call_script, "script_init_town_agent", ":agent_no"),
+          (try_begin),
+            (neq, ":player_agent", ":agent_no"),
+            (agent_set_team, ":agent_no", 7),
+          (try_end),
+      ]),
+      
+      # (1, 0, ti_once, [],
+        # [
+          # #(call_script, "script_init_town_walker_agents"),
+          # (play_track, "track_paganholysite", 1),
+      # ]),
+      
+      (0,8,0,[],
+        [
+          (try_for_agents,":agent_no"),
+            (agent_is_alive,":agent_no"),
+            (agent_is_human,":agent_no"),
+            (agent_get_troop_id, ":troop_no", ":agent_no"),
+            (this_or_next|eq, ":troop_no", "trp_khergit_townsman"),
+            (this_or_next|eq, ":troop_no", "trp_khergit_townswoman"),
+            (this_or_next|eq, ":troop_no", "trp_pict_town_walker_1"),
+            (this_or_next|eq, ":troop_no", "trp_pict_town_walker_2"),
+            (this_or_next|eq, ":troop_no", "trp_town_walker_1"),
+            (this_or_next|eq, ":troop_no", "trp_town_walker_2"),
+            (this_or_next|eq, ":troop_no", "trp_monk"),
+            (this_or_next|eq, ":troop_no", "trp_zoroastrian_priest"),
+            (this_or_next|eq, ":troop_no", "trp_roman_pagan_villager_1"),
+            (eq, ":troop_no", "trp_roman_pagan_villager_2"),
+            
+            (assign, ":continue_walk", 0),
+            (store_random_in_range, ":continue_walk", 1, 100),
+            (try_begin),
+              (le, ":continue_walk", 40),
+              (agent_set_stand_animation, ":agent_no", "anim_stand_man"),
+              (agent_set_walk_forward_animation, ":agent_no", "anim_walk_forward"),
+              (agent_set_animation, ":agent_no", "anim_stand_man"),
+              (agent_set_animation_progress, ":agent_no", 10),
+              
+              (agent_get_position, pos1, ":agent_no"),
+              (store_random_in_range, ":points", 4, 33),
+              (entry_point_get_position, pos2, ":points"),
+              (agent_set_speed_limit, ":agent_no", 1),
+              (agent_set_scripted_destination, ":agent_no", pos2),
+            (try_end),
+          (try_end),
+      ]),
+      
+      (0, 0, ti_once, [],
+        [
+          (party_slot_eq, "$current_town", slot_party_type, spt_town),
+          (call_script, "script_town_init_doors", 0),
+          (try_begin),
+            (eq, "$town_nighttime", 0),
+            (play_sound, "snd_town_ambiance", sf_looping),
+          (try_end),
+      ]),
+       
+      
+      (0, 0, ti_once, [
+          (tutorial_message_set_size, 15, 15),
+          (tutorial_message_set_position, 500, 650), #650 for tutorial or mission msg, 450 for dialogs
+          (tutorial_message_set_center_justify, 0),
+          ], []),
+      
+      (1,0,0,[                        (neg|conversation_screen_is_active),
+          (neg|is_presentation_active, "prsnt_battle"),
+          (neg|is_presentation_active, "prsnt_order_display"),
+          (store_mission_timer_a, ":cur_time"),
+          (le, ":cur_time", 20),
+        ],
+        [
+          (store_mission_timer_a, ":cur_time"),
+          (try_begin),
+            (ge, ":cur_time", 16),
+            (tutorial_message, -1),
+            (tutorial_message_set_background, 0),
+          (else_try),
+            (ge, ":cur_time", 8),
+            (tutorial_message_set_background, 1),
+            #(tutorial_message, "@You can feel the proximity of the gods. You can make sacrifices to the gods. If you're lucky, the gods may hear you and grant your wish."),
+          (try_end),
+      ]),
+      
+      (ti_on_leave_area, 0, 0, [
+          (assign,"$g_leave_town",1),
+          ], []),
+    ]
+  ), 
 
   ("visit_minor_town",0,-1,
     "visit",

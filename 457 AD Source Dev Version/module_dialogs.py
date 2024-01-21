@@ -52719,6 +52719,18 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
       (store_current_scene,":current_scene"),(eq,":current_scene","scn_fortified_monastery"),
       ], "I'm busy, however you should speak with Severinus.", "close_window",[]],
 
+  [anyone,"start", [(store_conversation_troop, "$g_talk_troop"),(neq, "$g_talk_troop", "trp_celtic_pagan_priest"), #religious scene
+      (store_current_scene,":current_scene"),(eq,":current_scene","scn_celtic_stone_circle"),
+      ], "You should speak with our priest.", "close_window",[]],
+
+  [anyone,"start", [(store_conversation_troop, "$g_talk_troop"),(neq, "$g_talk_troop", "trp_steppe_pagan_priest"), #religious scene
+      (store_current_scene,":current_scene"),(eq,":current_scene","scn_steppe_shrine"),
+      ], "You should speak with our shaman.", "close_window",[]],
+
+  [anyone,"start", [(store_conversation_troop, "$g_talk_troop"),(neq, "$g_talk_troop", "trp_egyptian_pagan_high_priest"), #religious scene
+      (store_current_scene,":current_scene"),(eq,":current_scene","scn_siwa"),
+      ], "You should speak with our priest.", "close_window",[]],
+
   [anyone,"start", [(store_conversation_troop, "$g_talk_troop"),(neq, "$g_talk_troop", "trp_silingi_chief"), #silingi village
       (store_current_scene,":current_scene"),(eq,":current_scene","scn_silingi_village"),
       ], "You should speak with our village elder.", "close_window",[]],
@@ -52730,32 +52742,6 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   [anyone,"start", [(store_conversation_troop, "$g_talk_troop"),(neq, "$g_talk_troop", "trp_bagaudae_king"),
       (store_current_scene,":current_scene"),(eq,":current_scene","scn_abandoned_silver_mine"),
       ], "What do you want? If you're here to join the cause, go bother Basilius.", "close_window",[]],
-
-#CUSTOM DIALOGUES END
-
-  #[anyone, "merchant_all_quest_completed",
-  #[
-  #],
-  #"TODO-STARTUP : You can leave now.", "close_window",
-  #[
-  #]],
-
-  #for the walkers
-  [trp_monk,"start", [],
-    "I am busy, talk to the Abbot.", "monk_2",[]],
-  [anyone|plyr,"monk_2",[], "Very well, my good man. Farewell.", "close_window",[]],
-
-  [trp_zoroastrian_priest,"start", [],
-    "I am busy, talk to the Moabadan-Moabad. He should be at the fire temple.", "zoroastrian_2",[]],
-  [anyone|plyr,"zoroastrian_2",[], "Very well, my good man. Farewell.", "close_window",[]],
-
-  [trp_roman_pagan_villager_1,"start", [],
-    "I am busy, talk to the priest. He should be at the temple.", "roman_pagan_1",[]],
-  [anyone|plyr,"roman_pagan_1",[], "Thank you. Farewell.", "close_window",[]],
-
-  [trp_roman_pagan_villager_2,"start", [],
-    "I am busy, talk to the priest. He should be at the temple.", "roman_pagan_2",[]],
-  [anyone|plyr,"roman_pagan_2",[], "Thank you. Farewell.", "close_window",[]],
 
 
   #now for the special abbots/religious leaders - go to them to convert

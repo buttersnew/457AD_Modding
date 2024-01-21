@@ -2982,7 +2982,7 @@ troops = [
    [itm_wrapping_boots,itm_late_roman_priest,itm_knife],
    def_attrib|level(8),wp(90),knows_common,germanic_face_1, germanic_face_2],
 
-  ["coptic_priest","Miaphysite Priest","Miaphysite Priests",tf_guarantee_boots|tf_guarantee_armor,0,0,fac_coptic_christians,
+  ["coptic_priest","Non-Chalcedonian Priest","Non-Chalcedonian Priests",tf_guarantee_boots|tf_guarantee_armor,0,0,fac_coptic_christians,
    [itm_wrapping_boots,itm_late_roman_priest,itm_knife],
    def_attrib|level(8),wp(90),knows_common,roman_face_1, roman_face_2],
 
@@ -3002,32 +3002,32 @@ troops = [
    [itm_wrapping_boots,itm_robe,itm_sarranid_cloth_robe_b,itm_knife,itm_wooden_stick],
    def_attrib|level(8),wp(90),knows_common,roman_face_1, roman_face_2],
 
-  ["roman_abbot","Chalcedonian Abbot","Chalcedonian Abbots",tf_hero,scn_christian_monastery|entry(1),reserved,fac_roman_christians,
-   [itm_wrapping_boots,itm_robes_church,itm_knife],
+  ["roman_abbot","Chalcedonian Abbot","Chalcedonian Abbots",tf_hero,0,0,fac_roman_christians,
+   [itm_wrapping_boots,itm_robes_church],
    def_attrib|level(8),wp(90),knows_common,roman_face_1, roman_face_2],
 
-  ["arian_abbot","Arian Abbot","Arian Abbots",tf_hero,scn_arian_monastery|entry(1),reserved,fac_arian_christians,
-   [itm_wrapping_boots,itm_robes_church,itm_knife],
+  ["arian_abbot","Arian Abbot","Arian Abbots",tf_hero,0,0,fac_arian_christians,
+   [itm_wrapping_boots,itm_robes_church],
    def_attrib|level(8),wp(90),knows_common,roman_face_1, roman_face_2],
 
-  ["coptic_abbot","Miaphysite Abbot","Miaphysite Abbots",tf_hero,scn_christian_monastery_desert|entry(1),reserved,fac_coptic_christians,
-   [itm_wrapping_boots,itm_robes_church,itm_knife],
+  ["coptic_abbot","Non-Chalcedonian Abbot","Non-Chalcedonian Abbots",tf_hero,0,0,fac_coptic_christians,
+   [itm_wrapping_boots,itm_robes_church],
    def_attrib|level(8),wp(90),knows_common,roman_face_1, roman_face_2],
 
-  ["pagan_high_priest","Germanic Pagan Priest","Germanic Pagan Priests",tf_hero,scn_pagan_grove|entry(1),reserved,fac_pagans,
-   [itm_wrapping_boots,itm_robe,itm_sarranid_cloth_robe_b,itm_knife],
+  ["pagan_high_priest","Germanic Pagan Priest","Germanic Pagan Priests",tf_hero,0,0,fac_pagans,
+   [itm_wrapping_boots,itm_robe,itm_sarranid_cloth_robe_b],
    def_attrib|level(8),wp(90),knows_common,germanic_face_1, germanic_face_2],
 
-  ["celtic_pagan_priest","Celtic Pagan Priest","Celtic Pagan Priests",tf_hero,scn_celtic_stone_circle|entry(1),reserved,fac_pagans,
-   [itm_wrapping_boots,itm_robe,itm_sarranid_cloth_robe_b,itm_knife],
+  ["celtic_pagan_priest","Celtic Pagan Priest","Celtic Pagan Priests",tf_hero,0,0,fac_pagans,
+   [itm_wrapping_boots,itm_robe,itm_sarranid_cloth_robe_b],
    def_attrib|level(8),wp(90),knows_common,celtic_face_1, celtic_face_2],
 
-  ["steppe_pagan_priest","Shaman","Shamen",tf_hero,scn_steppe_shrine|entry(1),reserved,fac_pagans,
-   [itm_wrapping_boots,itm_robe,itm_sarranid_cloth_robe_b,itm_knife],
+  ["steppe_pagan_priest","Shaman","Shamen",tf_hero,0,0,fac_pagans,
+   [itm_wrapping_boots,itm_robe,itm_sarranid_cloth_robe_b],
    def_attrib|level(8),wp(90),knows_common,hunnic_face_1, hunnic_face_2],
 
-  ["zoroastrian_high_priest","Zoroastrian Moabadan-Moabad","Zoroastrian Moabadan-Moabads",tf_hero,scn_fire_temple|entry(1),reserved,fac_zoroastrians,
-   [itm_wrapping_boots,itm_persian_tunic_15,itm_knife],
+  ["zoroastrian_high_priest","Zoroastrian Moabadan-Moabad","Zoroastrian Moabadan-Moabads",tf_hero,0,0,fac_zoroastrians,
+   [itm_wrapping_boots,itm_persian_tunic_15],
    def_attrib|level(8),wp(90),knows_common,persian_face_1, persian_face_2],
 
   ["severinus","Severinus of Noricum","Severinus",tf_hero,scn_fortified_monastery|entry(1),reserved,fac_roman_christians, #St. Severinus of Noricum, would help the people of Noricum in a post roman world
@@ -3042,9 +3042,13 @@ troops = [
    [itm_ankle_boots,itm_wrapping_boots,itm_dress_7,itm_dress_8,itm_dress_5,itm_dress_4,itm_lady_dress_green] + veils_1,
    def_attrib|level(2),wp(40),knows_common,roman_woman_face_1,roman_woman_face_2],
 
-  ["roman_pagan_high_priest","Greco-Roman Pagan Priest","Greco-Roman Pagan Priest",tf_hero,scn_roman_pagan_temple|entry(1),reserved,fac_roman_pagans,
-   [itm_wrapping_boots,itm_sarranid_cloth_robe_c,itm_knife],
+  ["roman_pagan_high_priest","Greco-Roman Pagan Priest","Greco-Roman Pagan Priest",tf_hero,0,0,fac_roman_pagans,
+   [itm_wrapping_boots,itm_sarranid_cloth_robe_c],
    def_attrib|level(8),wp(90),knows_common,roman_face_1, roman_face_2],
+
+  ["egyptian_pagan_high_priest","Aegyptian Pagan Priest","Aegyptian Pagan Priest",tf_hero,0,0,fac_roman_pagans,
+   [itm_wrapping_boots,itm_sarranid_cloth_robe_c],
+   def_attrib|level(8),wp(90),knows_common,coptic_face_1, coptic_face_2],
 
    #SB : semi-random arena training rewards
   ["trainer_1","Trainer","Trainer",tf_hero, scn_training_ground_ranged_melee_1|entry(6),reserved,  fac_commoners,[itm_practice_sword,itm_leather_jerkin,itm_hide_boots],def_attrib|level(2),wp(20),knows_common,0x0000000d0d1030c74ae8d661b651c6840000000000000e220000000000000000],

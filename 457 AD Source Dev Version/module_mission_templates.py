@@ -22375,8 +22375,8 @@ mission_templates = [
             (this_or_next|eq, ":troop_no", "trp_town_walker_2"),
             (this_or_next|eq, ":troop_no", "trp_monk"),
             (this_or_next|eq, ":troop_no", "trp_zoroastrian_priest"),
-            (this_or_next|eq, ":troop_no", "trp_roman_pagan_villager_1"),
-            (eq, ":troop_no", "trp_roman_pagan_villager_2"),
+            (this_or_next|eq, ":troop_no", "trp_imperial_town_walker_1"),
+            (eq, ":troop_no", "trp_imperial_town_walker_2"),
             
             (assign, ":continue_walk", 0),
             (store_random_in_range, ":continue_walk", 1, 100),

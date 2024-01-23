@@ -41982,7 +41982,7 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
 
   [anyone, "start", [
   (eq, "$talk_context", tc_tavern_talk),
-  (neq, "$g_talk_troop", "trp_jerusalem_patriarch"),
+  (neq|is_between, "$g_talk_troop", "trp_chal_bishop_jerusalem_1", "trp_roman_priest"),
   (neq, "$g_talk_troop", "trp_roman_landowner"),
   (neq, "$g_talk_troop", "trp_ildico"),
   (neq, "$g_talk_troop", "trp_bigilas"),
@@ -41999,17 +41999,12 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   (neq, "$g_talk_troop", "trp_mithraist_leader"),
   (neq, "$g_talk_troop", "trp_mithras_cultist"),
   (neq, "$g_talk_troop", "trp_mithraist_iniate"),
-  (neq,"$g_talk_troop","trp_bishop_of_rome"),
-  (neq,"$g_talk_troop","trp_bishop_of_constantinople"),
-  (neq,"$g_talk_troop","trp_bishop_of_alexandria"),
-  (neq,"$g_talk_troop","trp_bishop_of_antioch"),
   (neq,"$g_talk_troop", "trp_german_bard"),
   (neq,"$g_talk_troop", "trp_br_amatus"),
   (neq,"$g_talk_troop", "trp_br_gerontius"),
   (neq,"$g_talk_troop", "trp_corrupt_priest"),
   (neq, "$g_talk_troop", "trp_hun_drunkard"),
   (neq, "$g_talk_troop", "trp_zamb_man"),
-  (neq, "$g_talk_troop", "trp_eadric"),
   ],
    "Any orders, {sir/madam}?", "mercenary_after_recruited", []],
 
@@ -48078,7 +48073,7 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   [party_tpl|pt_nero_rebel_army,"nero_rebel_army_talk_2", [], "Ah, you see, I've hired an army so I can besiege the eternal city and take it for myself... I need to do this quickly before the pretender emperor claims it first.", "nero_rebel_army_talk_3",[]],
   [party_tpl|pt_nero_rebel_army,"nero_rebel_army_talk_3", [], "Now, enough talking, servant. I have an empire to conquer!", "nero_rebel_army_talk_1",[]],
 
-  [party_tpl|pt_nero_rebel_army|plyr,"nero_rebel_army_talk_1", [], "I am sorry, Imperator, I stop you...", "nero_rebel_army_attack_1",[]],
+  [party_tpl|pt_nero_rebel_army|plyr,"nero_rebel_army_talk_1", [], "I am sorry, Imperator, I have come to stop you...", "nero_rebel_army_attack_1",[]],
   [party_tpl|pt_nero_rebel_army,"nero_rebel_army_attack_1", [], "How dare you! Men, serve me this insolent traitor's head on a platter!", "close_window",[[encounter_attack]]],
 
   [party_tpl|pt_nero_rebel_army|plyr,"nero_rebel_army_talk_1", [], "Farewell, my Imperator.", "close_window",[]],
@@ -48565,7 +48560,7 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
 #  [trp_hunnic_guide, "start", [(troop_is_hero, "$g_talk_troop")],
 #   "Yes?", "close_window", []],
 
-  [trp_priscus, "start", [(eq, "$g_talk_troop_met", 0),(neq, "$g_talk_troop", "trp_sidonius_apollinaris"),(neq, "$g_talk_troop", "trp_jerusalem_patriarch"),], #conditions just in case
+  [trp_priscus, "start", [(eq, "$g_talk_troop_met", 0),], #conditions just in case
    "Greetings, I am Priscus of Panium, former diplomat for the Romans, and now a historian.", "priscus_talk", []],
   [trp_priscus|plyr, "priscus_talk", [],
    "A historian? May I ask, what are you writing about now?", "priscus_talk_history", []],
@@ -48602,7 +48597,7 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   [trp_priscus|plyr, "priscus_talk_history_sword3", [],
    "Thank you for the information.", "close_window", []],
 
-  [trp_priscus, "start", [(neq, "$g_talk_troop", "trp_sidonius_apollinaris"),(neq, "$g_talk_troop", "trp_jerusalem_patriarch"),], #conditions just in case
+  [trp_priscus, "start", [], #conditions just in case
    "Yes? What do you need?", "priscus_talk_normal", []],
   [trp_priscus|plyr, "priscus_talk_normal", [(eq, "$g_sword_of_mars", 1),],
    "Can you tell me about Attila again?", "priscus_talk_normal_history", []], #just a summary, does not start the quest
@@ -49595,7 +49590,7 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   [trp_pilos_cultist|plyr, "pilos_cultist_talk_1", [],
    "I do not need a man of faith right now, farewell.", "close_window", []],
 
-  [anyone, "start", [(is_between,"$g_talk_troop","trp_jerusalem_patriarch", "trp_chalcedonian_bishops_end"),],
+  [anyone, "start", [(is_between, "$g_talk_troop", "trp_chal_bishop_jerusalem_1", "trp_chalcedonian_bishops_end"),],
    "Good day, {sir/madam}. What do you need?", "chalcedonian_bishop_talk", []], #opening
 
   [anyone|plyr, "chalcedonian_bishop_talk", [(eq, "$g_talk_troop", "trp_hydatius")],
@@ -49690,8 +49685,8 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
    "Nevermind.", "chalcedonian_bishop_talk", []],
 
 
-  [anyone|plyr, "chalcedonian_bishop_talk", [(neq, "$g_player_faith", 1),(neq, "$g_player_converted", 1),], #player is not of the religion
-   "I wish be converted to Chalcedonian Christianity.", "chalcedonian_bishop_talk_convert_1", [
+  [anyone|plyr, "chalcedonian_bishop_talk", [(neg|troop_slot_eq, "trp_player", slot_troop_religion, slot_religion_chalcedonian),(neq, "$g_player_converted", 1),], #player is not of the religion
+   "I accept the council of Chalcedon and wish to come in communion with your church.", "chalcedonian_bishop_talk_convert_1", [
           (assign, "$g_player_faith", 1),
           (troop_set_slot, "trp_player", slot_troop_religion, slot_religion_chalcedonian), # christian
           (faction_set_slot, "fac_player_supporters_faction", slot_faction_religion, slot_religion_chalcedonian),
@@ -49718,7 +49713,7 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   [anyone, "chalcedonian_bishop_talk_donate_1", [], #after player donates
    "Thank you for the donation, {playername}.", "close_window", []],
   [anyone|plyr, "chalcedonian_bishop_talk", [
-    (eq, "$g_player_faith", 1),
+    (troop_slot_eq, "trp_player", slot_troop_religion, slot_religion_chalcedonian),
     (store_troop_gold,":money","trp_player"),
     (gt,":money",299),
     (troops_can_join, 1),
@@ -49755,14 +49750,14 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   [anyone|plyr, "chalcedonian_bishop_talk", [],
    "I do not need a man of God at this time, farewell.", "close_window", []],
 
-  [trp_coptic_pope, "start", [],
-   "Good day, {sir/madam}. What do you need?", "coptic_pope_talk_1", []], #opening
-  [trp_coptic_pope|plyr, "coptic_pope_talk_1", [(neq, "$g_player_faith", 5),(neq, "$g_player_converted", 1),], #player is not of the religion
-   "I wish be converted to Miaphysite Christianity.", "coptic_pope_talk_convert_1", [
+  [anyone, "start", [(is_between, "$g_talk_troop", "trp_mia_bishop_alexandria_1", "trp_mia_bishops_end"),],
+   "Good day, {sir/madam}. What do you need?", "non_chalc_bishop_talk_1", []], #opening
+  [anyone|plyr, "non_chalc_bishop_talk_1", [(neg|troop_slot_eq, "trp_player", slot_troop_religion, slot_religion_coptic),(neq, "$g_player_converted", 1),], #player is not of the religion
+   "I reject the council of Chalcedon, and wish to commune with your church.", "non_chalc_bishop_talk_convert_1", [
           (assign, "$g_player_faith", 5),
           (troop_set_slot, "trp_player", slot_troop_religion, slot_religion_coptic), # christian
           (faction_set_slot, "fac_player_supporters_faction", slot_faction_religion, slot_religion_coptic),
-          (display_message, "@You are now a Miaphysite Christian."),
+          (display_message, "@You are now a Non-Chalcedonian Christian."),
           (try_begin),
             (store_relation,":rel","fac_coptic_christians","fac_player_faction"),
             (try_begin),
@@ -49779,24 +49774,24 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
           (troop_set_slot, "trp_player", slot_troop_controversy, ":controversy"),
           (assign, "$g_player_converted", 1),
    ]],
-  [trp_coptic_pope|plyr, "coptic_pope_talk_1", [(store_troop_gold,":money","trp_player"),(gt,":money",499),], #player is of the religion
-   "I would like to donate 500 siliquae to the church.", "coptic_pope_talk_donate_1", [(troop_remove_gold, "trp_player", 500),(call_script, "script_change_player_relation_with_faction", "fac_coptic_christians", 5),]],
-  [trp_coptic_pope, "coptic_pope_talk_convert_1", [], #after player converts
+  [anyone|plyr, "non_chalc_bishop_talk_1", [(store_troop_gold,":money","trp_player"),(gt,":money",499),], #player is of the religion
+   "I would like to donate 500 siliquae to the church.", "non_chalc_bishop_talk_donate_1", [(troop_remove_gold, "trp_player", 500),(call_script, "script_change_player_relation_with_faction", "fac_coptic_christians", 5),]],
+  [anyone, "non_chalc_bishop_talk_convert_1", [], #after player converts
    "Welcome to the true faith, {playername}.", "close_window", []],
-  [trp_coptic_pope, "coptic_pope_talk_donate_1", [], #after player donates
+  [anyone, "non_chalc_bishop_talk_donate_1", [], #after player donates
    "Thank you for the donation, {playername}.", "close_window", []],
-  [trp_coptic_pope|plyr, "coptic_pope_talk_1", [
-    (eq, "$g_player_faith", 5),
+  [anyone|plyr, "non_chalc_bishop_talk_1", [
+    (troop_slot_eq, "trp_player", slot_troop_religion, slot_religion_coptic),
     (store_troop_gold,":money","trp_player"),
     (gt,":money",299),
     (troops_can_join, 1),], #player is of the religion
-   "I would like to hire a priest (300 siliquae).", "coptic_pope_talk_hire", [(troop_remove_gold, "trp_player", 300),(party_add_members, "p_main_party","trp_coptic_priest",1),]],
-  [trp_coptic_pope, "coptic_pope_talk_hire", [], #after player converts
-   "Very well.", "coptic_pope_talk_1", []],
-  [anyone|plyr, "coptic_pope_talk_1", [(player_has_item,"itm_holy_grail")],
+   "I would like to hire a priest (300 siliquae).", "non_chalc_bishop_talk_hire", [(troop_remove_gold, "trp_player", 300),(party_add_members, "p_main_party","trp_coptic_priest",1),]],
+  [anyone, "non_chalc_bishop_talk_hire", [], #after player converts
+   "Very well.", "non_chalc_bishop_talk_1", []],
+  [anyone|plyr, "non_chalc_bishop_talk_1", [(player_has_item,"itm_holy_grail")],
    "I found the holy grail, and wish to donate it to the church.", "coptic_grail_talk_1", []],
   [anyone, "coptic_grail_talk_1", [],
-   "You found the grail? Glory to God! Although it is not much, take this for the trouble, {playername}, for returning the grail to the true church.", "coptic_pope_talk_1", [
+   "You found the grail? Glory to God! Although it is not much, take this for the trouble, {playername}, for returning the grail to the true church.", "non_chalc_bishop_talk_1", [
    (troop_remove_item,"trp_player","itm_holy_grail"),
    (call_script, "script_change_player_relation_with_faction", "fac_coptic_christians", 20),
    (troop_add_gold, "trp_player", 4000),
@@ -49805,7 +49800,58 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
    (call_script, "script_change_troop_renown", "trp_player", 5),
    (add_xp_as_reward, 200),
    ]],
-  [trp_coptic_pope|plyr, "coptic_pope_talk_1", [],
+  [anyone|plyr, "non_chalc_bishop_talk_1", [],
+   "I do not need a man of God at this time, farewell.", "close_window", []],
+
+  [anyone, "start", [(is_between, "$g_talk_troop", "trp_arian_bishop_1", "trp_arian_bishops_end"),],
+   "Good day, {sir/madam}. What do you need?", "arian_bishop_talk_1", []], #opening
+  [anyone|plyr, "arian_bishop_talk_1", [(neg|troop_slot_eq, "trp_player", slot_troop_religion, slot_religion_arianism),(neq, "$g_player_converted", 1),], #player is not of the religion
+   "I reject the council of Nicaea, and wish to commune with your church.", "arian_bishop_talk_convert_1", [
+          (assign, "$g_player_faith", 3),
+          (troop_set_slot, "trp_player", slot_troop_religion, slot_religion_arianism), # christian
+          (faction_set_slot, "fac_player_supporters_faction", slot_faction_religion, slot_religion_arianism),
+          (display_message, "@You are now an Arian Christian."),
+          (try_begin),
+            (store_relation,":rel","fac_arian_christians","fac_player_faction"),
+            (try_begin),
+              (lt,":rel",-5),
+              (call_script, "script_set_player_relation_with_faction", "fac_arian_christians", 1),
+            (else_try),
+              (call_script, "script_change_player_relation_with_faction", "fac_arian_christians", 5),
+            (try_end),
+          (try_end),
+          (troop_get_slot, ":controversy", "trp_player", slot_troop_controversy),
+          (val_add, ":controversy", 5),
+          (troop_set_slot, "trp_player", slot_troop_controversy, ":controversy"),
+          (assign, "$g_player_converted", 1),
+   ]],
+  [anyone|plyr, "arian_bishop_talk_1", [(store_troop_gold,":money","trp_player"),(gt,":money",499),], #player is of the religion
+   "I would like to donate 500 siliquae to the church.", "arian_bishop_talk_donate_1", [(troop_remove_gold, "trp_player", 500),(call_script, "script_change_player_relation_with_faction", "fac_arian_christians", 5),]],
+  [anyone, "arian_bishop_talk_convert_1", [], #after player converts
+   "Welcome to the true faith, {playername}.", "close_window", []],
+  [anyone, "arian_bishop_talk_donate_1", [], #after player donates
+   "Thank you for the donation, {playername}.", "close_window", []],
+  [anyone|plyr, "arian_bishop_talk_1", [
+    (troop_slot_eq, "trp_player", slot_troop_religion, slot_religion_arianism),
+    (store_troop_gold,":money","trp_player"),
+    (gt,":money",299),
+    (troops_can_join, 1),], #player is of the religion
+   "I would like to hire a priest (300 siliquae).", "arian_bishop_talk_hire", [(troop_remove_gold, "trp_player", 300),(party_add_members, "p_main_party","trp_arian_priest",1),]],
+  [anyone, "arian_bishop_talk_hire", [], #after player converts
+   "Very well.", "arian_bishop_talk_1", []],
+  [anyone|plyr, "arian_bishop_talk_1", [(player_has_item,"itm_holy_grail")],
+   "I found the holy grail, and wish to donate it to the church.", "arian_grail_talk_1", []],
+  [anyone, "arian_grail_talk_1", [],
+   "You found the grail? Glory to God! Although it is not much, take this for the trouble, {playername}, for returning the grail to the true church.", "arian_bishop_talk_1", [
+   (troop_remove_item,"trp_player","itm_holy_grail"),
+   (call_script, "script_change_player_relation_with_faction", "fac_arian_christians", 20),
+   (troop_add_gold, "trp_player", 4000),
+   (call_script, "script_change_player_honor", 5),
+   (val_add, "$piety", 10),
+   (call_script, "script_change_troop_renown", "trp_player", 5),
+   (add_xp_as_reward, 200),
+   ]],
+  [anyone|plyr, "arian_bishop_talk_1", [],
    "I do not need a man of God at this time, farewell.", "close_window", []],
 
   #diocletian's palace
@@ -53694,10 +53740,7 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   ], "I have no time right now.", "close_window",[]],
 
   [anyone,"start", [
-  (neq,"$g_talk_troop","trp_bishop_of_rome"),
-  (neq,"$g_talk_troop","trp_bishop_of_constantinople"),
-  (neq,"$g_talk_troop","trp_bishop_of_alexandria"),
-  (neq,"$g_talk_troop","trp_bishop_of_antioch"),
+  (neq|is_between, "$g_talk_troop", "trp_chal_bishop_jerusalem_1", "trp_roman_priest"),
   ], "Surrender or die. Make your choice", "battle_reason_stated",[]],
   [anyone|plyr,"battle_reason_stated", [], "I am not afraid of you. I will fight.", "close_window",[[encounter_attack]]],
 

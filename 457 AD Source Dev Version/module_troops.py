@@ -1680,12 +1680,12 @@ troops = [
    def_attrib_lvl_18|level(17),wp_one_handed(135)|wp_two_handed(100)|wp_polearm(130)|wp_throwing(130)|wp_archery(145),knows_archer,caucaus_face_1, caucaus_face_2],
 
   ["caucasian_nobleman","Caucasian Nobleman","Caucasian Noblemen",tf_mounted|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_polearm|tf_guarantee_horse|tf_guarantee_helmet|tf_guarantee_shield,0,0,fac_culture_8,
-   [itm_wrapping_boots,itm_nomad_boots,itm_caucasian_scale_1,itm_caucasian_scale_2,itm_caucasian_scale_3,itm_caucasian_scale_4,itm_batumi_helmet_aventail,itm_staritsa_helmet_mail,itm_crossband_helmet_1,itm_crossband_helmet_2,
+   [itm_wrapping_boots,itm_nomad_boots,itm_caucasian_scale_1,itm_caucasian_scale_2,itm_caucasian_scale_3,itm_caucasian_scale_4,itm_batumi_helmet_aventail,itm_staritsa_helmet_mail,itm_crossband_helmet_1,
    itm_lance,itm_battle_axe_4,itm_strong_bow,itm_barbed_arrows,itm_tab_shield_small_round_b]+horses_persian_2,
    def_attrib_lvl_23|level(23),wp_one_handed(190)|wp_two_handed(150)|wp_polearm(190)|wp_throwing(190)|wp_archery(160),knows_lvl_23|knows_horse_archery_4,caucaus_face_1, caucaus_face_2],
 
   ["caucasian_cataphract","Caucasian Cataphract","Caucasian Cataphracts",tf_mounted|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_polearm|tf_guarantee_horse|tf_guarantee_helmet,0,0,fac_culture_8,
-   [itm_sassanid_cavalry_boots_2,itm_heavy_greaves,itm_caucasian_cataphract_1,itm_caucasian_cataphract_2,itm_caucasian_cataphract_3,itm_batumi_helmet_aventail,itm_staritsa_helmet_mail,itm_tsaritsyno_1,itm_veiled_helmet_4,itm_tsaritsyno_1_veiled,itm_crossband_helmet_1,itm_crossband_helmet_2,itm_leather_gloves,itm_rgani_mace,itm_heavy_lance,itm_khergit_bow,itm_bodkin_arrows,itm_tab_shield_small_round_c]+horses_cataphract_common,
+   [itm_sassanid_cavalry_boots_2,itm_heavy_greaves,itm_caucasian_cataphract_1,itm_caucasian_cataphract_2,itm_caucasian_cataphract_3,itm_batumi_helmet_aventail,itm_staritsa_helmet_mail,itm_veiled_helmet_4,itm_crossband_helmet_1,itm_leather_gloves,itm_rgani_mace,itm_heavy_lance,itm_khergit_bow,itm_bodkin_arrows,itm_tab_shield_small_round_c]+horses_cataphract_common,
    def_attrib_lvl_30|level(30),wp_one_handed(230)|wp_two_handed(210)|wp_polearm(220)|wp_throwing(200)|wp_archery(150)|wp_firearm(80),knows_lvl_30|knows_horse_archery_5,caucaus_face_1, caucaus_face_2],
 
   ["caucasian_messenger","Caucasian Messenger","Caucasian Messengers",tf_mounted|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_polearm|tf_guarantee_horse|tf_guarantee_helmet,0,0,fac_culture_8,
@@ -1917,12 +1917,12 @@ troops = [
 
   ["caucasian_alan_retainer","Alan Retainer","Alan Retainers",tf_mounted|tf_guarantee_armor|tf_guarantee_boots|tf_guarantee_polearm|tf_guarantee_helmet|tf_guarantee_horse,0,0,fac_culture_16, #will replace with proper sword when finished!
    [itm_simple_shoes,itm_wrapping_boots,itm_nomad_boots,itm_sassanid_cavalry_boots_1,itm_sassanid_cavalry_boots_2,itm_kaftan_alan_red,itm_kaftan_alan_blue,itm_kaftan_alan_green,itm_kaftan_alan_white,itm_kaftan_alan_1,itm_kaftan_alan_2,itm_kaftan_alan_3,itm_kaftan_alan_4,itm_kaftan_alan_7,itm_kaftan_lamellar_1,itm_kaftan_lamellar_2,itm_kaftan_lamellar_3,itm_kaftan_lamellar_4,itm_kaftan_lamellar_9,itm_kaftan_lamellar_10,itm_kaftan_lamellar_11,
-   itm_woolen_cap_c,itm_woolen_cap,itm_woolen_cap_b,itm_woolen_cap_6,itm_rozhdestvensky_helmet_leather,itm_kishpek_helmet_mail,itm_khudashevsky_helmet_1,itm_khudashevsky_helmet_2,itm_rozhdestvensky_helmet_mail,itm_kishpek_helmet_mail,itm_kalhkni_helmet_1,itm_heavy_lance,itm_spear_sword,itm_klin_yar_spatha,itm_hunnic_spatha,itm_battle_axe_2]+horses_alan_1,
+   itm_woolen_cap_c,itm_woolen_cap,itm_woolen_cap_b,itm_woolen_cap_6,itm_rozhdestvensky_helmet_leather,itm_kishpek_helmet_mail,itm_khudashevsky_helmet_1,itm_khudashevsky_helmet_2,itm_rozhdestvensky_helmet_mail,itm_kishpek_helmet_mail,itm_kalhkni_helmet_1,itm_crossband_helmet_1,itm_heavy_lance,itm_spear_sword,itm_klin_yar_spatha,itm_hunnic_spatha,itm_battle_axe_2]+horses_alan_1,
    def_attrib_lvl_23|level(23),wp_one_handed(180)|wp_two_handed(190)|wp_polearm(190)|wp_archery(160)|wp_throwing(110)|wp_crossbow(30)|wp_firearm(80),knows_lvl_23|knows_horse_archery_5,sarmatian_face_1, sarmatian_face_2],
 
   ["caucasian_alan_companion","Alan Companion","Alan Companions",tf_mounted|tf_guarantee_armor|tf_guarantee_boots|tf_guarantee_polearm|tf_guarantee_helmet|tf_guarantee_horse,0,0,fac_culture_16,
    [itm_heavy_greaves,itm_sassanid_cavalry_boots_1,itm_sassanid_cavalry_boots_2,itm_sarranid_boots_b,itm_kaftan_lamellar_1,itm_kaftan_lamellar_2,itm_kaftan_lamellar_3,itm_kaftan_lamellar_4,itm_kaftan_lamellar_11,itm_alan_cataphract_1,itm_leather_gloves,
-   itm_kalhkni_helmet_1,itm_kishpek_helmet_mail,itm_rozhdestvensky_helmet_mail,itm_khudashevsky_helmet_2,itm_khudashevsky_helmet_3,itm_heavy_lance,itm_spear_sword,itm_klin_yar_spatha]+horses_alan_2,
+   itm_kalhkni_helmet_1,itm_kishpek_helmet_mail,itm_rozhdestvensky_helmet_mail,itm_khudashevsky_helmet_2,itm_khudashevsky_helmet_3,itm_crossband_helmet_1,itm_heavy_lance,itm_spear_sword,itm_klin_yar_spatha]+horses_alan_2,
    def_attrib_lvl_28|level(28),wp_one_handed(210)|wp_two_handed(220)|wp_polearm(225)|wp_archery(160)|wp_throwing(60)|wp_crossbow(60)|wp_firearm(60),knows_lvl_28,sarmatian_face_1, sarmatian_face_2],
 
   ["caucasian_alan_deserter","Alan Deserter","Alan Deserters",tf_guarantee_armor|tf_guarantee_boots|tf_guarantee_polearm|tf_guarantee_shield,0,0,fac_culture_16,

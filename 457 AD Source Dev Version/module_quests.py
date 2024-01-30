@@ -454,7 +454,7 @@ quests = [
   "{!}None"
  ),
 
- ("diocletian_quest", "An Emperor to rest", 0,
+ ("diocletian_quest", "An Emperor to Rest", 0,
   "{!}None"
  ),
 
@@ -538,6 +538,13 @@ quests = [
   "{!}None"
  ),
 
+ ("alexandria_rebellion_chal", "Haddingr's Revenge", 0, #Pro-Chalcedonian side of the quest, player restores order + installs Chalcedonian patriarch in alexandria
+  "{!}"
+ ), 
+
+ ("alexandria_rebellion_mia", "Haddingr's Revenge", 0, #Anti-Chalcedonian side of the quest, player can establish Miaphysite kingdom of Alexandria
+  "{!}"
+ ), 
 #CONQUEST QUESTS
  ("conquest_gaul", "The Reconquest of Gaul", 0, #WRE
   "{!}Just as Julius Caesar conquered Gaul 500 years ago, you must conquer the lands once again."

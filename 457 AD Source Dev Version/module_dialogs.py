@@ -2435,7 +2435,7 @@ If you would like to practice your horsemanship, you can take my horse here. The
   ]],
   [anyone,"ernak_quest_final_5", [
   ],
-    "--He looks now into your direction.--^^{playername}, I didn’t forget about you. May your name and fame be known far and wide. I want to gift you with something that is very dear to me: my grandfather’s armor, Mundzuk. And have your share of the loot too, you and your men deserve it.^^You will always be welcome here, {playername}.",
+    "--He looks now into your direction.--^^{playername}, I didn't forget about you. May your name and fame be known far and wide. I want to gift you with something that is very dear to me: my grandfather's armor, Mundzuk. And have your share of the loot too, you and your men deserve it.^^You will always be welcome here, {playername}.",
   "close_window",[
     (mission_disable_talk),
     (assign, "$g_battle_result", 1),
@@ -2512,12 +2512,12 @@ If you would like to practice your horsemanship, you can take my horse here. The
   ]],
   [anyone|other(trp_sabir_aydar), "ernak_quest_oath2_3",
   [],
-    "I am Aydar, son of Tolug, loyal servant of Gostun, the Khan of the Sabirs. Your man here, {playername}, has caused harm to my lord’s men and killed one of his officers, called Tatra. You owe us compensation.",
+    "I am Aydar, son of Tolug, loyal servant of Gostun, the Khan of the Sabirs. Your man here, {playername}, has caused harm to my lord's men and killed one of his officers, called Tatra. You owe us compensation.",
     "ernak_quest_oath2_4", [
   ]],
   [anyone, "ernak_quest_oath2_4",
   [],
-    "We owe you nothing, what I am going to give you is this: a bird, a mouse, a frog and five arrows. This is my answer to Gostun, bring these things to him: if he’s as smart as he is powerful, we will solve this issue without a drop of blood and you will bathe in gold. The gold of Attila.",
+    "We owe you nothing, what I am going to give you is this: a bird, a mouse, a frog and five arrows. This is my answer to Gostun, bring these things to him: if he's as smart as he is powerful, we will solve this issue without a drop of blood and you will bathe in gold. The gold of Attila.",
     "close_window", [
    (assign, "$g_battle_result", 1),
    (mission_disable_talk),
@@ -2614,13 +2614,13 @@ If you would like to practice your horsemanship, you can take my horse here. The
     (quest_slot_ge, "qst_ernak_quest", slot_quest_target_saraguroi, 10),],
    "Welcome, {playername}, I heard news of your success.", "ernak_quest_saraguroi_finished_1", []],
   [anyone|plyr, "ernak_quest_saraguroi_finished_1", [(quest_slot_eq, "qst_ernak_quest", slot_quest_target_saraguroi, 10),],
-   "They ambushed me but I emerged victorious. We’ve made peace with no less honour to the Saragurs than shame to the Lekhs. I looted as much as possible and brought you the tribute you wanted.",
+   "They ambushed me but I emerged victorious. We've made peace with no less honour to the Saragurs than shame to the Lekhs. I looted as much as possible and brought you the tribute you wanted.",
    "ernak_quest_saraguroi_finished_looted", [
     (add_quest_note_from_sreg, "qst_ernak_quest", 5, "@Saraguroi task (completed): You have looted the Lekh village.",0),
     (add_xp_as_reward, 500),
    ]],
   [anyone|plyr, "ernak_quest_saraguroi_finished_1", [(quest_slot_eq, "qst_ernak_quest", slot_quest_target_saraguroi, 20),],
-   "They ambushed me but I emerged victorious. We’ve made peace with no less honour to the Saragurs than shame to the Lekhs, but they had nothing of valuable to give. I subjugated them. They will send you warriors from now on, if needed.",
+   "They ambushed me but I emerged victorious. We've made peace with no less honour to the Saragurs than shame to the Lekhs, but they had nothing of valuable to give. I subjugated them. They will send you warriors from now on, if needed.",
    "ernak_quest_saraguroi_finished_subjugated", [
 
     (add_quest_note_from_sreg, "qst_ernak_quest", 5, "@Saraguroi task (completed): You have subjugated the Lekhs.",0),
@@ -2720,7 +2720,7 @@ If you would like to practice your horsemanship, you can take my horse here. The
    "Prove it to us. Reach the village of the Lekhs on the mountains and exert tribute from them. Show us that Ernak's servants are fair and just rulers who treat their subjects with respect.",
    "ernak_quest_saraguroi_intro_7", []],
   [anyone|plyr, "ernak_quest_saraguroi_intro_7", [],
-   "I accept. I will meet the Lekh’s representatives and demand tribute.",
+   "I accept. I will meet the Lekh's representatives and demand tribute.",
    "ernak_quest_saraguroi_intro_8", []],
   [anyone, "ernak_quest_saraguroi_intro_8", [],
    "Good. If you succeed, we will consider your offer. But be warned, we will not join any coalition blindly.",
@@ -2808,7 +2808,7 @@ If you would like to practice your horsemanship, you can take my horse here. The
    "Whom we have here?",
    "ernak_quest_kutriguroi_intro_1", []],
   [anyone|plyr, "ernak_quest_kutriguroi_intro_1", [],
-   "My name is {playername} and I am prince Ernak’s messenger. Hail to you, oh famous sire.",
+   "My name is {playername} and I am prince Ernak's messenger. Hail to you, oh famous sire.",
    "ernak_quest_kutriguroi_intro_2", []],
   [anyone, "ernak_quest_kutriguroi_intro_2", [],
    "And what business do you have with us, representative of Ernak?",
@@ -2887,7 +2887,7 @@ If you would like to practice your horsemanship, you can take my horse here. The
    "I am {playername}, and I come to collect tribute from the Saragurs. You tried to hide in your mountains and attack me while I was reaching your huts, you owe me one.",
   "ernak_quest_lekh_talk_2", []],
   [anyone, "ernak_quest_lekh_talk_2", [],
-   "We know who you are and why you’ve come. We have nothing to give you, nothing valuable but our arms. This is what I can offer you. When the time comes, my warriors will follow you in battle.",
+   "We know who you are and why you've come. We have nothing to give you, nothing valuable but our arms. This is what I can offer you. When the time comes, my warriors will follow you in battle.",
   "ernak_quest_lekh_talk_decide", []],
   [anyone|plyr, "ernak_quest_lekh_talk_decide", [],
    "I accept. You will pay what is due with your blood, but you will share no loot with us.",
@@ -2901,7 +2901,7 @@ If you would like to practice your horsemanship, you can take my horse here. The
     (mission_disable_talk),
   ]],
   [anyone|plyr, "ernak_quest_lekh_talk_decide", [],
-   "The Saragurs do not need men, they need gold. If you have none to offer them I won’t be the one to pay for you out of my own pocket. Now die, I will take what is mine from your village.",
+   "The Saragurs do not need men, they need gold. If you have none to offer them I won't be the one to pay for you out of my own pocket. Now die, I will take what is mine from your village.",
   "close_window", [
     (finish_mission, 3),
     (mission_cam_animate_to_screen_color, 0xFF000000, 2000),
@@ -3687,6 +3687,9 @@ or you won't be able to hang on to a single man you catch.", "ramun_ask_about_ca
 [trp_bigilas_son,"member_chat", [], "Are we there yet?", "attilas_bastard_son_chat_1",[]],
 [trp_bigilas_son|plyr,"attilas_bastard_son_chat_1", [], "Not yet.", "attilas_bastard_son_chat_2",[]],
 [trp_bigilas_son,"attilas_bastard_son_chat_2", [], "I can't wait to get back. I've been captive for too long.", "close_window",[]],
+
+[trp_severinus,"member_chat", [], "Have we arrived to the village of Asturis yet?", "severinus_travel_chat_1",[]],
+[trp_severinus|plyr,"severinus_travel_chat_1", [], "Not yet.", "close_window",[]],
 
 
 [anyone,"member_chat",
@@ -20230,7 +20233,7 @@ I knew that I had found someone worthy of becoming my vassal.", "lord_invite_1",
 
 [anyone,"ernak_quest_intro_2", [
 ],
-  "I don’t know what the Gods had in store for me, but I know I must fulfil my fate by restoring the old power our people had under my father, during the glory days of the Hunnic Empire.^^Sadly, our people were severely weakened after the battle of Nedao, where our former subjects, Gepids and Ostrogoths among many, defeated my brother’s armies and we were forced to retreat along the shores of the Pontus.",
+  "I don't know what the Gods had in store for me, but I know I must fulfil my fate by restoring the old power our people had under my father, during the glory days of the Hunnic Empire.^^Sadly, our people were severely weakened after the battle of Nedao, where our former subjects, Gepids and Ostrogoths among many, defeated my brother's armies and we were forced to retreat along the shores of the Pontus.",
 "ernak_quest_intro_3",[]],
 
 [anyone,"ernak_quest_intro_3", [
@@ -20245,7 +20248,7 @@ I knew that I had found someone worthy of becoming my vassal.", "lord_invite_1",
 
 [anyone,"ernak_quest_intro_5", [
 ],
-  "My brother is not able to protect them, he’s too focused on his internal affairs on the Bosphorus. However, if I wish to propose myself as the new leader of this confederacy, they will need to trust me. This is my task for you, {playername}. Go meet their tribal chiefs, tell them Ernak, the son of Attila, wishes to protect them from their enemies and see what they need and how we can help them.",
+  "My brother is not able to protect them, he's too focused on his internal affairs on the Bosphorus. However, if I wish to propose myself as the new leader of this confederacy, they will need to trust me. This is my task for you, {playername}. Go meet their tribal chiefs, tell them Ernak, the son of Attila, wishes to protect them from their enemies and see what they need and how we can help them.",
 "ernak_quest_intro_6",[]],
 
 [anyone|plyr,"ernak_quest_intro_6", [
@@ -20255,7 +20258,7 @@ I knew that I had found someone worthy of becoming my vassal.", "lord_invite_1",
 
 [anyone|plyr,"ernak_quest_intro_6", [
 ],
-  "I am sorry, generous lord Ernak, but I don’t think I’m ready for this task. I hope you will find someone else to help you in your struggle.",
+  "I am sorry, generous lord Ernak, but I don't think I'm ready for this task. I hope you will find someone else to help you in your struggle.",
 "lord_pretalk",[
   (quest_set_slot, "qst_ernak_quest", slot_quest_current_state, -1)
 ]],
@@ -47529,7 +47532,7 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   (this_or_next|eq, "$current_town", "p_village_185"),
   (eq, "$current_town", "p_town_33"),
   (eq, "$g_severinus_quest" , 0),
-  ], "I've heard that a man named Severinus claims to be having visions of the near future.", "town_dweller_talk",[(assign, "$g_severinus_quest", 1)]],
+  ], "I've heard that a there is a monk named Severinus who is staying in Castra Regina.", "town_dweller_talk",[(assign, "$g_severinus_quest", 1)]], #will place him in castra regina, where the player can escort him through the region of noricum
 
   [anyone,"town_dweller_ask_rumor", [
   (eq, "$current_town", "p_village_150"),
@@ -50629,144 +50632,162 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
       (change_screen_mission),
   ]],
 
-  #noricum quest
-  [trp_severinus, "start", [],
-   "Good day, {sir/madam}. What do you need?", "severinus_talk_1", []], #opening
-  [trp_severinus|plyr, "severinus_talk_1", [(neq, "$g_player_faith", 1),(neq, "$g_player_converted", 1),], #player is not of the religion
-   "I wish be converted to Chalcedonian Christianity.", "severinus_talk_convert_1", [
-          (assign, "$g_player_faith", 1),
-          (troop_set_slot, "trp_player", slot_troop_religion, slot_religion_chalcedonian), # christian
-          (faction_set_slot, "fac_player_supporters_faction", slot_faction_religion, slot_religion_chalcedonian),
-          (display_message, "@You are now a Chalcedonian Christian."),
-          (try_begin),
-            (store_relation,":rel","fac_roman_christians","fac_player_faction"),
-            (try_begin),
-              (lt,":rel",-5),
-              (call_script, "script_set_player_relation_with_faction", "fac_roman_christians", 1),
-            (else_try),
-              (call_script, "script_change_player_relation_with_faction", "fac_roman_christians", 5),
-            (try_end),
-          (try_end),
 
-          (troop_get_slot, ":controversy", "trp_player", slot_troop_controversy),
-          (val_add, ":controversy", 5),
-          (troop_set_slot, "trp_player", slot_troop_controversy, ":controversy"),
-          (assign, "$g_player_converted", 1),
-   ]],
-  [trp_severinus|plyr, "severinus_talk_1", [(eq, "$g_player_faith", 1),(store_troop_gold,":money","trp_player"),(gt,":money",499),], #player is of the religion
-   "I would like to donate 500 siliquae to the church and its community.", "severinus_talk_donate_1", [(troop_remove_gold, "trp_player", 500),(call_script, "script_change_player_relation_with_faction", "fac_roman_christians", 5),]],
-  [trp_severinus, "severinus_talk_convert_1", [], #after player converts
-   "Welcome to the true faith, {playername}.", "close_window", []],
-  [trp_severinus, "severinus_talk_donate_1", [], #after player donates
-   "Thank you for the donation, {playername}.", "close_window", []],
+  [trp_severinus, "start", [ #player starts the quest in Asturis after hearing rumors of a pious monk by the name of Severinus
+  (neg|check_quest_active,"qst_severinus_quest"),
+  (eq, "$g_severinus_quest", 1),
+  ],
+   "Oh citizens of Asturis, gather near! For some time I have lived among you all, following the doctrines of the apostolic faith. Last night, I had the most frightening dream! The Good God has revealed to me prophecy! Soon the evil one will bring ruin to our fair town!", "severinus_asturis_1", []], #preaching to Asturis, and being rejected by the populace
+  [trp_severinus, "severinus_asturis_1", [],
+   "Join me, my brethren in the faith. Through prayer, fasting and the fruits of Christ's compassion let us ward off the evil one and the ones who do his will!", "severinus_asturis_2", []],
 
-  [trp_severinus|plyr, "severinus_talk_1", [
-    (eq, "$g_player_faith", 1),
-    (store_troop_gold,":money","trp_player"),
-    (gt,":money",299),
-    (troops_can_join, 1),], #player is of the religion
-   "I would like to hire a priest (300 siliquae).", "severinus_talk_1", [(troop_remove_gold, "trp_player", 300),(party_add_members, "p_main_party","trp_roman_priest",1),]],
+  [anyone|other(trp_severinus_quest_npc_3), "severinus_asturis_2", [],
+   "You are nothing but a fool! I will not waste my time by asking some celestial being guidance! Where was he when the devil Attila ravaged this land! Go pester the sheep instead!", "severinus_asturis_3", []],
+  [anyone|other(trp_severinus_quest_npc_4), "severinus_asturis_3", [],
+   "You speak of prayer, why don't you speak of the strength of spears and swords? Are you a coward who thinks that only by fasting and prayer we shall be saved from this supposed doom? This is great foolishness!", "severinus_asturis_4", []],
+  [anyone|other(trp_severinus_quest_npc_5), "severinus_asturis_4", [],
+   "You dare speak of prophecy from God? You fool!", "severinus_asturis_5", []],
 
-  [trp_severinus|plyr, "severinus_talk_1", [(eq, "$g_severinus_quest", 1)],
-   "I heard a rumor that you can see the near future?", "severinus_talk_quest_1", []],
-  [trp_severinus, "severinus_talk_quest_1", [],
-   "The past couple years I have been here in Noricum, helping and giving charity to the people here, especially after the destruction the barbarians brought over. There has been instability, and the barbarians are taking advantage of it, and pillage and kidnap! Recently, I have been have dreams of the near future, and I feel these are from God.", "severinus_talk_quest_2", []],
-  [trp_severinus, "severinus_talk_quest_2", [],
-   "They first started in the town of Asturis, where God warned me of its destruction. I tried to convince the people and clergy to fast and give alms so they may avoid this fate; but alas, they did not listen and the town was destroyed.", "severinus_talk_quest_3", []],
-  [trp_severinus, "severinus_talk_quest_3", [],
-   "But you have come at a good time, {playername}. God has foretold your coming, and I wish to ask of you for a task. One of my followers, who like me is a servant of God, a man by the name of Aurelios is in charge of a refugee camp outside of Lauriacum.", "severinus_talk_quest_4", []],#village_158
-  [trp_severinus, "severinus_talk_quest_4", [],
-   "I have written to him before, telling him to have his people fast and give alms when they can, so they may ward off the danger of the enemy. However, I dreamed that regardless, the enemy will strike the settlement. The villagers will need more than prayers, but arms.", "severinus_talk_quest_5", []],
-  [trp_severinus, "severinus_talk_quest_5", [],
-   "{playername}, regardless of if you believe me or not, please, go to this settlement and save them from the destruction of the barbarians!", "severinus_talk_quest_6", []],
-  [trp_severinus|plyr, "severinus_talk_quest_6", [],
-   "Very well, I will go to this village.", "severinus_talk_quest_7", []],
-  [trp_severinus, "severinus_talk_quest_7", [],
-   "You will be in my prayers, {playername}. From what I saw, the barbarians will attack from across a stream, using the forest as a means of cover to avoid dectection. A fog will roll in at the same time, that is when you know they will strike. May God be with you and grant you victory!", "close_window", [
-  (call_script, "script_change_player_relation_with_faction", "fac_roman_christians", 1),
-  (enable_party, "p_noricum_refugee_camp"),
-  (setup_quest_text, "qst_severinus_quest"),
-  (str_store_party_name_link, s3, "p_village_158"),
-  (str_store_string, s2, "@Severinus claims he has recieved dreams of the destruction of a small Norici refugee camp, outside of {s3}. He wishes for you to go this settlement, warn them and help them in the defense!"),
-  (call_script, "script_start_quest", "qst_severinus_quest", "$g_talk_troop"),
-  (quest_set_slot,"qst_severinus_quest", slot_quest_current_state, 1),
-  (quest_set_slot, "qst_severinus_quest", slot_quest_expiration_days, 7),
-  (assign, "$g_severinus_quest", 2), #has been started
-   ]],
-  [trp_severinus|plyr, "severinus_talk_quest_6", [],
-   "Bah, you speak in nonsense! Go defend the village yourself, you fool...", "close_window", [(call_script, "script_change_player_relation_with_faction", "fac_roman_christians", -1),(assign, "$g_severinus_quest", 2)]], #lol won't be able to complete the mission now!
+  [trp_severinus, "severinus_asturis_5", [],
+   "And who are you? Come to mock me some more after the others had their fun?", "severinus_asturis_6", []],
 
-  [trp_severinus|plyr, "severinus_talk_1", [(check_quest_active,"qst_severinus_quest"),(quest_slot_eq,"qst_severinus_quest",slot_quest_current_state, 3),(check_quest_succeeded, "qst_severinus_quest")],
-   "The barbarians have been defeated, and the settlement is safe.", "severinus_talk_quest_finish_1", []],
-  [trp_severinus, "severinus_talk_quest_finish_1", [],
-   "Praise the Lord! I do not have much to give you, {playername}, much of what I have is dedicated to the people of Noricum. However, the some of the local garrison wishes to join you on your exploits. You have my permission to hire them.", "severinus_talk_quest_finish_2", []],
-  [trp_severinus|plyr, "severinus_talk_quest_finish_2", [],
-   "Thank you, I graciously accept this gift.", "severinus_talk_quest_finish_3", []],
-  [trp_severinus, "severinus_talk_quest_finish_3", [],
-   "May God be with you in your travels, {playername}.", "severinus_talk_1", [(assign, "$g_severinus_quest", 3), #allows the player to hire the troops
-  (call_script, "script_end_quest", "qst_severinus_quest"),
-  (call_script, "script_change_troop_renown", "trp_player", 5),
-  (call_script, "script_change_player_honor", 5),
-  (call_script, "script_troop_add_gold", "trp_player", 400),
-  (disable_party, "p_noricum_refugee_camp"),
-  (add_xp_as_reward,820),
+  [trp_severinus|plyr, "severinus_asturis_6", [
+  (troop_slot_eq, "trp_player", slot_troop_religion, slot_religion_chalcedonian),
+  ], #must be a chalcedonian christian
+   "No, honorable servant of God. Tell me who you are and why you forsee destruction to the people of Asturis?", "severinus_asturis_7", []],
+
+  [trp_severinus|plyr, "severinus_asturis_6", [ #just calls him crazy
+  (neg|troop_slot_eq, "trp_player", slot_troop_religion, slot_religion_chalcedonian),
+  (store_relation, ":faction_relation", "fac_roman_christians", "fac_player_supporters_faction"),
+  (ge, ":faction_relation", 0),
+  ],
+   "Yes, I do want to tell you that this world does not need people like you. Take off you charlatan!", "severinus_asturis_rejection_1", []],
+
+  [trp_severinus|plyr, "severinus_asturis_6", [ #rebukes him harshly
+  (neg|troop_slot_eq, "trp_player", slot_troop_religion, slot_religion_chalcedonian),
+  (store_relation, ":faction_relation", "fac_roman_christians", "fac_player_supporters_faction"),
+  (le, ":faction_relation", -1),
+  ],
+   "Bah, listen to someone with the likes of you? You are nothing but a madman!", "severinus_asturis_rejection_1", []],
+
+
+  [trp_severinus, "severinus_asturis_rejection_1", [],
+   "You are just like the others; A heart hardened to the mercy that the Lord offers us all. I shall depart from this stubborn town; for it will swiftly perish to the enemy...", "close_window", [ #will end the scene, and deny the player the ability to visit asturis
+   (disable_party, "p_sq_asturis_1"),
+   (assign, "$g_severinus_quest", 2),
    ]],
 
-  [trp_severinus|plyr, "severinus_talk_1", [],
-   "I do not need a man of God at this time, farewell.", "close_window", []],
 
+  [trp_severinus, "severinus_asturis_7", [],
+   "My name is Severinus, humble servant of the Lord from the Eastern realm of the empire. I have come to this region because the empire has abandoned its people in Noricum and Raetia. They have been left to their own devices, without the help of the state. I am here to administer spiritual aid to a land covered by the darkness of the enemy; both the barbarians and the evil one.", "severinus_asturis_8", []],
+  [trp_severinus, "severinus_asturis_8", [],
+   "I have dwelt in this town for some time, mostly in solitude, in prayer and fasting. However, recently I have been plagued by nightmares. I believe these are warnings from God of the fate of this town. However, as you saw, the people of this town reject me, a fellow citizen, for their own desires.", "severinus_asturis_9", []],
 
-  [trp_severinus_companion, "start", [(eq, "$g_talk_troop_met", 0),
-  (check_quest_active,"qst_severinus_quest"),
-  (quest_slot_eq,"qst_severinus_quest",slot_quest_current_state, 1)],
-   "Greetings, I am Aurelios. You are?", "severinus_companion_talk_intro_1", []],
-  [trp_severinus_companion|plyr, "severinus_companion_talk_intro_1", [],
-   "I am {playername}. I was sent here by Severinus in order to warn you about a barbarian raid, and if necessary help in the defense. He says it should happen soon.", "severinus_companion_talk_intro_2", []],
-  [trp_severinus_companion, "severinus_companion_talk_intro_2", [],
-   "A raid? Soon? We just sent a few of our men out to purchase more supplies at the nearest town. This could not of come at a worse time!", "severinus_companion_talk_intro_3", []],
-  [trp_severinus_companion|plyr, "severinus_companion_talk_intro_3", [],
-   "Severinus told me that when they do attack, the sky will become foggy. They will hide in the wood, and when the time comes they shall attack from across the stream.", "severinus_companion_talk_intro_4", []],
-  [trp_severinus_companion, "severinus_companion_talk_intro_4", [],
-   "{playername}, we do not have many armed men here. Will you stay and help us with defending the villagers and refugees?", "severinus_companion_talk_intro_5", []],
-  [trp_severinus_companion|plyr, "severinus_companion_talk_intro_5", [],
-   "Very well, I will wait and join in with the defense.", "close_window", [
+  [trp_severinus|plyr, "severinus_asturis_9", [],
+   "So, honorable Severinus, what are you planning on doing now?", "severinus_asturis_10", []],
+
+  [trp_severinus, "severinus_asturis_10", [],
+   "I do hope that these dreams I had do not transpire; However we must leave this town at once, or we may lose our lives. There is another village nearby, by the name of Comagenis. We should be safe there, and I will continue my ministry as I had done here.", "severinus_asturis_11", []],
+
+  [trp_severinus|plyr, "severinus_asturis_11", [],
+   "I'd be overjoyed to accompany you to illuminate the lights of those who yet sleep and see only dark. I can provide you protection as we travel through Noricum.", "close_window", [ #sends player to new menu
+    (call_script, "script_change_player_relation_with_faction", "fac_roman_christians", 1),
+    (disable_party, "p_sq_asturis_1"),
+
+    (setup_quest_text, "qst_severinus_quest"),
+    (str_store_party_name_link, s3, "p_village_158"),
+    (str_store_string, s2, "@You have accompanied a hermit by the name of Severinus, on his journey through Noricum."),
+    (call_script, "script_start_quest", "qst_severinus_quest", "$g_talk_troop"),
+
+    (quest_set_slot,"qst_severinus_quest", slot_quest_current_state, 1),
+    (assign, "$g_severinus_quest", 2), #has been started
+
+    (finish_mission),
+    (jump_to_menu, "mnu_severinus_comagenis_1"),
+  ]],
+
+  [trp_severinus, "start", [(check_quest_active, "qst_severinus_quest"),(quest_slot_eq, "qst_severinus_quest", slot_quest_current_state, 1),],
+   "The wretched barbarians here have allied with the Romans living here. Do not think they have done it out of the kindness of their hearts… Getting in may prove to be difficult.", "severinus_comagenis_gate_1", []],
+
+  [anyone|other(trp_severinus_quest_npc_6), "severinus_comagenis_gate_1", [],
+   "You may enter the city but know that if you cause trouble we have ways of dealing with people like you.", "severinus_comagenis_gate_2", []],
+
+  [trp_severinus, "severinus_comagenis_gate_2", [],
+   "I had come with a gold purse for if my words had not been enough then the clinking of coins would have but we got in so easily. How odd, now let us go to the church for it is where the people tend to gather during times of hardship.", "close_window", [
    (quest_set_slot,"qst_severinus_quest", slot_quest_current_state, 2),
-   (jump_to_menu, "mnu_noricum_refugee_battle"),
    (finish_mission),
-   ]],
-  [trp_severinus_companion|plyr, "severinus_companion_talk_intro_5", [], #allows the player to quickly take some time to save or accidentally fail the quest hehe
-   "I will join you soon, but I have some errands to attend.", "close_window", [
-   ]],
+   (jump_to_menu, "mnu_severinus_comagenis_2"),
+  ]],
 
-  [trp_severinus_companion, "start", [],
-   "Greetings, {playername}", "severinus_companion_talk_normal_1", []],
-  [trp_severinus_companion|plyr, "severinus_companion_talk_normal_1", [
-  (check_quest_active,"qst_severinus_quest"),
-  (quest_slot_eq,"qst_severinus_quest",slot_quest_current_state, 1)],
-   "I am ready to join the defense, once the enemy strikes.", "severinus_companion_talk_defense_1", []],
-  [trp_severinus_companion, "severinus_companion_talk_defense_1", [],
-   "Very well, I will call for you once we spot them.", "close_window", [
-   (quest_set_slot,"qst_severinus_quest", slot_quest_current_state, 2),
-   (jump_to_menu, "mnu_noricum_refugee_battle"),
+  [trp_severinus, "start", [(check_quest_active, "qst_severinus_quest"),(quest_slot_eq, "qst_severinus_quest", slot_quest_current_state, 2),],
+   "Listen oh, you who despair and fear for what's coming next! Do not let the words of the demons control you! Believe not the words of those who come to you bearing ill words and ill advice!", "severinus_comagenis_church_1", []],
+  [trp_severinus, "severinus_comagenis_church_1", [],
+   "Did the Lord abandon his people in the desert? Did he abandon the saints and the martyrs in our own age? No! Arm yourself, not with swords but with fasting, prayer and almsgiving. He acts in mysterious ways but rest assured that He won't abandon his flock!", "severinus_comagenis_church_2", []],
+
+
+  [anyone|other(trp_roman_civilian_quest_1), "severinus_comagenis_church_2", [],
+   "But I lost my sheep, my crops, and even my own my daughter! How can I trust the Lord during such times?", "severinus_comagenis_church_3", []],
+  [anyone|other(trp_roman_civilian_quest_2), "severinus_comagenis_church_3", [],
+   "I saw horrors! Men and woman killed without mercy! Terrors from the East! Dragons and demons from hell!", "severinus_comagenis_church_4", []],
+
+  [anyone|other(trp_severinus_quest_npc_6), "severinus_comagenis_church_4", [], #Thinkest thou he is the same, who in our despair promises us the assistance of God?
+   "This man claims to be from Asturis. He has told us of the destruction that befell the town. Now, old man, is this the man you were telling us about?", "severinus_comagenis_church_5", []],
+  [anyone|other(trp_severinus_quest_npc_7), "severinus_comagenis_church_5", [],
+   "Yes, it is him! I housed the servant of the Good Lord while he lived with the townsfolk of Asturis. Oh, Severinus, my friend, through your kindness I have been spared from the destruction.", "severinus_comagenis_church_6", []],
+
+  [anyone|other(trp_roman_civilian_quest_2), "severinus_comagenis_church_6", [],
+   "I see it now! He is a true servant! He warned the people in Asturis but they didn’t believe him!", "severinus_comagenis_church_7", []],
+  [anyone|other(trp_roman_civilian_quest_1), "severinus_comagenis_church_7", [],
+   "We must not make the same mistake, my family and this town are the dearest to me! Let’s listen and act accordingly!", "close_window", [
+   (quest_set_slot,"qst_severinus_quest", slot_quest_current_state, 3),
    (finish_mission),
+   (jump_to_menu, "mnu_severinus_comagenis_3"),
    ]],
 
-  [trp_severinus_companion|plyr, "severinus_companion_talk_normal_1", [(store_troop_gold,":money","trp_player"),(gt,":money",99),], #player is of the religion
-   "I would like to donate 100 siliquae for the refugees.", "severinus_companion_talk_donate_1", [(troop_remove_gold, "trp_player", 100)]],
-  [trp_severinus_companion, "severinus_companion_talk_donate_1", [], #after player donates
-   "Thank you for the donation, {playername}.", "severinus_companion_talk_normal_1", [
-  (call_script, "script_change_player_relation_with_faction", "fac_roman_christians", 1),(call_script, "script_change_player_honor", 1),
+
+  [trp_severinus, "start", [(check_quest_active, "qst_severinus_quest"),(quest_slot_eq, "qst_severinus_quest", slot_quest_current_state, 3),], #After the barbarian guards leave and kill each other
+   "They are gone! The barbarians who once oppressed you have left and brought ruin upon themselves!", "severinus_comagenis_aftermath_1", []],
+  [trp_severinus, "severinus_comagenis_aftermath_1", [], 
+   "So you learn. What the earthly sword can accomplish is meager but when faith is your weapon, there is no mountain or obstacle that cannot be moved!", "close_window", [
+   (quest_set_slot,"qst_severinus_quest", slot_quest_current_state, 4),
+   (finish_mission),
+   (jump_to_menu, "mnu_severinus_comagenis_4"),
    ]],
 
-  [trp_severinus_companion|plyr, "severinus_companion_talk_normal_1", [],
-   "Farewell, friend.", "close_window", []],
+  [trp_severinus, "start", [(check_quest_active, "qst_severinus_quest"),(quest_slot_eq, "qst_severinus_quest", slot_quest_current_state, 4),], #Favianis start
+   "{playername}, by divine revelation I need you to find a woman named Procula. The Lord has revealed to me that she may be hiding valuable goods to help the starving people of Asturis.", "severinus_favianis_intro_1", []],
+  [trp_severinus|plyr, "severinus_favianis_intro_1", [], 
+   "Very well, I will ask around and find her.", "close_window", [
+   (quest_set_slot,"qst_severinus_quest", slot_quest_current_state, 5),
+   ]],
+
+  [trp_severinus, "start", [(check_quest_active, "qst_severinus_quest"),(quest_slot_eq, "qst_severinus_quest", slot_quest_current_state, 5),], #Favianis explore
+   "Have you found the woman yet?", "severinus_favianis_explore_1", []],
+  [trp_severinus|plyr, "severinus_favianis_explore_1", [],
+   "Not yet.", "close_window", []],
+
+  [trp_severinus_quest_npc_1, "start", [(check_quest_active, "qst_severinus_quest"),(quest_slot_eq, "qst_severinus_quest", slot_quest_current_state, 5),],
+   "Yes, stranger? What do you need?", "procula_approach_1", []],
+  [trp_severinus_quest_npc_1|plyr, "procula_approach_1", [],
+   "Are you the woman by the name of Procula?", "procula_approach_2", []],
+  [trp_severinus_quest_npc_1, "procula_approach_2", [],
+   "Yes, I am. Now, what do you need? Can't you see I'm rather busy right now?", "procula_approach_3", []],
+  [trp_severinus_quest_npc_1|plyr, "procula_approach_3", [],
+   "The man of God, Severinus wishes to speak with you. Follow me, he is currently in the town square preaching.", "close_window", [
+   (quest_set_slot,"qst_severinus_quest", slot_quest_current_state, 6),
+   (finish_mission),
+   (jump_to_menu, "mnu_severinus_favianis_2"),
+   ]],
+
+
+   
 
   [trp_berserker_leader, "start", [(check_quest_active, "qst_the_wolfmen"),(quest_slot_eq, "qst_the_wolfmen", slot_quest_current_state, 4),],
    "Not many dare venturing into these woods... Speak quickly, what do you seek?", "shaman_talk_intro_1", []],
   [trp_berserker_leader|plyr, "shaman_talk_intro_1", [],
    "The king of the Langobards permitted me to look for you. I want to learn your ways.", "shaman_talk_intro_2", []],
   [trp_berserker_leader, "shaman_talk_intro_2", [],
-   "You are too old to learn them and we don’t like strangers.", "shaman_talk_intro_3", []],
+   "You are too old to learn them and we don't like strangers.", "shaman_talk_intro_3", []],
 
   [trp_berserker_leader|plyr, "shaman_talk_intro_3", [(eq, "$g_player_faith", 2),(eq,"$g_paganism_dedication",1),], #must be a germanic pagan
    "I am a follower of our ancestral gods and devout to Wodan, the all-father.", "shaman_talk_intro_pagan_1", []],
@@ -50775,7 +50796,7 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   [trp_berserker_leader, "shaman_talk_intro_pagan_2", [],
    "The farmers and warriors living in the villages fear us and despise us, but we live a life of glory, magic and fighting. We are the dogs and wolves of Wodan. If you want to become one of us you will have to leave your life behind.", "shaman_talk_intro_pagan_3", []],
   [trp_berserker_leader|plyr, "shaman_talk_intro_pagan_3", [],
-   "My fate has been weaved long time ago and Wodan didn’t grant you the privilege of disposing of my life. I will soon be a prince, feared and respected, and I seek your knowledge to increase my power. Teach me the magic ways of the dire dogs that live in these woods and I shall bring your warriors with me, to appease Wodan, in my adventures.", "shaman_talk_intro_pagan_4", [(assign, "$berserker_ability", 1),]], #starts intro to player getting ability
+   "My fate has been weaved long time ago and Wodan didn't grant you the privilege of disposing of my life. I will soon be a prince, feared and respected, and I seek your knowledge to increase my power. Teach me the magic ways of the dire dogs that live in these woods and I shall bring your warriors with me, to appease Wodan, in my adventures.", "shaman_talk_intro_pagan_4", [(assign, "$berserker_ability", 1),]], #starts intro to player getting ability
   [trp_berserker_leader, "shaman_talk_intro_pagan_4", [],
    "Cut it! You pretend and speak too much, prince. If you really wish to learn our abilities you must prove your valour first. Duel our best champion, prove me you really are chosen by Wodan and that your actions speak louder than words.", "shaman_talk_intro_pagan_5", []],
   [trp_berserker_leader|plyr, "shaman_talk_intro_pagan_5", [],
@@ -50787,20 +50808,20 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
    ]],
 
   [trp_berserker_leader|plyr, "shaman_talk_intro_3", [], #non-germanic pagan
-   "I won’t go back empty-handed. I may not be as young anymore, but I can learn. Prove my valour, let me fight your best champion.", "shaman_talk_intro_other_1", []],
+   "I won't go back empty-handed. I may not be as young anymore, but I can learn. Prove my valour, let me fight your best champion.", "shaman_talk_intro_other_1", []],
   [trp_berserker_leader, "shaman_talk_intro_other_1", [],
-   "Very well, we don’t refuse a duel. Wido! Cut the impudent bug to pieces!", "close_window", [
+   "Very well, we don't refuse a duel. Wido! Cut the impudent bug to pieces!", "close_window", [
   (quest_set_slot,"qst_severinus_quest", slot_quest_current_state, 5),
   (finish_mission),
   (jump_to_menu, "mnu_wolfmen_duel"),
    ]],
 
   [trp_berserker_leader, "start", [(check_quest_active, "qst_the_wolfmen"),(quest_slot_eq, "qst_the_wolfmen", slot_quest_current_state, 6),(eq, "$g_player_faith", 2),(eq,"$g_paganism_dedication",1)], #player wins duel and is germanic pagan
-   "You won! The Gods have spoken, you clearly have Wodan’s favour on your side. You may not be one of us but you fight like a wolf.", "shaman_talk_duel_won_pagan_1", []],
+   "You won! The Gods have spoken, you clearly have Wodan's favour on your side. You may not be one of us but you fight like a wolf.", "shaman_talk_duel_won_pagan_1", []],
   [trp_berserker_leader|plyr, "shaman_talk_duel_won_pagan_1", [],
    "He was a great warrior, but I bested him in combat and I deserve to join the brotherhood now.", "shaman_talk_duel_won_pagan_2", []],
   [trp_berserker_leader, "shaman_talk_duel_won_pagan_2", [],
-   "Your training begins now. Your warriors will wait in their own camp in the clearance, we shall set them free now. We don’t want them to disturb us. In the next days you will learn what it means to be a wolf-warrior.", "close_window", []],
+   "Your training begins now. Your warriors will wait in their own camp in the clearance, we shall set them free now. We don't want them to disturb us. In the next days you will learn what it means to be a wolf-warrior.", "close_window", []],
 
   [trp_berserker_leader, "start", [(check_quest_active, "qst_the_wolfmen"),(quest_slot_eq, "qst_the_wolfmen", slot_quest_current_state, 6),], #player wins duel and is not germanic pagan
    "You won! The Gods have spoken. You are not one of us but we revere your strength. There is, although, one last thing we want to see from you before we will allow you to recruit our warriors: you will join us in battle.", "shaman_talk_duel_won_1", []],
@@ -51274,9 +51295,9 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   [trp_br_gerontius, "gerontius_intro_8", [],
    "Starvation and enslavement drove the Gothic denizens of Thracia to revolt during the reign of Emperor Valens. Proving too fierce to subdue, Roman arrogance gave way to bribery – ushering the renegades into Pannonia and Illyricum in exchange for amity. Today, the Goth of Sirmium is content to forget Roman cruelty toward his forefathers so long as his splendor is upheld by tribute.", "gerontius_intro_9", []],
   [trp_br_gerontius, "gerontius_intro_9", [],
-   "The wild Goth differs – he still lives by warfare and clings to his native ways, making travel in his country dangerous. Few sail upriver anymore, but for Amatus’ sake I will ferry you – if you appreciate what lies ahead.", "gerontius_intro_10", []],
+   "The wild Goth differs – he still lives by warfare and clings to his native ways, making travel in his country dangerous. Few sail upriver anymore, but for Amatus' sake I will ferry you – if you appreciate what lies ahead.", "gerontius_intro_10", []],
   [trp_br_gerontius|plyr, "gerontius_intro_10", [],
-   "I fear not an old shipman’s tale. We must set sail at once!", "close_window", [
+   "I fear not an old shipman's tale. We must set sail at once!", "close_window", [
    (quest_set_slot,"qst_black_river", slot_quest_current_state, 2),
    (finish_mission),
    (jump_to_menu, "mnu_black_river_pirates"),
@@ -51287,7 +51308,7 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   [trp_br_gerontius, "start", [], 
    "You speak to the triarchus of the lusoria Savus. What do you need, landsman?", "gerontius_1", []],
   [trp_br_gerontius|plyr, "gerontius_1", [(check_quest_active,"qst_black_river"),(quest_slot_eq, "qst_black_river", slot_quest_current_state, 1),],
-   "I fear not an old shipman’s tale. We must set sail at once!", "close_window", [
+   "I fear not an old shipman's tale. We must set sail at once!", "close_window", [
    (quest_set_slot,"qst_black_river", slot_quest_current_state, 2),
    (finish_mission),
    (jump_to_menu, "mnu_black_river_pirates"),
@@ -52780,10 +52801,6 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   [anyone,"start", [(store_conversation_troop, "$g_talk_troop"),(neq, "$g_talk_troop", "trp_silingi_chief"), #silingi village
       (store_current_scene,":current_scene"),(eq,":current_scene","scn_silingi_village"),
       ], "You should speak with our village elder.", "close_window",[]],
-
-  [anyone,"start", [(store_conversation_troop, "$g_talk_troop"),(neq, "$g_talk_troop", "trp_severinus_companion"), #noricum
-      (store_current_scene,":current_scene"),(eq,":current_scene","scn_noricum_refugee_camp"),
-      ], "I'm busy, however you should speak with Aurelios, the property owner.", "close_window",[]],
 
   [anyone,"start", [(store_conversation_troop, "$g_talk_troop"),(neq, "$g_talk_troop", "trp_bagaudae_king"),
       (store_current_scene,":current_scene"),(eq,":current_scene","scn_abandoned_silver_mine"),

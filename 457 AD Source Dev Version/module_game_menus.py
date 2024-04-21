@@ -25954,137 +25954,6 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       ]),
     ]),
 
-  ("noricum_refugee_settlement",0,
-    "As you cross a small stream, you see a small, fortified villa on a hill.",
-    "none",
-    [],
-    [
-      ("enter_village",[],"Approach the villa",[
-    (set_jump_mission, "mt_visit_minor_town"),
-    (modify_visitors_at_site, "scn_noricum_refugee_camp"),
-    (reset_visitors),
-    #guards
-    #(set_visitor, 1, ":troop_2"),
-    (set_visitor, 2, "trp_miles_romani"),
-    #(set_visitor, 3, "trp_noricum_footman"),
-    #(set_visitor, 4, ":troop_2"),
-    (set_visitor, 5, "trp_miles_romani"),
-    (set_visitor, 6, "trp_miles_romani"),
-    (set_visitor, 7, "trp_miles_romani"),
-    (set_visitor, 8, "trp_miles_romani"),
-    (set_visitor, 9, "trp_miles_romani"),
-    (set_visitor, 10, "trp_miles_romani"),
-    (set_visitor, 11, "trp_miles_romani"),
-    (set_visitor, 12, "trp_miles_romani"),
-    #villagers
-    (set_visitor, 13, "trp_refugee"),
-    (set_visitor, 14, "trp_refugee"),
-    (set_visitor, 15, "trp_refugee"),
-    (set_visitor, 16, "trp_refugee"),
-    (set_visitor, 17, "trp_refugee"),
-    (set_visitor, 18, "trp_refugee"),
-    (set_visitor, 19, "trp_refugee"),
-    (set_visitor, 20, "trp_refugee"),
-    (set_visitor, 21, "trp_refugee"),
-    (set_visitor, 22, "trp_refugee"),
-    (set_visitor, 23, "trp_miles_romani"),
-    (set_visitor, 24, "trp_miles_romani"),
-    (set_visitor, 25, "trp_miles_romani"),
-    (set_visitor, 26, "trp_imperial_town_walker_1"),
-    (set_visitor, 27, "trp_imperial_town_walker_1"),
-    (set_visitor, 28, "trp_imperial_town_walker_1"),
-    (set_visitor, 29, "trp_imperial_town_walker_1"),
-    (set_visitor, 30, "trp_imperial_town_walker_1"),
-    (set_visitor, 31, "trp_imperial_town_walker_2"),
-    (set_visitor, 32, "trp_imperial_town_walker_2"),
-
-    #(set_visitor, 33, "trp_noricum_footman"),
-    #(set_visitor, 34, "trp_noricum_footman"),
-
-    (set_visitor, 35, "trp_severinus_companion"),
-
-    (set_jump_entry, 0),
-    (scene_set_slot, "scn_noricum_refugee_camp", slot_scene_visited, 1),
-    (jump_to_scene, "scn_noricum_refugee_camp"),
-    (change_screen_mission),
-
-    ]),
-
-     ("leave",[],"Leave",[(leave_encounter),(change_screen_return)]),
-    ]),
-
-
-  ( "noricum_refugee_battle",0,
-    "As you and your forces wait, you begin to see a fog roll in. Suddenly, a guard yells for you, as movement has been seen in the forest. It is time.",
-    "none",
-    [
-      (quest_slot_eq,"qst_severinus_quest",slot_quest_current_state, 2),
-      (set_background_mesh, "mesh_pic_sea_raiders"),
-      (assign, "$g_enemy_party", "p_noricum_refugee_camp"),
-      (assign, "$g_ally_party", -1),
-      (call_script, "script_encounter_calculate_fit"),
-    ],
-    [
-      ("continue",[],
-       "To arms!",
-       [
-        (try_begin),
-          (store_troop_health, ":health", "trp_player", 0), #get relative health in 1-100 range and put it into the ":health" variable
-          (lt, ":health", 30),
-          (val_add, ":health", 35),               #add to it the 5%
-          (troop_set_health,   "trp_player", ":health"),   #set it
-        (try_end),
-
-        (assign, "$g_battle_result", 0),
-        (assign, "$g_engaged_enemy", 1),
-        (call_script, "script_calculate_battle_advantage"),
-        (set_battle_advantage, reg0),
-        (set_party_battle_mode),
-
-        (set_jump_mission,"mt_noricum_battle"),
-        (jump_to_scene, "scn_noricum_refugee_camp"),
-        (change_screen_mission),
-        ]),
-      ]),
-
-  ( "noricum_refugee_battle_won",0,
-    "Your men defeat the raiding barbarians, and those who survived route into the woods." +
-    "With their defeat, you and your troops loot the bodies of the fallen men; spoils for a great victory!",
-    "none",
-    [],
-    [
-      ("continue", [], "Continue...",
-        [(quest_set_slot,"qst_severinus_quest", slot_quest_current_state, 3), #quest state moved forwards to advance the quest
-        (str_clear, s2),
-        (str_store_string, s2, "@You have defeated the barbarian mauraders. Report back to Severinus to tell of this victory!"),
-        (add_quest_note_from_sreg, "qst_severinus_quest", 4, s2, 0),
-        (call_script, "script_troop_add_gold", "trp_player", 650),
-        (add_xp_as_reward,500),
-        (call_script, "script_change_troop_renown", "trp_player", 10),
-        (call_script, "script_change_player_honor", 5),
-        (call_script, "script_succeed_quest", "qst_severinus_quest"),
-        (leave_encounter),
-        (change_screen_return),
-      ]),
-    ]),
-
-  ( "noricum_refugee_battle_lost",0,
-    "Despite putting up a valiant defense, you and your allies have been defeated." +
-    "You luckily survive, however the villa is pillaged, and the survivors taken captive. You have failed...",
-    "none",
-    [],
-    [
-      ("continue", [], "Continue...",
-        [
-        (call_script, "script_fail_quest", "qst_severinus_quest"),
-        (call_script, "script_end_quest", "qst_severinus_quest"),
-        (call_script, "script_change_troop_renown", "trp_player", -10),
-        (call_script, "script_change_player_honor", -5),
-        (disable_party, "p_noricum_refugee_camp"),
-        (leave_encounter),
-        (change_screen_return),
-      ]),
-    ]),
 
 #wolfmen/cynocephalus quest
   ("wolfmen_forest",0,
@@ -26539,6 +26408,99 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         ]),
     ],),
 
+#Severinus Quest
+  ("severinus_asturis_1",0,
+    "Off to the distance, you spot the small town of Asturis. Once a bustling town under the empire, now lies in disrepair. Despite this, many citizens still reside within the walls. "
+    + "After passing through the gates, you see the citizens gathered around a man, who speaks loudly to the croud...",
+    "none", [],
+    [
+
+    ("option_1",[ 
+      ],"Listen to the man...", 
+        [
+
+        ]),
+    ],),
+
+
+  ("severinus_comagenis_1",0,
+    "After leaving the town of Asturis, you travel westward along the Danube, to the Roman town of Comagena. Although once a fortress for the Romans, the wall is in disrepair."
+    + "Passing through the abandoned vici outside the walls, you approach the gate and notice the guards do not seem to be of Roman origin...",
+    "none", [],
+    [
+
+    ("option_1",[ 
+      ],"Approach the gate...",
+        [
+
+        ]),
+    ],),
+
+  ("severinus_comagenis_2",0,
+    "Once inside the walls, you sparsley notice any townsfolk. Those who are out on the streets keep their distance. As you approach the center of the town, Severinus spots the local church, and beckons you to follow him inside..."
+    + "As you enter the church, you notice many of the locals have gathered inside, seeking both spiritual and physical aid from the local clergy. Severinus finds a spot infront of the people, and begins to speak.",
+    "none", [],
+    [
+
+    ("option_1",[ #where severinus is revealed to have predicted the destruction of asturis
+      ],"Quietly observe the monk...",
+        [
+
+        ]),
+    ],),
+
+  ("severinus_comagenis_3",0,
+    "Following the advice of the Holy man, the citizens of Comagena gather in the church, in prayer, fasting and confession. On the third day's evening, during the celebration of the Eucharist, the earth begins to shake... Earthquake!"
+    + "Chaos ensues, the guards, thinking themselves under siege, flee the city and in their terror, turn on one another. Their fighting is heard until nightfall, until the last of the barbarians is killed. The citizens return into the streets, astonished at what had just happened.",
+    "none", [],
+    [
+
+    ("option_1",[ #mission where the gothic troops have a pvp match, sets up next menu
+      ],"Earthquake!",
+        [
+
+        ]),
+    ],),
+
+  ("severinus_comagenis_4",0,
+    "After joining the townspeople of Comagena in their celebrations, you and Severinus stay in town for a few days, to resupply for you next journey."
+    + "One morning while in the town square, Severinus relays to you that his next stop will be in Favianis, a village upon hearing of his exploits, wished for him to come and provide spiritual aid.",
+    "none", [],
+    [
+
+    ("option_1",[ 
+      ],"Onwards!",
+        [
+        (jump_to_menu, "mnu_severinus_favianis_1"),
+        ]),
+    ],),
+
+  ("severinus_favianis_1",0,
+    "As you travel to the town of Favianis, you join a group of starving refugees on the way. The land near the town had been stricken with a cruel famine."
+    + "As you approach the town, Severinus stops and prays for some time. He then leads you into the town's square, where a crowd gathers before him. He beckons for you to come and speak to him...",
+    "none", [],
+    [
+
+    ("option_1",[ 
+      ],"Listen to him.",
+        [
+
+        ]),
+    ],),
+
+  ("severinus_favianis_2",0,
+    "With Procula following, you both head back towards the town square. Severinus is preaching to the people of Favianis.",
+    "none", [],
+    [
+
+    ("option_1",[ 
+      ],"Approach Severinus.",
+        [
+
+        ]),
+    ],),  
+
+  
 #Battle of Bolia
 ("battle_of_bolia",0,
   "Reaching the outskirts of where the coalition of Suebi, Heruli, Gepids and Scirii have encamped, you join forces with Valamir and his allies. After some time, gothic scouts have reported that the coalition forces have left their camp, and have headed towards you and your allies...",

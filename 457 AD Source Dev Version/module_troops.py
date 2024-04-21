@@ -5035,8 +5035,18 @@ troops = [
   ["curiosi_james", "Iacobus", "Iacobus", tf_hero, no_scene, 0, fac_commoners,[itm_deurne_campagi_2,itm_tunic_rich_4_cloak,itm_aquincum_spatha_2],def_attrib_lvl_30,wp_one_handed(250)|wp_two_handed(240)|wp_polearm(220)|wp_archery(140)|wp_crossbow(140)|wp_throwing(210)|wp_firearm(100),knows_lvl_30,0x00000007ee10300652596a24a251271200000000001db6a10000000000000000],
 
   #severinus quest
-  ["severinus_companion","Aurelios","Aurelios",tf_hero, no_scene, 0, fac_commoners,[itm_deurne_campagi_2,itm_common_mail_short_1_cloak,itm_sword_khergit_4,itm_pannonian_cap_fur_2],def_attrib_lvl_25|level(25),wp(220),knows_ironflesh_8|knows_power_strike_6|knows_shield_6|knows_athletics_6,0x00000008ec0090c51a5b92b8916dbb1200000000001d268a0000000000000000],
-  
+  ["severinus_quest_npc_1","Procula","Procula",tf_female|tf_hero, no_scene, 0, fac_commoners,[itm_ankle_boots,itm_dress_4],def_attrib_lvl_9|level(8),wp(110),knows_common|knows_athletics_3|knows_power_draw_2|knows_power_strike_1|knows_wound_treatment_2,0x0000000c271020060d127142ec97491400000000001d49a60000000000000000], #older
+  ["severinus_quest_npc_2","Mamertinus","Mamertinus",tf_hero, no_scene, 0, fac_commoners,[itm_deurne_campagi_2,itm_common_mail_short_1_cloak,itm_sword_khergit_4,itm_augst_helmet_3],def_attrib_lvl_25|level(25),wp(220),knows_ironflesh_8|knows_power_strike_6|knows_shield_6|knows_athletics_6,0x00000008ec0090c51a5b92b8916dbb1200000000001d268a0000000000000000],
+  #citizens who reject Severinus
+  ["severinus_quest_npc_3","Civis","Civites",tf_hero, no_scene, 0, fac_commoners,[itm_coptic_tunic_12,itm_deurne_campagi_2],def_attrib|level(1),wp(10),knows_common,roman_face_1, roman_face_2],
+  ["severinus_quest_npc_4","Miles","Milites",tf_hero, no_scene, 0, fac_commoners,[itm_tunic_5_cloak,itm_deurne_campagi_3,itm_intercisa_helmet_1,itm_sword_khergit_3],def_attrib|level(1),wp(10),knows_common,roman_face_1, roman_face_2],
+  ["severinus_quest_npc_5","Priest","Priests",tf_hero, no_scene, 0, fac_commoners,[itm_robes_church,itm_deurne_campagi_4],def_attrib|level(1),wp(10),knows_common,roman_face_1, roman_face_2],
+  ["severinus_quest_npc_6","Gadrauhts","Gadrauhteis",tf_hero, no_scene, 0, fac_commoners,[itm_tunic_2_cloak,itm_deurne_campagi_3,itm_fernpass_helmet_1,itm_sword_khergit_3],def_attrib|level(1),wp(10),knows_common,germanic_face_1, germanic_face_2],
+  ["severinus_quest_npc_7","Old Man","Old Man",tf_hero, no_scene, 0, fac_commoners,[itm_roman_peasant_tunic_6,itm_deurne_campagi_1],def_attrib|level(1),wp(10),knows_common,0x0000000a3f0130025693e6d92dd649ea00000000001e25060000000000000000],
+  #used for quests as heroes
+  ["roman_civilian_quest_1","Civis","Civites",tf_hero, no_scene, 0, fac_commoners,[]+tunics_roman_civilian+shoes_roman,def_attrib|level(1),wp(10),knows_common,roman_face_1, roman_face_2],
+  ["roman_civilian_quest_2","Civis","Civites",tf_female|tf_hero, no_scene, 0, fac_commoners,[itm_ankle_boots,itm_wrapping_boots,itm_dress_7,itm_dress_8,itm_dress_5,itm_dress_4,itm_lady_dress_green],def_attrib|level(1),wp(10),knows_common,roman_woman_face_1,roman_woman_face_2],
+
   #zerkon
   ["zerkon","Zercon","Zercon",tf_dwarf|tf_hero, no_scene, 0, fac_commoners,[itm_wrapping_boots,itm_coptic_tunic_7],def_attrib_lvl_13|level(10),wp(130),knows_common|knows_ironflesh_2|knows_power_strike_3|knows_athletics_8,0x0000000a3f0130025693e6d92dd649ea00000000001e25060000000000000000],
 

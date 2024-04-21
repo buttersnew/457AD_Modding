@@ -486,7 +486,7 @@ quests = [
   "{!}None"
  ), 
 
- ("severinus_quest", "A Saint beyond the Alps", 0,
+ ("severinus_quest", "The Apostle to Noricum", 0,
   "{!}None"
  ), 
 
@@ -538,11 +538,11 @@ quests = [
   "{!}None"
  ),
 
- ("alexandria_rebellion_chal", "Haddingr's Revenge", 0, #Pro-Chalcedonian side of the quest, player restores order + installs Chalcedonian patriarch in alexandria
+ ("alexandria_rebellion_chal", "The Empire Strikes Back", 0, #Pro-Chalcedonian side of the quest, player restores order + installs Chalcedonian patriarch in alexandria
   "{!}"
  ), 
 
- ("alexandria_rebellion_mia", "Haddingr's Revenge", 0, #Anti-Chalcedonian side of the quest, player can establish Miaphysite kingdom of Alexandria
+ ("alexandria_rebellion_mia", "King of Egypt", 0, #Anti-Chalcedonian side of the quest, player can establish Miaphysite kingdom of Alexandria
   "{!}"
  ), 
 #CONQUEST QUESTS

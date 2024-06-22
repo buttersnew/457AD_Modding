@@ -20302,7 +20302,11 @@ I knew that I had found someone worthy of becoming my vassal.", "lord_invite_1",
 (quest_slot_eq, "qst_the_wolfmen", slot_quest_current_state, 0),],
   "Oh valorous one, I come seeking knowledge about the Cynocephali, the legendary Langobard warriors. Can you share what you know about them?", "wolfmen_quest_intro_1",[]],
 
-[anyone, "wolfmen_quest_intro_1", [(ge, "$g_talk_troop_faction_relation", 30)], #must have +30 relations
+[anyone, "wolfmen_quest_intro_1", [
+     (call_script, "script_troop_get_player_relation", "trp_kingdom_17_lord"),
+     (assign, ":lord_relation", reg0),
+     (ge, ":lord_relation", 20),
+], #must have +20 relations
   "Ah, the Cynocephali. These warriors are not mere legends, but a part of our history as they granted us victory over the Assipitti when our kin just landed from the shores of Scandza. They are known for their wild ferocity on the battlefield, channeling the spirits of beasts to fight with unmatched strength and vigor.", "wolfmen_quest_intro_2",[]],
 [anyone, "wolfmen_quest_intro_1", [], #rebuked
   "Ha, and you think I would freely share their secrets to someone like you? Begone, you fool!", "close_window",[]],
@@ -50784,6 +50788,7 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
 
   [trp_berserker_leader, "start", [(check_quest_active, "qst_the_wolfmen"),(quest_slot_eq, "qst_the_wolfmen", slot_quest_current_state, 4),],
    "Not many dare venturing into these woods... Speak quickly, what do you seek?", "shaman_talk_intro_1", []],
+  #add questions + details about the cynocephali - brotherhood, koryos, etc
   [trp_berserker_leader|plyr, "shaman_talk_intro_1", [],
    "The king of the Langobards permitted me to look for you. I want to learn your ways.", "shaman_talk_intro_2", []],
   [trp_berserker_leader, "shaman_talk_intro_2", [],
@@ -50821,14 +50826,24 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   [trp_berserker_leader|plyr, "shaman_talk_duel_won_pagan_1", [],
    "He was a great warrior, but I bested him in combat and I deserve to join the brotherhood now.", "shaman_talk_duel_won_pagan_2", []],
   [trp_berserker_leader, "shaman_talk_duel_won_pagan_2", [],
-   "Your training begins now. Your warriors will wait in their own camp in the clearance, we shall set them free now. We don't want them to disturb us. In the next days you will learn what it means to be a wolf-warrior.", "close_window", []],
+   "Your initiation begins now. Your warriors will wait in their own camp in the clearance, we shall set them free now. We don't want them to disturb us. In the next days you will learn what it means to be a wolf-warrior.", "close_window", [
+   (quest_set_slot,"qst_severinus_quest", slot_quest_current_state, 7),
+   ]],
 
-  [trp_berserker_leader, "start", [(check_quest_active, "qst_the_wolfmen"),(quest_slot_eq, "qst_the_wolfmen", slot_quest_current_state, 6),], #player wins duel and is not germanic pagan
+  [trp_berserker_leader, "start", [(check_quest_active, "qst_the_wolfmen"),(quest_slot_eq, "qst_the_wolfmen", slot_quest_current_state, 6)], #player wins duel and is not germanic pagan
    "You won! The Gods have spoken. You are not one of us but we revere your strength. There is, although, one last thing we want to see from you before we will allow you to recruit our warriors: you will join us in battle.", "shaman_talk_duel_won_1", []],
   [trp_berserker_leader|plyr, "shaman_talk_duel_won_1", [],
    "I want to join the brotherhood of the Cynocephali, I deserve it, I won the duel.", "shaman_talk_duel_won_2", []],
   [trp_berserker_leader, "shaman_talk_duel_won_2", [],
-   "You deserve nothing, prince. Those who do not follow the old ways may not walk on our path, they shall seek their own. You defeated our best warrior, you have our respect, but you will never be one of ours and there is nothing you can do that will make you change our minds.", "close_window", []],
+   "You deserve nothing, prince. Those who do not follow the old ways may not walk on our path, they shall seek their own. You defeated our best warrior, you have our respect, but you will never be one of ours and there is nothing you can do that will make you change our minds.", "close_window", [
+      (assign, "$g_wolf_quest", 3), #can recruit
+      (succeed_quest, "qst_the_wolfmen"),
+      (add_xp_as_reward, 650),
+      (call_script, "script_end_quest", "qst_the_wolfmen"),
+      (disable_party,"p_wolfmen_lair"),
+      (call_script, "script_change_troop_renown", "trp_player", 25),
+      (finish_mission),
+   ]],
 
   [trp_berserker_leader, "start", [],
    "Yes, what is it, foreigner?", "berserker_leader_talk_main_1", []],

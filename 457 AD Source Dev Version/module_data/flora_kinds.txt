@@ -1,13 +1,16 @@
 96
-grass 6442469688324 5
+grass 6442469688324 7
  grass_a  0
  grass_b  0
  grass_c  0
  grass_d  0
  grass_e  0
-grass_bush 42950461452 2
+ hhy_grass  0
+ hhy_sedge  0
+grass_bush 42950461452 3
  grass_bush_a  0
  grass_bush_b  0
+ hhy_lavender  0
 grass_saz 2147485227036 2
  grass_bush_c  0
  grass_bush_d  0
@@ -23,10 +26,11 @@ grass_steppe 6442469689352 5
  grass_yellow_c  0
  grass_yellow_d  0
  grass_yellow_e  0
-grass_bush_g 1717987707916 3
+grass_bush_g 1717987707916 4
  grass_bush_g01  0
  grass_bush_g02  0
  grass_bush_g03  0
+ hhy_lavender  0
 grass_bush_h 1717987705860 3
  grass_bush_h01  0
  grass_bush_h02  0
@@ -136,10 +140,10 @@ pine_4 17184066572 1
  pine_4_a  bo_pine_4_a
  0 0
 snowy_pine 12889100304 1
- acacia_a  bo_acacia_a
+ pinus_med2  bo_pinus_med
  0 0
 snowy_pine_2 21479034896 1
- acacia_savana_a  bo_acacia_savana_a
+ pinus_med  bo_pinus_med
  0 0
 small_rock 21477002252 8
  rock_c  bo_rock_c
@@ -156,7 +160,7 @@ rock_snowy 21477003280 5
  sa_grass_rock_8  bo_sa_grass_rock_8
  sa_grass_rock_9  bo_sa_grass_rock_9
  sa_grass_rock_10  bo_sa_grass_rock_10
-rock 214750796828 6
+rock 214750792716 6
  rock1  bo_rock1
  rock2  bo_rock2
  rock3  bo_rock3
@@ -171,28 +175,28 @@ rock_snowy2 21477003280 6
  sa_grass_rock_5  bo_sa_grass_rock_5
  rock1_snowy  bo_rock1
 tree_1 17184066572 2
- tree_1_a  bo_tree_1_a
+ pinus_nigra  bo_pinus_nigra
  0 0
- tree_1_b  bo_tree_1_b
+ pinus_nigra  bo_pinus_nigra
  0 0
 tree_3 17184066572 2
- tree_3_a  bo_tree_3_a
+ hhy_birch_1  bo_hhy_birch
  0 0
- tree_3_b  bo_tree_3_b
+ hhy_birch_2  bo_hhy_birch
  0 0
 tree_4 17184066572 2
- tree_4_a  bo_tree_4_a
+ pinus_1  bo_pinus_1
  0 0
- tree_4_b  bo_tree_4_b
+ pinus_1  bo_pinus_1
  0 0
 tree_5 17184066572 4
- tree_5_a  bo_tree_5_a
+ abies_1  bo_abies_1
  0 0
- tree_5_b  bo_tree_5_b
+ abies_2  bo_abies_2
  0 0
- tree_5_c  bo_tree_5_c
+ abies_3  bo_abies_3
  0 0
- tree_5_d  bo_tree_5_d
+ abies_4  bo_abies_4
  0 0
 tree_6 17184066572 4
  tree_6_a  bo_tree_6_a
@@ -335,10 +339,12 @@ tree_plane 17184066572 2
 tree_19 17184066572 1
  tree_19_a  bo_tree_19_a
  0 0
-beech 12889099276 2
+beech 12889099276 3
  tree_20_a  bo_tree_20_a
  0 0
  tree_20_b  bo_tree_20_b
+ 0 0
+ hhy_beech  bo_hhy_beech
  0 0
 tall_tree 17184066572 1
  tall_tree_a  bo_tall_tree_a
@@ -427,11 +433,13 @@ med_bushes_2 1288490192912 9
  crusader_big_bush_c_1  0
  crusader_big_bush_c_2  0
  crusader_big_bush_c_3  0
-med_grass 6442468642832 4
+med_grass 6442468642832 6
  grass_yellow_c  0
  grass_yellow_b  0
  grass_yellow_d  0
  grass_e  0
+ hhy_grass  0
+ hhy_sedge  0
 med_rock 214750533656 5
  sa_grass_rock_6  bo_sa_grass_rock_6
  sa_grass_rock_7  bo_sa_grass_rock_7

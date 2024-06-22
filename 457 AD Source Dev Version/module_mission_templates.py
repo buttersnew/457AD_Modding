@@ -20334,20 +20334,159 @@ mission_templates = [
           (eq, ":continue", 1),
         ],
         [
+          (quest_set_slot, "qst_the_wolfmen", slot_quest_current_state, 6),
+          (jump_to_menu, "mnu_wolfmen_duel_won"),
           (mission_cam_animate_to_screen_color, 0xFF000000, 3000),
           (finish_mission,4),
-          (jump_to_menu, "mnu_wolfmen_duel_won"),
       ]),
       (1, 4, ti_once,
         [
           (main_hero_fallen),
           #(eq, "$cam_mode", 0),
         ],
-        [(assign, "$temp", 22),
+        [ 
+          (assign, "$temp", 22),
           (jump_to_menu, "mnu_wolfmen_duel_lost"),
-          (finish_mission,0),
+          (finish_mission,4),
       ]),
     ],),
+
+("wolfmen_raid",mtf_battle_mode|mtf_synch_inventory,-1,
+    "battle",
+    [ 
+        (0, mtef_team_0|mtef_visitor_source, af_override_horse, 0, 1, []),
+        (1, mtef_team_0|mtef_visitor_source, af_override_horse, 0, 1, []),
+        (2, mtef_team_0|mtef_visitor_source, af_override_horse, 0, 1, []),
+        (3, mtef_team_0|mtef_visitor_source, af_override_horse, 0, 1, []),
+        (4, mtef_team_0|mtef_visitor_source, af_override_horse, 0, 1, []),
+        (5, mtef_team_0|mtef_visitor_source, af_override_horse, 0, 1, []),
+        (6, mtef_team_0|mtef_visitor_source, af_override_horse, 0, 1, []),
+        (7, mtef_team_0|mtef_visitor_source, af_override_horse, 0, 1, []),
+        (8, mtef_team_0|mtef_visitor_source, af_override_horse, 0, 1, []),
+        (9, mtef_team_0|mtef_visitor_source, af_override_horse, 0, 1, []),
+        (10, mtef_team_0|mtef_visitor_source, af_override_everything, 0, 1, []),
+        (11, mtef_team_0|mtef_visitor_source, af_override_everything, 0, 1, []),
+        (12, mtef_team_0|mtef_visitor_source, af_override_everything, 0, 1, []),
+        (13, mtef_team_0|mtef_visitor_source, af_override_everything, 0, 1, []),
+        (14, mtef_team_0|mtef_visitor_source, af_override_everything, 0, 1, []),
+        (15, mtef_team_0|mtef_visitor_source, af_override_everything, 0, 1, []),
+        (16, mtef_team_0|mtef_visitor_source, af_override_everything, 0, 1, []),
+        (17, mtef_team_0|mtef_visitor_source, af_override_everything, 0, 1, []),
+        (18, mtef_team_0|mtef_visitor_source, af_override_everything, 0, 1, []),
+        (19, mtef_team_0|mtef_visitor_source, af_override_everything, 0, 1, []),
+        (20, mtef_team_0|mtef_visitor_source, af_override_everything, 0, 1, []),
+        (21, mtef_team_0|mtef_visitor_source, af_override_everything, 0, 1, []),
+        (22, mtef_team_0|mtef_visitor_source, af_override_everything, 0, 1, []),
+        (23, mtef_team_0|mtef_visitor_source, af_override_everything, 0, 1, []),
+        (24, mtef_team_0|mtef_visitor_source, af_override_everything, 0, 1, []),
+        (25, mtef_team_0|mtef_visitor_source, af_override_everything, 0, 1, []),
+        (26, mtef_team_0|mtef_visitor_source, af_override_everything, 0, 1, []),
+        (27, mtef_team_0|mtef_visitor_source, af_override_everything, 0, 1, []),
+        (28, mtef_team_0|mtef_visitor_source, af_override_everything, 0, 1, []),
+        (29, mtef_team_0|mtef_visitor_source, af_override_everything, 0, 1, []),
+        (30, mtef_team_0|mtef_visitor_source, af_override_everything, 0, 1, []),
+        (31, mtef_team_0|mtef_visitor_source, af_override_everything, 0, 1, []),
+        (32, mtef_team_0|mtef_visitor_source, af_override_everything, 0, 1, []),
+        (33, mtef_team_0|mtef_visitor_source, af_override_everything, 0, 1, []),
+        (34, mtef_team_0|mtef_visitor_source, af_override_everything, 0, 1, []),
+        (35, mtef_team_0|mtef_visitor_source, af_override_everything, 0, 1, []),
+        (36, mtef_team_0|mtef_visitor_source, af_override_everything, 0, 1, []),
+        (37, mtef_team_0|mtef_visitor_source, af_override_everything, 0, 1, []),
+        (38, mtef_team_0|mtef_visitor_source, af_override_everything, 0, 1, []),
+        (39, mtef_team_0|mtef_visitor_source, af_override_everything, 0, 1, []),
+        (40, mtef_team_0|mtef_visitor_source, af_override_everything, 0, 1, []),
+        (41, mtef_team_0|mtef_visitor_source, af_override_everything, 0, 1, []),
+        (42, mtef_team_0|mtef_visitor_source, af_override_everything, 0, 1, []),
+        (43, mtef_team_0|mtef_visitor_source, af_override_everything, 0, 1, []),
+        (44, mtef_team_0|mtef_visitor_source, af_override_everything, 0, 1, []),
+        (45, mtef_team_0|mtef_visitor_source, af_override_everything, 0, 1, []),
+        (46, mtef_team_0|mtef_visitor_source, af_override_everything, 0, 1, []),
+        (47, mtef_team_0|mtef_visitor_source, af_override_everything, 0, 1, []),
+        (48, mtef_team_1|mtef_visitor_source, af_override_everything, 0, 1, []),
+        (49, mtef_team_0|mtef_visitor_source, af_override_everything, 0, 1, []),
+
+        (50,mtef_team_1|mtef_visitor_source, 0,aif_start_alarmed,0,[]), #attackers
+        (51,mtef_team_0|mtef_visitor_source, 0,aif_start_alarmed,0,[]), #inf
+        (52,mtef_team_0|mtef_visitor_source, 0,aif_start_alarmed,0,[]), #cav
+        (53,mtef_team_0|mtef_visitor_source, 0,aif_start_alarmed,0,[]), #archers
+        (54,mtef_team_0|mtef_visitor_source, 0,aif_start_alarmed,0,[]), #archers
+        (55,mtef_team_0|mtef_visitor_source, 0,aif_start_alarmed,0,[]), #archers
+        (56,mtef_team_0|mtef_visitor_source, 0,aif_start_alarmed,0,[]), #archers
+        (57,mtef_team_0|mtef_visitor_source, 0,aif_start_alarmed,0,[]), #archers
+        (58,mtef_team_0|mtef_visitor_source, 0,aif_start_alarmed,0,[]), #player
+    ], vc_weather +
+    [
+
+      (ti_before_mission_start, 0, 0, [],
+        [
+          (assign,"$g_battle_result",0),
+          (team_set_relation, 0, 2, -1), # -1 for enemy, 1 for friend, 0 for neutral
+          (team_set_relation,1,2,-1),
+          (team_set_relation,0,1,-1),
+      ]),
+
+      (0, 0, ti_once, [
+          (assign, "$defender_team", 0),
+          (assign, "$attacker_team", 1),
+          ], []),
+
+    (ti_before_mission_start, 0, ti_once, [], [
+      (store_random_in_range, ":fog_distance", 80, 100),
+      (store_random_in_range, ":haze_power", 70, 100),
+      (set_global_haze_amount, ":haze_power"),
+      (set_fog_distance, ":fog_distance", 0x333333),
+    ] ),
+
+ (ti_before_mission_start, 0, 0, [
+             ],
+    [
+    (try_begin),
+        (eq, "$temp3", 1),
+        (scene_set_day_time, 16),
+        (set_global_cloud_amount, 0),
+    (try_end),]),
+    common_inventory_not_available,
+    common_battle_init_banner,
+    immersive_troops,
+    common_music_situation_update,
+    common_battle_check_friendly_kills,
+    common_siege_refill_ammo,
+
+    (ti_after_mission_start, 0, 0, [], [(call_script, "script_music_set_situation_with_culture", mtf_sit_fight)]),
+
+    (ti_tab_pressed, 0, 0, [(display_message,"str_cannot_leave_now")], []),
+
+    (1, 10, ti_once, [(this_or_next|main_hero_fallen),(num_active_teams_le,1)],
+    [
+      (try_begin),
+        (main_hero_fallen),
+        (jump_to_menu, "$temp2"),
+      (else_try),
+        (jump_to_menu, "$temp1"),
+      (try_end),
+      (stop_all_sounds, 1),
+      (finish_mission),
+    ]),
+
+      (0, 0, ti_once, #orders for troops
+        [
+          (set_show_messages, 0),
+          #defenders
+          (team_give_order, 1, grc_everyone, mordr_stand_closer),
+          (team_give_order, 1, grc_everyone, mordr_stand_closer),
+          (team_give_order, 1, grc_everyone, mordr_stand_closer),
+          (team_give_order, 1, grc_everyone, mordr_hold),
+
+          (team_give_order, 0, grc_everyone, mordr_charge),
+
+          (set_show_messages, 1),
+          ], []
+      ),
+  
+
+  ] + dplmc_battle_mode_triggers + dplmc_horse_cull + utility_triggers + battle_panel_triggers + extended_battle_menu + common_division_data + division_order_processing + real_deployment + formations_triggers + AI_triggers + jacobhinds_morale_triggers + enhanced_common_battle_triggers + battle_notifications
+),
+
 
   ("attila_sword_location_visit",0,-1,
     "Grove visit",

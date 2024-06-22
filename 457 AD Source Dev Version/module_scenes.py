@@ -1197,6 +1197,8 @@ scenes = [
 #0x30054d228004050000005a768000688400002e3b
 #0x30054da28004050000005a76800022aa00002e3b
 #Castles:
+  ("castle_1_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000300005630007d1f800006aba0000574f00001099", #comagena
+    [],[],"outer_terrain_forest"), 
 
   ("castle_2_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000023007a3b20005795e0000706d0000381800000bbc", #bry briton hillfort
     [],[],"outer_terrain_plain"),
@@ -1457,7 +1459,7 @@ scenes = [
 # multiplayer
   ("multi_scene_1",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000003000050000056d5b00004fb4000069ed00003150",
     [],[],"outer_terrain_plain"),
-  ("multi_scene_2",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000030000500000715c5000057cd000035390000272c",
+  ("multi_scene_2",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000300005630007d1f800006aba0000574f00001099",
     [],[],"outer_terrain_plain"),
   ("multi_scene_3",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000013002e0b20005154500006e540000235600007b55",
     [],[],"outer_terrain_plain"),
@@ -1688,16 +1690,31 @@ scenes = [
     [],["bonus_chest_7"],"outer_terrain_forest"),
   ("abandoned_silver_mine",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000b00005000005e5790000371500000e3500000f71",
     [],["silver_mine_chest_1","silver_mine_chest_2"], "outer_terrain_mountain"),  
+  #cynocephali
   ("wolfmen_lair",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000bc60cbb68005ad6800000a2400005f5c00007f21",
     [],[],"outer_terrain_forest"),  
   ("wolfmen_ambush",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000bc66cbe30005d9760000438d00007aec00002978",
     [],[],"outer_terrain_forest"),  
+  ("wolfmen_raid",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000b000056300050d450000700900007d720000684a",
+    [],[],"outer_terrain_forest"),  
+  #black river
   ("black_river_ambush",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000003000056300053d4f00002f210000542d0000774e", #0x000000003000056380053d4f00002f210000542d0000774e
     [],[],"outer_terrain_river_1"),  
   ("black_river_fort",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000030000563000729cd00006123000057a1000024c8",
     [],[],"outer_terrain_forest"),  
   ("black_river_villa",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000030000500000715c5000057cd000035390000272c",
     [],[],"outer_terrain_forest"),  
+  #severinus quest
+  ("asturis_1",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000030000500000715c5000057cd000035390000272c", #initial scene
+    [],[],"outer_terrain_forest"),  
+  ("asturis_2",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000030000500000715c5000057cd000035390000272c", #ruins
+    [],[],"outer_terrain_forest"), 
+  ("comagena_church",sf_indoors,"interior_castle_j", "bo_interior_castle_j", (-100,-100),(100,100),-100,"0",
+    [],[]),
+  ("favianis",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000300005630007d1f800006aba0000574f00001099",
+    [],[],"outer_terrain_forest"),  
+  ("severinus_grove",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000bc6005000006018000000cab00002d6b000019a3",
+    [],[],"outer_terrain_forest"), 
 
   ("christian_monastery",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000023007a3b20005795e0000706d0000381800000bbc",
     [],[],"outer_terrain_plain"),  

@@ -25957,7 +25957,10 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 
 #wolfmen/cynocephalus quest
   ("wolfmen_forest",0,
-    "You have arrived in a thick forest. Who knows what might be lurking here...",
+    "As you approach a dense forest, you pass through a small village. As your men resupply, they hear stories of violent savages who gather in the densest part of the forest. "
+    + "Although the villagers fear these warriors, it seems they leave offerings to them so that they may be pleased and spared from their violence. "
+    + "Still, some of your men deflect these fears as mere superstition. As you leave the village and head into the woods, you hope the rumors of their ferocity are not true..."
+    ,
     "none",
     [
     (try_begin),
@@ -25986,7 +25989,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     ]),
 
  ("wolfmen_ambush",0,
-    "You and your host are resting for the night in a clearance in the middle of the woods in Germania while suddenly howling of wolves and frightening cries wake you up. "
+    "While you and your host are resting for the night in a clearance in the middle of the woods, you suddenly hear the howling of wolves and frightening cries that wake you up. "
     + "You and your companions quickly grab your weapons, your soldiers are already rushing outside their tents. All you could see in the night is a large number of dark silhouettes approaching you quickly. "
     + "You draw your sword, whether these are bandits or wolves, you are going to face them. As soon as these dark figures approach you, you realise the Cynocephali have found you first.",
     "none", [],
@@ -26088,6 +26091,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     [
 
     ("continue",[],"Fight!",[
+      (quest_set_slot, "qst_the_wolfmen", slot_quest_current_state, 5),
        (modify_visitors_at_site,"scn_wolfmen_lair"),
        (reset_visitors),
        (set_visitor,0,"trp_player"), #player
@@ -26105,7 +26109,6 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     [],
     [
      ("choice_1",[],"Kill him!",[
-      (quest_set_slot, "qst_the_wolfmen", slot_quest_current_state, 6),
       (call_script, "script_change_troop_renown", "trp_player", 10),
       (assign, "$temp1", 4),
       (assign, "$talk_context", 0),
@@ -26115,11 +26118,6 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       (try_for_range, ":entry", 16, 19),
           (mission_tpl_entry_set_override_flags, "mt_conversation_generic", ":entry", af_override_horse),
       (try_end),
-
-      (mission_tpl_entry_set_override_flags, "mt_conversation_generic", 0, af_override_everything),
-      (mission_tpl_entry_clear_override_items, "mt_conversation_generic", 0),
-      (mission_tpl_entry_add_override_item, "mt_conversation_generic",0, "itm_linen_tunic"),
-      (mission_tpl_entry_add_override_item, "mt_conversation_generic",0, "itm_wrapping_boots"),
 
       (set_visitor, 0, "trp_player"),
       (set_visitor, 16, "trp_berserker_leader"),
@@ -26140,7 +26138,6 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       ]),
 
      ("choice_2",[],"Spare the warrior.",[
-      (quest_set_slot, "qst_the_wolfmen", slot_quest_current_state, 6),
       (call_script, "script_change_troop_renown", "trp_player", -10),
       (assign, "$temp1", 4),
       (assign, "$talk_context", 0),
@@ -26150,11 +26147,6 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       (try_for_range, ":entry", 16, 19),
           (mission_tpl_entry_set_override_flags, "mt_conversation_generic", ":entry", af_override_horse),
       (try_end),
-
-      (mission_tpl_entry_set_override_flags, "mt_conversation_generic", 0, af_override_everything),
-      (mission_tpl_entry_clear_override_items, "mt_conversation_generic", 0),
-      (mission_tpl_entry_add_override_item, "mt_conversation_generic",0, "itm_linen_tunic"),
-      (mission_tpl_entry_add_override_item, "mt_conversation_generic",0, "itm_wrapping_boots"),
 
       (set_visitor, 0, "trp_player"),
       (set_visitor, 16, "trp_berserker_leader"),
@@ -26192,6 +26184,220 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       ]),
     ]),
 
+#ritual sacrifice - communion with (Wotan) - wolf sacrafice 
+#lack of social taboos, all manners of evil and trickery were allowed
+#association with darkness, becoming one with the wolf/savagery
+
+#1 participate in rituals
+#2 join in some thievery
+#2 participation in desecration of the dead after winning battle
+#3 participation in more esoteric rituals
+#4 raid village
+
+#morality will determine if the player will partake in the final raid against the village he comes into contact with in the beginning of the quest
+
+  ("wolfmen_initiation_1",0,
+    "After accepting your initation into the brotherhood, you are offered to participate in their strange rituals and rites. At first, you opt to observe them. "
+    + "The warriors approch a grand oak, with a stone altar placed in front. You watch as the old shaman offers a variety of rites to Wotan. Several of the warriors bring a lamb from a recent raid to the shaman. "
+    + "The shaman kills the animal, sprinkling some of the blood onto the altar. He then divides up the creature, offering some to Wotan through the burning of its flesh; while the rest is gathered for the warriors to eat and partake in the feast...",
+    "none",
+    [],
+    [
+
+    ("option_1",[],"Partake in the feast.",[
+      (val_sub, "$g_wolf_quest_morality", 1),
+      (quest_set_slot,"qst_the_wolfmen", slot_quest_current_state, 8),
+      (leave_encounter),
+      (change_screen_return),
+
+      ]),
+
+    ("option_2",[],"Opt out.",[
+      (val_add, "$g_wolf_quest_morality", 1), 
+      (quest_set_slot,"qst_the_wolfmen", slot_quest_current_state, 8),
+      (leave_encounter),
+      (change_screen_return),
+
+      ]),
+
+    ]),
+
+  ("wolfmen_initiation_2",0,
+    "As the day falls into dusk, one of the warriors approaches you. He asks you if you would join him and a few other warriors on a quick raid to steal some cattle from a nearby village... ",
+    "none",
+    [],
+    [
+
+    ("option_1",[],"Join them.",[
+      (val_sub, "$g_wolf_quest_morality", 1),
+      (quest_set_slot,"qst_the_wolfmen", slot_quest_current_state, 9),
+      (leave_encounter),
+      (change_screen_return),
+      ]),
+
+    ("option_2",[],"Stay back.",[
+      (val_add, "$g_wolf_quest_morality", 1), 
+      (quest_set_slot,"qst_the_wolfmen", slot_quest_current_state, 9),
+      (leave_encounter),
+      (change_screen_return),
+      ]),
+
+    ]),
+
+  ("wolfmen_initiation_3",0,
+    "You and the Cynocephali ambush a small band of warriors on behalf of the Langobards. The warriors, not expecting to fight beasts who claimed to be men routed. As the fled, the warriors chased them down, cutting down every last man. The fight is short and violent. "
+    + "With their victory, the warriors begin to howl like wolfs, gnashing their teeth, striking their shields. Soon the men begin to loot the dead; not long after you spot some of the warriors mutilating the corpses of their once foes; some even drinking their blood...",
+    "none",
+    [],
+    [
+
+    ("option_1",[],"Join them.",[
+      (val_sub, "$g_wolf_quest_morality", 1),
+      (quest_set_slot,"qst_the_wolfmen", slot_quest_current_state, 10),
+      (leave_encounter),
+      (change_screen_return),
+      ]),
+
+    ("option_2",[],"Stay back.",[
+      (val_add, "$g_wolf_quest_morality", 1), 
+      (quest_set_slot,"qst_the_wolfmen", slot_quest_current_state, 10),
+      (leave_encounter),
+      (change_screen_return),
+      ]),
+    ]),
+
+  ("wolfmen_initiation_4",0,
+    "Once again, you join the Cynocephali as they partake in their rites to Wotan. You see the Old Shaman approach the bloody stone altar by the sacred tree. However, this time he is joined by a battered prisoner from a previous raid... "
+    + "The prisoner is lead to the altar, prayers and the dedication of the prisoner are directed to Wotan. Suddenly, the old shaman slits the prisoner's throat, his blood splattering onto the altar. Along with the prisoner, several other animals are sacrificed. "
+    + "The warriors gather around to partake in Wotan's grand feast... ",
+    "none",
+    [],
+    [
+
+    ("option_1",[],"Partake in the feast.",[
+      (val_sub, "$g_wolf_quest_morality", 1),
+      (quest_set_slot,"qst_the_wolfmen", slot_quest_current_state, 11),
+      (leave_encounter),
+      (change_screen_return),
+      ]),
+
+    ("option_2",[],"Stay back.",[
+      (val_add, "$g_wolf_quest_morality", 1), 
+      (quest_set_slot,"qst_the_wolfmen", slot_quest_current_state, 11),
+      (leave_encounter),
+      (change_screen_return),
+      ]),
+    ]),
+
+  ("wolfmen_initiation_5",0,
+    "As you spend more of your days among the Cynocephali, you have learned many of their rituals and way of life. You have become familiar to what it means to live on the edge of society, away from the rules and taboos that society enforces. " 
+    + "You feel a sense of brotherhood with the warriors, as you join them in their hunts, battles and raids. One morning, a thick fog falls over the forest, the Old Shaman approaches you. He has one more task for you. "
+    + "You must lead a raid against a small village on the edge of the forest. Although the villagers attempted to appease the Cynocephali, they found themselves on the wrong side of the conflict, and therefore must be dealt with... ",
+    "none",
+    [],
+    [
+
+    ("option_1",[(eq, "$g_wolf_quest_morality", 0)],"Lead the raid.", #must be at least 0 to participate
+        [
+    (quest_set_slot,"qst_the_wolfmen", slot_quest_current_state, 12),
+    (assign, "$temp1", "mnu_wolfmen_raid_won"),
+    (assign, "$temp2", "mnu_wolfmen_raid_lost"),
+
+    (modify_visitors_at_site, "scn_wolfmen_raid"),
+    (reset_visitors),
+
+    (set_visitor, 58, "trp_player"),
+
+    #Defenders
+    (set_visitors, 51, "trp_cynocephalus", 15), 
+    (set_visitor, 52,  "trp_berserker_leader"),
+    (set_visitors, 53, "trp_cynocephalus", 5), 
+    (set_visitors, 54, "trp_cynocephalus", 3),
+    (set_visitors, 55, "trp_cynocephalus", 3),
+    (set_visitors, 56, "trp_cynocephalus", 5),
+    (set_visitors, 57, "trp_cynocephalus", 3),
+
+    #defenders
+    (set_visitors, 50, "trp_eastern_germanic_spearman", 10),
+    (set_visitors, 50, "trp_eastern_germanic_retainer", 3),
+    (set_visitors, 50, "trp_eastern_germanic_noble", 1),
+    (set_visitors, 50, "trp_germanic_civilian", 8),
+    (set_visitors, 50, "trp_peasant_woman", 6),
+
+    (jump_to_scene, "scn_wolfmen_raid"),
+    (set_jump_mission, "mt_wolfmen_raid"),
+
+    (mission_tpl_entry_set_override_flags, "mt_conversation_generic", 58, af_override_head),
+    (mission_tpl_entry_clear_override_items, "mt_conversation_generic", 58),
+    (mission_tpl_entry_add_override_item, "mt_wolfmen_raid",58, "itm_wolf_skin_1"),
+
+    (change_screen_mission),
+      ]),
+
+    ("option_2",[(eq, "$g_wolf_quest_morality", 1)],"Stay back.",[ #must be positive morality
+      (quest_set_slot,"qst_the_wolfmen", slot_quest_current_state, 12),
+      (jump_to_menu, "mnu_wolfmen_initiation_fail"),
+      ]),
+
+    ]),
+
+  ("wolfmen_raid_won",0,
+    "The last of the defenders are cut down; the air is filled with the stench of death. In the once peaceful village, frenzy ensues. The Cynocephali have their way with what remains of the village, not as men, but as beasts. "
+    + "The terror lasts all night. In the morning, the old shaman approaches you. You have finished your initation, you have now been set apart from society; You have become one with the Cynocephali. As you leave, the old shaman wishes you well, pledging his loyalty to you when the time comes...",
+    "none",
+    [],
+    [
+
+    ("option_1",[],"Farewell",[
+      (assign, "$berserker_ability", 1),
+      (assign, "$g_wolf_quest", 3), #can recruit
+      (succeed_quest, "qst_the_wolfmen"),
+      (add_xp_as_reward, 1000),
+      (call_script, "script_end_quest", "qst_the_wolfmen"),
+      (disable_party,"p_wolfmen_lair"),
+      (call_script, "script_change_troop_renown", "trp_player", 25),
+      (call_script, "script_change_player_honor", -25),
+      (leave_encounter),
+      (change_screen_return),
+      ]),
+
+    ]),
+
+  ("wolfmen_raid_lost",0,
+    "Despite your advantage, you have been cut down by the village defenders. Despite surviving your wounds, by the time you recover, the village has been ransacked, and the Cynocephali are no longer to be seen...",
+    "none", [],
+    [
+    ("option_1",[],"Continue...",
+        [
+        (call_script, "script_change_troop_renown", "trp_player", -25),
+        (call_script, "script_fail_quest", "qst_the_wolfmen"),
+        (call_script, "script_end_quest", "qst_the_wolfmen"),
+        (disable_party,"p_wolfmen_lair"),
+        (leave_encounter),
+        (change_screen_return),
+        ]),
+    ],),
+
+  ("wolfmen_initiation_fail",0,
+    "As you observe the raid from a distance, you hear the clashing of blades and screams of terror. After several hours, you see the warriors hastily return to their camp to enjoy their spoils. "
+    + "The next morning, the old shaman approaches you. You see his face full of disappointment. He tells you that you will not be initiated into the brotherhood, and asks you to leave. He still pledges his warriors to you when the time comes, but you will never be seen as an equal to them... ",
+    "none",
+    [],
+    [
+
+    ("option_1",[],"Farewell",[
+      (assign, "$g_wolf_quest", 3), #can recruit
+      (succeed_quest, "qst_the_wolfmen"),
+      (add_xp_as_reward, 800),
+      (call_script, "script_end_quest", "qst_the_wolfmen"),
+      (disable_party,"p_wolfmen_lair"),
+      (call_script, "script_change_troop_renown", "trp_player", 15),
+      (call_script, "script_change_player_honor", 5),
+      (leave_encounter),
+      (change_screen_return),
+      ]),
+
+    ]),
 
   ("black_river_pirates",0,
     "After several hours of rowing, you see a ransacked village on the riverbank. Smoke emanates from several burnt houses in varying states of destruction, some reduced to a single standing wall. "
@@ -26403,6 +26609,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         [
         (call_script, "script_change_troop_renown", "trp_player", -10),
         (call_script, "script_fail_quest", "qst_black_river"),
+        (call_script, "script_end_quest", "qst_black_river"),
         (leave_encounter),
         (change_screen_return),
         ]),
@@ -26500,7 +26707,32 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         ]),
     ],),  
 
-  
+  ("severinus_favianis_4",0,
+    "Procula's hoard of goods were able to relieve the starving people of Favianis for several days. Once the supply was low, many townsfolk were worried what would happen when they ran out. However, unexpectedly several merchant vessels worth of food arrived from Raetia, bringing an abundance of food."
+    + "The begain to praise God with uninterrupted devotion, which carried on for several days. However, during this time, local bandits raided the lands outside of the walls of the town, taking captive both cattle and people. Severinus, once again beckons for you to join him in finding the local tribune, a man by the name of Mamertinus",
+    "none", [],
+    [
+
+    ("option_1",[ 
+      ],"Speak to Mamertinus.",
+        [
+
+        ]),
+    ],),  
+
+  ("severinus_favianis_5",0,
+    "The bandits were caught by surprise.",
+    "none", [],
+    [
+
+    ("option_1",[ 
+      ],"Attack!",
+        [
+
+        ]),
+    ],),  
+
+
 #Battle of Bolia
 ("battle_of_bolia",0,
   "Reaching the outskirts of where the coalition of Suebi, Heruli, Gepids and Scirii have encamped, you join forces with Valamir and his allies. After some time, gothic scouts have reported that the coalition forces have left their camp, and have headed towards you and your allies...",

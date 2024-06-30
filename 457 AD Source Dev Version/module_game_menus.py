@@ -26036,7 +26036,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 
     ("continue",[],"Continue...",[
       (store_current_hours, ":cur_hour"),
-      (val_add, ":cur_hour", 24),
+      (val_add, ":cur_hour", 12),
       (quest_set_slot, "qst_the_wolfmen", slot_quest_gold_reward, ":cur_hour"),
       (rest_for_hours, 30, 10, 0),
       (change_screen_map),
@@ -26085,7 +26085,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     ]),
 
   ("wolfmen_duel",0,
-    "The old shaman steps aside and summons an old, strong warrior to come forth. His gaze is feirce, almost as if he is a beast gazing on its prey. He draws his sword, and points it towards you. You have just the time to draw your blade as well that the warrior will begin charging at you. The duel has begun!",
+    "After a few hours of rest, you are given your arms and armor back. After arming yourself, you approach the old shaman. He steps aside and summons an old, strong warrior to come forth. His gaze is feirce, almost as if he is a beast gazing on its prey. He draws his sword, and points it towards you. You have just the time to draw your blade as well that the warrior will begin charging at you. The duel has begun!",
     "none",
     [],
     [
@@ -26115,7 +26115,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       (set_jump_mission, "mt_conversation_generic"),
       (modify_visitors_at_site, "scn_wolfmen_lair"),
       (reset_visitors),
-      (try_for_range, ":entry", 16, 19),
+      (try_for_range, ":entry", 0, 19),
           (mission_tpl_entry_set_override_flags, "mt_conversation_generic", ":entry", af_override_horse),
       (try_end),
 
@@ -26144,7 +26144,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       (set_jump_mission, "mt_conversation_generic"),
       (modify_visitors_at_site, "scn_wolfmen_lair"),
       (reset_visitors),
-      (try_for_range, ":entry", 16, 19),
+      (try_for_range, ":entry", 0, 19),
           (mission_tpl_entry_set_override_flags, "mt_conversation_generic", ":entry", af_override_horse),
       (try_end),
 
@@ -26201,23 +26201,28 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     + "The warriors approch a grand oak, with a stone altar placed in front. You watch as the old shaman offers a variety of rites to Wotan. Several of the warriors bring a lamb from a recent raid to the shaman. "
     + "The shaman kills the animal, sprinkling some of the blood onto the altar. He then divides up the creature, offering some to Wotan through the burning of its flesh; while the rest is gathered for the warriors to eat and partake in the feast...",
     "none",
-    [],
+    [(quest_set_slot,"qst_the_wolfmen", slot_quest_current_state, 8)],
     [
 
     ("option_1",[],"Partake in the feast.",[
       (val_sub, "$g_wolf_quest_morality", 1),
-      (quest_set_slot,"qst_the_wolfmen", slot_quest_current_state, 8),
-      (leave_encounter),
-      (change_screen_return),
+      
+      (store_current_hours, ":cur_hour"),
+      (val_add, ":cur_hour", 24),
+      (quest_set_slot, "qst_the_wolfmen", slot_quest_gold_reward, ":cur_hour"),
+      (rest_for_hours, 30, 10, 0),
+      (change_screen_map),
 
       ]),
 
     ("option_2",[],"Opt out.",[
       (val_add, "$g_wolf_quest_morality", 1), 
-      (quest_set_slot,"qst_the_wolfmen", slot_quest_current_state, 8),
-      (leave_encounter),
-      (change_screen_return),
 
+      (store_current_hours, ":cur_hour"),
+      (val_add, ":cur_hour", 24),
+      (quest_set_slot, "qst_the_wolfmen", slot_quest_gold_reward, ":cur_hour"),
+      (rest_for_hours, 30, 10, 0),
+      (change_screen_map),
       ]),
 
     ]),
@@ -26225,21 +26230,27 @@ goods, and books will never be sold. ^^You can change some settings here freely.
   ("wolfmen_initiation_2",0,
     "As the day falls into dusk, one of the warriors approaches you. He asks you if you would join him and a few other warriors on a quick raid to steal some cattle from a nearby village... ",
     "none",
-    [],
+    [(quest_set_slot,"qst_the_wolfmen", slot_quest_current_state, 9)],
     [
 
     ("option_1",[],"Join them.",[
       (val_sub, "$g_wolf_quest_morality", 1),
-      (quest_set_slot,"qst_the_wolfmen", slot_quest_current_state, 9),
-      (leave_encounter),
-      (change_screen_return),
+
+      (store_current_hours, ":cur_hour"),
+      (val_add, ":cur_hour", 24),
+      (quest_set_slot, "qst_the_wolfmen", slot_quest_gold_reward, ":cur_hour"),
+      (rest_for_hours, 30, 10, 0),
+      (change_screen_map),
       ]),
 
     ("option_2",[],"Stay back.",[
       (val_add, "$g_wolf_quest_morality", 1), 
-      (quest_set_slot,"qst_the_wolfmen", slot_quest_current_state, 9),
-      (leave_encounter),
-      (change_screen_return),
+
+      (store_current_hours, ":cur_hour"),
+      (val_add, ":cur_hour", 24),
+      (quest_set_slot, "qst_the_wolfmen", slot_quest_gold_reward, ":cur_hour"),
+      (rest_for_hours, 30, 10, 0),
+      (change_screen_map),
       ]),
 
     ]),
@@ -26248,21 +26259,27 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     "You and the Cynocephali ambush a small band of warriors on behalf of the Langobards. The warriors, not expecting to fight beasts who claimed to be men routed. As the fled, the warriors chased them down, cutting down every last man. The fight is short and violent. "
     + "With their victory, the warriors begin to howl like wolfs, gnashing their teeth, striking their shields. Soon the men begin to loot the dead; not long after you spot some of the warriors mutilating the corpses of their once foes; some even drinking their blood...",
     "none",
-    [],
+    [(quest_set_slot,"qst_the_wolfmen", slot_quest_current_state, 10)],
     [
 
     ("option_1",[],"Join them.",[
       (val_sub, "$g_wolf_quest_morality", 1),
-      (quest_set_slot,"qst_the_wolfmen", slot_quest_current_state, 10),
-      (leave_encounter),
-      (change_screen_return),
+
+      (store_current_hours, ":cur_hour"),
+      (val_add, ":cur_hour", 24),
+      (quest_set_slot, "qst_the_wolfmen", slot_quest_gold_reward, ":cur_hour"),
+      (rest_for_hours, 30, 10, 0),
+      (change_screen_map),
       ]),
 
     ("option_2",[],"Stay back.",[
       (val_add, "$g_wolf_quest_morality", 1), 
-      (quest_set_slot,"qst_the_wolfmen", slot_quest_current_state, 10),
-      (leave_encounter),
-      (change_screen_return),
+
+      (store_current_hours, ":cur_hour"),
+      (val_add, ":cur_hour", 24),
+      (quest_set_slot, "qst_the_wolfmen", slot_quest_gold_reward, ":cur_hour"),
+      (rest_for_hours, 30, 10, 0),
+      (change_screen_map),
       ]),
     ]),
 
@@ -26271,21 +26288,27 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     + "The prisoner is lead to the altar, prayers and the dedication of the prisoner are directed to Wotan. Suddenly, the old shaman slits the prisoner's throat, his blood splattering onto the altar. Along with the prisoner, several other animals are sacrificed. "
     + "The warriors gather around to partake in Wotan's grand feast... ",
     "none",
-    [],
+    [(quest_set_slot,"qst_the_wolfmen", slot_quest_current_state, 11)],
     [
 
     ("option_1",[],"Partake in the feast.",[
       (val_sub, "$g_wolf_quest_morality", 1),
-      (quest_set_slot,"qst_the_wolfmen", slot_quest_current_state, 11),
-      (leave_encounter),
-      (change_screen_return),
+
+      (store_current_hours, ":cur_hour"),
+      (val_add, ":cur_hour", 24),
+      (quest_set_slot, "qst_the_wolfmen", slot_quest_gold_reward, ":cur_hour"),
+      (rest_for_hours, 30, 10, 0),
+      (change_screen_map),
       ]),
 
     ("option_2",[],"Stay back.",[
       (val_add, "$g_wolf_quest_morality", 1), 
-      (quest_set_slot,"qst_the_wolfmen", slot_quest_current_state, 11),
-      (leave_encounter),
-      (change_screen_return),
+
+      (store_current_hours, ":cur_hour"),
+      (val_add, ":cur_hour", 24),
+      (quest_set_slot, "qst_the_wolfmen", slot_quest_gold_reward, ":cur_hour"),
+      (rest_for_hours, 30, 10, 0),
+      (change_screen_map),
       ]),
     ]),
 
@@ -26294,12 +26317,12 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     + "You feel a sense of brotherhood with the warriors, as you join them in their hunts, battles and raids. One morning, a thick fog falls over the forest, the Old Shaman approaches you. He has one more task for you. "
     + "You must lead a raid against a small village on the edge of the forest. Although the villagers attempted to appease the Cynocephali, they found themselves on the wrong side of the conflict, and therefore must be dealt with... ",
     "none",
-    [],
+    [(quest_set_slot,"qst_the_wolfmen", slot_quest_current_state, 12)],
     [
 
-    ("option_1",[(eq, "$g_wolf_quest_morality", 0)],"Lead the raid.", #must be at least 0 to participate
+    ("option_1",[(le, "$g_wolf_quest_morality", 0)],"Lead the raid.", #must be at least 0 to participate
         [
-    (quest_set_slot,"qst_the_wolfmen", slot_quest_current_state, 12),
+
     (assign, "$temp1", "mnu_wolfmen_raid_won"),
     (assign, "$temp2", "mnu_wolfmen_raid_lost"),
 
@@ -26327,15 +26350,16 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     (jump_to_scene, "scn_wolfmen_raid"),
     (set_jump_mission, "mt_wolfmen_raid"),
 
-    (mission_tpl_entry_set_override_flags, "mt_conversation_generic", 58, af_override_head),
-    (mission_tpl_entry_clear_override_items, "mt_conversation_generic", 58),
+    (mission_tpl_entry_set_override_flags, "mt_wolfmen_raid", 58, af_override_horse),
+    (mission_tpl_entry_set_override_flags, "mt_wolfmen_raid", 58, af_override_head),
+    (mission_tpl_entry_clear_override_items, "mt_wolfmen_raid", 58),
     (mission_tpl_entry_add_override_item, "mt_wolfmen_raid",58, "itm_wolf_skin_1"),
 
     (change_screen_mission),
       ]),
 
-    ("option_2",[(eq, "$g_wolf_quest_morality", 1)],"Stay back.",[ #must be positive morality
-      (quest_set_slot,"qst_the_wolfmen", slot_quest_current_state, 12),
+    ("option_2",[(ge, "$g_wolf_quest_morality", 1)],"Stay back.",[ #must be positive morality
+
       (jump_to_menu, "mnu_wolfmen_initiation_fail"),
       ]),
 
@@ -26345,7 +26369,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     "The last of the defenders are cut down; the air is filled with the stench of death. In the once peaceful village, frenzy ensues. The Cynocephali have their way with what remains of the village, not as men, but as beasts. "
     + "The terror lasts all night. In the morning, the old shaman approaches you. You have finished your initation, you have now been set apart from society; You have become one with the Cynocephali. As you leave, the old shaman wishes you well, pledging his loyalty to you when the time comes...",
     "none",
-    [],
+    [(quest_set_slot,"qst_the_wolfmen", slot_quest_current_state, 13)],
     [
 
     ("option_1",[],"Farewell",[
@@ -26357,6 +26381,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       (disable_party,"p_wolfmen_lair"),
       (call_script, "script_change_troop_renown", "trp_player", 25),
       (call_script, "script_change_player_honor", -25),
+      (troop_add_item, "trp_player","itm_wolf_skin_1", 0),
       (leave_encounter),
       (change_screen_return),
       ]),
@@ -26365,7 +26390,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 
   ("wolfmen_raid_lost",0,
     "Despite your advantage, you have been cut down by the village defenders. Despite surviving your wounds, by the time you recover, the village has been ransacked, and the Cynocephali are no longer to be seen...",
-    "none", [],
+    "none", [(quest_set_slot,"qst_the_wolfmen", slot_quest_current_state, 13)],
     [
     ("option_1",[],"Continue...",
         [
@@ -26382,7 +26407,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     "As you observe the raid from a distance, you hear the clashing of blades and screams of terror. After several hours, you see the warriors hastily return to their camp to enjoy their spoils. "
     + "The next morning, the old shaman approaches you. You see his face full of disappointment. He tells you that you will not be initiated into the brotherhood, and asks you to leave. He still pledges his warriors to you when the time comes, but you will never be seen as an equal to them... ",
     "none",
-    [],
+    [(quest_set_slot,"qst_the_wolfmen", slot_quest_current_state, 13)],
     [
 
     ("option_1",[],"Farewell",[

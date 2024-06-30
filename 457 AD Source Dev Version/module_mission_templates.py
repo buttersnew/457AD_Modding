@@ -20068,7 +20068,6 @@ mission_templates = [
             (tutorial_message_set_background, 1),
             (tutorial_message,"@You have defeated the ferocious cynocephali, and now whatever valuables they have are yours for the taking..."),
             (call_script, "script_troop_add_gold", "trp_player", 850),
-            (troop_add_item, "trp_player","itm_ranja", 0),
             (call_script, "script_end_quest", "qst_the_wolfmen"),
             (call_script, "script_change_troop_renown", "trp_player", 50),
             (call_script, "script_change_player_honor", 2),
@@ -20334,10 +20333,11 @@ mission_templates = [
           (eq, ":continue", 1),
         ],
         [
-          (quest_set_slot, "qst_the_wolfmen", slot_quest_current_state, 6),
-          (jump_to_menu, "mnu_wolfmen_duel_won"),
+          (quest_set_slot, "qst_the_wolfmen", slot_quest_current_state, 6),\
           (mission_cam_animate_to_screen_color, 0xFF000000, 3000),
           (finish_mission,4),
+          (assign, "$auto_menu", "mnu_wolfmen_duel_won"),
+          (change_screen_map),
       ]),
       (1, 4, ti_once,
         [
@@ -20346,8 +20346,9 @@ mission_templates = [
         ],
         [ 
           (assign, "$temp", 22),
-          (jump_to_menu, "mnu_wolfmen_duel_lost"),
           (finish_mission,4),
+          (assign, "$auto_menu", "mnu_wolfmen_duel_lost"),
+          (change_screen_map),
       ]),
     ],),
 
@@ -20460,9 +20461,11 @@ mission_templates = [
     [
       (try_begin),
         (main_hero_fallen),
-        (jump_to_menu, "$temp2"),
+        (assign, "$auto_menu", "$temp2"),
+        #(jump_to_menu, "$temp2"),
       (else_try),
-        (jump_to_menu, "$temp1"),
+        (assign, "$auto_menu", "$temp1"),
+        #(jump_to_menu, "$temp1"),
       (try_end),
       (stop_all_sounds, 1),
       (finish_mission),

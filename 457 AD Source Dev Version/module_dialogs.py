@@ -50818,16 +50818,20 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
    "Very well, we don't refuse a duel. Wido! Cut the impudent bug to pieces!", "close_window", [
   (quest_set_slot,"qst_severinus_quest", slot_quest_current_state, 5),
   (finish_mission),
-  (jump_to_menu, "mnu_wolfmen_duel"),
+  (assign, "$auto_menu", "mnu_wolfmen_duel"),
+  #(jump_to_menu, "mnu_wolfmen_duel"),
    ]],
 
-  [trp_berserker_leader, "start", [(check_quest_active, "qst_the_wolfmen"),(quest_slot_eq, "qst_the_wolfmen", slot_quest_current_state, 6),(eq, "$g_player_faith", 2),(eq,"$g_paganism_dedication",1)], #player wins duel and is germanic pagan
+  [trp_berserker_leader, "start", [(check_quest_active, "qst_the_wolfmen"),(quest_slot_eq, "qst_the_wolfmen", slot_quest_current_state, 6),(eq, "$g_player_faith", 2),(eq,"$g_paganism_dedication",1),(neq, "$character_gender", tf_female)], #player wins duel and is germanic pagan, not a foid
    "You won! The Gods have spoken, you clearly have Wodan's favour on your side. You may not be one of us but you fight like a wolf.", "shaman_talk_duel_won_pagan_1", []],
   [trp_berserker_leader|plyr, "shaman_talk_duel_won_pagan_1", [],
    "He was a great warrior, but I bested him in combat and I deserve to join the brotherhood now.", "shaman_talk_duel_won_pagan_2", []],
   [trp_berserker_leader, "shaman_talk_duel_won_pagan_2", [],
    "Your initiation begins now. Your warriors will wait in their own camp in the clearance, we shall set them free now. We don't want them to disturb us. In the next days you will learn what it means to be a wolf-warrior.", "close_window", [
    (quest_set_slot,"qst_severinus_quest", slot_quest_current_state, 7),
+   (troop_add_item, "trp_player","itm_ranja", 0),
+   (finish_mission),
+   (assign, "$auto_menu", "mnu_wolfmen_initiation_1"),
    ]],
 
   [trp_berserker_leader, "start", [(check_quest_active, "qst_the_wolfmen"),(quest_slot_eq, "qst_the_wolfmen", slot_quest_current_state, 6)], #player wins duel and is not germanic pagan
@@ -50837,6 +50841,7 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   [trp_berserker_leader, "shaman_talk_duel_won_2", [],
    "You deserve nothing, prince. Those who do not follow the old ways may not walk on our path, they shall seek their own. You defeated our best warrior, you have our respect, but you will never be one of ours and there is nothing you can do that will make you change our minds.", "close_window", [
       (assign, "$g_wolf_quest", 3), #can recruit
+      (troop_add_item, "trp_player","itm_ranja", 0),
       (succeed_quest, "qst_the_wolfmen"),
       (add_xp_as_reward, 650),
       (call_script, "script_end_quest", "qst_the_wolfmen"),
@@ -52821,6 +52826,9 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
       (store_current_scene,":current_scene"),(eq,":current_scene","scn_abandoned_silver_mine"),
       ], "What do you want? If you're here to join the cause, go bother Basilius.", "close_window",[]],
 
+  [anyone,"start", [(store_conversation_troop, "$g_talk_troop"),(neq, "$g_talk_troop", "trp_berserker_leader"), 
+      (store_current_scene,":current_scene"),(eq,":current_scene","scn_wolfmen_lair"),
+      ], "What the hell do you want?", "close_window",[]],
 
   #now for the special abbots/religious leaders - go to them to convert
   [trp_roman_abbot, "start", [],

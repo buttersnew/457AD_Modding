@@ -1705,9 +1705,9 @@ scenes = [
   ("black_river_villa",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000030000500000715c5000057cd000035390000272c",
     [],[],"outer_terrain_forest"),  
   #severinus quest
-  ("asturis_1",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000030000500000715c5000057cd000035390000272c", #initial scene
+  ("asturis_1",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000300005630007d1f800006aba0000574f00001099", #initial scene
     [],[],"outer_terrain_forest"),  
-  ("asturis_2",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000030000500000715c5000057cd000035390000272c", #ruins
+  ("asturis_2",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000300005630007d1f800006aba0000574f00001099", #ruins
     [],[],"outer_terrain_forest"), 
   ("comagena_church",sf_indoors,"interior_castle_j", "bo_interior_castle_j", (-100,-100),(100,100),-100,"0",
     [],[]),

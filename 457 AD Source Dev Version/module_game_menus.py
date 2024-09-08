@@ -13539,13 +13539,11 @@ TOTAL:  {reg5}"),
             (eq, "$current_town", "p_town_8"),
             (set_visitors, 8, "trp_antiquarian", 1),
             (set_visitors, 13, "trp_chudjak", 1),
-          (try_end),
-
-          (try_begin),
-            (eq, "$current_town", "p_town_8"),
-            (neg|check_quest_active,"qst_nero_larper_quest"),
-            (quest_slot_eq,"qst_nero_larper_quest",slot_quest_current_state, 6),
-            (set_visitors, 50, "trp_nero_larper", 1),
+            (try_begin),
+              (neg|check_quest_active,"qst_nero_larper_quest"),
+              (quest_slot_eq,"qst_nero_larper_quest",slot_quest_current_state, 6),
+              (set_visitors, 50, "trp_nero_larper", 1),
+            (try_end),
           (try_end),
 
           (try_begin),
@@ -26330,6 +26328,11 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     (modify_visitors_at_site, "scn_wolfmen_raid"),
     (reset_visitors),
 
+    (mission_tpl_entry_set_override_flags, "mt_wolfmen_raid", 58, af_override_horse),
+    (mission_tpl_entry_set_override_flags, "mt_wolfmen_raid", 58, af_override_head),
+    (mission_tpl_entry_clear_override_items, "mt_wolfmen_raid", 58),
+    (mission_tpl_entry_add_override_item, "mt_wolfmen_raid",58, "itm_wolf_skin_1"),
+
     (set_visitor, 58, "trp_player"),
 
     #Defenders
@@ -26342,8 +26345,8 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     (set_visitors, 57, "trp_cynocephalus", 3),
 
     #defenders
-    (set_visitors, 50, "trp_eastern_germanic_spearman", 10),
-    (set_visitors, 50, "trp_eastern_germanic_retainer", 3),
+    (set_visitors, 50, "trp_eastern_germanic_spearman", 15),
+    (set_visitors, 50, "trp_eastern_germanic_retainer", 6),
     (set_visitors, 50, "trp_eastern_germanic_noble", 1),
     (set_visitors, 50, "trp_germanic_civilian", 8),
     (set_visitors, 50, "trp_peasant_woman", 6),
@@ -26351,10 +26354,6 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     (jump_to_scene, "scn_wolfmen_raid"),
     (set_jump_mission, "mt_wolfmen_raid"),
 
-    (mission_tpl_entry_set_override_flags, "mt_wolfmen_raid", 58, af_override_horse),
-    (mission_tpl_entry_set_override_flags, "mt_wolfmen_raid", 58, af_override_head),
-    (mission_tpl_entry_clear_override_items, "mt_wolfmen_raid", 58),
-    (mission_tpl_entry_add_override_item, "mt_wolfmen_raid",58, "itm_wolf_skin_1"),
 
     (change_screen_mission),
       ]),
@@ -26655,9 +26654,38 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       ],"Listen to the man...", 
         [
 
-        ]),
-    ],),
+      (assign, "$temp1", 4),
+      (assign, "$talk_context", 0),
+      (set_jump_mission, "mt_conversation_generic"),
+      (modify_visitors_at_site, "scn_asturis_1"),
+      (reset_visitors),
+      (try_for_range, ":entry", 0, 19),
+          (mission_tpl_entry_set_override_flags, "mt_conversation_generic", ":entry", af_override_horse),
+      (try_end),
 
+      (set_visitor, 0, "trp_player"),
+
+      (set_visitor, 1, "trp_severinus"),
+      #objectors
+      (set_visitor, 16, "trp_severinus_quest_npc_3"),
+      (set_visitor, 17, "trp_severinus_quest_npc_4"),
+      (set_visitor, 18, "trp_severinus_quest_npc_5"),
+
+      #crowd
+      (set_visitor, 2, "trp_roman_civilian_quest_1"),
+      (set_visitor, 3, "trp_roman_civilian_quest_2"),
+      (set_visitor, 4, "trp_roman_civilian_quest_1"),
+      (set_visitor, 5, "trp_roman_civilian_quest_2"),
+      (set_visitor, 6, "trp_roman_civilian_quest_1"),
+      (set_visitor, 7, "trp_roman_civilian_quest_2"),
+      (set_visitor, 8, "trp_roman_civilian_quest_1"),
+
+      (jump_to_scene, "scn_asturis_1"),
+      (change_screen_mission),
+
+      ]),
+
+    ],),
 
   ("severinus_comagenis_1",0,
     "After leaving the town of Asturis, you travel westward along the Danube, to the Roman town of Comagena. Although once a fortress for the Romans, the wall is in disrepair."
@@ -26668,7 +26696,23 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     ("option_1",[ 
       ],"Approach the gate...",
         [
+      (assign, "$g_severinus_quest", 3),
+      (assign, "$temp1", 4),
+      (assign, "$talk_context", 0),
+      (set_jump_mission, "mt_conversation_generic"),
+      (modify_visitors_at_site, "scn_conversation_scene"),
+      (reset_visitors),
+      (try_for_range, ":entry", 0, 19),
+          (mission_tpl_entry_set_override_flags, "mt_conversation_generic", ":entry", af_override_horse),
+      (try_end),
 
+      (set_visitor, 0, "trp_player"),
+
+      (set_visitor, 16, "trp_severinus"),
+      (set_visitor, 17, "trp_severinus_quest_npc_6"),
+
+      (jump_to_scene, "scn_conversation_scene"),
+      (change_screen_mission),
         ]),
     ],),
 
@@ -26681,6 +26725,32 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     ("option_1",[ #where severinus is revealed to have predicted the destruction of asturis
       ],"Quietly observe the monk...",
         [
+      (assign, "$g_severinus_quest", 4),
+      (assign, "$temp1", 4),
+      (assign, "$talk_context", 0),
+      (set_jump_mission, "mt_conversation_generic"),
+      (modify_visitors_at_site, "scn_comagena_church"),
+      (reset_visitors),
+      (try_for_range, ":entry", 0, 19),
+          (mission_tpl_entry_set_override_flags, "mt_conversation_generic", ":entry", af_override_horse),
+      (try_end),
+
+      (set_visitor, 0, "trp_player"),
+
+      (set_visitor, 1, "trp_severinus"),
+      #objectors
+      (set_visitor, 16, "trp_roman_civilian_quest_1"),
+      (set_visitor, 17, "trp_roman_civilian_quest_2"),
+      (set_visitor, 18, "trp_severinus_quest_npc_6"),
+      (set_visitor, 19, "trp_severinus_quest_npc_7"),
+
+      #crowd
+      (set_visitor, 2, "trp_refugee"),
+      (set_visitor, 3, "trp_refugee"),
+      (set_visitor, 4, "trp_refugee"),
+
+      (jump_to_scene, "scn_comagena_church"),
+      (change_screen_mission),
 
         ]),
     ],),
@@ -26694,7 +26764,31 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     ("option_1",[ #mission where the gothic troops have a pvp match, sets up next menu
       ],"Earthquake!",
         [
+      (assign, "$temp1", 4),
+      (assign, "$talk_context", 0),
+      (set_jump_mission, "mt_conversation_generic"),
+      (modify_visitors_at_site, "scn_comagena_church"),
+      (reset_visitors),
+      (try_for_range, ":entry", 0, 19),
+          (mission_tpl_entry_set_override_flags, "mt_conversation_generic", ":entry", af_override_horse),
+      (try_end),
 
+      (set_visitor, 0, "trp_player"),
+
+      (set_visitor, 1, "trp_severinus"),
+      #objectors
+      (set_visitor, 16, "trp_roman_civilian_quest_1"),
+      (set_visitor, 17, "trp_roman_civilian_quest_2"),
+      (set_visitor, 18, "trp_severinus_quest_npc_6"),
+      (set_visitor, 19, "trp_severinus_quest_npc_7"),
+
+      #crowd
+      (set_visitor, 2, "trp_refugee"),
+      (set_visitor, 3, "trp_refugee"),
+      (set_visitor, 4, "trp_refugee"),
+
+      (jump_to_scene, "scn_comagena_church"),
+      (change_screen_mission),
         ]),
     ],),
 

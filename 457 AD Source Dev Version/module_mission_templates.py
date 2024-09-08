@@ -5938,12 +5938,26 @@ mission_templates = [
              ],
     [(mission_enable_talk),]),      
     (0, 0, 0,
-    [
-    (quest_slot_eq, "qst_aestii_rebel_quest", slot_quest_current_state, 3),
-    (neg|conversation_screen_is_active),
-    ],
-    [
-    (start_mission_conversation, "trp_aestii_rebel_king"),]), 
+    [(quest_slot_eq, "qst_aestii_rebel_quest", slot_quest_current_state, 3),
+    (neg|conversation_screen_is_active),],
+    [(start_mission_conversation, "trp_aestii_rebel_king"),]), 
+
+    (0, 0, ti_once,[
+    (eq, "$g_severinus_quest", 1),
+    (neg|conversation_screen_is_active)],
+    [(start_mission_conversation, "trp_severinus"),]),
+
+    (0, 0, ti_once,[
+    (eq, "$g_severinus_quest", 3),
+    (neg|conversation_screen_is_active)],
+    [(start_mission_conversation, "trp_severinus"),]),
+
+    (0, 0, ti_once,[
+    (eq, "$g_severinus_quest", 4),
+    (quest_slot_eq, "qst_severinus_quest", slot_quest_current_state, 3),
+    (neg|conversation_screen_is_active)],
+    [(start_mission_conversation, "trp_severinus"),]),    
+
     ]),
 
 #----------------------------------------------------------------
@@ -24385,7 +24399,7 @@ mission_templates = [
       (0,mtef_visitor_source|mtef_team_0,0,aif_start_alarmed,1,[]),#player
       (1,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#player
       (2,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#guard
-	    (3,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#legatus
+	  (3,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#legatus
       (4,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#legatus
       (5,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#unused
       (6,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#unused
@@ -24470,7 +24484,7 @@ mission_templates = [
       (0,mtef_visitor_source|mtef_team_0,af_override_horse,aif_start_alarmed,1,[]),#player
       (1,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#player
       (2,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#guard
-	    (3,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#legatus
+	  (3,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#legatus
       (4,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#legatus
       (5,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#unused
       (6,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#unused

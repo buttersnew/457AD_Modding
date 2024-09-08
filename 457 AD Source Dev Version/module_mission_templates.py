@@ -5954,7 +5954,6 @@ mission_templates = [
 
     (0, 0, ti_once,[
     (eq, "$g_severinus_quest", 4),
-    (quest_slot_eq, "qst_severinus_quest", slot_quest_current_state, 3),
     (neg|conversation_screen_is_active)],
     [(start_mission_conversation, "trp_severinus"),]),    
 
@@ -22483,6 +22482,11 @@ mission_templates = [
     (play_track, "track_finnsburg_hengist_revenge",1),
     (start_mission_conversation, "trp_dani_ordlaf"),
     ]),
+
+    (0, 0, ti_once,[
+    (eq, "$g_severinus_quest", 5),
+    (neg|conversation_screen_is_active)],
+    [(start_mission_conversation, "trp_severinus"),]),    
  #common_inventory_not_available,
  
 

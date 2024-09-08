@@ -52780,10 +52780,6 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
       (store_current_scene,":current_scene"),(eq,":current_scene","scn_fire_temple"),
       ], "I'm busy, however you should speak with our Moabadan-Moabad.", "close_window",[]],
 
-  [anyone,"start", [(store_conversation_troop, "$g_talk_troop"),(neq, "$g_talk_troop", "trp_severinus"), #religious scene
-      (store_current_scene,":current_scene"),(eq,":current_scene","scn_fortified_monastery"),
-      ], "I'm busy, however you should speak with Severinus.", "close_window",[]],
-
   [anyone,"start", [(store_conversation_troop, "$g_talk_troop"),(neq, "$g_talk_troop", "trp_celtic_pagan_priest"), #religious scene
       (store_current_scene,":current_scene"),(eq,":current_scene","scn_celtic_stone_circle"),
       ], "You should speak with our priest.", "close_window",[]],
@@ -52807,6 +52803,39 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   [anyone,"start", [(store_conversation_troop, "$g_talk_troop"),(neq, "$g_talk_troop", "trp_berserker_leader"), 
       (store_current_scene,":current_scene"),(eq,":current_scene","scn_wolfmen_lair"),
       ], "What the hell do you want?", "close_window",[]],
+
+  [anyone,"start", [(store_conversation_troop, "$g_talk_troop"),(neq, "$g_talk_troop", "trp_severinus"),(neq, "$g_talk_troop", "trp_severinus_quest_npc_1"), #looking for procula
+      (store_current_scene,":current_scene"),(eq,":current_scene","scn_favianis"),
+      ], "Yes, what is it that you need?", "favianis_convo_1",[]], 
+  [anyone|plyr, "favianis_convo_1", [],
+   "Do you know a woman by the name of Procula?", "favianis_ask_about_procula_1", []],
+  [anyone, "favianis_ask_about_procula_1", [],
+   "Ah, Procula. I know of her, a rather wealthy woman. Her home is on the right after you enter the center of the small village outside of the walls...", "favianis_ask_about_procula_2", []],
+  [anyone|plyr, "favianis_ask_about_procula_2", [],
+   "Thank you for the information.", "favianis_convo_1", []],
+
+  [anyone|plyr,"favianis_convo_1", [(eq, "$rumors_inquired", 0)],
+   "What is the latest rumor around here?", "favianis_ask_about_rumor_1",[(assign, "$rumors_inquired", 1)]],
+  [anyone,"favianis_ask_about_rumor_1", [(store_mul, ":rumor_id", "$current_town", 197),
+                                     (val_add,  ":rumor_id", "$g_talk_agent"),
+                                     (call_script, "script_get_rumor_to_s61", ":rumor_id"),
+                                     (gt, reg0, 0)], "{s61}", "favianis_convo_1",[]],
+  [anyone,"favianis_ask_about_rumor_1", [], "I haven't heard anything interesting lately.", "favianis_convo_1",[]],
+
+  [anyone|plyr, "favianis_convo_1", [(neq, "$g_talk_troop", "trp_severinus_quest_npc_2"),],
+   "How do you fare in this town?", "favianis_ask_about_life_1", []],
+  [anyone, "favianis_ask_about_life_1", [],
+   "Life out here is hard. We are suffering from famine, and our food stores are running low. Not only do we have to worry about food, but we have to worry about barbarian raiders who pillage the surrounding countryside. Now, is there anything else you need?", "favianis_convo_1", []],
+
+  [anyone|plyr, "favianis_convo_1", [(eq, "$g_talk_troop", "trp_severinus_quest_npc_2"),],
+   "How do you fare in this town?", "favianis_ask_about_life_guard_1", []],
+  [anyone, "favianis_ask_about_life_guard_1", [],
+   "I am the legate of this town. From the famine and constant barbarian raids, very difficult. Now, if you don't mind, I have a militia to command...", "favianis_convo_1", []],
+
+  [anyone|plyr, "favianis_convo_1", [],
+   "I did not mean to disturb you.", "close_window", []],
+
+
 
   #now for the special abbots/religious leaders - go to them to convert
   [trp_roman_abbot, "start", [],

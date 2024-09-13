@@ -5488,12 +5488,6 @@ TOTAL:  {reg5}"),
     (set_visitor,22,reg(3)),
     (set_visitor,23,"trp_bandit_king"),
     (set_visitor,24,"trp_rich_bandit"),
-#    (set_visitor,25,"trp_refugeeromanruins"),
-#    (set_visitor,26,"trp_refugeeromanruins"),
-#    (set_visitor,27,"trp_refugeeromanruins"),
-#    (set_visitor,28,"trp_peasant_womanromanruins"),
-#    (set_visitor,29,"trp_peasant_womanromanruins"),
-#    (set_visitor,30,"trp_peasant_womanromanruins"),
       (set_jump_entry, 0),
     (scene_set_slot, "scn_ruins_1", slot_scene_visited, 1),
 
@@ -26871,35 +26865,136 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     ("option_1",[ 
       ],"Approach Severinus.",
         [
+        (assign, "$g_severinus_quest", 6),
+        (assign, "$temp1", 4),
+        (assign, "$talk_context", 0),
+        (set_jump_mission, "mt_conversation_generic"),
+        (modify_visitors_at_site, "scn_favianis"),
+        (try_for_range, ":entry", 0, 19),
+            (mission_tpl_entry_set_override_flags, "mt_conversation_generic", ":entry", af_override_horse),
+        (try_end),
+        (reset_visitors),
 
+        (set_visitor, 1, "trp_roman_civilian_quest_1"),
+        (set_visitor, 12, "trp_severinus_quest_npc_2"),
+        (set_visitor, 13, "trp_roman_civilian_quest_2"),
+        (set_visitor, 14, "trp_severinus_quest_npc_1"),
+        (set_visitor, 15, "trp_roman_civilian_quest_1"),
+        (set_visitor, 16, "trp_roman_civilian_quest_2"),
+
+        (set_visitor, 35, "trp_severinus"),
+
+        (set_jump_entry, 0),
+        (jump_to_scene, "scn_favianis"),
+        (change_screen_mission),
         ]),
     ],),  
 
-  ("severinus_favianis_4",0,
+  ("severinus_favianis_3",0,
     "Procula's hoard of goods were able to relieve the starving people of Favianis for several days. Once the supply was low, many townsfolk were worried what would happen when they ran out. However, unexpectedly several merchant vessels worth of food arrived from Raetia, bringing an abundance of food."
-    + "The begain to praise God with uninterrupted devotion, which carried on for several days. However, during this time, local bandits raided the lands outside of the walls of the town, taking captive both cattle and people. Severinus, once again beckons for you to join him in finding the local tribune, a man by the name of Mamertinus",
+    + "The townsfolk begain to praise God with uninterrupted devotion, which carried on for several days. However, during this time, local bandits raided the lands outside of the walls of the town, taking captive both cattle and people."
+    + "Many townsfolk and those effected by the attacks began to tell of the injustices Severinus. Once again beckons for you to join him in talking to the local tribune, a man by the name of Mamertinus in the local church.",
     "none", [],
     [
 
     ("option_1",[ 
       ],"Speak to Mamertinus.",
         [
+      (assign, "$g_severinus_quest", 7),  
+      (assign, "$temp1", 4),
+      (assign, "$talk_context", 0),
+      (set_jump_mission, "mt_conversation_generic"),
+      (modify_visitors_at_site, "scn_comagena_church"),
+      (reset_visitors),
+      (try_for_range, ":entry", 0, 19),
+          (mission_tpl_entry_set_override_flags, "mt_conversation_generic", ":entry", af_override_horse),
+      (try_end),
 
+      (set_visitor, 0, "trp_player"),
+
+      (set_visitor, 1, "trp_severinus"),
+
+      (set_visitor, 16, "trp_severinus_quest_npc_2"),
+
+      (jump_to_scene, "scn_comagena_church"),
+      (change_screen_mission),
         ]),
     ],),  
 
-  ("severinus_favianis_5",0,
-    "The bandits were caught by surprise.",
+  ("severinus_favianis_4",0,
+    "On Severinus's orders, you join Mamertinus and a small group of poorly armed soldiers. Following his directions, you come by a brook which is called Tiguntia, and there you spot a group of bandits and their camp...",
     "none", [],
     [
 
     ("option_1",[ 
       ],"Attack!",
         [
-
+        (change_screen_map),
         ]),
     ],),  
 
+
+    (   "asturis_ruins",0,
+        "You arrive at an abandoned Asturis. Once a bustling town on the danube, has now been reduced to a ghost town. Its inhabitants killed or captured by a group of huns, the town now remains uninhabitated, or so you think...",
+        "none",[],
+        [
+        ("enter",[(eq,"$asturis_ruins",0),],"Approach the town...",[
+        (set_jump_mission,"mt_asturis_ruins"),
+        (modify_visitors_at_site,"scn_asturis_2"),
+        (reset_visitors),
+        (try_begin),
+            (gt,"trp_robber", 0),
+            (assign,reg(0),"trp_looter"),
+            (assign,reg(1),"trp_looter"),
+            (assign,reg(2),"trp_robber"),
+            (assign,reg(3),"trp_robber"),
+          (else_try),
+            (assign,reg(0),"trp_looter"),
+            (assign,reg(1),"trp_looter"),
+            (assign,reg(2),"trp_robber"),
+            (assign,reg(3),"trp_bandit"),
+        (try_end),
+        (shuffle_range,0,4),
+        (set_visitor,1,reg(0)),
+        (set_visitor,2,reg(1)),
+        (set_visitor,3,reg(2)),
+        (set_visitor,4,reg(3)),
+        (set_visitor,5,reg(0)),
+        (set_visitor,6,"trp_brigand"),
+        (set_visitor,7,"trp_brigand"),
+        (set_visitor,8,reg(3)),
+        (set_visitor,9,reg(0)),
+        (set_visitor,10,reg(1)),
+        (set_visitor,11,reg(2)),
+        (set_visitor,12,reg(3)),
+        (set_visitor,13,"trp_brigand"),
+        (set_visitor,14,"trp_brigand"),
+        (set_visitor,15,reg(2)),
+        (set_visitor,16,"trp_bandit"),
+        (set_visitor,17,reg(2)),
+        (set_visitor,18,reg(3)),
+        (set_visitor,19,reg(0)),
+        (set_visitor,20,reg(1)),
+        (set_visitor,21,reg(2)),
+        (set_visitor,22,reg(3)),
+        (set_visitor,23,"trp_bandit_king"),
+        (set_visitor,24,"trp_bandit"),
+
+        (assign, ":cur_entry", 0), #add player's companions
+        (try_for_range, ":companion", companions_begin, companions_end),
+          (main_party_has_troop,":companion"),
+          (set_visitor, ":cur_entry", ":companion"),
+        (try_end),
+
+        (set_jump_entry, 0),
+        (scene_set_slot, "scn_asturis_2", slot_scene_visited, 1),
+
+        (jump_to_scene,"scn_asturis_2"),
+        (change_screen_mission),
+        ]),
+        ("leave",[],"Leave...",[(change_screen_map),]),
+    ],
+  ),
 
 #Battle of Bolia
 ("battle_of_bolia",0,

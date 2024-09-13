@@ -1687,7 +1687,7 @@ scenes = [
   ("venedi_village",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000300005000007a1e800000b5400003ad100005795",
     [],[],"outer_terrain_forest"),  
   ("noricum_refugee_camp",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000300005000004c13100001d3100006d4100001edd",
-    [],["bonus_chest_7"],"outer_terrain_forest"),
+    [],[],"outer_terrain_forest"),
   ("abandoned_silver_mine",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000b00005000005e5790000371500000e3500000f71",
     [],["silver_mine_chest_1","silver_mine_chest_2"], "outer_terrain_mountain"),  
   #cynocephali
@@ -1708,7 +1708,7 @@ scenes = [
   ("asturis_1",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000300005630007d1f800006aba0000574f00001099", #initial scene
     [],[],"outer_terrain_forest"),  
   ("asturis_2",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000300005630007d1f800006aba0000574f00001099", #ruins
-    [],[],"outer_terrain_forest"), 
+    [],["bonus_chest_7"],"outer_terrain_forest"), 
   ("comagena_church",sf_indoors,"interior_castle_j", "bo_interior_castle_j", (-100,-100),(100,100),-100,"0",
     [],[]),
   ("favianis",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000300005630007d1f800006aba0000574f00001099",

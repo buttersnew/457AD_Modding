@@ -50675,6 +50675,7 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
    "I'd be overjoyed to accompany you to illuminate the lights of those who yet sleep and see only dark. I can provide you protection as we travel through Noricum.", "close_window", [ #sends player to new menu
     (call_script, "script_change_player_relation_with_faction", "fac_roman_christians", 1),
     (disable_party, "p_sq_asturis_1"),
+    (enable_party, "p_sq_asturis_2"),
 
     (setup_quest_text, "qst_severinus_quest"),
     (str_store_party_name_link, s3, "p_village_158"),
@@ -50761,8 +50762,31 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
    (jump_to_menu, "mnu_severinus_favianis_2"),
    ]],
 
+  [trp_severinus, "start", [(check_quest_active, "qst_severinus_quest"),(quest_slot_eq, "qst_severinus_quest", slot_quest_current_state, 6)], #procula is found
+   "Daughter of most noble parents, why do you make yourself the handmaiden of avarice and stand forth the slave of covetousness, which is, as the apostle teach, idolatry?", "severinus_favianis_procula_1", []],
+  [trp_severinus, "severinus_favianis_procula_1", [],
+   "The Lord in his compassion has regard for his servants; and you shall not have any use for your ill-gotten wealth, except to cast into the stream of the Danube the grain too long withheld, and so to exhibit to fish the humanity which you have denied to men! Where you aid yourself rather than the poor from those things which you yet think to keep, while Christ hungers.", "severinus_favianis_procula_2", []],
 
+  [anyone|other(trp_severinus_quest_npc_1), "severinus_favianis_procula_2", [], "Enough! Enough! I... will order the grain to be given to the poor and needy of the town... Forgive me, oh servant of the Most High!", "close_window", [
+  (quest_set_slot,"qst_severinus_quest", slot_quest_current_state, 7),
+  (finish_mission),
+  (jump_to_menu, "mnu_severinus_favianis_3"),
+  ]],
    
+  [trp_severinus, "start", [(check_quest_active, "qst_severinus_quest"),(quest_slot_eq, "qst_severinus_quest", slot_quest_current_state, 7)],
+   "Ave Mamertinus!", "severinus_favianis_mamertinus_1", []],
+  [anyone|other(trp_severinus_quest_npc_2), "severinus_favianis_mamertinus_1", [], "Ave Severinus, my good friend! What tidings you bring to me?", "severinus_favianis_mamertinus_2", []],
+  [trp_severinus, "severinus_favianis_mamertinus_2", [],
+   "There has been a great injustice: cattle and men have been taken by barbarian hordes to lands unknown, the populace asks for them to be saved, have you enough soldiers for such an endeavour, my old friend?", "severinus_favianis_mamertinus_3", []],
+  [anyone|other(trp_severinus_quest_npc_2), "severinus_favianis_mamertinus_3", [], "I have very few soldiers. But I dare not contend with such a host of enemies. However, if you command it, venerable father, though we lack the aid of weapons yet we believe that through your prayers we shall be victorious.", "severinus_favianis_mamertinus_4", []],
+  [trp_severinus, "severinus_favianis_mamertinus_4", [],
+   "Even if your soldiers are unarmed, they shall now be armed from the enemy. For neither numbers nor fleshly courage is required, when everything proves that God is our champion. Only in the name of the Lord advance swiftly, advance confidently. For when God in his compassion goes before, the weakest shall seem the bravest. The Lord shall fight for you, and you shall be silent. Then make haste; and this one thing observe above everything, to conduct unharmed into my presence those of the barbarians whom you shall take.", "close_window", [
+  (quest_set_slot,"qst_severinus_quest", slot_quest_current_state, 8),
+  (finish_mission),
+  (jump_to_menu, "mnu_severinus_favianis_4"),
+   ]],
+
+
 
   [trp_berserker_leader, "start", [(check_quest_active, "qst_the_wolfmen"),(quest_slot_eq, "qst_the_wolfmen", slot_quest_current_state, 4),],
    "Not many dare venturing into these woods... Speak quickly, what do you seek?", "shaman_talk_intro_1", []],

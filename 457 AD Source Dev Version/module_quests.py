@@ -529,6 +529,10 @@ quests = [
   "{!}None"
  ),
 
+ ("persian_conspiracy", "Persian Conspiracy", 0, #quest where the player helps support Peroz against his brother, Hormizd III. Player will help Peroz gain an alliance with the house of Mihran (specifically Raham Mihran) and the Hepthalites, and fight in a battle against the Shah, defeating him and ascending Peroz I to the throne, town_26, castle_65
+  "{!}None"
+ ),
+
 #TO BE DONE QUESTS
  ("haddingr_quest", "Haddingr's Revenge", 0, 
   "{!}"

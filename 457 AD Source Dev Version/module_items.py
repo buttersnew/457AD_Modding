@@ -504,7 +504,6 @@ items = [
  
  ["roman_arrows_2","Arrows", [("roman_arrow",0),("roman_arrow",ixmesh_flying_ammo),("roman_quiver_2", ixmesh_carry)], itp_type_arrows|itp_merchandise|itp_default_ammo, itcf_carry_revolver_right, 100,weight(3.5)|abundance(80)|weapon_length(95)|thrust_damage(24,cut)|max_ammo(32),imodbits_missile],
 
-
 ["poisoned_arrows", "Poisoned  Arrows", [("barbed_arrow_new",0),("barbed_arrow_new",ixmesh_flying_ammo),("barbed_arrows_quiver",ixmesh_carry)], itp_type_arrows|itp_default_ammo, itcf_carry_quiver_right_vertical, 300, weight(1.7)|abundance(30)|weapon_length(95)|thrust_damage(1,pierce)|max_ammo(35), imodbits_missile, [],[] ],
 
 
@@ -3417,22 +3416,27 @@ weight(1)|abundance(80)|head_armor(24)|body_armor(14)|leg_armor(6)|difficulty(0)
 ["donars_club", "Donar's Club", [("donars_club",0)], itp_unique|itp_type_two_handed_wpn|itp_two_handed|itp_primary|itp_unbalanced|itp_can_penetrate_shield|itp_crush_through|itp_wooden_parry, itc_nodachi|itcf_carry_axe_back,
 9600 , weight(5.5)|difficulty(16)|spd_rtng(82) | weapon_length(85)|swing_damage(38 , blunt) | thrust_damage(0 ,  pierce),imodbits_axe ],
 
-["vidigoia_spear", "Vidigoia's Spear", [("runic_spear_1_ranged",0)], itp_type_thrown|itp_can_penetrate_shield|itp_primary|itp_next_item_as_melee ,itcf_throw_javelin|itp_bonus_against_shield,
+["vidigoia_spear", "Vidigoia's Spear", [("runic_spear_1_ranged",0)], itp_unique|itp_type_thrown|itp_can_penetrate_shield|itp_primary|itp_next_item_as_melee ,itcf_throw_javelin|itp_bonus_against_shield,
 7000 , weight(1.5)|difficulty(5)|spd_rtng(90) | shoot_speed(22) | thrust_damage(50 ,  pierce)|max_ammo(1)|weapon_length(120)|accuracy(90),imodbits_polearm ],
 ["vidigoia_spear_melee", "Vidigoia's Spear", [("runic_spear_1",0)],itp_type_polearm|itp_can_penetrate_shield|itp_crush_through|itp_primary|itp_wooden_parry , itc_spear_upstab|itp_bonus_against_shield,
 7000 , weight(1.5)|difficulty(8)|spd_rtng(97) | swing_damage(25, blunt) | thrust_damage(34 ,  pierce)|weapon_length(160),imodbits_polearm ],
+
+["andag_angon", "Andag's Angon", [("gallic_spear_1",0),("gallic_spear_1", ixmesh_carry)], itp_unique|itp_type_thrown|itp_primary|itp_next_item_as_melee ,itcf_throw_javelin|itp_bonus_against_shield,
+3520 , weight(1.25)|difficulty(4)|spd_rtng(92) | shoot_speed(30) | thrust_damage(48 ,  pierce)|max_ammo(1)|weapon_length(131)|accuracy(96),imodbits_polearm ],
+["andag_angon_melee", "Andag's Angon", [("gallic_spear_1",0),("gallic_spear_1", ixmesh_carry)],itp_type_polearm|itp_primary|itp_wooden_parry , itc_spear_upstab,
+3520 , weight(1.25)|difficulty(1)|spd_rtng(96) | swing_damage(18, cut) | thrust_damage(32 ,  pierce)|weapon_length(131),imodbits_polearm ],
 
 ["hunimund_axe", "Hunimund's Axe", [("bb_nordic_war_axe",0)], itp_unique|itp_type_one_handed_wpn|itp_primary|itp_secondary|itp_next_item_as_melee|itp_bonus_against_shield|itp_can_penetrate_shield|itp_wooden_parry, itc_scimitar|itcf_carry_axe_left_hip,
  3005 , weight(1.5)|difficulty(8)|spd_rtng(90) | weapon_length(75)|swing_damage(36 , cut) | thrust_damage(0 ,  pierce),imodbits_axe],
 ["hunimund_axe_alt", "Hunimund's Axe", [("bb_nordic_war_axe",0)], itp_unique|itp_type_two_handed_wpn|itp_two_handed|itp_primary|itp_bonus_against_shield|itp_can_penetrate_shield|itp_can_knock_down|itp_crush_through|itp_wooden_parry, itc_nodachi|itcf_carry_axe_left_hip,
  3005 , weight(1.5)|difficulty(8)|spd_rtng(86) | weapon_length(75)|swing_damage(42 , cut) | thrust_damage(0 ,  pierce),imodbits_axe ],
 
-["attila_bow", "Bow of Attila", [("niya_bow_2",0),("niya_case_2", ixmesh_carry)], itp_type_bow |itp_primary|itp_two_handed,itcf_shoot_bow|itcf_carry_bowcase_left|itcf_show_holster_when_drawn,9600 , weight(1.25)|difficulty(4)|spd_rtng(93) | shoot_speed(60) | thrust_damage(15 ,cut),imodbits_bow ], #unique item given to hunnic players who conquer apahdia as the huns
+["attila_bow", "Bow of Attila", [("niya_bow_2",0),("niya_case_2", ixmesh_carry)], itp_unique|itp_type_bow |itp_primary|itp_two_handed,itcf_shoot_bow|itcf_carry_bowcase_left|itcf_show_holster_when_drawn,9600 , weight(1.25)|difficulty(4)|spd_rtng(93) | shoot_speed(60) | thrust_damage(15 ,cut),imodbits_bow ], #unique item given to hunnic players who conquer apahdia as the huns
 
 ["old_practice_spatha", "Practice Spatha", [("old_practice_spatha",0)], itp_type_one_handed_wpn|itp_primary, itc_longsword|itcf_carry_sword_left_hip, #for gladiator quest
  100 , weight(2)|difficulty(0)|spd_rtng(88) | weapon_length(97)|swing_damage(22, blunt) | thrust_damage(18, blunt),imodbits_sword_high ],
 
-["wlods_battle_banana", "Wlod's Battle Banana", [("wlods_battle_banana",0)], itp_type_one_handed_wpn|itp_primary|itp_secondary|itp_bonus_against_shield|itp_wooden_parry, itc_scimitar|itcf_carry_axe_left_hip, #op as shit lmao
+["wlods_battle_banana", "Wlod's Battle Banana", [("wlods_battle_banana",0)], itp_unique|itp_type_one_handed_wpn|itp_primary|itp_secondary|itp_bonus_against_shield|itp_wooden_parry, itc_scimitar|itcf_carry_axe_left_hip, #op as shit lmao
  9600 , weight(1.25)|difficulty(0)|spd_rtng(110) | weapon_length(41)|swing_damage(100 , pierce) | thrust_damage(0 ,  pierce),imodbits_none ],
 
 #shields
@@ -3455,7 +3459,7 @@ weight(1)|abundance(80)|head_armor(24)|body_armor(14)|leg_armor(6)|difficulty(0)
 
 ["unique_mail_armor", "Rich Mail Shirt", [("unique_mail_2",0)], itp_unique|itp_type_body_armor |itp_covers_legs ,0,9000 , weight(14)|abundance(0)|head_armor(0)|body_armor(54)|leg_armor(15)|difficulty(8) ,imodbits_armor ],
 
-["helmet_of_victory", "Ornate Ridge Helmet", [("victoria_intercisa",0),("victoria_intercisa_inv",ixmesh_inventory)], itp_type_head_armor|itp_attach_armature,0,2450, weight(1.75)|abundance(0)|head_armor(51)|body_armor(0)|leg_armor(0)|difficulty(0) ,imodbits_plate ],
+["helmet_of_victory", "Ornate Ridge Helmet", [("victoria_intercisa",0),("victoria_intercisa_inv",ixmesh_inventory)], itp_unique|itp_type_head_armor|itp_attach_armature,0,2450, weight(1.75)|abundance(0)|head_armor(51)|body_armor(0)|leg_armor(0)|difficulty(0) ,imodbits_plate ],
 
 ["aurelian_helmet", "Aurelian's Helmet", [("aurelian_helmet",0),("aurelian_helmet_inv",ixmesh_inventory)], itp_unique|itp_type_head_armor|itp_attach_armature|itp_fit_to_head|itp_covers_beard,0,9850, weight(5.5)|abundance(0)|head_armor(56)|body_armor(0)|leg_armor(0)|difficulty(10) ,imodbits_plate ],
 

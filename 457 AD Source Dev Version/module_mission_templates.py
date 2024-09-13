@@ -5957,6 +5957,16 @@ mission_templates = [
     (neg|conversation_screen_is_active)],
     [(start_mission_conversation, "trp_severinus"),]),    
 
+    (0, 0, ti_once,[
+    (eq, "$g_severinus_quest", 6),
+    (neg|conversation_screen_is_active)],
+    [(start_mission_conversation, "trp_severinus"),]),  
+
+    (0, 0, ti_once,[
+    (eq, "$g_severinus_quest", 7),
+    (neg|conversation_screen_is_active)],
+    [(start_mission_conversation, "trp_severinus"),]),  
+
     ]),
 
 #----------------------------------------------------------------
@@ -25649,5 +25659,226 @@ mission_templates = [
     ],
   ),
 
+     (
+    "asturis_ruins",mtf_battle_mode,-1,
+    "asturis",
+    [(0,mtef_scene_source|mtef_team_0,af_override_horse,0,1,[]), #player
+
+   (1,mtef_visitor_source|mtef_team_2,af_override_horse,0,1,[]),
+   (2,mtef_visitor_source|mtef_team_2,af_override_horse,0,1,[]),
+   (3,mtef_visitor_source|mtef_team_2,af_override_horse,0,1,[]),
+   (4,mtef_visitor_source|mtef_team_2,af_override_horse,0,1,[]),
+   (5,mtef_visitor_source|mtef_team_2,af_override_horse,0,1,[]),
+   (6,mtef_visitor_source|mtef_team_2,af_override_horse,0,1,[]),#slave hunter
+   (7,mtef_visitor_source|mtef_team_2,af_override_horse,0,1,[]),
+   (8,mtef_visitor_source|mtef_team_2,af_override_horse,0,1,[]),
+   (9,mtef_visitor_source|mtef_team_2,af_override_horse,0,1,[]),
+   (10,mtef_visitor_source|mtef_team_2,af_override_horse,0,1,[]),
+   (11,mtef_visitor_source|mtef_team_2,af_override_horse,0,1,[]),
+   (12,mtef_visitor_source|mtef_team_2,af_override_horse,0,1,[]),
+   (13,mtef_visitor_source|mtef_team_2,af_override_horse,0,1,[]),
+   (14,mtef_visitor_source|mtef_team_2,af_override_horse,0,1,[]),#slave crusher
+   (15,mtef_visitor_source|mtef_team_2,af_override_horse,0,1,[]),
+   (16,mtef_visitor_source|mtef_team_2,af_override_horse,0,1,[]),
+   (17,mtef_visitor_source|mtef_team_2,af_override_horse,0,1,[]),#slaver chief
+   (18,mtef_visitor_source|mtef_team_2,af_override_horse,0,1,[]),
+   (19,mtef_visitor_source|mtef_team_2,af_override_horse,0,1,[]),
+   (20,mtef_visitor_source|mtef_team_2,af_override_horse,0,1,[]),
+   (21,mtef_visitor_source|mtef_team_2,af_override_horse,0,1,[]),
+   (22,mtef_visitor_source|mtef_team_2,af_override_horse,0,1,[]),
+   (23,mtef_visitor_source|mtef_team_2,af_override_horse,0,1,[]),
+   (24,mtef_visitor_source|mtef_team_2,af_override_horse,0,1,[]),#slave crusher
+     ], vc_weather +
+    [
+    
+     
+      (ti_before_mission_start, 0, 0, [],
+       [
+     (assign,"$g_battle_result",0),
+     (team_set_relation, 0, 2, -1), # -1 for enemy, 1 for friend, 0 for neutral
+     (team_set_relation,1,2,0),
+     (team_set_relation,0,1,0),    
+         ]),
+
+  (0, 0, ti_once,
+          [
+          (assign, "$defender_team_2", 2),
+          ], []
+  ),
+
+  (0, 0, ti_once,
+          [
+          (set_show_messages, 0),
+          (team_give_order, "$defender_team_2", grc_infantry, mordr_stand_ground),
+          (team_give_order, "$defender_team_2", grc_archers, mordr_stand_ground),
+          (team_give_order, "$defender_team_2", grc_cavalry, mordr_stand_ground),
+          (set_show_messages, 1),
+          ], []
+  ),
+
+                        (0.1, 0, ti_once, [
+            (store_skill_level,":player_sneaking_skill","skl_athletics","trp_player"),
+
+                       
+                       (try_begin),
+                       (eq,":player_sneaking_skill",10),
+                (assign,":sneak_distance",500),
+            (else_try),
+                (eq,":player_sneaking_skill",9),
+                (assign,":sneak_distance",600),
+            (else_try),
+                (eq,":player_sneaking_skill",8),
+                (assign,":sneak_distance",700),
+            (else_try),
+                (eq,":player_sneaking_skill",7),
+                (assign,":sneak_distance",800),
+            (else_try),
+                (eq,":player_sneaking_skill",6),
+                (assign,":sneak_distance",900),
+            (else_try),
+                (eq,":player_sneaking_skill",5),
+                (assign,":sneak_distance",1000),
+            (else_try),
+                (eq,":player_sneaking_skill",4),
+                (assign,":sneak_distance",1100),
+            (else_try),
+                (eq,":player_sneaking_skill",3),
+                (assign,":sneak_distance",1200),
+            (else_try),
+                (eq,":player_sneaking_skill",2),
+                (assign,":sneak_distance",1300),
+            (else_try),
+                (eq,":player_sneaking_skill",1),
+                (assign,":sneak_distance",1400),
+            (else_try),
+                (assign,":sneak_distance",1500),
+           (try_end),
+        (get_player_agent_no,":player_agent"),
+  (agent_get_position,pos1,":player_agent"),
+  (assign,":continue",0),
+  (try_for_agents, ":cur_agent"),
+    (agent_get_troop_id, ":cur_agent_troop", ":cur_agent"),
+    (this_or_next|eq, ":cur_agent_troop", "trp_bandit_king"),
+    (this_or_next|eq, ":cur_agent_troop", "trp_robber"),
+    (this_or_next|eq, ":cur_agent_troop", "trp_rich_bandit"),
+    (this_or_next|eq, ":cur_agent_troop", "trp_brigand"),
+    (this_or_next|eq, ":cur_agent_troop", "trp_bandit"),
+    (eq, ":cur_agent_troop", "trp_robber"),
+    (agent_get_position,pos2,":cur_agent"),
+    (get_distance_between_positions,":distance",pos1,pos2),
+    (lt,":distance",":sneak_distance"),
+    (assign,":continue",1),
+  (try_end),
+  (eq,":continue",1),
+            ],
+           [(set_party_battle_mode),
+            (try_for_agents, ":cur_agent"),
+              (agent_get_troop_id, ":cur_agent_troop", ":cur_agent"),
+              (eq, ":cur_agent_troop", "trp_brigand"),
+              (agent_set_team, ":cur_agent", 2),
+            (try_end),
+             ]),
+
+#TEMPERED      SETUP KEY AGENTS
+
+    (0,0,ti_once,[],
+    [ (mission_enable_talk),
+      (assign, "$talk_context", tc_hero_freed),
+      (try_for_agents,":cur_agent"),
+        (agent_get_troop_id,":cur_troop_id",":cur_agent"),
+        (try_begin),
+          (eq,":cur_troop_id","trp_brigand"),
+          (assign,"$slaver_1",":cur_agent"),
+        (else_try),
+          (eq,":cur_troop_id","trp_rich_bandit"),
+          (assign,"$slaver_2",":cur_agent"),
+        (else_try),
+          (eq,":cur_troop_id","trp_bandit_king"),
+          (assign,"$slaver_3",":cur_agent"),
+        (try_end),
+      (try_end),
+    ]),
+    
+#TEMPERED     CHECK FOR DEFEAT AGAINST GUARDS
+    (5, 3, ti_once,
+     [
+     (main_hero_fallen,0),
+     (assign,"$g_spy_rescue_active",-2),
+     (assign,"$g_battle_result",-1),
+     (assign,"$g_encountered_party",-1),
+    (call_script, "script_change_troop_renown", "trp_player", -5),
+    (display_message, "@ Bandits strike you with anger and you fall into a puddle of blood. They think you're dead...",color_good_news),
+    (store_troop_gold, ":gold", "trp_player"),
+    (try_begin),
+    (ge, ":gold", 100),
+    (troop_remove_gold, "trp_player", 100),
+    (else_try),
+    (call_script, "script_change_troop_renown", "trp_player", -5),
+    (try_end),     
+     ],
+     [ 
+      (finish_mission), 
+       ]),
+     
+#TEMPERED     SCRIPT PRISONERS TO FOLLOW PLAYER 
+    (1,1,1,[],
+    [(get_player_agent_no,":player_agent"),
+     (agent_get_position,pos1,":player_agent"),
+     (try_for_agents,":cur_agent"),
+     (agent_get_team  ,":team_no",":cur_agent"),
+     (agent_get_wielded_item,":has_weapon",":cur_agent",0),#Tempered get right hand weapon (-1 for none)
+      (try_begin),
+        (neq,":cur_agent",":player_agent"),
+        (eq,":team_no",0),
+        (eq,":has_weapon",-1),
+          (agent_set_scripted_destination,":cur_agent",pos1,1),
+      (try_end),
+     (try_end),
+     ]),
+#TEMPERED RELEASE PRISONERS FROM SCRIPTED MODE
+
+   (2,0,0,[],
+    [(get_player_agent_no,":player_agent"),
+     (try_for_agents,":cur_agent"),
+     (agent_get_team  ,":team_no",":cur_agent"),
+     (agent_get_wielded_item,":has_weapon",":cur_agent",0),
+      (try_begin),
+        (neq,":cur_agent",":player_agent"),
+        (eq,":team_no",0),
+        (neq,":has_weapon",-1),
+          (agent_clear_scripted_mode,":cur_agent"),
+      (try_end),
+     (try_end),
+     ]),
+     
+#TEMPERED     CHECK FOR VICTORY OVER GUARDS
+    ( 1, 1, ti_once,
+     [
+     (num_active_teams_le, 2),
+     (neg|main_hero_fallen),     
+      ],
+        [
+     (assign, "$g_battle_result", 1),
+     (assign,"$g_encountered_party",-1),
+    ]), 
+
+      (ti_inventory_key_pressed, 0, 0, [(set_trigger_result,1)], []),
+      (ti_tab_pressed, 0, 0, [(set_trigger_result,1)], []),
+     
+      (2, 0, ti_once, [ (neg|agent_is_alive,"$slaver_3"),], 
+     [
+        (display_message,"@__You have killed the leader of this group of bandits...",color_good_news),
+        (call_script, "script_change_player_honor", 15),
+        (call_script, "script_change_troop_renown", "trp_player", 25),
+        (call_script, "script_troop_add_gold", "trp_player", 800),
+        (mission_disable_talk),
+        (assign,"$asturis_ruins",1),                        
+       ]),
+
+(0, 0, 0,[(key_clicked, key_k),
+            (tutorial_message, "@ "),
+], []),
+    ],
+  ),
 
 ]#end of file

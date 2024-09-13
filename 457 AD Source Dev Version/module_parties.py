@@ -232,7 +232,7 @@ parties = [
  ("village_16", "Dianium", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-218.86, -7.17), [], 170),         #[swycartographr] prev. coords: (-233.65, -3.09)
  ("village_17", "Tarentum", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-84.5, 4.45), [], 35),            #[swycartographr] prev. coords: (-119.4, 0.98)
  ("village_18", "Placentia", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-136.55, 50.43), [], 170),       #[swycartographr] prev. coords: (-167.81, 49.29)
- ("village_19", "Crotona", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-80.51, -6.47), [], 170),          #[swycartographr] prev. coords: (-121.82, -10.28)
+ ("village_19", "Consentia", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-85.84, -4.62), [], 170), #will have secret chest hidden at some point (alaric I's grave)       
  ("village_20", "Samshuilde",  icon_village_c|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(145.8,55.85),[], 40),              #[swycartographr] prev. coords: (68.88, 45.7)
  ("village_21", "Valarshapat", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (133.55, 43.18), [], 100),      #[swycartographr] prev. coords: (63.64, 41.48) #[swycartographr] prev. coords: (140.01, 41.86)
  ("village_22", "Florentia", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-126.27, 38.3), [], 110), #      #[swycartographr] prev. coords: (-161.704, 37.2467)
@@ -543,10 +543,10 @@ parties = [
   ("coalition_camp","Coalition_Camp",pf_disabled|pf_always_visible|icon_camp|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-88.32, 82.39),[]),
 
   #severinus quest
-  ("sq_asturis_1","Asturis",pf_disabled|pf_always_visible|icon_village_a|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-92.32, 88.17),[]),
+  ("sq_asturis_1","Asturis",pf_disabled|pf_always_visible|icon_village_snow_a|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-92.32, 88.17),[]),
   ("sq_asturis_2","Ruins of Asturis",pf_disabled|icon_village_snow_burnt_a|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-92.32, 88.17),[]),
-  ("sq_comagena","Comagena",pf_disabled|pf_always_visible|icon_village_a|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-94.64, 88.55),[]),
-  ("sq_favianis","Favianis",pf_disabled|pf_always_visible|icon_village_a|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-96.74, 88.52),[]),
+  ("sq_comagena","Comagena",pf_disabled|pf_always_visible|icon_village_snow_a|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-94.64, 88.55),[]),
+  ("sq_favianis","Favianis",pf_disabled|pf_always_visible|icon_village_snow_a|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-96.74, 88.52),[]),
 
   #("champion_lair","Forest_Hideout",pf_disabled|icon_castle_snow_b|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(65.58,-3.78),[]), #not used just yet
 

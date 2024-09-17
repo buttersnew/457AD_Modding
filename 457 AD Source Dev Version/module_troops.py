@@ -2805,6 +2805,20 @@ troops = [
    [itm_war_spear,itm_sword_viking_2,itm_heavy_greaves,itm_koblenz_helmet_light_old,itm_battered_mail_1_cloak,itm_battered_mail_2_cloak,itm_battered_mail_3_cloak,itm_leather_gloves,itm_throwing_spears,itm_throwing_spears,itm_throwing_spears] + shields_bandit,
    def_attrib_lvl_28|level(28),wp(200),knows_lvl_28,roman_face_1, roman_face_2],
 
+#unique bandits
+  #viminacium - roman bandit / sword, shield
+  ["unique_bandit_1","Faustinus the Deserter","Faustinus",tf_mounted|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_shield,0,0,fac_outlaws,
+   [itm_deurne_campagi_3,itm_common_mail_short_1_cloak,itm_augst_helmet_crested_1,itm_aquincum_spatha_2,itm_oval_shield_lanciarii_iuniores],
+   def_attrib_lvl_28|level(28),wp(200),knows_lvl_28,0x00000007091091466a954656db6db6db00000000001db6b10000000000000000],
+  #asturis - hunnic bandit / 2h
+  ["unique_bandit_2","Tutizar the Pillager","Tutizar",tf_mounted|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_shield,0,0,fac_outlaws,
+   [itm_sarranid_boots_b,itm_kaftan_lamellar_5,itm_concesti_helmet,itm_ingushetia_spatha],
+   def_attrib_lvl_28|level(28),wp(200),knows_lvl_28,0x00000003b410d3c9709546510b4cacdb00000000001d97180000000000000000],
+  #whatever the next unique dungeon will be
+  ["unique_bandit_3","Unique Bandit","Unique Bandit",tf_mounted|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_shield,0,0,fac_outlaws,
+   [],
+   def_attrib_lvl_28|level(28),wp(200),knows_lvl_28,roman_face_1, roman_face_2],
+
    #hunnic guards - used at the end of the quest
   ["black_khergit_horseman","Hunnic Warrior","Hunnic Warriors",tf_mounted|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_horse,0,0,fac_black_khergits,
    [],

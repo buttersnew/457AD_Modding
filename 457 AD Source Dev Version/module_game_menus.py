@@ -5486,7 +5486,7 @@ TOTAL:  {reg5}"),
     (set_visitor,20,reg(1)),
     (set_visitor,21,reg(2)),
     (set_visitor,22,reg(3)),
-    (set_visitor,23,"trp_bandit_king"),
+    (set_visitor,23,"trp_unique_bandit_1"),
     (set_visitor,24,"trp_rich_bandit"),
       (set_jump_entry, 0),
     (scene_set_slot, "scn_ruins_1", slot_scene_visited, 1),
@@ -26977,7 +26977,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         (set_visitor,20,reg(1)),
         (set_visitor,21,reg(2)),
         (set_visitor,22,reg(3)),
-        (set_visitor,23,"trp_bandit_king"),
+        (set_visitor,23,"trp_unique_bandit_2"),
         (set_visitor,24,"trp_bandit"),
 
         (assign, ":cur_entry", 0), #add player's companions

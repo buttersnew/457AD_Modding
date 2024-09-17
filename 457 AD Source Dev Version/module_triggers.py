@@ -1126,6 +1126,12 @@ triggers = [
   (try_end)
 ]),
 
+(24*14,0,ti_once,[ #enables asturis ruins
+  (ge, "$g_severinus_quest", 2),
+],[
+  (enable_party, "p_sq_asturis_2"),
+]),
+
 #nero larper events
 (24*5,0,ti_once,[ #becoming a beggar in Rome
   (neg|check_quest_active,"qst_nero_larper_quest"),

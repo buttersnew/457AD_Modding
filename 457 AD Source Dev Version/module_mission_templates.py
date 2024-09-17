@@ -19863,7 +19863,7 @@ mission_templates = [
   (assign,":continue",0),
   (try_for_agents, ":cur_agent"),
     (agent_get_troop_id, ":cur_agent_troop", ":cur_agent"),
-    (this_or_next|eq, ":cur_agent_troop", "trp_bandit_king"),
+    (this_or_next|eq, ":cur_agent_troop", "trp_unique_bandit_1"),
     (this_or_next|eq, ":cur_agent_troop", "trp_robber"),
     (this_or_next|eq, ":cur_agent_troop", "trp_rich_bandit"),
     (this_or_next|eq, ":cur_agent_troop", "trp_brigand"),
@@ -19898,7 +19898,7 @@ mission_templates = [
           (eq,":cur_troop_id","trp_rich_bandit"),
           (assign,"$slaver_2",":cur_agent"),
         (else_try),
-          (eq,":cur_troop_id","trp_bandit_king"),
+          (eq,":cur_troop_id","trp_unique_bandit_1"),
           (assign,"$slaver_3",":cur_agent"),
         (try_end),
       (try_end),
@@ -20014,7 +20014,7 @@ mission_templates = [
 #TEMPERED     check for key 3
       (2, 0, ti_once, [ (neg|agent_is_alive,"$slaver_3"),], 
      [
-      (display_message,"@__You have killed the bandit king, putting an end to a long life of terror and banditry, and all its horrors. Picking through the remains of the once proud Bandit King, you find some treasures:",color_good_news),
+      (display_message,"@__You have killed the leader of the bandits, a roman deserter by the name of Faustinus. Picking through the remains of the once proud soldier, you find some treasures:",color_good_news),
     (call_script, "script_change_player_honor", 15),
     (call_script, "script_change_troop_renown", "trp_player", 25),
     (call_script, "script_troop_add_gold", "trp_player", 625),
@@ -25758,7 +25758,7 @@ mission_templates = [
   (assign,":continue",0),
   (try_for_agents, ":cur_agent"),
     (agent_get_troop_id, ":cur_agent_troop", ":cur_agent"),
-    (this_or_next|eq, ":cur_agent_troop", "trp_bandit_king"),
+    (this_or_next|eq, ":cur_agent_troop", "trp_unique_bandit_2"),
     (this_or_next|eq, ":cur_agent_troop", "trp_robber"),
     (this_or_next|eq, ":cur_agent_troop", "trp_rich_bandit"),
     (this_or_next|eq, ":cur_agent_troop", "trp_brigand"),
@@ -25793,7 +25793,7 @@ mission_templates = [
           (eq,":cur_troop_id","trp_rich_bandit"),
           (assign,"$slaver_2",":cur_agent"),
         (else_try),
-          (eq,":cur_troop_id","trp_bandit_king"),
+          (eq,":cur_troop_id","trp_unique_bandit_2"),
           (assign,"$slaver_3",":cur_agent"),
         (try_end),
       (try_end),
@@ -25867,7 +25867,7 @@ mission_templates = [
      
       (2, 0, ti_once, [ (neg|agent_is_alive,"$slaver_3"),], 
      [
-        (display_message,"@__You have killed the leader of this group of bandits...",color_good_news),
+        (display_message,"@__You have killed the leader of this group of bandits, a hun by the name of Tutizar. His pillaging has finally come to a bloody end.",color_good_news),
         (call_script, "script_change_player_honor", 15),
         (call_script, "script_change_troop_renown", "trp_player", 25),
         (call_script, "script_troop_add_gold", "trp_player", 800),

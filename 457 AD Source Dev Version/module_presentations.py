@@ -19313,7 +19313,6 @@ presentations = [
               (assign, ":c", 1),
             (else_try), #langobard aor
               (eq, "$current_town", "p_town_31"),
-              (this_or_next|eq, ":troop", "trp_cynocephalus"),
               (this_or_next|eq, ":troop", "trp_charudes_retainer"),
               (this_or_next|eq, ":troop", "trp_langobard_retainer"),
               (this_or_next|eq, ":troop", "trp_silingi_warrior"),
@@ -19402,17 +19401,23 @@ presentations = [
               (assign, ":c", 1),
             (else_try), #parabalani - constantinople, alexandria
               (troop_get_slot, ":player_religion", "trp_player", slot_troop_religion),
-              (eq, ":player_religion", slot_religion_chalcedonian),
+              (eq, ":player_religion", slot_religion_christian_chalcedonian),
               (this_or_next|eq, "$current_town", "p_town_6"),
               (eq, "$current_town", "p_town_21"),
               (eq, ":troop", "trp_parabalanus"),
               (assign, ":c", 1),
             (else_try), #coptic troops - alexandria / egypt
               (troop_get_slot, ":player_religion", "trp_player", slot_troop_religion),
-              (eq, ":player_religion", slot_religion_coptic),
+              (eq, ":player_religion", slot_religion_christian_miaphysite),
               (this_or_next|eq, "$current_town", "p_castle_9"),
               (eq, "$current_town", "p_town_21"),
               (eq, ":troop", "trp_coptic_youth"),
+              (assign, ":c", 1),
+            (else_try), #cynocephalus
+              (eq, "$g_wolf_quest", 3),
+              (this_or_next|eq, "$current_town", "p_town_31"),
+              (eq, "$current_town", "p_castle_69"),
+              (eq, ":troop", "trp_cynocephalus"),
               (assign, ":c", 1),
   ####################################################################
             #and now for the roman AOR!
@@ -19537,13 +19542,13 @@ presentations = [
               (eq, ":troop", "trp_miles_sagittarii_venatores"),
               (assign, ":c", 1),
             (else_try), #noricum I
-              #(faction_slot_eq, "$players_kingdom", slot_faction_culture, "fac_culture_empire"),
+              (eq, "$g_can_recruit_noricum", 1),
               (eq, "$current_town", "p_castle_1"),
               (this_or_next|eq, ":troop", "trp_miles_primorum_noricorum"),
               (eq, ":troop", "trp_pedes_cohortis_batavorum"),
               (assign, ":c", 1),
             (else_try), #raetia II
-              #(faction_slot_eq, "$players_kingdom", slot_faction_culture, "fac_culture_empire"),
+              (eq, "$g_can_recruit_noricum", 1),
               (eq, "$current_town", "p_castle_51"),
               (this_or_next|eq, ":troop", "trp_eques_ala_primae_flaviae_raetorum"),
               (eq, ":troop", "trp_pedes_tertiani"),

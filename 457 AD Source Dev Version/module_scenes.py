@@ -1713,8 +1713,8 @@ scenes = [
     [],[]),
   ("favianis",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000300005630007d1f800006aba0000574f00001099",
     [],[],"outer_terrain_forest"),  
-  ("severinus_grove",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000bc6005000006018000000cab00002d6b000019a3",
-    [],[],"outer_terrain_forest"), 
+  ("tiguntia",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000bc6006638005dd770000654f00000c4e0000672b",
+    [],[],"outer_terrain_forest"), #severinus quest
 
   ("christian_monastery",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000023007a3b20005795e0000706d0000381800000bbc",
     [],[],"outer_terrain_plain"),  

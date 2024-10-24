@@ -5589,12 +5589,16 @@ Even in the last case, the player can make formations up to four lines by orderi
   #Military Positions in the Roman Empire
 
 
-  ("com_roman_christian", "{s1}^^Religion: Chalcedonian Christianity"),
+  ("com_chalcedonian_christian", "{s1}^^Religion: Chalcedonian Christianity"),
   ("com_arian_christian", "{s1}^^Religion: Arian Christianity"),
-  ("com_coptic_christian", "{s1}^^Religion: Non-Chalcedonian Christianity"),
+  ("com_miaphysite_christian", "{s1}^^Religion: Miaphysite Christianity"),
+  ("com_nestorian_christian", "{s1}^^Religion: Nestorian Christianity"),
+  ("com_donatist_christian", "{s1}^^Religion: Donatist Christianity"),
   ("com_pagan", "{s1}^^Religion: Pagan"),  
-  ("com_zoroastrianism", "{s1}^^Religion: Zoroastrianism"),
   ("com_roman_paganism", "{s1}^^Religion: Roman Paganism"),
+  ("com_zoroastrianism", "{s1}^^Religion: Mazdaist Zoroastrianism"),
+  ("com_zurvanism", "{s1}^^Religion: Zurvanite Zoroastrianism"),
+  ("com_judaism", "{s1}^^Religion: Judaism"),
 
   ("monastery_night", "It is night, and the clergy is asleep. Return in the morning."),
 

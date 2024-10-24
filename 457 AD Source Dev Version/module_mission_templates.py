@@ -5943,27 +5943,31 @@ mission_templates = [
     [(start_mission_conversation, "trp_aestii_rebel_king"),]), 
 
     (0, 0, ti_once,[
-    (eq, "$g_severinus_quest", 1),
+    (eq, "$g_severinus_quest", 2),
     (neg|conversation_screen_is_active)],
     [(start_mission_conversation, "trp_severinus"),]),
-
     (0, 0, ti_once,[
     (eq, "$g_severinus_quest", 3),
     (neg|conversation_screen_is_active)],
     [(start_mission_conversation, "trp_severinus"),]),
-
     (0, 0, ti_once,[
     (eq, "$g_severinus_quest", 4),
     (neg|conversation_screen_is_active)],
     [(start_mission_conversation, "trp_severinus"),]),    
-
     (0, 0, ti_once,[
     (eq, "$g_severinus_quest", 6),
     (neg|conversation_screen_is_active)],
     [(start_mission_conversation, "trp_severinus"),]),  
-
     (0, 0, ti_once,[
     (eq, "$g_severinus_quest", 7),
+    (neg|conversation_screen_is_active)],
+    [(start_mission_conversation, "trp_severinus"),]),  
+    (0, 0, ti_once,[
+    (eq, "$g_severinus_quest", 8),
+    (neg|conversation_screen_is_active)],
+    [(start_mission_conversation, "trp_severinus"),]),  
+    (0, 0, ti_once,[
+    (eq, "$g_severinus_quest", 9),
     (neg|conversation_screen_is_active)],
     [(start_mission_conversation, "trp_severinus"),]),  
 
@@ -21816,6 +21820,8 @@ mission_templates = [
   ] + dplmc_battle_mode_triggers + dplmc_horse_cull + utility_triggers + battle_panel_triggers + extended_battle_menu + common_division_data + division_order_processing + real_deployment + formations_triggers + AI_triggers + jacobhinds_morale_triggers + enhanced_common_battle_triggers + battle_notifications + ai_horn
 ),
 
+
+
 ("noricum_sarmatian_attack",mtf_battle_mode|mtf_synch_inventory,-1,
     "battle",
     [ 
@@ -22494,7 +22500,7 @@ mission_templates = [
     ]),
 
     (0, 0, ti_once,[
-    (eq, "$g_severinus_quest", 5),
+    (eq, "$g_severinus_quest", 6),
     (neg|conversation_screen_is_active)],
     [(start_mission_conversation, "trp_severinus"),]),    
  #common_inventory_not_available,

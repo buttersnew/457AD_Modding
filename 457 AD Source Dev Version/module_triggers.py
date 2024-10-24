@@ -930,25 +930,76 @@ triggers = [
       (try_end),
   ]),
 
+#titles and ranks
 (24, 0, ti_once, [ 
   (neq, "$player_has_homage", 0),
-  (eq, "$players_kingdom", "fac_kingdom_1"), #WRE
-  (troop_get_slot, ":rank", "trp_player", slot_troop_military_title),
-  (neq, ":rank", mt_officiorum), #cant already have the rank
+  (this_or_next|eq, "$players_kingdom", "fac_kingdom_1"),
+  (eq, "$players_kingdom", "fac_kingdom_2"),
+
   (call_script, "script_troop_get_relation_with_troop", "trp_kingdom_1_lord", "trp_player"),
-  (ge, reg0, 40), #need to have high relations
+  (assign, ":relation_1", reg0),
+  (call_script, "script_troop_get_relation_with_troop", "trp_kingdom_2_lord", "trp_player"),
+  (assign, ":relation_2", reg0),
+
+  (this_or_next|ge, ":relation_1", 15),
+  (ge, ":relation_2", 15),
 ],
-[(jump_to_menu, "mnu_promotion_officorum"),]),
+[(jump_to_menu, "mnu_promotion_clarissimus"),]),
 
 (24, 0, ti_once, [ 
   (neq, "$player_has_homage", 0),
-  (eq, "$players_kingdom", "fac_kingdom_2"), #ERE
+  (this_or_next|eq, "$players_kingdom", "fac_kingdom_1"),
+  (eq, "$players_kingdom", "fac_kingdom_2"),
+  (troop_get_slot, ":rank", "trp_player", slot_troop_honorary_title),
+  (eq, ":rank", ht_clarissimus), #must have previous title
+
+  (call_script, "script_troop_get_relation_with_troop", "trp_kingdom_1_lord", "trp_player"),
+  (assign, ":relation_1", reg0),
+  (call_script, "script_troop_get_relation_with_troop", "trp_kingdom_2_lord", "trp_player"),
+  (assign, ":relation_2", reg0),
+
+  (this_or_next|ge, ":relation_1", 30),
+  (ge, ":relation_2", 30),
+],
+[(jump_to_menu, "mnu_promotion_spectabilis"),]),
+
+
+(24, 0, ti_once, [ 
+  (neq, "$player_has_homage", 0),
+  (this_or_next|eq, "$players_kingdom", "fac_kingdom_1"),
+  (eq, "$players_kingdom", "fac_kingdom_2"),
+  (troop_get_slot, ":rank", "trp_player", slot_troop_honorary_title),
+  (eq, ":rank", ht_spectabilis), #must have previous title
+
+  (call_script, "script_troop_get_relation_with_troop", "trp_kingdom_1_lord", "trp_player"),
+  (assign, ":relation_1", reg0),
+  (call_script, "script_troop_get_relation_with_troop", "trp_kingdom_2_lord", "trp_player"),
+  (assign, ":relation_2", reg0),
+
+  (this_or_next|ge, ":relation_1", 45),
+  (ge, ":relation_2", 45),
+],
+[(jump_to_menu, "mnu_promotion_illustris"),]),
+
+(24, 0, ti_once, [ 
+  (neq, "$player_has_homage", 0),
+  (this_or_next|eq, "$players_kingdom", "fac_kingdom_1"),
+  (eq, "$players_kingdom", "fac_kingdom_2"),
+  (troop_get_slot, ":rank", "trp_player", slot_troop_honorary_title),
+  (eq, ":rank", ht_illustris), #must have previous title
   (troop_get_slot, ":rank", "trp_player", slot_troop_military_title),
   (neq, ":rank", mt_officiorum), #cant already have the rank
+  
+  (call_script, "script_troop_get_relation_with_troop", "trp_kingdom_1_lord", "trp_player"),
+  (assign, ":relation_1", reg0),
   (call_script, "script_troop_get_relation_with_troop", "trp_kingdom_2_lord", "trp_player"),
-  (ge, reg0, 40), #need to have high relations
+  (assign, ":relation_2", reg0),
+
+  (this_or_next|ge, ":relation_1", 50),
+  (ge, ":relation_2", 50),
 ],
 [(jump_to_menu, "mnu_promotion_officorum"),]),
+
 
 (168,0,ti_once,[(faction_slot_eq, "fac_kingdom_9", slot_faction_state, sfs_inactive),(faction_slot_eq, "fac_kingdom_1", slot_faction_state, sfs_active)],[ #majorian gains claims on vandal, visigoth, suebi territory after conquering burgundians
   #towns - primarily focuses on areas that he did conquer or try to conquer
@@ -1066,7 +1117,11 @@ triggers = [
 ],[
   (troop_get_slot, ":player_religion", "trp_player", slot_troop_religion),
   (try_begin),
-    (eq, ":player_religion", slot_religion_chalcedonian),
+    (this_or_next|eq, ":player_religion", slot_religion_christian_chalcedonian), #christians all share the same buff
+    (this_or_next|eq, ":player_religion", slot_religion_christian_arian),
+    (this_or_next|eq, ":player_religion", slot_religion_christian_miaphysite),
+    (this_or_next|eq, ":player_religion", slot_religion_christian_nestorian),
+    (eq, ":player_religion", slot_religion_christian_donatist),
     (troop_raise_attribute, "trp_player",ca_intelligence,1),
     (troop_raise_attribute, "trp_player",ca_charisma,1),
     (dialog_box, "@Your dedication to God has increased some of your attributes!", "@Your faith..."),
@@ -1091,23 +1146,18 @@ triggers = [
     (dialog_box, "@Your dedication to the skyfather has increased some of your attributes!", "@Your faith..."),
     (assign,"$g_faith_stat_increase",1),
   (else_try),
-    (eq, ":player_religion", slot_religion_arianism),
+    (eq, ":player_religion", slot_religion_christian_arian),
     (troop_raise_attribute, "trp_player",ca_intelligence,1),
     (troop_raise_attribute, "trp_player",ca_charisma,1),
     (dialog_box, "@Your dedication to God has increased some of your attributes!", "@Your faith..."),
     (assign,"$g_faith_stat_increase",1),
   (else_try),
-    (eq, ":player_religion", slot_religion_zoroastrianism), #zoroastrianism
+    (this_or_next|eq, ":player_religion", slot_religion_zoroastrianism), #zoroastrianism
+    (eq, ":player_religion", slot_religion_zurvanism), 
     (eq,"$g_paganism_dedication",1),
     (troop_raise_attribute, "trp_player",ca_strength,1),
     (troop_raise_attribute, "trp_player",ca_intelligence,1),
     (dialog_box, "@Your dedication to Ahura Mazda has increased some of your attributes!", "@Your faith..."),
-    (assign,"$g_faith_stat_increase",1),
-  (else_try),
-    (eq, ":player_religion", slot_religion_coptic),
-    (troop_raise_attribute, "trp_player",ca_intelligence,1),
-    (troop_raise_attribute, "trp_player",ca_charisma,1),
-    (dialog_box, "@Your dedication to God has increased some of your attributes!", "@Your faith..."),
     (assign,"$g_faith_stat_increase",1),
   (else_try),
     (eq, ":player_religion", slot_religion_roman_paganism), #Roman paganism

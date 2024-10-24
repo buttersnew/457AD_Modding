@@ -62,7 +62,7 @@ game_menus = [
     ]),
 
     ("continue",[],"Normal Sandbox",[
-        (assign, "$background_answer_4", slot_religion_chalcedonian),
+        (assign, "$background_answer_4", slot_religion_christian_chalcedonian),
         (assign, "$background_answer_5", "fac_culture_1"),
         (start_presentation, "prsnt_mcc_character_creation"),
       ]),
@@ -10561,23 +10561,35 @@ TOTAL:  {reg5}"),
         #(troop_get_slot, ":religion_player","trp_player", slot_troop_religion),
         (party_get_slot, ":religion_center", "$current_town", slot_center_religion),
         (try_begin),
-          (eq, ":religion_center", slot_religion_chalcedonian),
+          (eq, ":religion_center", slot_religion_christian_chalcedonian),
           (str_store_string, s15, "@^This is a Chalcedonian Christian village."),
+        (else_try),
+          (eq, ":religion_center", slot_religion_christian_arian),
+          (str_store_string, s15, "@^This is an Arian Christian village."),
+        (else_try),
+          (eq, ":religion_center", slot_religion_christian_miaphysite),
+          (str_store_string, s15, "@^This is a Miaphysite Christian village."),
+        (else_try),
+          (eq, ":religion_center", slot_religion_christian_nestorian),
+          (str_store_string, s15, "@^This is a Nestorian Christian village."),
+        (else_try),
+          (eq, ":religion_center", slot_religion_christian_donatist),
+          (str_store_string, s15, "@^This is a Donatist Christian village."),
         (else_try),
           (eq, ":religion_center", slot_religion_paganism),
           (str_store_string, s15, "@^This is a Pagan village."),
         (else_try),
-          (eq, ":religion_center", slot_religion_arianism),
-          (str_store_string, s15, "@^This is an Arian Christian village."),
-        (else_try),
           (eq, ":religion_center", slot_religion_zoroastrianism),
-          (str_store_string, s15, "@^This is a Zoroastrian village."),
+          (str_store_string, s15, "@^This is a Mazdaist Zoroastrian village."),
         (else_try),
-          (eq, ":religion_center", slot_religion_coptic),
-          (str_store_string, s15, "@^This is a Non-Chalcedonian Christian village."),
+          (eq, ":religion_center", slot_religion_zurvanism),
+          (str_store_string, s15, "@^This is a Zurvanist Zoroastrian village."),
         (else_try),
           (eq, ":religion_center", slot_religion_roman_paganism),
           (str_store_string, s15, "@^This is a Roman Pagan village."),
+        (else_try),
+          (eq, ":religion_center", slot_religion_judaism),
+          (str_store_string, s15, "@^This is a Jewish village."),
         (try_end),
       (try_end),
       #Village Religions end
@@ -12599,23 +12611,35 @@ TOTAL:  {reg5}"),
         (val_sub, "$piety", 3),
         (party_get_slot, ":religion_center", "$current_town", slot_center_religion),
         (try_begin),
-            (eq, ":religion_center", slot_religion_chalcedonian),
+            (eq, ":religion_center", slot_religion_christian_chalcedonian),
             (call_script, "script_set_player_relation_with_faction", "fac_roman_christians", -1),
         (else_try),
             (eq, ":religion_center", slot_religion_paganism),
             (call_script, "script_set_player_relation_with_faction", "fac_pagans", -1),
         (else_try),
-            (eq, ":religion_center", slot_religion_arianism),
+            (eq, ":religion_center", slot_religion_christian_arian),
             (call_script, "script_set_player_relation_with_faction", "fac_arian_christians", -1),
         (else_try),
             (eq, ":religion_center", slot_religion_zoroastrianism),
             (call_script, "script_set_player_relation_with_faction", "fac_zoroastrians", -1),
         (else_try),
-            (eq, ":religion_center", slot_religion_coptic),
+            (eq, ":religion_center", slot_religion_christian_miaphysite),
             (call_script, "script_set_player_relation_with_faction", "fac_coptic_christians", -1),
         (else_try),
             (eq, ":religion_center", slot_religion_roman_paganism),
             (call_script, "script_set_player_relation_with_faction", "fac_roman_pagans", -1),
+        (else_try),
+            (eq, ":religion_center", slot_religion_christian_nestorian),
+            (call_script, "script_set_player_relation_with_faction", "fac_nestorian_christians", -1),
+        (else_try),
+            (eq, ":religion_center", slot_religion_christian_donatist),
+            (call_script, "script_set_player_relation_with_faction", "fac_donatist_christians", -1),
+        (else_try),
+            (eq, ":religion_center", slot_religion_zurvanism),
+            (call_script, "script_set_player_relation_with_faction", "fac_zurvanism", -1),
+        (else_try),
+            (eq, ":religion_center", slot_religion_judaism),
+            (call_script, "script_set_player_relation_with_faction", "fac_jews", -1),
         (try_end),
     (try_end),
 
@@ -12989,23 +13013,35 @@ TOTAL:  {reg5}"),
         (party_get_slot, ":religion_center", "$current_town", slot_center_religion),
         (str_clear, s15),
         (try_begin),
-          (eq, ":religion_center", slot_religion_chalcedonian),
+          (eq, ":religion_center", slot_religion_christian_chalcedonian),
           (str_store_string, s15, "@^This is a Chalcedonian Christian settlement."),
+        (else_try),
+          (eq, ":religion_center", slot_religion_christian_arian),
+          (str_store_string, s15, "@^This is an Arian Christian settlement."),
+        (else_try),
+          (eq, ":religion_center", slot_religion_christian_miaphysite),
+          (str_store_string, s15, "@^This is a Miaphysite Christian settlement."),
+        (else_try),
+          (eq, ":religion_center", slot_religion_christian_nestorian),
+          (str_store_string, s15, "@^This is a Nestorian Christian settlement."),
+        (else_try),
+          (eq, ":religion_center", slot_religion_christian_donatist),
+          (str_store_string, s15, "@^This is a Donatist Christian settlement."),
         (else_try),
           (eq, ":religion_center", slot_religion_paganism),
           (str_store_string, s15, "@^This is a Pagan settlement."),
         (else_try),
-          (eq, ":religion_center", slot_religion_arianism),
-          (str_store_string, s15, "@^This is an Arian Christian settlement."),
-        (else_try),
           (eq, ":religion_center", slot_religion_zoroastrianism),
-          (str_store_string, s15, "@^This is a Zoroastrian settlement."),
+          (str_store_string, s15, "@^This is a Mazdaist Zoroastrian settlement."),
         (else_try),
-          (eq, ":religion_center", slot_religion_coptic),
-          (str_store_string, s15, "@^This is a Non-Chalcedonian Christian settlement."),
+          (eq, ":religion_center", slot_religion_zurvanism),
+          (str_store_string, s15, "@^This is a Zurvanist Zoroastrian settlement."),
         (else_try),
           (eq, ":religion_center", slot_religion_roman_paganism),
           (str_store_string, s15, "@^This is a Roman Pagan settlement."),
+        (else_try),
+          (eq, ":religion_center", slot_religion_judaism),
+          (str_store_string, s15, "@^This is a Jewish settlement."),
         (try_end),
 
         (try_begin),
@@ -24910,7 +24946,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       ("religion_roman",[],"You are a Chalcedonian Christian.",
     [
     (assign, "$g_player_faith",1),
-    (troop_set_slot, "trp_player", slot_troop_religion, slot_religion_chalcedonian),
+    (troop_set_slot, "trp_player", slot_troop_religion, slot_religion_christian_chalcedonian),
     (change_screen_return),
     ]),
       ("religion_pagan",[],"You are a Pagan.",
@@ -24922,7 +24958,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       ("religion_arian",[],"You are an Arian Christian.",
     [
     (assign, "$g_player_faith",3),
-    (troop_set_slot, "trp_player", slot_troop_religion, slot_religion_arianism),
+    (troop_set_slot, "trp_player", slot_troop_religion, slot_religion_christian_arian),
     (change_screen_return),
     ]),
       ("religion_zoroastrian",[],"You are Zoroastrian.",
@@ -24931,10 +24967,10 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     (troop_set_slot, "trp_player", slot_troop_religion, slot_religion_zoroastrianism),
     (change_screen_return),
     ]),
-      ("religion_coptic",[],"You are a Non-Chalcedonian Christian.",
+      ("religion_coptic",[],"You are a Miaphysite Christian.",
     [
     (assign, "$g_player_faith",5),
-    (troop_set_slot, "trp_player", slot_troop_religion, slot_religion_coptic),
+    (troop_set_slot, "trp_player", slot_troop_religion, slot_religion_christian_miaphysite),
     (change_screen_return),
     ]),
       ("religion_roman_pagan",[],"You are a Roman Pagan.",
@@ -25017,6 +25053,45 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     ]),
     ]
   ),
+
+  ("promotion_clarissimus",0,
+    "You have been granted the title of Vir Clarissimus.",
+    "none",
+    [],
+    [
+      ("accept",[],"Accept the title.",
+    [
+    (troop_set_slot, "trp_player", slot_troop_honorary_title, ht_clarissimus),
+    (call_script, "script_change_troop_renown", "trp_player", 20),
+    (change_screen_return),
+    ]),
+  ]),
+
+  ("promotion_spectabilis",0,
+    "You have been granted the title of Vir Spectabilis.",
+    "none",
+    [],
+    [
+      ("accept",[],"Accept the title.",
+    [
+    (troop_set_slot, "trp_player", slot_troop_honorary_title, ht_spectabilis),
+    (call_script, "script_change_troop_renown", "trp_player", 20),
+    (change_screen_return),
+    ]),
+  ]),
+
+  ("promotion_illustris",0,
+    "You have been granted the title of Vir Illustris.",
+    "none",
+    [],
+    [
+      ("accept",[],"Accept the title.",
+    [
+    (troop_set_slot, "trp_player", slot_troop_honorary_title, ht_illustris),
+    (call_script, "script_change_troop_renown", "trp_player", 20),
+    (change_screen_return),
+    ]),
+  ]),  
 
   ("promotion_officorum",0,
     "You have been promoted to the office of Magister Officiorum.",
@@ -25194,6 +25269,151 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         (troop_get_slot, ":player_religion", "trp_player", slot_troop_religion),
         (party_get_slot, ":religion_center", "$g_encountered_party", slot_center_religion),
         (eq, ":player_religion", ":religion_center"),
+        ],"Offer a sacrifice (+1 piety, 1 hour).",
+    [
+      (rest_for_hours, 1, 5, 0),
+      (val_add, "$piety", 1), #pray for piety
+      (store_faction_of_party, ":fac", "$g_encountered_party"),
+      (call_script, "script_change_player_relation_with_faction", ":fac", 2),
+      (display_message,"@After offering a sacrifice, you feel that you have gotten closer to your god.",0x6495ed),
+      (assign, "$prayer",1),
+      (change_screen_return),
+    ]),
+      ("religious_center_3",[(store_troop_gold,":player_gold", "trp_player"),(gt, ":player_gold", 200),(eq,"$memorial_performed",0)],"Ask for a memorial service for your dead companions (+5 honor, +2 piety, -200 siliquae, +10 morale, 2 hours).",
+    [
+      (rest_for_hours, 2, 5, 0),
+      (call_script, "script_change_player_party_morale", 10),
+      (troop_remove_gold, "trp_player", 200),
+      (call_script, "script_change_player_honor", 5),
+      (val_add, "$piety", 2), #pray for piety
+      (assign, "$memorial_performed",1),
+      (change_screen_return),
+    ]),
+      ("religious_center_4",[(store_troop_gold,":player_gold", "trp_player"),(gt, ":player_gold", 500)],"Donate 500 siliquae.",
+    [
+      (troop_remove_gold, "trp_player", 500),
+      (val_add, "$piety", 3),
+      (call_script, "script_change_player_honor", 8),
+      (store_faction_of_party, ":fac", "$g_encountered_party"),
+      (call_script, "script_change_player_relation_with_faction", ":fac", 5),
+      (change_screen_return),
+    ]),
+      ("religious_center_5",[],"Raid for gold and valuables.", 
+    [
+    (call_script, "script_change_player_party_morale", 10),
+    (call_script, "script_change_player_honor", -5),
+    (call_script, "script_change_troop_renown", "trp_player", 5),
+
+    (store_faction_of_party, ":fac", "$g_encountered_party"),
+    (call_script, "script_change_player_relation_with_faction", ":fac", -10),
+
+    (troop_get_slot, ":player_religion", "trp_player", slot_troop_religion),
+    (party_get_slot, ":religion_center", "$g_encountered_party", slot_center_religion),
+    (try_begin),
+      (eq, ":player_religion", ":religion_center"),
+      (val_sub, "$piety", 10), #sacking religious locations of your religion will lower piety
+    (else_try),
+      (val_add, "$piety", 2), #sacking other religion's locations will give a small boost to piety (ie sword of the faith)
+    (try_end),
+
+    (store_random_in_range, ":monastery_gold", 800, 2250),
+    (troop_add_gold, "trp_player", ":monastery_gold"),
+    (store_random_in_range, ":monastery_raid_hours", 2, 8),
+    (rest_for_hours, ":monastery_raid_hours", 5, 1),
+    (party_set_slot,"$g_encountered_party", slot_party_been_sacked, 1), #has to recover for 14 days before being pillaged again
+    (set_background_mesh, "mesh_pic_looted_village"),
+    (play_sound, "snd_cow_moo"),
+    (party_clear, "$g_encountered_party"),
+    (str_store_party_name, s3, "$g_encountered_party"),
+
+    (change_screen_return),
+    ]),
+
+     ("leave",[],"Leave.",[(leave_encounter),(change_screen_return)]),
+]),
+
+("religious_location_christian",menu_text_color(0xFF000000)|mnf_disable_all_keys,
+    "In the distance you see {s50}. Secluded from the rest of the world, you watch as the monastics work, pray and perform their daily duties. This is a monastery under the {s51}.^^{s52}",
+    "none",
+    [
+
+    (str_store_party_name, s50, "$g_encountered_party"),
+    (store_faction_of_party, ":fac", "$g_encountered_party"),
+    (str_store_faction_name, s51, ":fac"),
+
+    (str_clear, s52),
+    (try_begin),
+        (store_relation, ":faction_relation", ":fac", "fac_player_supporters_faction"),
+        (lt, ":faction_relation", 0),
+        (str_store_string, s52, "@You are hostile towards the {s51}."),
+    (else_try),
+        (store_relation, ":faction_relation", ":fac", "fac_player_supporters_faction"),
+        (ge, ":faction_relation", 20),
+        (str_store_string, s52, "@You are friendly towards the {s51}."),
+    (try_end),
+
+    (try_begin),
+      (party_slot_eq, "$g_encountered_party", slot_party_been_sacked, 1),
+      (jump_to_menu, "mnu_settlement_looted"),
+    (try_end),
+
+      ],
+    [
+    ("religious_center_1",[
+    (store_faction_of_party, ":encountered_faction", "$g_encountered_party"),
+    (store_relation, ":faction_relation", ":encountered_faction", "fac_player_supporters_faction"),
+    (ge, ":faction_relation", 0),
+      ],"Visit.",[
+      (try_begin),
+          (eq,"$town_nighttime",1),
+          (display_message,"str_monastery_night",0xFFFFAAAA),
+      (else_try),
+          #setting up walker troops
+          (store_faction_of_party, ":fac", "$g_encountered_party"),
+          (try_begin),
+            (faction_get_slot, ":walker_1", ":fac", slot_faction_tier_2_troop), 
+            (faction_get_slot, ":walker_2", ":fac", slot_faction_tier_3_troop),        
+          (try_end),
+
+          (party_get_slot, ":leader", "$g_encountered_party", slot_town_lord),
+
+          (party_get_slot, ":scene", "$g_encountered_party",slot_town_center),
+          (set_jump_mission, "mt_religious_center"),
+          (modify_visitors_at_site, ":scene"),
+          (reset_visitors),
+
+          (set_visitor, 1, ":leader"),
+
+          (set_visitor,2,":walker_1"),
+          (set_visitor,3,":walker_2"),
+          (set_visitor,4,":walker_1"),
+          (set_visitor,5,":walker_2"),
+          (set_visitor,6,":walker_1"),
+          (set_visitor,7,":walker_2"),
+          (set_visitor,8,":walker_1"),
+          (set_visitor,9,":walker_2"),
+          (set_visitor,10,":walker_1"),
+          (set_visitor,11,":walker_2"),
+          (set_visitor,12,":walker_1"),
+          (set_visitor,13,":walker_2"),
+          (set_visitor,14,":walker_1"),
+          (set_visitor,15,":walker_2"),
+          (set_visitor,16,":walker_1"),
+          (set_visitor,17,":walker_2"),
+          (set_visitor,18,":walker_1"),
+          (set_visitor,19,":walker_2"),
+          (set_visitor,20,":walker_1"),
+
+          (set_jump_entry, 0),
+          (jump_to_scene, ":scene"),
+          (change_screen_mission),
+      (try_end),
+  ]),
+
+      ("religious_center_2",[(eq,"$prayer",0),
+        (troop_get_slot, ":player_religion", "trp_player", slot_troop_religion),
+        (party_get_slot, ":religion_center", "$g_encountered_party", slot_center_religion),
+        (eq, ":player_religion", ":religion_center"),
         ],"Pray (+1 piety, 1 hour).",
     [
       (rest_for_hours, 1, 5, 0),
@@ -25241,7 +25461,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       (val_add, "$piety", 2), #sacking other religion's locations will give a small boost to piety (ie sword of the faith)
     (try_end),
 
-    (store_random_in_range, ":monastery_gold", 400, 1850),
+    (store_random_in_range, ":monastery_gold", 800, 2250),
     (troop_add_gold, "trp_player", ":monastery_gold"),
     (store_random_in_range, ":monastery_raid_hours", 2, 8),
     (rest_for_hours, ":monastery_raid_hours", 5, 1),
@@ -25250,23 +25470,70 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     (play_sound, "snd_cow_moo"),
     (party_clear, "$g_encountered_party"),
     (str_store_party_name, s3, "$g_encountered_party"),
-
+    (leave_encounter),
     (change_screen_return),
     ]),
+
+      ("religious_center_6",[
+      (troop_get_slot, ":player_religion", "trp_player", slot_troop_religion),
+      (party_get_slot, ":religion_center", "$g_encountered_party", slot_center_religion),
+      (neq, ":player_religion", ":religion_center"),
+      ], "Seize the monastery.",
+    [
+    (troop_get_slot, ":player_religion", "trp_player", slot_troop_religion),
+    (party_set_slot,"$g_encountered_party",slot_center_religion, ":player_religion"), #player forces out current monks, replaces it with monks of their own faith
+    (store_faction_of_party, ":fac", "$g_encountered_party"),
+    (call_script, "script_change_player_relation_with_faction", ":fac", -10),
+    (val_add, "$piety", 5), #seizing the monastery for your faith will provide piety
+    (call_script, "script_change_player_party_morale", 2),
+    (call_script, "script_change_player_honor", -5),
+    (call_script, "script_change_troop_renown", "trp_player", 5),
+
+    (try_begin),
+      (eq, ":player_religion", slot_religion_christian_chalcedonian),
+      (call_script, "script_give_center_to_faction_aux", "$g_encountered_party", "fac_roman_christians"),
+    (else_try),
+      (eq, ":player_religion", slot_religion_christian_arian),
+      (call_script, "script_give_center_to_faction_aux", "$g_encountered_party", "fac_arian_christians"),
+    (else_try),
+      (eq, ":player_religion", slot_religion_christian_miaphysite),
+      (call_script, "script_give_center_to_faction_aux", "$g_encountered_party", "fac_coptic_christians"),
+    (else_try),
+      (eq, ":player_religion", slot_religion_christian_nestorian),
+      (call_script, "script_give_center_to_faction_aux", "$g_encountered_party", "fac_nestorian_christians"),
+    (else_try),
+      (eq, ":player_religion", slot_religion_christian_donatist),
+      (call_script, "script_give_center_to_faction_aux", "$g_encountered_party", "fac_donatist_christians"),
+    (try_end),
+
+    (jump_to_menu,"mnu_monastery_conquered"),
+
+    ]),
+
      ("leave",[],"Leave.",[(leave_encounter),(change_screen_return)]),
 ]),
 
-  (
-    "settlement_looted",0,
+  ( "settlement_looted",0,
     "This settlement has been looted.",
     "none",
-    [
-        (set_background_mesh, "mesh_pic_looted_village"),
-  ],
-    [
-      ("continue",[],"Continue...",[(leave_encounter),(change_screen_return)]),
+    [(set_background_mesh, "mesh_pic_looted_village"),],
+    [("continue",[],"Continue...",[(leave_encounter),(change_screen_return)]),
     ],
-  ),
+  ),  
+
+  ( "monastery_conquered",0,
+    "You and your men force your way into the monastic community, driving out the monks, and striking down those who dare oppose you. No doubt you have created martyrs for their faith, but the schismatic heretics have been dealt with...",
+    "none",
+    [(set_background_mesh, "mesh_pic_looted_village"),],
+    [("continue",[],"Continue...",[
+      (store_random_in_range, ":monastery_raid_hours", 4, 12),
+      (rest_for_hours, ":monastery_raid_hours", 5, 1),
+      (leave_encounter),
+      (change_screen_return),
+      ]),
+    ],
+  ),  
+
   #hiring farmers
   ("town_recruit_coptic",0,
     "Some locals are interested in joining and trying to find a new life with your soldiers.",
@@ -26647,7 +26914,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     ("option_1",[ 
       ],"Listen to the man...", 
         [
-
+      (assign, "$g_severinus_quest", 2),
       (assign, "$temp1", 4),
       (assign, "$talk_context", 0),
       (set_jump_mission, "mt_conversation_generic"),
@@ -26690,7 +26957,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     ("option_1",[ 
       ],"Approach the gate...",
         [
-      (assign, "$g_severinus_quest", 3),
+      (assign, "$g_severinus_quest", 4),
       (assign, "$temp1", 4),
       (assign, "$talk_context", 0),
       (set_jump_mission, "mt_conversation_generic"),
@@ -26719,7 +26986,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     ("option_1",[ #where severinus is revealed to have predicted the destruction of asturis
       ],"Quietly observe the monk...",
         [
-      (assign, "$g_severinus_quest", 4),
+      (assign, "$g_severinus_quest", 5),
       (assign, "$temp1", 4),
       (assign, "$talk_context", 0),
       (set_jump_mission, "mt_conversation_generic"),
@@ -26808,7 +27075,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     ("option_1",[ 
       ],"Listen to him.",
         [
-        (assign, "$g_severinus_quest", 5),
+        (assign, "$g_severinus_quest", 6),
         (set_jump_mission, "mt_visit_minor_town"),
         (modify_visitors_at_site, "scn_favianis"),
         (reset_visitors),
@@ -26865,7 +27132,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     ("option_1",[ 
       ],"Approach Severinus.",
         [
-        (assign, "$g_severinus_quest", 6),
+        (assign, "$g_severinus_quest", 7),
         (assign, "$temp1", 4),
         (assign, "$talk_context", 0),
         (set_jump_mission, "mt_conversation_generic"),
@@ -26900,7 +27167,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     ("option_1",[ 
       ],"Speak to Mamertinus.",
         [
-      (assign, "$g_severinus_quest", 7),  
+      (assign, "$g_severinus_quest", 8),  
       (assign, "$temp1", 4),
       (assign, "$talk_context", 0),
       (set_jump_mission, "mt_conversation_generic"),
@@ -26926,13 +27193,64 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     "none", [],
     [
 
-    ("option_1",[ 
-      ],"Attack!",
+    ("option_1",[],"Attack!",
         [
-        (change_screen_map),
-        ]),
+    (assign, "$temp3", 1),
+    (assign, "$temp1", "mnu_severinus_favianis_5"),
+    (assign, "$temp2", "mnu_severinus_favianis_5"),
+
+    (set_jump_mission, "mt_agrippinus_villa_fight"),
+    (modify_visitors_at_site, "scn_tiguntia"),
+    (reset_visitors),
+
+    (set_visitor, 1, "trp_player"),
+
+    (set_visitor, 1, "trp_severinus_quest_npc_2"),
+    (set_visitors, 1, "trp_miles_primorum_noricorum", 15),
+    (set_visitors, 1, "trp_pedes", 6),
+
+    (set_visitors, 4, "trp_brigand", 8),
+    (set_visitors, 4, "trp_robber", 10),
+
+    (jump_to_scene, "scn_tiguntia"),
+    (change_screen_mission),
+      ]),
     ],),  
 
+
+  ("severinus_favianis_5",0,
+    "The surviving bandits flee, as you and Mamertinus's men celebrate their victory over them. The men quickly gather the captives, their weapons and armor, as well as what the bandits had looted, and brought them to town. As commanded, you bring the captive bandits to Severinus. Severinus quickly moves towards them giving them food and water. He then addresses the captured bandits...",
+    "none", [],
+    [
+
+    ("option_1",[],"Listen...",
+        [
+      (assign, "$g_severinus_quest", 9),  
+      (assign, "$temp1", 4),
+      (assign, "$talk_context", 0),
+      (set_jump_mission, "mt_conversation_generic"),
+      (modify_visitors_at_site, "scn_comagena_church"),
+      (reset_visitors),
+      (try_for_range, ":entry", 0, 19),
+          (mission_tpl_entry_set_override_flags, "mt_conversation_generic", ":entry", af_override_horse),
+      (try_end),
+
+      (set_visitor, 0, "trp_player"),
+
+      (set_visitor, 1, "trp_severinus"),
+
+      (set_visitor, 2, "trp_looter"),
+      (set_visitor, 3, "trp_looter"),
+      (set_visitor, 4, "trp_looter"),
+
+      (set_visitor, 16, "trp_severinus_quest_npc_2"),
+      (set_visitor, 17, "trp_severinus_quest_npc_8"),
+
+      (jump_to_scene, "scn_comagena_church"),
+      (change_screen_mission),
+      ]),
+
+    ],),  
 
     (   "asturis_ruins",0,
         "You arrive at an abandoned Asturis. Once a bustling town on the danube, has now been reduced to a ghost town. Its inhabitants killed or captured by a group of huns, the town now remains uninhabitated, or so you think...",
@@ -27982,8 +28300,9 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       ),
       ("choice_6_4",[ #must be Miaphysite or Chalcedonian (St. Martin is canonized by both groups)
         (eq, "$g_st_martin", 0),
-        (this_or_next|troop_slot_eq, "trp_player", slot_troop_religion, slot_religion_chalcedonian),
-        (troop_slot_eq, "trp_player", slot_troop_religion, slot_religion_coptic),
+        (this_or_next|troop_slot_eq, "trp_player", slot_troop_religion, slot_religion_christian_chalcedonian),
+        (this_or_next|troop_slot_eq, "trp_player", slot_troop_religion, slot_religion_christian_miaphysite),
+        (troop_slot_eq, "trp_player", slot_troop_religion, slot_religion_christian_nestorian),
         (ge, "$piety", 10),
         ],"Gift him your cloak, and feed him some of your food.",
         [
@@ -28029,7 +28348,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
           (call_script, "script_change_player_honor", -5),
           (call_script, "script_change_player_relation_with_faction", "fac_roman_christians", -5),
           (try_begin),
-            (troop_slot_eq, "trp_player", slot_troop_religion, slot_religion_chalcedonian),
+            (troop_slot_eq, "trp_player", slot_troop_religion, slot_religion_christian_chalcedonian),
             (val_sub, "$piety", 10), #only removes piety for christians
           (try_end),
           (call_script, "script_troop_add_gold", "trp_player", 600),

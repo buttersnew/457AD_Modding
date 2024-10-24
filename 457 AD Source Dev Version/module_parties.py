@@ -623,29 +623,30 @@ parties = [
   ("sabiroi_village", "Campus Sabirorum", icon_village_a|pf_minor_town, no_menu, pt_none, fac_minor_sabiroi, 0, ai_bhvr_hold, 0, (159.15, 168.09), []), #[swycartographr] prev. coords: (-6.56, 158.21)
   #minor faction villages
 
-  ("religious_site_1","Batavis",pf_disabled|icon_castle_snow_a|pf_is_static|pf_always_visible|pf_hide_defenders, no_menu, pt_none, fac_roman_christians,0,ai_bhvr_hold,0,(-112.81, 92.89),[]), #roman - will replace soon
-  ("religious_site_2","Monastery_of_Stavrovouni",icon_castle_snow_a|pf_is_static|pf_always_visible|pf_hide_defenders, no_menu, pt_none, fac_roman_christians,0,ai_bhvr_hold,0,(58.4,-32.38),[]), #roman 
-  ("religious_site_3","Monastery_of_Mor_Gabriel",icon_castle_snow_a|pf_is_static|pf_always_visible|pf_hide_defenders, no_menu, pt_none, fac_roman_christians,0,ai_bhvr_hold,0,(91.22,9.02),[]), #roman 
-  ("religious_site_4","Monastery_of_Saint_Anthony",icon_castle_snow_a|pf_is_static|pf_always_visible|pf_hide_defenders, no_menu, pt_none, fac_coptic_christians,0,ai_bhvr_hold,0,(60.98,-97.53),[]), #coptic 
-  ("religious_site_5","Arian_Monastery",icon_castle_snow_a|pf_is_static|pf_always_visible|pf_hide_defenders, no_menu, pt_none, fac_arian_christians,0,ai_bhvr_hold,0,(-212.02,49.17),[]), #arian 
-  ("religious_site_6","Arian_Monastery",icon_castle_snow_a|pf_is_static|pf_always_visible|pf_hide_defenders, no_menu, pt_none, fac_arian_christians,0,ai_bhvr_hold,0,(-137.79,-40.93),[]), #arian 
+  ("religious_site_1","Batavis",pf_disabled|icon_castle_snow_a|pf_is_static|pf_always_visible|pf_hide_defenders, no_menu, pt_none, fac_roman_christians,0,ai_bhvr_hold,0,(-112.81, 92.89),[]), #chalcedonian
+  ("religious_site_2","Monastery_of_Stavrovouni",icon_castle_snow_a|pf_is_static|pf_always_visible|pf_hide_defenders, no_menu, pt_none, fac_roman_christians,0,ai_bhvr_hold,0,(58.4,-32.38),[]), #miaphysite
+  ("religious_site_3","Monastery_of_Mor_Gabriel",icon_castle_snow_a|pf_is_static|pf_always_visible|pf_hide_defenders, no_menu, pt_none, fac_roman_christians,0,ai_bhvr_hold,0,(91.22,9.02),[]), #miaphysite 
+  ("religious_site_4","Monastery_of_Saint_Anthony",icon_castle_snow_a|pf_is_static|pf_always_visible|pf_hide_defenders, no_menu, pt_none, fac_coptic_christians,0,ai_bhvr_hold,0,(60.98,-97.53),[]), #miaphysite
+  ("religious_site_5","Monastery_of_Saint_Thaddeus",icon_castle_snow_a|pf_is_static|pf_always_visible|pf_hide_defenders, no_menu, pt_none, fac_coptic_christians,0,ai_bhvr_hold,0,(141.91,40.1),[]), #miaphysite
+  ("religious_site_6","Monastery_of_St_Matthew",icon_castle_snow_a|pf_is_static|pf_always_visible|pf_hide_defenders, no_menu, pt_none, fac_coptic_christians,0,ai_bhvr_hold,0,(137.97,13.17),[]), #nestorian
   ("religious_site_7","Grove_of_Nerthus",icon_castle_snow_b|pf_is_static|pf_always_visible|pf_hide_defenders, no_menu, pt_none, fac_pagans,0,ai_bhvr_hold,0,(-128.07,163.56),[]), #germanic pagan 
   ("religious_site_8","Donar's_Oak",icon_castle_snow_b|pf_is_static|pf_always_visible|pf_hide_defenders, no_menu, pt_none, fac_pagans,0,ai_bhvr_hold,0,(-138.54,105.63),[]), #germanic pagan 
   ("religious_site_9","Aphrodisias",icon_castle_snow_b|pf_is_static|pf_always_visible|pf_hide_defenders, no_menu, pt_none, fac_roman_pagans,0,ai_bhvr_hold,0,(17.25,-3.84),[]), #greco-roman paganism 
   ("religious_site_10","Great_Fire_of_Adur_Farnbag",icon_castle_snow_b|pf_is_static|pf_always_visible|pf_hide_defenders, no_menu, pt_none, fac_zoroastrians,0,ai_bhvr_hold,0,(236.84,-39.66),[]), #zoroastrian 
   ("religious_site_11","Great_Fire_of_Adur_Gushnap",icon_castle_snow_b|pf_is_static|pf_always_visible|pf_hide_defenders, no_menu, pt_none, fac_zoroastrians,0,ai_bhvr_hold,0,(138.16,51.05),[]), #zoroastrian 
-  ("religious_site_12","Monastery_of_Saint_Athanasius",icon_castle_snow_a|pf_is_static|pf_always_visible|pf_hide_defenders, no_menu, pt_none, fac_roman_christians,0,ai_bhvr_hold,0,(-11.7, 47.01),[]), #roman 
-  ("religious_site_13","Paromeos_Monastary",icon_castle_snow_a|pf_is_static|pf_always_visible|pf_hide_defenders, no_menu, pt_none, fac_coptic_christians,0,ai_bhvr_hold,0,(43.91, -77.41),[]), #coptic 
+  ("religious_site_12","Monastery_of_Saint_Athanasius",icon_castle_snow_a|pf_is_static|pf_always_visible|pf_hide_defenders, no_menu, pt_none, fac_roman_christians,0,ai_bhvr_hold,0,(-11.7, 47.01),[]), #non-chalcedonian
+  ("religious_site_13","Paromeos_Monastary",icon_castle_snow_a|pf_is_static|pf_always_visible|pf_hide_defenders, no_menu, pt_none, fac_coptic_christians,0,ai_bhvr_hold,0,(43.91, -77.41),[]), #non-chalcedonian
   ("religious_site_14","Irminsul",icon_castle_snow_b|pf_is_static|pf_always_visible|pf_hide_defenders, no_menu, pt_none, fac_pagans,0,ai_bhvr_hold,0,(-156.34,132.32),[]), #pagan 
-  ("religious_site_15","Monastery_of_Lerina",icon_castle_snow_a|pf_is_static|pf_always_visible|pf_hide_defenders, no_menu, pt_none, fac_roman_christians,0,ai_bhvr_hold,0,(-165.82,36.74),[]), #roman 
-  ("religious_site_16","Monastery_of_Saint_Martin",icon_castle_snow_a|pf_is_static|pf_always_visible|pf_hide_defenders, no_menu, pt_none, fac_roman_christians,0,ai_bhvr_hold,0,(-210.1,72.77),[]), #roman 
+  ("religious_site_15","Monastery_of_Lerina",icon_castle_snow_a|pf_is_static|pf_always_visible|pf_hide_defenders, no_menu, pt_none, fac_roman_christians,0,ai_bhvr_hold,0,(-165.82,36.74),[]), #non-chalcedonian
+  ("religious_site_16","Monastery_of_Saint_Martin",icon_castle_snow_a|pf_is_static|pf_always_visible|pf_hide_defenders, no_menu, pt_none, fac_roman_christians,0,ai_bhvr_hold,0,(-210.1,72.77),[]), #non-chalcedonian
   ("religious_site_17","Stone_Circle",icon_castle_snow_b|pf_is_static|pf_always_visible|pf_hide_defenders, no_menu, pt_none, fac_pagans,0,ai_bhvr_hold,0,(-222.81,139.23),[]), #celtic pagan 
   ("religious_site_18","Altar_to_the_Skyfather",icon_castle_snow_b|pf_is_static|pf_always_visible|pf_hide_defenders, no_menu, pt_none, fac_pagans,0,ai_bhvr_hold,0,(45.91, 112),[]), #shamanism
   ("religious_site_19","Siwa",icon_castle_snow_b|pf_is_static|pf_always_visible|pf_hide_defenders, no_menu, pt_none, fac_roman_pagans,0,ai_bhvr_hold,0,(16.22, -96.75),[]), #egyptian paganism
 
-  #siwa - for roman pagans (egyptian)
-  #?? for pagans in the steppes
-  
+  #Philae - egyptian pagan temple
+  #Hippo/Carthage - generic chalcedonian monastery in N. Africa (used by the diocese)
+  #maybe have quest for vandal king to force out the chalcs and replace with arians?
+
   #animal spawns
   ("deer_spawn_point" ,"the wilderness",pf_disabled|pf_is_static, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-143.69,109.36),[]), 
   ("boar_spawn_point" ,"the wilderness",pf_disabled|pf_is_static, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-185.14,75.49),[]), 

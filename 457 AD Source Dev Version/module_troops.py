@@ -4854,6 +4854,7 @@ troops = [
   #CHARIOTEERS END
 
   #CHALCEDONIAN BISHOPS, MONKs + HOLY MEN
+  #Priests can no longer be hired from monasteries, can only be hired via bishop
   #422 - 458
   ["chal_bishop_jerusalem_1","Patriarch Juvenal of Jerusalem","Juvenal of Jerusalem",tf_hero, 0, reserved, fac_roman_christians,[itm_wrapping_boots,itm_late_roman_priest],def_attrib|level(3),wp(80),knows_wound_treatment_3,0x0000000fc00004823adb6dcadb6dbadb00000000001db6dc0000000000000000],
   #458 - 478 Anastasius
@@ -4875,8 +4876,16 @@ troops = [
   #459 - 471
   ["chal_bishop_antioch_3","Patriarch Martyrius of Antioch","Martyrius of Antioch",tf_hero, 0, reserved, fac_roman_christians, [itm_wrapping_boots,itm_late_roman_priest],def_attrib|level(3),wp(80),knows_wound_treatment_3,0x0000000c3f0c44cf32cab1452cb1bb2d00000000001e36a60000000000000000],
   #Bishop of Aquae flavae
-  ["hydatius","Hydatius","Hydatius",tf_hero, 0, reserved, fac_roman_christians,[itm_wrapping_boots,itm_late_roman_priest],def_attrib_lvl_20|level(19),wp(180),knows_ironflesh_2|knows_power_strike_2|knows_athletics_2,0x0000000a270040871b9472485248ab1200000000001da6e00000000000000000],
-  #Bishop of Milan Eusebius 449 - 462
+  ["hydatius","Bishop Hydatius of Aquae Flavae","Hydatius of Aquae Flavae",tf_hero, 0, reserved, fac_roman_christians,[itm_wrapping_boots,itm_late_roman_priest],def_attrib_lvl_20|level(19),wp(180),knows_ironflesh_2|knows_power_strike_2|knows_athletics_2,0x0000000a270040871b9472485248ab1200000000001da6e00000000000000000],
+  #Bishop of Milan Eusebius town_33
+  ["chal_bishop_milan_1","Archbishop Eusebius of Mediolanum","Eusebius of Mediolanum",tf_hero, 0, reserved, fac_roman_christians,[itm_wrapping_boots,itm_late_roman_priest],def_attrib|level(3),wp(80),knows_wound_treatment_3,0x0000000fc00004823adb6dcadb6dbadb00000000001db6dc0000000000000000],
+  #Bishop of Lyon Patiens town_16
+  ["chal_bishop_lyon_1","Bishop Patiens of Lugdunum","Patiens of Lugdunum",tf_hero, 0, reserved, fac_roman_christians,[itm_wrapping_boots,itm_late_roman_priest],def_attrib|level(3),wp(80),knows_wound_treatment_3,0x0000000fc00004823adb6dcadb6dbadb00000000001db6dc0000000000000000],
+  #Bishop Aquileia Nicetas
+  ["chal_bishop_aquileia_1","Bishop Nicetas of Aquileia","Nicetas of Aquileia",tf_hero, 0, reserved, fac_roman_christians,[itm_wrapping_boots,itm_late_roman_priest],def_attrib|level(3),wp(80),knows_wound_treatment_3,0x0000000fc00004823adb6dcadb6dbadb00000000001db6dc0000000000000000],
+  #Salonius of Genava castle_14
+  ["chal_bishop_genava_1","Bishop Salonius of Genava","Salonius of Genava",tf_hero, 0, reserved, fac_roman_christians,[itm_wrapping_boots,itm_late_roman_priest],def_attrib|level(3),wp(80),knows_wound_treatment_3,0x0000000fc00004823adb6dcadb6dbadb00000000001db6dc0000000000000000],
+
   ["chalcedonian_bishops_end","Bishop","Bishop",tf_hero, 0, reserved, fac_roman_christians, [itm_wrapping_boots,itm_late_roman_priest],def_attrib|level(3),wp(80),knows_wound_treatment_3,0x0000000c2e00214e369b69a6e28db6db00000000001db6dc0000000000000000],
 
   ["chal_monk_1","Symeon the Stylite","Symeon",tf_hero,0,0,fac_roman_christians,[itm_robes_church],def_attrib|level(3),wp(80),knows_common,0x0000000fc00c4488371c6a2b2a39c8dc00000000001da6dd0000000000000000], #stylite
@@ -4891,13 +4900,15 @@ troops = [
   ["mia_bishop_antioch_1","Patriarch Peter Fullo of Antioch","Peter Fullo of Antioch",tf_hero, 0, reserved, fac_coptic_christians, [itm_wrapping_boots,itm_late_roman_priest],def_attrib|level(3),wp(80),knows_wound_treatment_3,0x0000000a6a0c84c657624cd72e52271500000000001da5ba0000000000000000],
   #Catholicos of Armenia Moses (456-461)
   ["mia_bishop_armenia_1","Catholicos of Armenia Moses","Moses of Armenia",tf_hero, 0, reserved, fac_coptic_christians, [itm_wrapping_boots,itm_late_roman_priest],def_attrib|level(3),wp(80),knows_wound_treatment_3,0x0000000fc70d119009539946e271572d00000000001ed8630000000000000000],
+
+  ["mia_bishops_end","Bishop","Bishop",tf_hero, 0, reserved, fac_coptic_christians, [itm_wrapping_boots,itm_late_roman_priest],def_attrib|level(3),wp(80),knows_wound_treatment_3,0x0000000c2e00214e369b69a6e28db6db00000000001db6dc0000000000000000],
   #NESTORIAN BISHOPS
   #457 - 484
   ["nes_bishop_ctesiphon_1","Catholicos of Seleucia-Ctesiphon Babaeus","Babaeus of Seleucia-Ctesiphon",tf_hero, 0, reserved, fac_coptic_christians, [itm_wrapping_boots,itm_robe],def_attrib|level(3),wp(80),knows_wound_treatment_3,0x0000000cbf0d048e7ab2ab38e46ad75300000000001eb49c0000000000000000],
   #~460 - 490
   ["nes_bishop_nisibis_1","Metropolitan Barsauma of Nisibis","Barsauma of Nisibis",tf_hero, 0, reserved, fac_coptic_christians, [itm_wrapping_boots,itm_robe],def_attrib|level(3),wp(80),knows_wound_treatment_3,0x0000000a4e0cf40f38d3b2d89a51b6e200000000001db3630000000000000000],
- 
-  ["mia_bishops_end","Bishop","Bishop",tf_hero, 0, reserved, fac_coptic_christians, [itm_wrapping_boots,itm_late_roman_priest],def_attrib|level(3),wp(80),knows_wound_treatment_3,0x0000000c2e00214e369b69a6e28db6db00000000001db6dc0000000000000000],
+
+  ["nes_bishops_end","Bishop","Bishop",tf_hero, 0, reserved, fac_coptic_christians, [itm_wrapping_boots,itm_late_roman_priest],def_attrib|level(3),wp(80),knows_wound_treatment_3,0x0000000c2e00214e369b69a6e28db6db00000000001db6dc0000000000000000],
   #DONATISM(?)
   #ARIAN BISHOPS
   #Bishop (of Tolosa?) Ajax - would convert the suebi to arianism in 464
@@ -4917,15 +4928,19 @@ troops = [
   #CONVERSION TROOPS
   ["roman_priest","Chalcedonian Priest","Chalcedonian Priests",tf_guarantee_boots|tf_guarantee_armor,0,0,fac_roman_christians,[itm_wrapping_boots,itm_late_roman_priest,itm_knife],def_attrib|level(8),wp(90),knows_common,roman_face_1, roman_face_2],
   ["arian_priest","Arian Priest","Arian Priests",tf_guarantee_boots|tf_guarantee_armor,0,0,fac_arian_christians,[itm_wrapping_boots,itm_late_roman_priest,itm_knife],def_attrib|level(8),wp(90),knows_common,germanic_face_1, germanic_face_2],
-  ["coptic_priest","Non-Chalcedonian Priest","Non-Chalcedonian Priests",tf_guarantee_boots|tf_guarantee_armor,0,0,fac_coptic_christians,[itm_wrapping_boots,itm_late_roman_priest,itm_knife],def_attrib|level(8),wp(90),knows_common,roman_face_1, roman_face_2],
+  ["coptic_priest","Miaphysite Priest","Miaphysite Priests",tf_guarantee_boots|tf_guarantee_armor,0,0,fac_coptic_christians,[itm_wrapping_boots,itm_late_roman_priest,itm_knife],def_attrib|level(8),wp(90),knows_common,coptic_face_1, coptic_face_2],
   ["pagan_priest","Pagan Priest","Pagan Priests",tf_guarantee_boots|tf_guarantee_armor,0,0,fac_pagans,[itm_wrapping_boots,itm_robe,itm_sarranid_cloth_robe_b,itm_knife],def_attrib|level(8),wp(90),knows_common,germanic_face_1, germanic_face_2],
   ["zoroastrian_priest","Zoroastrian Mobad","Zoroastrian Mobads",tf_guarantee_boots|tf_guarantee_armor,0,0,fac_zoroastrians,[itm_wrapping_boots,itm_persian_tunic_2,itm_knife],def_attrib|level(8),wp(90),knows_common,persian_face_1, persian_face_2],
   ["roman_pagan_priest","Greco-Roman Pagan Priest","Greco-Roman Pagan Priest",tf_guarantee_boots|tf_guarantee_armor,0,0,fac_roman_pagans,[itm_wrapping_boots,itm_sarranid_cloth_robe_c,itm_sarranid_cloth_robe_c,itm_knife],def_attrib|level(8),wp(90),knows_common,persian_face_1, persian_face_2],
+  ["nestorian_priest","Nestorian Priest","Nestorian Priests",tf_guarantee_boots|tf_guarantee_armor,0,0,fac_nestorian_christians,[itm_wrapping_boots,itm_robe,itm_knife],def_attrib|level(8),wp(90),knows_common,coptic_face_1, coptic_face_2],
+  ["donatist_priest","Donatist Priest","Donatist Priests",tf_guarantee_boots|tf_guarantee_armor,0,0,fac_donatist_christians,[itm_wrapping_boots,itm_late_roman_priest,itm_knife],def_attrib|level(8),wp(90),knows_common,coptic_face_1, coptic_face_2],
   ["monk","Monk","Monks",tf_guarantee_boots|tf_guarantee_armor,0,0,fac_commoners,[itm_wrapping_boots,itm_robe,itm_sarranid_cloth_robe_b,itm_wooden_stick],def_attrib|level(8),wp(90),knows_common,roman_face_1, roman_face_2],#shared by all 3 christian religions
   #RELIGIOUS LOCATION LEADERS
   ["roman_abbot","Chalcedonian Abbot","Chalcedonian Abbots",tf_hero,0,0,fac_roman_christians,[itm_wrapping_boots,itm_robes_church],def_attrib|level(8),wp(90),knows_common,roman_face_1, roman_face_2],
   ["arian_abbot","Arian Abbot","Arian Abbots",tf_hero,0,0,fac_arian_christians,[itm_wrapping_boots,itm_robes_church],def_attrib|level(8),wp(90),knows_common,roman_face_1, roman_face_2],
-  ["coptic_abbot","Non-Chalcedonian Abbot","Non-Chalcedonian Abbots",tf_hero,0,0,fac_coptic_christians,[itm_wrapping_boots,itm_robes_church],def_attrib|level(8),wp(90),knows_common,roman_face_1, roman_face_2],
+  ["coptic_abbot","Miaphysite Abbot","Miaphysite Abbots",tf_hero,0,0,fac_coptic_christians,[itm_wrapping_boots,itm_robes_church],def_attrib|level(8),wp(90),knows_common,roman_face_1, roman_face_2],
+  ["nestorian_abbot","Nestorian Abbot","Nestorian Abbots",tf_hero,0,0,fac_coptic_christians,[itm_wrapping_boots,itm_robes_church],def_attrib|level(8),wp(90),knows_common,roman_face_1, roman_face_2],
+  ["donatist_abbot","Donatist Abbot","Donatist Abbots",tf_hero,0,0,fac_coptic_christians,[itm_wrapping_boots,itm_robes_church],def_attrib|level(8),wp(90),knows_common,roman_face_1, roman_face_2],
   ["pagan_high_priest","Germanic Pagan Priest","Germanic Pagan Priests",tf_hero,0,0,fac_pagans,[itm_wrapping_boots,itm_robe,itm_sarranid_cloth_robe_b],def_attrib|level(8),wp(90),knows_common,germanic_face_1, germanic_face_2],
   ["celtic_pagan_priest","Celtic Pagan Priest","Celtic Pagan Priests",tf_hero,0,0,fac_pagans,[itm_wrapping_boots,itm_robe,itm_sarranid_cloth_robe_b],def_attrib|level(8),wp(90),knows_common,celtic_face_1, celtic_face_2],
   ["steppe_pagan_priest","Shaman","Shamen",tf_hero,0,0,fac_pagans,[itm_wrapping_boots,itm_robe,itm_sarranid_cloth_robe_b],def_attrib|level(8),wp(90),knows_common,hunnic_face_1, hunnic_face_2],
@@ -5057,6 +5072,7 @@ troops = [
   ["severinus_quest_npc_5","Priest","Priests",tf_hero, no_scene, 0, fac_commoners,[itm_robes_church,itm_deurne_campagi_4],def_attrib|level(1),wp(10),knows_common,0x00000005ec0c201052db49b6db6db6db00000000001eb4d50000000000000000],
   ["severinus_quest_npc_6","Gadrauhts","Gadrauhteis",tf_hero, no_scene, 0, fac_commoners,[itm_tunic_2_cloak,itm_deurne_campagi_3,itm_fernpass_helmet_1,itm_sword_khergit_3],def_attrib|level(1),wp(10),knows_common,0x000000001a0c224b3daa8c987489496400000000001d92eb0000000000000000],
   ["severinus_quest_npc_7","Old Man","Old Man",tf_hero, no_scene, 0, fac_commoners,[itm_roman_peasant_tunic_6,itm_deurne_campagi_1],def_attrib|level(1),wp(10),knows_common,0x0000000fc0005083336b49ba53c9bc9200000000001d66e50000000000000000],
+  ["severinus_quest_npc_8","Bandit","Bandit",tf_randomize_face|tf_hero, no_scene, 0, fac_commoners,[itm_wrapping_boots,itm_tunic_3_cloak],def_attrib|level(1),wp(10),knows_common,roman_face_1, roman_face_2],
   #used for quests as heroes
   ["roman_civilian_quest_1","Civis","Civites",tf_randomize_face|tf_hero, no_scene, 0, fac_commoners,[]+tunics_roman_civilian+shoes_roman,def_attrib|level(1),wp(10),knows_common,roman_face_1, roman_face_2],
   ["roman_civilian_quest_2","Civis","Civites",tf_randomize_face|tf_female|tf_hero, no_scene, 0, fac_commoners,[itm_ankle_boots,itm_wrapping_boots,itm_dress_7,itm_dress_8,itm_dress_5,itm_dress_4,itm_lady_dress_green],def_attrib|level(1),wp(10),knows_common,roman_woman_face_1,roman_woman_face_2],

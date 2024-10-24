@@ -3054,14 +3054,17 @@ banner_background_black = 0x1c1c1c
 
 banner_bg_default = 0xFFC0B090
 
-slot_religion_chalcedonian = 1
+slot_religion_christian_chalcedonian = 1
 slot_religion_paganism = 2
-slot_religion_arianism = 3
+slot_religion_christian_arian = 3
 slot_religion_zoroastrianism = 4
-slot_religion_coptic = 5
+slot_religion_christian_miaphysite = 5
 slot_religion_roman_paganism = 6
-slot_religion_judaism = 7
-
+slot_religion_christian_nestorian = 7
+slot_religion_christian_donatist = 8
+slot_religion_zurvanism = 9
+slot_religion_judaism = 10
+slot_religion_manichaeism = 11
 
 minor_towns_begin = "p_aestii_village"
 minor_towns_end   = "p_religious_site_1"

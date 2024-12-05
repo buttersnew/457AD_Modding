@@ -28,7 +28,7 @@ factions = [
   ("innocents","Innocents", ff_always_hide_label, 0.5,[("outlaws",-0.05)], []),
   ("merchants","Merchants", ff_always_hide_label, 0.5,[("outlaws",-0.5),], []),
 
-  ("dark_knights","Slavic Invasion", 0, 0.5,[("innocents",-0.9),("player_faction",-0.4)], []),
+  #("dark_knights","Slavic Invasion", 0, 0.5,[("innocents",-0.9),("player_faction",-0.4)], []),
 
   ("culture_1",  "Gothic", 0, 0.9, [], []),
   ("culture_2",  "Eastern Germanic", 0, 0.9, [], []),
@@ -89,11 +89,9 @@ factions = [
   ("kingdoms_end","{!}kingdoms_end", 0, 0,[], []),
 
   ("robber_knights",  "{!}robber_knights", 0, 0.1, [], []),
-
-  ("khergits","{!}Khergits", 0, 0.5,[("player_faction",0.0)], []),
-  ("black_khergits","Hunnic Rebels", 0, 0.5,[("player_faction",-0.3),("kingdom_1",-0.05),("kingdom_2",-0.05),("kingdom_4",-0.05),("kingdom_11",-0.05)], []),
-
-##  ("rebel_peasants","Rebel Peasants", 0, 0.5,[("vaegirs",-0.5),("player_faction",0.0)], []),
+  #("khergits","{!}Khergits", 0, 0.5,[("player_faction",0.0)], []),
+  #("black_khergits","Hunnic Rebels", 0, 0.5,[("player_faction",-0.3),("kingdom_1",-0.05),("kingdom_2",-0.05),("kingdom_4",-0.05),("kingdom_11",-0.05)], []),
+  #("rebel_peasants","Rebel Peasants", 0, 0.5,[("vaegirs",-0.5),("player_faction",0.0)], []),
 
   ("manhunters","Slavers", 0, 0.5,[("outlaws",-0.6),("player_faction",0.1)], []),
   ("deserters","Deserters", 0, 0.5,[("manhunters",-0.6),("merchants",-0.5),("player_faction",-0.1)], [], 0x888888),
@@ -145,6 +143,8 @@ factions = [
   ("minor_onoguroi","Onoguroi", 0, 0.9,[("outlaws",-0.75),("peasant_rebels", -0.1),("deserters", -0.05),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05),("manhunters",0.6)], [], 0xc19135),
   ("minor_kutriguroi","Kutriguroi", 0, 0.9,[("outlaws",-0.75),("peasant_rebels", -0.1),("deserters", -0.05),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05),("manhunters",0.6)], [], 0xc19135),
   ("minor_sabiroi","Sabiroi", 0, 0.9,[("outlaws",-0.75),("peasant_rebels", -0.1),("deserters", -0.05),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05),("manhunters",0.6)], [], 0xc19135),
+  ("minor_valentia","Valentia Alanorum", 0, 0.9,[("outlaws",-0.75),("peasant_rebels", -0.1),("deserters", -0.05),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05),("manhunters",0.6),("kingdom_1", 0.5)], [], 0x8E0D0D),
+  ("minor_aurelianorum","Aurelianorum Alanorum", 0, 0.9,[("outlaws",-0.75),("peasant_rebels", -0.1),("deserters", -0.05),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05),("manhunters",0.6),("kingdom_1", 0.5)], [], 0x8E0D0D),
 
   ("minor_factions_end",  "{!}minor_factions_end", 0, 0.9, [], []), 
   #religions

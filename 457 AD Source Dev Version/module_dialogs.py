@@ -15223,7 +15223,8 @@ What kind of recruits do you want?", "dplmc_constable_recruit_select",
 [
 (call_script, "script_appoint_faction_marshall", "fac_player_supporters_faction", "trp_player"),
 (store_current_hours, ":hours"),
-(assign, "$g_recalculate_ais", 1),
+#(assign, "$g_recalculate_ais", 1),
+(call_script, "script_recalculate_ais_for_faction", "$players_kingdom"), #madsci
 (assign, "$g_player_faction_last_marshal_appointment", ":hours"),
 
 ##diplomacy start+ Handle player is co-ruler of NPC kingdom
@@ -15291,7 +15292,8 @@ What kind of recruits do you want?", "dplmc_constable_recruit_select",
 	(try_end),
 (try_end),
 ##diplomacy end+ (replacing fac_player_supporters_faction with :ruled_faction)
-(assign, "$g_recalculate_ais", 1),
+#(assign, "$g_recalculate_ais", 1),
+(call_script, "script_recalculate_ais_for_faction", ":ruled_faction"), #madsci
 
 ]],
 
@@ -15353,7 +15355,8 @@ What kind of recruits do you want?", "dplmc_constable_recruit_select",
 	(try_end),
 (try_end),
 ##diplomacy end+
-(assign, "$g_recalculate_ais", 1),
+#(assign, "$g_recalculate_ais", 1),
+(call_script, "script_recalculate_ais_for_faction", ":ruled_faction"), #madsci
 ]],
 
 
@@ -27784,7 +27787,8 @@ I will use this to make amends to those you have wronged, and I will let it be k
  (assign, "$player_marshal_ai_state", sfai_gathering_army),
  (assign, "$player_marshal_ai_object", "p_main_party"),
   (call_script, "script_decide_faction_ai", "$players_kingdom"),
- (assign, "$g_recalculate_ais", 1),
+ #(assign, "$g_recalculate_ais", 1),
+(call_script, "script_recalculate_ais_for_faction", "$players_kingdom"), #madsci
   ]],
 
 [anyone|plyr,"lord_talk",
@@ -27810,8 +27814,9 @@ I will use this to make amends to those you have wronged, and I will let it be k
 [
   (assign, "$player_marshal_ai_state", sfai_default),
  (assign, "$player_marshal_ai_object", -1),
-  (call_script, "script_decide_faction_ai", "$players_kingdom"),
-  (assign, "$g_recalculate_ais", 1),
+  #(call_script, "script_decide_faction_ai", "$players_kingdom"),
+  #(assign, "$g_recalculate_ais", 1),
+(call_script, "script_recalculate_ais_for_faction", "$players_kingdom"), #madsci
   ]],
 
 [anyone|plyr,"lord_talk", [
@@ -31090,7 +31095,8 @@ And to think I would offer you a place among my nobles. Begone, beggar, before I
    (val_min, ":relation", -40),
    (call_script, "script_set_player_relation_with_faction", "$players_oath_renounced_against_kingdom", ":relation"),
    (call_script, "script_update_all_notes"),
-   (assign, "$g_recalculate_ais", 1),
+   #(assign, "$g_recalculate_ais", 1),
+(call_script, "script_recalculate_ais_for_faction", "$players_oath_renounced_against_kingdom"), #madsci
  (try_end),
 
  (try_begin),
@@ -34663,7 +34669,8 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
    (assign, "$player_marshal_ai_state", sfai_feast),
    (assign, "$player_marshal_ai_object", "$g_player_court"),
 
-   (assign, "$g_recalculate_ais", 1),
+   #(assign, "$g_recalculate_ais", 1),
+(call_script, "script_recalculate_ais_for_faction", "$players_kingdom"), #madsci
    (assign, reg4, 1),
    (try_begin),
      (neq, "$g_encountered_party", "$g_player_court"),
@@ -54027,8 +54034,9 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
 
 	 (assign, "$player_marshal_ai_state", sfai_feast),
 	 (assign, "$player_marshal_ai_object", ":venue"),
-     (call_script, "script_decide_faction_ai", "$players_kingdom"),
-	 (assign, "$g_recalculate_ais", 1),
+     #(call_script, "script_decide_faction_ai", "$players_kingdom"),
+	 #(assign, "$g_recalculate_ais", 1),
+(call_script, "script_recalculate_ais_for_faction", "$players_kingdom"), #madsci
 	 (str_store_party_name, s4, ":venue"),
 
      ]],
@@ -54049,8 +54057,9 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
    [
 	 (assign, "$player_marshal_ai_state", sfai_gathering_army),
 	 (assign, "$player_marshal_ai_object", "p_main_party"),
-     (call_script, "script_decide_faction_ai", "$players_kingdom"),
-	 (assign, "$g_recalculate_ais", 1),
+     #(call_script, "script_decide_faction_ai", "$players_kingdom"),
+	 #(assign, "$g_recalculate_ais", 1),
+(call_script, "script_recalculate_ais_for_faction", "$players_kingdom"), #madsci
      ]],
 
 
@@ -54066,8 +54075,9 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
    [
 	 (assign, "$player_marshal_ai_state", sfai_default),
 	 (assign, "$player_marshal_ai_object", -1),
-     (call_script, "script_decide_faction_ai", "$players_kingdom"),
-	 (assign, "$g_recalculate_ais", 1),
+     #(call_script, "script_decide_faction_ai", "$players_kingdom"),
+	 #(assign, "$g_recalculate_ais", 1),
+(call_script, "script_recalculate_ais_for_faction", "$players_kingdom"), #madsci
 
      ]],
 

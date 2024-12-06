@@ -3163,3 +3163,6 @@ region_mountain_europe_romania          =16
 region_mountain_europe_bohemia          =17
 ###END REGIONS
 #######################################
+
+#madsci make sure the party below is the last static party
+last_static_party = "p_boar_spawn_point"

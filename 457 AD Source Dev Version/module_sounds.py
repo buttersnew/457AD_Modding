@@ -249,4 +249,10 @@ sounds = [
  #INVASION MODE END
   # ("thunder_close", sf_2d|sf_priority_10|sf_vol_10|sf_stream_from_hd, ["thunder_close_1.wav","thunder_close_2.wav","thunder_close_3.wav", "thunder.wav"]),
 
+#madsci the engine looks for hardcoded sounds so having the dummys below prevents false errors
+    ("release_crossbow_medium",0,[]),
+    ("release_crossbow_far",0,[]),
+    ("bullet_hit_body",0,[]),
+    ("player_hit_by_bullet",0,[]),
+
 ]

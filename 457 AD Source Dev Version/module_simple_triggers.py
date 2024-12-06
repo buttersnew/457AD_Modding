@@ -1019,12 +1019,21 @@ simple_triggers = [
   (20,
    [
     (call_script, "script_find_neighbors"),#first find neighbours
-    (call_script, "script_randomly_start_war_peace_new", 1),
+    #(call_script, "script_randomly_start_war_peace_new", 1),
     ]),  
     
     
     (24.0/(number_of_factions),
    [
+#madsci lets rework faction AI so that factions dont do their business simultaneously to avoid lag spikes
+
+(val_add, "$checked_faction2", 1),
+	(try_begin),
+	(neg|is_between, "$checked_faction2", kingdoms_begin, kingdoms_end),
+	(assign, "$checked_faction2", kingdoms_begin),
+	(try_end),
+    (call_script, "script_randomly_start_war_peace_new_for_faction", 1, "$checked_faction2"),
+
     (try_begin),
         (neg|is_between, "$g_faction_diplomacy", kingdoms_begin, kingdoms_end),
         (assign, "$g_faction_diplomacy", kingdoms_begin),
@@ -1220,20 +1229,9 @@ simple_triggers = [
     ]),
 
 
-  # Decide vassal ai
+  # Decide vassal ai obsolete trigger
    (7,
-    [
-      (call_script, "script_init_ai_calculation"),
-      #(call_script, "script_decide_kingdom_party_ais"),
-	  ##diplomacy start+
-	  #Also call script_calculate_troop_ai for kingdom ladies who have become slto_kingdom_heroes
-      #(try_for_range, ":troop_no", active_npcs_begin, active_npcs_end),
-	  (try_for_range, ":troop_no", heroes_begin, heroes_end),
-	  ##diplomacy end+
-        (troop_slot_eq, ":troop_no", slot_troop_occupation, slto_kingdom_hero),
-        (call_script, "script_calculate_troop_ai", ":troop_no"),
-      (try_end),
-      ]),
+    []),
 
 
    (24.0/(number_of_active_npcs),
@@ -1691,10 +1689,30 @@ simple_triggers = [
  #     ]),
 
   # Process vassal ai
-   (1,
-   [
-    (call_script, "script_process_alarms"),
-   ]),   
+  # (1,
+  # [
+  #  (call_script, "script_process_alarms"),
+  # ]),   
+
+#madsci new process alarms is less laggy
+(3,
+	[
+	  (try_for_range, ":center_no", centers_begin, centers_end),
+	    (try_begin), #if raided, sieged and only once!
+	      (this_or_next|party_slot_ge, ":center_no", slot_center_is_besieged_by, 0),
+	      (party_slot_eq, ":center_no", slot_village_state, svs_being_raided),
+		  (party_slot_eq, ":center_no", slot_center_last_spotted_enemy, -1), #if this is not set yet
+		  (call_script, "script_process_alarms_new", ":center_no"),
+		(else_try), #not raided/sieged - reset the sorties
+		  (this_or_next|neg|party_slot_ge, ":center_no", slot_center_is_besieged_by, 0),
+	      (neg|party_slot_eq, ":center_no", slot_village_state, svs_being_raided),
+		  (party_set_slot, ":center_no", slot_center_last_spotted_enemy, -1),
+          (party_set_slot, ":center_no", slot_center_sortie_strength, 0),
+          (party_set_slot, ":center_no", slot_center_sortie_enemy_strength, 0),
+		(try_end),
+	  (try_end),
+	]),
+
    (1,
    [
     (call_script, "script_process_kingdom_parties_ai"),
@@ -1711,7 +1729,8 @@ simple_triggers = [
     (val_div, ":spotting", 2), #1 to 9 now
     (val_add, ":spotting", 1), #1 to 9 now
     (try_for_parties, ":bandit_camp"),
-      (gt, ":bandit_camp", "p_spawn_points_end"),
+      #(gt, ":bandit_camp", "p_spawn_points_end"),
+      (gt, ":bandit_camp", last_static_party), #madsci
       #Can't have party is active here, because it will fail for inactive parties
       (party_get_template_id, ":template", ":bandit_camp"), #SB : fix template range
       (is_between, ":template", "pt_steppe_bandit_lair", "pt_bandit_lair_templates_end"),
@@ -1889,45 +1908,28 @@ simple_triggers = [
     # Decide faction ais
     (6.6, #it was 23
     [
-      (assign, "$g_recalculate_ais", 1),
+      #(assign, "$g_recalculate_ais", 1),
+	#(call_script, "script_recalculate_ais"), #madsci
     ]),
 
 
+#simple trigger 43
   # Decide faction ai flag check
-   (0.11,
+   #(0.11,
+    (7/(number_of_factions),
    [
+     #(eq, "$g_recalculate_ais", 1),
+     #(assign, "$g_recalculate_ais", 0),
+     #(call_script, "script_recalculate_ais"),
 
+#madsci new system where faction AI gets decided one by one instead of everyone at the same time to avoid lag spike
 
-    # (try_begin), #SB : wow this debug script is stupid
-		# (ge, "$cheat_mode", 1),
-
-		# (try_for_range, ":king", "trp_kingdom_1_lord", "trp_knight_1_1"),
-			# (store_add, ":proper_faction", ":king", "fac_kingdom_1"),
-			# (val_sub, ":proper_faction", "trp_kingdom_1_lord"),
-			# (store_faction_of_troop, ":actual_faction", ":king"),
-
-			# (neq, ":proper_faction", ":actual_faction"),
-			# (neq, ":actual_faction", "fac_commoners"),
-			# (ge, "$cheat_mode", 2),
-			# (neq, ":king", "trp_kingdom_2_lord"),
-
-			# (str_store_troop_name, s4, ":king"),
-			# (str_store_faction_name, s5, ":actual_faction"),
-			# (str_store_faction_name, s6, ":proper_faction"),
-			# (str_store_string, s65, "@{!}DEBUG - {s4} is in {s5}, should be in {s6}, disabling political cheat mode"),
-# #			(display_message, "@{s65}"),
-			# (rest_for_hours, 0, 0, 0),
-
-			# #(assign, "$cheat_mode", 1),
-			# (jump_to_menu, "mnu_debug_alert_from_s65"),
-		# (try_end),
-
-
-	# (try_end),
-
-     (eq, "$g_recalculate_ais", 1),
-     (assign, "$g_recalculate_ais", 0),
-     (call_script, "script_recalculate_ais"),
+(val_add, "$checked_faction", 1),
+	(try_begin),
+	(neg|is_between, "$checked_faction", kingdoms_begin, kingdoms_end),
+	(assign, "$checked_faction", kingdoms_begin),
+	(try_end),
+(call_script, "script_recalculate_ais_for_faction", "$checked_faction"),
    ]),
 
     # Count faction armies #SB : moved to faction defeat check
@@ -2673,8 +2675,15 @@ simple_triggers = [
          (else_try),
            (neg|faction_slot_eq, ":cur_faction", slot_faction_state, sfs_active),
            (try_begin),
+		(this_or_next|faction_slot_eq, ":cur_faction", slot_faction_leader, ":troop_no"), #madsci this also applies to victorious pretenders etc
              (is_between, ":troop_no", kings_begin, kings_end),
              (troop_set_slot, ":troop_no", slot_troop_change_to_faction, "fac_commoners"),
+		(try_begin), #madsci cant have a kingdom hero party of non-kingdom faction on the map
+		(troop_get_slot, ":current_party", ":troop_no", slot_troop_leaded_party),
+		(gt, ":current_party", 0),
+		(party_is_active, ":current_party"),
+		(remove_party, ":current_party"),
+		(try_end),
            (else_try),
              (store_random_in_range, ":random_no", 0, 100),
              (lt, ":random_no", 10),
@@ -2757,6 +2766,7 @@ simple_triggers = [
        (val_sub, ":reduce_campaign_ai", 1),
        (val_mul, ":reduce_campaign_ai", 10), #pre-calculate amount
        (try_for_parties, ":party_no"),
+      (gt, ":party_no", last_static_party), #madsci
          (party_slot_eq, ":party_no", slot_party_type, spt_kingdom_caravan),
          (party_is_in_any_town, ":party_no"),
 
@@ -2873,7 +2883,8 @@ simple_triggers = [
     (party_get_slot, ":party_no", ":home_center", slot_village_farmer_party),
     
     (try_begin),
-         (gt, ":party_no", "p_spawn_points_end"),
+         #(gt, ":party_no", "p_spawn_points_end"),
+      (gt, ":party_no", last_static_party), #madsci
          (party_is_active, ":party_no"),
          (party_slot_eq, ":party_no", slot_party_type, spt_village_farmer),
          (party_is_in_any_town, ":party_no"),
@@ -3845,10 +3856,10 @@ simple_triggers = [
       (faction_set_slot, ":cur_kingdom", slot_faction_number_of_parties, 0),
     (try_end),
     (try_for_parties, ":cur_party"),
-      (store_faction_of_party, ":party_faction", ":cur_party"),
-      (is_between, ":party_faction", kingdoms_begin, kingdoms_end),
       (this_or_next|is_between, ":cur_party", centers_begin, centers_end),
       (party_slot_eq, ":cur_party", slot_party_type, spt_kingdom_hero_party),
+      (store_faction_of_party, ":party_faction", ":cur_party"),
+      (is_between, ":party_faction", kingdoms_begin, kingdoms_end),
       (faction_get_slot, ":kingdom_num_parties", ":party_faction", slot_faction_number_of_parties),
       (val_add, ":kingdom_num_parties", 1),
       (faction_set_slot, ":party_faction", slot_faction_number_of_parties, ":kingdom_num_parties"),
@@ -3882,6 +3893,7 @@ simple_triggers = [
           (store_faction_of_party, ":party_faction", ":cur_party"),
           (eq, ":party_faction", ":cur_kingdom"),
           (party_get_slot, ":home_center", ":cur_party", slot_party_home_center),
+		(gt, ":home_center", 0), #madsci
           (store_faction_of_party, ":home_center_faction", ":home_center"),
           (party_set_faction, ":cur_party", ":home_center_faction"),
         (try_end),
@@ -3980,14 +3992,16 @@ simple_triggers = [
      (try_end),
     #Also, piggy-backing on this -- having bandits go to lairs and back
     (try_for_parties, ":party_no"),
-      (gt, ":party_no", "p_spawn_points_end"),
+      #(gt, ":party_no", "p_spawn_points_end"),
+      (gt, ":party_no", last_static_party), #madsci
       (party_is_active, ":party_no"),
       (party_get_template_id, ":party_template", ":party_no"),
       (try_begin),
         (is_between, ":party_template", bandit_party_templates_begin, bandit_party_templates_end), #SB : template range
         (party_template_get_slot, ":bandit_lair", ":party_template", slot_party_template_lair_party),
         (try_begin),#If party is active and bandit is far away, then move to location
-          (gt, ":bandit_lair", "p_spawn_points_end"),
+          #(gt, ":bandit_lair", "p_spawn_points_end"),
+	(gt, ":bandit_lair", last_static_party), #madsci
           (store_distance_to_party_from_party, ":distance", ":party_no", ":bandit_lair"), #this is the cause of the error
           (gt, ":distance", 30),
           #All this needs checking
@@ -3998,7 +4012,8 @@ simple_triggers = [
           (get_party_ai_behavior, ":behavior", ":party_no"),
           (eq, ":behavior", ai_bhvr_travel_to_point),
           (try_begin),
-            (gt, ":bandit_lair", "p_spawn_points_end"),
+            #(gt, ":bandit_lair", "p_spawn_points_end"),
+		(gt, ":bandit_lair", last_static_party), #madsci
             (store_distance_to_party_from_party, ":distance", ":party_no", ":bandit_lair"),
             (lt, ":distance", 3),
             (party_set_ai_behavior, ":party_no", ai_bhvr_patrol_party),
@@ -4180,6 +4195,7 @@ simple_triggers = [
 
 # Removing cattle herds if they are way out of range
   (12, [(try_for_parties, ":cur_party"),
+      (gt, ":cur_party", last_static_party), #madsci
           (party_slot_eq, ":cur_party", slot_party_type, spt_cattle_herd),
           (store_distance_to_party_from_party, ":dist",":cur_party", "p_main_party"),
           (try_begin),
@@ -5254,6 +5270,7 @@ simple_triggers = [
     (troop_get_slot, ":player_spouse", "trp_player", slot_troop_spouse),
     (ge, ":player_spouse", active_npcs_begin),#<-- skip the rest of the check when there is no spouse
     (try_for_parties, ":spouse_party"),
+      (gt, ":spouse_party", last_static_party), #madsci
       (party_slot_eq, ":spouse_party", slot_party_type, dplmc_spt_spouse),
 
       (party_get_slot, ":spouse_target", ":spouse_party", slot_party_orders_object),
@@ -5298,6 +5315,7 @@ simple_triggers = [
  (1, #SB : half the number of calls
    [
    (try_for_parties, ":party_no"),
+      (gt, ":party_no", last_static_party), #madsci
       (party_is_active, ":party_no"),
       (party_slot_eq,":party_no", slot_party_type, dplmc_spt_recruiter),
 
@@ -5508,6 +5526,7 @@ simple_triggers = [
   (game_get_reduce_campaign_ai, ":reduce_campaign_ai"),#store for use below
   ##nested diplomacy end+
   (try_for_parties, ":party_no"),
+      (gt, ":party_no", last_static_party), #madsci
     (party_is_active, ":party_no"),
     (party_slot_eq,":party_no", slot_party_type, dplmc_spt_gift_caravan),
     (party_get_slot, ":target_party", ":party_no", slot_party_ai_object),
@@ -5792,6 +5811,7 @@ simple_triggers = [
  (1, #SB: half as often
  [
   (try_for_parties, ":party_no"),
+      (gt, ":party_no", last_static_party), #madsci
     (party_slot_eq,":party_no", slot_party_type, spt_messenger),
 
     (party_get_slot, ":target_party", ":party_no", slot_party_ai_object),
@@ -6071,6 +6091,7 @@ simple_triggers = [
    [
 
     (try_for_parties, ":party_no"),
+      (gt, ":party_no", last_static_party), #madsci
       (party_slot_eq,":party_no", slot_party_type, spt_patrol),
 
 
@@ -6125,6 +6146,7 @@ simple_triggers = [
       
       (assign, ":count", 0),
       (try_for_parties, ":party_no"),
+      (gt, ":party_no", last_static_party), #madsci
         (party_slot_eq, ":party_no", slot_party_type, spt_patrol),
         (store_faction_of_party, ":party_faction", ":party_no"),
         (eq, ":party_faction", ":kingdom"),
@@ -6162,6 +6184,7 @@ simple_triggers = [
 
           (assign, ":continue", 1),
           (try_for_parties, ":party_no"),
+		(gt, ":party_no", last_static_party), #madsci
             (party_slot_eq, ":party_no", slot_party_type, spt_patrol),
             (store_faction_of_party, ":party_faction", ":party_no"),
             (eq, ":party_faction", ":kingdom"),
@@ -6194,6 +6217,7 @@ simple_triggers = [
    [
 
     (try_for_parties, ":party_no"),
+      (gt, ":party_no", last_static_party), #madsci
       (party_slot_eq,":party_no", slot_party_type, spt_patrol),
 
       # (call_script, "script_party_remove_all_prisoners", ":party_no"), #SB : retain prisoners
@@ -6241,6 +6265,7 @@ simple_triggers = [
    [
 
     (try_for_parties, ":party_no"),
+      (gt, ":party_no", last_static_party), #madsci
       (party_slot_eq,":party_no", slot_party_type, spt_scout),
 
       (try_begin),
@@ -7099,6 +7124,7 @@ simple_triggers = [
   # JuJu70
   (1,
     [(try_for_parties, ":party_no"),
+      (gt, ":party_no", last_static_party), #madsci
         (store_faction_of_party, ":faction", ":party_no"),
         (eq, ":faction", "fac_deserters"),
         (assign, ":closest_village", -1), #phaiak try fix

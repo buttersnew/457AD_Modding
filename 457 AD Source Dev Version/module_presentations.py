@@ -30,6 +30,10 @@ hover = ti_on_presentation_mouse_enter_leave
 click = ti_on_presentation_mouse_press
 
 presentations = [
+    #madsci - missing entries expected by game engine
+    ("game_start",0,0,[]),
+    ("game_escape",0,0,[]),
+
   ("game_credits",prsntf_read_only,mesh_load_window,[
       (ti_on_presentation_load,
        [(assign, "$g_presentation_credits_obj_1", -1),
@@ -23238,4 +23242,5 @@ presentations = [
       (try_end),
     ]),
 ]),
+
 ]#end of file

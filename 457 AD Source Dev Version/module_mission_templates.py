@@ -866,6 +866,7 @@ improved_horse_archer_ai = [
             (try_end),
             
             (agent_get_wielded_item, ":item", ":agent", 0),
+		(gt, ":item", -1), #madsci
             (item_get_type, ":type", ":item"),
             (this_or_next|eq, ":type", itp_type_thrown),
             (eq, ":type", itp_type_bow),

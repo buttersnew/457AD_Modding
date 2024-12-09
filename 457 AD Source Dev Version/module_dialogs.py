@@ -18860,7 +18860,8 @@ Here, take this purse of {reg3} siliquae, as I promised. I hope we can travel to
 (troop_set_slot, "$g_talk_troop", slot_troop_prisoner_of_party, "p_main_party"),
 (party_force_add_prisoners, "p_main_party", "$g_talk_troop", 1),
 (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", -30),
-(call_script, "script_change_player_relation_with_faction_ex", "$g_talk_troop_faction", -2),
+#(call_script, "script_change_player_relation_with_faction_ex", "$g_talk_troop_faction", -2),
+(call_script, "script_change_player_relation_with_faction", "$g_talk_troop_faction", -2), #madsci no need to reduce relation with other factions
 (call_script, "script_event_hero_taken_prisoner_by_player", "$g_talk_troop"),
 ]],#take prisoner
 
@@ -18943,7 +18944,9 @@ Here, take this purse of {reg3} siliquae, as I promised. I hope we can travel to
 	(try_end),
 (try_end),
 ##diplomacy end+
-(call_script, "script_change_player_relation_with_faction_ex", "$g_talk_troop_faction", 2)]],
+#(call_script, "script_change_player_relation_with_faction_ex", "$g_talk_troop_faction", 2),
+(call_script, "script_change_player_relation_with_faction", "$g_talk_troop_faction", 2), #madsci dont increase relation with other factions
+]],
 
 [anyone,"freed_lord_answer_2", [],
 "Thank you, good {sire/lady}. I never forget someone who's done me a good turn.", "close_window",
@@ -18994,7 +18997,8 @@ Here, take this purse of {reg3} siliquae, as I promised. I hope we can travel to
 (troop_set_slot, "$g_talk_troop", slot_troop_prisoner_of_party, "p_main_party"),
 (party_force_add_prisoners, "p_main_party", "$g_talk_troop", 1),#take prisoner
 (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", -3),
-(call_script, "script_change_player_relation_with_faction_ex", "$g_talk_troop_faction", -3),
+#(call_script, "script_change_player_relation_with_faction_ex", "$g_talk_troop_faction", -3),
+(call_script, "script_change_player_relation_with_faction", "$g_talk_troop_faction", -3), #madsci dont reduce relation with other factions
 (call_script, "script_event_hero_taken_prisoner_by_player", "$g_talk_troop"),
 (call_script, "script_add_log_entry", logent_lord_captured_by_player, "trp_player",  -1, "$g_talk_troop", "$g_talk_troop_faction"),
 ]],

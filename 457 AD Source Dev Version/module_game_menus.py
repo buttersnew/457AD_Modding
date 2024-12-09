@@ -16341,6 +16341,7 @@ TOTAL:  {reg5}"),
        "Trade with the horse merchant.",
        [
             (party_get_slot, ":merchant_troop", "$current_town", slot_town_horse_merchant),
+            (assign, "$g_talk_troop", ":merchant_troop"),
             (try_begin),
               (this_or_next|key_is_down, key_left_shift),
               (key_is_down, key_right_shift),

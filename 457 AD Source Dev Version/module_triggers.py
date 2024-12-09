@@ -224,6 +224,7 @@ triggers = [
          (quest_set_slot, "qst_incriminate_loyal_commander", slot_quest_current_state, 3),
          (call_script, "script_fail_quest", "qst_incriminate_loyal_commander"),
        (else_try),
+	(gt, ":quest_target_party", 0), #madsci dont accidentally delete main party
          (party_is_in_town, ":quest_target_party", ":quest_target_center"),
          (remove_party, ":quest_target_party"),
          (quest_set_slot, "qst_incriminate_loyal_commander", slot_quest_current_state, 3),
@@ -253,7 +254,14 @@ triggers = [
            (gt, ":target_faction", 0),
            (call_script, "script_change_troop_faction", ":quest_object_troop", ":target_faction"),
          (else_try),
-           (call_script, "script_change_troop_faction", ":quest_object_troop", "fac_robber_knights"),
+           #(call_script, "script_change_troop_faction", ":quest_object_troop", "fac_robber_knights"), #robber_knights is leftover from the old mb warband uses outlaws and commoners for factionless lords instead 
+		(try_begin), #madsci cant have a kingdom hero party of non-kingdom faction on the map
+		(troop_get_slot, ":current_party", ":quest_object_troop", slot_troop_leaded_party),
+		(gt, ":current_party", 0),
+		(party_is_active, ":current_party"),
+		(remove_party, ":current_party"),
+		(try_end),
+           (call_script, "script_change_troop_faction", ":quest_object_troop", "fac_outlaws"),
          (try_end),
          (call_script, "script_succeed_quest", "qst_incriminate_loyal_commander"),
        (try_end),

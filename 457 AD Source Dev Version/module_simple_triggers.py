@@ -1020,6 +1020,21 @@ simple_triggers = [
    [
     (call_script, "script_find_neighbors"),#first find neighbours
     #(call_script, "script_randomly_start_war_peace_new", 1),
+
+#madsci this fixes a situation where troops can be stuck as prisoners because defeated factions dont ransom their prisoners etc
+(try_for_range, ":lord", heroes_begin, heroes_end),
+(troop_get_slot, ":cur_prisoner_of_party", ":lord", slot_troop_prisoner_of_party),
+(is_between, ":cur_prisoner_of_party", walled_centers_begin, walled_centers_end),
+(neg|party_slot_eq, ":cur_prisoner_of_party", slot_town_lord, "trp_player"), #dont release from players towns, the player can do that himself
+(store_troop_faction, ":lord_faction", ":lord"),
+(store_faction_of_party, ":party_faction", ":cur_prisoner_of_party"),
+(this_or_next|eq, ":lord_faction", ":party_faction"),
+(faction_slot_eq, ":lord_faction", slot_faction_state, sfs_defeated),
+(party_remove_prisoners, ":cur_prisoner_of_party", ":lord", 1),
+(call_script, "script_remove_troop_from_prison", ":lord"),
+(str_store_troop_name, s4, ":lord"),
+(display_message,"@{s4} has been released from captivity."),
+(try_end),
     ]),  
     
     

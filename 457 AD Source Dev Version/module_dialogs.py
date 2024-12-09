@@ -14305,7 +14305,8 @@ What kind of recruits do you want?", "dplmc_constable_recruit_select",
   (try_end),
   (try_begin),
     (is_between, ":target_party", walled_centers_begin, walled_centers_end),
-    (party_add_prisoners, ":target_party", "$g_talk_troop", 1),
+    #(party_add_prisoners, ":target_party", "$g_talk_troop", 1),
+    (party_force_add_prisoners, ":target_party", "$g_talk_troop", 1), #madsci bug fix
     (troop_set_slot, "$g_talk_troop", slot_troop_prisoner_of_party, ":target_party"), #SB : corresponding troop slot
   (try_end),
 ]],
@@ -17464,7 +17465,8 @@ What kind of recruits do you want?", "dplmc_constable_recruit_select",
   (call_script, "script_change_troop_renown", "trp_player", -5),
   (call_script, "script_change_troop_renown", "$g_talk_troop", -5),
   (troop_set_health, "$g_talk_troop", 0),
-  (party_add_prisoners, ":center_no", "$g_talk_troop", 1),
+  #(party_add_prisoners, ":center_no", "$g_talk_troop", 1),
+  (party_force_add_prisoners, ":center_no", "$g_talk_troop", 1), #madsci bug fix
   (troop_set_slot, "$g_talk_troop", slot_troop_prisoner_of_party, ":center_no"), #SB : corresponding troop slot
 ]],
 
@@ -21465,7 +21467,8 @@ You can wait for {reg0?her:his} family to pay {reg0?her:his} ransom of course, b
 I'll send some men to take him to our prison with due haste.", "lord_pretalk", [
 (remove_troops_from_prisoners,  "$prisoner_lord_to_buy", 1),
 (call_script, "script_troop_add_gold", "trp_player", "$temp"),
-(party_add_prisoners, "$g_encountered_party", "$prisoner_lord_to_buy", 1),
+#(party_add_prisoners, "$g_encountered_party", "$prisoner_lord_to_buy", 1),
+(party_force_add_prisoners, "$g_encountered_party", "$prisoner_lord_to_buy", 1), #madsci bug fix
 #(troop_set_slot, "$prisoner_lord_to_buy", slot_troop_is_prisoner, 1),
 (troop_set_slot, "$prisoner_lord_to_buy", slot_troop_prisoner_of_party, "$g_encountered_party"),
 ]],
@@ -31283,7 +31286,8 @@ You are free, {playername}.", "lord_ask_leave_service_end",
   (store_relation, ":reln", "$g_encountered_party_faction", ":quest_target_faction"),
   (try_begin),
     (lt, ":reln", 0),
-    (party_add_prisoners, "$g_encountered_party", ":quest_target_troop", 1), #Adding him to the dungeon
+    #(party_add_prisoners, "$g_encountered_party", ":quest_target_troop", 1), #Adding him to the dungeon
+    (party_force_add_prisoners, "$g_encountered_party", ":quest_target_troop", 1), #madsci bug fix
   (else_try),
     #Do not add a non-enemy lord to the dungeon (due to recent diplomatic changes or due to a neutral town/castle)
     #(troop_set_slot, ":quest_target_troop", slot_troop_is_prisoner, 0),
@@ -38546,11 +38550,16 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
    "I am in your debt for freeing me friend.", "freed_hero_answer",
    []],
 
-  [anyone|plyr,"freed_hero_answer", [],
+  [anyone|plyr,"freed_hero_answer", [
+(store_conversation_troop, "$g_talk_troop"),
+(store_troop_faction, ":cur_kingdom_hero_faction", "$g_talk_troop"),
+(neq, ":cur_kingdom_hero_faction", "$players_kingdom"), #madsci bug fix
+],
    "You're not going anywhere. You'll be my prisoner now!", "freed_hero_answer_1",
    [
      (store_conversation_troop, ":cur_troop_id"),
-     (party_add_prisoners, "p_main_party", ":cur_troop_id", 1),#take prisoner
+     #(party_add_prisoners, "p_main_party", ":cur_troop_id", 1),#take prisoner
+(party_force_add_prisoners, "p_main_party", ":cur_troop_id", 1), #madsci bug fix
     ]],
 
   [anyone,"freed_hero_answer_1", [],
@@ -38590,7 +38599,8 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   [anyone|plyr,"defeat_hero_answer", [(neq, "$g_talk_troop", "trp_isaurian_leader"),(neq, "$g_talk_troop", "trp_suebi_king"),(neq, "$g_talk_troop", "trp_aestii_rebel_king"),(neq, "$g_talk_troop", "trp_burgundian_looter"),],
    "You are my prisoner now.", "defeat_hero_answer_1",
    [
-     (party_add_prisoners, "p_main_party", "$g_talk_troop", 1),#take prisoner
+     #(party_add_prisoners, "p_main_party", "$g_talk_troop", 1),#take prisoner
+(party_force_add_prisoners, "p_main_party", "$g_talk_troop", 1), #madsci bug fix
      #(troop_set_slot, "$g_talk_troop", slot_troop_is_prisoner, 1),
      (troop_set_slot, "$g_talk_troop", slot_troop_prisoner_of_party, "p_main_party"),
      (call_script, "script_event_hero_taken_prisoner_by_player", "$g_talk_troop"),
@@ -46824,8 +46834,15 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   [anyone,"sell_prisoner_outlaws", [], "I suppose that'll be all, then.", "close_window",[]],
 # Ryan END
 
+#madsci allow dialogue options with prisoners
+[anyone,"prisoner_chat", [
+(store_conversation_troop, "$g_talk_troop"),
+(store_conversation_agent, "$g_talk_agent"),
+(store_troop_faction, "$g_talk_troop_faction", "$g_talk_troop"),
+], "I am at your mercy.", "prisoner_chat_b",[]],
+
   #note that conversation globals probably aren't set here
-  [anyone|plyr,"prisoner_chat", [
+  [anyone|plyr,"prisoner_chat_b", [
     (store_conversation_troop, "$g_talk_troop"),
     (check_quest_active, "qst_capture_prisoners"),
     (quest_slot_eq, "qst_capture_prisoners", slot_quest_target_troop, "$g_talk_troop"),
@@ -46833,7 +46850,26 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
     (str_store_troop_name, s1, ":quest_giver_troop"),
   ], "{s1} wants you alive and well, so don't be trying something we'll both regret.", "prisoner_chat_2",[]],
 
-  [anyone|plyr,"prisoner_chat", [], "Do not try running away or trying something stupid. I will be watching you.", "prisoner_chat_2",[]],
+#unless its a quest prisoner, allow the player to release. otherwise the player will be unable to release prisoners without active faction as dont get ransomed
+  [anyone|plyr,"prisoner_chat_b", [
+(troop_is_hero, "$g_talk_troop"),
+(assign, ":can_release", 1),
+	(try_begin),
+	(check_quest_active, "qst_capture_prisoners"),
+	(quest_slot_eq, "qst_capture_prisoners", slot_quest_target_troop, "$g_talk_troop"),
+	(assign, ":can_release", 0),
+	(try_end),
+(eq, ":can_release", 1),
+], "You are free to go.", "prisoner_chat_free",[
+(call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 2),
+(call_script, "script_change_player_honor", 1),
+(party_remove_prisoners, "p_main_party", "$g_talk_troop", 1),
+(call_script, "script_remove_troop_from_prison", "$g_talk_troop"),
+]],
+
+[anyone,"prisoner_chat_free", [], "Thank you, {playername}.", "close_window",[]],
+
+  [anyone|plyr,"prisoner_chat_b", [], "Do not try running away or trying something stupid. I will be watching you.", "prisoner_chat_2",[]],
 
   [trp_fugitive,"prisoner_chat_2", [
     (check_quest_active, "qst_hunt_down_fugitive"),
@@ -47891,7 +47927,8 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
     (party_remove_members, "p_main_party", "$g_talk_troop", 1),
     (call_script, "script_change_faction_troop_morale", "$g_talk_troop_faction", -5, 1),
     (call_script, "script_change_troop_renown", "trp_player", -1),
-    (party_add_prisoners, "p_main_party", "$g_talk_troop", 1),
+    #(party_add_prisoners, "p_main_party", "$g_talk_troop", 1),
+(party_force_add_prisoners, "p_main_party", "$g_talk_troop", 1), #madsci bug fix
   ]],
   [anyone|plyr,"regular_member_talk", [],
    "Let me see your equipment.", "dplmc_view_regular_inventory", [

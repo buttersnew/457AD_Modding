@@ -3274,7 +3274,7 @@ If you would like to practice your horsemanship, you can take my horse here. The
 [trp_ramun_the_slave_trader|plyr, "ramun_introduce_7", [], "Where do the slaves come from?", "ramun_introduce_8",[]],
 [trp_ramun_the_slave_trader, "ramun_introduce_8", [], "Mostly I deal in convicted criminals bought from the authorities.\
  Others are prisoners of war from various nations, brought to me because I offer the best prices.\
- However, on occasion I'll buy from privateers and other . . . 'individuals'. You can't be picky about your suppliers in this line of work.\
+ However, on occasion I'll buy from privateers and other... 'individuals'. You can't be picky about your suppliers in this line of work.\
  You wouldn't happen to have any prisoners with you, would you?", "ramun_introduce_9",[]],
 [trp_ramun_the_slave_trader|plyr, "ramun_introduce_9", [], "Me? ", "ramun_introduce_10",[]],
 [trp_ramun_the_slave_trader, "ramun_introduce_10", [], "Why not? If you intend to set foot outside this town,\
@@ -3329,7 +3329,7 @@ If you would like to practice your horsemanship, you can take my horse here. The
 "You're new to this, aren't you? Let me explain it in simple terms.\
 The basic rule of taking someone prisoner is knocking him down with a blunt weapon, like a mace or a club,\
 rather than cutting him open with a sword. That way he goes to sleep for a little while rather than bleeding to death, you see?\
-I'm assuming you have a blunt weapon with you . . .", "ramun_have_blunt_weapon",[]],
+I'm assuming you have a blunt weapon with you...", "ramun_have_blunt_weapon",[]],
 [trp_ramun_the_slave_trader|plyr,"ramun_have_blunt_weapon", [],
 "Of course.", "ramun_have_blunt_weapon_yes",[]],
 [trp_ramun_the_slave_trader|plyr,"ramun_have_blunt_weapon", [],
@@ -6697,7 +6697,7 @@ Still I am sorry that I'll leave you soon. You must promise me, you'll come visi
 #TODO add traveller/merchant caravan gossip
 
 ##diplomacy end+
-[anyone|plyr, "dplmc_recruiter_talk", [], "Ok, keep going.", "close_window",[(assign, "$g_leave_encounter",1)]],
+[anyone|plyr, "dplmc_recruiter_talk", [], "Alright, keep going.", "close_window",[(assign, "$g_leave_encounter",1)]], #the word ok is anachronistic
 #SB : gather recruits at either destination or right here
 [anyone|plyr, "dplmc_recruiter_talk", [
       (party_get_num_companions, ":amount", "$g_encountered_party"),
@@ -6955,7 +6955,7 @@ Still I am sorry that I'll leave you soon. You must promise me, you'll come visi
 
 [anyone|plyr,"dplmc_scout_talk",[
 ],
-"Ok, please go on.", "close_window",
+"Alright, please go on.", "close_window",
 []],
 
 #SB : TODO add actual intro to role when troop not met
@@ -11957,7 +11957,7 @@ What kind of recruits do you want?", "dplmc_constable_recruit_select",
 (store_troop_gold, ":gold", "trp_player"),
 (ge, ":gold", "$enterprise_cost"),
 ],
-"Ok, we can afford that, please go. Thank you.", "close_window",
+"Alright, we can afford that, please go. Thank you.", "close_window",
 [
 (troop_get_slot, ":player_spouse", "trp_player", slot_troop_spouse),
 (troop_get_slot, ":mission_object", ":player_spouse", slot_troop_mission_object),
@@ -13158,7 +13158,7 @@ What kind of recruits do you want?", "dplmc_constable_recruit_select",
   (ge, "$diplomacy_var", 2),
   (ge, "$diplomacy_var2", 1), #SB : one set of tools
 ],
-"Ok, I think we have all necessary things to establish the residence.", "dplmc_spouse_move_residence_select_ask",[
+"Alright, I think we have all necessary things to establish the residence.", "dplmc_spouse_move_residence_select_ask",[
 ]],
 
 [anyone|plyr, "dplmc_spouse_move_residence_tools",
@@ -21005,7 +21005,7 @@ Everyone said that you were a capable warrior, but appearently, they were wrong.
 (assign, "$g_leave_encounter",1),
 ]],
 
-[anyone, "lord_mission_told_deliver_cattle_to_army_rejected", [], "That . . . is unfortunate, {playername}. I shall have to find someone else who's up to the task. Please go now, I've work to do.", "close_window",
+[anyone, "lord_mission_told_deliver_cattle_to_army_rejected", [], "That... is unfortunate, {playername}. I shall have to find someone else who's up to the task. Please go now, I've work to do.", "close_window",
 [(troop_set_slot, "$g_talk_troop", slot_troop_does_not_give_quest, 1),
 (assign, "$g_leave_encounter",1),]],
 
@@ -30696,7 +30696,7 @@ I've to keep my mind on getting this weight off my neck.", "knight_offer_join_2"
 "Keep doing what you were doing. I'll catch up with you later.", "knight_join_party_lead_out",[]],
 
 
-[anyone ,"knight_join_party_disband", [], "Ah . . . Very well, {playername}. Much as I dislike losing good men,\
+[anyone ,"knight_join_party_disband", [], "Ah... Very well, {playername}. Much as I dislike losing good men,\
 the decision is yours. I'll disband my troops and join you.", "close_window",[
    (call_script, "script_recruit_troop_as_companion", "$g_talk_troop"),
 
@@ -33113,7 +33113,7 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
                                 ], "You probably know that I am the lord of the {reg9?town:village} of {s3}.\
  However, it has been months since {s3} has delivered the taxes and rents due me as its rightful lord.\
  Apparently the populace there has grown unruly lately and I need someone to go there and remind them of\
- their obligations. And to . . . persuade them if they won't listen.\
+ their obligations. And to... persuade them if they won't listen.\
  If you go there and raise the taxes they owe me, I will grant you one-fifth of everything you collect.", "lord_mission_collect_taxes_told",
    [
      (quest_get_slot, ":quest_target_center", "$random_quest_no", slot_quest_target_center),
@@ -33184,7 +33184,7 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
    ]],
 
   [anyone,"lord_mission_hunt_down_fugitive_rejected", [], "As you wish, {playername}.\
-I suppose there are plenty of bounty hunters around to get the job done . . .", "lord_pretalk",
+I suppose there are plenty of bounty hunters around to get the job done...", "lord_pretalk",
    [(troop_set_slot, "$g_talk_troop", slot_troop_does_not_give_quest, 1)]],
 
 
@@ -44176,6 +44176,7 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
    [(set_spawn_radius,7),
     (quest_get_slot, ":quest_giver_center", "qst_troublesome_bandits", slot_quest_giver_center),
     (spawn_around_party,":quest_giver_center","pt_troublesome_bandits"),
+	(party_set_slot, reg0, slot_party_home_center, ":quest_giver_center"), #madsci these guys need a home center so that they dont wander too far away
     (quest_set_slot, "qst_troublesome_bandits", slot_quest_target_party, reg0),
     (store_num_parties_destroyed,"$qst_troublesome_bandits_eliminated","pt_troublesome_bandits"),
     (store_num_parties_destroyed_by_player, "$qst_troublesome_bandits_eliminated_by_player", "pt_troublesome_bandits"),
@@ -45406,8 +45407,11 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
                                            (assign, "$temp",  ":num_volunteers"),
                                            (assign, reg5, ":num_volunteers"),
                                            (store_add, reg7, ":num_volunteers", -1),
+(party_get_slot, ":volunteer_troop", "$current_town", slot_center_volunteer_troop_type),
+(call_script, "script_game_get_join_cost", ":volunteer_troop"), #madsci make sure the price displayed is correct
+(assign, reg41, reg0),
                                            ],
-   "I can think of {reg5} whom I suspect would jump at the chance. If you could pay 10 siliquae {reg7?each for their equipment:for his equipment}.\
+   "I can think of {reg5} whom I suspect would jump at the chance. If you could pay {reg41} siliquae {reg7?each for their equipment:for his equipment}.\
  Does that suit you?", "village_elder_recruit_decision",[]],
 
 #not used:

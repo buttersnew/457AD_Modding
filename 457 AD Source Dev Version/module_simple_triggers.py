@@ -1920,11 +1920,21 @@ simple_triggers = [
 	  ##diplomacy end+
     ]),
 
-    # Decide faction ais
-    (6.6, #it was 23
+    # this simple trigger is useless so lets put low priority quest stuff there
+    (3,
     [
-      #(assign, "$g_recalculate_ais", 1),
-	#(call_script, "script_recalculate_ais"), #madsci
+(try_begin), #madsci make troublesome bandits patrol around their original center so that the player doesnt have to hunt them across the map
+(check_quest_active, "qst_troublesome_bandits"),
+(neg|check_quest_succeeded, "qst_troublesome_bandits"),
+(neg|check_quest_failed, "qst_troublesome_bandits"),
+(quest_get_slot, ":quest_target_party", "qst_troublesome_bandits", slot_quest_target_party),
+(gt, ":quest_target_party", 0),
+(party_is_active, ":quest_target_party"),
+(party_get_slot, ":home_center", ":quest_target_party", slot_party_home_center),
+(gt, ":home_center", 0),
+(party_set_ai_behavior, ":quest_target_party", ai_bhvr_patrol_party),
+(party_set_ai_object, ":quest_target_party", ":home_center"),
+(try_end),
     ]),
 
 

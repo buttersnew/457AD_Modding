@@ -11800,8 +11800,7 @@ TOTAL:  {reg5}"),
   # ),
   (
     "center_extort_reaction",0,
-    "{s10}^\
-	{s40}",
+    "{s10} "+"^{s40}",
     "none",
     [
 	(store_faction_of_party, ":fac", "$current_town"),
@@ -11812,8 +11811,7 @@ TOTAL:  {reg5}"),
 		(eq, ":king", "trp_player"),
 		(str_store_string, s40, "@But who cares about an angry commoner?"),
 	(else_try),
-		(str_store_string, s40, "@The town counsel threatens you to write to {s11} about your tyrannic behavior to try to convince him to dismiss you as governor. \
-		But you know that {s11} never replays on such requests."),
+		(str_store_string, s40, "@The town counsel threatens you to write to {s11} about your tyrannic behavior to try to convince him to dismiss you as governor. "+"But you know that {s11} never replays on such requests."),
 	(try_end),
 	(try_begin),
 		(eq, "$temp", extort_tax),##tax
@@ -11902,8 +11900,7 @@ TOTAL:  {reg5}"),
 
   (
     "repopulate",0,
-    "You can order your soldiers to kill anyone older than 14. Then you would grante the acquired land to the families of your soldiers.^\
-	But you should note that such an extreme act will have a bad impact on your reputation.",
+    "You can order your soldiers to kill anyone older than 14. Then you would grant the acquired land to the families of your soldiers. "+"^But you should note that such an extreme act will have a bad impact on your reputation.",
     "none",
     [
 	(str_store_party_name, s39, "$g_encountered_party"),

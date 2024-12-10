@@ -35937,7 +35937,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
 		(assign, "$romantic_rival", ":betrothed"),
 	(try_end),
    ],
-   "{12}", "lady_pretalk",[
+   "{s12}", "lady_pretalk",[
  ]],
 
 #Info 2b: If a lady, show rumor (other)

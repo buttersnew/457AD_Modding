@@ -1807,8 +1807,11 @@ dialogs = [
    "Greetings to you!", "garamanten_talk",[]],
 
   [anyone|plyr,"garamanten_talk", [
+	(neq, "$g_encountered_party_faction", "$players_kingdom"), #madsci
   (neg|faction_slot_eq, "$g_encountered_party_faction", slot_faction_player_tributary, 1),
   ], "I will kill you all!", "close_window",[
+(assign,"$encountered_party_hostile",1),
+    (assign,"$encountered_party_friendly",0),
   (call_script, "script_make_kingdom_hostile_to_player", "$g_encountered_party_faction", -6),
   (encounter_attack)]],
 
@@ -30170,7 +30173,8 @@ I will use this to make amends to those you have wronged, and I will let it be k
 
 [anyone|plyr,"lord_talk", [(eq,"$talk_context",tc_party_encounter),
                           (lt, "$g_encountered_party_relation", 0),
-                          (str_store_troop_name,s4,"$g_talk_troop")
+                          (str_store_troop_name,s4,"$g_talk_troop"),
+			(neq, "$g_talk_troop", "$enlisted_lord"), #madsci
                           ],
 "I say this only once, {s4}! Surrender or die!", "party_encounter_lord_hostile_ultimatum_surrender", []],
 
@@ -30203,7 +30207,9 @@ I will use this to make amends to those you have wronged, and I will let it be k
                             ]],
 
 #Neutral attack on lord
-[anyone,"lord_ultimatum_surrender", [(ge, "$g_encountered_party_relation", 0)], "{s43}", "lord_attack_verify",[#originally, speak you rascal
+[anyone,"lord_ultimatum_surrender", [
+(neq, "$g_talk_troop", "$enlisted_lord"),
+(ge, "$g_encountered_party_relation", 0),], "{s43}", "lord_attack_verify",[#originally, speak you rascal
      (call_script, "script_lord_comment_to_s43", "$g_talk_troop", "str_unprovoked_attack_default"),
     (try_begin),
       (faction_slot_ge, "$g_encountered_party_faction", slot_faction_truce_days_with_factions_begin, 1),

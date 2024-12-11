@@ -622,6 +622,11 @@ parties = [
   ("alan_1_village", "Valentia", icon_castle_a|pf_minor_town, no_menu, pt_none, fac_minor_valentia, 0, ai_bhvr_hold, 0, (-176.5, 49.18), []),
   ("alan_2_village", "Aurelianum", icon_castle_a|pf_minor_town, no_menu, pt_none, fac_minor_aurelianorum, 0, ai_bhvr_hold, 0, (-193.3,87.67), []),
 
+#madsci wlod wanted these
+  ("heruli_village", "Campus_Herulorum", icon_village_a|pf_minor_town, no_menu, pt_none, fac_heruli, 0, ai_bhvr_hold, 0, (-52.4, 96), []),
+  ("iazyges_village", "Bormanum", icon_village_a|pf_minor_town, no_menu, pt_none, fac_minor_iazyges, 0, ai_bhvr_hold, 0, (-57, 69), []), 
+  ("adovacrius_village", "Juliomagus", icon_castle_a|pf_minor_town, no_menu, pt_none, fac_adovacrius_host, 0, ai_bhvr_hold, 0, (-210, 80), []),
+
   #minor faction villages
 
   ("religious_site_1","Batavis",pf_disabled|icon_castle_snow_a|pf_is_static|pf_always_visible|pf_hide_defenders, no_menu, pt_none, fac_roman_christians,0,ai_bhvr_hold,0,(-112.81, 92.89),[]), #chalcedonian

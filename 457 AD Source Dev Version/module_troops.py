@@ -3036,9 +3036,9 @@ troops = [
   ["tavern_minstrel_4","Wandering Poet","Poet",tf_hero|tf_guarantee_shield|tf_guarantee_armor|tf_guarantee_boots, 0, reserved, fac_commoners,[itm_coptic_tunic_6, itm_wrapping_boots],def_attrib|level(5),wp(20),knows_common,0x000000004001030646db95bae36da2db00000000001db6ab0000000000000000], #No instrument or lyre
   ["tavern_minstrel_5","Wandering Poet","Poet",tf_hero|tf_guarantee_shield|tf_guarantee_armor|tf_guarantee_boots, 0, reserved, fac_commoners,[itm_coptic_tunic_7, itm_ankle_boots],def_attrib|level(5),wp(20),knows_common,0x000000021900000246db95bae36da2db00000000001db6ab0000000000000000], #Lute or Byzantine/Occitan lyra
 
-  ["musican_male","Musican","Musican",tf_guarantee_boots|tf_guarantee_armor,0,0,fac_commoners,[itm_coptic_tunic_1,itm_coptic_tunic_2,itm_coptic_tunic_3,itm_coptic_tunic_4,itm_wrapping_boots,itm_ankle_boots],def_attrib|level(4),wp(60),knows_common,man_face_1, man_face_old_2],
-  ["musican_female","Musican","Musican",tf_female|tf_guarantee_boots|tf_guarantee_armor,0,0,fac_commoners,[itm_wrapping_boots] + dresses + veils_1, def_attrib|level(2),wp(40),knows_common,woman_face_1,woman_face_2],
-  ["musicans_end","Musican","Musican",tf_guarantee_boots|tf_guarantee_armor,0,0,fac_commoners,[itm_coptic_tunic_1,itm_coptic_tunic_2,itm_coptic_tunic_3,itm_coptic_tunic_4,itm_wrapping_boots,itm_ankle_boots],def_attrib|level(4),wp(60),knows_common,man_face_1, man_face_old_2],
+  ["musican_male","Musician","Musician",tf_guarantee_boots|tf_guarantee_armor,0,0,fac_commoners,[itm_coptic_tunic_1,itm_coptic_tunic_2,itm_coptic_tunic_3,itm_coptic_tunic_4,itm_wrapping_boots,itm_ankle_boots],def_attrib|level(4),wp(60),knows_common,man_face_1, man_face_old_2],
+  ["musican_female","Musician","Musician",tf_female|tf_guarantee_boots|tf_guarantee_armor,0,0,fac_commoners,[itm_wrapping_boots] + dresses + veils_1, def_attrib|level(2),wp(40),knows_common,woman_face_1,woman_face_2],
+  ["musicans_end","Musician","Musician",tf_guarantee_boots|tf_guarantee_armor,0,0,fac_commoners,[itm_coptic_tunic_1,itm_coptic_tunic_2,itm_coptic_tunic_3,itm_coptic_tunic_4,itm_wrapping_boots,itm_ankle_boots],def_attrib|level(4),wp(60),knows_common,man_face_1, man_face_old_2],
 #NPC system changes begin
 #Companions
   ["kingdom_heroes_including_player_begin",  "kingdom_heroes_including_player_begin",  "kingdom_heroes_including_player_begin",  tf_hero, 0,reserved,  fac_kingdom_1,[],          lord_attrib,wp(220),knows_lord_1, 0x000000000010918a01f248377289467d],
@@ -3142,6 +3142,8 @@ troops = [
    def_attrib_lvl_13|level(13),wp_one_handed(160)|wp_two_handed(120)|wp_polearm(160)|wp_archery(60)|wp_crossbow(60)|wp_throwing(60)|wp_firearm(60),
    knows_power_throw_5|knows_athletics_3|knows_riding_2|knows_shield_2|knows_inventory_management_2|knows_weapon_master_3|knows_power_strike_5|knows_ironflesh_5|knows_first_aid_1, #28
    0x00000001630c6088475489592a95b52400000000001db6eb0000000000000000],
+#madsci dont move the position of Babai in this file unless you also adjust script_update_companion_candidates_in_taverns
+["npc25","Babai","Babai",tf_hero|tf_mounted|tf_guarantee_horse|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_ranged, no_scene, reserved, fac_commoners,[itm_nomad_boots,itm_kaftan_lamellar_7,itm_sword_viking_c_long,itm_heavy_lance,itm_khergit_bow,itm_khergit_arrows,itm_hun_rich_horse_1],def_attrib_lvl_13|level(13),wp_one_handed(110)|wp_two_handed(80)|wp_polearm(100)|wp_throwing(80)|wp_archery(100),knows_ironflesh_3|knows_power_strike_3|knows_athletics_3|knows_riding_3|knows_power_draw_3|knows_horse_archery_3,0x0000000d9f0083cb555b6ec5124db6db00000000001d36ea0000000000000000],
 
 #0x00000001730c10413d1c8a38aa8e2adb00000000001db6ed0000000000000000
 #NPC system changes end
@@ -4790,6 +4792,9 @@ troops = [
     
   #installed via quest
   ["dani_guthlaf","Guthlaf","Guthlaf",tf_hero,0,0,fac_minor_frisians,[itm_ankle_boots,itm_tunic_12_cloak,itm_round_shield_germanic_19,itm_war_spear_2],knight_attrib_5,wp(300),knows_berserker,0x000000074f00030f46536e7a2951b2d900000000001db6da0000000000000000],
+#madsci someone needs to take a look at these guys
+  ["adovacrius","Adovacrius","Adovacrius",tf_hero, no_scene, reserved, fac_adovacrius_host,[itm_wrapping_boots,itm_rich_mail_7_cloak,itm_gultlingen_helmet_plume,itm_taurapilis_spatha,itm_concave_shield_germanic_17],def_attrib_lvl_32|level(32),wp_one_handed(300)|wp_two_handed(300)|wp_polearm(300)|wp_throwing(280)|wp_archery(160)|wp_crossbow(130)|wp_firearm(130),knows_ironflesh_10|knows_power_strike_8|knows_shield_6|knows_athletics_6|knows_riding_5,0x00000008c00000c236db6db6db6db6db00000000001db6db0000000000000000],
+  ["benga",  "Benga",  "Benga",  tf_hero, 0,reserved,  fac_minor_iazyges,[itm_hun_rich_horse_3,itm_kaftan_hunnic_6,itm_leather_boots,itm_heavy_greaves,itm_kaftan_lamellar_6,itm_pannonhalma_spatha,itm_heavy_lance,itm_kalhkni_helmet_1], knight_attrib_5,wp_one_handed(300)|wp_two_handed(300)|wp_polearm(280)|wp_archery(200)|wp_crossbow(100)|wp_throwing(200)|wp_firearm(100),knight_skills_5|knows_trainer_6, 0x000000002e10a14936ed95491b4dca1b00000000000d73640000000000000000],
 
   #MINOR FACTION KINGS END
   #MINOR FACTION MERCHANTS BEGIN

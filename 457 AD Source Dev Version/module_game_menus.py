@@ -27537,6 +27537,8 @@ goods, and books will never be sold. ^^You can change some settings here freely.
   [(store_faction_of_party, ":encountered_faction", "$g_encountered_party"),
    (store_relation, ":faction_relation", ":encountered_faction", "fac_player_supporters_faction"),
   (lt, ":faction_relation", 0),
+    (party_get_slot, ":scene", "$g_encountered_party",slot_town_center),
+(gt, ":scene", 0), #madsci
   ],
     "Sneak into the town.",
   [
@@ -27550,6 +27552,41 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     (faction_get_slot, ":merchant_1", ":fac", slot_faction_prison_guard_troop), #goods merchant
     (faction_get_slot, ":merchant_2", ":fac", slot_faction_castle_guard_troop), #gear merchant
     (faction_get_slot, ":leader", ":fac", slot_faction_leader),
+
+#masci failsafes needed, otherwise the game will spawn clones of the player
+(try_begin),
+(le, ":troop_1", 0),
+(assign, ":troop_1", "trp_manhunter"),
+(try_end),
+(try_begin),
+(le, ":troop_2", 0),
+(assign, ":troop_2", "trp_manhunter"),
+(try_end),
+(try_begin),
+(le, ":troop_3", 0),
+(assign, ":troop_3", "trp_manhunter"),
+(try_end),
+(try_begin),
+(le, ":walker_1", 0),
+(assign, ":walker_1", "trp_manhunter"),
+(try_end),
+(try_begin),
+(le, ":walker_2", 0),
+(assign, ":walker_2", "trp_manhunter"),
+(try_end),
+(try_begin),
+(le, ":merchant_2", 0),
+(assign, ":merchant_2", "trp_manhunter"),
+(try_end),
+(try_begin),
+(le, ":merchant_1", 0),
+(assign, ":merchant_1", "trp_manhunter"),
+(try_end),
+(try_begin),
+(le, ":leader", 0),
+(assign, ":leader", "trp_manhunter"),
+(try_end),
+
 
     (party_get_slot, ":scene", "$g_encountered_party",slot_town_center),
     (set_jump_mission, "mt_visit_minor_town"),
@@ -27634,7 +27671,10 @@ goods, and books will never be sold. ^^You can change some settings here freely.
   ("king_meet",
     [(store_faction_of_party, ":encountered_faction", "$g_encountered_party"),
     (store_relation, ":faction_relation", ":encountered_faction", "fac_player_supporters_faction"),
-      (lt, ":faction_relation", 0),],
+      (lt, ":faction_relation", 0),
+(party_stack_get_troop_id, ":siege_leader_id","$g_encountered_party",0), #madsci make sure there is someone you can actually talk to
+(gt, ":siege_leader_id", 0),
+],
        "Request to meet their king.",
       [(call_script, "script_get_meeting_scene"),
       (assign, ":meeting_scene", reg0),
@@ -27668,7 +27708,10 @@ goods, and books will never be sold. ^^You can change some settings here freely.
   ("minor_town_visit",
     [(store_faction_of_party, ":encountered_faction", "$g_encountered_party"),
     (store_relation, ":faction_relation", ":encountered_faction", "fac_player_supporters_faction"),
-    (ge, ":faction_relation", 0),],
+    (ge, ":faction_relation", 0),
+(party_get_slot, ":scene", "$g_encountered_party",slot_town_center), #madsci make sure valid scene exists
+(gt, ":scene", 0),
+],
        "Visit the town.",[
     (store_faction_of_party, ":fac", "$g_encountered_party"),
     (faction_get_slot, ":troop_1", ":fac", slot_faction_tier_1_troop), #skirm
@@ -27679,6 +27722,40 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     (faction_get_slot, ":merchant_1", ":fac", slot_faction_prison_guard_troop), #goods merchant
     (faction_get_slot, ":merchant_2", ":fac", slot_faction_castle_guard_troop), #gear merchant
     (faction_get_slot, ":leader", ":fac", slot_faction_leader),
+
+#masci failsafes needed, otherwise the game will spawn clones of the player
+(try_begin),
+(le, ":troop_1", 0),
+(assign, ":troop_1", "trp_manhunter"),
+(try_end),
+(try_begin),
+(le, ":troop_2", 0),
+(assign, ":troop_2", "trp_manhunter"),
+(try_end),
+(try_begin),
+(le, ":troop_3", 0),
+(assign, ":troop_3", "trp_manhunter"),
+(try_end),
+(try_begin),
+(le, ":walker_1", 0),
+(assign, ":walker_1", "trp_manhunter"),
+(try_end),
+(try_begin),
+(le, ":walker_2", 0),
+(assign, ":walker_2", "trp_manhunter"),
+(try_end),
+(try_begin),
+(le, ":merchant_2", 0),
+(assign, ":merchant_2", "trp_manhunter"),
+(try_end),
+(try_begin),
+(le, ":merchant_1", 0),
+(assign, ":merchant_1", "trp_manhunter"),
+(try_end),
+(try_begin),
+(le, ":leader", 0),
+(assign, ":leader", "trp_manhunter"),
+(try_end),
 
     (party_get_slot, ":scene", "$g_encountered_party",slot_town_center),
     (set_jump_mission, "mt_visit_minor_town"),
@@ -27723,6 +27800,13 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     (set_visitor, 34, ":merchant_2"),
 
     (set_visitor, 35, ":leader"),
+    (try_begin),
+        (eq, "$g_encountered_party", "p_iazyges_village"),
+        (troop_slot_eq, "trp_npc25", slot_troop_occupation, slto_inactive), #babai
+	(neg|main_party_has_troop, "trp_npc25"),
+        (set_visitor, 42, "trp_npc25"),
+    (try_end),
+
     (try_begin),
         (neg|check_quest_active, "qst_finnsburh_quest"),
         (neg|check_quest_active, "qst_finnsburh_quest_2"),

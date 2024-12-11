@@ -233,6 +233,10 @@ party_templates = [
   ("culture_minor_9_reinforcements_a", "{!}Western Alan Reinforcements", 0, 0, fac_commoners, 0, [(trp_eques_alani_leves,8,20)]),
   ("culture_minor_9_reinforcements_b", "{!}Western Alan Reinforcements", 0, 0, fac_commoners, 0, [(trp_eques_sagittarii_alani,6,15)]),
   ("culture_minor_9_reinforcements_c", "{!}Western Alan Reinforcements", 0, 0, fac_commoners, 0, [(trp_eques_alani_nobiles,4,10)]),
+
+  ("culture_minor_10_reinforcements_a", "{!}Iazyges Reinforcements", 0, 0, fac_commoners, 0, [(trp_steppe_bandit,8,20)]),
+  ("culture_minor_10_reinforcements_b", "{!}Iazyges Reinforcements", 0, 0, fac_commoners, 0, [(trp_steppe_rider,6,15)]),
+  ("culture_minor_10_reinforcements_c", "{!}Iazyges Reinforcements", 0, 0, fac_commoners, 0, [(trp_steppe_cataphract,4,10)]),
   #special party templates for specific lords
   #Majorian - will be stronger than most party templates
   ("kingdom_1_lord_reinforcements_a", "{!}majorian_reinforcements_a", 0, 0, fac_commoners, 0, [(trp_miles_foederatus_gothorum,3,7),(trp_exculator,1,3),(trp_eques_alani_leves,2,4),(trp_eques_mauri,1,3),(trp_eques_ala,1,3)]), #greater amount of federate troops
@@ -554,6 +558,10 @@ party_templates = [
   ("sabiroi_party","Sabiroi Warriors",icon_axeman|carries_goods(30)|pf_show_faction,0,fac_minor_sabiroi,bandit_personality,[(trp_sabir_horse_archer,20,40),(trp_sabir_cataphract,10,20)]),
   ("valentia_party","Gallic Alan Patrol",icon_axeman|carries_goods(30)|pf_show_faction,0,fac_minor_valentia,bandit_personality,[(trp_pedes_alani,10,25),(trp_eques_alani_leves,10,15),(trp_eques_sagittarii_alani,5,10),(trp_eques_alani_nobiles,5,10)]),
   ("aurelianorum_party","Gallic Alan Patrol",icon_axeman|carries_goods(30)|pf_show_faction,0,fac_minor_aurelianorum,bandit_personality,[(trp_pedes_alani,10,25),(trp_eques_alani_leves,10,15),(trp_eques_sagittarii_alani,5,10),(trp_eques_alani_nobiles,5,10)]),
+  ("iazyges_party","Iazyges Patrol",icon_axeman|carries_goods(30)|pf_show_faction,0,fac_minor_iazyges,bandit_personality,[(trp_steppe_bandit,15,35),(trp_steppe_rider,10,15),(trp_steppe_cataphract,5,10)]),
+  ("heruli_party","Heruli Patrol",icon_axeman|carries_goods(30)|pf_show_faction,0,fac_heruli,bandit_personality,[(trp_eastern_germanic_skirmisher,10,25),(trp_eastern_germanic_spearman,10,15),(trp_eastern_germanic_mounted_skirmisher,5,10),(trp_eastern_germanic_mounted_warrior,5,10)]),
+  ("adovacrius_party","Adovacrius Host Patrol",icon_axeman|carries_goods(30)|pf_show_faction,0,fac_adovacrius_host,bandit_personality,[(trp_northern_germanic_skirmisher,10,25),(trp_northern_germanic_freeman,10,15),(trp_northern_germanic_warrior,5,10),(trp_northern_germanic_horseman,5,10)]),
+
 
   ("minor_faction_levies", "Levies", icon_axeman|pf_show_faction|pf_always_visible, soldier_personality, fac_commoners, 0, []),
 

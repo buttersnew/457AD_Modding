@@ -53,6 +53,7 @@ factions = [
   ("culture_minor_7",  "Scandzae", 0, 0.9, [], []), 
   ("culture_minor_8",  "Tetraxitae Gothic", 0, 0.9, [], []), 
   ("culture_minor_9",  "Western Alan", 0, 0.9, [], []), 
+  ("culture_minor_10",  "Iazyg", 0, 0.9, [], []), 
 
   ("player_faction","Player Faction",0, 0.9, [], []),
   ("player_supporters_faction","Player's Supporters",0, 0.9, [("player_faction",1.00),("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("coptic_rebels", -0.05),("berber_rebels", -0.05),("armenian_rebels", -0.05)], [], 0xFF4433), #changed name so that can tell difference if shows up on map
@@ -114,7 +115,6 @@ factions = [
   #suebi civil war
   #starts at war with the ostrogothic kingdom, will be spawned in an event war with scirii, rugii, heruli + suebi vs ostrogoths
   ("hunimund_suebi","Danubian Suebi", 0, 0.5,[("kingdom_4",-0.75),("kingdom_11",0.99),("kingdom_14",0.99),("kingdom_21",0.99)], [], 0x3c5a1b), #lead by hunimund, at war with ostrogoths, will make color orange
-  ("heruli","Danubian Heruli", 0, 0.5,[("kingdom_4",-0.75),("kingdom_11",0.99),("kingdom_14",0.99),("kingdom_21",0.99)], [], 0x993322), #lead by Visilaus, at war with ostrogoths
   ("faltras_suebi","Faltras's Loyalists", 0, 0.5,[("kingdom_8",-0.75)], [], 0x3c5a1b),
 
   #Minor faction features
@@ -145,6 +145,9 @@ factions = [
   ("minor_sabiroi","Sabiroi", 0, 0.9,[("outlaws",-0.75),("peasant_rebels", -0.1),("deserters", -0.05),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05),("manhunters",0.6)], [], 0xc19135),
   ("minor_valentia","Valentia Alanorum", 0, 0.9,[("outlaws",-0.75),("peasant_rebels", -0.1),("deserters", -0.05),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05),("manhunters",0.6),("kingdom_1", 0.5)], [], 0xd33434),
   ("minor_aurelianorum","Aurelianorum Alanorum", 0, 0.9,[("outlaws",-0.75),("peasant_rebels", -0.1),("deserters", -0.05),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05),("manhunters",0.6),("kingdom_1", 0.5)], [], 0xd33434),
+  ("minor_iazyges","Iazyges", 0, 0.9,[("outlaws",-0.75),("peasant_rebels", -0.1),("deserters", -0.05),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05),("manhunters",0.6)], [], 0xc19135),
+  ("adovacrius_host","Adovacrius_Host", 0, 0.9,[("outlaws",-0.75),("peasant_rebels", -0.1),("deserters", -0.05),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05),("manhunters",0.6)], [], 0xc19135),
+  ("heruli","Danubian Heruli", 0, 0.5,[("kingdom_4",-0.75),("kingdom_11",0.99),("kingdom_14",0.99),("kingdom_21",0.99)], [], 0x993322), #lead by Visilaus, at war with ostrogoths
 
   ("minor_factions_end",  "{!}minor_factions_end", 0, 0.9, [], []), 
   #religions

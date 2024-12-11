@@ -20351,6 +20351,69 @@ I knew that I had found someone worthy of becoming my vassal.", "lord_invite_1",
 [anyone|plyr, "majorian_unique_dialogue_4", [],
   "I don't, amplitudo tua. I revere your power! Safe travels.", "lord_pretalk",[(assign, "$majorian_dialog", 1),(call_script, "script_change_player_relation_with_troop","$g_talk_troop",2),]],
 
+#madsci
+[trp_adovacrius|plyr,"minor_faction_king", [(eq, "$adovacrius_dialog", 0),], 
+  "Hail, Adovacrius, lord of Juliomagus. I have heard tales of your Saxon warriors along the banks of the Liger.","adovacrius_intro_1",[
+(assign, "$adovacrius_dialog", 1),(call_script, "script_change_player_relation_with_troop","$g_talk_troop",2),
+]],
+
+[anyone, "adovacrius_intro_1", [], 
+  "Hail, traveler. I am Adovacrius, called Eadwacer by my kin. These lands, now Saxon, were once fields of Roman toil. Juliomagus is mine, taken by strength and cunning.", "adovacrius_intro_2",[]],
+
+[anyone, "adovacrius_intro_2", [], 
+  "The Liger flows red with the blood of those who oppose us. Yet, we are not unchallenged. Childeric of the Franks grows bolder, his ambitions reaching even into my lands.", "adovacrius_intro_3",[]],
+
+[anyone, "adovacrius_intro_3", [], 
+  "I hold no illusions of peace. The Franks are patient conquerors, but my warriors are restless, eager to defend what we have won. For now, Juliomagus stands as a beacon of Saxon power in Gaul.", "adovacrius_intro_4",[]],
+
+[anyone|plyr, "adovacrius_intro_4", [], 
+  "Then may Juliomagus remain strong under your rule, Adovacrius. I’ll watch for Saxon banners along the Liger.", "minor_faction_king_pretalk",[]],
+
+[trp_benga|plyr,"minor_faction_king", [(eq, "$benga_dialog", 0),], 
+  "Hail, Benga, king of the Iazyges. These lands between the Danubius and the Tissus are steeped in your people’s legacy. It is an honor to meet you.","benga_intro_1",[
+(assign, "$benga_dialog", 1),(call_script, "script_change_player_relation_with_troop","$g_talk_troop",2),
+]],
+
+[anyone, "benga_intro_1", [], 
+  "Hail, traveler. You honor me with your words, but legacy is a burden as much as it is a pride. Yes, I am Benga, son of the Iazyges, last scion of kings who once ruled these plains unchallenged.", "benga_intro_2",[]],
+
+[anyone, "benga_intro_2", [], 
+  "The Danubius and the Tissus were once ours to command. In days long past, my ancestors rode in glory, their spears breaking Roman lines, their banners flying high over Aquileia. But that was centuries ago.", "benga_intro_3",[]],
+
+[anyone, "benga_intro_3", [], 
+  "Now, we are but a shadow of what we once were. The Huns settled here, between our rivers, draining the strength from our people. The Ostrogoths press us from the east, and we must bow our heads to the power of the Rugi, the Scirii, and the Suebi to defend ourselves.", "benga_intro_4",[]],
+
+[anyone, "benga_intro_4", [], 
+  "Proud we may still be, but pride does not forge swords nor fill granaries. I look at my people and see warriors with rusting blades, riders whose horses grow lean. My heart burns with the shame of it.", "benga_intro_5",[]],
+
+[anyone, "benga_intro_5", [], 
+  "Yet there is still hope. My son, Babai, has the fire of our ancestors in him. He is young and untested, but I believe he could grow into a leader who might rekindle the spirit of the Iazyges. If only he could see the world beyond these plains.", "benga_intro_6",[]],
+
+[anyone, "benga_intro_6", [], 
+  "I have told Babai to seek out adventurers like you, {playername}. Let him see the strength of other lands and the ways of their people. Perhaps he will learn something that will bring new life to our tribe. You should speak with him if you have the time.", "benga_intro_7",[]],
+
+[anyone|plyr, "benga_intro_7", [], 
+  "You speak with great wisdom, Benga. I will seek out Babai and see if he is as promising as you say. May the Iazyges find strength once more.", "minor_faction_king_pretalk",[]],
+
+[anyone|plyr, "heruli_king_intro_2", [], 
+  "Do not underestimate me, I've beaten countless enemies in my travels, we can try and see what you are made of. But my name is {playername} and I'm mostly still a trader in these lands. Who are you, warrior?", "heruli_king_intro_3",[]],
+
+[anyone, "heruli_king_intro_3", [], 
+  "Hahahaha! That’s the spirit, we live in a time where so many seem to want to use coins or their tongue to squirm themselves out of trouble, honorless curs, the lot of them! I believe in the sharpness of my weapons and skill of my brothers. I’m called Visilaus and we are the warrior’s brotherhood: Heruli they call us, I’m sure you have seen some of us in taverns.", "heruli_king_intro_4",[]],
+
+[anyone|plyr, "heruli_king_intro_4", [], 
+  "Yes, now when I think, I've seen many of you offering your shield and axe to the highest bidder, one could still say that where is the honor in fighting only for money, you are mercenaries. How can your employers trust you?", "heruli_king_intro_5",[]],
+
+[anyone, "heruli_king_intro_5", [], 
+  "We ARE sellswords. But we do not fight just for gold, personally I'm dreaming of one day owning my own land, where we can train for war in peace, now we are just wandering rabble of the road, some do not trust us since they believe even the name 'Heruli' is synonymous with mercenary, but let me tell you we never abandon those who have hired us not even if his enemies offer a better deal and we fight to the death.", "heruli_king_intro_6",[]],
+
+[anyone|plyr, "heruli_king_intro_6", [], 
+  "I understand. So even I could hire you and your axe-bearers?", "heruli_king_intro_7",[]],
+
+[anyone, "heruli_king_intro_7", [], 
+  "Naturally. Though there are less men here than could be otherwise, some of us have left to seek employment in Scandza and with the Dani. They bring back ornate swords and furs and tell of vast gold piles the kings and high-born are willing to pay for our services, but I feel there is some catch to all of it. I have given it some thought but for now I've decided to stay here.", "minor_faction_king_pretalk",[]],
+#madsci end
+
 [trp_kingdom_9_lord|plyr,"lord_talk", [(eq, "$gundioc_dialog", 0),],
   "Hail Rex! Your eyes are grim and your face frowny. What worries you?","gundioc_unique_dialogue_1",[]],
 [anyone, "gundioc_unique_dialogue_1", [],
@@ -52462,6 +52525,17 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
   []],
 
 #minor faction king talk
+  [anyone, "start",
+  [(eq, "$g_talk_troop_met", 0),
+	(eq, "$g_talk_troop", "trp_heruli_king"),
+  (eq, "$g_encountered_party", "p_heruli_village"),
+(eq, "$heruli_dialog", 0),
+  (str_store_troop_name, s30, "$g_talk_troop"),
+  (str_store_faction_name, s31, "$g_talk_troop_faction"),],
+  "Walk softly here, lad, these are dangerous parts and you do not seem to be an experienced warrior, unlike us. Tell me who you are so that I might know, whom I perhaps need to clash my sword with.", "heruli_king_intro_2",[
+(assign, "$heruli_dialog", 1),
+]],
+
   [anyone, "start",
   [(eq, "$g_talk_troop_met", 0),
   (is_between, "$g_talk_troop", minor_kings_begin, minor_kings_end),

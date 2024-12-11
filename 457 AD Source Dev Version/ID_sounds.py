@@ -208,3 +208,7 @@ snd_ccoop_sea_raider_taunt_1 = 206
 snd_ccoop_sea_raider_taunt_2 = 207
 snd_ccoop_sea_raider_taunt_3 = 208
 snd_sounds_end = 209
+snd_release_crossbow_medium = 210
+snd_release_crossbow_far = 211
+snd_bullet_hit_body = 212
+snd_player_hit_by_bullet = 213

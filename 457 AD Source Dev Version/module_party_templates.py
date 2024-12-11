@@ -109,7 +109,7 @@ party_templates = [
   ("quest_bagaudae","Bagauda",icon_germanic_army|carries_goods(9)|pf_auto_remove_in_town|pf_quest_party,0,fac_forest_bandits,bandit_personality,[(trp_forest_bandit,30,40),(trp_forest_bandit_recruit,15,20),(trp_bagaudae_footman,15,25)]), #less than normal
   ("hunimund_horde_quest","Hunimund's Army",icon_germanic_army|carries_goods(9)|pf_auto_remove_in_town|pf_quest_party,0,fac_neutral,bandit_personality,[(trp_suebi_king,1,1),(trp_western_germanic_freeman,55,105),(trp_western_germanic_skirmisher,15,40),(trp_steppe_bandit,10,40),(trp_steppe_cataphract,5,15)]),
   ("juliobriga_bagadua","Bagaudae Band",icon_archer_1|carries_goods(9)|pf_auto_remove_in_town|pf_quest_party,0,fac_forest_bandits,bandit_personality,[(trp_forest_bandit_recruit,25,35),(trp_forest_bandit,12,21),(trp_bagaudae_footman,5,10)]),
-  ("quest_vandal_raiders","Vandal Raiders",icon_sea_raider|carries_goods(9)|pf_auto_remove_in_town|pf_quest_party,0,fac_neutral,bandit_personality,[(trp_vandal_raider_leader,1,1),(trp_eastern_germanic_spearman,30,45),(trp_eastern_germanic_mounted_warrior,3,8),(trp_western_alan_lancer,2,5),(trp_gaetuli_horseman,5,15),]),
+  ("quest_vandal_raiders","Vandal Raiders",icon_sea_raider|carries_goods(9)|pf_auto_remove_in_town|pf_quest_party,0,fac_neutral,bandit_personality,[(trp_vandal_raider_leader,1,1),(trp_eastern_germanic_spearman,30,45),(trp_eastern_germanic_mounted_warrior,3,8),(trp_eques_sagittarii_alani,2,5),(trp_gaetuli_horseman,5,15),]),
   ("faltras_suebi_band","Faltras's Loyalists",icon_germanic_army|carries_goods(9)|pf_auto_remove_in_town,0,fac_faltras_suebi,soldier_personality,[]),
   ("faltras_suebi_army","Faltras's Loyalists",icon_germanic_army|carries_goods(9)|pf_auto_remove_in_town|pf_quest_party,0,fac_neutral,soldier_personality,[]),
   ("germanic_raiders","Scamarae",icon_axeman|carries_goods(9)|pf_auto_remove_in_town|pf_quest_party,0,fac_neutral,bandit_personality,[(trp_western_germanic_freeman,30,50),(trp_taiga_bandit,8,15),(trp_western_germanic_bowman,5,10)]),
@@ -230,12 +230,12 @@ party_templates = [
   ("culture_minor_8_reinforcements_b", "{!}Tetraxitae Reinforcements", 0, 0, fac_commoners, 0, [(trp_crimean_gothic_freeman,3,8),(trp_crimean_gothic_mounted_skirmisher,2,7),(trp_standard_bearer,1,1)]),
   ("culture_minor_8_reinforcements_c", "{!}Tetraxitae Reinforcements", 0, 0, fac_commoners, 0, [(trp_crimean_gothic_warrior,2,5),(trp_crimean_gothic_horseman,2,5)]),
 
-  ("culture_minor_9_reinforcements_a", "{!}Western Alan Reinforcements", 0, 0, fac_commoners, 0, [(trp_western_alan_rider,8,20)]),
-  ("culture_minor_9_reinforcements_b", "{!}Western Alan Reinforcements", 0, 0, fac_commoners, 0, [(trp_western_alan_lancer,6,15)]),
-  ("culture_minor_9_reinforcements_c", "{!}Western Alan Reinforcements", 0, 0, fac_commoners, 0, [(trp_western_alan_cataphract,4,10)]),
+  ("culture_minor_9_reinforcements_a", "{!}Western Alan Reinforcements", 0, 0, fac_commoners, 0, [(trp_eques_alani_leves,8,20)]),
+  ("culture_minor_9_reinforcements_b", "{!}Western Alan Reinforcements", 0, 0, fac_commoners, 0, [(trp_eques_sagittarii_alani,6,15)]),
+  ("culture_minor_9_reinforcements_c", "{!}Western Alan Reinforcements", 0, 0, fac_commoners, 0, [(trp_eques_alani_nobiles,4,10)]),
   #special party templates for specific lords
   #Majorian - will be stronger than most party templates
-  ("kingdom_1_lord_reinforcements_a", "{!}majorian_reinforcements_a", 0, 0, fac_commoners, 0, [(trp_miles_foederatus_gothorum,3,7),(trp_exculator,1,3),(trp_western_alan_rider,2,4),(trp_eques_mauri,1,3),(trp_eques_ala,1,3)]), #greater amount of federate troops
+  ("kingdom_1_lord_reinforcements_a", "{!}majorian_reinforcements_a", 0, 0, fac_commoners, 0, [(trp_miles_foederatus_gothorum,3,7),(trp_exculator,1,3),(trp_eques_alani_leves,2,4),(trp_eques_mauri,1,3),(trp_eques_ala,1,3)]), #greater amount of federate troops
   ("kingdom_1_lord_reinforcements_b", "{!}majorian_reinforcements_b", 0, 0, fac_commoners, 0, [(trp_miles_iuniorum_italicorum,4,8),(trp_eques_symmachi_hunnorum,2,5),(trp_miles_foederatus_germani,2,5),(trp_imperial_signifer,1,1)]), #huns
   ("kingdom_1_lord_reinforcements_c", "{!}majorian_reinforcements_c", 0, 0, fac_commoners, 0, [(trp_pedes_domestici,2,4),(trp_schola_gentilium_west,2,4),(trp_schola_scutariorum_west,2,4),(trp_centenarius,1,1)]), #has schola
   #For Leo I
@@ -328,8 +328,8 @@ party_templates = [
 
   #vandals - technically eastern germans, have access to some alan troops
   ("kingdom_vandal_reinforcements_a", "{!}Vandal Reinforcements", 0, 0, fac_commoners, 0, [(trp_eastern_germanic_skirmisher,2,5),(trp_eastern_germanic_spearman,4,10),(trp_gaetuli_warrior,2,5)]),
-  ("kingdom_vandal_reinforcements_b", "{!}Vandal Reinforcements", 0, 0, fac_commoners, 0, [(trp_eastern_germanic_spearman,3,7),(trp_eastern_germanic_mounted_skirmisher,0,2),(trp_western_alan_rider,2,4),(trp_gaetuli_horseman,1,2),(trp_standard_bearer,1,1)]),
-  ("kingdom_vandal_reinforcements_c", "{!}Vandal Reinforcements", 0, 0, fac_commoners, 0, [(trp_eastern_germanic_retainer,2,4),(trp_eastern_germanic_mounted_warrior,1,3),(trp_western_alan_lancer,1,3)]),
+  ("kingdom_vandal_reinforcements_b", "{!}Vandal Reinforcements", 0, 0, fac_commoners, 0, [(trp_eastern_germanic_spearman,3,7),(trp_eastern_germanic_mounted_skirmisher,0,2),(trp_eques_alani_leves,2,4),(trp_gaetuli_horseman,1,2),(trp_standard_bearer,1,1)]),
+  ("kingdom_vandal_reinforcements_c", "{!}Vandal Reinforcements", 0, 0, fac_commoners, 0, [(trp_eastern_germanic_retainer,2,4),(trp_eastern_germanic_mounted_warrior,1,3),(trp_eques_alani_nobiles,1,3)]),
 
   ("kingdom_alaman_reinforcements_a", "{!}Alammani Reinforcements", 0, 0, fac_commoners, 0, [(trp_western_germanic_skirmisher,4,10),(trp_western_germanic_freeman,2,5),(trp_lentienses_foederati,2,5)]),
   ("kingdom_alaman_reinforcements_b", "{!}Alammani Reinforcements", 0, 0, fac_commoners, 0, [(trp_western_germanic_freeman,4,9),(trp_brisgavi_retainer,2,6),(trp_standard_bearer,1,1)]),
@@ -408,7 +408,7 @@ party_templates = [
 #Each template gets a centenarius at tier 3
   #for specific lords/positions in WRE
   #Magister Militum per Gallia - based off of the Magiter Equitum's Gallic command
-  ("gallia_a", "{!}Per Gallia Reinforcements", 0, 0, fac_commoners, 0, [(trp_tiro,4,8),(trp_exculator,2,4),(trp_miles_foederatus_germani,2,6),(trp_western_alan_rider,2,4)]),
+  ("gallia_a", "{!}Per Gallia Reinforcements", 0, 0, fac_commoners, 0, [(trp_tiro,4,8),(trp_exculator,2,4),(trp_miles_foederatus_germani,2,6),(trp_eques_alani_leves,2,4)]),
   ("gallia_b", "{!}Per Gallia Reinforcements", 0, 0, fac_commoners, 0, [(trp_eques_honoriani_taifali_iuniores,3,8),(trp_pedes_cortoriacenses,5,10),(trp_imperial_signifer,1,1)]),
   ("gallia_c", "{!}Per Gallia Reinforcements", 0, 0, fac_commoners, 0, [(trp_bucellarius,2,4),(trp_eques_batavi_seniores,2,8),(trp_centenarius,1,1)]),
   #Magister Militum per Dalmatia - based off of Comes Illyricum's command - known to be well equipped, have scythians (huns + goths)
@@ -416,7 +416,7 @@ party_templates = [
   ("dalmatia_b", "{!}Per Dalmatia Reinforcements", 0, 0, fac_commoners, 0, [(trp_miles_foederatus_gothorum,4,9),(trp_miles_sagittarii_venatores,4,9),(trp_imperial_signifer,1,1)]),
   ("dalmatia_c", "{!}Per Dalmatia Reinforcements", 0, 0, fac_commoners, 0, [(trp_pedes_felices_valentinianenses,3,6),(trp_bucellarius,3,6),(trp_centenarius,1,1)]),
   #Magister Utriusque Militiae - based off of Magister Pedium's italian command
-  ("utriusque_a", "{!}Magister Utriusque Militiae Reinforcements", 0, 0, fac_commoners, 0, [(trp_pedes_defensores_seniores,3,8),(trp_exculator,3,4),(trp_miles_foederatus_germani,2,6),(trp_western_alan_rider,2,4)]),
+  ("utriusque_a", "{!}Magister Utriusque Militiae Reinforcements", 0, 0, fac_commoners, 0, [(trp_pedes_defensores_seniores,3,8),(trp_exculator,3,4),(trp_miles_foederatus_germani,2,6),(trp_eques_alani_leves,2,4)]),
   ("utriusque_b", "{!}Magister Utriusque Militiae Reinforcements", 0, 0, fac_commoners, 0, [(trp_eques_stablesiani_italiciani,2,6),(trp_pedes_invicti_seniores,6,12),(trp_imperial_signifer,1,1)]),
   ("utriusque_c", "{!}Magister Utriusque Militiae Reinforcements", 0, 0, fac_commoners, 0, [(trp_comites_alani,3,6),(trp_pedes_ioviani_seniores,3,6),(trp_centenarius,1,1)]),
   #Comes hispenias - gothic foederati, hispano-roman troops
@@ -552,7 +552,8 @@ party_templates = [
   ("onoguroi_party","Onoguroi Warriors",icon_axeman|carries_goods(30)|pf_show_faction,0,fac_minor_onoguroi,bandit_personality,[(trp_hunnic_horse_archer,10,20),(trp_hunnic_retainer,10,20),(trp_hunnic_skirmisher,5,10),(trp_hunnic_veteran,5,10)]),
   ("kutriguroi_party","Kutriguroi Warriors",icon_axeman|carries_goods(30)|pf_show_faction,0,fac_minor_kutriguroi,bandit_personality,[(trp_hunnic_horse_archer,10,20),(trp_hunnic_retainer,10,20),(trp_hunnic_skirmisher,5,10),(trp_hunnic_veteran,5,10)]),
   ("sabiroi_party","Sabiroi Warriors",icon_axeman|carries_goods(30)|pf_show_faction,0,fac_minor_sabiroi,bandit_personality,[(trp_sabir_horse_archer,20,40),(trp_sabir_cataphract,10,20)]),
-
+  ("valentia_party","Gallic Alan Patrol",icon_axeman|carries_goods(30)|pf_show_faction,0,fac_minor_valentia,bandit_personality,[(trp_pedes_alani,10,25),(trp_eques_alani_leves,10,15),(trp_eques_sagittarii_alani,5,10),(trp_eques_alani_nobiles,5,10)]),
+  ("aurelianorum_party","Gallic Alan Patrol",icon_axeman|carries_goods(30)|pf_show_faction,0,fac_minor_aurelianorum,bandit_personality,[(trp_pedes_alani,10,25),(trp_eques_alani_leves,10,15),(trp_eques_sagittarii_alani,5,10),(trp_eques_alani_nobiles,5,10)]),
 
   ("minor_faction_levies", "Levies", icon_axeman|pf_show_faction|pf_always_visible, soldier_personality, fac_commoners, 0, []),
 

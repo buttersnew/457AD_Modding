@@ -19082,7 +19082,10 @@ presentations = [
               (this_or_next|eq, "$current_town", "p_town_17"),
               (this_or_next|eq, "$current_town", "p_town_33"),
               (eq, "$current_town", "p_town_35"),
-              (eq, ":troop", "trp_western_alan_rider"),
+              (this_or_next|eq, ":troop", "trp_pedes_alani"),
+              (this_or_next|eq, ":troop", "trp_eques_alani_leves"),
+              (this_or_next|eq, ":troop", "trp_eques_sagittarii_alani"),
+              (eq, ":troop", "trp_eques_alani_nobiles"),
               (assign, ":c", 1),
             (else_try), #AOR frisian
               (eq, "$current_town", "p_castle_67"),

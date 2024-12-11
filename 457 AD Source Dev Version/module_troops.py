@@ -2538,19 +2538,6 @@ troops = [
    [itm_wrapping_boots,itm_heavy_greaves,itm_common_mail_long_1,itm_common_mail_long_6,itm_koblenz_helmet_1,itm_christies_helmet_1,itm_burgh_helmet_1,itm_iatrus_1,itm_burgh_helmet_2,itm_iatrus_2,itm_koblenz_helmet_2,itm_kishpek_helmet_mail,itm_breda_helmet_1,itm_breda_helmet_plume_1,itm_heavy_lance,itm_beja_spatha,itm_strong_bow,itm_khergit_bow,itm_roman_arrows_2]+horses_alan_2,
    def_attrib_lvl_28|level(28),wp_one_handed(220)|wp_two_handed(220)|wp_polearm(220)|wp_archery(160)|wp_throwing(150)|wp_crossbow(70)|wp_firearm(70),knows_cataphract,sarmatian_face_1, sarmatian_face_2],
 
-  #Eques Laeti Alanorum -> Eques Alae Alanorum -> Eques Cataphracti Alanorum
-  ["western_alan_rider","Eques Laeti Alanorum","Equites Laeti Alanorum",tf_mounted|tf_guarantee_armor|tf_guarantee_boots|tf_guarantee_polearm|tf_guarantee_horse,0,0,fac_culture_minor_9,
-   [itm_simple_shoes,itm_wrapping_boots,itm_nomad_boots,itm_ankle_boots,itm_woolen_cap_4,itm_woolen_cap_2,itm_woolen_cap,itm_woolen_cap_8,itm_iatrus_helmet_light,itm_intercisa_helmet_1,itm_roman_spear_3,itm_aquincum_spatha_1,itm_wicker_round_shield,itm_javelin]+tunics_alans_1+horses_eastern_germanic_1,
-   def_attrib_lvl_18|level(17),wp_one_handed(140)|wp_two_handed(150)|wp_polearm(150)|wp_archery(120)|wp_throwing(150)|wp_crossbow(70)|wp_firearm(70),knows_lvl_18|knows_power_strike_4|knows_horse_archery_5,sarmatian_face_1, sarmatian_face_2],
-
-  ["western_alan_lancer","Eques Alae Alanorum","Equites Alae Alanorum",tf_mounted|tf_guarantee_armor|tf_guarantee_boots|tf_guarantee_polearm|tf_guarantee_horse,0,0,fac_culture_minor_9,
-   [itm_simple_shoes,itm_wrapping_boots,itm_ankle_boots,itm_tunic_1_cloak,itm_tunic_3_cloak,itm_battered_mail_1,itm_battered_mail_3,itm_iatrus_helmet_mail,itm_intercisa_helmet_1,itm_iatrus_1,itm_augst_helmet_1,itm_breda_helmet_1,itm_light_lance,itm_aquincum_spatha_2]+horses_eastern_germanic_2+horses_eastern_germanic_3+horses_alan_1,
-   def_attrib_lvl_23|level(23),wp_one_handed(180)|wp_two_handed(190)|wp_polearm(190)|wp_archery(140)|wp_throwing(150)|wp_crossbow(70)|wp_firearm(70),knows_lvl_23|knows_power_strike_6|knows_horse_archery_5,sarmatian_face_1, sarmatian_face_2],
-
-  ["western_alan_cataphract","Eques Cataphracti Alanorum","Equites Cataphracti Alanorum",tf_mounted|tf_guarantee_armor|tf_guarantee_boots|tf_guarantee_helmet|tf_guarantee_polearm|tf_guarantee_horse,0,0,fac_culture_minor_9,
-   [itm_wrapping_boots,itm_heavy_greaves,itm_common_mail_long_1,itm_common_mail_long_6,itm_koblenz_helmet_1,itm_christies_helmet_1,itm_burgh_helmet_1,itm_iatrus_1,itm_burgh_helmet_2,itm_iatrus_2,itm_koblenz_helmet_2,itm_kishpek_helmet_mail,itm_breda_helmet_1,itm_breda_helmet_plume_1,itm_heavy_lance,itm_beja_spatha,itm_strong_bow,itm_khergit_bow,itm_roman_arrows_2]+horses_eastern_germanic_3+horses_alan_2,
-   def_attrib_lvl_28|level(28),wp_one_handed(220)|wp_two_handed(220)|wp_polearm(220)|wp_archery(160)|wp_throwing(150)|wp_crossbow(70)|wp_firearm(70),knows_cataphract,sarmatian_face_1, sarmatian_face_2],
-
 #TAIFALS
   #armed with sword, spear, shield - settled in pictavis + synnada - would serve under Roman, Hunnic, Visigothic + Frankish banners
   ["eques_laeti_taifali","Eques Laeti Taifali","Equites Laeti Taifali",tf_mounted|tf_guarantee_horse|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_shield|tf_guarantee_polearm,0,0,fac_commoners,
@@ -4795,8 +4782,8 @@ troops = [
   ["kutriguroi_king",  "Bulyak",  "Bulyak",  tf_hero, 0,reserved,  fac_minor_kutriguroi,[itm_hun_rich_horse_3,itm_kaftan_hunnic_4, itm_leather_boots,itm_heavy_greaves,itm_kaftan_lamellar_4,itm_ingushetia_spatha,itm_niya_bow_2,itm_khergit_arrows,itm_khergit_arrows,itm_rozhdestvensky_helmet_mail], knight_attrib_5,wp_one_handed(300)|wp_two_handed(300)|wp_polearm(280)|wp_archery(200)|wp_crossbow(100)|wp_throwing(200)|wp_firearm(100),knight_skills_5|knows_trainer_6, 0x000000002d00a284472a69d4cd52e93300000000001144d30000000000000000],
   ["sabiroi_king",  "Gostun",  "Gostun",  tf_hero, 0,reserved,  fac_minor_sabiroi,[itm_hun_rich_horse_3,itm_kaftan_eastern_2,itm_leather_boots,itm_heavy_greaves,itm_kaftan_lamellar_13,itm_battle_axe,itm_niya_bow_2,itm_khergit_arrows,itm_khergit_arrows,itm_tarasovo_helmet_1], knight_attrib_5,wp_one_handed(300)|wp_two_handed(300)|wp_polearm(280)|wp_archery(200)|wp_crossbow(100)|wp_throwing(200)|wp_firearm(100),knight_skills_5|knows_trainer_6, 0x00000000320cd10f160c6ed6d36cc75c00000000000e3a640000000000000000],
   #gallic alan kings
-  ["valentia_king","Sambida","Sambida",tf_hero, no_scene, reserved, fac_minor_tauri,[itm_hunter_boots,itm_common_mail_long_2_cloak,itm_iatrus_2,itm_tetraxitae_spatha,itm_concave_shield_blue_1],def_attrib_lvl_32|level(32),wp_one_handed(300)|wp_two_handed(300)|wp_polearm(300)|wp_throwing(280)|wp_archery(180)|wp_crossbow(130)|wp_firearm(130),knows_ironflesh_10|knows_power_strike_8|knows_shield_6|knows_athletics_6|knows_riding_5,0x000000065100810b5a558ec84ab6d51a00000000001ec6f90000000000000000],
-  ["aurelianorum_king","Sangiban","Sangiban",tf_hero, no_scene, reserved, fac_minor_tauri,[itm_hunter_boots,itm_common_mail_long_2_cloak,itm_iatrus_2,itm_tetraxitae_spatha,itm_concave_shield_blue_1],def_attrib_lvl_32|level(32),wp_one_handed(300)|wp_two_handed(300)|wp_polearm(300)|wp_throwing(280)|wp_archery(180)|wp_crossbow(130)|wp_firearm(130),knows_ironflesh_10|knows_power_strike_8|knows_shield_6|knows_athletics_6|knows_riding_5,0x000000065100810b5a558ec84ab6d51a00000000001ec6f90000000000000000],
+  ["valentia_king","Sambida","Sambida",tf_hero, no_scene, reserved, fac_minor_valentia,[itm_deurne_campagi_greaves_1,itm_common_mail_long_5,itm_kishpek_helmet_mail],def_attrib_lvl_32|level(32),wp_one_handed(300)|wp_two_handed(300)|wp_polearm(300)|wp_throwing(280)|wp_archery(180)|wp_crossbow(130)|wp_firearm(130),knows_ironflesh_10|knows_power_strike_8|knows_shield_6|knows_athletics_6|knows_riding_5,0x000000065100810b5a558ec84ab6d51a00000000001ec6f90000000000000000],
+  ["aurelianorum_king","Sangiban","Sangiban",tf_hero, no_scene, reserved, fac_minor_aurelianorum,[itm_deurne_campagi_greaves_2,itm_common_mail_long_5_cloak,itm_kishpek_helmet_mail],def_attrib_lvl_32|level(32),wp_one_handed(300)|wp_two_handed(300)|wp_polearm(300)|wp_throwing(280)|wp_archery(180)|wp_crossbow(130)|wp_firearm(130),knows_ironflesh_10|knows_power_strike_8|knows_shield_6|knows_athletics_6|knows_riding_5,0x000000065100810b5a558ec84ab6d51a00000000001ec6f90000000000000000],
 
   #installed via quest
   ["aestii_rebel_king","Shvarnas","Shvarnas",tf_hero, no_scene, reserved, fac_minor_aestii,[itm_simple_shoes,itm_common_mail_long_7_cloak,itm_burgh_helmet_2,itm_baltic_sword_1,itm_eastern_germanic_shield_2,itm_warhorse],def_attrib_lvl_32|level(32),wp_one_handed(300)|wp_two_handed(300)|wp_polearm(300)|wp_throwing(280)|wp_archery(160)|wp_crossbow(130)|wp_firearm(130),knows_ironflesh_10|knows_power_strike_10|knows_shield_8|knows_athletics_8|knows_riding_5,0x00000005d80061076b6d8a485b6db6db00000000001db6a90000000000000000],
@@ -4851,6 +4838,10 @@ troops = [
 
   ["hunn_merchant_1","Merchant","Merchants",tf_hero|tf_randomize_face|tf_is_merchant, no_scene, reserved, fac_commoners,[itm_wrapping_boots,itm_kaftan_hunnic_2],def_attrib|level(6),wp(80),knows_common,hunnic_face_1, hunnic_face_2], #sells goods - shared
   ["hunn_merchant_2","Merchant","Merchants",tf_hero|tf_randomize_face|tf_is_merchant, no_scene, reserved, fac_commoners,[itm_wrapping_boots,itm_kaftan_hunnic_6],def_attrib|level(6),wp(80),knows_common,hunnic_face_1, hunnic_face_2], #sells goods - shared
+
+  ["alan_merchant_1","Merchant","Merchants",tf_hero|tf_randomize_face|tf_is_merchant, no_scene, reserved, fac_commoners,[itm_wrapping_boots,itm_tunic_3],def_attrib|level(6),wp(80),knows_common,sarmatian_face_1, sarmatian_face_2], #sells goods - 
+  ["alan_merchant_2","Merchant","Merchants",tf_hero|tf_randomize_face|tf_is_merchant, no_scene, reserved, fac_commoners,[itm_ankle_boots,itm_tunic_4],def_attrib|level(6),wp(80),knows_common,sarmatian_face_1, sarmatian_face_2], #sells gear - 
+
 
   #MINOR FACTION MERCHANTS END
 
@@ -5370,9 +5361,6 @@ upgrade(troops,"pedes_votadini","eques_votadini")
 upgrade(troops,"samaritan_zealot","samaritan_rebel")
 
 upgrade(troops,"hibero_roman_rusticus","hibero_roman_defensor")
-
-upgrade(troops,"western_alan_rider","western_alan_lancer")
-upgrade(troops,"western_alan_lancer","western_alan_cataphract")
 
 upgrade(troops,"warenae_armatus","warenae_optimas")
 upgrade(troops,"langobard_retainer","langobard_companion")

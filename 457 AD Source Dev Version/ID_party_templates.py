@@ -353,4 +353,6 @@ pt_saraguroi_party = 351
 pt_onoguroi_party = 352
 pt_kutriguroi_party = 353
 pt_sabiroi_party = 354
-pt_minor_faction_levies = 355
+pt_valentia_party = 355
+pt_aurelianorum_party = 356
+pt_minor_faction_levies = 357

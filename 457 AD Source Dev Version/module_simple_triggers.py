@@ -911,12 +911,17 @@ simple_triggers = [
           
           (try_begin),
             (lt, ":rand", 65),
+		(gt, ":pt_a", 0),
             (party_add_template, ":result", ":pt_a"),
           (else_try),
             (lt, ":rand", 100),
+		(gt, ":pt_b", 0),
             (party_add_template, ":result", ":pt_b"),
           (else_try), #small chance based on faction quality
+		(gt, ":pt_c", 0),
             (party_add_template, ":result", ":pt_c"),
+	(else_try),
+            (party_add_members, ":result", "trp_manhunter", 15), #madsci failsafe if no valid template is found
           (try_end),
           #one reinforcement per village at a time
           (try_begin), #a new party
@@ -7023,8 +7028,13 @@ simple_triggers = [
    (store_party_size_wo_prisoners, ":garrison", ":party"),
    (lt, ":garrison", 400),
    (store_faction_of_party, ":fac", ":party"),
-   (faction_get_slot, ":template", ":fac", slot_faction_reinforcements_a),
-   (party_add_template, ":party", ":template"),
+	(try_begin),
+   	(faction_get_slot, ":template", ":fac", slot_faction_reinforcements_a),
+   	(gt, ":template", 0),
+   	(party_add_template, ":party", ":template"),
+	(else_try),
+	(party_add_members, ":party", "trp_manhunter", 15), #madsci failsafe if no valid template is found
+	(try_end),
    (party_set_slot, ":party", slot_center_volunteer_troop_type, -1),
 (try_end),
 ]),  

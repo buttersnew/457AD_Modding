@@ -619,8 +619,8 @@ parties = [
   ("saraguroi_village", "Campus Saragurorum", icon_village_a|pf_minor_town, no_menu, pt_none, fac_minor_saraguroi, 0, ai_bhvr_hold, 0, (98.2, 154.34), []), 
   ("kutriguroi_village", "Campus Kutrigurorum", icon_village_a|pf_minor_town, no_menu, pt_none, fac_minor_kutriguroi, 0, ai_bhvr_hold, 0, (55.04, 132.01), []),
   ("sabiroi_village", "Campus Sabirorum", icon_village_a|pf_minor_town, no_menu, pt_none, fac_minor_sabiroi, 0, ai_bhvr_hold, 0, (159.15, 168.09), []), 
-  ("alan_1_village", "Valentia", icon_village_a|pf_minor_town, no_menu, pt_none, fac_minor_valentia, 0, ai_bhvr_hold, 0, (-176.5, 49.18), []),
-  ("alan_2_village", "Aurelianum", icon_village_a|pf_minor_town, no_menu, pt_none, fac_minor_aurelianorum, 0, ai_bhvr_hold, 0, (-193.3,87.67), []),
+  ("alan_1_village", "Valentia", icon_castle_a|pf_minor_town, no_menu, pt_none, fac_minor_valentia, 0, ai_bhvr_hold, 0, (-176.5, 49.18), []),
+  ("alan_2_village", "Aurelianum", icon_castle_a|pf_minor_town, no_menu, pt_none, fac_minor_aurelianorum, 0, ai_bhvr_hold, 0, (-193.3,87.67), []),
 
   #minor faction villages
 

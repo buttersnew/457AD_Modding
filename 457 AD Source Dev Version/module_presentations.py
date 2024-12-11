@@ -19711,6 +19711,14 @@ presentations = [
               (this_or_next|eq, ":troop", "trp_aestii_tribesman"),
               (eq, ":troop", "trp_slav_horsearcher"),
               (assign, ":c", 1),
+            (else_try), #gallic alans
+              (this_or_next|eq, "$current_town", "p_alan_1_village"),
+              (eq, "$current_town", "p_alan_2_village"),
+              (this_or_next|eq, ":troop", "trp_pedes_alani"),
+              (this_or_next|eq, ":troop", "trp_eques_alani_leves"),
+              (this_or_next|eq, ":troop", "trp_eques_sagittarii_alani"),
+              (eq, ":troop", "trp_eques_alani_nobiles"),
+              (assign, ":c", 1),
             (try_end),
             (eq, ":c", 1),
 

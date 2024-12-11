@@ -11800,8 +11800,7 @@ TOTAL:  {reg5}"),
   # ),
   (
     "center_extort_reaction",0,
-    "{s10}^\
-	{s40}",
+    "{s10} "+"^{s40}",
     "none",
     [
 	(store_faction_of_party, ":fac", "$current_town"),
@@ -11812,8 +11811,7 @@ TOTAL:  {reg5}"),
 		(eq, ":king", "trp_player"),
 		(str_store_string, s40, "@But who cares about an angry commoner?"),
 	(else_try),
-		(str_store_string, s40, "@The town counsel threatens you to write to {s11} about your tyrannic behavior to try to convince him to dismiss you as governor. \
-		But you know that {s11} never replays on such requests."),
+		(str_store_string, s40, "@The town counsel threatens you to write to {s11} about your tyrannic behavior to try to convince him to dismiss you as governor. "+"But you know that {s11} never replays on such requests."),
 	(try_end),
 	(try_begin),
 		(eq, "$temp", extort_tax),##tax
@@ -11902,8 +11900,7 @@ TOTAL:  {reg5}"),
 
   (
     "repopulate",0,
-    "You can order your soldiers to kill anyone older than 14. Then you would grante the acquired land to the families of your soldiers.^\
-	But you should note that such an extreme act will have a bad impact on your reputation.",
+    "You can order your soldiers to kill anyone older than 14. Then you would grant the acquired land to the families of your soldiers. "+"^But you should note that such an extreme act will have a bad impact on your reputation.",
     "none",
     [
 	(str_store_party_name, s39, "$g_encountered_party"),
@@ -32165,7 +32162,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 ],),
 
 ("ernak_feast",0,
-    "After the battle comes the feast and after the feast the battle. Everyone knows that the Sabirs are waiting for a chance to attack, but nevertheless the warriors celebrate with great joy.^^As the feast continues, Ilterish, Bulyak and Atalgar sit together and laugh heartily, reminiscing about their past adventures and battles. They were clearly happy to have each other as allies and Ernak as their leader.^^But their joy was short-lived. Suddenly, the sound of a galloping horse echoed throughout the camp, catching everyone's attention. The warriors looked up and saw a lone rider approaching them. It is Aydar, the Sabir messanger.",
+    "After the battle comes the feast and after the feast the battle. Everyone knows that the Sabirs are waiting for a chance to attack, but nevertheless the warriors celebrate with great joy.^^As the feast continues, Ilterish, Bulyak and Atalgar sit together and laugh heartily, reminiscing about their past adventures and battles. They were clearly happy to have each other as allies and Ernak as their leader.^^But their joy was short-lived. Suddenly, the sound of a galloping horse echoed throughout the camp, catching everyone's attention. The warriors looked up and saw a lone rider approaching them. It is Aydar, the Sabir messenger.",
     "none", [
       (set_background_mesh, "mesh_pic_khergit"),
     ],

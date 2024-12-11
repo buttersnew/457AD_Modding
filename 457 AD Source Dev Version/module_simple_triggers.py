@@ -1920,11 +1920,21 @@ simple_triggers = [
 	  ##diplomacy end+
     ]),
 
-    # Decide faction ais
-    (6.6, #it was 23
+    # this simple trigger is useless so lets put low priority quest stuff there
+    (3,
     [
-      #(assign, "$g_recalculate_ais", 1),
-	#(call_script, "script_recalculate_ais"), #madsci
+(try_begin), #madsci make troublesome bandits patrol around their original center so that the player doesnt have to hunt them across the map
+(check_quest_active, "qst_troublesome_bandits"),
+(neg|check_quest_succeeded, "qst_troublesome_bandits"),
+(neg|check_quest_failed, "qst_troublesome_bandits"),
+(quest_get_slot, ":quest_target_party", "qst_troublesome_bandits", slot_quest_target_party),
+(gt, ":quest_target_party", 0),
+(party_is_active, ":quest_target_party"),
+(party_get_slot, ":home_center", ":quest_target_party", slot_party_home_center),
+(gt, ":home_center", 0),
+(party_set_ai_behavior, ":quest_target_party", ai_bhvr_patrol_party),
+(party_set_ai_object, ":quest_target_party", ":home_center"),
+(try_end),
     ]),
 
 
@@ -4892,7 +4902,8 @@ simple_triggers = [
       (is_between, "$supported_pretender", pretenders_begin, pretenders_end),
       (neg|main_party_has_troop, "$supported_pretender"),
       (neg|troop_slot_eq, "$supported_pretender", slot_troop_occupation, slto_kingdom_hero),
-      (party_add_members, "p_main_party", "$supported_pretender", 1),
+      #(party_add_members, "p_main_party", "$supported_pretender", 1),
+      (party_force_add_members, "p_main_party", "$supported_pretender", 1), #madsci
     (try_end),
 
     #make player marshal of rebel faction
@@ -5465,6 +5476,11 @@ simple_triggers = [
          (party_get_slot, ":volunteers_in_target", ":target", slot_center_volunteer_troop_amount),
          (party_get_slot, ":target_volunteer_type", ":target", slot_center_volunteer_troop_type),
          (store_sub, ":still_needed", ":needed", ":amount"), #SB : store sub
+
+(try_begin),
+(le, ":target_volunteer_type", 0),
+(assign, ":target_volunteer_type", "trp_manhunter"), #madsci generic troop if actual troop isnt assigned
+(try_end),
 
          (try_begin), #SB : use store subs
             (gt, ":volunteers_in_target", ":still_needed"),

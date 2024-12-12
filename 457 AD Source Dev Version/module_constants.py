@@ -760,7 +760,12 @@ disease_smallpox              = 30
 disease_greatpoxpox_timer     = 32
 disease_greatpoxpox           = 35
 
-slot_center_event                 = 271
+#madsci dont share slots so they dont get accidentally overwritten
+#slot_center_event                 = 271
+slot_center_event                 = 800
+slot_party_rebellion_timer = 811
+slot_party_rebellion_cooldown = 812
+slot_party_rebel_faction = 813
 
 slot_icon_backup        = 271
 slot_party_on_water     = 270

@@ -381,6 +381,22 @@ simple_triggers = [
 
  (24, #Kingdom ladies send messages
  [
+#madsci lets use this 24 trigger for countdowns
+(try_for_range, ":center", towns_begin, towns_end),
+(party_get_slot, ":rebellion_timer", ":center", slot_party_rebellion_timer),
+(party_get_slot, ":rebellion_cooldown", ":center", slot_party_rebellion_cooldown),
+	(try_begin),
+	(gt, ":rebellion_timer", 1),
+	(val_sub, ":rebellion_timer", 1),
+	(party_set_slot, ":center", slot_party_rebellion_timer, ":rebellion_timer"),
+	(try_end),
+	(try_begin),
+	(gt, ":rebellion_cooldown", 0),
+	(val_sub, ":rebellion_cooldown", 1),
+	(party_set_slot, ":center", slot_party_rebellion_cooldown, ":rebellion_cooldown"),
+	(try_end),
+(try_end),
+
 	(try_begin),
 		(neg|check_quest_active, "qst_visit_lady"),
 		(neg|troop_slot_ge, "trp_player", slot_troop_prisoner_of_party, 1),
@@ -4060,7 +4076,28 @@ simple_triggers = [
             (party_set_ai_patrol_radius, ":party_no", 45),
           (try_end),
         (try_end),
-      (else_try), #SB : piggyback to handle reinforcements
+      (else_try),
+	(eq, ":party_template", "pt_rebel_army"), #madsci rebellion AI
+	(party_get_slot, ":home_center", ":party_no", slot_party_home_center),
+	(gt, ":home_center", 0),
+	(party_slot_eq, ":home_center", slot_center_is_besieged_by, -1),
+	(store_faction_of_party, ":party_faction", ":party_no"),
+	(store_faction_of_party, ":home_faction", ":home_center"),
+		(try_begin),
+		(eq, ":party_faction", ":home_faction"),
+			(try_begin),
+			(party_is_in_town, ":party_no", ":home_center"),
+			(call_script, "script_party_add_party", ":home_center", ":party_no"),
+			(remove_party, ":party_no"),
+			(else_try),
+			(party_set_ai_behavior, ":party_no", ai_bhvr_travel_to_party),
+			(party_set_ai_object,":party_no",":home_center"),
+			(try_end),
+		(else_try),
+            	(party_set_ai_behavior, ":party_no", ai_bhvr_patrol_party),
+            	(party_set_ai_object, ":party_no", ":home_center"),
+		(try_end),
+	(else_try),
         (this_or_next|eq, ":party_template", "pt_center_reinforcements"),
         (eq, ":party_template", "pt_routed_warriors"),
         (party_slot_eq, ":party_no", slot_party_type, spt_reinforcement),
@@ -8407,21 +8444,44 @@ simple_triggers = [
 
     #check for player in non-main party - madsci
 
-# (1,[
-#     (try_for_parties, ":party"),
-#         (party_is_active, ":party"),
-#         (neq, ":party", "p_main_party"),
-#         (party_get_num_companion_stacks, ":num_stacks",":party"),
-#         (gt, ":num_stacks", 0),
-#         (try_for_range, ":i_stack", 0, ":num_stacks"),
-#             (party_stack_get_troop_id, ":stack_troop_id", ":party", ":i_stack"),
-#             (this_or_next|eq, ":stack_troop_id", "trp_player"),
-#             (eq, ":stack_troop_id", "trp_gate_aggravator"),
-#             (str_store_party_name, s10, ":party"),
-#             (str_store_troop_name, s11, ":stack_troop_id"),
-#             (display_message, "@ERROR: {s10} has {s11}"),
-#         (try_end),
-#     (try_end),
-# ]),
+#madsci rebellion stuff
+ (3,[
+(store_random_in_range, ":center", towns_begin, towns_end),
+	(try_begin),
+	(party_slot_eq, ":center", slot_center_is_besieged_by, -1), #no rebellion in besieged town
+	(party_get_slot, ":rebellion_timer", ":center", slot_party_rebellion_timer),
+	(eq, ":rebellion_timer", 1),
+	(party_get_slot, ":rebel_faction", ":center", slot_party_rebel_faction),
+	(gt, ":rebel_faction", 0),
+	(neg|faction_slot_eq, ":rebel_faction", slot_faction_state, sfs_active),
+	(store_faction_of_party, ":faction_now", ":center"),
+	(neq, ":faction_now", ":rebel_faction"),
+	(set_relation, ":faction_now", ":rebel_faction", -100),
+	(party_get_slot, ":town_lord", ":center", slot_town_lord),
+	(ge, ":town_lord", 0),
+	(party_set_slot, ":center", slot_party_rebellion_timer, 0),
+	(store_random_in_range, ":cooldown", 90, 120), #dont let another rebellion happen immediately
+	(party_set_slot, ":center", slot_party_rebellion_cooldown, ":cooldown"),
+	(call_script, "script_cf_launch_rebellion", ":center"),
+	(assign, "$g_notification_menu_var1", ":center"),
+	(jump_to_menu, "mnu_rebellion_launched"),
+	(else_try),
+	(party_slot_eq, ":center", slot_center_is_besieged_by, -1), #no rebellion in besieged town
+	(party_get_slot, ":rebellion_cooldown", ":center", slot_party_rebellion_cooldown),
+	(eq, ":rebellion_cooldown", 0),
+	(store_random_in_range, ":rng", 0, 25),
+	(eq, ":rng", 1), #dont let it fire too often
+		(try_begin),
+		(this_or_next|eq, ":center", "p_town_23"),
+		(this_or_next|eq, ":center", "p_town_25"),
+		(eq, ":center", "p_town_40"),
+		(store_faction_of_party, ":town_faction", ":center"),
+		(this_or_next|eq, ":town_faction", "fac_kingdom_3"),
+		(this_or_next|eq, ":town_faction", "fac_kingdom_8"),
+		(eq, ":town_faction", "fac_kingdom_15"),
+		(call_script, "script_cf_start_rebellion", ":center", "fac_kingdom_1"), #second value determines the affiliation of the rebels, this script can fail
+		(try_end),
+	(try_end),
+ ]),
 
 ]#end of file

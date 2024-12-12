@@ -5498,7 +5498,6 @@ common_siege_check_defeat_condition = (
     (get_player_agent_no, ":player_agent"),
     (agent_get_team, ":agent_team", ":player_agent"),
     (try_begin),
-	(assign, "$player_ran_from_siege", 1),
       (neq, "$attacker_team", ":agent_team"),
       (neq, "$attacker_team_2", ":agent_team"),
       (str_store_string, s5, "str_siege_continues"),

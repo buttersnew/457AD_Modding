@@ -85,7 +85,12 @@ factions = [
   ("kingdom_25",  "Nobadia",    0, 0.9, [("saxons", -0.5),("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("coptic_rebels", 0.05)], [], 0x1b3159), #Kingdom of Nobatia / Nobadia
   ("kingdom_26",  "Blemmyae",    0, 0.9, [("saxons", -0.5),("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("coptic_rebels", 0.05)], [], 0xae5b14), #Kingdom of the Blemmyes / Blemmyae #0x947b15
   ("kingdom_27",  "Alania",    0, 0.9, [("saxons", -0.5),("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05)], [], 0x947b15), #Kingdom of the Alans / Alania #0xae5b14
-  ("kingdom_28",  "Arran",    0, 0.9, [("saxons", -0.5),("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05)], [], 0x1e817f), #Arran / Caucasian Albania
+  ("kingdom_28",  "Arran",    0, 0.9, [("saxons", -0.5),("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05)], [], 0x1e817f),
+
+#madsci Spanish rebel factions, will be renamed automatically by a script depending on where they start
+  ("rebel_kingdom_1",  "Rebels",    0, 0.9, [("saxons", -0.5),("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05)], [], 0xFF9644),
+  ("rebel_kingdom_2",  "Rebels",    0, 0.9, [("saxons", -0.5),("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05)], [], 0x2FDE98),
+  ("rebel_kingdom_3",  "Rebels",    0, 0.9, [("saxons", -0.5),("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05)], [], 0xA629BF),
 
   ("kingdoms_end","{!}kingdoms_end", 0, 0,[], []),
 

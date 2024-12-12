@@ -32376,6 +32376,24 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     ]),
 ],),
 
+  (
+    "rebellion_launched",mnf_disable_all_keys|mnf_scale_picture,
+    "The city of {s10} has revolted against the oppressive ruler of {s11} and has taken up arms against the {s12}. They dream of an Hispania free of Barbarian oppression and are calling for Rome's aid in their struggle.",
+    "none",
+    [
+(set_background_mesh, "mesh_pic_swad"),
+(assign, ":center", "$g_notification_menu_var1"),
+(str_store_party_name, s10, ":center"),
+(party_get_slot, ":town_lord", ":center", slot_town_lord),
+(str_store_troop_name, s11, ":town_lord"),
+(store_faction_of_party, ":party_faction", ":center"),
+(str_store_faction_name, s12, ":party_faction"),
+],
+    [
+      ("continue",[],"Continue...",[(change_screen_return)]),
+    ],
+  ),
+
 ]#end of file
 
 

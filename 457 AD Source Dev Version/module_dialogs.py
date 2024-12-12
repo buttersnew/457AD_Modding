@@ -12771,7 +12771,7 @@ What kind of recruits do you want?", "dplmc_constable_recruit_select",
 ]],
 
 [anyone,"dplmc_lord_family_affiliate_end", [],
-"What did you say?.", "script_dplmc_affiliate_confirm",[
+"What did you say?", "script_dplmc_affiliate_confirm",[
 ]],
 
 [anyone|plyr,"script_dplmc_affiliate_confirm", [],
@@ -21992,12 +21992,15 @@ I'll send some men to take him to our prison with due haste.", "lord_pretalk", [
 #lord recruitment changes end
 
 
-
+#madsci allow player to ask the guard where the lord is
+  [anyone,"lord_pretalk", [
+(eq, "$talk_context", tc_court_talk),
+(is_between,"$g_talk_troop",regular_troops_begin, regular_troops_end),
+],
+   "Anything else?", "talkto_guard",[]],
 
 [anyone,"lord_pretalk", [],
 "Anything else?", "lord_talk",[]],
-
-
 
 [anyone,"hero_pretalk", [],
 "Anything else?", "lord_talk",[]],
@@ -27963,6 +27966,30 @@ I will use this to make amends to those you have wronged, and I will let it be k
 
 ],
 "What is the realm doing?", "lord_talk_ask_about_strategy",[]],
+
+#madsci
+[anyone|plyr,"lord_talk_ask_something_2", [
+	(neg|troop_slot_ge, "$g_talk_troop", slot_troop_prisoner_of_party, 0),
+(str_store_faction_name, s12, "$g_talk_troop_faction"),
+  ],
+   "Who is the marshal of the {s12}?", "lord_talk_who_is_marshall",[]],
+
+  [anyone,"lord_talk_who_is_marshall", [
+(faction_get_slot, ":faction_marshal", "$g_talk_troop_faction", slot_faction_marshall),
+(try_begin),
+(eq, ":faction_marshal", "$g_talk_troop"),
+(str_store_string, s11, "@me"),
+(else_try),
+(eq, ":faction_marshal", "trp_player"),
+(str_store_string, s11, "@you"),
+(else_try),
+(eq, ":faction_marshal", -1),
+(str_store_string, s11, "@yet to be appointed"),
+(else_try),
+(str_store_troop_name, s11, ":faction_marshal"),
+(try_end),
+  ],
+   "The marshal of the {s12} is {s11}.", "lord_pretalk",[]],
 
 [anyone,"lord_talk_ask_about_strategy", [
  (eq, "$players_kingdom", "$g_talk_troop_faction"),
@@ -47773,8 +47800,13 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
                     # (call_script, "script_dplmc_print_subordinate_says_sir_madame_to_s0"),
                     #SB : replace with commoners, since we're not always talking to our own guards
                     (call_script, "script_dplmc_print_commoner_at_arg1_says_sir_madame_to_s0", "$current_town"),
-                     ], "We are not supposed to talk while on guard, {s0}.", "close_window",[]],
+                     ], "We are not supposed to talk while on guard, {s0}.", "talkto_guard",[]], #madsci allow the player to ask for location of the lord
                     #diplomacy end+
+
+  [anyone|plyr,"talkto_guard", [],
+    "I want to know the location of someone.", "lord_talk_ask_location",[]],
+  [anyone|plyr,"talkto_guard",[], "I must leave now.", "close_window",[]],
+
   [anyone|plyr,"hall_guard_talk", [], "Stay on duty and let me know if anyone comes to see me.", "hall_guard_duty",[]],
   #diplomacy start+ replace {sir/madame} with {my lord/my lady} or {your highness} if appropriate
   [anyone,"hall_guard_duty", [(call_script, "script_dplmc_print_subordinate_says_sir_madame_to_s0"),], "Yes, {s0}. As you wish.", "close_window",[]],

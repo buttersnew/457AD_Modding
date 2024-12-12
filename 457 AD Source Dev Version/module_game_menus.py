@@ -32378,7 +32378,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 
   (
     "rebellion_launched",mnf_disable_all_keys|mnf_scale_picture,
-    "The city of {s10} has revolted against the oppressive ruler of {s11} and has taken up arms against the {s12}. They dream of an Hispania free of Barbarian oppression and are calling for Rome's aid in their struggle.",
+    "The city of {s10} has revolted against the oppressive ruler of {s11} and has taken up arms against the {s12}. They dream of a Hispania free of Barbarian oppression and are calling for Rome's aid in their struggle.",
     "none",
     [
 (set_background_mesh, "mesh_pic_swad"),

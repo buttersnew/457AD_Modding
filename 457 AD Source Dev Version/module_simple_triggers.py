@@ -8472,7 +8472,6 @@ simple_triggers = [
 	(store_random_in_range, ":rng", 0, 25),
 	(eq, ":rng", 1), #dont let it fire too often
 		(try_begin),
-		(this_or_next|eq, ":center", "p_town_23"),
 		(this_or_next|eq, ":center", "p_town_25"),
 		(eq, ":center", "p_town_40"),
 		(store_faction_of_party, ":town_faction", ":center"),

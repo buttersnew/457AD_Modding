@@ -8478,6 +8478,7 @@ simple_triggers = [
 		(this_or_next|eq, ":town_faction", "fac_kingdom_3"),
 		(this_or_next|eq, ":town_faction", "fac_kingdom_8"),
 		(eq, ":town_faction", "fac_kingdom_15"),
+		(faction_slot_eq, "fac_kingdom_1", slot_faction_state, sfs_active), #only let Roman rebels appear if Rome still exists
 		(call_script, "script_cf_start_rebellion", ":center", "fac_kingdom_1"), #second value determines the affiliation of the rebels, this script can fail
 		(try_end),
 	(try_end),

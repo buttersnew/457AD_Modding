@@ -2470,6 +2470,7 @@ simple_triggers = [
   # Only if the player is male -- female characters will be told that they should seek out a faction through NPCs, possibly
    (32,
    [
+	(eq, "$freelancer_state", 0), #madsci
      (eq, "$players_kingdom", 0),
      (le, "$g_invite_faction", 0),
      (eq, "$g_player_is_captive", 0),
@@ -8472,13 +8473,13 @@ simple_triggers = [
 	(store_random_in_range, ":rng", 0, 25),
 	(eq, ":rng", 1), #dont let it fire too often
 		(try_begin),
-		(this_or_next|eq, ":center", "p_town_23"),
 		(this_or_next|eq, ":center", "p_town_25"),
 		(eq, ":center", "p_town_40"),
 		(store_faction_of_party, ":town_faction", ":center"),
 		(this_or_next|eq, ":town_faction", "fac_kingdom_3"),
 		(this_or_next|eq, ":town_faction", "fac_kingdom_8"),
 		(eq, ":town_faction", "fac_kingdom_15"),
+		(faction_slot_eq, "fac_kingdom_1", slot_faction_state, sfs_active), #only let Roman rebels appear if Rome still exists
 		(call_script, "script_cf_start_rebellion", ":center", "fac_kingdom_1"), #second value determines the affiliation of the rebels, this script can fail
 		(try_end),
 	(try_end),

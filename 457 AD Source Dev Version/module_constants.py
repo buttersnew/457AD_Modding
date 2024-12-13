@@ -239,16 +239,16 @@ slot_faction_morale_of_player_troops    = 99
 slot_faction_tributary_of	            = 100
 
 #diplomacy
-slot_faction_truce_days_with_factions_begin             = 120
-slot_faction_provocation_days_with_factions_begin         = 150 #30 more than before, because we have 26 kingdoms
-slot_faction_war_damage_inflicted_on_factions_begin     = 180 #30 more than before, because we have 26 kingdoms
-slot_faction_sum_advice_about_factions_begin             = 210 #30 more than before, because we have 26 kingdoms
+slot_faction_truce_days_with_factions_begin             = 820
+slot_faction_provocation_days_with_factions_begin         = 870 #50 more than before, because we have 32 kingdoms
+slot_faction_war_damage_inflicted_on_factions_begin     = 920 #50 more than before, because we have 32 kingdoms
+slot_faction_sum_advice_about_factions_begin             = 970 #50 more than before, because we have 32 kingdoms
 ##diplomacy start+ end-points for the ranges for iteration and range checks
 slot_faction_truce_days_with_factions_end 			= slot_faction_provocation_days_with_factions_begin
 slot_faction_provocation_days_with_factions_end 		= slot_faction_war_damage_inflicted_on_factions_begin
 slot_faction_war_damage_inflicted_on_factions_end 	= slot_faction_sum_advice_about_factions_begin
-slot_faction_sum_advice_about_factions_end            = 240
-slot_faction_neighbors_begin    = 241    #MOTO chief avoid center2 loop by storing results
+slot_faction_sum_advice_about_factions_end            = 1020
+slot_faction_neighbors_begin    = 1070    #MOTO chief avoid center2 loop by storing results
 ##diplomacy end+
 
 slot_faction_player_tributary               = 299
@@ -736,7 +736,7 @@ slot_party_orders_time				    	= 267
 slot_party_temp_slot_1			            = 268 #right now used only within a single script, merchant_road_info_to_s42, to denote closed roads. Now also used in comparative scripts
 slot_party_under_player_suggestion			= 269 #move this up a bit
 
-slot_center_disease                         = 270
+slot_center_disease                         = 801
 
 #use only prime numbers
 disease_consumption_timer     = 2
@@ -798,7 +798,8 @@ event_conquered           =   140
 slot_center_current_improvement_builder     = 272
 slot_center_current_improvement_2_builder   = 273
 
-slot_town_trade_good_prices_begin 			= 274
+#make sure stuff doesnt overwrite other stuff
+slot_town_trade_good_prices_begin 			= 1274
 
 slot_center_blockaded             = 275 #used for but a single value; global should be used
 slot_center_blockaded_time        = 276 #used for but a single value; global should be used

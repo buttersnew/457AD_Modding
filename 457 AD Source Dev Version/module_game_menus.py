@@ -12906,6 +12906,7 @@ TOTAL:  {reg5}"),
           (call_script, "script_music_set_situation_with_culture", mtf_sit_travel),
         (try_end),
         (store_encountered_party, "$current_town"),
+	(assign, "$g_player_is_captive", 0), #freelancer fix where this can be untrue
 
         #Who's in the hall? {s16} + Dj_FRedy
         (call_script, "script_whos_in_the_hall", "$current_town"),
@@ -13776,6 +13777,7 @@ TOTAL:  {reg5}"),
              (party_get_slot, ":mercenary_troop", "$current_town", slot_center_mercenary_troop_type),
              (party_get_slot, ":mercenary_amount", "$current_town", slot_center_mercenary_troop_amount),
              (try_begin),
+		(neq, "$freelancer_state", 1), #madsci dont let the player recruit when freelancering
                (gt, ":mercenary_troop", 0),
                (gt, ":mercenary_amount", 0),
                (set_visitor, ":cur_entry", ":mercenary_troop"),
@@ -13797,6 +13799,7 @@ TOTAL:  {reg5}"),
              #(try_end),
 
             (try_for_range, ":companion_candidate", companions_begin, companions_end),
+		(neq, "$freelancer_state", 1), #madsci dont let the player recruit when freelancering
                (troop_slot_eq, ":companion_candidate", slot_troop_occupation, 0),
                (troop_slot_eq, ":companion_candidate", slot_troop_cur_center, "$current_town"),
                (neg|troop_slot_ge, ":companion_candidate", slot_troop_prisoner_of_party, centers_begin),
@@ -14727,17 +14730,20 @@ TOTAL:  {reg5}"),
        [
 
         (try_begin),
-          (troop_slot_ge, "trp_player", slot_troop_renown, 100), #need high renown to hire troops
-         (try_begin),
-           (call_script, "script_cf_enter_center_location_bandit_check"),
-         (else_try),
-           (assign, "$temp_troop", -1),
-           (assign, reg43, 1),
-           (assign, "$temp4", 1),
-           (start_presentation, "prsnt_barracks"),
-         (try_end),
+        (eq, "$freelancer_state", 1), #can't recruit troops while in freelancer
+	(display_message,"@Can't recruit troops while serving in a lord's army.",0xFFFFAAAA),
+	(else_try),
+	(troop_slot_ge, "trp_player", slot_troop_renown, 100), #need high renown to hire troops
+		(try_begin),
+		(call_script, "script_cf_enter_center_location_bandit_check"),
+		(else_try),
+		(assign, "$temp_troop", -1),
+		(assign, reg43, 1),
+		(assign, "$temp4", 1),
+		(start_presentation, "prsnt_barracks"),
+		(try_end),
         (else_try),
-             (display_message,"@You need more renown to hire troops from here.",0xFFFFAAAA),
+	(display_message,"@You need more renown to hire troops from here.",0xFFFFAAAA),
         (try_end),
         ]),
 
@@ -32378,7 +32384,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 
   (
     "rebellion_launched",mnf_disable_all_keys|mnf_scale_picture,
-    "The city of {s10} has revolted against the oppressive ruler of {s11} and has taken up arms against the {s12}. They dream of an Hispania free of Barbarian oppression and are calling for Rome's aid in their struggle.",
+    "The city of {s10} has revolted against the oppressive ruler of {s11} and has taken up arms against the {s12}. They dream of a Hispania free of Barbarian oppression and are calling for Rome's aid in their struggle.",
     "none",
     [
 (set_background_mesh, "mesh_pic_swad"),

@@ -2470,6 +2470,7 @@ simple_triggers = [
   # Only if the player is male -- female characters will be told that they should seek out a faction through NPCs, possibly
    (32,
    [
+	(eq, "$freelancer_state", 0), #madsci
      (eq, "$players_kingdom", 0),
      (le, "$g_invite_faction", 0),
      (eq, "$g_player_is_captive", 0),

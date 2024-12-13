@@ -27132,6 +27132,9 @@ I will use this to make amends to those you have wronged, and I will let it be k
      #(this_or_next|neq, ":troop_faction", "fac_kingdom_10"),
      #(neq, ":troop_faction", "fac_kingdom_20"),
      (troop_slot_ge, "trp_player", slot_troop_renown, 120),
+(faction_get_slot, ":troop", "$g_talk_troop_faction", slot_faction_tier_1_troop),
+(gt, ":troop", 0),
+(troop_is_mounted, ":troop"), #madsci make sure this is actually a horseman
     ], "A horseman!", "lord_request_enlistment", [(assign, "$temp", slot_faction_tier_3_troop)]],
 
   # dialog_accept_enlistment
@@ -27232,6 +27235,23 @@ I will use this to make amends to those you have wronged, and I will let it be k
    ]],
 
 #dialog_accept_ask_return_from_leave
+
+#madsci add failsafe
+[anyone, "ask_return_from_leave",
+[
+(troop_get_slot, ":cur_party", "$g_talk_troop", slot_troop_leaded_party),
+(this_or_next|le, ":cur_party", 0),
+(neg|party_is_active, ":cur_party"),
+],
+"I am not in charge of a war party at the moment, {playername}.", "lord_pretalk",
+[]],
+
+[anyone, "ask_return_from_leave",
+[(main_party_has_troop,"trp_kidnapped_girl"),
+],
+"You should return that girl to her family first.", "lord_pretalk",
+[]],
+
     [anyone,"ask_return_from_leave", [
         #(ge, "$g_talk_troop_relation", 0),
     (check_quest_active, "qst_freelancer_vacation"),
@@ -27253,6 +27273,7 @@ I will use this to make amends to those you have wronged, and I will let it be k
 
 [anyone|plyr,"lord_talk", [(le,"$talk_context", tc_party_encounter),
                        (ge, "$g_talk_troop_faction_relation", 0),
+			(eq, "$freelancer_state", 0), #madsci
                        #(troop_slot_eq, "$g_talk_troop", slot_troop_is_prisoner, 0),
                        (neg|troop_slot_ge, "$g_talk_troop", slot_troop_prisoner_of_party, 0),
                        (faction_slot_eq, "$g_talk_troop_faction", slot_faction_leader, "$g_talk_troop"),
@@ -27267,6 +27288,7 @@ I will use this to make amends to those you have wronged, and I will let it be k
                        (faction_slot_eq, "$g_talk_troop_faction", slot_faction_leader, "$g_talk_troop"),
                        (eq, "$players_kingdom", "$g_talk_troop_faction"),
                        (eq, "$player_has_homage", 0),
+			(eq, "$freelancer_state", 0), #madsci
                        (store_partner_quest, ":lords_quest"),
                        (neq, ":lords_quest", "qst_join_faction"),
                       ],

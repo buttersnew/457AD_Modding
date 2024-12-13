@@ -524,3 +524,4 @@ mnu_ernak_feast = 522
 mnu_ernak_final_battle = 523
 mnu_ernak_final_battle_victory = 524
 mnu_ernak_final_feast = 525
+mnu_rebellion_launched = 526

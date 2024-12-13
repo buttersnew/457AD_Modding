@@ -916,4 +916,6 @@ script_game_troop_upgrades_button_clicked = 914
 script_apply_effect_of_other_people_on_courage_scores_vc = 915
 script_apply_death_effect_on_courage_scores_vc = 916
 script_decide_run_away_or_not_vc = 917
-script_efe_init = 918
+script_cf_start_rebellion = 918
+script_cf_launch_rebellion = 919
+script_efe_init = 920

@@ -1312,7 +1312,7 @@ slot_troop_will_join_prison_break      = 161
 #SB : 193 for npc as of 1.168
 troop_slots_reserved_for_relations_start        = 165 #this is based on id_troops, and might change
 
-slot_troop_relations_begin				= 0 #this creates an array for relations between troops
+slot_troop_relations_begin				= 1250 #this creates an array for relations between troops
 											#Right now, lords start at 165 and run to around 290, including pretenders
 
 

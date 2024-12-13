@@ -19234,11 +19234,24 @@ Here, take this purse of {reg3} siliquae, as I promised. I hope we can travel to
 (neq, "$g_talk_troop", "$g_player_minister"),
 (troop_get_slot, ":original_faction", "$g_talk_troop", slot_troop_original_faction),
 (faction_get_slot, ":original_faction_leader", ":original_faction", slot_faction_leader),
+(gt, ":original_faction_leader", 0), #madsci
+(neq, ":original_faction_leader", "$g_talk_troop"),
 (str_store_troop_name, s10, ":original_faction_leader"),
 (str_store_string, s9, "str_lord_indicted_dialog_approach"),
 ],
 #Greetings, {my lord/my lady}. You may have heard of my ill treatment at the hands of {s10}. You have a reputation as one who treats {his/her} vassals well, and if you will have me, I would be honored to pledge myself as your vassal.
 "{s9}", "lord_requests_recruitment", []],
+
+#madsci failsafe if for some reason the former faction isnt a valid kingdom with a king
+[anyone ,"start",
+[
+(call_script, "script_dplmc_get_troop_standing_in_faction", "trp_player", "$g_talk_troop_faction"),
+(this_or_next|ge, reg0, DPLMC_FACTION_STANDING_LEADER_SPOUSE),
+(eq, "$g_talk_troop_faction", "fac_player_supporters_faction"),
+(is_between, "$g_talk_troop", active_npcs_begin, active_npcs_end),
+(troop_slot_eq, "$g_talk_troop", slot_troop_occupation, slto_inactive),
+(neq, "$g_talk_troop", "$g_player_minister"),
+],"Greetings, {my lord/my lady}. You may have heard of my ill treatment at the hands of my former liege. You have a reputation as one who treats {his/her} vassals well, and if you will have me, I would be honored to pledge myself as your vassal.", "lord_requests_recruitment", []],
 
 [anyone|plyr ,"lord_requests_recruitment",
 [
@@ -19263,7 +19276,9 @@ Here, take this purse of {reg3} siliquae, as I promised. I hope we can travel to
 [
 (str_store_string, s9, "str_lord_indicted_dialog_approach_no"),
 ], #I'm sorry. Your service is not required.
-"{s9}", "lord_requests_recruitment_refuse", []],
+"{s9}", "lord_requests_recruitment_refuse", [
+(troop_set_slot, "$g_talk_troop", slot_troop_cur_center, -1), #madsci bug fix
+]],
 
 [anyone ,"lord_requests_recruitment_refuse",
 [

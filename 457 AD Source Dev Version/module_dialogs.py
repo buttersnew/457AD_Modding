@@ -27132,7 +27132,7 @@ I will use this to make amends to those you have wronged, and I will let it be k
      #(this_or_next|neq, ":troop_faction", "fac_kingdom_10"),
      #(neq, ":troop_faction", "fac_kingdom_20"),
      (troop_slot_ge, "trp_player", slot_troop_renown, 120),
-(faction_get_slot, ":troop", "$g_talk_troop_faction", slot_faction_tier_1_troop),
+(faction_get_slot, ":troop", "$g_talk_troop_faction", slot_faction_tier_3_troop),
 (gt, ":troop", 0),
 (troop_is_mounted, ":troop"), #madsci make sure this is actually a horseman
     ], "A horseman!", "lord_request_enlistment", [(assign, "$temp", slot_faction_tier_3_troop)]],

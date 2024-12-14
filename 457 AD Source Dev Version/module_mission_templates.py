@@ -7505,6 +7505,25 @@ mission_templates = [
           (try_end),
               ], []), #controlling courage score and if needed deciding to run away for each agent
 
+#madsci freelancer dont let two AI teams stall forever
+ (5, 0, ti_once, [
+(eq, "$freelancer_state", 1),
+(neq, "$g_battle_won", 1),
+(store_mission_timer_a, ":time"),
+(gt, ":time", 120), #120 should be enough to make the formations face each other at close distance
+],
+   [
+(get_player_agent_no, ":player_agent"),
+(agent_get_team, ":player_team", ":player_agent"),
+	(try_for_range, ":team", 0, 4),
+	(neq, ":team", ":player_team"),
+      	(call_script, "script_formation_end", ":team", grc_infantry),  #formations
+      	(call_script, "script_formation_end", ":team", grc_archers), #formations
+      	(call_script, "script_formation_end", ":team", grc_cavalry), #formations
+	(team_give_order, ":team", grc_everyone, mordr_charge),
+	(try_end),
+   ]),
+
 #      (5, 0, 0, [
 #          (store_mission_timer_a,":mission_time"),
 #

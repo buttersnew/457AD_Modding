@@ -499,6 +499,9 @@ triggers = [
 #move
 (0, 0, 24 * 14,[
     (try_for_range, ":pretender", pretenders_begin, pretenders_end),
+	(store_troop_faction, ":kingdom_hero_faction", ":pretender"),
+	(neq, ":kingdom_hero_faction", "fac_outlaws"), #madsci exclude deliberately disabled pretenders
+
         (troop_set_slot, ":pretender", slot_troop_cur_center, 0),
         (neq, ":pretender", "$supported_pretender"),
         (troop_get_slot, ":target_faction", ":pretender", slot_troop_original_faction),
@@ -506,6 +509,7 @@ triggers = [
         (faction_slot_eq, ":target_faction", slot_faction_has_rebellion_chance, 1),
         (neg|troop_slot_eq, ":pretender", slot_troop_occupation, slto_kingdom_hero),
         (neg|troop_slot_eq, ":pretender", slot_troop_occupation, slto_inactive),
+        (neg|troop_slot_eq, ":pretender", slot_troop_occupation, dplmc_slto_dead),
 
         (assign, ":break", 30),
         (try_for_range, ":unused", 0, ":break"),

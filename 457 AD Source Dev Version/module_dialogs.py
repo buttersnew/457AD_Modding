@@ -7056,6 +7056,11 @@ Still I am sorry that I'll leave you soon. You must promise me, you'll come visi
 #To be eligible to establish a culture, you need some connection to it.
 (assign, ":faction_allowed", 0),
 (try_begin),
+(assign, ":end", "fac_rebel_kingdom_3"), #madsci dont allow the player to choose rebel faction as culture
+(val_add, ":end", 1),
+(is_between, ":faction_no", "fac_rebel_kingdom_1", ":end"),
+(assign, ":faction_allowed", 0),
+(else_try),
    #If it is the faction you left (or is otherwise somehow your faction)
    (this_or_next|eq, ":faction_no", "$players_oath_renounced_against_kingdom"),
    (eq, ":faction_no", "$players_kingdom"),

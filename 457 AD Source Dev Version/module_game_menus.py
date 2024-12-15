@@ -10512,6 +10512,7 @@ TOTAL:  {reg5}"),
     "none",
     [
         (assign, "$current_town", "$g_encountered_party"),
+	(stop_all_sounds, 1), #madsci bug fix to ambient sounds that dont stop
 
         (try_begin),
           (party_get_slot, ":center_lord", "$current_town", slot_town_lord),
@@ -12899,6 +12900,7 @@ TOTAL:  {reg5}"),
     "{s10} {s14}^{s11}{s12}{s13}^{s16}^^{s15}",
     "none",
     [
+	(stop_all_sounds, 1), #madsci bug fix to ambient sounds that dont stop
         (try_begin),
           (gt, "$sneaked_into_town", disguise_none),
           (call_script, "script_music_set_situation_with_culture", mtf_sit_town_infiltrate),
@@ -13669,8 +13671,8 @@ TOTAL:  {reg5}"),
           (party_slot_eq,"$current_town",slot_party_type, spt_town),
           (this_or_next|eq,"$entry_to_town_forbidden",0),
           (gt, "$sneaked_into_town", disguise_none),
-#          (party_get_slot, ":scene", "$current_town", slot_town_tavern),
-#          (scene_slot_eq, ":scene", slot_scene_visited, 1), #check if scene has been visited before to allow entry from menu. Otherwise scene will only be accessible from the town center.
+             (party_get_slot, ":cur_scene", "$current_town", slot_town_tavern),
+		(gt, ":cur_scene", 0), #madsci require valid scene
           ]
        ,"Visit the tavern.",
        [
@@ -13833,6 +13835,9 @@ TOTAL:  {reg5}"),
                     (eq, ":companion_candidate", "trp_npc20"),   #tocan: companion troop
                     (eq, "$ildico_companion", 0),     #tocan: call it how you want
                (else_try),
+		(eq, ":companion_candidate", "trp_npc25"), #madsci this guy is in his village unless youve already recruited him once
+		(troop_slot_eq, "trp_npc25", slot_troop_playerparty_history, pp_history_scattered),
+		(else_try),
                     (set_visitor, ":cur_entry", ":companion_candidate"),
                     (val_add, ":cur_entry", 1),
                (try_end),

@@ -6062,6 +6062,7 @@ mission_templates = [
       [
         (try_begin),
           (eq, "$g_main_attacker_agent", 0),
+	(stop_all_sounds, 1), #madsci
           (set_trigger_result, 1),
         (else_try),
           (display_message, "str_cannot_leave_now"), #SB : message
@@ -6758,6 +6759,26 @@ mission_templates = [
           # (call_script, "script_succeed_quest", "qst_hunt_down_fugitive"),
         # (try_end),
         # ]),
+
+	#madsci make the fugitive aggressive
+      (1,0,ti_once,[
+	  (neg|conversation_screen_is_active),
+          (check_quest_active, "qst_hunt_down_fugitive"),
+          (neg|check_quest_succeeded, "qst_hunt_down_fugitive"),
+          (neg|check_quest_failed, "qst_hunt_down_fugitive"),
+          (quest_slot_eq, "qst_hunt_down_fugitive", slot_quest_target_center, "$current_town"),
+          (quest_slot_eq, "qst_hunt_down_fugitive", slot_quest_current_state, 1),
+          (get_player_agent_no, ":player_agent"),
+          (try_for_agents, ":cur_agent"),
+            (agent_is_alive,":cur_agent"),
+            (agent_get_troop_id, ":cur_agent_troop", ":cur_agent"),
+            (eq, ":cur_agent_troop", "trp_fugitive"),
+            (agent_set_is_alarmed, ":cur_agent", 1),
+            (agent_ai_set_aggressiveness, ":cur_agent", 10),
+            (agent_force_rethink, ":cur_agent"),
+            (agent_set_look_target_agent, ":cur_agent", ":player_agent"),
+          (try_end),
+          ],[]),
         
 
    (ti_on_agent_killed_or_wounded, 0, 0, [(check_quest_active, "qst_hunt_down_fugitive"), #not ti_once

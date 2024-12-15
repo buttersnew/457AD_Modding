@@ -13404,6 +13404,8 @@ TOTAL:  {reg5}"),
         (party_slot_eq, "$current_town", slot_party_type, spt_town),
         (this_or_next|eq,"$entry_to_town_forbidden",0),
         (gt, "$sneaked_into_town", disguise_none), #SB : condition for disguise
+           (party_get_slot, ":town_scene", "$current_town", slot_town_center),
+	(gt, ":town_scene", 0), #madsci require valid scene
       ],
       "Take a walk around the streets.",
        [
@@ -13420,6 +13422,18 @@ TOTAL:  {reg5}"),
            (faction_get_slot, ":tier_2_troop", ":town_faction", slot_faction_tier_3_troop),
            (faction_get_slot, ":tier_3_troop", ":town_faction", slot_faction_tier_3_troop),
            (faction_get_slot, ":tier_4_troop", ":town_faction", slot_faction_tier_4_troop),
+	(try_begin), #madsci failsafe
+	(le, ":tier_2_troop", 0),
+	(assign, ":tier_2_troop", "trp_manhunter"),
+	(try_end),
+	(try_begin),
+	(le, ":tier_3_troop", 0),
+	(assign, ":tier_3_troop", "trp_manhunter"),
+	(try_end),
+	(try_begin),
+	(le, ":tier_4_troop", 0),
+	(assign, ":tier_4_troop", "trp_manhunter"),
+	(try_end),
            (party_get_slot, ":town_scene", "$current_town", slot_town_center),
            (modify_visitors_at_site, ":town_scene"),
            (reset_visitors),
@@ -13512,18 +13526,30 @@ TOTAL:  {reg5}"),
            (try_begin),
              (le, ":troop_prison_guard", 0),
              (faction_get_slot, ":troop_prison_guard", ":town_faction", slot_faction_prison_guard_troop),
+		(gt, ":troop_prison_guard", 0),
+		(else_try),
+		(assign,  ":troop_prison_guard", "trp_gothic_prison_guard"), #madsci failsafe
            (try_end),
            (try_begin),
              (le, ":troop_castle_guard", 0),
              (faction_get_slot, ":troop_castle_guard", ":town_faction", slot_faction_castle_guard_troop),
+		(gt, ":troop_castle_guard", 0),
+		(else_try),
+		(assign, ":troop_castle_guard","trp_gothic_castle_guard"), #madsci failsafe
            (try_end),
            (try_begin),
              (le, ":tier_2_troop", 0),
              (faction_get_slot, ":tier_2_troop", ":town_faction", slot_faction_tier_2_troop),
+	(gt, ":tier_2_troop", 0),
+	(else_try),
+	(assign, ":tier_2_troop", "trp_manhunter"),
            (try_end),
            (try_begin),
              (le, ":tier_3_troop", 0),
              (faction_get_slot, ":tier_3_troop", ":town_faction", slot_faction_tier_3_troop),
+	(gt, ":tier_3_troop", 0),
+	(else_try),
+	(assign, ":tier_3_troop", "trp_manhunter"),
            (try_end),
            (try_begin), #think about this, should castle guard have to go nearby fire too? If he do not go, killing 2 armored guard is too hard for player. For now he goes too.
              #if guards have not gone to some other important happening at nearby villages, then spawn 4 guards. (example : fire)
@@ -16025,6 +16051,10 @@ TOTAL:  {reg5}"),
      (quest_get_slot, ":amount_trained", "qst_train_peasants_against_bandits", slot_quest_target_amount),
      (store_faction_of_party, ":village_faction", "$current_town"), #assuming player trains them with local weapons
      (faction_get_slot, ":recruit_troop", ":village_faction", slot_faction_tier_1_troop),
+	(try_begin),
+	(le, ":recruit_troop", 0),
+	(assign, ":recruit_troop", "trp_manhunter"), #madsci failsafe
+	(try_end),
      (party_add_members, "$current_town", ":recruit_troop", ":amount_trained"),
      (party_remove_members, "$current_town", "trp_farmer", ":amount_trained"),
 
@@ -16035,6 +16065,7 @@ TOTAL:  {reg5}"),
      (try_for_range, ":slot_no", num_equipment_kinds ,max_inventory_items + num_equipment_kinds),
         (store_random_in_range, ":rand", 0, 100),
         (lt, ":rand", 50),
+	(gt, ":merchant_troop", 0), #madsci make sure its valid troop
         (troop_set_inventory_slot, ":merchant_troop", ":slot_no", -1),
      (try_end),
      (call_script, "script_add_log_entry", logent_helped_peasants, "trp_player",  "$current_town", -1, -1),
@@ -25143,6 +25174,8 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     (store_faction_of_party, ":encountered_faction", "$g_encountered_party"),
     (store_relation, ":faction_relation", ":encountered_faction", "fac_player_supporters_faction"),
     (ge, ":faction_relation", 0),
+          (party_get_slot, ":scene", "$g_encountered_party",slot_town_center),
+	(gt, ":scene", 0), #madsci valid scene required
       ],"Visit.",[
       (try_begin),
           (eq,"$town_nighttime",1),
@@ -25159,6 +25192,14 @@ goods, and books will never be sold. ^^You can change some settings here freely.
             (faction_get_slot, ":walker_1", ":fac", slot_faction_tier_2_troop), 
             (faction_get_slot, ":walker_2", ":fac", slot_faction_tier_3_troop),        
           (try_end),
+	(try_begin), #madsci failsafe
+	(le, ":walker_1", 0),
+	(assign, ":walker_1", "trp_manhunter"),
+	(try_end),
+	(try_begin),
+	(le, ":walker_2", 0),
+	(assign, ":walker_2", "trp_manhunter"),
+	(try_end),
 
           (party_get_slot, ":leader", "$g_encountered_party", slot_town_lord),
 
@@ -25367,6 +25408,8 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     (store_faction_of_party, ":encountered_faction", "$g_encountered_party"),
     (store_relation, ":faction_relation", ":encountered_faction", "fac_player_supporters_faction"),
     (ge, ":faction_relation", 0),
+          (party_get_slot, ":scene", "$g_encountered_party",slot_town_center),
+	(gt, ":scene", 0), #madsci make sure scene is valid
       ],"Visit.",[
       (try_begin),
           (eq,"$town_nighttime",1),
@@ -25379,7 +25422,21 @@ goods, and books will never be sold. ^^You can change some settings here freely.
             (faction_get_slot, ":walker_2", ":fac", slot_faction_tier_3_troop),        
           (try_end),
 
+	(try_begin), #madsci failsafe
+	(le, ":walker_1", 0),
+	(assign, ":walker_1", "trp_manhunter"),
+	(try_end),
+	(try_begin),
+	(le, ":walker_2", 0),
+	(assign, ":walker_2", "trp_manhunter"),
+	(try_end),
+
           (party_get_slot, ":leader", "$g_encountered_party", slot_town_lord),
+
+	(try_begin),
+	(le, ":leader", 0),
+	(assign, ":leader", "trp_manhunter"),
+	(try_end),
 
           (party_get_slot, ":scene", "$g_encountered_party",slot_town_center),
           (set_jump_mission, "mt_religious_center"),

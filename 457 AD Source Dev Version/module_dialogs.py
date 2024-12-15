@@ -43955,7 +43955,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
    (this_or_next|eq, ":bandit_type", "pt_coptic_bandit_lair"),
    (eq, ":bandit_type", "pt_arab_bandit_lair"),
    ],
-  "Bandits such as these usually establish their hideouts in the foothills on the edge of the desert, often in a canyon near a spring. This gives them both water and concealment. The best way to discover its location would be to find a group of bandits who appear to be heading back to their base to resupply, and follow them.", "merchant_quest_track_bandit_lair_choice",
+  "{s4} such as these usually establish their hideouts in the foothills on the edge of the desert, often in a canyon near a spring. This gives them both water and concealment. The best way to discover its location would be to find a group of {s4} who appear to be heading back to their base to resupply, and follow them.", "merchant_quest_track_bandit_lair_choice",
    []],
 
   [anyone,"destroy_lair_quest_brief", [
@@ -43965,7 +43965,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
    (this_or_next|eq, ":bandit_type", "pt_mountain_bandit_lair"),
    (eq, ":bandit_type", "pt_armenian_bandit_lair"),
    ],
-  "Bandits such as these will usually establish a base in the highlands, often on an steep ledge where they have a view of the surrounding countryside. This makes them difficult to surprise. The best way to discover its location would be to find a group of bandits who appear to be heading back to their base to resupply, and follow them.", "merchant_quest_track_bandit_lair_choice",
+  "{s4} such as these will usually establish a base in the highlands, often on an steep ledge where they have a view of the surrounding countryside. This makes them difficult to surprise. The best way to discover its location would be to find a group of {s4} who appear to be heading back to their base to resupply, and follow them.", "merchant_quest_track_bandit_lair_choice",
    []],
 
   [anyone,"destroy_lair_quest_brief", [
@@ -43984,7 +43984,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
    (this_or_next|eq, ":bandit_type", "pt_steppe_bandit_lair"),
    (eq, ":bandit_type", "pt_sabir_bandit_lair"),
    ],
-  "Bandits such as these will usually set up their encampments in the woodland on the steppe, where they have some concealment. The best way to discover its location would be to find a group of bandits who appear to be heading back to their base to resupply, and follow them.", "merchant_quest_track_bandit_lair_choice",
+  "{s4} such as these will usually set up their encampments in the woodland on the steppe, where they have some concealment. The best way to discover its location would be to find a group of {s4} who appear to be heading back to their base to resupply, and follow them.", "merchant_quest_track_bandit_lair_choice",
    []],
 
   [anyone,"destroy_lair_quest_brief", [
@@ -43993,7 +43993,14 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
    (party_get_template_id, ":bandit_type", ":bandit_lair"),
    (eq, ":bandit_type", "pt_taiga_bandit_lair"),
    ],
-  "Bandits such as these will usually set up their encampments deep in the woods. The best way to discover its location would be to find a group of bandits who appear to be heading back to their base to resupply, and follow them.", "merchant_quest_track_bandit_lair_choice",
+  "{s4} such as these will usually set up their encampments deep in the woods. The best way to discover its location would be to find a group of {s4} who appear to be heading back to their base to resupply, and follow them.", "merchant_quest_track_bandit_lair_choice",
+   []],
+
+#madsci failsafe
+  [anyone,"destroy_lair_quest_brief", [
+     (eq,"$random_quest_no", "qst_destroy_bandit_lair"),
+   ],
+  "Their hideout could be anywhere. The best way to discover its location would be to find a group of {s4} who appear to be heading back to their base to resupply, and follow them.", "merchant_quest_track_bandit_lair_choice",
    []],
 
   [anyone|plyr,"merchant_quest_track_bandit_lair_choice", [], "Aye, I'll do it.", "merchant_quest_destroy_lair_brief", [

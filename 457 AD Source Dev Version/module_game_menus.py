@@ -32458,7 +32458,9 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 (str_store_faction_name, s12, ":party_faction"),
 ],
     [
-      ("continue",[],"Continue...",[(change_screen_return)]),
+      ("continue",[],"Continue...",[
+(jump_to_menu, "mnu_auto_return_to_map"),
+]),
     ],
   ),
 

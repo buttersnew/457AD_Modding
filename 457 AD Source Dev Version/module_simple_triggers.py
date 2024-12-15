@@ -8486,8 +8486,12 @@ simple_triggers = [
 	(store_random_in_range, ":cooldown", 90, 120), #dont let another rebellion happen immediately
 	(party_set_slot, ":center", slot_party_rebellion_cooldown, ":cooldown"),
 	(call_script, "script_cf_launch_rebellion", ":center"),
-	(assign, "$g_notification_menu_var1", ":center"),
-	(jump_to_menu, "mnu_rebellion_launched"),
+		(try_begin),
+        	(eq, "$g_infinite_camping", 0),
+		(neq, "$freelancer_state", 1),
+		(assign, "$g_notification_menu_var1", ":center"),
+		(jump_to_menu, "mnu_rebellion_launched"),
+		(try_end),
 	(else_try),
 	(party_slot_eq, ":center", slot_center_is_besieged_by, -1), #no rebellion in besieged town
 	(party_get_slot, ":rebellion_cooldown", ":center", slot_party_rebellion_cooldown),

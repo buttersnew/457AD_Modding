@@ -533,7 +533,7 @@ party_templates = [
   ("ostrogothic_army","Ostrogothic Army",icon_germanic_army|carries_goods(20)|pf_show_faction,0,fac_kingdom_4,soldier_personality,[(trp_gothic_freeman,40,75),(trp_gothic_skirmisher,10,30),(trp_gothic_mounted_skirmisher,10,20),(trp_gothic_horseman,5,10),(trp_gothic_companion,1,1)]), #balance out so that ostrogoths do not get completely destroyed
 
   ("arran_army","Arran Rebels",icon_axeman|carries_goods(20)|pf_show_faction,0,fac_kingdom_28,soldier_personality,[(trp_aghwan_warrior,60,100),(trp_aghwan_archer,20,40),(trp_aghwan_nobleman,10,20),(trp_albanian_cavalry,1,5)]),
-("rebel_army","Rebels",icon_axeman|carries_goods(20)|pf_show_faction,0,fac_commoners,soldier_personality,[]),
+  ("rebel_army","Rebels",icon_axeman|carries_goods(20)|pf_show_faction,0,fac_commoners,soldier_personality,[]),
 
   #minor factions 30 - 60
   ("aestii_party","Aestii Warriors",icon_axeman|carries_goods(30)|pf_show_faction,0,fac_minor_aestii,bandit_personality,[(trp_aestii_skirmisher,10,25),(trp_aestii_tribesman,15,25),(trp_aestii_companion,5,10)]), #for patrols
@@ -562,7 +562,6 @@ party_templates = [
   ("iazyges_party","Iazyges Patrol",icon_axeman|carries_goods(30)|pf_show_faction,0,fac_minor_iazyges,bandit_personality,[(trp_steppe_bandit,15,35),(trp_steppe_rider,10,15),(trp_steppe_cataphract,5,10)]),
   ("heruli_party","Heruli Patrol",icon_axeman|carries_goods(30)|pf_show_faction,0,fac_heruli,bandit_personality,[(trp_eastern_germanic_skirmisher,10,25),(trp_eastern_germanic_spearman,10,15),(trp_eastern_germanic_mounted_skirmisher,5,10),(trp_eastern_germanic_mounted_warrior,5,10)]),
   ("adovacrius_party","Adovacrius Host Patrol",icon_axeman|carries_goods(30)|pf_show_faction,0,fac_adovacrius_host,bandit_personality,[(trp_northern_germanic_skirmisher,10,25),(trp_northern_germanic_freeman,10,15),(trp_northern_germanic_warrior,5,10),(trp_northern_germanic_horseman,5,10)]),
-
 
   ("minor_faction_levies", "Levies", icon_axeman|pf_show_faction|pf_always_visible, soldier_personality, fac_commoners, 0, []),
 

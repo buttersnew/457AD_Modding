@@ -4380,6 +4380,9 @@ We apologize sincerely if you contributed your suggestions and feedback but were
   ("faction_title_male_26", "Phylarch {s0}"),
   ("faction_title_male_27", "Chief {s0}"),
   ("faction_title_male_28", "Saspet {s0}"),
+  ("faction_title_male_rebel_1", "Dominus {s0}"),
+  ("faction_title_male_rebel_2", "Dominus {s0}"),
+  ("faction_title_male_rebel_3", "Dominus {s0}"),
 
   ("faction_title_female_player", "Comitessa {s0}"),
   ("faction_title_female_1", "Comitessa {s0}"),
@@ -4410,6 +4413,9 @@ We apologize sincerely if you contributed your suggestions and feedback but were
   ("faction_title_female_26", "{s0}"),
   ("faction_title_female_27", "{s0}"),
   ("faction_title_female_28", "{s0}"),
+  ("faction_title_female_rebel_1", "{s0}"),
+  ("faction_title_female_rebel_2", "{s0}"),
+  ("faction_title_female_rebel_3", "{s0}"),
 
   ("faction_leader_title_male_player", "{s0} Augustus"),
   ("faction_leader_title_male_1", "{s0} Augustus"),
@@ -4440,6 +4446,9 @@ We apologize sincerely if you contributed your suggestions and feedback but were
   ("faction_leader_title_male_26", "Basiliskos {s0}"),
   ("faction_leader_title_male_27", "Rex {s0}"),
   ("faction_leader_title_male_28", "Shah {s0}"),
+  ("faction_leader_title_male_rebel_1", "Defensor Civitatis {s0}"),
+  ("faction_leader_title_male_rebel_2", "Defensor Civitatis {s0}"),
+  ("faction_leader_title_male_rebel_3", "Defensor Civitatis {s0}"),
 
   ("faction_leader_title_female_player", "Queen {s0}"),
   ("faction_leader_title_female_1", "Queen {s0}"),
@@ -4470,6 +4479,9 @@ We apologize sincerely if you contributed your suggestions and feedback but were
   ("faction_leader_title_female_26", "Queen {s0}"),
   ("faction_leader_title_female_27", "Queen {s0}"),
   ("faction_leader_title_female_28", "Queen {s0}"),
+  ("faction_leader_title_female_rebel_1", "{s0}"),
+  ("faction_leader_title_female_rebel_2", "{s0}"),
+  ("faction_leader_title_female_rebel_3", "{s0}"),
 
   ("name_kingdom_text", "What will be the name of your kingdom?"),
   ("default_kingdom_name", "{s0}'s Kingdom"),

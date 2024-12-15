@@ -1312,7 +1312,7 @@ slot_troop_will_join_prison_break      = 161
 #SB : 193 for npc as of 1.168
 troop_slots_reserved_for_relations_start        = 165 #this is based on id_troops, and might change
 
-slot_troop_relations_begin				= 0 #this creates an array for relations between troops
+slot_troop_relations_begin				= 1250 #this creates an array for relations between troops
 											#Right now, lords start at 165 and run to around 290, including pretenders
 
 
@@ -2423,13 +2423,13 @@ dplmc_slot_item_type_not_for_sell  = 71
 # These are troops slots
 ##diplomacy start+ Altered because 154 is slot_troop_stance_on_faction_issue.
 #(Companions can become lords, so parts of the auto-loot system had undesired consequences for promoted companions.)
-dplmc_slot_upgrade_armor = 155 #was 153 before Diplomacy 4.0
-dplmc_slot_upgrade_horse = 156 #was 154 before Diplomacy 4.0
+dplmc_slot_upgrade_armor = 814 #was 153 before Diplomacy 4.0
+dplmc_slot_upgrade_horse = 815 #was 154 before Diplomacy 4.0
 ##diplomacy end+
-dplmc_slot_upgrade_wpn_0 = 157
-dplmc_slot_upgrade_wpn_1 = 158
-dplmc_slot_upgrade_wpn_2 = 159
-dplmc_slot_upgrade_wpn_3 = 160
+dplmc_slot_upgrade_wpn_0 = 816
+dplmc_slot_upgrade_wpn_1 = 817
+dplmc_slot_upgrade_wpn_2 = 818
+dplmc_slot_upgrade_wpn_3 = 819
 
 dplmc_wpn_setting_1                 = 1
 dplmc_wpn_setting_2                 = 2

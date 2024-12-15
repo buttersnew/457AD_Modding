@@ -7056,6 +7056,11 @@ Still I am sorry that I'll leave you soon. You must promise me, you'll come visi
 #To be eligible to establish a culture, you need some connection to it.
 (assign, ":faction_allowed", 0),
 (try_begin),
+(assign, ":end", "fac_rebel_kingdom_3"), #madsci dont allow the player to choose rebel faction as culture
+(val_add, ":end", 1),
+(is_between, ":faction_no", "fac_rebel_kingdom_1", ":end"),
+(assign, ":faction_allowed", 0),
+(else_try),
    #If it is the faction you left (or is otherwise somehow your faction)
    (this_or_next|eq, ":faction_no", "$players_oath_renounced_against_kingdom"),
    (eq, ":faction_no", "$players_kingdom"),
@@ -19222,6 +19227,18 @@ Here, take this purse of {reg3} siliquae, as I promised. I hope we can travel to
 
 #Lord to be recruited
 
+#madsci exiled lords
+[anyone ,"start",
+[
+(eq, "$talk_context", tc_court_talk),
+(this_or_next|troop_slot_eq, "$g_talk_troop", slot_troop_occupation, dplmc_slto_exile),
+(eq, "$g_talk_troop_faction", "fac_outlaws"),
+(is_between, "$g_talk_troop", active_npcs_begin, active_npcs_end),
+(neq, "$g_talk_troop", "$g_player_minister"),
+],"I will be leaving shortly, {my lord/my lady}.", "close_window", [
+(troop_set_slot, "$g_talk_troop", slot_troop_cur_center, -1),
+]],
+
 [anyone ,"start",
 [
 ##diplomacy start+ Handle player is co-ruler of kingdom
@@ -19234,11 +19251,24 @@ Here, take this purse of {reg3} siliquae, as I promised. I hope we can travel to
 (neq, "$g_talk_troop", "$g_player_minister"),
 (troop_get_slot, ":original_faction", "$g_talk_troop", slot_troop_original_faction),
 (faction_get_slot, ":original_faction_leader", ":original_faction", slot_faction_leader),
+(gt, ":original_faction_leader", 0), #madsci
+(neq, ":original_faction_leader", "$g_talk_troop"),
 (str_store_troop_name, s10, ":original_faction_leader"),
 (str_store_string, s9, "str_lord_indicted_dialog_approach"),
 ],
 #Greetings, {my lord/my lady}. You may have heard of my ill treatment at the hands of {s10}. You have a reputation as one who treats {his/her} vassals well, and if you will have me, I would be honored to pledge myself as your vassal.
 "{s9}", "lord_requests_recruitment", []],
+
+#madsci failsafe if for some reason the former faction isnt a valid kingdom with a king
+[anyone ,"start",
+[
+(call_script, "script_dplmc_get_troop_standing_in_faction", "trp_player", "$g_talk_troop_faction"),
+(this_or_next|ge, reg0, DPLMC_FACTION_STANDING_LEADER_SPOUSE),
+(eq, "$g_talk_troop_faction", "fac_player_supporters_faction"),
+(is_between, "$g_talk_troop", active_npcs_begin, active_npcs_end),
+(troop_slot_eq, "$g_talk_troop", slot_troop_occupation, slto_inactive),
+(neq, "$g_talk_troop", "$g_player_minister"),
+],"Greetings, {my lord/my lady}. You may have heard of my ill treatment at the hands of my former liege. You have a reputation as one who treats {his/her} vassals well, and if you will have me, I would be honored to pledge myself as your vassal.", "lord_requests_recruitment", []],
 
 [anyone|plyr ,"lord_requests_recruitment",
 [
@@ -19263,56 +19293,47 @@ Here, take this purse of {reg3} siliquae, as I promised. I hope we can travel to
 [
 (str_store_string, s9, "str_lord_indicted_dialog_approach_no"),
 ], #I'm sorry. Your service is not required.
-"{s9}", "lord_requests_recruitment_refuse", []],
+"{s9}", "lord_requests_recruitment_refuse", [
+(troop_set_slot, "$g_talk_troop", slot_troop_cur_center, -1), #madsci bug fix
+]],
 
 [anyone ,"lord_requests_recruitment_refuse",
 [
 (str_store_string, s9, "str_lord_indicted_dialog_rejected"),
-], #Indeed? Well, perhaps your reputation is misleading. Good day, {my lord/my lady} -- I go to see if another ruler in Calradia is more appreciative of my talents.
-"{s9}", "close_window", [
-#Seek alternative liege
+],"{s9}", "close_window", [
 (assign, "$g_leave_encounter", 1),
-##diplomacy start+ Try to avoid getting stuck with a bad occupation value
 (try_begin),
   (troop_slot_eq, "$g_talk_troop", slot_troop_occupation, slto_inactive),
   (troop_set_slot, "$g_talk_troop", slot_troop_occupation, slto_kingdom_hero),
 (try_end),
-# Note: similar fix in Warband 1.158:
-#  (troop_set_slot, "$g_talk_troop", slot_troop_occupation, slto_kingdom_hero),
-##diplomacy end+
+
 (call_script, "script_troop_change_relation_with_troop", "$g_talk_troop", "trp_player", -10),
 (call_script, "script_lord_find_alternative_faction", "$g_talk_troop"),
 (assign, ":new_faction", reg0),
 
-(try_begin),
-  #SB : reject defecting to player faction from player faction
-  (eq, ":new_faction", "fac_player_supporters_faction"),
-  (str_store_string, s9, "@I see. Perhaps circumstances will change a few days from now, but until then I appreciate your generous hospitality."),
-  #put back in inactive pool, add counter to slot_troop_intrigue_impatience/slot_troop_controversy?
-  (troop_set_slot, "$g_talk_troop", slot_troop_occupation, slto_inactive),
-(else_try),
-  (is_between, ":new_faction", npc_kingdoms_begin, kingdoms_end),
-
-  (troop_get_slot, ":old_faction", "$g_talk_troop", slot_troop_original_faction),
-  (str_store_troop_name, s1, "$g_talk_troop"),
-  (str_store_faction_name, s2, ":new_faction"),
-  (str_store_faction_name, s3, ":old_faction"),
-
-  (call_script, "script_change_troop_faction", "$g_talk_troop", ":new_faction"),
-
-##diplomacy start+
-##OLD:
-#(troop_get_type, reg4, "$g_talk_troop"),
-##NEW:
-  (call_script, "script_dplmc_store_troop_is_female_reg", "$g_talk_troop", 4), #SB : replace reg65
-##write political events to log
-#SB : factionalize colors
-  (faction_get_color, ":color", ":new_faction"),
-  (display_log_message, "str_lord_defects_ordinary", ":color"),#change display_message to display_log_message
-##diplomacy end+
-(else_try),
-  (call_script, "script_change_troop_faction", "$g_talk_troop", "fac_outlaws"),
-(try_end),
+	(try_begin), #madsci allowing the rejected lord to stay would result in a zoo of rejected lords in the player court when they have nowhere else to go
+	(neq, ":new_faction", "$players_kingdom"),
+	(is_between, ":new_faction", npc_kingdoms_begin, kingdoms_end),
+  	(troop_get_slot, ":old_faction", "$g_talk_troop", slot_troop_original_faction),
+  	(str_store_troop_name, s1, "$g_talk_troop"),
+  	(str_store_faction_name, s2, ":new_faction"),
+  	(str_store_faction_name, s3, ":old_faction"),
+  	(call_script, "script_change_troop_faction", "$g_talk_troop", ":new_faction"),
+  	(call_script, "script_dplmc_store_troop_is_female_reg", "$g_talk_troop", 4), #SB : replace reg65
+  	(faction_get_color, ":color", ":new_faction"),
+  	(display_log_message, "str_lord_defects_ordinary", ":color"),#change display_message to display_log_message
+	(else_try),
+	(troop_set_slot, "$g_talk_troop", slot_troop_occupation, dplmc_slto_exile), #madsci exiled lords can return under the right circumstances
+  	(call_script, "script_change_troop_faction", "$g_talk_troop", "fac_outlaws"),
+	(str_store_troop_name, s54, "$g_talk_troop"),
+	(display_log_message, "str_s54_has_left_the_realm"),
+			(try_begin), #madsci cant have a kingdom hero party of non-kingdom faction on the map
+			(troop_get_slot, ":current_party", "$g_talk_troop", slot_troop_leaded_party),
+			(gt, ":current_party", 0),
+			(party_is_active, ":current_party"),
+			(remove_party, ":current_party"),
+			(try_end),
+	(try_end),
 ]],
 
 

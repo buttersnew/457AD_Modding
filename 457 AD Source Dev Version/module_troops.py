@@ -3485,6 +3485,12 @@ troops = [
 ["rebel_knight_3_2",  "Vocius",  "Vocius",  tf_hero, 0,reserved,  fac_rebel_kingdom_3,[itm_westger_warhorse_1, itm_tunic_10, itm_deurne_campagi_1, itm_deurne_campagi_greaves_3, itm_rich_mail_3, itm_leather_gloves, itm_sword_viking_3, itm_tab_shield_small_round_c, itm_augsburg_2_helmet],knight_attrib_5,wp_one_handed(300)|wp_two_handed(250)|wp_polearm(250)|wp_archery(150)|wp_crossbow(120)|wp_throwing(200)|wp_firearm(120),knight_skills_6|knows_trainer_5,0x000000078100024350db6d2aa36db51a00000000001db6db0000000000000000],
 
 ["rebel_knight_3_3", "Saturninus", "Saturninus", tf_hero, 0, reserved,  fac_rebel_kingdom_3, [itm_iberian_warhorse_roman_2, itm_coptic_tunic_15, itm_deurne_campagi_2, itm_deurne_campagi_greaves_2, itm_common_mail_long_5_cloak, itm_tab_shield_small_round_c, itm_aquincum_spatha_2, itm_iatrus_2],    knight_attrib_5,wp_one_handed(290)|wp_two_handed(290)|wp_polearm(270)|wp_archery(190)|wp_crossbow(100)|wp_throwing(100)|wp_firearm(100),knight_skills_3|knows_trainer_6, 0x00000002081030852ad4b248a391b2eb00000000001e36910000000000000000],
+
+#madsci use a dead troop to create family relations
+  ["attila","Attila","Attila", tf_hero,0,0,fac_outlaws,
+   [itm_kaftan_lamellar_1,itm_heavy_greaves],
+   knight_attrib_5|level(30),wpex(250,200,260,200,200,200),knows_riding_8|knows_athletics_4|knows_shield_3|knows_weapon_master_4|knows_power_strike_5|knows_ironflesh_7|knows_power_draw_6|knows_horse_archery_8,0x000000019600c3cb5295aa431d6924d200000000001d36b80000000000000000],
+["vandalarius",  "Vandalarius",  "Vandalarius",  tf_hero, 0,reserved,  fac_outlaws,[itm_deurne_campagi_greaves_3, itm_roman_scale_6],knight_attrib_5,wp_one_handed(310)|wp_two_handed(310)|wp_polearm(280)|wp_archery(100)|wp_crossbow(100)|wp_throwing(100)|wp_firearm(100),knight_skills_6|knows_trainer_5,0x00000009650c34c75b918a38536d16db00000000001e96a90000000000000000],
 #madsci end
 
 #if the player frees basilius, will come back and be a lord in the player's kingdom - will be given an oval shield, bow, arrow + sword

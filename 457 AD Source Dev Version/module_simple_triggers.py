@@ -1056,6 +1056,28 @@ simple_triggers = [
 (str_store_troop_name, s4, ":lord"),
 (display_message,"@{s4} has been released from captivity."),
 (try_end),
+
+(assign, ":end", "fac_saxons"),
+(val_add, ":end", 1),
+	(try_for_parties, ":party_no"), #madsci reduce prisoners in bandit and deserter parties over time so that they dont snowball too much
+	(gt, ":party_no", last_static_party),
+	(neg|party_slot_eq, ":party_no", slot_party_type, spt_kingdom_hero_party),
+	(store_faction_of_party, ":faction_no", ":party_no"),
+	(this_or_next|eq, ":faction_no", "fac_outlaws"), #only bandits and deserters
+	(is_between, ":faction_no", "fac_manhunters", ":end"),
+        (party_get_battle_opponent, ":opponent", ":party_no"),
+        (lt, ":opponent", 0), #not in a fight
+	(party_get_num_prisoner_stacks, ":num_prisoner_stacks",":party_no"),
+	(gt, ":num_prisoner_stacks", 0),
+		(try_for_range_backwards, ":stack_no", 0, ":num_prisoner_stacks"),
+		(party_prisoner_stack_get_troop_id, ":stack_troop",":party_no",":stack_no"),
+		(neg|troop_is_hero, ":stack_troop"),
+		(party_prisoner_stack_get_size, ":stack_size",":party_no",":stack_no"),
+		(ge, ":stack_size", 5),
+		(val_div, ":stack_size", 5),
+		(party_remove_prisoners, ":party_no", ":stack_troop", ":stack_size"),
+		(try_end),
+	(try_end),
     ]),  
     
     

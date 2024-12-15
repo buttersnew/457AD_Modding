@@ -32200,7 +32200,9 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
 #Request Mission
 
   [anyone|auto_proceed,"lord_request_mission_ask",
-   [(eq, "$players_kingdom", 0),
+   [
+(eq, "$freelancer_state", 0), #madsci dont offer mercenary contract if doing freelancer
+(eq, "$players_kingdom", 0),
     (ge, "$g_talk_troop_faction_relation", 0),
     (ge, "$g_talk_troop_relation", 0),
     (troop_slot_ge, "trp_player", slot_troop_renown, 30),

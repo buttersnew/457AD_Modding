@@ -8492,6 +8492,8 @@ simple_triggers = [
 		(assign, "$g_notification_menu_var1", ":center"),
 		(jump_to_menu, "mnu_rebellion_launched"),
 		(try_end),
+	(str_store_party_name_link, s10, ":center"),
+	(display_log_message, "@{s10} has revolted!"),
 	(else_try),
 	(party_slot_eq, ":center", slot_center_is_besieged_by, -1), #no rebellion in besieged town
 	(party_get_slot, ":rebellion_cooldown", ":center", slot_party_rebellion_cooldown),

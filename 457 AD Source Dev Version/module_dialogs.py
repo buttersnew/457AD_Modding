@@ -52533,6 +52533,28 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
   [anyone|plyr, "sabir_chief_intro_7", [],
   "Those are words I'm all too familiar with, but if this is your wish I leave you to it. Fair weathers to you!", "minor_faction_king_pretalk", []],
 
+  [trp_valentia_king, "start", [(eq, "$g_talk_troop_met", 0),],
+  "A stranger approaches my city in Valentia, yet you walk with purpose, not fear. I am Sambida, protector of these lands and leader of the Alans who call them home. My loyalty lies with Rome, though the weight of that loyalty grows heavy. Who are you, and why do you tread here?", "valentia_king_intro_1", []],
+  [anyone|plyr, "valentia_king_intro_1", [],
+  "My name is {playername}. I’ve heard of you, Sambida, and of the lands entrusted to you by Rome. Your position seems both enviable and precarious—do you not tire of balancing between service to the empire and preserving your people?", "valentia_king_intro_2", []],
+  [anyone, "valentia_king_intro_2", [],
+  "You’ve a sharp tongue for a stranger. Yes, Rome calls us foederati, bound by duty and land grants. But do not mistake us for servants. My people labor on these lands, not as serfs, but as warriors who have earned their place. Yet, I cannot ignore the rising shadows—the Visigoths, the Franks, even my own kin in Aurelianorum. The bonds of old are fraying.", "valentia_king_intro_3", []],
+  [anyone|plyr, "valentia_king_intro_3", [],
+  "And if those bonds break? Will the Alans of Valentia stand alone, or will they seek new allies?", "valentia_king_intro_4", []],
+  [anyone, "valentia_king_intro_4", [],
+  "That depends, stranger. If you come to offer trade or support, you are welcome here. But if you come seeking to sow discord, know that my warriors are never far from their spears. So tell me, {playername}, are you here as friend, foe, or something in between?", "minor_faction_king_pretalk", []],
+
+  [trp_aurelianorum_king, "start", [(eq, "$g_talk_troop_met", 0),],
+  "So, you’ve crossed into my lands, the lands of Aurelianorum, where the Alan banners still fly proudly. I am Sangiban, descendant of Goar, who once led our people across the mighty Rhine. But enough about me—who are you, and why should I let you wander here unchallenged?", "aurelianorum_king_intro_1", []],
+  [anyone|plyr, "aurelianorum_king_intro_1", [],
+  "I am {playername}, a traveler and seeker of alliances. Your fame precedes you, Sangiban. The tales of your stand at the Catalaunian Plains against Attila echo far and wide. But I am curious, how do you defend against so many threats—Romans, Visigoths, and others—without faltering?", "aurelianorum_king_intro_2", []],
+  [anyone, "aurelianorum_king_intro_2", [],
+  "Hah! Flattery will get you far, stranger, but not far enough. Yes, my name is known, as is my claim over these lands. But you speak of threats. Do you think the Romans’ wavering grip on Gaul frightens me? Do you think the Goths’ ambitions shake me? No. We are Alans—our steeds and spears remind the world who we are. Yet, power comes with cost, and the winds of war are ever-changing. Tell me, {playername}, do you ride to make friends or take them?", "aurelianorum_king_intro_3", []],
+  [anyone|plyr, "aurelianorum_king_intro_3", [],
+  "I ride to understand, and perhaps, to trade strength for strength. What do you seek for your people, Sangiban?", "aurelianorum_king_intro_4", []],
+  [anyone, "aurelianorum_king_intro_4", [],
+  "For my people, I seek survival—not at the whims of Rome, nor under the heel of the Goths, but as Alans, sovereign and proud. If you can aid me in this cause, perhaps you’ll earn a place in my hall. But if you come with deceit, well, the plains of Gaul are vast enough to bury another wanderer. Speak your intent wisely.", "minor_faction_king_pretalk", []],
+
   [anyone, "start",
   [
   (faction_slot_eq, "$g_talk_troop_faction", slot_faction_leader, "$g_talk_troop"),

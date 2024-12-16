@@ -387,4 +387,5 @@ map_icons = [
   ("sassanid_lord",0,"map_sassanid", avatar_scale,snd_gallop, 0.15, 0.173, 0),  
   ("roman_army",0,"map_roman_army", avatar_scale,snd_gallop, 0.15, 0.173, 0),  
   ("camp_siege",mcn_no_shadow,"camp_siege", 0.13, 0),
+  ("pyramids",mcn_no_shadow,"pyramids", 1.27,0),
 ]

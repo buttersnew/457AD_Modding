@@ -998,4 +998,26 @@ meshes = [
 ##### troop_ratio_bar
 ##################################################
   ("pic_settlement_display", 0, "pic_settlement_display", 0, 0, 0, 0, 0, 0, 1, 1, 1),
+	#madsci religion banners
+  ("banner_religion01", 0, "banner_religion01", 0, 0, 0, -90, 0, 0, 1, 1, 1),
+  ("banner_religion02", 0, "banner_religion02", 0, 0, 0, -90, 0, 0, 1, 1, 1),
+  ("banner_religion03", 0, "banner_religion03", 0, 0, 0, -90, 0, 0, 1, 1, 1),
+  ("banner_religion04", 0, "banner_religion04", 0, 0, 0, -90, 0, 0, 1, 1, 1),
+  ("banner_religion05", 0, "banner_religion05", 0, 0, 0, -90, 0, 0, 1, 1, 1),
+  ("banner_religion06", 0, "banner_religion06", 0, 0, 0, -90, 0, 0, 1, 1, 1),
+  ("banner_religion07", 0, "banner_religion07", 0, 0, 0, -90, 0, 0, 1, 1, 1),
+  ("banner_religion08", 0, "banner_religion08", 0, 0, 0, -90, 0, 0, 1, 1, 1),
+  ("banner_religion09", 0, "banner_religion09", 0, 0, 0, -90, 0, 0, 1, 1, 1),
+  ("banner_religion10", 0, "banner_religion10", 0, 0, 0, -90, 0, 0, 1, 1, 1),
+  ("banner_religion11", 0, "banner_religion11", 0, 0, 0, -90, 0, 0, 1, 1, 1),
+  ("banner_religion12", 0, "banner_religion12", 0, 0, 0, -90, 0, 0, 1, 1, 1),
+  ("banner_religion13", 0, "banner_religion13", 0, 0, 0, -90, 0, 0, 1, 1, 1),
+  ("banner_religion14", 0, "banner_religion14", 0, 0, 0, -90, 0, 0, 1, 1, 1),
+  ("banner_religion15", 0, "banner_religion15", 0, 0, 0, -90, 0, 0, 1, 1, 1),
+  ("banner_religion16", 0, "banner_religion16", 0, 0, 0, -90, 0, 0, 1, 1, 1),
+  ("banner_religion17", 0, "banner_religion17", 0, 0, 0, -90, 0, 0, 1, 1, 1),
+  ("banner_religion18", 0, "banner_religion18", 0, 0, 0, -90, 0, 0, 1, 1, 1),
+  ("banner_religion19", 0, "banner_religion19", 0, 0, 0, -90, 0, 0, 1, 1, 1),
+  ("banner_religion20", 0, "banner_religion20", 0, 0, 0, -90, 0, 0, 1, 1, 1),
+  ("banner_religion21", 0, "banner_religion21", 0, 0, 0, -90, 0, 0, 1, 1, 1),
 ]

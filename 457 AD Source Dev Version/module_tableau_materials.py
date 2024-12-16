@@ -1375,5 +1375,19 @@ tableaus = [
     (cur_tableau_add_tableau_mesh, "tableau_troop_profile_alpha_mask", ":troop_no", pos1, 0, 0),
     ]),
 
+  ("faction_note_mesh_banner_religion", 0, "tableau_with_transparency", 1024, 1024, 0, 0, 200, 200,
+   [
+     (store_script_param, ":faction_no", 1),
+     (set_fixed_point_multiplier, 100),
+     (try_begin),
+       (faction_get_slot, ":cur_faction_banner", ":faction_no", slot_faction_banner),
+	(gt, ":cur_faction_banner", 0),
+       (init_position, pos1),
+       (position_set_y, pos1, 100),
+       (cur_tableau_add_mesh, ":cur_faction_banner", pos1, 0, 0),
+       (cur_tableau_set_camera_parameters, 0, 210, 210, 0, 100000),
+     (try_end),
+     ]),
+
   
 ]

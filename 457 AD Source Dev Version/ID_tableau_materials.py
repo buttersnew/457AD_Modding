@@ -42,3 +42,4 @@ tableau_retired_troop_alpha_mask = 40
 tableau_retired_troop_color = 41
 tableau_retirement_troop = 42
 tableau_dplmc_lord_profile = 43
+tableau_faction_note_mesh_banner_religion = 44

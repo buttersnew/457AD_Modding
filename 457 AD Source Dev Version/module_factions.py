@@ -151,9 +151,8 @@ factions = [
   ("minor_valentia","Valentia Alanorum", 0, 0.9,[("outlaws",-0.75),("peasant_rebels", -0.1),("deserters", -0.05),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05),("manhunters",0.6),("kingdom_1", 0.5)], [], 0xd33434),
   ("minor_aurelianorum","Aurelianorum Alanorum", 0, 0.9,[("outlaws",-0.75),("peasant_rebels", -0.1),("deserters", -0.05),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05),("manhunters",0.6),("kingdom_1", 0.5)], [], 0xd33434),
   ("minor_iazyges","Iazyges", 0, 0.9,[("outlaws",-0.75),("peasant_rebels", -0.1),("deserters", -0.05),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05),("manhunters",0.6)], [], 0xc19135),
+  ("minor_heruli","Heruli", 0, 0.5,[("kingdom_4",-0.75),("kingdom_11",0.99),("kingdom_14",0.99),("kingdom_21",0.99)], [], 0x993322), #lead by Visilaus, at war with ostrogoths
   ("adovacrius_host","Adovacrius_Host", 0, 0.9,[("outlaws",-0.75),("peasant_rebels", -0.1),("deserters", -0.05),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05),("manhunters",0.6)], [], 0xc19135),
-  ("heruli","Danubian Heruli", 0, 0.5,[("kingdom_4",-0.75),("kingdom_11",0.99),("kingdom_14",0.99),("kingdom_21",0.99)], [], 0x993322), #lead by Visilaus, at war with ostrogoths
-
   ("minor_factions_end",  "{!}minor_factions_end", 0, 0.9, [], []), 
   #religions
   ("roman_christians","Chalcedonian Christians", 0, 0.5,[("arian_christians",-0.05),("coptic_christians",-0.05),("nestorian_christians",-0.05),("donatist_christians",-0.05),("kingdom_1", 0.9),("kingdom_2", 0.9)], [], 0xFFFFFF), #very friendly with the romans

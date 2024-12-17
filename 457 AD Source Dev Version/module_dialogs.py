@@ -20373,7 +20373,7 @@ I knew that I had found someone worthy of becoming my vassal.", "lord_invite_1",
   "I don't, amplitudo tua. I revere your power! Safe travels.", "lord_pretalk",[(assign, "$majorian_dialog", 1),(call_script, "script_change_player_relation_with_troop","$g_talk_troop",2),]],
 
 #madsci
-[trp_adovacrius|plyr,"minor_faction_king", [(eq, "$adovacrius_dialog", 0),], 
+[trp_gallic_saxon_king|plyr,"minor_faction_king", [(eq, "$adovacrius_dialog", 0),], 
   "Hail, Adovacrius, lord of Juliomagus. I have heard tales of your Saxon warriors along the banks of the Liger.","adovacrius_intro_1",[
 (assign, "$adovacrius_dialog", 1),(call_script, "script_change_player_relation_with_troop","$g_talk_troop",2),
 ]],
@@ -20390,7 +20390,7 @@ I knew that I had found someone worthy of becoming my vassal.", "lord_invite_1",
 [anyone|plyr, "adovacrius_intro_4", [], 
   "Then may Juliomagus remain strong under your rule, Adovacrius. I’ll watch for Saxon banners along the Liger.", "minor_faction_king_pretalk",[]],
 
-[trp_benga|plyr,"minor_faction_king", [(eq, "$benga_dialog", 0),], 
+[trp_iazyg_king|plyr,"minor_faction_king", [(eq, "$benga_dialog", 0),], 
   "Hail, Benga, king of the Iazyges. These lands between the Danubius and the Tissus are steeped in your people’s legacy. It is an honor to meet you.","benga_intro_1",[
 (assign, "$benga_dialog", 1),(call_script, "script_change_player_relation_with_troop","$g_talk_troop",2),
 ]],

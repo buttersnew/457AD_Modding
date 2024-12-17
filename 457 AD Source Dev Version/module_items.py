@@ -1820,10 +1820,10 @@ weight(1)|abundance(80)|head_armor(24)|body_armor(14)|leg_armor(6)|difficulty(0)
 
 ["kerch_lamellenhelm_light", "Lamellenhelm", [("kerch_lamellenhelm_light",0),("kerch_lamellenhelm_light_inv",ixmesh_inventory)], itp_type_head_armor|itp_attach_armature|itp_merchandise,0,740 , weight(1.5)|abundance(50)|head_armor(41)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], culture_hunnic+culture_alan ],
 
-["batumi_helmet_leather", "Monopartite Helmet with Leather", [("batumi_helmet_leather",0),("batumi_helmet_1_inv",ixmesh_inventory)], itp_merchandise|itp_attach_armature|itp_type_head_armor,0,920 , weight(1.25)|abundance(40)|head_armor(43)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], culture_caucasian ],
-["staritsa_helmet_leather", "Monopartite Helmet with Leather", [("staritsa_helmet_leather",0),("staritsa_helmet_1_inv",ixmesh_inventory)], itp_merchandise|itp_attach_armature|itp_type_head_armor,0,920 , weight(1.25)|abundance(40)|head_armor(43)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], culture_caucasian ],
+["batumi_helmet_leather", "Monopartite Helmet", [("batumi_helmet_leather",0),("batumi_helmet_1_inv",ixmesh_inventory)], itp_merchandise|itp_attach_armature|itp_type_head_armor,0,920 , weight(1.25)|abundance(40)|head_armor(43)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], culture_caucasian ],
+["staritsa_helmet_leather", "Monopartite Helmet", [("staritsa_helmet_leather",0),("staritsa_helmet_1_inv",ixmesh_inventory)], itp_merchandise|itp_attach_armature|itp_type_head_armor,0,920 , weight(1.25)|abundance(40)|head_armor(43)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], culture_caucasian ],
 
-["triveres_leather", "Bandhelm with Leather", [("triveres_helmet_leather",0),("triveres_helmet_1_inv",ixmesh_inventory)], itp_type_head_armor|itp_attach_armature|itp_merchandise,0,865 , weight(1.25)|abundance(50)|head_armor(42)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], culture_germanic+culture_gothic ],
+["triveres_leather", "Bandhelm", [("triveres_helmet_leather",0),("triveres_helmet_1_inv",ixmesh_inventory)], itp_type_head_armor|itp_attach_armature|itp_merchandise,0,865 , weight(1.25)|abundance(50)|head_armor(42)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], culture_germanic+culture_gothic ],
 
 ["pilna_helmet_leather", "Spangenhelm", [("pilna_helmet_leather",0),("pilna_helmet_1_inv",ixmesh_inventory)], itp_type_head_armor|itp_attach_armature|itp_merchandise,0,865 , weight(1.25)|abundance(50)|head_armor(42)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], ],
 
@@ -1922,8 +1922,8 @@ weight(1)|abundance(80)|head_armor(24)|body_armor(14)|leg_armor(6)|difficulty(0)
 
 #Spangenhelms/Ridge Helmets Heavy
 
-["breda_helmet_1", "Segmented Helmet", [("breda_helmet_1",0),("breda_helmet_1_inv",ixmesh_inventory)], itp_type_head_armor|itp_attach_armature|itp_merchandise,0,1115, weight(1.8)|abundance(22)|head_armor(47)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], [fac_culture_2,fac_culture_16] ],
-["breda_helmet_plume_1", "Segmented Helmet with Plume", [("breda_helmet_plume_1",0),("breda_helmet_1_inv",ixmesh_inventory)], itp_type_head_armor|itp_attach_armature|itp_merchandise,0,1115, weight(1.85)|abundance(22)|head_armor(47)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], [fac_culture_2,fac_culture_16] ],
+["breda_helmet_1", "Segmented Helmet", [("breda_helmet_1",0),("breda_helmet_1_inv",ixmesh_inventory)], itp_type_head_armor|itp_attach_armature|itp_merchandise,0,1115, weight(1.8)|abundance(22)|head_armor(45)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], [fac_culture_2,fac_culture_16] ],
+["breda_helmet_plume_1", "Segmented Helmet with Plume", [("breda_helmet_plume_1",0),("breda_helmet_1_inv",ixmesh_inventory)], itp_type_head_armor|itp_attach_armature|itp_merchandise,0,1115, weight(1.85)|abundance(22)|head_armor(45)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], [fac_culture_2,fac_culture_16] ],
 
 ["tsaritsyno_1", "Eastern Bandhelm", [("tsaritsyno_1_helmet",0),("tsaritsyno_1_helmet_inv",ixmesh_inventory)], itp_merchandise|itp_attach_armature|itp_type_head_armor,0,1050 , weight(2.25)|abundance(30)|head_armor(46)|body_armor(0)|leg_armor(0)|difficulty(6) ,imodbits_plate, [], culture_sassanid+culture_caucasian+culture_hunnic ],
 

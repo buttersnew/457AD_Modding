@@ -119,7 +119,7 @@ party_templates = [
 
   #party size of about 200 each
   ("danubian_suebi_army","Hunimund's Host",icon_germanic_army|carries_goods(20)|pf_show_faction,0,fac_hunimund_suebi,soldier_personality,[(trp_quadi_spearman,70,100),(trp_western_germanic_bowman,30,50),(trp_steppe_bandit,10,20),(trp_steppe_rider,10,30),(trp_steppe_cataphract,10,20),(trp_suebi_king,1,1)]), #spearmen, bowmen, iazyges
-  ("heruli_army","Visilaus's Host",icon_germanic_army|carries_goods(20)|pf_show_faction,0,fac_heruli,soldier_personality,[(trp_heruli_slave,40,60),(trp_limigantes_rebel,20,50),(trp_heruli_warrior,80,100),(trp_heruli_horseman,20,40),(trp_heruli_king,1,1)]), #spearmen, horsemen, skirmishers
+  ("heruli_army","Visilaus's Host",icon_germanic_army|carries_goods(20)|pf_show_faction,0,fac_minor_heruli,soldier_personality,[(trp_heruli_slave,40,60),(trp_limigantes_rebel,20,50),(trp_heruli_warrior,80,100),(trp_heruli_horseman,20,40),(trp_heruli_king,1,1)]), #spearmen, horsemen, skirmishers
 
   #event parties
   ("nero_rebel_army","Legio Neronia",icon_roman_army|carries_goods(30)|pf_auto_remove_in_town,0,fac_peasant_rebels,bandit_personality,[(trp_nero_larper_commander,1,1),(trp_miles_romani,200,215),(trp_sagittarius,60,70),(trp_bucellarius,45,55),(trp_imperial_signifer,5,5)]),
@@ -526,7 +526,7 @@ party_templates = [
 
   ("scirii_horde","Danubian Suebi Horde",icon_flagbearer_b|carries_goods(20)|pf_show_faction,0,fac_hunimund_suebi,soldier_personality,[(trp_western_germanic_freeman,105,250),(trp_western_germanic_skirmisher,30,60),(trp_steppe_bandit,10,40),(trp_steppe_cataphract,5,15)]),
 
-  ("heruli_horde","Heruli Horde",icon_flagbearer_b|carries_goods(20)|pf_show_faction,0,fac_heruli,soldier_personality,[(trp_heruli_slave,150,250),(trp_heruli_warrior,100,160),(trp_scandinavian_freeman,40,80),(trp_scandinavian_retainer,15,30),(trp_heruli_king,1,1)]),
+  ("heruli_horde","Heruli Horde",icon_flagbearer_b|carries_goods(20)|pf_show_faction,0,fac_minor_heruli,soldier_personality,[(trp_heruli_slave,150,250),(trp_heruli_warrior,100,160),(trp_scandinavian_freeman,40,80),(trp_scandinavian_retainer,15,30),(trp_heruli_king,1,1)]),
 
   ("mauri_rebel_horde","Austuriani Rebel Horde",icon_khergit|carries_goods(20)|pf_show_faction,0,fac_berber_rebels,bandit_personality,[(trp_eques_indiginae_africani,80,160),(trp_desert_bandit,20,60),(trp_ferentarius_indiginae_africani,40,80),(trp_civis_armatura_mauri,30,50)]),
 
@@ -560,7 +560,7 @@ party_templates = [
   ("valentia_party","Gallic Alan Patrol",icon_axeman|carries_goods(30)|pf_show_faction,0,fac_minor_valentia,bandit_personality,[(trp_pedes_alani,10,25),(trp_eques_alani_leves,10,15),(trp_eques_sagittarii_alani,5,10),(trp_eques_alani_nobiles,5,10)]),
   ("aurelianorum_party","Gallic Alan Patrol",icon_axeman|carries_goods(30)|pf_show_faction,0,fac_minor_aurelianorum,bandit_personality,[(trp_pedes_alani,10,25),(trp_eques_alani_leves,10,15),(trp_eques_sagittarii_alani,5,10),(trp_eques_alani_nobiles,5,10)]),
   ("iazyges_party","Iazyges Patrol",icon_axeman|carries_goods(30)|pf_show_faction,0,fac_minor_iazyges,bandit_personality,[(trp_steppe_bandit,15,35),(trp_steppe_rider,10,15),(trp_steppe_cataphract,5,10)]),
-  ("heruli_party","Heruli Patrol",icon_axeman|carries_goods(30)|pf_show_faction,0,fac_heruli,bandit_personality,[(trp_eastern_germanic_skirmisher,10,25),(trp_eastern_germanic_spearman,10,15),(trp_eastern_germanic_mounted_skirmisher,5,10),(trp_eastern_germanic_mounted_warrior,5,10)]),
+  ("heruli_party","Heruli Patrol",icon_axeman|carries_goods(30)|pf_show_faction,0,fac_minor_heruli,bandit_personality,[(trp_eastern_germanic_skirmisher,10,25),(trp_eastern_germanic_spearman,10,15),(trp_eastern_germanic_mounted_skirmisher,5,10),(trp_eastern_germanic_mounted_warrior,5,10)]),
   ("adovacrius_party","Adovacrius Host Patrol",icon_axeman|carries_goods(30)|pf_show_faction,0,fac_adovacrius_host,bandit_personality,[(trp_northern_germanic_skirmisher,10,25),(trp_northern_germanic_freeman,10,15),(trp_northern_germanic_warrior,5,10),(trp_northern_germanic_horseman,5,10)]),
 
   ("minor_faction_levies", "Levies", icon_axeman|pf_show_faction|pf_always_visible, soldier_personality, fac_commoners, 0, []),

@@ -2655,6 +2655,7 @@ strings = [
   ("kingdom_26_adjective",                     "Nubian"),
   ("kingdom_27_adjective",                     "Alan"),
   ("kingdom_28_adjective",                     "Aghwan"),
+  ("kingdom_29_adjective",                     "Angle"),
 
   ("credits_1", "Mount&Blade: Warband Copyright 2008-2015 Taleworlds Entertainment"),
   ("credits_2", "Game design:^Armagan Yavuz^Steve Negus^Cem Cimenbicer"),

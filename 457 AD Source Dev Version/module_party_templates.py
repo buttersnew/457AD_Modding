@@ -401,6 +401,10 @@ party_templates = [
   ("kingdom_arran_reinforcements_b", "{!}Caucasian Albania Reinforcements", 0, 0, fac_commoners, 0, [(trp_sarir_horseman,2,6),(trp_aghwan_archer,2,4),(trp_lekh_retainer,2,6),(trp_caucasian_standard_bearer,1,1)]),
   ("kingdom_arran_reinforcements_c", "{!}Caucasian Albania Reinforcements", 0, 0, fac_commoners, 0, [(trp_albanian_cavalry,2,4),(trp_aghwan_nobleman,1,3),(trp_lekh_horseman,1,3),(trp_sassanid_officer,1,1)]),
 
+  ("kingdom_angles_reinforcements_a", "{!}Angle Reinforcements", 0, 0, fac_commoners, 0, [(trp_northern_germanic_skirmisher,2,10),(trp_northern_germanic_freeman,2,10)]),
+  ("kingdom_angles_reinforcements_b", "{!}Angle Reinforcements", 0, 0, fac_commoners, 0, [(trp_northern_germanic_freeman,3,9),(trp_angle_mercenary,3,6),(trp_standard_bearer,1,1)]),
+  ("kingdom_angles_reinforcements_c", "{!}Angle Reinforcements", 0, 0, fac_commoners, 0, [(trp_northern_germanic_warrior,1,4),(trp_northern_germanic_horseman,1,4),(trp_angle_hero,1,2)]),
+
   ("kingdom_bagadua_reinforcements_a", "{!}bagadua Reinforcements", 0, 0, fac_commoners, 0, [(trp_miles_romani,4,10),(trp_forest_bandit_recruit,4,10)]),
   ("kingdom_bagadua_reinforcements_b", "{!}bagadua Reinforcements", 0, 0, fac_commoners, 0, [(trp_bagaudae_footman,4,10),(trp_forest_bandit,3,6),(trp_eques_romani,2,7),(trp_imperial_signifer,1,1)]),
   ("kingdom_bagadua_reinforcements_c", "{!}bagadua Reinforcements", 0, 0, fac_commoners, 0, [(trp_bucellarius,3,9),(trp_centenarius,1,1)]),

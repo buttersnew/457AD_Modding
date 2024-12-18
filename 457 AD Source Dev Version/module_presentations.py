@@ -19153,7 +19153,9 @@ presentations = [
               (eq, ":troop", "trp_abulci"),
               (assign, ":c", 1),
             (else_try), #angles
-              (eq, "$current_town", "p_castle_68"),
+              (this_or_next|eq, "$current_town", "p_castle_68"),
+              (this_or_next|eq, "$current_town", "p_castle_90"),
+              (eq, "$current_town", "p_castle_92"),
               (this_or_next|eq, ":troop", "trp_angle_mercenary"),
               (eq, ":troop", "trp_angle_hero"),
               (assign, ":c", 1),
@@ -19396,8 +19398,9 @@ presentations = [
               (eq, ":troop", "trp_gaetuli_horseman"),
               (assign, ":c", 1),
             (else_try), #jute troops
-              (this_or_next|eq, "$current_town", "p_castle_68"),
-              (eq, "$current_town", "p_castle_70"),
+              (this_or_next|eq, "$current_town", "p_castle_57"),
+              (this_or_next|eq, "$current_town", "p_castle_70"),
+              (eq, "$current_town", "p_castle_91"),
               (eq, ":troop", "trp_jute_swordsman"),
               (assign, ":c", 1),
             (else_try), #burgundians

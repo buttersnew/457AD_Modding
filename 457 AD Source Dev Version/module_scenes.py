@@ -1739,6 +1739,11 @@ scenes = [
     [],[], "outer_terrain_steppe"),
   ("siwa",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000005000050000048d260000248b00007aa200007107",
     [],[],"outer_terrain_desert"),  
+  
+  ("german_temple_1", sf_generate, "none", "none", (0, 0), (240, 240), -0.5, "0x00000000bc634eb20003d0f20000135000004cf100002af3",[], [], "outer_terrain_plain"), #butters/maxi scenes
+  ("german_temple_2", sf_generate, "none", "none", (0, 0), (240, 240), -0.5, "0x00000001bc6170b68003d0f2000062e900007b2500006111",[], [], "outer_terrain_plain"),
+  ("german_temple_3", sf_generate, "none", "none", (0, 0), (240, 240), -0.5, "0x000000033a0797428005614e000023608000708d00007a0d",[], [], "outer_terrain_plain"),
+
 
   ("duel_plain_forest", sf_generate, "none", "none", (0, 0), (200, 200), -0.5, "0x00000000300005000005495000002ee4000032f600000753",
     [],[], "outer_terrain_plain"),

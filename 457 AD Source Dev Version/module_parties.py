@@ -95,7 +95,7 @@ parties = [
  ("town_31", "Eburodunum", icon_town_snow|pf_town, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-79.54, 112.21), [], 170), 
  ("town_32", "Tulifurdunum", icon_town_snow|pf_town, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-146.15, 130.59), [], 170),
  ("town_33", "Mediolanum", icon_town|pf_town, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-140.74, 57.29), [], 170),         
- ("town_34", "Altava", icon_town_desert|pf_town, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-240.12, -51.92), [], 170),
+ ("town_34", "Altava", icon_town|pf_town, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-240.12, -51.92), [], 170),
  ("town_35", "Hippo Regius", icon_town|pf_town, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-162, -32.38), [], 170), 
  #new towns 8/12/20
  ("town_36", "Chersonesus", icon_town_old|pf_town, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (38.43, 76.15), [], 170), 
@@ -171,7 +171,7 @@ parties = [
   ("castle_54","Dvin",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(138.91, 40.46),[],75),                        #[swycartographr] prev. coords: (67.15, 39.3) #[swycartographr] prev. coords: (144.05, 45.84)
   ("castle_55","Carthago_Nova",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-227.35, -15.81),[],75),             #[swycartographr] prev. coords: (-237.35, -10.8)
   ("castle_56","Castrum_Rauracense",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-148.32, 79.8),[],75),         #[swycartographr] prev. coords: (-171.52, 76)
-  ("castle_57","Durovernum_Cantiacorum",icon_castle_b|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-198.27, 121.87),[],75),    #[swycartographr] prev. coords: (-207.36, 116.16)
+  ("castle_57","Durovernum_Cantiacorum",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-198.27, 121.87),[],75),    #[swycartographr] prev. coords: (-207.36, 116.16)
   ("castle_58","Isca_Dumnoniarum",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-236.85, 119.05),[],75),          #[swycartographr] prev. coords: (-236.04, 115.44)
   ("castle_59","Colonia_Ulpia_Traiana",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-166.11, 123.67),[],75),     #[swycartographr] prev. coords: (-181.91, 116.62)
   ("castle_60","Asturica_Augusta",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-250.67, 28.46),[],75),           #[swycartographr] prev. coords: (-262.13, 42.91)
@@ -191,15 +191,15 @@ parties = [
 
   ("castle_71", "Usbium", icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-99.52, 98.16), [], 180),             #[swycartographr] prev. coords: (-137.5, 88.5) #[swycartographr] prev. coords: (-89.75, 97.99)
   ("castle_72", "Bogadium", icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-150.62, 123.95), [], 180),         #[swycartographr] prev. coords: (-165.89, 120.23)
-  ("castle_73", "Camulodunum", icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-194.87, 131.08), [], 180),      #[swycartographr] prev. coords: (-205.88, 122.62)
+  ("castle_73", "Camulodunum", icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-194.87, 131.08), [], 180),      #[swycartographr] prev. coords: (-205.88, 122.62)
   ("castle_74", "Eboracum", icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-210.2, 157.85), [], 180),          #[swycartographr] prev. coords: (-213.928, 150.319)
   ("castle_75", "Polondava", icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-8.41,77.31), [], 180),            #[swycartographr] prev. coords: (-62.57, 64.05)
   #new castles 8/12/20
   ("castle_76", "Tanais", icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (65.79, 107.61), [], 180),             #[swycartographr] prev. coords: (-2.73, 89.26)
   ("castle_77", "Olbia", icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (16.35, 89.5), [], 180),                #[swycartographr] prev. coords: (-39.51, 77.98)
   #new castles 1/11/21
-  ("castle_78", "Tingis", icon_castle_d|pf_castle, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-271.71, -36.84), [], 260),           #[swycartographr] prev. coords: (-281.95, -22.7)
-  ("castle_79", "Volubilis", icon_castle_d|pf_castle, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-270.26, -49.61), [], 260),        #[swycartographr] prev. coords: (-281.5, -36.2)
+  ("castle_78", "Tingis", icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-271.71, -36.84), [], 260),           #[swycartographr] prev. coords: (-281.95, -22.7)
+  ("castle_79", "Volubilis", icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-270.26, -49.61), [], 260),        #[swycartographr] prev. coords: (-281.5, -36.2)
 
   ("castle_80", "Ptolemais Theron", icon_castle_d|pf_castle, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (110.89, -135.38), [], 260),  #[swycartographr] prev. coords: (31.11, -133.23)
   ("castle_81", "Kalabhsa", icon_castle_d|pf_castle, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (86.05, -132.02), [], 260),  #-3.26, -124.214 #[swycartographr] prev. coords: (-5.1, -122)
@@ -216,7 +216,7 @@ parties = [
 
   ("castle_90", "Pagus_Myrdginum", icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-144.45, 149.33), [], 180),
   ("castle_91", "Geffleganmearc", icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-146.9, 162.18), [], 180),
-  ("castle_92", "Petuaria", icon_castle_b|pf_castle, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-207.35, 149.65), [], 180),
+  ("castle_92", "Petuaria", icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-207.35, 149.65), [], 180),
 
  ("village_1", "Olisipo", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-292.93, 5.89), [], 100),           #[swycartographr] prev. coords: (-85.1181, -28.2196) #[swycartographr] prev. coords: (-293.74, 18.35)
  ("village_2", "Smyrna", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (2.38, 0.99), [], 110),               #[swycartographr] prev. coords: (-50.9496, -8.74263)

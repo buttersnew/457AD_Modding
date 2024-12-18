@@ -847,7 +847,7 @@ troops = [
    def_attrib_lvl_23|level(23),wp_one_handed(180)|wp_two_handed(180)|wp_polearm(180)|wp_throwing(180),knows_lvl_23,germanic_face_1, germanic_face_2],
 
   ["heruli_horseman","Heruli Horseman","Heruli Horsemen",tf_mounted|tf_guarantee_horse|tf_guarantee_basic,no_scene,reserved,fac_minor_heruli,
-   [itm_round_shield_germanic_small_4,itm_round_shield_germanic_small_15,itm_sword_medieval_a,itm_polehammer,itm_light_lance,itm_heavy_lance,itm_simple_shoes,itm_khergit_leather_boots,itm_hunter_boots,itm_tunic_1,itm_tunic_5,itm_tunic_3_cloak,itm_tunic_5_cloak,itm_tunic_14_cloak,itm_common_mail_short_7,itm_pannonian_cap_fur_1,itm_pannonian_cap_fur_2,itm_breda_helmet_1,itm_pilna_helmet_mail]+horses_eastern_germanic_1,
+   [itm_round_shield_germanic_small_4,itm_round_shield_germanic_small_15,itm_sword_medieval_a,itm_polehammer,itm_cavalry_javelins,itm_simple_shoes,itm_khergit_leather_boots,itm_hunter_boots,itm_tunic_1,itm_tunic_5,itm_tunic_3_cloak,itm_tunic_5_cloak,itm_tunic_14_cloak,itm_common_mail_short_7,itm_pannonian_cap_fur_1,itm_pannonian_cap_fur_2,itm_breda_helmet_1,itm_pilna_helmet_mail]+horses_eastern_germanic_1,
    def_attrib_lvl_23|level(23),wp_one_handed(180)|wp_two_handed(180)|wp_polearm(190)|wp_throwing(170),knows_lvl_23,germanic_face_1, germanic_face_2],
 
   ["bulgar_horseman","Onogur Eques Sagittarius","Onogurs Equites Sagittarii",tf_mounted|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_horse|tf_guarantee_ranged,no_scene,0,fac_commoners,
@@ -3501,9 +3501,9 @@ troops = [
 ["attila","Attila","Attila", tf_hero,0,0,fac_outlaws,[itm_kaftan_lamellar_1,itm_heavy_greaves],knight_attrib_5|level(30),wpex(250,200,260,200,200,200),knows_riding_8|knows_athletics_4|knows_shield_3|knows_weapon_master_4|knows_power_strike_5|knows_ironflesh_7|knows_power_draw_6|knows_horse_archery_8,0x000000019600c3cb5295aa431d6924d200000000001d36b80000000000000000],
 ["vandalarius",  "Vandalarius",  "Vandalarius",  tf_hero, 0,reserved,  fac_outlaws,[itm_deurne_campagi_greaves_3, itm_roman_scale_6],knight_attrib_5,wp_one_handed(310)|wp_two_handed(310)|wp_polearm(280)|wp_archery(100)|wp_crossbow(100)|wp_throwing(100)|wp_firearm(100),knight_skills_6|knows_trainer_5,0x00000009650c34c75b918a38536d16db00000000001e96a90000000000000000],
 #angles family characters - both have passed away
-["angles_offa","Offa","Offa",tf_hero,0,0,fac_kingdom_29,[itm_obenaltendorf_shoes_1,itm_tunic_11],knight_attrib_5,wp(300),knows_berserker,0x0000000fc010450864d17628a36d26db00000000001d36ea0000000000000000],
-["angles_freawine","Freawine","Freawine",tf_hero,0,0,fac_kingdom_29,[itm_obenaltendorf_shoes_1,itm_tunic_11],knight_attrib_5,wp(300),knows_berserker,0x0000000fc01041401adc69552395b4db00000000001d36e40000000000000000],
-["angles_sigegeat","Sigegeat","Sigegeat",tf_hero,0,0,fac_kingdom_29,[itm_obenaltendorf_shoes_1,itm_tunic_11],knight_attrib_5,wp(300),knows_berserker,0x0000000fc01010cf1adc69552395b4db00000000001d36d40000000000000000],
+["angles_offa","Offa","Offa",tf_hero,0,0,fac_outlaws,[itm_obenaltendorf_shoes_1,itm_tunic_11],knight_attrib_5,wp(300),knows_berserker,0x0000000fc010450864d17628a36d26db00000000001d36ea0000000000000000],
+["angles_freawine","Freawine","Freawine",tf_hero,0,0,fac_outlaws,[itm_obenaltendorf_shoes_1,itm_tunic_11],knight_attrib_5,wp(300),knows_berserker,0x0000000fc01041401adc69552395b4db00000000001d36e40000000000000000],
+["angles_sigegeat","Sigegeat","Sigegeat",tf_hero,0,0,fac_outlaws,[itm_obenaltendorf_shoes_1,itm_tunic_11],knight_attrib_5,wp(300),knows_berserker,0x0000000fc01010cf1adc69552395b4db00000000001d36d40000000000000000],
 #madsci end
 
 #if the player frees basilius, will come back and be a lord in the player's kingdom - will be given an oval shield, bow, arrow + sword

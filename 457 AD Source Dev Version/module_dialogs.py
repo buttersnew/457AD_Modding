@@ -7098,8 +7098,9 @@ Still I am sorry that I'll leave you soon. You must promise me, you'll come visi
 (store_sub, ":offset", ":faction_no", "fac_kingdom_1"),
 (val_add, ":offset", "str_kingdom_1_adjective"),
 (str_store_string, s11, ":offset"),
+(str_store_faction_name, s12, ":faction_no"), #madsci show not only the adjective but also the faction because multiple factions use the same adjective
 ],
-"{s11}.", "dplmc_chancellor_pretalk",
+"{s11} ({s12}).", "dplmc_chancellor_pretalk",
 [
 (store_repeat_object, ":faction_no"),
 (assign, "$g_player_culture", ":faction_no"),

@@ -1641,7 +1641,7 @@ dialogs = [
 
   [anyone|plyr,"garamanten_talk",
   [(store_troop_gold, ":g", "trp_player"), (ge, ":g", 2000)],
-  "I want to offer you those rings and bracelets. (2000 denars)", "hire",[
+  "I want to offer you those rings and bracelets. (2000 siliquae)", "hire",[
 	]],
 
   [anyone|plyr,"garamanten_talk", [], "I want to hire you.", "hire_aux1",[
@@ -1652,7 +1652,7 @@ dialogs = [
   [anyone,"hire_aux2", [
   (store_relation, ":bandit_relation", "fac_player_faction", "$g_encountered_party_faction"),
   (ge, ":bandit_relation", 0),
-  ], "Give us {reg40} denars and we have an agreement my friend.", "hire_aux3",[
+  ], "Give us {reg40} siliquae and we have an agreement my friend.", "hire_aux3",[
       (party_get_num_companion_stacks, ":num_stacks","$g_encountered_party"),
       (assign, ":recruit_cost", 0),
       (try_for_range, ":i_stack", 0, ":num_stacks"),
@@ -1666,8 +1666,9 @@ dialogs = [
       (assign, "$temp", ":recruit_cost"),
       (assign, reg40, "$temp"),
 	]],
+
   [anyone,"hire_aux2", [
-  ], "We will never join you´ scum!", "close_window",[
+  ], "We will never join you scum!", "close_window",[
   (assign, "$g_leave_encounter",1),
 	]],
 
@@ -1685,7 +1686,7 @@ dialogs = [
         (ge,reg2,"$temp"),
         (assign,reg5,"$temp"),
       ],
-     "All right here's your {reg5} denars.", "hired_aux",
+     "All right here's your {reg5} siliquae.", "hired_aux",
      [
        (troop_remove_gold, "trp_player", "$temp"),
      ]],

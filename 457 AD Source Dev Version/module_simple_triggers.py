@@ -8515,6 +8515,7 @@ simple_triggers = [
 #migrating nomad camps
 (try_for_range, ":camp", minor_towns_begin, minor_towns_end),
 (party_get_icon, ":icon", ":camp"),
+(this_or_next|eq, ":icon", "icon_ship"),
 (this_or_next|eq, ":icon", "icon_steppe_lord"),
 (eq, ":icon", "icon_nomad_camp"),
 (store_faction_of_party, ":camp_faction", ":camp"),
@@ -8523,12 +8524,12 @@ simple_triggers = [
 (gt, ":anchor", 0),
 (party_get_position, pos1, ":anchor"),
 	(try_begin), #horde moves
-	(neg, "$g_last_rest_center", ":camp"), #dont do this if player is here
+	(neq, "$g_last_rest_center", ":camp"), #dont do this if player is here
 	(party_slot_eq, ":camp", slot_party_been_sacked, 0),
 	(neq, ":icon", "icon_steppe_lord"),
 	(store_random_in_range, ":rng", 0, 80), #dont let them move all the time, adjust this if necessary
 	(eq, ":rng", 1),
-        (map_get_random_position_around_position, pos2, pos1, 25), #migration range
+        (map_get_land_position_around_position, pos2, pos1, 25), #migration range nomads dont like water so use land position only
 	(get_distance_between_positions, ":dist", pos2, pos1),
 	(gt, ":dist", 5),
 	(assign, ":cont", 1),
@@ -8543,10 +8544,6 @@ simple_triggers = [
 		(try_end),
 	(eq, ":cont", 1),
 	(party_set_position, ":anchor", pos2),
-	(party_get_current_terrain, ":terrain", ":anchor"),
-	(neq, ":terrain", rt_bridge), #nomads dont like water
-	(neq, ":terrain", rt_river),
-	(neq, ":terrain", rt_water),
 	(party_set_icon, ":camp", "icon_steppe_lord"),
         (party_set_ai_behavior, ":camp", ai_bhvr_travel_to_point),
         (party_set_ai_target_position, ":camp", pos2),
@@ -8572,6 +8569,13 @@ simple_triggers = [
 	(party_set_flags, ":camp", pf_always_visible, 1),
 	(party_set_flags, ":camp", pf_is_static, 1),
 	(party_set_flags, ":camp", pf_quest_party, 0),
+	(else_try),
+	(this_or_next|eq, ":icon", "icon_ship"),
+	(eq, ":icon", "icon_steppe_lord"),
+	(get_party_ai_behavior, ":behavior", ":camp"),
+	(neq, ":behavior", ai_bhvr_travel_to_point),
+        (party_set_ai_behavior, ":camp", ai_bhvr_travel_to_point),
+        (party_set_ai_target_position, ":camp", pos1),
 	(try_end),
 (try_end),
  ]),

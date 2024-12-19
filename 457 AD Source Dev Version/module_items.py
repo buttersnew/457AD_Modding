@@ -1825,7 +1825,7 @@ weight(1)|abundance(80)|head_armor(24)|body_armor(14)|leg_armor(6)|difficulty(0)
 
 ["triveres_leather", "Bandhelm", [("triveres_helmet_leather",0),("triveres_helmet_1_inv",ixmesh_inventory)], itp_type_head_armor|itp_attach_armature|itp_merchandise,0,865 , weight(1.25)|abundance(50)|head_armor(42)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], culture_germanic+culture_gothic ],
 
-["pilna_helmet_leather", "Spangenhelm", [("pilna_helmet_leather",0),("pilna_helmet_1_inv",ixmesh_inventory)], itp_type_head_armor|itp_attach_armature|itp_merchandise,0,865 , weight(1.25)|abundance(50)|head_armor(42)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], ],
+["pilna_helmet_leather", "Simple Spangenhelm", [("pilna_helmet_leather",0),("pilna_helmet_1_inv",ixmesh_inventory)], itp_type_head_armor|itp_attach_armature|itp_merchandise,0,865 , weight(1.25)|abundance(50)|head_armor(42)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], ],
 
 #Sassanid Crossband Helmets
 ["sassanid_helmet_cloth_1", "Crossband Helmet", [("sassanid_helmet_cloth_1",0),("sassanid_helmet_cloth_1_inv",ixmesh_inventory)], itp_merchandise|itp_attach_armature|itp_type_head_armor,0,865 , weight(1.25)|abundance(40)|head_armor(42)|body_armor(0)|leg_armor(0)|difficulty(2) ,imodbits_plate, [], culture_sassanid  ],
@@ -1868,7 +1868,7 @@ weight(1)|abundance(80)|head_armor(24)|body_armor(14)|leg_armor(6)|difficulty(0)
 
 ["triveres_mail", "Bandhelm with Mail", [("triveres_helmet_mail",0),("triveres_helmet_1_inv",ixmesh_inventory)], itp_type_head_armor|itp_attach_armature|itp_merchandise,0,1045 , weight(1.55)|abundance(40)|head_armor(44)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate ],
 
-["pilna_helmet_mail", "Spangenhelm with Mail", [("pilna_helmet_mail",0),("pilna_helmet_1_inv",ixmesh_inventory)], itp_type_head_armor|itp_attach_armature|itp_merchandise,0,1045 , weight(1.55)|abundance(40)|head_armor(44)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate ],
+["pilna_helmet_mail", "Simple Spangenhelm with Mail", [("pilna_helmet_mail",0),("pilna_helmet_1_inv",ixmesh_inventory)], itp_type_head_armor|itp_attach_armature|itp_merchandise,0,1045 , weight(1.55)|abundance(40)|head_armor(44)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate ],
 
 #new intercisa styled helmets 4/11/22
 ["intercisa_helmet_1", "Ridge Helmet", [("intercisa_helmet_1",0),("intercisa_helmet_1_inv",ixmesh_inventory),("intercisa_helmet_old_1",imodbits_bad),("intercisa_helmet_old_1_inv",imodbits_bad|ixmesh_inventory)], itp_type_head_armor|itp_attach_armature|itp_merchandise,0,1045 , weight(1.5)|abundance(40)|head_armor(44)|body_armor(0)|leg_armor(0)|difficulty(5) ,imodbits_plate, [], culture_roman+culture_germanic+culture_gothic ],

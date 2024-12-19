@@ -19722,6 +19722,12 @@ presentations = [
               (this_or_next|eq, ":troop", "trp_eques_sagittarii_alani"),
               (eq, ":troop", "trp_eques_alani_nobiles"),
               (assign, ":c", 1),
+            (else_try), #heruli
+              (eq, "$current_town", "p_heruli_village"),
+              (this_or_next|eq, ":troop", "trp_heruli_slave"),
+              (this_or_next|eq, ":troop", "trp_heruli_warrior"),
+              (eq, ":troop", "trp_heruli_horseman"),
+              (assign, ":c", 1),
             (try_end),
             (eq, ":c", 1),
 

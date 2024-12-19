@@ -21,19 +21,48 @@ from compiler import *
 banner_scale = 0.3
 avatar_scale = 0.15
 
+icon_tableau_trigger_roman = (ti_on_init_map_icon, 
+  [
+      (store_trigger_param_1, ":party_no"),
+      (try_begin),
+        (this_or_next|eq, ":party_no", "p_main_party"),
+        (party_slot_eq, ":party_no", slot_party_type, spt_kingdom_hero_party),
+        (party_stack_get_troop_id, ":leader_troop", ":party_no", 0),
+        (troop_slot_ge,  ":leader_troop", slot_troop_banner_scene_prop, 1),
+        (cur_map_icon_set_tableau_material, "tableau_icon_roman_footman", ":leader_troop"),
+      (else_try),
+        (cur_map_icon_set_tableau_material, "tableau_icon_roman_footman", -1),
+      (try_end), 
+    ])
+
+icon_tableau_trigger_german = (ti_on_init_map_icon, 
+  [
+      (store_trigger_param_1, ":party_no"),
+      (try_begin),
+        (this_or_next|eq, ":party_no", "p_main_party"),
+        (party_slot_eq, ":party_no", slot_party_type, spt_kingdom_hero_party),
+        (party_stack_get_troop_id, ":leader_troop", ":party_no", 0),
+        (troop_slot_ge,  ":leader_troop", slot_troop_banner_scene_prop, 1),
+        (cur_map_icon_set_tableau_material, "tableau_icon_german_footman", ":leader_troop"),
+      (else_try),
+        (cur_map_icon_set_tableau_material, "tableau_icon_german_footman", -1),
+      (try_end), 
+    ])
+
 map_icons = [
   ("player",0,"player", avatar_scale, snd_footstep_grass, 0.15, 0.173, 0),
   ("player_horseman",0,"player_horseman", avatar_scale, snd_gallop, 0.15, 0.173, 0),
-  ("gray_knight",0,"knight_a", avatar_scale, snd_gallop, 0.15, 0.173, 0),
-  ("vaegir_knight",0,"knight_b", avatar_scale, snd_gallop, 0.15, 0.173, 0),
-  ("flagbearer_a",0,"roman_lord", avatar_scale, snd_gallop, 0.15, 0.173, 0),
-  ("flagbearer_b",0,"germanic_lord", avatar_scale, snd_footstep_grass, 0.15, 0.173, 0),
-  ("peasant",0,"peasant_a", avatar_scale,snd_footstep_grass, 0.15, 0.173, 0),
-  ("khergit",0,"khergit_horseman", avatar_scale,snd_gallop, 0.15, 0.173, 0),
+  ("gray_knight",0,"icon_regular_horseman", avatar_scale, snd_gallop, 0.15, 0.173, 0),
+  ("vaegir_knight",0,"icon_regular_horseman", avatar_scale, snd_gallop, 0.15, 0.173, 0),
+  ("flagbearer_a",0,"icon_regular_footman", avatar_scale, snd_footstep_grass, 0.15, 0.173, 0),
+  ("flagbearer_b",0,"icon_regular_footman", avatar_scale, snd_footstep_grass, 0.15, 0.173, 0),
+  ("peasant",0,"icon_peasant", avatar_scale,snd_footstep_grass, 0.15, 0.173, 0),
+  ("khergit",0,"map_steppe_bandit", avatar_scale,snd_gallop, 0.15, 0.173, 0),
   ("khergit_horseman_b",0,"map_steppe_bandit", avatar_scale,snd_gallop, 0.15, 0.173, 0),
   ("axeman",0,"map_manhunter", avatar_scale,snd_footstep_grass, 0.15, 0.173, 0),
   ("woman",0,"woman_a", avatar_scale,snd_footstep_grass, 0.15, 0.173, 0),
   ("woman_b",0,"woman_b", avatar_scale,snd_footstep_grass, 0.15, 0.173, 0),
+
   ("town",mcn_no_shadow,"roman_map_icon_town", 0.35,0),
   ("town_steppe",mcn_no_shadow,"map_town_steppe_a", 0.35,0),
   ("town_desert",mcn_no_shadow,"map_town_desert_a", 0.35,0),
@@ -380,12 +409,18 @@ map_icons = [
 
 #new map icons
   ("town_old",mcn_no_shadow,"post_roman_map_icon_town", 0.35,0), #used for old roman towns
-  ("sea_raider",0,"map_sea_raiders", avatar_scale,snd_footstep_grass, 0.15, 0.173, 0),  
+  ("sea_raider",0,"icon_regular_footman_group", avatar_scale,snd_footstep_grass, 0.15, 0.173, 0),  
   ("archer_1",0,"map_archer_1", avatar_scale,snd_footstep_grass, 0.15, 0.173, 0),  
-  ("steppe_lord",0,"map_steppe_lord", avatar_scale,snd_gallop, 0.15, 0.173, 0),  
-  ("germanic_army",0,"map_germanic_army", avatar_scale,snd_footstep_grass, 0.15, 0.173, 0),  
-  ("sassanid_lord",0,"map_sassanid", avatar_scale,snd_gallop, 0.15, 0.173, 0),  
-  ("roman_army",0,"map_roman_army", avatar_scale,snd_gallop, 0.15, 0.173, 0),  
+  ("steppe_lord",0,"icon_nomad_horseman_army", avatar_scale,snd_gallop, 0.15, 0.173, 0),  
+  ("germanic_army",0,"icon_germanic_army", avatar_scale,snd_footstep_grass, [icon_tableau_trigger_german,]),  
+  ("sassanid_lord",0,"icon_persian_army", avatar_scale,snd_gallop, 0.15, 0.173, 0),  
+  ("roman_army",0,"icon_roman_army", avatar_scale,snd_footstep_grass, [icon_tableau_trigger_roman,]),  
+  ("roman_footman_1",0,"icon_roman_footman_1", avatar_scale,snd_footstep_grass, [icon_tableau_trigger_roman,]),  
+  ("roman_footman_2",0,"icon_roman_footman_2", avatar_scale,snd_footstep_grass, [icon_tableau_trigger_roman,]), 
+  ("regular_army",0,"icon_regular_army", avatar_scale,snd_gallop, 0.15, 0.173, 0),  
+
   ("camp_siege",mcn_no_shadow,"camp_siege", 0.13, 0),
   ("pyramids",mcn_no_shadow,"pyramids", 1.27,0),
+  ("tomb",mcn_no_shadow,"icon_tomb", 0.35,0),
+  ("temple",mcn_no_shadow,"icon_temple", 0.35,0),
 ]

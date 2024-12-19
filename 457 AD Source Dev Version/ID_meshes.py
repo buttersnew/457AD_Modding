@@ -713,5 +713,3 @@ mesh_banner_religion08 = 711
 mesh_banner_religion09 = 712
 mesh_banner_religion10 = 713
 mesh_banner_religion11 = 714
-
-

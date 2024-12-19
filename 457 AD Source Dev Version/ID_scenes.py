@@ -1,4 +1,5 @@
 scn_random_scene = 0
+scn_none = 0
 scn_conversation_scene = 1
 scn_water = 2
 scn_scene_sea = 3
@@ -822,3 +823,4 @@ scn_village_of_lekhs = 820
 scn_ruins_of_olpia_pontica = 821
 scn_the_oath = 822
 scn_final_battle = 823
+scn_exit = 100000

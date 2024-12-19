@@ -725,7 +725,6 @@ dialogs = [
     (troop_add_item,"$g_talk_troop","itm_georgian_rectangular_shield_leather_2", 0),
     (troop_add_item,"$g_talk_troop","itm_khudashevsky_helmet_1", 0),
     (troop_add_item,"$g_talk_troop","itm_khudashevsky_helmet_2", 0),
-    (troop_add_item,"$g_talk_troop","itm_khudashevsky_helmet_3", 0),
     ],
   "Very good.", "abagasian_merchant_2_merchant_talk_trade_1",
   [(change_screen_trade),]],

@@ -8511,6 +8511,61 @@ simple_triggers = [
 		(call_script, "script_cf_start_rebellion", ":center", "fac_kingdom_1"), #second value determines the affiliation of the rebels, this script can fail
 		(try_end),
 	(try_end),
+
+#migrating nomad camps
+(try_for_range, ":camp", minor_towns_begin, minor_towns_end),
+(party_get_icon, ":icon", ":camp"),
+(this_or_next|eq, ":icon", "icon_steppe_lord"),
+(eq, ":icon", "icon_nomad_camp"),
+(store_faction_of_party, ":camp_faction", ":camp"),
+(faction_slot_eq, ":camp_faction", slot_faction_state, sfs_active),
+(party_get_slot, ":anchor", ":camp", slot_party_home_center),
+(gt, ":anchor", 0),
+(party_get_position, pos1, ":anchor"),
+	(try_begin), #horde moves
+	(neg, "$g_last_rest_center", ":camp"), #dont do this if player is here
+	(store_random_in_range, ":rng", 0, 80), #dont let them move all the time, adjust this if necessary
+	(eq, ":rng", 1),
+	(party_slot_eq, ":camp", slot_party_been_sacked, 0),
+	(neq, ":icon", "icon_steppe_lord"),
+	(party_set_icon, ":camp", "icon_steppe_lord"),
+        (map_get_random_position_around_position, pos2, pos1, 25), #migration range
+	(get_distance_between_positions, ":dist", pos2, pos1),
+	(gt, ":dist", 5),
+		(try_for_range, ":other_party", centers_begin, last_static_party),
+		(neq, ":other_party", ":camp"),
+		(neq, ":other_party", ":anchor"),
+		(party_get_position, pos3, ":other_party"),
+		(get_distance_between_positions, ":dist", pos3, pos2),
+		(gt, ":dist", 3), #dont let them settle on top of others
+		(try_end),
+        (party_set_ai_behavior, ":camp", ai_bhvr_travel_to_point),
+        (party_set_ai_target_position, ":camp", pos2),
+	(str_store_faction_name, s13, ":camp_faction"),
+	(display_message, "@The {s13} are on the move and their enemies are petrified with fear."),
+	(party_set_flags, ":camp", pf_always_visible, 0),
+	(party_set_flags, ":camp", pf_is_static, 0),
+	(party_set_flags, ":camp", pf_quest_party, 1), #this keeps others from attacking them while they move
+	(party_set_position, ":anchor", pos2),
+	(else_try),
+	(eq, ":icon", "icon_steppe_lord"),
+	(party_get_position, pos2, ":camp"),
+	(get_distance_between_positions, ":dist", pos2, pos1),
+	(this_or_next|party_slot_eq, ":camp", slot_party_been_sacked, 1),
+	(lt, ":dist", 2),
+	(party_set_icon, ":camp", "icon_nomad_camp"),
+	(party_set_ai_behavior, ":camp", ai_bhvr_hold),
+	(store_faction_of_party, ":camp_faction", ":camp"),
+	(str_store_faction_name, s13, ":camp_faction"),
+	(call_script, "script_get_closest_center", ":camp"),
+	(assign, ":nearest", reg0),
+	(str_store_party_name, s12, ":nearest"),
+	(display_message, "@The {s13} have settled near {s12}."),
+	(party_set_flags, ":camp", pf_always_visible, 1),
+	(party_set_flags, ":camp", pf_is_static, 1),
+	(party_set_flags, ":camp", pf_quest_party, 0),
+	(try_end),
+(try_end),
  ]),
 
 ]#end of file

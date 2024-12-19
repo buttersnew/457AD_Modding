@@ -27607,8 +27607,16 @@ goods, and books will never be sold. ^^You can change some settings here freely.
   (lt, ":faction_relation", 0),
     (party_get_slot, ":scene", "$g_encountered_party",slot_town_center),
 (gt, ":scene", 0), #madsci
+(try_begin),
+(party_get_icon, ":icon", "$g_encountered_party"),
+(this_or_next|eq, ":icon", "icon_steppe_lord"),
+(eq, ":icon", "icon_nomad_camp"),
+(str_store_string, s11, "@camp"),
+(else_try),
+(str_store_string, s11, "@town"),
+(try_end),
   ],
-    "Sneak into the town.",
+    "Sneak into the {s11}.",
   [
     (store_faction_of_party, ":fac", "$g_encountered_party"),
 
@@ -27720,9 +27728,26 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     (assign, reg50, 1),
   (try_end),
   (eq, reg50, 0),
+(try_begin),
+(party_get_icon, ":icon", "$g_encountered_party"),
+(this_or_next|eq, ":icon", "icon_steppe_lord"),
+(eq, ":icon", "icon_nomad_camp"),
+(str_store_string, s11, "@camp"),
+(else_try),
+(str_store_string, s11, "@town"),
+(try_end),
   ],
-    "Attack the town.",
+    "Attack the {s11}.",
   [
+(try_begin), #madsci if this is a moving camp it will stop when attacked
+(party_get_icon, ":icon", "$g_encountered_party"),
+(eq, ":icon", "icon_steppe_lord"), #the camp is on the move
+(party_set_icon, "$g_encountered_party", "icon_nomad_camp"),
+(party_set_ai_behavior, "$g_encountered_party", ai_bhvr_hold),
+(party_set_flags, "$g_encountered_party", pf_always_visible, 1),
+(party_set_flags, "$g_encountered_party", pf_is_static, 1),
+(party_set_flags, "$g_encountered_party", pf_quest_party, 0),
+(try_end),
     # (try_begin),
     #     (call_script, "script_party_count_members_with_full_health", "p_main_party"), #player must have 100 troops fit for battle, ie not injured
     #     (gt, reg0, 100),
@@ -27779,8 +27804,16 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     (ge, ":faction_relation", 0),
 (party_get_slot, ":scene", "$g_encountered_party",slot_town_center), #madsci make sure valid scene exists
 (gt, ":scene", 0),
+(try_begin),
+(party_get_icon, ":icon", "$g_encountered_party"),
+(this_or_next|eq, ":icon", "icon_steppe_lord"),
+(eq, ":icon", "icon_nomad_camp"),
+(str_store_string, s11, "@camp"),
+(else_try),
+(str_store_string, s11, "@town"),
+(try_end),
 ],
-       "Visit the town.",[
+       "Visit the {s11}.",[
     (store_faction_of_party, ":fac", "$g_encountered_party"),
     (faction_get_slot, ":troop_1", ":fac", slot_faction_tier_1_troop), #skirm
     (faction_get_slot, ":troop_2", ":fac", slot_faction_tier_2_troop), #inf
@@ -27943,6 +27976,12 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         (assign, ":can_rest", 0),
       (try_end),
       (eq, ":can_rest", 1),
+(try_begin),
+(party_get_icon, ":icon", "$g_encountered_party"),
+(eq, ":icon", "icon_steppe_lord"), #dont let the player rest here if the camp is on the move
+(str_store_string, s1, "@ (the camp is on the move)"),
+(disable_menu_option),
+(try_end),
     ],
     "Wait here for some time{s1}.",
     [
@@ -27959,9 +27998,17 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 
 
   ( "attack_minor_town",menu_text_color(0xFF000000)|mnf_disable_all_keys,
-    "You order your troops to march towards the town. The {s51} have noticed your advance and prepare to defend their homes...",
+    "You order your troops to march towards the {s11}. The {s51} have noticed your advance and prepare to defend their homes...",
     "none",
     [
+(try_begin),
+(party_get_icon, ":icon", "$g_encountered_party"),
+(this_or_next|eq, ":icon", "icon_steppe_lord"),
+(eq, ":icon", "icon_nomad_camp"),
+(str_store_string, s11, "@camp"),
+(else_try),
+(str_store_string, s11, "@town"),
+(try_end),
     (str_store_faction_name, s51, "$g_encountered_party_faction"),
 
     (try_begin),
@@ -28076,9 +28123,17 @@ goods, and books will never be sold. ^^You can change some settings here freely.
   ]),
 
   ( "minor_town_loot",mnf_disable_all_keys,
-    "The town is in your hand. What do you want to do?",
+    "The {s11} is in your hand. What do you want to do?",
     "none",
     [
+(try_begin),
+(party_get_icon, ":icon", "$g_encountered_party"),
+(this_or_next|eq, ":icon", "icon_steppe_lord"),
+(eq, ":icon", "icon_nomad_camp"),
+(str_store_string, s11, "@camp"),
+(else_try),
+(str_store_string, s11, "@town"),
+(try_end),
       (set_background_mesh, "mesh_pic_victory"),
 
       (try_begin), #given to the player if they defeat the mordens for the first time

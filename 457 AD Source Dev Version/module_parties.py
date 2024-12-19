@@ -583,6 +583,12 @@ parties = [
 	("pyramid_2","{!}Pyramid_2",icon_pyramids|pf_is_static|pf_always_visible|pf_no_label, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(49.03, -82.63),[], -17.7),
 	("pyramid_3","{!}Pyramid_3",icon_pyramids|pf_is_static|pf_always_visible|pf_no_label, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(49.51, -83.76),[], -17.7),
 
+#madsci use these to decide where nomads move, their position is set automatically
+  ("onoguroi_village_anchor"   ,"{!}camp_anchor",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(26, 77),[]),
+  ("saraguroi_village_anchor"   ,"{!}camp_anchor",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(26, 77),[]),
+  ("kutriguroi_village_anchor"   ,"{!}camp_anchor",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(26, 77),[]),
+  ("sabiroi_village_anchor"   ,"{!}camp_anchor",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(26, 77),[]),
+
   ("looter_spawn_point"   ,"{!}looter_sp",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(26, 77),[(trp_looter,15,0)]),
   ("steppe_bandit_spawn_point"  ,"the danube",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(-76.42, 76.85),[(trp_looter,15,0)]), 
   ("taiga_bandit_spawn_point"   ,"germania",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(-139.87, 126.39),[(trp_looter,15,0)]), 
@@ -626,10 +632,10 @@ parties = [
   ("vascones_village", "Flaviobriga", icon_castle_a|pf_minor_town, no_menu, pt_none, fac_minor_vascones, 0, ai_bhvr_hold, 0, (-243.57, 43.55), []),
   ("gallaeci_village", "Lucus_Augusti", icon_castle_a|pf_minor_town, no_menu, pt_none, fac_minor_gallaeci, 0, ai_bhvr_hold, 0, (-267.49,42.04), []),
   ("venedi_village", "Dunepru", icon_village_a|pf_minor_town, no_menu, pt_none, fac_minor_venedi, 0, ai_bhvr_hold, 0, (-6.4, 159.72), []),  
-  ("onoguroi_village", "Campus Onogurorum", icon_village_a|pf_minor_town, no_menu, pt_none, fac_minor_onoguroi, 0, ai_bhvr_hold, 0, (111.7, 126.6), []), 
-  ("saraguroi_village", "Campus Saragurorum", icon_village_a|pf_minor_town, no_menu, pt_none, fac_minor_saraguroi, 0, ai_bhvr_hold, 0, (98.2, 154.34), []), 
-  ("kutriguroi_village", "Campus Kutrigurorum", icon_village_a|pf_minor_town, no_menu, pt_none, fac_minor_kutriguroi, 0, ai_bhvr_hold, 0, (55.04, 132.01), []),
-  ("sabiroi_village", "Campus Sabirorum", icon_village_a|pf_minor_town, no_menu, pt_none, fac_minor_sabiroi, 0, ai_bhvr_hold, 0, (159.15, 168.09), []), 
+  ("onoguroi_village", "Campus Onogurorum", icon_nomad_camp|pf_minor_town, no_menu, pt_none, fac_minor_onoguroi, escorted_merchant_personality, ai_bhvr_hold, 0, (111.7, 126.6), []), 
+  ("saraguroi_village", "Campus Saragurorum", icon_nomad_camp|pf_minor_town, no_menu, pt_none, fac_minor_saraguroi, escorted_merchant_personality, ai_bhvr_hold, 0, (98.2, 154.34), []), 
+  ("kutriguroi_village", "Campus Kutrigurorum", icon_nomad_camp|pf_minor_town, no_menu, pt_none, fac_minor_kutriguroi, escorted_merchant_personality, ai_bhvr_hold, 0, (55.04, 132.01), []),
+  ("sabiroi_village", "Campus Sabirorum", icon_nomad_camp|pf_minor_town, no_menu, pt_none, fac_minor_sabiroi, escorted_merchant_personality, ai_bhvr_hold, 0, (159.15, 168.09), []), 
   ("alan_1_village", "Valentia", icon_castle_a|pf_minor_town, no_menu, pt_none, fac_minor_valentia, 0, ai_bhvr_hold, 0, (-176.5, 49.18), []),
   ("alan_2_village", "Aurelianum", icon_castle_a|pf_minor_town, no_menu, pt_none, fac_minor_aurelianorum, 0, ai_bhvr_hold, 0, (-193.3,87.67), []),
   ("heruli_village", "Campus_Herulorum", icon_village_a|pf_minor_town, no_menu, pt_none, fac_minor_heruli, 0, ai_bhvr_hold, 0, (-52.4, 96), []),

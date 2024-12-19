@@ -423,4 +423,5 @@ map_icons = [
   ("pyramids",mcn_no_shadow,"pyramids", 1.27,0),
   ("tomb",mcn_no_shadow,"icon_tomb", 0.35,0),
   ("temple",mcn_no_shadow,"icon_temple", 0.35,0),
+  ("nomad_camp",mcn_no_shadow,"icon_nomad_camp", 0.3, 0),
 ]

@@ -846,6 +846,55 @@ tableaus = [
     (cur_tableau_set_camera_parameters, 0, 200, 100, 0, 100000),
   ]),
 
+  ("icon_caucasian_footman", 0, "sample_caucasian_chars", 1024, 1024, 0, 0, 0, 0, [
+    (store_script_param, ":leader_troop", 1),
+    (set_fixed_point_multiplier, 100),
+    #(assign,":arms_mesh", arms_default),
+    #(assign, ":background_color", banner_bg_default),
+    
+    (try_begin),
+      (ge, ":leader_troop", 0),
+      
+      (troop_get_slot, ":banner_index", ":leader_troop", slot_troop_banner_scene_prop),
+      (is_between, ":banner_index", banner_scene_props_begin, banner_scene_props_end_minus_one),
+      
+      (val_sub, ":banner_index", banner_scene_props_begin),
+      (troop_get_slot, reg0, "trp_banner_background_color_array", ":banner_index"),
+      #(store_add, ":arms_mesh", arms_meshes_begin, ":banner_index"),
+      
+      (gt, reg0, 0),
+      (assign, ":background_color", reg0),
+    (try_end),
+    
+    (cur_tableau_set_background_color, ":background_color"),
+    
+    (set_fixed_point_multiplier, 1000),
+    (init_position, pos1),
+    (position_set_x, pos1, 615),
+    (position_set_y, pos1, -299),
+    (set_fixed_point_multiplier, 100),
+    
+    (position_get_scale_y, reg0, pos1), #amazingly, this corrects distortion
+    (val_mul, reg0, 445),
+    (val_div, reg0, 1000),
+    (position_set_scale_y, pos1, reg0),
+    
+    #(cur_tableau_add_mesh, ":arms_mesh", pos1, 30),
+  
+    (init_position, pos1),
+    (position_set_x, pos1, 48),
+    (position_set_y, pos1, -37),
+    (position_set_z, pos1, 10),
+    
+    (cur_tableau_add_mesh_with_vertex_color, "mesh_white_bg_plane_a", pos1, 250, 100, ":background_color"),  #back of shield
+    
+    (init_position, pos1),
+    (position_set_z, pos1, 20),
+    (cur_tableau_add_mesh, "mesh_tableau_caucasian_chars", pos1, 0),
+    
+    (cur_tableau_set_camera_parameters, 0, 200, 100, 0, 100000),
+  ]),
+
   # ("color_shirt_roman", 0, "roman_shirt_1", 1024, 1024, 0, 0, 0, 0,
   #  [
   #   (store_script_param, ":banner_mesh", 1),

@@ -49,6 +49,20 @@ icon_tableau_trigger_german = (ti_on_init_map_icon,
       (try_end), 
     ])
 
+icon_tableau_trigger_caucasian = (ti_on_init_map_icon, 
+  [
+      (store_trigger_param_1, ":party_no"),
+      (try_begin),
+        (this_or_next|eq, ":party_no", "p_main_party"),
+        (party_slot_eq, ":party_no", slot_party_type, spt_kingdom_hero_party),
+        (party_stack_get_troop_id, ":leader_troop", ":party_no", 0),
+        (troop_slot_ge,  ":leader_troop", slot_troop_banner_scene_prop, 1),
+        (cur_map_icon_set_tableau_material, "tableau_icon_caucasian_footman", ":leader_troop"),
+      (else_try),
+        (cur_map_icon_set_tableau_material, "tableau_icon_caucasian_footman", -1),
+      (try_end), 
+    ])
+
 map_icons = [
   ("player",0,"player", avatar_scale, snd_footstep_grass, 0.15, 0.173, 0),
   ("player_horseman",0,"player_horseman", avatar_scale, snd_gallop, 0.15, 0.173, 0),
@@ -97,6 +111,8 @@ map_icons = [
   ("cattle",0,"icon_cow", 0.2,snd_footstep_grass, 0.15, 0.173, 0),
   ("training_ground",mcn_no_shadow,"training", 0.35,0),
 
+  ("nomad_camp",mcn_no_shadow,"icon_nomad_camp", 0.3, 0),
+  
   ("bridge_a",mcn_no_shadow,"map_river_bridge_a", 1.27,0),
   ("bridge_b",mcn_no_shadow,"map_river_bridge_b", 0.7,0),
   ("bridge_snow_a",mcn_no_shadow,"map_river_bridge_snow_a", 1.27,0),
@@ -415,13 +431,12 @@ map_icons = [
   ("germanic_army",0,"icon_germanic_army", avatar_scale,snd_footstep_grass, [icon_tableau_trigger_german,]),  
   ("sassanid_lord",0,"icon_persian_army", avatar_scale,snd_gallop, 0.15, 0.173, 0),  
   ("roman_army",0,"icon_roman_army", avatar_scale,snd_footstep_grass, [icon_tableau_trigger_roman,]),  
-  ("roman_footman_1",0,"icon_roman_footman_1", avatar_scale,snd_footstep_grass, [icon_tableau_trigger_roman,]),  
-  ("roman_footman_2",0,"icon_roman_footman_2", avatar_scale,snd_footstep_grass, [icon_tableau_trigger_roman,]), 
   ("regular_army",0,"icon_regular_army", avatar_scale,snd_gallop, 0.15, 0.173, 0),  
+  ("caucasian_army",0,"icon_caucasian_army", avatar_scale,snd_footstep_grass, [icon_tableau_trigger_roman,]),  
+  ("african_army",0,"icon_african_army", avatar_scale,snd_gallop, 0.15, 0.173, 0),  
 
   ("camp_siege",mcn_no_shadow,"camp_siege", 0.13, 0),
   ("pyramids",mcn_no_shadow,"pyramids", 1.27,0),
   ("tomb",mcn_no_shadow,"icon_tomb", 0.35,0),
   ("temple",mcn_no_shadow,"icon_temple", 0.35,0),
-  ("nomad_camp",mcn_no_shadow,"icon_nomad_camp", 0.3, 0),
 ]

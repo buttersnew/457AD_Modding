@@ -271,6 +271,7 @@ meshes = [
   
   ("tableau_roman_chars", 0, "tableau_roman_chars",  0, 0, 0, 0, 0, 0, 10, 5, 10),
   ("tableau_german_chars", 0, "tableau_german_chars",  0, 0, 0, 0, 0, 0, 10, 5, 10),
+  ("tableau_caucasian_chars", 0, "tableau_caucasian_chars",  0, 0, 0, 0, 0, 0, 10, 5, 10),
   ("heraldic_map_flag_03", 0, "heraldic_map_flag_03",  0, 0, 0, -90, 0, 90, 1, 1, 1),
   ("tableau_mesh_heraldic_banner_03", 0, "tableau_mesh_heraldic_banner_03", 0, 0, 0, 0, 0, 0, 10, 10, 10),
 

@@ -1835,7 +1835,8 @@ weight(1)|abundance(80)|head_armor(24)|body_armor(14)|leg_armor(6)|difficulty(0)
 ["tarasovsky_1784_helmet_leather", "Eastern Spangenhelm", [("tarasovsky_1784_helmet_leather",0),("tarasovsky_1784_inv_2",ixmesh_inventory)], itp_merchandise|itp_attach_armature|itp_type_head_armor,0,865 , weight(2.5)|abundance(30)|head_armor(42)|body_armor(0)|leg_armor(0)|difficulty(3) ,imodbits_plate, [], culture_sassanid+culture_caucasian+culture_hunnic+culture_alan ],
 ["tarasovsky_1784_helmet_arab", "Eastern Spangenhelm", [("tarasovsky_1784_helmet_arab",0),("tarasovsky_1784_helmet_arab_inv",ixmesh_inventory)], itp_merchandise|itp_attach_armature|itp_type_head_armor,0,865 , weight(2.5)|abundance(30)|head_armor(43)|body_armor(0)|leg_armor(0)|difficulty(3) ,imodbits_plate, [], culture_sassanid ],
 
-["khudashevsky_helmet_1", "Stacked Helmet", [("khudashevsky_helmet_1",0),("khudashevsky_helmet_1_inv",ixmesh_inventory)], itp_merchandise|itp_attach_armature|itp_type_head_armor,0,900 , weight(2.5)|abundance(40)|head_armor(42)|body_armor(0)|leg_armor(0)|difficulty(3) ,imodbits_plate, [], culture_hunnic+culture_alan ],
+["khudashevsky_helmet_1", "Stacked Helmet", [("khudashevsky_helmet_1",0),("khudashevsky_helmet_inv",ixmesh_inventory)], itp_merchandise|itp_attach_armature|itp_type_head_armor,0,900 , weight(2.5)|abundance(40)|head_armor(42)|body_armor(0)|leg_armor(0)|difficulty(3) ,imodbits_plate, [], culture_hunnic+culture_alan ],
+["tyum_helmet_1", "Lamellenhelm", [("tyum_helmet_1",0),("tyum_helmet_inv",ixmesh_inventory)], itp_merchandise|itp_attach_armature|itp_type_head_armor,0,900 , weight(2.5)|abundance(40)|head_armor(42)|body_armor(0)|leg_armor(0)|difficulty(3) ,imodbits_plate, [], culture_hunnic+culture_alan ],
 
 ["rozhdestvensky_helmet_leather", "Lamellenhelm", [("rozhdestvensky_helmet_leather",0),("rozhdestvensky_helmet_inv",ixmesh_inventory)], itp_merchandise|itp_attach_armature|itp_type_head_armor,0,865 , weight(1.5)|abundance(30)|head_armor(42)|body_armor(0)|leg_armor(0)|difficulty(3) ,imodbits_plate, [], culture_caucasian+culture_hunnic+culture_alan ],
 
@@ -1911,8 +1912,9 @@ weight(1)|abundance(80)|head_armor(24)|body_armor(14)|leg_armor(6)|difficulty(0)
 
 ["sarranid_horseman_helmet", "Persian Ridge Helmet with Aventail", [("sassanid_helmet_aventail_5",0),("sassanid_helmet_aventail_5_inv",ixmesh_inventory)], itp_merchandise|itp_attach_armature|itp_type_head_armor,0,1245 , weight(2.5)|abundance(30)|head_armor(48)|body_armor(0)|leg_armor(0)|difficulty(7) ,imodbits_plate, [], culture_sassanid+culture_caucasian ],
 
-["khudashevsky_helmet_2", "Stacked Helmet with Mail", [("khudashevsky_helmet_2",0),("khudashevsky_helmet_2_inv",ixmesh_inventory)], itp_merchandise|itp_attach_armature|itp_type_head_armor,0,1145 , weight(2.0)|abundance(30)|head_armor(46)|body_armor(0)|leg_armor(0)|difficulty(6) ,imodbits_plate, [], culture_hunnic+culture_alan ],
-["khudashevsky_helmet_3", "Stacked Helmet with Mail", [("khudashevsky_helmet_3",0),("khudashevsky_helmet_3_inv",ixmesh_inventory)], itp_merchandise|itp_attach_armature|itp_type_head_armor,0,1245 , weight(2.5)|abundance(30)|head_armor(48)|body_armor(0)|leg_armor(0)|difficulty(7) ,imodbits_plate, [], culture_hunnic+culture_alan ],
+["khudashevsky_helmet_2", "Stacked Helmet with Mail", [("khudashevsky_helmet_2",0),("khudashevsky_helmet_inv",ixmesh_inventory)], itp_merchandise|itp_attach_armature|itp_type_head_armor,0,1145 , weight(2.0)|abundance(30)|head_armor(46)|body_armor(0)|leg_armor(0)|difficulty(6) ,imodbits_plate, [], culture_hunnic+culture_alan ],
+
+["tyum_helmet_2", "Lamellenhelm  with Mail", [("tyum_helmet_2",0),("tyum_helmet_inv",ixmesh_inventory)], itp_merchandise|itp_attach_armature|itp_type_head_armor,0,1145 , weight(2.0)|abundance(30)|head_armor(45)|body_armor(0)|leg_armor(0)|difficulty(6) ,imodbits_plate, [], culture_hunnic+culture_alan ],
 
 ["rozhdestvensky_helmet_mail", "Lamellenhelm with Mail", [("rozhdestvensky_helmet_mail",0),("rozhdestvensky_helmet_inv",ixmesh_inventory)], itp_merchandise|itp_attach_armature|itp_type_head_armor,0,1045 , weight(2.25)|abundance(30)|head_armor(45)|body_armor(0)|leg_armor(0)|difficulty(6) ,imodbits_plate, [], culture_caucasian+culture_hunnic+culture_alan ],
 

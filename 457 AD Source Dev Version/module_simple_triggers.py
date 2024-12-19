@@ -8524,21 +8524,25 @@ simple_triggers = [
 (party_get_position, pos1, ":anchor"),
 	(try_begin), #horde moves
 	(neg, "$g_last_rest_center", ":camp"), #dont do this if player is here
-	(store_random_in_range, ":rng", 0, 80), #dont let them move all the time, adjust this if necessary
-	(eq, ":rng", 1),
 	(party_slot_eq, ":camp", slot_party_been_sacked, 0),
 	(neq, ":icon", "icon_steppe_lord"),
-	(party_set_icon, ":camp", "icon_steppe_lord"),
+	(store_random_in_range, ":rng", 0, 80), #dont let them move all the time, adjust this if necessary
+	(eq, ":rng", 1),
         (map_get_random_position_around_position, pos2, pos1, 25), #migration range
 	(get_distance_between_positions, ":dist", pos2, pos1),
 	(gt, ":dist", 5),
+	(assign, ":cont", 1),
 		(try_for_range, ":other_party", centers_begin, last_static_party),
+		(eq, ":cont", 1),
 		(neq, ":other_party", ":camp"),
 		(neq, ":other_party", ":anchor"),
 		(party_get_position, pos3, ":other_party"),
 		(get_distance_between_positions, ":dist", pos3, pos2),
-		(gt, ":dist", 3), #dont let them settle on top of others
+		(lt, ":dist", 3), #dont let them settle on top of others
+		(assign, ":cont", 0),
 		(try_end),
+	(eq, ":cont", 1),
+	(party_set_icon, ":camp", "icon_steppe_lord"),
         (party_set_ai_behavior, ":camp", ai_bhvr_travel_to_point),
         (party_set_ai_target_position, ":camp", pos2),
 	(str_store_faction_name, s13, ":camp_faction"),

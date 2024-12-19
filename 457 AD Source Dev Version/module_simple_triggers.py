@@ -8542,6 +8542,11 @@ simple_triggers = [
 		(assign, ":cont", 0),
 		(try_end),
 	(eq, ":cont", 1),
+	(party_set_position, ":anchor", pos2),
+	(party_get_current_terrain, ":terrain", ":anchor"),
+	(neq, ":terrain", rt_bridge), #nomads dont like water
+	(neq, ":terrain", rt_river),
+	(neq, ":terrain", rt_water),
 	(party_set_icon, ":camp", "icon_steppe_lord"),
         (party_set_ai_behavior, ":camp", ai_bhvr_travel_to_point),
         (party_set_ai_target_position, ":camp", pos2),
@@ -8550,7 +8555,6 @@ simple_triggers = [
 	(party_set_flags, ":camp", pf_always_visible, 0),
 	(party_set_flags, ":camp", pf_is_static, 0),
 	(party_set_flags, ":camp", pf_quest_party, 1), #this keeps others from attacking them while they move
-	(party_set_position, ":anchor", pos2),
 	(else_try),
 	(eq, ":icon", "icon_steppe_lord"),
 	(party_get_position, pos2, ":camp"),

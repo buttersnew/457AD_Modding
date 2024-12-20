@@ -2700,7 +2700,7 @@ troops = [
 
 #samaritan rebels
   ["samaritan_zealot","Samaritan Zealot","Samaritan Zealots",tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_ranged,0,0,fac_samaritan_rebels, #rebelled in 484, if I add judaism in the future, could rebel if player is ERE and has low relations with judaism
-   [itm_mace_1,itm_flintlock_pistol,itm_cartridges,itm_cartridges,itm_wrapping_boots,itm_ankle_boots,itm_deurne_campagi_1,itm_deurne_campagi_3,itm_roman_peasant_tunic_1,itm_roman_peasant_tunic_2,itm_roman_peasant_tunic_3,itm_roman_peasant_tunic_4,itm_roman_peasant_tunic_5,itm_roman_peasant_tunic_6,itm_roman_peasant_tunic_10,itm_arabian_peasant_tunic_2],
+   [itm_mace_1,itm_flintlock_pistol,itm_cartridges,itm_cartridges,itm_wrapping_boots,itm_ankle_boots,itm_deurne_campagi_1,itm_deurne_campagi_3,itm_roman_peasant_tunic_1,itm_roman_peasant_tunic_2,itm_roman_peasant_tunic_3,itm_roman_peasant_tunic_4,itm_roman_peasant_tunic_5,itm_roman_peasant_tunic_6,itm_roman_peasant_tunic_10,itm_arabian_peasant_tunic_2,itm_turban],
    def_attrib_lvl_13|level(13),wp_one_handed(110)|wp_polearm(100)|wp_firearm(150),knows_lvl_13|knows_power_strike_4,coptic_face_1, coptic_face_2],
 
   ["samaritan_rebel","Samaritan Rebel","Samaritan Rebels",tf_guarantee_basic|tf_guarantee_helmet,0,0,fac_samaritan_rebels, #rebelled in 484, if I add judaism in the future, could rebel if player is ERE and has low relations with judaism

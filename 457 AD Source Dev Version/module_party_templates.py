@@ -230,8 +230,8 @@ party_templates = [
   ("culture_minor_8_reinforcements_b", "{!}Tetraxitae Reinforcements", 0, 0, fac_commoners, 0, [(trp_crimean_gothic_freeman,3,8),(trp_crimean_gothic_mounted_skirmisher,2,7),(trp_standard_bearer,1,1)]),
   ("culture_minor_8_reinforcements_c", "{!}Tetraxitae Reinforcements", 0, 0, fac_commoners, 0, [(trp_crimean_gothic_warrior,2,5),(trp_crimean_gothic_horseman,2,5)]),
 
-  ("culture_minor_9_reinforcements_a", "{!}Western Alan Reinforcements", 0, 0, fac_commoners, 0, [(trp_eques_alani_leves,8,20)]),
-  ("culture_minor_9_reinforcements_b", "{!}Western Alan Reinforcements", 0, 0, fac_commoners, 0, [(trp_eques_sagittarii_alani,6,15)]),
+  ("culture_minor_9_reinforcements_a", "{!}Western Alan Reinforcements", 0, 0, fac_commoners, 0, [(trp_pedes_alani,8,20)]),
+  ("culture_minor_9_reinforcements_b", "{!}Western Alan Reinforcements", 0, 0, fac_commoners, 0, [(trp_eques_alani_leves,3,8),(trp_eques_sagittarii_alani,3,7)]),
   ("culture_minor_9_reinforcements_c", "{!}Western Alan Reinforcements", 0, 0, fac_commoners, 0, [(trp_eques_alani_nobiles,4,10)]),
 
   ("culture_minor_10_reinforcements_a", "{!}Iazyges Reinforcements", 0, 0, fac_commoners, 0, [(trp_steppe_bandit,8,20)]),

@@ -8522,14 +8522,14 @@ simple_triggers = [
 (faction_slot_eq, ":camp_faction", slot_faction_state, sfs_active),
 (party_get_slot, ":anchor", ":camp", slot_party_home_center),
 (gt, ":anchor", 0),
-(party_get_position, pos1, ":anchor"),
 	(try_begin), #horde moves
 	(neq, "$g_last_rest_center", ":camp"), #dont do this if player is here
 	(party_slot_eq, ":camp", slot_party_been_sacked, 0),
 	(neq, ":icon", "icon_steppe_lord"),
 	(store_random_in_range, ":rng", 0, 80), #dont let them move all the time, adjust this if necessary
 	(eq, ":rng", 1),
-        (map_get_land_position_around_position, pos2, pos1, 25), #migration range nomads dont like water so use land position only
+	(party_get_position, pos1, "p_religious_site_18"), #use a static landmark
+        (map_get_land_position_around_position, pos2, pos1, 65), #migration range nomads dont like water so use land position only
 	(get_distance_between_positions, ":dist", pos2, pos1),
 	(gt, ":dist", 5),
 	(assign, ":cont", 1),
@@ -8554,6 +8554,7 @@ simple_triggers = [
 	(party_set_flags, ":camp", pf_quest_party, 1), #this keeps others from attacking them while they move
 	(else_try),
 	(eq, ":icon", "icon_steppe_lord"),
+	(party_get_position, pos1, ":anchor"),
 	(party_get_position, pos2, ":camp"),
 	(get_distance_between_positions, ":dist", pos2, pos1),
 	(this_or_next|party_slot_eq, ":camp", slot_party_been_sacked, 1),
@@ -8574,6 +8575,7 @@ simple_triggers = [
 	(eq, ":icon", "icon_steppe_lord"),
 	(get_party_ai_behavior, ":behavior", ":camp"),
 	(neq, ":behavior", ai_bhvr_travel_to_point),
+	(party_get_position, pos1, ":anchor"),
         (party_set_ai_behavior, ":camp", ai_bhvr_travel_to_point),
         (party_set_ai_target_position, ":camp", pos1),
 	(try_end),

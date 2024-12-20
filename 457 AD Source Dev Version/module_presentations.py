@@ -18820,7 +18820,7 @@ presentations = [
     (else_try), ####### Religion #######
       (eq, ":object", "$g_presentation_obj_reason"),
       (assign, "$g_presentation_obj_reason", ":value"),
-      (assign, "$background_answer_4", ":value", 1),
+      (assign, "$background_answer_4", ":value"),
       (start_presentation, "prsnt_mcc_character_creation"),
     (else_try), ####### Culture #######
       (eq, ":object", "$g_presentation_obj_region"),

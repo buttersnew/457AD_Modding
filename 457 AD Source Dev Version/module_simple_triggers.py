@@ -1383,7 +1383,7 @@ simple_triggers = [
 		(try_begin),
 			(eq, "$cheat_mode", 1),
 			(str_store_troop_name, s9, ":troop_no"),
-			(display_message, "@{!}DEBUG -- Doing political calculations for {s9}"),
+			#(display_message, "@{!}DEBUG -- Doing political calculations for {s9}"),
 		(try_end),
 
         #Tally the fiefs owned by the hero, and cache the value in slot.
@@ -1513,7 +1513,7 @@ simple_triggers = [
                     (try_begin),
                         (ge, "$cheat_mode", 1),
                         (str_store_troop_name, s4, ":troop_no"),
-                        (display_message, "@{!}DEBUG - {s4} faction changed in defection"),
+                        #(display_message, "@{!}DEBUG - {s4} faction changed in defection"),
                     (try_end),
                     (call_script, "script_dplmc_store_troop_is_female", ":troop_no"),
                     (assign, reg4, reg0),
@@ -2266,11 +2266,11 @@ simple_triggers = [
             (try_begin), #debug
                 (eq, "$cheat_mode", 1),
                 (assign, reg0, ":tax_rate"),
-                (display_message, "@{!}DEBUG : tax rate in {s6}: {reg0}"),
+                #(display_message, "@{!}DEBUG : tax rate in {s6}: {reg0}"),
                 (assign, reg0, ":accumulated_rents"),
-                (display_message, "@{!}DEBUG : accumulated_rents  in {s6}: {reg0}"),
+                #(display_message, "@{!}DEBUG : accumulated_rents  in {s6}: {reg0}"),
                 (assign, reg0, ":cur_rents"),
-                (display_message, "@{!}DEBUG : cur_rents in {s6}: {reg0}  in {s6}"),
+                #(display_message, "@{!}DEBUG : cur_rents in {s6}: {reg0}  in {s6}"),
             (try_end),
             (val_div, ":tax_rate2", -25),
             (call_script, "script_change_center_prosperity", "$g_center_trigger_taxes", ":tax_rate2"),
@@ -2280,7 +2280,7 @@ simple_triggers = [
                 (try_begin), #debug
                     (eq, "$cheat_mode", 1),
                     (assign, reg0, ":tax_rate2"),
-                    (display_message, "@{!}DEBUG : tax rate after modi in {s6}: {reg0}"),
+                    #(display_message, "@{!}DEBUG : tax rate after modi in {s6}: {reg0}"),
                 (try_end),
                 (try_begin),
                     (this_or_next|is_between, "$g_center_trigger_taxes", villages_begin, villages_end),
@@ -2292,7 +2292,7 @@ simple_triggers = [
                     (try_begin), #debug
                         (eq, "$cheat_mode", 1),
                         (assign, reg0, ":center_relation"),
-                        (display_message, "@{!}DEBUG : center relation: {reg0}"),
+                        #(display_message, "@{!}DEBUG : center relation: {reg0}"),
                     (try_end),
 
                     (lt, ":center_relation", -15),##was 5
@@ -5041,7 +5041,7 @@ simple_triggers = [
 		(try_begin),
 			(ge, "$cheat_mode", 1),
 			(str_store_troop_name, s4, ":troop_no"),
-			(display_message, "@{!}DEBUG - {s4} faction changed from slot_troop_change_to_faction"),
+			#(display_message, "@{!}DEBUG - {s4} faction changed from slot_troop_change_to_faction"),
 		(try_end),
 
       (call_script, "script_change_troop_faction", ":troop_no", ":new_faction_no"),
@@ -5242,7 +5242,7 @@ simple_triggers = [
 		(str_store_party_name, s5, ":bound_center"),
 		(store_current_hours, reg3),
         (party_get_slot, reg4, ":bound_center", slot_town_last_nearby_fire_time),
-		(display_message, "@{!}DEBUG - Checking fire at {s4} for {s5} - current time {reg3}, last nearby fire {reg4}"),
+		#(display_message, "@{!}DEBUG - Checking fire at {s4} for {s5} - current time {reg3}, last nearby fire {reg4}"),
 	   (try_end),
 
 
@@ -6254,7 +6254,7 @@ simple_triggers = [
               (ge, "$cheat_mode", 1),
               (str_store_faction_name, s4, ":kingdom"),
               (str_store_party_name, s5, ":party_no"),
-              (display_message, "@{!}DEBUG - Removed {s5} because {s4} cannot support that many patrols"),
+              #(display_message, "@{!}DEBUG - Removed {s5} because {s4} cannot support that many patrols"),
            (try_end),
            (remove_party, ":party_no"),
         (else_try),
@@ -6458,16 +6458,16 @@ simple_triggers = [
       (eq, "$cheat_mode", 1),
       (str_store_faction_name, s9, ":kingdom"),
       (assign, reg1, ":centralization"),
-      (display_message, "@{!}DEBUG - centralization {reg1}"),
+      #(display_message, "@{!}DEBUG - centralization {reg1}"),
       (assign, reg1, ":aristocracy"),
-      (display_message, "@{!}DEBUG - aristocracy {reg1}"),
+      #(display_message, "@{!}DEBUG - aristocracy {reg1}"),
       (assign, reg1, ":quality"),
-      (display_message, "@{!}DEBUG - quality {reg1}"),
+      #(display_message, "@{!}DEBUG - quality {reg1}"),
       (assign, reg1, ":serfdom"),
-      (display_message, "@{!}DEBUG - serfdom {reg1}"),
+      #(display_message, "@{!}DEBUG - serfdom {reg1}"),
 		##nested diplomacy start+
       (assign, reg1, ":mercantilism"),
-      (display_message, "@{!}DEBUG - mercantilism {reg1}"),
+      #(display_message, "@{!}DEBUG - mercantilism {reg1}"),
 		##nested diplomacy end+
     (try_end),
 
@@ -6494,7 +6494,7 @@ simple_triggers = [
           (str_store_faction_name, s12, ":kingdom"),
           (assign, reg1, ":change"),
           (assign, reg2, ":random"),
-          (display_message, "@{!}DEBUG - changing {reg1} of {reg2} for {s12}"),
+          #(display_message, "@{!}DEBUG - changing {reg1} of {reg2} for {s12}"),
         (try_end),
 
         (try_begin),
@@ -6558,7 +6558,7 @@ simple_triggers = [
           (eq, "$cheat_mode", 1),
           (str_store_faction_name, s9, ":kingdom"),
           (assign, reg1, ":relation_change"),
-          (display_message, "@{!}DEBUG - relation_change =  {reg1} for {s9}"),
+          #(display_message, "@{!}DEBUG - relation_change =  {reg1} for {s9}"),
         (try_end),
 
         ##diplomacy start+ also include kingdom ladies who are kingdom heroes
@@ -6703,7 +6703,7 @@ simple_triggers = [
 		 (eq, ":chosen_lord", -1),
 		 (try_begin),
 			(ge, "$cheat_mode", 1),
-			(display_message, "@{!}DEBUG - no eligible lords in exile"),
+			#(display_message, "@{!}DEBUG - no eligible lords in exile"),
 		 (try_end),
 	    (else_try),
 			#If there were fewer than 3 lords in exile, random chance that none will return.
@@ -6713,7 +6713,7 @@ simple_triggers = [
 			(try_begin),
 				(ge, "$cheat_mode", 1),
 				(assign, reg0, ":num_exiles"),
-				(display_message, "@{!}DEBUG - {reg0} lords found in exile; randomly decided not to try to return anyone."),
+				#(display_message, "@{!}DEBUG - {reg0} lords found in exile; randomly decided not to try to return anyone."),
 			(try_end),
 		(else_try),
 		 #found a lord
@@ -6723,7 +6723,7 @@ simple_triggers = [
 			(str_store_troop_name, s4, ":chosen_lord"),
 			(assign, reg0, ":best_score"),
 			(assign, reg1, ":num_exiles"),
-			(display_message, "@{!}DEBUG - {reg1} lords found in exile; {s4} chosen to return, score was {reg0}"),
+			#(display_message, "@{!}DEBUG - {reg1} lords found in exile; {s4} chosen to return, score was {reg0}"),
 		 (try_end),
 		 #To decrease the displeasing fragmentation of lord cultures, bias towards assigning
 		 #the lord back to his original faction if possible.
@@ -6740,7 +6740,7 @@ simple_triggers = [
 		   (neg|is_between, ":new_faction", kingdoms_begin, kingdoms_end),
 			(ge, "$cheat_mode", 1),
 			(str_store_troop_name, s4, ":chosen_lord"),
-			(display_message, "@{!}DEBUG - {s4} found no faction to return to!"),
+			#(display_message, "@{!}DEBUG - {s4} found no faction to return to!"),
 		 (try_end),
 		 (is_between, ":new_faction", kingdoms_begin, kingdoms_end),
 		 (assign, ":num_inactive", 0),
@@ -6760,7 +6760,7 @@ simple_triggers = [
 			(try_begin),
 				(ge, "$cheat_mode", 1),
 				(assign, reg0, ":num_inactive"),
-				(display_message, "@{!}DEBUG - Not returning a lord to the player's kingdom, since there are already {reg0} lords waiting for their petitions to be heard."),
+				#(display_message, "@{!}DEBUG - Not returning a lord to the player's kingdom, since there are already {reg0} lords waiting for their petitions to be heard."),
 			(try_end),
 		 (else_try),
 			(call_script, "script_dplmc_lord_return_from_exile", ":chosen_lord", ":new_faction"),

@@ -116,7 +116,7 @@ triggers = [
 			(try_begin),
 				(eq, "$cheat_mode", 1),
 				(str_store_party_name, s4, ":party"),
-				(display_message, "@{!}DEBUG -- Wanted bandits spotted by {s4}"),
+				#(display_message, "@{!}DEBUG -- Wanted bandits spotted by {s4}"),
 			(try_end),
 
 			(call_script, "script_get_closest_center", ":bandit_party"),
@@ -526,7 +526,7 @@ triggers = [
                 (eq, "$cheat_mode", 1),
                 (str_store_troop_name_link, 4, ":pretender"),
                 (str_store_party_name_link, 5, ":town"),
-                (display_message, "@{!}{s4} is in {s5}"),
+                #(display_message, "@{!}{s4} is in {s5}"),
             (try_end),
             (try_begin), #SB : actually give out base gold and some renown
                 (ge, "$g_dplmc_ai_changes", DPLMC_AI_CHANGES_MEDIUM),
@@ -650,7 +650,7 @@ triggers = [
 
 				(try_begin),
 					(eq, "$cheat_mode", 1),
-					(display_message, "str_s4_ready_to_voice_objection_to_s3s_mission_if_in_party"),
+					#(display_message, "str_s4_ready_to_voice_objection_to_s3s_mission_if_in_party"),
 				(try_end),
 			(try_end),
 
@@ -743,7 +743,7 @@ triggers = [
                     (eq, "$cheat_mode", 1),
                     (str_store_troop_name, s10, ":npc"),
                     (assign, reg0, ":days_on_mission"),
-                    (display_message, "@Checking rejoin of {s10} days on mission: {reg0}"),
+                    #(display_message, "@Checking rejoin of {s10} days on mission: {reg0}"),
                 (try_end),
 
                 (try_begin),
@@ -830,7 +830,7 @@ triggers = [
     (try_begin), #debug
       (eq, "$cheat_mode", 1),
       (assign, reg0, "$g_player_chamberlain"),
-      (display_message, "@{!}DEBUG : chamberlain: {reg0}"),
+      #(display_message, "@{!}DEBUG : chamberlain: {reg0}"),
     (try_end),
 
     (assign, ":notification", 0),
@@ -864,7 +864,7 @@ triggers = [
     (try_begin), #debug
       (eq, "$cheat_mode", 1),
       (assign, reg0, "$g_player_constable"),
-      (display_message, "@{!}DEBUG : constable: {reg0}"),
+      #(display_message, "@{!}DEBUG : constable: {reg0}"),
     (try_end),
 
     (assign, ":notification", 0),
@@ -899,7 +899,7 @@ triggers = [
     (try_begin), #debug
       (eq, "$cheat_mode", 1),
       (assign, reg0, "$g_player_chancellor"),
-      (display_message, "@{!}DEBUG : chancellor: {reg0}"),
+      #(display_message, "@{!}DEBUG : chancellor: {reg0}"),
     (try_end),
 
     (assign, ":notification", 0),

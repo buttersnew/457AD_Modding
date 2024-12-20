@@ -8526,10 +8526,10 @@ simple_triggers = [
 	(neq, "$g_last_rest_center", ":camp"), #dont do this if player is here
 	(party_slot_eq, ":camp", slot_party_been_sacked, 0),
 	(neq, ":icon", "icon_steppe_lord"),
-	(store_random_in_range, ":rng", 0, 80), #dont let them move all the time, adjust this if necessary
+	(store_random_in_range, ":rng", 0, 160), #dont let them move all the time, adjust this if necessary
 	(eq, ":rng", 1),
 	(party_get_position, pos1, "p_religious_site_18"), #use a static landmark
-        (map_get_land_position_around_position, pos2, pos1, 65), #migration range nomads dont like water so use land position only
+        (map_get_land_position_around_position, pos2, pos1, 75), #migration range nomads dont like water so use land position only
 	(get_distance_between_positions, ":dist", pos2, pos1),
 	(gt, ":dist", 5),
 	(assign, ":cont", 1),

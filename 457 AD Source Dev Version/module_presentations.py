@@ -18445,7 +18445,7 @@ presentations = [
     (position_set_x, pos1, 800),
     (position_set_y, pos1, 800),
     (overlay_set_size, "$g_presentation_obj_reason", pos1),
-    (try_for_range, ":religion", "fac_roman_christians", "fac_jews"),
+    (try_for_range, ":religion", "fac_roman_christians", "fac_religion_end"),
         (str_store_faction_name, s1, ":religion"),
         (overlay_add_item, "$g_presentation_obj_reason", "@{s1}"),
     (try_end),
@@ -18820,7 +18820,7 @@ presentations = [
     (else_try), ####### Religion #######
       (eq, ":object", "$g_presentation_obj_reason"),
       (assign, "$g_presentation_obj_reason", ":value"),
-      (store_add, "$background_answer_4", ":value", 1),
+      (assign, "$background_answer_4", ":value", 1),
       (start_presentation, "prsnt_mcc_character_creation"),
     (else_try), ####### Culture #######
       (eq, ":object", "$g_presentation_obj_region"),

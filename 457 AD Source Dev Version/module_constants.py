@@ -83,7 +83,7 @@ slot_agent_duel_start_time        = 22
 
 slot_agent_walker_occupation      = 23
 slot_agent_bought_horse           = 24
-slot_agent_is_poisoned            = 25    
+slot_agent_is_poisoned            = 25
 #slot_possessed = 100
 #slot_real_troop = 101
 
@@ -585,7 +585,7 @@ walled_center_improvements_begin 			 = slot_center_has_messenger_post
 walled_center_improvements_end               = slot_center_has_temple_god
 
 number_of_buildings_town =    walled_center_improvements_end - walled_center_improvements_begin
-number_of_buildings_village = village_improvements_end - village_improvements_begin 
+number_of_buildings_village = village_improvements_end - village_improvements_begin
 
 
 # village_improvements_begin = slot_center_has_manor
@@ -713,7 +713,7 @@ slot_center_religion = 254 # 1 -roman christian, 2 -pagan, 3 arian, 4 zoroastria
 slot_party_been_sacked	= 255
 #slot_center_support_roman = 235 #Old system, now unused
 #slot_center_support_pagan = 236
-#slot_center_support_arian = 237 
+#slot_center_support_arian = 237
 #slot_center_support_zoroastrian = 238
 #slot_center_support_coptic = 239
 
@@ -741,7 +741,7 @@ slot_center_disease                         = 801
 #use only prime numbers
 disease_consumption_timer     = 2
 disease_consumption           = 5
-    
+
 disease_slow_fever_timer      = 7
 disease_slow_fever            = 10
 
@@ -2145,7 +2145,7 @@ east_banners_begin_offset = 98
 east_banners_end_offset = 109
 
 brit_banners_begin_offset = 110
-brit_banners_end_offset = 115 
+brit_banners_end_offset = 115
 
 pict_banners_begin_offset = 116
 pict_banners_end_offset = 120
@@ -2839,7 +2839,7 @@ slot_team_d0_exists                     = 320
 #NEXT                                   = 329
 #Battlegroup slots end
 
-reset_team_stats_begin = slot_team_size  
+reset_team_stats_begin = slot_team_size
 reset_team_stats_end   = slot_team_d0_type
 
 minimum_ranged_ammo = 3	#below this not considered ranged type troop
@@ -2967,8 +2967,8 @@ Team3_Cavalry_Destination	= 59	#pos59
 #+FREELANCER start
 freelancer_version = 15
 #Floris or no Diplomacy:
-freelancer_can_use_item  = "script_dplmc_troop_can_use_item" 
-#with Diplomacy: 
+freelancer_can_use_item  = "script_dplmc_troop_can_use_item"
+#with Diplomacy:
 #freelancer_can_use_item = "script_dplmc_troop_can_use_item"
 
 #Party Slots #only used for freelancer_party_backup
@@ -2977,11 +2977,11 @@ slot_freelancer_version     = slot_freelancer_equip_start - 2 #only used for fre
 
 #Quest Slots
 #Only for Freelancer_Enlisted
-slot_quest_freelancer_start_xp       = slot_quest_object_state 
+slot_quest_freelancer_start_xp       = slot_quest_object_state
 slot_quest_freelancer_start_date     = slot_quest_target_state
 slot_quest_freelancer_banner_backup  = slot_quest_object_faction
 slot_quest_freelancer_next_payday    = slot_quest_target_item
-slot_quest_freelancer_upgrade_xp     = slot_quest_target_dna 
+slot_quest_freelancer_upgrade_xp     = slot_quest_target_dna
 slot_quest_freelancer_orig_morale    = slot_quest_giver_center
 
 #Non-Slot Constants for Quests
@@ -3061,13 +3061,13 @@ banner_background_black = 0x1c1c1c
 banner_bg_default = 0xFFC0B090
 
 slot_religion_christian_chalcedonian = 1
-slot_religion_paganism = 2
-slot_religion_christian_arian = 3
-slot_religion_zoroastrianism = 4
-slot_religion_christian_miaphysite = 5
-slot_religion_roman_paganism = 6
-slot_religion_christian_nestorian = 7
-slot_religion_christian_donatist = 8
+slot_religion_christian_arian = 2
+slot_religion_christian_miaphysite = 3
+slot_religion_christian_nestorian = 4
+slot_religion_christian_donatist = 5
+slot_religion_paganism = 6
+slot_religion_roman_paganism = 7
+slot_religion_zoroastrianism = 8
 slot_religion_zurvanism = 9
 slot_religion_judaism = 10
 slot_religion_manichaeism = 11

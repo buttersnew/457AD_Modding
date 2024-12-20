@@ -66,10 +66,10 @@ icon_tableau_trigger_caucasian = (ti_on_init_map_icon,
 map_icons = [
   ("player",0,"player", avatar_scale, snd_footstep_grass, 0.15, 0.173, 0),
   ("player_horseman",0,"player_horseman", avatar_scale, snd_gallop, 0.15, 0.173, 0),
-  ("gray_knight",0,"icon_regular_horseman", avatar_scale, snd_gallop, 0.15, 0.173, 0),
-  ("vaegir_knight",0,"icon_regular_horseman", avatar_scale, snd_gallop, 0.15, 0.173, 0),
-  ("flagbearer_a",0,"icon_regular_footman", avatar_scale, snd_footstep_grass, 0.15, 0.173, 0),
-  ("flagbearer_b",0,"icon_regular_footman", avatar_scale, snd_footstep_grass, 0.15, 0.173, 0),
+  ("gray_knight",0,"icon_regular_footman", avatar_scale, snd_footstep_grass, 0.15, 0.173, 0),
+  ("vaegir_knight",0,"icon_caucasian_footman_1", avatar_scale, snd_footstep_grass, 0.15, 0.173, 0),
+  ("flagbearer_a",0,"icon_regular_horseman", avatar_scale, snd_gallop, 0.15, 0.173, 0),
+  ("flagbearer_b",0,"icon_roman_horseman_1", avatar_scale, snd_gallop, 0.15, 0.173, 0),
   ("peasant",0,"icon_peasant", avatar_scale,snd_footstep_grass, 0.15, 0.173, 0),
   ("khergit",0,"icon_steppe_horseman", avatar_scale,snd_gallop, 0.15, 0.173, 0),
   ("khergit_horseman_b",0,"map_steppe_bandit", avatar_scale,snd_gallop, 0.15, 0.173, 0),
@@ -437,6 +437,7 @@ map_icons = [
   ("roman_army_1",0,"icon_roman_army_1", avatar_scale,snd_footstep_grass, [icon_tableau_trigger_roman,]), #common lords
   ("roman_army_2",0,"icon_roman_army_2", avatar_scale,snd_footstep_grass, [icon_tableau_trigger_roman,]), #magister
   ("roman_army_3",0,"icon_roman_army_3", avatar_scale,snd_footstep_grass, [icon_tableau_trigger_roman,]), #faction leader 
+  ("roman_army_e",0,"icon_roman_army_e", avatar_scale,snd_footstep_grass, [icon_tableau_trigger_roman,]), #emperors
 
   ("camp_siege",mcn_no_shadow,"camp_siege", 0.13, 0),
   ("pyramids",mcn_no_shadow,"pyramids", 1.27,0),

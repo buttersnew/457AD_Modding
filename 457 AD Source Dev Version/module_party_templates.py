@@ -122,9 +122,9 @@ party_templates = [
   ("heruli_army","Visilaus's Host",icon_germanic_army|carries_goods(20)|pf_show_faction,0,fac_minor_heruli,soldier_personality,[(trp_heruli_slave,40,60),(trp_limigantes_rebel,20,50),(trp_heruli_warrior,80,100),(trp_heruli_horseman,20,40),(trp_heruli_king,1,1)]), #spearmen, horsemen, skirmishers
 
   #event parties
-  ("nero_rebel_army","Legio Neronia",icon_roman_army|carries_goods(30)|pf_auto_remove_in_town,0,fac_peasant_rebels,bandit_personality,[(trp_nero_larper_commander,1,1),(trp_miles_romani,200,215),(trp_sagittarius,60,70),(trp_bucellarius,45,55),(trp_imperial_signifer,5,5)]),
-  ("agrippinus_rebel_army","Legio Gallia",icon_roman_army|carries_goods(30)|pf_auto_remove_in_town,0,fac_peasant_rebels,bandit_personality,[(trp_agrippinus,1,1),(trp_miles_romani,200,215),(trp_sagittarius,30,50),(trp_bucellarius,45,55),(trp_miles_foederatus_gothorum,50,60)]),
-  ("tuldila_rebels","Foederati Rebels",icon_roman_army|carries_goods(30),0,fac_deserters,bandit_personality,[(trp_tuldila,1,1),(trp_miles_foederatus_gothorum,40,60),(trp_eques_symmachi_hunnorum,20,40)]),
+  ("nero_rebel_army","Legio Neronia",icon_roman_army_1|carries_goods(30)|pf_auto_remove_in_town,0,fac_peasant_rebels,bandit_personality,[(trp_nero_larper_commander,1,1),(trp_miles_romani,200,215),(trp_sagittarius,60,70),(trp_bucellarius,45,55),(trp_imperial_signifer,5,5)]),
+  ("agrippinus_rebel_army","Legio Gallia",icon_roman_army_1|carries_goods(30)|pf_auto_remove_in_town,0,fac_peasant_rebels,bandit_personality,[(trp_agrippinus,1,1),(trp_miles_romani,200,215),(trp_sagittarius,30,50),(trp_bucellarius,45,55),(trp_miles_foederatus_gothorum,50,60)]),
+  ("tuldila_rebels","Foederati Rebels",icon_roman_army_1|carries_goods(30),0,fac_deserters,bandit_personality,[(trp_tuldila,1,1),(trp_miles_foederatus_gothorum,40,60),(trp_eques_symmachi_hunnorum,20,40)]),
   ("vllibos_rebels","Gothic Rebels",icon_germanic_army|carries_goods(30)|pf_auto_remove_in_town,0,fac_peasant_rebels,bandit_personality,[(trp_vllibos,1,1),(trp_miles_foederatus_gothorum,100,200)]),
 
 # Caravans
@@ -526,13 +526,13 @@ party_templates = [
    ##diplomacy end
 
    #new party templates
-  ("coptic_rebellion","Coptic Rebel Army",icon_roman_army|carries_goods(20)|pf_show_faction,0,fac_coptic_rebels,bandit_personality,[(trp_coptic_youth,20,30),(trp_coptic_footman,40,80),(trp_coptic_watchman,10,30),(trp_coptic_guard,15,30)]),
+  ("coptic_rebellion","Coptic Rebel Army",icon_roman_army_1|carries_goods(20)|pf_show_faction,0,fac_coptic_rebels,bandit_personality,[(trp_coptic_youth,20,30),(trp_coptic_footman,40,80),(trp_coptic_watchman,10,30),(trp_coptic_guard,15,30)]),
 
   ("scirii_horde","Danubian Suebi Horde",icon_flagbearer_b|carries_goods(20)|pf_show_faction,0,fac_hunimund_suebi,soldier_personality,[(trp_western_germanic_freeman,105,250),(trp_western_germanic_skirmisher,30,60),(trp_steppe_bandit,10,40),(trp_steppe_cataphract,5,15)]),
 
   ("heruli_horde","Heruli Horde",icon_flagbearer_b|carries_goods(20)|pf_show_faction,0,fac_minor_heruli,soldier_personality,[(trp_heruli_slave,150,250),(trp_heruli_warrior,100,160),(trp_scandinavian_freeman,40,80),(trp_scandinavian_retainer,15,30),(trp_heruli_king,1,1)]),
 
-  ("mauri_rebel_horde","Austuriani Rebel Horde",icon_axeman|carries_goods(20)|pf_show_faction,0,fac_berber_rebels,bandit_personality,[(trp_eques_indiginae_africani,80,160),(trp_desert_bandit,20,60),(trp_ferentarius_indiginae_africani,40,80),(trp_civis_armatura_mauri,30,50)]),
+  ("mauri_rebel_horde","Austuriani Rebel Horde",icon_african_army|carries_goods(20)|pf_show_faction,0,fac_berber_rebels,bandit_personality,[(trp_eques_indiginae_africani,80,160),(trp_desert_bandit,20,60),(trp_ferentarius_indiginae_africani,40,80),(trp_civis_armatura_mauri,30,50)]),
 
   ("ostrogothic_army","Ostrogothic Army",icon_germanic_army|carries_goods(20)|pf_show_faction,0,fac_kingdom_4,soldier_personality,[(trp_gothic_freeman,40,75),(trp_gothic_skirmisher,10,30),(trp_gothic_mounted_skirmisher,10,20),(trp_gothic_horseman,5,10),(trp_gothic_companion,1,1)]), #balance out so that ostrogoths do not get completely destroyed
 

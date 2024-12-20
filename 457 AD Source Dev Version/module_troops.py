@@ -2424,11 +2424,11 @@ troops = [
    [itm_ankle_boots,itm_simple_shoes,itm_wrapping_boots,itm_deurne_campagi_2,itm_deurne_campagi_5,itm_obenaltendorf_shoes_1,itm_obenaltendorf_shoes_2,
    itm_tunic_1,itm_tunic_3,itm_tunic_5,itm_tunic_9,itm_tunic_3_cloak,itm_tunic_9_cloak,
    itm_concave_shield_blue_1,itm_concave_shield_red_1,itm_concave_shield_green_2,itm_concave_shield_orange_1,itm_round_shield_germanic_22,itm_round_shield_wood_1,
-   itm_javelin,itm_war_spear_2,itm_long_seax_1,itm_woolen_cap_1,itm_woolen_cap_2,itm_woolen_cap_5,itm_woolen_cap_8,itm_triveres_leather,(itm_intercisa_helmet_1,imod_battered)]+throwing_spears_1+throwing_spears_2,
+   itm_javelin,itm_war_spear_2,itm_long_seax_1,itm_woolen_cap_1,itm_woolen_cap_2,itm_woolen_cap_5,itm_woolen_cap_8,itm_triveres_leather,itm_pilna_helmet_leather,(itm_intercisa_helmet_1,imod_battered)]+throwing_spears_1+throwing_spears_2,
    def_attrib_lvl_18|level(17),wp_one_handed(145)|wp_two_handed(140)|wp_polearm(155)|wp_throwing(145)|wp_archery(100),knows_lvl_18|knows_power_strike_4,germanic_face_1, germanic_face_2],
 
   ["frisian_companion","Frisesk Companion","Frisesk Companions",tf_mounted|tf_guarantee_horse|tf_guarantee_basic|tf_guarantee_helmet,0,0,fac_culture_minor_4,
-   [itm_friesian_1,itm_friesian_2,itm_deurne_campagi_2,itm_deurne_campagi_5,itm_obenaltendorf_shoes_1,itm_obenaltendorf_shoes_2,itm_common_mail_long_1,itm_common_mail_long_3_cloak,itm_rich_mail_10_cloak,itm_triveres_mail,itm_augst_helmet_3,itm_burgh_helmet_1,itm_augsburg_2_helmet_mail,
+   [itm_friesian_1,itm_friesian_2,itm_deurne_campagi_2,itm_deurne_campagi_5,itm_obenaltendorf_shoes_1,itm_obenaltendorf_shoes_2,itm_common_mail_long_1,itm_common_mail_long_3_cloak,itm_rich_mail_10_cloak,itm_triveres_mail,itm_augst_helmet_3,itm_tarasovsky_782,
    itm_tab_shield_small_round_c,itm_concave_shield_germanic_small_1,itm_round_shield_germanic_small_22,itm_war_spear_3,itm_arabian_sword_b]+horses_germanic_4,
    def_attrib_lvl_28|level(27),wp_one_handed(210)|wp_two_handed(210)|wp_polearm(215)|wp_throwing(205)|wp_archery(100),knows_lvl_28|knows_power_strike_6,germanic_face_1, germanic_face_2],
 
@@ -2444,15 +2444,15 @@ troops = [
    def_attrib_lvl_18|level(17),wp_one_handed(150)|wp_two_handed(130)|wp_polearm(130)|wp_archery(100)|wp_throwing(140),knows_lvl_18|knows_power_strike_5,germanic_face_1, germanic_face_2],  
 
   ["aestii_companion","Aestii Companion (Kargisirgis)","Aestii Companions (Kargisirgis)",tf_mounted|tf_guarantee_basic|tf_guarantee_horse,0,0,fac_culture_minor_5,
-   [itm_wrapping_boots,itm_simple_shoes,itm_tunic_3_cloak,itm_tunic_12_cloak,itm_tunic_14_cloak,itm_common_mail_short_5_cloak,itm_common_mail_short_7_cloak,itm_battered_mail_3,itm_iatrus_helmet_mail,(itm_intercisa_helmet_1,imod_battered),(itm_intercisa_helmet_2,imod_battered),(itm_augst_helmet_1,imod_battered),itm_baltic_sword_1,itm_war_spear,itm_warhorse,itm_hunter,itm_tab_shield_small_round_c,itm_eastern_germanic_shield_2,itm_eastern_germanic_shield_4,itm_eastern_germanic_shield_6,itm_kerch_shield_2,itm_kerch_shield_4,itm_kerch_shield_15]+horses_germanic_3+horses_germanic_4,
+   [itm_wrapping_boots,itm_simple_shoes,itm_tunic_3_cloak,itm_tunic_12_cloak,itm_tunic_14_cloak,itm_common_mail_short_5_cloak,itm_common_mail_short_7_cloak,itm_battered_mail_3,itm_pilna_helmet_leather,itm_pilna_helmet_mail,itm_tarasovsky_1784_helmet_mail_2,itm_baltic_sword_1,itm_war_spear,itm_warhorse,itm_hunter,itm_tab_shield_small_round_c,itm_eastern_germanic_shield_2,itm_eastern_germanic_shield_4,itm_eastern_germanic_shield_6,itm_kerch_shield_2,itm_kerch_shield_4,itm_kerch_shield_15]+horses_germanic_3+horses_germanic_4,
    def_attrib_lvl_25|level(25),wp_one_handed(200)|wp_two_handed(180)|wp_polearm(190)|wp_archery(100)|wp_throwing(180),knows_lvl_25|knows_power_strike_7,germanic_face_1, germanic_face_2],  
 
   ["sitones_retainer","Sitones Retainer","Sitones Retainers",tf_guarantee_basic,0,0,fac_culture_minor_5, #Shvarnas
-   [itm_wrapping_boots,itm_simple_shoes,itm_obenaltendorf_shoes_1,itm_obenaltendorf_shoes_2,itm_tunic_3_cloak,itm_tunic_7_cloak,itm_leather_armor_c,itm_kovas_hat_1,itm_kovas_hat_2,itm_kovas_hat_3,itm_kovas_hat_4,itm_sword_viking_c_long,itm_war_spear,itm_throwing_spear_2,itm_round_shield_germanic_18,itm_round_shield_germanic_20],
+   [itm_wrapping_boots,itm_simple_shoes,itm_obenaltendorf_shoes_1,itm_obenaltendorf_shoes_2,itm_tunic_3_cloak,itm_tunic_7_cloak,itm_leather_armor_c,itm_kovas_hat_1,itm_kovas_hat_2,itm_kovas_hat_3,itm_kovas_hat_4,itm_pilna_helmet_mail,itm_tarasovsky_782_mail,itm_sword_viking_c_long,itm_war_spear,itm_throwing_spear_2,itm_round_shield_germanic_18,itm_round_shield_germanic_20],
    def_attrib_lvl_23|level(23),wp_one_handed(185)|wp_two_handed(170)|wp_polearm(180)|wp_archery(100)|wp_throwing(175),knows_lvl_23|knows_power_strike_6,germanic_face_1, germanic_face_2],  
 
   ["suiones_guard","Suiones Guard","Suiones Guards",tf_mounted|tf_guarantee_basic|tf_guarantee_horse,0,0,fac_culture_minor_5, #Aiwarikiar Scylfingr
-   [itm_wrapping_boots,itm_simple_shoes,itm_obenaltendorf_shoes_1,itm_obenaltendorf_shoes_2,itm_tunic_10_cloak,itm_tunic_rich_3_cloak,itm_common_mail_short_6_cloak,itm_common_mail_short_2_cloak,itm_tarasovsky_782_mail,itm_sword_viking_3,itm_polehammer,itm_concave_shield_germanic_small_17,itm_concave_shield_germanic_small_20]+horses_germanic_4,
+   [itm_wrapping_boots,itm_simple_shoes,itm_obenaltendorf_shoes_1,itm_obenaltendorf_shoes_2,itm_tunic_10_cloak,itm_tunic_rich_3_cloak,itm_common_mail_short_6_cloak,itm_common_mail_short_2_cloak,itm_tarasovsky_782,itm_sword_viking_3,itm_polehammer,itm_concave_shield_germanic_small_17,itm_concave_shield_germanic_small_20]+horses_germanic_4,
    def_attrib_lvl_25|level(25),wp_one_handed(180)|wp_two_handed(180)|wp_polearm(185)|wp_archery(100)|wp_throwing(180),knows_lvl_23|knows_power_strike_5,germanic_face_1, germanic_face_2],  
 
 #MORDENS
@@ -2461,7 +2461,7 @@ troops = [
    def_attrib_skirmisher|level(13),wp_one_handed(110)|wp_two_handed(100)|wp_polearm(100)|wp_throwing(140)|wp_archery(100),knows_skirmisher,germanic_face_1, germanic_face_2],
 
   ["mordvin_footman","Morden Footman","Morden Footmen",tf_guarantee_basic,0,0,fac_culture_minor_6,
-   [itm_wrapping_boots,itm_simple_shoes,itm_nomad_boots,itm_tunic_1,itm_tunic_2,itm_tunic_3,itm_tunic_8,itm_thick_coat_1,itm_thick_coat_3,itm_thick_coat_4,itm_kaftan_alan_red,itm_fur_hat,itm_batumi_helmet_leather,itm_suvorovsky_helmet_mail,
+   [itm_wrapping_boots,itm_simple_shoes,itm_nomad_boots,itm_tunic_1,itm_tunic_2,itm_tunic_3,itm_tunic_8,itm_thick_coat_1,itm_thick_coat_3,itm_thick_coat_4,itm_kaftan_alan_red,itm_fur_hat,itm_staritsa_helmet_leather,
    itm_long_seax_4,itm_long_seax_5,itm_medium_spear_3,itm_medium_spear_4,itm_javelin,itm_eastern_germanic_shield_1,itm_tarasovo_axe_1,itm_eastern_germanic_shield_2,itm_eastern_germanic_shield_3,itm_eastern_germanic_shield_4],
    def_attrib_lvl_20|level(18),wp_one_handed(140)|wp_two_handed(130)|wp_polearm(160)|wp_throwing(150)|wp_archery(100),knows_lvl_18|knows_power_strike_4,germanic_face_1, germanic_face_2], 
 
@@ -2470,7 +2470,7 @@ troops = [
    def_attrib_lvl_18|level(18),wp_one_handed(130)|wp_two_handed(130)|wp_polearm(140)|wp_throwing(170)|wp_archery(100),knows_lvl_18|knows_horse_archery_5,germanic_face_1, germanic_face_2], 
 
   ["mordvin_companion","Morden Companion","Morden Companions",tf_mounted|tf_guarantee_boots|tf_guarantee_shield|tf_guarantee_armor|tf_guarantee_horse|tf_guarantee_polearm,0,0,fac_culture_minor_6,
-   [itm_wrapping_boots,itm_simple_shoes,itm_nomad_boots,itm_common_mail_short_9_cloak,itm_common_mail_short_6_cloak,itm_battered_mail_2_cloak,itm_tarasovsky_782,itm_tarasovsky_782_mail,itm_suvorovsky_helmet_mail,itm_batumi_helmet_aventail,itm_hunnic_spatha,itm_lance,itm_heavy_lance]+horses_sporoi_2,
+   [itm_wrapping_boots,itm_simple_shoes,itm_nomad_boots,itm_common_mail_short_9_cloak,itm_common_mail_short_6_cloak,itm_battered_mail_2_cloak,itm_suvorovsky_helmet_mail,itm_staritsa_helmet_mail,itm_hunnic_spatha,itm_lance,itm_heavy_lance]+horses_sporoi_2,
    def_attrib_lvl_28|level(28),wp_one_handed(210)|wp_two_handed(200)|wp_polearm(220)|wp_throwing(210)|wp_archery(130),knows_lvl_28|knows_power_strike_7,germanic_face_1, germanic_face_2],
 
   ["komi_warrior","Roga Warrior","Roga Warriors",tf_guarantee_boots|tf_guarantee_shield|tf_guarantee_armor|tf_guarantee_helmet,0,0,fac_culture_minor_6,
@@ -2479,19 +2479,19 @@ troops = [
 
 #SCANDANAVIANS
   ["scandinavian_freeman","Scandzae Freeman (Karilar)","Scandzae Freemen (Karilar)",tf_guarantee_basic,0,0,fac_culture_minor_7,
-   [itm_wrapping_boots,itm_ankle_boots,itm_deurne_campagi_3,itm_deurne_campagi_5,itm_tunic_3,itm_tunic_6,itm_tunic_7,itm_tunic_rich_1,itm_tunic_rich_7,itm_tunic_rich_1_cloak,itm_tunic_rich_7_cloak,itm_tunic_7_cloak,itm_mace_1,itm_seax_1,itm_fighting_axe,itm_throwing_spear_3,itm_boar_spear,itm_medium_spear_3,itm_round_shield_white_1,itm_round_shield_yellow_1,itm_round_shield_blue_2,itm_drengsted_helmet_leather,itm_burgh_helmet_light]+shields_generic+germanic_caps+throwing_spears_1+throwing_spears_2,
+   [itm_wrapping_boots,itm_ankle_boots,itm_deurne_campagi_3,itm_deurne_campagi_5,itm_tunic_3,itm_tunic_6,itm_tunic_7,itm_tunic_rich_1,itm_tunic_rich_7,itm_tunic_rich_1_cloak,itm_tunic_rich_7_cloak,itm_tunic_7_cloak,itm_mace_1,itm_seax_1,itm_fighting_axe,itm_throwing_spear_3,itm_boar_spear,itm_medium_spear_3,itm_round_shield_white_1,itm_round_shield_yellow_1,itm_round_shield_blue_2,itm_drengsted_helmet_leather,itm_pilna_helmet_leather]+shields_generic+germanic_caps+throwing_spears_1+throwing_spears_2,
    def_attrib_lvl_18|level(17),wp_one_handed(150)|wp_two_handed(140)|wp_polearm(130)|wp_throwing(130)|wp_archery(90),knows_lvl_18|knows_power_strike_4,germanic_face_1, germanic_face_2],
 
   ["scandinavian_retainer","Scandzae Retainer (Heimathegar)","Scandzae Retainers (Heimathegar)",tf_guarantee_basic,0,0,fac_culture_minor_7,
-   [itm_tab_shield_round_d,itm_wrapping_boots,itm_ankle_boots,itm_deurne_campagi_3,itm_deurne_campagi_5,itm_tunic_rich_1_cloak,itm_tunic_rich_7_cloak,itm_tunic_7_cloak,itm_battered_mail_3_cloak,itm_common_mail_short_2,itm_common_mail_short_3,itm_drengsted_helmet_leather,itm_burgh_helmet_light,itm_drengsted_helmet_mail,itm_burgh_helmet_mail,itm_tarasovsky_782_mail,itm_seax_10,itm_long_seax_3,itm_boar_spear,itm_war_spear,itm_sword_medieval_c_long,itm_sword_viking_1,itm_round_shield_germanic_9,itm_round_shield_germanic_20]+germanic_caps+angons,
+   [itm_tab_shield_round_d,itm_wrapping_boots,itm_ankle_boots,itm_deurne_campagi_3,itm_deurne_campagi_5,itm_tunic_rich_1_cloak,itm_tunic_rich_7_cloak,itm_tunic_7_cloak,itm_battered_mail_3_cloak,itm_common_mail_short_2,itm_common_mail_short_3,itm_drengsted_helmet_mail,itm_pilna_helmet_mail,itm_tarasovsky_782_mail,itm_seax_10,itm_long_seax_3,itm_boar_spear,itm_war_spear,itm_sword_medieval_c_long,itm_sword_viking_1,itm_round_shield_germanic_9,itm_round_shield_germanic_20]+germanic_caps+angons,
    def_attrib_lvl_23|level(23),wp_one_handed(190)|wp_two_handed(180)|wp_polearm(170)|wp_throwing(170)|wp_archery(90),knows_lvl_23|knows_power_strike_5,germanic_face_1, germanic_face_2],
 
   ["scandinavian_comes","Scandzae Bodyguard (Thegnar)","Scandzae Bodyguards (Thegnar)",tf_guarantee_basic|tf_guarantee_helmet,0,0,fac_culture_minor_7,
-   [itm_wrapping_boots,itm_ankle_boots,itm_common_mail_short_2_cloak,itm_common_mail_short_3_cloak,itm_rich_mail_5_cloak,itm_tarasovsky_782,itm_drengsted_helmet_mail,itm_burgh_helmet_mail,itm_burgh_helmet_1,itm_war_spear,itm_sword_viking_2,itm_sword_viking_c_long,itm_tab_shield_round_e,itm_tab_shield_small_round_c]+angons,
+   [itm_wrapping_boots,itm_ankle_boots,itm_common_mail_short_2_cloak,itm_common_mail_short_3_cloak,itm_rich_mail_5_cloak,itm_tarasovsky_782,itm_drengsted_helmet_mail,itm_pilna_helmet_mail,itm_war_spear,itm_sword_viking_2,itm_sword_viking_c_long,itm_tab_shield_round_e,itm_tab_shield_small_round_c]+angons,
    def_attrib_lvl_28|level(28),wp_one_handed(220)|wp_two_handed(210)|wp_polearm(200)|wp_throwing(190)|wp_archery(90),knows_lvl_28|knows_power_strike_7,germanic_face_1, germanic_face_2],
 
   ["dane_vanguard","Danir Vanguard (Ordfruman)","Danir Vanguards (Ordfruman)",tf_guarantee_basic,0,0,fac_culture_minor_7,
-   [itm_obenaltendorf_shoes_1,itm_obenaltendorf_shoes_2,itm_wrapping_boots,itm_simple_shoes,itm_tunic_9_cloak,itm_tunic_rich_3_cloak,itm_common_mail_long_5_cloak,itm_drengsted_helmet_mail,itm_woolen_cap_2,itm_woolen_cap_3,itm_battle_axe,itm_angon_1,itm_round_shield_germanic_19],
+   [itm_obenaltendorf_shoes_1,itm_obenaltendorf_shoes_2,itm_wrapping_boots,itm_simple_shoes,itm_tunic_9_cloak,itm_tunic_rich_3_cloak,itm_common_mail_long_5_cloak,itm_drengsted_helmet_mail,itm_tarasovsky_782_mail,itm_woolen_cap_2,itm_woolen_cap_3,itm_battle_axe,itm_angon_1,itm_round_shield_germanic_19],
    def_attrib_lvl_23|level(23),wp_one_handed(190)|wp_two_handed(170)|wp_polearm(160)|wp_throwing(170)|wp_archery(90),knows_lvl_23|knows_power_strike_7,germanic_face_1, germanic_face_2],
 
   ["saami_hunter","Scerefennae Hunter","Scerefennae Hunters",tf_guarantee_armor|tf_guarantee_boots|tf_guarantee_ranged,0,0,fac_culture_minor_7,
@@ -2652,7 +2652,7 @@ troops = [
 
 #sabir
   ["sabir_horse_archer","Sabir Horse Archer","Sabir Horse Archers",tf_mounted|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_horse|tf_guarantee_ranged,0,0,fac_minor_sabiroi,
-   [itm_nomad_boots,itm_sarranid_boots_b,itm_kaftan_hunnic_green,itm_kaftan_hunnic_white,itm_kaftan_eastern_2,itm_be_hunnic_cap_2,itm_be_hunnic_cap_4,itm_hunnic_phrygian_3,itm_hunnic_phrygian_6,itm_isakovsky_helmet_cloth,itm_khergit_bow,itm_niya_bow_2,itm_khergit_arrows,itm_khergit_arrows,itm_sword_khergit_1]+horses_hunnic_1,
+   [itm_nomad_boots,itm_sarranid_boots_b,itm_kaftan_hunnic_green,itm_kaftan_hunnic_white,itm_kaftan_eastern_2,itm_be_hunnic_cap_2,itm_be_hunnic_cap_4,itm_hunnic_phrygian_3,itm_hunnic_phrygian_6,itm_isakovsky_helmet_cloth,itm_tyum_helmet_1,itm_khergit_bow,itm_niya_bow_2,itm_khergit_arrows,itm_khergit_arrows,itm_sword_khergit_1]+horses_hunnic_1,
    def_attrib_lvl_18|level(18),wp_one_handed(140)|wp_two_handed(130)|wp_polearm(130)|wp_throwing(130)|wp_archery(175),knows_common|knows_riding_6|knows_horse_archery_7|knows_power_strike_2|knows_power_draw_6|knows_ironflesh_2,hunnic_face_1, hunnic_face_2],
 
   ["sabir_amazon","Sabir Amazon","Sabir Amazons",tf_female|tf_mounted|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_horse|tf_guarantee_ranged,0,0,fac_minor_sabiroi,
@@ -2660,7 +2660,7 @@ troops = [
    def_attrib_lvl_21|level(21),wp_one_handed(170)|wp_two_handed(160)|wp_polearm(160)|wp_throwing(130)|wp_archery(170),knows_lvl_21|knows_power_draw_5|knows_horse_archery_6,woman_face_1, woman_face_2],
 
   ["sabir_cataphract","Sabir Cataphract","Sabir Cataphracts",tf_mounted|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_horse|tf_guarantee_polearm,0,0,fac_minor_sabiroi,
-   [itm_heavy_greaves,itm_kaftan_lamellar_9,itm_kaftan_lamellar_10,itm_kaftan_lamellar_13,itm_isakovsky_helmet_1,itm_tarasovo_helmet_1,itm_isakovsky_helmet_mail,itm_suvorovsky_helmet_mail,itm_heavy_lance,itm_battle_axe,itm_khergit_arrows,itm_niya_bow_2]+horses_hunnic_3+horses_alan_2,
+   [itm_heavy_greaves,itm_kaftan_lamellar_9,itm_kaftan_lamellar_10,itm_kaftan_lamellar_13,itm_isakovsky_helmet_1,itm_tyum_helmet_2,itm_tarasovo_helmet_1,itm_isakovsky_helmet_mail,itm_suvorovsky_helmet_mail,itm_heavy_lance,itm_battle_axe,itm_khergit_arrows,itm_niya_bow_2]+horses_hunnic_3+horses_alan_2,
    def_attrib_lvl_28|level(28),wp_one_handed(210)|wp_two_handed(210)|wp_polearm(210)|wp_throwing(230)|wp_archery(165),knows_riding_8|knows_horse_archery_6|knows_power_strike_7|knows_power_draw_8|knows_ironflesh_7|knows_inventory_management_3|knows_athletics_5|knows_shield_2,hunnic_face_1, hunnic_face_2],
 
 #armenian rebels

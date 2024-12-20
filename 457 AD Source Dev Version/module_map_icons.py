@@ -71,7 +71,7 @@ map_icons = [
   ("flagbearer_a",0,"icon_regular_footman", avatar_scale, snd_footstep_grass, 0.15, 0.173, 0),
   ("flagbearer_b",0,"icon_regular_footman", avatar_scale, snd_footstep_grass, 0.15, 0.173, 0),
   ("peasant",0,"icon_peasant", avatar_scale,snd_footstep_grass, 0.15, 0.173, 0),
-  ("khergit",0,"map_steppe_bandit", avatar_scale,snd_gallop, 0.15, 0.173, 0),
+  ("khergit",0,"icon_steppe_horseman", avatar_scale,snd_gallop, 0.15, 0.173, 0),
   ("khergit_horseman_b",0,"map_steppe_bandit", avatar_scale,snd_gallop, 0.15, 0.173, 0),
   ("axeman",0,"map_manhunter", avatar_scale,snd_footstep_grass, 0.15, 0.173, 0),
   ("woman",0,"woman_a", avatar_scale,snd_footstep_grass, 0.15, 0.173, 0),
@@ -112,7 +112,7 @@ map_icons = [
   ("training_ground",mcn_no_shadow,"training", 0.35,0),
 
   ("nomad_camp",mcn_no_shadow,"icon_nomad_camp", 0.3, 0),
-  
+
   ("bridge_a",mcn_no_shadow,"map_river_bridge_a", 1.27,0),
   ("bridge_b",mcn_no_shadow,"map_river_bridge_b", 0.7,0),
   ("bridge_snow_a",mcn_no_shadow,"map_river_bridge_snow_a", 1.27,0),
@@ -430,10 +430,13 @@ map_icons = [
   ("steppe_lord",0,"icon_nomad_horseman_army", avatar_scale,snd_gallop, 0.15, 0.173, 0),  
   ("germanic_army",0,"icon_germanic_army", avatar_scale,snd_footstep_grass, [icon_tableau_trigger_german,]),  
   ("sassanid_lord",0,"icon_persian_army", avatar_scale,snd_gallop, 0.15, 0.173, 0),  
-  ("roman_army",0,"icon_roman_army", avatar_scale,snd_footstep_grass, [icon_tableau_trigger_roman,]),  
   ("regular_army",0,"icon_regular_army", avatar_scale,snd_gallop, 0.15, 0.173, 0),  
-  ("caucasian_army",0,"icon_caucasian_army", avatar_scale,snd_footstep_grass, [icon_tableau_trigger_roman,]),  
+  ("caucasian_army",0,"icon_caucasian_army", avatar_scale,snd_footstep_grass, [icon_tableau_trigger_caucasian,]),  
   ("african_army",0,"icon_african_army", avatar_scale,snd_gallop, 0.15, 0.173, 0),  
+  #romans are special!
+  ("roman_army_1",0,"icon_roman_army_1", avatar_scale,snd_footstep_grass, [icon_tableau_trigger_roman,]), #common lords
+  ("roman_army_2",0,"icon_roman_army_2", avatar_scale,snd_footstep_grass, [icon_tableau_trigger_roman,]), #magister
+  ("roman_army_3",0,"icon_roman_army_3", avatar_scale,snd_footstep_grass, [icon_tableau_trigger_roman,]), #faction leader 
 
   ("camp_siege",mcn_no_shadow,"camp_siege", 0.13, 0),
   ("pyramids",mcn_no_shadow,"pyramids", 1.27,0),

@@ -52379,7 +52379,6 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
   [anyone, "aurelianorum_king_intro_4", [],
   "For my people, I seek survival—not at the whims of Rome, nor under the heel of the Goths, but as Alans, sovereign and proud. If you can aid me in this cause, perhaps you’ll earn a place in my hall. But if you come with deceit, well, the plains of Gaul are vast enough to bury another wanderer. Speak your intent wisely.", "minor_faction_king_pretalk", []],
 
-#madsci
 [trp_gallic_saxon_king|plyr,"minor_faction_king", [(eq, "$adovacrius_dialog", 0),], 
   "Hail, Adovacrius, lord of Juliomagus. I have heard tales of your Saxon warriors along the banks of the Liger.","adovacrius_intro_1",[
 (assign, "$adovacrius_dialog", 1),(call_script, "script_change_player_relation_with_troop","$g_talk_troop",2),
@@ -52394,7 +52393,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
   "Then may Juliomagus remain strong under your rule, Adovacrius. I’ll watch for Saxon banners along the Liger.", "minor_faction_king_pretalk",[]],
 
 [trp_iazyg_king|plyr,"minor_faction_king", [(eq, "$benga_dialog", 0),], 
-  "Hail, Benga, king of the Iazyges. These lands between the Danubius and the Tissus are steeped in your people’s legacy. It is an honor to meet you.","benga_intro_1",[
+  "Hail, Benga, king of the Iazyges. These lands between the Danubius and the Tissus are steeped in your people's legacy. It is an honor to meet you.","benga_intro_1",[
 (assign, "$benga_dialog", 1),(call_script, "script_change_player_relation_with_troop","$g_talk_troop",2),
 ]],
 [anyone, "benga_intro_1", [], 
@@ -52424,7 +52423,36 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
   "I understand. So even I could hire you and your axe-bearers?", "heruli_king_intro_7",[]],
 [anyone, "heruli_king_intro_7", [], 
   "Naturally. Though there are less men here than could be otherwise, some of us have left to seek employment in Scandza and with the Dani. They bring back ornate swords and furs and tell of vast gold piles the kings and high-born are willing to pay for our services, but I feel there is some catch to all of it. I have given it some thought but for now I've decided to stay here.", "minor_faction_king_pretalk",[]],
-#madsci end
+
+  [trp_bosphoran_king, "start", [(eq, "$g_talk_troop_met", 0),],
+  "Khaire! I see another visitor has come to see the mightiest kingdom in these god-forsaken lands. We are the keepers of the flame of civilization and the vanguard against lawlessness and barbarism. Tell me your name, friend.", "bosphoran_king_intro_1", []],
+  [anyone|plyr, "bosphoran_king_intro_1", [],
+  "You greet me more warmly than most. That is a welcome change and my name is {playername}. I come as a friendly wanderer.", "bosphoran_king_intro_2", []],
+  [anyone, "bosphoran_king_intro_2", [],
+  "I have seen that it is better to make friends or even be neutral, than actively seek conflict, it can destroy your people and then you won't recover. I'm called Amospados II and we are the last men and women who still hold true to the old ideals of hellenistic world, but we have waned from those days, now the Alans and other steppe scum harry us and try to take this last refuge of ours.", "bosphoran_king_intro_3", []],
+  [anyone|plyr, "bosphoran_king_intro_3", [],
+  "I understand. So does your kingdom face any threats currently?", "bosphoran_king_intro_4", []],
+  [anyone, "bosphoran_king_intro_4", [],
+  "This city has a diverse population, we have Goths, Romans, Greeks, Jews and Huns living in here. The loyalty of these people is sometimes fickle, some couldn't care less for this kingdom, yet i believe most are loyal but there are some who i suspect are in league with those who wish to see us brought to our knees. My soldiers caught a Hun plotting with a few of his friends to set fire to some of the buildings and then call upon their comrades to storm this city when we are in chaos and a Greek merchant we caught red-handed giving bribes to some tribals to destroy our caravans so that we would be weakened and more easily conquered. I ordered the execution of the culprits since my grandfather also taught me that a nation can survive it's fools, and even the ambitious but it cannot survive treason from within.", "bosphoran_king_intro_5", []],
+  [anyone|plyr, "bosphoran_king_intro_5", [],
+  "I wish luck to you and your ancient kingdom, hopefully it will continue to see the light of days for many years still!", "minor_faction_king_pretalk", []],
+
+  [trp_tauri_king, "start", [(eq, "$g_talk_troop_met", 0),],
+  "My scouts informed me that a stranger is walking our lands, someone is certainly either braver than most or an even bigger fool, for all know that to walk the land of Taurica without our permission is deadly. Still I am not convinced, you look like a runt, but tell me what do they call you so that I know how to insult you, if need be.", "tauri_king_intro_1", []],
+  [anyone|plyr, "tauri_king_intro_1", [],
+  "I've heard tales of you and your band, you are sea raiders and outlaws who harry the lands and attack ships. I'm called {playername} and I warn you, pirate. Do not test me or you will see that I'm no pushover.", "tauri_king_intro_2", []],
+  [anyone, "tauri_king_intro_2", [],
+  "It is you who should be careful, one snap of my finger and your life will be forfeit. And we are no more pirates, or at least not all of us, but don't think that we are not able to still kill and slay those who offend or threathen us. They call me Dandaxarthos, I'm the leader of my people, the Tauri.", "tauri_king_intro_3", []],
+  [anyone|plyr, "tauri_king_intro_3", [],
+  "I've heard of you, you used to be a menace and who made sea-travelling dangerous. Yet I can see that fear has enveloped you and your men, not fitting for sea demons of old.", "tauri_king_intro_4", []],
+  [anyone, "tauri_king_intro_4", [],
+  "You won't survive in these parts if you're scared, but let me tell you a bit about our history so that you can forget the legends that no longer apply. The Greeks called the sea you see before you 'Inhospitable Sea' because of us. My forefathers used to go on raids from Symbolon and they made those womanly hellenics tremble. Unfortunately this is no longer the case, the sea travellers and ship captains nowadays mostly either ignore or laugh at us, we are serving Rome now, which is in my opinion a necessary evil.", "tauri_king_intro_5", []],
+  [anyone|plyr, "tauri_king_intro_5", [],
+  "So you are foederati. The mighty Tauri have laid down their arms and now hurry to do the bidding of Rome, polish their helmets, clean their boots?", "tauri_king_intro_6", []],
+  [anyone, "tauri_king_intro_6", [],
+  "Hold you tongue or I'll cut it. It isn't that simple. Some of my men believe we should make one last hit at the Romans and then leave these lands forever or die trying, it would make their ancestors proud, no doubt. Others stil follow the old code of capturing seamen, wrecking ships and then sacrificing the men to the goddess Iphigenia by beheading them. Most of my people have however become used to our current status and would rather not attack the Romans openly, they like peaceful life, some have even embraced the Roman way of living and started acting like them. I am at crossroads since I will not become a Roman no matter what happens, but I cannot return to old ways it would be the death blow of my people. ", "tauri_king_intro_7", []],
+  [anyone|plyr, "tauri_king_intro_7", [],
+  "I will be looking forward to see what fate will weave your story, farewell!", "minor_faction_king_pretalk", []],
 
   [anyone, "start",
   [

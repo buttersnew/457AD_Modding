@@ -51771,6 +51771,13 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
     (add_troop_note_tableau_mesh, "trp_dani_guthlaf", "tableau_troop_note_mesh"),
     (party_set_slot, "p_frisian_village", slot_town_lord, "trp_dani_guthlaf"),
     (party_remove_members, "p_frisian_village", "trp_frisian_king", 1),
+	(troop_set_slot, "trp_frisian_king", slot_troop_occupation, dplmc_slto_dead), #madsci
+	(try_begin),
+	(troop_get_slot, ":leaded_party", "trp_frisian_king", slot_troop_leaded_party),
+	(gt, ":leaded_party", 0),
+	(party_is_active, ":leaded_party", 0),
+	(remove_party, ":leaded_party"),
+	(try_end),
     (party_add_leader, "p_frisian_village", "trp_dani_guthlaf"),
     (troop_set_slot, "trp_dani_guthlaf", slot_troop_age, 25),
     (troop_set_slot, "trp_dani_guthlaf", slot_troop_religion, slot_religion_paganism),
@@ -52608,6 +52615,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
 	(troop_set_slot, ":leader", slot_troop_leaded_party, ":levies"),
 	(troop_set_slot, ":leader", slot_troop_home, "$current_town"),
 	(troop_set_slot, ":leader", slot_troop_prisoner_of_party, -1),
+	(party_remove_members, "$current_town", ":leader", 1), #madsci actually remove this guy from the minor town so that hes not in two places at the same time
 
     (party_add_template, ":levies", ":troops"),
     (party_add_template, ":levies", ":troops"),

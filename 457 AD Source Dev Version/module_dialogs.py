@@ -38471,20 +38471,21 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
                     (eq,":cur_troop","trp_kidnapped_girl"),],
    "Oh {sir/madam}. Thank you so much for rescuing me. Will you take me to my family now?", "kidnapped_girl_liberated_battle",[]],
 
-  [anyone,"start", [(eq,"$talk_context",tc_hero_freed)],
+  [anyone,"start", [
+(eq,"$talk_context",tc_hero_freed),
+(store_conversation_troop, "$g_talk_troop"),
+(store_troop_faction, "$g_talk_troop_faction", "$g_talk_troop"),
+],
    "I am in your debt for freeing me friend.", "freed_hero_answer",
    []],
 
   [anyone|plyr,"freed_hero_answer", [
-(store_conversation_troop, "$g_talk_troop"),
-(store_troop_faction, ":cur_kingdom_hero_faction", "$g_talk_troop"),
-(neq, ":cur_kingdom_hero_faction", "$players_kingdom"), #madsci bug fix
+(neq, "$g_talk_troop_faction", "$players_kingdom"), #madsci bug fix
 ],
    "You're not going anywhere. You'll be my prisoner now!", "freed_hero_answer_1",
    [
-     (store_conversation_troop, ":cur_troop_id"),
-     #(party_add_prisoners, "p_main_party", ":cur_troop_id", 1),#take prisoner
-(party_force_add_prisoners, "p_main_party", ":cur_troop_id", 1), #madsci bug fix
+(party_force_add_prisoners, "p_main_party", "$g_talk_troop", 1), #madsci bug fix
+(troop_set_slot, "$g_talk_troop", slot_troop_prisoner_of_party, "p_main_party"),
     ]],
 
   [anyone,"freed_hero_answer_1", [],
@@ -38494,6 +38495,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
   [anyone|plyr,"freed_hero_answer", [],
    "You're free to go, {s65}.", "freed_hero_answer_2",
    [
+(troop_set_slot, "$g_talk_troop", slot_troop_prisoner_of_party, -1),
     ]],
 
   [anyone,"freed_hero_answer_2", [],
@@ -38504,11 +38506,16 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
    "Would you like to join me?", "freed_hero_answer_3",
    []],
 
-  [anyone,"freed_hero_answer_3", [(store_random_in_range, ":random_no",0,2),(eq, ":random_no", 0)],
+  [anyone,"freed_hero_answer_3", [
+(neg|faction_slot_eq, "$g_talk_troop_faction", slot_faction_leader, "$g_talk_troop"),
+(neg|is_between, "$g_talk_troop", minor_kings_begin, minor_kings_end), #madsci dont let this happen if a minor faction king ends up prisoner somehow because he needs to be returned to his town by a script
+(store_random_in_range, ":random_no",0,2),
+(eq, ":random_no", 0),
+],
    "All right I will join you.", "close_window",
    [
-     (store_conversation_troop, ":cur_troop_id"),
-     (party_add_members, "p_main_party", ":cur_troop_id", 1),#join hero
+     (troop_set_slot, "$g_talk_troop", slot_troop_prisoner_of_party, -1),
+     (party_force_add_members, "p_main_party", "$g_talk_troop", 1),#join hero
    ]],
 
   [anyone,"freed_hero_answer_3", [],

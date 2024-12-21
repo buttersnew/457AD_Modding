@@ -49,25 +49,25 @@ party_templates = [
 #SB : changes to icons
 #  ("black_khergit_raiders","Black Khergit Raiders",icon_khergit_horseman_b|carries_goods(2),0,fac_black_khergits,bandit_personality,[(trp_black_khergit_guard,1,10),(trp_black_khergit_horseman,5,5)]),
   ("steppe_bandits","Iazyges Band",icon_khergit_horseman_b|carries_goods(2),0,fac_outlaws,bandit_personality,[(trp_steppe_bandit,4,30),(trp_steppe_rider,1,10),(trp_steppe_cataphract,0,5)]),
-  ("taiga_bandits","Germanic Bandits",icon_sea_raider|carries_goods(2),0,fac_outlaws,bandit_personality,[(trp_taiga_bandit,8,30)]),
+  ("taiga_bandits","Germanic Bandits",icon_gray_knight|carries_goods(2),0,fac_outlaws,bandit_personality,[(trp_taiga_bandit,8,30)]),
   ("desert_bandits","Austuriani Rebels",icon_axeman|carries_goods(2)|pf_show_faction,0,fac_berber_rebels,bandit_personality,[(trp_desert_bandit,6,30)]),
-  ("forest_bandits","Bagaudae Band",icon_archer_1|carries_goods(2),0,fac_forest_bandits,bandit_personality,[(trp_forest_bandit_recruit,4,10),(trp_forest_bandit,4,25),(trp_bagaudae_footman,2,15)]),
-  ("mountain_bandits","Isaurian Bandits",icon_flagbearer_a|carries_goods(2),0,fac_mountain_bandits,bandit_personality,[(trp_mountain_bandit,4,30),(trp_isaurian_warrior,1,10)]),
+  ("forest_bandits","Bagaudae Band",icon_roman_footman_2|carries_goods(2),0,fac_forest_bandits,bandit_personality,[(trp_forest_bandit_recruit,4,10),(trp_forest_bandit,4,25),(trp_bagaudae_footman,2,15)]),
+  ("mountain_bandits","Isaurian Bandits",icon_roman_footman_2|carries_goods(2),0,fac_mountain_bandits,bandit_personality,[(trp_mountain_bandit,4,30),(trp_isaurian_warrior,1,10)]),
   ("sea_raiders","Saxon Raiders",icon_sea_raider|carries_goods(2),0,fac_saxons,bandit_personality,[(trp_sea_raider,5,20)]),
   ("saxon_raiders","Saxon Warband",icon_sea_raider|carries_goods(2),0,fac_saxons,bandit_personality,[(trp_sea_raider,15,40)]),
   ("sabir_bandits","Sabir Bandits",icon_khergit_horseman_b|carries_goods(3),0,fac_outlaws,bandit_personality,[(trp_sabir_bandit,4,20)]),
   ("armenian_rebels","Armenian Rebels",icon_vaegir_knight|carries_goods(2),0,fac_armenian_rebels,bandit_personality,[(trp_armenian_bandit,5,15),(trp_armenian_rebel,3,10),(trp_armenian_brigand,3,10)]),
-  ("coptic_rebels","Coptic Rebels",icon_flagbearer_a|carries_goods(2)|pf_show_faction,0,fac_coptic_rebels,bandit_personality,[(trp_coptic_youth,4,25),(trp_coptic_footman,4,15),(trp_coptic_watchman,2,10),(trp_coptic_guard,2,8)]),
+  ("coptic_rebels","Coptic Rebels",icon_roman_footman_1|carries_goods(2)|pf_show_faction,0,fac_coptic_rebels,bandit_personality,[(trp_coptic_youth,4,25),(trp_coptic_footman,4,15),(trp_coptic_watchman,2,10),(trp_coptic_guard,2,8)]),
   ("arab_bandits","Saraceni",icon_axeman|carries_goods(2)|pf_show_faction,0,fac_outlaws,bandit_personality,[(trp_arab_bandit,6,30)]),
   ("bandits","Bandits",icon_axeman|carries_goods(8),0,fac_outlaws,bandit_personality,[(trp_robber,5,35),(trp_bandit,2,15),(trp_brigand,1,5)]),
   ("deserters","Deserters",icon_flagbearer_a|carries_goods(3),0,fac_deserters,bandit_personality,[]),
 
-  ("samaritan_rebels","Samaritan Rebels",icon_axeman|carries_goods(2),0,fac_samaritan_rebels,bandit_personality,[(trp_samaritan_zealot,5,20),(trp_samaritan_rebel,3,10)]), #will be used later
-  ("bagaudae","Bagaudae Army",icon_germanic_army|carries_goods(2),0,fac_forest_bandits,bandit_personality,[(trp_forest_bandit_recruit,30,75),(trp_forest_bandit,20,100),(trp_bagaudae_footman,15,55)]),
+  ("samaritan_rebels","Samaritan Rebels",icon_roman_footman_2|carries_goods(2),0,fac_samaritan_rebels,bandit_personality,[(trp_samaritan_zealot,5,20),(trp_samaritan_rebel,3,10)]), #will be used later
+  ("bagaudae","Bagaudae Army",icon_roman_footman_army|carries_goods(2),0,fac_forest_bandits,bandit_personality,[(trp_forest_bandit_recruit,30,75),(trp_forest_bandit,20,100),(trp_bagaudae_footman,15,55)]),
   ("pirates","Piratae",icon_axeman|carries_goods(2),0,fac_outlaws,bandit_personality,[(trp_pirate,9,60)]),
-  ("bagaudae_army_event","Bagaudae Army",icon_germanic_army|carries_goods(5),0,fac_forest_bandits,bandit_personality,[(trp_forest_bandit_recruit,50,155),(trp_forest_bandit,45,125),(trp_bagaudae_footman,35,80)]),
-  ("gallaecian_rebels","Gallaecian Rebels",icon_peasant|carries_goods(8),0,fac_minor_gallaeci,soldier_personality,[(trp_hibero_roman_venator,20,40),(trp_hibero_roman_rusticus,15,25),(trp_hibero_roman_defensor,10,20)]),
-  ("foederati_rebels","Foederati Rebels",icon_khergit_horseman_b|carries_goods(2),0,fac_deserters,bandit_personality,[(trp_miles_foederatus_germani,20,40),(trp_miles_foederatus_gothorum,20,30),(trp_eques_symmachi_hunnorum,10,20)]), #mix of huns, foederati troops - some time before majorians major campaigns, unruly federates + huns ravaged the countryside
+  ("bagaudae_army_event","Bagaudae Army",icon_roman_footman_army|carries_goods(5),0,fac_forest_bandits,bandit_personality,[(trp_forest_bandit_recruit,50,155),(trp_forest_bandit,45,125),(trp_bagaudae_footman,35,80)]),
+  ("gallaecian_rebels","Gallaecian Rebels",icon_roman_footman_2|carries_goods(8),0,fac_minor_gallaeci,soldier_personality,[(trp_hibero_roman_venator,20,40),(trp_hibero_roman_rusticus,15,25),(trp_hibero_roman_defensor,10,20)]),
+  ("foederati_rebels","Foederati Rebels",icon_roman_footman_army|carries_goods(2),0,fac_deserters,bandit_personality,[(trp_miles_foederatus_germani,20,40),(trp_miles_foederatus_gothorum,20,30),(trp_eques_symmachi_hunnorum,10,20)]), #mix of huns, foederati troops - some time before majorians major campaigns, unruly federates + huns ravaged the countryside
   ("alpine_bandits","Latrones Alpinorum",icon_axeman|carries_goods(2),0,fac_outlaws,bandit_personality,[(trp_latro_alpium,5,30),(trp_brigand,0,3)]),
 
   #SB : fix icon
@@ -103,17 +103,17 @@ party_templates = [
   ("quest_pictish_raiders","Pictish Raiders",icon_sea_raider|carries_goods(9)|pf_auto_remove_in_town|pf_quest_party,0,fac_neutral,bandit_personality,[]),
   ("quest_saxon_raiders","Saxon Raiders",icon_sea_raider|carries_goods(9)|pf_auto_remove_in_town|pf_quest_party,0,fac_neutral,bandit_personality,[]),
 
-  ("isaurian_quest_army","Isaurian Band",icon_sea_raider|carries_goods(9)|pf_auto_remove_in_town|pf_quest_party,0,fac_neutral,bandit_personality,[(trp_isaurian_leader,1,1),(trp_mountain_bandit,15,40),(trp_isaurian_warrior,10,30)]),
+  ("isaurian_quest_army","Isaurian Band",icon_roman_footman_army|carries_goods(9)|pf_auto_remove_in_town|pf_quest_party,0,fac_neutral,bandit_personality,[(trp_isaurian_leader,1,1),(trp_mountain_bandit,15,40),(trp_isaurian_warrior,10,30)]),
   ("onogur_quest_army","Hunnic Band",icon_khergit_horseman_b|carries_goods(9)|pf_auto_remove_in_town|pf_quest_party,0,fac_neutral,merchant_personality,[(trp_onogur_leader,1,1),(trp_hunnic_horse_archer,15,30),(trp_hunnic_retainer,10,15),(trp_bulgar_horseman,5,10),(trp_bigilas_son,1,1,pmf_is_prisoner)]),
   ("attilas_bastard_son_rescued","Oebarsius",icon_khergit_horseman_b|pf_quest_party,0,fac_neutral,merchant_personality,[(trp_attilas_bastard_son,1,1)]),
   ("quest_bagaudae","Bagauda",icon_sea_raider|carries_goods(9)|pf_auto_remove_in_town|pf_quest_party,0,fac_forest_bandits,bandit_personality,[(trp_forest_bandit,30,40),(trp_forest_bandit_recruit,15,20),(trp_bagaudae_footman,15,25)]), #less than normal
   ("hunimund_horde_quest","Hunimund's Army",icon_sea_raider|carries_goods(9)|pf_auto_remove_in_town|pf_quest_party,0,fac_neutral,bandit_personality,[(trp_suebi_king,1,1),(trp_western_germanic_freeman,55,105),(trp_western_germanic_skirmisher,15,40),(trp_steppe_bandit,10,40),(trp_steppe_cataphract,5,15)]),
-  ("juliobriga_bagadua","Bagaudae Band",icon_archer_1|carries_goods(9)|pf_auto_remove_in_town|pf_quest_party,0,fac_forest_bandits,bandit_personality,[(trp_forest_bandit_recruit,25,35),(trp_forest_bandit,12,21),(trp_bagaudae_footman,5,10)]),
+  ("juliobriga_bagadua","Bagaudae Band",icon_roman_footman_army|carries_goods(9)|pf_auto_remove_in_town|pf_quest_party,0,fac_forest_bandits,bandit_personality,[(trp_forest_bandit_recruit,25,35),(trp_forest_bandit,12,21),(trp_bagaudae_footman,5,10)]),
   ("quest_vandal_raiders","Vandal Raiders",icon_sea_raider|carries_goods(9)|pf_auto_remove_in_town|pf_quest_party,0,fac_neutral,bandit_personality,[(trp_vandal_raider_leader,1,1),(trp_eastern_germanic_spearman,30,45),(trp_eastern_germanic_mounted_warrior,3,8),(trp_eques_sagittarii_alani,2,5),(trp_gaetuli_horseman,5,15),]),
   ("faltras_suebi_band","Faltras's Loyalists",icon_sea_raider|carries_goods(9)|pf_auto_remove_in_town,0,fac_faltras_suebi,soldier_personality,[]),
   ("faltras_suebi_army","Faltras's Loyalists",icon_sea_raider|carries_goods(9)|pf_auto_remove_in_town|pf_quest_party,0,fac_neutral,soldier_personality,[]),
   ("germanic_raiders","Scamarae",icon_sea_raider|carries_goods(9)|pf_auto_remove_in_town|pf_quest_party,0,fac_neutral,bandit_personality,[(trp_western_germanic_freeman,30,50),(trp_taiga_bandit,8,15),(trp_western_germanic_bowman,5,10)]),
-  ("noricum_soldiers","Norici Militia",icon_sea_raider|carries_goods(9)|pf_auto_remove_in_town|pf_quest_party,0,fac_neutral,soldier_personality,[(trp_miles_romani,15,20),]),
+  ("noricum_soldiers","Norici Militia",icon_roman_footman_army|carries_goods(9)|pf_auto_remove_in_town|pf_quest_party,0,fac_neutral,soldier_personality,[(trp_miles_romani,15,20),]),
   ("aestii_rebel_party","Aestii Rebels",icon_sea_raider|carries_goods(50)|pf_quest_party|pf_always_visible,0,fac_neutral,soldier_personality,[(trp_aestii_rebel_king,1,1),(trp_aestii_skirmisher,30,40),(trp_aestii_tribesman,30,40),(trp_sitones_retainer,20,30),(trp_aestii_companion,10,20)]),
   ("heretical_codex_bandits","Bandits",icon_axeman|carries_goods(9)|pf_auto_remove_in_town|pf_quest_party,0,fac_neutral,bandit_personality,[(trp_burgundian_looter,1,1),(trp_robber,5,35),(trp_bandit,2,15),(trp_brigand,1,5)]),
 
@@ -122,10 +122,10 @@ party_templates = [
   ("heruli_army","Visilaus's Host",icon_sea_raider|carries_goods(20)|pf_show_faction,0,fac_minor_heruli,soldier_personality,[(trp_heruli_slave,40,60),(trp_limigantes_rebel,20,50),(trp_heruli_warrior,80,100),(trp_heruli_horseman,20,40),(trp_heruli_king,1,1)]), #spearmen, horsemen, skirmishers
 
   #event parties
-  ("nero_rebel_army","Legio Neronia",icon_roman_army_1|carries_goods(30)|pf_auto_remove_in_town,0,fac_peasant_rebels,bandit_personality,[(trp_nero_larper_commander,1,1),(trp_miles_romani,200,215),(trp_sagittarius,60,70),(trp_bucellarius,45,55),(trp_imperial_signifer,5,5)]),
-  ("agrippinus_rebel_army","Legio Gallia",icon_roman_army_1|carries_goods(30)|pf_auto_remove_in_town,0,fac_peasant_rebels,bandit_personality,[(trp_agrippinus,1,1),(trp_miles_romani,200,215),(trp_sagittarius,30,50),(trp_bucellarius,45,55),(trp_miles_foederatus_gothorum,50,60)]),
-  ("tuldila_rebels","Foederati Rebels",icon_roman_army_1|carries_goods(30),0,fac_deserters,bandit_personality,[(trp_tuldila,1,1),(trp_miles_foederatus_gothorum,40,60),(trp_eques_symmachi_hunnorum,20,40)]),
-  ("vllibos_rebels","Gothic Rebels",icon_sea_raider|carries_goods(30)|pf_auto_remove_in_town,0,fac_peasant_rebels,bandit_personality,[(trp_vllibos,1,1),(trp_miles_foederatus_gothorum,100,200)]),
+  ("nero_rebel_army","Legio Neronia",icon_roman_footman_army|carries_goods(30)|pf_auto_remove_in_town,0,fac_peasant_rebels,bandit_personality,[(trp_nero_larper_commander,1,1),(trp_miles_romani,200,215),(trp_sagittarius,60,70),(trp_bucellarius,45,55),(trp_imperial_signifer,5,5)]),
+  ("agrippinus_rebel_army","Legio Gallia",icon_roman_footman_army|carries_goods(30)|pf_auto_remove_in_town,0,fac_peasant_rebels,bandit_personality,[(trp_agrippinus,1,1),(trp_miles_romani,200,215),(trp_sagittarius,30,50),(trp_bucellarius,45,55),(trp_miles_foederatus_gothorum,50,60)]),
+  ("tuldila_rebels","Foederati Rebels",icon_roman_footman_army|carries_goods(30),0,fac_deserters,bandit_personality,[(trp_tuldila,1,1),(trp_miles_foederatus_gothorum,40,60),(trp_eques_symmachi_hunnorum,20,40)]),
+  ("vllibos_rebels","Gothic Rebels",icon_roman_footman_army|carries_goods(30)|pf_auto_remove_in_town,0,fac_peasant_rebels,bandit_personality,[(trp_vllibos,1,1),(trp_miles_foederatus_gothorum,100,200)]),
 
 # Caravans
   # ("center_reinforcements","Reinforcements",icon_axeman|carries_goods(16),0,fac_commoners,soldier_personality,[(trp_townsman,5,30),(trp_watchman,4,20)]),  
@@ -526,7 +526,7 @@ party_templates = [
    ##diplomacy end
 
    #new party templates
-  ("coptic_rebellion","Coptic Rebel Army",icon_roman_army_1|carries_goods(20)|pf_show_faction,0,fac_coptic_rebels,bandit_personality,[(trp_coptic_youth,20,30),(trp_coptic_footman,40,80),(trp_coptic_watchman,10,30),(trp_coptic_guard,15,30)]),
+  ("coptic_rebellion","Coptic Rebel Army",icon_roman_footman_army|carries_goods(20)|pf_show_faction,0,fac_coptic_rebels,bandit_personality,[(trp_coptic_youth,20,30),(trp_coptic_footman,40,80),(trp_coptic_watchman,10,30),(trp_coptic_guard,15,30)]),
 
   ("scirii_horde","Danubian Suebi Horde",icon_sea_raider|carries_goods(20)|pf_show_faction,0,fac_hunimund_suebi,soldier_personality,[(trp_western_germanic_freeman,105,250),(trp_western_germanic_skirmisher,30,60),(trp_steppe_bandit,10,40),(trp_steppe_cataphract,5,15)]),
 
@@ -536,8 +536,8 @@ party_templates = [
 
   ("ostrogothic_army","Ostrogothic Army",icon_sea_raider|carries_goods(20)|pf_show_faction,0,fac_kingdom_4,soldier_personality,[(trp_gothic_freeman,40,75),(trp_gothic_skirmisher,10,30),(trp_gothic_mounted_skirmisher,10,20),(trp_gothic_horseman,5,10),(trp_gothic_companion,1,1)]), #balance out so that ostrogoths do not get completely destroyed
 
-  ("arran_army","Arran Rebels",icon_axeman|carries_goods(20)|pf_show_faction,0,fac_kingdom_28,soldier_personality,[(trp_aghwan_warrior,60,100),(trp_aghwan_archer,20,40),(trp_aghwan_nobleman,10,20),(trp_albanian_cavalry,1,5)]),
-  ("rebel_army","Rebels",icon_sea_raider|carries_goods(20)|pf_show_faction,0,fac_commoners,soldier_personality,[]),
+  ("arran_army","Arran Rebels",icon_vaegir_knight|carries_goods(20)|pf_show_faction,0,fac_kingdom_28,soldier_personality,[(trp_aghwan_warrior,60,100),(trp_aghwan_archer,20,40),(trp_aghwan_nobleman,10,20),(trp_albanian_cavalry,1,5)]),
+  ("rebel_army","Rebels",icon_roman_footman_army|carries_goods(20)|pf_show_faction,0,fac_commoners,soldier_personality,[]),
 
   #minor factions 30 - 60
   ("aestii_party","Aestii Warriors",icon_gray_knight|carries_goods(30)|pf_show_faction,0,fac_minor_aestii,bandit_personality,[(trp_aestii_skirmisher,10,25),(trp_aestii_tribesman,15,25),(trp_aestii_companion,5,10)]), #for patrols
@@ -548,14 +548,14 @@ party_templates = [
   ("dani_party","Dani Warriors",icon_gray_knight|carries_goods(30)|pf_show_faction,0,fac_minor_dani,bandit_personality,[(trp_scandinavian_freeman,10,25),(trp_scandinavian_retainer,5,10),(trp_dane_vanguard,5,15),(trp_scandinavian_comes,5,10)]),
   ("morden_party","Morden Warriors",icon_gray_knight|carries_goods(30)|pf_show_faction,0,fac_minor_mordens,bandit_personality,[(trp_mordvin_skirmisher,10,15),(trp_mordvin_footman,10,25),(trp_mordvin_mounted_skirmisher,5,10),(trp_mordvin_companion,3,6),(trp_komi_warrior,2,4)]),
   ("sporoi_party","Sporoi Warriors",icon_axeman|carries_goods(30)|pf_show_faction,0,fac_minor_sporoi,bandit_personality,[(trp_slav_archer,5,14),(trp_slav_skirmisher,5,14),(trp_slav_footman,10,25),(trp_slav_horseman,3,5),(trp_slav_horsearcher,3,5)]), #slavs
-  ("bosphoran_party","Bosphoran Patrol",icon_gray_knight|carries_goods(30)|pf_show_faction,0,fac_minor_bosphoran,soldier_personality,[(trp_bosphor_recruit,10,15),(trp_bosphor_infantry,10,25),(trp_bosphor_archer,5,10),(trp_bosphor_horseman,3,6),(trp_meotian_horseman,2,4)]),
+  ("bosphoran_party","Bosphoran Patrol",icon_roman_footman_2|carries_goods(30)|pf_show_faction,0,fac_minor_bosphoran,soldier_personality,[(trp_bosphor_recruit,10,15),(trp_bosphor_infantry,10,25),(trp_bosphor_archer,5,10),(trp_bosphor_horseman,3,6),(trp_meotian_horseman,2,4)]),
   ("abagasian_party","Abagasian Warriors",icon_vaegir_knight|carries_goods(30)|pf_show_faction,0,fac_minor_abagasians,bandit_personality,[(trp_abasgian_skirmisher,10,15),(trp_abasgian_footman,10,25),(trp_abasgian_horse_archer,7,12),(trp_abasgian_nobleman,3,8)]),
   ("tauri_party","Tauri Raiders",icon_axeman|carries_goods(30)|pf_show_faction,0,fac_minor_tauri,bandit_personality,[(trp_tauri_axeman,15,30),(trp_tauri_horseman,15,30)]),
   ("augundzi_party","Augundzi Warriors",icon_gray_knight|carries_goods(30)|pf_show_faction,0,fac_minor_augundzi,bandit_personality,[(trp_scandinavian_freeman,5,15),(trp_saami_hunter,5,15),(trp_scandinavian_retainer,10,20),(trp_scandinavian_comes,5,10)]),
   ("vidivarii_party","Vidivarii Warriors",icon_gray_knight|carries_goods(30)|pf_show_faction,0,fac_minor_vidivarii,bandit_personality,[(trp_aestii_skirmisher,10,25),(trp_gothic_freeman,15,25),(trp_scandinavian_comes,5,10)]),
   ("frisian_party","Frisii Warriors",icon_gray_knight|carries_goods(30)|pf_show_faction,0,fac_minor_frisians,bandit_personality,[(trp_frisian_freeman,20,40),(trp_frisian_companion,5,10),(trp_saxon_companion,5,10)]),
-  ("vascones_party","Vascones Raiders",icon_axeman|carries_goods(30)|pf_show_faction,0,fac_minor_vascones,bandit_personality,[(trp_latro_vasconius,10,15),(trp_hibero_roman_venator,5,10),(trp_hibero_roman_rusticus,10,25),(trp_hibero_roman_defensor,5,10)]),
-  ("gallaeci_party","Gallaeci Raiders",icon_axeman|carries_goods(30)|pf_show_faction,0,fac_minor_gallaeci,bandit_personality,[(trp_hibero_roman_venator,10,20),(trp_hibero_roman_rusticus,10,20),(trp_hibero_roman_defensor,5,10),(trp_eques_cantabri,5,10)]),
+  ("vascones_party","Vascones Raiders",icon_roman_footman_2|carries_goods(30)|pf_show_faction,0,fac_minor_vascones,bandit_personality,[(trp_latro_vasconius,10,15),(trp_hibero_roman_venator,5,10),(trp_hibero_roman_rusticus,10,25),(trp_hibero_roman_defensor,5,10)]),
+  ("gallaeci_party","Gallaeci Raiders",icon_roman_footman_2|carries_goods(30)|pf_show_faction,0,fac_minor_gallaeci,bandit_personality,[(trp_hibero_roman_venator,10,20),(trp_hibero_roman_rusticus,10,20),(trp_hibero_roman_defensor,5,10),(trp_eques_cantabri,5,10)]),
   ("venedi_party","Venedi Warriors",icon_axeman|carries_goods(30)|pf_show_faction,0,fac_minor_venedi,bandit_personality,[(trp_venedi_skirmisher,10,20),(trp_venedi_warrior,10,20),(trp_venedi_nobleman,5,10),(trp_slav_horsearcher,5,10)]),
   ("saraguroi_party","Saraguroi Warriors",icon_khergit|carries_goods(30)|pf_show_faction,0,fac_minor_saraguroi,bandit_personality,[(trp_hunnic_horse_archer,10,20),(trp_hunnic_retainer,10,20),(trp_hunnic_skirmisher,5,10),(trp_hunnic_veteran,5,10)]),
   ("onoguroi_party","Onoguroi Warriors",icon_khergit|carries_goods(30)|pf_show_faction,0,fac_minor_onoguroi,bandit_personality,[(trp_hunnic_horse_archer,10,20),(trp_hunnic_retainer,10,20),(trp_hunnic_skirmisher,5,10),(trp_hunnic_veteran,5,10)]),

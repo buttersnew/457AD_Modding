@@ -93,7 +93,6 @@ map_icons = [
   ("village_snow_burnt_a",mcn_no_shadow,"roman_icon_village_burned", 0.45, 0),
   ("village_snow_deserted_a",mcn_no_shadow,"roman_icon_village_burned", 0.45, 0),
 
-
   ("camp",mcn_no_shadow,"camp_icon_new", 0.20, 0),
   ("ship",mcn_no_shadow,"boat_sail_on", 0.23, snd_footstep_grass, 0.0, 0.05, 0),
   ("ship_on_land",mcn_no_shadow,"boat_sail_off", 0.23, 0),
@@ -103,7 +102,6 @@ map_icons = [
   ("castle_c",mcn_no_shadow,"fort_wood", 0.35,0),
   ("castle_d",mcn_no_shadow,"map_castle_d", 0.35,0),
   ("town_snow",mcn_no_shadow,"ikonka_grod", 0.35,0),
-
 
   ("castle_snow_a",mcn_no_shadow,"monastery", 0.35,0),
   ("castle_snow_b",mcn_no_shadow,"sacred_forest", 0.35,0),
@@ -438,6 +436,11 @@ map_icons = [
   ("roman_army_2",0,"icon_roman_army_2", avatar_scale,snd_footstep_grass, [icon_tableau_trigger_roman,]), #magister
   ("roman_army_3",0,"icon_roman_army_3", avatar_scale,snd_footstep_grass, [icon_tableau_trigger_roman,]), #faction leader 
   ("roman_army_e",0,"icon_roman_army_e", avatar_scale,snd_footstep_grass, [icon_tableau_trigger_roman,]), #emperors
+  
+  ("roman_footman_1",0,"icon_roman_footman_1", avatar_scale,snd_footstep_grass, 0.15, 0.173, 0), #for roman smaller parties
+  ("roman_footman_2",0,"icon_roman_footman_2", avatar_scale,snd_footstep_grass, 0.15, 0.173, 0), #for roman smaller parties
+  ("roman_footman_3",0,"icon_roman_footman_3", avatar_scale,snd_footstep_grass, 0.15, 0.173, 0), #for roman smaller parties
+  ("roman_footman_army",0,"icon_roman_footman_army", avatar_scale,snd_footstep_grass, 0.15, 0.173, 0), #for roman smaller parties
 
   ("camp_siege",mcn_no_shadow,"camp_siege", 0.13, 0),
   ("pyramids",mcn_no_shadow,"pyramids", 1.27,0),

@@ -166,7 +166,7 @@ factions = [
   ("zoroastrians","Mazdaist Zoroastrians", 0, 0.5,[("kingdom_6", 0.9)], [], 0xFFFFFF), #very friendly with the sassanids
   ("zurvanism","Zurvanite Zoroastrians", 0, 0.5,[("kingdom_6", 0.9)], [], 0xFFFFFF), #very friendly with the sassanids
   ("jews","Jews", 0, 0.5,[("arian_christians",-0.05),("coptic_christians",-0.05),("roman_christians",-0.05),("nestorian_christians",-0.05),("donatist_christians",-0.05),("pagans",-0.05),("roman_pagans",-0.05),("zoroastrians",-0.05)], [], 0xFFFFFF), #used for later
-  ("religion_end","Religions End", 0, 0.5,[("arian_christians",-0.05),("coptic_christians",-0.05),("roman_christians",-0.05),("nestorian_christians",-0.05),("donatist_christians",-0.05),("pagans",-0.05),("roman_pagans",-0.05),("zoroastrians",-0.05)], [], 0xFFFFFF), #used for later
+  ("religion_end","Religions End", 0, 0.5,[], [], 0xFFFFFF), 
 
   #chariot racing teams
   ("blue_team","Blues",0, 0.1,[("player_faction",0.0),("kingdom_1",0.5),("kingdom_2",0.5)], [],0x0c42c4),

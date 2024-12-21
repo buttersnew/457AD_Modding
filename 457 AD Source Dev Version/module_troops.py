@@ -3147,11 +3147,6 @@ troops = [
 #madsci dont move the position of Babai in this file unless you also adjust script_update_companion_candidates_in_taverns
 ["npc25","Babai","Babai",tf_hero|tf_mounted|tf_guarantee_horse|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_ranged, no_scene, reserved, fac_commoners,[itm_nomad_boots,itm_kaftan_lamellar_7,itm_sword_viking_c_long,itm_heavy_lance,itm_khergit_bow,itm_khergit_arrows,itm_hun_rich_horse_1],def_attrib_lvl_13|level(13),wp_one_handed(110)|wp_two_handed(80)|wp_polearm(100)|wp_throwing(80)|wp_archery(100),knows_ironflesh_3|knows_power_strike_3|knows_athletics_3|knows_riding_3|knows_power_draw_3|knows_horse_archery_3,0x0000000d9f0083cb555b6ec5124db6db00000000001d36ea0000000000000000],
 
-#0x00000001730c10413d1c8a38aa8e2adb00000000001db6ed0000000000000000
-#NPC system changes end
-
-#wp_one_handed(300)|wp_two_handed(250)|wp_polearm(230)|wp_archery(100)|wp_crossbow(100)|wp_throwing(100)|wp_firearm(100)
-
 #Was Anthemius
 ["kingdom_1_lord",  "Flavius Julius Valerius Majorianus Augustus",  "Majorianus",  tf_hero, 0,reserved,  fac_kingdom_1,[itm_nisean_cataphract_1, (itm_roman_squamata_emperor,imod_lordly), itm_coptic_tunic_emperor_2, itm_crown_1, itm_roman_lorum_fasciari_6, itm_roman_greaves_6, itm_tab_shield_small_round_c, itm_arabian_sword_d, itm_berk_helmet], knight_attrib_5,wp_one_handed(310)|wp_two_handed(250)|wp_polearm(300)|wp_archery(100)|wp_crossbow(100)|wp_throwing(100)|wp_firearm(100),knight_skills_6|knows_trainer_8, 0x000000060e002045345251b69369b4db00000000001d36e20000000000000000],
 
@@ -3214,17 +3209,8 @@ troops = [
 
 #                                                                               Horse                   Bodywear                Armor                               Footwear_in                 Footwear_out                        Headwear                    Weapon               Shield
 
-#Western Roman Empire Caecina Decius Basilius
-#Nepotianus - married to marcellinus's sister, was father of Julius Nepos
-#Aegidius - Syagrius
-#Agrippinus - magister militum per gallias
-#Caecina Decius Basilius
-#Gennadius Avienus - consul
-#Astyrius - general + consul
-#Nomus - possible general
-#Ecdicius - son of former emperor Avitus, served as magister milium in late empire, would be 37 at this time
-#comes Burco - defeated alemanni invasion in 457, would be general
-#Changed dux to be Comes Rei Militaris
+#Faction to remove lords (1-2 each): Kartli (4), Gepids (5), Lazika (4), Visigoths (7), Ostrogoths (7), Vandals (7), Huns (7), Thuringians (4), Langobards (4), Ripaurii (3) - would in total allow 10 extra lords for same count as currently
+
 ["knight_1_1", "Magister Utriusque Militiae Flavius Ricimer", "Flavius Ricimer", tf_hero, 0, reserved,  fac_kingdom_1,[itm_nisean_cataphract_1, itm_coptic_tunic_12, itm_deurne_campagi_3, itm_deurne_campagi_greaves_2, (itm_rich_mail_3_m,imod_lordly), itm_tab_shield_small_round_c, itm_arabian_sword_a, itm_gultlingen_helmet_feathers],knight_attrib_5,wp_one_handed(290)|wp_two_handed(270)|wp_polearm(290)|wp_archery(150)|wp_crossbow(100)|wp_throwing(100)|wp_firearm(100),knight_skills_5|knows_trainer_1|knows_trainer_3,0x00000005ca0001c823db6f59644426cc00000000001e26900000000000000000], #was 0x000000079000428236db6d1a9b6db2da00000000001d36b10000000000000000
 #Was Bilimer
 ["knight_1_2", "Magister Militum per Gallia Aegidius", "Aegidius", tf_hero, 0, reserved,  fac_kingdom_1, [itm_nisean_cataphract_3, itm_coptic_tunic_11, itm_deurne_campagi_1, itm_deurne_campagi_greaves_3,  (itm_roman_scale_5,imod_lordly), itm_tab_shield_small_round_c, itm_sword_viking_3, itm_berk_helmet],       knight_attrib_5,wp_one_handed(300)|wp_two_handed(280)|wp_polearm(290)|wp_archery(140)|wp_crossbow(120)|wp_throwing(200)|wp_firearm(120),knight_skills_5, 0x0000000cac00100f4adb7138db6db4db00000000001db6db0000000000000000],
@@ -5008,17 +4994,17 @@ troops = [
   ["donatist_priest","Donatist Priest","Donatist Priests",tf_guarantee_boots|tf_guarantee_armor,0,0,fac_donatist_christians,[itm_wrapping_boots,itm_late_roman_priest,itm_knife],def_attrib|level(8),wp(90),knows_common,coptic_face_1, coptic_face_2],
   ["monk","Monk","Monks",tf_guarantee_boots|tf_guarantee_armor,0,0,fac_commoners,[itm_wrapping_boots,itm_robe,itm_sarranid_cloth_robe_b,itm_wooden_stick],def_attrib|level(8),wp(90),knows_common,roman_face_1, roman_face_2],#shared by all 3 christian religions
   #RELIGIOUS LOCATION LEADERS
-  ["roman_abbot","Chalcedonian Abbot","Chalcedonian Abbots",tf_hero,0,0,fac_roman_christians,[itm_wrapping_boots,itm_robes_church],def_attrib|level(8),wp(90),knows_common,roman_face_1, roman_face_2],
-  ["arian_abbot","Arian Abbot","Arian Abbots",tf_hero,0,0,fac_arian_christians,[itm_wrapping_boots,itm_robes_church],def_attrib|level(8),wp(90),knows_common,roman_face_1, roman_face_2],
-  ["coptic_abbot","Miaphysite Abbot","Miaphysite Abbots",tf_hero,0,0,fac_coptic_christians,[itm_wrapping_boots,itm_robes_church],def_attrib|level(8),wp(90),knows_common,roman_face_1, roman_face_2],
-  ["nestorian_abbot","Nestorian Abbot","Nestorian Abbots",tf_hero,0,0,fac_coptic_christians,[itm_wrapping_boots,itm_robes_church],def_attrib|level(8),wp(90),knows_common,roman_face_1, roman_face_2],
-  ["donatist_abbot","Donatist Abbot","Donatist Abbots",tf_hero,0,0,fac_coptic_christians,[itm_wrapping_boots,itm_robes_church],def_attrib|level(8),wp(90),knows_common,roman_face_1, roman_face_2],
-  ["pagan_high_priest","Germanic Pagan Priest","Germanic Pagan Priests",tf_hero,0,0,fac_pagans,[itm_wrapping_boots,itm_robe,itm_sarranid_cloth_robe_b],def_attrib|level(8),wp(90),knows_common,germanic_face_1, germanic_face_2],
-  ["celtic_pagan_priest","Celtic Pagan Priest","Celtic Pagan Priests",tf_hero,0,0,fac_pagans,[itm_wrapping_boots,itm_robe,itm_sarranid_cloth_robe_b],def_attrib|level(8),wp(90),knows_common,celtic_face_1, celtic_face_2],
-  ["steppe_pagan_priest","Shaman","Shamen",tf_hero,0,0,fac_pagans,[itm_wrapping_boots,itm_robe,itm_sarranid_cloth_robe_b],def_attrib|level(8),wp(90),knows_common,hunnic_face_1, hunnic_face_2],
-  ["zoroastrian_high_priest","Zoroastrian Moabadan-Moabad","Zoroastrian Moabadan-Moabads",tf_hero,0,0,fac_zoroastrians,[itm_wrapping_boots,itm_persian_tunic_15],def_attrib|level(8),wp(90),knows_common,persian_face_1, persian_face_2],
-  ["roman_pagan_high_priest","Greco-Roman Pagan Priest","Greco-Roman Pagan Priest",tf_hero,0,0,fac_roman_pagans,[itm_wrapping_boots,itm_sarranid_cloth_robe_c],def_attrib|level(8),wp(90),knows_common,roman_face_1, roman_face_2],
-  ["egyptian_pagan_high_priest","Aegyptian Pagan Priest","Aegyptian Pagan Priest",tf_hero,0,0,fac_roman_pagans,[itm_wrapping_boots,itm_sarranid_cloth_robe_c],def_attrib|level(8),wp(90),knows_common,coptic_face_1, coptic_face_2],
+  ["roman_abbot","Chalcedonian Abbot","Chalcedonian Abbots",tf_randomize_face|tf_hero,0,0,fac_roman_christians,[itm_wrapping_boots,itm_robes_church],def_attrib|level(8),wp(90),knows_common,roman_face_1, roman_face_2],
+  ["arian_abbot","Arian Abbot","Arian Abbots",tf_randomize_face|tf_hero,0,0,fac_arian_christians,[itm_wrapping_boots,itm_robes_church],def_attrib|level(8),wp(90),knows_common,roman_face_1, roman_face_2],
+  ["coptic_abbot","Miaphysite Abbot","Miaphysite Abbots",tf_randomize_face|tf_hero,0,0,fac_coptic_christians,[itm_wrapping_boots,itm_robes_church],def_attrib|level(8),wp(90),knows_common,roman_face_1, roman_face_2],
+  ["nestorian_abbot","Nestorian Abbot","Nestorian Abbots",tf_randomize_face|tf_hero,0,0,fac_coptic_christians,[itm_wrapping_boots,itm_robes_church],def_attrib|level(8),wp(90),knows_common,roman_face_1, roman_face_2],
+  ["donatist_abbot","Donatist Abbot","Donatist Abbots",tf_randomize_face|tf_hero,0,0,fac_coptic_christians,[itm_wrapping_boots,itm_robes_church],def_attrib|level(8),wp(90),knows_common,roman_face_1, roman_face_2],
+  ["pagan_high_priest","Germanic Pagan Priest","Germanic Pagan Priests",tf_randomize_face|tf_hero,0,0,fac_pagans,[itm_wrapping_boots,itm_robe,itm_sarranid_cloth_robe_b],def_attrib|level(8),wp(90),knows_common,germanic_face_1, germanic_face_2],
+  ["celtic_pagan_priest","Celtic Pagan Priest","Celtic Pagan Priests",tf_randomize_face|tf_hero,0,0,fac_pagans,[itm_wrapping_boots,itm_robe,itm_sarranid_cloth_robe_b],def_attrib|level(8),wp(90),knows_common,celtic_face_1, celtic_face_2],
+  ["steppe_pagan_priest","Shaman","Shamen",tf_randomize_face|tf_hero,0,0,fac_pagans,[itm_wrapping_boots,itm_robe,itm_sarranid_cloth_robe_b],def_attrib|level(8),wp(90),knows_common,hunnic_face_1, hunnic_face_2],
+  ["zoroastrian_high_priest","Zoroastrian Moabadan-Moabad","Zoroastrian Moabadan-Moabads",tf_randomize_face|tf_hero,0,0,fac_zoroastrians,[itm_wrapping_boots,itm_persian_tunic_15],def_attrib|level(8),wp(90),knows_common,persian_face_1, persian_face_2],
+  ["roman_pagan_high_priest","Greco-Roman Pagan Priest","Greco-Roman Pagan Priest",tf_randomize_face|tf_hero,0,0,fac_roman_pagans,[itm_wrapping_boots,itm_sarranid_cloth_robe_c],def_attrib|level(8),wp(90),knows_common,roman_face_1, roman_face_2],
+  ["egyptian_pagan_high_priest","Aegyptian Pagan Priest","Aegyptian Pagan Priest",tf_randomize_face|tf_hero,0,0,fac_roman_pagans,[itm_wrapping_boots,itm_sarranid_cloth_robe_c],def_attrib|level(8),wp(90),knows_common,coptic_face_1, coptic_face_2],
 
   #reusing for extended mithras quest
   ["roman_landowner","Gnaeus Turibius","Gnaeus Turibius",tf_hero|tf_guarantee_boots|tf_guarantee_armor, no_scene, reserved, fac_commoners,[itm_coptic_tunic_13,itm_deurne_campagi_5,itm_arabian_sword_b],def_attrib_lvl_32|level(30),wp(300),knows_ironflesh_10|knows_power_strike_10,0x00000001bf0000823adb6db6db6db6db00000000001db6dd0000000000000000],

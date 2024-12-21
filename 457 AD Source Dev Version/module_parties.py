@@ -653,8 +653,8 @@ parties = [
   ("religious_site_7","Grove_of_Nerthus",icon_castle_snow_b|pf_is_static|pf_always_visible|pf_hide_defenders, no_menu, pt_none, fac_pagans,0,ai_bhvr_hold,0,(-128.07,163.56),[]), #germanic pagan 
   ("religious_site_8","Donar's_Oak",icon_castle_snow_b|pf_is_static|pf_always_visible|pf_hide_defenders, no_menu, pt_none, fac_pagans,0,ai_bhvr_hold,0,(-138.54,105.63),[]), #germanic pagan 
   ("religious_site_9","Aphrodisias",icon_castle_snow_b|pf_is_static|pf_always_visible|pf_hide_defenders, no_menu, pt_none, fac_roman_pagans,0,ai_bhvr_hold,0,(17.25,-3.84),[]), #greco-roman paganism 
-  ("religious_site_10","Great_Fire_of_Adur_Farnbag",icon_castle_snow_b|pf_is_static|pf_always_visible|pf_hide_defenders, no_menu, pt_none, fac_zoroastrians,0,ai_bhvr_hold,0,(236.84,-39.66),[]), #zoroastrian 
-  ("religious_site_11","Great_Fire_of_Adur_Gushnap",icon_castle_snow_b|pf_is_static|pf_always_visible|pf_hide_defenders, no_menu, pt_none, fac_zoroastrians,0,ai_bhvr_hold,0,(138.16,51.05),[]), #zoroastrian 
+  ("religious_site_10","Great_Fire_of_Adur_Farnbag",icon_temple|pf_is_static|pf_always_visible|pf_hide_defenders, no_menu, pt_none, fac_zoroastrians,0,ai_bhvr_hold,0,(236.84,-39.66),[]), #zoroastrian 
+  ("religious_site_11","Great_Fire_of_Adur_Gushnap",icon_temple|pf_is_static|pf_always_visible|pf_hide_defenders, no_menu, pt_none, fac_zoroastrians,0,ai_bhvr_hold,0,(138.16,51.05),[]), #zoroastrian 
   ("religious_site_12","Monastery_of_Saint_Athanasius",icon_castle_snow_a|pf_is_static|pf_always_visible|pf_hide_defenders, no_menu, pt_none, fac_roman_christians,0,ai_bhvr_hold,0,(-11.7, 47.01),[]), #non-chalcedonian
   ("religious_site_13","Paromeos_Monastary",icon_castle_snow_a|pf_is_static|pf_always_visible|pf_hide_defenders, no_menu, pt_none, fac_coptic_christians,0,ai_bhvr_hold,0,(43.91, -77.41),[]), #non-chalcedonian
   ("religious_site_14","Irminsul",icon_castle_snow_b|pf_is_static|pf_always_visible|pf_hide_defenders, no_menu, pt_none, fac_pagans,0,ai_bhvr_hold,0,(-156.34,132.32),[]), #pagan 

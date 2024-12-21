@@ -53160,7 +53160,11 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
 
   [trp_pagan_high_priest, "start", [],
    "Good day, {sir/madam}. What do you need?", "pagan_high_priest_talk_1", []], #opening
-  [trp_pagan_high_priest|plyr, "pagan_high_priest_talk_1", [(neg|troop_slot_eq, "trp_player", slot_troop_religion, slot_religion_paganism),(neq, "$g_player_converted", 1),], #player is not of the religion
+  [trp_celtic_pagan_priest, "start", [],
+   "Good day, {sir/madam}. What do you need?", "pagan_high_priest_talk_1", []], #opening
+  [trp_steppe_pagan_priest, "start", [],
+   "Good day, {sir/madam}. What do you need?", "pagan_high_priest_talk_1", []], #opening
+  [anyone|plyr, "pagan_high_priest_talk_1", [(neg|troop_slot_eq, "trp_player", slot_troop_religion, slot_religion_paganism),(neq, "$g_player_converted", 1),], #player is not of the religion
    "I wish be converted to Paganism.", "pagan_high_priest_talk_convert_1", [
           (assign, "$g_player_faith", 2),
           (troop_set_slot, "trp_player", slot_troop_religion, slot_religion_paganism), # christian
@@ -53180,23 +53184,23 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
           (troop_set_slot, "trp_player", slot_troop_controversy, ":controversy"),
           (assign, "$g_player_converted", 1),
    ]],
-  [trp_pagan_high_priest|plyr, "pagan_high_priest_talk_1", [(troop_slot_eq, "trp_player", slot_troop_religion, slot_religion_paganism),(store_troop_gold,":money","trp_player"),(gt,":money",499),], #player is of the religion
+  [anyone|plyr, "pagan_high_priest_talk_1", [(troop_slot_eq, "trp_player", slot_troop_religion, slot_religion_paganism),(store_troop_gold,":money","trp_player"),(gt,":money",499),], #player is of the religion
    "I would like to donate 500 siliquae to the sanctuary.", "pagan_high_priest_talk_donate_1", [(troop_remove_gold, "trp_player", 500),(call_script, "script_change_player_relation_with_faction", "fac_pagans", 5),]],
-  [trp_pagan_high_priest, "pagan_high_priest_talk_convert_1", [], #after player converts
+  [anyone, "pagan_high_priest_talk_convert_1", [], #after player converts
    "Welcome to the true faith, {playername}.", "close_window", []],
-  [trp_pagan_high_priest, "pagan_high_priest_talk_donate_1", [], #after player donates
+  [anyone, "pagan_high_priest_talk_donate_1", [], #after player donates
    "Thank you for the donation, {playername}.", "close_window", []],
-  [trp_pagan_high_priest|plyr, "pagan_high_priest_talk_1", [
+  [anyone|plyr, "pagan_high_priest_talk_1", [
     (troop_slot_eq, "trp_player", slot_troop_religion, slot_religion_paganism),
     (store_troop_gold,":money","trp_player"),
     (gt,":money",299),
     (troops_can_join, 1),
     ], #player is of the religion
    "I would like to hire a priest (300 siliquae).", "pagan_high_priest_talk_hire", [(troop_remove_gold, "trp_player", 300),(party_add_members, "p_main_party","trp_pagan_priest",1),]],
-  [trp_pagan_high_priest, "pagan_high_priest_talk_hire", [],
+  [anyone, "pagan_high_priest_talk_hire", [],
    "Very well.", "pagan_high_priest_talk_1", []],
 
-  [trp_pagan_high_priest|plyr, "pagan_high_priest_talk_1", [],
+  [anyone|plyr, "pagan_high_priest_talk_1", [],
    "I do not need a man of faith right now, farewell.", "close_window", []],
 
   [trp_zoroastrian_high_priest, "start", [],
@@ -53253,7 +53257,9 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
 
   [trp_roman_pagan_high_priest, "start", [],
    "Good day, {sir/madam}. What do you need?", "roman_pagan_high_priest_talk_1", []], #opening
-  [trp_roman_pagan_high_priest|plyr, "roman_pagan_high_priest_talk_1", [(neg|troop_slot_eq, "trp_player", slot_troop_religion, slot_religion_roman_paganism),(neq, "$g_player_converted", 1),], #player is not of the religion
+  [trp_egyptian_pagan_high_priest, "start", [],
+   "Good day, {sir/madam}. What do you need?", "roman_pagan_high_priest_talk_1", []], #opening
+  [anyone|plyr, "roman_pagan_high_priest_talk_1", [(neg|troop_slot_eq, "trp_player", slot_troop_religion, slot_religion_roman_paganism),(neq, "$g_player_converted", 1),], #player is not of the religion
    "I wish be converted to Roman Paganism.", "roman_pagan_high_priest_talk_convert_1", [
           (assign, "$g_player_faith", 6),
           (troop_set_slot, "trp_player", slot_troop_religion, slot_religion_roman_paganism), # christian
@@ -53273,7 +53279,6 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
           (troop_set_slot, "trp_player", slot_troop_controversy, ":controversy"),
           (assign, "$g_player_converted", 1),
    ]],
-
   [trp_roman_pagan_high_priest|plyr, "roman_pagan_high_priest_talk_1", [ #roman pagan quest start
   (eq, "$roman_pagan_quest_started", 0), #checks if this has already been done before, if 0 it has not
   (store_character_level, ":level", "trp_player"),
@@ -53281,9 +53286,9 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
   (troop_slot_eq, "trp_player", slot_troop_religion, slot_religion_roman_paganism),#must be roman pagan
   (neg|check_quest_active, "qst_roman_pagan_quest"),],
    "Is there anything I can help you with?", "roman_pagan_high_priest_quest_1", []],
-  [trp_roman_pagan_high_priest, "roman_pagan_high_priest_quest_1", [],
+  [anyone, "roman_pagan_high_priest_quest_1", [],
    "Yes, there is. Recently I have recieved word that Proclus the Successor and his school is dealing with persecutions from the local Christian populace. He requested someone capable and trustworthy to help him. He is currently residing in Alexandria teaching philosophy.", "roman_pagan_high_priest_quest_2", []],
-  [trp_roman_pagan_high_priest, "roman_pagan_high_priest_quest_2", [],
+  [anyone, "roman_pagan_high_priest_quest_2", [],
    "He wrote that if someone were to go help him, that they should talk to a man named Messius Phoebus Severus in order to reach him, as he is a busy man. He said you could find him in the tavern, as it is a place he frequently visits.", "roman_pagan_high_priest_quest_3", [
   (setup_quest_text, "qst_roman_pagan_quest"),
   (str_store_string, s2, "@A philosopher named Proclus requests protection from the local christian populace in Alexandria."),
@@ -53292,31 +53297,27 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
   (quest_set_slot,"qst_roman_pagan_quest", slot_quest_current_state, 1),
   (add_troop_to_site, "trp_roman_pagan_quest_npc_1", "scn_town_21_tavern", 12),
    ]],
-  [trp_roman_pagan_high_priest|plyr, "roman_pagan_high_priest_quest_3", [],
+  [anyone|plyr, "roman_pagan_high_priest_quest_3", [],
    "I will head to Alexandria to help him.", "close_window", []],
-
-  [trp_roman_pagan_high_priest|plyr, "roman_pagan_high_priest_talk_1", [(troop_slot_eq, "trp_player", slot_troop_religion, slot_religion_roman_paganism),(store_troop_gold,":money","trp_player"),(gt,":money",499),], #player is of the religion
+  [anyone|plyr, "roman_pagan_high_priest_talk_1", [(troop_slot_eq, "trp_player", slot_troop_religion, slot_religion_roman_paganism),(store_troop_gold,":money","trp_player"),(gt,":money",499),], #player is of the religion
    "I would like to donate 500 siliquae to the temple.", "roman_pagan_high_priest_talk_donate_1", [(troop_remove_gold, "trp_player", 500),(call_script, "script_change_player_relation_with_faction", "fac_roman_pagans", 5),]],
-  [trp_roman_pagan_high_priest, "roman_pagan_high_priest_talk_convert_1", [], #after player converts
+  [anyone, "roman_pagan_high_priest_talk_convert_1", [], #after player converts
    "Welcome to the true faith, {playername}.", "close_window", []],
-  [trp_roman_pagan_high_priest, "roman_pagan_high_priest_talk_donate_1", [], #after player donates
+  [anyone, "roman_pagan_high_priest_talk_donate_1", [], #after player donates
    "Thank you for the donation, {playername}.", "close_window", []],
-
-  [trp_roman_pagan_high_priest|plyr, "roman_pagan_high_priest_talk_1", [
+  [anyone|plyr, "roman_pagan_high_priest_talk_1", [
     (troop_slot_eq, "trp_player", slot_troop_religion, slot_religion_roman_paganism),
     (store_troop_gold,":money","trp_player"),
     (gt,":money",299),
     (troops_can_join, 1),], #player is of the religion
    "I would like to hire a priest (300 siliquae).", "roman_pagan_high_priest_talk_hire", [(troop_remove_gold, "trp_player", 300),(party_add_members, "p_main_party","trp_roman_pagan_priest",1),]],
-  [trp_roman_pagan_high_priest, "roman_pagan_high_priest_talk_hire", [],
+  [anyone, "roman_pagan_high_priest_talk_hire", [],
    "Very well.", "roman_pagan_high_priest_talk_1", []],
-
-  [trp_roman_pagan_high_priest|plyr, "roman_pagan_high_priest_talk_1", [],
+  [anyone|plyr, "roman_pagan_high_priest_talk_1", [],
    "I do not need a man of faith right now, farewell.", "close_window", []],
 
   [trp_eadric, "start", [],
    "Good day, {sir/madam}. What do you need?", "eadric_talk_1", []], #opening
-
   [trp_eadric|plyr, "eadric_talk_1", [(neg|troop_slot_eq, "trp_player", slot_troop_religion, slot_religion_paganism),(eq,"$g_paganism_dedication",0),], #player is not following the germanic gods
    "I wish to follow the gods of the Germanic peoples.", "eadric_talk_pantheon_1", [
       (val_add, "$piety", 1), #increase in piety
@@ -53326,8 +53327,6 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
    ]],
   [trp_eadric, "eadric_talk_pantheon_1", [], #after player converts
    "Very well, {playername}. I will teach you our ways and beliefs...", "close_window", []],
-
-
   [trp_eadric|plyr, "eadric_talk_1", [
     (troop_slot_eq, "trp_player", slot_troop_religion, slot_religion_paganism),
     (store_troop_gold,":money","trp_player"),
@@ -53337,7 +53336,6 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
    "I would like to hire a priest (300 siliquae).", "eadric_talk_talk_hire", [(troop_remove_gold, "trp_player", 300),(party_add_members, "p_main_party","trp_pagan_priest",1),]],
   [trp_eadric, "eadric_talk_talk_hire", [],
    "Very well.", "eadric_talk_1", []],
-
   [trp_eadric|plyr, "eadric_talk_1", [(eq, "$g_wolf_quest", 1)],
    "Greetings, good Eadric. I've been told you might have some knowledge about the Cynocephali?", "eadric_talk_wolf_1", [(assign, "$g_wolf_quest", 2),]],
   [trp_eadric, "eadric_talk_wolf_1", [],
@@ -53350,7 +53348,6 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
    "I appreciate your guidance. I shall approach the Langobard king and seek the truth behind these tales.", "eadric_talk_wolf_5", []],
   [trp_eadric, "eadric_talk_wolf_5", [],
    "May the gods watch over you on your quest for knowledge, and may you find the answers you seek, traveler. Just remember, curiosity can be a double-edged sword.", "close_window", []],
-
   [trp_eadric|plyr, "eadric_talk_1", [],
    "I do not need a man of faith right now, farewell.", "close_window", []],
 

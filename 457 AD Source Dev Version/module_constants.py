@@ -3070,7 +3070,7 @@ slot_religion_roman_paganism = 7
 slot_religion_zoroastrianism = 8
 slot_religion_zurvanism = 9
 slot_religion_judaism = 10
-slot_religion_manichaeism = 11
+#slot_religion_manichaeism = 11
 
 minor_towns_begin = "p_aestii_village"
 minor_towns_end   = "p_religious_site_1"

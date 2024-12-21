@@ -920,4 +920,5 @@ script_cf_start_rebellion = 918
 script_cf_launch_rebellion = 919
 script_troop_tree_precurse = 920
 script_troop_tree_recurse = 921
-script_efe_init = 922
+script_remove_hero_prisoners = 922
+script_efe_init = 923

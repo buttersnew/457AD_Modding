@@ -1634,7 +1634,8 @@ scenes = [
     [], [], "outer_terrain_steppe"),
   ("minor_roman_town",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000001300010c800054d5c00004af000005d3f00002ca0",
     [],[],"outer_terrain_plain"),
-
+  ("heruli_town",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000030044e900003dd02000077b20000400100005697",
+    [],[],"outer_terrain_plain"),
 
   ("ruins_1",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000300005000003ccf300007c9a00004ca90000122f",
    [],["bonus_chest_5"], "outer_terrain_plain"),

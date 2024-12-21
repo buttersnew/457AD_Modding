@@ -8087,7 +8087,7 @@ TOTAL:  {reg5}"),
 
   ##########
   ("traicion_interna2",0,
-    "Your siege works begin to demoralize the defenders. Some of your soldiers are willing to contact the garrison or the inhabitants at {s4} and probe if someone would be willing to commit treason and facilitate the conquest. They need 500 denars for the job.",
+    "Your siege works begin to demoralize the defenders. Some of your soldiers are willing to contact the garrison or the inhabitants at {s4} and probe if someone would be willing to commit treason and facilitate the conquest. They need 500 siliquae for the job.",
     "none",
     [
       (str_store_party_name,s4,"$current_town"),
@@ -12066,7 +12066,7 @@ TOTAL:  {reg5}"),
 
   (
     "center_manage_2",0,
-    "{s39} has a prosperity rating of {reg51} and a accumulated capital of {reg29} denars, which can be taxed. The taxrate is {s11}.^^{s44}",
+    "{s39} has a prosperity rating of {reg51} and a accumulated capital of {reg29} siliquae, which can be taxed. The taxrate is {s11}.^^{s44}",
     "none",
     [
     #set variables
@@ -20937,7 +20937,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
   ),
   (
     "notification_tributary_offer",0,
-    "You recieve a message from {s1} of the {s2}. He offers you a tribute of 20,000 denars and to submit to you. The {s2} would be your vassal state from now on.^^\
+    "You recieve a message from {s1} of the {s2}. He offers you a tribute of 20,000 siliquae and to submit to you. The {s2} would be your vassal state from now on.^^\
  As vassal state they are not able to declare war or peace and will follow you into wars.",
     "none",
     [
@@ -21012,7 +21012,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         (val_mul, reg0, 4000),
       ],
     [
-        ("tribute",[],"Demand a tribute of {reg40} denars",
+        ("tribute",[],"Demand a tribute of {reg40} siliquae.",
         [
             (jump_to_menu, "mnu_decide_ai_tribute"),
         ]),
@@ -21023,7 +21023,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
             (jump_to_menu, "mnu_auto_return_to_map"),
         ]),
 
-        ("ignore",[],"Ignore the situation",
+        ("ignore",[],"Ignore the situation.",
         [
             (jump_to_menu, "mnu_notification_casus_belli_expired"),
         ]),
@@ -21031,7 +21031,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 ),
 
 ("notification_tribute_demanded",0,
-    "Due to recent provocations from your subjects, the {s1} demand reparations and tributes of {reg40} denars from you. How do you react?"
+    "Due to recent provocations from your subjects, the {s1} demand reparations and tributes of {reg40} siliquae from you. How do you react?"
     " Refusing the demand will lead to war!",
     "none",
     [
@@ -21280,7 +21280,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         (set_game_menu_tableau_mesh, "tableau_2_factions_mesh", ":faction_1", pos0),
       ],
     [
-      ("continue",[],"Try to enforce peace by threatening {s1} with joining the war. [costs 1,000 denars to send message]",
+      ("continue",[],"Try to enforce peace by threatening {s1} with joining the war. [costs 1,000 siliquae to send message]",
        [
         (try_begin),
             (store_troop_gold, reg0, "trp_player"),
@@ -21360,7 +21360,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         (set_game_menu_tableau_mesh, "tableau_2_factions_mesh", ":faction_1", pos0),
       ],
     [
-      ("continue",[],"Try to persuade {s1} to stop the war. [costs 1,000 denars to send message]",
+      ("continue",[],"Try to persuade {s1} to stop the war. [costs 1,000 siliquae to send message]",
        [
         (try_begin),
             (store_troop_gold, reg0, "trp_player"),
@@ -21505,7 +21505,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         (store_mul, reg40, ":enemy_strength", 1000),
         (val_clamp, reg40, 5000, 750001),
 
-        (str_store_string, s57, "@Messengers are send and soon you recieve news that {s3} of {s1} has re-thought his actions. He send you a gift of {reg40} denars and will not future attack the {s2}"),
+        (str_store_string, s57, "@Messengers are send and soon you recieve news that {s3} of {s1} has re-thought his actions. He send you a gift of {reg40} siliquae and will not future attack the {s2}"),
         (assign, "$temp1", 1),
     (else_try),
         (str_store_string, s57, "@Messengers are send and soon you recieve news that {s3} of {s1} will attack the {s2} nevertheless. You are now forced to join the war."),
@@ -28000,7 +28000,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         (party_get_num_companions, ":num_men", "p_main_party"),
         (store_div, reg1, ":num_men", 4),
         (val_add, reg1, 1),
-        (str_store_string, s1, "@ ({reg1} denars per night)"),
+        (str_store_string, s1, "@ ({reg1} siliquae per night)"),
         (store_troop_gold, ":gold", "trp_player"),
         (lt, ":gold", reg1),
         (assign, ":can_rest", 0),

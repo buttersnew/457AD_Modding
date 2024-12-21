@@ -27751,6 +27751,11 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 (this_or_next|eq, ":terrain", rt_river),
 (eq, ":terrain", rt_water),
 (disable_menu_option),
+(try_end), 
+(try_begin), #dont let the player attack if the player is unable to fight due to being wounded
+(troop_is_wounded, "trp_player"),
+(disable_menu_option),
+(str_store_string, s11, "@{s11}. (you are wounded)"),
 (try_end),
   ],
     "Attack the {s11}.",

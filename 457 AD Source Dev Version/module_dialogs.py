@@ -52274,7 +52274,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
 
   #gallacian
   [trp_gallaeci_king, "start", [(eq, "$g_talk_troop_met", 0),],
-   "Our shores are being disturbed by a foreigner, someone is certainly braver than most, for intruders find a fitting end here, so tell me who you be and how you walk here, softly like a friend or with a bold foot like a foe?", "gallaeci_king_intro_1", []],
+   "Our shores are being disturbed by a foreigner, someone who is certainly braver than most, for intruders find a fitting end here. So tell me who you be and how you walk here, softly like a friend or with a bold foot like a foe?", "gallaeci_king_intro_1", []],
   [trp_gallaeci_king|plyr, "gallaeci_king_intro_1", [],
    "I travel around Hispania, I walk how I like yet trouble I do not seek. My name is {playername}, and my enemies fear me and my friends honor me, who are you shore-dweller?", "gallaeci_king_intro_2", []],
   [trp_gallaeci_king, "gallaeci_king_intro_2", [],
@@ -52438,7 +52438,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
   "I wish luck to you and your ancient kingdom, hopefully it will continue to see the light of days for many years still!", "minor_faction_king_pretalk", []],
 
   [trp_tauri_king, "start", [(eq, "$g_talk_troop_met", 0),],
-  "My scouts informed me that a stranger is walking our lands, someone is certainly either braver than most or an even bigger fool, for all know that to walk the land of Taurica without our permission is deadly. Still I am not convinced, you look like a runt, but tell me what do they call you so that I know how to insult you, if need be.", "tauri_king_intro_1", []],
+  "My scouts informed me that a stranger is walking our lands, someone who is certainly either braver than most or an even bigger fool, for all know that to walk the land of Taurica without our permission is deadly. Still I am not convinced, you look like a runt, but tell me what do they call you so that I know how to insult you, if need be.", "tauri_king_intro_1", []],
   [anyone|plyr, "tauri_king_intro_1", [],
   "I've heard tales of you and your band, you are sea raiders and outlaws who harry the lands and attack ships. I'm called {playername} and I warn you, pirate. Do not test me or you will see that I'm no pushover.", "tauri_king_intro_2", []],
   [anyone, "tauri_king_intro_2", [],

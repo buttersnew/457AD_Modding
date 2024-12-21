@@ -4020,6 +4020,7 @@ Still I am sorry that I'll leave you soon. You must promise me, you'll come visi
     ##diplomacy start+ Prevent this from appearing for already-enfeoffed troops
     (call_script, "script_get_number_of_hero_centers", "$g_talk_troop"),
     (eq, reg0, 0),
+	(is_between, "$g_talk_troop", heroes_begin, active_npcs_end), #madsci we need this in case the player ends up with generic hero troops in the party
     (neg|troop_slot_eq, "$g_talk_troop", slot_troop_playerparty_history, dplmc_pp_history_lord_rejoined),
     (neg|troop_slot_eq, "$g_talk_troop", slot_troop_playerparty_history, dplmc_pp_history_granted_fief),
     (neg|troop_slot_eq, "$g_talk_troop", slot_troop_occupation, slto_kingdom_hero),
@@ -5566,6 +5567,7 @@ Still I am sorry that I'll leave you soon. You must promise me, you'll come visi
 (try_begin),
   (troop_slot_eq, "$g_talk_troop", slot_troop_original_faction, 0),
   (party_get_slot, ":fief_culture", "$temp", slot_center_original_faction),
+	(is_between, ":fief_culture", npc_kingdoms_begin, npc_kingdoms_end), #madsci
   (troop_set_slot, "$g_talk_troop", slot_troop_original_faction, ":fief_culture"),
 (try_end),
 
@@ -5581,6 +5583,7 @@ Still I am sorry that I'll leave you soon. You must promise me, you'll come visi
 (troop_get_slot, ":initial_wealth", "$g_talk_troop", slot_troop_wealth),
 (store_troop_gold, ":initial_gold", "$g_talk_troop"), #SB : account actual abstracted wealth, probably divide by 10?
 (val_add, ":initial_gold", ":initial_wealth"),
+(val_clamp, ":initial_gold", 1000, 10000), #madsci
 (try_begin),
 	#Changes must be enabled
 	(ge, "$g_dplmc_gold_changes", DPLMC_GOLD_CHANGES_MEDIUM),
@@ -5659,7 +5662,8 @@ Still I am sorry that I'll leave you soon. You must promise me, you'll come visi
     (call_script, "script_dplmc_get_item_score_with_imod", ":cur_armor", ":imod"),
   (try_end),
   (lt, reg0, 66 + 6 + 6), #base heraldic armor + lordly*2
-  (store_random_in_range, ":item_no","itm_heraldic_mail_with_surcoat", "itm_turret_hat_ruby"),
+  #(store_random_in_range, ":item_no","itm_heraldic_mail_with_surcoat", "itm_turret_hat_ruby"), #madsci this range is wrong
+  (store_random_in_range, ":item_no","itm_rich_mail_1", "itm_rich_mail_2_m"),
   # (troop_add_item, "$g_talk_troop", ":armor", imod_lordly),
   # (store_item_value, ":item_cost", ":item_no"),
   # (ge, ":initial_gold", ":item_cost"),
@@ -5673,7 +5677,7 @@ Still I am sorry that I'll leave you soon. You must promise me, you'll come visi
 (try_begin),
   (troop_slot_eq, "$g_talk_troop", dplmc_slot_upgrade_horse, 1),
   #SB : add a random lance
-  (store_random_in_range, ":item_no", "itm_light_lance", "itm_great_lance"),
+  (store_random_in_range, ":item_no", "itm_light_lance", "itm_double_sided_lance"),
   (troop_add_item, "$g_talk_troop", ":item_no", imod_balanced),
   (troop_get_inventory_slot, ":cur_horse", "$g_talk_troop", ek_horse),
   (eq, ":cur_horse", -1),
@@ -5706,6 +5710,8 @@ Still I am sorry that I'll leave you soon. You must promise me, you'll come visi
 (else_try),
   (eq, ":faction_no", "fac_kingdom_4"),  #huscarl for nord
   (assign, ":item_no", "itm_tab_shield_round_e"),
+(else_try),
+  (assign, ":item_no", "itm_tab_shield_small_round_c"),
 (try_end),
 (store_random_in_range, ":imod", imod_sturdy, imod_superb),
 (troop_add_item, "$g_talk_troop", ":item_no", ":imod"),

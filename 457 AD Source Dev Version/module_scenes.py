@@ -1736,7 +1736,7 @@ scenes = [
     [],[],"outer_terrain_plain"),  
   ("celtic_stone_circle",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000006300654ac00062d910000635800007c9600005d35",
     [],[], "outer_terrain_plain"),
-  ("steppe_shrine",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000006300654ac00062d910000635800007c9600005d35",
+  ("steppe_shrine",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000020000663000521480000559b00006178000063e2",
     [],[], "outer_terrain_steppe"),
   ("siwa",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000005000050000048d260000248b00007aa200007107",
     [],[],"outer_terrain_desert"),  

@@ -494,7 +494,7 @@ quests = [
   "{!}"
  ), 
 
- ("heretical_codex", "A Certain Magical Codex", 0,
+ ("heretical_codex", "A Certain Heretical Codex", 0, #changed
   "{!}None"
  ),   
 

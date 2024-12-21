@@ -426,7 +426,8 @@ map_icons = [
   ("sea_raider",0,"icon_regular_footman_group", avatar_scale,snd_footstep_grass, 0.15, 0.173, 0),  
   ("archer_1",0,"map_archer_1", avatar_scale,snd_footstep_grass, 0.15, 0.173, 0),  
   ("steppe_lord",0,"icon_nomad_horseman_army", avatar_scale,snd_gallop, 0.15, 0.173, 0),  
-  ("germanic_army",0,"icon_germanic_army", avatar_scale,snd_footstep_grass, [icon_tableau_trigger_german,]),  
+  ("germanic_army_1",0,"icon_germanic_army_1", avatar_scale,snd_footstep_grass, [icon_tableau_trigger_german,]),  
+  ("germanic_army_2",0,"icon_germanic_army_2", avatar_scale,snd_footstep_grass, [icon_tableau_trigger_german,]),  
   ("sassanid_lord",0,"icon_persian_army", avatar_scale,snd_gallop, 0.15, 0.173, 0),  
   ("regular_army",0,"icon_regular_army", avatar_scale,snd_gallop, 0.15, 0.173, 0),  
   ("caucasian_army",0,"icon_caucasian_army", avatar_scale,snd_footstep_grass, [icon_tableau_trigger_caucasian,]),  
@@ -436,7 +437,7 @@ map_icons = [
   ("roman_army_2",0,"icon_roman_army_2", avatar_scale,snd_footstep_grass, [icon_tableau_trigger_roman,]), #magister
   ("roman_army_3",0,"icon_roman_army_3", avatar_scale,snd_footstep_grass, [icon_tableau_trigger_roman,]), #faction leader 
   ("roman_army_e",0,"icon_roman_army_e", avatar_scale,snd_footstep_grass, [icon_tableau_trigger_roman,]), #emperors
-  
+
   ("roman_footman_1",0,"icon_roman_footman_1", avatar_scale,snd_footstep_grass, 0.15, 0.173, 0), #for roman smaller parties
   ("roman_footman_2",0,"icon_roman_footman_2", avatar_scale,snd_footstep_grass, 0.15, 0.173, 0), #for roman smaller parties
   ("roman_footman_3",0,"icon_roman_footman_3", avatar_scale,snd_footstep_grass, 0.15, 0.173, 0), #for roman smaller parties

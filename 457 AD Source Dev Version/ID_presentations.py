@@ -70,3 +70,4 @@ prsnt_center_management = 68
 prsnt_select_king = 69
 prsnt_select_lord = 70
 prsnt_faction_troop_trees = 71
+prsnt_game_troop_tree = 72

@@ -918,4 +918,6 @@ script_apply_death_effect_on_courage_scores_vc = 916
 script_decide_run_away_or_not_vc = 917
 script_cf_start_rebellion = 918
 script_cf_launch_rebellion = 919
-script_efe_init = 920
+script_troop_tree_precurse = 920
+script_troop_tree_recurse = 921
+script_efe_init = 922

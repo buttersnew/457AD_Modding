@@ -27783,6 +27783,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       (lt, ":faction_relation", 0),
 (party_stack_get_troop_id, ":siege_leader_id","$g_encountered_party",0), #madsci make sure there is someone you can actually talk to
 (gt, ":siege_leader_id", 0),
+(faction_slot_eq, ":encountered_faction", slot_faction_leader, ":siege_leader_id"),
 ],
        "Request to meet their king.",
       [(call_script, "script_get_meeting_scene"),

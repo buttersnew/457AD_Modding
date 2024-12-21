@@ -52600,6 +52600,8 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
 
     (faction_get_slot, ":leader", "$g_encountered_party_faction", slot_faction_leader),
     (party_add_leader, ":levies", ":leader"),
+	(troop_set_slot, ":leader", slot_troop_leaded_party, ":levies"),
+	(troop_set_slot, ":leader", slot_troop_home, "$current_town"),
 
     (party_add_template, ":levies", ":troops"),
     (party_add_template, ":levies", ":troops"),

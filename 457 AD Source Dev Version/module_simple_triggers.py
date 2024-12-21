@@ -6991,6 +6991,25 @@ simple_triggers = [
   (72,
    [
        (call_script, "script_spawn_minor_faction_patrols"),
+
+(try_for_range, ":fac", minor_kingdoms_begin, minor_kingdoms_end), #madsci minor faction king returns home
+(faction_slot_eq, ":fac", slot_faction_state, sfs_active),
+(faction_get_slot, ":leader", ":fac", slot_faction_leader),
+(gt, ":leader", 0),
+(neg|troop_slot_eq, ":leader", slot_troop_occupation, dplmc_slto_dead),
+(neg|troop_slot_ge, ":leader", slot_troop_prisoner_of_party, 0),
+(troop_get_slot, ":party_no", ":leader", slot_troop_leaded_party),
+(gt, ":party_no", 0),
+(neg|party_is_active, ":party_no"), #this guy had a party but it no longer exists whether destroyed or disbanded
+(troop_set_slot, ":leader", slot_troop_leaded_party, -1),
+(troop_get_slot, ":home", ":leader", slot_troop_home),
+(is_between, ":home", minor_towns_begin, minor_towns_end),
+(party_get_num_companion_stacks, ":num_stacks", ":home"),
+(gt, ":num_stacks", 0),
+(party_stack_get_troop_id, ":party_leader", ":home", 0),
+(neg|troop_is_hero, ":party_leader"),
+(party_add_leader, ":home", ":leader"),
+(try_end),
     ]),
 
   (168,

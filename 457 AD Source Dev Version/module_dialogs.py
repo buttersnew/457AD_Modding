@@ -52594,7 +52594,12 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
     (try_end),
 
     (str_store_faction_name, s1, "$g_encountered_party_faction"),
-    (party_set_name, ":levies", "@{s1} Host"),
+	(try_begin),
+	(eq, "$g_encountered_party_faction", "fac_adovacrius_host"),
+    	(party_set_name, ":levies", "@{s1}"),
+	(else_try),
+    	(party_set_name, ":levies", "@{s1} Host"),
+	(try_end),
 
     (faction_get_slot, ":troops", "$g_encountered_party_faction", slot_faction_reinforcements_a),
 
@@ -52602,6 +52607,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
     (party_add_leader, ":levies", ":leader"),
 	(troop_set_slot, ":leader", slot_troop_leaded_party, ":levies"),
 	(troop_set_slot, ":leader", slot_troop_home, "$current_town"),
+	(troop_set_slot, ":leader", slot_troop_prisoner_of_party, -1),
 
     (party_add_template, ":levies", ":troops"),
     (party_add_template, ":levies", ":troops"),

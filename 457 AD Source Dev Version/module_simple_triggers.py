@@ -258,10 +258,10 @@ simple_triggers = [
         (troop_is_hero, "$g_talk_troop"),
         (str_store_troop_name, s17, "$g_talk_troop"),
         (troop_get_slot, reg17, "$g_talk_troop", slot_troop_wealth),
-        (try_begin),
-          (neq, reg17, "$demanded_money"),
-          (display_message, "@{s17} has {reg17} denars"),
-        (try_end),
+        #(try_begin),
+          #(neq, reg17, "$demanded_money"),
+          #(display_message, "@{s17} has {reg17} denars"),
+        #(try_end),
         (assign, "$demanded_money", reg17),
       (try_end),
 
@@ -3715,7 +3715,7 @@ simple_triggers = [
             (eq, "$cheat_mode", 1),
             (str_store_party_name, s1, ":center_no"),
             (str_store_troop_name_plural, s2, ":bandit_troop"),
-            (display_message, "@{!}{s1} is infested by {s2} (at night)."),
+            #(display_message, "@{!}{s1} is infested by {s2} (at night)."),
           (try_end),
         (try_end),
       (else_try),
@@ -3731,7 +3731,7 @@ simple_triggers = [
           (try_begin),
             (eq, "$cheat_mode", 1),
             (str_store_party_name, s1, ":center_no"),
-            (display_message, "@{s1} is no longer infested by bandits (at night)."),
+            #(display_message, "@{s1} is no longer infested by bandits (at night)."),
           (try_end),
         (try_end),
       (try_end),
@@ -3759,7 +3759,7 @@ simple_triggers = [
       (try_begin),
         (eq, "$cheat_mode", 1),
         (str_store_party_name, s1, ":random_town"),
-        (display_message, "@{!}{s1} is holding a tournament."),
+        #(display_message, "@{!}{s1} is holding a tournament."),
       (try_end),
     (try_end),
     ]),
@@ -5638,7 +5638,7 @@ simple_triggers = [
       (try_begin), #debug
         (eq, "$cheat_mode", 1),
         (assign, reg0, ":distance_to_target"),
-        (display_message, "@Distance between {s14} and {s15}: {reg0}"),
+        #(display_message, "@Distance between {s14} and {s15}: {reg0}"),
       (try_end),
 
       (try_begin),
@@ -5837,7 +5837,7 @@ simple_triggers = [
 			(val_add, reg1, 50),
 			(val_div, reg1, 100),
 			(val_add, reg1, 50),
-			(display_message, "@{!} Gift price factor {reg0}/100, effective value {reg1}"),
+			#(display_message, "@{!} Gift price factor {reg0}/100, effective value {reg1}"),
 		(try_end),
 
 		(val_mul, ":gift_value", ":gift_value_factor"),
@@ -5922,7 +5922,7 @@ simple_triggers = [
       (try_begin), #debug
         (eq, "$cheat_mode", 1),
         (assign, reg0, ":distance_to_target"),
-        (display_message, "@Distance between {s14} and {s15}: {reg0}"),
+        #(display_message, "@Distance between {s14} and {s15}: {reg0}"),
       (try_end),
 
       (try_begin),
@@ -5998,10 +5998,10 @@ simple_triggers = [
             (call_script, "script_npc_decision_checklist_party_ai", ":party_leader"), #This handles AI for both marshal and other parties
 
 
-            (try_begin), #debug
-              (eq, "$cheat_mode", 1),
-              (display_message, "@{s14}"), #debug
-            (try_end),
+            #(try_begin), #debug
+              #(eq, "$cheat_mode", 1),
+              #(display_message, "@{s14}"), #debug
+            #(try_end),
 
             (try_begin),
               (eq, reg0, ":message"),
@@ -7167,7 +7167,7 @@ simple_triggers = [
       (assign, reg34, ":war_damage_inflicted_by_a"),
       (str_store_faction_name, s1, ":faction_a"),
       (str_store_faction_name, s2, ":faction_b"),
-      (display_message, "@war_damage_inflicted_by_b: {reg33} ({s2}) war_damage_inflicted_by_a: {reg34} ({s1})"),
+      #(display_message, "@war_damage_inflicted_by_b: {reg33} ({s2}) war_damage_inflicted_by_a: {reg34} ({s1})"),
     (try_end),
     (val_mul, ":war_damage_inflicted_by_a", 2),
     
@@ -7203,7 +7203,7 @@ simple_triggers = [
       (str_store_string, s3, "str_dplmc_none"),
       (assign, reg37, ":winner_score"),
     (try_end),
-    (display_message, "@faction_a: {s1}, threshold: {reg33}, num_castles_a: {reg34}, num_of_allies: {reg35}. num_of_wars: {reg36}, winner: {s3}, winner_score: {reg37}"),
+    #(display_message, "@faction_a: {s1}, threshold: {reg33}, num_castles_a: {reg34}, num_of_allies: {reg35}. num_of_wars: {reg36}, winner: {s3}, winner_score: {reg37}"),
   (try_end),
   
   (try_begin),
@@ -8526,10 +8526,10 @@ simple_triggers = [
 	(neq, "$g_last_rest_center", ":camp"), #dont do this if player is here
 	(party_slot_eq, ":camp", slot_party_been_sacked, 0),
 	(neq, ":icon", "icon_steppe_lord"),
-	(store_random_in_range, ":rng", 0, 80), #dont let them move all the time, adjust this if necessary
+	(store_random_in_range, ":rng", 0, 160), #dont let them move all the time, adjust this if necessary
 	(eq, ":rng", 1),
 	(party_get_position, pos1, "p_religious_site_18"), #use a static landmark
-        (map_get_land_position_around_position, pos2, pos1, 65), #migration range nomads dont like water so use land position only
+        (map_get_land_position_around_position, pos2, pos1, 75), #migration range nomads dont like water so use land position only
 	(get_distance_between_positions, ":dist", pos2, pos1),
 	(gt, ":dist", 5),
 	(assign, ":cont", 1),

@@ -23263,4 +23263,61 @@ presentations = [
     ]),
 ]),
 
+#chief presentacion game_troop_tree moto
+#INPUT: reg0 selected troop
+("game_troop_tree", 0, 0, [
+    (ti_on_presentation_load, [
+        (presentation_set_duration, 999999),
+        (set_fixed_point_multiplier, 1000),
+        (assign, ":troop", reg0),
+   
+        ###mesh de fondo MOTO must do it this way or won't allow party screen to reappear
+        (create_mesh_overlay, reg0, "mesh_load_window"),
+        (position_set_x, pos1, -1),
+        (position_set_y, pos1, -1),
+        (overlay_set_position, reg0, pos1),
+        (position_set_x, pos1, 1002),
+        (position_set_y, pos1, 1002),
+        (overlay_set_size, reg0, pos1),
+        #Message first part
+   
+        #screen top
+        (create_text_overlay, reg1, "@Troop Tree", tf_center_justify),
+        (position_set_x, pos1, Screen_Width/2),
+        (position_set_y, pos1, Screen_Title_Height),
+        (overlay_set_position, reg1, pos1),
+   
+        #write the trees
+        (call_script, "script_troop_tree_precurse", ":troop", 1, 1),
+        (store_div, "$troop_tree_pic_width", Troop_Tree_Area_Width, reg0),
+        (store_div, "$troop_tree_pic_height", Troop_Tree_Area_Height, reg1),
+   
+        (store_div, ":x_pos", "$troop_tree_pic_width", 2),
+        (val_add, ":x_pos", Screen_Border_Width),
+        (store_mul, ":y_pos", "$troop_tree_pic_height", -1),
+        (val_add, ":y_pos", Screen_Title_Height-2*Screen_Text_Height),
+        (call_script, "script_troop_tree_recurse", ":troop", ":x_pos", ":y_pos"),
+   
+        #screen bottom
+        (create_game_button_overlay, "$presentation_leave_button", "@Done", tf_center_justify),
+        (position_set_x, pos1, Screen_Width/2),
+        (position_set_y, pos1, Screen_Border_Width),
+        (overlay_set_position, "$presentation_leave_button", pos1),
+    ]),
+
+    (ti_on_presentation_run, [
+        (try_begin),
+          (this_or_next|key_clicked, key_escape),
+          (key_clicked, key_xbox_start),
+          (presentation_set_duration, 0),
+        (try_end),
+    ]),
+
+    (ti_on_presentation_event_state_change, [
+        (store_trigger_param_1, ":object"),
+        (eq, ":object", "$presentation_leave_button"),
+        (presentation_set_duration, 0),
+    ]),
+]), #end troop tree
+
 ]#end of file

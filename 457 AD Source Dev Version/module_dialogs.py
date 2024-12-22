@@ -20090,7 +20090,7 @@ I knew that I had found someone worthy of becoming my vassal.", "lord_invite_1",
 (store_faction_of_party, ":fac1", "p_onoguroi_village"), #madsci check if the player has already been burning nomad camps
 (store_faction_of_party, ":fac2", "p_saraguroi_village"),
 (store_faction_of_party, ":fac3", "p_kutriguroi_village"),
-(store_faction_of_party, ":fac4", "p_saraguroi_village"),
+(store_faction_of_party, ":fac4", "p_sabiroi_village"),
 (this_or_next|eq, ":fac1", "fac_neutral"),
 (this_or_next|eq, ":fac2", "fac_neutral"),
 (this_or_next|eq, ":fac3", "fac_neutral"),

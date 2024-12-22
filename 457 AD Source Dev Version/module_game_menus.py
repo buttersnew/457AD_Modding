@@ -28274,7 +28274,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 	  (this_or_next|eq, "$g_encountered_party", "p_onoguroi_village"),
 	  (this_or_next|eq, "$g_encountered_party", "p_saraguroi_village"),
 	  (this_or_next|eq, "$g_encountered_party", "p_kutriguroi_village"),
-          (eq, "$g_encountered_party", "p_saraguroi_village"),
+          (eq, "$g_encountered_party", "p_sabiroi_village"),
           (assign, ":block", 1),
         (try_end),
         (eq, ":block", 0),

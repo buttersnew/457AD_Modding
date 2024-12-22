@@ -1607,7 +1607,7 @@ simple_triggers = [
 			(str_store_party_name_link, s4, ":any_found"),
 			(str_store_troop_name_link, s5, ":troop_no"),
 			(str_store_faction_name_link, s7, ":faction"),
-            (faction_get_color, ":color", ":faction"), #SB : color message
+            		(faction_get_color, ":color", ":faction"), #SB : color message
 			(display_log_message, "@{s5} has decided to grant {s4} to another lord of the {s7}.", ":color"),
 			#Reset faction issue
 			(try_for_range, ":active_npc", heroes_begin, heroes_end),
@@ -1617,7 +1617,12 @@ simple_triggers = [
 			(try_end),
 			(store_current_hours, reg0),
 			(faction_set_slot, ":faction", slot_faction_political_issue_time, reg0),
-			(faction_set_slot, ":faction", slot_faction_political_issue, ":any_found"),
+				(try_begin),
+				(gt, ":any_found", 0),
+				(faction_set_slot, ":faction", slot_faction_political_issue, ":any_found"),
+				(else_try),
+				(faction_set_slot, ":faction", slot_faction_political_issue, 0), #madsci this has to be 0 not -1
+				(try_end),
 			#Set the liege's position on the issue, since he gave up the village with
 			#something specific in mind.
 			(troop_set_slot, ":troop_no", slot_troop_stance_on_faction_issue, ":best_active_npc"),
@@ -1991,6 +1996,7 @@ simple_triggers = [
 	(neg|is_between, "$checked_faction", kingdoms_begin, kingdoms_end),
 	(assign, "$checked_faction", kingdoms_begin),
 	(try_end),
+(call_script, "script_check_king_has_town", "$checked_faction"),
 (call_script, "script_recalculate_ais_for_faction", "$checked_faction"),
    ]),
 

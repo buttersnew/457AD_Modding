@@ -1943,7 +1943,7 @@ number_of_factions       = fac_kingdoms_end - fac_player_supporters_faction
 number_of_active_npcs    = trp_knight_1_1_wife - trp_npc1
 
 training_grounds_begin   = "p_training_ground_1"
-training_grounds_end     = "p_looter_spawn_point"
+training_grounds_end     = "p_pyramid_1"
 
 scenes_begin = "scn_town_1_center"
 scenes_end = "scn_castle_1_exterior"

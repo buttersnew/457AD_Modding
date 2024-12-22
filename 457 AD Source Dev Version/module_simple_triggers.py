@@ -8562,6 +8562,7 @@ simple_triggers = [
 (this_or_next|eq, ":icon", "icon_steppe_lord"),
 (eq, ":icon", "icon_nomad_camp"),
 (store_faction_of_party, ":camp_faction", ":camp"),
+(is_between, ":camp_faction", minor_kingdoms_begin, minor_kingdoms_end),
 (faction_slot_eq, ":camp_faction", slot_faction_state, sfs_active),
 (party_get_slot, ":anchor", ":camp", slot_party_home_center),
 (gt, ":anchor", 0),

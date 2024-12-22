@@ -109,7 +109,7 @@ map_icons = [
   ("cattle",0,"icon_cow", 0.2,snd_footstep_grass, 0.15, 0.173, 0),
   ("training_ground",mcn_no_shadow,"training", 0.35,0),
 
-  ("nomad_camp",mcn_no_shadow,"icon_nomad_camp", 0.3, 0),
+  ("nomad_camp",mcn_no_shadow,"icon_nomad_camp", 0.2, 0),
 
   ("bridge_a",mcn_no_shadow,"map_river_bridge_a", 1.27,0),
   ("bridge_b",mcn_no_shadow,"map_river_bridge_b", 0.7,0),

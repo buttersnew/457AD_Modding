@@ -2559,6 +2559,37 @@ TOTAL:  {reg5}"),
         ]
        ),
 
+      ("camp_cheat_spawn_attacker",[],"{!}Spawn a party to attack nearest party",
+       [
+         (set_spawn_radius, 0),
+	(spawn_around_party, "p_main_party", "pt_deserters"),
+	(assign, ":party_no", reg0),
+	(party_ignore_player, ":party_no", 12),
+	(party_add_members, ":party_no", "trp_excubitor", 250),
+	(party_add_members, ":party_no", "trp_manhunter", 250),
+      (assign, ":min_distance", 9999999),
+      (assign, reg0, -1),
+      (try_for_parties, ":center_no"),
+	(neq, ":center_no", ":party_no"), #madsci
+	(neq, ":center_no", "p_main_party"),
+        (store_distance_to_party_from_party, ":party_distance", ":party_no", ":center_no"),
+        (lt, ":party_distance", ":min_distance"),
+        (assign, ":min_distance", ":party_distance"),
+        (assign, reg0, ":center_no"),
+      (try_end),
+	(try_begin),
+	(gt, reg0, 0),
+         (party_set_ai_behavior, ":party_no", ai_bhvr_attack_party),
+         (party_set_ai_object, ":party_no", reg0),
+	(str_store_party_name, s7, reg0),
+	(str_store_party_name, s6, ":party_no"),
+	(display_message, "@{s6} attacks {s7}"),
+	(else_try),
+	(display_message, "@No target for {s6}"),
+	(try_end),
+        ]
+       ),
+
 	   ##nested diplomacy start+
 	  ("camp_cheat_7",[(troop_slot_ge, "trp_player", slot_troop_spouse, 1),],"{!}Divorce player spouse",
        [
@@ -2710,19 +2741,19 @@ TOTAL:  {reg5}"),
        ),
        #do not add more cheat options, no more room in one menu
 
-      ("camp_cheat_riders_of_rohan",[],"Riders of Rohan",
+      ("camp_cheat_riders_of_rohan",[(eq, 1,0)],"Riders of Rohan",
        [ #adds 20 riders
          (party_add_members, "p_main_party", "trp_northern_germanic_horse_archer", 20),
         ]
        ),
 
-      ("camp_cheat_conan",[],"CONAN O BORBOR",
+      ("camp_cheat_conan",[(eq, 1,0)],"CONAN O BORBOR",
        [ #adds 20 riders
          (party_add_members, "p_main_party", "trp_cimmerian_tribesman", 20),
         ]
        ),
 
-      ("camp_cheat_roman",[],"Restitutor Orbis",
+      ("camp_cheat_roman",[(eq, 1,0)],"Restitutor Orbis",
        [ #adds 20 riders
          (party_add_members, "p_main_party", "trp_miles_legionis", 100),
         ]

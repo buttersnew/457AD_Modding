@@ -4284,8 +4284,9 @@ simple_triggers = [
        ]),
 
 # Removing cattle herds if they are way out of range
-  (12, [(try_for_parties, ":cur_party"),
-      (gt, ":cur_party", last_static_party), #madsci
+  (12, [
+	(try_for_parties, ":cur_party"),
+	(gt, ":cur_party", last_static_party), #madsci
           (party_slot_eq, ":cur_party", slot_party_type, spt_cattle_herd),
           (store_distance_to_party_from_party, ":dist",":cur_party", "p_main_party"),
           (try_begin),
@@ -4304,6 +4305,29 @@ simple_triggers = [
             (party_set_ai_behavior, ":cur_party", ai_bhvr_hold),
           (try_end),
         (try_end),
+
+(try_for_range, ":leader", minor_kings_begin, minor_kings_end), #madsci disband minor faction levies if the player is very far
+(troop_get_slot, ":party_no", ":leader", slot_troop_leaded_party),
+(gt, ":party_no", 0),
+(party_is_active, ":party_no"),
+(party_get_battle_opponent, ":opponent",":party_no"),
+(lt, ":opponent", 0), #party is not itself involved in a battle
+(store_faction_of_party, ":party_faction", ":party_no"),
+(eq, ":party_faction", "fac_player_supporters_faction"),
+(store_distance_to_party_from_party, ":dist", ":party_no", "p_main_party"),
+(gt, ":dist", 30),
+(party_get_slot, ":minor_faction", ":party_no", slot_minor_faction_levies_original_faction),
+(str_store_party_name, s10, ":party_no"),
+(display_message, "@{s10} has disbanded."),
+(remove_party, ":party_no"),
+(troop_set_slot, ":leader", slot_troop_leaded_party, -1),
+(call_script, "script_change_player_relation_with_faction", ":minor_faction", -5),
+	(try_begin),
+	(troop_get_slot, ":home", ":leader", slot_troop_home),
+	(is_between, ":home", minor_towns_begin, minor_towns_end),
+	(party_add_leader, ":home", ":leader"),
+	(try_end),
+(try_end),
     ]),
 
 

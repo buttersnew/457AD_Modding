@@ -3967,6 +3967,8 @@ simple_triggers = [
       (else_try),
         (neq, "$players_kingdom", ":cur_kingdom"),
         (faction_set_slot, ":cur_kingdom", slot_faction_state, sfs_defeated),
+	(str_store_faction_name_link, s10, ":cur_kingdom"),
+	(display_log_message, "@{s10} has been defeated by its enemies."),
         (try_for_parties, ":cur_party"),
           (store_faction_of_party, ":party_faction", ":cur_party"),
           (eq, ":party_faction", ":cur_kingdom"),
@@ -8550,7 +8552,7 @@ simple_triggers = [
 	(party_slot_eq, ":center", slot_center_is_besieged_by, -1), #no rebellion in besieged town
 	(party_get_slot, ":rebellion_cooldown", ":center", slot_party_rebellion_cooldown),
 	(eq, ":rebellion_cooldown", 0),
-	(store_random_in_range, ":rng", 0, 25),
+	(store_random_in_range, ":rng", 0, 50),
 	(eq, ":rng", 1), #dont let it fire too often
 		(try_begin),
 		(this_or_next|eq, ":center", "p_town_25"),
@@ -8576,9 +8578,11 @@ simple_triggers = [
 (party_get_slot, ":anchor", ":camp", slot_party_home_center),
 (gt, ":anchor", 0),
 	(try_begin), #horde moves
+	(neg|check_quest_active, "qst_ernak_quest"),
 	(neq, "$g_last_rest_center", ":camp"), #dont do this if player is here
 	(party_slot_eq, ":camp", slot_party_been_sacked, 0),
 	(neq, ":icon", "icon_steppe_lord"),
+	(neq, ":icon", "icon_ship"),
 	(store_random_in_range, ":rng", 0, 160), #dont let them move all the time, adjust this if necessary
 	(eq, ":rng", 1),
 	(party_get_position, pos1, "p_religious_site_18"), #use a static landmark

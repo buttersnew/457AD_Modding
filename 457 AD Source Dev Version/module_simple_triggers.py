@@ -1978,6 +1978,15 @@ simple_triggers = [
 (party_set_ai_behavior, ":quest_target_party", ai_bhvr_patrol_party),
 (party_set_ai_object, ":quest_target_party", ":home_center"),
 (try_end),
+
+(try_begin),
+(check_quest_active, "qst_ernak_quest"), #cancel this quest if Ernak somehow ends up being unavailable
+(store_troop_faction, ":kingdom_hero_faction", "trp_knight_23_8"),
+(this_or_next|eq, ":kingdom_hero_faction", "fac_outlaws"),
+(neg|troop_slot_eq, "trp_knight_23_8", slot_troop_occupation, slto_kingdom_hero),
+(call_script, "script_cancel_quest", "qst_ernak_quest"),
+(quest_set_slot, "qst_ernak_quest", slot_quest_current_state, -2),
+(try_end),
     ]),
 
 

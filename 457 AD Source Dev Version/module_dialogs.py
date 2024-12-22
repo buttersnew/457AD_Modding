@@ -20085,11 +20085,28 @@ I knew that I had found someone worthy of becoming my vassal.", "lord_invite_1",
 ],
   "Brave Ernak, I wish to serve your lineage and earn your favour. Is there something you need me to do?",
 "ernak_quest_intro_1",[]],
+
+[anyone,"ernak_quest_intro_1", [
+(store_faction_of_party, ":fac1", "p_onoguroi_village"), #madsci check if the player has already been burning nomad camps
+(store_faction_of_party, ":fac2", "p_saraguroi_village"),
+(store_faction_of_party, ":fac3", "p_kutriguroi_village"),
+(store_faction_of_party, ":fac4", "p_saraguroi_village"),
+(this_or_next|eq, ":fac1", "fac_neutral"),
+(this_or_next|eq, ":fac2", "fac_neutral"),
+(this_or_next|eq, ":fac3", "fac_neutral"),
+(eq, ":fac4", "fac_neutral"),
+],
+  "Thank you for the offer, but there is nothing that you can do for me at this time.",
+"lord_pretalk",[
+(quest_set_slot, "qst_ernak_quest", slot_quest_current_state, -1),
+]],
+
 [anyone,"ernak_quest_intro_1", [
   (troop_slot_ge, "trp_player", slot_troop_renown, 350),
 ],
   " {playername}, you must know. When I was just a kid, a fortune-teller prophesied my father, who often seeked wisdom from those in contact with the Gods and the magic spirits that crowd our world, that my older brothers would have failed him but I would have been the one able to restore his bloodline.",
 "ernak_quest_intro_2",[]],
+
 [anyone,"ernak_quest_intro_1", [
 ],
   "Standing on your feet you ask to serve me? Go and travel around the world. Earn your name and get experience first, as I only accept the brave and the renowned.^^(Hint: Need at least 350 renown)",
@@ -20117,14 +20134,14 @@ I knew that I had found someone worthy of becoming my vassal.", "lord_invite_1",
 
 [anyone|plyr,"ernak_quest_intro_6", [
 ],
-  "Aye, Ernak son of Attila. I will do what you ask. I will visit these hunnic tribes and will let you know of their answers.",
+  "Aye, Ernak son of Attila. I will do what you ask. I will visit these Hunnic tribes and will let you know of their answers.",
 "ernak_quest_intro_accepted",[]],
 
 [anyone|plyr,"ernak_quest_intro_6", [
 ],
   "I am sorry, generous lord Ernak, but I don't think I'm ready for this task. I hope you will find someone else to help you in your struggle.",
 "lord_pretalk",[
-  (quest_set_slot, "qst_ernak_quest", slot_quest_current_state, -1)
+  (quest_set_slot, "qst_ernak_quest", slot_quest_current_state, -1),
 ]],
 
 [anyone,"ernak_quest_intro_accepted", [
@@ -52611,7 +52628,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
     (spawn_around_party, "$current_town", "pt_minor_faction_levies"),
     (assign, ":levies", reg0),
 	(try_begin), #madsci dont show faction if player has no faction
-	(neg|is_between, "$players_kingdom", kingdoms_begin, kingdoms_end),
+	(neg|faction_slot_eq, "fac_player_supporters_faction", slot_faction_state, sfs_active),
 	(party_set_flags, ":levies", pf_show_faction, 0),
 	(try_end),
 
@@ -53807,6 +53824,15 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
   ],
   "Hail {playername}. I am still preparing our journey. You may changed your mind and want to join us? More men would be welcome.",
   "finnsburg_quest_start_17",[]],
+
+  [trp_dani_hocing,"start", [(neg|check_quest_active, "qst_finnsburh_quest"),
+  (quest_slot_eq, "qst_finnsburh_quest", slot_quest_current_state, 0),
+  (quest_slot_eq, "qst_finnsburh_quest", slot_quest_temp_slot, 0),
+(store_faction_of_party, ":party_faction", "p_frisian_village"),
+(eq, ":party_faction", "fac_neutral"), #madsci check if the frisian village can be visited
+  ],
+  "I heard that you raided the Frisians...",
+  "close_window",[]],
 
   [trp_dani_hocing,"start", [(neg|check_quest_active, "qst_finnsburh_quest"),
   (quest_slot_eq, "qst_finnsburh_quest", slot_quest_current_state, 0),

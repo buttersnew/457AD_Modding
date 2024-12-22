@@ -52610,6 +52610,10 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
     (set_spawn_radius, 2),
     (spawn_around_party, "$current_town", "pt_minor_faction_levies"),
     (assign, ":levies", reg0),
+	(try_begin), #madsci dont show faction if player has no faction
+	(neg|is_between, "$players_kingdom", kingdoms_begin, kingdoms_end),
+	(party_set_flags, ":levies", pf_show_faction, 0),
+	(try_end),
 
     ##slots
     (faction_set_slot, "$g_talk_troop_faction", slot_faction_levied_troops, ":levies"),

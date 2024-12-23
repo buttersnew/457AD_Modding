@@ -19149,15 +19149,15 @@ Here, take this purse of {reg3} siliquae, as I promised. I hope we can travel to
   	(str_store_troop_name, s1, "$g_talk_troop"),
   	(str_store_faction_name, s2, ":new_faction"),
   	(str_store_faction_name, s3, ":old_faction"),
-  	(call_script, "script_change_troop_faction", "$g_talk_troop", ":new_faction"),
   	(call_script, "script_dplmc_store_troop_is_female_reg", "$g_talk_troop", 4), #SB : replace reg65
   	(faction_get_color, ":color", ":new_faction"),
   	(display_log_message, "str_lord_defects_ordinary", ":color"),#change display_message to display_log_message
+  	(call_script, "script_change_troop_faction", "$g_talk_troop", ":new_faction"),
 	(else_try),
 	(troop_set_slot, "$g_talk_troop", slot_troop_occupation, dplmc_slto_exile), #madsci exiled lords can return under the right circumstances
-  	(call_script, "script_change_troop_faction", "$g_talk_troop", "fac_outlaws"),
 	(str_store_troop_name, s54, "$g_talk_troop"),
 	(display_log_message, "str_s54_has_left_the_realm"),
+  	(call_script, "script_change_troop_faction", "$g_talk_troop", "fac_outlaws"),
 			(try_begin), #madsci cant have a kingdom hero party of non-kingdom faction on the map
 			(troop_get_slot, ":current_party", "$g_talk_troop", slot_troop_leaded_party),
 			(gt, ":current_party", 0),

@@ -30619,7 +30619,11 @@ I've to keep my mind on getting this weight off my neck.", "knight_offer_join_2"
 [anyone|plyr,"knight_offer_join_2", [(neq, "$talk_context", tc_hero_freed)], "That's good to know. I will think on it.", "hero_pretalk",[]],
 
 
-[anyone ,"knight_offer_join_accept", [(troop_slot_ge, "$g_talk_troop", slot_troop_leaded_party, 1)],
+[anyone ,"knight_offer_join_accept", [
+(troop_get_slot, ":companions_party","$g_talk_troop", slot_troop_leaded_party),
+(gt, ":companions_party", 0),
+(party_is_active, ":companions_party"),
+],
 "I've some trusted men in my band who could be of use to you. What do you wish to do with them?", "knight_offer_join_accept_party",[
    ]],
 [anyone ,"knight_offer_join_accept", [], "Ah, certainly, it might be fun!", "close_window",[
@@ -30636,39 +30640,53 @@ I've to keep my mind on getting this weight off my neck.", "knight_offer_join_2"
 "Keep doing what you were doing. I'll catch up with you later.", "knight_join_party_lead_out",[]],
 
 
-[anyone ,"knight_join_party_disband", [], "Ah... Very well, {playername}. Much as I dislike losing good men,\
-the decision is yours. I'll disband my troops and join you.", "close_window",[
+[anyone ,"knight_join_party_disband", [], "Ah... Very well, {playername}. Much as I dislike losing good men, "+
+"the decision is yours. I'll disband my troops and join you.", "close_window",[
    (call_script, "script_recruit_troop_as_companion", "$g_talk_troop"),
 
-   (troop_get_slot, ":companions_party","$g_talk_troop", slot_troop_leaded_party),
-   (party_detach, ":companions_party"),
-   (remove_party, ":companions_party"),
+	(try_begin),
+   	(troop_get_slot, ":companions_party","$g_talk_troop", slot_troop_leaded_party),
+	(gt, ":companions_party", 0),
+	(party_is_active, ":companions_party"),
+   	(party_detach, ":companions_party"),
+   	(call_script, "script_remove_hero_prisoners", ":companions_party"),
+   	(remove_party, ":companions_party"),
+	(try_end),
    (assign, "$g_leave_encounter",1)
    ]],
 
-[anyone ,"knight_join_party_join", [], "Excellent.\
-My lads and I will ride with you.", "close_window",[
+[anyone ,"knight_join_party_join", [], "Excellent. "+
+"My lads and I will ride with you.", "close_window",[
    (call_script, "script_recruit_troop_as_companion", "$g_talk_troop"),
    (party_remove_members, "p_main_party", "$g_talk_troop", 1),
 
-   (troop_get_slot, ":companions_party","$g_talk_troop", slot_troop_leaded_party),
-   (assign, "$g_move_heroes", 1),
-   (call_script, "script_party_add_party", "p_main_party", ":companions_party"),
-   (party_detach, ":companions_party"),
-   (remove_party, ":companions_party"),
+	(try_begin),
+   	(troop_get_slot, ":companions_party","$g_talk_troop", slot_troop_leaded_party),
+	(gt, ":companions_party", 0),
+	(party_is_active, ":companions_party"),
+   	(assign, "$g_move_heroes", 1),
+   	(call_script, "script_party_add_party", "p_main_party", ":companions_party"),
+   	(party_detach, ":companions_party"),
+   	(call_script, "script_remove_hero_prisoners", ":companions_party"),
+   	(remove_party, ":companions_party"),
+	(try_end),
    (assign, "$g_leave_encounter",1)
    ]],
 
-[anyone ,"knight_join_party_lead_out", [], "Very well then.\
-I shall maintain a patrol of this area. Return if you have further orders for me.", "close_window",[
+[anyone ,"knight_join_party_lead_out", [], "Very well then. "+
+"I shall maintain a patrol of this area. Return if you have further orders for me.", "close_window",[
    (call_script, "script_recruit_troop_as_companion", "$g_talk_troop"),
    (party_remove_members, "p_main_party", "$g_talk_troop", 1),
 
-   (troop_get_slot, ":companions_party","$g_talk_troop", slot_troop_leaded_party),
-   (party_set_faction, ":companions_party", "fac_player_supporters_faction"),
-   (party_detach, ":companions_party"),
-   (party_set_ai_behavior, ":companions_party", ai_bhvr_patrol_location),
-   (party_set_flags, ":companions_party", pf_default_behavior, 0),
+	(try_begin),
+   	(troop_get_slot, ":companions_party","$g_talk_troop", slot_troop_leaded_party),
+	(gt, ":companions_party", 0),
+	(party_is_active, ":companions_party"),
+   	(party_set_faction, ":companions_party", "fac_player_supporters_faction"),
+   	(party_detach, ":companions_party"),
+   	(party_set_ai_behavior, ":companions_party", ai_bhvr_patrol_location),
+   	(party_set_flags, ":companions_party", pf_default_behavior, 0),
+	(try_end),
    ]],
 
 [anyone,"lord_enter_service_reject", [
@@ -46500,6 +46518,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
     (assign, "$g_leave_encounter", 1),
     (party_get_slot, ":original_minor_faciton", "$g_encountered_party", slot_minor_faction_levies_original_faction),
     (call_script, "script_change_player_relation_with_faction", ":original_minor_faciton", 15),
+    (call_script, "script_remove_hero_prisoners", "$g_encountered_party"),
     (remove_party, "$g_encountered_party"),
     ]],
 
@@ -51800,6 +51819,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
 	(troop_get_slot, ":leaded_party", "trp_frisian_king", slot_troop_leaded_party),
 	(gt, ":leaded_party", 0),
 	(party_is_active, ":leaded_party", 0),
+	(call_script, "script_remove_hero_prisoners", ":leaded_party"),
 	(remove_party, ":leaded_party"),
 	(try_end),
     (party_add_leader, "p_frisian_village", "trp_dani_guthlaf"),

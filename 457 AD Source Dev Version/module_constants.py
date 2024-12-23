@@ -1769,8 +1769,11 @@ minor_kingdoms_end = "fac_minor_factions_end"
 bandits_begin = "trp_looter"
 bandits_end = "trp_rich_bandit" #changed due to quest characters
 
+king_companions_begin = "trp_king_companion_1"
+king_companions_end = "trp_heroes_end"
+
 kingdom_ladies_begin = "trp_knight_1_1_wife"
-kingdom_ladies_end = "trp_heroes_end"
+kingdom_ladies_end = king_companions_begin
 
 #active NPCs in order: companions, kings, lords, pretenders
 
@@ -1794,6 +1797,7 @@ minor_kings_end = "trp_aestii_merchant_1"
 
 minor_merchants_begin = "trp_aestii_merchant_1"
 minor_merchants_end = "trp_roman_landowner"
+
 #"active_npcs_begin replaces kingdom_heroes_begin to allow for companions to become lords. Includes anyone who may at some point lead their own party: the original kingdom heroes, companions who may become kingdom heroes, and pretenders. (slto_kingdom_hero as an occupation means that you lead a party on the map. Pretenders have the occupation "slto_inactive_pretender", even if they are part of a player's party, until they have their own independent party)
 #If you're a modder and you don't want to go through and switch every kingdom_heroes to active_npcs, simply define a constant: kingdom_heroes_begin = active_npcs_begin., and kingdom_heroes_end = active_npcs_end. I haven't tested for that, but I think it should work.
 
@@ -1801,7 +1805,7 @@ active_npcs_including_player_begin = "trp_kingdom_heroes_including_player_begin"
 original_kingdom_heroes_begin = "trp_kingdom_1_lord"
 
 heroes_begin = active_npcs_begin
-heroes_end = kingdom_ladies_end
+heroes_end = king_companions_end
 
 soldiers_begin = "trp_farmer"
 soldiers_end = "trp_town_walker_1"

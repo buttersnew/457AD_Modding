@@ -16900,7 +16900,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     (str_clear, s11),
     (assign, ":at_least_one_escaper_caught", 0),
 
-    (assign, ":end_cond", kingdom_ladies_end),
+    (assign, ":end_cond", heroes_end),
     (try_for_range, ":prisoner", active_npcs_begin, ":end_cond"),
       (try_begin),
         (troop_slot_eq, ":prisoner", slot_troop_mission_participation, mp_prison_break_escaped),
@@ -16910,7 +16910,10 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         (troop_set_slot, ":prisoner", slot_troop_mission_participation, -1),
 
         (troop_get_slot, ":prison_center", ":prisoner", slot_troop_prisoner_of_party),
-        (party_remove_prisoners, ":prison_center", ":prisoner", 1),
+		(try_begin),
+		(ge, ":prison_center", 0),
+        	(party_remove_prisoners, ":prison_center", ":prisoner", 1),
+		(try_end),
         (troop_set_slot, ":prisoner", slot_troop_prisoner_of_party, -1),
 
         (assign, ":end_cond", -1), #maybe more than 1 should be able to escape?

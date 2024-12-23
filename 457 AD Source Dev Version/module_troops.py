@@ -3715,6 +3715,9 @@ troops = [
   ["rebel_kingdom_3_lady_1","Decima","Decima",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_rebel_kingdom_3, [      itm_roman_noble_dress_1,       itm_wrapping_boots],     def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x0000000fb7000002371b711bec91b8db00000000001dc7140000000000000000],
   ["rebel_kingdom_3_lady_2","Antonia","Antonia",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_rebel_kingdom_3, [      itm_roman_noble_dress_2,       itm_wrapping_boots],     def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x00000007ef0010043adb923d7491b8db00000000001dc6d40000000000000000],
 
+#KING COMPANIONS START HERE
+  ["king_companion_1","Alpin", "Alpin", tf_hero, 0, reserved,  fac_kingdom_5, [itm_marcos_1, itm_sword_viking_2_small, itm_augsburg_1_helmet, itm_pictish_mail_8, itm_pictish_tunic_8, itm_ankle_boots, itm_tab_shield_small_round_c],     knight_attrib_1,wp(150),knight_skills_1, 0x00000001b90972c45a9d6928948638e300000000001153580000000000000000],
+
   ["heroes_end", "{!}heroes end", "{!}heroes end", tf_hero, 0,reserved,  fac_neutral,[itm_saddle_horse,itm_leather_jacket,itm_nomad_boots],def_attrib|level(2),wp(20),knows_common, 0x000000000008318101f390c515555594],
 #Merchants                                                                              AT                      SILAH                   ZIRH                        BOT                         Head_wear
 

@@ -6439,7 +6439,14 @@ mission_templates = [
           (eq, "$talk_context", tc_prison_break),
           (agent_get_troop_id, ":troop_no", ":agent_no"),
           (troop_slot_eq, ":troop_no", slot_troop_will_join_prison_break, 1),
-          (agent_set_team, ":agent_no", 0),
+		(agent_set_is_alarmed,":agent_no", 1),
+		(get_player_agent_no, ":player"),
+		(agent_get_team, ":playerteam", ":player"),
+		(agent_set_team, ":agent_no", ":playerteam"), #madsci bugfix for a situation where the agent can attack the player
+		(agent_set_division, ":agent_no", 8),
+		(set_show_messages, 0),
+		(team_give_order, ":playerteam", 8, mordr_follow), #Division 8 to avoid potential conflicts
+		(set_show_messages, 1),
           (agent_ai_set_aggressiveness, ":agent_no", 5),
           (troop_set_slot, ":troop_no", slot_troop_will_join_prison_break, 0),
           (try_begin),
@@ -6578,7 +6585,7 @@ mission_templates = [
 		(get_player_agent_no, ":player_agent"),
 		(agent_get_position, pos4, ":player_agent"),
 
-		(try_for_range, ":prisoner", active_npcs_begin, kingdom_ladies_end),
+		(try_for_range, ":prisoner", active_npcs_begin, heroes_end),
 		  (troop_slot_ge, ":prisoner", slot_troop_mission_participation, mp_prison_break_fight),
 
 		  (str_store_troop_name, s4, ":prisoner"),
@@ -6608,7 +6615,7 @@ mission_templates = [
        (call_script, "script_deduct_casualties_from_garrison"),
 	   (jump_to_menu,"mnu_captivity_start_castle_defeat"),
 
-	   (assign, ":end_cond", kingdom_ladies_end),
+	   (assign, ":end_cond", heroes_end),
        (try_for_range, ":prisoner", active_npcs_begin, ":end_cond"),
   	     (troop_set_slot, ":prisoner", slot_troop_mission_participation, 0), #new
   	   (try_end),
@@ -8530,7 +8537,14 @@ mission_templates = [
           (agent_get_troop_id, ":troop_no", ":agent_no"),
           (troop_get_slot, ":will_join_prison_break", ":troop_no", slot_troop_will_join_prison_break),
           (eq, ":will_join_prison_break", 1),
-          (agent_set_team, ":agent_no", 0),
+		(agent_set_is_alarmed,":agent_no", 1),
+		(get_player_agent_no, ":player"),
+		(agent_get_team, ":playerteam", ":player"),
+		(agent_set_team, ":agent_no", ":playerteam"), #madsci bugfix
+		(agent_set_division, ":agent_no", 8),
+		(set_show_messages, 0),
+		(team_give_order, ":playerteam", 8, mordr_follow), #Division 8 to avoid potential conflicts
+		(set_show_messages, 1),
           (agent_ai_set_aggressiveness, ":agent_no", 5),
           (troop_set_slot, ":troop_no", slot_troop_will_join_prison_break, 0),
 
@@ -8650,7 +8664,7 @@ mission_templates = [
           (call_script, "script_deduct_casualties_from_garrison"),
 	      (jump_to_menu,"mnu_captivity_start_castle_defeat"),
 
-	      (assign, ":end_cond", kingdom_ladies_end),
+	      (assign, ":end_cond", heroes_end),
           (try_for_range, ":prisoner", active_npcs_begin, ":end_cond"),
   	        (troop_set_slot, ":prisoner", slot_troop_mission_participation, 0), #new
   	      (try_end),

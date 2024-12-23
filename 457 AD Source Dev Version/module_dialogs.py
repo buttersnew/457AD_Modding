@@ -4020,7 +4020,7 @@ Still I am sorry that I'll leave you soon. You must promise me, you'll come visi
     ##diplomacy start+ Prevent this from appearing for already-enfeoffed troops
     (call_script, "script_get_number_of_hero_centers", "$g_talk_troop"),
     (eq, reg0, 0),
-	(is_between, "$g_talk_troop", heroes_begin, active_npcs_end), #madsci we need this in case the player ends up with generic hero troops in the party
+	(is_between, "$g_talk_troop", heroes_begin, heroes_end), #madsci we need this in case the player ends up with generic hero troops in the party
     (neg|troop_slot_eq, "$g_talk_troop", slot_troop_playerparty_history, dplmc_pp_history_lord_rejoined),
     (neg|troop_slot_eq, "$g_talk_troop", slot_troop_playerparty_history, dplmc_pp_history_granted_fief),
     (neg|troop_slot_eq, "$g_talk_troop", slot_troop_occupation, slto_kingdom_hero),
@@ -5459,7 +5459,9 @@ Still I am sorry that I'll leave you soon. You must promise me, you'll come visi
 ],
 "{s11} I notice that you have been keeping some notes about individual lords. I have annotated those with my findings.", "member_intel_liaison", []],
 
-
+[anyone,"member_fief_grant_1", [
+(is_between, "$g_talk_troop", king_companions_begin, king_companions_end),
+  ], "No, I have other ambitions.", "do_member_trade",[]],
 
 [anyone,"member_fief_grant_1", [
   ], "Which fief did you have in mind?", "member_fief_grant_2",[]],
@@ -5754,7 +5756,9 @@ Still I am sorry that I'll leave you soon. You must promise me, you'll come visi
 
 
 
-[anyone, "start", [(is_between, "$g_talk_troop", companions_begin, companions_end),
+[anyone, "start", [
+(this_or_next|is_between, "$g_talk_troop", king_companions_begin, king_companions_end),
+(is_between, "$g_talk_troop", companions_begin, companions_end),
                (this_or_next|eq, "$talk_context", tc_tavern_talk),
                (this_or_next|eq, "$talk_context", tc_town_talk), #ADD THIS LINE FOR BODYGUARD CODE
                (eq, "$talk_context", tc_court_talk),
@@ -15849,7 +15853,7 @@ What kind of recruits do you want?", "dplmc_constable_recruit_select",
 ], "Very good. {s9} is your new minister. I shall make ready to rejoin you.", "close_window",
 [
 (str_store_troop_name, s9, "$g_player_minister"),
-(party_add_members, "p_main_party", "$g_talk_troop", 1),
+(party_force_add_members, "p_main_party", "$g_talk_troop", 1),
 (assign, "$g_leave_encounter", 1),
 (try_begin),
 (main_party_has_troop, "$g_player_minister"),
@@ -18513,7 +18517,7 @@ Here, take this purse of {reg3} siliquae, as I promised. I hope we can travel to
 	#like Lord Harringoth and Harringoth Castle, etc.  This is applied after personality factors,
 	#since it can enhance or counteract someone's native disposition.
 	(try_begin),
-		(is_between, "$g_talk_troop", active_npcs_begin, kingdom_ladies_end),
+		(is_between, "$g_talk_troop", active_npcs_begin, heroes_end),
 		(troop_slot_eq, "$g_talk_troop", slot_troop_home, "$g_encountered_party"),
 		#On normal, most will agree if outnumbered 16-to-1, 8-to-1 if cowardly, 32-to-1 if brave
 		(val_mul, ":surrender_ratio_10", 2),
@@ -18635,7 +18639,7 @@ Here, take this purse of {reg3} siliquae, as I promised. I hope we can travel to
 [anyone,"lord_prison_break_confirm_4", [
 
 (str_clear, s14),
-(assign, ":end", kingdom_ladies_end), #SB : loop breaking
+(assign, ":end", heroes_end), #SB : loop breaking
 (try_for_range, ":other_prisoner", active_npcs_begin, ":end"),
   (troop_slot_eq, ":other_prisoner", slot_troop_prisoner_of_party, "$g_encountered_party"),
   (neq, ":other_prisoner", "$g_talk_troop"),
@@ -28820,7 +28824,7 @@ I will use this to make amends to those you have wronged, and I will let it be k
 
 [anyone|plyr|repeat_for_troops,"lord_talk_ask_location_2", [(store_repeat_object, ":troop_no"),
                                                            (neq, "$g_talk_troop", ":troop_no"),
-                                                           (is_between, ":troop_no", active_npcs_begin, kingdom_ladies_end),
+                                                           (is_between, ":troop_no", active_npcs_begin, heroes_end),
                                             (neq, ":troop_no", "trp_player"),
                                                            (this_or_next|troop_slot_eq, ":troop_no", slot_troop_occupation, slto_kingdom_hero),
                                              (troop_slot_eq, ":troop_no", slot_troop_occupation, slto_kingdom_lady),
@@ -35833,7 +35837,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
    [
     (store_repeat_object, ":troop_no"),
     (neq, "$g_talk_troop", ":troop_no"),
-    (is_between, ":troop_no", active_npcs_begin, kingdom_ladies_end),
+    (is_between, ":troop_no", active_npcs_begin, heroes_end),
     (neq, ":troop_no", "trp_player"),#don't talk about the player
     (neq, ":troop_no", "$g_talk_troop"),#don't talk about yourself
     (troop_slot_ge, ":troop_no", slot_troop_occupation, slto_kingdom_hero),
@@ -37890,8 +37894,8 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
   [anyone|plyr,"prison_guard_visit_prison_4", [(store_troop_gold,":gold","trp_player"),(ge,":gold",100)],
    "I found a purse with 100 siliquae a few paces away. I reckon it belongs to you.", "prison_guard_visit_prison_5",[]],
 
-  [anyone,"prison_guard_visit_prison_5", [], "Ah! I was looking for this all day. How good of you to bring it back {sir/madam}.\
- Well, now that I know what an honest {man/lady} you are, there can be no harm in letting you inside for a look. Go in.... Just so you know, though -- I'll be hanging onto the keys, in case you were thinking about undoing anyone's chains.", "close_window",
+  [anyone,"prison_guard_visit_prison_5", [], "Ah! I was looking for this all day. How good of you to bring it back {sir/madam}. "+
+ "Well, now that I know what an honest {man/lady} you are, there can be no harm in letting you inside for a look. Go in.... Just so you know, though -- I'll be hanging onto the keys, in case you were thinking about undoing anyone's chains.", "close_window",
  [(troop_remove_gold, "trp_player",100),(call_script, "script_enter_dungeon", "$current_town", "mt_visit_town_castle")]],
 
   [anyone|plyr,"prison_guard_visit_prison_4", [],
@@ -37909,7 +37913,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
 #	Reduce relation with town
 # (try_end),
 
-   (assign, ":end_cond", kingdom_ladies_end),
+   (assign, ":end_cond", heroes_end),
    (try_for_range, ":prisoner", active_npcs_begin, ":end_cond"),
      (troop_set_slot, ":prisoner", slot_troop_mission_participation, 0), #new
    (try_end),
@@ -38515,6 +38519,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
    []],
 
   [anyone|plyr,"freed_hero_answer", [
+(troop_is_hero, "$g_talk_troop"),
 (neq, "$g_talk_troop_faction", "$players_kingdom"), #madsci bug fix
 ],
    "You're not going anywhere. You'll be my prisoner now!", "freed_hero_answer_1",
@@ -38537,7 +38542,9 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
    "Thank you, good {sire/lady}. I never forget someone who's done me a good turn.", "close_window",
    []],
 
-  [anyone|plyr,"freed_hero_answer", [],
+  [anyone|plyr,"freed_hero_answer", [
+(troop_is_hero, "$g_talk_troop"),
+],
    "Would you like to join me?", "freed_hero_answer_3",
    []],
 
@@ -38545,9 +38552,10 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
 (neg|faction_slot_eq, "$g_talk_troop_faction", slot_faction_leader, "$g_talk_troop"),
 (neg|is_between, "$g_talk_troop", minor_kings_begin, minor_kings_end), #madsci dont let this happen if a minor faction king ends up prisoner somehow because he needs to be returned to his town by a script
 (store_random_in_range, ":random_no",0,2),
+(this_or_next|is_between, "$g_talk_troop", king_companions_begin, king_companions_end),
 (eq, ":random_no", 0),
 ],
-   "All right I will join you.", "close_window",
+   "All right, I will join you.", "close_window",
    [
      (troop_set_slot, "$g_talk_troop", slot_troop_prisoner_of_party, -1),
      (call_script, "script_recruit_troop_as_companion", "$g_talk_troop"),
@@ -54084,6 +54092,27 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
   ], "I have no time right now.", "close_window",[]],
   [trp_dani_haddingr,"start", [
   ], "I have no time right now.", "close_window",[]],
+
+#madsci generic prison escape dialogue for eligible characters
+[anyone,"start", [
+(is_between, "$g_talk_troop", heroes_begin, heroes_end),
+(troop_get_slot, ":prison_location", "$g_talk_troop", slot_troop_prisoner_of_party),
+(is_between, ":prison_location", centers_begin, centers_end),
+(neg|party_slot_eq, ":prison_location", slot_town_lord, "trp_player"),
+(neq, "$talk_context", tc_prison_break),
+],
+"Are you here to help me?", "generic_prison_talk",
+[]],
+
+[anyone|plyr,"generic_prison_talk", [],
+"I've come to break you out of here.", "lord_prison_break_chains",
+[]],
+
+[anyone|plyr,"generic_prison_talk", [],
+"You're not going anywhere, 'friend'.", "close_window",
+[]],
+
+  [anyone,"start", [(neq, "$talk_context", tc_party_encounter),], "Good evening, {sir/madam}.", "close_window",[]],
 
   [anyone,"start", [
   (neq|is_between, "$g_talk_troop", "trp_chal_bishop_jerusalem_1", "trp_roman_priest"),

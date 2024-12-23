@@ -39324,6 +39324,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
 
   [anyone,"deserter_barter", [], "Good. You are clever. Now, having a look at your baggage, I reckon a fellow like you could pretty easily afford {reg5} siliquae. We wouldn't want to be too greedy, now would we? Pay us, and then you can go.", "deserter_barter_2",[
     (store_troop_gold, ":total_value", "trp_player"),
+	(val_add, ":total_value", 1), #bugfix
     (troop_get_inventory_capacity, ":inv_size", "trp_player"),
     (try_for_range, ":i_slot", 0, ":inv_size"),
          (troop_get_inventory_slot, ":item_id", "trp_player", ":i_slot"),
@@ -46578,6 +46579,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
    [(store_relation, ":bandit_relation", "fac_player_faction", "$g_encountered_party_faction"),
     (ge, ":bandit_relation", -50),
     (store_troop_gold, ":total_value", "trp_player"),
+	(val_add, ":total_value", 1), #bugfix
     (troop_get_inventory_capacity, ":inv_size", "trp_player"),
     (try_for_range, ":i_slot", 0, ":inv_size"),
          (troop_get_inventory_slot, ":item_id", "trp_player", ":i_slot"),
@@ -50064,6 +50066,17 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
 
   #1 = violence
   #x = ally in this instance
+
+#madsci minor kings should be able to become prisoners in regular centers but this is a failsafe in case it somehow ends up happening
+[anyone,"start", [
+(is_between, "$g_talk_troop", minor_kings_begin, minor_kings_end),
+(troop_get_slot, ":prison_location", "$g_talk_troop", slot_troop_prisoner_of_party),
+(is_between, ":prison_location", centers_begin, centers_end),
+(eq, "$g_encountered_party", ":prison_location"),
+(neq, "$talk_context", tc_prison_break),
+],
+"Are you here to help me?", "generic_prison_talk",
+[]],
 
   [trp_bagaudae_king, "start", [],
    "Who the hell are you? If you're not here to join my band, then get the hell out of my face or I'll gut you like a fish...", "bagaudae_king_talk_1", []],
@@ -54098,13 +54111,15 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
 (is_between, "$g_talk_troop", heroes_begin, heroes_end),
 (troop_get_slot, ":prison_location", "$g_talk_troop", slot_troop_prisoner_of_party),
 (is_between, ":prison_location", centers_begin, centers_end),
-(neg|party_slot_eq, ":prison_location", slot_town_lord, "trp_player"),
 (neq, "$talk_context", tc_prison_break),
 ],
 "Are you here to help me?", "generic_prison_talk",
 []],
 
-[anyone|plyr,"generic_prison_talk", [],
+[anyone|plyr,"generic_prison_talk", [
+(is_between, "$g_encountered_party", centers_begin, centers_end),
+(neg|party_slot_eq, "$g_encountered_party", slot_town_lord, "trp_player"),
+],
 "I've come to break you out of here.", "lord_prison_break_chains",
 []],
 
@@ -54112,7 +54127,41 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
 "You're not going anywhere, 'friend'.", "close_window",
 []],
 
-  [anyone,"start", [(neq, "$talk_context", tc_party_encounter),], "Good evening, {sir/madam}.", "close_window",[]],
+#generic dialogue for meeting random hero characters
+  [anyone,"start", [
+(troop_is_hero, "$g_talk_troop"),
+(eq, "$g_talk_troop_met", 0),
+(neq, "$talk_context", tc_party_encounter),
+], "Have we met before?", "generic_player_introduce",[]],
+
+[anyone|plyr, "generic_player_introduce",[],"I am {playername}. I travel through these lands.", "generic_player_introduce_b",[]],
+[anyone|plyr, "generic_player_introduce",[],"I am {playername}, marke it down, you will hear from me.", "generic_player_introduce_b",[]],
+
+  [anyone, "generic_player_introduce_b",[
+(try_begin),
+(troop_get_slot, ":party", "$g_talk_troop", slot_troop_embedded_party),
+(gt, ":party", 0),
+(party_is_active, ":party"),
+(party_stack_get_troop_id, ":party_leader", ":party", 0),
+(gt, ":party_leader", 0),
+(troop_slot_eq, ":party_leader", slot_troop_occupation, slto_kingdom_hero),
+(str_store_troop_name, s10, "$g_talk_troop"),
+(str_store_troop_name, s11, ":party_leader"),
+(str_store_string, s10,"@I am {s10}, a warrior and companion of {s11}."),
+(else_try),
+(str_store_troop_name, s10, "$g_talk_troop"),
+(str_store_string, s10,"@I am {s10}."),
+(try_end),
+],"{s10}", "generic_player_introduce_c",[]],
+
+  [anyone, "generic_player_introduce_c",[],"Anything else?", "generic_player_meet_troop",[]],
+
+  [anyone,"start", [(neq, "$talk_context", tc_party_encounter),], "Good evening, {sir/madam}.", "generic_player_meet_troop",[]],
+
+[anyone|plyr, "generic_player_meet_troop",[
+(troop_is_hero, "$g_talk_troop"),
+],"Who are you again?", "generic_player_introduce_b",[]],
+[anyone|plyr, "generic_player_meet_troop",[],"Farewell.", "close_window",[]],
 
   [anyone,"start", [
   (neq|is_between, "$g_talk_troop", "trp_chal_bishop_jerusalem_1", "trp_roman_priest"),

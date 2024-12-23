@@ -30664,10 +30664,10 @@ I've to keep my mind on getting this weight off my neck.", "knight_offer_join_2"
    	(troop_get_slot, ":companions_party","$g_talk_troop", slot_troop_leaded_party),
 	(gt, ":companions_party", 0),
 	(party_is_active, ":companions_party"),
+   	(call_script, "script_remove_hero_prisoners", ":companions_party"),
    	(assign, "$g_move_heroes", 1),
    	(call_script, "script_party_add_party", "p_main_party", ":companions_party"),
    	(party_detach, ":companions_party"),
-   	(call_script, "script_remove_hero_prisoners", ":companions_party"),
    	(remove_party, ":companions_party"),
 	(try_end),
    (assign, "$g_leave_encounter",1)

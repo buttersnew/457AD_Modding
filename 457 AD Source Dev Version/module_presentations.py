@@ -18291,7 +18291,7 @@ presentations = [
 
     ## Default button
     (create_game_button_overlay, "$g_presentation_obj_3", "@Default"),
-        (position_set_x, pos1, 125),
+        (position_set_x, pos1, 425),
         (position_set_y, pos1, 35),
         (overlay_set_position, "$g_presentation_obj_3", pos1),
 
@@ -18449,7 +18449,7 @@ presentations = [
         (str_store_faction_name, s1, ":religion"),
         (overlay_add_item, "$g_presentation_obj_reason", "@{s1}"),
     (try_end),
-    (store_sub, ":value", "$background_answer_4", 1),
+    (assign, ":value", "$background_answer_4"),
     (overlay_set_val, "$g_presentation_obj_reason", ":value"),
     (val_sub, ":cur_y", 40),
 

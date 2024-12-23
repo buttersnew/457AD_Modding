@@ -1997,6 +1997,7 @@ simple_triggers = [
 	(assign, "$checked_faction", kingdoms_begin),
 	(try_end),
 (call_script, "script_check_king_has_town", "$checked_faction"),
+(call_script, "script_check_lords_but_no_centers", "$checked_faction"),
 (call_script, "script_recalculate_ais_for_faction", "$checked_faction"),
    ]),
 

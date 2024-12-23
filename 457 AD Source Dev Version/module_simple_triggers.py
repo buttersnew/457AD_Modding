@@ -1042,14 +1042,12 @@ simple_triggers = [
 (display_message,"@{s4} has been released from captivity."),
 (try_end),
 
-(assign, ":end", "fac_saxons"),
-(val_add, ":end", 1),
 	(try_for_parties, ":party_no"), #madsci reduce prisoners in bandit and deserter parties over time so that they dont snowball too much
 	(gt, ":party_no", last_static_party),
 	(neg|party_slot_eq, ":party_no", slot_party_type, spt_kingdom_hero_party),
 	(store_faction_of_party, ":faction_no", ":party_no"),
 	(this_or_next|eq, ":faction_no", "fac_outlaws"), #only bandits and deserters
-	(is_between, ":faction_no", "fac_manhunters", ":end"),
+	(gt, ":faction_no", kingdoms_end),
         (party_get_battle_opponent, ":opponent", ":party_no"),
         (lt, ":opponent", 0), #not in a fight
 	(party_get_num_prisoner_stacks, ":num_prisoner_stacks",":party_no"),

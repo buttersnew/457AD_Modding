@@ -31,9 +31,9 @@ num_merchandise_goods = 36
 
 triggers = [
 
-    (0,0,ti_once,[(troop_slot_eq, "trp_player", slot_troop_religion, 0),],[
-      (call_script, "script_add_notification_menu","mnu_religion_selection",0,0),
-    ]),
+#    (0,0,ti_once,[(troop_slot_eq, "trp_player", slot_troop_religion, 0),],[
+#      (call_script, "script_add_notification_menu","mnu_religion_selection",0,0),
+#    ]),
 
     (0,0,ti_once,[
     (troop_slot_eq, "trp_player", slot_troop_culture, 0),

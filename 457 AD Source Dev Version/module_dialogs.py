@@ -38550,7 +38550,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
    "All right I will join you.", "close_window",
    [
      (troop_set_slot, "$g_talk_troop", slot_troop_prisoner_of_party, -1),
-     (party_force_add_members, "p_main_party", "$g_talk_troop", 1),#join hero
+     (call_script, "script_recruit_troop_as_companion", "$g_talk_troop"),
    ]],
 
   [anyone,"freed_hero_answer_3", [],

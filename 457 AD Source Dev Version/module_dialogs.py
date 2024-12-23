@@ -50067,7 +50067,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
   #1 = violence
   #x = ally in this instance
 
-#madsci minor kings should be able to become prisoners in regular centers but this is a failsafe in case it somehow ends up happening
+#madsci minor kings should NOT be able to become prisoners in regular centers but this is a failsafe in case it somehow ends up happening
 [anyone,"start", [
 (is_between, "$g_talk_troop", minor_kings_begin, minor_kings_end),
 (troop_get_slot, ":prison_location", "$g_talk_troop", slot_troop_prisoner_of_party),

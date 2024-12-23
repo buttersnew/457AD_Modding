@@ -28240,6 +28240,12 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       (call_script, "script_set_player_relation_with_faction", "$g_encountered_party_faction", 0),
       (faction_set_slot, "$g_encountered_party_faction", slot_faction_player_tributary, 1),
       (call_script, "script_change_troop_renown", "trp_player", 10),
+	(try_begin),
+	(is_between, "$players_kingdom", npc_kingdoms_begin, npc_kingdoms_end),
+        (store_relation, ":reln", "$g_encountered_party_faction", "$players_kingdom"),
+        (lt, ":reln", 0),
+	(set_relation, "$g_encountered_party_faction", "$players_kingdom", 0), #make neutral towards the players faction if subjugated
+	(try_end),
       (change_screen_map),
       ]),
 

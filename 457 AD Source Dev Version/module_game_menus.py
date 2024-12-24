@@ -28249,6 +28249,12 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         (lt, ":reln", 0),
 	(set_relation, "$g_encountered_party_faction", "$players_kingdom", 0), #make neutral towards the players faction if subjugated
 	(try_end),
+	(try_for_range, ":other_faction", npc_kingdoms_begin, npc_kingdoms_end),
+	(neq, "$players_kingdom", ":other_faction"),
+        (store_relation, ":reln", "$g_encountered_party_faction", ":other_faction"),
+        (gt, ":reln", 0),
+	(set_relation, "$g_encountered_party_faction", ":other_faction", 0), #this minor is no longer someone elses ally if the player subjugate them
+	(try_end),
       (change_screen_map),
       ]),
 

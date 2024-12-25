@@ -268,7 +268,7 @@ simple_triggers = [
       (try_begin),
         (gt, "$g_reset_mission_participation", 1),
 
-        (try_for_range, ":troop", active_npcs_begin, kingdom_ladies_end),
+        (try_for_range, ":troop", active_npcs_begin, heroes_end),
           (troop_set_slot, ":troop", slot_troop_mission_participation, 0),
         (try_end),
       (try_end),
@@ -776,7 +776,7 @@ simple_triggers = [
  (try_end),
 
  (try_begin),
-   (ge, "$g_hire_troops_and_controversy", kingdom_ladies_end), 
+   (ge, "$g_hire_troops_and_controversy", heroes_end), 
    (assign, "$g_hire_troops_and_controversy", active_npcs_begin),  
  (try_end),
  

@@ -3077,6 +3077,9 @@ slot_religion_judaism = 9
 minor_towns_begin = "p_aestii_village"
 minor_towns_end   = "p_religious_site_1"
 
+religious_sites_begin   = "p_religious_site_1"
+religious_sites_end   = "p_religious_sites_end"
+
 Troop_Tree_Area_Height = Screen_Title_Height-4*Screen_Text_Height
 Troop_Tree_Area_Width = Screen_Width-2*Screen_Border_Width
 Troop_Tree_Line_Color = 0x001380

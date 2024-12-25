@@ -2458,6 +2458,7 @@ If you would like to practice your horsemanship, you can take my horse here. The
    "close_window", [
     (finish_mission, 3),
     (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", -10),
+    (set_relation, "fac_kingdom_23", "fac_minor_saraguroi", 0), #madsci cease hostilities between the hunni and saraguroi
     (mission_cam_animate_to_screen_color, 0xFF000000, 2000),
     (jump_to_menu, "mnu_auto_return_to_map"),
     (mission_disable_talk),
@@ -2466,6 +2467,7 @@ If you would like to practice your horsemanship, you can take my horse here. The
    "You have shown yourself to be a true warrior and Ernak to be one who cares for his subjects' needs. We Saragurs are not keen on joining Ernak's cause, but your actions have earned our respect. We will serve Ernak in war, and we will fight fiercely.",
    "close_window", [
     (finish_mission, 3),
+    (set_relation, "fac_kingdom_23", "fac_minor_saraguroi", 0), #madsci cease hostilities between the hunni and saraguroi
     (mission_cam_animate_to_screen_color, 0xFF000000, 2000),
     (jump_to_menu, "mnu_auto_return_to_map"),
     (mission_disable_talk),

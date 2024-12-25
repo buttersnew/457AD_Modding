@@ -25362,6 +25362,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     (store_random_in_range, ":monastery_raid_hours", 2, 8),
     (rest_for_hours, ":monastery_raid_hours", 5, 1),
     (party_set_slot,"$g_encountered_party", slot_party_been_sacked, 1), #has to recover for 14 days before being pillaged again
+	(party_set_extra_text, "$g_encountered_party", "@(Looted)"),
     (set_background_mesh, "mesh_pic_looted_village"),
     (play_sound, "snd_cow_moo"),
     (party_clear, "$g_encountered_party"),
@@ -25523,6 +25524,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     (store_random_in_range, ":monastery_raid_hours", 2, 8),
     (rest_for_hours, ":monastery_raid_hours", 5, 1),
     (party_set_slot,"$g_encountered_party", slot_party_been_sacked, 1), #has to recover for 14 days before being pillaged again
+	(party_set_extra_text, "$g_encountered_party", "@(Looted)"),
     (set_background_mesh, "mesh_pic_looted_village"),
     (play_sound, "snd_cow_moo"),
     (party_clear, "$g_encountered_party"),
@@ -28395,6 +28397,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     (val_sub, ":prosperity_total", 5), #lose 5 prosperity per sack
     (party_set_slot, "$g_encountered_party", slot_town_prosperity, ":prosperity_total"),
     (party_set_slot,"$g_encountered_party", slot_party_been_sacked, 1), #has to recover for 7 days before being pillaged again
+	(party_set_extra_text, "$g_encountered_party", "@(Looted)"),
     ],
 
     [("continue",[],"Continue...",

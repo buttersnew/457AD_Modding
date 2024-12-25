@@ -663,6 +663,7 @@ parties = [
   ("religious_site_17","Stone_Circle",icon_castle_snow_b|pf_is_static|pf_always_visible|pf_hide_defenders, no_menu, pt_none, fac_pagans,0,ai_bhvr_hold,0,(-222.81,139.23),[]), #celtic pagan 
   ("religious_site_18","Altar_to_the_Skyfather",icon_castle_snow_b|pf_is_static|pf_always_visible|pf_hide_defenders, no_menu, pt_none, fac_pagans,0,ai_bhvr_hold,0,(45.91, 112),[]), #shamanism
   ("religious_site_19","Siwa",icon_castle_snow_b|pf_is_static|pf_always_visible|pf_hide_defenders, no_menu, pt_none, fac_roman_pagans,0,ai_bhvr_hold,0,(16.22, -96.75),[]), #egyptian paganism
+  ("religious_sites_end","religious_sites_end",pf_disabled|pf_is_static, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-118.47, 103.51),[]), 
 
   #Philae - egyptian pagan temple
   #Hippo/Carthage - generic chalcedonian monastery in N. Africa (used by the diocese)

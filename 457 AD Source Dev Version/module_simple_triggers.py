@@ -7113,9 +7113,10 @@ simple_triggers = [
 
 (108, #resets locations from being sacked
   [
-  (try_for_range, ":center_no", "p_religious_site_1", "p_deer_spawn_point"),
+  (try_for_range, ":center_no", religious_sites_begin, religious_sites_end),
     (party_slot_eq, ":center_no", slot_party_been_sacked, 1),
     (party_set_slot, ":center_no", slot_party_been_sacked, 0),
+(party_set_extra_text, ":center_no", "str_empty_string"), #clear extra text
   (try_end), 
 ]),  
 
@@ -7124,6 +7125,7 @@ simple_triggers = [
   (try_for_range, ":center_no", minor_towns_begin, minor_towns_end),
     (party_slot_eq, ":center_no", slot_party_been_sacked, 1),
     (party_set_slot, ":center_no", slot_party_been_sacked, 0),
+(party_set_extra_text, ":center_no", "str_empty_string"), #clear extra text
   (try_end), 
 ]),  
 

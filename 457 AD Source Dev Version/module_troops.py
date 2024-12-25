@@ -2084,7 +2084,7 @@ troops = [
    [itm_deurne_campagi_5,itm_deurne_campagi_6,itm_augst_helmet_2,itm_iatrus_1,itm_triveres_mail,itm_battle_axe_3,itm_spiculum,itm_oval_shield_cortoriacenses]+mail_roman_1,
    def_attrib_lvl_21|level(21),wp_one_handed(160)|wp_two_handed(150)|wp_polearm(150)|wp_archery(120)|wp_throwing(160),knows_lvl_21,roman_face_1, roman_face_2],
   #Dalmatia (raetia)
-  ["pedes_tertiani","Pedes Tertia Italica","Pedites Tertia Italica",tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_shield|tf_guarantee_helmet,0,0,fac_kingdom_1,
+  ["pedes_tertiani","Pedes Tertia Italica","Pedites Tertia Italica",tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_shield|tf_guarantee_helmet|tf_guarantee_polearm,0,0,fac_kingdom_1,
    [itm_deurne_campagi_3,itm_deurne_campagi_5,itm_intercisa_helmet_1,itm_iatrus_1,itm_burgh_helmet_1,itm_aquincum_spatha_1,itm_late_roman_spear_1,itm_spiculum,itm_oval_shield_tertiani]+mail_roman_1,
    def_attrib_lvl_21|level(21),wp_one_handed(160)|wp_two_handed(150)|wp_polearm(150)|wp_archery(120)|wp_throwing(160),knows_lvl_21,roman_face_1, roman_face_2],
   #AUXILIA PALATINA

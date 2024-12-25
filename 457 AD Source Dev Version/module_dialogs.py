@@ -50893,7 +50893,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
    "Rejoice! See, Mamertinus, how through faith you can conquer any adversary, either it be a demon, bandit or barbarian. Through Christ's compassion Favianis will have no further experience of hostile pillage; only let neither prosperity nor adversity withdraw the citizens from the work of God.", "severinus_favianis_bandits_3", []],
   [anyone|other(trp_severinus_quest_npc_2), "severinus_favianis_bandits_3", [], "Very well, Severinus. I will guide the people as you have told me.", "severinus_favianis_bandits_4", []],
   [trp_severinus, "severinus_favianis_bandits_4", [],
-   "Now, all of this travelling has made me tired. I need to find some solitude so that I may focus on my faith. I will withdraw from the town of Favianis for a time. If you wish to find me, I shall be at a remote spot, called Ad Vineas. Possibly from there I shall establish a community. God be with you, {playername}", "close_window", [
+   "Now, all of this travelling has made me tired. I need to find some solitude so that I may focus on my faith. I will withdraw from the town of Favianis for a time. I shall be at a remote spot, called Ad Vineas. Possibly from there I shall establish a community. God be with you, {playername}", "close_window", [
   (assign, "$g_can_recruit_noricum", 1), #can recruit
   (assign, "$g_severinus_quest", 10),
   (succeed_quest, "qst_severinus_quest"),
@@ -54164,7 +54164,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
 [anyone|plyr, "generic_player_meet_troop",[],"Farewell.", "close_window",[]],
 
   [anyone,"start", [
-  (neq|is_between, "$g_talk_troop", "trp_chal_bishop_jerusalem_1", "trp_roman_priest"),
+  (neq|is_between, "$g_talk_troop", "trp_charioteer_1", "trp_finn_hildeburh"),
   ], "Surrender or die. Make your choice", "battle_reason_stated",[]],
   [anyone|plyr,"battle_reason_stated", [], "I am not afraid of you. I will fight.", "close_window",[[encounter_attack]]],
 

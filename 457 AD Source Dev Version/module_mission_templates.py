@@ -2030,7 +2030,7 @@ freelancer_trigger2 = (ti_on_agent_spawn, 0, 0, [(eq, "$freelancer_state", 1)], 
 shield_taunt_trigger =  (
   0, 1.5, 0, 
   [
-    (key_clicked, key_t),
+  (key_clicked, key_t),
   (get_player_agent_no, ":player"),
   (agent_is_alive, ":player"),
   (agent_set_animation, ":player", "anim_shield_taunt_1", 1),
@@ -2078,7 +2078,7 @@ shield_taunt_trigger =  (
 cheer_trigger =  (
   0, 1.5, 0, 
   [
-    (key_clicked, key_t),
+  (key_clicked, key_t),
   (get_player_agent_no, ":player"),
   (agent_is_alive, ":player"),
   (agent_set_animation, ":player", "anim_cheer", 1),
@@ -2110,7 +2110,53 @@ cheer_trigger =  (
     #(display_message,  "@huzzah!"),
   (try_end),
   (display_message,  "@Huzzah! You encourage your nearby troops."),
+  ]
+
+  )
+
+
+player_ability = (
+
+  0, 0, 0, [
+  (key_clicked, key_t), #common warcry
+  ],
+  [ 
+    (try_begin),
+        (eq, "$player_ability", 0),
+        (get_player_agent_no, ":player"),
+        (agent_is_alive, ":player"),
+        (agent_set_animation, ":player", "anim_cheer", 1),
+        (agent_play_sound, ":player", "snd_man_victory"),
+        (get_player_agent_no, ":player"),
+        (agent_get_team, ":team", ":player"),
+        (agent_get_position, pos1, ":player"),
+        (try_for_agents, ":agent"),
+        (agent_is_alive, ":agent"),
+        (agent_is_human, ":agent"),
+        (agent_get_team, ":agent_team", ":agent"),
+        (eq, ":agent_team", ":team"),
+        (agent_get_position, pos0, ":agent"),
+        (get_distance_between_positions_in_meters,":distance",pos0, pos1),
+        (lt, ":distance", 20),
+        (agent_set_animation, ":agent", "anim_cheer", 1),
+        (agent_play_sound, ":agent", "snd_man_victory"),
+        (agent_get_slot, ":courage", ":agent", slot_agent_courage_score),
+        #(assign, reg0, ":courage"),
+        #(display_message, "@we have {reg0} courage"),
+        (val_add, ":courage", 5),
+        (val_min, ":courage", 9600),
+        #(assign, reg0, ":courage"),
+        #(display_message, "@now we have {reg0} courage"),
+        (agent_set_slot, ":agent", slot_agent_courage_score, ":courage"),
+        #(display_message,  "@huzzah!"),
+        (try_end),
+        (display_message,  "@Huzzah! You encourage your nearby troops."),
+    (else_try),
+        (eq, "$player_ability", 1), #berserk
+        (call_script,"script_berserk_trigger"),
+    (try_end),
   ])
+
 
 fallen_leader = (ti_on_agent_killed_or_wounded, 0, 0, [], # LEADER FALLEN
     [
@@ -2212,7 +2258,7 @@ custom_commander_hero_wounded =(
     ])
 
 enhanced_common_battle_triggers = [
-  cheer_trigger,
+  player_ability,
   custom_commander_critical_strike,
   custom_commander_hero_wounded,
   miracles,
@@ -22945,6 +22991,7 @@ mission_templates = [
           (tutorial_message_set_background, 1),
           (tutorial_message,"@The hunnic brute lies dead, on his corpse, a shiny object; what Caius was looking to be returned to him."),
           (call_script, "script_change_troop_renown", "trp_player", 1),
+          (troop_add_item, "trp_player","itm_scythian_bong",0),
           (call_script, "script_troop_add_gold", "trp_player", 100),
           (quest_set_slot,"qst_caius_quest", slot_quest_current_state, 2),
           (call_script, "script_succeed_quest", "qst_caius_quest"),          

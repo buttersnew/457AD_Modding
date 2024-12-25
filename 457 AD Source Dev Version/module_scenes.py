@@ -1632,7 +1632,7 @@ scenes = [
     [], [], "outer_terrain_steppe"),
   ("sabiroi_town", sf_generate, "none", "none", (0, 0), (220, 220), -100, "0x0000000220000500000811ff00007c1000000733000040f4",
     [], [], "outer_terrain_steppe"),
-  ("minor_roman_town",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000001300010c800054d5c00004af000005d3f00002ca0",
+  ("minor_roman_town",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000300005630007d1f800006aba0000574f00001099",
     [],[],"outer_terrain_plain"),
   ("heruli_town",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000030044e900003dd02000077b20000400100005697",
     [],[],"outer_terrain_plain"),
@@ -1738,7 +1738,7 @@ scenes = [
     [],[], "outer_terrain_plain"),
   ("steppe_shrine",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000020000663000521480000559b00006178000063e2",
     [],[], "outer_terrain_steppe"),
-  ("siwa",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000005000050000048d260000248b00007aa200007107",
+  ("siwa",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000025c600606000926470000240d0000747200007110",
     [],[],"outer_terrain_desert"),  
   
   ("german_temple_1", sf_generate, "none", "none", (0, 0), (240, 240), -0.5, "0x00000000bc634eb20003d0f20000135000004cf100002af3",[], [], "outer_terrain_plain"), #butters/maxi scenes

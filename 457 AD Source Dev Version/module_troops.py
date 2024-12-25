@@ -2761,7 +2761,7 @@ troops = [
    def_attrib_lvl_23|level(23),wp_one_handed(170)|wp_two_handed(170)|wp_polearm(175)|wp_throwing(170)|wp_archery(130),knows_lvl_23|knows_power_strike_6|knows_shield_5,roman_face_1, roman_face_2],
 
   ["sea_raider","Saxon Warrior (Duguthi)","Saxon Warriors (Duguthi)",tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_shield,0,0,fac_outlaws,
-   [itm_wrapping_boots,itm_hunter_boots,itm_tunic_1_cloak,itm_tunic_5_cloak,itm_tunic_8_cloak,itm_tunic_rich_7_cloak,itm_battered_mail_1_cloak,itm_common_mail_short_1_cloak,itm_common_mail_short_6_cloak,itm_burgh_helmet_light,itm_burgh_helmet_mail,itm_burgh_helmet_1,itm_drengsted_helmet_leather,itm_drengsted_helmet_mail,itm_triveres_leather,itm_triveres_mail,itm_woolen_cap_c,itm_woolen_cap_1,itm_woolen_cap_2,itm_angon_1,itm_boar_spear,itm_sword_medieval_a,itm_round_shield_germanic_5,itm_round_shield_germanic_11,itm_concave_shield_germanic_11,itm_round_shield_yellow_1,itm_round_shield_blue_2,itm_round_shield_red_2],
+   [itm_wrapping_boots,itm_hunter_boots,itm_tunic_1_cloak,itm_tunic_5_cloak,itm_tunic_8_cloak,itm_tunic_rich_7_cloak,itm_battered_mail_1_cloak,itm_common_mail_short_1_cloak,itm_common_mail_short_6_cloak,itm_drengsted_helmet_leather,itm_drengsted_helmet_mail,itm_triveres_leather,itm_triveres_mail,itm_pilna_helmet_mail,itm_pilna_helmet_leather,itm_tarasovsky_782_mail,itm_woolen_cap_c,itm_woolen_cap_1,itm_woolen_cap_2,itm_angon_1,itm_boar_spear,itm_sword_medieval_a,itm_round_shield_germanic_5,itm_round_shield_germanic_11,itm_concave_shield_germanic_11,itm_round_shield_yellow_1,itm_round_shield_blue_2,itm_round_shield_red_2],
    def_attrib_lvl_23|level(23),wp_one_handed(190)|wp_two_handed(170)|wp_polearm(170)|wp_throwing(180),knows_ironflesh_8|knows_shield_4|knows_power_strike_7|knows_power_throw_6|knows_riding_2|knows_athletics_7,germanic_face_1, germanic_face_2],
 
   #Iazyg Fat Aexsdzhytae
@@ -2778,7 +2778,7 @@ troops = [
    def_attrib_lvl_28|level(28),wp_one_handed(200)|wp_two_handed(200)|wp_polearm(230)|wp_throwing(200)|wp_archery(170),knows_athletics_3|knows_riding_7|knows_ironflesh_8|knows_power_throw_3|knows_power_draw_5|knows_weapon_master_6|knows_inventory_management_4|knows_power_strike_5|knows_horse_archery_5,sarmatian_face_1, sarmatian_face_2],
 
   ["taiga_bandit","Germanic Brigand","Germanic Brigands",tf_guarantee_boots|tf_guarantee_armor,0,0,fac_outlaws, #skirmishers
-   [itm_wooden_javelin,itm_wooden_javelin,itm_fighting_axe,itm_club,itm_winged_mace]+shoes_generic+tunics_western_germanic_1+hats_german+germanic_caps+shields_simple,
+   [itm_wooden_javelin,itm_wooden_javelin,itm_fighting_axe,itm_club,itm_winged_mace,itm_pilna_helmet_leather]+shoes_generic+tunics_western_germanic_1+hats_german+germanic_caps+shields_simple,
    def_attrib_lvl_18|level(16),wp_one_handed(150)|wp_two_handed(130)|wp_polearm(135)|wp_archery(100)|wp_crossbow(100)|wp_throwing(150)|wp_firearm(100),knows_common|knows_power_throw_3|knows_power_strike_3|knows_ironflesh_3|knows_shield_2|knows_athletics_4,germanic_face_1, germanic_face_2],
 
   ["desert_bandit","Mauri Bandit","Mauri Bandits",tf_mounted|tf_guarantee_armor|tf_guarantee_horse|tf_guarantee_ranged,0,0,fac_berber_rebels,

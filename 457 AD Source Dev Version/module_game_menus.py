@@ -26699,7 +26699,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     [
 
     ("option_1",[],"Farewell",[
-      (assign, "$berserker_ability", 1),
+      (assign, "$player_ability", 1),
       (assign, "$g_wolf_quest", 3), #can recruit
       (succeed_quest, "qst_the_wolfmen"),
       (add_xp_as_reward, 1000),

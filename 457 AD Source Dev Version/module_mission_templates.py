@@ -485,13 +485,21 @@ poisoned_arrows_damage = (6, 0, 0, [], [
     (try_end),
      ])
 
+#madsci put banner check in small_battle_check because the game doesnt like two conflicting triggers
 small_battle_check = (ti_on_agent_spawn, 0, 0,
     [
-        (store_add, ":total_size", "$g_friend_fit_for_battle", "$g_enemy_fit_for_battle"),
-        (le, ":total_size", 100),
     ],
     [
-        (store_trigger_param_1, ":agent_to_move"),
+        (store_trigger_param_1, ":agent_no"),
+	(try_begin),
+    	(agent_get_troop_id, ":troop_no", ":agent_no"),
+    	(call_script, "script_troop_agent_set_banner", "tableau_game_troop_label_banner", ":agent_no", ":troop_no"),
+	(try_end),
+
+	(try_begin),
+        (store_add, ":total_size", "$g_friend_fit_for_battle", "$g_enemy_fit_for_battle"),
+        (le, ":total_size", 100),
+	(assign, ":agent_to_move", ":agent_no"),
         (agent_is_active, ":agent_to_move"),
         
         (get_scene_boundaries, pos10, pos11),
@@ -519,6 +527,7 @@ small_battle_check = (ti_on_agent_spawn, 0, 0,
         (position_move_y, pos10, ":y_to_move"),
         
         (agent_set_position, ":agent_to_move", pos10),
+	(try_end),
 ])
 
 
@@ -7333,7 +7342,7 @@ mission_templates = [
      (4,mtef_attackers|mtef_team_1,0,aif_start_alarmed,65,[]),
      (4,mtef_attackers|mtef_team_1,0,aif_start_alarmed,0,[]),
      ], vc_weather +
-    [
+    [	
     small_battle_check,
     (ti_after_mission_start, 0, ti_once, [], [
       (mission_cam_set_screen_color, 0xFF000000),

@@ -1970,6 +1970,15 @@ simple_triggers = [
 (call_script, "script_cancel_quest", "qst_ernak_quest"),
 (quest_set_slot, "qst_ernak_quest", slot_quest_current_state, -2),
 (try_end),
+
+(try_begin),
+(neg|check_quest_active, "qst_hunt_down_fugitive"),
+(party_count_prisoners_of_type, ":count", "p_main_party", "trp_fugitive"),
+(gt, ":count", 0),
+(str_store_troop_name_by_count, s10, "trp_fugitive", ":count"),
+(party_remove_prisoners, "p_main_party", "trp_fugitive", ":count"),
+(display_message, "@{s10} escaped from your party!"),
+(try_end),
     ]),
 
 

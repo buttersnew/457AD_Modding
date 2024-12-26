@@ -54127,6 +54127,19 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
 "You're not going anywhere, 'friend'.", "close_window",
 []],
 
+#madsci generic trader dialogue
+  [anyone, "start", [
+(is_between, "$g_talk_troop", "trp_aestii_merchant_1", "trp_charioteer_1"),
+(is_between, "$g_encountered_party", minor_towns_begin, minor_towns_end),
+                     ],
+   "Good day {sir/madam}, will you be looking at my wares?", "generic_trader_talk", []],
+  [anyone|plyr, "generic_trader_talk", [], "Yes. Show me what you have for sale.", "generic_trader_buy", []],
+
+  [anyone,"generic_trader_buy", [], "Of course {sir/madam}.", "generic_trader_buy_completed",[[change_screen_trade]]],
+  [anyone,"generic_trader_buy_completed", [], "Anything else?", "generic_trader_talk",[]],
+
+  [anyone|plyr,"generic_trader_talk", [], "No thanks. Farewell.", "close_window",[]],
+
 #generic dialogue for meeting random hero characters
   [anyone,"start", [
 (troop_is_hero, "$g_talk_troop"),

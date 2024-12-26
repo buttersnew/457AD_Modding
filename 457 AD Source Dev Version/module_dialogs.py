@@ -51391,11 +51391,11 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
 
   [trp_br_amatus, "amatus_intro_6", [], 
    "Very well. An old friend of mine resides in Sirmium, a mariner named Gerontius. He will ferry you to my villa by way of the river Danuvius but be warned, the voyage is perilous. Even before she was overrun, Pannonia was but an untenable frontier. The deeper you go, the dimmer the light of God shines", "close_window", [
-    (call_script, "script_start_quest", "qst_black_river", "$g_talk_troop"),
-    (quest_set_slot,"qst_black_river", slot_quest_current_state, 1),
-    (setup_quest_text, "qst_black_river"),
     (str_store_party_name_link, s3, "p_town_10"),
-    (str_store_string, s2, "@An old Roman senator, by the name of Amatus, has hired you to find his hoard of treasures in his abandoned villa in Pannonia Valeria. In order to gain passage to it, you must speak to a mariner by the name of Gerontius in {s3}."),   
+    (setup_quest_text, "qst_black_river"),
+    (str_store_string, s2, "@An old Roman senator, by the name of Amatus, has hired you to find his hoard of treasures in his abandoned villa in Pannonia Valeria. In order to gain passage to it, you must speak to a mariner by the name of Gerontius in {s3}."),  
+    (call_script, "script_start_quest", "qst_black_river", "$g_talk_troop"),  #madsci set the texts before the quest starts or the correct description doesnt show
+    (quest_set_slot,"qst_black_river", slot_quest_current_state, 1),
    ]],
 
   [trp_br_amatus, "start", [],

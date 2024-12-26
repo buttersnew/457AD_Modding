@@ -41984,7 +41984,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
 
   [anyone, "start", [
   (eq, "$talk_context", tc_tavern_talk),
-  (neq|is_between, "$g_talk_troop", "trp_chal_bishop_jerusalem_1", "trp_finn_hildeburh"),
+  (neg|is_between, "$g_talk_troop", "trp_chal_bishop_jerusalem_1", "trp_finn_hildeburh"),
   ],
    "Any orders, {sir/madam}?", "mercenary_after_recruited", []],
 
@@ -54166,7 +54166,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
 [anyone|plyr, "generic_player_meet_troop",[],"Farewell.", "close_window",[]],
 
   [anyone,"start", [
-  (neq|is_between, "$g_talk_troop", "trp_charioteer_1", "trp_finn_hildeburh"),
+  (neg|is_between, "$g_talk_troop", "trp_charioteer_1", "trp_finn_hildeburh"),
   ], "Surrender or die. Make your choice", "battle_reason_stated",[]],
   [anyone|plyr,"battle_reason_stated", [], "I am not afraid of you. I will fight.", "close_window",[[encounter_attack]]],
 

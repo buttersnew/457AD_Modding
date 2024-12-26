@@ -1984,7 +1984,12 @@ vc_water = [			# 5 trigger
   (ti_on_agent_spawn, 0, ti_once, [],		#preparations
     [
       (assign, ":beaufort_copy", "$beaufort"),
-      #(store_current_scene, ":cur_scene"),
+      (store_current_scene, ":cur_scene"),
+	(try_begin),
+        (neq, ":cur_scene", "scn_sea_battle"),
+        (assign, "$beaufort", 1),
+        (val_min, "$beaufort", ":beaufort_copy"),
+      (end_try),
       (call_script, "script_get_wave_properties"),
       (assign, "$Amplitude_x",	reg1),
       (assign, "$Amplitude_y",	reg2),

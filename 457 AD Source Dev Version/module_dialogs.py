@@ -46542,7 +46542,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
     [anyone,"start", [
 	(this_or_next|eq, "$g_encountered_party_template", "pt_sea_raiders"),
 	(eq, "$g_encountered_party_template", "pt_saxon_raiders"),
-	(this_or_next|eq, "$g_talk_troop_faction", "fac_outlaws"),
+	(this_or_next|encountered_party_is_attacker),
     	(eq, "$g_encountered_party_faction", "fac_outlaws"), #first stack should always be a bandit
     ],
    "I will drink from your skull!", "battle_reason_stated",[

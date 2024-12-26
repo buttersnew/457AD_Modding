@@ -4932,6 +4932,7 @@ simple_triggers = [
       (eq, "$disable_npc_complaints", 0),
       (troop_get_slot, ":object", "$npc_with_personality_clash", slot_troop_personalityclash_object),
       (try_begin),
+	(gt, ":object", 0),
         (main_party_has_troop, "$npc_with_personality_clash"),
         (main_party_has_troop, ":object"),
         (neq, "$g_player_is_captive", 1),

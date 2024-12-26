@@ -52360,8 +52360,11 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
    "Bastards and whoresons, they did do that, but we cannot be killed that easily. We feel that war and dying in battle is natural way of life. Look around you, laws and treaties crumble, tribes are preparing for a great struggle and the empires of old are getting older. I feel that this time they cannot stem the tides that crash towards them, after all only the dead have seen the end of war...", "minor_faction_king_pretalk", []],
 
   ##onogur
-  [trp_onoguroi_king, "start", [(eq, "$g_talk_troop_met", 0),],
-  "Who are you? Another warlord come to drive us from our pastures, to carry off our property and our kin? Heed my words, outsider - the only pickings you will take home are your dead. You stand before Ernak, favored son of Attila - the man called ‘scourge of God' by the Romans. Speak, lout!", "onogur_intro_1", []],
+  [trp_onoguroi_king, "start", [(eq, "$g_talk_troop_met", 0),
+(str_store_troop_name, s10, "$g_talk_troop"),
+(str_store_faction_name, s11, "$g_talk_troop_faction"),
+],
+  "Who are you? Another warlord come to drive us from our pastures, to carry off our property and our kin? Heed my words, outsider - the only pickings you will take home are your dead. You stand before {s10}, king of the {s11}. Speak, lout!", "onogur_intro_1", []],
   [anyone|plyr, "onogur_intro_1", [],
   "I harbor no intent of aggression, great chief. I am {playername}, a traveler wandering these steppes. I come only to catch my breath, for your camp offers respite from the scorching sun and the biting wind.", "onogur_intro_2", []],
   [trp_onoguroi_king, "onogur_intro_2", [],
@@ -52369,7 +52372,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
   [anyone|plyr, "onogur_ask_1", [],
   "What ails them, lord?", "onogur_answer_1", []],
   [trp_onoguroi_king, "onogur_answer_1", [],
-  "Alas, they still bereave the death of my father. The loss of his strong hand shattered our confederacy, turning tribe against tribe as in ancient times. Having no help from my brother Dengizich, the Sabirs - a wicked and cruel people from the east, seized on our disunity to subdue us. Now a Sabir may simply walk into our camp and demand anything - our animals, our warriors, even our daughters, and no one may rebuke him. Bah! Why must an heir of Atilla pay tribute to a lowly chief such as theirs?", "onogur_answer_2", []],
+  "Alas, they still bereave the death of Attila. The loss of his strong hand shattered our confederacy, turning tribe against tribe as in ancient times. Having no help from his son Dengizich, the Sabirs - a wicked and cruel people from the east, seized on our disunity to subdue us. Now a Sabir may simply walk into our camp and demand anything - our animals, our warriors, even our daughters, and no one may rebuke him. Bah! Why must {s10} pay tribute to a lowly chief such as theirs?", "onogur_answer_2", []],
   [anyone|plyr, "onogur_answer_2", [],
   "The Sabirs may reign for the time being, but I can sense the hardiness of your people. Countless tribes have vanished beneath the tide of eastern conquerors, yet the Onogurs appear determined to endure. I know that you will lead them to greatness - perhaps your line may even complete that which your forebearer began at Utus in 447.", "onogur_answer_3", []],
   [trp_onoguroi_king, "onogur_answer_3", [],

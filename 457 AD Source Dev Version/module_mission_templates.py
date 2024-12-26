@@ -48,6 +48,2676 @@ bard_disguise = [itm_deurne_campagi_2,itm_lyre,itm_coptic_tunic_4,itm_winged_mac
 
 af_castle_lord = af_override_horse | af_override_weapons| af_require_civilian
 
+#MADSCI VC SEA BATTLE
+common_maritime_prepare_cb_weather =(
+  ti_before_mission_start, 0, ti_once, [],
+  [
+    (store_current_scene, ":cur_scene"),
+    (try_begin),
+      (eq, ":cur_scene", "scn_sea_battle"),
+      (store_random_in_range, "$beaufort", 3, 7),
+      (scene_set_day_time, 18),
+      (store_random_in_range, ":rand", 0, 25),
+      (set_global_cloud_amount, ":rand"),
+      (assign, "$lightning_cycle", -1),
+      (play_sound,"snd_ambient_sea_loop"),
+    (else_try),
+      # (eq, ":cur_scene", "scn_sea_battle_storm"),
+      (scene_set_day_time, 20),
+      #(set_skybox, 4, 5),
+      (set_startup_sun_light, 0, 0, 0),
+      (set_startup_ambient_light, 1, 2, 5),
+      (set_startup_ground_ambient_light, 1, 2, 5),
+      
+      (store_random_in_range, "$beaufort", 7, 12),
+      
+      #(store_random_in_range, ":rand", 60, 101),
+      (set_global_cloud_amount, 100),
+      (assign, "$lightning_cycle", 0),
+      (set_rain, 1, 300),
+      (set_fog_distance, 800, 0x0f0f0f),
+      (play_sound,"snd_heavy_rain_sea_loop"),
+    (end_try),
+    (store_last_sound_channel, "$ambiance_channel"),
+])
+common_maritime_randomize_spawn_points =(
+  ti_on_agent_spawn, 0, ti_once, [],
+  [
+    (store_current_scene, ":cur_scene"),
+    (eq, ":cur_scene", "scn_sea_battle"),
+    
+    (set_fixed_point_multiplier, 1),
+    #(store_random_in_range, ":fleet_distance", -20000, -30000),
+    #(assign, ":fleet_distance", -10000),
+    (assign, ":fleet_distance",   -5000),
+    
+    (assign, reg7, "$startup_battle_size"),
+    
+    (try_begin),
+      (gt, "$startup_battle_size", 0),
+      (val_min, "$startup_battle_size", 300),
+      (store_mul, ":extra_distance", "$startup_battle_size", 50),
+    (else_try),
+      (store_random_in_range, ":extra_distance", 0, 15000),
+    (end_try),
+    (val_sub, ":fleet_distance", ":extra_distance"),
+    
+    (try_begin),
+      (ge, "$vc_debug_mode", 1),
+      (assign, reg8, ":fleet_distance"),
+      (display_message, "@{!}TEST: startup_battle_size = {reg7}, fleet_distance = {reg8}"),
+    (end_try),
+    
+    (assign, ":ship_distance", 6000),
+    (store_mul, ":neg_ship_distance", ":ship_distance", -1),
+    (assign, ":offset", 4000),
+    (store_mul, ":neg_offset", ":offset", -1),
+    
+    (init_position, pos1),
+    (position_set_x, pos1, 420),
+    (position_set_y, pos1, 420),	#middle of scene
+    (position_set_z, pos1, 0),
+    (store_random_in_range, ":rot", 0, 360),
+    (position_rotate_z, pos1, ":rot"),
+    (copy_position, pos50, pos1),
+    (position_rotate_z, pos1, 180),
+    (copy_position, pos60, pos1),
+    
+    #TEAM 0
+    # line1: center
+    (position_move_x, pos50, ":fleet_distance"),
+    (position_rotate_z, pos50, -90),
+    (copy_position, pos52, pos50),
+    (copy_position, pos53, pos50),
+    (entry_point_set_position, 51, pos50),
+    
+    # line1: flank1
+    (position_move_x, pos52, ":ship_distance"),
+    (store_random_in_range, ":x_offset", ":neg_offset", ":offset"),
+    (store_random_in_range, ":y_offset", ":neg_offset", ":offset"),
+    (position_move_x, pos52, ":x_offset"),
+    (position_move_y, pos52, ":y_offset"),
+    (entry_point_set_position, 52, pos52),
+    (position_move_x, pos52, ":ship_distance"),
+    (store_random_in_range, ":x_offset", ":neg_offset", ":offset"),
+    (store_random_in_range, ":y_offset", ":neg_offset", ":offset"),
+    (position_move_x, pos52, ":x_offset"),
+    (position_move_y, pos52, ":y_offset"),
+    (entry_point_set_position, 54, pos52),
+    # line1: flank2
+    (position_move_x, pos53, ":neg_ship_distance"),
+    (store_random_in_range, ":x_offset", ":neg_offset", ":offset"),
+    (store_random_in_range, ":y_offset", ":neg_offset", ":offset"),
+    (position_move_x, pos53, ":x_offset"),
+    (position_move_y, pos53, ":y_offset"),
+    (entry_point_set_position, 53, pos53),
+    (position_move_x, pos53, ":neg_ship_distance"),
+    (store_random_in_range, ":x_offset", ":neg_offset", ":offset"),
+    (store_random_in_range, ":y_offset", ":neg_offset", ":offset"),
+    (position_move_x, pos53, ":x_offset"),
+    (position_move_y, pos53, ":y_offset"),
+    (entry_point_set_position, 55, pos53),
+    
+    # line2: center
+    (position_move_y, pos50, -10000),
+    (copy_position, pos57, pos50),
+    (copy_position, pos58, pos50),
+    (store_random_in_range, ":x_offset", ":neg_offset", ":offset"),
+    (store_random_in_range, ":y_offset", ":neg_offset", ":offset"),
+    (position_move_x, pos53, ":x_offset"),
+    (position_move_y, pos53, ":y_offset"),
+    (entry_point_set_position, 56, pos50),
+    # line2: flank1
+    (position_move_x, pos57, ":ship_distance"),
+    (store_random_in_range, ":x_offset", ":neg_offset", ":offset"),
+    (store_random_in_range, ":y_offset", ":neg_offset", ":offset"),
+    (position_move_x, pos57, ":x_offset"),
+    (position_move_y, pos57, ":y_offset"),
+    (entry_point_set_position, 57, pos57),
+    (position_move_x, pos57, ":ship_distance"),
+    (store_random_in_range, ":x_offset", ":neg_offset", ":offset"),
+    (store_random_in_range, ":y_offset", ":neg_offset", ":offset"),
+    (position_move_x, pos57, ":x_offset"),
+    (position_move_y, pos57, ":y_offset"),
+    (entry_point_set_position, 59, pos57),
+    # line2: flank2
+    (position_move_x, pos58, ":neg_ship_distance"),
+    (store_random_in_range, ":x_offset", ":neg_offset", ":offset"),
+    (store_random_in_range, ":y_offset", ":neg_offset", ":offset"),
+    (position_move_x, pos58, ":x_offset"),
+    (position_move_y, pos58, ":y_offset"),
+    (entry_point_set_position, 58, pos58),
+    (position_move_x, pos58, ":neg_ship_distance"),
+    (store_random_in_range, ":x_offset", ":neg_offset", ":offset"),
+    (store_random_in_range, ":y_offset", ":neg_offset", ":offset"),
+    (position_move_x, pos58, ":x_offset"),
+    (position_move_y, pos58, ":y_offset"),
+    (entry_point_set_position, 60, pos58),
+    
+    #TEAM 1
+    # line1: center
+    (position_move_x, pos60, ":fleet_distance"),
+    (position_rotate_z, pos60, -90),
+    (copy_position, pos62, pos60),
+    (copy_position, pos63, pos60),
+    (entry_point_set_position, 61, pos60),
+    
+    # line1: flank1
+    (position_move_x, pos62, ":ship_distance"),
+    (store_random_in_range, ":x_offset", ":neg_offset", ":offset"),
+    (store_random_in_range, ":y_offset", ":neg_offset", ":offset"),
+    (position_move_x, pos62, ":x_offset"),
+    (position_move_y, pos62, ":y_offset"),
+    (entry_point_set_position, 62, pos62),
+    (position_move_x, pos62, ":ship_distance"),
+    (store_random_in_range, ":x_offset", ":neg_offset", ":offset"),
+    (store_random_in_range, ":y_offset", ":neg_offset", ":offset"),
+    (position_move_x, pos62, ":x_offset"),
+    (position_move_y, pos62, ":y_offset"),
+    (entry_point_set_position, 64, pos62),
+    # line1: flank2
+    (position_move_x, pos63, ":neg_ship_distance"),
+    (store_random_in_range, ":x_offset", ":neg_offset", ":offset"),
+    (store_random_in_range, ":y_offset", ":neg_offset", ":offset"),
+    (position_move_x, pos63, ":x_offset"),
+    (position_move_y, pos63, ":y_offset"),
+    (entry_point_set_position, 63, pos63),
+    (position_move_x, pos63, ":neg_ship_distance"),
+    (store_random_in_range, ":x_offset", ":neg_offset", ":offset"),
+    (store_random_in_range, ":y_offset", ":neg_offset", ":offset"),
+    (position_move_x, pos63, ":x_offset"),
+    (position_move_y, pos63, ":y_offset"),
+    (entry_point_set_position, 65, pos63),
+    
+    # line2: center
+    (position_move_y, pos60, -10000),
+    (copy_position, pos17, pos60),
+    (copy_position, pos18, pos60),
+    (store_random_in_range, ":x_offset", ":neg_offset", ":offset"),
+    (store_random_in_range, ":y_offset", ":neg_offset", ":offset"),
+    (position_move_x, pos60, ":x_offset"),
+    (position_move_y, pos60, ":y_offset"),
+    (entry_point_set_position, 66, pos60),
+    # line2: flank1
+    (position_move_x, pos17, ":ship_distance"),
+    (store_random_in_range, ":x_offset", ":neg_offset", ":offset"),
+    (store_random_in_range, ":y_offset", ":neg_offset", ":offset"),
+    (position_move_x, pos17, ":x_offset"),
+    (position_move_y, pos17, ":y_offset"),
+    (entry_point_set_position, 67, pos17),
+    (position_move_x, pos17, ":ship_distance"),
+    (store_random_in_range, ":x_offset", ":neg_offset", ":offset"),
+    (store_random_in_range, ":y_offset", ":neg_offset", ":offset"),
+    (position_move_x, pos17, ":x_offset"),
+    (position_move_y, pos17, ":y_offset"),
+    (entry_point_set_position, 69, pos17),
+    # line2: flank2
+    (position_move_x, pos18, ":neg_ship_distance"),
+    (store_random_in_range, ":x_offset", ":neg_offset", ":offset"),
+    (store_random_in_range, ":y_offset", ":neg_offset", ":offset"),
+    (position_move_x, pos18, ":x_offset"),
+    (position_move_y, pos18, ":y_offset"),
+    (entry_point_set_position, 68, pos18),
+    (position_move_x, pos18, ":neg_ship_distance"),
+    (store_random_in_range, ":x_offset", ":neg_offset", ":offset"),
+    (store_random_in_range, ":y_offset", ":neg_offset", ":offset"),
+    (position_move_x, pos18, ":x_offset"),
+    (position_move_y, pos18, ":y_offset"),
+    (entry_point_set_position, 70, pos18),
+    
+    (set_fixed_point_multiplier, 100),
+    
+])
+common_maritime_spawn =(
+  ti_on_agent_spawn, 0, 0, [],
+  [
+    
+    (store_trigger_param_1, ":agent"),
+    (agent_is_human,":agent"),
+    (agent_ai_set_always_attack_in_melee, ":agent", 1),
+    (agent_get_team  , ":agent_team", ":agent"),
+    #(agent_get_party_id, ":agent_party", ":agent"), #new!
+    (try_begin),
+      
+      # 1. CONDITIONS
+      (assign, ":team_0_allowed", 0),
+      (try_begin),
+        (eq, ":agent_team", 0),
+        (neq, "$coastal_battle", 1),	# means: sea battle
+        (assign, ":team_0_allowed", 1),
+      (end_try),
+      (this_or_next|eq, ":agent_team", 1),			# TEST!!!
+      (eq, ":team_0_allowed", 1),			# TEST!!!
+      
+      # 2. GET DATA
+      (try_begin),
+        (eq, ":agent_team", 0),
+        (assign, ":curr_team_agent_counter", "$team_0_agent_counter"),
+        (assign, ":curr_team_last_spawned_ship", "$last_spawned_ship_team_0"),
+        (assign, ":curr_team_ship_counter", "$team_0_ship_counter"),
+        (assign, ":quest", "qst_team_0_ships"),#new!
+        (copy_position, pos0, pos50),
+      (else_try),
+        (assign, ":curr_team_agent_counter", "$team_1_agent_counter"),
+        (assign, ":curr_team_last_spawned_ship", "$last_spawned_ship_team_1"),
+        (assign, ":curr_team_ship_counter", "$team_1_ship_counter"),
+        (assign, ":quest", "qst_team_1_ships"),#new!
+        (copy_position, pos0, pos60),
+      (end_try),
+      
+      # 3. SPAWN A SHIP
+      (try_begin),
+        (le, ":curr_team_agent_counter", 0),
+        
+        (try_begin),	# Getting Ships
+          (store_add, ":ship_type_slot", ":curr_team_ship_counter", slot_quest_1_ship_type),
+          (store_add, ":ship_cond_slot", ":curr_team_ship_counter", slot_quest_1_ship_cond),
+          (store_add, ":ship_prop_slot", ":curr_team_ship_counter", slot_quest_1_ship_prop),
+          (quest_get_slot, ":ship_type", ":quest", ":ship_type_slot"),
+          (quest_get_slot, ":ship_quality", ":quest", ":ship_cond_slot"),
+          (quest_get_slot, ":ship_propertys", ":quest", ":ship_prop_slot"),
+        (end_try),
+        
+        (try_begin),
+          (this_or_next|neg|is_between, ":ship_type", 1, 9),	# There are only 6 ship types
+          (neg|is_between, ":ship_quality", 5, 101),
+          (assign, ":ship_type", 0),
+          (store_random_in_range, ":ship_quality", 75, 100),
+          (store_random_in_range, ":ship_propertys", 1, 4),
+          (assign, reg9, ":agent_team"),
+          (ge, "$cheat_mode", 1),
+          (display_message, "@{!}INFO: While spawning ship I have to randomize ships for team {reg9}."), #off for demo
+        (end_try),
+        #(display_message,"@{!}Conditions_for_ship_spawning_fullfilled!", 0xFFADD6FF),
+        (val_add, ":curr_team_ship_counter", 1), #!
+        (try_begin),
+          (eq, ":agent_team", 0),
+          (store_add, ":entry_no", 50, ":curr_team_ship_counter"),
+          (entry_point_get_position, pos1, ":entry_no"),
+        (else_try),
+          (store_add, ":entry_no", 60, ":curr_team_ship_counter"),
+          (entry_point_get_position, pos1, ":entry_no"),
+        (end_try),
+        (position_rotate_z, pos1, 90),				# correkt angle
+        #(position_set_z, pos0, -80),				# high of the ship
+        (call_script, "script_calculate_rocking_to_pos1"),# NEW!
+        (set_spawn_position, pos1),
+        (call_script, "script_spawn_ship", ":ship_type", ":ship_propertys"),
+        (assign, ":curr_team_last_spawned_ship", reg0),
+        # try fixing VC-1351 begin
+        # (prop_instance_get_position, pos1,  ":curr_team_last_spawned_ship"),
+        # (call_script, "script_calculate_rocking_to_pos1"),
+        # (prop_instance_set_position, ":curr_team_last_spawned_ship", pos1),	#because it looks like the spawn point does not care about rotation...
+        # (scene_prop_get_slot, ":ship_main_instance", ":curr_team_last_spawned_ship", scene_prop_main_instance),
+        # (prop_instance_set_position, ":ship_main_instance", pos1),
+        # try fixing VC-1351 end
+        (scene_prop_set_slot, ":curr_team_last_spawned_ship", scene_prop_quality, ":ship_quality"), ### in %
+        (scene_prop_set_slot, ":curr_team_last_spawned_ship", scene_prop_ship_number, ":curr_team_ship_counter"),
+        
+        (call_script, "script_check_player_ship"),#VC-3343
+      (try_end),
+      
+      # 4. SPAWN A AGENT
+      (prop_instance_get_position, pos1,  ":curr_team_last_spawned_ship"),
+      (call_script, "script_give_agent_position_on_ship", ":curr_team_agent_counter", ":curr_team_last_spawned_ship"),
+      (agent_set_position, ":agent", pos4),
+      (agent_set_slot, ":agent", slot_agent_on_ship, ":curr_team_last_spawned_ship"),
+      (agent_set_slot, ":agent", slot_agent_position_on_ship, ":curr_team_agent_counter"),
+      #(agent_set_division, ":agent", ":curr_team_ship_counter"),	#NEW:ORDERS!!!
+      (val_add, ":curr_team_agent_counter", 1),
+      
+      (try_begin),		# Give crew stones (Brustwarzenlenny)
+        (agent_is_non_player, ":agent"),
+        (agent_get_ammo, ":ammo", ":agent", 0),
+        (le, ":ammo", 0),
+        (agent_equip_item, ":agent", "itm_stones"),
+      (try_end),
+      
+      (try_begin),
+        (scene_prop_get_slot, ":ship_type", ":curr_team_last_spawned_ship", scene_prop_ship_type),
+        (call_script, "script_get_ship_properties", ":ship_type"),
+        (ge, ":curr_team_agent_counter", reg6),	# reg6= max_crew of ship
+        (assign, ":curr_team_agent_counter", 0),
+      (try_end),
+      
+      # 5. SET DATA
+      (try_begin),
+        (eq, ":agent_team", 0),
+        (assign, "$team_0_agent_counter", ":curr_team_agent_counter"),
+        (assign, "$last_spawned_ship_team_0", ":curr_team_last_spawned_ship"),
+        (assign, "$team_0_ship_counter", ":curr_team_ship_counter"),
+        (copy_position, pos50, pos0),
+      (else_try),
+        (assign, "$team_1_agent_counter", ":curr_team_agent_counter"),
+        (assign, "$last_spawned_ship_team_1", ":curr_team_last_spawned_ship"),
+        (assign, "$team_1_ship_counter", ":curr_team_ship_counter"),
+        (copy_position, pos60, pos0),
+      (end_try),
+    (try_end),
+])
+common_maritime_ui =(
+  1, 0, 0, [],[
+    
+    (try_begin), #presentacion naval
+      (neg|is_presentation_active, "prsnt_battle"),
+      (neg|is_presentation_active, "prsnt_order_display"),
+      (neg|is_presentation_active, "prsnt_naval_ui"),
+      (neq, "$player_ship_number", -1),
+      (start_presentation, "prsnt_naval_ui"),
+    (try_end),
+])
+common_maritime_reinforcements =(
+  1, 0, 0, [],[
+    
+    # ACCORDING REINFORCEMENT
+    (try_begin),
+      (store_mission_timer_a,":mission_time"),
+      (ge,":mission_time",10),
+      (try_begin),
+        # TEAM 1
+        (lt,"$attacker_reinforcement_stage", "$g_attacker_reinforcement_limit"),
+        (store_normalized_team_count,":num_team_1", 1),
+        (lt,":num_team_1", 30),
+        (assign, "$team_1_agent_counter", 0),
+        (add_reinforcements_to_entry,2,7),	#! was 3
+        (val_add,"$attacker_reinforcement_stage",1),
+      (try_end),
+      (try_begin),
+        # TEAM 0
+        (lt,"$defender_reinforcement_stage", "$g_defender_reinforcement_limit"),
+        (store_normalized_team_count,":num_team_0", 0),
+        (lt,":num_team_0", 30),
+        (assign, "$team_0_agent_counter", 0),
+        (add_reinforcements_to_entry,0,7),
+        (val_add,"$defender_reinforcement_stage",1),
+      (try_end),
+    (try_end),
+    
+])
+common_maritime_drowning =(
+  1, 0, 0,
+  [
+    (store_mission_timer_a, ":cur_time"),
+    (gt, ":cur_time", 5),
+    ],[
+    # ACCORDING DROWNING
+    (set_fixed_point_multiplier, 100),
+    (try_for_agents,":agent"),
+      (agent_is_alive,":agent"),
+      (agent_is_human,":agent"),
+      (agent_get_position,pos6,":agent"),
+      (try_begin),
+        (position_get_z, ":deep", pos6),
+        (lt, ":deep", -200),
+        (try_begin),
+          # # new:
+          # (neg|game_in_multiplayer_mode),
+          # (agent_is_non_player, ":agent"),
+          # # (remove_agent, ":agent"),
+          # (agent_fade_out, ":agent"),
+          # (else_try),
+          (agent_is_non_player, ":agent"),
+          (agent_set_hit_points, ":agent", 0, 1),
+          (agent_set_slot, ":agent", slot_agent_vc_wounded, 1),
+          (agent_deliver_damage_to_agent, ":agent", ":agent" ,1),
+        (else_try),
+          (agent_set_hit_points, ":agent", 0, 1),
+          (agent_deliver_damage_to_agent, ":agent", ":agent" ,1),
+          #(mission_cam_animate_to_screen_color, 0xEE35586C, 1000),	# off for Moto death cam
+        (end_try),
+        
+      (else_try),
+        #(eq, "$coastal_battle", 0),	# means: sea battle
+        (get_player_agent_no, ":player_agent"),
+        (neq, ":agent", ":player_agent"),
+        (agent_get_slot, ":agent_ship" , ":agent", slot_agent_on_ship),
+        (neg|scene_prop_slot_eq, ":agent_ship", scene_prop_boarding_progress, -1),	#new for VC-1865
+        (try_begin),
+          (neq, ":agent_ship", 0),
+          (prop_instance_get_position, pos7, ":agent_ship"),
+          (get_distance_between_positions, ":distance", pos6, pos7),
+          (scene_prop_get_slot, ":size", ":agent_ship", scene_prop_distance_to_front),
+          (val_add, ":size", 100),
+          (gt, ":distance", ":size"),
+          # (agent_fade_out, ":agent"),
+          (agent_set_slot, ":agent", slot_agent_vc_wounded, 1),
+          (agent_deliver_damage_to_agent,":agent" ,":agent" ,1000),
+        (else_try),
+          (eq, "$coastal_battle", 0),	# means: sea battle
+          (assign, ":life", 0),
+          #(scene_prop_get_num_instances, ":number_of_ships", "spr_dyn_ship_substrate"),
+          (try_for_range,":ship_number", 0, "$number_of_ships_global"),
+            (scene_prop_get_instance, ":ship_instance", "spr_dyn_ship_substrate", ":ship_number"),
+            (prop_instance_get_position, pos7, ":ship_instance"),
+            (get_distance_between_positions, ":distance", pos6, pos7),
+            (scene_prop_get_slot, ":size", ":ship_instance", scene_prop_distance_to_front),
+            (val_add, ":size", 100),
+            (lt, ":distance", ":size"),
+            (assign, ":life", 1),
+          (end_try),
+          (try_begin),
+            (neq, ":life", 1),
+            # (agent_fade_out, ":agent"),
+           (agent_set_slot, ":agent", slot_agent_vc_wounded, 1),
+            (agent_deliver_damage_to_agent,":agent" ,":agent" ,1000),
+          (end_try),
+        (end_try),
+      (end_try),
+    (end_try),
+])
+common_maritime_commands =(
+  0, 0, 0, [],[
+    
+    (try_begin),
+      # CONDTIOION
+      (neq, "$block_player_ship_control", 1),
+      
+      # GET DATA
+      (gt, "$player_ship_number", -1),
+      (get_player_agent_no, ":agent"),
+      (gt, ":agent", -1),	# for motos camera
+      (agent_is_alive,":agent"),
+      (scene_prop_get_instance, ":ship_instance", "spr_dyn_ship_substrate", "$player_ship_number"),
+      (scene_prop_get_slot, ":sail", ":ship_instance", 6),
+      (scene_prop_get_slot, ":rowing", ":ship_instance", 7),
+      (scene_prop_get_slot, ":rudder", ":ship_instance", 8),
+      
+      (try_begin),
+        ### 1. SAIL
+        (key_clicked, key_enter),
+        (try_begin),
+          (eq, ":sail", 0),
+          (assign, ":sail", 1),
+          (assign, ":rowing", 0),
+        (else_try),
+          (assign, ":sail", 0),
+        (try_end),
+      (else_try),
+        
+        ### 2. ROWING
+        (key_clicked, key_down),
+        (gt, ":rowing", -50),
+        (val_add, ":rowing", -50),
+      (else_try),
+        (key_clicked, key_up),
+        (lt, ":rowing", 100),
+        (val_add, ":rowing", 50),
+      (else_try),
+        
+        ### 3. RUDDER
+        (key_clicked, key_right),				### right
+        (gt, ":rudder", -100),
+        (val_add, ":rudder", -50),
+      (else_try),
+        (key_clicked, key_left),				### left
+        (lt, ":rudder", 100),
+        (val_add, ":rudder", 50),
+      (else_try),
+        
+        
+        ### 4. CAMERA
+        (key_clicked, key_back_space),
+        (try_begin),
+          (eq, "$cam_mode", 0),
+          #(store_current_scene, ":current_scene"),				#VC-1951
+          (assign, "$cam_mode", 1),
+          (call_script, "script_save_cam_first_person_mode"),
+          (mission_cam_set_mode, 1, 100, 0),
+          (set_camera_in_first_person, 0),
+        (else_try),
+          (eq, "$cam_mode", 1),
+          (assign, "$cam_mode", 0),
+          (call_script, "script_return_to_cam_first_person_mode_1_sec"),
+        (try_end),
+      (try_end),
+      
+      (try_begin),
+        (neq, ":rowing", 0),
+        (assign, ":sail", 0),
+      (try_end),
+      
+      # OUTPUT
+      (scene_prop_set_slot, ":ship_instance", scene_prop_sail, ":sail"),
+      (scene_prop_set_slot, ":ship_instance", scene_prop_rowing, ":rowing"),
+      (scene_prop_set_slot, ":ship_instance", scene_prop_rudder, ":rudder"),
+    (end_try),
+    
+])
+common_maritime_deselect_all =(
+  0, 0, ti_once, [],
+  [
+    (team_set_order_listener, 0, 8, 0),	#avoid green circels
+    (team_set_order_listener, 1, 8, 0),
+    (class_set_name, 8, "@Ships"),
+])
+common_controller_keys = (
+  0, .25, .75, [
+    (key_clicked, key_pad_rup),
+  ], [
+    (assign, "$controller_in_use", 1),
+    (try_begin),
+      (eq, "$controller_keys", 1),
+      (presentation_set_duration, 0),
+      
+    (else_try),
+      (key_is_down, key_pad_rup),  #player is holding key down?
+      (gt, "$player_functions", 0), #there are functions to access?
+      (assign, "$controller_keys", 1),
+      
+      #shut down engine's use of keys
+      (omit_key_once, key_pad_rdown),
+      (omit_key_once, key_pad_rright),
+      (omit_key_once, key_pad_rleft),
+      (omit_key_once, key_pad_rup),
+      (presentation_set_duration, 0),
+      (assign, "$switch_presentation_new", "prsnt_console_player_functions"),
+    (try_end),
+])
+
+common_controller_keys_end = (
+  .25, 0, 0, [
+    (neg|is_presentation_active, "prsnt_console_player_functions"),
+    (eq, "$controller_keys", 1),
+  ], [
+    (assign, "$controller_keys", 0),
+    (clear_omitted_keys),
+])
+
+camera_controls = [ #7 triggers
+  (ti_before_mission_start, 0, 0, [], [
+      (assign, "$cam_mode", 0),
+      (assign, "$kill_cam_end", 0), #slo_mo_cam test
+  ]),
+  
+  (ti_battle_window_opened, 0, 0, [], [(assign, "$cam_seeking_mouse", Far_Away)]),
+  
+  (0, 0, 0, [
+      (gt, "$cam_mode", camera_manual),
+      (set_fixed_point_multiplier, 1000),
+      (mission_get_time_speed, ":interval"),
+      (val_mul, ":interval", camera_trigger_interval*1000),
+      (val_div, ":interval", 1000),
+      (store_mission_timer_c_msec, reg0),
+      (store_sub, ":elapsed", reg0, "$cam_last_called"),
+      (gt, ":elapsed", ":interval"),
+      ],[
+      (assign, "$cam_last_called", reg0),
+      (assign, ":change_pitch", 0),
+      (assign, ":change_yaw", 0),
+      (assign, ":change_zoom", 0),
+      (assign, ":pan_back_forth", 0),
+      (assign, ":pan_right_left", 0),
+      (assign, ":pan_up_down", 0),
+      (assign, ":has_rotated", 0),
+      
+      #check zoom keys
+      (try_begin),
+        (key_is_down, key_numpad_plus),
+        (store_div, reg0, "$cam_speed", 30),
+        (val_add, reg0, 1),
+        (val_sub, reg0, "$cam_zoom"),
+        (val_mul, reg0, -1),
+        (try_begin),
+          (gt, reg0, camera_effective_min_zoom),
+          (assign, "$cam_zoom", reg0),
+          (assign, ":change_zoom", 1),
+        (try_end),
+        
+      (else_try),
+        (key_is_down, key_numpad_minus),
+        (store_div, reg0, "$cam_speed", 30),
+        (val_add, reg0, 1),
+        (val_add, reg0, "$cam_zoom"),
+        (try_begin),
+          (le, reg0, 75),  #although it will zoom out to around 150 or so, it starts looking distorted past this point
+          (assign, "$cam_zoom", reg0),
+          (assign, ":change_zoom", 1),
+        (try_end),
+      (try_end),
+      
+      #check pan back and forth keys
+      (store_and, reg0, "$cam_mode", camera_pan_back_forth),
+      (try_begin),
+        (gt, reg0, 0),
+        (try_begin),
+          (game_key_is_down, gk_move_forward),
+          (store_mul, ":pan_back_forth", "$cam_speed", 1),
+        (else_try),
+          (game_key_is_down, gk_move_backward),
+          (store_mul, ":pan_back_forth", "$cam_speed", -1),
+        (try_end),
+      (try_end),
+      
+      #check pan right and left keys
+      (store_and, reg0, "$cam_mode", camera_pan_right_left),
+      (try_begin),
+        (gt, reg0, 0),
+        (try_begin),
+          (game_key_is_down, gk_move_right),
+          (store_mul, ":pan_right_left", "$cam_speed", 1),
+        (else_try),
+          (game_key_is_down, gk_move_left),
+          (store_mul, ":pan_right_left", "$cam_speed", -1),
+        (try_end),
+      (try_end),
+      
+      #check pan up and down keys
+      (store_and, reg0, "$cam_mode", camera_pan_up_down),
+      (try_begin),
+        (gt, reg0, 0),
+        (try_begin),
+          (key_is_down, key_f),
+          (store_mul, ":pan_up_down", "$cam_speed", 1),
+        (else_try),
+          (key_is_down, key_c),
+          (store_mul, ":pan_up_down", "$cam_speed", -1),
+        (else_try),
+          (key_is_down, key_v), #c is character report
+          (store_mul, ":pan_up_down", "$cam_speed", -1),
+        (try_end),
+      (try_end),
+      
+      #handle diagonals
+      (try_begin),
+        (neq, ":pan_back_forth", 0),
+        (neq, ":pan_right_left", 0),
+        (neq, ":pan_up_down", 0),
+        (val_mul, ":pan_back_forth", 1000),
+        (val_div, ":pan_back_forth", 1732),
+        (val_mul, ":pan_right_left", 1000),
+        (val_div, ":pan_right_left", 1732),
+        (val_mul, ":pan_up_down", 1000),
+        (val_div, ":pan_up_down", 1732),
+      (else_try),
+        (neq, ":pan_back_forth", 0),
+        (neq, ":pan_right_left", 0),
+        (val_mul, ":pan_back_forth", 1000),
+        (val_div, ":pan_back_forth", 1414),
+        (val_mul, ":pan_right_left", 1000),
+        (val_div, ":pan_right_left", 1414),
+      (else_try),
+        (neq, ":pan_up_down", 0),
+        (neq, ":pan_right_left", 0),
+        (val_mul, ":pan_up_down", 1000),
+        (val_div, ":pan_up_down", 1414),
+        (val_mul, ":pan_right_left", 1000),
+        (val_div, ":pan_right_left", 1414),
+      (else_try),
+        (neq, ":pan_back_forth", 0),
+        (neq, ":pan_up_down", 0),
+        (val_mul, ":pan_back_forth", 1000),
+        (val_div, ":pan_back_forth", 1414),
+        (val_mul, ":pan_up_down", 1000),
+        (val_div, ":pan_up_down", 1414),
+      (try_end),
+      
+      #check rotation
+      (store_and, reg0, "$cam_mode", camera_rotate),
+      (try_begin),
+        (gt, reg0, 0),
+        #check pitch keys
+        (assign, ":min_one", "$cam_speed"),
+        (convert_to_fixed_point, ":min_one"),
+        (store_sqrt, reg0, ":min_one"),
+        (convert_from_fixed_point, reg0),
+        (store_add, ":min_one", reg0, camera_key_rotate_attenuator),
+        (store_and, ":rev_y", "$cam_mode", camera_reverse_y),
+        (try_begin),
+          (key_is_down, key_up),
+          (try_begin),
+            (eq, ":rev_y", 0),
+            (store_div, ":change_pitch", ":min_one", camera_key_rotate_attenuator),
+          (else_try),
+            (store_div, ":change_pitch", ":min_one", -1 * camera_key_rotate_attenuator),
+          (try_end),
+          
+        (else_try),
+          (key_is_down, key_down),
+          (try_begin),
+            (eq, ":rev_y", 0),
+            (store_div, ":change_pitch", ":min_one", -1 * camera_key_rotate_attenuator),
+          (else_try),
+            (store_div, ":change_pitch", ":min_one", camera_key_rotate_attenuator),
+          (try_end),
+        (try_end),
+        
+        #check yaw keys
+        (try_begin),
+          (key_is_down, key_right),
+          (store_div, ":change_yaw", ":min_one", -1 * camera_key_rotate_attenuator),
+        (else_try),
+          (key_is_down, key_left),
+          (store_div, ":change_yaw", ":min_one", camera_key_rotate_attenuator),
+        (try_end),
+        
+        #handle diagonal
+        (try_begin),
+          (neq, ":change_yaw", 0),
+          (try_begin),
+            (neq, ":change_pitch", 0),
+            (val_mul, ":change_yaw", 1000),
+            (val_div, ":change_yaw", 1414),
+            (val_mul, ":change_pitch", 1000),
+            (val_div, ":change_pitch", 1414),
+          (try_end),
+          (val_add, "$cam_yaw", ":change_yaw"),
+        (try_end),
+        
+        #check mouse rotation
+        (try_begin),
+          (eq, ":change_pitch", 0),
+          (eq, ":change_yaw", 0),
+          (gt, "$cam_displacements", 0),
+          
+          (store_div, ":change_yaw", "$cam_displace_x", "$cam_displacements"),
+          (val_mul, ":change_yaw", -1),
+          (store_div, ":change_pitch", "$cam_displace_y", "$cam_displacements"),
+          
+          (store_and, reg0, "$cam_mode", camera_reverse_y),
+          (try_begin),
+            (neq, reg0, 0),
+            (val_mul, ":change_pitch", -1),
+          (try_end),
+          
+          (val_clamp, ":change_yaw", -179, 180),
+          (val_add, "$cam_yaw", ":change_yaw"),
+        (try_end),
+        
+        #pitch ceiling/floor
+        (neq, ":change_pitch", 0),
+        (store_add, reg0, "$cam_pitch", ":change_pitch"),
+        
+        (try_begin),
+          (is_between, reg0, camera_minimum_pitch, camera_maximum_pitch),
+          (assign, "$cam_pitch", reg0),
+        (else_try),
+          (assign, ":change_pitch", 0),
+        (try_end),
+      (try_end),  #rotation
+      (assign, "$cam_displace_x", 0),
+      (assign, "$cam_displace_y", 0),
+      (assign, "$cam_displacements", 0),
+      
+      #check for camera targets
+      (mission_cam_get_position, pos0),
+      (set_fixed_point_multiplier, 100),
+      (store_and, ":target", "$cam_mode", camera_target_agent|camera_target_prop),
+      (try_begin),
+        (neq, ":target", 0),
+        (store_and, reg0, "$cam_mode", camera_target_agent),
+        
+        #we're following an agent
+        (try_begin),
+          (neq, reg0, 0),
+          (try_begin),
+            (agent_is_active, "$cam_target_instance"),
+            (agent_get_position, pos1, "$cam_target_instance"),
+            (position_move_z, pos1, camera_minimum_z),
+          (else_try),
+            (assign, "$cam_target_instance", 0),
+          (try_end),
+          
+          #we're following a prop
+        (else_try),
+          (prop_instance_is_valid, "$cam_target_instance"),
+          (prop_instance_get_position, pos1, "$cam_target_instance"),
+        (else_try),
+          (assign, "$cam_target_instance", 0),
+        (try_end),
+        
+        #have the camera "follow" the target
+        (gt, "$cam_target_instance", 0),
+        (copy_position, pos2, pos0), #not going to move the camera now, as we need to pass the various tests, etc., so we do it by ordering pans
+        (position_get_z, ":from_z", pos1),
+        (position_set_z, pos2, ":from_z"),  #set on same plane as target as we'll be breaking down horizontal and vertical distance to move
+        (call_script, "script_point_y_toward_position", pos1, pos2),
+        
+        (assign, ":old_horizontal_dist", reg0),
+        (position_get_z, reg0, pos0),
+        (store_sub, ":old_vertical_dist", reg0, ":from_z"),
+        
+        #find new camera location
+        (val_add, "$cam_above_target", ":pan_up_down"),
+        (val_max, "$cam_above_target", 50), #avoid overrunning target
+        
+        (copy_position, pos2, pos1),
+        (store_mul, ":horizontal_dist", camera_fixed_angle_h, "$cam_above_target"),
+        (val_div, ":horizontal_dist", camera_fixed_angle_v),
+        (position_move_y, pos2, ":horizontal_dist"),
+        
+        #capture yaw
+        (position_get_rotation_around_z, ":has_rotated", pos0),
+        (call_script, "script_point_y_toward_position", pos2, pos1),
+        (position_copy_rotation, pos0, pos2),
+        (position_get_rotation_around_z, reg0, pos0),
+        (val_sub, ":has_rotated", reg0),
+        
+        #prep for various checks
+        (store_sub, ":pan_back_forth", ":old_horizontal_dist", ":horizontal_dist"),
+        (store_sub, ":pan_up_down", "$cam_above_target", ":old_vertical_dist"),
+        
+        #rotate default properly
+      (else_try),
+        (position_get_x, ":from_x", pos0),
+        (position_get_y, ":from_y", pos0),
+        (position_get_z, ":from_z", pos0),
+        (init_position, pos0),
+        (position_set_x, pos0, ":from_x"),
+        (position_set_y, pos0, ":from_y"),
+        (position_set_z, pos0, ":from_z"),
+      (try_end),
+      
+      (position_rotate_z, pos0, "$cam_yaw"),
+      
+      #handle rotating camera first
+      (store_and, ":rotate_first", "$cam_mode", camera_pan_to_rotation),
+      (try_begin),
+        (neq, ":rotate_first", 0),
+        (eq, ":target", 0), #targets have special panning
+        (position_rotate_x, pos0, "$cam_pitch"),
+        
+        (assign, reg0, "$cam_pitch"),
+        (convert_to_fixed_point, reg0),
+        (store_sin, ":sine_pitch", reg0),
+        (store_cos, ":cosine_pitch", reg0),
+        
+        (store_mul, ":x_proj_x", ":pan_back_forth", ":cosine_pitch"),
+        (store_mul, ":x_proj_y", ":pan_up_down", ":sine_pitch"),
+        (store_mul, ":y_proj_x", ":pan_back_forth", ":sine_pitch"),
+        (store_mul, ":y_proj_y", ":pan_up_down", ":cosine_pitch"),
+        
+        (store_add, ":pan_back_forth", ":x_proj_x", ":x_proj_y"),
+        (convert_from_fixed_point, ":pan_back_forth"),
+        (store_add, ":pan_up_down", ":y_proj_x", ":y_proj_y"),
+        (convert_from_fixed_point, ":pan_up_down"),
+      (try_end),
+      
+      #check boundaries
+      (try_begin),
+        (this_or_next|neq, ":pan_back_forth", 0),
+        (neq, ":pan_right_left", 0),
+        
+        (copy_position, pos1, pos0),
+        (position_move_x, pos1, ":pan_right_left"),
+        (position_move_y, pos1, ":pan_back_forth"),
+        
+        (position_get_x, ":from_x", pos1),
+        (is_between, ":from_x", "$g_bound_left", "$g_bound_right"),
+        (position_get_y, ":from_y", pos1),
+        (is_between, ":from_y", "$g_bound_bottom", "$g_bound_top"),
+        (copy_position, pos0, pos1),
+        
+        #check terrain
+        (call_script, "script_get_distance_to_terrain_or_water", pos0),
+        (assign, ":dist_to_terrain", reg0),
+        (store_and, reg0, "$cam_mode", camera_follow_terrain),
+        (try_begin),
+          (gt, reg0, 0),  #follow terrain
+          (store_sub, reg0, "$cam_to_terrain", ":dist_to_terrain"),
+          (val_add, "$cam_z", reg0),
+          (position_set_z, pos0, "$cam_z"),
+          
+        (else_try),
+          (store_sub, reg0, camera_minimum_z, ":dist_to_terrain"),
+          (gt, reg0, 0),
+          (assign, "$cam_to_terrain", camera_minimum_z),
+          (val_add, "$cam_z", reg0),
+          (position_set_z, pos0, "$cam_z"),
+          
+        (else_try),
+          (assign, "$cam_to_terrain", ":dist_to_terrain"),
+        (try_end),
+        
+        #out of bounds
+      (else_try),
+        (assign, ":pan_back_forth", 0),
+        (assign, ":pan_right_left", 0),
+      (try_end),
+      
+      #check ground
+      (try_begin),
+        (lt, ":pan_up_down", 0),
+        (val_mul, ":pan_up_down", -1),
+        (call_script, "script_get_distance_to_terrain_or_water", pos0),
+        (val_sub, reg0, camera_minimum_z),
+        (val_max, reg0, 0),
+        (val_min, ":pan_up_down", reg0),
+        (try_begin),
+          (gt, ":pan_up_down", 0),
+          (val_sub, "$cam_to_terrain", ":pan_up_down"),
+          (val_sub, "$cam_z", ":pan_up_down"),
+          (position_set_z, pos0, "$cam_z"),
+        (try_end),
+        
+        #check ceiling
+      (else_try),
+        (gt, ":pan_up_down", 0),
+        (call_script, "script_get_distance_to_terrain_or_water", pos0),
+        (val_add, reg0, ":pan_up_down"),
+        (try_begin),
+          (gt, reg0, 5000),  #50m
+          (val_sub, "$cam_above_target", ":pan_up_down"),
+          (assign, ":pan_up_down", 0),
+        (else_try),
+          (val_add, "$cam_to_terrain", ":pan_up_down"),
+          (val_add, "$cam_z", ":pan_up_down"),
+          (position_set_z, pos0, "$cam_z"),
+        (try_end),
+      (try_end),
+      
+      #apply change
+      (this_or_next|neq, ":change_pitch", 0),
+      (this_or_next|neq, ":change_yaw", 0),
+      (this_or_next|neq, ":change_zoom", 0),
+      (this_or_next|neq, ":pan_back_forth", 0),
+      (this_or_next|neq, ":pan_right_left", 0),
+      (this_or_next|neq, ":pan_up_down", 0),
+      (neq, ":has_rotated", 0),
+      
+      (try_begin),
+        (eq, ":rotate_first", 0),
+        (position_rotate_x, pos0, "$cam_pitch"),
+      (try_end),
+      
+      (set_fixed_point_multiplier, 1000),
+      (mission_get_time_speed, ":interval"),
+      (val_mul, ":interval", camera_animation_time),
+      (val_div, ":interval", 1000),
+      (mission_cam_animate_to_position_and_aperture, pos0, "$cam_zoom", ":interval"),
+  ]),
+  
+  (0, 0, 0, [
+      (gt, "$cam_mode", camera_manual),
+      ],[
+      #toggle camera_follow_terrain
+      (try_begin),
+        (key_clicked, key_q),
+        (store_and, reg0, "$cam_mode", camera_follow_terrain),
+        (try_begin),
+          (eq, reg0, 0),
+          (val_or, "$cam_mode", camera_follow_terrain),
+          (display_message, "@Camera follow terrain mode ON."),
+        (else_try),
+          (val_sub, "$cam_mode", camera_follow_terrain),
+          (display_message, "@Camera follow terrain mode OFF."),
+        (try_end),
+      (try_end),
+      
+      #toggle flip y
+      (try_begin),
+        (key_clicked, key_y),
+        (store_and, reg0, "$cam_mode", camera_reverse_y),
+        (try_begin),
+          (eq, reg0, 0),
+          (val_or, "$cam_mode", camera_reverse_y),
+        (else_try),
+          (val_sub, "$cam_mode", camera_reverse_y),
+        (try_end),
+      (try_end),
+      
+      #toggle pan to rotation
+      (try_begin),
+        (key_clicked, key_r),
+        (store_and, reg0, "$cam_mode", camera_pan_to_rotation),
+        (try_begin),
+          (eq, reg0, 0),
+          (val_or, "$cam_mode", camera_pan_to_rotation),
+          (display_message, "@Camera rotate before pan ON."),
+        (else_try),
+          (val_sub, "$cam_mode", camera_pan_to_rotation),
+          (display_message, "@Camera rotate before pan OFF."),
+        (try_end),
+      (try_end),
+      
+      #pan velocity
+      (try_begin),
+        (key_clicked, key_mouse_scroll_up),
+        (val_mul, "$cam_speed", 2),
+      (try_end),
+      
+      (try_begin),
+        (key_clicked, key_mouse_scroll_down),
+        (val_add, "$cam_speed", 1),
+        (val_div, "$cam_speed", 2),
+      (try_end),
+      
+      #game speed
+      (try_begin),
+        (store_and, reg0, "$cam_mode", camera_game_slow),
+        (gt, reg0, 0),
+        
+        (set_fixed_point_multiplier, 1000),
+        (try_begin),
+          (key_clicked, key_numpad_0),
+          (mission_set_time_speed, 8), #lowest speed we can animate well at 1 millisecond
+        (else_try),
+          (key_clicked, key_numpad_1),
+          (mission_set_time_speed, 118),
+        (else_try),
+          (key_clicked, key_numpad_2),
+          (mission_set_time_speed, 228),
+        (else_try),
+          (key_clicked, key_numpad_3),
+          (mission_set_time_speed, 338),
+        (else_try),
+          (key_clicked, key_numpad_4),
+          (mission_set_time_speed, 448),
+        (else_try),
+          (key_clicked, key_numpad_5),
+          (mission_set_time_speed, 559),
+        (else_try),
+          (key_clicked, key_numpad_6),
+          (mission_set_time_speed, 669),
+        (else_try),
+          (key_clicked, key_numpad_7),
+          (mission_set_time_speed, 779),
+        (else_try),
+          (key_clicked, key_numpad_8),
+          (mission_set_time_speed, 889),
+        (else_try),
+          (key_clicked, key_numpad_9),
+          (mission_set_time_speed, 1000),
+        (else_try),
+          (assign, reg0, 0),
+        (try_end),
+        
+        # (gt, reg0, 0),
+        # (eq, "$cheat_mode", 0), not set in CB
+        # (mission_set_time_speed, 1000),
+        # (display_message, "@Set cheat mode to change game speed.", color_bad_news),
+      (try_end),
+      
+      #rotation by mouse
+      (try_begin),
+        (store_and, reg0, "$cam_mode", camera_rotate),
+        (gt, reg0, 0),
+        
+        (mouse_get_position, pos0),
+        (set_fixed_point_multiplier, 1000),
+        (position_get_x, reg0, pos0),
+        (position_get_y, reg1, pos0),
+        
+        #mouse hasn't moved
+        (try_begin),
+          (eq, "$cam_mouse_x", reg0),
+          (eq, "$cam_mouse_y", reg1),
+          
+          #reassign center
+          (try_begin),
+            (is_between, reg0, 485, 501), #observed values for centered mouse
+            (is_between, reg1, 375, 501),
+            (val_add, "$cam_clock", 1),
+            
+            (eq, "$cam_clock", 3),
+            (assign, "$cam_mouse_center_x", reg0),
+            (assign, "$cam_mouse_center_y", reg1),
+          (try_end),
+          
+        (else_try),
+          (assign, "$cam_mouse_x", reg0),
+          (assign, "$cam_mouse_y", reg1),
+          (store_sub, reg0, "$cam_mouse_x", "$cam_mouse_center_x"),
+          (store_sub, reg1, "$cam_mouse_y", "$cam_mouse_center_y"),
+          
+          #mouse recovering from a button somewhere?
+          (neq, "$cam_seeking_mouse", 0),
+          (assign, reg2, reg0),
+          (val_abs, reg2),
+          
+          (try_begin),
+            (ge, "$cam_seeking_mouse", reg2),  #mouse still coming in from wherever it was?
+            (assign, "$cam_seeking_mouse", reg2),
+          (else_try),
+            (assign, "$cam_seeking_mouse", 0),
+          (try_end),
+          
+          #track mouse move
+        (else_try),
+          (assign, "$cam_clock", 0),
+          (val_add, "$cam_displace_x", reg0),
+          (val_add, "$cam_displace_y", reg1),
+          (val_add, "$cam_displacements", 1),
+        (try_end),
+      (try_end),
+  ]),
+  
+  (0, .1, 0, [
+      (key_clicked, key_enter),
+      (scene_prop_get_num_instances, reg0, "spr_dyn_ship_substrate"),
+      (le, reg0, 0),  #avoid conflict with naval strategy camera
+      (assign,":pass",0),
+      (try_begin),
+        (gt, "$cam_mode", camera_manual), #this camera on
+        (ge, "$fplayer_agent_no", 0), #but not the movie cam
+        (neg|main_hero_fallen), #and not the death cam
+        (assign, "$cam_mode", 0),
+        (try_begin),#VC-2097
+          (eq, "$cam_first_person_mode", 0),
+          (mission_cam_set_mode, 0, 500, 0),
+        (else_try),
+          (mission_cam_set_mode, 0, 0, 0),
+          (set_camera_in_first_person, "$cam_first_person_mode"),
+        (end_try),
+      (else_try),
+        (eq, "$cam_mode", 0),
+        # (ge, "$cheat_mode", 1),
+        (assign,":pass",1),
+        (call_script, "script_save_cam_first_person_mode"),
+        (mission_cam_set_mode, 1),
+        (set_camera_in_first_person, 0),
+        (mission_cam_get_position, pos0),
+        (set_fixed_point_multiplier, 100),
+        (agent_get_position, pos1, "$fplayer_agent_no"),
+        (position_move_z, pos1, camera_minimum_z),
+        (position_get_z, reg0, pos1),
+        (position_set_z, pos0, reg0), #for some reason, camera position starts 10m above player agent
+        (call_script, "script_point_y_toward_position", pos0, pos1),
+        (position_move_y, pos0, camera_fixed_angle_h * -1000 / camera_fixed_angle_v),
+        (assign, "$cam_above_target", 1000),
+        (position_move_z, pos0, "$cam_above_target"),
+        (position_get_z, "$cam_z", pos0),
+        (call_script, "script_get_distance_to_terrain_or_water", pos0),
+        (assign, "$cam_to_terrain", reg0),
+        (assign, "$cam_pitch", 330),
+        (assign, "$cam_yaw", 0),
+        (position_rotate_x, pos0, "$cam_pitch"),
+        (mission_cam_animate_to_position, pos0, 500),
+        
+        (store_and, reg0, "$first_time", first_time_strategy_camera),
+        (try_begin),
+          (eq, reg0, 0),
+          (val_or, "$first_time", first_time_strategy_camera),
+          (eq, "$g_is_quick_battle", 0),
+          (str_store_string, s0, "str_strategy_cam"),
+          (try_begin),
+            (neg|is_presentation_active, "prsnt_battle"),
+            (game_key_get_mapped_key_name, s1, gk_view_orders),
+            (str_store_string, s0, "@{s0}^^A Battle Command Display is often available by pressing the {s1} key."),
+          (try_end),
+          (dialog_box, "str_s0", "@Strategy Camera"),
+        (try_end),
+      (try_end),
+      (eq,":pass",1),
+      ],[
+      (eq, "$cam_mode", 0), #test here in case naval battle camera has activated
+      (assign, "$cam_mode", camera_pan_up_down|camera_target_agent|camera_game_slow), #R/L and B/F pans not recommended, as the keys also move player agent
+      (assign, "$cam_target_instance", "$fplayer_agent_no"),
+      (assign, "$cam_speed", 100), #10 m/s
+      (assign, "$cam_last_called", 0),
+      (mouse_get_position, pos0),
+      (set_fixed_point_multiplier, 1000),
+      (position_get_x, "$cam_mouse_center_x", pos0),
+      (position_get_y, "$cam_mouse_center_y", pos0),
+      (assign, "$cam_seeking_mouse", 0),
+      (mission_cam_get_aperture, "$cam_zoom"),
+  ]),
+  
+  #turn on camera if no player agent
+  (0, .3, ti_once, [
+      (eq, "$cam_mode", 0),
+      ], [
+      (try_begin),
+        (lt, "$fplayer_agent_no", 0),
+        (mission_cam_set_mode, 1),
+        (call_script, "script_save_cam_first_person_mode"),
+        (set_camera_in_first_person, 0),
+        (assign, "$cam_mode", camera_pan_back_forth|camera_pan_right_left|camera_pan_up_down|camera_rotate|camera_game_slow),
+        (assign, "$cam_speed", 250),  #25 m/s
+        (assign, "$cam_last_called", 0),
+        (assign, "$cam_mouse_center_x", 500),  #assume mouse centering position for non-windowed screen
+        (assign, "$cam_mouse_center_y", 375),
+        (assign, "$cam_seeking_mouse", Far_Away),
+        (mission_cam_get_position, pos0),
+        (set_fixed_point_multiplier, 100),
+        (position_get_z, "$cam_z", pos0),
+        (store_sub, ":move_up", camera_minimum_z + 1000, "$cam_z"),  #at least 10m over water
+        (try_begin),
+          (gt, ":move_up", 0),
+          (assign, "$cam_z", camera_minimum_z + 1000),
+          (position_move_z, pos0, ":move_up"),
+          (mission_cam_animate_to_position, pos0, camera_animation_time),
+        (try_end),
+        (call_script, "script_get_distance_to_terrain_or_water", pos0),
+        (assign, "$cam_to_terrain", reg0),
+        (position_get_rotation_around_x, "$cam_pitch", pos0),
+        (position_get_rotation_around_z, "$cam_yaw", pos0),
+        (mission_cam_get_aperture, "$cam_zoom"),
+        
+      (else_try),
+        (store_and, reg0, "$first_time", first_time_cam_battle),
+        (eq, reg0, 0),
+        (val_or, "$first_time", first_time_cam_battle),
+        (eq, "$g_is_quick_battle", 0),
+        (dialog_box, "str_tactical_controls", "@Tactical Controls"),
+      (try_end),
+  ]),
+  
+  #turn on camera on player death
+  (1, 1.5, ti_once, [
+      (main_hero_fallen),
+      (neg|num_active_teams_le,1),
+      (eq, "$kill_cam_end", 0), #slo_mo_cam test
+      ],[
+        (assign, "$gk_order", 0),
+        (call_script, "script_player_order_formations", mordr_charge), #Madsci
+      (get_player_agent_no, ":player_agent"),
+      (agent_get_team, ":player_team", ":player_agent"),
+      (team_give_order, ":player_team", grc_everyone, mordr_charge),
+
+      (mission_cam_set_mode, 1),
+      (call_script, "script_save_cam_first_person_mode"),
+      (set_camera_in_first_person, 0),
+      (assign, "$cam_mode", camera_pan_back_forth|camera_pan_right_left|camera_pan_up_down|camera_rotate|camera_game_slow|camera_follow_terrain|camera_pan_to_rotation),
+      (assign, "$cam_speed", 40), #4 m/s
+      (assign, "$cam_last_called", 0),
+      (mouse_get_position, pos0),
+      (set_fixed_point_multiplier, 1000),
+      (position_get_x, "$cam_mouse_center_x", pos0),
+      (position_get_y, "$cam_mouse_center_y", pos0),
+      (assign, "$cam_seeking_mouse", 0),
+      (mission_cam_get_position, pos0),
+      (set_fixed_point_multiplier, 100),
+      (position_get_z, "$cam_z", pos0),
+      (store_sub, ":move_up", camera_minimum_z - 100, "$cam_z"),  #common setting for water level in scenes
+      (assign, ":wave_max", 0),
+      (try_begin),
+        (scene_prop_get_num_instances, reg0, "spr_dyn_ship_substrate"),
+        (gt, reg0, 0),  #at sea
+        (store_add, ":wave_max", "$Amplitude_x", "$Amplitude_y"),
+        (val_div, ":wave_max", 50),
+        (val_add, ":wave_max", camera_minimum_z), #not high enough for some reason
+        (val_add, ":move_up", ":wave_max"),
+      (try_end),
+      (try_begin),
+        (gt, ":move_up", 0),
+        (assign, "$cam_z", camera_minimum_z - 100),
+        (val_add, "$cam_z", ":wave_max"),
+        (position_move_z, pos0, ":move_up"),
+        (mission_cam_animate_to_position, pos0, camera_animation_time),
+      (try_end),
+      (call_script, "script_get_distance_to_terrain_or_water", pos0),
+      (assign, "$cam_to_terrain", reg0),
+      (position_get_rotation_around_x, "$cam_pitch", pos0),
+      (try_begin),
+        (is_between, "$cam_pitch", -90, 90),
+        (val_add, "$cam_pitch", 360),
+      (else_try),
+        (try_begin),
+          # (ge, "$cheat_mode", 1),
+          (neg|is_between, "$cam_pitch", camera_minimum_pitch, camera_maximum_pitch),
+          (assign, reg1, "$cam_pitch"),
+          (display_message, "@{!}DEBUG: bad camera pitch {reg1}"),
+        (try_end),
+        (lt, "$cam_pitch", -90),
+        (val_mul, "$cam_pitch", -1),
+        (val_add, "$cam_pitch", 180),
+        (try_begin),
+          # (ge, "$cheat_mode", 1),
+          (assign, reg1, "$cam_pitch"),
+          (display_message, "@{!}DEBUG: set as {reg1}"),
+        (try_end),
+      (try_end),
+      (position_get_rotation_around_z, "$cam_yaw", pos0),
+      (mission_cam_get_aperture, "$cam_zoom"),
+      
+      (store_and, reg0, "$first_time", first_time_death_camera),
+      (try_begin),
+        (eq, reg0, 0),
+        (val_or, "$first_time", first_time_death_camera),
+        (eq, "$g_is_quick_battle", 0),
+        (dialog_box, "str_quick_battle_troop_cam", "@Death Camera"),
+      (try_end),
+  ]),
+] #end camera controls
+can_spawn_commoners = (ti_before_mission_start,0,0,[],[(assign,"$can_spawn_commoners",1)])
+can_spawn_commoners_arena = (ti_before_mission_start,0,0,[],[(assign,"$can_spawn_commoners",2)])
+cannot_spawn_commoners = (ti_before_mission_start,0,0,[],[(assign,"$can_spawn_commoners",0)])
+
+common_disable_ai_crouching =(
+  ti_on_agent_spawn, 0, 0, [ ],
+  [
+    (store_trigger_param_1, ":agent_no"),
+    (agent_ai_set_can_crouch, ":agent_no", 0),	#for VC-1886
+])
+common_battle_player_fallen = (
+  1, 4, ti_once, [(main_hero_fallen)], [
+    (assign, "$pin_player_fallen", 1),
+    # (str_store_string, s5, "str_retreat"),  MOTO move these things to TAB out to allow death cam
+    # (call_script, "script_simulate_retreat", 10, 20, 1),
+    (assign, "$g_battle_result", -1),
+    (set_mission_result,-1),
+    # (call_script, "script_count_mission_casualties_from_agents"),
+    # (finish_mission,0)
+    ####player lose renown when he fall
+    (store_character_level, ":player_level", "trp_player"), #depend on level, more level more penalty
+    (try_begin), #difficult setting
+      (ge, ":player_level", 7),
+      (val_div, ":player_level", 6),
+      (assign, ":renown_change", ":player_level"),
+      (val_mul, ":renown_change", -1),
+      (val_min, ":renown_change", 0),
+      (call_script,"script_change_troop_renown", "trp_player", ":renown_change"),
+    (try_end),
+    #########
+    
+    (display_message,"@You have fallen. (Press tab key to leave)"),
+    (presentation_set_duration, 0),
+])
+common_simple_ship_floating =(
+  0.25, 0, 0, [ (gt, "$number_of_ships_global", 0),],
+  [
+    (try_begin),
+      (set_fixed_point_multiplier, 100),
+      #(scene_prop_get_num_instances, ":number_of_ships", "spr_dyn_ship_substrate"),
+      (try_for_range,":ship_number", 0, "$number_of_ships_global"),
+        ### GET DATA
+        (scene_prop_get_instance, ":ship_instance", "spr_dyn_ship_substrate", ":ship_number"),
+        (prop_instance_get_position, pos1, ":ship_instance"),
+        (scene_prop_get_slot, ":ship_sail_off_instance", ":ship_instance", scene_prop_main_instance),
+        (scene_prop_get_slot, ":ship_sail_on_instance", ":ship_instance", scene_prop_boom_instance),
+        (scene_prop_get_slot, ":ship_collision_instance", ":ship_instance", scene_prop_collision_instance),
+        (scene_prop_get_slot, ":ship_planks_a", ":ship_instance", 18),
+        (scene_prop_get_slot, ":ship_planks_b", ":ship_instance", 19),
+        (scene_prop_get_slot, ":ship_cargo_1_instance", ":ship_instance", scene_prop_cargo_1),
+        
+        (call_script, "script_calculate_rocking_to_pos1"),
+        ### MOVE THE MAIN-INSTANCES
+        (assign, ":animation_duration", 35),		# depends on frequency of calling trigger and the wanted smoothnes
+        (prop_instance_animate_to_position, ":ship_instance", pos1, ":animation_duration"),
+        (prop_instance_animate_to_position, ":ship_sail_off_instance", pos1, ":animation_duration"),
+        (prop_instance_animate_to_position, ":ship_sail_on_instance", pos1, ":animation_duration"),
+        (try_begin),
+          (gt, ":ship_cargo_1_instance", 0),
+          (prop_instance_animate_to_position, ":ship_cargo_1_instance", pos1, ":animation_duration"),
+        (end_try),
+        (position_set_z, pos1, -1000),			# collision instances move under the ground tto prevent interaction with agents
+        (prop_instance_animate_to_position, ":ship_collision_instance", pos1, ":animation_duration"),
+        (position_set_z, pos1, -100),
+        ### MOVE THE OTHER INSTANCES
+        (position_move_z, pos1, -100),
+        (prop_instance_animate_to_position, ":ship_planks_a", pos1, ":animation_duration"),
+        (position_move_z, pos1, -1000),
+        (prop_instance_animate_to_position, ":ship_planks_b", pos1, ":animation_duration"),
+      (try_end),
+    (try_end),	#for VC-1886
+])
+ship_rowing_sounds = 	(0.3, 0, 0, [
+    (this_or_next|neg|game_in_multiplayer_mode),
+    (neg|multiplayer_is_dedicated_server),
+    ],[
+    (mission_cam_get_position,pos13),
+    (try_for_prop_instances, ":ship_instance", "spr_dyn_ship_substrate"),
+      (scene_prop_slot_ge, ":ship_instance", scene_prop_crew_number, 2),
+      (scene_prop_get_slot, ":oar_state", ":ship_instance", scene_prop_oar_state),
+      (neq,":oar_state",0),
+      (prop_instance_get_position, pos11, ":ship_instance"),
+      (get_distance_between_positions_in_meters,":distance",pos11,pos13),#ship to camera
+      (lt,":distance",20),
+      (scene_prop_get_slot, ":ship_main_instance", ":ship_instance", scene_prop_main_instance),
+      (prop_instance_get_current_deform_frame, ":current_frame", ":ship_main_instance"),
+      (assign,":stop",1),
+      (try_begin),
+        (gt,":oar_state",50),
+        (is_between,":current_frame",75,120),
+        (assign,":stop",0),
+      (else_try),
+        (gt,":oar_state",0),
+        (is_between,":current_frame",82,111),
+        (assign,":stop",0),
+      (else_try),
+        (lt,":oar_state",0),
+        (is_between,":current_frame",252,281),
+        (assign,":stop",0),
+      (try_end),
+      (eq,":stop",0),
+      (position_move_y,pos11,350),
+      (play_sound_at_position,"snd_ship_rowing_r",pos11),
+      (position_move_y,pos11,-700),
+      (play_sound_at_position,"snd_ship_rowing_l",pos11),
+    (try_end),
+])
+
+#VC
+
+#improved_lightning - from maxi/butters
+improved_lighting =  [ 
+    (ti_before_mission_start, 0, 0, 
+    [],
+    [
+    (party_get_current_terrain, ":terrain", "p_main_party"),
+    (store_time_of_day, ":day_time"),
+    (try_begin),
+        (this_or_next|eq, ":terrain", rt_forest),
+        (this_or_next|eq, ":terrain", rt_steppe_forest),
+        (this_or_next|eq, ":terrain", rt_steppe),
+        (eq, ":terrain", rt_plain),
+        (try_begin),#winter
+            (this_or_next|eq, "$g_cur_month", 1),
+            (this_or_next|eq, "$g_cur_month", 2),
+            (this_or_next|eq, "$g_cur_month", 11),
+            (eq, "$g_cur_month", 12),
+            (get_global_cloud_amount, ":clouds"),
+            (store_add, ":upper_bound", ":clouds", 20),
+            (val_min, ":upper_bound", ":clouds",100),
+            (store_sub, ":lower_bound", ":clouds",10),
+            (val_max, ":upper_bound", ":clouds", 10),
+            (store_random_in_range, ":random", ":lower_bound", ":upper_bound"),
+            (set_global_haze_amount, ":random"),
+            (try_begin),
+                (is_between, ":day_time", 9, 17),
+                (store_random_in_range, ":random_2", 600, 700),
+                (val_mul, ":random_2", 2),
+                (set_fog_distance, ":random_2", 0xFFA7A7A7),
+            (else_try),
+                (this_or_next|is_between, ":day_time", 6, 9),
+                (is_between, ":day_time", 17, 20),
+                (store_random_in_range, ":random_2", 700, 800),
+                (val_mul, ":random_2", 2),
+                (set_fog_distance, ":random_2", 0xFFA2A2A2),
+            (else_try),
+                (store_random_in_range, ":random_2", 800, 1200),
+                (val_mul, ":random_2", 2),
+                (set_fog_distance, ":random_2", 0xFFB9B9B9),
+            (try_end),
+        (else_try),#sommer
+            (this_or_next|eq, "$g_cur_month", 5),
+            (this_or_next|eq, "$g_cur_month", 6),
+            (this_or_next|eq, "$g_cur_month", 7),
+            (eq, "$g_cur_month", 8),
+            (get_global_cloud_amount, ":clouds"),
+            (store_add, ":upper_bound", ":clouds", 10),
+            (val_min, ":upper_bound", ":clouds",100),
+            (store_sub, ":lower_bound", ":clouds",20),
+            (val_max, ":upper_bound", ":clouds", 10),
+            (store_random_in_range, ":random", ":lower_bound", ":upper_bound"),
+            (set_global_haze_amount, ":random"),
+            (try_begin),
+                (is_between, ":day_time", 9, 17),
+                (store_random_in_range, ":random_2", 1300, 2000),
+                (val_mul, ":random_2", 2),
+                (set_fog_distance, ":random_2", 0xFFB0C4DE),
+            (else_try),
+                (this_or_next|is_between, ":day_time", 6, 9),
+                (is_between, ":day_time", 17, 20),
+                (store_random_in_range, ":random_2", 2000, 3000),
+                (val_mul, ":random_2", 2),
+                (set_fog_distance, ":random_2", 0xFFc7d7ec),
+            (else_try),
+                (store_random_in_range, ":random_2", 3000, 6000),
+                (val_mul, ":random_2", 2),
+                (set_fog_distance, ":random_2", 0xFF000000),
+            (try_end),        
+        (else_try),#else
+            (get_global_cloud_amount, ":clouds"),
+            (store_add, ":upper_bound", ":clouds", 15),
+            (val_min, ":upper_bound", ":clouds",100),
+            (store_sub, ":lower_bound", ":clouds",15),
+            (val_max, ":upper_bound", ":clouds", 10),
+            (store_random_in_range, ":random", ":lower_bound", ":upper_bound"),
+            (set_global_haze_amount, ":random"),
+            (try_begin),
+                (is_between, ":day_time", 9, 17),
+                (store_random_in_range, ":random_2", 700, 1300),
+                (val_mul, ":random_2", 2),
+                (set_fog_distance, ":random_2", 0xFFB0C4DE),
+            (else_try),
+                (this_or_next|is_between, ":day_time", 6, 9),
+                (is_between, ":day_time", 17, 20),
+                (store_random_in_range, ":random_2", 800, 2000),
+                (val_mul, ":random_2", 2),
+                (set_fog_distance, ":random_2", 0xFFc7d7ec),
+            (else_try),
+                (store_random_in_range, ":random_2", 1200, 3000),
+                (val_mul, ":random_2", 2),
+                (set_fog_distance, ":random_2", 0xFF000000),
+            (try_end),
+        (try_end),
+    (else_try),
+        (this_or_next|eq, ":terrain", rt_water),
+        (this_or_next|eq, ":terrain", rt_river),
+        (eq, ":terrain", rt_bridge),
+        (try_begin),#winter
+            (this_or_next|eq, "$g_cur_month", 1),
+            (this_or_next|eq, "$g_cur_month", 2),
+            (this_or_next|eq, "$g_cur_month", 11),
+            (eq, "$g_cur_month", 12),
+            (get_global_cloud_amount, ":clouds"),
+            (store_add, ":upper_bound", ":clouds", 20),
+            (val_min, ":upper_bound", ":clouds",100),
+            (store_sub, ":lower_bound", ":clouds",20),
+            (val_max, ":upper_bound", ":clouds", 10),
+            (store_random_in_range, ":random", ":lower_bound", ":upper_bound"),
+            (set_global_haze_amount, ":random"),
+            (try_begin),
+                (is_between, ":day_time", 9, 17),
+                (store_random_in_range, ":random_2", 600, 700),
+                (set_fog_distance, ":random_2", 0xFFB0C4DE),
+            (else_try),
+                (this_or_next|is_between, ":day_time", 6, 9),
+                (is_between, ":day_time", 17, 20),
+                (store_random_in_range, ":random_2", 700, 800),
+                (set_fog_distance, ":random_2", 0xFFc7d7ec),
+            (else_try),
+                (store_random_in_range, ":random_2", 800, 1200),
+                (set_fog_distance, ":random_2", 0xFF000000),
+            (try_end),
+        (else_try),#sommer
+            (this_or_next|eq, "$g_cur_month", 5),
+            (this_or_next|eq, "$g_cur_month", 6),
+            (this_or_next|eq, "$g_cur_month", 7),
+            (eq, "$g_cur_month", 8),
+            (get_global_cloud_amount, ":clouds"),
+            (store_add, ":upper_bound", ":clouds", 10),
+            (val_min, ":upper_bound", ":clouds",100),
+            (store_sub, ":lower_bound", ":clouds",10),
+            (val_max, ":upper_bound", ":clouds", 10),
+            (store_random_in_range, ":random", ":lower_bound", ":upper_bound"),
+            (set_global_haze_amount, ":random"),
+            (try_begin),
+                (is_between, ":day_time", 9, 17),
+                (store_random_in_range, ":random_2", 1300, 2000),
+                (set_fog_distance, ":random_2", 0xFFB0C4DE),
+            (else_try),
+                (this_or_next|is_between, ":day_time", 6, 9),
+                (is_between, ":day_time", 17, 20),
+                (store_random_in_range, ":random_2", 2000, 3000),
+                (set_fog_distance, ":random_2", 0xFFc7d7ec),
+            (else_try),
+                (store_random_in_range, ":random_2", 3000, 6000),
+                (set_fog_distance, ":random_2", 0xFF000000),
+            (try_end),        
+        (else_try),#else
+            (get_global_cloud_amount, ":clouds"),
+            (store_add, ":upper_bound", ":clouds", 15),
+            (val_min, ":upper_bound", ":clouds",100),
+            (store_sub, ":lower_bound", ":clouds",15),
+            (val_max, ":upper_bound", ":clouds", 10),
+            (store_random_in_range, ":random", ":lower_bound", ":upper_bound"),
+            (set_global_haze_amount, ":random"),
+            (try_begin),
+                (is_between, ":day_time", 9, 17),
+                (store_random_in_range, ":random_2", 700, 1300),
+                (set_fog_distance, ":random_2", 0xFFB0C4DE),
+            (else_try),
+                (this_or_next|is_between, ":day_time", 6, 9),
+                (is_between, ":day_time", 17, 20),
+                (store_random_in_range, ":random_2", 800, 2000),
+                (set_fog_distance, ":random_2", 0xFFc7d7ec),
+            (else_try),
+                (store_random_in_range, ":random_2", 1200, 3000),
+                (set_fog_distance, ":random_2", 0xFF000000),
+            (try_end),
+        (try_end),
+    (else_try),
+        (this_or_next|eq, ":terrain", rt_snow),
+        (eq, ":terrain", rt_snow_forest),
+        (try_begin),#winter
+            (this_or_next|eq, "$g_cur_month", 1),
+            (this_or_next|eq, "$g_cur_month", 2),
+            (this_or_next|eq, "$g_cur_month", 11),
+            (eq, "$g_cur_month", 12),
+            (get_global_cloud_amount, ":clouds"),
+            (store_add, ":upper_bound", ":clouds", 10),
+            (val_min, ":upper_bound", ":clouds",100),
+            (store_sub, ":lower_bound", ":clouds",20),
+            (val_max, ":upper_bound", ":clouds", 10),
+            (store_random_in_range, ":random", ":lower_bound", ":upper_bound"),
+            (set_global_haze_amount, ":random"),
+            (try_begin),
+                (is_between, ":day_time", 9, 17),
+                (store_random_in_range, ":random_2", 600, 700),
+                (val_mul, ":random_2", 2),
+                (val_mul, ":random_2", 3),
+                (val_div, ":random_2", 2),
+                (set_fog_distance, ":random_2", 0xFFB0C4DE),
+            (else_try),
+                (this_or_next|is_between, ":day_time", 6, 9),
+                (is_between, ":day_time", 17, 20),
+                (store_random_in_range, ":random_2", 700, 800),
+                (val_mul, ":random_2", 2),
+                (val_mul, ":random_2", 3),
+                (val_div, ":random_2", 2),
+                (set_fog_distance, ":random_2", 0xFFc7d7ec),
+            (else_try),
+                (store_random_in_range, ":random_2", 800, 1200),
+                (val_mul, ":random_2", 2),
+                (val_mul, ":random_2", 3),
+                (val_div, ":random_2", 2),
+                (set_fog_distance, ":random_2", 0xFF000000),
+            (try_end),
+        (else_try),#sommer
+            (this_or_next|eq, "$g_cur_month", 5),
+            (this_or_next|eq, "$g_cur_month", 6),
+            (this_or_next|eq, "$g_cur_month", 7),
+            (eq, "$g_cur_month", 8),
+            (get_global_cloud_amount, ":clouds"),
+            (store_add, ":upper_bound", ":clouds", 5),
+            (val_min, ":upper_bound", ":clouds",100),
+            (store_sub, ":lower_bound", ":clouds",20),
+            (val_max, ":upper_bound", ":clouds", 10),
+            (store_random_in_range, ":random", ":lower_bound", ":upper_bound"),
+            (set_global_haze_amount, ":random"),
+            (try_begin),
+                (is_between, ":day_time", 9, 17),
+                (store_random_in_range, ":random_2", 1300, 2000),
+                (val_mul, ":random_2", 2),
+                (val_mul, ":random_2", 3),
+                (val_div, ":random_2", 2),
+                (set_fog_distance, ":random_2", 0xFFB0C4DE),
+            (else_try),
+                (this_or_next|is_between, ":day_time", 6, 9),
+                (is_between, ":day_time", 17, 20),
+                (store_random_in_range, ":random_2", 2000, 3000),
+                (val_mul, ":random_2", 2),
+                (val_mul, ":random_2", 3),
+                (val_div, ":random_2", 2),
+                (set_fog_distance, ":random_2", 0xFFc7d7ec),
+            (else_try),
+                (store_random_in_range, ":random_2", 3000, 6000),
+                (val_mul, ":random_2", 2),
+                (val_mul, ":random_2", 3),
+                (val_div, ":random_2", 2),
+                (set_fog_distance, ":random_2", 0xFF000000),
+            (try_end),        
+        (else_try),#else
+            (get_global_cloud_amount, ":clouds"),
+            (store_add, ":upper_bound", ":clouds", 7),
+            (val_min, ":upper_bound", ":clouds",100),
+            (store_sub, ":lower_bound", ":clouds",20),
+            (val_max, ":upper_bound", ":clouds", 10),
+            (store_random_in_range, ":random", ":lower_bound", ":upper_bound"),
+            (set_global_haze_amount, ":random"),
+            (try_begin),
+                (is_between, ":day_time", 9, 17),
+                (store_random_in_range, ":random_2", 700, 1300),
+                (val_mul, ":random_2", 2),
+                (val_mul, ":random_2", 3),
+                (val_div, ":random_2", 2),
+                (set_fog_distance, ":random_2", 0xFFB0C4DE),
+            (else_try),
+                (this_or_next|is_between, ":day_time", 6, 9),
+                (is_between, ":day_time", 17, 20),
+                (store_random_in_range, ":random_2", 800, 2000),
+                (val_mul, ":random_2", 2),
+                (val_mul, ":random_2", 3),
+                (val_div, ":random_2", 2),
+                (set_fog_distance, ":random_2", 0xFFc7d7ec),
+            (else_try),
+                (store_random_in_range, ":random_2", 1200, 3000),
+                (val_mul, ":random_2", 2),
+                (val_mul, ":random_2", 3),
+                (val_div, ":random_2", 2),
+                (set_fog_distance, ":random_2", 0xFF000000),
+            (try_end),
+        (try_end),
+    (else_try),
+        (this_or_next|eq, ":terrain", rt_desert),
+        (eq, ":terrain", rt_desert_forest),
+        (try_begin),#winter
+            (this_or_next|eq, "$g_cur_month", 1),
+            (this_or_next|eq, "$g_cur_month", 2),
+            (this_or_next|eq, "$g_cur_month", 11),
+            (eq, "$g_cur_month", 12),
+            (get_global_cloud_amount, ":clouds"),
+            (store_add, ":upper_bound", ":clouds", 10),
+            (val_min, ":upper_bound", ":clouds",100),
+            (store_sub, ":lower_bound", ":clouds",20),
+            (val_max, ":upper_bound", ":clouds", 10),
+            (store_random_in_range, ":random", ":lower_bound", ":upper_bound"),
+            (set_global_haze_amount, ":random"),
+            (try_begin),
+                (is_between, ":day_time", 9, 17),
+                (store_random_in_range, ":random_2", 600, 700),
+                (val_mul, ":random_2", 5),
+                (set_fog_distance, ":random_2", 0xFFB0C4DE),
+            (else_try),
+                (this_or_next|is_between, ":day_time", 6, 9),
+                (is_between, ":day_time", 17, 20),
+                (store_random_in_range, ":random_2", 700, 800),
+                (val_mul, ":random_2", 5),
+                (set_fog_distance, ":random_2", 0xFFc7d7ec),
+            (else_try),
+                (store_random_in_range, ":random_2", 800, 1200),
+                (val_mul, ":random_2", 5),
+                (set_fog_distance, ":random_2", 0xFF000000),
+            (try_end),
+        (else_try),#sommer
+            (this_or_next|eq, "$g_cur_month", 5),
+            (this_or_next|eq, "$g_cur_month", 6),
+            (this_or_next|eq, "$g_cur_month", 7),
+            (eq, "$g_cur_month", 8),
+            (get_global_cloud_amount, ":clouds"),
+            (store_add, ":upper_bound", ":clouds", 5),
+            (val_min, ":upper_bound", ":clouds",100),
+            (store_sub, ":lower_bound", ":clouds",20),
+            (val_max, ":upper_bound", ":clouds", 10),
+            (store_random_in_range, ":random", ":lower_bound", ":upper_bound"),
+            (set_global_haze_amount, ":random"),
+            (try_begin),
+                (is_between, ":day_time", 9, 17),
+                (store_random_in_range, ":random_2", 1300, 2000),
+                (val_mul, ":random_2", 5),
+                (set_fog_distance, ":random_2", 0xFFB0C4DE),
+            (else_try),
+                (this_or_next|is_between, ":day_time", 6, 9),
+                (is_between, ":day_time", 17, 20),
+                (store_random_in_range, ":random_2", 2000, 3000),
+                (val_mul, ":random_2", 5),
+                (set_fog_distance, ":random_2", 0xFFc7d7ec),
+            (else_try),
+                (store_random_in_range, ":random_2", 3000, 6000),
+                (val_mul, ":random_2", 5),
+                (set_fog_distance, ":random_2", 0xFF000000),
+            (try_end),        
+        (else_try),#else
+            (get_global_cloud_amount, ":clouds"),
+            (store_add, ":upper_bound", ":clouds", 7),
+            (val_min, ":upper_bound", ":clouds",100),
+            (store_sub, ":lower_bound", ":clouds",20),
+            (val_max, ":upper_bound", ":clouds", 10),
+            (store_random_in_range, ":random", ":lower_bound", ":upper_bound"),
+            (set_global_haze_amount, ":random"),
+            (try_begin),
+                (is_between, ":day_time", 9, 17),
+                (store_random_in_range, ":random_2", 700, 1300),
+                (val_mul, ":random_2", 5),
+                (set_fog_distance, ":random_2", 0xFFB0C4DE),
+            (else_try),
+                (this_or_next|is_between, ":day_time", 6, 9),
+                (is_between, ":day_time", 17, 20),
+                (store_random_in_range, ":random_2", 800, 2000),
+                (val_mul, ":random_2", 5),
+                (set_fog_distance, ":random_2", 0xFFc7d7ec),
+            (else_try),
+                (store_random_in_range, ":random_2", 1200, 3000),
+                (val_mul, ":random_2", 5),
+                (set_fog_distance, ":random_2", 0xFF000000),
+            (try_end),
+        (try_end),
+    (try_end),
+    ])
+]
+
+vc_seasons = [          # 3 triggers
+    
+    (ti_before_mission_start, 0, 0, [
+                 (get_global_cloud_amount, ":clouds"),
+                 (is_between, ":clouds", 90, 101),
+                 (neq, "$g_cur_month", 12), # not winter
+                 (neg|is_between, "$g_cur_month", 1, 3),
+                 (party_get_current_terrain, ":terrain","p_main_party"),
+                 (neq, ":terrain", rt_desert_forest),
+                 (neq, ":terrain", rt_desert),
+                 (neq, ":terrain", rt_snow),
+                 (neq, ":terrain", rt_snow_forest),
+                 (neq, ":terrain", rt_water),
+                 (neq, ":terrain", rt_bridge),
+                 (neq, ":terrain", rt_river),                
+             ],
+   [(set_rain, 1, 250)]),
+
+    (0, 0, ti_once, [],   # init wind
+    [
+      #shader, set wind shader properly
+      (assign, ":shader_wind_strength", "$wind_power"),
+
+      (val_mul, ":shader_wind_strength", 10),#wind_power: 0 - 4 -> 0 - 40
+      (val_div, ":shader_wind_strength", 4), # 0-10
+      (val_min, ":shader_wind_strength", 5),
+      
+      (set_fixed_point_multiplier,10),
+      (set_shader_param_float, "@vWindStrength", ":shader_wind_strength"),
+      (set_fixed_point_multiplier, 1),
+      (set_shader_param_float, "@vWindDirection", 30),#30 degree
+      (set_fixed_point_multiplier,100),
+  ]),
+
+    (0, 0, ti_once, [],
+    [      
+      # light
+      (set_fixed_point_multiplier, 100),
+      (try_begin),
+        (store_time_of_day, ":day_time"),
+        (is_between, ":day_time", 4, 20),
+        (get_startup_sun_light, pos1),
+        (call_script, "script_calculate_season_light"),
+        (set_startup_sun_light, reg1, reg2, reg3),
+        (get_startup_ambient_light, pos1),
+        (call_script, "script_calculate_season_light"),
+        (set_startup_ambient_light, reg1, reg2, reg3),
+        (get_startup_ground_ambient_light, pos1),
+        (call_script, "script_calculate_season_light"),
+        (set_startup_ground_ambient_light, reg1, reg2, reg3),
+        (ge, "$cheat_mode", 1),
+        (display_message, "@{!}season light set"),
+      (end_try),
+    ]),
+]
+thunder_storm =	[		# 4 trigger
+
+  (0, 0, ti_once, #preparations 2
+    [
+      (assign, "$lightning_cycle", -1),
+    ],
+    [
+    (try_begin),
+        (party_get_current_terrain, ":terrain","p_main_party"),
+        (neq, ":terrain", rt_desert_forest),
+        (neq, ":terrain", rt_desert),
+        (store_time_of_day, ":day_time"),
+        (neg|is_between, ":day_time", 4, 20),
+        (get_global_cloud_amount, ":clouds"),
+        (ge, ":clouds", 65),
+        (try_for_range, ":rand", 1, 11),
+            (le, ":rand", 4),	# 20% chance
+            (assign, "$lightning_cycle", 0),
+            (try_begin),
+                (neq, ":terrain", rt_desert_forest),
+                (neq, ":terrain", rt_desert),
+                (neq, ":terrain", rt_snow),           
+                (neq, ":terrain", rt_snow_forest),	
+                (set_rain, 1, 250),
+            (end_try),
+        (end_try),
+    (end_try),
+      
+    (eq, "$lightning_cycle", 0),
+    
+    (set_fixed_point_multiplier, 100),
+    
+    (get_startup_sun_light, pos1),
+    (position_get_x, "$sun_r", pos1),	# r
+    (position_get_y, "$sun_g", pos1), # g
+    (position_get_z, "$sun_b", pos1),	# b
+    (get_startup_ambient_light, pos1),
+    (position_get_x, "$amb_r", pos1),	# r
+    (position_get_y, "$amb_g", pos1), # g
+    (position_get_z, "$amb_b", pos1),	# b
+  ]),
+  
+  (3, 0.2, 6, 			#lightning 1
+    [
+      (eq,"$lightning_cycle",0),
+      (store_random_in_range,":chance",1,5),
+      (eq,":chance",1),
+      (play_sound,"snd_thunder"),
+      (set_startup_sun_light, 1000, 1000, 1000),
+      (set_startup_ambient_light, 1000, 1000, 1000),
+    ],
+    [
+      (set_startup_sun_light, 0, 0, 0),
+      (set_startup_ambient_light, 0, 0, 0),
+      (assign, "$lightning_cycle",1),
+  ]),
+  
+  (0.4,0.1, 6,			#lightning 2
+    [
+      (eq,"$lightning_cycle",1),
+      
+      (set_startup_sun_light, 220, 220, 220),
+      (set_startup_ambient_light, 220, 220, 220),
+    ],
+    [
+      (set_startup_sun_light, 1, 1, 1),
+      (set_startup_ambient_light, 1, 1, 1),
+      (assign,"$lightning_cycle",2),
+  ]),
+  
+  (0.5,0.1, 6,			#lightning 3
+    [
+      (eq,"$lightning_cycle",2),
+      (set_startup_sun_light, 150, 150, 150),
+      (set_startup_ambient_light, 150, 150, 150),
+    ],
+    [
+      (set_startup_sun_light, "$sun_r", "$sun_g", "$sun_b"),
+      (set_startup_ambient_light, "$amb_r", "$amb_g", "$amb_b"),
+      (assign,"$lightning_cycle", 0),
+  ]),
+]
+
+vc_water = [			# 5 trigger
+(ti_before_mission_start, 0, 0,[],[
+(assign, "$player_ship_number", -1),
+(assign, "$player_ship_captain", -1),
+]),
+  (ti_on_agent_spawn, 0, ti_once, [],		#preparations
+    [
+      (assign, ":beaufort_copy", "$beaufort"),
+      #(store_current_scene, ":cur_scene"),
+      (try_begin),
+      (call_script, "script_get_wave_properties"),
+      (assign, "$Amplitude_x",	reg1),
+      (assign, "$Amplitude_y",	reg2),
+      (assign, "$lamda_x",		reg3),
+      (assign, "$lamda_y",		reg4),
+      (assign, "$wavespeed_y", 	reg6),
+      (assign, "$target_Amplitude_x",	"$Amplitude_x"),
+      (assign, "$target_Amplitude_y",	"$Amplitude_y"),
+      
+      (call_script, "script_set_wave_shader"),
+      (assign, "$beaufort", ":beaufort_copy"),
+  ]),
+  (0, 0, 0.02, [],	# wave timer
+    [
+      (try_begin),
+        (is_between, "$wave_timer", 0, 6283),
+        (val_add, "$wave_timer", 1),
+      (else_try),
+        (assign, "$wave_timer", 0),
+      (end_try),
+      (call_script, "script_set_wave_timer"),
+  ]),
+  (5, 0, 15, [(store_random_in_range,":chance",1,4),(eq,":chance",1),],	# comands wave change
+    [
+      (assign, ":beaufort_copy", "$beaufort"),
+      #(store_current_scene, ":cur_scene"),
+      (call_script, "script_get_wave_properties"),
+      (shuffle_range, 1, 3),
+      (assign, "$target_Amplitude_x",	reg1),
+      (assign, "$target_Amplitude_y",	reg2),
+      #(display_message, "@{!}wave_change!"),
+      (assign, "$beaufort", ":beaufort_copy"),
+  ]),
+  (0.05, 0, 0, [],		# executes wave change
+    [
+      (assign, ":amplitude_change", 20),
+      (try_begin),
+        (lt, "$Amplitude_x", "$target_Amplitude_x"),
+        (store_sub, ":value", "$target_Amplitude_x", "$Amplitude_x"),
+        (ge, ":value", ":amplitude_change"),
+        (val_add, "$Amplitude_x", ":amplitude_change"),
+      (else_try),
+        (gt, "$Amplitude_x", "$target_Amplitude_x"),
+        (store_sub, ":value", "$Amplitude_x", "$target_Amplitude_x"),
+        (ge, ":value", ":amplitude_change"),
+        (val_sub, "$Amplitude_x", ":amplitude_change"),
+      (end_try),
+      
+      (try_begin),
+        (lt, "$Amplitude_y", "$target_Amplitude_y"),
+        (store_sub, ":value", "$target_Amplitude_y", "$Amplitude_y"),
+        (ge, ":value", ":amplitude_change"),
+        (val_add, "$Amplitude_y", ":amplitude_change"),
+      (else_try),
+        (gt, "$Amplitude_y", "$target_Amplitude_y"),
+        (store_sub, ":value", "$Amplitude_y", "$target_Amplitude_y"),
+        (ge, ":value", ":amplitude_change"),
+        (val_sub, "$Amplitude_y", ":amplitude_change"),
+      (end_try),
+      
+      (set_fixed_point_multiplier,10000),
+      (set_shader_param_float4, "@vWaveInfo", "$Amplitude_x", "$Amplitude_y", "$WaveNumber_x", "$WaveNumber_y"),
+      (store_add, ":Origin_z", "$Amplitude_x", "$Amplitude_y"), # This can be used to alter overall sea level
+      (set_shader_param_float4, "@vWaveOrigin", 0, 0, ":Origin_z", 0),
+      (set_fixed_point_multiplier,100),
+  ]),
+  (0, 0, 0,
+    [(key_is_down, key_left_control), (eq, "$cheat_mode", 1), (key_clicked, key_p),],	# testing
+    [
+      (try_begin),
+        (lt, "$beaufort", 12),
+        (val_add, "$beaufort", 1),
+      (else_try),
+        (assign, "$beaufort", 0),
+      (end_try),
+      (assign, reg1, "$beaufort"),
+      (display_message, "@{!}beaufort: {reg1}"),
+      
+      (call_script, "script_get_wave_properties"),
+      (assign, "$Amplitude_x",	reg1),
+      (assign, "$Amplitude_y",	reg2),
+      (assign, "$lamda_x",		reg3),
+      (assign, "$lamda_y",		reg4),
+      (assign, "$wavespeed_y", 	reg6),
+      (assign, "$target_Amplitude_x",	reg1),
+      (assign, "$target_Amplitude_y",	reg2),
+      (call_script, "script_set_wave_shader"),
+  ]),
+]
+vc_wind = [				# 2 trigger
+  (0, 0, ti_once, [],	# init wind
+    [
+      (set_fixed_point_multiplier,100),
+      (try_begin),
+        (scene_prop_get_num_instances, reg1, "spr_wind"),
+        (le, reg1, 0),
+        (spawn_scene_prop, "spr_wind"),
+        (assign, "$wind_spr", reg0),
+        (store_random_in_range, ":angle", 0, 360),
+        (try_begin),#testing
+          (ge, "$vc_debug_mode", 2),
+          (assign, reg8, ":angle"),
+          (display_message, "@{!}TEST: wind created and rotated by {reg8} degree."),
+        (end_try),#testing
+        (prop_instance_get_position, pos2, "$wind_spr"),
+        (position_rotate_z, pos2, ":angle"),
+        (prop_instance_set_position, "$wind_spr",pos2),
+        (assign, "$block_wind_change", 0),
+      (else_try),
+        (scene_prop_get_instance, "$wind_spr", "spr_wind", 0),
+        (prop_instance_get_position, pos2, "$wind_spr"),
+        (assign, "$block_wind_change", 1),
+      (end_try),
+      
+      (try_begin),
+        (ge, "$beaufort", 5),
+        (assign, "$wind_strenght", 100),
+      (else_try),
+        (store_mul, "$wind_strenght", "$beaufort", 20),
+      (end_try),
+      
+      #shader
+      (store_mul, ":shader_wind_strenght", "$beaufort", 10),
+      (val_div, ":shader_wind_strenght", 4), # 0-30
+      (try_begin),
+        (party_slot_eq, "p_main_party", slot_party_on_water, 0),
+        (val_div, ":shader_wind_strenght", 10), # 0-10		#lower wind on land VC-1921
+      (end_try),
+      (set_fixed_point_multiplier,10),
+      (set_shader_param_float, "@vWindStrength", ":shader_wind_strenght"),
+      (set_fixed_point_multiplier, 1),
+      (position_get_rotation_around_z, ":angle", pos2),
+      (set_shader_param_float, "@vWindDirection", ":angle"),
+      (set_fixed_point_multiplier,100),
+  ]),
+  
+  (59, 0, 0, [(neq, "$block_wind_change", 1),],		# change wind
+    [
+      (store_random_in_range, ":chance", 1, 4), #every three minutes, in other words, on average
+      (eq, ":chance", 1),
+      (set_fixed_point_multiplier,100),
+      (store_random_in_range, ":angle", -30, 31),
+      (prop_instance_get_position, pos2, "$wind_spr"),
+      (position_rotate_z, pos2, ":angle"),
+      #(prop_instance_set_position, "$wind_spr",pos2),
+      (prop_instance_animate_to_position, "$wind_spr", pos2, 1000),
+      #(display_message, "@The wind direction changed."),
+      #shader
+      (set_fixed_point_multiplier,1),
+      (position_get_rotation_around_z, ":angle", pos2),
+      (set_shader_param_float, "@vWindDirection", ":angle"),
+      (set_fixed_point_multiplier,100),
+  ])
+  
+]
+
+core_ship_system = [	# 6 trigger
+  (ti_before_mission_start, 0, ti_once, [],		#preparations
+    [
+      (set_fixed_point_multiplier, 100),
+      # FADE
+      (mission_cam_set_screen_color, 0xFF000000),
+      (mission_cam_animate_to_screen_color, 0x00000000, 2000),
+      
+      # ACCORDING SPAWNING
+      (assign, "$team_0_ship_counter", 0),
+      (assign, "$team_1_ship_counter", 0),
+      (assign, "$team_0_agent_counter", 0),
+      (assign, "$team_1_agent_counter", 0),
+      (assign, "$last_spawned_ship_team_0", 0),
+      (assign, "$last_spawned_ship_team_1", 0),
+      #new:
+      (assign, "$number_of_ships_global", 0),
+      
+      # ACCORDING CONTROL
+      (assign, "$block_ship_ai", 0),
+      (assign, "$block_player_ship_control", 0),
+      (assign, "$player_ship_number", -1),
+      
+      # ACCORDING COASTAL ASSAULT
+      (assign, "$first_ship_landet", 0),
+      
+      # ACCORDING CAMERA
+      (assign, "$cam_mode", 0),
+      (mission_cam_set_mode, 0, 0, 0),
+      
+      # ACCORDING REINFORCEMENT
+      (assign,"$defender_reinforcement_stage",0),
+      (assign,"$attacker_reinforcement_stage",0),
+      (assign,"$g_defender_reinforcement_limit",2),
+      (assign,"$g_attacker_reinforcement_limit",2),
+      
+      # ACCORDING WAVES
+      #(assign, "$wave_timer", 0),
+      (assign, "$last_wave_timer", "$wave_timer"),
+      (assign, "$schader_timer_on", 1),
+      
+      # ACCORDING VC-2035
+      #(set_physics_delta_time, 0.5),
+      
+      (assign, "$main_trigger_on", 1),
+  ]),
+  (0, 0, 0.25, [(eq, "$main_trigger_on", 1),],	# main trigger
+    [
+      
+      # CONCORDANCE WITH WAVES
+      (store_sub, "$wave_timer_diff", "$wave_timer", "$last_wave_timer"), #Depends on player FPS
+      (assign, "$last_wave_timer", "$wave_timer"),
+      
+      # MAIN SCRIPT !!!
+      (call_script, "script_put_the_Klabautermann_into_the_ships"),
+      
+      # ACCORDING CAMERA
+      (try_begin),
+        (eq, "$cam_mode", 1),
+        (neg|eq, "$player_ship_number", -1),
+        (scene_prop_get_instance, ":ship_instance", "spr_dyn_ship_substrate", "$player_ship_number"),
+        (prop_instance_get_position, pos2, ":ship_instance"),
+        (position_get_rotation_around_x, ":rotation", pos2),
+        (val_mul, ":rotation",-1),
+        (position_rotate_x, pos2, ":rotation"),
+        (position_get_rotation_around_y, ":rotation", pos2),
+        (val_mul, ":rotation",-1),
+        (position_rotate_y, pos2, ":rotation"),
+        (position_get_rotation_around_z, ":rotation", pos2),
+        (val_mul, ":rotation",-1),
+        (position_rotate_z, pos2, ":rotation"),
+        (position_move_z, pos2, 500, 1),
+        (get_player_agent_no, ":agent"),
+        (agent_get_look_position, pos9, ":agent"),
+        (position_copy_rotation, pos2, pos9),
+        (scene_prop_get_slot, ":distance", ":ship_instance", scene_prop_distance_to_front),
+        (val_mul, ":distance", -2),
+        (position_move_y, pos2, ":distance"),
+        #
+        (copy_position, pos1, pos2),
+        (call_script, "script_calculate_rocking_to_pos1"),
+        (position_get_z, ":z_water", pos1),
+        (position_get_z, ":z", pos2),
+        (val_max, ":z", ":z_water"),
+        (val_add, ":z", 15),
+        (position_set_z, pos2, ":z"),
+        #
+        (mission_cam_animate_to_position, pos2, 300, 0),
+      (end_try),
+  ]),
+  (1, 0, 0, [],		# sound etc.
+    [
+      # ACCORDING VC-2035
+      # (assign, reg7, "$wave_timer_diff"),
+      # (display_message, "@{!}TEST: wave_timer_diff = {reg7}"),
+      # (try_begin),
+      # (ge, "$wave_timer_diff", 11),
+      # (set_physics_delta_time, 0.025),
+      # (else_try),
+      # (ge, "$wave_timer_diff", 10),
+      # (set_physics_delta_time, 0.05),
+      # (else_try),
+      # (ge, "$wave_timer_diff", 9),
+      # (set_physics_delta_time, 0.1),
+      # (else_try),
+      # (ge, "$wave_timer_diff", 8),
+      # (set_physics_delta_time, 0.2),
+      # (else_try),
+      # (ge, "$wave_timer_diff", 6),
+      # (set_physics_delta_time, 0.5),
+      # (else_try),
+      # (set_physics_delta_time, 1),
+      # (end_try),
+      
+      # ACCORDING MAIN SCRIPT
+      (call_script, "script_check_player_ship"),
+      (call_script, "script_check_ship_team"),
+      
+      # ACCORDING SOUND
+      #(scene_prop_get_num_instances, ":number_of_ships", "spr_dyn_ship_substrate"),
+      (try_for_range,":ship_number", 0, "$number_of_ships_global"),
+        (try_begin),
+          (this_or_next|eq, "$coastal_battle", 0),  #don't play ship sound in coastal battle unless player has a ship
+          (eq, ":ship_number", "$player_ship_number"),
+          
+          (this_or_next|eq, ":ship_number", "$player_ship_number"),
+          (eq, ":ship_number", 0),		# Only 2 ships max
+          
+          (scene_prop_get_instance, ":ship_instance", "spr_dyn_ship_substrate", ":ship_number"),
+          (scene_prop_get_slot, ":speed", ":ship_instance", scene_prop_last_speed),
+          (scene_prop_get_slot, ":sound", ":ship_instance", scene_prop_sound),
+          #(scene_prop_get_slot, ":ship_main_instance", ":ship_instance", scene_prop_main_instance),
+          (try_begin),
+            (le, ":sound", 0),
+            (neg|is_between, ":speed", -5, 6),
+            (prop_instance_stop_sound, ":ship_instance"),
+            (prop_instance_play_sound, ":ship_instance", "snd_ship_sailing_loop"),
+            (scene_prop_set_slot, ":ship_instance", scene_prop_sound, 1),
+          (else_try),
+            (ge, ":sound", 0),
+            (is_between, ":speed", -5, 6),
+            (prop_instance_stop_sound, ":ship_instance"),
+            (prop_instance_play_sound, ":ship_instance", "snd_ship_static_loop"),
+            (scene_prop_set_slot, ":ship_instance", scene_prop_sound, -1),
+          (try_end),
+        (try_end),
+        
+        # ACCORDING ROWING
+        (scene_prop_get_instance, ":ship_instance", "spr_dyn_ship_substrate", ":ship_number"),
+        (scene_prop_get_slot, ":rowing", ":ship_instance", scene_prop_rowing),
+        (scene_prop_get_slot, ":sail", ":ship_instance", scene_prop_sail),
+        (scene_prop_get_slot, ":boarding_progress", ":ship_instance", scene_prop_boarding_progress),
+        (scene_prop_get_slot, ":oar_state", ":ship_instance", scene_prop_oar_state),
+        (scene_prop_get_slot, ":ship_main_instance", ":ship_instance", scene_prop_main_instance),
+        
+        (assign, ":block", 0),
+        (prop_instance_get_position, pos11, ":ship_instance"),
+        (scene_prop_get_slot, ":ship_type", ":ship_instance", scene_prop_ship_type),
+        (call_script, "script_get_ship_properties", ":ship_type"),
+        (assign, ":ship1_distance", reg4),
+        
+        # Distance to other ships
+        (try_for_range, ":ship2_number", 0, "$number_of_ships_global"),
+          (neq, ":ship_number", ":ship2_number"),
+          (scene_prop_get_instance, ":ship2_instance", "spr_dyn_ship_substrate", ":ship2_number"),
+          (prop_instance_get_position, pos12, ":ship2_instance"),
+          (get_distance_between_positions, ":distance", pos11, pos12),
+          (lt, ":distance", 4000),#40m
+          (scene_prop_get_slot, ":ship2_type", ":ship2_instance", scene_prop_ship_type),
+          (call_script, "script_get_ship_properties", ":ship2_type"),
+          (store_add, ":max_distance", ":ship1_distance", reg4),
+          #(val_sub, ":max_distance", 100),
+          (lt, ":distance", ":max_distance"),
+          (assign, ":block", 1),
+          (assign, ":ship2_number", "$number_of_ships_global"),	#loop breaker
+        (end_try),
+        
+        # Distance to barriers
+        (scene_prop_get_num_instances, ":number_of_barriers", "spr_barrier_ship"),
+        (try_for_range,":ship_barrier_number", 0, ":number_of_barriers"),
+          (scene_prop_get_instance, ":curr_ship_barrier_id", "spr_barrier_ship", ":ship_barrier_number"),
+          (prop_instance_get_position, pos12, ":curr_ship_barrier_id"),
+          (position_move_z, pos12, 1000),
+          (get_distance_between_positions, ":distance", pos11, pos12),
+          (store_add, ":max_distance", ":ship1_distance", 1600),	#15m = special size of some barrier objects
+          (lt, ":distance", ":max_distance"),
+          (assign, ":block", 1),
+        (end_try),
+        
+        # landed?
+        (try_begin),
+          (eq, ":boarding_progress", -1),
+          (assign, ":block", 1),
+        (end_try),
+        
+        (scene_prop_get_slot, ":crew_number", ":ship_instance", scene_prop_crew_number),
+        (store_mul, ":crew_in_percent", ":crew_number", 100),
+        (scene_prop_get_slot, ":ship_type", ":ship_instance", scene_prop_ship_type),
+        (call_script, "script_get_ship_properties", ":ship_type"),
+        (val_div, ":crew_in_percent", reg6),
+        
+        (try_begin),
+          #(this_or_next|eq, ":block", 1),	# = Block
+          (le, ":crew_number", 1),
+          (assign, ":oar_stacks", 0),
+        (else_try),
+          (lt, ":crew_in_percent", 20),
+          (assign, ":oar_stacks", 1),
+        (else_try),
+          (lt, ":crew_in_percent", 40),
+          (assign, ":oar_stacks", 2),
+        (else_try),
+          (lt, ":crew_in_percent", 60),
+          (assign, ":oar_stacks", 3),
+        (else_try),
+          (lt, ":crew_in_percent", 80),
+          (assign, ":oar_stacks", 4),
+        (else_try),
+          (assign, ":oar_stacks", 5),
+        (end_try),
+        
+        (scene_prop_get_slot, ":main_instance", ":ship_instance", scene_prop_main_instance),
+        (store_add, ":oar_stacks_plus_5", ":oar_stacks", 5),
+        (try_for_range, ":sub_mesh_no", 6, 11),
+          (try_begin),
+            (le, ":sub_mesh_no", ":oar_stacks_plus_5"),
+            (prop_instance_set_material, ":main_instance", ":sub_mesh_no", "@{!}vc_ships_various01"),
+          (else_try),
+            (prop_instance_set_material, ":main_instance", ":sub_mesh_no", "@{!}alpha"),
+          (end_try),
+        (end_try),
+        
+        (prop_instance_get_current_deform_frame, ":current_frame", ":ship_main_instance"),
+        (try_begin),
+          (eq, ":oar_stacks", 0),	# = Block
+        (else_try),
+          # Bring oars back in ship
+          (eq, ":block", 1),
+          (le, ":current_frame", 310),
+          (neq, ":sail", 1),
+          (scene_prop_slot_eq,":ship_instance", scene_prop_boarding_left, 0),	#VC-2271
+          (scene_prop_slot_eq,":ship_instance", scene_prop_boarding_right, 0),	#VC-2271
+          
+          (prop_instance_deform_in_range, ":ship_main_instance", ":current_frame", 321, 900),
+          (assign, ":oar_state", 0),
+        (else_try),
+          (eq, ":block", 1),
+        (else_try),
+          (eq, ":oar_state", 0),
+          (le, ":current_frame", 310),
+          (gt, ":rowing", 50),
+          (prop_instance_deform_in_cycle_loop, ":ship_main_instance", 10, 300, 2000),
+          (assign, ":oar_state", ":rowing"),
+        (else_try),
+          (eq, ":oar_state", 0),
+          (le, ":current_frame", 310),
+          (gt, ":rowing", 0),
+          (prop_instance_deform_in_cycle_loop, ":ship_main_instance", 10, 300, 3500),
+          (assign, ":oar_state", ":rowing"),
+        (else_try),
+          (eq, ":oar_state", 0),
+          (le, ":current_frame", 310),
+          (lt, ":rowing", 0),
+          (prop_instance_deform_in_cycle_loop, ":ship_main_instance", 300, 10, 3500),
+          (assign, ":oar_state", ":rowing"),
+        (else_try),
+          (neq, ":rowing", ":oar_state"),
+          (prop_instance_deform_in_range, ":ship_main_instance", ":current_frame", 300, 900),
+          (assign, ":oar_state", 0),	# 0 = main position
+        (else_try),
+          (eq, ":rowing", 0),
+          (eq, ":oar_state", 0),
+          #(eq, ":current_frame", 310),
+          (prop_instance_deform_in_range, ":ship_main_instance", ":current_frame", 321, 900),
+          #(assign, ":oar_state", 0),	# 0 = main position
+        (end_try),
+        
+        (scene_prop_set_slot, ":ship_instance", scene_prop_oar_state, ":oar_state"),
+      (end_try),
+  ]),
+  ship_rowing_sounds,
+  (0, 0, 0, [(key_is_down, key_left_control),(eq, "$cheat_mode", 1),],[	# commands
+      
+      (try_begin),
+        ### block_ship_ai
+        (key_clicked, key_k),
+        (try_begin),
+          (eq, "$block_ship_ai", 0),
+          (assign, "$block_ship_ai", 1),
+          (display_message, "@{!}Ship AI off."),
+        (else_try),
+          (eq, "$block_ship_ai", 1),
+          (assign, "$block_ship_ai", 0),
+          (display_message, "@{!}Ship AI on."),
+        (try_end),
+      (else_try),
+        
+        ### keep_agent_on_board
+        (key_clicked, key_w),
+        (try_begin),
+          (eq, "$keep_agent_on_board_disabled", 0),
+          (assign, "$keep_agent_on_board_disabled", 1),
+          (display_message, "@{!}keep_agent_on_board off."),
+        (else_try),
+          (assign, "$keep_agent_on_board_disabled", 0),
+          (display_message, "@{!}keep_agent_on_board on."),
+        (try_end),
+      (else_try),
+        
+        ### main_trigger_reaction
+        (key_clicked, key_e),
+        (try_begin),
+          (eq, "$main_trigger_reaction_disabled", 0),
+          (assign, "$main_trigger_reaction_disabled", 1),
+          (display_message, "@{!}main_trigger_reaction off."),
+        (else_try),
+          (assign, "$main_trigger_reaction_disabled", 0),
+          (display_message, "@{!}main_trigger_reaction on."),
+        (try_end),
+      (else_try),
+        
+        ### collision_check
+        (key_clicked, key_s),
+        (try_begin),
+          (eq, "$collision_check_disabled", 0),
+          (assign, "$collision_check_disabled", 1),
+          (display_message, "@{!}collision_check off."),
+        (else_try),
+          (assign, "$collision_check_disabled", 0),
+          (display_message, "@{!}collision_check on."),
+        (try_end),
+      (else_try),
+        
+        ### aground_check
+        (key_clicked, key_a),
+        (try_begin),
+          (eq, "$aground_check_disabled", 0),
+          (assign, "$aground_check_disabled", 1),
+          (display_message, "@{!}aground_check off."),
+        (else_try),
+          (assign, "$aground_check_disabled", 0),
+          (display_message, "@{!}aground_check on."),
+        (try_end),
+      (else_try),
+        
+        ### main_trigger_on
+        (key_clicked, key_d),
+        (try_begin),
+          (eq, "$main_trigger_on", 0),
+          (assign, "$main_trigger_on", 1),
+          (display_message, "@{!}main_trigger_on."),
+        (else_try),
+          (eq, "$main_trigger_on", 1),
+          (assign, "$main_trigger_on", 0),
+          (display_message, "@{!}main_trigger_off."),
+        (try_end),
+      (else_try),
+        
+        ### block_player_ship_control
+        (key_clicked, key_j),
+        (eq, "$cheat_mode", 1),
+        (try_begin),
+          (eq, "$block_player_ship_control", 0),
+          (assign, "$block_player_ship_control", 1),
+          (display_message, "@{!}Player ship control off."),
+        (else_try),
+          (eq, "$block_player_ship_control", 1),
+          (assign, "$block_player_ship_control", 0),
+          (display_message, "@{!}Player ship control on."),
+        (try_end),
+      (else_try),
+        
+        
+        
+        ### TESTING 3		"$wave_timer"
+        (key_clicked, key_j),
+        (val_add, "$wave_timer", 20),
+        (assign, reg1, "$wave_timer"),
+        (display_message, "@{!}wave_timer: {reg1}"),
+        (set_fixed_point_multiplier, 1000),
+        (set_shader_param_float, "@vTimer", "$wave_timer"),
+        (set_fixed_point_multiplier, 100),
+      (else_try),
+        
+        ### TESTING 4
+        (key_clicked, key_g),
+        (val_sub, "$wave_timer", 20),
+        (assign, reg1, "$wave_timer"),
+        (display_message, "@{!}wave_timer: {reg1}"),
+        (set_fixed_point_multiplier, 1000),
+        (set_shader_param_float, "@vTimer", "$wave_timer"),
+        (set_fixed_point_multiplier, 100),
+      (else_try),
+        
+        ### TESTING y Axis
+        (key_is_down, key_z),
+        (assign, ":block", 0),
+        (try_begin),
+          (key_is_down, key_b),
+          (key_clicked, key_up),
+          (val_add, "$lamda_y", 500),
+        (else_try),
+          (key_is_down, key_b),
+          (key_clicked, key_down),
+          (val_sub, "$lamda_y", 500),
+        (else_try),
+          (key_is_down, key_v),
+          (key_clicked, key_up),
+          (val_add, "$Amplitude_y", 1000),
+        (else_try),
+          (key_is_down, key_v),
+          (key_clicked, key_down),
+          (val_sub, "$Amplitude_y", 1000),
+        (else_try),
+          (key_is_down, key_n),
+          (key_clicked, key_up),
+          (val_add, "$wavespeed_y", 10),
+        (else_try),
+          (key_is_down, key_n),
+          (key_clicked, key_down),
+          (val_sub, "$wavespeed_y", 10),
+        (else_try),
+          (assign, ":block", 1),
+        (end_try),
+        
+        (try_begin),
+          (eq, ":block", 0),
+          #
+          (store_div, "$WaveNumber_y", 3141592 * 2, "$lamda_y"),
+          (store_mul, "$omega_y", "$WaveNumber_y", "$wavespeed_y"),
+          (val_div, "$omega_y", 10000),	# 2 + 2 new for wavespeed
+          
+          #
+          (set_fixed_point_multiplier,10000),
+          (set_shader_param_float4, "@vWaveInfo", "$Amplitude_x", "$Amplitude_y", "$WaveNumber_x", "$WaveNumber_y"),
+          (store_add, ":Origin_z", "$Amplitude_x", "$Amplitude_y"), # This can be used to alter overall sea level
+          (set_shader_param_float4, "@vWaveOrigin", 0, 0, ":Origin_z", 0),
+          (set_fixed_point_multiplier,100),
+          
+          (store_div, reg1, "$Amplitude_x", 100),
+          #(val_div, reg1, 100),
+          (store_div, reg2, "$Amplitude_y", 100),
+          #(val_div, reg2, 100),
+          (assign, reg3, "$lamda_x"),
+          (assign, reg4, "$lamda_y"),
+          (assign, reg5, "$wavespeed_y"),
+          #(display_message, "@{!}X: WaveLength:{reg3}m WaveHight:{reg1}cm"),
+          (display_message, "@{!}Y: WaveLength:{reg4}cm WaveHight:{reg2}cm WaveSpeed: {reg5}"),
+        (end_try),
+        
+      (else_try),
+        
+        ### TESTING x Axis
+        (key_is_down, key_x),
+        (assign, ":block", 0),
+        (try_begin),
+          (key_is_down, key_b),
+          (key_clicked, key_up),
+          (val_add, "$lamda_x", 500),
+        (else_try),
+          (key_is_down, key_b),
+          (key_clicked, key_down),
+          (val_sub, "$lamda_x", 500),
+        (else_try),
+          (key_is_down, key_v),
+          (key_clicked, key_up),
+          (val_add, "$Amplitude_x", 1000),
+        (else_try),
+          (key_is_down, key_v),
+          (key_clicked, key_down),
+          (val_sub, "$Amplitude_x", 1000),
+        (else_try),
+          (assign, ":block", 1),
+        (end_try),
+        
+        (try_begin),
+          (eq, ":block", 0),
+          (store_div, "$WaveNumber_x", 3141592 * 2, "$lamda_x"),
+          (set_fixed_point_multiplier,10000),
+          (set_shader_param_float4, "@vWaveInfo", "$Amplitude_x", "$Amplitude_y", "$WaveNumber_x", "$WaveNumber_y"),
+          (store_add, ":Origin_z", "$Amplitude_x", "$Amplitude_y"), # This can be used to alter overall sea level
+          (set_shader_param_float4, "@vWaveOrigin", 0, 0, ":Origin_z", 0),
+          (set_fixed_point_multiplier,100),
+          (assign, reg1, "$Amplitude_x"),
+          (val_div, reg1, 100),
+          (assign, reg2, "$Amplitude_y"),
+          (val_div, reg2, 100),
+          (assign, reg3, "$lamda_x"),
+          (assign, reg4, "$lamda_y"),
+          (display_message, "@{!}X: WaveLength:{reg3}m WaveHight:{reg1}cm"),
+          #(display_message, "@{!}Y: WaveLength:{reg4}m WaveHight:{reg2}cm"),
+        (end_try),
+      (try_end),
+  ]),
+  
+  (2.7, 0, 0, [],	#FLYING ITEMS	# VC-1804
+    [
+      (try_for_prop_instances, ":item_instance", -1, somt_spawned_unsheathed_item),
+        (scene_prop_slot_eq, ":item_instance", scene_prop_timer, 0),
+        (scene_prop_set_slot, ":item_instance", scene_prop_timer, 1),
+        # (assign, reg1, ":item_instance"),
+        # (display_message, "@{!}TEST: I found a scene_spawned_item: {reg1}"),
+        (prop_instance_get_position, pos1, ":item_instance"),
+        # (position_get_distance_to_terrain, ":distance", pos1),
+        # (val_mul, ":distance", -1),
+        (position_set_z, pos1, -3500),
+        # (position_move_z, pos1, ":distance"),
+        (prop_instance_animate_to_position, ":item_instance", pos1, 500),
+        (scene_prop_fade_out, ":item_instance", 500),
+      (end_try),
+  ]),
+  
+]
+
+coastal_defender_formation = [
+  # 2 triggers
+  # for coastal batlle only
+  (1, 0, ti_once, [(eq, "$first_ship_landet", 0)],
+    [
+      (assign, ":agent_counter", 0),
+      (try_for_agents,":agent"),
+        (agent_is_alive,":agent"),
+        (agent_is_human,":agent"),
+        (agent_is_non_player, ":agent"),
+        (agent_get_team, ":team", ":agent"),
+        (eq, ":team", 0),
+        (try_begin),
+          (le, ":agent_counter", 0),
+          (entry_point_get_position, pos4, 50),
+          (position_move_x, pos4, -1000),
+        (else_try),
+          (this_or_next|eq, ":agent_counter", 21),
+          (this_or_next|eq, ":agent_counter", 41),
+          (this_or_next|eq, ":agent_counter", 61),
+          (eq, ":agent_counter", 81),
+          (position_move_y, pos4, -100),
+          (position_move_x, pos4, -2000),
+        (end_try),
+        (agent_set_scripted_destination,":agent",pos4,0),
+        (position_move_x, pos4, 100),
+        (val_add, ":agent_counter", 1),
+      (end_try),
+  ]),
+  
+  (1, 0, 0, [(eq, "$first_ship_landet", 1)],
+    [
+      (try_for_agents,":agent"),
+        (agent_is_alive,":agent"),
+        (agent_is_human,":agent"),
+        (agent_is_non_player, ":agent"),
+        (agent_get_team, ":team", ":agent"),
+        (eq, ":team", 0),
+        (agent_clear_scripted_mode, ":agent"),
+        (agent_ai_set_aggressiveness, ":agent", 299), #!
+      (end_try),
+      (assign, "$first_ship_landet", 2),
+  ]),
+]
+player_only_drowning =(	#VC-3182
+  1, 0, 0, [],[
+    (try_begin),
+      (store_mission_timer_a, ":cur_time"),
+      (gt, ":cur_time", 5),
+      (set_fixed_point_multiplier, 100),
+      (get_player_agent_no, ":agent"),
+      (agent_is_alive,":agent"),
+      (agent_is_active,":agent"),
+      (agent_get_position,pos6,":agent"),
+      (position_get_z, ":deep", pos6),
+      (lt, ":deep", -200),
+      (agent_set_hit_points, ":agent", 0, 1),
+      (agent_deliver_damage_to_agent, ":agent", ":agent" ,1),
+    (end_try),
+])
+vc_weather = vc_water + vc_wind + vc_seasons + thunder_storm + improved_lighting
+
 ##BEAN BEGIN - Deathcam
 bean_common_init_deathcam = (
    0, 0, ti_once,
@@ -1351,506 +4021,6 @@ common_bearer_down = ( #also functions to check how many death hostiles and frie
   (try_end),
   ])
 
-#VC
-
-#improved_lightning - from maxi/butters
-improved_lighting =  [ 
-    (ti_before_mission_start, 0, 0, 
-    [],
-    [
-    (party_get_current_terrain, ":terrain", "p_main_party"),
-    (store_time_of_day, ":day_time"),
-    (try_begin),
-        (this_or_next|eq, ":terrain", rt_forest),
-        (this_or_next|eq, ":terrain", rt_steppe_forest),
-        (this_or_next|eq, ":terrain", rt_steppe),
-        (eq, ":terrain", rt_plain),
-        (try_begin),#winter
-            (this_or_next|eq, "$g_cur_month", 1),
-            (this_or_next|eq, "$g_cur_month", 2),
-            (this_or_next|eq, "$g_cur_month", 11),
-            (eq, "$g_cur_month", 12),
-            (get_global_cloud_amount, ":clouds"),
-            (store_add, ":upper_bound", ":clouds", 20),
-            (val_min, ":upper_bound", ":clouds",100),
-            (store_sub, ":lower_bound", ":clouds",10),
-            (val_max, ":upper_bound", ":clouds", 10),
-            (store_random_in_range, ":random", ":lower_bound", ":upper_bound"),
-            (set_global_haze_amount, ":random"),
-            (try_begin),
-                (is_between, ":day_time", 9, 17),
-                (store_random_in_range, ":random_2", 600, 700),
-                (val_mul, ":random_2", 2),
-                (set_fog_distance, ":random_2", 0xFFA7A7A7),
-            (else_try),
-                (this_or_next|is_between, ":day_time", 6, 9),
-                (is_between, ":day_time", 17, 20),
-                (store_random_in_range, ":random_2", 700, 800),
-                (val_mul, ":random_2", 2),
-                (set_fog_distance, ":random_2", 0xFFA2A2A2),
-            (else_try),
-                (store_random_in_range, ":random_2", 800, 1200),
-                (val_mul, ":random_2", 2),
-                (set_fog_distance, ":random_2", 0xFFB9B9B9),
-            (try_end),
-        (else_try),#sommer
-            (this_or_next|eq, "$g_cur_month", 5),
-            (this_or_next|eq, "$g_cur_month", 6),
-            (this_or_next|eq, "$g_cur_month", 7),
-            (eq, "$g_cur_month", 8),
-            (get_global_cloud_amount, ":clouds"),
-            (store_add, ":upper_bound", ":clouds", 10),
-            (val_min, ":upper_bound", ":clouds",100),
-            (store_sub, ":lower_bound", ":clouds",20),
-            (val_max, ":upper_bound", ":clouds", 10),
-            (store_random_in_range, ":random", ":lower_bound", ":upper_bound"),
-            (set_global_haze_amount, ":random"),
-            (try_begin),
-                (is_between, ":day_time", 9, 17),
-                (store_random_in_range, ":random_2", 1300, 2000),
-                (val_mul, ":random_2", 2),
-                (set_fog_distance, ":random_2", 0xFFB0C4DE),
-            (else_try),
-                (this_or_next|is_between, ":day_time", 6, 9),
-                (is_between, ":day_time", 17, 20),
-                (store_random_in_range, ":random_2", 2000, 3000),
-                (val_mul, ":random_2", 2),
-                (set_fog_distance, ":random_2", 0xFFc7d7ec),
-            (else_try),
-                (store_random_in_range, ":random_2", 3000, 6000),
-                (val_mul, ":random_2", 2),
-                (set_fog_distance, ":random_2", 0xFF000000),
-            (try_end),        
-        (else_try),#else
-            (get_global_cloud_amount, ":clouds"),
-            (store_add, ":upper_bound", ":clouds", 15),
-            (val_min, ":upper_bound", ":clouds",100),
-            (store_sub, ":lower_bound", ":clouds",15),
-            (val_max, ":upper_bound", ":clouds", 10),
-            (store_random_in_range, ":random", ":lower_bound", ":upper_bound"),
-            (set_global_haze_amount, ":random"),
-            (try_begin),
-                (is_between, ":day_time", 9, 17),
-                (store_random_in_range, ":random_2", 700, 1300),
-                (val_mul, ":random_2", 2),
-                (set_fog_distance, ":random_2", 0xFFB0C4DE),
-            (else_try),
-                (this_or_next|is_between, ":day_time", 6, 9),
-                (is_between, ":day_time", 17, 20),
-                (store_random_in_range, ":random_2", 800, 2000),
-                (val_mul, ":random_2", 2),
-                (set_fog_distance, ":random_2", 0xFFc7d7ec),
-            (else_try),
-                (store_random_in_range, ":random_2", 1200, 3000),
-                (val_mul, ":random_2", 2),
-                (set_fog_distance, ":random_2", 0xFF000000),
-            (try_end),
-        (try_end),
-    (else_try),
-        (this_or_next|eq, ":terrain", rt_water),
-        (this_or_next|eq, ":terrain", rt_river),
-        (eq, ":terrain", rt_bridge),
-        (try_begin),#winter
-            (this_or_next|eq, "$g_cur_month", 1),
-            (this_or_next|eq, "$g_cur_month", 2),
-            (this_or_next|eq, "$g_cur_month", 11),
-            (eq, "$g_cur_month", 12),
-            (get_global_cloud_amount, ":clouds"),
-            (store_add, ":upper_bound", ":clouds", 20),
-            (val_min, ":upper_bound", ":clouds",100),
-            (store_sub, ":lower_bound", ":clouds",20),
-            (val_max, ":upper_bound", ":clouds", 10),
-            (store_random_in_range, ":random", ":lower_bound", ":upper_bound"),
-            (set_global_haze_amount, ":random"),
-            (try_begin),
-                (is_between, ":day_time", 9, 17),
-                (store_random_in_range, ":random_2", 600, 700),
-                (set_fog_distance, ":random_2", 0xFFB0C4DE),
-            (else_try),
-                (this_or_next|is_between, ":day_time", 6, 9),
-                (is_between, ":day_time", 17, 20),
-                (store_random_in_range, ":random_2", 700, 800),
-                (set_fog_distance, ":random_2", 0xFFc7d7ec),
-            (else_try),
-                (store_random_in_range, ":random_2", 800, 1200),
-                (set_fog_distance, ":random_2", 0xFF000000),
-            (try_end),
-        (else_try),#sommer
-            (this_or_next|eq, "$g_cur_month", 5),
-            (this_or_next|eq, "$g_cur_month", 6),
-            (this_or_next|eq, "$g_cur_month", 7),
-            (eq, "$g_cur_month", 8),
-            (get_global_cloud_amount, ":clouds"),
-            (store_add, ":upper_bound", ":clouds", 10),
-            (val_min, ":upper_bound", ":clouds",100),
-            (store_sub, ":lower_bound", ":clouds",10),
-            (val_max, ":upper_bound", ":clouds", 10),
-            (store_random_in_range, ":random", ":lower_bound", ":upper_bound"),
-            (set_global_haze_amount, ":random"),
-            (try_begin),
-                (is_between, ":day_time", 9, 17),
-                (store_random_in_range, ":random_2", 1300, 2000),
-                (set_fog_distance, ":random_2", 0xFFB0C4DE),
-            (else_try),
-                (this_or_next|is_between, ":day_time", 6, 9),
-                (is_between, ":day_time", 17, 20),
-                (store_random_in_range, ":random_2", 2000, 3000),
-                (set_fog_distance, ":random_2", 0xFFc7d7ec),
-            (else_try),
-                (store_random_in_range, ":random_2", 3000, 6000),
-                (set_fog_distance, ":random_2", 0xFF000000),
-            (try_end),        
-        (else_try),#else
-            (get_global_cloud_amount, ":clouds"),
-            (store_add, ":upper_bound", ":clouds", 15),
-            (val_min, ":upper_bound", ":clouds",100),
-            (store_sub, ":lower_bound", ":clouds",15),
-            (val_max, ":upper_bound", ":clouds", 10),
-            (store_random_in_range, ":random", ":lower_bound", ":upper_bound"),
-            (set_global_haze_amount, ":random"),
-            (try_begin),
-                (is_between, ":day_time", 9, 17),
-                (store_random_in_range, ":random_2", 700, 1300),
-                (set_fog_distance, ":random_2", 0xFFB0C4DE),
-            (else_try),
-                (this_or_next|is_between, ":day_time", 6, 9),
-                (is_between, ":day_time", 17, 20),
-                (store_random_in_range, ":random_2", 800, 2000),
-                (set_fog_distance, ":random_2", 0xFFc7d7ec),
-            (else_try),
-                (store_random_in_range, ":random_2", 1200, 3000),
-                (set_fog_distance, ":random_2", 0xFF000000),
-            (try_end),
-        (try_end),
-    (else_try),
-        (this_or_next|eq, ":terrain", rt_snow),
-        (eq, ":terrain", rt_snow_forest),
-        (try_begin),#winter
-            (this_or_next|eq, "$g_cur_month", 1),
-            (this_or_next|eq, "$g_cur_month", 2),
-            (this_or_next|eq, "$g_cur_month", 11),
-            (eq, "$g_cur_month", 12),
-            (get_global_cloud_amount, ":clouds"),
-            (store_add, ":upper_bound", ":clouds", 10),
-            (val_min, ":upper_bound", ":clouds",100),
-            (store_sub, ":lower_bound", ":clouds",20),
-            (val_max, ":upper_bound", ":clouds", 10),
-            (store_random_in_range, ":random", ":lower_bound", ":upper_bound"),
-            (set_global_haze_amount, ":random"),
-            (try_begin),
-                (is_between, ":day_time", 9, 17),
-                (store_random_in_range, ":random_2", 600, 700),
-                (val_mul, ":random_2", 2),
-                (val_mul, ":random_2", 3),
-                (val_div, ":random_2", 2),
-                (set_fog_distance, ":random_2", 0xFFB0C4DE),
-            (else_try),
-                (this_or_next|is_between, ":day_time", 6, 9),
-                (is_between, ":day_time", 17, 20),
-                (store_random_in_range, ":random_2", 700, 800),
-                (val_mul, ":random_2", 2),
-                (val_mul, ":random_2", 3),
-                (val_div, ":random_2", 2),
-                (set_fog_distance, ":random_2", 0xFFc7d7ec),
-            (else_try),
-                (store_random_in_range, ":random_2", 800, 1200),
-                (val_mul, ":random_2", 2),
-                (val_mul, ":random_2", 3),
-                (val_div, ":random_2", 2),
-                (set_fog_distance, ":random_2", 0xFF000000),
-            (try_end),
-        (else_try),#sommer
-            (this_or_next|eq, "$g_cur_month", 5),
-            (this_or_next|eq, "$g_cur_month", 6),
-            (this_or_next|eq, "$g_cur_month", 7),
-            (eq, "$g_cur_month", 8),
-            (get_global_cloud_amount, ":clouds"),
-            (store_add, ":upper_bound", ":clouds", 5),
-            (val_min, ":upper_bound", ":clouds",100),
-            (store_sub, ":lower_bound", ":clouds",20),
-            (val_max, ":upper_bound", ":clouds", 10),
-            (store_random_in_range, ":random", ":lower_bound", ":upper_bound"),
-            (set_global_haze_amount, ":random"),
-            (try_begin),
-                (is_between, ":day_time", 9, 17),
-                (store_random_in_range, ":random_2", 1300, 2000),
-                (val_mul, ":random_2", 2),
-                (val_mul, ":random_2", 3),
-                (val_div, ":random_2", 2),
-                (set_fog_distance, ":random_2", 0xFFB0C4DE),
-            (else_try),
-                (this_or_next|is_between, ":day_time", 6, 9),
-                (is_between, ":day_time", 17, 20),
-                (store_random_in_range, ":random_2", 2000, 3000),
-                (val_mul, ":random_2", 2),
-                (val_mul, ":random_2", 3),
-                (val_div, ":random_2", 2),
-                (set_fog_distance, ":random_2", 0xFFc7d7ec),
-            (else_try),
-                (store_random_in_range, ":random_2", 3000, 6000),
-                (val_mul, ":random_2", 2),
-                (val_mul, ":random_2", 3),
-                (val_div, ":random_2", 2),
-                (set_fog_distance, ":random_2", 0xFF000000),
-            (try_end),        
-        (else_try),#else
-            (get_global_cloud_amount, ":clouds"),
-            (store_add, ":upper_bound", ":clouds", 7),
-            (val_min, ":upper_bound", ":clouds",100),
-            (store_sub, ":lower_bound", ":clouds",20),
-            (val_max, ":upper_bound", ":clouds", 10),
-            (store_random_in_range, ":random", ":lower_bound", ":upper_bound"),
-            (set_global_haze_amount, ":random"),
-            (try_begin),
-                (is_between, ":day_time", 9, 17),
-                (store_random_in_range, ":random_2", 700, 1300),
-                (val_mul, ":random_2", 2),
-                (val_mul, ":random_2", 3),
-                (val_div, ":random_2", 2),
-                (set_fog_distance, ":random_2", 0xFFB0C4DE),
-            (else_try),
-                (this_or_next|is_between, ":day_time", 6, 9),
-                (is_between, ":day_time", 17, 20),
-                (store_random_in_range, ":random_2", 800, 2000),
-                (val_mul, ":random_2", 2),
-                (val_mul, ":random_2", 3),
-                (val_div, ":random_2", 2),
-                (set_fog_distance, ":random_2", 0xFFc7d7ec),
-            (else_try),
-                (store_random_in_range, ":random_2", 1200, 3000),
-                (val_mul, ":random_2", 2),
-                (val_mul, ":random_2", 3),
-                (val_div, ":random_2", 2),
-                (set_fog_distance, ":random_2", 0xFF000000),
-            (try_end),
-        (try_end),
-    (else_try),
-        (this_or_next|eq, ":terrain", rt_desert),
-        (eq, ":terrain", rt_desert_forest),
-        (try_begin),#winter
-            (this_or_next|eq, "$g_cur_month", 1),
-            (this_or_next|eq, "$g_cur_month", 2),
-            (this_or_next|eq, "$g_cur_month", 11),
-            (eq, "$g_cur_month", 12),
-            (get_global_cloud_amount, ":clouds"),
-            (store_add, ":upper_bound", ":clouds", 10),
-            (val_min, ":upper_bound", ":clouds",100),
-            (store_sub, ":lower_bound", ":clouds",20),
-            (val_max, ":upper_bound", ":clouds", 10),
-            (store_random_in_range, ":random", ":lower_bound", ":upper_bound"),
-            (set_global_haze_amount, ":random"),
-            (try_begin),
-                (is_between, ":day_time", 9, 17),
-                (store_random_in_range, ":random_2", 600, 700),
-                (val_mul, ":random_2", 5),
-                (set_fog_distance, ":random_2", 0xFFB0C4DE),
-            (else_try),
-                (this_or_next|is_between, ":day_time", 6, 9),
-                (is_between, ":day_time", 17, 20),
-                (store_random_in_range, ":random_2", 700, 800),
-                (val_mul, ":random_2", 5),
-                (set_fog_distance, ":random_2", 0xFFc7d7ec),
-            (else_try),
-                (store_random_in_range, ":random_2", 800, 1200),
-                (val_mul, ":random_2", 5),
-                (set_fog_distance, ":random_2", 0xFF000000),
-            (try_end),
-        (else_try),#sommer
-            (this_or_next|eq, "$g_cur_month", 5),
-            (this_or_next|eq, "$g_cur_month", 6),
-            (this_or_next|eq, "$g_cur_month", 7),
-            (eq, "$g_cur_month", 8),
-            (get_global_cloud_amount, ":clouds"),
-            (store_add, ":upper_bound", ":clouds", 5),
-            (val_min, ":upper_bound", ":clouds",100),
-            (store_sub, ":lower_bound", ":clouds",20),
-            (val_max, ":upper_bound", ":clouds", 10),
-            (store_random_in_range, ":random", ":lower_bound", ":upper_bound"),
-            (set_global_haze_amount, ":random"),
-            (try_begin),
-                (is_between, ":day_time", 9, 17),
-                (store_random_in_range, ":random_2", 1300, 2000),
-                (val_mul, ":random_2", 5),
-                (set_fog_distance, ":random_2", 0xFFB0C4DE),
-            (else_try),
-                (this_or_next|is_between, ":day_time", 6, 9),
-                (is_between, ":day_time", 17, 20),
-                (store_random_in_range, ":random_2", 2000, 3000),
-                (val_mul, ":random_2", 5),
-                (set_fog_distance, ":random_2", 0xFFc7d7ec),
-            (else_try),
-                (store_random_in_range, ":random_2", 3000, 6000),
-                (val_mul, ":random_2", 5),
-                (set_fog_distance, ":random_2", 0xFF000000),
-            (try_end),        
-        (else_try),#else
-            (get_global_cloud_amount, ":clouds"),
-            (store_add, ":upper_bound", ":clouds", 7),
-            (val_min, ":upper_bound", ":clouds",100),
-            (store_sub, ":lower_bound", ":clouds",20),
-            (val_max, ":upper_bound", ":clouds", 10),
-            (store_random_in_range, ":random", ":lower_bound", ":upper_bound"),
-            (set_global_haze_amount, ":random"),
-            (try_begin),
-                (is_between, ":day_time", 9, 17),
-                (store_random_in_range, ":random_2", 700, 1300),
-                (val_mul, ":random_2", 5),
-                (set_fog_distance, ":random_2", 0xFFB0C4DE),
-            (else_try),
-                (this_or_next|is_between, ":day_time", 6, 9),
-                (is_between, ":day_time", 17, 20),
-                (store_random_in_range, ":random_2", 800, 2000),
-                (val_mul, ":random_2", 5),
-                (set_fog_distance, ":random_2", 0xFFc7d7ec),
-            (else_try),
-                (store_random_in_range, ":random_2", 1200, 3000),
-                (val_mul, ":random_2", 5),
-                (set_fog_distance, ":random_2", 0xFF000000),
-            (try_end),
-        (try_end),
-    (try_end),
-    ])
-]
-
-vc_seasons = [          # 3 triggers
-    
-    (ti_before_mission_start, 0, 0, [
-                 (get_global_cloud_amount, ":clouds"),
-                 (is_between, ":clouds", 90, 101),
-                 (neq, "$g_cur_month", 12), # not winter
-                 (neg|is_between, "$g_cur_month", 1, 3),
-                 (party_get_current_terrain, ":terrain","p_main_party"),
-                 (neq, ":terrain", rt_desert_forest),
-                 (neq, ":terrain", rt_desert),
-                 (neq, ":terrain", rt_snow),
-                 (neq, ":terrain", rt_snow_forest),
-                 (neq, ":terrain", rt_water),
-                 (neq, ":terrain", rt_bridge),
-                 (neq, ":terrain", rt_river),                
-             ],
-   [(set_rain, 1, 250)]),
-
-    (0, 0, ti_once, [],   # init wind
-    [
-      #shader, set wind shader properly
-      (assign, ":shader_wind_strength", "$wind_power"),
-
-      (val_mul, ":shader_wind_strength", 10),#wind_power: 0 - 4 -> 0 - 40
-      (val_div, ":shader_wind_strength", 4), # 0-10
-      (val_min, ":shader_wind_strength", 5),
-      
-      (set_fixed_point_multiplier,10),
-      (set_shader_param_float, "@vWindStrength", ":shader_wind_strength"),
-      (set_fixed_point_multiplier, 1),
-      (set_shader_param_float, "@vWindDirection", 30),#30 degree
-      (set_fixed_point_multiplier,100),
-  ]),
-
-    (0, 0, ti_once, [],
-    [      
-      # light
-      (set_fixed_point_multiplier, 100),
-      (try_begin),
-        (store_time_of_day, ":day_time"),
-        (is_between, ":day_time", 4, 20),
-        (get_startup_sun_light, pos1),
-        (call_script, "script_calculate_season_light"),
-        (set_startup_sun_light, reg1, reg2, reg3),
-        (get_startup_ambient_light, pos1),
-        (call_script, "script_calculate_season_light"),
-        (set_startup_ambient_light, reg1, reg2, reg3),
-        (get_startup_ground_ambient_light, pos1),
-        (call_script, "script_calculate_season_light"),
-        (set_startup_ground_ambient_light, reg1, reg2, reg3),
-        (ge, "$cheat_mode", 1),
-        (display_message, "@{!}season light set"),
-      (end_try),
-    ]),
-]
-thunder_storm =	[		# 4 trigger
-
-  (0, 0, ti_once, #preparations 2
-    [
-      (assign, "$lightning_cycle", -1),
-    ],
-    [
-    (try_begin),
-        (party_get_current_terrain, ":terrain","p_main_party"),
-        (neq, ":terrain", rt_desert_forest),
-        (neq, ":terrain", rt_desert),
-        (store_time_of_day, ":day_time"),
-        (neg|is_between, ":day_time", 4, 20),
-        (get_global_cloud_amount, ":clouds"),
-        (ge, ":clouds", 65),
-        (try_for_range, ":rand", 1, 11),
-            (le, ":rand", 4),	# 20% chance
-            (assign, "$lightning_cycle", 0),
-            (try_begin),
-                (neq, ":terrain", rt_desert_forest),
-                (neq, ":terrain", rt_desert),
-                (neq, ":terrain", rt_snow),           
-                (neq, ":terrain", rt_snow_forest),	
-                (set_rain, 1, 250),
-            (end_try),
-        (end_try),
-    (end_try),
-      
-    (eq, "$lightning_cycle", 0),
-    
-    (set_fixed_point_multiplier, 100),
-    
-    (get_startup_sun_light, pos1),
-    (position_get_x, "$sun_r", pos1),	# r
-    (position_get_y, "$sun_g", pos1), # g
-    (position_get_z, "$sun_b", pos1),	# b
-    (get_startup_ambient_light, pos1),
-    (position_get_x, "$amb_r", pos1),	# r
-    (position_get_y, "$amb_g", pos1), # g
-    (position_get_z, "$amb_b", pos1),	# b
-  ]),
-  
-  (3, 0.2, 6, 			#lightning 1
-    [
-      (eq,"$lightning_cycle",0),
-      (store_random_in_range,":chance",1,5),
-      (eq,":chance",1),
-      (play_sound,"snd_thunder"),
-      (set_startup_sun_light, 1000, 1000, 1000),
-      (set_startup_ambient_light, 1000, 1000, 1000),
-    ],
-    [
-      (set_startup_sun_light, 0, 0, 0),
-      (set_startup_ambient_light, 0, 0, 0),
-      (assign, "$lightning_cycle",1),
-  ]),
-  
-  (0.4,0.1, 6,			#lightning 2
-    [
-      (eq,"$lightning_cycle",1),
-      
-      (set_startup_sun_light, 220, 220, 220),
-      (set_startup_ambient_light, 220, 220, 220),
-    ],
-    [
-      (set_startup_sun_light, 1, 1, 1),
-      (set_startup_ambient_light, 1, 1, 1),
-      (assign,"$lightning_cycle",2),
-  ]),
-  
-  (0.5,0.1, 6,			#lightning 3
-    [
-      (eq,"$lightning_cycle",2),
-      (set_startup_sun_light, 150, 150, 150),
-      (set_startup_ambient_light, 150, 150, 150),
-    ],
-    [
-      (set_startup_sun_light, "$sun_r", "$sun_g", "$sun_b"),
-      (set_startup_ambient_light, "$amb_r", "$amb_g", "$amb_b"),
-      (assign,"$lightning_cycle", 0),
-  ]),
-]
-
-vc_weather = vc_seasons + improved_lighting + thunder_storm
 
 battle_notifications = [
     common_battle_prepare,
@@ -26629,6 +28799,107 @@ mission_templates = [
             (tutorial_message, "@ "),
 ], []),
     ],
+  ),
+
+#madsci VC sea bttles
+  ("sea_battle",mtf_battle_mode,charge,		#|mtf_synch_inventory
+    "You lead your men to sea battle.",
+    [
+      (1,mtef_defenders|mtef_team_0,af_override_horse, 0,60,[]),
+      (0,mtef_defenders|mtef_team_0,af_override_horse,0,0,[]),
+      (4,mtef_attackers|mtef_team_1,af_override_horse, 0,60,[]),
+      (4,mtef_attackers|mtef_team_1,af_override_horse,0,0,[]),
+    ], vc_weather + core_ship_system +
+    [
+      cannot_spawn_commoners,
+      common_disable_ai_crouching,
+      common_controller_keys_end,
+      common_controller_keys,
+      
+      #common_renown_loss,
+      
+      (ti_before_mission_start, 0, 0, [],[
+        (assign, "$coastal_battle", 0),
+        #(assign, "$player_functions", player_func_trait),
+      ]),
+      
+      common_maritime_randomize_spawn_points,
+      common_maritime_spawn,
+      common_maritime_ui,
+      common_maritime_reinforcements,
+      common_maritime_drowning,
+      common_maritime_commands,
+      common_maritime_deselect_all,
+      
+      common_battle_tab_press,
+      common_battle_check_victory_condition,
+      common_battle_victory_display,
+      common_battle_check_friendly_kills,
+      common_battle_init_banner,
+      # common_battle_inventory,
+      common_battle_player_fallen,
+      common_after_mission_start,
+      
+      #common_music_situation_update,
+      
+      (0, 0, ti_once, [], [
+        (play_sound,"snd_ambient_sea_loop"),
+        (store_last_sound_channel, "$ambiance_channel"),
+      ]),
+      
+      (ti_question_answered, 0, 0, [],
+        [(store_trigger_param_1,":answer"),
+          (eq,":answer",0),
+          (assign, "$pin_player_fallen", 0),
+          (try_begin),
+            (store_mission_timer_a, ":elapsed_time"),
+            (gt, ":elapsed_time", 20),
+            (str_store_string, s5, "str_retreat"),
+            (call_script, "script_simulate_retreat", 10, 20, 1),
+          (try_end),
+          (call_script, "script_count_mission_casualties_from_agents"),
+          (stop_all_sounds),  #ambient_end_sound
+          (finish_mission,0),]),
+      
+      (ti_before_mission_start, 0, 0, [],
+        [
+          (team_set_relation, 0, 2, 1),
+          (team_set_relation, 1, 3, 1),
+          #(call_script, "script_place_player_banner_near_inventory_bms"),
+          
+          (party_clear, "p_routed_enemies"),
+          
+          (assign, "$g_latest_order_1", 1),
+          (assign, "$g_latest_order_2", 1),
+          (assign, "$g_latest_order_3", 1),
+          (assign, "$g_latest_order_4", 1),
+      ]),
+      
+      (0, 0, ti_once, [], [(assign,"$g_battle_won",0),
+          (assign,"$defender_reinforcement_stage",0),
+          (assign,"$attacker_reinforcement_stage",0),
+          #(call_script, "script_place_player_banner_near_inventory"),
+          (call_script, "script_combat_music_set_situation_with_culture"),
+          (assign, "$g_defender_reinforcement_limit", 2),
+      ]),
+      
+      (ti_on_agent_killed_or_wounded, 0, 0, [],
+        [
+          (store_trigger_param_1, ":dead_agent_no"),
+          (store_trigger_param_2, ":killer_agent_no"),
+          (try_begin),
+            (ge, ":dead_agent_no", 0),
+            (neg|agent_is_ally, ":dead_agent_no"),
+            (agent_is_human, ":dead_agent_no"),
+            (agent_get_troop_id, ":dead_agent_troop_id", ":dead_agent_no"),
+            (party_add_members, "p_total_enemy_casualties", ":dead_agent_troop_id", 1), #addition_to_p_total_enemy_casualties
+            (agent_slot_eq, ":dead_agent_no", slot_agent_vc_wounded, 1),	#new
+            (party_wound_members, "p_total_enemy_casualties", ":dead_agent_troop_id", 1),
+          (try_end),
+          (call_script, "script_apply_death_effect_on_courage_scores", ":dead_agent_no", ":killer_agent_no"),
+      ]),
+      
+    ] + camera_controls #+ battle_mode_triggers		#Lets not add this now. I think it will cause bugs
   ),
 
 ]#end of file

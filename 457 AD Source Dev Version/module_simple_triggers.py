@@ -7921,7 +7921,12 @@ simple_triggers = [
     
   #shader
   (set_fixed_point_multiplier,1),
-  (set_shader_param_float, "@vWindStrength", "$wind_power"),
+(store_random_in_range, "$beaufort", 1, 13),
+        (store_sub, reg0, "$beaufort", 1),
+        (val_max, reg0, 0),
+        (store_div, ":shader_wind_strenght", reg0, 3),  #yields 0-3
+        (set_fixed_point_multiplier,1),
+        (set_shader_param_float, "@vWindStrength", ":shader_wind_strenght"),
 ]),
 
 

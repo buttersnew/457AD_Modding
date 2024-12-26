@@ -6774,6 +6774,58 @@ Even in the last case, the player can make formations up to four lines by orderi
  ^\
  ^Starting enemies: Saxons, Jutes, Angles, Frisians, Picts, Scoti"),
 
+#madsci VC sea battle
+  ("quick_battle_troop_cam", "Watch the AI play the battle out. The camera uses the standard movement and rotation controls, plus F for up and V for down, +/- for zoom, Q to toggle follow terrain, numpad for game speed, mouse wheel for camera speed, arrow key rotation, Y to toggle invert y-axis, and R to toggle rotate-before-pan."),
+  ("strategy_cam", "This camera follows the player. One may increase distance with the F key and reduce it with the V key. +/- for zoom, numpad for game speed (when cheats are enabled), and mouse wheel for camera speed."),
+  ("ship_tutorial_0", "In this tutorial, you will learn how to control a ship. Take your time to learn how to command your crew, so you will be able keep a cool head in fast-developing naval battles.^^(Click * K * to continue.)"),
+  ("ship_tutorial_1", "In a naval battle, it often helps to get an overview.^^(Click * BACKSPACE * to get an overview.)"),
+  ("ship_tutorial_2", "You can look around by moving the mouse or get your perspective back on your ship by clicking * BACKSPACE * again.^^(Click * K * if you want to continue.)"),
+  ("ship_tutorial_3", "If you want to make your ship move, you can give the crew the command to row. The more crew you have, the more speed you will gain through rowing.^^You can give commands to row forward, to row fast forward, to stay or to row backwards. Click the * UP * or the * DOWN * arrow key to switch between these commands.^^Your current command is represented by the arrows above and below the representation of your ship in the upper right corner of your display. Try to give different rowing commands!"),
+  ("ship_tutorial_4", "If you want to make your ship move, you can give the crew the command to row. The more crew you have, the more speed you will gain through rowing.^^You can give commands to row forward, to row fast forward, to stay or to row backwards. Click the * UP * or the * DOWN * arrow key to switch between these commands.^^Your current command is represented by the arrows above and below the representation of your ship in the upper right corner of your display. Try to give different rowing commands!^^(Click * K * if you want to continue.)"),
+  ("ship_tutorial_5", "If you want to direct your ship, you can give a command to the helmsmen. You can give commands to row straight, starboard, hard starboard, port or hard port. Click the * LEFT * or the * RIGHT * arrow key to switch between these commands.^^Your current command is represented by the arrows to the right and left of the representation of your ship in the upper right corner of your display. Try to give different helmsman commands!"),
+  ("ship_tutorial_6", "If you want to direct your ship, you can give a command to the helmsmen. You can give commands to row straight, starboard, hard starboard, port or hard port. Click the * LEFT * or the * RIGHT * arrow key to switch between these commands.^^Your current command is represented by the arrows to the right and left of the representation of your ship in the upper right corner of your display. Try to give different helmsman commands!^^(Click * K * if you want to continue.)"),
+  ("ship_tutorial_7", "If there is favourable wind, you can give the command to set the sail, but if you are in a head wind, you should give the command to reef the sail. Click * ENTER * to toggle between these commands. Your current command is represented by the sail of the representation of your ship in the upper right corner of your display. Your current position to the wind is represented by the blue flag. Try to give the command to set or reef the sail!"),
+  ("ship_tutorial_8", "If there is favourable wind, you can give the command to set the sail, but if you are in a head wind, you should give the command to reef the sail. Click * ENTER * to toggle between these commands. Your current command is represented by the sail of the representation of your ship in the upper right corner of your display. Your current position to the wind is represented by the blue flag. Try to give the command to set or reef the sail!^^(Click * K * if you want to continue.)"),
+  ("ship_tutorial_9", "Now you know the basic commands you need to control a ship. If you want to board an enemy ship in a naval battle, just try to catch it, and your crew will do the rest.^^For now, take your time to try out your ship. When you are done, land your ship at the beach where you started!"),
+  ### PHAIAK chief begin
+  ("busse", "Busse"),
+  ("skeid", "Skeid"),
+  ("karvi", "Karvi"),
+  ("snekkja", "Snekkja"),
+  ("knorr", "Knorr"),
+  ("byrding", "Byrding"),
+
+  ("ship_wood_1", "Oak"),
+  ("ship_wood_2", "Pine"),
+  ("ship_wood_3", "Ash"),
+  
+  ("ship_name_1", "Tranann"),
+  ("ship_name_2", "Ormurin Skamma"),
+  ("ship_name_3", "Ormurin Langi"),
+  ("ship_name_4", "Visundur"),
+  ("ship_name_5", "Ognabrandur"),
+  ("ship_name_6", "Olavssud"),
+  ("ship_name_7", "Langfredag"),
+  ("ship_name_8", "Kross-Sud"),
+  ("ship_name_9", "Mariusud"),
+  ("ship_name_10", "Kristsud"),
+  ("ship_name_11", "Barden"),
+  ("ship_name_12", "Barufakr"),
+  ("ship_name_13", "Ormen"),
+  ("ship_name_14", "Bokesuden"),
+  ("ship_name_15", "Reinen"),
+  ("ship_name_16", "Unnblakkr"),
+  ("ship_name_17", "Seglhundr"),
+  ("ship_name_18", "Bortlvalr"),
+  ("ship_name_19", "Fjardlinni"),
+  ("ship_name_20", "Svalbardi"),
+  ("ship_name_21", "Fiardakolla"),
+  ("ship_name_22", "Alptr"),
+  ("ship_name_23", "Saeulfr"),
+  ("ship_names_end", "ship_names_end"),
+  
+  ("cant_set_sail", "You can't set sail. Your ships don't have room for {reg3} of your men."),
+
 #utility for skill names
 ]+[
 ("skl_"+skills[x][0], skills[x][1]) for x in range(0, len(skills))]

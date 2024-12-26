@@ -3177,3 +3177,219 @@ region_mountain_europe_bohemia          =17
 
 #madsci make sure the party below is the last static party
 last_static_party = "p_boar_spawn_point"
+
+#madsci VC sea battles
+### PHAIAK begin ( sea battles chief
+slot_agent_on_ship                = 23
+slot_agent_position_on_ship       = 24
+### ) PHAIAK end
+
+# Phaiak begin
+slot_quest_menu_1					= 31
+slot_quest_menu_2					= 32
+slot_quest_menu_3					= 33
+slot_quest_menu_4					= 34
+slot_quest_menu_5					= 35
+slot_quest_menu_6					= 36
+slot_quest_menu_7					= 37
+slot_quest_menu_8					= 38
+slot_quest_menu_9					= 39
+slot_quest_menu_10					= 40
+slot_quest_menu_11					= 41
+slot_quest_menu_12					= 42
+slot_quest_menu_13					= 43
+slot_quest_menu_14					= 44
+slot_quest_menu_15					= 45
+slot_quest_menu_16					= 46
+slot_quest_menu_17					= 47
+slot_quest_menu_18					= 48
+slot_quest_menu_19					= 49
+slot_quest_menu_20					= 50
+slot_quest_menu_21					= 51
+slot_quest_menu_22					= 52
+slot_quest_menu_23					= 53
+slot_quest_menu_24					= 54
+slot_quest_menu_25					= 55
+slot_quest_menu_26					= 56
+slot_quest_menu_27					= 57
+# Phaiak end
+
+slot_quest_menu_begin = slot_quest_menu_1
+slot_quest_menu_end = slot_quest_menu_24 + 1
+
+# wound system
+slot_quest_int_penalty_left_days = slot_quest_menu_1
+slot_quest_cha_penalty_left_days = slot_quest_menu_2
+slot_quest_str_penalty_left_days = slot_quest_menu_3
+slot_quest_agi_penalty_left_days = slot_quest_menu_4
+slot_quest_end_penalty_left_days = slot_quest_menu_5
+
+slot_quest_int_penalty_fluid_points = slot_quest_menu_11
+slot_quest_cha_penalty_fluid_points = slot_quest_menu_12
+slot_quest_str_penalty_fluid_points = slot_quest_menu_13
+slot_quest_agi_penalty_fluid_points = slot_quest_menu_14
+slot_quest_end_penalty_fluid_points = slot_quest_menu_15
+
+slot_quest_int_penalty_perma_points = slot_quest_menu_21
+slot_quest_cha_penalty_perma_points = slot_quest_menu_22
+slot_quest_str_penalty_perma_points = slot_quest_menu_23
+slot_quest_agi_penalty_perma_points = slot_quest_menu_24
+slot_quest_end_penalty_perma_points = slot_quest_menu_25
+
+# spawn system
+slot_quest_team_0_spawn_troop1_type = slot_quest_menu_1
+slot_quest_team_0_spawn_troop2_type = slot_quest_menu_2
+slot_quest_team_0_spawn_troop3_type = slot_quest_menu_3
+slot_quest_team_0_spawn_troop4_type = slot_quest_menu_4
+slot_quest_team_0_spawn_troop5_type = slot_quest_menu_5
+slot_quest_team_0_spawn_troop1_count = slot_quest_menu_6
+slot_quest_team_0_spawn_troop2_count = slot_quest_menu_7
+slot_quest_team_0_spawn_troop3_count = slot_quest_menu_8
+slot_quest_team_0_spawn_troop4_count = slot_quest_menu_9
+slot_quest_team_0_spawn_troop5_count = slot_quest_menu_10
+
+slot_quest_team_1_spawn_troop1_type = slot_quest_menu_11
+slot_quest_team_1_spawn_troop2_type = slot_quest_menu_12
+slot_quest_team_1_spawn_troop3_type = slot_quest_menu_13
+slot_quest_team_1_spawn_troop4_type = slot_quest_menu_14
+slot_quest_team_1_spawn_troop5_type = slot_quest_menu_15
+slot_quest_team_1_spawn_troop1_count = slot_quest_menu_16
+slot_quest_team_1_spawn_troop2_count = slot_quest_menu_17
+slot_quest_team_1_spawn_troop3_count = slot_quest_menu_18
+slot_quest_team_1_spawn_troop4_count = slot_quest_menu_19
+slot_quest_team_1_spawn_troop5_count = slot_quest_menu_20
+
+slot_quest_team_0_ship_count = slot_quest_menu_21
+slot_quest_team_1_ship_count = slot_quest_menu_22
+
+slot_quest_1_ship_type	= slot_quest_menu_1
+slot_quest_2_ship_type	= slot_quest_menu_2
+slot_quest_3_ship_type	= slot_quest_menu_3
+slot_quest_4_ship_type	= slot_quest_menu_4
+slot_quest_5_ship_type	= slot_quest_menu_5
+slot_quest_6_ship_type	= slot_quest_menu_6
+slot_quest_7_ship_type	= slot_quest_menu_7
+
+slot_quest_1_ship_cond	= slot_quest_menu_11
+slot_quest_2_ship_cond	= slot_quest_menu_12
+slot_quest_3_ship_cond	= slot_quest_menu_13
+slot_quest_4_ship_cond	= slot_quest_menu_14
+slot_quest_5_ship_cond	= slot_quest_menu_15
+slot_quest_6_ship_cond	= slot_quest_menu_16
+slot_quest_7_ship_cond	= slot_quest_menu_17
+
+slot_quest_1_ship_prop	= slot_quest_menu_21
+slot_quest_2_ship_prop	= slot_quest_menu_22
+slot_quest_3_ship_prop	= slot_quest_menu_23
+slot_quest_4_ship_prop	= slot_quest_menu_24
+slot_quest_5_ship_prop	= slot_quest_menu_25
+slot_quest_6_ship_prop	= slot_quest_menu_26
+slot_quest_7_ship_prop	= slot_quest_menu_27
+
+#####sea battles chief phaiak empieza
+scene_prop_sail						= 6 
+scene_prop_rowing				    = 7  
+scene_prop_rudder				    = 8  
+scene_prop_last_speed				= 9  
+scene_prop_last_turn			    = 10 
+scene_prop_wank_state			    = 11 
+scene_prop_boarding_wanted		    = 12 # "-1"=no, "0"=yes, "1"=yes, also with friendly ships
+scene_prop_landing_wanted		    = 13 # "0"=no, "1"=yes
+scene_prop_boarding_left		    = 14 
+scene_prop_boarding_right		    = 15 
+scene_prop_boarding_progress	    = 16 
+scene_prop_main_instance		    = 17
+scene_prop_ramp_right			    = 18
+scene_prop_ramp_2				    = 19
+scene_prop_boom_instance		    = 20
+scene_prop_max_speed		   		= 21
+scene_prop_max_x_rotation	   		= 22
+scene_prop_max_y_rotation 		    = 23
+scene_prop_distance_to_front	    = 24
+scene_prop_quality				    = 25
+scene_prop_collision_instance		= 26
+scene_prop_radius					= 27
+scene_prop_going_to_boarding_with	= 28
+scene_prop_timer					= 29
+scene_prop_ship_type				= 30
+scene_prop_ship_number				= 31
+scene_prop_sound					= 32
+scene_prop_slots_end                = 33
+scene_prop_lead_player              = 34
+scene_prop_ramp_left			    = 35
+scene_prop_cage_main			    = 36
+scene_prop_cage_left			    = 37
+scene_prop_cage_right			    = 38
+scene_prop_oar_state			    = 39
+scene_prop_crew_number			    = 40
+scene_prop_cargo_1				    = 41
+scene_prop_collision_2_instance		= 42
+scene_prop_cage_left_2			    = 43
+scene_prop_cage_left_3			    = 44
+scene_prop_cage_right_2			    = 45
+scene_prop_cage_right_3			    = 46
+scene_prop_timer_2					= 47
+scene_prop_timer_3					= 48
+
+scene_prop_ramp_1			  		= scene_prop_ramp_right
+scene_prop_y_cosinus			    = scene_prop_wank_state
+###phaiak acaba chief
+########################################################
+#ship types
+ship_type_busse		= 1
+ship_type_skei		= 2
+ship_type_karvi		= 3
+ship_type_snekkja	= 4
+ship_type_knorr		= 5
+ship_type_byrding	= 6
+#sea battle
+boarding_progress_peak_0 = 60
+boarding_progress_peak = 70
+slot_agent_vc_wounded             = 2038
+#Camera
+camera_trigger_interval = .1  #fastest trigger rate with 1000 agents in scene on my machine is 100 milliseconds
+camera_animation_time = camera_trigger_interval * 1300  #the actual call interval is often 20% longer
+camera_key_rotate_attenuator = 2
+camera_minimum_z = 150
+camera_minimum_pitch = 271
+camera_maximum_pitch = 450
+camera_effective_min_zoom = 35  #engine won't zoom in more than this (though the zoom "setting" will go as low as 1)
+camera_fixed_angle_h = 7  #fixed angle to targeted agents/props
+camera_fixed_angle_v = 6
+
+#Camera Bit Switches
+camera_manual          = 0x001
+camera_follow_terrain  = 0x002
+camera_reverse_y       = 0x004
+camera_pan_to_rotation = 0x008  #camera pans AFTER it is rotated
+camera_pan_back_forth  = 0x010  #camera command groups
+camera_pan_right_left  = 0x020
+camera_pan_up_down     = 0x040
+camera_rotate          = 0x080
+camera_target_agent    = 0x100
+camera_target_prop     = 0x200  #not yet implemented
+camera_game_slow       = 0x400
+first_time_death_camera    = 0x0001
+first_time_strategy_camera = 0x0002
+first_time_game_rules      = 0x0004
+first_time_doccinga        = 0x0008
+first_time_check_lairs     = 0x0010	#remove extra lairs VC 1.04 beta
+first_time_check_l_lairs   = 0x0020	#remove all looter lairs VC 1.04 beta
+first_time_check_l2_lairs  = 0x0040	#try again
+first_time_load_main_party = 0x0080  #this used in reverse
+first_time_cam_battle      = 0x0100
+first_time_hold_F1         = 0x0200
+first_time_formations      = 0x0400
+first_time_food_store      = 0x0800	#change food system after VC 2.0
+first_time_fix_centers     = 0x1000	#VC-3241
+first_time_fix_ports       = 0x2000	#VC-3829
+first_time_fix_home_center = 0x4000	#VC-3829
+first_time_redo_defectors  = 0x8000	#VC-3909
+dot_size        = 4000
+dot_spacing_div = 30
+dot_color       = 0x000000
+dot_alpha       = 0xC0  #75%
+player_func_none      = 0
+player_func_creeping  = 0x01
+player_func_trait     = 0x02
+player_func_horsecall = 0x04

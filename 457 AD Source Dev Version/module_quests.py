@@ -595,4 +595,9 @@ quests = [
  ),    
  
  ("quests_end", "Quests End", 0, "{!}."),
+
+#madsci VC sea battles these are not actual quests
+  ("sea_battle_spawn", "a spawning system.", 0, "{!}placeholder."),  
+  ("team_0_ships", "a spawning system.", 0, "{!}placeholder."),  
+  ("team_1_ships", "a spawning system.", 0, "{!}placeholder."),  
 ]

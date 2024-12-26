@@ -838,4 +838,23 @@ meshes = [
   ("banner_religion09", 0, "banner_religion09", 0, 0, 0, -90, 0, 0, 1, 1, 1),
   ("banner_religion10", 0, "banner_religion10", 0, 0, 0, -90, 0, 0, 1, 1, 1),
   ("banner_religion11", 0, "banner_religion11", 0, 0, 0, -90, 0, 0, 1, 1, 1),
+
+#madsci VC sea battles
+###	PHAIAK begin ( sea battles
+  ("nvl_frame", 0, "nvl_frame", 0, 0, 0, 0, 0, 0, 1, 1, 1),
+  ("nvl_arrow_up_1", 0, "nvl_arrow_up_1", 0, 0, 0, 0, 0, 0, 1, 1, 1),
+  ("nvl_arrow_up_2", 0, "nvl_arrow_up_2", 0, 0, 0, 0, 0, 0, 1, 1, 1),
+  ("nvl_arrow_left_1", 0, "nvl_arrow_left_1", 0, 0, 0, 0, 0, 0, 1, 1, 1),
+  ("nvl_arrow_left_2", 0, "nvl_arrow_left_2", 0, 0, 0, 0, 0, 0, 1, 1, 1),
+  ("nvl_arrow_down_1", 0, "nvl_arrow_down_1", 0, 0, 0, 0, 0, 0, 1, 1, 1),
+  ("nvl_arrow_right_1", 0, "nvl_arrow_right_1", 0, 0, 0, 0, 0, 0, 1, 1, 1),
+  ("nvl_arrow_right_2", 0, "nvl_arrow_right_2", 0, 0, 0, 0, 0, 0, 1, 1, 1),
+  ("nvl_flag", 0, "wind_flag", 0, 0, 0, 0, 0, 0, 1, 1, 1),
+  ("nvl_ui_ship_a", 0, "ui_ship_a", 0, 0, 0, 0, 0, 0, 1, 1, 1),
+  ("nvl_ui_ship_a_sail", 0, "ui_ship_a_sail", 0, 0, 0, 0, 0, 0, 1, 1, 1),
+
+  ("vc_menu_board", 0, "menu_board", 0, 0, 0, 0, 0, 0, 1, 1, 1),
+  ("ship_menu_tab1", 0, "button_drop_child", 0, 0, 0, 0, 0, 0, 1, 1, 1),
+  ("ship_menu_tab2", 0, "button_drop_child_clicked", 0, 0, 0, 0, 0, 0, 1, 1, 1), 
+###	) PHAIAK end  
 ]

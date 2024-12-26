@@ -269,6 +269,22 @@ key_xbox_ltrigger       = 0xfc
 key_xbox_rtrigger       = 0xfd
 key_xbox_rstick         = 0xfe      
 key_xbox_lstick         = 0xff
+key_pad_rdown    = 0xf0
+key_pad_rright   = 0xf1
+key_pad_rleft    = 0xf2
+key_pad_rup      = 0xf3
+key_pad_lup      = 0xf4
+key_pad_ldown    = 0xf5
+key_pad_lright   = 0xf6
+key_pad_lleft    = 0xf7
+key_pad_start    = 0xf8
+key_pad_back     = 0xf9
+key_pad_rbumper  = 0xfa
+key_pad_lbumper  = 0xfb
+key_pad_ltrigger = 0xfc
+key_pad_rtrigger = 0xfd
+key_pad_rstick   = 0xfe
+key_pad_lstick   = 0xff
 
 
 # Game keys that can be checked by game_key_is_down and game_key_clicked

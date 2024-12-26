@@ -5291,14 +5291,14 @@ upgrade(troops,"caravan_guard","mercenary_horseman")
 
 #Goths
 upgrade(troops,"gothic_freeman","gothic_footman")
-upgrade(troops,"gothic_footman","gothic_noble")
+#upgrade(troops,"gothic_footman","gothic_noble")
 upgrade2(troops,"gothic_skirmisher","gothic_mounted_skirmisher","gothic_bowman")
 upgrade(troops,"gothic_horseman","gothic_companion")
 
 #eastern germans
 upgrade2(troops,"eastern_germanic_skirmisher","eastern_germanic_mounted_skirmisher","eastern_germanic_bowman")
 upgrade(troops,"eastern_germanic_spearman","eastern_germanic_retainer")
-upgrade(troops,"eastern_germanic_retainer","eastern_germanic_noble")
+#upgrade(troops,"eastern_germanic_retainer","eastern_germanic_noble")
 upgrade(troops,"eastern_germanic_mounted_warrior","eastern_germanic_companion")
 
 #britons

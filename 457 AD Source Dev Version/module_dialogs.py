@@ -46539,17 +46539,11 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
     (leave_encounter),
     ]],
 
-    [party_tpl|pt_saxon_raiders,"start", [
-    (eq, "$g_encountered_party_faction", "fac_outlaws"), #first stack should always be a bandit
-    #sea raiders skull-drinking dialogue
-    ],
-   "I will drink from your skull!", "battle_reason_stated",[
-   (play_sound, "snd_encounter_sea_raiders"),
-   ]],
-
-    [party_tpl|pt_sea_raiders,"start", [
-    (eq, "$g_encountered_party_faction", "fac_outlaws"), #first stack should always be a bandit
-    #sea raiders skull-drinking dialogue
+    [anyone,"start", [
+	(this_or_next|eq, "$g_encountered_party_template", "pt_sea_raiders"),
+	(eq, "$g_encountered_party_template", "pt_saxon_raiders"),
+	(this_or_next|eq, "$g_talk_troop_faction", "fac_outlaws"),
+    	(eq, "$g_encountered_party_faction", "fac_outlaws"), #first stack should always be a bandit
     ],
    "I will drink from your skull!", "battle_reason_stated",[
    (play_sound, "snd_encounter_sea_raiders"),
@@ -46626,6 +46620,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
 
   #SB : add all the other bandit templates
   [anyone,"start", [
+	(neg|encountered_party_is_attacker),
     (eq, "$g_talk_troop_faction", "fac_outlaws"), #first stack should always be a bandit
     #sea raiders have their own skull-drinking dialogue
     (is_between, "$g_encountered_party_template", bandit_party_templates_begin, bandit_party_templates_end),],

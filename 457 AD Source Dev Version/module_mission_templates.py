@@ -1985,7 +1985,6 @@ vc_water = [			# 5 trigger
     [
       (assign, ":beaufort_copy", "$beaufort"),
       #(store_current_scene, ":cur_scene"),
-      (try_begin),
       (call_script, "script_get_wave_properties"),
       (assign, "$Amplitude_x",	reg1),
       (assign, "$Amplitude_y",	reg2),

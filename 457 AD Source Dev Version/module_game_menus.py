@@ -13963,9 +13963,6 @@ TOTAL:  {reg5}"),
                     (eq, ":companion_candidate", "trp_npc20"),   #tocan: companion troop
                     (eq, "$ildico_companion", 0),     #tocan: call it how you want
                (else_try),
-		(eq, ":companion_candidate", "trp_npc25"), #madsci this guy is in his village unless youve already recruited him once
-		(neg|troop_slot_eq, "trp_npc25", slot_troop_playerparty_history, pp_history_scattered),
-		(else_try),
                     (set_visitor, ":cur_entry", ":companion_candidate"),
                     (val_add, ":cur_entry", 1),
                (try_end),
@@ -28080,6 +28077,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     (try_begin),
         (eq, "$g_encountered_party", "p_iazyges_village"),
         (troop_slot_eq, "trp_npc25", slot_troop_occupation, slto_inactive), #babai
+	(neg|troop_slot_eq, "trp_npc25", slot_troop_playerparty_history, pp_history_scattered),
 	(neg|main_party_has_troop, "trp_npc25"),
         (set_visitor, 42, "trp_npc25"),
     (try_end),

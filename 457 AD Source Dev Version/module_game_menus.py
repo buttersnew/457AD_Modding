@@ -32838,15 +32838,17 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 (eq, "$sea_battles", 1),
 (str_store_string, s10, "@Disable sea battles"),
 (else_try),
-(str_store_string, s10, "@Enabled sea battles"),
+(str_store_string, s10, "@Enable sea battles"),
 (try_end),
 ],"{s10}.",
        [
 	(try_begin),
 	(eq, "$sea_battles", 1),
 	(assign, "$sea_battles", 0),
+	(display_message, "@Sea battles disabled"),
 	(else_try),
 	(assign, "$sea_battles", 1),
+	(display_message, "@Sea battles enabled"),
 	(try_end),
          (jump_to_menu, "mnu_camp_cheat"),
         ]

@@ -5416,6 +5416,7 @@ upgrade2(troops,"eques_mauri","eques_dalmatae","eques_sagittarii") #light cavalr
 upgrade(troops,"eques_ala","eques_promoti") #medium lancers
 upgrade(troops,"eques_scutarii","eques_stablesiani")
 upgrade(troops,"eques_cataphractarii","eques_clibanarii")
+upgrade(troops,"roman_sailor","roman_marine")
 
 upgrade2(troops,"coptic_youth","coptic_footman","coptic_watchman")
 upgrade(troops,"coptic_footman","coptic_guard")

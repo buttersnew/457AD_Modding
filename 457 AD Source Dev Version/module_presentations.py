@@ -19865,7 +19865,7 @@ presentations = [
                 (this_or_next|eq, ":troop", "trp_eques_cataphractarii"),
                 (this_or_next|eq, ":troop", "trp_roman_slinger"),
                 (this_or_next|eq, ":troop", "trp_imperial_signifer"),
-                (this_or_next|eq, ":troop", "trp_roman_marine"),
+                (this_or_next|eq, ":troop", "trp_roman_sailor"),
                 (this_or_next|eq, ":troop", "trp_bucellarius"),
                 (eq, ":troop", "trp_centenarius"),
                 (assign, ":c", 1),

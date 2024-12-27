@@ -2710,7 +2710,7 @@ TOTAL:  {reg5}"),
        ),
        #do not add more cheat options, no more room in one menu
 
-      ("camp_cheat_add_troops",[],"Add troops to main party",
+      ("camp_cheat_add_troops",[],"More dev cheats",
        [
          (jump_to_menu, "mnu_cheat_add_troops"),
         ]
@@ -3432,6 +3432,7 @@ TOTAL:  {reg5}"),
         (this_or_next|eq, ":leader_troop_faction", fac_kingdom_17),
         (this_or_next|eq, ":leader_troop_faction", fac_kingdom_18),
         (this_or_next|eq, ":leader_troop_faction", fac_kingdom_20),
+        (this_or_next|eq, ":leader_troop_faction", fac_kingdom_30),
         (eq, ":leader_troop_faction", fac_kingdom_21),
         (set_background_mesh, "mesh_pic_vaegir"),
       (else_try),
@@ -3522,6 +3523,7 @@ TOTAL:  {reg5}"),
           (this_or_next|eq, ":faction", fac_kingdom_17),
           (this_or_next|eq, ":faction", fac_kingdom_18),
           (this_or_next|eq, ":faction", fac_kingdom_20),
+          (this_or_next|eq, ":faction", fac_kingdom_30),
           (eq, ":faction", fac_kingdom_21),
           (assign, ":weapon", "itm_sword_medieval_c"),
         (else_try),
@@ -13963,9 +13965,6 @@ TOTAL:  {reg5}"),
                     (eq, ":companion_candidate", "trp_npc20"),   #tocan: companion troop
                     (eq, "$ildico_companion", 0),     #tocan: call it how you want
                (else_try),
-		(eq, ":companion_candidate", "trp_npc25"), #madsci this guy is in his village unless youve already recruited him once
-		(neg|troop_slot_eq, "trp_npc25", slot_troop_playerparty_history, pp_history_scattered),
-		(else_try),
                     (set_visitor, ":cur_entry", ":companion_candidate"),
                     (val_add, ":cur_entry", 1),
                (try_end),
@@ -28080,6 +28079,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     (try_begin),
         (eq, "$g_encountered_party", "p_iazyges_village"),
         (troop_slot_eq, "trp_npc25", slot_troop_occupation, slto_inactive), #babai
+	(neg|troop_slot_eq, "trp_npc25", slot_troop_playerparty_history, pp_history_scattered),
 	(neg|main_party_has_troop, "trp_npc25"),
         (set_visitor, 42, "trp_npc25"),
     (try_end),

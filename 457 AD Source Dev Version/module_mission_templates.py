@@ -9769,6 +9769,7 @@ mission_templates = [
 
 #madsci freelancer dont let two AI teams stall forever
  (5, 0, ti_once, [
+(this_or_next|eq, "$FormAI_AI_no_defense", 1),
 (eq, "$freelancer_state", 1),
 (neq, "$g_battle_won", 1),
 (store_mission_timer_a, ":time"),

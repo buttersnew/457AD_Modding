@@ -1288,7 +1288,7 @@ camera_controls = [ #7 triggers
         (eq, reg0, 0),
         (val_or, "$first_time", first_time_cam_battle),
         (eq, "$g_is_quick_battle", 0),
-        (dialog_box, "str_tactical_controls", "@Tactical Controls"),
+        #(dialog_box, "str_tactical_controls", "@Tactical Controls"),
       (try_end),
   ]),
   
@@ -1299,7 +1299,7 @@ camera_controls = [ #7 triggers
       (eq, "$kill_cam_end", 0), #slo_mo_cam test
       ],[
         (assign, "$gk_order", 0),
-        (call_script, "script_player_order_formations", mordr_charge), #Madsci
+        #(call_script, "script_player_order_formations", mordr_charge), #Madsci
       (get_player_agent_no, ":player_agent"),
       (agent_get_team, ":player_team", ":player_agent"),
       (team_give_order, ":player_team", grc_everyone, mordr_charge),

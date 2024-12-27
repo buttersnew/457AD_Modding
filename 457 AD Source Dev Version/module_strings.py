@@ -3149,7 +3149,8 @@ We apologize sincerely if you contributed your suggestions and feedback but were
   ("system_error", "SYSTEM ERROR!"),
   ("prisoner_granted_parole", "Prisoner granted parole"),
   ("prisoner_not_offered_parole", "Prisoner not offered parole"),
-  ("_age_reg1_family_", "^Age: {reg1}^Family:"),
+  #("_age_reg1_family_", "^Age: {reg1}^Family:"),
+  ("_age_reg1_family_", "Age: {reg1}^Family:"),
   ("s49_s12_s11_rel_reg0", "{s49} {s12} ({s11}, rel: {reg0}),"),
   ("s49_s12_s11", "{s49} {s12} ({s11}),"),
   #SB : add wealth, remove later, also add marshal indicator

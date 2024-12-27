@@ -2710,7 +2710,7 @@ TOTAL:  {reg5}"),
        ),
        #do not add more cheat options, no more room in one menu
 
-      ("camp_cheat_add_troops",[],"Add troops to main party",
+      ("camp_cheat_add_troops",[],"More dev cheats",
        [
          (jump_to_menu, "mnu_cheat_add_troops"),
         ]

@@ -91,3 +91,4 @@ mt_lead_charge_quest_ambushed = 89
 mt_explore_secret_place = 90
 mt_ambush_riversw = 91
 mt_asturis_ruins = 92
+mt_sea_battle = 93

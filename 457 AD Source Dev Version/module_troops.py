@@ -2278,7 +2278,7 @@ troops = [
    [itm_camel,itm_heavy_lance,itm_sword_khergit_3,itm_intercisa_helmet_1,itm_augst_helmet_1,itm_iatrus_helmet_mail,itm_tarasovsky_1784_helmet_cloth,itm_tarasovsky_1784_helmet_leather,itm_tarasovsky_1784_helmet_arab,itm_haditha_1]+tunics_roman_military+shoes_roman+hats_arabs,
    def_attrib_lvl_18|level(18),wp_one_handed(135)|wp_two_handed(130)|wp_polearm(160)|wp_throwing(130),knows_ironflesh_6|knows_power_strike_6|knows_riding_4|knows_shield_2|knows_athletics_4,arab_face_1, arab_face_2],
 
-  ["roman_slinger","Funditor","Funditores",tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_ranged|tf_guarantee_shield,no_scene,reserved,fac_commoners,
+  ["roman_slinger","Funditor","Funditores",tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_ranged|tf_guarantee_shield,0,0,fac_culture_empire,
    [itm_flintlock_pistol,itm_sling_bullet,itm_sling_bullet,itm_securis,itm_round_shield_roman_7,itm_intercisa_helmet_1,itm_augst_helmet_1,itm_intercisa_helmet_2]+tunics_roman_military+shoes_roman+pannonian_hats,
    def_attrib_lvl_18|level(18),wp_one_handed(135) | wp_archery(100) | wp_crossbow(100) | wp_throwing(100) | wp_firearm(200),knows_lvl_18,roman_face_1, roman_face_2],
 
@@ -2286,8 +2286,13 @@ troops = [
    [itm_flag_pole_1,itm_roman_subarmalis_1,itm_roman_subarmalis_2,itm_intercisa_helmet_2,itm_augst_helmet_1,itm_intercisa_helmet_gilded_1]+shoes_roman+mail_roman_1,
    def_attrib_lvl_23|level(23),wp_polearm(190)|wp_one_handed(190)|wp_two_handed(190),knows_lvl_23,roman_face_1, roman_face_2],
 
+  #nauta/nautae (sling, axe) -> marinus/marini (sword, shield, jav)
+  ["roman_sailor","Nauta","Nautae",tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_ranged,0,0,fac_culture_empire, #axe, falx, sling
+   [itm_tunic_7,itm_tunic_7_cloak,itm_securis,itm_falx,itm_flintlock_pistol,itm_sling_bullet,itm_sling_bullet]+shoes_roman+pannonian_hats,
+   def_attrib_lvl_18|level(17),wp_one_handed(130)|wp_two_handed(130)|wp_polearm(130)|wp_archery(100)|wp_throwing(140)|wp_firearm(150),knows_lvl_18,roman_face_1, roman_face_2],
+
   ["roman_marine","Marinus","Marini",tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_shield,no_scene,reserved,fac_culture_empire, #dressed in blue, has round shield, javelins, spatha and potential falx
-   [itm_tunic_7,itm_tunic_7_cloak,itm_roman_subarmalis_3,itm_roman_subarmalis_4,itm_common_mail_short_2,itm_intercisa_helmet_1,itm_intercisa_helmet_2,itm_augst_helmet_1,itm_iatrus_1,itm_christies_helmet_1,itm_koblenz_helmet_1,itm_concave_shield_blue_1,itm_concave_shield_blue_2,itm_concave_shield_blue_3,itm_ballana_spatha,itm_falx,itm_throwing_spears]+shoes_roman+pannonian_hats,
+   [itm_roman_subarmalis_3,itm_roman_subarmalis_4,itm_common_mail_short_2,itm_narona_helmet_mail,itm_narona_helmet,itm_intercisa_helmet_1,itm_intercisa_helmet_2,itm_augst_helmet_1,itm_iatrus_1,itm_concave_shield_blue_1,itm_concave_shield_blue_2,itm_concave_shield_blue_3,itm_ballana_spatha,itm_throwing_spears]+shoes_roman+pannonian_hats,
    def_attrib_lvl_21|level(21),wp_one_handed(165)|wp_two_handed(165)|wp_polearm(150)|wp_archery(100)|wp_crossbow(100)|wp_throwing(160)|wp_firearm(160),knows_lvl_21|knows_athletics_7,roman_face_1, roman_face_2],
 
   ["bucellarius","Bucellarius","Bucellarii",tf_mounted|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_horse|tf_guarantee_shield|tf_guarantee_polearm,0,0,fac_culture_empire, #primarily melee guard cavalry, well equipped -> role of HA will come later with Belisarius

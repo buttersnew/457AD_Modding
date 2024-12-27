@@ -136,3 +136,6 @@ qst_conquest_alemmani = 134
 qst_conquest_mauri = 135
 qst_conquest_sicily = 136
 qst_quests_end = 137
+qst_sea_battle_spawn = 138
+qst_team_0_ships = 139
+qst_team_1_ships = 140

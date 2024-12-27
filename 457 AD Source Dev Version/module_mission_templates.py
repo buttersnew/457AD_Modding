@@ -2015,12 +2015,17 @@ vc_water = [			# 5 trigger
   (5, 0, 15, [(store_random_in_range,":chance",1,4),(eq,":chance",1),],	# comands wave change
     [
       (assign, ":beaufort_copy", "$beaufort"),
-      #(store_current_scene, ":cur_scene"),
+      (store_current_scene, ":cur_scene"),
+      (try_begin),
+        #QUESTS END
+        (neq, ":cur_scene", "scn_sea_battle"),
+        (assign, "$beaufort", 1),
+        (val_min, "$beaufort", ":beaufort_copy"),
+      (end_try),
       (call_script, "script_get_wave_properties"),
       (shuffle_range, 1, 3),
       (assign, "$target_Amplitude_x",	reg1),
       (assign, "$target_Amplitude_y",	reg2),
-      #(display_message, "@{!}wave_change!"),
       (assign, "$beaufort", ":beaufort_copy"),
   ]),
   (0.05, 0, 0, [],		# executes wave change

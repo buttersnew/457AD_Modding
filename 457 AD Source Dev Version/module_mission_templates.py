@@ -304,6 +304,8 @@ common_maritime_spawn =(
         (assign, ":quest", "qst_team_1_ships"),#new!
         (copy_position, pos0, pos60),
       (end_try),
+
+(scene_prop_get_slot, ":last_ship_type", ":curr_team_last_spawned_ship", scene_prop_ship_type),  #madsci make duplicate?
       
       # 3. SPAWN A SHIP
       (try_begin),
@@ -321,13 +323,20 @@ common_maritime_spawn =(
         (try_begin),
           (this_or_next|neg|is_between, ":ship_type", 1, 9),	# There are only 6 ship types
           (neg|is_between, ":ship_quality", 5, 101),
-          (assign, ":ship_type", 0),
+		(try_begin),
+		(gt, ":last_ship_type", 0),
+          	(assign, ":ship_type", ":last_ship_type"), #madsci duplicate last used ship if possible
+		#(display_message, "@Found ship type for team {reg9}."),
+		(else_try),
+		(assign, ":ship_type", ship_type_karvi),
+		#(display_message, "@Spawning Karvi for team {reg9}."),
+		(try_end),
           (store_random_in_range, ":ship_quality", 75, 100),
           (store_random_in_range, ":ship_propertys", 1, 4),
           (assign, reg9, ":agent_team"),
-          (ge, "$cheat_mode", 1),
-          (display_message, "@{!}INFO: While spawning ship I have to randomize ships for team {reg9}."), #off for demo
+          #(ge, "$cheat_mode", 1),          
         (end_try),
+
         #(display_message,"@{!}Conditions_for_ship_spawning_fullfilled!", 0xFFADD6FF),
         (val_add, ":curr_team_ship_counter", 1), #!
         (try_begin),

@@ -1651,6 +1651,12 @@ dialogs = [
   [anyone,"hire_aux2", [
   (store_relation, ":bandit_relation", "fac_player_faction", "$g_encountered_party_faction"),
   (ge, ":bandit_relation", 0),
+  (neg|party_can_join),
+], "Unfortunately. You do not have room in your party for us.", "close_window",[(assign, "$g_leave_encounter",1)]],
+
+  [anyone,"hire_aux2", [
+  (store_relation, ":bandit_relation", "fac_player_faction", "$g_encountered_party_faction"),
+  (ge, ":bandit_relation", 0),
   ], "Give us {reg40} siliquae and we have an agreement my friend.", "hire_aux3",[
       (party_get_num_companion_stacks, ":num_stacks","$g_encountered_party"),
       (assign, ":recruit_cost", 0),

@@ -1045,6 +1045,7 @@ triggers = [
   (gt, ":players_religion_relation", 30), #positive relations
   (eq, "$roman_pagan_quest_started", 1),
   (neg|check_quest_active, "qst_roman_pagan_quest"),
+  (neg|check_quest_active, "qst_black_river"), #madsci quest npcs use the same entry point so dont have them active simultaneously
   (eq, "$g_player_faith", 6),], #must be roman pagan
 [(jump_to_menu, "mnu_mithras_messenger"),]),
 

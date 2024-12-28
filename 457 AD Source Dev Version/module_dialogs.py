@@ -51403,14 +51403,31 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
   [trp_br_amatus|plyr, "amatus_1", [(neg|check_quest_active,"qst_black_river"),(neg|quest_slot_ge, "qst_black_river", slot_quest_current_state, 1),],
    "I apologize for my prior insolence, sublimis senator. Allow me to initiate our friendship by reuniting you with your fortune.", "amatus_intro_6", []],
 
-  [trp_br_amatus|plyr, "amatus_1", [(check_quest_active,"qst_black_river"),(quest_slot_eq, "qst_black_river", slot_quest_current_state, 7),],
+  [trp_br_amatus|plyr, "amatus_1", [
+(check_quest_active,"qst_black_river"),(quest_slot_eq, "qst_black_river", slot_quest_current_state, 7),
+(store_troop_gold, ":gold", "trp_player"),
+(ge, ":gold", 45000), #madsci check that the player actually has the gold
+],
    "I have returned with your fortune, senator.", "amatus_finish_1", []],
+
+#give the player a way to end this quest without the gold?
+  [trp_br_amatus|plyr, "amatus_1", [
+(check_quest_active,"qst_black_river"),(quest_slot_eq, "qst_black_river", slot_quest_current_state, 7),
+],
+   "I have your fortune, but I'm keeping it to myself.", "close_window", [
+(call_script, "script_cancel_quest", "qst_black_river"),
+(call_script, "script_change_player_relation_with_troop", "$g_talk_troop", -30),
+(call_script, "script_change_player_honor", -4),
+(remove_troop_from_site, "trp_br_amatus", "scn_town_8_tavern"), #madsci
+]],
+
   [trp_br_amatus, "amatus_finish_1", [],
    "By God, I had given up all hope of living to see this day. You cannot begin to comprehend how much you have helped me – it is as though I have been brought back to life. Perhaps all is not yet lost so long as valiant youth and sagacious elders continue to uphold the dream of Rome. You may claim your share of the spoils, and I promise to champion your name in the senate so long as I draw breath. Thank you.", "close_window", [
    (call_script, "script_change_troop_renown", "trp_player", 30),
    (troop_remove_gold, "trp_player", 45000),
    (add_xp_as_reward, 1200),
    (call_script, "script_end_quest", "qst_black_river"),
+(remove_troop_from_site, "trp_br_amatus", "scn_town_8_tavern"), #madsci
    ]],
 
   [trp_br_amatus|plyr, "amatus_1", [],

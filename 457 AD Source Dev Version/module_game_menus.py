@@ -13942,6 +13942,13 @@ TOTAL:  {reg5}"),
                 # (val_add, ":cur_entry", 1),
 			 # (try_end),
 
+	(try_begin), #madsci quest troop spawns go here
+	(eq, "$current_town", "p_town_8"),
+	(neg|quest_slot_eq, "qst_mithras_quest", slot_quest_current_state, 0),
+        (set_visitor, ":cur_entry", "trp_mithraist_iniate"),
+        (val_add, ":cur_entry", 1),
+	(try_end),
+
              (party_get_slot, ":mercenary_troop", "$current_town", slot_center_mercenary_troop_type),
              (party_get_slot, ":mercenary_amount", "$current_town", slot_center_mercenary_troop_amount),
              (try_begin),
@@ -25092,7 +25099,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 
           (call_script, "script_start_quest", "qst_mithras_quest", "trp_player"),
           (quest_set_slot,"qst_mithras_quest",slot_quest_current_state, 1),
-          (add_troop_to_site, "trp_mithraist_iniate", "scn_town_8_tavern", 12),
+          #(add_troop_to_site, "trp_mithraist_iniate", "scn_town_8_tavern", 12), #madsci do this elsewhere
 
           (leave_encounter),
 

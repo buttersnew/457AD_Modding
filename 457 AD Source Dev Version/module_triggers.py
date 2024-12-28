@@ -1085,15 +1085,6 @@ triggers = [
   (assign, "$g_foederati_event", 1),
    ]),
 
-#Invasions END
-
-(24,0,ti_once,[],[
-  (add_troop_to_site, "trp_corrupt_priest", "scn_town_25_tavern", 12),
-  (add_troop_to_site, "trp_br_amatus", "scn_town_8_tavern", 12),
-  (add_troop_to_site, "trp_zamb_man", "scn_town_17_tavern", 12),
-   ]),
-
-
 (24,0,22,[(eq,"$prayer",1)],[
     (assign, "$prayer", 0),    
 ]),

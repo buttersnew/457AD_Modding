@@ -13949,6 +13949,27 @@ TOTAL:  {reg5}"),
         (val_add, ":cur_entry", 1),
 	(try_end),
 
+	(try_begin), #madsci quest troop spawns go here
+	(eq, "$current_town", "p_town_8"),
+	(neq, "$amatus_left", 1),
+        (set_visitor, ":cur_entry", "trp_br_amatus"),
+        (val_add, ":cur_entry", 1),
+	(try_end),
+
+	(try_begin), #madsci quest troop spawns go here
+	(eq, "$current_town", "p_town_25"),
+	(neq, "$corrupt_priest_left", 1),
+        (set_visitor, ":cur_entry", "trp_corrupt_priest"),
+        (val_add, ":cur_entry", 1),
+	(try_end),
+
+	(try_begin), #madsci quest troop spawns go here
+	(eq, "$current_town", "p_town_17"),
+	(neq, "$zamb_man_left", 1),
+        (set_visitor, ":cur_entry", "trp_zamb_man"),
+        (val_add, ":cur_entry", 1),
+	(try_end),
+
              (party_get_slot, ":mercenary_troop", "$current_town", slot_center_mercenary_troop_type),
              (party_get_slot, ":mercenary_amount", "$current_town", slot_center_mercenary_troop_amount),
              (try_begin),

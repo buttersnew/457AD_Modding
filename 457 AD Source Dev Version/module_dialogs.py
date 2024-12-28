@@ -49763,7 +49763,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
    (add_xp_as_reward, 450),
    (val_add, "$piety", 10),
    (call_script, "script_end_quest", "qst_heretical_codex"),
-   (remove_troop_from_site,"trp_corrupt_priest","scn_town_25_tavern"),
+   (assign, "$corrupt_priest_left", 1),
   ]],
 
   [anyone|plyr, "chalcedonian_bishop_talk", [],
@@ -51303,7 +51303,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
    (call_script, "script_change_troop_renown", "trp_player", 5),
    (add_xp_as_reward, 500),
    (call_script, "script_end_quest", "qst_heretical_codex"),
-   (remove_troop_from_site,"trp_corrupt_priest","scn_town_25_tavern"),
+   (assign, "$corrupt_priest_left", 1),
   ]],
 
   [trp_corrupt_priest|plyr, "heretical_codex_finished_2", [],
@@ -51313,7 +51313,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
    (call_script, "script_change_troop_renown", "trp_player", 5),
    (add_xp_as_reward, 600),
    (call_script, "script_end_quest", "qst_heretical_codex"),
-   (remove_troop_from_site,"trp_corrupt_priest","scn_town_25_tavern"),
+   (assign, "$corrupt_priest_left", 1),
   ]],
 
   [trp_corrupt_priest|plyr, "heretical_codex_priest_1", [],
@@ -51387,7 +51387,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
   [trp_br_amatus|plyr, "amatus_intro_5", [], #accepts the request
    "Then they are fools. My ambition is greater than silver, tell me the whereabouts of your villa and you will be reunited with your fortune.", "amatus_intro_6", []],
   [trp_br_amatus|plyr, "amatus_intro_5", [], #declines the request
-   "I do not blame them. The friendship of a drunken fool is poor recompense for the hazard of crossing barbarian country. Farewell.", "close_window", []],
+   "I do not blame them. The friendship of a drunken fool is poor recompense for the hazard of crossing barbarian country. Farewell.", "close_window", [(assign, "$amatus_left", 1),]],
 
   [trp_br_amatus, "amatus_intro_6", [], 
    "Very well. An old friend of mine resides in Sirmium, a mariner named Gerontius. He will ferry you to my villa by way of the river Danuvius but be warned, the voyage is perilous. Even before she was overrun, Pannonia was but an untenable frontier. The deeper you go, the dimmer the light of God shines", "close_window", [
@@ -51401,7 +51401,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
   [trp_br_amatus, "start", [],
    "Yes?", "amatus_1", []],
   [trp_br_amatus|plyr, "amatus_1", [(neg|check_quest_active,"qst_black_river"),(neg|quest_slot_ge, "qst_black_river", slot_quest_current_state, 1),],
-   "I apologize for my prior insolence, sublimis senator. Allow me to initiate our friendship by reuniting you with your fortune.", "amatus_intro_6", []],
+   "I apologize for my prior insolence, sublimis senator. Allow me to initiate our friendship by reuniting you with your fortune.", "amatus_intro_6", [(assign, "$amatus_left", 0),]],
 
   [trp_br_amatus|plyr, "amatus_1", [
 (check_quest_active,"qst_black_river"),(quest_slot_eq, "qst_black_river", slot_quest_current_state, 7),
@@ -51418,7 +51418,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
 (call_script, "script_cancel_quest", "qst_black_river"),
 (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", -30),
 (call_script, "script_change_player_honor", -4),
-(remove_troop_from_site, "trp_br_amatus", "scn_town_8_tavern"), #madsci
+(assign, "$amatus_left", 1),
 ]],
 
   [trp_br_amatus, "amatus_finish_1", [],
@@ -51427,7 +51427,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
    (troop_remove_gold, "trp_player", 45000),
    (add_xp_as_reward, 1200),
    (call_script, "script_end_quest", "qst_black_river"),
-(remove_troop_from_site, "trp_br_amatus", "scn_town_8_tavern"), #madsci
+(assign, "$amatus_left", 1),
    ]],
 
   [trp_br_amatus|plyr, "amatus_1", [],

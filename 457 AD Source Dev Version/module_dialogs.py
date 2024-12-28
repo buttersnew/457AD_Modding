@@ -19278,6 +19278,7 @@ Here, take this purse of {reg3} siliquae, as I promised. I hope we can travel to
                ]],
 
 [anyone|plyr ,"pretender_start", [
+		(eq, "$freelancer_state", 0),
               (troop_slot_eq, "$g_talk_troop", slot_troop_discussed_rebellion, 1),
                ],
 "I want to take up your cause and help you reclaim your throne!", "pretender_discuss_rebellion_1", [
@@ -19369,6 +19370,12 @@ Such oaths to a usurper are of course invalid, and we can expect some of the {s0
 [anyone ,"pretender_discuss_rebellion_3", [(faction_slot_eq, "fac_player_supporters_faction", slot_faction_state, sfs_active),
                             (faction_slot_eq, "fac_player_supporters_faction", slot_faction_leader, "trp_player")],
 "You are a monarch in your own right, {sir/my lady}. If you were to back me, I would be merely your puppet.", "close_window", []],
+
+[anyone ,"pretender_discuss_rebellion_3", [
+                            (is_between, "$players_kingdom", npc_kingdoms_begin, npc_kingdoms_end),
+                            (str_store_faction_name, s16, "$players_kingdom"),
+                                       ],
+"{playername}, you are already under a mercenary contract with the {s16}. As such, I cannot allow you to take up my cause, and let my enemies claim that I am but a mere puppet of the {s16}. "+"No, if I am to have the throne, I must do it due to the righteousness of my cause and the support of my subjects alone. "+"If you want to help me, you must first free yourself of your contract with the {s16}.", "close_window", []],
 
 
 [anyone ,"pretender_discuss_rebellion_3", [(troop_get_slot, ":original_faction", "$g_talk_troop", slot_troop_original_faction),

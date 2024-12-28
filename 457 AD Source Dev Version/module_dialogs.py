@@ -51366,7 +51366,9 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
   [trp_holy_lance_keeper, "holy_lance_keeper_lance_1", [ #good honor, must be christian of some sort
   (this_or_next|troop_slot_eq, "trp_player", slot_troop_religion, slot_religion_christian_chalcedonian),
   (this_or_next|troop_slot_eq, "trp_player", slot_troop_religion, slot_religion_christian_arian),
-  (troop_slot_eq, "trp_player", slot_troop_religion, slot_religion_christian_miaphysite),
+  (this_or_next|troop_slot_eq, "trp_player", slot_troop_religion, slot_religion_christian_miaphysite),
+  (this_or_next|troop_slot_eq, "trp_player", slot_troop_religion, slot_religion_christian_nestorian),
+  (troop_slot_eq, "trp_player", slot_troop_religion, slot_religion_christian_donatist),
   (ge, "$player_honor", 20),],
    "You are worthy of the lance, use it wisely. If you feel obliged, return it to the church so that it may be venerated by all.", "close_window", [
    (troop_add_item, "trp_player","itm_lance_of_longiunus",0),
@@ -51377,13 +51379,17 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
   [trp_holy_lance_keeper, "holy_lance_keeper_lance_1", [
   (this_or_next|troop_slot_eq, "trp_player", slot_troop_religion, slot_religion_christian_chalcedonian),
   (this_or_next|troop_slot_eq, "trp_player", slot_troop_religion, slot_religion_christian_arian),
-  (troop_slot_eq, "trp_player", slot_troop_religion, slot_religion_christian_miaphysite),
+  (this_or_next|troop_slot_eq, "trp_player", slot_troop_religion, slot_religion_christian_miaphysite),
+  (this_or_next|troop_slot_eq, "trp_player", slot_troop_religion, slot_religion_christian_nestorian),
+  (troop_slot_eq, "trp_player", slot_troop_religion, slot_religion_christian_donatist),
   (le, "$player_honor", 20),], #rejected as a christian
    "You are not worthy of the lance at this time, dear stranger.", "close_window", []],
   [trp_holy_lance_keeper, "holy_lance_keeper_lance_1", [
   (neg|troop_slot_eq, "trp_player", slot_troop_religion, slot_religion_christian_chalcedonian),
   (neg|troop_slot_eq, "trp_player", slot_troop_religion, slot_religion_christian_arian),
   (neg|troop_slot_eq, "trp_player", slot_troop_religion, slot_religion_christian_miaphysite),
+  (neg|troop_slot_eq, "trp_player", slot_troop_religion, slot_religion_christian_nestorian),
+  (neg|troop_slot_eq, "trp_player", slot_troop_religion, slot_religion_christian_donatist),
   ], #rejected as a non-christian
    "You do not worship the true God, you are far from deserving of the lance, no matter who you may be...", "close_window", []],
 
@@ -53392,6 +53398,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
    "Welcome to the true faith, {playername}.", "close_window", []],
   [trp_zoroastrian_high_priest, "zoroastrian_high_priest_talk_donate_1", [], #after player donates
    "Thank you for the donation, {playername}.", "close_window", []],
+
   [trp_zoroastrian_high_priest|plyr, "zoroastrian_high_priest_talk_1", [
     (troop_slot_eq, "trp_player", slot_troop_religion, slot_religion_zoroastrianism),
     (store_troop_gold,":money","trp_player"),
@@ -53399,13 +53406,13 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
     (troops_can_join, 1),], #player is of the religion
    "I would like to hire a priest (300 siliquae).", "zoroastrian_high_priest_talk_hire", [(troop_remove_gold, "trp_player", 300),(party_add_members, "p_main_party","trp_zoroastrian_priest",1),]],
 
-  [trp_zoroastrian_high_priest|plyr, "zoroastrian_high_priest_talk_1", [
-    (eq, "$g_player_faith", 4),
-    (store_troop_gold,":money","trp_player"),
-    (gt,":money",499),(troop_slot_ge, "trp_player", slot_troop_renown, 300),
-    (troops_can_join, 1),
-    ], #player is of the religion and has money, needs 300 renown to hire
-   "I would like to hire a champion (500 siliquae).", "zoroastrian_high_priest_talk_hire", [(troop_remove_gold, "trp_player", 500),(party_add_members, "p_main_party","trp_persian_hero",1),]],
+  #[trp_zoroastrian_high_priest|plyr, "zoroastrian_high_priest_talk_1", [
+  #  (eq, "$g_player_faith", 4),
+  #  (store_troop_gold,":money","trp_player"),
+  #  (gt,":money",499),(troop_slot_ge, "trp_player", slot_troop_renown, 300),
+  #  (troops_can_join, 1),
+  #  ], #player is of the religion and has money, needs 300 renown to hire
+  # "I would like to hire a champion (500 siliquae).", "zoroastrian_high_priest_talk_hire", [(troop_remove_gold, "trp_player", 500),(party_add_members, "p_main_party","trp_persian_hero",1),]],
 
   [trp_zoroastrian_high_priest, "zoroastrian_high_priest_talk_hire", [],
    "Very well.", "zoroastrian_high_priest_talk_1", []],

@@ -1554,6 +1554,10 @@ troops = [
  ["sassanid_standard_bearer","Persian Standard Bearer","Persian Standard Bearers",tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_polearm,0,0,fac_culture_6,
    [itm_nomad_boots,itm_sassanid_simple_boots_1,itm_sassanid_simple_boots_2,itm_sassanid_simple_boots_3,itm_woolen_cap_b,itm_woolen_cap_c,itm_woolen_cap_1,itm_woolen_cap_5,itm_flag_pole_1]+tunics_persian+helmets_sassanid_1,
    def_attrib_lvl_18|level(18),wp(130),knows_common|knows_athletics_4|knows_ironflesh_3|knows_power_strike_3,persian_face_1, persian_face_2], 
+#can be recruited if the player is a zoroastrian of some sort
+ ["persian_champion","Persian Champion (Pahlavan)","Persian Champions (Pahlavani)",tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet,0,0,fac_culture_6,
+   [itm_sassanid_cavalry_boots_1,itm_sassanid_cavalry_boots_2,itm_toaoe_sassanid_helmet_1,itm_toaoe_sassanid_helmet_2,itm_tsaritsyno_1,itm_crossband_helmet_1,itm_sassanid_helmet_mail_4,itm_sassanid_helmet_mail_5,itm_sassanid_greatsword]+mail_persian_3+mail_persian_4+mail_persian_coat_2,
+   def_attrib_lvl_30|level(30),wp_one_handed(220)|wp_two_handed(230)|wp_polearm(220)|wp_archery(140)|wp_throwing(220),knows_lvl_30,persian_face_1, persian_face_2], 
 
  ["sassanid_messenger","Sassanid Messenger","Sassanid Messengers",tf_mounted|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_horse|tf_guarantee_shield|tf_guarantee_polearm,0,0,fac_culture_6,
    [itm_nomad_boots,itm_sassanid_simple_boots_1,itm_sassanid_simple_boots_2,itm_sassanid_simple_boots_3,itm_sassanid_cavalry_boots_1,itm_sassanid_cavalry_boots_2,itm_medium_spear_1,itm_medium_spear_2]+tunics_persian+helmets_sassanid_1+horses_persian_1,
@@ -3875,6 +3879,11 @@ troops = [
   ["castle_86_seneschal", "{!}Castle 4 Seneschal", "{!}Castle 4 Seneschal", tf_hero|tf_is_merchant, 0,reserved,  fac_neutral,[itm_roman_peasant_tunic_1,           itm_wrapping_boots],   def_attrib|level(2),wp(20),knows_common, 0x000000000004715201ea236c60a2bcae],
   ["castle_87_seneschal", "{!}Castle 4 Seneschal", "{!}Castle 4 Seneschal", tf_hero|tf_is_merchant, 0,reserved,  fac_neutral,[itm_roman_peasant_tunic_1,           itm_wrapping_boots],   def_attrib|level(2),wp(20),knows_common, 0x000000000004715201ea236c60a2bcae],
   ["castle_88_seneschal", "{!}Castle 4 Seneschal", "{!}Castle 4 Seneschal", tf_hero|tf_is_merchant, 0,reserved,  fac_neutral,[itm_roman_peasant_tunic_1,           itm_wrapping_boots],   def_attrib|level(2),wp(20),knows_common, 0x000000000004715201ea236c60a2bcae],
+  ["castle_89_seneschal", "{!}Castle 4 Seneschal", "{!}Castle 4 Seneschal", tf_hero|tf_is_merchant, 0,reserved,  fac_neutral,[itm_roman_peasant_tunic_1,           itm_wrapping_boots],   def_attrib|level(2),wp(20),knows_common, 0x000000000004715201ea236c60a2bcae],
+  ["castle_90_seneschal", "{!}Castle 4 Seneschal", "{!}Castle 4 Seneschal", tf_hero|tf_is_merchant, 0,reserved,  fac_neutral,[itm_roman_peasant_tunic_1,           itm_wrapping_boots],   def_attrib|level(2),wp(20),knows_common, 0x000000000004715201ea236c60a2bcae],
+  ["castle_91_seneschal", "{!}Castle 4 Seneschal", "{!}Castle 4 Seneschal", tf_hero|tf_is_merchant, 0,reserved,  fac_neutral,[itm_roman_peasant_tunic_1,           itm_wrapping_boots],   def_attrib|level(2),wp(20),knows_common, 0x000000000004715201ea236c60a2bcae],
+  ["castle_92_seneschal", "{!}Castle 4 Seneschal", "{!}Castle 4 Seneschal", tf_hero|tf_is_merchant, 0,reserved,  fac_neutral,[itm_roman_peasant_tunic_1,           itm_wrapping_boots],   def_attrib|level(2),wp(20),knows_common, 0x000000000004715201ea236c60a2bcae],
+  ["castle_93_seneschal", "{!}Castle 4 Seneschal", "{!}Castle 4 Seneschal", tf_hero|tf_is_merchant, 0,reserved,  fac_neutral,[itm_roman_peasant_tunic_1,           itm_wrapping_boots],   def_attrib|level(2),wp(20),knows_common, 0x000000000004715201ea236c60a2bcae],
 
 #Arena Masters
   ["town_1_arena_master", "Tournament Master","{!}Tournament Master",tf_hero|tf_randomize_face, scn_town_1_arena|entry(52),reserved,   fac_commoners,[itm_tunic_7,      itm_ankle_boots],    def_attrib|level(2),wp(20),knows_common,man_face_1, man_face_2],
@@ -5039,7 +5048,7 @@ troops = [
 
   ["suebi_king", "Rex Hunimund", "Hunimund", tf_hero, no_scene, 0, fac_hunimund_suebi,[itm_east_germ_warhorse_1, itm_wrapping_boots, itm_tab_shield_small_round_c, itm_rich_mail_4_cloak, itm_koblenz_helmet_3, itm_sword_viking_3_small],knight_attrib_5,wp(300),knight_skills_5|knows_trainer_1|knows_trainer_3,0x0000000905004084549c652a9b4dbadb00000000001d36ea0000000000000000],
 
-  ["persian_champion","Champion","NPC Quest Character",tf_hero, no_scene, reserved, fac_commoners,[itm_sassanid_simple_boots_2,itm_sarranid_horseman_helmet],def_attrib_lvl_18|level(19),wp(250),knows_ironflesh_10|knows_power_strike_7,persian_face_1, persian_face_2],
+  #["persian_champion","Champion","NPC Quest Character",tf_hero, no_scene, reserved, fac_commoners,[itm_sassanid_simple_boots_2,itm_sarranid_horseman_helmet],def_attrib_lvl_18|level(19),wp(250),knows_ironflesh_10|knows_power_strike_7,persian_face_1, persian_face_2],
   #isaurian rival king
   ["isaurian_leader","Regulus Lydius","NPC Quest Character",tf_hero|tf_guarantee_boots|tf_guarantee_armor, no_scene, 0, fac_outlaws,[itm_rich_mail_1_cloak,itm_christies_helmet_1,itm_round_shield_roman_13,itm_ankle_boots,itm_battle_axe],def_attrib_lvl_20|level(19),wp(250),knows_ironflesh_10|knows_power_strike_7,0x000000078a0091436adc8647136db6db00000000001eb6b10000000000000000],
 
@@ -5096,8 +5105,6 @@ troops = [
    def_attrib_lvl_18|level(17),wp(130),knows_common|knows_athletics_2|knows_power_strike_2|knows_ironflesh_2,roman_face_1, roman_face_2],  
 
   ["mithras_bandit","Mysterious Man","lol he's a bandit",tf_hero, no_scene,0, fac_outlaws,[itm_wrapping_boots,itm_battered_mail_1,(itm_intercisa_helmet_1,imod_battered),itm_battle_axe_2,itm_round_shield_gray_1],def_attrib_lvl_30|level(30),wp(230),knows_common|knows_riding_3|knows_athletics_4|knows_ironflesh_8|knows_shield_4|knows_power_throw_4,0x00000001b80032473ac49738206626b200000000001da7660000000000000000, bandit_face2],
-
-  ["persian_hero","Pahlavan","Pahlavans",tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet, no_scene, reserved, fac_culture_6,[itm_sassanid_simple_boots_2,itm_tsaritsyno_1,itm_tsaritsyno_1_veiled,itm_sassanid_cataphract_helmet_1,itm_sassanid_cataphract_helmet_2,itm_sassanid_cataphract_helmet_3,itm_sassanid_greatsword]+mail_persian_coat_2,def_attrib_lvl_30|level(30),wp_one_handed(230)|wp_two_handed(250),knows_ironflesh_8|knows_power_strike_6|knows_athletics_5,persian_face_1, persian_face_2],
 
   ["pilos_cultist","Mysterious Man","Mysterious Man",tf_hero,0,reserved, fac_commoners,[itm_coptic_tunic_2,itm_deurne_campagi_1,itm_pilos_helmet],def_attrib_lvl_18|level(19),wp(180),knows_ironflesh_6|knows_power_strike_3|knows_athletics_5, 0x00000006370023427f135636f5e8af2000000000001e36c20000000000000000],
 

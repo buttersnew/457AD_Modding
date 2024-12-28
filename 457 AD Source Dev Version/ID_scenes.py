@@ -825,4 +825,5 @@ scn_ruins_of_olpia_pontica = 822
 scn_the_oath = 823
 scn_final_battle = 824
 scn_sea_battle = 825
+scn_sea_battle_coast = 826
 scn_exit = 100000

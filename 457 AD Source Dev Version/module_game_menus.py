@@ -27801,6 +27801,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 (try_end),
 (try_begin), #dont do this if in water
 (party_get_current_terrain, ":terrain", "$g_encountered_party"),
+(this_or_next|eq, ":terrain", rt_deep_water),
 (this_or_next|eq, ":terrain", rt_bridge),
 (this_or_next|eq, ":terrain", rt_river),
 (eq, ":terrain", rt_water),
@@ -27930,6 +27931,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 (try_end),
 (try_begin), #dont do this if in water
 (party_get_current_terrain, ":terrain", "$g_encountered_party"),
+(this_or_next|eq, ":terrain", rt_deep_water),
 (this_or_next|eq, ":terrain", rt_bridge),
 (this_or_next|eq, ":terrain", rt_river),
 (eq, ":terrain", rt_water),
@@ -28020,6 +28022,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 (try_end),
 (try_begin), #dont do this if in water
 (party_get_current_terrain, ":terrain", "$g_encountered_party"),
+(this_or_next|eq, ":terrain", rt_deep_water),
 (this_or_next|eq, ":terrain", rt_bridge),
 (this_or_next|eq, ":terrain", rt_river),
 (eq, ":terrain", rt_water),

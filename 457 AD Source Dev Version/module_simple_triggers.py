@@ -7049,6 +7049,15 @@ simple_triggers = [
 (neg|troop_is_hero, ":party_leader"),
 (party_add_leader, ":home", ":leader"),
 (try_end),
+
+	(try_begin), #madsci spawn some pirates
+    	(store_num_parties_of_template, ":pirates", "pt_pirates_mediterranean"),
+    	(lt, ":pirates", 4),
+	(set_spawn_radius, 0),
+		(try_for_range, ":unused", 0, 5),
+    		(spawn_around_party, "p_malta", "pt_pirates_mediterranean"),
+		(try_end),
+	(try_end),
     ]),
 
   (168,
@@ -8617,6 +8626,7 @@ simple_triggers = [
 	(neq, ":terrain_type", rt_water),
 	(neq, ":terrain_type", rt_river),
 	(neq, ":terrain_type", rt_bridge),
+	(neq, ":terrain_type", rt_deep_water),
 	(party_set_icon, ":camp", "icon_steppe_lord"),
         (party_set_ai_behavior, ":camp", ai_bhvr_travel_to_point),
         (party_set_ai_target_position, ":camp", pos2),
@@ -8636,6 +8646,7 @@ simple_triggers = [
 	(neq, ":terrain_type", rt_water),
 	(neq, ":terrain_type", rt_river),
 	(neq, ":terrain_type", rt_bridge),
+	(neq, ":terrain_type", rt_deep_water),
 	(party_set_icon, ":camp", "icon_nomad_camp"),
 	(party_set_ai_behavior, ":camp", ai_bhvr_hold),
 	(store_faction_of_party, ":camp_faction", ":camp"),

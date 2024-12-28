@@ -1781,5 +1781,7 @@ scenes = [
   [], [], "outer_terrain_steppe"),
 #madsci VC sea battles
  ("sea_battle",sf_generate|sf_no_horses,"none", "none", (-1000,-1000),(1000,1000), 0,"0x0000000730000500000d23480000035180006c8200004a21",
-   [],[],"sea_battle_terrain"),#phaiak
+   [],[],"sea_battle_terrain"),
+ ("sea_battle_coast",sf_generate|sf_no_horses,"none", "none", (-1000,-1000),(1000,1000), 0,"0x0000000730000500000d23480000035180006c8200004a21",
+   [],[],"sea_outer_terrain_3"),
 ]

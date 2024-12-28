@@ -42021,8 +42021,17 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
                                           (party_get_slot, ":mercenary_troop", "$g_encountered_party", slot_center_mercenary_troop_type),
                                           (call_script, "script_game_get_join_cost", ":mercenary_troop"),
                                           (store_mul, reg5, "$temp", reg0),
+						(try_begin),
+						(eq, ":mercenary_amount", 1),
+						(str_store_string, s10, "@you"),
+						(else_try),
+						(eq, ":mercenary_amount", 2),
+						(str_store_string, s10, "@both of you"),
+						(else_try),
+						(str_store_string, s10, "@all of you"),
+						(try_end),
                                           ],
-   "All right. I will hire all of you. Here is {reg5} siliquae.", "mercenary_tavern_talk_hire", []],
+   "All right. I will hire {s10}. Here is {reg5} siliquae.", "mercenary_tavern_talk_hire", []],
 
   [anyone|plyr, "mercenary_tavern_talk", [(party_get_slot, ":mercenary_amount", "$g_encountered_party", slot_center_mercenary_troop_amount),
                                           (lt, "$temp", ":mercenary_amount"),
@@ -42096,7 +42105,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
   [anyone, "tavern_mercenary_cant_lead", [], "That's a pity. Well, {reg3?we will:I will} be lingering around here for a while, if you need to hire anyone.", "close_window", []],
 
   [anyone|plyr, "mercenary_tavern_talk", [],
-   "Sorry. I don't need any other men right now.", "close_window", []],
+   "Sorry. I don't need any other {reg65?soldiers:men} right now.", "close_window", []],
 
 #Trainers
   [anyone,"start", [(is_between, "$g_talk_troop", training_ground_trainers_begin, training_ground_trainers_end),

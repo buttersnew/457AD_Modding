@@ -1651,6 +1651,12 @@ dialogs = [
   [anyone,"hire_aux2", [
   (store_relation, ":bandit_relation", "fac_player_faction", "$g_encountered_party_faction"),
   (ge, ":bandit_relation", 0),
+  (neg|party_can_join),
+], "Unfortunately. You do not have room in your party for us.", "close_window",[(assign, "$g_leave_encounter",1)]],
+
+  [anyone,"hire_aux2", [
+  (store_relation, ":bandit_relation", "fac_player_faction", "$g_encountered_party_faction"),
+  (ge, ":bandit_relation", 0),
   ], "Give us {reg40} siliquae and we have an agreement my friend.", "hire_aux3",[
       (party_get_num_companion_stacks, ":num_stacks","$g_encountered_party"),
       (assign, ":recruit_cost", 0),
@@ -19272,6 +19278,7 @@ Here, take this purse of {reg3} siliquae, as I promised. I hope we can travel to
                ]],
 
 [anyone|plyr ,"pretender_start", [
+		(eq, "$freelancer_state", 0),
               (troop_slot_eq, "$g_talk_troop", slot_troop_discussed_rebellion, 1),
                ],
 "I want to take up your cause and help you reclaim your throne!", "pretender_discuss_rebellion_1", [
@@ -19363,6 +19370,12 @@ Such oaths to a usurper are of course invalid, and we can expect some of the {s0
 [anyone ,"pretender_discuss_rebellion_3", [(faction_slot_eq, "fac_player_supporters_faction", slot_faction_state, sfs_active),
                             (faction_slot_eq, "fac_player_supporters_faction", slot_faction_leader, "trp_player")],
 "You are a monarch in your own right, {sir/my lady}. If you were to back me, I would be merely your puppet.", "close_window", []],
+
+[anyone ,"pretender_discuss_rebellion_3", [
+                            (is_between, "$players_kingdom", npc_kingdoms_begin, npc_kingdoms_end),
+                            (str_store_faction_name, s16, "$players_kingdom"),
+                                       ],
+"{playername}, you are already under a mercenary contract with the {s16}. As such, I cannot allow you to take up my cause, and let my enemies claim that I am but a mere puppet of the {s16}. "+"No, if I am to have the throne, I must do it due to the righteousness of my cause and the support of my subjects alone. "+"If you want to help me, you must first free yourself of your contract with the {s16}.", "close_window", []],
 
 
 [anyone ,"pretender_discuss_rebellion_3", [(troop_get_slot, ":original_faction", "$g_talk_troop", slot_troop_original_faction),
@@ -42015,8 +42028,17 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
                                           (party_get_slot, ":mercenary_troop", "$g_encountered_party", slot_center_mercenary_troop_type),
                                           (call_script, "script_game_get_join_cost", ":mercenary_troop"),
                                           (store_mul, reg5, "$temp", reg0),
+						(try_begin),
+						(eq, ":mercenary_amount", 1),
+						(str_store_string, s10, "@you"),
+						(else_try),
+						(eq, ":mercenary_amount", 2),
+						(str_store_string, s10, "@both of you"),
+						(else_try),
+						(str_store_string, s10, "@all of you"),
+						(try_end),
                                           ],
-   "All right. I will hire all of you. Here is {reg5} siliquae.", "mercenary_tavern_talk_hire", []],
+   "All right. I will hire {s10}. Here is {reg5} siliquae.", "mercenary_tavern_talk_hire", []],
 
   [anyone|plyr, "mercenary_tavern_talk", [(party_get_slot, ":mercenary_amount", "$g_encountered_party", slot_center_mercenary_troop_amount),
                                           (lt, "$temp", ":mercenary_amount"),
@@ -42090,7 +42112,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
   [anyone, "tavern_mercenary_cant_lead", [], "That's a pity. Well, {reg3?we will:I will} be lingering around here for a while, if you need to hire anyone.", "close_window", []],
 
   [anyone|plyr, "mercenary_tavern_talk", [],
-   "Sorry. I don't need any other men right now.", "close_window", []],
+   "Sorry. I don't need any other {reg65?soldiers:men} right now.", "close_window", []],
 
 #Trainers
   [anyone,"start", [(is_between, "$g_talk_troop", training_ground_trainers_begin, training_ground_trainers_end),

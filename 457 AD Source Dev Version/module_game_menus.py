@@ -18119,6 +18119,19 @@ goods, and books will never be sold. ^^You can change some settings here freely.
              (party_is_active, "$capturer_party"),
              (party_relocate_near_party, "p_main_party", "$capturer_party", 2),
            (try_end),
+		(party_get_current_terrain, ":terrain_type", "p_main_party"), #madsci lets make sure the player doesnt end up stuck
+		(try_begin),
+		(this_or_next|eq, ":terrain_type", rt_water),
+		(eq, ":terrain_type", rt_river),
+			(try_begin),
+			(party_get_position, pos1, "p_main_party"),
+			(map_get_land_position_around_position, pos2, pos1, 10),
+			(party_set_position, "p_main_party", pos2),
+			(else_try),
+			(call_script, "script_get_closest_center", "p_main_party"),
+			(party_relocate_near_party, "p_main_party", reg0, 1),
+			(try_end),
+		(try_end),
            (call_script, "script_set_parties_around_player_ignore_player", 8, 12), #it was radius:2 and hours:4, but players make lots of complains about consequent battle losses after releases from captivity then I changed this.
            (assign, "$g_player_icon_state", pis_normal),
            (set_camera_follow_party, "p_main_party"),
@@ -27801,6 +27814,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 (try_end),
 (try_begin), #dont do this if in water
 (party_get_current_terrain, ":terrain", "$g_encountered_party"),
+(this_or_next|eq, ":terrain", rt_deep_water),
 (this_or_next|eq, ":terrain", rt_bridge),
 (this_or_next|eq, ":terrain", rt_river),
 (eq, ":terrain", rt_water),
@@ -27930,6 +27944,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 (try_end),
 (try_begin), #dont do this if in water
 (party_get_current_terrain, ":terrain", "$g_encountered_party"),
+(this_or_next|eq, ":terrain", rt_deep_water),
 (this_or_next|eq, ":terrain", rt_bridge),
 (this_or_next|eq, ":terrain", rt_river),
 (eq, ":terrain", rt_water),
@@ -28020,6 +28035,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 (try_end),
 (try_begin), #dont do this if in water
 (party_get_current_terrain, ":terrain", "$g_encountered_party"),
+(this_or_next|eq, ":terrain", rt_deep_water),
 (this_or_next|eq, ":terrain", rt_bridge),
 (this_or_next|eq, ":terrain", rt_river),
 (eq, ":terrain", rt_water),
@@ -31120,6 +31136,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       ("choice_1",[],"Accept him.",
         [
           (troop_set_slot, "trp_knight_bagadua_1", slot_troop_occupation, slto_kingdom_hero),
+	  (call_script, "script_change_troop_faction", "trp_knight_bagadua_1", "$players_kingdom"),
           (troop_set_note_available,"trp_knight_bagadua_1",1),
           (troop_set_slot, "trp_knight_bagadua_1", slot_troop_wealth, 10000),
           (call_script, "script_create_kingdom_hero_party", "trp_knight_bagadua_1", "$g_player_court"),

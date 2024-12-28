@@ -6791,7 +6791,7 @@ Even in the last case, the player can make formations up to four lines by orderi
   ### PHAIAK chief begin
   ("busse", "Busse"),
   ("skeid", "Skeid"),
-  ("karvi", "Karvi"),
+  ("karvi", "Iusoria"),
   ("snekkja", "Snekkja"),
   ("knorr", "Knorr"),
   ("byrding", "Byrding"),

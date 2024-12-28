@@ -23909,6 +23909,8 @@ mission_templates = [
             (tutorial_message,"@You have killed the so called 'king' of the bagadua, Basilius, ending his banditry once and for all..."),
             (call_script, "script_troop_add_gold", "trp_player", 675),
             (call_script, "script_change_troop_renown", "trp_player", 15),
+		(troop_set_slot, "trp_knight_bagadua_1", slot_troop_occupation, dplmc_slto_dead), #madsci make sure the game knows this guy is dead as well
+		(troop_set_note_available,"trp_knight_bagadua_1",1),
 
             (try_begin), #checks if the quest is active, if so fails it
               (check_quest_active,"qst_bagadua_quest"),

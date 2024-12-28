@@ -28376,17 +28376,17 @@ I will use this to make amends to those you have wronged, and I will let it be k
      (party_slot_eq, ":give_fief", slot_village_infested_by_bandits, "trp_peasant_woman"),
      (party_set_slot, ":give_fief", slot_village_infested_by_bandits, 0),
   (try_end),
-  (try_begin),
-      #Reset banner if applicable
-      (is_between, ":give_fief", walled_centers_begin, walled_centers_end),
-      (troop_get_slot, ":cur_banner", ":to_lord", slot_troop_banner_scene_prop),
-      (gt, ":cur_banner", 0),
-      (val_sub, ":cur_banner", banner_scene_props_begin),
-      (val_add, ":cur_banner", banner_map_icons_begin),
-      (party_set_banner_icon, ":give_fief", ":cur_banner"),
-  (try_end),
+
   #transfer to lord
   (party_set_slot, ":give_fief", slot_town_lord, ":to_lord"),
+  (troop_get_slot, ":banner", ":to_lord", slot_troop_banner_scene_prop),
+	(try_begin), #Reset banner if applicable
+	(gt, ":banner", 0),
+	(is_between, ":give_fief", walled_centers_begin, walled_centers_end),
+	(party_set_banner_icon, ":give_fief", "icon_heraldic_banner_03"),
+	(else_try),
+	(party_set_banner_icon, ":give_fief", 0),
+	(try_end),
   (call_script, "script_update_center_notes", ":give_fief"),
 
   #Now remove lord fief and assign it to the player
@@ -28398,17 +28398,17 @@ I will use this to make amends to those you have wronged, and I will let it be k
      (party_slot_eq, ":give_fief", slot_village_infested_by_bandits, "trp_peasant_woman"),
      (party_set_slot, ":give_fief", slot_village_infested_by_bandits, 0),
   (try_end),
-  (try_begin),
-      #Reset banner if applicable
-      (is_between, ":give_fief", walled_centers_begin, walled_centers_end),
-      (troop_get_slot, ":cur_banner", ":to_lord", slot_troop_banner_scene_prop),
-      (gt, ":cur_banner", 0),
-      (val_sub, ":cur_banner", banner_scene_props_begin),
-      (val_add, ":cur_banner", banner_map_icons_begin),
-      (party_set_banner_icon, ":give_fief", ":cur_banner"),
-  (try_end),
+
   #transfer to lord
   (party_set_slot, ":give_fief", slot_town_lord, ":to_lord"),
+  (troop_get_slot, ":banner", ":to_lord", slot_troop_banner_scene_prop),
+	(try_begin), #Reset banner if applicable
+	(is_between, ":give_fief", walled_centers_begin, walled_centers_end),
+	(gt, ":banner", 0),
+	(party_set_banner_icon, ":give_fief", "icon_heraldic_banner_03"),
+	(else_try),
+	(party_set_banner_icon, ":give_fief", 0),
+	(try_end),
   (call_script, "script_update_center_notes", ":give_fief"),
 
   #Player's troops transfer to new fief if possible

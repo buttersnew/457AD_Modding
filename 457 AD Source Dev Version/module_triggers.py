@@ -1459,6 +1459,7 @@ triggers = [
   (faction_slot_eq, "fac_player_supporters_faction", slot_faction_state, sfs_active), # player faction is active
   (faction_slot_eq, "fac_player_supporters_faction", slot_faction_leader, "trp_player"), # player is king
   (eq,"$basilius_interaction",3), #basilius will join the player
+  (neg|troop_slot_eq, "trp_knight_bagadua_1", slot_troop_occupation, dplmc_slto_dead),
 ],[
     (jump_to_menu, "mnu_recruit_bagadua_lord"),
 ]),

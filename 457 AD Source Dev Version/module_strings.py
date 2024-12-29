@@ -6826,6 +6826,7 @@ Even in the last case, the player can make formations up to four lines by orderi
   ("ship_names_end", "ship_names_end"),
   
   ("cant_set_sail", "You can't set sail. Your ships don't have room for {reg3} of your men."),
+  ("regnum_suevorum", "Regnum Suevorum"),
 
 #utility for skill names
 ]+[

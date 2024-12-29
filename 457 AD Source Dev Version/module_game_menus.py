@@ -32917,6 +32917,29 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       ]
   ),
 
+  (
+    "suebi_civil_war_ended",mnf_disable_all_keys|mnf_scale_picture,
+    "{s11} has won the Suebi civil war and is now known as {s10}.",
+    "none",
+    [
+        (try_begin),
+          (faction_get_slot, ":faction_leader", "$temp", slot_faction_leader),
+          (ge, ":faction_leader", 0),
+          (set_fixed_point_multiplier, 100),
+          (position_set_x, pos0, 70),
+          (position_set_y, pos0, 5),
+          (position_set_z, pos0, 75),
+          (set_game_menu_tableau_mesh, "tableau_troop_note_mesh", ":faction_leader", pos0),
+        (try_end),
+],
+    [
+      ("continue",[],"Continue...",[
+(assign, "$temp", -1),
+(jump_to_menu, "mnu_auto_return_to_map"),
+]),
+    ],
+  ),
+
 ]#end of file
 
 

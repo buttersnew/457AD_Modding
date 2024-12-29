@@ -446,6 +446,14 @@ def save_statement_block(ofile,statement_name,can_fail_statement,statement_block
                or ((opcode == call_script) and (statement[1].startswith("cf_", 7))))
           and (not statement_name.startswith("cf_"))):
       print "WARNING: Script can fail at operation #" + str(i) + ". Use cf_ at the beginning of its name: " + statement_name
+    # swy: enhancement to track down buggy chained condition blocks, suggested by @Aro
+    next_opcode = 0
+    if (i + 1) < len(statement_block): # swy: don't try to grab a next opcode when we're the last operation in the block
+      next_opcode = hasattr(statement_block[i + 1], '__len__') and statement_block[i + 1][0] or \
+                                                                   statement_block[i + 1] # swy: if an operation tuple doesn't have parameters and hence no comma separators they are just integers and not actual tuples, handle both types gracefully
+    if (opcode & this_or_next) and (next_opcode & (0xFFFF)) not in can_fail_operations:   # swy: if our operation has this_or_next and the following operation isn't eq/ge/... or any other check (e.g. that we're the actual last condition in the chain)
+      print("WARNING: swy: this_or_next in the last chained condition, probably a mistake: " + str(statement_name)) + " " + str(i)
+    # --
     save_statement(ofile,opcode,no_variables,statement,variable_list,variable_uses,local_vars, local_var_uses,tag_uses,quick_strings)
   if (store_script_param_1_uses > 1):
     print "WARNING: store_script_param_1 is used more than once:" + statement_name

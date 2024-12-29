@@ -12135,11 +12135,10 @@ presentations = [
           ##diplomacy end+
           (faction_slot_eq, "fac_player_supporters_faction", slot_faction_leader, "trp_player"),
           (assign, ":garrison_troop", 1),
-        (try_end),
-
-        (this_or_next|eq, ":party_no", "p_main_party"),
-        ##diplomacy begin
-        (assign, ":patrol_troop", 0),
+	(else_try),	
+	(eq, ":party_no", "p_main_party"),
+	(assign, ":garrison_troop", 1),
+	(try_end),
         (try_begin),
           (party_slot_eq, ":party_no",slot_party_type, spt_patrol),
           (party_slot_eq, ":party_no", dplmc_slot_party_mission_diplomacy, "trp_player"),
@@ -13960,7 +13959,7 @@ presentations = [
 				(try_end),
 				#For walled centers check distance
 				(this_or_next|party_slot_eq, ":center_no", slot_party_type, spt_town),
-					(this_or_next|party_slot_eq, ":center_no", slot_party_type, spt_castle),
+					(party_slot_eq, ":center_no", slot_party_type, spt_castle),
 
 				(store_faction_of_party, ":center_faction", ":center_no"),
 				(store_distance_to_party_from_party, ":cur_distance", ":center_no", "$demanded_castle"),

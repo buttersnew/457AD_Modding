@@ -120,7 +120,7 @@ dialogs = [
 
                (try_begin),
 #                       (this_or_next|eq, "$talk_context", tc_party_encounter),
-#                       (this_or_next|eq, "$talk_context", tc_castle_commander),
+#                       (eq, "$talk_context", tc_castle_commander),
                  ##diplomacy start+
 				 (try_begin),
 					#Use terrain advantage if appropriate
@@ -16396,7 +16396,7 @@ What kind of recruits do you want?", "dplmc_constable_recruit_select",
 ], "Farewell, then.", "lord_leave", [#Jump to standard lord farewell dialog
 	(try_begin),
 		(this_or_next|troop_slot_eq, "$map_talk_troop", slot_troop_playerparty_history, dplmc_pp_history_granted_fief),
-		(this_or_next|troop_slot_eq, "$map_talk_troop", slot_troop_playerparty_history, dplmc_pp_history_lord_rejoined),
+		(troop_slot_eq, "$map_talk_troop", slot_troop_playerparty_history, dplmc_pp_history_lord_rejoined),
 		#(troop_slot_eq, "$map_talk_troop", slot_troop_occupation, slto_player_companion),
 		(troop_set_slot, "$map_talk_troop", slot_troop_occupation, slto_kingdom_hero),
 	(try_end),

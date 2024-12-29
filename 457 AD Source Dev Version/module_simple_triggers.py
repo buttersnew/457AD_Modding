@@ -1469,7 +1469,8 @@ simple_triggers = [
             #Random >= 5: The liege indicts the lord for treason
 
             (try_begin),
-                (this_or_next|eq, ":num_centers", 0), #Thanks Caba`drin & Osviux
+                #(this_or_next|eq, ":num_centers", 0), #Thanks Caba`drin & Osviux
+		(eq, ":num_centers", 0),
                 (store_random_in_range, ":who_moves_first", 0, 2),
                 (neq, ":who_moves_first", 0),
                 (lt, ":random", 5),
@@ -7846,7 +7847,7 @@ simple_triggers = [
         (assign,"$wind_power",4),
       (try_end),
   (else_try),
-    (this_or_next|is_between, "$g_cur_month", 3, 6),
+    (is_between, "$g_cur_month", 3, 6),
       (try_begin),
         (is_between, ":r", 1, 15),
         (store_random_in_range, ":random1", 0, 5),
@@ -7884,7 +7885,7 @@ simple_triggers = [
         (assign,"$wind_power",4),
       (try_end),
   (else_try),
-    (this_or_next|is_between, "$g_cur_month", 6, 9),
+    (is_between, "$g_cur_month", 6, 9),
       (try_begin),
         (is_between, ":r", 1, 25),
         (store_random_in_range, ":random1", 0, 5),
@@ -7922,7 +7923,7 @@ simple_triggers = [
         (assign,"$wind_power",4),
       (try_end),
   (else_try),
-    (this_or_next|is_between, "$g_cur_month", 9, 12),
+    (is_between, "$g_cur_month", 9, 12),
       (try_begin),
         (is_between, ":r", 1, 10),
         (store_random_in_range, ":random1", 0, 5),

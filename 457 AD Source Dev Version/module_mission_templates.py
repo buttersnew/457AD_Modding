@@ -7639,7 +7639,7 @@ common_battle_check_victory_condition = (
     #(call_script, "script_all_enemies_routed"),
     #(eq, reg0, 0),
     ##diplomacy begin
-    (this_or_next|eq, "$g_dplmc_battle_continuation", 0),
+    #(eq, "$g_dplmc_battle_continuation", 0), #madsci
     #(neg|main_hero_fallen),
     ##diplomacy end
     (set_mission_result,1),

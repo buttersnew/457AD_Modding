@@ -49664,7 +49664,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
   [anyone|plyr, "hydatius_history_talk_2_8", [],
    "I wish you luck, Hydatius. Your cause seems righteous. Hopefully we will meet again.", "close_window", []],
 
-  [anyone|plyr, "chalcedonian_bishop_talk", [(eq, "$g_talk_troop", "trp_hydatius"),(neg|check_quest_active,"qst_bagadua_quest")],
+  [anyone|plyr, "chalcedonian_bishop_talk", [(eq, "$g_talk_troop", "trp_hydatius"),(neg|check_quest_active,"qst_bagadua_quest"),(neq, "$basilius_talked_about", 1),],
    "Do you have any tasks for me?", "hydatius_bagadua_quest_1", []],
   [anyone, "hydatius_bagadua_quest_1", [],
    "Yes, there has been a pesky bandit by the name of Basilius who is rumored to still be around here in Hispania. He was a self proclaimed 'king' of the bagaudae, and for years would pillage the countryside. However, he was defeated and eventually went into hiding. I fear he may be preparing to go out and pillage again, so I have been hiring mercenaries to hunt him down since he poses a threat to the... fragile stability here.", "hydatius_bagadua_quest_2", []],
@@ -49677,6 +49677,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
    (call_script, "script_change_player_honor", 2),
    (call_script, "script_change_troop_renown", "trp_player", 10),
    (add_xp_as_reward, 650),
+(assign, "$basilius_talked_about", 1),
    ]],
   [anyone|plyr, "hydatius_bagadua_quest_2", [(neg|check_quest_active,"qst_bagadua_quest"),(eq, "$abandoned_silver_mine", 1)],
    "Oh, I know the man you are hunting down. I encountered him in an abandoned mine shaft, however... He was able to escape my grasp.", "hydatius_bagadua_f_1", []],
@@ -49685,6 +49686,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
    (troop_add_gold, "trp_player", 200),
    (call_script, "script_change_troop_renown", "trp_player", 2),
    (add_xp_as_reward, 300),
+(assign, "$basilius_talked_about", 1),
    ]],
   [anyone|plyr, "hydatius_bagadua_quest_2", [],
    "Ah, a so called 'king' of the bagaudae? Very well, I will help hunt down this brigand.", "hydatius_bagadua_quest_3", []],
@@ -49694,6 +49696,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
    (str_store_string, s2, "@Hydatius has hired you to hunt down a leader of the bagaudae, a certain Basilius. He is alleged to be hiding somewhere in northern Hispania."),
    (call_script, "script_start_quest", "qst_bagadua_quest", "$g_talk_troop"),
    (quest_set_slot,"qst_bagadua_quest", slot_quest_current_state, 1),
+(assign, "$basilius_talked_about", 1),
    ]],
   [anyone|plyr, "hydatius_bagadua_quest_2", [],
    "I have no interest in tracking irrelevant bandits, farewell.", "close_window", []],
@@ -49721,6 +49724,17 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
    (add_xp_as_reward, 300),
    (call_script, "script_end_quest", "qst_bagadua_quest"),
    ]],
+
+  [anyone|plyr, "hydatius_bagadua_2", [
+(check_quest_active,"qst_bagadua_quest"),
+(neg|check_quest_failed, "qst_bagadua_quest"),
+(neg|check_quest_succeeded, "qst_bagadua_quest"),
+],
+   "I changed my mind. I will not help you.", "close_window", [
+(assign, "$basilius_talked_about", 1),
+(call_script, "script_change_player_honor", -2),
+(call_script, "script_cancel_quest", "qst_bagadua_quest"),
+]],
 
   [anyone|plyr, "hydatius_bagadua_2", [],
    "Nevermind.", "chalcedonian_bishop_talk", []],
@@ -50108,7 +50122,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
    "Although we, the bagaudae are not united under one common banner, we all share one common goal. I carry on the legacy of our leaders before me, in which we have had many successes in the past centuries, however the fight is not over.", "bagaudae_king_talk_history_2", []],
 
   [trp_bagaudae_king|plyr, "bagaudae_king_talk_history_2", [],
-   "You are nothing more then bandits and theieves, you claim to fight for freedom yet plunder the countryside; destroying the lands of wealth of those you claim to protect.", "bagaudae_king_talk_history_3", []],
+   "You are nothing more then bandits and thieves, you claim to fight for freedom yet plunder the countryside; destroying the lands of wealth of those you claim to protect.", "bagaudae_king_talk_history_3", []],
   [trp_bagaudae_king, "bagaudae_king_talk_history_3", [],
    "Watch your tongue stranger, or I'll cut it out. You have no sympathies or understanding of our struggles, you filthy pig.", "close_window", []],
   [trp_bagaudae_king|plyr, "bagaudae_king_talk_history_2", [],
@@ -50124,7 +50138,14 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
   [trp_bagaudae_king|plyr, "bagaudae_king_talk_1", [(eq, "$basilius_interaction", 0),],
    "Your hideout is rather exposed, and there are mercenaries hunting for you, it would be best if you found somewhere else to set up camp.", "bagaudae_king_talk_ally_1", []],
   [trp_bagaudae_king, "bagaudae_king_talk_ally_1", [],
-   "Ah, so they are really after me. Those bastards. Thank you for the warning, friend. I am in your debt. If someday you find yourself master of your own domain, and swear no fealty to anyone else, I will come to aid in your struggle.", "close_window", [(assign,"$basilius_interaction",3),(assign, "$abandoned_silver_mine", 1),(assign,"$basilius_interaction",3),]],
+   "Ah, so they are really after me. Those bastards. Thank you for the warning, friend. I am in your debt. If someday you find yourself master of your own domain, and swear no fealty to anyone else, I will come to aid in your struggle.", "close_window", [
+(assign,"$basilius_interaction",3),
+(assign, "$abandoned_silver_mine", 1),
+(try_begin), #checks if the quest is active, if so fails it
+(check_quest_active,"qst_bagadua_quest"),
+(call_script, "script_fail_quest", "qst_bagadua_quest"),
+(try_end),
+]],
 
   [trp_bagaudae_king|plyr, "bagaudae_king_talk_1", [],
    "Farewell.", "close_window", []],

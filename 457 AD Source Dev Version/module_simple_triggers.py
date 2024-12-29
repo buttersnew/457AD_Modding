@@ -7075,19 +7075,6 @@ simple_triggers = [
 (neg|troop_is_hero, ":party_leader"),
 (party_add_leader, ":home", ":leader"),
 (try_end),
-
-	(try_begin), #madsci spawn some pirates
-    	(store_num_parties_of_template, ":pirates", "pt_pirates_mediterranean"),
-    	(lt, ":pirates", 4),
-	(set_spawn_radius, 0),
-		(try_for_range, ":unused", 0, 5),
-    		(spawn_around_party, "p_mediterranean_sea", "pt_pirates_mediterranean"),
-            	(party_set_ai_behavior, reg0, ai_bhvr_patrol_party),
-            	(party_set_ai_object, reg0, "p_mediterranean_sea"),
-		(party_set_ai_patrol_radius, reg0, 25),
-		(party_set_flags, reg0, pf_is_ship, 1),
-		(try_end),
-	(try_end),
     ]),
 
   (168,

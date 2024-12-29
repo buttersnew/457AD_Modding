@@ -18129,6 +18129,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 			(party_set_position, "p_main_party", pos2),
 			(else_try),
 			(call_script, "script_get_closest_center", "p_main_party"),
+			(gt, reg0, 0),
 			(party_relocate_near_party, "p_main_party", reg0, 1),
 			(try_end),
 		(try_end),

@@ -4974,8 +4974,8 @@ scene_props = [
  ("cargo_0_knorr",		sokf_dynamic, "knorr_cover", "0", []),
  ("cargo_1_knorr",		sokf_moveable, "knorr_cargo", "bo_knorr_cargo", []),
  ("cargo_1_byrding",	sokf_dynamic, "byrding_cargo", "0", []),
-  ("z_entry_ship",			sokf_invisible,"entry_farmer","0",[(ti_on_init_scene_prop,[])]),
-  ("z_entry_ship_small",	sokf_invisible,"entry_farmer","0",[(ti_on_init_scene_prop,[])]),
+  ("z_entry_ship",			sokf_invisible,"0","0",[(ti_on_init_scene_prop,[])]),
+  ("z_entry_ship_small",	sokf_invisible,"0","0",[(ti_on_init_scene_prop,[])]),
 
 
 ]

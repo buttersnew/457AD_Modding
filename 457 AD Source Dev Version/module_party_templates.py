@@ -60,7 +60,7 @@ party_templates = [
   ("coptic_rebels","Coptic Rebels",icon_roman_footman_1|carries_goods(2)|pf_show_faction,0,fac_coptic_rebels,bandit_personality,[(trp_coptic_youth,4,25),(trp_coptic_footman,4,15),(trp_coptic_watchman,2,10),(trp_coptic_guard,2,8)]),
   ("arab_bandits","Saraceni",icon_khergit_horseman_b|carries_goods(2)|pf_show_faction,0,fac_outlaws,bandit_personality,[(trp_arab_bandit,6,30)]),
   ("bandits","Bandits",icon_axeman|carries_goods(8),0,fac_outlaws,bandit_personality,[(trp_robber,5,35),(trp_bandit,2,15),(trp_brigand,1,5)]),
-  ("pirates_mediterranean","Piratae",icon_axeman|carries_goods(2),0,fac_outlaws,bandit_personality,[(trp_pirate,45,65)]), #madsci party cant be too small because of ships require people
+  ("pirates_mediterranean","Piratae",icon_axeman|carries_goods(2),0,fac_pirates,soldier_personality,[(trp_pirate,55,75)]), #madsci party cant be too small because of ships require people
   ("deserters","Deserters",icon_flagbearer_a|carries_goods(3),0,fac_deserters,bandit_personality,[]),
 
   ("samaritan_rebels","Samaritan Rebels",icon_roman_footman_2|carries_goods(2),0,fac_samaritan_rebels,bandit_personality,[(trp_samaritan_zealot,5,20),(trp_samaritan_rebel,3,10)]), #will be used later

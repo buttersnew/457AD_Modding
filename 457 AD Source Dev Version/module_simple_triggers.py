@@ -4097,6 +4097,16 @@ simple_triggers = [
       (party_is_active, ":party_no"),
       (party_get_template_id, ":party_template", ":party_no"),
       (try_begin),
+	(eq, ":party_template", "pt_pirates_mediterranean"), #madsci simple pirate AI
+	(get_party_ai_behavior, ":behavior", ":party_no"),
+	(neq, ":behavior", ai_bhvr_attack_party),
+	(store_random_in_range, ":ai_target", "p_malta", "p_mediterranean_sea"),
+	(party_get_position, pos1, ":ai_target"),
+	(map_get_random_position_around_position, pos2, pos1, 2),
+	(party_set_ai_behavior, ":party_no", ai_bhvr_travel_to_point),
+	(party_set_ai_target_position, ":party_no", pos2),
+	(party_set_ai_object, ":party_no", ":ai_target"),
+	(else_try),
         (is_between, ":party_template", bandit_party_templates_begin, bandit_party_templates_end), #SB : template range
         (party_template_get_slot, ":bandit_lair", ":party_template", slot_party_template_lair_party),
         (try_begin),#If party is active and bandit is far away, then move to location
@@ -7074,6 +7084,12 @@ simple_triggers = [
 (party_stack_get_troop_id, ":party_leader", ":home", 0),
 (neg|troop_is_hero, ":party_leader"),
 (party_add_leader, ":home", ":leader"),
+(try_end),
+
+(try_begin),
+(store_num_parties_of_template, ":pirates", "pt_pirates_mediterranean"),
+(lt, ":pirates", 3),
+(call_script, "script_spawn_pirate"),
 (try_end),
     ]),
 

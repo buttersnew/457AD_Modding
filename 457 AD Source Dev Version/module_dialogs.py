@@ -48506,7 +48506,6 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
 
 [anyone, "start",
 [
-(is_between, "$g_talk_troop", "trp_persian_champion", "trp_germanic_pagan_quest_npc"),
 (eq, "$g_talk_troop", "trp_isaurian_leader"),
 (eq,"$talk_context",tc_hero_defeated),
 ],
@@ -48515,7 +48514,6 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
 
 [anyone|plyr, "isaurian_talk_duel_win_1",
 [
-(is_between, "$g_talk_troop", "trp_persian_champion", "trp_germanic_pagan_quest_npc"),
 (eq, "$g_talk_troop", "trp_isaurian_leader"),
 ],
 "Very well, you're coming with me", "close_window",
@@ -48523,12 +48521,12 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
 (call_script, "script_change_troop_renown", "trp_player", 5),
 (quest_set_slot,"qst_founding_the_excubitors", slot_quest_current_state, 3),
 (party_force_add_prisoners, "p_main_party", "$g_talk_troop", 1),
+(troop_set_slot, "$g_talk_troop", slot_troop_prisoner_of_party, "p_main_party"),
 (change_screen_map),
 ]], #increases renown, adds xp, makes isaurian bandit parties neutral/friendly
 
 [anyone, "start",
 [
-(is_between, "$g_talk_troop", "trp_tauri_king", "trp_aestii_merchant_1"),
 (eq, "$g_talk_troop", "trp_aestii_rebel_king"),
 (eq,"$talk_context",tc_hero_defeated),
 ],
@@ -48541,7 +48539,8 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
 [
 (quest_set_slot,"qst_aestii_rebel_quest", slot_quest_current_state, 2),
 (call_script, "script_succeed_quest", "qst_aestii_rebel_quest"),
-(party_force_add_prisoners, "p_main_party", "trp_aestii_rebel_king", 1),
+(party_force_add_prisoners, "p_main_party", "$g_talk_troop", 1),
+(troop_set_slot, "$g_talk_troop", slot_troop_prisoner_of_party, "p_main_party"),
 (change_screen_map),
 ]],
 

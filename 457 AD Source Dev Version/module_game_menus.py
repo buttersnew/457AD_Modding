@@ -27404,10 +27404,10 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         (assign, "$talk_context", 0),
         (set_jump_mission, "mt_conversation_generic"),
         (modify_visitors_at_site, "scn_favianis"),
+        (reset_visitors),
         (try_for_range, ":entry", 0, 19),
             (mission_tpl_entry_set_override_flags, "mt_conversation_generic", ":entry", af_override_horse),
         (try_end),
-        (reset_visitors),
 
         (set_visitor, 1, "trp_roman_civilian_quest_1"),
         (set_visitor, 12, "trp_severinus_quest_npc_2"),

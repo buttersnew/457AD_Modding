@@ -7819,6 +7819,20 @@ tournament_triggers = [
   (ti_before_mission_start, 0, 0, [], [(call_script, "script_change_banners_and_chest"),
                                        (assign, "$g_arena_training_num_agents_spawned", 0)]),
   (ti_inventory_key_pressed, 0, 0, [(display_message,"str_cant_use_inventory_arena")], []),
+
+#madsci agent banner to tell the teams apart from each other because they use the same equipment
+(ti_on_agent_spawn, 0, 0, [(eq, "$g_mt_mode", abm_tournament),],
+  [
+	(store_trigger_param_1, ":agent_no"),
+	(agent_get_team, ":team", ":agent_no"),
+		(try_begin),
+		(is_between, ":team", 0, 4),
+		(assign, ":banner_mesh", "mesh_banners_default_b"),
+		(val_add, ":banner_mesh", ":team"),		
+		(cur_agent_set_banner_tableau_material, "tableau_game_troop_label_banner", ":banner_mesh"),
+		(try_end),
+  ]),
+
   (ti_tab_pressed, 0, 0, [],
    [(try_begin),
       (eq, "$g_mt_mode", abm_visit),

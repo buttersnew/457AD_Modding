@@ -1575,6 +1575,9 @@ scenes = [
   ("meeting_scene_desert_forest",0,"ch_meet_desert_a", "bo_encounter_spot", (-40,-40),(40,40),-100,"0",
     [],[]),
 
+  ("meeting_scene_water",sf_generate|sf_no_horses,"none", "none", (-1000,-1000),(1000,1000), 0,"0x0000000730000500000d23480000035180006c8200004a21",
+   [],[],"sea_battle_terrain"),
+
   ("enterprise_tannery",sf_generate,"ch_meet_steppe_a", "bo_encounter_spot", (-40,-40),(40,40),-100,"0x000000012004480500040902000041cb00005ae800000ff5",
     [],[]),
   ("enterprise_winery",sf_indoors,"winery_interior", "bo_winery_interior", (-40,-40),(40,40),-100,"0",

@@ -48522,7 +48522,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
 [(add_xp_as_reward, 800),
 (call_script, "script_change_troop_renown", "trp_player", 5),
 (quest_set_slot,"qst_founding_the_excubitors", slot_quest_current_state, 3),
-(party_force_add_prisoners, "p_main_party", "trp_isaurian_leader", 1),
+(party_force_add_prisoners, "p_main_party", "$g_talk_troop", 1),
 (change_screen_map),
 ]], #increases renown, adds xp, makes isaurian bandit parties neutral/friendly
 
@@ -50454,11 +50454,23 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
 
   [trp_isaurian_king, "start", [(check_quest_active,"qst_founding_the_excubitors"),(quest_slot_eq,"qst_founding_the_excubitors",slot_quest_current_state, 3),],
    "Ah, {playername}. What do you need?", "isaurian_king_talk_1", []],
-  [trp_isaurian_king|plyr, "isaurian_king_talk_1", [],
+
+  [trp_isaurian_king|plyr, "isaurian_king_talk_1", [
+(party_count_prisoners_of_type, ":count", "p_main_party", "trp_isaurian_leader"),
+(gt, ":count", 0),
+],
    "I have defeated and captured Lydius.", "isaurian_king_talk_2", []],
+
+  [trp_isaurian_king|plyr, "isaurian_king_talk_1", [],
+   "I will not be able to bring Lydius to you. My apologies.", "close_window", [
+(quest_set_slot,"qst_founding_the_excubitors",slot_quest_current_state, 4),
+(call_script, "script_cancel_quest", "qst_founding_the_excubitors"),
+(call_script, "script_change_player_relation_with_troop", "$g_talk_troop", -15),
+]],
+
   [trp_isaurian_king, "isaurian_king_talk_2", [(str_store_troop_name_link, s3, "trp_kingdom_2_lord"),],
    "Very good. I'll take Lydius into custody now. Thank you, {playername}, and let {s3} know I will have men sent to Constantinople to serve him.", "close_window", [
-   (remove_member_from_party, "trp_isaurian_leader"),
+	(party_remove_prisoners, "p_main_party", "trp_isaurian_leader", 1),
    (quest_set_slot,"qst_founding_the_excubitors",slot_quest_current_state, 4),
    (call_script, "script_succeed_quest", "qst_founding_the_excubitors"),
    ]],

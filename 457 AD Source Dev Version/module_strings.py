@@ -294,6 +294,8 @@ strings = [
   ("troop_relation_detoriated", "Your relation with {s1} has deteriorated from {reg1} to {reg2}."),
   ("faction_relation_increased", "Your relation with {s1} has increased from {reg1} to {reg2}."),
   ("faction_relation_detoriated", "Your relation with {s1} has deteriorated from {reg1} to {reg2}."),
+  ("troop_relation_increased_s35", "Your relation with {s35} has increased from {reg1} to {reg2}."),
+  ("troop_relation_detoriated_s35", "Your relation with {s35} has deteriorated from {reg1} to {reg2}."),
 
   ("party_gained_morale", "Your party gains {reg1} morale."),
   ("party_lost_morale",   "Your party loses {reg1} morale."),

@@ -122,8 +122,8 @@ scenes = [
  ("custom_battle_forest_3",sf_generate,"none", "none", (0,0),(100,100),-0.5,"0x00000000300005800007c9f4000040a10000421300000192", [],[], "outer_terrain_plain"), #river - plains/forest
  ("custom_battle_forest_4",sf_generate,"none", "none", (0,0),(100,100),-0.5,"0x00000002bc6088e28009be7900000a740000455f00003f08", [],[], "outer_terrain_plain"), #river - forest
 
- ("custom_battle_swamp_1",sf_generate|sf_muddy_water,"none", "none", (0,0),(100,100),-0.5,"0x0000000030000500000ad6b50000750f000056d900005a07", [],[], "outer_terrain_plain"), #plains
- ("custom_battle_swamp_2",sf_generate|sf_muddy_water,"none", "none", (0,0),(100,100),-0.5,"0x0000000030000500000ad6b50000750f000056d900005a07", [],[], "outer_terrain_forest"), #forest
+ ("custom_battle_swamp_1",sf_generate|sf_muddy_water,"none", "none", (0,0),(100,100),-0.5,"0x00000000300005000007bdef0000750f000056d900005a07", [],[], "outer_terrain_plain"), #plains
+ ("custom_battle_swamp_2",sf_generate|sf_muddy_water,"none", "none", (0,0),(100,100),-0.5,"0x00000000300005000007bdef0000750f000056d900005a07", [],[], "outer_terrain_forest"), #forest
 
 #from maxi
  ("random_scene_new_steppe_custom_1", sf_generate, "none", "none", (0, 0), (100, 100), -0.5, "0x0000000220200500000afebf0000381400001e040000112d",[], [], "outer_terrain_steppe"),

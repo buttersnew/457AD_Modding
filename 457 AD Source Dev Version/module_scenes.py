@@ -110,8 +110,8 @@ scenes = [
 
   #new custom battle maps
  ("custom_battle_plains_1",sf_generate,"none", "none", (0,0),(100,100),-0.5,"0x00000000300012e30007c5f1000036660000112a00006486", [],[], "outer_terrain_plain"), #valley 1 forest/plains
- ("custom_battle_plains_2",sf_generate,"none", "none", (0,0),(100,100),-0.5,"0x00000000300007630008d23300004b920000090a0000418d", [],[], "outer_terrain_plain"), #river 1 plains
- ("custom_battle_plains_3",sf_generate,"none", "none", (0,0),(100,100),-0.5,"0x00000000300007630009765d000020360000064a00007b83", [],[], "outer_terrain_plain"), #hills 1 forest/plains
+ ("custom_battle_plains_2",sf_generate,"none", "none", (0,0),(100,100),-0.5,"0x0000000030000763000785e300004b920000090a0000418d", [],[], "outer_terrain_plain"), #river 1 plains
+ ("custom_battle_plains_3",sf_generate,"none", "none", (0,0),(100,100),-0.5,"0x00000000300007630007bdf1000020360000064a00007b83", [],[], "outer_terrain_plain"), #hills 1 forest/plains
  ("custom_battle_plains_4",sf_generate,"none", "none", (0,0),(100,100),-0.5,"0x0000000130000d6300093e4f00006024000006620000100a", [],[], "outer_terrain_plain"), #hills 2 forest/plains
  ("custom_battle_plains_5",sf_generate,"none", "none", (0,0),(100,100),-0.5,"0x00000000300005000007b5ed0000750f000056d900005a07", [],[], "outer_terrain_plain"), #river 2 plains
  ("custom_battle_plains_6",sf_generate,"none", "none", (0,0),(100,100),-0.5,"0x000000023c604780000b72df00000b7c00003503000067fc", [],[], "outer_terrain_plain"), #hills 3 forest/plains

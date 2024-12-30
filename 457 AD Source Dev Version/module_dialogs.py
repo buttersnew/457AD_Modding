@@ -52870,11 +52870,23 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
   (eq, "$g_talk_troop", "trp_aestii_king"),
   (check_quest_active, "qst_aestii_rebel_quest"),
   (quest_slot_eq,"qst_aestii_rebel_quest", slot_quest_current_state, 2),
+(party_count_prisoners_of_type, ":count", "p_main_party", "trp_aestii_rebel_king"),
+(gt, ":count", 0),
   ],"I have captured Shvarnas.", "aestii_quest_rebel_captured_1",[]],
+
+  [anyone|plyr, "minor_faction_king",[
+  (eq, "$g_talk_troop", "trp_aestii_king"),
+  (check_quest_active, "qst_aestii_rebel_quest"),
+  (quest_slot_eq,"qst_aestii_rebel_quest", slot_quest_current_state, 2),
+  ],"I will not be able to help you after all.", "minor_faction_king_pretalk",[
+  (call_script, "script_cancel_quest", "qst_aestii_rebel_quest"),
+  (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", -20),
+]],
+
   [anyone, "aestii_quest_rebel_captured_1",[],"Friend, {playername}, you came back victorious! I will hold a celebration in your name to this Bull Spirit to which the Aestii are so devoted. And here, as reward and promised, you have my sword and some of my best men are at your service. You shall always be welcome here. Vadas Shvarnas will be our offering to the Bull Spirit!", "aestii_quest_rebel_captured_2",[
   (call_script, "script_change_player_relation_with_troop", "$g_talk_troop",20),
   (call_script, "script_change_player_relation_with_faction", "fac_minor_aestii", 30),
-  (remove_member_from_party, "trp_aestii_rebel_king"),
+  (party_remove_prisoners, "p_main_party", "trp_aestii_rebel_king", 1),
   (call_script, "script_end_quest", "qst_aestii_rebel_quest"),
   (call_script, "script_change_troop_renown", "trp_player", 50),
   (call_script, "script_change_player_honor", 2),

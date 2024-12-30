@@ -13,7 +13,7 @@ from compiler import *
 #  4) Body name {string}: This is used for indoor scenes only. Use the keyword "none" for outdoor scenes.
 #  5) Min-pos {(float,float)}: minimum (x,y) coordinate. Player can't move beyond this limit.
 #  6) Max-pos {(float,float)}: maximum (x,y) coordinate. Player can't move beyond this limit.
-#  7) Water-level {float}. 
+#  7) Water-level {float}.
 #  8) Terrain code {string}: You can obtain the terrain code by copying it from the terrain generator screen
 #  9) List of other scenes accessible from this scene {list of strings}.
 #     (deprecated. This will probably be removed in future versions of the module system)
@@ -113,7 +113,7 @@ scenes = [
  ("custom_battle_plains_2",sf_generate,"none", "none", (0,0),(100,100),-0.5,"0x00000000300007630008d23300004b920000090a0000418d", [],[], "outer_terrain_plain"), #river 1 plains
  ("custom_battle_plains_3",sf_generate,"none", "none", (0,0),(100,100),-0.5,"0x00000000300007630009765d000020360000064a00007b83", [],[], "outer_terrain_plain"), #hills 1 forest/plains
  ("custom_battle_plains_4",sf_generate,"none", "none", (0,0),(100,100),-0.5,"0x0000000130000d6300093e4f00006024000006620000100a", [],[], "outer_terrain_plain"), #hills 2 forest/plains
- ("custom_battle_plains_5",sf_generate,"none", "none", (0,0),(100,100),-0.5,"0x0000000030000500000ad6b50000750f000056d900005a07", [],[], "outer_terrain_plain"), #river 2 plains
+ ("custom_battle_plains_5",sf_generate,"none", "none", (0,0),(100,100),-0.5,"0x00000000300005000007b5ed0000750f000056d900005a07", [],[], "outer_terrain_plain"), #river 2 plains
  ("custom_battle_plains_6",sf_generate,"none", "none", (0,0),(100,100),-0.5,"0x000000023c604780000b72df00000b7c00003503000067fc", [],[], "outer_terrain_plain"), #hills 3 forest/plains
  ("custom_battle_plains_7",sf_generate,"none", "none", (0,0),(100,100),-0.5,"0x0000000231000580000c0b0500006b520000720600007ff0", [],[], "outer_terrain_plain"), #plains
 
@@ -157,7 +157,7 @@ scenes = [
  ("random_scene_plain_custom_18", sf_generate, "none", "none", (0, 0), (100, 100), -0.5, "0x0000000231c0086300098a630000177d00000e2d00002165",[], [], "outer_terrain_plain"),
  ("random_scene_plain_custom_19", sf_generate, "none", "none", (0, 0), (100, 100), -0.5, "0x0000000231c0086300098a630000647f0000005f00004d32",[], [], "outer_terrain_plain"),
  ("random_scene_plain_custom_20", sf_generate, "none", "none", (0, 0), (100, 100), -0.5, "0x0000000231c0086300098a63000007fd0000723c000032c7",[], [], "outer_terrain_plain"),
- 
+
  ("random_scene_desert_custom_1", sf_generate, "none", "none", (0, 0), (100, 100), -0.5, "0x000000025559050000098a630000260a0000532f00003eb5",[], [], "outer_terrain_desert"),
  ("random_scene_desert_custom_2", sf_generate, "none", "none", (0, 0), (100, 100), -0.5, "0x000000025559050000098a63000039ba000048ae00002407",[], [], "outer_terrain_desert"),
  ("random_scene_desert_custom_3", sf_generate, "none", "none", (0, 0), (100, 100), -0.5, "0x000000025559050000098a63000019d60000425e00002a7e",[], [], "outer_terrain_desert"),
@@ -191,7 +191,7 @@ scenes = [
 
  ("sea_battle_mediterranean", sf_generate, "none", "none", (0, 0), (100, 100), -0.5, "0x00000001300000000005194a000041ef00005ae800003c55",[], [], "outer_terrain_beach_rotated"),
  ("sea_battle_north_europe", sf_generate, "none", "none", (0, 0), (100, 100), -0.5, "0x00000001300000000005194a000041ef00005ae800003c55",[], [], "outer_terrain_beach_rotated"),
- 
+
  ("forest_battle_plain_roman", sf_generate, "none", "none", (0, 0), (100, 100), -0.5, "0x00000001300000000005194a000041ef00005ae800003c55",[], [], "outer_terrain_forest"),
 
 # done
@@ -200,14 +200,14 @@ scenes = [
  ("battle_persian_hills_desert_3", sf_generate, "none", "none", (0, 0), (100, 100), -0.5, "0x00000002d8c0050000099263000045140000011d000072c7",[], [], "outer_terrain_desert"),
  ("battle_persian_hills_desert_4", sf_generate, "none", "none", (0, 0), (100, 100), -0.5, "0x00000002d8c00500000992630000794800007da900001d87",[], [], "outer_terrain_desert"),
  ("battle_persian_hills_desert_5", sf_generate, "none", "none", (0, 0), (100, 100), -0.5, "0x00000002d8c005000009926300000ace00007da900000096",[], [], "outer_terrain_desert"),
-  
+
  #done
  ("battle_spain", sf_generate, "none", "none", (0, 0), (100, 100), -0.5, "0x000000022000098000092a4a00007aec000020060000135c",[], [], "outer_terrain_plain"),
  ("battle_spain_2", sf_generate, "none", "none", (0, 0), (100, 100), -0.5, "0x0000000241200f000009aa6c00005b9f0000010e00001f4c",[], [], "outer_terrain_steppe_2"),
  ("battle_spain_3", sf_generate, "none", "none", (0, 0), (100, 100), -0.5, "0x0000000220000f000009aa6c0000717a0000541600005727",[], [], "outer_terrain_steppe"),
  ("battle_spain_4", sf_generate, "none", "none", (0, 0), (100, 100), -0.5, "0x00000002200005000009aa6c00006b7b00007984000029cb",[], [], "outer_terrain_steppe"),
  ("battle_spain_5", sf_generate, "none", "none", (0, 0), (100, 100), -0.5, "0x00000002200009800009aa6c000011f900007984000029cb",[], [], "outer_terrain_steppe_2"),
- 
+
  #done
  ("battle_mesopotamia", sf_generate, "none", "none", (0, 0), (100, 100), -0.5, "0x000000024560050000092a4a00005d5f00004f6000006eed",[], [], "outer_terrain_beach_desert"),
  ("battle_mesopotamia_2", sf_generate, "none", "none", (0, 0), (100, 100), -0.5, "0x00000002200008e300095a5900005a7c000009d100001667",[], [], "outer_terrain_beach_desert"),
@@ -234,14 +234,14 @@ scenes = [
  ("battle_nile_delta_3", sf_generate, "none", "none", (0, 0), (100, 100), -0.5, "0x00000002300005000009124400001d78000046ec00005b45",[], [], "outer_terrain_beach_desert_flat"),
  ("battle_nile_delta_4", sf_generate, "none", "none", (0, 0), (100, 100), -0.5, "0x00000002300005000009124400005e5c0000147800000d0c",[], [], "outer_terrain_beach_desert_flat"),
  ("battle_nile_delta_5", sf_generate, "none", "none", (0, 0), (100, 100), -0.5, "0x000000023000050000091244000023850000152c00001670",[], [], "outer_terrain_beach_desert_flat"),
- 
+
 #done
  ("battle_anatolia_coastal", sf_generate, "none", "none", (0, 0), (100, 100), -0.5, "0x000000024a1909e30008aa2b00005ac600004cf300000143",[], [], "outer_terrain_beach_med"),
  ("battle_anatolia_coastal_2", sf_generate, "none", "none", (0, 0), (100, 100), -0.5, "0x00000002c4c01a800009a66a00006a2400000c8000007f4f",[], [], "outer_terrain_beach_med"),
  ("battle_anatolia_coastal_3", sf_generate, "none", "none", (0, 0), (100, 100), -0.5, "0x000000024b000e000009e2780000253e000027db00007fd1",[], [], "outer_terrain_steppe_2"),
  ("battle_anatolia_coastal_4", sf_generate, "none", "none", (0, 0), (100, 100), -0.5, "0x0000000244c014000009a66a0000690a0000787200005016",[], [], "outer_terrain_steppe_2"),
  ("battle_anatolia_coastal_5", sf_generate, "none", "none", (0, 0), (100, 100), -0.5, "0x0000000244c014000009a66a00006aca00001f7b000016ee",[], [], "outer_terrain_steppe_2"),
- 
+
  ("battle_caucasian_mountains", sf_generate, "none", "none", (0, 0), (100, 100), -0.5, "0x00000002a520108000091e470000627b0000786a00007f58",[], [], "outer_terrain_mountain"),
  ("battle_caucasian_mountains_2", sf_generate, "none", "none", (0, 0), (100, 100), -0.5, "0x0000000233a788b20009364e00002ebf000067560000174d",[], [], "outer_terrain_mountain"),
  ("battle_caucasian_mountains_3", sf_generate, "none", "none", (0, 0), (100, 100), -0.5, "0x0000000233a789630009364e000060510000724400003221",[], [], "outer_terrain_mountain"),
@@ -254,13 +254,13 @@ scenes = [
  ("battle_central_anatolia_3", sf_generate, "none", "none", (0, 0), (100, 100), -0.5, "0x00000000200012e30009725e00007f1a0000629a00001b19",[], [], "outer_terrain_steppe_3"),
  ("battle_central_anatolia_4", sf_generate, "none", "none", (0, 0), (100, 100), -0.5, "0x0000000020000ce30009725e00007f1a0000629a00004017",[], [], "outer_terrain_steppe_3"),
  ("battle_central_anatolia_5", sf_generate, "none", "none", (0, 0), (100, 100), -0.5, "0x0000000020000ce30009725e000053370000024c00000ada",[], [], "outer_terrain_steppe_3"),
- 
+
  ("battle_europe_mountains", sf_generate, "none", "none", (0, 0), (100, 100), -0.5, "0x000000023c0151e30008160200005d1e0000559000000edb",[], [], "outer_terrain_plain_2"),
  ("battle_europe_mountains_2", sf_generate, "none", "none", (0, 0), (100, 100), -0.5, "0x00000002bc60158000087a1e00001d6d00003ee8000008cb",[], [], "outer_terrain_plain_2"),
  ("battle_europe_mountains_3", sf_generate, "none", "none", (0, 0), (100, 100), -0.5, "0x0000000238c005000009926300003fed0000064d00006e9d",[], [], "outer_terrain_mountain"),
  ("battle_europe_mountains_4", sf_generate, "none", "none", (0, 0), (100, 100), -0.5, "0x0000000238c00500000992630000763b000033b800000501",[], [], "outer_terrain_mountain"),
  ("battle_europe_mountains_5", sf_generate, "none", "none", (0, 0), (100, 100), -0.5, "0x0000000238c00500000992630000267800006700000071b3",[], [], "outer_terrain_mountain"),
-  
+
  ("battle_persian_hills_green", sf_generate, "none", "none", (0, 0), (100, 100), -0.5, "0x000000022000160000089e2b00006f7200002a3400003b51",[], [], "outer_terrain_steppe_3"),
  ("battle_persian_hills_green_2", sf_generate, "none", "none", (0, 0), (100, 100), -0.5, "0x00000012201907e300599a64000009bd00002031000076c1",[], [], "outer_terrain_steppe_3"),
  ("battle_persian_hills_green_3", sf_generate, "none", "none", (0, 0), (100, 100), -0.5, "0x00000012201907e300599a6400000175000056a60000146c",[], [], "outer_terrain_steppe_3"),
@@ -274,7 +274,7 @@ scenes = [
  ("battle_italian_greek_4", sf_generate, "none", "none", (0, 0), (100, 100), -0.5, "0x00000012401907e300599a64000061ae00006617000033aa",[], [], "outer_terrain_plain_2"),
  ("battle_italian_greek_5", sf_generate, "none", "none", (0, 0), (100, 100), -0.5, "0x00000012400007e300599a6400007ec300000ad900006f54",[], [], "outer_terrain_plain_2"),
  ("bridge_battle_mediterranean", sf_generate, "none", "none", (0, 0), (100, 100), -0.5, "0x00000001300000000005194a000041ef00005ae800003c55",[], [], "outer_terrain_steppe"),
- 
+
   #NORTH AFRICA
  ("river_battle_north_africa", sf_generate, "none", "none", (0, 0), (100, 100), -0.5, "0x0000000248600500000b0ac6000016a200000dff00007268",[], [], "outer_terrain_steppe"),
  ("random_scene_north_africa_1", sf_generate, "none", "none", (0, 0), (100, 100), -0.5, "0x0000000145800863000abaae0000274a00004eb700003ff9",[], [], "outer_terrain_steppe"), #hills/valley 1
@@ -292,21 +292,21 @@ scenes = [
     [],[], "outer_terrain_town_thir_1"),
   ("test_scene",sf_generate,"none", "none", (0,0),(120,120),-100,"0x0230817a00028ca300007f4a0000479400161992",
     [],[], "outer_terrain_plain"),
-  ("quick_battle_1",sf_generate,"none", "none", (0,0),(120,120),-100,"0x30401ee300059966000001bf0000299a0000638f", 
+  ("quick_battle_1",sf_generate,"none", "none", (0,0),(120,120),-100,"0x30401ee300059966000001bf0000299a0000638f",
     [],[], "outer_terrain_plain"),
-  ("quick_battle_2",sf_generate,"none", "none", (0,0),(120,120),-100,"0xa0425ccf0004a92a000063d600005a8a00003d9a", 
+  ("quick_battle_2",sf_generate,"none", "none", (0,0),(120,120),-100,"0xa0425ccf0004a92a000063d600005a8a00003d9a",
     [],[], "outer_terrain_steppe"),
-  ("quick_battle_3",sf_generate,"none", "none", (0,0),(120,120),-100,"0x4c6024e3000691a400001b7c0000591500007b52", 
+  ("quick_battle_3",sf_generate,"none", "none", (0,0),(120,120),-100,"0x4c6024e3000691a400001b7c0000591500007b52",
     [],[], "outer_terrain_plain"),
-  ("quick_battle_4",sf_generate,"none", "none", (0,0),(120,120),-100,"0x00001d63c005114300006228000053bf00004eb9", 
+  ("quick_battle_4",sf_generate,"none", "none", (0,0),(120,120),-100,"0x00001d63c005114300006228000053bf00004eb9",
     [],[], "outer_terrain_plain"),
-  ("quick_battle_5",sf_generate,"none", "none", (0,0),(120,120),-100,"0x3a078bb2000589630000667200002fb90000179c", 
+  ("quick_battle_5",sf_generate,"none", "none", (0,0),(120,120),-100,"0x3a078bb2000589630000667200002fb90000179c",
     [],[], "outer_terrain_plain"),
-  ("quick_battle_6",sf_generate,"none", "none", (0,0),(120,120),-100,"0xa0425ccf0004a92a000063d600005a8a00003d9a", 
+  ("quick_battle_6",sf_generate,"none", "none", (0,0),(120,120),-100,"0xa0425ccf0004a92a000063d600005a8a00003d9a",
     [],[], "outer_terrain_steppe"),
   ("quick_battle_7",sf_generate,"none", "none", (0,0),(100,100),-100,"0x314d060900036cd70000295300002ec9000025f3",
     [],[],"outer_terrain_plain"),
-  ("salt_mine",sf_generate,"none", "none", (-200,-200),(200,200),-100,"0x2a07b23200025896000023ee00007f9c000022a8",  
+  ("salt_mine",sf_generate,"none", "none", (-200,-200),(200,200),-100,"0x2a07b23200025896000023ee00007f9c000022a8",
     [],[], "outer_terrain_steppe"),
   ("novice_ground",sf_indoors,"training_house_a", "bo_training_house_a", (-100,-100),(100,100),-100,"0",
     [],[]),
@@ -396,7 +396,7 @@ scenes = [
 #  town_1   Sargoth     #plain
 #  town_2   Tihr        #plain
 #  town_3   Veluca      #steppe
-#  town_4   Suno        #plain  
+#  town_4   Suno        #plain
 #  town_5   Jelkala     #plain
 #  town_6   Praven      #plain
 #  town_7   Uxkhal      #plain
@@ -851,7 +851,7 @@ scenes = [
     [],[],"outer_terrain_plain"),
   ("town_22_arena",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000002200005000005f57b00005885000046bd00006d9c",
     [],[],"outer_terrain_desert"),
-## New Cities 
+## New Cities
   ("town_23_arena",sf_generate,"none", "none", (0,0),(100,100),-100,"0xa0001d9300031ccb0000156f000048ba0000361c",
     [],[],"outer_terrain_plain"),
   ("town_24_arena",sf_generate,"none", "none", (0,0),(100,100),-100,"0xa0001d9300031ccb0000156f000048ba0000361c",
@@ -880,7 +880,7 @@ scenes = [
 
   ("town_34_arena",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000002200005000005f57b00005885000046bd00006d9c",
     [],[],"outer_terrain_desert"),
-  
+
   ("town_35_arena",sf_generate,"none", "none", (0,0),(100,100),-100,"0xa0001d9300031ccb0000156f000048ba0000361c",
     [],[],"outer_terrain_plain"),
 
@@ -955,7 +955,7 @@ scenes = [
   ("town_23_prison",sf_indoors,"interior_prison_f", "bo_interior_prison_f", (-100,-100),(100,100),-100,"0",
     [],[]),
   ("town_24_prison",sf_indoors,"interior_prison_f", "bo_interior_prison_f", (-100,-100),(100,100),-100,"0",
-    [],[]),  
+    [],[]),
   ("town_25_prison",sf_indoors,"interior_prison_g", "bo_interior_prison_g", (-100,-100),(100,100),-100,"0",
     [],[]),
   ("town_26_prison",sf_indoors,"interior_prison_o", "bo_interior_prison_o", (-100,-100),(100,100),-100,"0",
@@ -1059,7 +1059,7 @@ scenes = [
 
   ("town_27_walls",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000003000050000054150000045e10000331000005af7",
     [],[],"outer_terrain_plain"),
-  
+
   ("town_28_walls",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000005a024714000d23480000076300004ce100002de9",
     [],[],"outer_terrain_desert_b"),
   ("town_29_walls",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000001300010c800054d5c00004af000005d3f00002ca0",
@@ -1175,7 +1175,7 @@ scenes = [
     [],[],"outer_terrain_beach"),
 
   ("town_36_alley",sf_generate,"none", "none", (0,0),(100,100),-100,"0x300bc5430001e0780000448a0000049f00007932",
-    [],[],"outer_terrain_plain"),  
+    [],[],"outer_terrain_plain"),
 
   ("town_37_alley",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000003000050000054150000045e10000331000005af7",
     [],[],"outer_terrain_plain"),
@@ -1198,7 +1198,7 @@ scenes = [
 #0x30054da28004050000005a76800022aa00002e3b
 #Castles:
   ("castle_1_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000300005630007d1f800006aba0000574f00001099", #comagena
-    [],[],"outer_terrain_forest"), 
+    [],[],"outer_terrain_forest"),
 
   ("castle_2_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000023007a3b20005795e0000706d0000381800000bbc", #bry briton hillfort
     [],[],"outer_terrain_plain"),
@@ -1217,15 +1217,15 @@ scenes = [
   ("castle_11_interior",sf_indoors, "interior_castle_k", "bo_interior_castle_k", (-100,-100),(100,100),-100,"0",
     ["exit"],[]),
   ("castle_11_prison",sf_indoors,"interior_prison_i", "bo_interior_prison_i", (-100,-100),(100,100),-100,"0",
-    [],[]),  
+    [],[]),
   ("castle_12_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000001300010c800054d5c00004af000005d3f00002ca0", #bry old roman castrum
-    [],[],"outer_terrain_plain"), 
+    [],[],"outer_terrain_plain"),
   ("castle_12_interior",sf_indoors, "interior_castle_j", "bo_interior_castle_j", (-100,-100),(100,100),-100,"0",
     ["exit"],[]),
   ("castle_12_prison",sf_indoors,"interior_prison_i", "bo_interior_prison_i", (-100,-100),(100,100),-100,"0",
     [],[]),
   ("castle_34_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000330000500000d234800003d64000017f800003012", #ettenrocal roman castle
-    [],[],"outer_terrain_plain"), 
+    [],[],"outer_terrain_plain"),
   ("castle_34_interior",sf_indoors, "interior_castle_j", "bo_interior_castle_j", (-100,-100),(100,100),-100,"0",
     ["exit"],[]),
   ("castle_34_prison",sf_indoors,"interior_prison_i", "bo_interior_prison_i", (-100,-100),(100,100),-100,"0",
@@ -1235,21 +1235,21 @@ scenes = [
   ("castle_40_interior",sf_indoors, "arabian_interior_keep_b2", "bo_arabian_interior_keep_b", (-100,-100),(100,100),-100,"0",
     ["exit"],[]),
   ("castle_40_prison",sf_indoors,"interior_prison_n", "bo_interior_prison_n", (-100,-100),(100,100),-100,"0",
-    [],[]),  
+    [],[]),
   ("castle_42_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000001a00005000005695c00001ebe0000028e00007e37", #levente's donated persian fortress
     [],[],"outer_terrain_desert"),
   ("castle_42_interior",sf_indoors, "arabian_interior_keep_b2", "bo_arabian_interior_keep_b", (-100,-100),(100,100),-100,"0",
     ["exit"],[]),
   ("castle_42_prison",sf_indoors,"interior_prison_o", "bo_interior_prison_o", (-100,-100),(100,100),-100,"0",
-    [],[]),  
+    [],[]),
   ("castle_48_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000a000050000086a1a000077300000250a00005b03", #my sassanid castle
     [],[],"outer_terrain_steppe"),
   ("castle_48_interior",sf_indoors, "arabian_interior_keep_b2", "bo_arabian_interior_keep_b", (-100,-100),(100,100),-100,"0",
     ["exit"],[]),
   ("castle_48_prison",sf_indoors,"interior_prison_n", "bo_interior_prison_n", (-100,-100),(100,100),-100,"0",
-    [],[]),  
+    [],[]),
   ("castle_59_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000300005000004c13100001d3100006d4100001edd", #roman danube fort
-    [],[],"outer_terrain_plain"), 
+    [],[],"outer_terrain_plain"),
   ("castle_59_interior",sf_indoors, "interior_castle_j", "bo_interior_castle_j", (-100,-100),(100,100),-100,"0",
     ["exit"],[]),
   ("castle_59_prison",sf_indoors,"interior_prison_i", "bo_interior_prison_i", (-100,-100),(100,100),-100,"0",
@@ -1265,13 +1265,13 @@ scenes = [
   ("castle_70_interior",sf_indoors, "interior_castle_j", "bo_interior_castle_j", (-100,-100),(100,100),-100,"0",
     ["exit"],[]),
   ("castle_70_prison",sf_indoors,"interior_prison_i", "bo_interior_prison_i", (-100,-100),(100,100),-100,"0",
-    [],[]),  
-  ("castle_73_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000023007b23200049d2a00003c37000040ef000037cd", #bry old roman coastal fort 
+    [],[]),
+  ("castle_73_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000023007b23200049d2a00003c37000040ef000037cd", #bry old roman coastal fort
     [],[],"sea_outer_terrain_1"),
   ("castle_73_interior",sf_indoors, "interior_castle_j", "bo_interior_castle_j", (-100,-100),(100,100),-100,"0",
     ["exit"],[]),
   ("castle_73_prison",sf_indoors,"interior_prison_i", "bo_interior_prison_i", (-100,-100),(100,100),-100,"0",
-    [],[]),  
+    [],[]),
 
   ("castle_79_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000300000000005c577000041ef00005ae800003c55", #from wlod
     [],[],"outer_terrain_plain"),
@@ -1292,7 +1292,7 @@ scenes = [
     [],[],"outer_terrain_plain"),
 
 
-#uniques  
+#uniques
 
   ("castle_15_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000230029cb2000709c200003c9500004b9b00002f4d", #dun at
     [],[], "outer_terrain_plain"),
@@ -1330,7 +1330,7 @@ scenes = [
   ("castle_71_interior",sf_indoors, "interior_castle_k", "bo_interior_castle_k", (-100,-100),(100,100),-100,"0",
     ["exit"],["castle_71_seneschal"]),
   ("castle_71_prison",sf_indoors,"interior_prison_i", "bo_interior_prison_i", (-100,-100),(100,100),-100,"0",
-    [],[]), 
+    [],[]),
 
   ("castle_80_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000001500000000004b12c000041ef00005ae800003c55", #will replace with levente's african castle
     [],[],"outer_terrain_desert"),
@@ -1340,14 +1340,14 @@ scenes = [
     [],[]),
 
   ("castle_84_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000013001c98d0005b56d000072a70000240a00001e09",
-    [],[],"outer_terrain_forest"),  
+    [],[],"outer_terrain_forest"),
 
 #!!Villages !!#
 #Roman village templates:
   ("village_roman_1",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000300005000003a8ea00006acd0000637600004d7f", #village_125
     [],[], "outer_terrain_plain"),
   ("village_roman_2",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000300005000003ccf300005ffe0000621800003824", #village_196
-    [],[],"outer_terrain_plain"),   
+    [],[],"outer_terrain_plain"),
   ("village_roman_3",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000300005000004c13100001d3100006d4100001edd", #village_18
     [],[],"outer_terrain_plain"),
 
@@ -1376,18 +1376,18 @@ scenes = [
   ("village_generic_8",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000001300389800003a4ea000058340000637a0000399b", #village_10
     [],[],"outer_terrain_plain"),
   ("village_generic_9",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000004300005008005b57000004e31800017d80000754b", #village_112
-    [],[],"outer_terrain_plain"),  
+    [],[],"outer_terrain_plain"),
   ("village_generic_10",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000230020a008005294c000063fc0000771c0000216f", #village_149
-    [],[],"outer_terrain_plain"),  
+    [],[],"outer_terrain_plain"),
 #Rafa's maps -- thank you!
   ("village_generic_11",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000300005000006218900004315000047030000587e",
-    [],[],"outer_terrain_forest"),  
+    [],[],"outer_terrain_forest"),
   ("village_generic_12",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000001300005000007f9fc0000207400004aa000005d32", #saxon village
-    [],[],"outer_terrain_forest"),  
+    [],[],"outer_terrain_forest"),
 
 #@dacian borbor/Romanius scene
   ("village_generic_13",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000300000000001a86b000041ef00005ae800003c55", #saxon village
-    [],[],"outer_terrain_forest"),  
+    [],[],"outer_terrain_forest"),
 
 #Eastern steppe/plains - caucasia, sassanid
   ("village_eastern_1",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000022007a7b200045d19000004920000076d00003b0a", #village_76
@@ -1404,7 +1404,7 @@ scenes = [
     [],[],"outer_terrain_desert"),
   ("village_desert_4",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000001500410320005a96800006b5300004edc00000d11", #village_101
     [],[],"outer_terrain_desert"),
-  
+
   ("village_garamantian",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000002562005000008da3800006e27000071660000587a", #from maxi
     [],[],"outer_terrain_desert"),
 #Steppe villages
@@ -1473,7 +1473,7 @@ scenes = [
     [],[],"outer_terrain_plain"),
   ("multi_scene_8",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000020004db18004611400005c918000397b00004c2e",
     [],[],"outer_terrain_plain"),
-  ("multi_scene_9",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000400032320003c0f300001f9e000011180000031c",   
+  ("multi_scene_9",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000400032320003c0f300001f9e000011180000031c",
     [],[],"outer_terrain_plain"),
   ("multi_scene_10",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000003009cde1000599630000423b00005756000000af",
     [],[],"outer_terrain_plain"),
@@ -1486,7 +1486,7 @@ scenes = [
   ("multi_scene_14",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000040000c910003e8fa0000538900003e9e00005301",
     [],[],"outer_terrain_plain"),
   ("multi_scene_15",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000500b1d158005394c00001230800072880000018f",
-    [],[],"outer_terrain_desert"),       
+    [],[],"outer_terrain_desert"),
   ("multi_scene_16",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000d007abd20002c8b1000050c50000752a0000788c",
     [],[],"outer_terrain_desert"),
   ("multi_scene_17",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000002200005000005f57b00005885000046bd00006d9c",
@@ -1499,7 +1499,7 @@ scenes = [
     [],[],"outer_terrain_plain"),
   ("multi_scene_21",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000040000c910003e8fa0000538900003e9e00005301",
     [],[],"outer_terrain_beach_snowy"),
-  
+
   ("random_multi_plain_medium",sf_generate|sf_randomize|sf_auto_entry_points,"none", "none", (0,0),(240,240),-0.5,"0x00000001394018dd000649920004406900002920000056d7",
     [],[], "outer_terrain_plain"),
   ("random_multi_plain_large",sf_generate|sf_randomize|sf_auto_entry_points,"none", "none", (0,0),(240,240),-0.5,"0x000000013a001853000aa6a40004406900002920001e4f81",
@@ -1529,13 +1529,13 @@ scenes = [
     [],[],"outer_terrain_desert"),
 
 
-  ("quick_battle_scene_1",sf_generate,"none", "none", (0,0),(120,120),-100,"0x000000023002dee300045d1d000001bf0000299a0000638f", 
+  ("quick_battle_scene_1",sf_generate,"none", "none", (0,0),(120,120),-100,"0x000000023002dee300045d1d000001bf0000299a0000638f",
     [],[], "outer_terrain_plain"),
-  ("quick_battle_scene_2",sf_generate,"none", "none", (0,0),(120,120),-100,"0x0000000250001d630005114300006228000053bf00004eb9", 
+  ("quick_battle_scene_2",sf_generate,"none", "none", (0,0),(120,120),-100,"0x0000000250001d630005114300006228000053bf00004eb9",
     [],[], "outer_terrain_desert_b"),
-  ("quick_battle_scene_3",sf_generate,"none", "none", (0,0),(120,120),-100,"0x000000023002b76300046d2400000190000076300000692a", 
+  ("quick_battle_scene_3",sf_generate,"none", "none", (0,0),(120,120),-100,"0x000000023002b76300046d2400000190000076300000692a",
     [],[], "outer_terrain_plain"),
-  ("quick_battle_scene_4",sf_generate,"none", "none", (0,0),(120,120),-100,"0x000000025a00f23700057d5f00006d6a000050ba000036df", 
+  ("quick_battle_scene_4",sf_generate,"none", "none", (0,0),(120,120),-100,"0x000000025a00f23700057d5f00006d6a000050ba000036df",
     [],[], "outer_terrain_desert_b"),
   ("quick_battle_scene_5",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000012007985300055550000064d500005c060000759e",
     [],[],"outer_terrain_plain"),
@@ -1544,7 +1544,7 @@ scenes = [
 
   ("tutorial_training_ground",sf_generate,"none", "none", (0,0),(120,120),-100,"0x000000003000050000046d1b0000189f00002a8380006d91",
     [],[], "outer_terrain_plain"),
-    
+
   ("town_1_room",sf_indoors,"viking_interior_tavern_a", "bo_viking_interior_tavern_a", (-100,-100),(100,100),-100,"0",
     [],[]),
   ("town_5_room",sf_indoors, "interior_town_house_d", "bo_interior_town_house_d", (-100,-100),(100,100),-100,"0",
@@ -1600,33 +1600,33 @@ scenes = [
 
   #Minor faction towns
   ("aestii_town",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000300000000005194a000041ef00005ae800003c55",
-    [],[],"outer_terrain_forest"), 
+    [],[],"outer_terrain_forest"),
   ("irish_town",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000013005213200077dda0000733300002edf000052ba",
-    [],[],"outer_terrain_plain"),  
+    [],[],"outer_terrain_plain"),
   ("garamantian_town_1",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000001200000000005194a000041ef00005ae800003c55",
-    [],[],"outer_terrain_desert"),  
+    [],[],"outer_terrain_desert"),
   ("dani_town",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000130000100000af2bc00000b5c00003ad100005795",
-    [],[],"outer_terrain_plain"),  
+    [],[],"outer_terrain_plain"),
   ("morden_town",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000001300000000005194a000041ef00005ae800003c55",
-    [],[],"outer_terrain_plain"),  
+    [],[],"outer_terrain_plain"),
   ("sporoi_town",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000300005000007a1e800000b5400003ad100005795",
-    [],[],"outer_terrain_forest"),  
+    [],[],"outer_terrain_forest"),
   ("panticapaeum",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000130000500000d2348000078ee00001f09000071c6",
-    [],[],"outer_terrain_beach"),  
+    [],[],"outer_terrain_beach"),
   ("abagasian_town",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000001300000000005194a000041ef00005ae800003c55",
-    [],[],"sea_outer_terrain_1"), 
+    [],[],"sea_outer_terrain_1"),
   ("tauri_town",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000003000000000036cd5000041ef00005ae800003c55",
-    [],[],"outer_terrain_beach"), 
+    [],[],"outer_terrain_beach"),
   ("frisian_town",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000300000000005194a000041ef00005ae800003c55",
-    [],[],"outer_terrain_beach"), 
+    [],[],"outer_terrain_beach"),
   ("augundzi_town",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000300000000005194a000041ef00005ae800003c55",
-    [],[],"outer_terrain_plain"), 
+    [],[],"outer_terrain_plain"),
   ("vidivarii_town",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000002a0000500000d234800007d8e00006aca00005ad8",
-    [],[],"outer_terrain_plain"), 
+    [],[],"outer_terrain_plain"),
   ("iberian_town",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000130000500000aa2a8000035b600002c1b00002af9", #shared by both vascones + gallacians for now
     [],[],"outer_terrain_forest"),
   ("venedi_town",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000220000500000d23480000540b000076c900003f3f",
-    [],[],"outer_terrain_forest"),  
+    [],[],"outer_terrain_forest"),
   ("saraguroi_town", sf_generate, "none", "none", (0, 0), (220, 220), -100, "0x0000000220000500000811ff00007c1000000733000040f4",
     [], [], "outer_terrain_steppe"),
   ("onoguroi_town", sf_generate, "none", "none", (0, 0), (220, 220), -100, "0x0000000220000500000811ff00007c1000000733000040f4",
@@ -1651,9 +1651,9 @@ scenes = [
   ("court_of_attila",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000300005000005ad6b000063be00001b7300005721",
     [],["bonus_chest_6"], "outer_terrain_plain"),
   ("attila_sword_location",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000300005000002acab0000094d0000144a00003cc5",
-    [],[],"outer_terrain_plain"),  
+    [],[],"outer_terrain_plain"),
   ("waylands_smithy",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000300005000002acab0000094d0000144a00003cc5",
-    [],[],"outer_terrain_plain"),  
+    [],[],"outer_terrain_plain"),
   ("circle_mystic",sf_generate,"none", "none", (0,0),(240,240),-100,"0x00000004300005008005b57000004e31800017d80000754b",
     [],[],"outer_terrain_plain"),
   ("roman_villa",sf_generate,"none", "none", (0,0),(240,240),-100,"0x000000005000050000057d5f0000746000002d2600002d3d", #alexandria roman villa scene
@@ -1661,11 +1661,11 @@ scenes = [
   ("roman_villa_attack",sf_generate,"none", "none", (0,0),(240,240),-100,"0x000000005000050000057d5f0000746000002d2600002d3d", #roman villa under attack for roman pagan quest
     [],[],"outer_terrain_beach_desert"),
   ("mithraeum",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000300005000003f0fc00003b8500005bae00007494", #Mithraeum for roman pagan quest
-    [],[],"outer_terrain_plain"),  
+    [],[],"outer_terrain_plain"),
   ("roman_villa_generic",sf_generate,"none", "none", (0,0),(240,240),-100,"0x00000000300005000003f0fc00003b8500005bae00007494", #generic roman villa scene
     [],[],"outer_terrain_plain"),
   ("abandoned_mithraic_temple",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000300005000003f0fc00003b8500005bae00007494", #abandoned Mithraeum for roman pagan quest
-    [],[],"outer_terrain_plain"),  
+    [],[],"outer_terrain_plain"),
   ("roman_fort",sf_generate,"none", "none", (0,0),(240,240),-100,"0x000000013001b2320004a52900004d390000518c00001ab1",
     [],[],"outer_terrain_plain"),
   ("nubian_bandit_camp",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000500005000002e4bd00007bd8000051d300003037",
@@ -1679,71 +1679,71 @@ scenes = [
   ("maxi_roman_villa", sf_generate, "none", "none", (0,0),(100,100),-100,"0x0000000234a01c3c0005e97900002ad30000589000000c2b",
     [],[], "outer_terrain_plain"),
   ("dragons_lair",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000003002d0630005a56d00007bbb0000223c00007de0",
-    [],[], "outer_terrain_forest"),  
+    [],[], "outer_terrain_forest"),
   ("roman_villa_city", sf_generate, "none", "none", (0,0),(100,100),-100,"0x00000000300005000003f0fc00003b8500005bae00007494",
-    [],[], "outer_terrain_plain"), 
+    [],[], "outer_terrain_plain"),
   #ambush scene
   ("ambush_plains_forest",sf_generate|sf_auto_entry_points,"none", "none", (0,0),(180,180),-0.5,"0x00000001300410320005a96800006b5300004edc00000d11",
-    [],[], "outer_terrain_forest"), 
+    [],[], "outer_terrain_forest"),
   ("grove_of_nymphs", sf_generate, "none", "none", (0,0),(100,100),-100,"0x00000002300005000005755b000016cc00004d020000497c",
-    [],[], "outer_terrain_forest"), 
+    [],[], "outer_terrain_forest"),
   ("roman_village_battle", sf_generate, "none", "none", (0,0),(100,100),-100,"0x000000003000050080062589000045da00001a300000123f",
-    [],[], "outer_terrain_forest"), 
+    [],[], "outer_terrain_forest"),
   ("silingi_village",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000300005000006218900004315000047030000587e",
-    [],[],"outer_terrain_forest"),  
+    [],[],"outer_terrain_forest"),
   ("venedi_village",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000300005000007a1e800000b5400003ad100005795",
-    [],[],"outer_terrain_forest"),  
+    [],[],"outer_terrain_forest"),
   ("noricum_refugee_camp",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000300005000004c13100001d3100006d4100001edd",
     [],[],"outer_terrain_forest"),
   ("abandoned_silver_mine",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000b00005000005e5790000371500000e3500000f71",
-    [],["silver_mine_chest_1","silver_mine_chest_2"], "outer_terrain_mountain"),  
+    [],["silver_mine_chest_1","silver_mine_chest_2"], "outer_terrain_mountain"),
   #cynocephali
   ("wolfmen_lair",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000bc60cbb68005ad6800000a2400005f5c00007f21",
-    [],[],"outer_terrain_forest"),  
+    [],[],"outer_terrain_forest"),
   ("wolfmen_ambush",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000bc66cbe30005d9760000438d00007aec00002978",
-    [],[],"outer_terrain_forest"),  
+    [],[],"outer_terrain_forest"),
   ("wolfmen_raid",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000b000056300050d450000700900007d720000684a",
-    [],[],"outer_terrain_forest"),  
+    [],[],"outer_terrain_forest"),
   #black river
   ("black_river_ambush",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000003000056300053d4f00002f210000542d0000774e", #0x000000003000056380053d4f00002f210000542d0000774e
-    [],[],"outer_terrain_river_1"),  
+    [],[],"outer_terrain_river_1"),
   ("black_river_fort",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000030000563000729cd00006123000057a1000024c8",
-    [],[],"outer_terrain_forest"),  
+    [],[],"outer_terrain_forest"),
   ("black_river_villa",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000030000500000715c5000057cd000035390000272c",
-    [],[],"outer_terrain_forest"),  
+    [],[],"outer_terrain_forest"),
   #severinus quest
   ("asturis_1",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000300005630007d1f800006aba0000574f00001099", #initial scene
-    [],[],"outer_terrain_forest"),  
+    [],[],"outer_terrain_forest"),
   ("asturis_2",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000300005630007d1f800006aba0000574f00001099", #ruins
-    [],["bonus_chest_7"],"outer_terrain_forest"), 
+    [],["bonus_chest_7"],"outer_terrain_forest"),
   ("comagena_church",sf_indoors,"interior_castle_j", "bo_interior_castle_j", (-100,-100),(100,100),-100,"0",
     [],[]),
   ("favianis",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000300005630007d1f800006aba0000574f00001099",
-    [],[],"outer_terrain_forest"),  
+    [],[],"outer_terrain_forest"),
   ("tiguntia",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000bc6006638005dd770000654f00000c4e0000672b",
     [],[],"outer_terrain_forest"), #severinus quest
 
   ("christian_monastery",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000023007a3b20005795e0000706d0000381800000bbc",
-    [],[],"outer_terrain_plain"),  
+    [],[],"outer_terrain_plain"),
   ("fortified_monastery",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000300005000004190600005e5c00000ad3000018b3",
     [],[],"outer_terrain_plain"), #villa for batavis
   ("pagan_grove",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000300005000002acab0000094d0000144a00003cc5",
     [],[],"outer_terrain_plain"),
   ("roman_pagan_temple",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000003000050000040d030000138400003ec000005815", #unique
-    [],[],"outer_terrain_plain"),    
+    [],[],"outer_terrain_plain"),
   ("fire_temple",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000a000050000048d260000248b00007aa200007107", #unqiue
-    [],[],"outer_terrain_steppe"),  
+    [],[],"outer_terrain_steppe"),
   ("christian_monastery_desert",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000005000050000048d260000248b00007aa200007107",
-    [],[],"outer_terrain_desert"),  
+    [],[],"outer_terrain_desert"),
   ("arian_monastery",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000023007a3b20005795e0000706d0000381800000bbc",
-    [],[],"outer_terrain_plain"),  
+    [],[],"outer_terrain_plain"),
   ("celtic_stone_circle",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000006300654ac00062d910000635800007c9600005d35",
     [],[], "outer_terrain_plain"),
   ("steppe_shrine",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000020000663000521480000559b00006178000063e2",
     [],[], "outer_terrain_steppe"),
   ("siwa",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000025c600606000926470000240d0000747200007110",
-    [],[],"outer_terrain_desert"),  
-  
+    [],[],"outer_terrain_desert"),
+
   ("german_temple_1", sf_generate, "none", "none", (0, 0), (240, 240), -0.5, "0x00000000bc634eb20003d0f20000135000004cf100002af3",[], [], "outer_terrain_plain"), #butters/maxi scenes
   ("german_temple_2", sf_generate, "none", "none", (0, 0), (240, 240), -0.5, "0x00000001bc6170b68003d0f2000062e900007b2500006111",[], [], "outer_terrain_plain"),
   ("german_temple_3", sf_generate, "none", "none", (0, 0), (240, 240), -0.5, "0x000000033a0797428005614e000023608000708d00007a0d",[], [], "outer_terrain_plain"),
@@ -1760,14 +1760,14 @@ scenes = [
 
   ("cutscene_longboat_2", sf_generate, "none", "none", (0, 0), (200, 200), -0.5, "0x00000000300005000005495000002ee4000032f600000753",
     [],[], "sea_outer_terrain_2"),
-    
+
   ("cutscene_longboat_fleet", sf_generate, "none", "none", (0, 0), (200, 200), -0.5, "0x0000000330000500000d23480000766b00001c13000046e9",
     [],[], "sea_outer_terrain_2"),
 
   ("finns_hall_interior",sf_indoors, "interior_castle_k", "bo_interior_castle_k", (-100,-100),(100,100),-100,"0",
     ["exit"],[]),
-    
-    
+
+
   ("church", sf_indoors, "interior_prison_cell_a", "bo_interior_prison_cell_a", (-100, -100), (100, 100), -100, "0",
   [], ["bonus_chest_9"]),
   ("imperial_palace", sf_generate, "none", "none", (0, 0), (240, 240), -0.5, "0x00000002300000000004fd4a000041ef00005ae800003c55",

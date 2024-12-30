@@ -26175,6 +26175,8 @@ and perhaps I shall be able to repay the debt I owe you.", "lord_rescue_by_repla
 
 [anyone|plyr,"lord_talk", [#(troop_slot_eq, "$g_talk_troop", slot_troop_is_prisoner, 0),
                        (neg|troop_slot_ge, "$g_talk_troop", slot_troop_prisoner_of_party, 0),
+			(this_or_next|is_between, "$g_talk_troop_faction", minor_kingdoms_begin, minor_kingdoms_end),
+			(is_between, "$g_talk_troop_faction", npc_kingdoms_begin, npc_kingdoms_end),
                        (lt, "$g_talk_troop_faction_relation", 0),
 				##diplomacy start+ Handle when the player is co-ruler of an NPC kingdom
 				(assign, ":is_coruler", 0),
@@ -26900,6 +26902,7 @@ I will use this to make amends to those you have wronged, and I will let it be k
 
 # dialog_ask_enlistment
     [anyone|plyr,"lord_talk", [
+	(is_between, "$g_talk_troop_faction", npc_kingdoms_begin, npc_kingdoms_end),
         (eq, "$freelancer_state", 0),
     (ge, "$g_talk_troop_faction_relation", 0),
         (neq, "$players_kingdom", "$g_talk_troop_faction"),
@@ -27109,6 +27112,7 @@ I will use this to make amends to those you have wronged, and I will let it be k
 #+freelancer end
 
 [anyone|plyr,"lord_talk", [(le,"$talk_context", tc_party_encounter),
+			(is_between, "$g_talk_troop_faction", npc_kingdoms_begin, npc_kingdoms_end),
                        (ge, "$g_talk_troop_faction_relation", 0),
 			(eq, "$freelancer_state", 0), #madsci
                        #(troop_slot_eq, "$g_talk_troop", slot_troop_is_prisoner, 0),
@@ -27122,6 +27126,7 @@ I will use this to make amends to those you have wronged, and I will let it be k
 
 
 [anyone|plyr,"lord_talk", [(le,"$talk_context", tc_party_encounter),
+			(is_between, "$g_talk_troop_faction", npc_kingdoms_begin, npc_kingdoms_end),
                        (faction_slot_eq, "$g_talk_troop_faction", slot_faction_leader, "$g_talk_troop"),
                        (eq, "$players_kingdom", "$g_talk_troop_faction"),
                        (eq, "$player_has_homage", 0),

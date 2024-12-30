@@ -50962,7 +50962,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
   [trp_berserker_leader, "shaman_talk_intro_2", [],
    "You are too old to learn them and we don't like strangers.", "shaman_talk_intro_3", []],
 
-  [trp_berserker_leader|plyr, "shaman_talk_intro_3", [(eq, "$g_player_faith", 2),(eq,"$g_paganism_dedication",1),], #must be a germanic pagan
+  [trp_berserker_leader|plyr, "shaman_talk_intro_3", [(troop_slot_eq, "trp_player", slot_troop_religion, slot_religion_paganism),(eq,"$g_paganism_dedication",1),], #must be a germanic pagan
    "I am a follower of our ancestral gods and devout to Wodan, the all-father.", "shaman_talk_intro_pagan_1", []],
   [trp_berserker_leader, "shaman_talk_intro_pagan_1", [],
    "You must have the blood of a prince, for few ask Wodan for guidance and many instead rely on Nerthus for their crops. We are not farmers, you have to understand this: we live for war. We are born dead, our lives belong to the All-father for we know none of us will die of old age, with offspring and land.", "shaman_talk_intro_pagan_2", []],
@@ -50990,7 +50990,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
   #(jump_to_menu, "mnu_wolfmen_duel"),
    ]],
 
-  [trp_berserker_leader, "start", [(check_quest_active, "qst_the_wolfmen"),(quest_slot_eq, "qst_the_wolfmen", slot_quest_current_state, 6),(eq, "$g_player_faith", 2),(eq,"$g_paganism_dedication",1),(neq, "$character_gender", tf_female)], #player wins duel and is germanic pagan, not a foid
+  [trp_berserker_leader, "start", [(check_quest_active, "qst_the_wolfmen"),(quest_slot_eq, "qst_the_wolfmen", slot_quest_current_state, 6),(troop_slot_eq, "trp_player", slot_troop_religion, slot_religion_paganism),(eq,"$g_paganism_dedication",1),(neq, "$character_gender", tf_female)], #player wins duel and is germanic pagan, not a foid
    "You won! The Gods have spoken, you clearly have Wodan's favour on your side. You may not be one of us but you fight like a wolf.", "shaman_talk_duel_won_pagan_1", []],
   [trp_berserker_leader|plyr, "shaman_talk_duel_won_pagan_1", [],
    "He was a great warrior, but I bested him in combat and I deserve to join the brotherhood now.", "shaman_talk_duel_won_pagan_2", []],
@@ -51016,6 +51016,8 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
       (disable_party,"p_wolfmen_lair"),
       (call_script, "script_change_troop_renown", "trp_player", 25),
       (finish_mission),
+      (leave_encounter),
+      (change_screen_return),
    ]],
 
   [trp_berserker_leader, "start", [],

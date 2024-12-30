@@ -649,7 +649,7 @@ parties = [
 
   #minor faction villages
 
-  ("religious_site_1","Batavis",pf_disabled|icon_castle_snow_a|pf_is_static|pf_always_visible|pf_hide_defenders, no_menu, pt_none, fac_roman_christians,0,ai_bhvr_hold,0,(-112.81, 92.89),[]), #chalcedonian
+  ("religious_site_1","Monastery_of_Hippo_Regius",icon_castle_snow_a|pf_is_static|pf_always_visible|pf_hide_defenders, no_menu, pt_none, fac_roman_christians,0,ai_bhvr_hold,0,(-158.97, -30.96),[]), #there were 3 during the time of St. Augustine, reasonable to assume they might have still be around, maybe under Arian control?
   ("religious_site_2","Monastery_of_Stavrovouni",icon_castle_snow_a|pf_is_static|pf_always_visible|pf_hide_defenders, no_menu, pt_none, fac_roman_christians,0,ai_bhvr_hold,0,(58.4,-32.38),[]), #miaphysite
   ("religious_site_3","Monastery_of_Mor_Gabriel",icon_castle_snow_a|pf_is_static|pf_always_visible|pf_hide_defenders, no_menu, pt_none, fac_roman_christians,0,ai_bhvr_hold,0,(91.22,9.02),[]), #miaphysite 
   ("religious_site_4","Monastery_of_Saint_Anthony",icon_castle_snow_a|pf_is_static|pf_always_visible|pf_hide_defenders, no_menu, pt_none, fac_coptic_christians,0,ai_bhvr_hold,0,(60.98,-97.53),[]), #miaphysite

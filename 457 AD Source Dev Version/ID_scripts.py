@@ -962,4 +962,5 @@ script_spawn_sea_battle_visitors = 960
 script_set_ship_materials = 961
 script_get_wave_properties = 962
 script_get_distance_to_terrain_or_water = 963
-script_efe_init = 964
+script_spawn_pirate = 964
+script_efe_init = 965

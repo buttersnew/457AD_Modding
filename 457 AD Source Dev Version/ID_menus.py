@@ -527,3 +527,4 @@ mnu_ernak_final_battle_victory = 525
 mnu_ernak_final_feast = 526
 mnu_rebellion_launched = 527
 mnu_cheat_add_troops = 528
+mnu_suebi_civil_war_ended = 529

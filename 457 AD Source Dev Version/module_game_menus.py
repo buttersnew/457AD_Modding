@@ -26034,7 +26034,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     ]),
 
   ("alexandria_zealot_battle",0,
-    "You wait with Proclus and his students for several hours. You notice a group of armed zealots approaching his his villa. You prepare for a fight...",
+    "You wait with Proclus and his students for several hours. You notice a group of armed zealots approaching his villa. You prepare for a fight...",
     "none",
     [(set_background_mesh, "mesh_pic_townriot"),
     ],

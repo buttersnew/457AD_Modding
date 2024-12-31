@@ -609,6 +609,7 @@ simple_triggers = [
 		(party_is_active, ":party_no"),
 		(call_script, "script_remove_hero_prisoners", ":party_no"),
 		(remove_party, ":party_no"),
+		(troop_set_slot, ":faction_leader", slot_troop_leaded_party, -1),
 		(else_try),
 		(troop_get_slot, ":cur_prisoner_of_party", ":faction_leader", slot_troop_prisoner_of_party),
 		(ge, ":cur_prisoner_of_party", 0),

@@ -1313,6 +1313,7 @@ slot_troop_will_join_prison_break      = 161
 troop_slots_reserved_for_relations_start        = 165 #this is based on id_troops, and might change
 
 slot_troop_embedded_party = 1100
+slot_faction_days_survived = 1101
 slot_troop_relations_begin = 1250
 
 ########################################################

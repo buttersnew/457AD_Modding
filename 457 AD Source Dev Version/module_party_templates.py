@@ -119,8 +119,9 @@ party_templates = [
   ("heretical_codex_bandits","Bandits",icon_axeman|carries_goods(9)|pf_auto_remove_in_town|pf_quest_party,0,fac_neutral,bandit_personality,[(trp_burgundian_looter,1,1),(trp_robber,5,35),(trp_bandit,2,15),(trp_brigand,1,5)]),
 
   #party size of about 200 each
-  ("danubian_suebi_army","Hunimund's Host",icon_sea_raider|carries_goods(20)|pf_show_faction,0,fac_hunimund_suebi,soldier_personality,[(trp_quadi_spearman,70,100),(trp_western_germanic_bowman,30,50),(trp_steppe_bandit,10,20),(trp_steppe_rider,10,30),(trp_steppe_cataphract,10,20),(trp_suebi_king,1,1)]), #spearmen, bowmen, iazyges
+  ("danubian_suebi_army","Hunimund's Host",icon_sea_raider|carries_goods(20)|pf_show_faction,0,fac_hunimund_suebi,soldier_personality,[(trp_quadi_spearman,140,200),(trp_western_germanic_bowman,50,80),(trp_suebi_king,1,1)]), #spearmen, bowmen, iazyges
   ("heruli_army","Visilaus's Host",icon_sea_raider|carries_goods(20)|pf_show_faction,0,fac_minor_heruli,soldier_personality,[(trp_heruli_slave,40,60),(trp_limigantes_rebel,20,50),(trp_heruli_warrior,80,100),(trp_heruli_horseman,20,40),(trp_heruli_king,1,1)]), #spearmen, horsemen, skirmishers
+  ("iazyges_army","Benga's Host",icon_sea_raider|carries_goods(20)|pf_show_faction,0,fac_minor_iazyges,soldier_personality,[(trp_steppe_bandit,80,100),(trp_steppe_rider,30,60),(trp_steppe_cataphract,20,40),(trp_iazyg_king,1,1)]), #horsemen
 
   #event parties
   ("nero_rebel_army","Legio Neronia",icon_roman_footman_army|carries_goods(30)|pf_auto_remove_in_town,0,fac_peasant_rebels,bandit_personality,[(trp_nero_larper_commander,1,1),(trp_miles_romani,200,215),(trp_sagittarius,60,70),(trp_bucellarius,45,55),(trp_imperial_signifer,5,5)]),
@@ -492,6 +493,10 @@ party_templates = [
   ("numeri_isaurorum_a", "{!}numeri isaurorum reinforcements", 0, 0, fac_commoners, 0, [(trp_mountain_bandit,8,18)]), 
   ("numeri_isaurorum_b", "{!}numeri isaurorum reinforcements", 0, 0, fac_commoners, 0, [(trp_isaurian_warrior,5,12),(trp_sagittarius,3,8),(trp_imperial_signifer,1,1)]),
   ("numeri_isaurorum_c", "{!}numeri isaurorum reinforcements", 0, 0, fac_commoners, 0, [(trp_isaurian_infantry,3,10),(trp_centenarius,1,1)]),
+
+  #classis (roman naval patrol)
+  ("classis_ravenna","Classis Ravennatium",icon_roman_footman_army|carries_goods(8)|pf_show_faction,0,fac_commoners,soldier_personality,[(trp_roman_sailor,35,55),(trp_roman_marine,25,35)]),
+  ("classis_naples","Classis Misenatium",icon_roman_footman_army|carries_goods(8)|pf_show_faction,0,fac_commoners,soldier_personality,[(trp_roman_sailor,35,55),(trp_roman_marine,25,35)]),
 
   #eventually with have Magister Militum per Illyricum
   #lanciarii iuniores (comitatenses)

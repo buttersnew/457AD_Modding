@@ -27609,6 +27609,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     (try_for_range, ":unused", 0, 1),
       (party_add_template, "p_coalition_camp", "pt_danubian_suebi_army"),
       (party_add_template, "p_coalition_camp", "pt_heruli_army"),
+      (party_add_template, "p_coalition_camp", "pt_iazyges_army"),
     (try_end),
     (party_quick_attach_to_current_battle, "p_coalition_camp", 1), #enemies
 

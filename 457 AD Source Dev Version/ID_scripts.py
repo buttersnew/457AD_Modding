@@ -963,4 +963,6 @@ script_set_ship_materials = 961
 script_get_wave_properties = 962
 script_get_distance_to_terrain_or_water = 963
 script_spawn_pirate = 964
-script_efe_init = 965
+script_spawn_naval_patrol_ravenna = 965
+script_spawn_naval_patrol_naples = 966
+script_efe_init = 967

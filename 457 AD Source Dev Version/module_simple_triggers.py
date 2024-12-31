@@ -7180,6 +7180,23 @@ simple_triggers = [
 (lt, ":pirates", 3),
 (call_script, "script_spawn_pirate"),
 (try_end),
+
+(try_begin),
+  (store_faction_of_party, ":town_faction","p_town_13"),
+  (eq, ":town_faction", "fac_kingdom_1"),
+  (store_num_parties_of_template, ":classis", "pt_classis_ravenna"),
+  (lt, ":classis", 1),
+  (call_script, "script_spawn_naval_patrol_ravenna"),
+(try_end),
+
+(try_begin),
+  (store_faction_of_party, ":town_faction","p_town_11"),
+  (eq, ":town_faction", "fac_kingdom_1"),
+  (store_num_parties_of_template, ":classis", "pt_classis_naples"),
+  (lt, ":classis", 1),
+  (call_script, "script_spawn_naval_patrol_naples"),
+(try_end),
+
     ]),
 
   (168,

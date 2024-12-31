@@ -586,7 +586,9 @@ parties = [
   ("malta"  ,"Island of Melita",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(-93, -45.5),[]), 
   ("ibiza"  ,"Island of Ebusus",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(-207, -7),[]),
   ("rhodos"  ,"Island of Rhodos",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(13.4, -25.4),[]),
-  ("mediterranean_sea"  ,"the Mediterranean Sea",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(-67,-37),[]), 
+  ("mediterranean_sea"  ,"the Mare Mediterranean",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(-67,-37),[]), 
+  ("adriatic_sea"  ,"the Mare Adriaticum",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(-96.95, 34.77),[]),
+  ("tyrrhenian_sea"  ,"the Mare Tyrrhenum",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(-120.66, 1.66),[]),
 
 #madsci use these to decide where nomads move, their position is set automatically
   ("onoguroi_village_anchor"   ,"{!}camp_anchor",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(26, 77),[]),

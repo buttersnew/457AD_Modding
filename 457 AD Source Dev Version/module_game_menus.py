@@ -27216,7 +27216,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     ],),
 
   ("severinus_comagenis_1",0,
-    "After leaving the town of Asturis, you travel westward along the Danube, to the Roman town of Comagena. Although once a fortress for the Romans, the wall is in disrepair."
+    "After leaving the town of Asturis, you travel westward along the Danube, to the Roman town of Comagena. Although once a fortress for the Romans, the wall is in disrepair. "
     + "Passing through the abandoned vici outside the walls, you approach the gate and notice the guards do not seem to be of Roman origin...",
     "none", [],
     [
@@ -27245,7 +27245,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     ],),
 
   ("severinus_comagenis_2",0,
-    "Once inside the walls, you sparsley notice any townsfolk. Those who are out on the streets keep their distance. As you approach the center of the town, Severinus spots the local church, and beckons you to follow him inside..."
+    "Once inside the walls, you sparsley notice any townsfolk. Those who are out on the streets keep their distance. As you approach the center of the town, Severinus spots the local church, and beckons you to follow him inside... "
     + "As you enter the church, you notice many of the locals have gathered inside, seeking both spiritual and physical aid from the local clergy. Severinus finds a spot infront of the people, and begins to speak.",
     "none", [],
     [
@@ -27284,7 +27284,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     ],),
 
   ("severinus_comagenis_3",0,
-    "Following the advice of the Holy man, the citizens of Comagena gather in the church, in prayer, fasting and confession. On the third day's evening, during the celebration of the Eucharist, the earth begins to shake... Earthquake!"
+    "Following the advice of the Holy man, the citizens of Comagena gather in the church, in prayer, fasting and confession. On the third day's evening, during the celebration of the Eucharist, the earth begins to shake... Earthquake! "
     + "Chaos ensues, the guards, thinking themselves under siege, flee the city and in their terror, turn on one another. Their fighting is heard until nightfall, until the last of the barbarians is killed. The citizens return into the streets, astonished at what had just happened.",
     "none", [],
     [
@@ -27321,7 +27321,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     ],),
 
   ("severinus_comagenis_4",0,
-    "After joining the townspeople of Comagena in their celebrations, you and Severinus stay in town for a few days, to resupply for you next journey."
+    "After joining the townspeople of Comagena in their celebrations, you and Severinus stay in town for a few days, to resupply for you next journey. "
     + "One morning while in the town square, Severinus relays to you that his next stop will be in Favianis, a village upon hearing of his exploits, wished for him to come and provide spiritual aid.",
     "none", [],
     [
@@ -27334,7 +27334,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     ],),
 
   ("severinus_favianis_1",0,
-    "As you travel to the town of Favianis, you join a group of starving refugees on the way. The land near the town had been stricken with a cruel famine."
+    "As you travel to the town of Favianis, you join a group of starving refugees on the way. The land near the town had been stricken with a cruel famine. "
     + "As you approach the town, Severinus stops and prays for some time. He then leads you into the town's square, where a crowd gathers before him. He beckons for you to come and speak to him...",
     "none", [],
     [

@@ -1207,6 +1207,7 @@ triggers = [
 ],[
   (dialog_box, "@A messenger approaches your warband, bringing news of rebellion! A man claiming to Nero has hired an army and marched on Rome!", "@A messenger approaches your warband"),
   (spawn_around_party, "p_town_8", "pt_nero_rebel_army"),
+  (party_set_flags, reg0, pf_quest_party, 1),
   (quest_set_slot,"qst_nero_larper_quest",slot_quest_current_state, 5),
 ]),
 

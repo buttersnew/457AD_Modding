@@ -7209,15 +7209,14 @@ simple_triggers = [
     (eq, "$g_player_owns_farm", 1),
     (assign, "$g_earnings", 0), #resets earnings
     (store_random_in_range, "$g_earnings", 300, 450),
-    (try_begin),
+    	(try_begin),
+	(party_get_num_prisoners, "$g_num_prisoners", "p_diocletians_palace"),
         (gt, "$g_num_prisoners", 0),
-        (try_for_range, ":center_no", "p_salt_mine", "p_diocletians_palace"), #tocan: change this to your scene
-            (party_get_num_prisoners, "$g_num_prisoners", ":center_no"),
-            (store_mul, ":earnings", 25, "$g_num_prisoners"), #tocan: change this to amount per prisoner you want
-            (val_add, "$g_earnings", ":earnings"),
-            (assign, reg1, "$g_earnings"),
-        (try_end),
-    (try_end),
+	(store_mul, ":earnings", 25, "$g_num_prisoners"), #tocan: change this to amount per prisoner you want
+	(val_add, "$g_earnings", ":earnings"),
+	(assign, reg1, "$g_earnings"),
+	(call_script, "script_remove_hero_prisoners", "p_diocletians_palace"), #madsci dont let the player put lords here forever
+    	(try_end),
     (display_message, "@Your farm has made a profit of {reg1} siliquae this week"),
     (troop_add_gold, "trp_player", "$g_earnings"),
     (play_sound, "snd_money_received", 0),

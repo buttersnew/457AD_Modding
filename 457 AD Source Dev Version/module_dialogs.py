@@ -48124,7 +48124,8 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
   #pretender nero party
   [party_tpl|pt_nero_rebel_army,"start", [
   (eq,"$talk_context",tc_party_encounter),
-  (neq, "$g_talk_troop", "pt_nero_rebel_army"),
+  (neg|encountered_party_is_attacker),
+  (eq, "$g_talk_troop", "trp_nero_larper_commander"), #madsci I assume this is what is intended
   ],
   "Ah, my loyal servant, do you see the legion that I have raised to take back my Empire?", "nero_rebel_army_talk_1",[]],
   [party_tpl|pt_nero_rebel_army|plyr,"nero_rebel_army_talk_1", [], "How are you planning to take back the empire?", "nero_rebel_army_talk_2",[]],
@@ -48132,9 +48133,20 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
   [party_tpl|pt_nero_rebel_army,"nero_rebel_army_talk_3", [], "Now, enough talking, servant. I have an empire to conquer!", "nero_rebel_army_talk_1",[]],
 
   [party_tpl|pt_nero_rebel_army|plyr,"nero_rebel_army_talk_1", [], "I am sorry, Imperator, I have come to stop you...", "nero_rebel_army_attack_1",[]],
-  [party_tpl|pt_nero_rebel_army,"nero_rebel_army_attack_1", [], "How dare you! Men, serve me this insolent traitor's head on a platter!", "close_window",[[encounter_attack]]],
+  [party_tpl|pt_nero_rebel_army,"nero_rebel_army_attack_1", [], "How dare you! Men, serve me this insolent traitor's head on a platter!", "close_window",[
+  (assign,"$encountered_party_hostile",1),
+  (assign,"$encountered_party_friendly",0),
+  (encounter_attack),
+]],
 
   [party_tpl|pt_nero_rebel_army|plyr,"nero_rebel_army_talk_1", [], "Farewell, my Imperator.", "close_window",[]],
+
+  [party_tpl|pt_nero_rebel_army,"start", [
+  (eq,"$talk_context",tc_party_encounter),
+  (encountered_party_is_attacker),
+  (eq, "$g_talk_troop", "trp_nero_larper_commander"),
+  ],
+  "Men, serve me this insolent traitor's head on a platter!", "party_encounter_hostile_attacker",[]], #madsci generic response if the circumstances are weird
 
   #a certain magical codex
   [party_tpl|pt_heretical_codex_bandits,"start", [
@@ -51400,7 +51412,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
   [trp_holy_lance_keeper, "holy_lance_keeper_intro_2", [],
    "I am just a simple hermit, now, what do you need?", "holy_lance_keeper_intro_3", []],
   [trp_holy_lance_keeper|plyr, "holy_lance_keeper_intro_3", [],
-   "I have heard of a legend that the lance of longinus is hidden somewhere near by, do you know anything about how true this tale is?", "holy_lance_keeper_intro_4", []],
+   "I have heard of a legend that the lance of Longinus is hidden somewhere near by, do you know anything about how true this tale is?", "holy_lance_keeper_intro_4", []],
   [trp_holy_lance_keeper, "holy_lance_keeper_intro_4", [],
    "Ah yes, the lance. That is the reason I live out here in these caves; I am the last keeper of the holy lance. I am a descendent of a family of holy men and women who protect holy relics from destruction.", "holy_lance_keeper_intro_5", []],
   [trp_holy_lance_keeper, "holy_lance_keeper_intro_5", [],

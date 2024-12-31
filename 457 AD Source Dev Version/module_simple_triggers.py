@@ -400,9 +400,9 @@ simple_triggers = [
 
 (try_for_range, ":kingdom_no", kingdoms_begin, kingdoms_end),
 (faction_slot_eq, ":kingdom_no", slot_faction_state, sfs_active),
-(faction_get_slot, ":days_survived", ":kingdom_no",  slot_faction_days_survived),
+(faction_get_slot, ":days_survived", ":kingdom_no", slot_faction_days_survived),
 (val_add, ":days_survived", 1),
-(faction_set_slot, ":kingdom_no",  slot_faction_days_survived, ":days_survived"),
+(faction_set_slot, ":kingdom_no", slot_faction_days_survived, ":days_survived"),
 (try_end),
 
 	(try_begin),
@@ -585,9 +585,9 @@ simple_triggers = [
 	(eq, ":rebel_culture", ":roman_culture"),
 	(store_relation, ":reln", ":kingdom_no", "fac_kingdom_1"),
 	(ge, ":reln", 0),
-	(faction_get_slot, ":days_survived", ":kingdom_no",  slot_faction_days_survived),
+	(faction_get_slot, ":days_survived", ":kingdom_no", slot_faction_days_survived),
 	(gt, ":days_survived", 30),
-	(store_random_in_range, ":rnd", 0, 15), #shouldnt be guaranteed to happen after 30 days
+	(store_random_in_range, ":rnd", 0, 20), #shouldnt be guaranteed to happen after 30 days
 	(eq, ":rnd", 1),
 	(assign, ":rebel_found", ":kingdom_no"),
 	(try_end),

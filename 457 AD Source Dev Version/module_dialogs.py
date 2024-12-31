@@ -27838,6 +27838,18 @@ I will use this to make amends to those you have wronged, and I will let it be k
   ],
    "Who is the marshal of the {s12}?", "lord_talk_who_is_marshall",[]],
 
+[anyone|plyr,"lord_talk_ask_something_2", [
+	 (eq, "$cheat_mode", 1),
+(str_store_faction_name, s12, "$g_talk_troop_faction"),
+  ],
+   "How long has the {s12} been around?", "lord_talk_survived_days",[]],
+
+  [anyone,"lord_talk_survived_days", [
+(faction_get_slot, ":days_survived", "$g_talk_troop_faction", slot_faction_days_survived),
+(assign, reg1, ":days_survived"),
+  ],
+   "The {s12} has survived for {reg1} days.", "lord_pretalk",[]],
+
   [anyone,"lord_talk_who_is_marshall", [
 (faction_get_slot, ":faction_marshal", "$g_talk_troop_faction", slot_faction_marshall),
 (try_begin),

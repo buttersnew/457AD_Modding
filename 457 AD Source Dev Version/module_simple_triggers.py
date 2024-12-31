@@ -8654,7 +8654,6 @@ simple_triggers = [
 	(party_get_slot, ":rebel_faction", ":center", slot_party_rebel_faction),
 	(gt, ":rebel_faction", 0),
 	(neg|faction_slot_eq, ":rebel_faction", slot_faction_state, sfs_active),
-	(neg|faction_slot_eq, ":rebel_faction", slot_faction_state, sfs_defeated),
 	(store_faction_of_party, ":faction_now", ":center"),
 	(neq, ":faction_now", ":rebel_faction"),
 	(set_relation, ":faction_now", ":rebel_faction", -100),

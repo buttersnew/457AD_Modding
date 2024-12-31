@@ -587,7 +587,7 @@ simple_triggers = [
 	(ge, ":reln", 0),
 	(faction_get_slot, ":days_survived", ":kingdom_no",  slot_faction_days_survived),
 	(gt, ":days_survived", 30),
-	(store_random_in_range, ":rnd", 0, 30), #shouldnt be guaranteed to happen after 30 days
+	(store_random_in_range, ":rnd", 0, 15), #shouldnt be guaranteed to happen after 30 days
 	(eq, ":rnd", 1),
 	(assign, ":rebel_found", ":kingdom_no"),
 	(try_end),
@@ -598,13 +598,13 @@ simple_triggers = [
 (faction_set_slot, ":rebel_found", slot_faction_state, sfs_inactive),
 (faction_set_note_available, ":rebel_found", 0),
 (faction_set_slot, ":rebel_found",  slot_faction_days_survived, 0),
+(faction_get_slot, ":faction_leader", ":rebel_found", slot_faction_leader),
  	(try_for_range, ":cur_troop", heroes_begin, heroes_end),
+	(neq, ":cur_troop", ":faction_leader"),
 	(troop_slot_eq, ":cur_troop", slot_troop_occupation, slto_kingdom_hero),
         (store_troop_faction, ":lord_faction_no", ":cur_troop"),
         (eq, ":rebel_found", ":lord_faction_no"),
-	(str_store_troop_name, s35, ":cur_troop"), #madsci store name
 	(call_script, "script_change_troop_faction", ":cur_troop", "fac_kingdom_1"),
-	(troop_set_name, ":cur_troop", s35), #madsci restore name
 	(try_end),
 
 	(try_for_range, ":cur_center", walled_centers_begin, walled_centers_end),
@@ -613,15 +613,34 @@ simple_triggers = [
 	(call_script, "script_give_center_to_faction", ":cur_center", "fac_kingdom_1"),
 	(try_end),
 
+	(try_begin),
+	(gt, ":faction_leader", 0),
+	(neg|troop_slot_eq, ":faction_leader", slot_troop_occupation, dplmc_slto_dead),
+	#(troop_set_slot, ":faction_leader", slot_troop_occupation, slto_inactive),
+		(try_begin), #madsci cant have a kingdom hero party of non-kingdom faction on the map
+		(troop_get_slot, ":current_party", ":faction_leader", slot_troop_leaded_party),
+		(gt, ":current_party", 0),
+		(party_is_active, ":current_party"),
+		(call_script, "script_remove_hero_prisoners", ":current_party"),
+		(remove_party, ":current_party"),
+		(else_try),
+		(troop_get_slot, ":cur_prisoner_of_party", ":faction_leader", slot_troop_prisoner_of_party),
+		(ge, ":cur_prisoner_of_party", 0),
+		(party_remove_prisoners, ":cur_prisoner_of_party", ":faction_leader", 1),
+		(call_script, "script_remove_troop_from_prison", ":faction_leader"),
+		(str_store_troop_name, s4, ":faction_leader"),
+		(display_message,"@{s4} has escaped from captivity."),
+		(try_end),
+	(call_script, "script_change_troop_faction", ":faction_leader", "fac_outlaws"),
+	(call_script, "script_update_troop_notes", ":faction_leader"),
+	(try_end),
+
 	(try_for_parties, ":party"),
 	(gt, ":party", last_static_party),
 	(store_faction_of_party, ":party_faction", ":party"),
 	(eq, ":party_faction", ":rebel_found"),
 	(party_set_faction, ":party", "fac_kingdom_1"),
 	(try_end),
-
-(faction_get_slot, "$temp2", ":rebel_found", slot_faction_leader),
-(faction_set_slot, ":rebel_found", slot_faction_leader, -1),
 
 	(try_begin),
         (eq, "$g_infinite_camping", 0),

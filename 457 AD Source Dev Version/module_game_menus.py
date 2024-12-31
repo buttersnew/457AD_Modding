@@ -32957,14 +32957,13 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     [
 (str_store_faction_name, s10, "$temp"),
 (str_store_faction_name, s11, "fac_kingdom_1"),
-        (try_begin),
-          (faction_get_slot, ":faction_leader", "$temp", slot_faction_leader),
-          (ge, ":faction_leader", 0),
+        (try_begin),          
+          (is_between, "$temp2", heroes_begin, heroes_end),
           (set_fixed_point_multiplier, 100),
           (position_set_x, pos0, 70),
           (position_set_y, pos0, 5),
           (position_set_z, pos0, 75),
-          (set_game_menu_tableau_mesh, "tableau_troop_note_mesh", ":faction_leader", pos0),
+          (set_game_menu_tableau_mesh, "tableau_troop_note_mesh", "$temp2", pos0),
         (try_end),
 ],
     [

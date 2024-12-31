@@ -48146,12 +48146,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
   (encountered_party_is_attacker),
   (eq, "$g_talk_troop", "trp_nero_larper_commander"),
   ],
-  "Men, serve me this insolent traitor's head on a platter!", "close_window",[
-    (assign,"$encountered_party_hostile",1),
-    (assign,"$encountered_party_friendly",0),
-    (call_script, "script_make_kingdom_hostile_to_player", "$g_encountered_party_faction", -6),
-    (encounter_attack),
-]],
+  "Men, serve me this insolent traitor's head on a platter!", "party_encounter_hostile_attacker",[]], #madsci generic response if the circumstances are weird
 
   #a certain magical codex
   [party_tpl|pt_heretical_codex_bandits,"start", [

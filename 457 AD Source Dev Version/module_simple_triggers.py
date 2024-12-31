@@ -7198,6 +7198,7 @@ simple_triggers = [
 	(store_mul, ":earnings", 25, "$g_num_prisoners"), #tocan: change this to amount per prisoner you want
 	(val_add, "$g_earnings", ":earnings"),
 	(assign, reg1, "$g_earnings"),
+	(call_script, "script_remove_hero_prisoners", "p_diocletians_palace"), #madsci dont let the player put lords here forever
     	(try_end),
     (display_message, "@Your farm has made a profit of {reg1} siliquae this week"),
     (troop_add_gold, "trp_player", "$g_earnings"),

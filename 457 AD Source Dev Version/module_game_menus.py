@@ -31170,14 +31170,24 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 #+freelancer start
 #menu_world_map_soldier
     ("world_map_soldier",0,
-    "What do you need to do soldier?",
+    "You are in the service of {s6}.",
     "none",
     [
-   (set_background_mesh, "mesh_pic_soldier_world_map"),
+   #(set_background_mesh, "mesh_pic_soldier_world_map"), #madsci this blocks text
    (troop_get_slot, "$enlisted_party", "$enlisted_lord", slot_troop_leaded_party), #CABA - to refresh it? maybe not necessessary
+   (str_store_troop_name, s6, "$enlisted_lord"),
+        (try_begin),
+          (set_fixed_point_multiplier, 100),
+          (position_set_x, pos0, 70),
+          (position_set_y, pos0, 5),
+          (position_set_z, pos0, 75),
+          (set_game_menu_tableau_mesh, "tableau_troop_note_mesh", "$enlisted_lord", pos0),
+        (try_end),
   ],
   [
     ("join_commander_battle",[
+	(gt, "$enlisted_party", 0),
+	(party_is_active, "$enlisted_party"),
       (party_get_battle_opponent, ":commander_opponent", "$enlisted_party"),
       (gt, ":commander_opponent", 0),
     ],"Follow the commander into battle.",[
@@ -31198,6 +31208,8 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     ]),
 
         ("enter_town",[
+	(gt, "$enlisted_party", 0),
+	(party_is_active, "$enlisted_party"),
       (party_get_attached_to, reg5, "$enlisted_party"),
       (gt, reg5, 0),
       (this_or_next|party_slot_eq, reg5, slot_party_type, spt_town),
@@ -31205,32 +31217,96 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     ] ,"Enter stationed town.",
         [(start_encounter, reg5),(change_screen_map),]),
 
-    ("commander",[(party_get_battle_opponent, ":commander_opponent", "$enlisted_party"),(lt, ":commander_opponent", 0),],
+    ("commander",[
+	(gt, "$enlisted_party", 0),
+	(party_is_active, "$enlisted_party"),
+	(party_get_battle_opponent, ":commander_opponent", "$enlisted_party"),
+	(lt, ":commander_opponent", 0),],
        "Request audience with your commander.",
         [(jump_to_menu, "mnu_commander_aud"),]),
 
-    ("revolt",[(party_get_attached_to, reg0, "$enlisted_party"),
-             (lt, reg0, 0)],"Revolt against the commander!",
+    ("revolt",[
+	(gt, "$enlisted_party", 0),
+	(party_is_active, "$enlisted_party"),
+	(party_get_attached_to, reg0, "$enlisted_party"),
+        (lt, reg0, 0)],"Revolt against the commander!",
         [(jump_to_menu, "mnu_ask_revolt"),]),
 
-    ("revolt_disabled",[(party_get_attached_to, reg0, "$enlisted_party"),
-    (gt, reg0, 0),
-    (disable_menu_option)],"You cannot revolt now. Bide your time.", []),
+    ("revolt_disabled",[
+	(gt, "$enlisted_party", 0),
+	(party_is_active, "$enlisted_party"),
+	(party_get_attached_to, reg0, "$enlisted_party"),
+    	(gt, reg0, 0),
+    	(disable_menu_option)],"You cannot revolt now. Bide your time.", []),
 
-    ("desert",[],"Desert the army.(keep equipment but lose relations)",
+    ("desert",[
+	(gt, "$enlisted_party", 0),
+	(party_is_active, "$enlisted_party"),
+],"Desert the army.(keep equipment but lose relations)",
         [(jump_to_menu, "mnu_ask_desert"),]),
 
-    ("report",[],"Commander's Report",
+	  ("regiment_destroyed", [
+			(this_or_next|le, "$enlisted_party", 0),
+			(neg|party_is_active, "$enlisted_party"),
+			(str_store_troop_name, s4, "$enlisted_lord"),
+	], "{s4}'s party has been destroyed.",
+	   [	
+	        (call_script, "script_freelancer_event_player_captured"),
+			(try_begin),
+			(gt, "$g_enemy_party", 0),
+			(party_is_active,"$g_enemy_party"),
+	       	 	(assign, "$g_encountered_party", "$g_enemy_party"),
+			(else_try),
+			(call_script, "script_get_closest_hostile_party", "p_main_party"),
+			(gt, reg0, 0),
+			(assign, "$g_encountered_party", reg0),
+			(else_try),
+			(store_random_in_range, "$g_encountered_party", towns_begin, towns_end),
+			(try_end),
+	        (jump_to_menu, "mnu_captivity_start_wilderness"),		
+		]),
+
+    ("report",[
+	(gt, "$enlisted_party", 0),
+	(party_is_active, "$enlisted_party"),
+],"Commander's Report",
     [(start_presentation, "prsnt_taragoth_lords_report"),]),
 
     ("return_to_duty",[
-      (party_get_battle_opponent, ":commander_opponent", "$enlisted_party"),
-      (this_or_next|lt, ":commander_opponent", 0),
-      (troop_is_wounded, "trp_player"),
+			(gt, "$enlisted_party", 0),
+			(party_is_active, "$enlisted_party"),
+			(party_get_battle_opponent, ":commander_opponent", "$enlisted_party"),
+			(assign, ":opp", 0),
+				(try_begin),
+				(gt, ":commander_opponent", 0),
+				(store_faction_of_party, ":opp_faction", ":commander_opponent"),
+				(store_faction_of_party, ":en_faction", "$enlisted_party"),
+				(eq, ":opp_faction", ":en_faction"),
+				(assign, ":opp", 1),
+				(try_end),
+			(this_or_next|eq, ":opp", 1),
+			(this_or_next|lt, ":commander_opponent", 0),
+		        (troop_is_wounded, "trp_player"),
     ],"Return to duty.",
-        [(change_screen_map),
-    (assign, "$g_infinite_camping", 1),
-        (rest_for_hours_interactive, 24 * 365, 5, 1),
+        [
+(try_begin),
+(party_get_battle_opponent, ":commander_opponent", "$enlisted_party"),
+(gt, ":commander_opponent", 0),
+(store_faction_of_party, ":opp_faction", ":commander_opponent"),
+(store_faction_of_party, ":en_faction", "$enlisted_party"),
+(eq, ":opp_faction", ":en_faction"),
+(party_leave_cur_battle, "$enlisted_party"), #madsci bugfix
+	(try_begin),
+	(party_get_attached_to, ":player_town", "$enlisted_party"),
+	(gt, ":player_town", 0),
+	(is_between, ":player_town", walled_centers_begin, walled_centers_end),
+	(party_detach, "$enlisted_party"),
+	(call_script, "script_party_set_ai_state", "$enlisted_party",  spai_patrolling_around_center, ":player_town"),
+	(try_end),
+(try_end),
+(change_screen_map),
+(assign, "$g_infinite_camping", 1),
+(rest_for_hours_interactive, 24 * 365, 5, 1),
     ]),
     ]),
 

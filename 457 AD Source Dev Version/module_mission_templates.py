@@ -2363,7 +2363,8 @@ core_ship_system = [	# 6 trigger
         
         (try_begin),
           #(this_or_next|eq, ":block", 1),	# = Block
-          (le, ":crew_number", 1),
+          #(le, ":crew_number", 1),
+          (le, ":crew_number", 0), #madsci if there's only 1 person on a boat, the boat should still move
           (assign, ":oar_stacks", 0),
         (else_try),
           (lt, ":crew_in_percent", 20),
@@ -2717,6 +2718,25 @@ coastal_defender_formation = [
       (end_try),
       (assign, "$first_ship_landet", 2),
   ]),
+
+#madsci automated ships in freelancer
+(1, 0, ti_once, [(eq, "$freelancer_state", 1),], [
+(get_player_agent_no, ":player_agent"),
+(agent_get_team, ":player_team", ":player_agent"),
+(try_begin),
+(assign, ":has_friends", 0),
+	(try_for_agents, ":agent_no"),
+	(eq, ":has_friends", 0),
+	(agent_is_human, ":agent_no"),
+	(agent_is_alive, ":agent_no"),
+	(agent_get_team, ":team_no", ":agent_no"),
+	(neq, ":team_no", ":player_team"),
+	(neg|teams_are_enemies, ":team_no", ":player_team"),
+	(try_end),
+(eq, ":has_friends", 1),
+(assign, "$block_player_ship_control", 1),
+(try_end),
+]),
 ]
 player_only_drowning =(	#VC-3182
   1, 0, 0, [],[

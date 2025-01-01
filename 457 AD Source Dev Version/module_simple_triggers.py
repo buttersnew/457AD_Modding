@@ -227,6 +227,7 @@ simple_triggers = [
   #Music,
   (1,
    [
+	(this_or_next|eq, "$freelancer_state", 1),
        (map_free),
        (call_script, "script_music_set_situation_with_culture", mtf_sit_travel),
         ]),

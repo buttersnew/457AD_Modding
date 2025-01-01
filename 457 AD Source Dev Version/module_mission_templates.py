@@ -8678,33 +8678,46 @@ mission_templates = [
      (6,mtef_scene_source|mtef_team_0,af_override_horse,0,1,pilgrim_disguise),
      (7,mtef_scene_source|mtef_team_0,af_override_horse,0,1,pilgrim_disguise),
      (8,mtef_visitor_source,af_override_horse,0,1,[]),
-     (9,mtef_visitor_source,af_override_horse,0,1,[]),(10,mtef_visitor_source,af_override_horse,0,1,[]),(11,mtef_visitor_source,af_override_horse,0,1,[]),(12,mtef_visitor_source,af_override_horse,0,1,[]),(13,mtef_visitor_source,0,0,1,[]),(14,mtef_scene_source,0,0,1,[]),(15,mtef_scene_source,0,0,1,[]),
-     (16,mtef_visitor_source,af_override_horse,0,1,[]),(17,mtef_visitor_source,af_override_horse,0,1,[]),(18,mtef_visitor_source,af_override_horse,0,1,[]),(19,mtef_visitor_source,af_override_horse,0,1,[]),(20,mtef_visitor_source,af_override_horse,0,1,[]),(21,mtef_visitor_source,af_override_horse,0,1,[]),(22,mtef_visitor_source,af_override_horse,0,1,[]),
-	 (23,mtef_visitor_source,af_override_horse,0,1,[]), #guard
+     (9,mtef_visitor_source,af_override_horse,0,1,[]),
+     (10,mtef_visitor_source,af_override_horse,0,1,[]),
+     (11,mtef_visitor_source,af_override_horse,0,1,[]),
+     (12,mtef_visitor_source,af_override_horse,0,1,[]),
+     (13,mtef_visitor_source,0,0,1,[]),
+     (14,mtef_scene_source,0,0,1,[]),
+     (15,mtef_scene_source,0,0,1,[]),
+     (16,mtef_visitor_source,af_override_horse,0,1,[]),
+     (17,mtef_visitor_source,af_override_horse,0,1,[]),
+     (18,mtef_visitor_source,af_override_horse,0,1,[]),
+     (19,mtef_visitor_source,af_override_horse,0,1,[]),
+     (20,mtef_visitor_source,af_override_horse,0,1,[]),
+     (21,mtef_visitor_source,af_override_horse,0,1,[]),
+     (22,mtef_visitor_source,af_override_horse,0,1,[]),
+	   (23,mtef_visitor_source,af_override_horse,0,1,[]), #guard
      (24,mtef_visitor_source,af_override_horse,0,1,[]), #guard
-	 (25,mtef_visitor_source,af_override_horse,0,1,[]), #guard
-	 (26,mtef_visitor_source,af_override_horse,0,1,[]), #guard
-	 (27,mtef_visitor_source,af_override_horse,0,1,[]), #guard
-	 (28,mtef_visitor_source,af_override_horse,0,1,[]), #guard
-	 (29,mtef_visitor_source,af_override_horse,0,1,[]),
-	 (30,mtef_visitor_source,af_override_horse,0,1,[]),
-	 (31,mtef_visitor_source,af_override_horse,0,1,[]),
+	   (25,mtef_visitor_source,af_override_horse,0,1,[]), #guard
+	   (26,mtef_visitor_source,af_override_horse,0,1,[]), #guard
+  	 (27,mtef_visitor_source,af_override_horse,0,1,[]), #guard
+  	 (28,mtef_visitor_source,af_override_horse,0,1,[]), #guard
+  	 (29,mtef_visitor_source,af_override_horse,0,1,[]),
+  	 (30,mtef_visitor_source,af_override_horse,0,1,[]),
+  	 (31,mtef_visitor_source,af_override_horse,0,1,[]),
      (32,mtef_visitor_source,af_override_horse,0,1,[]),
-	 (33,mtef_visitor_source,af_override_horse,0,1,[]),
-	 (34,mtef_visitor_source,af_override_horse,0,1,[]),
-	 (35,mtef_visitor_source,af_override_horse,0,1,[]),
-	 (36,mtef_visitor_source,af_override_horse,0,1,[]), #town walker point
-	 (37,mtef_visitor_source,af_override_horse,0,1,[]), #town walker point
-	 (38,mtef_visitor_source,af_override_horse,0,1,[]),
-	 (39,mtef_visitor_source,af_override_horse,0,1,[]),
+  	 (33,mtef_visitor_source,af_override_horse,0,1,[]),
+  	 (34,mtef_visitor_source,af_override_horse,0,1,[]),
+  	 (35,mtef_visitor_source,af_override_horse,0,1,[]),
+  	 (36,mtef_visitor_source,af_override_horse,0,1,[]), #town walker point
+  	 (37,mtef_visitor_source,af_override_horse,0,1,[]), #town walker point
+  	 (38,mtef_visitor_source,af_override_horse,0,1,[]),
+  	 (39,mtef_visitor_source,af_override_horse,0,1,[]),
      (40,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]), #in towns, can be used for guard reinforcements
-	 (41,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]), #in towns, can be used for guard reinforcements
-	 (42,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]), #in towns, can be used for guard reinforcements
-	 (43,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]), #in towns, can be used for guard reinforcements
+  	 (41,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]), #in towns, can be used for guard reinforcements
+  	 (42,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]), #in towns, can be used for guard reinforcements
+  	 (43,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]), #in towns, can be used for guard reinforcements
      (44,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),
-	 (45,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),
-	 (46,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),
-	 (47,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),
+  	 (45,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),
+  	 (46,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),
+  	 (47,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),
+     (50,mtef_visitor_source,af_override_horse,0,1,[]), #quest npc
      ], tocan_walkers + vc_weather +
     [   
       (ti_on_agent_spawn, 0, 0, [],

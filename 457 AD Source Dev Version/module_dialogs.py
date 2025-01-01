@@ -2270,6 +2270,7 @@ If you would like to practice your horsemanship, you can take my horse here. The
   ],
     "--He looks now into your direction.--^^{playername}, I didn't forget about you. May your name and fame be known far and wide. I want to gift you with something that is very dear to me: my grandfather's armor, Mundzuk. And have your share of the loot too, you and your men deserve it.^^You will always be welcome here, {playername}.",
   "close_window",[
+    (troop_add_item, "trp_player","itm_mundzuk_armor",0),
     (mission_disable_talk),
     (assign, "$g_battle_result", 1),
   ]],

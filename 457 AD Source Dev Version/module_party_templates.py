@@ -64,6 +64,7 @@ party_templates = [
   #classis (roman naval patrol)
   ("classis_ravenna","Classis Ravennatium",icon_roman_footman_army|carries_goods(8)|pf_show_faction,0,fac_commoners,soldier_personality,[(trp_roman_sailor,35,55),(trp_roman_marine,25,35)]),
   ("classis_naples","Classis Misenatium",icon_roman_footman_army|carries_goods(8)|pf_show_faction,0,fac_commoners,soldier_personality,[(trp_roman_sailor,35,55),(trp_roman_marine,25,35)]),
+  ("classis_constantinople","Classis Constantinopolis",icon_roman_footman_army|carries_goods(8)|pf_show_faction,0,fac_commoners,soldier_personality,[(trp_roman_sailor,35,55),(trp_roman_marine,25,35)]),
   ("deserters","Deserters",icon_flagbearer_a|carries_goods(3),0,fac_deserters,bandit_personality,[]),
 
   ("samaritan_rebels","Samaritan Rebels",icon_roman_footman_2|carries_goods(2),0,fac_samaritan_rebels,bandit_personality,[(trp_samaritan_zealot,5,20),(trp_samaritan_rebel,3,10)]), #will be used later

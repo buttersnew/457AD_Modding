@@ -1852,31 +1852,34 @@ simple_triggers = [
    [
     (call_script, "script_allow_vassals_to_join_indoor_battle"),
     
-    #SB : add spotting check, moved to less time-consuming slot
-    (call_script, "script_get_max_skill_of_player_party", "skl_spotting"),
-    (store_add, ":spotting", reg0, 3),
-    (val_div, ":spotting", 2), #1 to 9 now
-    (val_add, ":spotting", 1), #1 to 9 now
-    (try_for_parties, ":bandit_camp"),
-      #(gt, ":bandit_camp", "p_spawn_points_end"),
-      (gt, ":bandit_camp", last_static_party), #madsci
-      #Can't have party is active here, because it will fail for inactive parties
-      (party_get_template_id, ":template", ":bandit_camp"), #SB : fix template range
-      (is_between, ":template", "pt_steppe_bandit_lair", "pt_bandit_lair_templates_end"),
+(assign, ":spotting", 3),
+(try_begin),
+(call_script, "script_get_max_skill_of_player_party", "skl_spotting"),
+(assign, ":skill", reg0),
+(gt, ":skill", 1),
+(val_div, ":skill", 2),
+(val_add, ":spotting", ":skill"),
+(try_end),
 
-      (store_distance_to_party_from_party, ":distance", "p_main_party", ":bandit_camp"),
-      (lt, ":distance", ":spotting"),
-      (party_set_flags, ":bandit_camp", pf_disabled, 0),
-      (party_set_flags, ":bandit_camp", pf_always_visible, 1),
-    (else_try),
-      (eq, ":bandit_camp", "p_camp_of_tatra"),
-      (store_distance_to_party_from_party, ":distance", "p_main_party", ":bandit_camp"),
-      (lt, ":distance", ":spotting"),
-      (party_set_flags, ":bandit_camp", pf_disabled, 0),
-      (party_set_flags, ":bandit_camp", pf_always_visible, 1),
-      (quest_slot_eq, "qst_ernak_quest", slot_quest_target_onoguroi, 2),
-      (tutorial_box, "@You found the camp of Tatra. Report back to the Onoguroi chief.", "@Camp found!"),
-      (quest_set_slot, "qst_ernak_quest", slot_quest_target_onoguroi, 3),
+    	(try_for_parties, ":bandit_camp"),
+      	(gt, ":bandit_camp", last_static_party), #madsci
+      	(party_get_template_id, ":template", ":bandit_camp"), #SB : fix template range
+		(try_begin),
+      		(is_between, ":template", "pt_steppe_bandit_lair", "pt_bandit_lair_templates_end"),
+      		(store_distance_to_party_from_party, ":distance", "p_main_party", ":bandit_camp"),
+      		(lt, ":distance", ":spotting"),
+      		(party_set_flags, ":bandit_camp", pf_disabled, 0),
+      		(party_set_flags, ":bandit_camp", pf_always_visible, 1),
+    		(else_try),
+      		(quest_slot_eq, "qst_ernak_quest", slot_quest_target_onoguroi, 2),
+      		(eq, ":bandit_camp", "p_camp_of_tatra"),
+      		(store_distance_to_party_from_party, ":distance", "p_main_party", ":bandit_camp"),
+      		(lt, ":distance", ":spotting"),
+      		(quest_set_slot, "qst_ernak_quest", slot_quest_target_onoguroi, 3),
+      		(party_set_flags, ":bandit_camp", pf_disabled, 0),
+      		(party_set_flags, ":bandit_camp", pf_always_visible, 1),
+      		(tutorial_box, "@You found the camp of Tatra. Report back to the Onoguroi chief.", "@Camp found!"),
+		(try_end),
     (try_end),
    ]),
 

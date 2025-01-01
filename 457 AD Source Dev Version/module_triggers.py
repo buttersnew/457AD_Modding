@@ -1221,9 +1221,7 @@ triggers = [
   (dialog_box, "@A messenger approaches your warband, bringing news of rebellion! A man claiming to Nero has hired an army and marched on Rome!", "@A messenger approaches your warband"),
   (set_spawn_radius, 4),
   (spawn_around_party, "p_town_8", "pt_nero_rebel_army"),
-  (party_set_faction, reg0, "fac_neutral"), #madsci this party shouldnt get killed by random lords
-  (party_set_flags, reg0, pf_quest_party, 1),
-  (party_set_ai_behavior, reg0, ai_bhvr_hold),
+  (quest_set_slot, "qst_nero_larper_quest", slot_quest_target_party, reg0),
   (quest_set_slot,"qst_nero_larper_quest",slot_quest_current_state, 5),
 ]),
 

@@ -31287,6 +31287,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     ("revolt",[
 	(gt, "$enlisted_party", 0),
 	(party_is_active, "$enlisted_party"),
+	(neg|party_slot_eq, "$enlisted_party", slot_party_on_water, 1), #madsci not if in water
 	(party_get_attached_to, reg0, "$enlisted_party"),
         (lt, reg0, 0)],"Revolt against the commander!",
         [(jump_to_menu, "mnu_ask_revolt"),]),
@@ -31295,13 +31296,15 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 	(gt, "$enlisted_party", 0),
 	(party_is_active, "$enlisted_party"),
 	(party_get_attached_to, reg0, "$enlisted_party"),
+	(this_or_next|party_slot_eq, "$enlisted_party", slot_party_on_water, 1), #madsci not if in water
     	(gt, reg0, 0),
     	(disable_menu_option)],"You cannot revolt now. Bide your time.", []),
 
     ("desert",[
 	(gt, "$enlisted_party", 0),
 	(party_is_active, "$enlisted_party"),
-],"Desert the army.(keep equipment but lose relations)",
+	(neg|party_slot_eq, "$enlisted_party", slot_party_on_water, 1), #madsci not if in water
+],"Desert the army. (keep equipment but lose relations)",
         [(jump_to_menu, "mnu_ask_desert"),]),
 
 	  ("regiment_destroyed", [

@@ -3534,7 +3534,10 @@ simple_triggers = [
         	(try_begin),
             	(party_slot_eq, ":party_no", slot_party_on_water, 1),
                 (neq, ":icon", "icon_ship"),
+		(party_get_current_terrain, ":terrain_type", ":party_no"),
 		(call_script, "script_check_ports", ":party_no"),
+		(this_or_next|eq, ":terrain_type", rt_water),
+		(this_or_next|eq, ":terrain_type", rt_deep_water),
 		(gt, reg0, -1), #port near
                 (party_set_slot, ":party_no", slot_icon_backup, ":icon"),
             	(assign, ":new_icon", "icon_ship"),

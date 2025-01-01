@@ -26113,6 +26113,19 @@ mission_templates = [
     (agent_set_horse_speed_factor, ":player", 0),
     (agent_set_no_death_knock_down_only, ":player", 1),
 	   ]),
+
+	#madsci give banners if fighting
+    (0, 0, ti_once,
+       [
+	(neg|all_enemies_defeated),
+	],[
+	(try_for_agents, ":agent_no"),
+    	(agent_is_human, ":agent_no"),
+	(agent_is_alive, ":agent_no"),
+    	(agent_get_troop_id, ":troop_no", ":agent_no"),
+    	(call_script, "script_troop_agent_set_banner", "tableau_game_troop_label_banner", ":agent_no", ":troop_no"),
+	(try_end),
+	]),
        
     (ti_before_mission_start,0,0,[],[
     # (call_script, "script_music_set_situation_with_culture", mtf_sit_feast),

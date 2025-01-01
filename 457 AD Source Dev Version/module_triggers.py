@@ -1071,16 +1071,16 @@ triggers = [
       (try_end),
      (assign, "$g_coptic_rebellion_triggered", 1),
     (troop_set_note_available, "trp_mia_bishop_alexandria_1", 1),
-    (add_troop_note_from_sreg, "trp_mia_bishop_alexandria_1", 3, "@Timothy II is the Miaphysite Patriarch of Alexandria (Non-Chalcedonian).", 0),
+    (add_troop_note_from_sreg, "trp_mia_bishop_alexandria_1", 3, "@Timothy II is the Miaphysite Patriarch of Alexandria.", 0),
     (add_troop_note_tableau_mesh, "trp_mia_bishop_alexandria_1", "tableau_troop_note_mesh"),
    ]),
 
-(724,0,ti_once,[(eq, "$g_foederati_event", 0),],[
+(2400,0,ti_once,[(eq, "$g_foederati_event", 0),],[
   (set_spawn_radius, 8),
-  (try_for_range, ":unused", 1, 3),
+  (try_for_range, ":unused", 2, 5),
     (spawn_around_party, "p_town_13", "pt_foederati_rebels"),
   (try_end),  
-  (spawn_around_party, "p_town_13", "pt_foederati_rebels"),
+  (spawn_around_party, "p_town_13", "pt_tuldila_rebels"),
   (dialog_box, "@Foederati hired by Majorian for his campaigns have begun to pillage the italian countryside!", "@A messenger approaches your warband"),
   (assign, "$g_foederati_event", 1),
    ]),

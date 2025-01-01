@@ -65,7 +65,6 @@ party_templates = [
 
   ("samaritan_rebels","Samaritan Rebels",icon_roman_footman_2|carries_goods(2),0,fac_samaritan_rebels,bandit_personality,[(trp_samaritan_zealot,5,20),(trp_samaritan_rebel,3,10)]), #will be used later
   ("bagaudae","Bagaudae Army",icon_roman_footman_army|carries_goods(2),0,fac_forest_bandits,bandit_personality,[(trp_forest_bandit_recruit,30,75),(trp_forest_bandit,20,100),(trp_bagaudae_footman,15,55)]),
-  ("pirates","Piratae",icon_axeman|carries_goods(2),0,fac_outlaws,bandit_personality,[(trp_pirate,9,60)]),
   ("bagaudae_army_event","Bagaudae Army",icon_roman_footman_army|carries_goods(5),0,fac_forest_bandits,bandit_personality,[(trp_forest_bandit_recruit,50,155),(trp_forest_bandit,45,125),(trp_bagaudae_footman,35,80)]),
   ("gallaecian_rebels","Gallaecian Rebels",icon_roman_footman_2|carries_goods(8),0,fac_minor_gallaeci,soldier_personality,[(trp_hibero_roman_venator,20,40),(trp_hibero_roman_rusticus,15,25),(trp_hibero_roman_defensor,10,20)]),
   ("foederati_rebels","Foederati Rebels",icon_roman_footman_army|carries_goods(2),0,fac_deserters,bandit_personality,[(trp_miles_foederatus_germani,20,40),(trp_miles_foederatus_gothorum,20,30),(trp_eques_symmachi_hunnorum,10,20)]), #mix of huns, foederati troops - some time before majorians major campaigns, unruly federates + huns ravaged the countryside
@@ -126,8 +125,8 @@ party_templates = [
   #event parties
   ("nero_rebel_army","Legio Neronia",icon_roman_footman_army|carries_goods(30)|pf_auto_remove_in_town,0,fac_peasant_rebels,bandit_personality,[(trp_nero_larper_commander,1,1),(trp_miles_romani,200,215),(trp_sagittarius,60,70),(trp_bucellarius,45,55),(trp_imperial_signifer,5,5)]),
   ("agrippinus_rebel_army","Legio Gallia",icon_roman_footman_army|carries_goods(30)|pf_auto_remove_in_town,0,fac_peasant_rebels,bandit_personality,[(trp_agrippinus,1,1),(trp_miles_romani,200,215),(trp_sagittarius,30,50),(trp_bucellarius,45,55),(trp_miles_foederatus_gothorum,50,60)]),
-  ("tuldila_rebels","Foederati Rebels",icon_roman_footman_army|carries_goods(30),0,fac_deserters,bandit_personality,[(trp_tuldila,1,1),(trp_miles_foederatus_gothorum,40,60),(trp_eques_symmachi_hunnorum,20,40)]),
-  ("vllibos_rebels","Gothic Rebels",icon_roman_footman_army|carries_goods(30)|pf_auto_remove_in_town,0,fac_peasant_rebels,bandit_personality,[(trp_vllibos,1,1),(trp_miles_foederatus_gothorum,100,200)]),
+  ("tuldila_rebels","Tuldila's Rebels",icon_roman_footman_army|carries_goods(30),0,fac_deserters,bandit_personality,[(trp_tuldila,1,1),(trp_miles_foederatus_germani,20,40),(trp_miles_foederatus_gothorum,40,60),(trp_eques_symmachi_hunnorum,20,40)]),
+  ("vllibos_rebels","Vilibo's Rebels",icon_roman_footman_army|carries_goods(30)|pf_auto_remove_in_town,0,fac_peasant_rebels,bandit_personality,[(trp_vllibos,1,1),(trp_miles_foederatus_gothorum,100,200)]),
 
 # Caravans
   # ("center_reinforcements","Reinforcements",icon_axeman|carries_goods(16),0,fac_commoners,soldier_personality,[(trp_townsman,5,30),(trp_watchman,4,20)]),  

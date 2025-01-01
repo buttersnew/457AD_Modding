@@ -1013,7 +1013,9 @@ triggers = [
 [(jump_to_menu, "mnu_promotion_officorum"),]),
 
 
-(168,0,ti_once,[(faction_slot_eq, "fac_kingdom_9", slot_faction_state, sfs_inactive),(faction_slot_eq, "fac_kingdom_1", slot_faction_state, sfs_active)],[ #majorian gains claims on vandal, visigoth, suebi territory after conquering burgundians
+(168,0,ti_once,[
+(neg|faction_slot_eq, "fac_kingdom_9", slot_faction_state, sfs_active),
+(faction_slot_eq, "fac_kingdom_1", slot_faction_state, sfs_active),],[ #majorian gains claims on vandal, visigoth, suebi territory after conquering burgundians
   #towns - primarily focuses on areas that he did conquer or try to conquer
   (party_set_slot, "p_town_17", slot_center_ex_faction, "fac_kingdom_1"), #WRE Claims carthage
   (party_set_slot, "p_town_23", slot_center_ex_faction, "fac_kingdom_1"), #WRE Claims bracara
@@ -1027,7 +1029,12 @@ triggers = [
   (party_set_slot, "p_castle_40", slot_center_ex_faction, "fac_kingdom_1"),
   (party_set_slot, "p_castle_55", slot_center_ex_faction, "fac_kingdom_1"),
 
-  (call_script, "script_diplomacy_start_war_between_kingdoms", "fac_kingdom_1", "fac_kingdom_3", 0), #declares war
+	(try_begin),
+	(faction_slot_eq, "fac_kingdom_3", slot_faction_state, sfs_active),
+        (store_relation, ":reln", "fac_kingdom_1", "fac_kingdom_3"),
+        (ge, ":reln", 0),
+	(call_script, "script_diplomacy_start_war_between_kingdoms", "fac_kingdom_1", "fac_kingdom_3", 0), #declares war
+	(try_end),
 ]),
 
 (1800,0,ti_once,[(faction_slot_eq, "fac_kingdom_6", slot_faction_state, sfs_active),(neq,"$g_arran_revolt",1)],[  #checks if the Sassanids are still around - around 75 (1800 hours) days
@@ -1469,8 +1476,10 @@ triggers = [
 #+freelancer start
 
 (72,0,ti_once,[
+  (neg|party_slot_eq, "p_main_party", slot_party_on_water, 1), #madsci a messenger doesnt appear if the player is sea traveling
   (faction_slot_eq, "fac_player_supporters_faction", slot_faction_state, sfs_active), # player faction is active
   (faction_slot_eq, "fac_player_supporters_faction", slot_faction_leader, "trp_player"), # player is king
+  (eq, "$players_kingdom", "fac_player_supporters_faction"),
   (eq,"$basilius_interaction",3), #basilius will join the player
   (neg|troop_slot_eq, "trp_knight_bagadua_1", slot_troop_occupation, dplmc_slto_dead),
 ],[

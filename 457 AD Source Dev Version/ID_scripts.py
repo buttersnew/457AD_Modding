@@ -965,4 +965,6 @@ script_get_distance_to_terrain_or_water = 963
 script_spawn_pirate = 964
 script_spawn_naval_patrol_ravenna = 965
 script_spawn_naval_patrol_naples = 966
-script_efe_init = 967
+script_spawn_naval_patrol_constantinople = 967
+script_get_closest_hostile_party = 968
+script_efe_init = 969

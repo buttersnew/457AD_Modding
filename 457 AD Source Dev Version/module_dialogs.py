@@ -50756,6 +50756,9 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
    "You are just like the others; A heart hardened to the mercy that the Lord offers us all. I shall depart from this stubborn town; for it will swiftly perish to the enemy...", "close_window", [ #will end the scene, and deny the player the ability to visit asturis
    (disable_party, "p_sq_asturis_1"),
    (assign, "$g_severinus_quest", 3),
+   (finish_mission),
+   (leave_encounter),
+   (change_screen_return),
    ]],
 
 

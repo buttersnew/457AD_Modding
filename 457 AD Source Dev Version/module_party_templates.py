@@ -61,6 +61,9 @@ party_templates = [
   ("arab_bandits","Saraceni",icon_khergit_horseman_b|carries_goods(2)|pf_show_faction,0,fac_outlaws,bandit_personality,[(trp_arab_bandit,6,30)]),
   ("bandits","Bandits",icon_axeman|carries_goods(8),0,fac_outlaws,bandit_personality,[(trp_robber,5,35),(trp_bandit,2,15),(trp_brigand,1,5)]),
   ("pirates_mediterranean","Piratae",icon_axeman|carries_goods(2),0,fac_pirates,soldier_personality,[(trp_pirate,55,75)]), #madsci party cant be too small because of ships require people
+  #classis (roman naval patrol)
+  ("classis_ravenna","Classis Ravennatium",icon_roman_footman_army|carries_goods(8)|pf_show_faction,0,fac_commoners,soldier_personality,[(trp_roman_sailor,35,55),(trp_roman_marine,25,35)]),
+  ("classis_naples","Classis Misenatium",icon_roman_footman_army|carries_goods(8)|pf_show_faction,0,fac_commoners,soldier_personality,[(trp_roman_sailor,35,55),(trp_roman_marine,25,35)]),
   ("deserters","Deserters",icon_flagbearer_a|carries_goods(3),0,fac_deserters,bandit_personality,[]),
 
   ("samaritan_rebels","Samaritan Rebels",icon_roman_footman_2|carries_goods(2),0,fac_samaritan_rebels,bandit_personality,[(trp_samaritan_zealot,5,20),(trp_samaritan_rebel,3,10)]), #will be used later
@@ -492,10 +495,6 @@ party_templates = [
   ("numeri_isaurorum_a", "{!}numeri isaurorum reinforcements", 0, 0, fac_commoners, 0, [(trp_mountain_bandit,8,18)]), 
   ("numeri_isaurorum_b", "{!}numeri isaurorum reinforcements", 0, 0, fac_commoners, 0, [(trp_isaurian_warrior,5,12),(trp_sagittarius,3,8),(trp_imperial_signifer,1,1)]),
   ("numeri_isaurorum_c", "{!}numeri isaurorum reinforcements", 0, 0, fac_commoners, 0, [(trp_isaurian_infantry,3,10),(trp_centenarius,1,1)]),
-
-  #classis (roman naval patrol)
-  ("classis_ravenna","Classis Ravennatium",icon_roman_footman_army|carries_goods(8)|pf_show_faction,0,fac_commoners,soldier_personality,[(trp_roman_sailor,35,55),(trp_roman_marine,25,35)]),
-  ("classis_naples","Classis Misenatium",icon_roman_footman_army|carries_goods(8)|pf_show_faction,0,fac_commoners,soldier_personality,[(trp_roman_sailor,35,55),(trp_roman_marine,25,35)]),
 
   #eventually with have Magister Militum per Illyricum
   #lanciarii iuniores (comitatenses)

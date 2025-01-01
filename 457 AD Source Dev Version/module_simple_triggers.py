@@ -4181,11 +4181,33 @@ simple_triggers = [
      (try_end),
     #Also, piggy-backing on this -- having bandits go to lairs and back
     (try_for_parties, ":party_no"),
-      #(gt, ":party_no", "p_spawn_points_end"),
       (gt, ":party_no", last_static_party), #madsci
       (party_is_active, ":party_no"),
       (party_get_template_id, ":party_template", ":party_no"),
       (try_begin),
+	(this_or_next|eq, ":party_template", "pt_classis_ravenna"),
+	(eq, ":party_template", "pt_classis_naples"),
+	(party_is_in_any_town, ":party_no"),
+	(party_get_slot, ":origin", ":party_no", slot_village_bound_center),
+	(party_get_slot, ":target", ":party_no", slot_party_last_traded_center),
+	(party_get_slot, ":ai_object", ":party_no", slot_party_ai_object),
+		(try_begin),
+		(eq, ":ai_object", ":target"),
+		(assign, ":ai_target", ":origin"),
+		(else_try),
+		(assign, ":ai_target", ":target"),
+		(try_end),
+	(party_set_slot, ":party_no", slot_party_ai_object, ":ai_target"),
+	(party_set_ai_behavior, ":party_no", ai_bhvr_travel_to_party),
+	(party_set_ai_object, ":party_no", ":ai_target"),
+		(try_begin),
+		(store_faction_of_party, ":town_faction",":ai_target"),
+		(store_faction_of_party, ":party_faction",":party_no"),
+		(neq, ":town_faction", ":party_faction"),
+		(call_script, "script_remove_hero_prisoners", ":party_no"),
+		(remove_party, ":party_no"),
+		(try_end),
+	(else_try),
 	(eq, ":party_template", "pt_pirates_mediterranean"), #madsci simple pirate AI
 	(get_party_ai_behavior, ":behavior", ":party_no"),
 	(neq, ":behavior", ai_bhvr_attack_party),
@@ -4199,7 +4221,6 @@ simple_triggers = [
         (is_between, ":party_template", bandit_party_templates_begin, bandit_party_templates_end), #SB : template range
         (party_template_get_slot, ":bandit_lair", ":party_template", slot_party_template_lair_party),
         (try_begin),#If party is active and bandit is far away, then move to location
-          #(gt, ":bandit_lair", "p_spawn_points_end"),
 	(gt, ":bandit_lair", last_static_party), #madsci
           (store_distance_to_party_from_party, ":distance", ":party_no", ":bandit_lair"), #this is the cause of the error
           (gt, ":distance", 30),

@@ -5012,7 +5012,7 @@ troops = [
   ["priscus","Priscus","Priscus",tf_hero, 0, reserved, fac_kingdom_2,[itm_ankle_boots,itm_coptic_tunic_3],def_attrib_lvl_20|level(19),wp(180),knows_ironflesh_2|knows_power_strike_2|knows_athletics_2,0x0000000f3600314f46da91b6636db6db00000000001db6d20000000000000000],
 
   #personal priest in langobard's court - will be used for cynocephali quest
-  ["eadric","Eadric","Eadric",tf_hero|tf_guarantee_boots|tf_guarantee_armor, 0, reserved, fac_pagans,[itm_wrapping_boots,itm_robe],def_attrib|level(3),wp(80),knows_wound_treatment_3,0x0000000fc00004823adb6dcadb6dbadb00000000001db6dc0000000000000000],
+  ["eadric","Eadric","Eadric",tf_hero, 0, reserved, fac_pagans,[itm_wrapping_boots,itm_robe],def_attrib|level(3),wp(80),knows_wound_treatment_3,0x0000000fc00004823adb6dcadb6dbadb00000000001db6dc0000000000000000],
 
 #Relgious troops
   #CONVERSION TROOPS
@@ -5116,9 +5116,9 @@ troops = [
 
   ["old_palace_farmer","Old Farmer","Old Farmer",tf_hero|tf_is_merchant, scn_diocletians_palace|entry(1), reserved, fac_kingdom_1,[itm_ankle_boots,itm_coarse_tunic],def_attrib_lvl_13|level(10),wp(100),knows_ironflesh_2|knows_power_strike_2|knows_athletics_2,0x0000000fcf00418536db6db6db6db6db00000000001db6db0000000000000000],
 
-  ["diocletian","Mysterious Man","Mysterious Man",tf_hero|tf_guarantee_boots|tf_guarantee_armor, scn_diocletians_palace|entry(11), reserved, fac_kingdom_1,[itm_roman_lorum_fasciari_6,itm_coptic_tunic_emperor_1,itm_crown_1],def_attrib_lvl_30|level(30),wp(400),knows_ironflesh_10|knows_power_strike_10|knows_athletics_10,0x0000000ffb0090854a5974b71b71492300000000001db6e30000000000000000],
+  ["diocletian","Mysterious Man","Mysterious Man",tf_hero, scn_diocletians_palace|entry(11), reserved, fac_kingdom_1,[itm_roman_lorum_fasciari_6,itm_coptic_tunic_emperor_1,itm_crown_1],def_attrib_lvl_30|level(30),wp(400),knows_ironflesh_10|knows_power_strike_10|knows_athletics_10,0x0000000ffb0090854a5974b71b71492300000000001db6e30000000000000000],
 
-  ["german_bard","Frumirus","Frumirus",tf_hero|tf_guarantee_boots|tf_guarantee_armor, scn_town_23_tavern|entry(12), reserved, fac_commoners,[itm_wrapping_boots,itm_tunic_4_cloak],def_attrib|level(3),wp(80),knows_common,0x000000049e002408555b6db69badb2db00000000001db71a0000000000000000],
+  ["german_bard","Frumirus","Frumirus",tf_hero, scn_town_23_tavern|entry(12), reserved, fac_commoners,[itm_wrapping_boots,itm_tunic_4_cloak],def_attrib|level(3),wp(80),knows_common,0x000000049e002408555b6db69badb2db00000000001db71a0000000000000000],
 
   #name is actually going to be Hilarius Pupienus Maximus, haha funnie
   ["nero_larper","Nero Redivivus","Nero Redivivus",tf_hero, 0, reserved, fac_commoners,[itm_deurne_campagi_4,itm_coptic_tunic_10,itm_sword_khergit_4,itm_crown_1],def_attrib_lvl_30|level(30),wp(280),knows_lvl_30,0x00000000310010035adc7236dc8dbada00000000001d36e50000000000000000],
@@ -5179,7 +5179,7 @@ troops = [
   #wolfmen quest
   ["berserker_leader","Old Shaman","Cynocephalus Leader",tf_hero, no_scene, reserved, fac_commoners,[itm_wrapping_boots,itm_common_mail_short_4,itm_wolf_skin_1,itm_concave_shield_germanic_26,itm_sword_viking_2],def_attrib_lvl_30|level(30),wp_one_handed(260)|wp_two_handed(200)|wp_polearm(260)|wp_throwing(250)|wp_archery(180),knows_lvl_30,0x0000000fe20c650755515248aa952b1400000000001d36a90000000000000000],
 
-  ["cynocephalus_boss","Cynocephalus","Cynocephali",tf_hero|tf_guarantee_basic|tf_guarantee_helmet,0,0,fac_culture_2,[itm_wrapping_boots,itm_pants_7,itm_wolf_skin_1,itm_throwing_spears,itm_war_spear,itm_sword_viking_3_small,itm_concave_shield_germanic_26],def_attrib_lvl_30|level(30),wp_one_handed(260)|wp_two_handed(200)|wp_polearm(260)|wp_throwing(250)|wp_archery(180),knows_lvl_30,0x0000000cd50c448437118a186c89496400000000001e12f80000000000000000],
+  ["cynocephalus_boss","Cynocephalus","Cynocephali",tf_guarantee_basic|tf_guarantee_helmet,0,0,fac_culture_2,[itm_wrapping_boots,itm_pants_7,itm_wolf_skin_1,itm_throwing_spears,itm_war_spear,itm_sword_viking_3_small,itm_concave_shield_germanic_26],def_attrib_lvl_30|level(30),wp_one_handed(260)|wp_two_handed(200)|wp_polearm(260)|wp_throwing(250)|wp_archery(180),knows_lvl_30,0x0000000cd50c448437118a186c89496400000000001e12f80000000000000000],
 
   #black river quest
   ["br_amatus","Amatus","Amatus",tf_hero, 0, reserved, fac_commoners,[itm_deurne_campagi_3,itm_coptic_tunic_11],def_attrib_lvl_28,wp(230),knows_lvl_28,0x0000000b620c50852ada76d8da6db6da00000000001e37130000000000000000],

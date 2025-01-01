@@ -967,4 +967,5 @@ script_spawn_naval_patrol_ravenna = 965
 script_spawn_naval_patrol_naples = 966
 script_spawn_naval_patrol_constantinople = 967
 script_get_closest_hostile_party = 968
-script_efe_init = 969
+script_check_ports = 969
+script_efe_init = 970

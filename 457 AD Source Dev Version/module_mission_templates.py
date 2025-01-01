@@ -26115,9 +26115,10 @@ mission_templates = [
 	   ]),
 
 	#madsci give banners if fighting
-    (0, 0, ti_once,
+    (1, 0, ti_once,
        [
 	(neg|all_enemies_defeated),
+	(neg|conversation_screen_is_active),
 	],[
 	(try_for_agents, ":agent_no"),
     	(agent_is_human, ":agent_no"),
@@ -27732,6 +27733,7 @@ mission_templates = [
 
       common_battle_order_panel,
       common_battle_order_panel_tick,
+	common_battle_init_banner,
     ] + dplmc_battle_mode_triggers + dplmc_horse_cull + utility_triggers + battle_panel_triggers + extended_battle_menu + common_division_data + division_order_processing + real_deployment + formations_triggers + AI_triggers + jacobhinds_morale_triggers + enhanced_common_battle_triggers + battle_notifications + ai_horn,  #SB : horse cull
 ),
 

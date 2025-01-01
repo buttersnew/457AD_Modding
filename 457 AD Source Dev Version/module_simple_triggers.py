@@ -2097,6 +2097,17 @@ simple_triggers = [
 		(jump_to_menu, "mnu_suebi_civil_war_ended"),
 		(try_end),
 (try_end),
+
+(try_begin), #madsci end quest if Nero has been defeated by someone else already
+(check_quest_active, "qst_nero_larper_quest"),
+(quest_get_slot, ":target", "qst_nero_larper_quest", slot_quest_target_party),
+(gt, ":target", 0),
+(neg|party_is_active, ":target"), 
+(call_script, "script_cancel_quest", "qst_nero_larper_quest"),
+(quest_set_slot,"qst_nero_larper_quest",slot_quest_current_state, -1),
+(disable_party, "p_grove_of_nymphs"),
+(display_log_message, "@Nero has been defeated!"),
+(try_end),
     ]),
 
 
@@ -3496,28 +3507,50 @@ simple_triggers = [
     ]),
 
 
-  # Updating player icon in every frame
-  (0,
-   [(troop_get_inventory_slot, ":cur_horse", "trp_player", ek_horse), #horse slot
-    (assign, ":new_icon", -1),
-    (try_begin),
-      (eq, "$g_player_icon_state", pis_normal),
-      (try_begin),
-        (ge, ":cur_horse", 0),
-        (assign, ":new_icon", "icon_player_horseman"),
-      (else_try),
-        (assign, ":new_icon", "icon_player"),
-      (try_end),
-    (else_try),
-      (eq, "$g_player_icon_state", pis_camping),
-      (assign, ":new_icon", "icon_camp"),
-    (else_try),
-      (eq, "$g_player_icon_state", pis_ship),
-      (assign, ":new_icon", "icon_ship"),
+# Updating player icon in every frame
+	#madsci reworked icon thing
+  (0.1,
+   [
+    (try_for_parties, ":party_no"),
+	(this_or_next|eq, ":party_no", "p_main_party"),
+        (gt, ":party_no", last_static_party), #madsci
+	(party_get_icon, ":icon", ":party_no"),
+	(assign, ":new_icon", -1),
+		(try_begin),
+		(eq, ":party_no", "p_main_party"),
+		(neq, "$g_player_icon_state", pis_camping),
+		(troop_get_inventory_slot, ":cur_horse", "trp_player", ek_horse),
+      				(try_begin),
+				(eq, ":icon", "icon_player"),
+        			(ge, ":cur_horse", 0),
+        			(assign, ":new_icon", "icon_player_horseman"),
+      				(else_try),
+				(eq, ":icon", "icon_player_horseman"),
+        			(lt, ":cur_horse", 0),
+        			(assign, ":new_icon", "icon_player"),
+      				(try_end),
+		(try_end),
+
+        	(try_begin),
+            	(party_slot_eq, ":party_no", slot_party_on_water, 1),
+                (neq, ":icon", "icon_ship"),
+		(party_get_current_terrain, ":terrain_type", ":party_no"),
+		(call_script, "script_check_ports", ":party_no"),
+		(this_or_next|eq, ":terrain_type", rt_water),
+		(this_or_next|eq, ":terrain_type", rt_deep_water),
+		(gt, reg0, -1), #port near
+                (party_set_slot, ":party_no", slot_icon_backup, ":icon"),
+            	(assign, ":new_icon", "icon_ship"),
+        	(else_try),
+		(neg|party_slot_eq, ":party_no", slot_party_on_water, 1),
+                (eq, ":icon", "icon_ship"),
+    		(party_get_slot, ":icon", ":party_no", slot_icon_backup),
+		(gt, ":icon", -1),
+    		(assign, ":new_icon", ":icon"),
+            	(try_end),
+	(gt, ":new_icon", -1),
+    	(party_set_icon, ":party_no", ":new_icon"),
     (try_end),
-    (neq, ":new_icon", "$g_player_party_icon"),
-    (assign, "$g_player_party_icon", ":new_icon"),
-    (party_set_icon, "p_main_party", ":new_icon"),
     ]),
 
  #Update how good a target player is for bandits

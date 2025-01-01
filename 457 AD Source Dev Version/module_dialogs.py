@@ -26936,6 +26936,7 @@ I will use this to make amends to those you have wronged, and I will let it be k
     [anyone|plyr,"lord_talk", [
         (eq, "$g_talk_troop", "$enlisted_lord"),
     (neq, "$freelancer_state", 0),
+	(neg|party_slot_eq, "$enlisted_party", slot_party_on_water, 1), #madsci not if in water
         (ge, "$g_talk_troop_faction_relation", 0),
         (neq, "$players_kingdom", "$g_talk_troop_faction"),
         (eq, "$players_kingdom", 0),
@@ -26946,6 +26947,7 @@ I will use this to make amends to those you have wronged, and I will let it be k
     [anyone|plyr,"lord_talk",[
     (eq, "$g_talk_troop", "$enlisted_lord"),
     (eq, "$freelancer_state", 1),
+	(neg|party_slot_eq, "$enlisted_party", slot_party_on_water, 1), #madsci not if in water
         (ge, "$g_talk_troop_faction_relation", 0),
         (neq, "$players_kingdom", "$g_talk_troop_faction"),
         (eq, "$players_kingdom", 0),

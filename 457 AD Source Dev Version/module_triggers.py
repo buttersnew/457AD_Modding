@@ -1056,7 +1056,9 @@ triggers = [
   (enable_party, "p_vidigoias_grave"),
 ]),
 #Invasions Begin
-(4800,0,ti_once,[],[ #4800 for 200 days
+(4800,0,ti_once,[
+  (neg|party_slot_eq, "p_main_party", slot_party_on_water, 1), #madsci a messenger doesnt appear if the player is sea traveling
+],[ #4800 for 200 days
      (set_spawn_radius, 8),
      (try_for_range, ":unused", 1, 6), # number of invaders to spawn + 1, roughly 200 days
            (spawn_around_party, "p_town_21", "pt_coptic_rebellion"),
@@ -1075,7 +1077,10 @@ triggers = [
     (add_troop_note_tableau_mesh, "trp_mia_bishop_alexandria_1", "tableau_troop_note_mesh"),
    ]),
 
-(2400,0,ti_once,[(eq, "$g_foederati_event", 0),],[
+(2400,0,ti_once,[
+  (eq, "$g_foederati_event", 0),
+  (neg|party_slot_eq, "p_main_party", slot_party_on_water, 1), #madsci a messenger doesnt appear if the player is sea traveling
+],[
   (set_spawn_radius, 8),
   (try_for_range, ":unused", 2, 5),
     (spawn_around_party, "p_town_13", "pt_foederati_rebels"),
@@ -1202,16 +1207,21 @@ triggers = [
 ]),
 
 (24*5,0,ti_once,[ #leading armed rebellion
+  (neg|party_slot_eq, "p_main_party", slot_party_on_water, 1), #madsci a messenger doesnt appear if the player is sea traveling
   (neg|check_quest_active,"qst_nero_larper_quest"),
   (quest_slot_eq,"qst_nero_larper_quest",slot_quest_current_state, 4),
 ],[
   (dialog_box, "@A messenger approaches your warband, bringing news of rebellion! A man claiming to Nero has hired an army and marched on Rome!", "@A messenger approaches your warband"),
+  (set_spawn_radius, 4),
   (spawn_around_party, "p_town_8", "pt_nero_rebel_army"),
+  (party_set_faction, reg0, "fac_neutral"), #madsci this party shouldnt get killed by random lords
   (party_set_flags, reg0, pf_quest_party, 1),
+  (party_set_ai_behavior, reg0, ai_bhvr_hold),
   (quest_set_slot,"qst_nero_larper_quest",slot_quest_current_state, 5),
 ]),
 
 (24*7,0,ti_once,[ #leading armed rebellion
+  (neg|party_slot_eq, "p_main_party", slot_party_on_water, 1), #madsci a messenger doesnt appear if the player is sea traveling
   (neg|check_quest_active,"qst_agrippinus_quest"),
   (quest_slot_eq,"qst_agrippinus_quest",slot_quest_current_state, 11),
 ],[
@@ -1220,6 +1230,7 @@ triggers = [
 ]),
 
 (24*7,0,ti_once,[ #escapes trial
+  (neg|party_slot_eq, "p_main_party", slot_party_on_water, 1), #madsci a messenger doesnt appear if the player is sea traveling
   (neg|check_quest_active,"qst_agrippinus_quest"),
   (quest_slot_eq,"qst_agrippinus_quest",slot_quest_current_state, 12),
 ],[
@@ -1448,6 +1459,7 @@ triggers = [
 ]),
 
 (24*7,0,ti_once,[
+  (neg|party_slot_eq, "p_main_party", slot_party_on_water, 1), #madsci a messenger doesnt appear if the player is sea traveling
     (eq, "$unique_sword_crafted", 2),
 ],[
     (dialog_box, "@A messenger approaches your warband, carrying the sword wayland has forged for you...", "@A messenger approaches your warband"),

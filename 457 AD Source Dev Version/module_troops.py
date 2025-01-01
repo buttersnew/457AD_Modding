@@ -4823,7 +4823,7 @@ troops = [
   ["sarranid_merchant", "Merchant of Shariz", "{!}Prominent", tf_hero|tf_randomize_face, 0, reserved, fac_kingdom_6, [], def_attrib|level(2),wp(20),knows_common, man_face_1, man_face_2],
   ["startup_merchants_end","startup_merchants_end","startup_merchants_end",tf_hero, 0,0, fac_commoners,[],def_attrib|level(2),wp(20),knows_inventory_management_10,0],
 
-  ["sea_raider_leader","Sea Raider Captain","Sea Raider Captains",tf_hero|tf_guarantee_all_wo_ranged,0,0,fac_outlaws,
+  ["sea_raider_leader","Sea Raider Captain","Sea Raider Captains",tf_hero,0,0,fac_outlaws,
    [],
    def_attrib|level(24),wp(110),knows_ironflesh_2|knows_power_strike_2|knows_power_draw_3|knows_power_throw_2|knows_riding_1|knows_athletics_2,germanic_face_1, germanic_face_2],
 
@@ -5039,39 +5039,39 @@ troops = [
   ["egyptian_pagan_high_priest","Aegyptian Pagan Priest","Aegyptian Pagan Priest",tf_randomize_face|tf_hero,0,0,fac_roman_pagans,[itm_wrapping_boots,itm_sarranid_cloth_robe_c],def_attrib|level(8),wp(90),knows_common,coptic_face_1, coptic_face_2],
 
   #reusing for extended mithras quest
-  ["roman_landowner","Gnaeus Turibius","Gnaeus Turibius",tf_hero|tf_guarantee_boots|tf_guarantee_armor, no_scene, reserved, fac_commoners,[itm_coptic_tunic_13,itm_deurne_campagi_5,itm_arabian_sword_b],def_attrib_lvl_32|level(30),wp(300),knows_ironflesh_10|knows_power_strike_10,0x00000001bf0000823adb6db6db6db6db00000000001db6dd0000000000000000],
+  ["roman_landowner","Gnaeus Turibius","Gnaeus Turibius",tf_hero, no_scene, reserved, fac_commoners,[itm_coptic_tunic_13,itm_deurne_campagi_5,itm_arabian_sword_b],def_attrib_lvl_32|level(30),wp(300),knows_ironflesh_10|knows_power_strike_10,0x00000001bf0000823adb6db6db6db6db00000000001db6dd0000000000000000],
 
   ["roman_landowner_wife","Gnaeus Turibius's Wife","Gnaeus Turibius's Wife",tf_female|tf_hero,0,0,fac_commoners,[itm_ankle_boots,itm_roman_noble_dress_2,itm_dagger],def_attrib|level(8),wp(110),knows_common|knows_athletics_3|knows_power_draw_2|knows_power_strike_2|knows_wound_treatment_2,0x0000000ca60c501026db9337b5b63cda00000000001dc4120000000000000000],
 
   #will be reused once more!
-  ["burgundian_looter","Avaldus","Avaldus",tf_hero|tf_guarantee_helmet, no_scene,0, fac_outlaws,[itm_wrapping_boots,itm_common_mail_short_4,itm_augst_helmet_1,itm_sword_medieval_c,itm_concave_shield_germanic_2],def_attrib_lvl_25|level(25),wp(180),knows_lvl_25,0x00000003de0071433adb6db6db6db6db00000000001db6f10000000000000000],
+  ["burgundian_looter","Avaldus","Avaldus",tf_hero, no_scene,0, fac_outlaws,[itm_wrapping_boots,itm_common_mail_short_4,itm_augst_helmet_1,itm_sword_medieval_c,itm_concave_shield_germanic_2],def_attrib_lvl_25|level(25),wp(180),knows_lvl_25,0x00000003de0071433adb6db6db6db6db00000000001db6f10000000000000000],
 
   ["suebi_king", "Rex Hunimund", "Hunimund", tf_hero, no_scene, 0, fac_hunimund_suebi,[itm_east_germ_warhorse_1, itm_wrapping_boots, itm_tab_shield_small_round_c, itm_rich_mail_4_cloak, itm_koblenz_helmet_3, itm_sword_viking_3_small],knight_attrib_5,wp(300),knight_skills_5|knows_trainer_1|knows_trainer_3,0x0000000905004084549c652a9b4dbadb00000000001d36ea0000000000000000],
 
   #["persian_champion","Champion","NPC Quest Character",tf_hero, no_scene, reserved, fac_commoners,[itm_sassanid_simple_boots_2,itm_sarranid_horseman_helmet],def_attrib_lvl_18|level(19),wp(250),knows_ironflesh_10|knows_power_strike_7,persian_face_1, persian_face_2],
   #isaurian rival king
-  ["isaurian_leader","Regulus Lydius","NPC Quest Character",tf_hero|tf_guarantee_boots|tf_guarantee_armor, no_scene, 0, fac_outlaws,[itm_rich_mail_1_cloak,itm_christies_helmet_1,itm_round_shield_roman_13,itm_ankle_boots,itm_battle_axe],def_attrib_lvl_20|level(19),wp(250),knows_ironflesh_10|knows_power_strike_7,0x000000078a0091436adc8647136db6db00000000001eb6b10000000000000000],
+  ["isaurian_leader","Regulus Lydius","NPC Quest Character",tf_hero, no_scene, 0, fac_outlaws,[itm_rich_mail_1_cloak,itm_christies_helmet_1,itm_round_shield_roman_13,itm_ankle_boots,itm_battle_axe],def_attrib_lvl_20|level(19),wp(250),knows_ironflesh_10|knows_power_strike_7,0x000000078a0091436adc8647136db6db00000000001eb6b10000000000000000],
 
   ["isaurian_king","Regulus Trokondas","NPC Quest Character",tf_hero, no_scene, 0, fac_kingdom_2,[itm_deurne_campagi_1,itm_coptic_tunic_8,itm_pannonian_cap_fur_2],def_attrib_lvl_13|level(19),wp(250),knows_ironflesh_10|knows_power_strike_7,0x0000000dcf00a5045aa38dd65c7526db00000000001db6a10000000000000000],
   
-  ["germanic_pagan_quest_npc","NPC Quest Placeholder","NPC Quest Placeholder",tf_hero|tf_randomize_face|tf_guarantee_boots|tf_guarantee_armor, no_scene, reserved, fac_commoners,[itm_coptic_tunic_2,itm_ankle_boots,itm_sword_medieval_a],def_attrib_lvl_20|level(19),wp(180),knows_ironflesh_10|knows_power_strike_7,germanic_face_1, germanic_face_2],
+  ["germanic_pagan_quest_npc","NPC Quest Placeholder","NPC Quest Placeholder",tf_hero|tf_randomize_face, no_scene, reserved, fac_commoners,[itm_coptic_tunic_2,itm_ankle_boots,itm_sword_medieval_a],def_attrib_lvl_20|level(19),wp(180),knows_ironflesh_10|knows_power_strike_7,germanic_face_1, germanic_face_2],
   
   ["bagaudae_king","Basilius","Basilius",tf_hero|tf_allways_fall_dead, no_scene, 0, fac_forest_bandits,[itm_deurne_campagi_2,itm_common_mail_short_1_cloak,itm_florence_helmet_1,itm_arabian_sword_a,itm_round_shield_roman_1],def_attrib_lvl_25|level(25),wp(260),knows_lvl_25,0x00000009650c34c75b918a38536d16db00000000001e96a90000000000000000],
 
-  ["bigilas","Bigilas","Bigilas",tf_hero|tf_allways_fall_dead, no_scene, 0, fac_kingdom_2,[itm_deurne_campagi_1,itm_coptic_tunic_4,itm_rich_mail_9,itm_sword_khergit_4,itm_concesti_helmet,itm_concave_shield_roman_20],def_attrib_lvl_23|level(30),wp(260),knows_ironflesh_10|knows_power_strike_6|knows_shield_5|knows_athletics_7,0x000000090700408736db6d5b234db6db00000000001db6a20000000000000000],
+  ["bigilas","Bigilas","Bigilas",tf_hero, no_scene, 0, fac_kingdom_2,[itm_deurne_campagi_1,itm_coptic_tunic_4,itm_rich_mail_9,itm_sword_khergit_4,itm_concesti_helmet,itm_concave_shield_roman_20],def_attrib_lvl_23|level(30),wp(260),knows_ironflesh_10|knows_power_strike_6|knows_shield_5|knows_athletics_7,0x000000090700408736db6d5b234db6db00000000001db6a20000000000000000],
 
-  ["bigilas_son","Bigilas's Son","Bigilas's Son",tf_hero|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_ranged, no_scene, reserved, fac_commoners,[itm_wrapping_boots,itm_roman_peasant_tunic_4,itm_sword_khergit_3],def_attrib_lvl_30|level(30),wp_one_handed(260)|wp_two_handed(200)|wp_polearm(260)|wp_throwing(250)|wp_archery(180),knows_ironflesh_8|knows_power_strike_7|knows_shield_5|knows_athletics_7|knows_riding_8|knows_power_draw_6|knows_horse_archery_5,0x00000001860050cb36db6d5b234db6db00000000001db69c0000000000000000],
+  ["bigilas_son","Bigilas's Son","Bigilas's Son",tf_hero, no_scene, reserved, fac_commoners,[itm_wrapping_boots,itm_roman_peasant_tunic_4,itm_sword_khergit_3],def_attrib_lvl_30|level(30),wp_one_handed(260)|wp_two_handed(200)|wp_polearm(260)|wp_throwing(250)|wp_archery(180),knows_ironflesh_8|knows_power_strike_7|knows_shield_5|knows_athletics_7|knows_riding_8|knows_power_draw_6|knows_horse_archery_5,0x00000001860050cb36db6d5b234db6db00000000001db69c0000000000000000],
 
   ["greek_scythaboo","Old Merchant","Old Merchant",tf_hero|tf_is_merchant, scn_court_of_attila|entry(1), reserved, fac_commoners,[itm_sassanid_cavalry_boots_1,itm_kaftan_hunnic_2],def_attrib_lvl_30|level(30),wp(260),knows_ironflesh_10|knows_power_strike_5|knows_power_draw_5|knows_shield_5|knows_athletics_7,0x00000009ff00508e36db8ec8e34db6db00000000001db68a0000000000000000],
 
-  ["ildico","Ildico","Ildico",tf_female|tf_hero|tf_guarantee_boots|tf_guarantee_armor,0,0,fac_commoners,[itm_wrapping_boots,itm_dress_4],def_attrib_lvl_9|level(8),wp(110),knows_common|knows_athletics_3|knows_power_draw_2|knows_power_strike_1|knows_wound_treatment_2,0x000000000e004006484a70036989a49c00000000001d53520000000000000000],
+  ["ildico","Ildico","Ildico",tf_female|tf_hero,0,0,fac_commoners,[itm_wrapping_boots,itm_dress_4],def_attrib_lvl_9|level(8),wp(110),knows_common|knows_athletics_3|knows_power_draw_2|knows_power_strike_1|knows_wound_treatment_2,0x000000000e004006484a70036989a49c00000000001d53520000000000000000],
 
-  ["attilas_bastard_son","Oebarsius","Oebarsius",tf_hero|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_ranged, no_scene, reserved, fac_commoners,[],def_attrib_lvl_30|level(30),wp_one_handed(260)|wp_two_handed(200)|wp_polearm(260)|wp_throwing(250)|wp_archery(180),knows_ironflesh_8|knows_power_strike_7|knows_shield_5|knows_athletics_7|knows_riding_8|knows_power_draw_6|knows_horse_archery_5,0x000000000b00c2895495b240db25352200000000001db6e10000000000000000],
+  ["attilas_bastard_son","Oebarsius","Oebarsius",tf_hero, no_scene, reserved, fac_commoners,[],def_attrib_lvl_30|level(30),wp_one_handed(260)|wp_two_handed(200)|wp_polearm(260)|wp_throwing(250)|wp_archery(180),knows_ironflesh_8|knows_power_strike_7|knows_shield_5|knows_athletics_7|knows_riding_8|knows_power_draw_6|knows_horse_archery_5,0x000000000b00c2895495b240db25352200000000001db6e10000000000000000],
 
   #reused as gangstalker leader
-  ["attilas_bastard_son_duel","Berchios","Berchios",tf_hero|tf_allways_fall_dead, no_scene, reserved, fac_commoners,[itm_nomad_boots,itm_kaftan_lamellar_9,itm_pannonhalma_spatha,itm_khergit_bow,itm_khergit_arrows,itm_concave_shield_leather_small_3,itm_turaevo_helmet],def_attrib_lvl_30|level(30),wp_one_handed(260)|wp_two_handed(200)|wp_polearm(260)|wp_throwing(250)|wp_archery(180),knows_ironflesh_8|knows_power_strike_7|knows_shield_5|knows_athletics_7|knows_riding_8|knows_power_draw_6|knows_horse_archery_5,0x000000000b00c2895495b240db25352200000000001db6e10000000000000000],
+  ["attilas_bastard_son_duel","Berchios","Berchios",tf_hero, no_scene, reserved, fac_commoners,[itm_nomad_boots,itm_kaftan_lamellar_9,itm_pannonhalma_spatha,itm_khergit_bow,itm_khergit_arrows,itm_concave_shield_leather_small_3,itm_turaevo_helmet],def_attrib_lvl_30|level(30),wp_one_handed(260)|wp_two_handed(200)|wp_polearm(260)|wp_throwing(250)|wp_archery(180),knows_ironflesh_8|knows_power_strike_7|knows_shield_5|knows_athletics_7|knows_riding_8|knows_power_draw_6|knows_horse_archery_5,0x000000000b00c2895495b240db25352200000000001db6e10000000000000000],
 
-  ["onogur_leader","Hunnic Chief","Hunnic Chief",tf_hero|tf_mounted|tf_guarantee_horse|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_ranged, no_scene, reserved, fac_commoners,[itm_nomad_boots,itm_kaftan_lamellar_7,itm_sword_viking_c_long,itm_heavy_lance,itm_khergit_bow,itm_khergit_arrows,itm_hun_rich_horse_1],def_attrib_lvl_20|level(21),wp_one_handed(210)|wp_two_handed(180)|wp_polearm(200)|wp_throwing(180)|wp_archery(150),knows_ironflesh_4|knows_power_strike_5|knows_athletics_5|knows_riding_8|knows_power_draw_6|knows_horse_archery_5,0x0000000d9f0083cb555b6ec5124db6db00000000001d36ea0000000000000000],
+  ["onogur_leader","Hunnic Chief","Hunnic Chief",tf_hero, no_scene, reserved, fac_commoners,[itm_nomad_boots,itm_kaftan_lamellar_7,itm_sword_viking_c_long,itm_heavy_lance,itm_khergit_bow,itm_khergit_arrows,itm_hun_rich_horse_1],def_attrib_lvl_20|level(21),wp_one_handed(210)|wp_two_handed(180)|wp_polearm(200)|wp_throwing(180)|wp_archery(150),knows_ironflesh_4|knows_power_strike_5|knows_athletics_5|knows_riding_8|knows_power_draw_6|knows_horse_archery_5,0x0000000d9f0083cb555b6ec5124db6db00000000001d36ea0000000000000000],
 
   ["wayland","Wayland the Smith","Wayland the Smith",tf_hero|tf_is_merchant, scn_waylands_smithy|entry(1), reserved, fac_commoners,[itm_leather_apron,itm_wrapping_boots],def_attrib_lvl_23|level(23),wp(200),knows_common|knows_inventory_management_10,0x00000008c400414b36db6db6db6db6db00000000001db6e20000000000000000],
 
@@ -5098,7 +5098,7 @@ troops = [
 
   ["mithras_cultist","Syndexioi","Syndexioi",tf_guarantee_boots|tf_guarantee_armor,0,0,fac_roman_pagans,[itm_dagger] + tunics_roman_civilian + tunics_roman_peasant + tunics_roman_rich + tunics_roman_military + shoes_roman, def_attrib_lvl_18|level(17),wp(160),knows_lvl_18|knows_shield_4,roman_face_1, roman_face_2],
 
-  ["mithraist_iniate","Julius","Julius",tf_hero|tf_guarantee_boots|tf_guarantee_armor, no_scene, reserved, fac_commoners,[itm_coptic_tunic_12,itm_ankle_boots],def_attrib_lvl_18|level(19),wp(180),knows_ironflesh_6|knows_power_strike_3|knows_athletics_5,roman_face_1, roman_face_2],
+  ["mithraist_iniate","Julius","Julius",tf_hero, no_scene, reserved, fac_commoners,[itm_coptic_tunic_12,itm_ankle_boots],def_attrib_lvl_18|level(19),wp(180),knows_ironflesh_6|knows_power_strike_3|knows_athletics_5,roman_face_1, roman_face_2],
 
   ["chrisitan_zealot","Zealot","Zealots",tf_guarantee_boots|tf_guarantee_armor,0,0,fac_commoners,
    [itm_club] + shoes_roman + tunics_roman_civilian + tunics_roman_peasant + pannonian_hats,
@@ -5114,16 +5114,16 @@ troops = [
    [itm_wrapping_boots,itm_ankle_boots,itm_straw_hat,itm_leather_cap]+tunics_roman_peasant+hoods_roman_1+hoods_roman_2+hoods_roman_3+pannonian_hats,
    def_attrib|level(6),wp(90)|wp_firearm(90),knows_common,man_face_1, man_face_2],
 
-  ["old_palace_farmer","Old Farmer","Old Farmer",tf_hero|tf_guarantee_boots|tf_guarantee_armor|tf_is_merchant, scn_diocletians_palace|entry(1), reserved, fac_kingdom_1,[itm_ankle_boots,itm_coarse_tunic],def_attrib_lvl_13|level(10),wp(100),knows_ironflesh_2|knows_power_strike_2|knows_athletics_2,0x0000000fcf00418536db6db6db6db6db00000000001db6db0000000000000000],
+  ["old_palace_farmer","Old Farmer","Old Farmer",tf_hero|tf_is_merchant, scn_diocletians_palace|entry(1), reserved, fac_kingdom_1,[itm_ankle_boots,itm_coarse_tunic],def_attrib_lvl_13|level(10),wp(100),knows_ironflesh_2|knows_power_strike_2|knows_athletics_2,0x0000000fcf00418536db6db6db6db6db00000000001db6db0000000000000000],
 
   ["diocletian","Mysterious Man","Mysterious Man",tf_hero|tf_guarantee_boots|tf_guarantee_armor, scn_diocletians_palace|entry(11), reserved, fac_kingdom_1,[itm_roman_lorum_fasciari_6,itm_coptic_tunic_emperor_1,itm_crown_1],def_attrib_lvl_30|level(30),wp(400),knows_ironflesh_10|knows_power_strike_10|knows_athletics_10,0x0000000ffb0090854a5974b71b71492300000000001db6e30000000000000000],
 
   ["german_bard","Frumirus","Frumirus",tf_hero|tf_guarantee_boots|tf_guarantee_armor, scn_town_23_tavern|entry(12), reserved, fac_commoners,[itm_wrapping_boots,itm_tunic_4_cloak],def_attrib|level(3),wp(80),knows_common,0x000000049e002408555b6db69badb2db00000000001db71a0000000000000000],
 
   #name is actually going to be Hilarius Pupienus Maximus, haha funnie
-  ["nero_larper","Nero Redivivus","Nero Redivivus",tf_hero|tf_allways_fall_dead, 0, reserved, fac_commoners,[itm_deurne_campagi_4,itm_coptic_tunic_10,itm_sword_khergit_4,itm_crown_1],def_attrib_lvl_30|level(30),wp(280),knows_lvl_30,0x00000000310010035adc7236dc8dbada00000000001d36e50000000000000000],
+  ["nero_larper","Nero Redivivus","Nero Redivivus",tf_hero, 0, reserved, fac_commoners,[itm_deurne_campagi_4,itm_coptic_tunic_10,itm_sword_khergit_4,itm_crown_1],def_attrib_lvl_30|level(30),wp(280),knows_lvl_30,0x00000000310010035adc7236dc8dbada00000000001d36e50000000000000000],
 
-  ["nero_larper_commander","Nero Redivivus","Nero Redivivus",tf_hero|tf_allways_fall_dead, 0, reserved, fac_commoners,[itm_deurne_campagi_4,itm_rich_mail_2_cloak,itm_sword_khergit_4,itm_helmet_of_victory,itm_concave_shield_roman_small_5,itm_nisean_roman_1],def_attrib_lvl_30|level(30),wp(300),knows_lvl_30,0x00000000310010035adc7236dc8dbada00000000001d36e50000000000000000], #when leading rebellion
+  ["nero_larper_commander","Nero Redivivus","Nero Redivivus",tf_hero, 0, reserved, fac_commoners,[itm_deurne_campagi_4,itm_rich_mail_2_cloak,itm_sword_khergit_4,itm_helmet_of_victory,itm_concave_shield_roman_small_5,itm_nisean_roman_1],def_attrib_lvl_30|level(30),wp(300),knows_lvl_30,0x00000000310010035adc7236dc8dbada00000000001d36e50000000000000000], #when leading rebellion
 
   ["gandhara_mercenary","Gandhara Mercenary","Gandhara Mercenaries",tf_guarantee_shield|tf_guarantee_armor|tf_guarantee_helmet,0,0,fac_commoners,
    [itm_bearded_axe_2,itm_strange_armor,itm_bandana1,itm_bandana2,itm_padded_coif,itm_turban,itm_strong_bow,itm_barbed_arrows,itm_wicker_round_shield],

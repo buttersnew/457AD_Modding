@@ -4188,7 +4188,7 @@ simple_triggers = [
       (party_is_active, ":party_no"),
       (party_get_template_id, ":party_template", ":party_no"),
       (try_begin),
-	(this_or_next|eq, ":party_template", "pt_classis_ravenna"),
+	(this_or_next|eq, ":party_template", "pt_classis_ravenna"), #madsci naval patrol AI
 	(eq, ":party_template", "pt_classis_naples"),
 	(party_is_in_any_town, ":party_no"),
 	(party_get_slot, ":origin", ":party_no", slot_village_bound_center),

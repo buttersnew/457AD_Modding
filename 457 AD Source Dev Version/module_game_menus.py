@@ -13974,6 +13974,13 @@ TOTAL:  {reg5}"),
         (val_add, ":cur_entry", 1),
 	(try_end),
 
+	(try_begin), #madsci quest troop spawns go here
+	(eq, "$current_town", "p_town_21"),
+	(eq, "$roman_pagan_quest_started", 1),
+        (set_visitor, ":cur_entry", "trp_roman_pagan_quest_npc_1"),
+        (val_add, ":cur_entry", 1),
+	(try_end),
+
              (party_get_slot, ":mercenary_troop", "$current_town", slot_center_mercenary_troop_type),
              (party_get_slot, ":mercenary_amount", "$current_town", slot_center_mercenary_troop_amount),
              (try_begin),

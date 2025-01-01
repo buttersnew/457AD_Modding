@@ -3251,60 +3251,6 @@ or you won't be able to hang on to a single man you catch.", "ramun_ask_about_ca
 ], "I humbly request that your {lordship/ladyship} keeps {his/her} hands where I can see them.", "close_window",[]],
 ##diplomacy end+
 
-##  [trp_tutorial_trainer, "start", [(eq, "$tutorial_1_state", 1),], "TODO: Watch me.", "tutorial_1_1_1",[]],
-##  [trp_tutorial_trainer, "tutorial_1_1_1", [], "TODO: This is up.", "tutorial_1_1_2",[(agent_set_attack_action, "$g_talk_agent", 3),]],
-##  [trp_tutorial_trainer, "tutorial_1_1_2", [], "TODO: This is left.", "tutorial_1_1_3",[(agent_set_attack_action, "$g_talk_agent", 2),]],
-##  [trp_tutorial_trainer, "tutorial_1_1_3", [], "TODO: This is right.", "tutorial_1_1_4",[(agent_set_attack_action, "$g_talk_agent", 1),]],
-##  [trp_tutorial_trainer|plyr, "tutorial_1_1_4", [], "TODO: OK.", "close_window",[]],
-
-
-#old tutorial is below
-
-##  [trp_tutorial_trainer,"start", [(eq, "$tutorial_quest_award_taken", 1),], "I think you have trained enough. Perhaps you should go to Zendar for the next step of your adventure.", "close_window",[]],
-##  [trp_tutorial_trainer,"start", [(store_character_level, ":player_level", "trp_player"),(gt, ":player_level", 1)], "I think you have trained enough. Perhaps you should go to Zendar for the next step of your adventure.", "close_window",[]],
-##  [trp_tutorial_trainer,"start", [(eq, "$tutorial_quest_taken", 0),], "Greetings stranger. What's your name?", "tutorial1_1",[]],
-##  [trp_tutorial_trainer|plyr, "tutorial1_1", [], "Greetings sir, it's {playername}.", "tutorial1_2", []],
-##  [trp_tutorial_trainer, "tutorial1_2", [], "Well {playername}, this place you see is the training ground. Locals come here to practice their combat skills. Since you are here you may have a go as well.", "tutorial1_3", []],
-##  [trp_tutorial_trainer|plyr, "tutorial1_3", [], "I'd like that very much sir. Thank you.", "tutorial1_4", []],
-##  [trp_tutorial_trainer, "tutorial1_4", [], "You will learn the basics of weapons and riding a horse here.\
-##  First you'll begin with melee weapons. Then you'll enter an archery range to test your skills. And finally you'll see a horse waiting for you.\
-##  I advise you to train in all these 3 areas. But you can skip some of them, it's up to you.", "tutorial1_6", []],
-##  [trp_tutorial_trainer, "tutorial1_6", [], "Tell you what, if you destroy at least 10 dummies while training, I will give you my old knife as a reward. It's a little rusty but it's a good blade.", "tutorial1_7", []],
-##  [trp_tutorial_trainer|plyr, "tutorial1_7", [], "Sounds nice, I'm ready for training.", "tutorial1_9", []],
-##  [trp_tutorial_trainer, "tutorial1_9", [], "Good. Return to me when you have earned your reward.", "close_window", [(eq, "$tutorial_quest_taken", 0),
-##                                                                                                                     (str_store_troop_name, 1, "trp_tutorial_trainer"),
-##                                                                                                                     (str_store_party_name, 2, "p_training_ground"),
-##                                                                                                                     (setup_quest_giver, "qst_destroy_dummies", "str_given_by_s1_at_s2"),
-##                                                                                                                     (str_store_string, s2, "@Trainer ordered you to destroy 10 dummies in the training camp."),
-##                                                                                                                     (call_script, "script_start_quest", "qst_destroy_dummies", "$g_talk_troop"),
-##                                                                                                                     (assign, "$tutorial_quest_taken", 1)]],
-##
-##  [trp_tutorial_trainer,"start", [(eq, "$tutorial_quest_taken", 1),
-##                                  (eq, "$tutorial_quest_succeeded", 1),], "Well done {playername}. Now you earned this knife. There you go.", "tutorial2_1",[]],
-##  [trp_tutorial_trainer|plyr, "tutorial2_1", [], "Thank you master.", "close_window", [(call_script, "script_end_quest", "qst_destroy_dummies"),(assign, "$tutorial_quest_award_taken", 1),(add_xp_to_troop, 100, "trp_player"),(troop_add_item, "trp_player","itm_knife",imod_chipped),]],
-##
-##  [trp_tutorial_trainer,"start", [(eq, "$tutorial_quest_taken", 1),
-##                                  (eq, "$tutorial_quest_succeeded", 1),], "Greetings {playername}. Feel free to train with the targets.", "tutorial2_1",[]],
-##
-##  [trp_tutorial_trainer,"start", [(eq, "$tutorial_quest_taken", 1),
-##                                  (eq, "$tutorial_quest_succeeded", 0),], "I don't see 10 dummies on the floor from here. You haven't earned your reward yet.", "tutorial3_1",[]],
-##  [trp_tutorial_trainer|plyr, "tutorial3_1", [], "Alright alright, I was just tired and wanted to talk to you while resting.", "tutorial3_2", []],
-##  [trp_tutorial_trainer, "tutorial3_2", [], "Less talk, more work.", "close_window", []],
-
-
-##  [party_tpl|pt_peasant,"start", [(eq,"$talk_context",tc_party_encounter)], "Greetings traveller.", "peasant_talk_1",[(play_sound,"snd_encounter_farmers")]],
-##  [party_tpl|pt_peasant|plyr,"peasant_talk_1", [[eq,"$quest_accepted_zendar_looters"]], "Greetings to you too.", "close_window",[(assign, "$g_leave_encounter",1)]],
-##  [party_tpl|pt_peasant|plyr,"peasant_talk_1", [[neq,"$quest_accepted_zendar_looters"],[eq,"$peasant_misunderstanding_said"]], "I have been charged with hunting down outlaws in this area...", "peasant_talk_2",[[assign,"$peasant_misunderstanding_said",1]]],
-##  [party_tpl|pt_peasant|plyr,"peasant_talk_1", [[neq,"$quest_accepted_zendar_looters"],[neq,"$peasant_misunderstanding_said"]], "Greetings. I am hunting outlaws. Have you seen any around here?", "peasant_talk_2b",[]],
-##  [party_tpl|pt_peasant,"peasant_talk_2", [], "I swear to God {sir/madam}. I am not an outlaw... I am just a simple peasant. I am taking my goods to the market, see.", "peasant_talk_3",[]],
-##  [party_tpl|pt_peasant|plyr,"peasant_talk_3", [], "I was just going to ask if you saw any outlaws around here.", "peasant_talk_4",[]],
-##  [party_tpl|pt_peasant,"peasant_talk_4", [], "Oh... phew... yes, outlaws are everywhere. They are making life miserable for us.\
-## I pray to God you will kill them all.", "close_window",[(assign, "$g_leave_encounter",1)]],
-##  [party_tpl|pt_peasant,"peasant_talk_2b", [], "Outlaws? They are everywhere. They are making life miserable for us.\
-## I pray to God you will kill them all.", "close_window",[(assign, "$g_leave_encounter",1)]],
-
-
-
 
 #  [trp_old_roman_man, "start", [(check_quest_active,"qst_special_warrior_quest1")],
 #   "Hello, my name is Placus Silius. Who are you?", "old_roman_man_talk", []],
@@ -4787,6 +4733,82 @@ Still I am sorry that I'll leave you soon. You must promise me, you'll come visi
 [
 ]],
 
+#madsci put special interactions with defeated troops here
+
+[anyone, "start",
+[
+(eq, "$g_talk_troop", "trp_nero_larper_commander"),
+(eq,"$talk_context",tc_hero_defeated),
+],
+"Ay! Spare me! Spare my life!", "close_window",
+[
+(party_force_add_prisoners, "p_main_party", "$g_talk_troop", 1),
+(troop_set_slot, "$g_talk_troop", slot_troop_prisoner_of_party, "p_main_party"),
+(try_begin),
+(check_quest_active,"qst_nero_larper_quest"),
+(call_script, "script_cancel_quest", "qst_nero_larper_quest"),
+(quest_set_slot,"qst_nero_larper_quest",slot_quest_current_state, -1),
+(disable_party, "p_grove_of_nymphs"),
+(try_end),]],
+
+[anyone, "start",
+[
+(eq, "$g_talk_troop", "trp_isaurian_leader"),
+(eq,"$talk_context",tc_hero_defeated),
+],
+"I have been bested... I surrender!", "isaurian_talk_duel_win_1",
+[]],
+
+[anyone|plyr, "isaurian_talk_duel_win_1",
+[
+(eq, "$g_talk_troop", "trp_isaurian_leader"),
+],
+"Very well, you're coming with me", "close_window",
+[(add_xp_as_reward, 800),
+(call_script, "script_change_troop_renown", "trp_player", 5),
+(quest_set_slot,"qst_founding_the_excubitors", slot_quest_current_state, 3),
+(party_force_add_prisoners, "p_main_party", "$g_talk_troop", 1),
+(troop_set_slot, "$g_talk_troop", slot_troop_prisoner_of_party, "p_main_party"),
+]], #increases renown, adds xp, makes isaurian bandit parties neutral/friendly
+
+[anyone, "start",
+[
+(eq, "$g_talk_troop", "trp_aestii_rebel_king"),
+(eq,"$talk_context",tc_hero_defeated),
+],
+"Foreigner! You defeated me in battle but you don't need to hand me to the Visavaldas. Since you won, I am your servant now as our laws tell us. Keep me with your host and I'll serve you gladly, but if you will leave me to that tyrant, I will be dead for sure before the sun sets for a new day.", "aestii_rebel_king_defeated_1",
+[]],
+
+[anyone|plyr, "aestii_rebel_king_defeated_1", #choice 1, take him prisoner
+[],
+"No, I won't have you stay with my host, I don't trust you. The Visavaldas will decide your fate!", "close_window",
+[
+(quest_set_slot,"qst_aestii_rebel_quest", slot_quest_current_state, 2),
+(call_script, "script_succeed_quest", "qst_aestii_rebel_quest"),
+(party_force_add_prisoners, "p_main_party", "$g_talk_troop", 1),
+(troop_set_slot, "$g_talk_troop", slot_troop_prisoner_of_party, "p_main_party"),
+]],
+
+
+[anyone, "start",
+[
+(eq, "$g_talk_troop", "trp_burgundian_looter"),
+(eq,"$talk_context",tc_hero_defeated),
+],
+"Ay! Spare me! Spare my life! Here, I'll give you the codex! Just know the codex is heretical and full of weird spells and incantations! We were going to give it to the Chalcedonian church! I swear! We may be filthy bandits, but at least we're not heretics!", "heretical_codex_win_1",
+[]],
+
+[anyone|plyr, "heretical_codex_win_1",
+[],
+"Very well, since you are relinquishing the codex, I will spare your life. Now go.", "close_window",
+[
+(display_message, "str_quest_log_updated"),
+(add_quest_note_from_sreg, "qst_heretical_codex", 1, "@It seems this 'special' codex is full of strange spells and incantations. Handing it over to the Chalcedonian church may yield a greater reward then what the priest was offering...",0),
+(call_script, "script_change_troop_renown", "trp_player", 5),
+(troop_add_item, "trp_player","itm_heretical_codex",0),
+(call_script, "script_succeed_quest", "qst_heretical_codex"),
+(quest_set_slot,"qst_heretical_codex", slot_quest_current_state, 2),
+]],
 
 
 [anyone, "start",
@@ -18828,17 +18850,10 @@ Here, take this purse of {reg3} siliquae, as I promised. I hope we can travel to
 #Troop commentary changes begin
 [anyone,"start", [(eq,"$talk_context",tc_hero_defeated),
                   (troop_slot_eq,"$g_talk_troop",slot_troop_occupation, slto_kingdom_hero),
-                  (neq, "$g_talk_troop", "trp_isaurian_leader"),
-                  (neq, "$g_talk_troop", "trp_suebi_king"),
-                  (neq, "$g_talk_troop", "trp_aestii_rebel_king"),
-                  (neq, "$g_talk_troop", "trp_burgundian_looter"),], #fix for bandit leader
+], #fix for bandit leader
 "{s43}", "defeat_lord_answer",
 [(troop_set_slot, "$g_talk_troop", slot_troop_leaded_party, -1),
 (call_script, "script_lord_comment_to_s43", "$g_talk_troop", "str_surrender_offer_default"),
-(neq, "$g_talk_troop", "trp_isaurian_leader"),
-(neq, "$g_talk_troop", "trp_suebi_king"),
-(neq, "$g_talk_troop", "trp_aestii_rebel_king"),
-(neq, "$g_talk_troop", "trp_burgundian_looter"),
 ]],
 
 [anyone|plyr,"defeat_lord_answer", [],
@@ -18854,10 +18869,10 @@ Here, take this purse of {reg3} siliquae, as I promised. I hope we can travel to
 (call_script, "script_add_log_entry", logent_lord_captured_by_player, "trp_player",  -1, "$g_talk_troop", "$g_talk_troop_faction"),
 ]],
 
-[anyone,"defeat_lord_answer_1", [(neq, "$g_talk_troop", "trp_isaurian_leader"),(neq, "$g_talk_troop", "trp_suebi_king"),(neq, "$g_talk_troop", "trp_aestii_rebel_king"),(neq, "$g_talk_troop", "trp_burgundian_looter"),],
+[anyone,"defeat_lord_answer_1", [],
 "I am at your mercy.", "close_window", []],
 
-[anyone|plyr,"defeat_lord_answer", [(neq, "$g_talk_troop", "trp_isaurian_leader"),(neq, "$g_talk_troop", "trp_suebi_king"),(neq, "$g_talk_troop", "trp_aestii_rebel_king"),(neq, "$g_talk_troop", "trp_burgundian_looter"),],
+[anyone|plyr,"defeat_lord_answer", [],
 "You have fought well. You are free to go.", "defeat_lord_answer_2",
 [(call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 5),
 (call_script, "script_change_player_honor", 3),
@@ -38598,12 +38613,14 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
    [
     ]],
 
-  [anyone,"start", [(eq,"$talk_context",tc_hero_defeated),(neq, "$g_talk_troop", "trp_isaurian_leader"),(neq, "$g_talk_troop", "trp_suebi_king"),(neq, "$g_talk_troop", "trp_aestii_rebel_king"),(neq, "$g_talk_troop", "trp_burgundian_looter"),],
+  [anyone,"start", [
+(eq,"$talk_context",tc_hero_defeated),
+],
    "You'll not live long to enjoy your victory. My kinsmen will soon wipe out the stain of this defeat.", "defeat_hero_answer",
    [
     ]],
 
-  [anyone|plyr,"defeat_hero_answer", [(neq, "$g_talk_troop", "trp_isaurian_leader"),(neq, "$g_talk_troop", "trp_suebi_king"),(neq, "$g_talk_troop", "trp_aestii_rebel_king"),(neq, "$g_talk_troop", "trp_burgundian_looter"),],
+  [anyone|plyr,"defeat_hero_answer", [],
    "You are my prisoner now.", "defeat_hero_answer_1",
    [
      #(party_add_prisoners, "p_main_party", "$g_talk_troop", 1),#take prisoner
@@ -38619,7 +38636,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
 
   [anyone|plyr,"defeat_hero_answer", [],
    "You're free to go this time, but don't cross my path again.", "defeat_hero_answer_2",
-   []],
+   [(call_script, "script_change_player_honor", 1),]],
 
   [anyone,"defeat_hero_answer_2", [],
    "We will meet again.", "close_window",
@@ -48151,14 +48168,18 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
   #a certain magical codex
   [party_tpl|pt_heretical_codex_bandits,"start", [
   (eq,"$talk_context",tc_party_encounter),
+  (check_quest_active, "qst_heretical_codex"),
   (quest_slot_eq,"qst_heretical_codex",slot_quest_current_state, 1),
-  (neq, "$g_talk_troop", "pt_heretical_codex_bandits"),
   ],
   "Who the hell are you and what do you want?", "codex_bandits_talk_1",[]],
 
   [party_tpl|pt_heretical_codex_bandits|plyr,"codex_bandits_talk_1", [], "I've heard you recently stole a codex from some odd priest. Hand it over now!", "codex_bandits_talk_2",[]],
 
-  [party_tpl|pt_heretical_codex_bandits,"codex_bandits_talk_2", [], "What!? You're talking about that codex? If it is that valuable, I might as well kill you for it!", "close_window",[[encounter_attack]]],
+  [party_tpl|pt_heretical_codex_bandits,"codex_bandits_talk_2", [], "What!? You're talking about that codex? If it is that valuable, I might as well kill you for it!", "close_window",[
+(assign,"$encountered_party_hostile",1),
+(assign,"$encountered_party_friendly",0),
+(encounter_attack)
+]],
 
 
 ######################################
@@ -48525,109 +48546,6 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
     (try_end),
     (assign, "$dialog_with_merchant_ended", 1),
   ]],
-
-#CUSTOM DIALOGUES START
-
-[anyone, "start",
-[
-(eq, "$g_talk_troop", "trp_isaurian_leader"),
-(eq,"$talk_context",tc_hero_defeated),
-],
-"I have been bested... I surrender!.", "isaurian_talk_duel_win_1",
-[]],
-
-[anyone|plyr, "isaurian_talk_duel_win_1",
-[
-(eq, "$g_talk_troop", "trp_isaurian_leader"),
-],
-"Very well, you're coming with me", "close_window",
-[(add_xp_as_reward, 800),
-(call_script, "script_change_troop_renown", "trp_player", 5),
-(quest_set_slot,"qst_founding_the_excubitors", slot_quest_current_state, 3),
-(party_force_add_prisoners, "p_main_party", "$g_talk_troop", 1),
-(troop_set_slot, "$g_talk_troop", slot_troop_prisoner_of_party, "p_main_party"),
-(change_screen_map),
-]], #increases renown, adds xp, makes isaurian bandit parties neutral/friendly
-
-[anyone, "start",
-[
-(eq, "$g_talk_troop", "trp_aestii_rebel_king"),
-(eq,"$talk_context",tc_hero_defeated),
-],
-"Foreigner! You defeated me in battle but you don't need to hand me to the Visavaldas. Since you won, I am your servant now as our laws tell us. Keep me with your host and I'll serve you gladly, but if you will leave me to that tyrant, I will be dead for sure before the sun sets for a new day.", "aestii_rebel_king_defeated_1",
-[]],
-
-[anyone|plyr, "aestii_rebel_king_defeated_1", #choice 1, take him prisoner
-[],
-"No, I won't have you stay with my host, I don't trust you. The Visavaldas will decide your fate!", "close_window",
-[
-(quest_set_slot,"qst_aestii_rebel_quest", slot_quest_current_state, 2),
-(call_script, "script_succeed_quest", "qst_aestii_rebel_quest"),
-(party_force_add_prisoners, "p_main_party", "$g_talk_troop", 1),
-(troop_set_slot, "$g_talk_troop", slot_troop_prisoner_of_party, "p_main_party"),
-(change_screen_map),
-]],
-
-
-[anyone, "start",
-[
-(is_between, "$g_talk_troop", "trp_roman_landowner_wife", "trp_sidonius_apollinaris"),
-(eq, "$g_talk_troop", "trp_burgundian_looter"),
-(eq,"$talk_context",tc_hero_defeated),
-],
-"Ay! Spare me! Spare my life! Here, I'll give you the codex! Just know the codex is heretical and full of weird spells and incantations! We were going to give it to the Chalcedonian church! I swear! We may be filthy bandits, but at least we're not heretics!", "heretical_codex_win_1",
-[]],
-
-[anyone|plyr, "heretical_codex_win_1",
-[],
-"Very well, since you are relinquishing the codex, I will spare your life. Now go.", "close_window",
-[
-(display_message, "str_quest_log_updated"),
-(add_quest_note_from_sreg, "qst_heretical_codex", 1, "@It seems this 'special' codex is full of strange spells and incantations. Handing it over to the Chalcedonian church may yield a greater reward then what the priest was offering...",0),
-(call_script, "script_change_troop_renown", "trp_player", 5),
-(troop_add_item, "trp_player","itm_heretical_codex",0),
-(succeed_quest, "qst_heretical_codex"),
-(quest_set_slot,"qst_heretical_codex", slot_quest_current_state, 2),
-(change_screen_map),
-]],
-
-
-#Avaldus after defeat
-#[anyone, "start",
-#[
-#(is_between, "$g_talk_troop", "trp_hunnic_guide", "trp_burgundian_bandit"),
-#(eq,"$talk_context",tc_hero_defeated),
-#],
-#"Ay! Spare me! Spare my life! Here, I'll give you the heirloom!", "bur_bandit_leader_1",
-#[]],
-
-#[anyone|plyr, "bur_bandit_leader_1",
-#[
-#(is_between, "$g_talk_troop", "trp_hunnic_guide", "trp_burgundian_bandit"),
-#],
-#"I'll spare your life -- but give me the heirloom.", "bur_bandit_leader_2",
-#[]],
-
-#[anyone, "bur_bandit_leader_2",
-#[(is_between, "$g_talk_troop", "trp_hunnic_guide", "trp_burgundian_bandit"),],"Here! Take it!.", "close_window",[(troop_add_item, "trp_player", "itm_heirloom"),(add_troop_to_site, "trp_roman_landowner", "scn_town_16_tavern", 3)]],
-
-
-#Last character, will tell you where the treasure is - will give backstory on why he didn't go after it, being protected by bandits
-#  [trp_hunnic_guide, "start", [(check_quest_active,"qst_attila_sword_quest3"),(neq, "$g_talk_troop", "trp_sidonius_apollinaris"),],
-#   "Hello, my name is Cniva. Who are you?", "hunnic_guide_talk", []],
-#  [trp_hunnic_guide|plyr, "hunnic_guide_talk", [],
-#   "My name is {playername}, I was told that you were once part in Attila's court, and may have an idea where some of his treasures went.", "hunnic_guide_talk2", []],
-#  [trp_hunnic_guide|plyr, "hunnic_guide_talk", [],
-#   "Nevermind.", "close_window", []],
-#  [trp_hunnic_guide, "hunnic_guide_talk2", [],
-#   "Ah yes. That was quite a while ago. After Attila died, his empire was divided and crumbled and much of his tribute gold was divided.", "hunnic_guide_talk3", []],
-#  [trp_hunnic_guide, "hunnic_guide_talk3", [],
-#   "I believe there was a stronghold that was abandoned nearby that had some. However, I do not know if it is there or not. Lately I've heard that there has been bandits in the area, who may have taken an interest in it. It is east of this village.", "hunnic_guide_talk4", []],
-#  [trp_hunnic_guide|plyr, "hunnic_guide_talk4", [],
-#   "Thank you for the information.", "close_window", [(remove_troop_from_site,"trp_hunnic_guide","scn_village_170"),(setup_quest_text, "qst_attila_sword_quest4"),(call_script, "script_end_quest", "qst_attila_sword_quest3"),
-#  (str_store_string, s2, "@There is a former hunnic stronghold in the east that may have treasures. However, there is the possibility of it being guarded by bandits as well."),(call_script, "script_start_quest", "qst_attila_sword_quest4", "$g_talk_troop"),(enable_party, "p_hidden_fort"),]],
-#  [trp_hunnic_guide, "start", [(troop_is_hero, "$g_talk_troop")],
-#   "Yes?", "close_window", []],
 
   [trp_priscus, "start", [(eq, "$g_talk_troop_met", 0),], #conditions just in case
    "Greetings, I am Priscus of Panium, former diplomat for the Romans, and now a historian.", "priscus_talk", []],
@@ -51339,7 +51257,10 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
    "Nevermind, I did not mean to disturb you.", "close_window", []],
 
   #a certain magical codex start - based off of this https://twitter.com/Calthalas/status/1431583137885261828?s=19
-  [trp_corrupt_priest, "start", [(eq, "$g_talk_troop_met", 0),],"Oh, you there. Yes, you. You seem like the mercenary type, would you like a job?", "heretical_codex_intro_1", []],
+  [trp_corrupt_priest, "start", [
+(eq, "$g_talk_troop_met", 0),
+(neg|check_quest_active,"qst_heretical_codex"),
+],"Oh, you there. Yes, you. You seem like the mercenary type, would you like a job?", "heretical_codex_intro_1", []],
 
   [trp_corrupt_priest|plyr, "heretical_codex_intro_1", [],
    "Yes, what do you need me to do?", "heretical_codex_quest_1", []],
@@ -51354,7 +51275,6 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
    "It is a rare, one of a kind codex. Although to those bandits it may not seem very valuable, to me it has immense value.", "heretical_codex_quest_4", []],
   [trp_corrupt_priest, "heretical_codex_quest_4", [(str_store_party_name_link, s3, "p_village_75")],
    "I believe the bandits may be near {s3}. When you secure the codex, return to me and I will reward you rather well for your efforts.", "close_window", [
-    (call_script, "script_start_quest", "qst_heretical_codex", "$g_talk_troop"),
     (quest_set_slot,"qst_heretical_codex", slot_quest_current_state, 1),
     (setup_quest_text, "qst_heretical_codex"),
 
@@ -51368,6 +51288,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
 
     (str_store_party_name_link, s3, "p_village_75"),
     (str_store_string, s2, "@You have been hired by a rather anxious priest who wishes for you to take back a codex stolen by a group of bandits and return it to him. The bandits should be near {s3}."),
+    (call_script, "script_start_quest", "qst_heretical_codex", "$g_talk_troop"),
    ]],
 
 
@@ -53531,11 +53452,11 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
   [anyone, "roman_pagan_high_priest_quest_2", [],
    "He wrote that if someone were to go help him, that they should talk to a man named Messius Phoebus Severus in order to reach him, as he is a busy man. He said you could find him in the tavern, as it is a place he frequently visits.", "roman_pagan_high_priest_quest_3", [
   (setup_quest_text, "qst_roman_pagan_quest"),
-  (str_store_string, s2, "@A philosopher named Proclus requests protection from the local christian populace in Alexandria."),
+  (str_store_string, s2, "@A philosopher named Proclus requests protection from the local Christian populace in Alexandria."),
   (assign, "$roman_pagan_quest_started", 1),
   (call_script, "script_start_quest", "qst_roman_pagan_quest", "$g_talk_troop"),
   (quest_set_slot,"qst_roman_pagan_quest", slot_quest_current_state, 1),
-  (add_troop_to_site, "trp_roman_pagan_quest_npc_1", "scn_town_21_tavern", 12),
+  #(add_troop_to_site, "trp_roman_pagan_quest_npc_1", "scn_town_21_tavern", 12), #madsci this is done in the tavern menu instead
    ]],
   [anyone|plyr, "roman_pagan_high_priest_quest_3", [],
    "I will head to Alexandria to help him.", "close_window", []],

@@ -19765,12 +19765,6 @@ presentations = [
               (this_or_next|eq, ":troop", "trp_heruli_warrior"),
               (eq, ":troop", "trp_heruli_horseman"),
               (assign, ":c", 1),
-		(else_try), #madsci show atleast 1 troop to choose from?
-		(is_between, "$current_town", minor_towns_begin, minor_towns_end),
-		(store_faction_of_party, ":current_town_faction", "$current_town"),
-		(is_between, ":current_town_faction", minor_kingdoms_begin, minor_kingdoms_end),
-		(faction_slot_eq, ":current_town_faction", slot_faction_tier_1_troop, ":troop"),
-              	(assign, ":c", 1),
             (try_end),
             (eq, ":c", 1),
 
@@ -20004,6 +19998,11 @@ presentations = [
                 (this_or_next|eq, ":troop", "trp_sabir_amazon"),
                 (eq, ":troop", "trp_sabir_cataphract"),
                 (assign, ":c", 1),
+		(else_try), #madsci show atleast 1 troop to choose from?
+		(store_faction_of_party, ":current_town_faction", "$g_encountered_party"),
+		(is_between, ":current_town_faction", minor_kingdoms_begin, minor_kingdoms_end),
+		(faction_slot_eq, ":current_town_faction", slot_faction_tier_1_troop, ":troop"),
+              	(assign, ":c", 1),
               (try_end),
             (try_end),
 
@@ -20267,6 +20266,8 @@ presentations = [
               (ge, ":g", reg44),
               #(presentation_set_duration, 0),
               (party_add_members, "p_main_party", "$temp_troop", reg43),
+		(str_store_troop_name_by_count, s35, "$temp_troop", reg43),
+		(display_message, "@Recruited {s35}."),
               (troop_remove_gold, "trp_player", reg44),
               (start_presentation, "prsnt_barracks"),
               (val_sub, ":recruits", reg43),

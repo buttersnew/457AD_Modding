@@ -1202,7 +1202,7 @@ triggers = [
   (neg|check_quest_active,"qst_nero_larper_quest"),
   (quest_slot_eq,"qst_nero_larper_quest",slot_quest_current_state, 2),
 ],[
-  (quest_set_slot,"qst_nero_larper_quest",slot_quest_current_state, 6), #so he shows up in Rome
+  (assign, "$g_nero_quest", 3),
 ]),
 
 (24*5,0,ti_once,[ #storming the palace

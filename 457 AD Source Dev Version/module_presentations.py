@@ -19765,6 +19765,12 @@ presentations = [
               (this_or_next|eq, ":troop", "trp_heruli_warrior"),
               (eq, ":troop", "trp_heruli_horseman"),
               (assign, ":c", 1),
+		(else_try), #madsci show atleast 1 troop to choose from?
+		(is_between, "$current_town", minor_towns_begin, minor_towns_end),
+		(store_faction_of_party, ":current_town_faction", "$current_town"),
+		(is_between, ":current_town_faction", minor_kingdoms_begin, minor_kingdoms_end),
+		(faction_slot_eq, ":current_town_faction", slot_faction_tier_1_troop, ":troop"),
+              	(assign, ":c", 1),
             (try_end),
             (eq, ":c", 1),
 

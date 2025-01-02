@@ -2099,10 +2099,11 @@ simple_triggers = [
 (try_end),
 
 (try_begin), #madsci end quest if Nero has been defeated by someone else already
-(quest_slot_eq, "qst_nero_larper_quest", slot_quest_current_state, 5), #army has spawned
+(eq, "$nero_army_spawned", 1),
 (quest_get_slot, ":target", "qst_nero_larper_quest", slot_quest_target_party),
 (gt, ":target", 0),
 (neg|party_is_active, ":target"),
+(assign, "$nero_army_spawned", -1),
 (display_log_message, "@Nero has been defeated!"),
 (try_end),
     ]),

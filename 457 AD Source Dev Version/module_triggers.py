@@ -1225,6 +1225,7 @@ triggers = [
   (spawn_around_party, "p_town_8", "pt_nero_rebel_army"),
   (quest_set_slot, "qst_nero_larper_quest", slot_quest_target_party, reg0),
   (quest_set_slot,"qst_nero_larper_quest",slot_quest_current_state, 5),
+  (assign, "$nero_army_spawned", 1),
 ]),
 
 (24*7,0,ti_once,[ #leading armed rebellion

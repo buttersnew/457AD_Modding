@@ -229,7 +229,7 @@ parties = [
  ("village_7", "Amisus", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (64.07, 41.98), [], 110),             #[swycartographr] prev. coords: (-1.5998, 33.8451)
  ("village_8", "Astuia", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-113.78, 144.22), [], 120),          #[swycartographr] prev. coords: (-148.24, 129.43)
  ("village_9", "Duriorigum", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-226.66, 84.5), [], 130),        #[swycartographr] prev. coords: (-236.64, 84.7051)
- ("village_10", "Dunnichen", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-219.92, 187.76), [], 170),      #[swycartographr] prev. coords: (-217.99, 177.55)
+ ("village_10", "Dun_Neachdain", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-219.92, 187.76), [], 170),      #[swycartographr] prev. coords: (-217.99, 177.55)
  ("village_11", "Vindonissa", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-143.05, 78.18), [], 100),  
  ("village_12", "Iader", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-90.73,41.58), [], 110),             #[swycartographr] prev. coords: (-131.9, 39)
  ("village_13", "Athenae", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-24.79, -11.64), [], 120),         #[swycartographr] prev. coords: (-76.6, -18.36)
@@ -294,7 +294,7 @@ parties = [
  #("village_71", "Derbenz", icon_village_c|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (90.31, 63.66), [], 35), 
  ("village_71", "Partav", icon_village_c|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (159.72, 59.31), [], 35),            #[swycartographr] prev. coords: (82.5, 46.7)
  ("village_72", "Spoletum", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-117.88, 30.6), [], 60),          #[swycartographr] prev. coords: (-152.361, 29.2445)
- ("village_73", "Dunadd", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-234.3, 182.59), [], 55),       #[swycartographr] prev. coords: (50.6437, 132.341) #[swycartographr] prev. coords: (-229.26, 172.82) #[swycartographr] prev. coords: (-231.47, 170.81)
+ ("village_73", "Arregathel", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-234.3, 182.59), [], 55),       #[swycartographr] prev. coords: (50.6437, 132.341) #[swycartographr] prev. coords: (-229.26, 172.82) #[swycartographr] prev. coords: (-231.47, 170.81)
  ("village_74", "Andematunum", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-173.21,77.44), [], 15),            #[swycartographr] prev. coords: (-128.477, 11.0678) #[swycartographr] prev. coords: (-118.73, 4.33) #[swycartographr] prev. coords: (-191.14, 74.74)
  ("village_75", "Segobriga", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-238.27, 10.13), [], 10),        #[swycartographr] prev. coords: (-248.6, 14)
  ("village_76", "Sebastopolis", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (95.25, 70.93), [], 35),       #[swycartographr] prev. coords: (22.16, 62.13)
@@ -345,7 +345,7 @@ parties = [
   ("village_118","Huensis",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-234.22,191.39),[], 40),             #[swycartographr] prev. coords: (-235.17, 179.66)
   ("village_119","Noviomagnus_Reginorum",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-210.14,119.73),[], 40),  #[swycartographr] prev. coords: (-214.88, 112.96)
   ("village_120","Delminium",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-69.38,35.73),[], 40),             #[swycartographr] prev. coords: (-118.68, 30.24)
-  ("village_121","Moray",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-222.08,197.87),[], 40),               #[swycartographr] prev. coords: (-218.81, 187.47)
+  ("village_121","Moreb",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-222.08,197.87),[], 40),
   ("village_122","Salamatica",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-251.85, 17.22),[], 40),          #[swycartographr] prev. coords: (-264.88, 28.38)
   ("village_123","Forum_Limicorum",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-269.22,34.6),[], 40),
   ("village_124","Aquae_Flaviae",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-267.5,28.59),[], 40),         #[swycartographr] prev. coords: (-277.5, 37.83)

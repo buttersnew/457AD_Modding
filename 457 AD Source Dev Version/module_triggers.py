@@ -1206,11 +1206,13 @@ triggers = [
 ]),
 
 (24*5,0,ti_once,[ #storming the palace
+  (neg|party_slot_eq, "p_main_party", slot_party_on_water, 1), #madsci a messenger doesnt appear if the player is sea traveling
   (neg|check_quest_active,"qst_nero_larper_quest"),
   (quest_slot_eq,"qst_nero_larper_quest",slot_quest_current_state, 3),
 ],[
   (dialog_box, "@While travelling, you hear news that a man claiming to be Nero stormed the Domus Augusti in Rome, with a small group of supporters. During a scuffle with the Palatini, he was struck down and killed...", "@While travelling..."),
   (quest_set_slot,"qst_nero_larper_quest",slot_quest_current_state, 5),
+  (troop_set_slot, "trp_nero_larper", slot_troop_occupation, dplmc_slto_dead),
 ]),
 
 (24*5,0,ti_once,[ #leading armed rebellion

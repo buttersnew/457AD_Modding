@@ -13800,6 +13800,7 @@ TOTAL:  {reg5}"),
             (set_visitors, 13, "trp_chudjak", 1),
             (try_begin),
               (eq, "$g_nero_quest", 3),
+	      (neg|troop_slot_eq, "trp_nero_larper", slot_troop_occupation, dplmc_slto_dead),
               (set_visitors, 50, "trp_nero_larper", 1),
             (try_end),
           (try_end),
@@ -29701,7 +29702,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
   ("ratas_siege",0,
     "Before all the rats are exterminated, many of your men fall sick and die.^^Your casualties: {s8}",
     "none", [  (set_background_mesh, "mesh_pic_mb_warrior_1"),
-      (call_script, "script_inflict_casualties_to_party", "p_main_party", 8),
+      (call_script, "script_inflict_casualties_to_party_vc", "p_main_party", 8),
       (call_script, "script_collect_friendly_parties"),
     ],
     
@@ -29760,7 +29761,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
   ("enfermedad_siege",0,
     "Death governs your camp. Many of your men are sick and dying.^^Your casualties: {s8}",
     "none", [  (set_background_mesh, "mesh_pic_mb_warrior_1"),
-      (call_script, "script_inflict_casualties_to_party", "p_main_party", 10),
+      (call_script, "script_inflict_casualties_to_party_vc", "p_main_party", 10),
       (call_script, "script_collect_friendly_parties"),
     ],
     
@@ -29777,7 +29778,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
   ("enfermedad2_siege",0,
     "Some men die from the disease, but most manage to recover thanks to the physician you hired.^^Your casualties: {s8}",
     "none", [  (set_background_mesh, "mesh_pic_mb_warrior_1"),
-      (call_script, "script_inflict_casualties_to_party", "p_main_party", 2),
+      (call_script, "script_inflict_casualties_to_party_vc", "p_main_party", 2),
       (call_script, "script_collect_friendly_parties"),
     ],
     
@@ -29794,7 +29795,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
   ("enfermedad3_siege",0,
     "Death governs your camp. Many of your men are sick and dying. Perhaps your god has saved some lives.^^Your casualties: {s8}",
     "none", [  (set_background_mesh, "mesh_pic_mb_warrior_1"),
-      (call_script, "script_inflict_casualties_to_party", "p_main_party", 9),
+      (call_script, "script_inflict_casualties_to_party_vc", "p_main_party", 9),
       (call_script, "script_collect_friendly_parties"),
     ],
     
@@ -29811,7 +29812,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
   ("enfermedad4_siege",0,
     "Thanks to your healing abilities, you manage to save many men, but some still die.^^Your casualties: {s8}",
     "none", [  (set_background_mesh, "mesh_pic_mb_warrior_1"),
-      (call_script, "script_inflict_casualties_to_party", "p_main_party", 2),
+      (call_script, "script_inflict_casualties_to_party_vc", "p_main_party", 2),
       (call_script, "script_collect_friendly_parties"),
     ],
     
@@ -29912,7 +29913,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     "During the night, your men captured and executed a group of enemies who tried to infiltrate and burn supplies.^^Enemy casualties: {s8}",
     "none",
     [(set_background_mesh, "mesh_pic_messenger"),
-      (call_script, "script_inflict_casualties_to_party", "$g_enemy_party", 4),
+      (call_script, "script_inflict_casualties_to_party_vc", "$g_enemy_party", 4),
       (party_collect_attachments_to_party, "$g_enemy_party", "p_collective_enemy"),
     ],
     [
@@ -30142,7 +30143,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
   ("sed_siege",0,
     "Water is running out, and your men weaken. Driven by the madness of thirst, some of them drink poisoned water and die. Finally, a well is completed and you get water for the time being. You can continue the siege.^^Your casualties from poisoned water:{s8}",
     "none", [  (set_background_mesh, "mesh_pic_messenger"),
-      (call_script, "script_inflict_casualties_to_party", "p_main_party", 4),
+      (call_script, "script_inflict_casualties_to_party_vc", "p_main_party", 4),
       (call_script, "script_collect_friendly_parties"),
     ],
     
@@ -30272,10 +30273,10 @@ goods, and books will never be sold. ^^You can change some settings here freely.
   ###frio invierno bajas
   (
     "event_siege_11",menu_text_color(0xFF000000)|mnf_disable_all_keys,
-    "The cold of winter always takes its toll when it comes. Some men have died of cold, flu and other minor illnesses.^^Your casualties: {s8}",
+    "The cold of winter always takes its toll when it comes. Some men have died of cold, flu and other minor illnesses. ^^Your casualties: {s8}",
     "none",
     [(set_background_mesh, "mesh_pic_messenger"),
-      (call_script, "script_inflict_casualties_to_party", "p_main_party", 4),
+      (call_script, "script_inflict_casualties_to_party_vc", "p_main_party", 4),
       (call_script, "script_collect_friendly_parties"),
     ],
     [
@@ -30346,7 +30347,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     "In revenge, the men of the nearby villages joined together and attacked your foraging parties.^^Your casualties: {s8}",
     "none",
     [(set_background_mesh, "mesh_pic_messenger"),
-      (call_script, "script_inflict_casualties_to_party", "p_main_party", 3),
+      (call_script, "script_inflict_casualties_to_party_vc", "p_main_party", 3),
       (call_script, "script_collect_friendly_parties"),
     ],
     [

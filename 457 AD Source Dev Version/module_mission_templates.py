@@ -8987,7 +8987,7 @@ mission_templates = [
 		(try_for_agents, ":agent"),
 		(lt, ":extra_walkers", 15),
 		(agent_get_troop_id,":troop",":agent"),
-		(is_between,":troop", walkers_begin, walkers_end),
+		(is_between,":troop", walkers_begin, village_walkers_end),
 		(agent_get_position, pos1, ":agent"),
 		(position_move_y, pos1, 30),
 		(set_spawn_position, pos1),

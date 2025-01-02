@@ -8813,15 +8813,25 @@ mission_templates = [
         (try_begin),
           (eq, "$g_defending_against_siege", 0),
           (assign,"$g_leave_town",1),
-        (try_end),
-      ],
+        (try_end),			
+      ], 
       [
         (try_begin),
           (eq, "$talk_context", tc_escape),
           (call_script, "script_deduct_casualties_from_garrison"),
-          (jump_to_menu,"mnu_sneak_into_town_caught_dispersed_guards"),
+          (try_for_agents, ":agent"),
+            (agent_get_troop_id, ":troop", ":agent"),
+            (troop_slot_ge, ":troop", slot_troop_mission_participation, mp_prison_break_fight),
+            (try_begin),
+              (agent_is_alive, ":agent"),
+              (troop_set_slot, ":troop", slot_troop_mission_participation, mp_prison_break_escaped),
+            (else_try),
+              (troop_set_slot, ":troop", slot_troop_mission_participation, mp_prison_break_caught),
+            (try_end),
+          (try_end),
+          (jump_to_menu,"mnu_sneak_into_town_caught_ran_away"),
         (try_end),
-
+        
         (mission_enable_talk),
       ]),
 
@@ -8965,6 +8975,26 @@ mission_templates = [
        (troop_set_slot, ":dead_agent_troop_no", slot_troop_mission_participation, mp_prison_break_caught),
      (try_end),
    ]),
+
+	#madsci spawn more walkers to populate the town
+      	(0, 0, ti_once,
+      	[
+        (eq, "$talk_context", tc_town_talk),
+      	],
+      	[
+	(set_fixed_point_multiplier, 100),
+	(assign, ":extra_walkers", 0),
+		(try_for_agents, ":agent"),
+		(lt, ":extra_walkers", 15),
+		(agent_get_troop_id,":troop",":agent"),
+		(is_between,":troop", walkers_begin, walkers_end),
+		(agent_get_position, pos1, ":agent"),
+		(position_move_y, pos1, 30),
+		(set_spawn_position, pos1),
+		(spawn_agent, ":troop"),
+		(val_add, ":extra_walkers", 1),
+		(try_end),
+	]),
   ] + bodyguard_triggers,
   ),
 

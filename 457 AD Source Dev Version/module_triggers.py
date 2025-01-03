@@ -1037,13 +1037,19 @@ triggers = [
 	(try_end),
 ]),
 
-(1800,0,ti_once,[(faction_slot_eq, "fac_kingdom_6", slot_faction_state, sfs_active),(neq,"$g_arran_revolt",1)],[  #checks if the Sassanids are still around - around 75 (1800 hours) days
-    (store_faction_of_party, ":fac", "p_castle_36"),
-    (neq, ":fac", "fac_kingdom_28"),
-    (party_get_slot, ":lord", "p_castle_36", slot_town_lord),
-    (ge, ":lord", 1), 
-    (call_script, "script_add_notification_menu", "mnu_event_arran_revolt",0,0),
-   ]),
+(1800,0,ti_once,[
+(faction_slot_eq, "fac_kingdom_6", slot_faction_state, sfs_active),
+(neq,"$g_arran_revolt",1),
+(party_slot_eq, "p_castle_36", slot_center_is_besieged_by, -1),
+(party_slot_eq, "p_castle_87", slot_center_is_besieged_by, -1),
+(party_slot_eq, "p_castle_88", slot_center_is_besieged_by, -1),
+(store_faction_of_party, ":fac", "p_castle_36"),
+(neq, ":fac", "fac_kingdom_28"),
+(party_get_slot, ":lord", "p_castle_36", slot_town_lord),
+(ge, ":lord", 1), 
+],[#checks if the Sassanids are still around - around 75 (1800 hours) days
+(call_script, "script_add_notification_menu", "mnu_event_arran_revolt",0,0),
+]),
 
 (24, 0, ti_once, [  
     # (store_character_level, ":level", "trp_player"),

@@ -29626,9 +29626,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     ]),
 
 ("event_arran_revolt",menu_text_color(0xFF000000)|mnf_disable_all_keys,
-    "News from Eranshahr warn you of a new war! The king of Arran, Vache II, relative to the Shahanshah, raised his armies and is now challenging the Shahanshah in order to contest his authority. \
-  Vache II and his allies have grown strong resentment towards the King of Kings and now they wish to declare themselves independent.^\
-  Furthermore, Vache II has exiled the Persian Fire Priests and reembraced his old faith in Christ, that he was forced to abandon some years before.",
+    "News from Eranshahr warn you of a new war! The king of Arran, Vache II, relative to the Shahanshah, raised his armies and is now challenging the Shahanshah in order to contest his authority. ^"+"Vache II and his allies have grown strong resentment towards the King of Kings and now they wish to declare themselves independent. ^"+"Furthermore, Vache II has exiled the Persian Fire Priests and reembraced his old faith in Christ, that he was forced to abandon some years before.",
     "none",
     [(set_background_mesh, "mesh_pic_sarranid_encounter"),
   ],
@@ -29636,7 +29634,6 @@ goods, and books will never be sold. ^^You can change some settings here freely.
      ("continue_revolt_1",[
    ],"Continue...",
        [
-    (call_script, "script_cf_start_arran_revolt"),
     (change_screen_map),
         ],
        ),

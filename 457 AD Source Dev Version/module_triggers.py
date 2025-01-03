@@ -1048,7 +1048,12 @@ triggers = [
 (party_get_slot, ":lord", "p_castle_36", slot_town_lord),
 (ge, ":lord", 1), 
 ],[#checks if the Sassanids are still around - around 75 (1800 hours) days
-(call_script, "script_add_notification_menu", "mnu_event_arran_revolt",0,0),
+(call_script, "script_cf_start_arran_revolt"),
+(display_log_message, "@The king of Arran has raised his armies and is now challenging the Shahanshah in order to contest his authority."),
+	(try_begin),
+	(eq, "$g_infinite_camping", 0),
+	(call_script, "script_add_notification_menu", "mnu_event_arran_revolt",0,0),
+	(try_end),
 ]),
 
 (24, 0, ti_once, [  

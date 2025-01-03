@@ -5891,6 +5891,7 @@ Still I am sorry that I'll leave you soon. You must promise me, you'll come visi
     ]],
 
 [anyone|auto_proceed, "companion_recruit_payment", [
+(this_or_next|troop_slot_eq, "$g_talk_troop", slot_troop_payment_request, -1),
 (troop_slot_eq, "$g_talk_troop", slot_troop_payment_request, 0),
 ],
 ".", "companion_recruit_signup_confirm", []],
@@ -16693,7 +16694,7 @@ What kind of recruits do you want?", "dplmc_constable_recruit_select",
 
 [anyone, "companion_quitting_no_confirmed", [
 ],
-"Hm. I suppose I'm staying, then.", "close_window", [
+"Hmm... I suppose I'm staying, then.", "close_window", [
  ]],
 
 
@@ -16706,12 +16707,16 @@ What kind of recruits do you want?", "dplmc_constable_recruit_select",
                (eq, "$npc_map_talk_context", slot_troop_morality_state),
 
 
-               (try_begin),
-                   (eq, "$npc_grievance_slot", slot_troop_morality_state),
-                   (troop_get_slot, ":speech", "$map_talk_troop", slot_troop_morality_speech),
-               (else_try),
-                   (troop_get_slot, ":speech", "$map_talk_troop", slot_troop_2ary_morality_speech),
-               (try_end),
+                (try_begin),
+                (eq, "$npc_grievance_slot", slot_troop_morality_state),
+                (troop_get_slot, ":speech", "$map_talk_troop", slot_troop_morality_speech),
+		(gt, ":speech", 0),
+                (else_try),
+                (troop_get_slot, ":speech", "$map_talk_troop", slot_troop_2ary_morality_speech),
+		(gt, ":speech", 0),
+		(else_try),
+		(assign, ":speech", "str_im_angry"), #madsci generic line if for some reason no actual line is stored
+                (try_end),
                (str_store_string, s21, "$npc_grievance_string"),
                (str_store_string, s5, ":speech"),
                ],
@@ -16764,8 +16769,8 @@ What kind of recruits do you want?", "dplmc_constable_recruit_select",
 
                (troop_get_slot, ":speech", "$map_talk_troop", slot_troop_personalityclash2_speech),
                (troop_get_slot, ":object", "$map_talk_troop", slot_troop_personalityclash2_object),
-               (str_store_troop_name, 11, ":object"),
-               (str_store_string, 5, ":speech"),
+               (str_store_troop_name, s11, ":object"),
+               (str_store_string, s5, ":speech"),
                ],
 "{s5}", "companion_personalityclash2_b", [
               (assign, "$npc_with_personality_clash_2", 0),
@@ -16781,8 +16786,8 @@ What kind of recruits do you want?", "dplmc_constable_recruit_select",
 ],  "{s5}", "companion_personalityclash2_response", [
                (troop_get_slot, ":speech", "$map_talk_troop", slot_troop_personalityclash2_speech_b),
                (troop_get_slot, ":object", "$map_talk_troop", slot_troop_personalityclash2_object),
-               (str_store_troop_name, 11, ":object"),
-               (str_store_string, 5, ":speech"),
+               (str_store_troop_name, s11, ":object"),
+               (str_store_string, s5, ":speech"),
     ]],
 
 
@@ -17005,6 +17010,8 @@ What kind of recruits do you want?", "dplmc_constable_recruit_select",
                (eq, "$npc_map_talk_context", slot_troop_home),
                (store_conversation_troop, "$map_talk_troop"),
           (is_between, "$map_talk_troop", companions_begin, companions_end),
+		(troop_get_slot, ":home", "$map_talk_troop", slot_troop_home_intro),
+		(str_store_party_name, s21, ":home"),
 
                (troop_get_slot, ":speech", "$map_talk_troop", slot_troop_home_intro),
                (str_store_string, s5, ":speech"),

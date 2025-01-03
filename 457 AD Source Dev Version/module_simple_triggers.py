@@ -2073,6 +2073,7 @@ simple_triggers = [
 (try_end),
 
 (try_begin),
+(eq, "$suebi_war_ended", 0),
 (faction_slot_eq, "fac_kingdom_8", slot_faction_state, sfs_defeated),
 (faction_slot_eq, "fac_kingdom_30", slot_faction_state, sfs_active),
 (str_store_faction_name, s11, "fac_kingdom_30"),
@@ -2091,6 +2092,7 @@ simple_triggers = [
 (str_store_string, s10, "str_regnum_suevorum"),
 (display_log_message, "@{s11} has won the Suebi civil war and is now known as {s10}"),
 (faction_set_name, "fac_kingdom_8", s10),
+(assign, "$suebi_war_ended", 1),
 		(try_begin),
         	(eq, "$g_infinite_camping", 0),
 		(assign, "$temp", "fac_kingdom_8"),

@@ -17010,7 +17010,7 @@ What kind of recruits do you want?", "dplmc_constable_recruit_select",
                (eq, "$npc_map_talk_context", slot_troop_home),
                (store_conversation_troop, "$map_talk_troop"),
           (is_between, "$map_talk_troop", companions_begin, companions_end),
-		(troop_get_slot, ":home", "$map_talk_troop", slot_troop_home_intro),
+		(troop_get_slot, ":home", "$map_talk_troop", slot_troop_home),
 		(str_store_party_name, s21, ":home"),
 
                (troop_get_slot, ":speech", "$map_talk_troop", slot_troop_home_intro),

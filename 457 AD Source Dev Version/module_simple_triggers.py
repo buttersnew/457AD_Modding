@@ -3509,8 +3509,11 @@ simple_triggers = [
 	#madsci reworked icon thing
   (0.1,
    [
+(assign, ":end", "p_sabiroi_village"),
+(val_add, ":end", 1),
     (try_for_parties, ":party_no"),
 	(this_or_next|eq, ":party_no", "p_main_party"),
+	(this_or_next|is_between, ":party_no", "p_onoguroi_village", ":end"),
         (gt, ":party_no", last_static_party), #madsci
 	(party_get_icon, ":icon", ":party_no"),
 	(assign, ":new_icon", -1),

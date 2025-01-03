@@ -47694,7 +47694,94 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
 
   [anyone,"town_dweller_ask_rumor", [], "I haven't heard anything interesting lately.", "town_dweller_talk",[]],
 
-  [anyone|plyr,"town_dweller_talk", [], "[Leave]", "close_window",[]],
+#MADSCI CITY GUIDES
+  [anyone|plyr,"town_dweller_talk", [
+(eq, "$talk_context", tc_town_talk),
+(is_between, "$current_town", centers_begin, centers_end),
+], "Can you help me find what I'm looking for?", "town_dweller_ask_directions",[]],
+
+  [anyone, "town_dweller_ask_directions", [
+  ],
+   "What are you looking for, {sir/my lady}?", "town_dweller_ask_directions2",[
+   ]],
+
+  [anyone|plyr,"town_dweller_ask_directions2", [
+(is_between, "$current_town", walled_centers_begin, walled_centers_end),
+], "The palace.", "town_dweller_ask_directions3",[
+(assign, "$temp", 23),
+]],
+
+  [anyone|plyr,"town_dweller_ask_directions2", [
+(is_between, "$current_town", walled_centers_begin, walled_centers_end),
+], "The dungeon.", "town_dweller_ask_directions3",[
+(assign, "$temp", 24),
+]],
+
+  [anyone|plyr,"town_dweller_ask_directions2", [
+(this_or_next|is_between, "$current_town", villages_begin, villages_end),
+(is_between, "$current_town", towns_begin, towns_end),
+(party_get_slot, ":village_elder_troop", "$current_town",slot_town_elder),
+(gt, ":village_elder_troop", 0),
+], "The local leader.", "town_dweller_ask_directions3",[
+(assign, "$temp", 11),
+]],
+
+  [anyone|plyr,"town_dweller_ask_directions2", [
+(is_between, "$current_town", towns_begin, towns_end),
+(party_get_slot, ":village_elder_troop", "$current_town",slot_town_weaponsmith),
+(gt, ":village_elder_troop", 0),
+], "The weaponsmith.", "town_dweller_ask_directions3",[
+(assign, "$temp", 10),
+]],
+
+  [anyone|plyr,"town_dweller_ask_directions2", [
+(is_between, "$current_town", towns_begin, towns_end),
+(party_get_slot, ":village_elder_troop", "$current_town",slot_town_armorer),
+(gt, ":village_elder_troop", 0),
+], "The armorer.", "town_dweller_ask_directions3",[
+(assign, "$temp", 9),
+]],
+
+  [anyone|plyr,"town_dweller_ask_directions2", [
+(is_between, "$current_town", towns_begin, towns_end),
+(party_get_slot, ":village_elder_troop", "$current_town",slot_town_horse_merchant),
+(gt, ":village_elder_troop", 0),
+], "The stables.", "town_dweller_ask_directions3",[
+(assign, "$temp", 12),
+]],
+
+  [anyone|plyr,"town_dweller_ask_directions2", [
+(is_between, "$current_town", towns_begin, towns_end),
+(party_get_slot, ":village_elder_troop", "$current_town",slot_town_merchant),
+(gt, ":village_elder_troop", 0),
+], "The merchant.", "town_dweller_ask_directions3",[
+(assign, "$temp", 5),
+]],
+
+  [anyone|plyr,"town_dweller_ask_directions2", [
+], "Never mind. Farewell.", "close_window",[
+(agent_set_slot, "$g_talk_agent", slot_agent_in_duel_with, 0),
+]],
+
+  [anyone, "town_dweller_ask_directions3", [
+  ],
+   "Follow me, {sir/my lady}.", "close_window",[
+          (agent_set_slot, "$g_talk_agent", 0, "$temp"),
+          (entry_point_get_position, pos1, "$temp"),
+          (try_begin),
+            (init_position, pos2),
+            (position_set_y, pos2, 250),
+            (position_transform_position_to_parent, pos1, pos1, pos2),
+          (try_end),
+          (agent_set_scripted_destination, "$g_talk_agent", pos1, 0),
+          #(agent_set_speed_limit, "$g_talk_agent", 5),
+          (agent_set_speed_limit, "$g_talk_agent", 10),
+
+(agent_set_slot, "$g_talk_agent", slot_agent_in_duel_with, 1),
+   ]],
+#MADSCI CITY GUIDES END
+
+  [anyone|plyr,"town_dweller_talk", [], "Farewell.", "close_window",[]],
 
   [anyone,"start", [(eq, "$talk_context", 0),
                     (is_between,"$g_talk_troop",regular_troops_begin, regular_troops_end),

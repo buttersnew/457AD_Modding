@@ -18298,9 +18298,15 @@ presentations = [
 
     ## Default button
     (create_game_button_overlay, "$g_presentation_obj_3", "@Default"),
-        (position_set_x, pos1, 425),
+        (position_set_x, pos1, 505),
         (position_set_y, pos1, 35),
         (overlay_set_position, "$g_presentation_obj_3", pos1),
+
+	#randomize
+    (create_game_button_overlay, "$g_presentation_obj_4", "@Random"),
+        (position_set_x, pos1, 330),
+        (position_set_y, pos1, 35),
+        (overlay_set_position, "$g_presentation_obj_4", pos1),
 
     ## title
         (create_text_overlay, reg1, "@Character Creation", tf_center_justify),
@@ -18786,6 +18792,10 @@ presentations = [
     (else_try), ####### DEFAULT BUTTON #######]
       (eq, ":object", "$g_presentation_obj_3"),
       (call_script, "script_mcc_default_settings"),
+      (start_presentation, "prsnt_mcc_character_creation"),
+    (else_try), ####### RANDOM BUTTON #######]
+      (eq, ":object", "$g_presentation_obj_4"),
+      (call_script, "script_mcc_random_settings"),
       (start_presentation, "prsnt_mcc_character_creation"),
 
     # (else_try), ####### RANDOMIZE BUTTON #######

@@ -3959,9 +3959,9 @@ Still I am sorry that I'll leave you soon. You must promise me, you'll come visi
 ], "I suppose you know that I aspire to be {king/queen} of this land?", "member_kingsupport_1",[]],
 
 [anyone|plyr,"member_question_2", [
-    ##diplomacy start+ Prevent this from appearing for non-"companion" troops
-    (is_between, "$g_talk_troop", companions_begin, companions_end),
-    ##diplomacy end+
+(is_between, "$g_talk_troop", companions_begin, companions_end),
+(troop_get_slot, ":town_with_contacts", "$g_talk_troop", slot_troop_town_with_contacts),
+(is_between, ":town_with_contacts", towns_begin, towns_end),
 ], "Do you have any connections that we could use to our advantage?", "member_intelgathering_1",[]],
 
 # #TODO: steal some disguises from companions

@@ -1080,14 +1080,17 @@ triggers = [
   (enable_party, "p_vidigoias_grave"),
 ]),
 #Invasions Begin
-(4800,0,ti_once,[
-  (neg|party_slot_eq, "p_main_party", slot_party_on_water, 1), #madsci a messenger doesnt appear if the player is sea traveling
-],[ #4800 for 200 days
+(4800,0,ti_once,[],[ #4800 for 200 days
      (set_spawn_radius, 8),
      (try_for_range, ":unused", 1, 6), # number of invaders to spawn + 1, roughly 200 days
            (spawn_around_party, "p_town_21", "pt_coptic_rebellion"),
-     (try_end),  
-     (dialog_box, "@A messenger approaches your warband, bringing news of rebellion! It appears that a large number of Anti-Chalcedonian Christians have revolted near Alexandria, killing the local patriarch, Proterius! The current Comes Limits Aegypti has been removed from his position, and has been replaced on orders from the Emperor.", "@A messenger approaches your warband"),
+     (try_end),
+	(try_begin),
+	(eq, "$g_infinite_camping", 0),
+	(neg|party_slot_eq, "p_main_party", slot_party_on_water, 1), #madsci a messenger doesnt appear if the player is sea traveling 
+     	(dialog_box, "@A messenger approaches your warband, bringing news of rebellion! It appears that a large number of Anti-Chalcedonian Christians have revolted near Alexandria, killing the local patriarch, Proterius! The current Comes Limits Aegypti has been removed from his position, and has been replaced on orders from the Emperor.", "@A messenger approaches your warband"),
+	(try_end),
+	(display_log_message, "@Anti-Chalcedonian Christians have revolted near Alexandria, killing the local patriarch, Proterius!"),
       (try_for_range, ":center", centers_begin, centers_end),
         (eq, ":center", "p_town_21"), # either is town/castle you want to change
         (party_slot_eq, ":center", slot_town_lord, "trp_knight_2_4"), # belongs to a specific lord
@@ -1103,14 +1106,18 @@ triggers = [
 
 (2400,0,ti_once,[
   (eq, "$g_foederati_event", 0),
-  (neg|party_slot_eq, "p_main_party", slot_party_on_water, 1), #madsci a messenger doesnt appear if the player is sea traveling
 ],[
   (set_spawn_radius, 8),
   (try_for_range, ":unused", 2, 5),
     (spawn_around_party, "p_town_13", "pt_foederati_rebels"),
   (try_end),  
   (spawn_around_party, "p_town_13", "pt_tuldila_rebels"),
-  (dialog_box, "@Foederati hired by Majorian for his campaigns have begun to pillage the italian countryside!", "@A messenger approaches your warband"),
+	(try_begin),
+	(eq, "$g_infinite_camping", 0),
+	(neg|party_slot_eq, "p_main_party", slot_party_on_water, 1), #madsci a messenger doesnt appear if the player is sea traveling
+  	(dialog_box, "@Foederati hired by Majorian for his campaigns have begun to pillage the italian countryside!", "@A messenger approaches your warband"),
+	(try_end),
+	(display_log_message, "@Foederati hired by Majorian for his campaigns have begun to pillage the italian countryside!"),
   (assign, "$g_foederati_event", 1),
    ]),
 
@@ -1223,21 +1230,29 @@ triggers = [
 ]),
 
 (24*5,0,ti_once,[ #storming the palace
-  (neg|party_slot_eq, "p_main_party", slot_party_on_water, 1), #madsci a messenger doesnt appear if the player is sea traveling
   (neg|check_quest_active,"qst_nero_larper_quest"),
   (quest_slot_eq,"qst_nero_larper_quest",slot_quest_current_state, 3),
 ],[
-  (dialog_box, "@While travelling, you hear news that a man claiming to be Nero stormed the Domus Augusti in Rome, with a small group of supporters. During a scuffle with the Palatini, he was struck down and killed...", "@While travelling..."),
+	(try_begin),
+	(eq, "$g_infinite_camping", 0),
+  	(neg|party_slot_eq, "p_main_party", slot_party_on_water, 1), #madsci a messenger doesnt appear if the player is sea traveling
+  	(dialog_box, "@While travelling, you hear news that a man claiming to be Nero stormed the Domus Augusti in Rome, with a small group of supporters. During a scuffle with the Palatini, he was struck down and killed...", "@While travelling..."),
+	(try_end),
+	(display_log_message, "@A man claiming to be Nero stormed the Domus Augusti in Rome, with a small group of supporters. During a scuffle with the Palatini, he was struck down and killed..."),
   (quest_set_slot,"qst_nero_larper_quest",slot_quest_current_state, 5),
   (troop_set_slot, "trp_nero_larper", slot_troop_occupation, dplmc_slto_dead),
 ]),
 
 (24*5,0,ti_once,[ #leading armed rebellion
-  (neg|party_slot_eq, "p_main_party", slot_party_on_water, 1), #madsci a messenger doesnt appear if the player is sea traveling
   (neg|check_quest_active,"qst_nero_larper_quest"),
   (quest_slot_eq,"qst_nero_larper_quest",slot_quest_current_state, 4),
 ],[
-  (dialog_box, "@A messenger approaches your warband, bringing news of rebellion! A man claiming to Nero has hired an army and marched on Rome!", "@A messenger approaches your warband"),
+	(try_begin),
+	(eq, "$g_infinite_camping", 0),
+  	(neg|party_slot_eq, "p_main_party", slot_party_on_water, 1), #madsci a messenger doesnt appear if the player is sea traveling
+  	(dialog_box, "@A messenger approaches your warband, bringing news of rebellion! A man claiming to Nero has hired an army and marched on Rome!", "@A messenger approaches your warband"),
+	(try_end),
+	(display_log_message, "@A man claiming to Nero has hired an army and marched on Rome!"),
   (set_spawn_radius, 4),
   (spawn_around_party, "p_town_8", "pt_nero_rebel_army"),
   (quest_set_slot, "qst_nero_larper_quest", slot_quest_target_party, reg0),
@@ -1246,20 +1261,28 @@ triggers = [
 ]),
 
 (24*7,0,ti_once,[ #leading armed rebellion
-  (neg|party_slot_eq, "p_main_party", slot_party_on_water, 1), #madsci a messenger doesnt appear if the player is sea traveling
   (neg|check_quest_active,"qst_agrippinus_quest"),
   (quest_slot_eq,"qst_agrippinus_quest",slot_quest_current_state, 11),
 ],[
-  (dialog_box, "@A messenger approaches your warband, bringing news of rebellion! The former Magister Militum Per Gallias, Agrippinus has risen up after a failed capture by Majorian!", "@A messenger approaches your warband"),
+	(try_begin),
+	(eq, "$g_infinite_camping", 0),
+	(neg|party_slot_eq, "p_main_party", slot_party_on_water, 1), #madsci a messenger doesnt appear if the player is sea traveling
+  	(dialog_box, "@A messenger approaches your warband, bringing news of rebellion! The former Magister Militum Per Gallias, Agrippinus has risen up after a failed capture by Majorian!", "@A messenger approaches your warband"),
+	(try_end),
+	(display_log_message, "@The former Magister Militum Per Gallias, Agrippinus has risen up after a failed capture by Majorian!"),
   (spawn_around_party, "p_town_8", "pt_agrippinus_rebel_army"),
 ]),
 
 (24*7,0,ti_once,[ #escapes trial
-  (neg|party_slot_eq, "p_main_party", slot_party_on_water, 1), #madsci a messenger doesnt appear if the player is sea traveling
-  (neg|check_quest_active,"qst_agrippinus_quest"),
-  (quest_slot_eq,"qst_agrippinus_quest",slot_quest_current_state, 12),
+	(neg|check_quest_active,"qst_agrippinus_quest"),
+  	(quest_slot_eq,"qst_agrippinus_quest",slot_quest_current_state, 12),
 ],[
-  (dialog_box, "@News spreads that Agrippinus has been found guilty of treason and was sentenced to death in Rome, however he was able to escape and how takes refuge in the church of St. Peter!", "@A messenger approaches your warband"),
+	(try_begin),
+	(eq, "$g_infinite_camping", 0),
+	(neg|party_slot_eq, "p_main_party", slot_party_on_water, 1), #madsci a messenger doesnt appear if the player is sea traveling
+	(dialog_box, "@News spreads that Agrippinus has been found guilty of treason and was sentenced to death in Rome, however he was able to escape and how takes refuge in the church of St. Peter!", "@A messenger approaches your warband"),
+	(try_end),
+	(display_log_message, "@Agrippinus has been found guilty of treason and was sentenced to death in Rome, however he was able to escape."),
 ]),
 
 (24,0,ti_once,[

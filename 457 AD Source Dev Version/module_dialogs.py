@@ -20108,7 +20108,7 @@ I knew that I had found someone worthy of becoming my vassal.", "lord_invite_1",
 
 [anyone,"ernak_quest_intro_4", [
 ],
-  "It has come to my attention that some others of our former subjects left our empire, such is the case of the Onogurs, Kutrigurs and Saragurs. These tribes are hunnic at heart and followed my father to battle countless times, but ever since he died, they decided to leave and return to their old lifestyle, freely roaming the steppes.^^However, it seems a new menace is emerging from the east, the Sabirs. A people unknown to us, they hail from the endless steppes of the east and ever since they reached the mouth of the Ra, they repeatedly engaged fights against the Onogurs, Kutrigurs and Saragurs.",
+  "It has come to my attention that some others of our former subjects left our empire, such is the case of the Onogurs, Kutrigurs and Saragurs. These tribes are Hunnic at heart and followed my father to battle countless times, but ever since he died, they decided to leave and return to their old lifestyle, freely roaming the steppes.^^However, it seems a new menace is emerging from the east, the Sabirs. A people unknown to us, they hail from the endless steppes of the east and ever since they reached the mouth of the Ra, they repeatedly engaged fights against the Onogurs, Kutrigurs and Saragurs.",
 "ernak_quest_intro_5",[]],
 
 [anyone,"ernak_quest_intro_5", [
@@ -48863,7 +48863,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
         (troop_remove_gold,"trp_player",2000),
         (assign, "$unique_sword_crafted", 1),
         (setup_quest_text, "qst_wayland_quest"),
-        (str_store_string, s2, "@In order to recieve the sword for Wayland, he needs amber and gold. Amber can be found with the Aestii or Vidivarii, while gold may be able to be purchased from special merchants..."),
+        (str_store_string, s2, "@In order to receive the sword for Wayland, he needs amber and gold. Amber can be found with the Aestii or Vidivarii, while gold may be able to be purchased from special merchants..."),
         (call_script, "script_start_quest", "qst_wayland_quest", "$g_talk_troop"),
         (quest_set_slot,"qst_wayland_quest", slot_quest_current_state, 1),
    ]],
@@ -49615,7 +49615,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
 
   [anyone|plyr, "chalcedonian_bishop_talk", [(neg|troop_slot_eq, "trp_player", slot_troop_religion, slot_religion_christian_chalcedonian),(neq, "$g_player_converted", 1),], #player is not of the religion
    "I accept the council of Chalcedon and wish to come in communion with your church.", "chalcedonian_bishop_talk_convert_1", [
-          (assign, "$g_player_faith", 1),
+          (assign, "$g_player_faith", 0),
           (troop_set_slot, "trp_player", slot_troop_religion, slot_religion_christian_chalcedonian), # christian
           (faction_set_slot, "fac_player_supporters_faction", slot_faction_religion, slot_religion_christian_chalcedonian),
           (display_message, "@You are now a Chalcedonian Christian."),
@@ -49682,7 +49682,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
    "Good day, {sir/madam}. What do you need?", "miaphysite_talk_1", []], #opening
   [anyone|plyr, "miaphysite_talk_1", [(neg|troop_slot_eq, "trp_player", slot_troop_religion, slot_religion_christian_miaphysite),(neq, "$g_player_converted", 1),], #player is not of the religion
    "I reject the council of Chalcedon, and wish to commune with your church.", "miaphysite_talk_convert_1", [
-          (assign, "$g_player_faith", 5),
+          (assign, "$g_player_faith", 2),
           (troop_set_slot, "trp_player", slot_troop_religion, slot_religion_christian_miaphysite), # christian
           (faction_set_slot, "fac_player_supporters_faction", slot_faction_religion, slot_religion_christian_miaphysite),
           (display_message, "@You are now a Miaphysite Christian."),
@@ -49735,7 +49735,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
    "Good day, {sir/madam}. What do you need?", "arian_bishop_talk_1", []], #opening
   [anyone|plyr, "arian_bishop_talk_1", [(neg|troop_slot_eq, "trp_player", slot_troop_religion, slot_religion_christian_arian),(neq, "$g_player_converted", 1),], #player is not of the religion
    "I reject the council of Nicaea, and wish to commune with your church.", "arian_bishop_talk_convert_1", [
-          (assign, "$g_player_faith", 3),
+          (assign, "$g_player_faith", 1),
           (troop_set_slot, "trp_player", slot_troop_religion, slot_religion_christian_arian), # christian
           (faction_set_slot, "fac_player_supporters_faction", slot_faction_religion, slot_religion_christian_arian),
           (display_message, "@You are now an Arian Christian."),
@@ -49786,7 +49786,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
    "Good day, {sir/madam}. What do you need?", "nestorian_talk_1", []], #opening
   [anyone|plyr, "nestorian_talk_1", [(neg|troop_slot_eq, "trp_player", slot_troop_religion, slot_religion_christian_nestorian),(neq, "$g_player_converted", 1),], #player is not of the religion
    "I reject the council of Ephesus, and uphold the teachings of Nestorius, and wish to commune with your church.", "nestorian_talk_convert_1", [
-          (assign, "$g_player_faith", 7),
+          (assign, "$g_player_faith", 3),
           (troop_set_slot, "trp_player", slot_troop_religion, slot_religion_christian_nestorian), # christian
           (faction_set_slot, "fac_player_supporters_faction", slot_faction_religion, slot_religion_christian_nestorian),
           (display_message, "@You are now a Nestorian Christian."),
@@ -51916,7 +51916,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
     (assign, "$g_battle_result", 1),
 
     (setup_quest_text, "qst_finnsburh_quest_2"),
-    (str_store_string, s2, "@Soon you will recieve a message from the Dani warriors. Then you will have to be ready for battle and travel to Heorot to meet the Dani army there."),
+    (str_store_string, s2, "@Soon you will receive a message from the Dani warriors. Then you will have to be ready for battle and travel to Heorot to meet the Dani army there."),
 
     (call_script, "script_start_quest", "qst_finnsburh_quest_2", "trp_dani_hengest"),
     (quest_set_slot, "qst_finnsburh_quest_2", slot_quest_current_state, 1),
@@ -53087,7 +53087,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
    "Good day, {sir/madam}. What do you need?", "roman_abbot_talk_1", []], #opening
   [trp_roman_abbot|plyr, "roman_abbot_talk_1", [(neg|troop_slot_eq, "trp_player", slot_troop_religion, slot_religion_christian_chalcedonian),(neq, "$g_player_converted", 1),], #player is not of the religion
    "I wish be converted to Chalcedonian Christianity.", "roman_abbot_talk_convert_1", [
-          (assign, "$g_player_faith", 1),
+          (assign, "$g_player_faith", 0),
           (troop_set_slot, "trp_player", slot_troop_religion, slot_religion_christian_chalcedonian), # christian
           (faction_set_slot, "fac_player_supporters_faction", slot_faction_religion, slot_religion_christian_chalcedonian),
           (display_message, "@You are now a Chalcedonian Christian."),
@@ -53120,7 +53120,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
    "Good day, {sir/madam}. What do you need?", "arian_abbot_talk_1", []], #opening
   [trp_arian_abbot|plyr, "arian_abbot_talk_1", [(neg|troop_slot_eq, "trp_player", slot_troop_religion, slot_religion_christian_arian),(neq, "$g_player_converted", 1),], #player is not of the religion
    "I wish be converted to Arian Christianity.", "arian_abbot_talk_convert_1", [
-          (assign, "$g_player_faith", 3),
+          (assign, "$g_player_faith", 1),
           (troop_set_slot, "trp_player", slot_troop_religion, slot_religion_christian_arian), # christian
           (faction_set_slot, "fac_player_supporters_faction", slot_faction_religion, slot_religion_christian_arian),
           (display_message, "@You are now a Arian Christian."),
@@ -53152,7 +53152,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
    "Good day, {sir/madam}. What do you need?", "coptic_abbot_talk_1", []], #opening
   [trp_coptic_abbot|plyr, "coptic_abbot_talk_1", [(neg|troop_slot_eq, "trp_player", slot_troop_religion, slot_religion_christian_miaphysite),(neq, "$g_player_converted", 1),], #player is not of the religion
    "I wish be converted to Miaphysite Christianity.", "coptic_abbot_talk_convert_1", [
-          (assign, "$g_player_faith", 5),
+          (assign, "$g_player_faith", 2),
           (troop_set_slot, "trp_player", slot_troop_religion, slot_religion_christian_miaphysite), # christian
           (faction_set_slot, "fac_player_supporters_faction", slot_faction_religion, slot_religion_christian_miaphysite),
           (display_message, "@You are now a Miaphysite Christian."),
@@ -53186,7 +53186,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
    "Good day, {sir/madam}. What do you need?", "nestorian_abbot_talk_1", []], #opening
   [trp_nestorian_abbot|plyr, "nestorian_abbot_talk_1", [(neg|troop_slot_eq, "trp_player", slot_troop_religion, slot_religion_christian_nestorian),(neq, "$g_player_converted", 1),], #player is not of the religion
    "I wish be converted to Nestorian Christianity.", "nestorian_abbot_talk_convert_1", [
-          (assign, "$g_player_faith", 7),
+          (assign, "$g_player_faith", 3),
           (troop_set_slot, "trp_player", slot_troop_religion, slot_religion_christian_nestorian), # christian
           (faction_set_slot, "fac_player_supporters_faction", slot_faction_religion, slot_religion_christian_nestorian),
           (display_message, "@You are now a Nestorian Christian."),
@@ -53219,7 +53219,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
    "Good day, {sir/madam}. What do you need?", "donatist_abbot_talk_1", []], #opening
   [trp_donatist_abbot|plyr, "donatist_abbot_talk_1", [(neg|troop_slot_eq, "trp_player", slot_troop_religion, slot_religion_christian_donatist),(neq, "$g_player_converted", 1),], #player is not of the religion
    "I wish be converted to Donatist Christianity.", "donatist_abbot_talk_convert_1", [
-          (assign, "$g_player_faith", 8),
+          (assign, "$g_player_faith", 4),
           (troop_set_slot, "trp_player", slot_troop_religion, slot_religion_christian_donatist), # christian
           (faction_set_slot, "fac_player_supporters_faction", slot_faction_religion, slot_religion_christian_donatist),
           (display_message, "@You are now a Donatist Christian."),
@@ -53256,7 +53256,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
    "Good day, {sir/madam}. What do you need?", "pagan_high_priest_talk_1", []], #opening
   [anyone|plyr, "pagan_high_priest_talk_1", [(neg|troop_slot_eq, "trp_player", slot_troop_religion, slot_religion_paganism),(neq, "$g_player_converted", 1),], #player is not of the religion
    "I wish be converted to Paganism.", "pagan_high_priest_talk_convert_1", [
-          (assign, "$g_player_faith", 2),
+          (assign, "$g_player_faith", 5),
           (troop_set_slot, "trp_player", slot_troop_religion, slot_religion_paganism), # christian
           (faction_set_slot, "fac_player_supporters_faction", slot_faction_religion, slot_religion_paganism),
           (display_message, "@You are now a Pagan."),
@@ -53297,7 +53297,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
    "Good day, {sir/madam}. What do you need?", "zoroastrian_high_priest_talk_1", []], #opening
   [trp_zoroastrian_high_priest|plyr, "zoroastrian_high_priest_talk_1", [(neg|troop_slot_eq, "trp_player", slot_troop_religion, slot_religion_zoroastrianism),(neq, "$g_player_converted", 1),], #player is not of the religion
    "I wish be converted to Zoroastrianism.", "zoroastrian_high_priest_talk_convert_1", [
-          (assign, "$g_player_faith", 4),
+          (assign, "$g_player_faith", 7),
           (troop_set_slot, "trp_player", slot_troop_religion, slot_religion_zoroastrianism), # christian
           (faction_set_slot, "fac_player_supporters_faction", slot_faction_religion, slot_religion_zoroastrianism),
           (display_message, "@You are now a Zoroastrian."),
@@ -53378,7 +53378,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
   (neg|check_quest_active, "qst_roman_pagan_quest"),],
    "Is there anything I can help you with?", "roman_pagan_high_priest_quest_1", []],
   [anyone, "roman_pagan_high_priest_quest_1", [],
-   "Yes, there is. Recently I have recieved word that Proclus the Successor and his school is dealing with persecutions from the local Christian populace. He requested someone capable and trustworthy to help him. He is currently residing in Alexandria teaching philosophy.", "roman_pagan_high_priest_quest_2", []],
+   "Yes, there is. Recently I have received word that Proclus the Successor and his school is dealing with persecutions from the local Christian populace. He requested someone capable and trustworthy to help him. He is currently residing in Alexandria teaching philosophy.", "roman_pagan_high_priest_quest_2", []],
   [anyone, "roman_pagan_high_priest_quest_2", [],
    "He wrote that if someone were to go help him, that they should talk to a man named Messius Phoebus Severus in order to reach him, as he is a busy man. He said you could find him in the tavern, as it is a place he frequently visits.", "roman_pagan_high_priest_quest_3", [
   (setup_quest_text, "qst_roman_pagan_quest"),

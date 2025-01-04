@@ -1072,11 +1072,11 @@ triggers = [
   (eq, "$g_player_faith", 6),], #must be roman pagan
 [(jump_to_menu, "mnu_mithras_messenger"),]),
 
-(24,0,ti_once,[(store_character_level, ":level", "trp_player"),(ge, ":level", 10),(eq, "$g_player_faith", 2),],[ #unique germanic pagan location
+(24,0,ti_once,[(store_character_level, ":level", "trp_player"),(ge, ":level", 10),(eq, "$g_player_faith", 5),],[ #unique germanic pagan location
   (enable_party, "p_donar_forest"),
 ]),
 
-(24,0,ti_once,[(eq, "$g_player_faith", 3),],[ #unique arian location
+(24,0,ti_once,[(eq, "$g_player_faith", 1),],[ #unique arian location
   (enable_party, "p_vidigoias_grave"),
 ]),
 #Invasions Begin

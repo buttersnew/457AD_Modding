@@ -3086,6 +3086,7 @@ TOTAL:  {reg5}"),
         (val_sub, ":reduce", 4), #-4 to -2
         (store_mul, ":morale_change", ":reduce", "$g_prisoner_recruit_size"),
         (store_troop_faction, ":troop_faction", "$g_prisoner_recruit_troop_id"),
+	(faction_get_slot, ":troop_faction_culture", ":troop_faction", slot_faction_culture),
         (store_character_level, ":troop_level", "$g_prisoner_recruit_troop_id"),
 
         (try_for_range, ":faction", kingdoms_begin, kingdoms_end),
@@ -3100,8 +3101,9 @@ TOTAL:  {reg5}"),
           # (store_character_level, ":relation", "$g_prisoner_recruit_troop_id"),
           (try_begin), #check culture
             (eq, "$players_kingdom", "fac_player_supporters_faction"),
-            (is_between, "$g_player_culture", npc_kingdoms_begin, npc_kingdoms_end),
-            (eq, "$g_player_culture", ":troop_faction"),
+		(faction_get_slot, ":player_culture", "fac_player_supporters_faction", slot_faction_culture),
+            (gt, ":player_culture", 0),
+            (eq, ":player_culture", ":troop_faction_culture"),
             (assign, ":troop_faction", "$players_kingdom"),
           (try_end),
           (try_begin), #no penalty for same faction
@@ -4967,34 +4969,14 @@ TOTAL:  {reg5}"),
                 (change_screen_return),
 
                 (assign, ":best_troop", "trp_hired_blade"),
-				##diplomacy start+
-				#Trivial aesthetic change, change the default troop to be appropriate to the
-				#culture of the player kingdom (instead of defaulting always to a Swadian troop).
-				(assign, ":players_culture", "$players_kingdom"),
+					(try_begin),
+				   	(is_between, "$players_kingdom", npc_kingdoms_begin, npc_kingdoms_end),
+					(faction_get_slot, ":players_culture", "$players_kingdom", slot_faction_culture),
+					(else_try),
+					(troop_get_slot, ":players_culture", "trp_player", slot_troop_culture),
+					(try_end),
 				(try_begin),
-					#If not the co-ruler of an NPC kingdom, use the player faction culture.
-				   (neg|is_between, "$players_kingdom", npc_kingdoms_begin, npc_kingdoms_end),
-				   # (assign, ":best_troop", "trp_mercenary_crossbowman"),#<- while we're at it, use a mercenary default #SB : hired blade
-				   (assign, ":players_culture", "$g_player_culture"),
-				   (this_or_next|is_between, ":players_culture", npc_kingdoms_begin, npc_kingdoms_end),
-					(is_between, ":players_culture", cultures_begin, cultures_end),
-				(else_try),
-					#If not the co-ruler of an NPC kingdom, and there wasn't a valid player faction
-					#culture, try to use the faction of the player's court.
-					(neg|is_between, "$players_kingdom", npc_kingdoms_begin, npc_kingdoms_end),
-					(is_between, "$g_player_court", centers_begin, centers_end),
-					(party_slot_ge, "$g_player_court", slot_center_original_faction, 1),
-					(party_get_slot, ":players_culture", "$g_player_court", slot_center_original_faction),
-				(try_end),
-				(try_begin),
-					#Resolve from kingdom to culture if necessary
-				   (is_between, ":players_culture", kingdoms_begin, kingdoms_end),
-				   (faction_get_slot, ":players_culture", ":players_culture", slot_faction_culture),
-				(try_end),
-				(try_begin),
-					#If the final result is a culture, get the best troop if valid
 				   (is_between, ":players_culture", cultures_begin, cultures_end),
-				   # (neq, ":players_culture", "fac_culture_1"), #SB : allow swadian culture
 				   (faction_get_slot, reg0, ":players_culture", slot_faction_guard_troop),
 				   (ge, reg0, soldiers_begin),
 				   (assign, ":best_troop", reg0),
@@ -13712,22 +13694,16 @@ TOTAL:  {reg5}"),
            (assign, ":troop_castle_guard", -1),
            (assign, ":tier_2_troop", -1),
            (assign, ":tier_3_troop", -1),
-           (try_begin),
-             (eq, ":town_faction", "fac_player_supporters_faction"),
-             (is_between, "$g_player_culture", npc_kingdoms_begin, npc_kingdoms_end),
-             (assign, ":town_faction", "$g_player_culture"), #we could copy the culture-specific settings
-           (else_try), #SB : override based on culture
-             (party_slot_eq, "$current_town", slot_town_lord, "trp_player"),
-             (eq, "$g_player_culture", 0),
-             (faction_get_slot, ":troop_prison_guard", ":town_faction", slot_faction_prison_guard_troop),
-             (faction_get_slot, ":troop_castle_guard", ":town_faction", slot_faction_castle_guard_troop),
-             # (eq, ":town_faction", "fac_player_supporters_faction"),
-             # (assign, ":town_faction", "fac_player_supporters_faction"), #do nothing
-           (else_try), #fallback
-             (neg|is_between, ":town_faction", npc_kingdoms_begin, npc_kingdoms_end),
-             (neg|is_between, ":town_faction", cultures_begin, cultures_end),
-             (party_get_slot, ":town_faction", "$current_town", slot_center_original_faction),
-           (try_end),
+           	(try_begin),
+             	(faction_get_slot, ":culture", ":town_faction", slot_faction_culture), 
+		(gt, ":culture", 0),
+           	(else_try), #fallback
+             	(party_get_slot, ":town_faction", "$current_town", slot_center_original_faction),
+             	(faction_get_slot, ":culture", ":town_faction", slot_faction_culture), 
+		(gt, ":culture", 0),
+           	(try_end),
+	(faction_get_slot, ":troop_prison_guard", ":town_faction", slot_faction_prison_guard_troop),
+	(faction_get_slot, ":troop_castle_guard", ":town_faction", slot_faction_castle_guard_troop),
            (try_begin),
              (le, ":troop_prison_guard", 0),
              (faction_get_slot, ":troop_prison_guard", ":town_faction", slot_faction_prison_guard_troop),

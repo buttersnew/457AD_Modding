@@ -933,13 +933,10 @@ simple_triggers = [
         (party_slot_eq, ":center_no", slot_center_is_besieged_by, -1), #center not under siege
 
         (store_faction_of_party, ":center_faction", ":center_no"),
-        ##diplomacy start+ Player culture cleanup (do this once here, instead of separately for each type)
         (try_begin),
-          (gt, ":center_faction", "fac_commoners"),
+          (gt, "$g_king_start", 0),
           (this_or_next|eq, ":center_faction", "fac_player_faction"),
-          (this_or_next|eq, ":center_faction", "fac_player_supporters_faction"),
-          (eq, ":center_faction", "$players_kingdom"),
-          (neg|is_between, ":center_faction", npc_kingdoms_begin, npc_kingdoms_end),
+          (eq, ":center_faction", "fac_player_supporters_faction"),
           (is_between, "$g_player_culture", npc_kingdoms_begin, npc_kingdoms_end),
           (assign, ":center_faction", "$g_player_culture"),
         (try_end),
@@ -4415,10 +4412,9 @@ simple_triggers = [
           	(party_get_num_companion_stacks, ":num_stacks", ":party_no"),
           	(store_faction_of_party, ":cur_faction", ":cur_attached_town"),
           		(try_begin), #player culture
+			(gt, "$g_king_start", 0),
             		(this_or_next|eq, ":cur_faction", "fac_player_faction"),
-            		(this_or_next|eq, ":cur_faction", "fac_player_supporters_faction"),
-            		(eq, ":cur_faction", "$players_kingdom"),
-            		(neg|is_between, ":cur_faction", npc_kingdoms_begin, npc_kingdoms_end),
+            		(eq, ":cur_faction", "fac_player_supporters_faction"),
             		(is_between, "$g_player_culture", npc_kingdoms_begin, npc_kingdoms_end),
             		(assign, ":cur_faction", "$g_player_culture"),
           		(try_end),
@@ -4428,7 +4424,10 @@ simple_triggers = [
             		(assign, ":cur_relation", 100),
             			(try_begin), #routed parties sometimes contain extraneous units, players may also give random stuff to reinforcements
               			(store_faction_of_troop, ":faction_no", ":troop_no"),
-              			(is_between, ":faction_no", npc_kingdoms_begin, npc_kingdoms_end),
+				(neq, ":faction_no", ":cur_faction"),
+				(faction_get_slot, ":troop_culture", ":faction_no", slot_faction_culture),
+				(faction_get_slot, ":cur_culture", ":cur_faction", slot_faction_culture),
+				(neq, ":troop_culture", ":cur_culture"),
               			(store_relation, ":cur_relation", ":cur_faction", ":faction_no"),
             			(try_end),
             		(this_or_next|is_between, ":troop_no", "trp_looter", bandits_end), #looters are easy to route, don't let them rejoin

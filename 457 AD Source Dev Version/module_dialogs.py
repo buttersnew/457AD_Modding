@@ -6873,7 +6873,9 @@ Still I am sorry that I'll leave you soon. You must promise me, you'll come visi
 ##select kingdom culture
 [anyone|plyr, "dplmc_chancellor_domestic_policy_options",
 [
+(this_or_next|eq, "$cheat_mode", 1),
 (is_between, "$g_player_minister", active_npcs_begin, kingdom_ladies_end),
+(eq, "$g_king_start", 0), #madsci dont let the player mess with an actual kingdom if starting as a king
 ],
 ##diplomacy start+ add apostrophe
 "I wish to select the kingdom's culture.", "dplmc_chancellor_kingdom_culture_ask",
@@ -6900,15 +6902,14 @@ Still I am sorry that I'll leave you soon. You must promise me, you'll come visi
 ##diplomacy end+
 [anyone, "dplmc_chancellor_kingdom_culture_ask",
 [
+(faction_get_slot, ":culture", "fac_player_supporters_faction", slot_faction_culture),
 (try_begin),
-  (this_or_next|le, "$g_player_culture", 0),
-  (neg|is_between, "$g_player_culture", npc_kingdoms_begin, npc_kingdoms_end),
+  (this_or_next|le, ":culture", 0),
+  (neg|is_between, ":culture", cultures_begin, minor_cultures_end),
   (str_store_string, s11, "@Your kingdom has no specified culture"),
 (else_try),
-  (store_sub, ":offset", "$g_player_culture", npc_kingdoms_begin),
-  (val_add, ":offset", "str_kingdom_1_adjective"),
-  (str_store_string, s11, ":offset"),
-  (str_store_string, s11, "@Your kingdom culture is: {s11}"),
+  (str_store_faction_name, s11, ":culture"),
+  (str_store_string, s11, "@Your kingdom's culture is {s11}"),
 (try_end),
 ],
 "{s11}. Do you want to change it?", "dplmc_chancellor_kingdom_culture_select",
@@ -6917,82 +6918,23 @@ Still I am sorry that I'll leave you soon. You must promise me, you'll come visi
 [anyone|plyr|repeat_for_factions, "dplmc_chancellor_kingdom_culture_select",
 [
 (store_repeat_object, ":faction_no"),
-(is_between, ":faction_no", npc_kingdoms_begin, npc_kingdoms_end),
-##nested diplomacy start+
-#To be eligible to establish a culture, you need some connection to it.
-(assign, ":faction_allowed", 0),
-(try_begin),
-(assign, ":end", "fac_rebel_kingdom_3"), #madsci dont allow the player to choose rebel faction as culture
-(val_add, ":end", 1),
-(is_between, ":faction_no", "fac_rebel_kingdom_1", ":end"),
-(assign, ":faction_allowed", 0),
-(else_try),
-   #If it is the faction you left (or is otherwise somehow your faction)
-   (this_or_next|eq, ":faction_no", "$players_oath_renounced_against_kingdom"),
-   (eq, ":faction_no", "$players_kingdom"),
-   (assign, ":faction_allowed", 1),
-(else_try),
-   #If it's the faction of the town you started in
-   (is_between, "$g_starting_town", centers_begin, centers_end),
-   (party_slot_eq, "$g_starting_town", slot_center_original_faction, ":faction_no"),
-   (assign, ":faction_allowed", 1),
-(else_try),
-   #If you currently control any centers of that faction
-   (assign, ":end_cond", walled_centers_end),
-   (try_for_range, ":iter_no", walled_centers_begin, ":end_cond"),
-      (store_faction_of_party, ":iter_faction", ":iter_no"),
-      (eq, ":iter_faction", "$players_kingdom"),
-      (party_slot_eq, ":iter_no", slot_center_original_faction, ":faction_no"),
-#      (party_slot_eq, ":iter_no", slot_town_lord, "trp_player"),
-      (assign, ":end_cond", ":iter_no"),
-      (assign, ":faction_allowed", 1),
-   (try_end),
-   (eq, ":faction_allowed", 1),
-(else_try),
-   #If any of your lords come from that faction
-   (assign, ":end_cond", heroes_end),
-   (try_for_range, ":iter_no", heroes_begin, ":end_cond"),
-      (store_faction_of_troop, ":iter_faction", ":iter_no"),
-      (eq, ":iter_faction", "$players_kingdom"),
-      (troop_slot_eq, ":iter_no", slot_troop_original_faction, ":faction_no"),
-      (assign, ":end_cond", ":iter_no"),
-      (assign, ":faction_allowed", 1),
-   (try_end),
-(try_end),
-(eq, ":faction_allowed", 1),
-##nested diplomacy end+
-(store_sub, ":offset", ":faction_no", "fac_kingdom_1"),
-(val_add, ":offset", "str_kingdom_1_adjective"),
-(str_store_string, s11, ":offset"),
-(str_store_faction_name, s12, ":faction_no"), #madsci show not only the adjective but also the faction because multiple factions use the same adjective
+(is_between, ":faction_no", cultures_begin, cultures_end),
+(str_store_faction_name, s11, ":faction_no"),
 ],
-"{s11} ({s12}).", "dplmc_chancellor_pretalk",
+"{s11}.", "dplmc_chancellor_kingdom_culture_changed",
 [
 (store_repeat_object, ":faction_no"),
-(assign, "$g_player_culture", ":faction_no"),
-#SB : todo copy over faction slots for cultural troops
-(try_begin),
-  (this_or_next|le, "$g_player_culture", 0),
-  (neg|is_between, "$g_player_culture", npc_kingdoms_begin, npc_kingdoms_end),
-  (str_store_string, s11, "@Kingdom culture: None"),
-(else_try),
-  (store_sub, ":offset", "$g_player_culture", "fac_kingdom_1"),
-  (val_add, ":offset", "str_kingdom_1_adjective"),
-  (str_store_string, s11, ":offset"),
-  (str_store_string, s11, "@Kingdom culture: {s11}"),
-(try_end),
-(display_message, s11),
+(str_store_faction_name, s11, ":faction_no"),
+(faction_set_slot, "fac_player_supporters_faction",  slot_faction_culture, ":faction_no"),
+(str_store_string, s12, "@Your kingdom's culture is now {s11}"),
+(display_message, s12),
+(call_script, "script_initialize_faction_troop_types"),
 ]],
 
-##select kingdom culture
-[anyone|plyr, "dplmc_chancellor_kingdom_culture_select",
+[anyone, "dplmc_chancellor_kingdom_culture_changed",
 [],
-##diplomacy start+ Reword
-#"None.", "dplmc_chancellor_pretalk",
-"Favor no culture over others.", "dplmc_chancellor_pretalk",
-##diplomacy end+
-[(assign, "$g_player_culture", 0),
-]],
+"{s12}.", "dplmc_chancellor_pretalk",
+[]],
 
 ##diplomacy start+
 [anyone|plyr, "dplmc_chancellor_kingdom_culture_select",
@@ -37778,16 +37720,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
    ##diplomacy end+
   [anyone|plyr,"prison_guard_players", [],
    "Yes. Unlock the door.", "close_window",[(call_script, "script_enter_dungeon", "$current_town", "mt_visit_town_castle")]],
-  #SB : allow setting custom guard troops
-  [anyone|plyr,"prison_guard_players", [
-    (call_script, "script_dplmc_get_troop_standing_in_faction", "trp_player", "$players_kingdom"),
-    (eq, reg0, DPLMC_FACTION_STANDING_LEADER), #assume co-spouse can't enforce changes
-    (eq, "$g_player_culture", 0), #player faction culture is not set
-  ],
-   "You've been lax in your duties. Stand down and I'll choose your replacement.", "dplmc_guard_talk_replace",[
-     (assign, "$diplomacy_var", slot_faction_prison_guard_troop), #slot to change
-     (assign, "$diplomacy_var2", 20), #level requirement
-   ]],
+
   [anyone|plyr,"prison_guard_players", [],
    "No, not now.", "close_window",[]],
 
@@ -38005,15 +37938,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
    ]],
   [anyone|plyr,"castle_guard_players", [],
    "Open the door. I'll go in.", "close_window",[(call_script, "script_enter_court", "$current_town")]],
-  [anyone|plyr,"castle_guard_players", [
-    (call_script, "script_dplmc_get_troop_standing_in_faction", "trp_player", "$players_kingdom"),
-    (eq, reg0, DPLMC_FACTION_STANDING_LEADER), #assume co-spouse can't enforce changes
-    (eq, "$g_player_culture", 0), #player faction culture is not set
-  ],
-   "Relieve yourself, soldier. Somebody else will guard the keep in your stead.", "dplmc_guard_talk_replace",[
-     (assign, "$diplomacy_var", slot_faction_castle_guard_troop), #slot to change
-     (assign, "$diplomacy_var2", 25), #level requirement, not much choice there
-   ]],
+
   [anyone|plyr,"castle_guard_players", [],
    "Never mind.", "close_window",[]],
 
@@ -39268,17 +39193,15 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
 ## CC
   [anyone|plyr,"deserter_talk",
     [
-      # (store_num_free_stacks,":stack_left","p_main_party"),
-      # (party_stack_get_troop_id, ":troop_no", "$g_encountered_party", 0),
-      # (this_or_next|gt, ":stack_left", 0),
-      # (main_party_has_troop, ":troop_no"),
       (party_can_join),
 
       (store_troop_faction, ":faction", "$g_talk_troop"), #top stack rarely dies from attrition
+	(faction_get_slot, ":faction_culture", ":faction", slot_faction_culture),
       (try_begin), #allow player's kingdom to accept deserters of same culture
         (faction_slot_eq, "fac_player_supporters_faction", slot_faction_state, sfs_active),
-        (is_between, "$g_player_culture", npc_kingdoms_begin, npc_kingdoms_end),
-        (eq, "$g_player_culture", ":faction"),
+	(faction_get_slot, ":culture", "fac_player_supporters_faction", slot_faction_culture),
+        (gt, ":culture", 0),
+        (eq, ":culture", ":faction_culture"),
         (assign, ":faction", "$players_kingdom"),
         (assign, reg10, 1),
       (else_try),
@@ -47918,99 +47841,6 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
      (party_set_slot, "$current_town", slot_party_temp_slot_1, 0),
      (call_script, "script_enter_court", "$current_town"),
    ]],
-
-  #diplomacy end+
-  #SB : allow reassignment of guard troops if the player has no culture preference
-  [anyone|plyr,"hall_guard_talk", [
-    (call_script, "script_dplmc_get_troop_standing_in_faction", "trp_player", "$players_kingdom"),
-    (eq, reg0, DPLMC_FACTION_STANDING_LEADER), #assume co-spouse can't enforce changes
-    (eq, "$g_player_culture", 0), #player faction culture is not set
-  ],
-   "You're not fit to guard these halls. Get out of my sight.", "dplmc_guard_talk_replace",[
-     (assign, "$diplomacy_var", slot_faction_guard_troop), #slot to change
-     (assign, "$diplomacy_var2", 21), #level requirement, include pre-knight horsemen troops
-   ]],
-
-  [anyone,"dplmc_guard_talk_replace", [],
-   "I see... Who would you replace me with?", "dplmc_guard_plyr_replace",[]],
-   #list members in party, in garrison too
-  [anyone|plyr,"dplmc_guard_plyr_replace", [],
-   "Never mind. Back to work!", "close_window",[]],
-  [anyone|plyr|repeat_for_100,"dplmc_guard_plyr_replace", [
-  (store_repeat_object, ":stack_no"),
-  (party_get_num_companion_stacks, ":num_stacks", "p_main_party"),
-  (is_between, ":stack_no", 1, ":num_stacks"),
-  (party_stack_get_troop_id, ":troop_no", "p_main_party", ":stack_no"),
-  (neg|troop_is_hero, ":troop_no"),
-  (is_between, ":troop_no", regular_troops_begin, regular_troops_end), #condition for guard dialogs
-  (store_character_level, ":cur_level", ":troop_no"),
-  (ge, ":cur_level", "$diplomacy_var2"),
-  (str_store_troop_name, s1, ":troop_no"),
-  (assign, reg10, 0),
-  (try_begin),
-    (eq, "$g_talk_troop", ":troop_no"),
-    (str_store_string, s2, "@Current"),
-    (assign, reg10, 1),
-  (else_try),
-    (faction_slot_eq, "$players_kingdom", slot_faction_guard_troop, ":troop_no"),
-    (str_store_string, s2, "@Court Guard"),
-    (assign, reg10, 1),
-  (else_try),
-    (faction_slot_eq, "$players_kingdom", slot_faction_prison_guard_troop, ":troop_no"),
-    (str_store_string, s2, "@Prison Guard"),
-    (assign, reg10, 1),
-  (else_try),
-    (faction_slot_eq, "$players_kingdom", slot_faction_castle_guard_troop, ":troop_no"),
-    (str_store_string, s2, "@Castle Guard"),
-    (assign, reg10, 1),
-  (else_try),
-    (assign, ":faction_end", npc_kingdoms_end),
-    (try_for_range, ":faction_no", npc_kingdoms_begin, ":faction_end"),
-      (faction_slot_eq, ":faction_no", "$diplomacy_var", ":troop_no"),
-      (assign, ":faction_end", ":faction_no"),
-    (try_end),
-    (neq, ":faction_end", npc_kingdoms_end),
-    (str_store_faction_name, s2, ":faction_end"),
-    (assign, reg10, 1),
-  (try_end),
-  ],
-   "{!}{s1} {reg10?({s2}):}", "dplmc_guard_troop_replaced",[
-
-   (store_repeat_object, ":stack_no"), #we already validated above
-   (party_stack_get_troop_id, ":troop_no", "p_main_party", ":stack_no"),
-   (faction_set_slot, "$players_kingdom", slot_faction_temp_slot, ":troop_no"),
-
-   ]],
-
-  #do nothing if reselected
-  [anyone,"dplmc_guard_troop_replaced", [
-    (faction_slot_eq, "$players_kingdom", slot_faction_temp_slot, "$g_talk_troop"),
-    (call_script, "script_dplmc_print_subordinate_says_sir_madame_to_s0"),
-  ], "Thank you for giving us a second chance, {s0}.", "close_window", [
-  ]],
-  #check for slot conflicts - cannot have the same troop play both prison/castle guard because of dialog conditions
-  [anyone,"dplmc_guard_troop_replaced", [
-    (faction_get_slot, ":troop_no", "$players_kingdom", slot_faction_temp_slot),
-    (this_or_next|faction_slot_eq, "$players_kingdom", slot_faction_prison_guard_troop, ":troop_no"),
-    (this_or_next|faction_slot_eq, "$players_kingdom", slot_faction_castle_guard_troop, ":troop_no"),
-    (faction_slot_eq, "$players_kingdom", slot_faction_guard_troop, ":troop_no"),
-    (try_begin),
-      (eq, ":troop_no", "$g_talk_troop"),
-      (assign, reg10, 0),
-    (else_try),
-      (assign, reg10, 1),
-      (str_store_troop_name_plural, s10, ":troop_no"),
-    (try_end),
-  ], "I don't think it would be possible for {reg10?the {s10}:us} to guard both places at the same time.", "close_window", [
-  ]],
-
-  [anyone,"dplmc_guard_troop_replaced", [], "As you wish, {s0}. {s1} will now be posted among your guards.", "close_window", [
-    (faction_get_slot, ":troop_no", "$players_kingdom", slot_faction_temp_slot),
-    (faction_set_slot, "$players_kingdom", "$diplomacy_var", ":troop_no"),
-    (party_remove_members, "p_main_party", ":troop_no", 1),
-    (str_store_troop_name_plural, s1, ":troop_no"),
-    (call_script, "script_dplmc_print_subordinate_says_sir_madame_to_s0"),
-  ]],
 
   [anyone|plyr,"hall_guard_talk", [
      (troop_get_slot, ":employee", dplmc_employees_end, dplmc_slot_troop_affiliated),

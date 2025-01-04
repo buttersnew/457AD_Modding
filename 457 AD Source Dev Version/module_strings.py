@@ -1373,7 +1373,7 @@ strings = [
   ("npc23_personalitymatch_speech", "Captain, you remember when I said that I consider Romans to be barabarians too? Well I still do but {s11} I could tolerate at least for a while. He has a right idea how to deal with scum from outlands and that brutality is a virtue."),
   ("npc24_personalitymatch_speech", "Captain, I am glad you have brought a fellow kinsman, {s11} into our company. One who can relate to me both in culture and faith."),
 ("npc25_personalitymatch_speech", "{s11} handled themselves well in that last fight. It's good to see someone with both skill and humility. I think we'll get along just fine."),
-  ("npc26_personalitymatch_speech_b", "Just like him, I've always been a fan of Romans, and I wouldn't trade my homeland for anything. Now, I understand that I might not be able to do that right away, but I'm sure I'll find a way to help my fellow Romans."),
+  ("npc26_personalitymatch_speech", "Just like him, I've always been a fan of Romans, and I wouldn't trade my homeland for anything. Now, I understand that I might not be able to do that right away, but I'm sure I'll find a way to help my fellow Romans."),
 
   ("npc1_personalitymatch_speech_b", "Just like him, we both with for our homelands to be free from their occupiers; in his case the Vandals, and in mine, the Romans."),
   ("npc2_personalitymatch_speech_b", "Based on how he did in that last fight, I'd say that I'd trust my back to him any day, not only in battle, but as a fellow trader."),
@@ -1400,7 +1400,7 @@ strings = [
   ("npc23_personalitymatch_speech_b", "Don't get me wrong he is still a filthy barbarian and I didn't like his remark when he said that 'Merchants are worse than murderers, they steal your coins and so your life' But I've grown to tolerate him, at least. I wonder if I'm becoming sick, I'm usually more stoic."),
   ("npc24_personalitymatch_speech_b", "A reliable warrior, and what I could consider a friend of mine. We ought to look for more men like him."),
 ("npc25_personalitymatch_speech_b", "I appreciate {s11}'s perspective. They understand what it means to fight for something greater than themselves, just as I hope to do for my people."),
-  ("npc26_personalitymatch_speech_b", "I'm glad you found me, Captain. I hope that we will meet again soon."),
+  ("npc26_personalitymatch_speech_b", "I'm glad you found me, {playername}. I hope that we will meet again soon."),
 
   ("npc1_retirement_speech", "Captain, to be honest I have grown tired of you and wish to return to the seas, I am never happy on land I must be riding the waves, that is what I was born to do, so I will be leaving, I hope you understand."),
   ("npc2_retirement_speech", "I'm getting a bit tired of the warrior's life. I think I have enough gold to quench my former trade master's wrath and who knows - maybe I'll return to simple trading. I would like to thank you again for taking me on, and wish you the best of luck."),

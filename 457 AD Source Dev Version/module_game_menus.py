@@ -33094,6 +33094,21 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     ],
   ),
 
+  ("men_drowned",0,
+    "You are caught in a storm at sea. ^^Your casualties: {s8}",
+    "none", [
+	#(set_background_mesh, "mesh_pic_mb_warrior_1"),
+      (call_script, "script_inflict_casualties_to_party_vc", "p_main_party", 4),
+    ],
+    
+    [("back_to_sea",[],"Continue...",
+        [
+          (call_script, "script_change_player_party_morale", -5),
+          (jump_to_menu, "mnu_auto_return_to_map"),#phaiak
+      ]),
+    ],
+  ),
+
 ]#end of file
 
 

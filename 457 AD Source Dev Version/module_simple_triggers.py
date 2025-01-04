@@ -2108,6 +2108,20 @@ simple_triggers = [
 (assign, "$nero_army_spawned", -1),
 (display_log_message, "@Nero has been defeated!"),
 (try_end),
+
+(try_begin), #water travel event
+(eq, "$g_infinite_camping", 0),
+(eq, "$g_player_is_captive", 0),
+(neq, "$freelancer_state", 1),
+(party_slot_eq, "p_main_party", slot_party_on_water, 1),
+(party_get_current_terrain, ":terrain_type", "p_main_party"),
+(eq, ":terrain_type", rt_deep_water),
+(store_random_in_range, ":rnd", 0, 100),
+(eq, ":rnd", 1),
+(call_script, "script_party_count_fit_regulars", "p_main_party"),
+(gt, reg0, 20),
+(jump_to_menu, "mnu_men_drowned"), 
+(try_end),
     ]),
 
 

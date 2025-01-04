@@ -53494,7 +53494,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
    "I would like to hire a priest (300 siliquae).", "eadric_talk_talk_hire", [(troop_remove_gold, "trp_player", 300),(party_add_members, "p_main_party","trp_pagan_priest",1),]],
   [trp_eadric, "eadric_talk_talk_hire", [],
    "Very well.", "eadric_talk_1", []],
-  [trp_eadric|plyr, "eadric_talk_1", [],
+  [trp_eadric|plyr, "eadric_talk_1", [(eq, "$g_wolf_quest", 1)],
    "Greetings, good Eadric. I've been told you might have some knowledge about the Cynocephali?", "eadric_talk_wolf_1", [(assign, "$g_wolf_quest", 2),]],
   [trp_eadric, "eadric_talk_wolf_1", [],
    "Ah, greetings to you as well, curious traveler. The Cynocephali, indeed a subject of intrigue. These warriors are said to be touched by the spirits of wild creatures and serve the great god Wodan, channeling their ferocity in battle. It is said they have the head of a dog and the body of a human, they fight like beasts and live as outcasts in the woods, where no one will be ever able to find them.", "eadric_talk_wolf_2", []],

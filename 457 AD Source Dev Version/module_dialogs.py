@@ -12603,74 +12603,140 @@ What kind of recruits do you want?", "dplmc_constable_recruit_select",
 
 ##### RELIGION
 [anyone|plyr,"lord_talk_ask_something_2", [
-  (call_script, "script_troop_get_player_relation", "$g_talk_troop"),
-  (assign, ":player_lord_relation", reg0),
-  (ge, ":player_lord_relation", 15), #needs minimum relations with open up dialogue
+(troop_get_slot, ":lord_religion", "$g_talk_troop", slot_troop_religion),
+(troop_get_slot, ":player_religion", "trp_player", slot_troop_religion),
+(neq, ":lord_religion", ":player_religion"),
 ], #lord religion conversion
 "I want you to convert to a religion.", "lord_talk_convert",[
 ]],
 
-[anyone,"lord_talk_convert", [],
+[anyone,"lord_talk_convert", [
+(eq, "$g_talk_troop_faction", "$players_kingdom"),
+(ge, "$g_talk_troop_relation", 15),
+(this_or_next|ge, "$g_talk_troop_relation", 30), #kings shouldnt be easy
+(neg|faction_slot_eq,"$g_talk_troop_faction",slot_faction_leader,"$g_talk_troop"),
+],
 "Oh, and what religion would you like me to convert to?", "lord_talk_convert_choice",[
 ]],
 
-[anyone|plyr,"lord_talk_convert_choice", [(neg|troop_slot_eq, "$g_talk_troop", slot_troop_religion, slot_religion_christian_chalcedonian),(main_party_has_troop, "trp_roman_priest")],
+[anyone,"lord_talk_convert", [
+(eq, "$g_talk_troop_faction", "$players_kingdom"),
+(ge, "$g_talk_troop_relation", 0),
+],
+"Lets discuss this once we know each other better.", "lord_pretalk",[
+]],
+
+[anyone,"lord_talk_convert", [],
+"Forget it!", "lord_pretalk",[
+(call_script, "script_change_player_relation_with_troop", "$g_talk_troop", -1),
+]],
+
+
+[anyone|plyr,"lord_talk_convert_choice", [
+(neg|troop_slot_eq, "$g_talk_troop", slot_troop_religion, slot_religion_christian_chalcedonian),
+(main_party_has_troop, "trp_roman_priest")],
 "Chalcedonian Christianity.", "lord_talk_convert_chalcedonian",[
 ]],
 [anyone,"lord_talk_convert_chalcedonian", [],
 "Very well, I will convert to Chalcedonian Christianity.", "lord_pretalk",[
 (remove_member_from_party, "trp_roman_priest"),
 (troop_set_slot, "$g_talk_troop", slot_troop_religion, slot_religion_christian_chalcedonian), #chalcedonian christian
+(try_begin),
+(troop_get_slot, ":kingdom_hero_party", "$g_talk_troop", slot_troop_leaded_party),
+(gt, ":kingdom_hero_party", 0),
+(party_is_active, ":kingdom_hero_party"),
+(party_add_members, ":kingdom_hero_party", "trp_roman_priest", 1),
+(try_end),
 ]],
 
 
-[anyone|plyr,"lord_talk_convert_choice", [(neg|troop_slot_eq, "$g_talk_troop", slot_troop_religion, slot_religion_christian_arian),(main_party_has_troop, "trp_arian_priest")],
+[anyone|plyr,"lord_talk_convert_choice", [
+(neg|troop_slot_eq, "$g_talk_troop", slot_troop_religion, slot_religion_christian_arian),
+(main_party_has_troop, "trp_arian_priest")],
 "Arian Christianity.", "lord_talk_convert_arian",[
 ]],
 [anyone,"lord_talk_convert_arian", [],
 "Very well, I will convert to Arian Christianity.", "lord_pretalk",[
 (remove_member_from_party, "trp_arian_priest"),
 (troop_set_slot, "$g_talk_troop", slot_troop_religion, slot_religion_christian_arian), #arian christian
+(try_begin),
+(troop_get_slot, ":kingdom_hero_party", "$g_talk_troop", slot_troop_leaded_party),
+(gt, ":kingdom_hero_party", 0),
+(party_is_active, ":kingdom_hero_party"),
+(party_add_members, ":kingdom_hero_party", "trp_arian_priest", 1),
+(try_end),
 ]],
 
 
-[anyone|plyr,"lord_talk_convert_choice", [(neg|troop_slot_eq, "$g_talk_troop", slot_troop_religion, slot_religion_christian_miaphysite),(main_party_has_troop, "trp_coptic_priest")],
+[anyone|plyr,"lord_talk_convert_choice", [
+(neg|troop_slot_eq, "$g_talk_troop", slot_troop_religion, slot_religion_christian_miaphysite),
+(main_party_has_troop, "trp_coptic_priest")],
 "Miaphysite Christianity.", "lord_talk_convert_coptic",[
 ]],
 [anyone,"lord_talk_convert_coptic", [],
 "Very well, I will convert to Miaphysite Christianity.", "lord_pretalk",[
 (remove_member_from_party, "trp_coptic_priest"),
 (troop_set_slot, "$g_talk_troop", slot_troop_religion, slot_religion_christian_miaphysite),
+(try_begin),
+(troop_get_slot, ":kingdom_hero_party", "$g_talk_troop", slot_troop_leaded_party),
+(gt, ":kingdom_hero_party", 0),
+(party_is_active, ":kingdom_hero_party"),
+(party_add_members, ":kingdom_hero_party", "trp_coptic_priest", 1),
+(try_end),
 ]],
 
 
-[anyone|plyr,"lord_talk_convert_choice", [(neg|troop_slot_eq, "$g_talk_troop", slot_troop_religion, slot_religion_paganism),(main_party_has_troop, "trp_pagan_priest")],
+[anyone|plyr,"lord_talk_convert_choice", [
+(neg|troop_slot_eq, "$g_talk_troop", slot_troop_religion, slot_religion_paganism),
+(main_party_has_troop, "trp_pagan_priest")],
 "Paganism.", "lord_talk_convert_pagan",[
 ]],
 [anyone,"lord_talk_convert_pagan", [],
 "Very well, I will convert to Paganism.", "lord_pretalk",[
 (remove_member_from_party, "trp_pagan_priest"),
 (troop_set_slot, "$g_talk_troop", slot_troop_religion, slot_religion_paganism),
+(try_begin),
+(troop_get_slot, ":kingdom_hero_party", "$g_talk_troop", slot_troop_leaded_party),
+(gt, ":kingdom_hero_party", 0),
+(party_is_active, ":kingdom_hero_party"),
+(party_add_members, ":kingdom_hero_party", "trp_pagan_priest", 1),
+(try_end),
 ]],
 
 
-[anyone|plyr,"lord_talk_convert_choice", [(neg|troop_slot_eq, "$g_talk_troop", slot_troop_religion, slot_religion_zoroastrianism),(main_party_has_troop, "trp_zoroastrian_priest")],
+[anyone|plyr,"lord_talk_convert_choice", [
+(neg|troop_slot_eq, "$g_talk_troop", slot_troop_religion, slot_religion_zoroastrianism),
+(main_party_has_troop, "trp_zoroastrian_priest")],
 "Zoroastrianism.", "lord_talk_convert_zoroastrianism",[
 ]],
 [anyone,"lord_talk_convert_zoroastrianism", [],
 "Very well, I will convert to Zoroastrianism.", "lord_pretalk",[
 (remove_member_from_party, "trp_zoroastrian_priest"),
 (troop_set_slot, "$g_talk_troop", slot_troop_religion, slot_religion_zoroastrianism),
+(try_begin),
+(troop_get_slot, ":kingdom_hero_party", "$g_talk_troop", slot_troop_leaded_party),
+(gt, ":kingdom_hero_party", 0),
+(party_is_active, ":kingdom_hero_party"),
+(party_add_members, ":kingdom_hero_party", "trp_zoroastrian_priest", 1),
+(try_end),
 ]],
 
 
-[anyone|plyr,"lord_talk_convert_choice", [(neg|troop_slot_eq, "$g_talk_troop", slot_troop_religion, slot_religion_roman_paganism),(main_party_has_troop, "trp_roman_pagan_priest")],
+[anyone|plyr,"lord_talk_convert_choice", [
+(neg|troop_slot_eq, "$g_talk_troop", slot_troop_religion, slot_religion_roman_paganism),
+(main_party_has_troop, "trp_roman_pagan_priest")],
 "Roman Paganism.", "lord_talk_convert_roman_paganism",[
 ]],
 [anyone,"lord_talk_convert_roman_paganism", [],
 "Very well, I will convert to Roman Paganism.", "lord_pretalk",[
 (remove_member_from_party, "trp_roman_pagan_priest"),
 (troop_set_slot, "$g_talk_troop", slot_troop_religion, slot_religion_roman_paganism),
+(try_begin),
+(troop_get_slot, ":kingdom_hero_party", "$g_talk_troop", slot_troop_leaded_party),
+(gt, ":kingdom_hero_party", 0),
+(party_is_active, ":kingdom_hero_party"),
+(party_add_members, ":kingdom_hero_party", "trp_roman_pagan_priest", 1),
+(try_end),
 ]],
 
 

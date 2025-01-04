@@ -3172,7 +3172,8 @@ We apologize sincerely if you contributed your suggestions and feedback but were
   ("s49_s12_s11_rel_reg0", "{s49} {s12} ({s11}, rel: {reg0}),"),
   ("s49_s12_s11", "{s49} {s12} ({s11}),"),
   #SB : add wealth, remove later, also add marshal indicator
-  ("lord_info_string", "{reg6?:{reg4?{s54} is the ruler of {s56}.^:{s54} is {reg5?the marshal for:a vassal of} {s55} of {s56}.^}}Renown: {reg15}. Controversy: {reg16}. Wealth: {reg17}.^Religion: {s29}.^{reg9?{reg3?She:He} is the {reg3?lady:lord} of {s58}.:{reg3?She:He} has no fiefs.}{s27}{s26}^{s59}^{s49}"),
+  #("lord_info_string", "{reg6?:{reg4?{s54} is the ruler of {s56}.^:{s54} is {reg5?the marshal for:a vassal of} {s55} of {s56}.^}}Renown: {reg15}. Controversy: {reg16}. Wealth: {reg17}.^Religion: {s29}.^{reg9?{reg3?She:He} is the {reg3?lady:lord} of {s58}.:{reg3?She:He} has no fiefs.}{s27}{s26}^{s59}^{s49}"),
+  ("lord_info_string", "{reg6?:{reg4?{s54} is the ruler of {s56}.^:{s54} is {reg5?the marshal for:a vassal of} {s55} of {s56}.^}}Renown: {reg15}. Controversy: {reg16}. Wealth: {reg17}.^Religion: {s29} ^{reg9?{reg3?She:He} is the {reg3?lady:lord} of {s58}.:{reg3?She:He} has no fiefs.}{s27}{s26}^{s59}^{s49}"),
   ("updating_faction_notes_for_s14_temp_=_reg4", "{!}Updating faction notes for {s14}, temp = {reg4}"),
   ("foreign_relations__", "{s20}^Foreign relations: ^"), #SB : insert domestic policy string
   ("s21__the_s5_is_at_war_with_the_s14", "{s21}^* The {s5} is at war with the {s14}."),
@@ -3187,7 +3188,8 @@ We apologize sincerely if you contributed your suggestions and feedback but were
   # ("s21__the_s5_has_no_outstanding_issues_with_the_s14", "{s21}^* The {s5} has no outstanding issues with the {s14}."),
   ("s21_the_s14_was_recently_provoked_by_subjects_of_the_s5_and_there_is_a_risk_of_war_", "{s21} The {s14} was recently provoked by subjects of the {s5}, and there is a risk of war.^"),
   ("s21_cheat_mode_assessment_s14_", "{!}{s21}^CHEAT MODE ASSESSMENT: {s14}^"),
-  ("the_s5_is_ruled_by_s6_it_occupies_s8_its_vassals_are_s10__s21", "The {s5} is ruled by {s6}.^It occupies {s8}.^Its vassals are {s10}.^^{s21}"),
+  #("the_s5_is_ruled_by_s6_it_occupies_s8_its_vassals_are_s10__s21", "The {s5} is ruled by {s6}.^It occupies {s8}.^Its vassals are {s10}.^^{s21}"),
+  ("the_s5_is_ruled_by_s6_it_occupies_s8_its_vassals_are_s10__s21", "The {s5} is ruled by {s6} ^It occupies {s8}.^Its vassals are {s10}.^^{s21}"),
   ("assigned_lord_reputation_and_relations_cheat_mode_reg3", "{!}Assigned lord reputation and relations, cheat mode: {reg3}"),
   ("caravan_trades_in_s5_originally_from_s4_", "{!}Caravan trades in {s5}, originally from {s4} "),
   ("your_hero_prisoned_at_s1", "{!}your hero prisoned at {s1}."),

@@ -571,6 +571,9 @@ simple_triggers = [
    [
      (assign, "$lady_flirtation_location", 0),
 
+(store_random_in_range, ":troop_no", heroes_begin, heroes_end), #check one random lord every 72 hours
+(call_script, "script_check_lord_religion", ":troop_no"),
+
 #madsci roman rebels petition to join Rome
 (try_begin),
 (faction_slot_eq, "fac_kingdom_1", slot_faction_state, sfs_active),

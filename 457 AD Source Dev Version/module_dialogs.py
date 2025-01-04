@@ -47608,6 +47608,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
   (party_get_slot, ":religion_center", "$current_town", slot_center_religion),
   (eq, ":religion_center", slot_religion_paganism),
   (le, "$g_wolf_quest" , 1),
+  (faction_slot_eq, "fac_kingdom_17", slot_faction_state, sfs_active), #madsci this quest requires the langobards to be still be around
   ], "Ah, you've heard of the Cynocephali, have you? They're a mysterious lot. Fierce warriors, some say. They're said to possess the spirit of beasts, fighting like wild dogs on the battlefield. But mind you, these are just rumors, traveler. I wouldn't want to cross paths with such fierce fighters, that's for certain.", "town_dweller_talk_cynocephali_1",[]],
 
   [anyone|plyr,"town_dweller_talk_cynocephali_1", [], "Interesting, indeed. Do you know anyone who might have more information about them?", "town_dweller_talk_cynocephali_2",[]],
@@ -53493,12 +53494,17 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
    "I would like to hire a priest (300 siliquae).", "eadric_talk_talk_hire", [(troop_remove_gold, "trp_player", 300),(party_add_members, "p_main_party","trp_pagan_priest",1),]],
   [trp_eadric, "eadric_talk_talk_hire", [],
    "Very well.", "eadric_talk_1", []],
-  [trp_eadric|plyr, "eadric_talk_1", [(eq, "$g_wolf_quest", 1)],
+  [trp_eadric|plyr, "eadric_talk_1", [],
    "Greetings, good Eadric. I've been told you might have some knowledge about the Cynocephali?", "eadric_talk_wolf_1", [(assign, "$g_wolf_quest", 2),]],
   [trp_eadric, "eadric_talk_wolf_1", [],
    "Ah, greetings to you as well, curious traveler. The Cynocephali, indeed a subject of intrigue. These warriors are said to be touched by the spirits of wild creatures and serve the great god Wodan, channeling their ferocity in battle. It is said they have the head of a dog and the body of a human, they fight like beasts and live as outcasts in the woods, where no one will be ever able to find them.", "eadric_talk_wolf_2", []],
   [trp_eadric|plyr, "eadric_talk_wolf_2", [],
    "Fascinating, but do you have any insights beyond these tales? How might one learn more or find them?", "eadric_talk_wolf_3", []],
+[trp_eadric, "eadric_talk_wolf_3", [
+(neg|faction_slot_eq, "fac_kingdom_17", slot_faction_state, sfs_active), #madsci this quest requires langobards to be around
+(assign, "$g_wolf_quest", -1)
+],
+   "Unfortunately I can't think of anyone who has knowledge that others may not possess...", "close_window", []],
   [trp_eadric, "eadric_talk_wolf_3", [],
    "If you wish to delve deeper into the mystery of the Cynocephali, you might consider seeking an audience with the king of the Langobards. He has knowledge that others may not possess as he holds great power over these warriors and can summon them to fight if needed. However, be cautious, for some secrets are better left undisturbed, and meddling with the affairs of such warriors might lead to unforeseen consequences.", "eadric_talk_wolf_4", []],
   [trp_eadric|plyr, "eadric_talk_wolf_4", [],

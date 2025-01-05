@@ -9758,29 +9758,6 @@ mission_templates = [
       common_battle_victory_display,
       #theoris_decapitation, #decapitation
 
-#      (1, 4,
-#      ##diplomacy begin
-#      0,
-#      ##diplomacy end
-#      [(main_hero_fallen)],
-#          [
-#              ##diplomacy begin
-#              (try_begin),
-#                (call_script, "script_cf_dplmc_battle_continuation"),
-#              (else_try),
-#                ##diplomacy end
-#                (assign, "$pin_player_fallen", 1),
-#                (str_store_string, s5, "str_retreat"),
-#                (call_script, "script_simulate_retreat", 10, 20, 1),
-#                (assign, "$g_battle_result", -1),
-#                (set_mission_result,-1),
-#                (call_script, "script_count_mission_casualties_from_agents"),
-#                (finish_mission,0),
-#                ##diplomacy begin
-#              (try_end),
-#              ##diplomacy end
-#            ]),
-
 #madsci
       (1, 4,
       ##diplomacy begin
@@ -9818,20 +9795,6 @@ mission_templates = [
             ]),
 
       common_battle_inventory,
-
-
-      #AI Triggers
-#      (0, 0, ti_once, [
-#          (store_mission_timer_a,":mission_time"),(ge,":mission_time",2),
-#          ],
-#       [(call_script, "script_select_battle_tactic"),
-#        (call_script, "script_battle_tactic_init"),
-#        #(call_script, "script_battle_calculate_initial_powers"), #deciding run away method changed and that line is erased
-#        ]),
-
-#      (3, 0, 0, [
-#          (call_script, "script_apply_effect_of_other_people_on_courage_scores"),
-#              ], []), #calculating and applying effect of people on others courage scores
 
 	#madsci
       (3, 0, 0, [
@@ -9873,23 +9836,8 @@ mission_templates = [
 	(try_end),
    ]),
 
-#      (5, 0, 0, [
-#          (store_mission_timer_a,":mission_time"),
-#
-#          (ge,":mission_time",3),
-#
-#          (call_script, "script_battle_tactic_apply"),
-#          ], []), #applying battle tactic
-
       common_battle_order_panel,
       common_battle_order_panel_tick,
-##################################################
-##### troop_ratio_bar
-##################################################
-      #(0, 0, ti_once, [], [(start_presentation, "prsnt_troop_ratio_bar")]),
-##################################################
-##### troop_ratio_bar
-##################################################
 
     ] + dplmc_battle_mode_triggers + dplmc_horse_cull + utility_triggers + battle_panel_triggers + extended_battle_menu + common_division_data + division_order_processing + real_deployment + formations_triggers + AI_triggers + jacobhinds_morale_triggers + enhanced_common_battle_triggers + battle_notifications + ai_horn,  #SB : horse cull
 
@@ -15510,7 +15458,8 @@ mission_templates = [
             (gt, ":agent_no", 0),       #jacobhinds edit; prevents MT errors
             (store_mission_timer_a,":mission_time"),
             (ge,":mission_time",3),         
-            (call_script, "script_decide_run_away_or_not", ":agent_no", ":mission_time"),
+            #(call_script, "script_decide_run_away_or_not", ":agent_no", ":mission_time"),
+            (call_script, "script_decide_run_away_or_not_vc", ":agent_no", ":mission_time"), #madsci
           (try_end),         
               ], []), #controlling courage score and if needed deciding to run away for each agent
 
@@ -24479,7 +24428,8 @@ mission_templates = [
           (party_wound_members, "p_total_enemy_casualties", ":dead_agent_troop_id", 1),
         (try_end),
 
-        (call_script, "script_apply_death_effect_on_courage_scores", ":dead_agent_no", ":killer_agent_no"),
+        #(call_script, "script_apply_death_effect_on_courage_scores", ":dead_agent_no", ":killer_agent_no"),
+        (call_script, "script_apply_death_effect_on_courage_scores_vc", ":dead_agent_no", ":killer_agent_no"), #madsci
        ]),
 
       common_battle_tab_press,
@@ -24599,6 +24549,7 @@ mission_templates = [
           (finish_mission, 4),
       ]),
 
+#madsci
       (1, 4,
       ##diplomacy begin
       0,
@@ -24607,22 +24558,42 @@ mission_templates = [
           [
               ##diplomacy begin
               (try_begin),
-                (call_script, "script_cf_dplmc_battle_continuation"),
+                (eq, "$g_dplmc_battle_continuation", 0),
+                (assign, ":num_allies", 0),
+                (try_for_agents, ":agent"),
+                 (agent_is_ally, ":agent"),
+                 (agent_is_alive, ":agent"),
+                 (val_add, ":num_allies", 1),
+                (try_end),
+                (gt, ":num_allies", 0),
+                (try_begin),
+                  (eq, "$g_dplmc_cam_activated", 0),
+                  (assign, "$g_dplmc_cam_activated", 1),
+                  (display_message, "@You have been knocked out by the enemy. Watch your men continue the fight without you or press Tab to retreat."),
+                (try_end),
               (else_try),
-                ##diplomacy end
-                (assign, "$pin_player_fallen", 1),
-                (str_store_string, s5, "str_retreat"),
-                (call_script, "script_simulate_retreat", 10, 20, 1),
-                (assign, "$g_battle_result", -1),
-                (set_mission_result,-1),
-                (call_script, "script_count_mission_casualties_from_agents"),
-                (finish_mission,0),
-                ##diplomacy begin
+              ##diplomacy end
+              (assign, "$pin_player_fallen", 1),
+              (str_store_string, s5, "str_retreat"),
+              (call_script, "script_simulate_retreat", 10, 20, 1),
+              (assign, "$g_battle_result", -1),
+              (set_mission_result,-1),
+              (call_script, "script_count_mission_casualties_from_agents"),
+              (finish_mission,0),
+              ##diplomacy begin
               (try_end),
               ##diplomacy end
             ]),
 
       common_battle_inventory,
+
+	#madsci
+      (3, 0, 0, [
+          (this_or_next|eq, "$battle_phase", BP_Fight),
+          (eq, "$battle_phase", 0),
+          (mission_tpl_are_all_agents_spawned), #madsci  
+          (call_script, "script_apply_effect_of_other_people_on_courage_scores_vc"),
+              ], []), #calculating and applying effect of people on others courage scores
 
       (3, 0, 0, [
           (try_for_agents, ":agent_no"),
@@ -24630,7 +24601,8 @@ mission_templates = [
             (agent_is_alive, ":agent_no"),
             (store_mission_timer_a,":mission_time"),
             (ge,":mission_time",3),
-            (call_script, "script_decide_run_away_or_not", ":agent_no", ":mission_time"),
+            #(call_script, "script_decide_run_away_or_not", ":agent_no", ":mission_time"),
+            (call_script, "script_decide_run_away_or_not_vc", ":agent_no", ":mission_time"), #madsci
           (try_end),
               ], []), #controlling courage score and if needed deciding to run away for each agent
 
@@ -26695,6 +26667,7 @@ mission_templates = [
     passable_allies,
     custom_commander_critical_strike,
     equipment_randomization,
+common_battle_init_banner,
 ###TO BULLY RETARTED CHEATERS
     (0, 0, 0, [
     (this_or_next|key_is_down, key_left_alt),
@@ -27522,6 +27495,7 @@ mission_templates = [
       ], []), 
  
     common_inventory_not_available,
+	common_battle_init_banner,
 ]),
 
 ("olpia_mission",mtf_battle_mode,-1,
@@ -27549,6 +27523,7 @@ mission_templates = [
       dplmc_horse_speed,
       poisoned_arrows_hit,
       poisoned_arrows_damage,
+	common_battle_init_banner,
   
     (ti_before_mission_start,0,0,[],[
       (call_script, "script_music_set_situation_with_culture", mtf_sit_ambushed),
@@ -27643,7 +27618,8 @@ mission_templates = [
           (party_wound_members, "p_total_enemy_casualties", ":dead_agent_troop_id", 1),
         (try_end),
 
-        (call_script, "script_apply_death_effect_on_courage_scores", ":dead_agent_no", ":killer_agent_no"),
+        #(call_script, "script_apply_death_effect_on_courage_scores", ":dead_agent_no", ":killer_agent_no"),
+	(call_script, "script_apply_death_effect_on_courage_scores_vc", ":dead_agent_no", ":killer_agent_no"), #madsci
       ]),
 
       (ti_tab_pressed, 0, 0, [],
@@ -27784,15 +27760,24 @@ mission_templates = [
 
       common_battle_inventory,
 
+	#madsci
+      (3, 0, 0, [
+          (this_or_next|eq, "$battle_phase", BP_Fight),
+          (eq, "$battle_phase", 0),
+          (mission_tpl_are_all_agents_spawned), #madsci  
+          (call_script, "script_apply_effect_of_other_people_on_courage_scores_vc"),
+              ], []), #calculating and applying effect of people on others courage scores
+
       (3, 0, 0, [
           (try_for_agents, ":agent_no"),
             (agent_is_human, ":agent_no"),
             (agent_is_alive, ":agent_no"),
             (store_mission_timer_a,":mission_time"),
             (ge,":mission_time",3),
-            (call_script, "script_decide_run_away_or_not", ":agent_no", ":mission_time"),
+            #(call_script, "script_decide_run_away_or_not", ":agent_no", ":mission_time"),
+            (call_script, "script_decide_run_away_or_not_vc", ":agent_no", ":mission_time"), #madsci
           (try_end),
-      ], []),
+              ], []),
 
       common_battle_order_panel,
       common_battle_order_panel_tick,
@@ -27888,10 +27873,12 @@ mission_templates = [
           (party_wound_members, "p_total_enemy_casualties", ":dead_agent_troop_id", 1),
         (try_end),
 
-        (call_script, "script_apply_death_effect_on_courage_scores", ":dead_agent_no", ":killer_agent_no"),
+        #(call_script, "script_apply_death_effect_on_courage_scores", ":dead_agent_no", ":killer_agent_no"),
+        (call_script, "script_apply_death_effect_on_courage_scores_vc", ":dead_agent_no", ":killer_agent_no"), #madsci
       ]),
 
       immersive_troops,
+	common_battle_init_banner,
 
       (ti_before_mission_start, 0, 0, [],
       [
@@ -27984,13 +27971,23 @@ mission_templates = [
             (val_add, "$tutorial_state", 1),    
         (try_end),
       ]),
+
+	#madsci
+      (3, 0, 0, [
+          (this_or_next|eq, "$battle_phase", BP_Fight),
+          (eq, "$battle_phase", 0),
+          (mission_tpl_are_all_agents_spawned), #madsci  
+          (call_script, "script_apply_effect_of_other_people_on_courage_scores_vc"),
+              ], []), #calculating and applying effect of people on others courage scores
+
       (3, 0, 0, [
         (try_for_agents, ":agent_no"),
             (agent_is_human, ":agent_no"),
             (agent_is_alive, ":agent_no"),
             (store_mission_timer_a,":mission_time"),
             (ge,":mission_time",3),
-            (call_script, "script_decide_run_away_or_not", ":agent_no", ":mission_time"),
+            #(call_script, "script_decide_run_away_or_not", ":agent_no", ":mission_time"),
+            (call_script, "script_decide_run_away_or_not_vc", ":agent_no", ":mission_time"), #madsci
         (try_end),
       ], []),
 
@@ -28312,7 +28309,8 @@ mission_templates = [
           (party_wound_members, "p_total_enemy_casualties", ":dead_agent_troop_id", 1),
         (try_end),
 
-        (call_script, "script_apply_death_effect_on_courage_scores", ":dead_agent_no", ":killer_agent_no"),
+        #(call_script, "script_apply_death_effect_on_courage_scores", ":dead_agent_no", ":killer_agent_no"),
+        (call_script, "script_apply_death_effect_on_courage_scores_vc", ":dead_agent_no", ":killer_agent_no"), #madsci
       ]),
 
       (ti_tab_pressed, 0, 0, [],
@@ -28331,6 +28329,7 @@ mission_templates = [
       ]),
 
       immersive_troops,
+	common_battle_init_banner,
 
       (ti_before_mission_start, 0, 0, [],
        [
@@ -28453,13 +28452,22 @@ mission_templates = [
 
       common_battle_inventory,
 
+	#madsci
+      (3, 0, 0, [
+          (this_or_next|eq, "$battle_phase", BP_Fight),
+          (eq, "$battle_phase", 0),
+          (mission_tpl_are_all_agents_spawned), #madsci  
+          (call_script, "script_apply_effect_of_other_people_on_courage_scores_vc"),
+              ], []), #calculating and applying effect of people on others courage scores
+
       (3, 0, 0, [
           (try_for_agents, ":agent_no"),
             (agent_is_human, ":agent_no"),
             (agent_is_alive, ":agent_no"),
             (store_mission_timer_a,":mission_time"),
             (ge,":mission_time",3),
-            (call_script, "script_decide_run_away_or_not", ":agent_no", ":mission_time"),
+            #(call_script, "script_decide_run_away_or_not", ":agent_no", ":mission_time"),
+            (call_script, "script_decide_run_away_or_not_vc", ":agent_no", ":mission_time"), #madsci
           (try_end),
       ], []),
 
@@ -29009,7 +29017,8 @@ mission_templates = [
             (agent_slot_eq, ":dead_agent_no", slot_agent_vc_wounded, 1),	#new
             (party_wound_members, "p_total_enemy_casualties", ":dead_agent_troop_id", 1),
           (try_end),
-          (call_script, "script_apply_death_effect_on_courage_scores", ":dead_agent_no", ":killer_agent_no"),
+          #(call_script, "script_apply_death_effect_on_courage_scores", ":dead_agent_no", ":killer_agent_no"),
+        (call_script, "script_apply_death_effect_on_courage_scores_vc", ":dead_agent_no", ":killer_agent_no"), #madsci
       ]),
       
     ] + camera_controls #+ battle_mode_triggers		#Lets not add this now. I think it will cause bugs

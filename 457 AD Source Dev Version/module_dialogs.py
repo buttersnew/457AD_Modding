@@ -5641,16 +5641,6 @@ Still I am sorry that I'll leave you soon. You must promise me, you'll come visi
 # (assign, reg65, reg0),
 (assign, ":is_female", reg65), #SB : store into reg65
 (try_begin),
-   ##Enable the "Tribune" dialogue option for all Custodian or Benefactor companions
-   ##from the Rhodok lands, instead of just Bunduk.  Currently there are no others
-   ##besides him, but other mods may add them.
-   #(eq, "$g_talk_troop", "trp_npc10"),
-   (this_or_next|troop_slot_eq, "$g_talk_troop", slot_lord_reputation_type, lrep_benefactor),
-      (troop_slot_eq, "$g_talk_troop", slot_lord_reputation_type, lrep_custodian),
-   (troop_slot_eq, "$g_talk_troop", slot_troop_original_faction, "fac_kingdom_5"),
-   ##diplomacy end+
-   (str_store_string, s14, "str_tribune_s12"),
-(else_try),
    (eq, ":is_female", 1),
    (str_store_string, s14, "str_lady_s12"),
 (else_try),

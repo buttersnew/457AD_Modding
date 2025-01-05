@@ -600,7 +600,6 @@ simple_triggers = [
 (str_store_faction_name, s11, "fac_kingdom_1"),
 (display_log_message, "@The rebels of {s10} have successfully petitioned to join {s11}"),
 (faction_set_slot, ":rebel_found", slot_faction_state, sfs_inactive),
-(faction_set_note_available, ":rebel_found", 0),
 (faction_set_slot, ":rebel_found",  slot_faction_days_survived, 0),
 (faction_get_slot, ":faction_leader", ":rebel_found", slot_faction_leader),
  	(try_for_range, ":cur_troop", heroes_begin, heroes_end),
@@ -645,6 +644,7 @@ simple_triggers = [
 	(eq, ":party_faction", ":rebel_found"),
 	(party_set_faction, ":party", "fac_kingdom_1"),
 	(try_end),
+(faction_set_note_available, ":rebel_found", 0),
 
 	(try_begin),
         (eq, "$g_infinite_camping", 0),

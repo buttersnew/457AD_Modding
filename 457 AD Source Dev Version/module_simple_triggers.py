@@ -1158,8 +1158,8 @@ simple_triggers = [
 
 (val_add, "$checked_faction2", 1),
 	(try_begin),
-	(neg|is_between, "$checked_faction2", kingdoms_begin, kingdoms_end),
-	(assign, "$checked_faction2", kingdoms_begin),
+	(neg|is_between, "$checked_faction2", npc_kingdoms_begin, npc_kingdoms_end),
+	(assign, "$checked_faction2", npc_kingdoms_begin),
 	(try_end),
     (call_script, "script_randomly_start_war_peace_new_for_faction", 1, "$checked_faction2"),
 

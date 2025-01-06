@@ -4010,6 +4010,7 @@ TOTAL:  {reg5}"),
       [
         (eq, "$encountered_party_friendly", 0),
         (neg|troop_is_wounded, "trp_player"),
+	(neg|party_slot_eq, "p_main_party", slot_party_on_water, 1),
       ],
       "Start battle holding position.",
       [
@@ -4112,6 +4113,7 @@ TOTAL:  {reg5}"),
 #Troop commentary changes end
           	(leave_encounter),(change_screen_return)]),
       ("encounter_retreat",[
+	(neg|party_slot_eq, "p_main_party", slot_party_on_water, 1),
          (eq,"$cant_leave_encounter", 1),
          (call_script, "script_get_max_skill_of_player_party", "skl_tactics"),
          (assign, ":max_skill", reg0),

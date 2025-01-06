@@ -221,6 +221,7 @@ parties = [
   ("castle_93", "Caranicum",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-271, 46),[],75),
   ("castle_94", "Carredunum",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-82.4, 106.1),[],75),
   ("castle_95", "Eburodunum",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-84.5, 90),[],75),
+  ("castle_96", "Budorigum",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-77.6, 123),[],75),
 
  ("village_1", "Olisipo", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-292.93, 5.89), [], 100),           #[swycartographr] prev. coords: (-85.1181, -28.2196) #[swycartographr] prev. coords: (-293.74, 18.35)
  ("village_2", "Smyrna", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (2.38, 0.99), [], 110),               #[swycartographr] prev. coords: (-50.9496, -8.74263)
@@ -751,7 +752,7 @@ parties = [
 
   ("alan_1_village", "Valentia", icon_castle_a|pf_minor_town, no_menu, pt_none, fac_minor_valentia, 0, ai_bhvr_hold, 0, (-176.5, 49.18), []),
   ("alan_2_village", "Aurelianum", icon_castle_a|pf_minor_town, no_menu, pt_none, fac_minor_aurelianorum, 0, ai_bhvr_hold, 0, (-193.3,87.67), []),
-  ("heruli_village", "Campus_Herulorum", icon_village_a|pf_minor_town, no_menu, pt_none, fac_minor_heruli, 0, ai_bhvr_hold, 0, (-52.4, 96), []),
+  ("heruli_village", "Campus_Herulorum", icon_village_a|pf_minor_town, no_menu, pt_none, fac_minor_heruli, 0, ai_bhvr_hold, 0, (-97.6, 108), []),
   ("iazyges_village", "Bormanum", icon_village_a|pf_minor_town, no_menu, pt_none, fac_minor_iazyges, 0, ai_bhvr_hold, 0, (-69.4, 71.5), []), 
   ("adovacrius_village", "Juliomagus", icon_castle_a|pf_minor_town, no_menu, pt_none, fac_adovacrius_host, 0, ai_bhvr_hold, 0, (-210, 80), []),
 

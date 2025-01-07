@@ -198,6 +198,10 @@ party_templates = [
   ("kingdom_16_reinforcements_b", "{!}Alan Reinforcements", 0, 0, fac_commoners, 0, [(trp_caucasian_alan_footman,2,5),(trp_caucasian_alan_tribesman,3,6),(trp_barsil_horse_archer,1,4),(trp_draco_bearer,1,1)]),
   ("kingdom_16_reinforcements_c", "{!}Alan Reinforcements", 0, 0, fac_commoners, 0, [(trp_aursa_rider,1,4),(trp_caucasian_alan_retainer,3,6)]),  
 
+  ("kingdom_17_reinforcements_a", "{!}Armenian Reinforcements", 0, 0, fac_commoners, 0, [(trp_armenian_levy,3,7),(trp_armenian_bowman,3,7),(trp_armenian_footman,2,6)]),
+  ("kingdom_17_reinforcements_b", "{!}Armenian Reinforcements", 0, 0, fac_commoners, 0, [(trp_armenian_bowman,2,5),(trp_armenian_footman,3,6),(trp_armenian_cavalry,1,4),(trp_draco_bearer,1,1)]),
+  ("kingdom_17_reinforcements_c", "{!}Armenian Reinforcements", 0, 0, fac_commoners, 0, [(trp_armenian_cavalry,1,4),(trp_armenian_cataphract,3,6)]),
+
   ("kingdom_empire_reinforcements_a", "{!}Roman Reinforcements", 0, 0, fac_commoners, 0, [(trp_tiro,4,10),(trp_exculator,2,4),(trp_eques_mauri,2,6)]),
   ("kingdom_empire_reinforcements_b", "{!}Roman Reinforcements", 0, 0, fac_commoners, 0, [(trp_pedes,4,10),(trp_sagittarius,3,6),(trp_eques_ala,2,7),(trp_imperial_signifer,1,1)]),
   ("kingdom_empire_reinforcements_c", "{!}Roman Reinforcements", 0, 0, fac_commoners, 0, [(trp_eques_scutarii,2,6),(trp_eques_cataphractarii,1,3),(trp_centenarius,1,1)]),

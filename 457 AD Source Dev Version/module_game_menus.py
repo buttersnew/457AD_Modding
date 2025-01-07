@@ -15290,6 +15290,7 @@ TOTAL:  {reg5}"),
                     (troop_add_item, "trp_player", "itm_hun_rich_horse_nobard_2", 0),
                     (display_message, "@You have been gifted a horse for your victory.", 0xFF0000),
                   (else_try), #caucasians, sassanids
+                    (this_or_next|party_slot_eq, "$current_town", slot_center_culture, "fac_culture_17"),
                     (this_or_next|party_slot_eq, "$current_town", slot_center_culture, "fac_culture_6"),
                     (party_slot_eq, "$current_town", slot_center_culture, "fac_culture_8"),
                     (troop_add_item, "trp_player", "itm_niseansas_2", 0),
@@ -15339,6 +15340,7 @@ TOTAL:  {reg5}"),
                     (troop_add_item, "trp_player", "itm_common_mail_short_1", 0),#mail
                     (display_message, "@You have been gifted a coat of mail for your victory.", 0xFF0000),
                   (else_try), #sassanid - caucasian
+                    (this_or_next|party_slot_eq, "$current_town", slot_center_culture, "fac_culture_17"),
                     (this_or_next|party_slot_eq, "$current_town", slot_center_culture, "fac_culture_6"),
                     (party_slot_eq, "$current_town", slot_center_culture, "fac_culture_8"),
                     (troop_add_item, "trp_player", "itm_sassanid_mail_2", 0),#mail
@@ -15376,6 +15378,7 @@ TOTAL:  {reg5}"),
                     (troop_add_item, "trp_player", "itm_indesheim_spatha_rich", 0),
                     (display_message, "@You have been gifted a quality spatha for your victory.", 0xFF0000),
                   (else_try), #sassanid - caucasian
+                    (this_or_next|party_slot_eq, "$current_town", slot_center_culture, "fac_culture_17"),
                     (this_or_next|party_slot_eq, "$current_town", slot_center_culture, "fac_culture_6"),
                     (party_slot_eq, "$current_town", slot_center_culture, "fac_culture_8"),
                     (troop_add_item, "trp_player", "itm_ingushetia_spatha", 0),
@@ -15417,6 +15420,7 @@ TOTAL:  {reg5}"),
                     (troop_add_item, "trp_player", "itm_sassanid_helmet_mail_1", 0),
                     (display_message, "@You have been gifted a new Sassanid helmet for your victory.", 0xFF0000),
                   (else_try), #caucasian
+                    (this_or_next|party_slot_eq, "$current_town", slot_center_culture, "fac_culture_17"),
                     (party_slot_eq, "$current_town", slot_center_culture, "fac_culture_8"),
                     (troop_add_item, "trp_player", "itm_batumi_helmet_aventail", 0),
                     (display_message, "@You have been gifted a new helmet for your victory.", 0xFF0000),

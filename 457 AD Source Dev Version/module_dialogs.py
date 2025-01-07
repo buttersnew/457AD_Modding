@@ -47444,7 +47444,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
                                       (str_store_faction_name, s8, ":town_lord_faction"),
                                       (str_store_string, s10, "@{s6} Our {reg4?town:village} and the surrounding lands belong to {s7} of {s8}."),
 					(else_try),
-                                      	(str_store_faction_name, s8, "$current_town"),
+                                      	(str_store_faction_name, s8, "$g_encountered_party_faction"),
 				       	(str_store_string, s10, "@{s6} Our {reg4?town:village} and the surrounding lands to {s8}."),
                                     (try_end),
                                     (str_clear, s5),

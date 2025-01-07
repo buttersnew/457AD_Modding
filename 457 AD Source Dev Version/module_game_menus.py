@@ -27457,6 +27457,8 @@ goods, and books will never be sold. ^^You can change some settings here freely.
             (mission_tpl_entry_set_override_flags, "mt_conversation_generic", ":entry", af_override_horse),
         (try_end),
 
+        (set_visitor, 0, "trp_player"),
+
         (set_visitor, 1, "trp_roman_civilian_quest_1"),
         (set_visitor, 12, "trp_severinus_quest_npc_2"),
         (set_visitor, 13, "trp_roman_civilian_quest_2"),

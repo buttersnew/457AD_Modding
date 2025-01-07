@@ -2093,7 +2093,21 @@ vc_water = [			# 5 trigger
       (call_script, "script_set_wave_shader"),
   ]),
 ]
-vc_wind = [				# 2 trigger
+vc_wind = [
+(ti_before_mission_start, 0, 0, [],
+    [
+(try_begin),
+(party_slot_eq, "$g_encountered_party", slot_party_on_water, 0),
+(gt, "$beaufort", 2), #low wind in towns so that the tree props dont go apeshit
+(assign, "$beaufort", 1),
+(else_try),
+(party_slot_eq, "$g_encountered_party", slot_party_on_water, 1),
+(lt, "$beaufort", 3),
+(store_random_in_range, ":new_wind", 3, 6), #always have nice waves at sea
+(assign, "$beaufort", ":new_wind"),
+(try_end),
+  ]),
+
   (0, 0, ti_once, [],	# init wind
     [
       (set_fixed_point_multiplier,100),
@@ -25378,7 +25392,7 @@ mission_templates = [
     ]
   ), 
 
-  ("visit_minor_town",0,-1,
+  ("visit_minor_town",mtf_battle_mode,-1,
     "visit",
     [
       (0,mtef_scene_source|mtef_team_0,0,0,1,[]),#player
@@ -25442,6 +25456,7 @@ mission_templates = [
 
       (ti_before_mission_start, 0, 0, [],
       [
+	(assign, "$current_town", "$g_encountered_party"),
         (replace_scene_props, "spr_earth_sally_gate_right", "spr_empty"),
         (replace_scene_props, "spr_earth_sally_gate_left", "spr_empty"),
         (try_begin),#remove longboat for quest
@@ -25450,6 +25465,12 @@ mission_templates = [
             (eq, ":scene", "scn_frisian_town"),
             (replace_scene_props, "spr_ship_sail_off", "spr_empty"),
         (try_end),
+      ]),
+
+      (0, 0, ti_once, 
+      [],
+      [
+	(mission_enable_talk), #madsci this is needed because of the mtf_battle_mode flag that we use so that players cant save during the quest mission
       ]),
       
     (1, 0, ti_once, [
@@ -25527,7 +25548,9 @@ mission_templates = [
           (try_end),
       ]),  
   
-  (0, 0, 0, [],
+  (0, 0, ti_once, [
+(neg|all_enemies_defeated),
+],
    [
     (call_script, "script_music_set_situation_with_culture", mtf_sit_ambushed),
    ]),

@@ -1115,9 +1115,9 @@ triggers = [
 	(try_begin),
 	(eq, "$g_infinite_camping", 0),
 	(neg|party_slot_eq, "p_main_party", slot_party_on_water, 1), #madsci a messenger doesnt appear if the player is sea traveling
-  	(dialog_box, "@Foederati hired by Majorian for his campaigns have begun to pillage the italian countryside!", "@A messenger approaches your warband"),
+  	(dialog_box, "@Foederati hired by Majorian for his campaigns have begun to pillage the Italian countryside!", "@A messenger approaches your warband"),
 	(try_end),
-	(display_log_message, "@Foederati hired by Majorian for his campaigns have begun to pillage the italian countryside!"),
+	(display_log_message, "@Foederati hired by Majorian for his campaigns have begun to pillage the Italian countryside!"),
   (assign, "$g_foederati_event", 1),
    ]),
 

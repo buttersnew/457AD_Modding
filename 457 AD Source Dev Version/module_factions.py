@@ -94,22 +94,13 @@ factions = [
   ("rebel_kingdom_2",  "Rebels",    0, 0.9, [("saxons", -0.5),("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05)], [], 0x622228),
   ("rebel_kingdom_3",  "Rebels",    0, 0.9, [("saxons", -0.5),("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05)], [], 0x741f1a),
 
-  ("kingdoms_end","{!}kingdoms_end", 0, 0,[], []),
-
-  ("robber_knights",  "{!}robber_knights", 0, 0.1, [], []),
-  #("khergits","{!}Khergits", 0, 0.5,[("player_faction",0.0)], []),
-  #("black_khergits","Hunnic Rebels", 0, 0.5,[("player_faction",-0.3),("kingdom_1",-0.05),("kingdom_2",-0.05),("kingdom_4",-0.05),("kingdom_11",-0.05)], []),
-  #("rebel_peasants","Rebel Peasants", 0, 0.5,[("vaegirs",-0.5),("player_faction",0.0)], []),
-
+#manhunters is kingdoms_end
   ("manhunters","Slavers", 0, 0.5,[("outlaws",-0.6),("player_faction",0.1)], []),
   ("pirates","Pirates", 0, 0.5,[("commoners",-0.6),("player_faction",-0.15),("player_supporters_faction",-0.15)], [], 0x4B4A4A),
   ("deserters","Deserters", 0, 0.5,[("manhunters",-0.6),("merchants",-0.5),("player_faction",-0.1)], [], 0x888888),
   ("mountain_bandits","Isaurians", 0, 0.5,[("commoners",-0.2),("merchants",-0.5),("manhunters",-0.6),("player_faction",-0.05),("kingdom_2",-0.01)], [], 0x888888), #updated faction color 0x033677
   ("forest_bandits","Bagaudae", 0, 0.5,[("commoners",-0.2),("merchants",-0.5),("manhunters",-0.6),("player_faction",-0.15),("kingdom_1",-0.75),("kingdom_3",-0.75),("kingdom_8",0.5)], [], 0x888888),
-  ("undeads","{!}Undeads", max_player_rating(-30), 0.5,[("commoners",-0.7),("player_faction",-0.5)], []),
-  ("slavers","{!}Slavers", 0, 0.1, [], []),
   ("peasant_rebels","Rebels", 0, 1.0,[("kingdom_1",-0.4),("kingdom_2",-0.4)], [], 0x5c2222), #used for roman rebels
-  ("noble_refugees","{!}Noble Refugees", 0, 0.5,[], []),
   #new bandit faction, based on berber rebels (laguatan) who fought against the Romans + Vandals in the 4th - 6th centuries. Went under the label of Austuriani
   ("berber_rebels","Austuriani", 0, 0.5,[("commoners",-0.2),("merchants",-0.5),("manhunters",-0.6),("player_faction",-0.15),("kingdom_1",-0.5),("kingdom_2",-0.5),("kingdom_15",-1),("kingdom_22",0.75)], [], 0x888888), #0x3db8ca
   #coptic rebels
@@ -156,9 +147,8 @@ factions = [
   ("minor_iazyges","Iazyges", 0, 0.9,[("kingdom_4",-0.75),("outlaws",-0.75),("peasant_rebels", -0.1),("deserters", -0.05),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05),("manhunters",0.6)], [], 0xc19135),
   ("minor_heruli","Heruli", 0, 0.5,[("kingdom_4",-0.75),("outlaws",-0.75),("peasant_rebels", -0.1),("deserters", -0.05),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05),("manhunters",0.6)], [], 0x993322), #lead by Visilaus, at war with ostrogoths
   ("adovacrius_host","Adovacrius_Host", 0, 0.9,[("kingdom_1",-0.75),("kingdom_3",-0.75),("kingdom_7",-0.75),("outlaws",-0.75),("peasant_rebels", -0.1),("deserters", -0.05),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05),("manhunters",0.6)], [], 0xc19135),
-  ("minor_factions_end",  "{!}minor_factions_end", 0, 0.9, [], []),
 
-  #religions
+  #religions roman_christians is minor_factions_end
   ("roman_christians","Chalcedonian Christians", 0, 0.5,[("arian_christians",-0.05),("coptic_christians",-0.05),("nestorian_christians",-0.05),("donatist_christians",-0.05),("kingdom_1", 0.9),("kingdom_2", 0.9)], [], 0xFFFFFF), #very friendly with the romans
   ("arian_christians","Arian Christians", 0, 0.5,[("roman_christians",-0.05),("coptic_christians",-0.05),("nestorian_christians",-0.05),("donatist_christians",-0.05)], [], 0xFFFFFF),
   ("coptic_christians","Miaphysite Christians", 0, 0.5,[("arian_christians",-0.05),("roman_christians",-0.05),("nestorian_christians",-0.05),("donatist_christians",-0.05)], [], 0xFFFFFF),
@@ -170,12 +160,6 @@ factions = [
   ("zurvanism","Zurvanite Zoroastrians", 0, 0.5,[("kingdom_6", 0.9)], [], 0xFFFFFF), #very friendly with the sassanids
   ("jews","Jews", 0, 0.5,[("arian_christians",-0.05),("coptic_christians",-0.05),("roman_christians",-0.05),("nestorian_christians",-0.05),("donatist_christians",-0.05),("pagans",-0.05),("roman_pagans",-0.05),("zoroastrians",-0.05)], [], 0xFFFFFF), #used for later
   ("religion_end","Religions End", 0, 0.5,[], [], 0xFFFFFF), 
-
-  #chariot racing teams
-  ("blue_team","Blues",0, 0.1,[("player_faction",0.0),("kingdom_1",0.5),("kingdom_2",0.5)], [],0x0c42c4),
-  ("green_team","Greens",0, 0.1,[("player_faction",0.0),("kingdom_1",0.5),("kingdom_2",0.5)], [],0x2d7b34),
-  ("red_team","Reds",0, 0.1,[("player_faction",0.0),("kingdom_1",0.5),("kingdom_2",0.5)], [],0x8E0D0D),
-  ("white_team","Whites",0, 0.1,[("player_faction",0.0),("kingdom_1",0.5),("kingdom_2",0.5)], [],0xFFFFFF),
 
 ]
 

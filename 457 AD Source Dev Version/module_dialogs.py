@@ -3213,12 +3213,12 @@ or you won't be able to hang on to a single man you catch.", "ramun_ask_about_ca
     [  (store_repeat_object, ":faction_no"),
        (this_or_next|is_between, ":faction_no", npc_kingdoms_begin, kingdoms_end),
        (this_or_next|is_between, ":faction_no", "fac_commoners", "fac_neutral"),
-       (this_or_next|is_between, ":faction_no", "fac_manhunters", "fac_mountain_bandits"),
-       (eq, ":faction_no", "fac_slavers"),
+       (is_between, ":faction_no", "fac_manhunters", minor_kingdoms_end),
        #(assign, reg1, ":faction_no"),
         (try_begin),
             (is_between, ":faction_no", npc_kingdoms_begin, kingdoms_end),
             (faction_get_slot, ":str", ":faction_no", slot_faction_adjective),
+		(gt, ":str", 0),
             (str_store_string, s1, ":str"),
             # (store_sub, ":faction_adj", ":faction_no", kingdoms_begin),
             # (val_add, ":faction_adj", "str_kingdoms_adjectives"),
@@ -28548,7 +28548,7 @@ I will use this to make amends to those you have wronged, and I will let it be k
 (call_script, "script_troop_get_family_relation_to_troop",  ":bride", "$g_talk_troop"),
 
 ],
-"Sorry, lad -- I'm not going to make my {s11} marry you, when I'd rather see her married to {s12}", "lord_pretalk",[
+"Sorry, lad -- I'm not going to make my {s11} marry you, when I'd rather see her married to {s12}.", "lord_pretalk",[
 (call_script, "script_fail_quest", "qst_formal_marriage_proposal"),
 (call_script, "script_end_quest", "qst_formal_marriage_proposal"),
 ]],
@@ -28559,7 +28559,7 @@ I will use this to make amends to those you have wronged, and I will let it be k
 (quest_get_slot, ":bride", "qst_formal_marriage_proposal", slot_quest_giver_troop),
 (str_store_troop_name, s11, ":bride"),
 ],
-"Splendid news, my young man -- I shall be proud to have you in our family. Now, let us talk the terms of the marriage. As per our custom, the two of us must make sure that {s11} has sufficient finances to support herself, in the event of any unforeseen circumstances..", "lord_marriage_permission_endowment",[
+"Splendid news, my young man -- I shall be proud to have you in our family. Now, let us talk the terms of the marriage. As per our custom, the two of us must make sure that {s11} has sufficient finances to support herself, in the event of any unforeseen circumstances...", "lord_marriage_permission_endowment",[
  (troop_get_slot, ":player_renown", "trp_player", slot_troop_renown),
  (troop_get_slot, ":guardian_renown", "$g_talk_troop", slot_troop_renown),
 

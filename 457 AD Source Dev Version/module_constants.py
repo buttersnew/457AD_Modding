@@ -1757,13 +1757,16 @@ cultures_end   = major_cultures_end #changed so the player is unable to select m
 ##diplomacy end+
 
 kingdoms_begin = "fac_player_supporters_faction"
-kingdoms_end = "fac_kingdoms_end"
+kingdoms_end = "fac_manhunters"
 
 npc_kingdoms_begin = "fac_kingdom_1"
 npc_kingdoms_end = kingdoms_end
 
+religions_begin = "fac_roman_christians"
+religions_end = "fac_religion_end"
+
 minor_kingdoms_begin = "fac_minor_aestii"
-minor_kingdoms_end = "fac_minor_factions_end"
+minor_kingdoms_end = religions_begin
 
 bandits_begin = "trp_looter"
 bandits_end = "trp_rich_bandit" #changed due to quest characters
@@ -1942,7 +1945,7 @@ number_of_villages       = p_salt_mine - p_village_1
 number_of_towns          = p_castle_1 - p_town_1
 number_of_walled_centers = number_of_towns+number_of_castles
 number_of_centers        = number_of_walled_centers + number_of_villages
-number_of_factions       = fac_kingdoms_end - fac_player_supporters_faction
+number_of_factions       = fac_manhunters - fac_player_supporters_faction
 number_of_active_npcs    = trp_knight_1_1_wife - trp_npc1
 
 training_grounds_begin   = "p_training_ground_1"

@@ -28,7 +28,7 @@ from compiler import *
 party_templates = [
   ("none","none",icon_gray_knight,0,fac_commoners,merchant_personality,[]),
   ("rescued_prisoners","Rescued Prisoners",icon_gray_knight,0,fac_commoners,merchant_personality,[]),
-  ("enemy","Enemy",icon_gray_knight,0,fac_undeads,merchant_personality,[]),
+  ("enemy","Enemy",icon_gray_knight,0,fac_outlaws,merchant_personality,[]),
   ("hero_party","Hero Party",icon_gray_knight,0,fac_commoners,merchant_personality,[]),
 ####################################################################################################################
 # Party templates before this point are hard-wired into the game and should not be changed. 

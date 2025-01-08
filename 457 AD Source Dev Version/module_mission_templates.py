@@ -9096,6 +9096,7 @@ mission_templates = [
 	(try_end),
 (call_script, "script_remove_hero_prisoners", "$current_town"),
 (party_clear, "$current_town"),
+(party_set_slot, "$current_town", slot_center_culture,  "fac_culture_18"),
 (party_set_slot, "$current_town", slot_center_religion, slot_religion_judaism),
 (faction_set_slot, "fac_samaritan_rebels", slot_faction_state, sfs_active),
 (troop_set_note_available, "trp_jewish_agitator", 1),

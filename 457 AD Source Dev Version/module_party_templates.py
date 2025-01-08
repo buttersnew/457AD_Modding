@@ -202,6 +202,8 @@ party_templates = [
   ("kingdom_17_reinforcements_b", "{!}Armenian Reinforcements", 0, 0, fac_commoners, 0, [(trp_armenian_bowman,2,5),(trp_armenian_footman,3,6),(trp_armenian_cavalry,1,4),(trp_draco_bearer,1,1)]),
   ("kingdom_17_reinforcements_c", "{!}Armenian Reinforcements", 0, 0, fac_commoners, 0, [(trp_armenian_cavalry,1,4),(trp_armenian_cataphract,3,6)]),
 
+("kingdom_18_reinforcements_a", "{!}Jewish Reinforcements", 0, 0, fac_commoners, 0, [(trp_jewish_levy,3,7),(trp_jewish_slinger,3,7),(trp_jewish_footman,2,6)]),
+
   ("kingdom_empire_reinforcements_a", "{!}Roman Reinforcements", 0, 0, fac_commoners, 0, [(trp_tiro,4,10),(trp_exculator,2,4),(trp_eques_mauri,2,6)]),
   ("kingdom_empire_reinforcements_b", "{!}Roman Reinforcements", 0, 0, fac_commoners, 0, [(trp_pedes,4,10),(trp_sagittarius,3,6),(trp_eques_ala,2,7),(trp_imperial_signifer,1,1)]),
   ("kingdom_empire_reinforcements_c", "{!}Roman Reinforcements", 0, 0, fac_commoners, 0, [(trp_eques_scutarii,2,6),(trp_eques_cataphractarii,1,3),(trp_centenarius,1,1)]),

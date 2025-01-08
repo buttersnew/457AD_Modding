@@ -19906,6 +19906,12 @@ presentations = [
                 (eq, ":troop", "trp_armenian_cavalry"), #noble
                 (assign, ":c", 1),
               (else_try),
+                (eq, ":culture", "fac_culture_18"), #jewish
+                (this_or_next|eq, ":troop", "trp_jewish_levy"), #t1
+                (this_or_next|eq, ":troop", "trp_jewish_slinger"),
+                (eq, ":troop", "trp_jewish_footman"),
+                (assign, ":c", 1),
+              (else_try),
                 (eq, ":culture", "fac_culture_empire"), #romans - this is where the fun begins!
                 (this_or_next|eq, ":troop", "trp_tiro"),
                 (this_or_next|eq, ":troop", "trp_exculator"),
@@ -20148,6 +20154,12 @@ presentations = [
                     (this_or_next|eq, ":troop", "trp_armenian_footman"), #t2 inf.
                     (this_or_next|eq, ":troop", "trp_armenian_bowman"), #archer
                     (eq, ":troop", "trp_armenian_cavalry"), #noble
+                    (assign, ":c", 1),
+                  (else_try),
+                    (eq, ":culture", "fac_culture_18"), #jewish
+                    (this_or_next|eq, ":troop", "trp_jewish_levy"), #t1
+                    (this_or_next|eq, ":troop", "trp_jewish_slinger"),
+                    (eq, ":troop", "trp_jewish_footman"),
                     (assign, ":c", 1),
                   (else_try),
                     (eq, ":culture", "fac_culture_empire"), #romans - this is where the fun begins!

@@ -9077,7 +9077,7 @@ mission_templates = [
        	(try_begin),
         (check_quest_active, "qst_jewish_riot"),
 	(call_script, "script_succeed_quest", "qst_jewish_riot"),
-	(call_script, "script_finish_quest", "qst_jewish_riot"),
+	(call_script, "script_finish_quest", "qst_jewish_riot", 100),
 	(try_end),
 (set_relation, "fac_samaritan_rebels", "$g_encountered_party_faction", -50),
       	(try_for_range, ":troop_2", heroes_begin, heroes_end),

@@ -8220,10 +8220,10 @@ simple_triggers = [
         (assign,"$wind_power",4),
       (try_end),
   (try_end),
+
     
   #shader
-  (set_fixed_point_multiplier,1),
-(store_random_in_range, "$beaufort", 1, 13),
+	(store_random_in_range, "$beaufort", 1, 13),
         (store_sub, reg0, "$beaufort", 1),
         (val_max, reg0, 0),
         (store_div, ":shader_wind_strenght", reg0, 3),  #yields 0-3

@@ -5343,9 +5343,9 @@ troops = [
 
 #madsci dont move these guys
   ["jewish_agitator","Justa","Justa",tf_hero,0,0,fac_samaritan_rebels,   [itm_wrapping_boots,itm_roman_peasant_tunic_1,itm_turban,itm_hammer],
-   def_attrib_lvl_13|level(13),wp_one_handed(110)|wp_polearm(100)|wp_firearm(150),knows_lvl_13|knows_power_strike_4,coptic_face_1],
+   def_attrib_lvl_13|level(13),wp_one_handed(110)|wp_polearm(100)|wp_firearm(150),knows_lvl_13|knows_power_strike_4,coptic_face_1,coptic_face_1],
   ["armenian_agitator","Hapet Mamikonian","Hapet Mamikonian",tf_hero,0,0,fac_culture_17,   [itm_sassanid_cavalry_boots_2,itm_caucasian_scale_2,itm_turban,itm_hammer,itm_simple_shoes,itm_tunic_rich_7],
-   def_attrib_lvl_13|level(13),wp_one_handed(210)|wp_polearm(100)|wp_firearm(150),knows_lvl_13|knows_power_strike_4,caucaus_face_1],
+   def_attrib_lvl_13|level(13),wp_one_handed(210)|wp_polearm(100)|wp_firearm(150),knows_lvl_13|knows_power_strike_4,caucaus_face_1,caucaus_face_1],
 
   ##diplomacy end
   ["no_troop","_","the place",tf_hero,0,0,fac_commoners,[],0,0,0,0,0],

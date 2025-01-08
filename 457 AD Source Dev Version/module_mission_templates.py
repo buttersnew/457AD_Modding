@@ -1865,21 +1865,21 @@ vc_seasons = [          # 3 triggers
              ],
    [(set_rain, 1, 250)]),
 
-    (0, 0, ti_once, [],   # init wind
-    [
-      #shader, set wind shader properly
-      (assign, ":shader_wind_strength", "$wind_power"),
-
-      (val_mul, ":shader_wind_strength", 10),#wind_power: 0 - 4 -> 0 - 40
-      (val_div, ":shader_wind_strength", 4), # 0-10
-      (val_min, ":shader_wind_strength", 5),
-      
-      (set_fixed_point_multiplier,10),
-      (set_shader_param_float, "@vWindStrength", ":shader_wind_strength"),
-      (set_fixed_point_multiplier, 1),
-      (set_shader_param_float, "@vWindDirection", 30),#30 degree
-      (set_fixed_point_multiplier,100),
-  ]),
+#    (0, 0, ti_once, [],   # init wind
+#    [
+#      #shader, set wind shader properly
+#      (assign, ":shader_wind_strength", "$wind_power"),
+#
+#      (val_mul, ":shader_wind_strength", 10),#wind_power: 0 - 4 -> 0 - 40
+#      (val_div, ":shader_wind_strength", 4), # 0-10
+#      (val_min, ":shader_wind_strength", 5),
+#      
+#      (set_fixed_point_multiplier,10),
+#      (set_shader_param_float, "@vWindStrength", ":shader_wind_strength"),
+#      (set_fixed_point_multiplier, 1),
+#      (set_shader_param_float, "@vWindDirection", 30),#30 degree
+#      (set_fixed_point_multiplier,100),
+#  ]),
 
     (0, 0, ti_once, [],
     [      
@@ -2096,20 +2096,31 @@ vc_water = [			# 5 trigger
 vc_wind = [
 (ti_before_mission_start, 0, 0, [],
     [
+(assign, ":party", "p_main_party"),
+	(try_begin),
+	(eq, "$freelancer_state", 1),
+	(gt, "$enlisted_party", 0),
+	(party_is_active, "$enlisted_party"),
+	(assign, ":party", "$enlisted_party"),
+	(try_end),
 (try_begin),
-(party_slot_eq, "$g_encountered_party", slot_party_on_water, 0),
-(gt, "$beaufort", 1), #low wind in towns so that the tree props dont go apeshit
+(party_slot_eq, ":party", slot_party_on_water, 0),
 (assign, "$beaufort", 1),
 (else_try),
-(party_slot_eq, "$g_encountered_party", slot_party_on_water, 1),
-(lt, "$beaufort", 3),
-(store_random_in_range, ":new_wind", 3, 6), #always have nice waves at sea
-(assign, "$beaufort", ":new_wind"),
+(party_slot_eq, ":party", slot_party_on_water, 1),
+(store_random_in_range, "$beaufort", 3, 7),  #always have nice waves at sea
 (try_end),
   ]),
 
   (0, 0, ti_once, [],	# init wind
     [
+(assign, ":party", "p_main_party"),
+	(try_begin),
+	(eq, "$freelancer_state", 1),
+	(gt, "$enlisted_party", 0),
+	(party_is_active, "$enlisted_party"),
+	(assign, ":party", "$enlisted_party"),
+	(try_end),
       (set_fixed_point_multiplier,100),
       (try_begin),
         (scene_prop_get_num_instances, reg1, "spr_wind"),
@@ -2143,7 +2154,7 @@ vc_wind = [
       (store_mul, ":shader_wind_strenght", "$beaufort", 10),
       (val_div, ":shader_wind_strenght", 4), # 0-30
       (try_begin),
-        (party_slot_eq, "p_main_party", slot_party_on_water, 0),
+        (party_slot_eq, ":party", slot_party_on_water, 0),
         (val_div, ":shader_wind_strenght", 10), # 0-10		#lower wind on land VC-1921
       (end_try),
       (set_fixed_point_multiplier,10),

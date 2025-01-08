@@ -48443,6 +48443,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
    []],
 
   [anyone|plyr,"party_encounter_hostile_defender", [
+	(neq, "$g_encountered_party_faction", "$players_kingdom"),
   (neq, "$g_talk_troop", "pt_isaurian_quest_army"),
   (neq, "$g_talk_troop", "pt_hunimund_horde_quest"),
   (neq, "$g_talk_troop", "pt_aestii_rebel_party"),
@@ -48457,6 +48458,13 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
   [anyone,"party_encounter_hostile_ultimatum_surrender", [],
    "{s43}", "close_window", [
        (call_script, "script_lord_comment_to_s43", "$g_talk_troop", "str_lord_challenged_default"),
+(assign,"$encountered_party_hostile",1),
+(assign,"$encountered_party_friendly",0),
+	(try_begin),
+	(gt, "$g_encountered_party_faction", npc_kingdoms_begin),
+	(call_script, "script_make_kingdom_hostile_to_player", "$g_encountered_party_faction", -6),
+	(try_end),
+(encounter_attack)
        ]],
 #post 0907 changes end
 
@@ -54458,7 +54466,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
 
   [anyone,"start", [
   (neg|is_between, "$g_talk_troop", "trp_charioteer_1", "trp_finn_hildeburh"),
-  ], "Surrender or die. Make your choice", "battle_reason_stated",[]],
+  ], "Surrender or die. Make your choice.", "battle_reason_stated",[]],
   [anyone|plyr,"battle_reason_stated", [], "I am not afraid of you. I will fight.", "close_window",[[encounter_attack]]],
 
   [anyone,"start", [], "Hello. What can I do for you?", "free",[]],

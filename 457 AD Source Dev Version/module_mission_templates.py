@@ -2098,7 +2098,7 @@ vc_wind = [
     [
 (try_begin),
 (party_slot_eq, "$g_encountered_party", slot_party_on_water, 0),
-(gt, "$beaufort", 2), #low wind in towns so that the tree props dont go apeshit
+(gt, "$beaufort", 1), #low wind in towns so that the tree props dont go apeshit
 (assign, "$beaufort", 1),
 (else_try),
 (party_slot_eq, "$g_encountered_party", slot_party_on_water, 1),
@@ -9211,6 +9211,12 @@ mission_templates = [
 (troop_set_note_available, "trp_armenian_agitator", 1),
 (troop_set_slot, "trp_kingdom_31_lord", slot_troop_occupation, slto_kingdom_hero),
 (troop_set_note_available, "trp_kingdom_31_lord", 1),
+	(try_begin),
+	(troop_get_slot, ":leaded_party", "trp_kingdom_31_lord", slot_troop_leaded_party),
+	(this_or_next|le, ":leaded_party", 0),
+	(neg|party_is_active, ":leaded_party"),
+	(call_script, "script_create_kingdom_hero_party", "trp_kingdom_31_lord", "$current_town"),
+	(try_end),
 (troop_set_slot, "trp_tiridates", slot_troop_occupation, slto_kingdom_hero),
 (troop_set_note_available, "trp_tiridates", 1),
 (troop_set_slot, "trp_kingdom_31_lady_1", slot_troop_occupation, slto_kingdom_lady),
@@ -9219,7 +9225,7 @@ mission_templates = [
 (troop_set_note_available, "trp_kingdom_31_lady_2", 1),
 (call_script, "script_give_center_to_faction", "$current_town", "fac_kingdom_31"),
 (faction_set_note_available, "fac_kingdom_31", 1),
-	(try_for_range, ":unused", 0, 40),
+	(try_for_range, ":unused", 0, 20),
 	(party_add_template, "$current_town", "pt_kingdom_17_reinforcements_a"),
 	(try_end),
 (party_add_members, "$current_town", "trp_armenian_agitator", 1),

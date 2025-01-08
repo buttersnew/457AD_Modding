@@ -3503,7 +3503,7 @@ troops = [
 ["knight_29_4", "Thegn Saebald Sigegeating", "Saebald Sigegeating", tf_hero, 0, reserved,  fac_kingdom_29, [itm_tunic_13, itm_rich_mail_4_cloak, itm_obenaltendorf_shoes_2, itm_triveres_mail, itm_leather_gloves, itm_sword_viking_3_small, itm_tab_shield_round_d],  knight_attrib_4,wp(280),knight_skills_4, 0x0000000e951000ca1adc69552395b4db00000000001d36d40000000000000000],
 ["knight_29_5", "Thegn Saegugl Saebalding", "Saegugl Saebalding", tf_hero, 0, reserved,  fac_kingdom_29, [itm_tunic_rich_7, itm_common_mail_short_4_cloak, itm_obenaltendorf_shoes_1, itm_pilna_helmet_mail, itm_leather_gloves, itm_sword_viking_3_small, itm_tab_shield_round_d],  knight_attrib_4,wp(280),knight_skills_4, 0x0000000000104242449c69552395347a00000000001d36f90000000000000000],
 
-["tiridates",  "Tiridates IV Artaxiad",  "Tiridates IV Artaxiad",  tf_hero, 0,reserved,  fac_kingdom_31,[itm_simple_shoes,itm_coptic_tunic_emperor_2,itm_crown_1, itm_heavy_lance, itm_ingushetia_spatha, itm_tab_shield_small_round_c, itm_heavy_greaves, itm_leather_gloves, itm_long_cataphract_mail ,itm_tsaritsyno_1_veiled], knight_attrib_5,wp_one_handed(290)|wp_two_handed(270)|wp_polearm(290)|wp_archery(150)|wp_crossbow(100)|wp_throwing(100)|wp_firearm(100),knight_skills_5|knows_trainer_5,0x000000071e0c20423daa8c98748dd92400000000001d92e00000000000000000],
+["tiridates",  "Tiridates IV Artaxiad",  "Tiridates IV Artaxiad",  tf_hero, 0,reserved,  fac_kingdom_31,[itm_simple_shoes,itm_tunic_rich_7,itm_crown_1, itm_heavy_lance, itm_ingushetia_spatha, itm_tab_shield_small_round_c, itm_heavy_greaves, itm_leather_gloves, itm_long_cataphract_mail ,itm_tsaritsyno_1_veiled], knight_attrib_5,wp_one_handed(290)|wp_two_handed(270)|wp_polearm(290)|wp_archery(150)|wp_crossbow(100)|wp_throwing(100)|wp_firearm(100),knight_skills_5|knows_trainer_5,0x000000071e0c20423daa8c98748dd92400000000001d92e00000000000000000],
 
 #MADSCI REBEL KINGDOM HEROES, THESE WILL BE DISABLED AT START
 ["rebel_knight_1_1", "Marcianus", "Marcianus", tf_hero, 0, reserved,  fac_rebel_kingdom_1,[itm_nisean_cataphract_1, itm_coptic_tunic_12, itm_deurne_campagi_1, itm_deurne_campagi_greaves_1, itm_rich_mail_8, itm_tab_shield_small_round_c, itm_arabian_sword_b, itm_jarak_helmet_1],knight_attrib_5,wp_one_handed(290)|wp_two_handed(270)|wp_polearm(290)|wp_archery(150)|wp_crossbow(100)|wp_throwing(100)|wp_firearm(100),knight_skills_5|knows_trainer_4,0x000000071e0c20423daa8c98748dd92400000000001d92e00000000000000000],
@@ -5341,10 +5341,11 @@ troops = [
    def_attrib_lvl_30|agi_21|int_30|cha_21|level(25),wp(130),knows_common|knows_riding_7|knows_horse_archery_5|knows_leadership_7|knows_power_draw_4,roman_face_1, roman_face_2],
 # recruiter kit end
 
+#madsci dont move these guys
   ["jewish_agitator","Justa","Justa",tf_hero,0,0,fac_samaritan_rebels,   [itm_wrapping_boots,itm_roman_peasant_tunic_1,itm_turban,itm_hammer],
    def_attrib_lvl_13|level(13),wp_one_handed(110)|wp_polearm(100)|wp_firearm(150),knows_lvl_13|knows_power_strike_4,coptic_face_1],
-  ["armenian_agitator","Hapet Mamikonian","Hapet Mamikonian",tf_hero,0,0,fac_armenian_rebels,   [itm_sassanid_cavalry_boots_2,itm_caucasian_scale_2,itm_turban,itm_hammer],
-   def_attrib_lvl_13|level(13),wp_one_handed(110)|wp_polearm(100)|wp_firearm(150),knows_lvl_13|knows_power_strike_4,caucaus_face_1],
+  ["armenian_agitator","Hapet Mamikonian","Hapet Mamikonian",tf_hero,0,0,fac_armenian_rebels,   [itm_sassanid_cavalry_boots_2,itm_caucasian_scale_2,itm_turban,itm_hammer,itm_simple_shoes,itm_tunic_rich_7],
+   def_attrib_lvl_13|level(13),wp_one_handed(210)|wp_polearm(100)|wp_firearm(150),knows_lvl_13|knows_power_strike_4,caucaus_face_1],
 
   ##diplomacy end
   ["no_troop","_","the place",tf_hero,0,0,fac_commoners,[],0,0,0,0,0],

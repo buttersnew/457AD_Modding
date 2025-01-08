@@ -9209,7 +9209,6 @@ mission_templates = [
 (party_set_slot, "$current_town", slot_center_culture, "fac_culture_17"),
 (faction_set_slot, "fac_kingdom_31", slot_faction_state, sfs_active),
 (troop_set_note_available, "trp_armenian_agitator", 1),
-(troop_set_faction,"trp_armenian_agitator","fac_kingdom_31"),
 (troop_set_slot, "trp_kingdom_31_lord", slot_troop_occupation, slto_kingdom_hero),
 (troop_set_note_available, "trp_kingdom_31_lord", 1),
 (troop_set_slot, "trp_tiridates", slot_troop_occupation, slto_kingdom_hero),

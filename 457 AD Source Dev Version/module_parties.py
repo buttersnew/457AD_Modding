@@ -110,6 +110,7 @@ parties = [
  #new town 8/23/21
  ("town_43", "Usupa", icon_town_snow|pf_town, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (100.21, 113.85), [], 170),
  ("town_44", "Phanagoria", icon_town_old|pf_town, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (61.14, 83.77), [], 170), 
+ ("town_45","Dvin", icon_town_desert|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(138.91, 40.46),[], 45), 
 
  ("castle_1", "Batavis", icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-110.59, 91.01), [], 50),    #[swycartographr] prev. coords: (-173, 41.75)
  ("castle_2", "Venta_Silurum", icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-227.58, 128.32), [], 83),       #[swycartographr] prev. coords: (-230.05, 124.45)
@@ -169,7 +170,7 @@ parties = [
   #("castle_52","Toletum",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-258.37, 14.7),[],75), 
   ("castle_52","Scupi",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-53.74, 39.77),[],75),                       #[swycartographr] prev. coords: (-97.5, 26.5)
   ("castle_53","Scallabis",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-289.2, 10.61),[],75),                   #[swycartographr] prev. coords: (-291.89, 21.69)
-  ("castle_54","Dvin",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(138.91, 40.46),[],75),                        #[swycartographr] prev. coords: (67.15, 39.3) #[swycartographr] prev. coords: (144.05, 45.84)
+  ("castle_54","Nakhichevan",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(150, 36),[],75),
   ("castle_55","Carthago_Nova",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-227.35, -15.81),[],75),             #[swycartographr] prev. coords: (-237.35, -10.8)
   ("castle_56","Castrum_Rauracense",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-148.32, 79.8),[],75),         #[swycartographr] prev. coords: (-171.52, 76)
   ("castle_57","Durovernum_Cantiacorum",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-198.27, 121.87),[],75),    #[swycartographr] prev. coords: (-207.36, 116.16)

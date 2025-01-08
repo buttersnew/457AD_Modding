@@ -595,6 +595,7 @@ quests = [
  ),    
  
  ("jewish_riot", "Jewish Uprising", 0, "{!}."), 
+ ("armenian_riot", "Armenian Uprising", 0, "{!}."), 
  ("quests_end", "Quests End", 0, "{!}."),
 
 #madsci VC sea battles these are not actual quests

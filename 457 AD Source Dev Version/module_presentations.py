@@ -444,6 +444,7 @@ presentations = [
         (eq, "$g_quick_battle_team_2_faction", "fac_kingdom_5"),
         (assign, ":cur_troop", "trp_pictish_companion"),
       (else_try),
+        (this_or_next|eq, "$g_quick_battle_team_2_faction", "fac_kingdom_31"),
         (eq, "$g_quick_battle_team_2_faction", "fac_kingdom_6"),
         (assign, ":cur_troop", "trp_sassanid_bodyguard"),
       (else_try),

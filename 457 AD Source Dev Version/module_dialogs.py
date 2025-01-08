@@ -42210,7 +42210,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
    "I am interested. What's the plan?", "armenian_agitator_talk_d", [(assign, "$armenian_rebellion", 1),]],
   [anyone|plyr, "armenian_agitator_talk_c", [],
    "No thank you.", "close_window", [(assign, "$armenian_rebellion", -1),]],
-  [anyone, "armenian_agitator_talk_d", [], "My men have been sneaking into the town over the past few weeks. The plans is to agitate the townsfolk and swiftly overpower the garrison.",
+  [anyone, "armenian_agitator_talk_d", [], "My men have been sneaking into the town over the past few weeks. The plans is to agitate the townsfolk and swiftly overpower the garrison. The rightful king Artashir Artaxiad has a small army in the mountains nearby and will seize the town if we are successful.",
    "armenian_agitator_talk_e", []],
   [anyone, "armenian_agitator_talk_e", [], "Meet in me in the streets during daytime when you are ready.",
    "close_window", []],

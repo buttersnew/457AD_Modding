@@ -2124,6 +2124,14 @@ simple_triggers = [
 (gt, reg0, 20),
 (jump_to_menu, "mnu_men_drowned"), 
 (try_end),
+
+(try_begin), #fail the uprising if somehow you end up leaving the town while it's active
+(check_quest_active, "qst_jewish_riot"),
+(call_script, "script_cancel_quest", "qst_jewish_riot"),
+(assign, "$jewish_rebellion", -1),
+(display_message, "@The uprising has failed."),
+(troop_set_slot, "trp_jewish_agitator", slot_troop_occupation, dplmc_slto_dead),
+(try_end),
     ]),
 
 

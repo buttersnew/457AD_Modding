@@ -41975,6 +41975,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
   [anyone, "start", [
 (eq, "$talk_context", tc_town_talk),
 (eq, "$g_talk_troop", "trp_jewish_agitator"),
+(neg|main_party_has_troop, "$g_talk_troop"),
 (party_slot_ge, "$current_town", slot_center_is_besieged_by, 1),
 ],
    "Lets discuss this later when the town isn't under siege.", "close_window", []],
@@ -41982,7 +41983,8 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
   [anyone, "start", [
 (neq, "$g_encountered_party_faction", "$players_kingdom"),
 (eq, "$talk_context", tc_town_talk),
-(eq, "$g_talk_troop", "trp_jewish_agitator"),],
+(eq, "$g_talk_troop", "trp_jewish_agitator"),
+(neg|main_party_has_troop, "$g_talk_troop"),],
    "I hope you are ready...", "jewish_agitator_start_riot_ask", [(assign, "$jewish_rebellion", 2),]],
 
   [anyone|plyr, "jewish_agitator_start_riot_ask",
@@ -42063,11 +42065,13 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
   [anyone, "start", [
 (eq, "$talk_context", tc_tavern_talk),
 (eq, "$g_talk_troop", "trp_jewish_agitator"),
-(eq, "$jewish_rebellion", 1),],
+(eq, "$jewish_rebellion", 1),
+(neg|main_party_has_troop, "$g_talk_troop"),],
    "Meet me in the streets during day time.", "close_window", []],
   [anyone, "start", [
 (eq, "$talk_context", tc_tavern_talk),
-(eq, "$g_talk_troop", "trp_jewish_agitator"),],
+(eq, "$g_talk_troop", "trp_jewish_agitator"),
+(neg|main_party_has_troop, "$g_talk_troop"),],
    "Greetings.", "jewish_agitator_talk", []],
   [anyone|plyr, "jewish_agitator_talk", [
 (eq, "$jewish_rebellion", 0),

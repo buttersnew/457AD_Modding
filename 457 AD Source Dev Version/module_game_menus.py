@@ -33099,7 +33099,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
           (position_set_x, pos0, 70),
           (position_set_y, pos0, 5),
           (position_set_z, pos0, 75),
-          (set_game_menu_tableau_mesh, "tableau_troop_note_mesh", "$temp2", pos0),
+          (set_game_menu_tableau_mesh, "tableau_troop_note_mesh", ":faction_leader", pos0),
         (try_end),
 ],
     [
@@ -33121,6 +33121,28 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         [
           (call_script, "script_change_player_party_morale", -5),
           (jump_to_menu, "mnu_auto_return_to_map"),#phaiak
+      ]),
+    ],
+  ),
+
+  ("uprising_successful",0,
+    "The uprising has been successful.",
+    "none", [
+        (try_begin),          
+          (faction_get_slot, ":faction_leader", "$temp", slot_faction_leader),
+          (gt, ":faction_leader", 0),
+          (set_fixed_point_multiplier, 100),
+          (position_set_x, pos0, 70),
+          (position_set_y, pos0, 5),
+          (position_set_z, pos0, 75),
+          (set_game_menu_tableau_mesh, "tableau_troop_note_mesh", ":faction_leader", pos0),
+        (try_end),
+    ],
+    
+    [("back_to_map",[],"Continue...",
+        [
+	  (leave_encounter),
+          (jump_to_menu, "mnu_auto_return_to_map"),
       ]),
     ],
   ),

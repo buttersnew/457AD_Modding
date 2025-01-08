@@ -6850,6 +6850,7 @@ Even in the last case, the player can make formations up to four lines by orderi
   ("regnum_suevorum", "Regnum Suevorum"),
   ("mercenary", "Mercenary"),
   ("im_angry", "{playername}, I am not happy about how things are going."),
+  ("jewish_riot", "The Jews are rioting!"),
 
 #utility for skill names
 ]+[

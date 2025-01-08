@@ -14012,6 +14012,14 @@ TOTAL:  {reg5}"),
 	(try_end),
 
 	(try_begin), #madsci quest troop spawns go here
+	(eq, "$current_town", "p_town_22"),
+	(eq, "$jewish_rebellion", 0),
+	(troop_slot_eq, "trp_player", slot_troop_religion, slot_religion_judaism),
+        (set_visitor, ":cur_entry", "trp_jewish_agitator"),
+        (val_add, ":cur_entry", 1),
+	(try_end),
+
+	(try_begin), #madsci quest troop spawns go here
 	(eq, "$current_town", "p_town_21"),
 	(eq, "$roman_pagan_quest_started", 1),
         (set_visitor, ":cur_entry", "trp_roman_pagan_quest_npc_1"),

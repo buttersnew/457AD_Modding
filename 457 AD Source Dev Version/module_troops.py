@@ -5313,6 +5313,9 @@ troops = [
    def_attrib_lvl_30|agi_21|int_30|cha_21|level(25),wp(130),knows_common|knows_riding_7|knows_horse_archery_5|knows_leadership_7|knows_power_draw_4,roman_face_1, roman_face_2],
 # recruiter kit end
 
+  ["jewish_agitator","Justa","Justa",tf_hero,0,0,fac_samaritan_rebels,   [itm_wrapping_boots,itm_roman_peasant_tunic_1,itm_turban,itm_hammer],
+   def_attrib_lvl_13|level(13),wp_one_handed(110)|wp_polearm(100)|wp_firearm(150),knows_lvl_13|knows_power_strike_4,coptic_face_1],
+
   ##diplomacy end
   ["no_troop","_","the place",tf_hero,0,0,fac_commoners,[],0,0,0,0,0],
 ]

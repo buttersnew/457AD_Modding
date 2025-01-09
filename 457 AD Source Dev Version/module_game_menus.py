@@ -14319,12 +14319,8 @@ TOTAL:  {reg5}"),
 		   	(neg|agent_is_alive, "$g_main_attacker_agent"),
 
 			(agent_get_troop_id, ":agent_type", "$g_main_attacker_agent"),
-			(try_begin),
-			  (eq, "$g_encountered_party_faction", "fac_player_supporters_faction"),
-			  (party_get_slot, ":prison_guard_faction", "$current_town", slot_center_original_faction),
-			(else_try),
 			  (assign, ":prison_guard_faction", "$g_encountered_party_faction"),
-			(try_end),
+			(this_or_next|eq, ":agent_type", "trp_gothic_prison_guard"), #failsafe set elsewhere
 			(faction_slot_eq, ":prison_guard_faction", slot_faction_prison_guard_troop, ":agent_type"),
 
 			(call_script, "script_deduct_casualties_from_garrison"),
@@ -14409,13 +14405,12 @@ TOTAL:  {reg5}"),
            (modify_visitors_at_site,":cur_castle_exterior"),
            (reset_visitors),
 
-           (try_begin),
-             (neq, "$g_encountered_party_faction", "fac_player_supporters_faction"),
-             (faction_get_slot, ":troop_prison_guard", "$g_encountered_party_faction", slot_faction_prison_guard_troop),
-           (else_try),
-             (party_get_slot, ":town_original_faction", "$current_town", slot_center_original_faction),
-             (faction_get_slot, ":troop_prison_guard", ":town_original_faction", slot_faction_prison_guard_troop),
-           (try_end),
+           	(try_begin),
+             	(faction_get_slot, ":troop_prison_guard", "$g_encountered_party_faction", slot_faction_prison_guard_troop),
+		(gt, ":troop_prison_guard", 0),
+		(else_try),
+		(assign, ":troop_prison_guard", "trp_gothic_prison_guard"), #madsci failsafe
+           	(try_end),
            (set_visitor, 24, ":troop_prison_guard"),
 
            (assign, ":guard_no", 40),

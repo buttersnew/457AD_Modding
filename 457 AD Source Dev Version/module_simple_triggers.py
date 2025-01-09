@@ -3772,6 +3772,7 @@ simple_triggers = [
      (store_random_in_range, ":center_no", walled_centers_begin, walled_centers_end),
      (party_slot_eq, ":center_no", slot_center_is_besieged_by, -1),#not under siege
      (call_script, "script_update_volunteer_troops_in_towns_castles", ":center_no"),
+     (call_script, "script_check_center_size", ":center_no"),
     ]),    
     
     (2,

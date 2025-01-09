@@ -9151,6 +9151,7 @@ mission_templates = [
 	(party_add_template, "$current_town", "pt_samaritan_rebels"),
 	(try_end),
 (party_add_leader, "$current_town", "trp_jewish_agitator"),
+(party_set_slot, "$current_town", slot_town_lord, "trp_jewish_agitator"),
 (assign, "$temp", "fac_samaritan_rebels"),
 (jump_to_menu, "mnu_uprising_successful"),
 (finish_mission, 3),

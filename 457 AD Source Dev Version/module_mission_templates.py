@@ -26184,14 +26184,14 @@ mission_templates = [
       (30,mtef_visitor_source,0,0,1,[]),#spectators
     ],
     [
-    (ti_before_mission_start, 0, 0, [
-			 ],
+    (ti_before_mission_start, 0, 0, [],
     [
     (scene_set_day_time, 6),
     (set_global_cloud_amount, 100),
     (set_global_haze_amount, 60),
     (set_fog_distance, 300, 0xFFc7d7ec),
     (set_rain, 1, 60),
+	(assign, "$temp", -1),
     ]),
     
     (ti_tab_pressed,0,0,[],[
@@ -26265,11 +26265,45 @@ mission_templates = [
         (try_for_prop_instances, ":ship"),
             (prop_instance_get_scene_prop_kind, ":is_ship", ":ship"),
             (is_between, ":is_ship", "spr_ship", "spr_snowy_barrel_a"),
+		(assign, "$temp", ":ship"),
+        (prop_instance_get_position, pos30, ":ship"),
+        (prop_instance_get_position, pos31, ":ship"),
             (prop_instance_animate_to_position, ":ship", pos11, 8700),  
             (display_message, "@Wodan! Wodan! Wodan! Wodan, guard us on our journey!"),
-        (try_end), 
-        
+        (try_end),       
     (try_end),
+      ]),
+
+#madsci lets keep people on the boat
+    (0, 0, ti_once,
+       [(ge, "$temp", 0),],[
+		(try_for_agents, ":agent"),
+		(agent_set_no_dynamics, ":agent", 1),
+		(try_end),
+	   ]),
+
+      (0, 0, 0,
+      [(ge, "$temp", 0),],
+      [
+	(set_fixed_point_multiplier, 100),
+        (prop_instance_get_position, pos30, "$temp"),
+	(position_get_x, ":x", pos30),
+	(position_get_y, ":y", pos30),
+	(position_get_z, ":z", pos30),
+	(position_get_x, ":x2", pos31),
+	(position_get_y, ":y2", pos31),
+	(position_get_z, ":z2", pos31),
+	(val_sub, ":x", ":x2"),
+	(val_sub, ":y", ":y2"),
+	(val_sub, ":z", ":z2"),
+		(try_for_agents, ":agent"),
+		(agent_get_position, pos1, ":agent"),
+		(position_move_z, pos1, ":z", 1),
+		(position_move_x, pos1, ":x", 1),
+		(position_move_y, pos1, ":y", 1),
+		(agent_set_position, ":agent", pos1),
+		(try_end),
+        (prop_instance_get_position, pos31, "$temp"),
       ]),
  
     common_inventory_not_available,]),    

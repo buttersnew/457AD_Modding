@@ -31938,7 +31938,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     # ]),
     ],),
  ("finnsburg_quest_7",0,
-    "Since Garulf Guthlafing, a jutish champion, died by Sigeferth's hands, Finn kept sending more men each night to assault his hall. "
+    "Since Garulf Guthlafing, a Jutish champion, died by Sigeferth's hands, Finn kept sending more men each night to assault his hall. "
     +"Although being undersiege in the hall the Dani champions are optimistic. The food and mead is plenty, there is enough room to sleep and defending the door is easier than storming it.",
     "none", [
     (add_quest_note_from_sreg, "qst_finnsburh_quest", 4, "@Finn has ordered to lay siege to his own hall. You have to defend against Frisian attacks.", 0),
@@ -33069,6 +33069,15 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 	(display_message, "@Sea battles enabled"),
 	(try_end),
          (jump_to_menu, "mnu_camp_cheat"),
+        ]
+       ),
+
+      ("scene_tester",[
+],"{!}Cheat: Walk around test scene.",
+       [(set_jump_mission,"mt_ai_training"),
+        #(call_script, "script_setup_random_scene"),
+	(jump_to_scene, "scn_cutscene_longboat"),
+        (change_screen_mission),
         ]
        ),
 

@@ -41978,7 +41978,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
 (neg|main_party_has_troop, "$g_talk_troop"),
 (party_slot_ge, "$current_town", slot_center_is_besieged_by, 1),
 ],
-   "Lets discuss this later when the town isn't under siege.", "close_window", []],
+   "Lets talk later when the town isn't under siege.", "close_window", []],
 
   [anyone, "start", [
 (neq, "$g_encountered_party_faction", "$players_kingdom"),
@@ -41989,7 +41989,9 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
 
   [anyone|plyr, "jewish_agitator_start_riot_ask",
    [],
-   "Yes, lets do this!", "jewish_agitator_start_riot", []],
+   "Yes, lets do this!", "jewish_agitator_start_riot", [
+(call_script, "script_finish_quest", "qst_jewish_riot_meet", 100),
+]],
 
   [anyone|plyr, "jewish_agitator_start_riot_ask",
    [],
@@ -42091,7 +42093,13 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
   [anyone, "jewish_agitator_talk_d", [], "My men have been sneaking into the town over the past few weeks. The plans is to agitate the townsfolk and swiftly overpower the garrison.",
    "jewish_agitator_talk_e", []],
   [anyone, "jewish_agitator_talk_e", [], "Meet in me in the streets during daytime when you are ready.",
-   "close_window", []],
+   "close_window", [
+     (str_store_troop_name, s10, "$g_talk_troop"),
+     (str_store_party_name_link, s11, "$current_town"),
+     (setup_quest_text, "qst_jewish_riot_meet"),
+     (str_store_string, s2, "@Meet {s10} in the streets of {s11} during daytime."),
+     (call_script, "script_start_quest", "qst_jewish_riot_meet", "$g_talk_troop"),
+]],
 
 #armenian agitator in the streets
   [anyone, "start", [
@@ -42100,7 +42108,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
 (neg|main_party_has_troop, "$g_talk_troop"),
 (party_slot_ge, "$current_town", slot_center_is_besieged_by, 1),
 ],
-   "Lets discuss this later when the town isn't under siege.", "close_window", []],
+   "Lets talk later when the town isn't under siege.", "close_window", []],
 
   [anyone, "start", [
 (neq, "$g_encountered_party_faction", "$players_kingdom"),
@@ -42111,7 +42119,9 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
 
   [anyone|plyr, "armenian_agitator_start_riot_ask",
    [],
-   "Yes, lets do this!", "armenian_agitator_start_riot", []],
+   "Yes, lets do this!", "armenian_agitator_start_riot", [
+(call_script, "script_finish_quest", "qst_armenian_riot_meet", 100),
+]],
 
   [anyone|plyr, "armenian_agitator_start_riot_ask",
    [],
@@ -42213,7 +42223,13 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
   [anyone, "armenian_agitator_talk_d", [], "My men have been sneaking into the town over the past few weeks. The plans is to agitate the townsfolk and swiftly overpower the garrison. The rightful king Artashir Artaxiad has a small army in the mountains nearby and will seize the town if we are successful.",
    "armenian_agitator_talk_e", []],
   [anyone, "armenian_agitator_talk_e", [], "Meet in me in the streets during daytime when you are ready.",
-   "close_window", []],
+   "close_window", [
+     (str_store_troop_name, s10, "$g_talk_troop"),
+     (str_store_party_name_link, s11, "$current_town"),
+     (setup_quest_text, "qst_armenian_riot_meet"),
+     (str_store_string, s2, "@Meet {s10} in the streets of {s11} during daytime."),
+     (call_script, "script_start_quest", "qst_armenian_riot_meet", "$g_talk_troop"),
+]],
 
 #Tavern Talk (with troops)
 

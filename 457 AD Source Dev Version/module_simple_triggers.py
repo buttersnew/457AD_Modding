@@ -7311,6 +7311,8 @@ simple_triggers = [
 (neg|party_slot_eq, "p_town_45", slot_town_lord, "trp_player"), #center does not belong to player.
 (store_faction_of_party, ":party_faction", "p_town_45"), #dvin
 (eq, ":party_faction", "fac_kingdom_6"),
+(party_get_slot, ":prosperity", "p_town_45", slot_town_prosperity),
+(gt, ":prosperity", 90),
 (store_random_in_range, ":rng", 0, 20),
 (eq, ":rng", 1),
 (assign, "$armenian_rebellion", -1),

@@ -9112,36 +9112,12 @@ mission_templates = [
         (try_end),
 	(assign, "$armenian_rebellion", 3),
       ]),
-(0, 0, ti_once, [
-(eq, "$talk_context", tc_town_talk),
-(eq, "$jewish_rebellion", 1),
-(eq, "$freelancer_state", 0),
-(neg|is_currently_night),
-(eq, "$current_town", "p_town_22"),
-(neg|troop_slot_eq, "trp_jewish_agitator", slot_troop_occupation, dplmc_slto_dead),
-],[
-(entry_point_get_position, pos1, 4),
-(set_spawn_position, pos1),   
-(spawn_agent, "trp_jewish_agitator"),       
-]),
-(0, 0, ti_once, [
-(eq, "$talk_context", tc_town_talk),
-(eq, "$armenian_rebellion", 1),
-(eq, "$freelancer_state", 0),
-(neg|is_currently_night),
-(eq, "$current_town", "p_town_45"),
-(neg|faction_slot_eq, "fac_kingdom_31", slot_faction_state, sfs_active),
-(neg|troop_slot_eq, "trp_armenian_agitator", slot_troop_occupation, dplmc_slto_dead),
-],[
-(entry_point_get_position, pos1, 37),
-(set_spawn_position, pos1),   
-(spawn_agent, "trp_armenian_agitator"),       
-]),
 (1, 0, ti_once, [
 (eq, "$jewish_rebellion", 3),
 (eq, "$current_town", "p_town_22"),
 (this_or_next|all_enemies_defeated),
 (num_active_teams_le,1),
+(neg|conversation_screen_is_active),
 ],[  
 (try_begin),
 (all_enemies_defeated),
@@ -9193,6 +9169,7 @@ mission_templates = [
 (eq, "$current_town", "p_town_45"),
 (this_or_next|all_enemies_defeated),
 (num_active_teams_le,1),
+(neg|conversation_screen_is_active),
 ],[  
 (try_begin),
 (all_enemies_defeated),

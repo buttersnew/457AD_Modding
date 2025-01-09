@@ -33174,6 +33174,28 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     ],
   ),
 
+  ("armenian_uprising_no_player",0,
+    "The Armenians have taken {s10} in an uprising and established a new kingdom under the leadership of {s11}.",
+    "none", [
+	(str_store_party_name, s10, "$temp"),
+	(str_store_troop_name, s11, "trp_kingdom_31_lord"),
+        (try_begin),          
+          (set_fixed_point_multiplier, 100),
+          (position_set_x, pos0, 70),
+          (position_set_y, pos0, 5),
+          (position_set_z, pos0, 75),
+          (set_game_menu_tableau_mesh, "tableau_troop_note_mesh", "trp_kingdom_31_lord", pos0),
+        (try_end),
+    ],
+    
+    [("back_to_map",[],"Continue...",
+        [
+	  (leave_encounter),
+          (jump_to_menu, "mnu_auto_return_to_map"),
+      ]),
+    ],
+  ),
+
 ]#end of file
 
 

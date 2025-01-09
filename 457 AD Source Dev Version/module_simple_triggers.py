@@ -327,59 +327,6 @@ simple_triggers = [
 	]),
 
 
- # (2, #Error check for multiple parties on the map
-	# [
-	# (eq, "$cheat_mode", 1),
-	# (assign, ":debug_menu_noted", 0),
-	# (try_for_parties, ":party_no"),
-		# (gt, ":party_no", "p_spawn_points_end"),
-		# (party_stack_get_troop_id, ":commander", ":party_no", 0),
-		# ##diplomacy start+
-		# (is_between, ":commander", heroes_begin, heroes_end),
-		# (this_or_next|troop_slot_eq, ":commander", slot_troop_occupation, slto_kingdom_hero),
-		# ##diplomacy end+
-		# (is_between, ":commander", active_npcs_begin, active_npcs_end),
-		# (troop_get_slot, ":commander_party", ":commander", slot_troop_leaded_party),
-        # (str_store_troop_name, s3, ":commander"),
-        # (try_begin),
-          # (neq, ":party_no", ":commander_party"),
-          # (assign, reg4, ":party_no"),
-          # (assign, reg5, ":commander_party"),
-
-          # (display_message, "@{!}{s3} commander of party #{reg4} which is not his troop_leaded party {reg5}"),
-          # ##diplomacy start+ Make it clear what the error was
-          # (try_begin),
-            # (gt, reg4, 0),
-            # (gt, reg5, 0),
-            # (str_store_party_name, s3, reg4),
-            # (str_store_party_name, s65, reg5),
-            # (display_message, "@{!} Commanded party #{reg4} is {s3}, troop_leaded party #{reg5} is {s65}"),
-            # (str_store_troop_name, s3, ":commander"),
-          # (try_end),
-          # ##diplomacy end+
-          # (str_store_string, s65, "str_party_with_commander_mismatch__check_log_for_details_"),
-        # # (else_try), #SB : piggyback to check lord wealth
-          # # (troop_get_slot, reg3, ":commander", slot_troop_wealth),
-          # # (le, reg3, 0),
-          # # (party_get_cur_town, ":town_no", ":party_no"),
-          # # (try_begin),
-            # # (is_between, ":town_no", centers_begin, centers_end),
-            # # (str_store_party_name_link, s2, ":town_no"),
-          # # (else_try),
-            # # (str_store_string, s2, "@large"),
-          # # (try_end),
-          # # (str_store_string, s65, "@{s3} is bankrupt ({reg3} denars) while at {s2}!"),
-        # # (try_end),
-
-		# # (try_begin),
-			# (eq, ":debug_menu_noted", 0),
-			# (call_script, "script_add_notification_menu", "mnu_debug_alert_from_s65", 0, 0),
-			# (assign, ":debug_menu_noted", 1),
-		# (try_end),
-	# (try_end),
-	# ]),
-
-
  (24, #Kingdom ladies send messages
  [
 #madsci lets use this 24 trigger for countdowns
@@ -7354,6 +7301,68 @@ simple_triggers = [
   (168,
    [
        (call_script, "script_spawn_merc_company"),
+
+(try_begin), #armenian rebellion if the player is not involved
+(eq, "$armenian_rebellion", 0),
+(gt, "$total_days_passed", 60),
+(faction_slot_eq, "fac_kingdom_31", slot_faction_state, sfs_inactive),
+(faction_slot_eq, "fac_kingdom_6", slot_faction_state, sfs_active),
+(party_slot_eq, "p_town_45", slot_center_is_besieged_by, -1), #center not under siege
+(neg|party_slot_eq, "p_town_45", slot_town_lord, "trp_player"), #center does not belong to player.
+(store_faction_of_party, ":party_faction", "p_town_45"), #dvin
+(eq, ":party_faction", "fac_kingdom_6"),
+(store_random_in_range, ":rng", 0, 20),
+(eq, ":rng", 1),
+(assign, "$armenian_rebellion", -1),
+      	(try_for_range, ":troop_2", heroes_begin, heroes_end),
+        (troop_slot_eq, ":troop_2", slot_troop_occupation, slto_kingdom_hero),
+        (troop_get_slot, ":led_party_2", ":troop_2", slot_troop_leaded_party),
+	(gt, ":led_party_2", 0),
+	(party_is_active, ":led_party_2"),
+        (party_get_attached_to, ":led_party_2_attached", ":led_party_2"),
+	(eq, ":led_party_2_attached", "p_town_45"),
+	(party_detach, ":led_party_2"),
+	(call_script, "script_party_set_ai_state", ":led_party_2",  spai_patrolling_around_center, "p_town_45"),
+	(try_end),
+(call_script, "script_remove_hero_prisoners", "p_town_45"),
+(party_clear, "p_town_45"),
+(party_set_slot, "p_town_45", slot_center_religion, slot_religion_christian_miaphysite),
+(party_set_slot, "p_town_45", slot_center_culture, "fac_culture_17"),
+(faction_set_slot, "fac_kingdom_31", slot_faction_state, sfs_active),
+(troop_set_slot, "trp_kingdom_31_lord", slot_troop_occupation, slto_kingdom_hero),
+(troop_set_note_available, "trp_kingdom_31_lord", 1),
+	(try_begin),
+	(troop_get_slot, ":leaded_party", "trp_kingdom_31_lord", slot_troop_leaded_party),
+	(this_or_next|le, ":leaded_party", 0),
+	(neg|party_is_active, ":leaded_party"),
+	(call_script, "script_create_kingdom_hero_party", "trp_kingdom_31_lord", "p_town_45"),
+	(try_end),
+(troop_set_slot, "trp_tiridates", slot_troop_occupation, slto_kingdom_hero),
+(troop_set_note_available, "trp_tiridates", 1),
+(troop_set_slot, "trp_kingdom_31_lady_1", slot_troop_occupation, slto_kingdom_lady),
+(troop_set_note_available, "trp_kingdom_31_lady_1", 1),
+(troop_set_slot, "trp_kingdom_31_lady_2", slot_troop_occupation, slto_kingdom_lady),
+(troop_set_note_available, "trp_kingdom_31_lady_2", 1),
+(troop_set_slot, "trp_armenag_artsruni", slot_troop_occupation, slto_kingdom_hero),
+(troop_set_note_available, "trp_armenag_artsruni", 1),
+(troop_set_slot, "trp_kingdom_31_lady_3", slot_troop_occupation, slto_kingdom_lady),
+(troop_set_note_available, "trp_kingdom_31_lady_3", 1),
+(troop_set_slot, "trp_kingdom_31_lady_4", slot_troop_occupation, slto_kingdom_lady),
+(troop_set_note_available, "trp_kingdom_31_lady_4", 1),
+(call_script, "script_give_center_to_faction", "p_town_45", "fac_kingdom_31"),
+(faction_set_note_available, "fac_kingdom_31", 1),
+	(try_for_range, ":unused", 0, 20),
+	(party_add_template, "p_town_45", "pt_kingdom_17_reinforcements_a"),
+	(try_end),
+(str_store_party_name_link, s10, "p_town_45"),
+(display_log_message, "@The Armenians have established a new kingdom in {s10}!"),
+(call_script, "script_diplomacy_start_war_between_kingdoms", "fac_kingdom_31", "fac_kingdom_6", 0),
+	(try_begin),
+	(eq, "$g_infinite_camping", 0),
+	(assign, "$temp", "p_town_45"),
+	(jump_to_menu, "mnu_armenian_uprising_no_player"),
+	(try_end),
+(try_end),
     ]),  
 
 (24 * 7,

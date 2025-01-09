@@ -12624,9 +12624,16 @@ What kind of recruits do you want?", "dplmc_constable_recruit_select",
 
 [anyone|plyr,"lord_talk_convert_choice", [
 (neg|troop_slot_eq, "$g_talk_troop", slot_troop_religion, slot_religion_christian_chalcedonian),
-(main_party_has_troop, "trp_roman_priest")],
+(troop_slot_eq, "trp_player", slot_troop_religion, slot_religion_christian_chalcedonian),
+],
 "Chalcedonian Christianity.", "lord_talk_convert_chalcedonian",[
 ]],
+
+[anyone,"lord_talk_convert_chalcedonian", [
+(neg|main_party_has_troop, "trp_roman_priest"),
+],
+"You don't have a Chalcedonian priest with you.", "lord_pretalk",[]],
+
 [anyone,"lord_talk_convert_chalcedonian", [],
 "Very well, I will convert to Chalcedonian Christianity.", "lord_pretalk",[
 (remove_member_from_party, "trp_roman_priest"),
@@ -12642,9 +12649,14 @@ What kind of recruits do you want?", "dplmc_constable_recruit_select",
 
 [anyone|plyr,"lord_talk_convert_choice", [
 (neg|troop_slot_eq, "$g_talk_troop", slot_troop_religion, slot_religion_christian_arian),
-(main_party_has_troop, "trp_arian_priest")],
+(troop_slot_eq, "trp_player", slot_troop_religion, slot_religion_christian_arian),
+],
 "Arian Christianity.", "lord_talk_convert_arian",[
 ]],
+[anyone,"lord_talk_convert_arian", [
+(neg|main_party_has_troop, "trp_arian_priest"),
+],
+"You don't have an Arian priest with you.", "lord_pretalk",[]],
 [anyone,"lord_talk_convert_arian", [],
 "Very well, I will convert to Arian Christianity.", "lord_pretalk",[
 (remove_member_from_party, "trp_arian_priest"),
@@ -12658,11 +12670,17 @@ What kind of recruits do you want?", "dplmc_constable_recruit_select",
 ]],
 
 
+
 [anyone|plyr,"lord_talk_convert_choice", [
 (neg|troop_slot_eq, "$g_talk_troop", slot_troop_religion, slot_religion_christian_miaphysite),
-(main_party_has_troop, "trp_coptic_priest")],
+(troop_slot_eq, "trp_player", slot_troop_religion, slot_religion_christian_miaphysite),
+],
 "Miaphysite Christianity.", "lord_talk_convert_coptic",[
 ]],
+[anyone,"lord_talk_convert_coptic", [
+(neg|main_party_has_troop, "trp_coptic_priest"),
+],
+"You don't have a Miaphysite priest with you.", "lord_pretalk",[]],
 [anyone,"lord_talk_convert_coptic", [],
 "Very well, I will convert to Miaphysite Christianity.", "lord_pretalk",[
 (remove_member_from_party, "trp_coptic_priest"),
@@ -12678,9 +12696,14 @@ What kind of recruits do you want?", "dplmc_constable_recruit_select",
 
 [anyone|plyr,"lord_talk_convert_choice", [
 (neg|troop_slot_eq, "$g_talk_troop", slot_troop_religion, slot_religion_paganism),
-(main_party_has_troop, "trp_pagan_priest")],
+(troop_slot_eq, "trp_player", slot_troop_religion, slot_religion_paganism),
+],
 "Paganism.", "lord_talk_convert_pagan",[
 ]],
+[anyone,"lord_talk_convert_pagan", [
+(neg|main_party_has_troop, "trp_pagan_priest"),
+],
+"You don't have a Pagan priest with you.", "lord_pretalk",[]],
 [anyone,"lord_talk_convert_pagan", [],
 "Very well, I will convert to Paganism.", "lord_pretalk",[
 (remove_member_from_party, "trp_pagan_priest"),
@@ -12696,9 +12719,14 @@ What kind of recruits do you want?", "dplmc_constable_recruit_select",
 
 [anyone|plyr,"lord_talk_convert_choice", [
 (neg|troop_slot_eq, "$g_talk_troop", slot_troop_religion, slot_religion_zoroastrianism),
-(main_party_has_troop, "trp_zoroastrian_priest")],
+(troop_slot_eq, "$g_talk_troop", slot_troop_religion, slot_religion_zoroastrianism),
+],
 "Zoroastrianism.", "lord_talk_convert_zoroastrianism",[
 ]],
+[anyone,"lord_talk_convert_zoroastrianism", [
+(neg|main_party_has_troop, "trp_zoroastrian_priest"),
+],
+"You don't have a Zoroastrian Mobad with you.", "lord_pretalk",[]],
 [anyone,"lord_talk_convert_zoroastrianism", [],
 "Very well, I will convert to Zoroastrianism.", "lord_pretalk",[
 (remove_member_from_party, "trp_zoroastrian_priest"),
@@ -12714,9 +12742,13 @@ What kind of recruits do you want?", "dplmc_constable_recruit_select",
 
 [anyone|plyr,"lord_talk_convert_choice", [
 (neg|troop_slot_eq, "$g_talk_troop", slot_troop_religion, slot_religion_roman_paganism),
-(main_party_has_troop, "trp_roman_pagan_priest")],
+(troop_slot_eq, "trp_player", slot_troop_religion, slot_religion_roman_paganism),
+],
 "Roman Paganism.", "lord_talk_convert_roman_paganism",[
 ]],
+[anyone,"lord_talk_convert_roman_paganism", [
+(neg|main_party_has_troop, "trp_roman_pagan_priest"),],
+"You don't have a Roman Pagan priest with you.", "lord_pretalk",[]],
 [anyone,"lord_talk_convert_roman_paganism", [],
 "Very well, I will convert to Roman Paganism.", "lord_pretalk",[
 (remove_member_from_party, "trp_roman_pagan_priest"),

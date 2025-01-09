@@ -883,13 +883,6 @@ simple_triggers = [
         (party_slot_eq, ":center_no", slot_center_is_besieged_by, -1), #center not under siege
 
         (store_faction_of_party, ":center_faction", ":center_no"),
-        (try_begin),
-          (gt, "$g_king_start", 0),
-          (this_or_next|eq, ":center_faction", "fac_player_faction"),
-          (eq, ":center_faction", "fac_player_supporters_faction"),
-          (is_between, "$g_player_culture", npc_kingdoms_begin, npc_kingdoms_end),
-          (assign, ":center_faction", "$g_player_culture"),
-        (try_end),
         ##diplomacy end+
         
         (try_begin),
@@ -915,6 +908,15 @@ simple_triggers = [
             (store_random_in_range, ":num_hiring_rounds", 0, 2),
           (try_end),
         (try_end),
+
+        (try_begin),
+          (gt, "$g_king_start", 0),
+          (this_or_next|eq, ":center_faction", "fac_player_faction"),
+          (eq, ":center_faction", "fac_player_supporters_faction"),
+          (is_between, "$g_player_culture", npc_kingdoms_begin, npc_kingdoms_end),
+          (assign, ":center_faction", "$g_player_culture"),
+        (try_end),
+
         #SB : initial budget to top
         (party_get_slot, ":cur_wealth", ":center_no", slot_town_wealth),
 

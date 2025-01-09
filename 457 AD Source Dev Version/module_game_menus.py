@@ -33175,7 +33175,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
   ),
 
   ("armenian_uprising_no_player",0,
-    "The Armenians have taken {s10} in an uprising and established a new kingdom under the leadership of {s11}.",
+    "The Armenians have taken {s10} in an uprising and have established a new kingdom under the leadership of {s11}.",
     "none", [
 	(str_store_party_name, s10, "$temp"),
 	(str_store_troop_name, s11, "trp_kingdom_31_lord"),

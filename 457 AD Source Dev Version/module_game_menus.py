@@ -12196,7 +12196,7 @@ TOTAL:  {reg5}"),
     ("add_members",[
     (eq, reg63, 1),
     (store_party_size_wo_prisoners, ":men", "p_main_party"),
-    (ge, ":men", 1),],"Drop off all your  non-hero party members.",[
+    (ge, ":men", 1),],"Drop off all your non-hero party members.",[
     (assign, "$g_move_heroes", 0),
     (call_script, "script_party_add_party_companions", "$g_encountered_party", "p_main_party"),
     (call_script, "script_party_remove_all_companions", "p_main_party"),

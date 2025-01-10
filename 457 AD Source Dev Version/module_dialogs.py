@@ -3994,6 +3994,7 @@ Still I am sorry that I'll leave you soon. You must promise me, you'll come visi
     (faction_slot_eq, "$players_kingdom", slot_faction_leader, "trp_player"),
 ], "Would you be interested in holding a fief?", "member_fief_grant_1",[]],
 
+[anyone|plyr,"member_question_2", [], "Nevermind.", "do_member_view_char",[]],
 
 [anyone,"member_morale", [
   (call_script, "script_dplmc_npc_morale", "$g_talk_troop", 1), #SB : get verbose string
@@ -5752,6 +5753,7 @@ Still I am sorry that I'll leave you soon. You must promise me, you'll come visi
     (assign, ":slot_end", ek_head),
     (try_for_range, ":item_slot", ek_item_0, ":slot_end"),
       (troop_get_inventory_slot, ":item_no", "$g_talk_troop", ":item_slot"),
+	(gt, ":item_no", -1),
       (item_get_type, ":itp", ":item_no"),
       (this_or_next|is_between, ":itp", itp_type_bow, itp_type_goods),
       (is_between, ":itp", itp_type_pistol, itp_type_bullets),

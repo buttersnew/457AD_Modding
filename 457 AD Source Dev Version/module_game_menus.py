@@ -6627,7 +6627,8 @@ TOTAL:  {reg5}"),
            (this_or_next|party_slot_eq, "$g_encountered_party", slot_center_is_besieged_by, -1),
            (             party_slot_eq, "$g_encountered_party", slot_center_is_besieged_by, "p_main_party"),
            (store_relation, ":reln", "$g_encountered_party_faction", "fac_player_supporters_faction"),
-		(this_or_next|eq, "$g_encountered_party_faction", "fac_indigenoi"), #madsci
+		(neg|faction_slot_eq, "$g_encountered_party_faction", slot_faction_player_tributary, 1),
+		(this_or_next|gt, "$g_encountered_party_faction", kingdoms_end), #madsci
            (lt, ":reln", 0),
            (lt, "$g_encountered_party_2", 1),
            (call_script, "script_party_count_fit_for_battle","p_main_party"),

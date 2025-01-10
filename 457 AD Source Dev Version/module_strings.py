@@ -6867,6 +6867,7 @@ Even in the last case, the player can make formations up to four lines by orderi
   ("im_angry", "{playername}, I am not happy about how things are going."),
   ("jewish_riot", "The Jews are rioting!"),
   ("armenian_riot", "The Armenians are rioting!"),
+("after_to_the_fall_of_s10_your_faithful_vassal_s9_has_invited_your_court_to_s11_nolord", "After to the loss of {s10}, your court will relocate to {s11}."),
 
 #utility for skill names
 ]+[

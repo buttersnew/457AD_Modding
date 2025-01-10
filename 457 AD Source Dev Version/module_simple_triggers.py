@@ -7297,7 +7297,7 @@ simple_triggers = [
 
 (try_begin), #armenian rebellion if the player is not involved
 (eq, "$armenian_rebellion", 0),
-(gt, "$total_days_passed", 60),
+(gt, "$total_days_passed", 90),
 (faction_slot_eq, "fac_kingdom_31", slot_faction_state, sfs_inactive),
 (this_or_next|eq, "$g_king_start", 6),
 (faction_slot_eq, "fac_kingdom_6", slot_faction_state, sfs_active),
@@ -8965,7 +8965,7 @@ simple_triggers = [
 	(party_slot_eq, ":camp", slot_party_been_sacked, 0),
 	(neq, ":icon", "icon_steppe_lord"),
 	(neq, ":icon", "icon_ship"),
-	(store_random_in_range, ":rng", 0, 160), #dont let them move all the time, adjust this if necessary
+	(store_random_in_range, ":rng", 0, 180), #dont let them move all the time, adjust this if necessary
 	(eq, ":rng", 1),
 	(party_get_position, pos1, "p_religious_site_18"), #use a static landmark
         (map_get_land_position_around_position, pos2, pos1, 75), #migration range nomads dont like water so use land position only

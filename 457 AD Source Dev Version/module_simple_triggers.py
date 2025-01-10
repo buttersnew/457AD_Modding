@@ -809,13 +809,8 @@ simple_triggers = [
   (24.0/(number_of_active_npcs),
    [
  (try_begin),
-   (lt, "$g_hire_troops_and_controversy", active_npcs_begin), 
-   (assign, "$g_hire_troops_and_controversy", active_npcs_begin),  
- (try_end),
-
- (try_begin),
-   (ge, "$g_hire_troops_and_controversy", heroes_end), 
-   (assign, "$g_hire_troops_and_controversy", active_npcs_begin),  
+   (neg|is_between, "$g_hire_troops_and_controversy", heroes_begin, heroes_end), 
+   (assign, "$g_hire_troops_and_controversy", heroes_begin),  
  (try_end),
  
      (try_begin),
@@ -1228,7 +1223,7 @@ simple_triggers = [
          (troop_slot_eq, ":troop_no", slot_troop_occupation, slto_kingdom_hero),
 
          (troop_get_slot, ":hero_party", ":troop_no", slot_troop_leaded_party),
-         (gt, ":hero_party", centers_end),
+         (gt, ":hero_party", 0),
          (party_is_active, ":hero_party"),
 
          (store_skill_level, ":trainer_level", skl_trainer, ":troop_no"),
@@ -3295,6 +3290,7 @@ simple_triggers = [
              (try_begin),
                (ge, ":faction_marshall", 0),
                (troop_get_slot, ":faction_marshall_party", ":faction_marshall", slot_troop_leaded_party),
+		(ge, ":faction_marshall_party", 0),
                (party_is_active, ":faction_marshall_party", 0),
                (eq, ":commander_party", ":faction_marshall_party"),
                (assign, ":continue", 0),
@@ -5326,12 +5322,6 @@ simple_triggers = [
         (assign, ":continue", 1),
       (try_end),
       (eq, ":continue", 1),
-
-		(try_begin),
-			(ge, "$cheat_mode", 1),
-			(str_store_troop_name, s4, ":troop_no"),
-			#(display_message, "@{!}DEBUG - {s4} faction changed from slot_troop_change_to_faction"),
-		(try_end),
 
       (call_script, "script_change_troop_faction", ":troop_no", ":new_faction_no"),
       (troop_set_slot, ":troop_no", slot_troop_change_to_faction, 0),

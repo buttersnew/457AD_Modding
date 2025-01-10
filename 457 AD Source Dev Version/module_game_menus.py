@@ -3018,6 +3018,7 @@ TOTAL:  {reg5}"),
     (party_get_num_prisoner_stacks, ":num_stacks", "p_main_party"),
     (try_for_range, ":cur_stack", 0, ":num_stacks"),
       (party_prisoner_stack_get_troop_id, ":cur_troop_id", "p_main_party", ":cur_stack"),
+	(neq, ":cur_troop_id", "trp_fugitive"),
       # (neg|troop_is_hero, ":cur_troop_id"),
       #SB : use script check
       (call_script, "script_game_check_prisoner_can_be_sold", ":cur_troop_id"),
@@ -3048,6 +3049,7 @@ TOTAL:  {reg5}"),
         (store_random_in_range, ":random_prisoner_slot", 0, ":num_regular_prisoner_slots"),
         (try_for_range, ":cur_stack", 0, ":num_stacks"),
           (party_prisoner_stack_get_troop_id, ":cur_troop_id", "p_main_party", ":cur_stack"),
+	(neq, ":cur_troop_id", "trp_fugitive"),
           (call_script, "script_game_check_prisoner_can_be_sold", ":cur_troop_id"),
           (eq, reg0, 1), #SB : use script call to prevent quest troops from being recruited
           (val_sub, ":random_prisoner_slot", 1),
@@ -21499,7 +21501,8 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     "none",
     [
         (call_script, "script_npc_decision_checklist_peace_or_war", "$g_notification_menu_var1", "$g_notification_menu_var2", -1),
-        (str_store_string, s57, reg1),
+        #(str_store_string, s57, reg1),
+        (str_store_string_reg, s57, s14), #madsci
 
         (str_store_faction_name, s1, "$g_notification_menu_var1"),
         (str_store_faction_name, s2, "$g_notification_menu_var2"),
@@ -21545,7 +21548,8 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         (try_end),
 
         (call_script, "script_npc_decision_checklist_peace_or_war", "$g_notification_menu_var1", "$g_notification_menu_var2", -1),
-        (str_store_string, s57, reg1),
+        #(str_store_string, s57, reg1),
+        (str_store_string_reg, s57, s14), #madsci
 
         (str_store_faction_name, s1, "$g_notification_menu_var1"),
         (str_store_faction_name, s2, "$g_notification_menu_var2"),
@@ -21625,7 +21629,8 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     "none",
     [
         (call_script, "script_npc_decision_checklist_peace_or_war", "$g_notification_menu_var1", "$g_notification_menu_var2", -1),
-        (str_store_string, s57, reg1),
+        #(str_store_string, s57, reg1),
+        (str_store_string_reg, s57, s14), #madsci
 
         (str_store_faction_name, s1, "$g_notification_menu_var1"),
         (str_store_faction_name, s2, "$g_notification_menu_var2"),

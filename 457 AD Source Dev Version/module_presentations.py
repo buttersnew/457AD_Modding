@@ -14073,6 +14073,7 @@ presentations = [
 
 		  ##Next line: replace fac_player_supporters_faction with :player_faction
           (call_script, "script_npc_decision_checklist_peace_or_war", "$g_notification_menu_var1", ":player_faction", -1),
+		(str_store_string_reg, s57, s14),	#MOTO save diplomatic explanation string
 
 		  ##Save the unmodified numbers for later
 		  (assign, ":check_peace_war_result", reg0),

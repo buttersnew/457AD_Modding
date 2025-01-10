@@ -30480,9 +30480,6 @@ I will use this to make amends to those you have wronged, and I will let it be k
 "I am not commanding any {reg65?soldiers:men} at the moment.", "lord_pretalk",[]],
 ##diplomacy end+
 
-
-
-
 [anyone,"lord_tell_objective", [
 (party_slot_eq, "$g_talk_troop_party", slot_party_ai_state, spai_holding_center),
 (party_get_attached_to, ":cur_center_no", "$g_talk_troop_party"),
@@ -30496,12 +30493,6 @@ I will use this to make amends to those you have wronged, and I will let it be k
 "lord_pretalk",
 [(party_get_slot, ":ai_object", "$g_talk_troop_party", slot_party_ai_object),
  (str_store_party_name, s1, ":ai_object")]],
-
-
-
-
-
-
 
 [anyone,"lord_tell_objective", [(party_slot_eq, "$g_talk_troop_party", slot_party_ai_state, spai_holding_center)],
 "We are travelling to {s1}. {s14}{s15}", "lord_pretalk",
@@ -30526,9 +30517,6 @@ I will use this to make amends to those you have wronged, and I will let it be k
 "We are recruiting new soldiers from {s1}. {s14}{s15}", "lord_pretalk",
 [(party_get_slot, ":ai_object", "$g_talk_troop_party", slot_party_ai_object),
  (str_store_party_name, s1, ":ai_object")]],
-
-
-
 
 [anyone,"lord_tell_objective", [(party_slot_eq, "$g_talk_troop_party", slot_party_ai_state, spai_patrolling_around_center)],
 "We are scouting for the enemy around {s1}. {s14}{s15}", "lord_pretalk",

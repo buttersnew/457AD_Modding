@@ -7405,6 +7405,7 @@ simple_triggers = [
 	(assign, "$jewish_rebellion", -1),
 	(str_store_party_name, s10, "p_town_22"),
 	(display_message, "@A major rebellion has erupted in {s10}!"),
+	(faction_set_note_available, "fac_samaritan_rebels", 1),
 		(try_begin),
         	(eq, "$g_infinite_camping", 0),
 		(assign, "$g_notification_menu_var1", "p_town_22"),

@@ -2128,6 +2128,10 @@ weight(1)|abundance(80)|head_armor(24)|body_armor(14)|leg_armor(6)|difficulty(0)
 ["hammer",  "Hammer", [("roman_hammer_45",0)], itp_type_one_handed_wpn|itp_can_knock_down| itp_primary|itp_wooden_parry, itc_scimitar,
 120 , weight(3)|difficulty(8)|spd_rtng(105) | weapon_length(45)|swing_damage(24 , blunt) | thrust_damage(0 ,  pierce),imodbits_mace ],
 
+#this is for quest npc only
+["strong_hammer",  "Strong Hammer", [("roman_hammer_45",0)], itp_unique|itp_type_one_handed_wpn|itp_can_knock_down| itp_primary|itp_wooden_parry, itc_scimitar,
+520 , weight(3)|difficulty(8)|spd_rtng(105) | weapon_length(45)|swing_damage(44 , blunt) | thrust_damage(0 ,  pierce),imodbits_mace ],
+
 ["pitch_fork_1", "Pitch Fork", [("pitchfork_1",0)], itp_type_polearm|itp_offset_lance|itp_merchandise| itp_primary|itp_penalty_with_shield|itp_wooden_parry,itc_staff, 80 , weight(1.5)|difficulty(0)|spd_rtng(87) | weapon_length(154)|swing_damage(16 , blunt) | thrust_damage(22 ,  pierce),imodbits_polearm ],
 ["pitch_fork_2", "Pitch Fork", [("pitchfork_2",0)], itp_type_polearm|itp_offset_lance|itp_merchandise| itp_primary|itp_penalty_with_shield|itp_wooden_parry,itc_staff, 80 , weight(1.5)|difficulty(0)|spd_rtng(87) | weapon_length(154)|swing_damage(16 , blunt) | thrust_damage(22 ,  pierce),imodbits_polearm ],
 

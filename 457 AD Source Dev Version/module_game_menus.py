@@ -33239,6 +33239,22 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     ],
   ),
 
+  (
+    "jewish_rebellion_launched",mnf_disable_all_keys|mnf_scale_picture,
+    "A major rebellion has erupted in {s10} in response to forced Christianization and persecution of Jews.",
+    "none",
+    [
+(set_background_mesh, "mesh_pic_swad"),
+(assign, ":center", "$g_notification_menu_var1"),
+(str_store_party_name, s10, ":center"),
+],
+    [
+      ("continue",[],"Continue...",[
+(jump_to_menu, "mnu_auto_return_to_map"),
+]),
+    ],
+  ),
+
 ]#end of file
 
 

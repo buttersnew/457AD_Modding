@@ -9225,6 +9225,7 @@ mission_templates = [
 	(try_end),
 (party_add_members, "$current_town", "trp_armenian_agitator", 1),
 (assign, "$temp", "fac_kingdom_31"),
+(party_set_slot, "p_castle_54", slot_center_ex_faction,  "fac_kingdom_31"),
 (jump_to_menu, "mnu_uprising_successful"),
 (finish_mission, 3),
 (else_try),

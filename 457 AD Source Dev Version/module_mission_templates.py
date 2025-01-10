@@ -3601,7 +3601,6 @@ bodyguard_triggers = [
             (eq, "$talk_context", tc_prison_break),      
             (troop_set_slot, ":troop_id", slot_troop_will_join_prison_break, 1),
         (try_end),
-
         (add_visitors_to_current_scene, ":entry_point", ":troop_id", 1),
 
         (eq, ":bodyguard_count", ":max_guards"),
@@ -11811,6 +11810,11 @@ mission_templates = [
           (else_try),
             (faction_get_slot, ":troop_of_guard", ":town_faction", slot_faction_tier_2_troop),
           (try_end),
+
+	(try_begin),
+	(le, ":troop_of_guard", 0),
+	(assign, ":troop_of_guard", "trp_manhunter"), #madsci failsafe
+	(try_end),
 
           (assign, ":last_nearest_entry_point", ":nearest_entry_point"),
           (assign, ":last_nearest_entry_distance", ":smallest_dist"),

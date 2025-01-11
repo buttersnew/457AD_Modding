@@ -6885,6 +6885,12 @@ Even in the last case, the player can make formations up to four lines by orderi
   ("jewish_riot", "The Jews are rioting!"),
   ("armenian_riot", "The Armenians are rioting!"),
 ("after_to_the_fall_of_s10_your_faithful_vassal_s9_has_invited_your_court_to_s11_nolord", "After to the loss of {s10}, your court will relocate to {s11}."),
+  ("as_the_marshal_i_am_assembling_the_army_of_the_realm", "As the marshal, I am assembling the army of the realm."),
+  ("as_the_marshal_i_am_assembling_the_army_of_the_realm_and_travel_to_lands_near_s10_to_inform_more_vassals", "As the marshal, I am assembling the army of the realm. We are travelling to the region of {s10} to inform more vassals."),
+  ("as_the_marshal_i_am_leading_the_siege", "As the marshal, I am leading the siege."),
+  ("as_the_marshal_i_am_leading_our_raid", "As the marshal, I am leading our raid."),
+  ("as_the_marshal_i_am_leading_our_forces_in_search_of_the_enemy", "As the marshal, I am leading our forces in search of the enemy."),
+  ("as_the_marshal_i_am_leading_our_forces_to_engage_the_enemy_in_battle", "As the marshal, I am leading our forces to engage the enemy in battle."),
 
 #utility for skill names
 ]+[

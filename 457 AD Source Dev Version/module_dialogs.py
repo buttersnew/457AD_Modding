@@ -54493,6 +54493,58 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
 (try_end),
 ],"{s10}", "generic_player_introduce_c",[]],
 
+[anyone|plyr, "generic_player_meet_troop",[
+(troop_is_hero, "$g_talk_troop"),
+(is_between, "$g_encountered_party", walled_centers_begin, walled_centers_end),
+(party_slot_eq, "$g_encountered_party", slot_town_lord, "$g_talk_troop"),
+(str_store_party_name, s9, "$g_encountered_party"),
+],"Lets talk about {s9}.", "generic_player_ask_about_center",[]],
+
+[anyone, "generic_player_ask_about_center",[],"What about {s9}?", "generic_player_ask_about_center2",[]],
+
+[anyone|plyr, "generic_player_ask_about_center2",[],"Tell me about {s9}.", "generic_player_ask_about_center_info",[]],
+[anyone, "generic_player_ask_about_center_info",[],"I am the lord of {s9}.", "generic_player_introduce_c",[]],
+
+[anyone|plyr, "generic_player_ask_about_center2",[
+(is_between, "$players_kingdom", kingdoms_begin, kingdoms_end),
+(this_or_next|eq, "$player_has_homage", 1),
+(eq, "$players_kingdom", "fac_player_supporters_faction"),
+(neq, "$g_encountered_party_faction", "$players_kingdom"),
+(str_store_faction_name, s10, "$players_kingdom"),
+],"{s9} should join {s10}.", "generic_player_ask_about_center3",[]],
+
+[anyone, "generic_player_ask_about_center3",[
+(this_or_next|is_between, "$g_encountered_party_faction", kingdoms_begin, kingdoms_end),
+(is_between, "$g_encountered_party_faction", minor_kingdoms_begin, minor_kingdoms_end),
+(neg|faction_slot_eq, "$g_encountered_party_faction", slot_faction_state, sfs_defeated),
+(str_store_faction_name, s11, "$g_encountered_party_faction"),
+],"{s9} is under the protection of the {s11}. Forget it.", "generic_player_introduce_c",[
+(call_script, "script_change_player_relation_with_troop", "$g_talk_troop", -1),
+]],
+
+[anyone, "generic_player_ask_about_center3",[
+(party_get_slot, ":center_religion", "$g_encountered_party", slot_center_religion),
+(faction_get_slot, ":faction_religion", "$players_kingdom", slot_faction_religion),
+(neq, ":center_religion", ":faction_religion"),
+],"The religious differences between the people of {s9} and {s10} would only lead to conflict. Forget it.", "generic_player_introduce_c",[]],
+
+[anyone, "generic_player_ask_about_center3",[
+(neg|party_slot_eq, "$g_encountered_party", slot_center_is_besieged_by, -1),
+],"{s9} is currently under siege. Lets discuss politics at a later time.", "generic_player_introduce_c",[]],
+
+[anyone, "generic_player_ask_about_center3",[
+(neg|troop_slot_ge, "trp_player", slot_troop_renown, 300)
+],"No one knows who you are. I think you would need to prove yourself further before we talk about this. ^^(Renown too low)", "generic_player_introduce_c",[]],
+
+[anyone, "generic_player_ask_about_center3",[],"You are right. {s9} and its people would be safer under the protection of {s10}. We'll join you.", "close_window",[
+(party_set_slot, "$g_encountered_party", slot_town_lord, -1),
+(call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 5),
+(call_script, "script_give_center_to_faction", "$g_encountered_party", "$players_kingdom"),
+(call_script, "script_change_player_right_to_rule", 3),
+]],
+
+[anyone|plyr, "generic_player_ask_about_center2",[],"Nevermind.", "generic_player_introduce_c",[]],
+
   [anyone, "generic_player_introduce_c",[],"Anything else?", "generic_player_meet_troop",[]],
 
   [anyone,"start", [(neq, "$talk_context", tc_party_encounter),], "Good evening, {sir/madam}.", "generic_player_meet_troop",[]],

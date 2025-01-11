@@ -5529,11 +5529,28 @@ Still I am sorry that I'll leave you soon. You must promise me, you'll come visi
 
 [anyone,"member_fief_grant_3", [
   ], "{s5}", "close_window",[
-# (call_script, "script_npc_morale", "$g_talk_troop"),
-# (assign, ":npc_morale", reg0),
-
 (remove_member_from_party, "$g_talk_troop", "p_main_party"),
 
+(try_begin), #madsci give the npc atleast one point in the skills below if they have none because scripts use these skills
+(store_skill_level, ":leadership_skill", "skl_leadership", "$g_talk_troop"),
+(lt, ":leadership_skill", 1),
+(troop_raise_skill, "$g_talk_troop", "skl_leadership", 1),
+(try_end),
+(try_begin),
+(store_skill_level, ":trainer_skill", "skl_trainer", "$g_talk_troop"),
+(lt, ":trainer_skill", 1),
+(troop_raise_skill, "$g_talk_troop", "skl_trainer", 1),
+(try_end),
+(try_begin),
+(store_skill_level, ":riding_skill", "skl_riding", "$g_talk_troop"),
+(lt, ":riding_skill", 1),
+(troop_raise_skill, "$g_talk_troop", "skl_riding", 1),
+(try_end),
+(try_begin),
+(store_skill_level, ":looting_skill", "skl_looting", "$g_talk_troop"),
+(lt, ":looting_skill", 1),
+(troop_raise_skill, "$g_talk_troop", "skl_looting", 1),
+(try_end),
 
 (try_begin),
 ##diplomacy start+ Spouses use your banner
@@ -5607,33 +5624,15 @@ Still I am sorry that I'll leave you soon. You must promise me, you'll come visi
 
 (store_character_level, ":renown", "$g_talk_troop"),
 (val_mul, ":renown", 15),
-(val_max, ":renown", 200),
-# (troop_set_slot, "$g_talk_troop", slot_troop_renown, ":renown"),
+(val_clamp, ":renown", 100, 200), #dont allow massive shifts
 (call_script, "script_change_troop_renown", "$g_talk_troop", ":renown"), #SB : leave original renown alone, those are around 100 base
 
 ##diplomacy start+
 ##Adjust starting gold by Looting and Trade skills
 ##(troop_set_slot, "$g_talk_troop", slot_troop_wealth, 2500), #represents accumulated loot
-(troop_get_slot, ":initial_wealth", "$g_talk_troop", slot_troop_wealth),
-(store_troop_gold, ":initial_gold", "$g_talk_troop"), #SB : account actual abstracted wealth, probably divide by 10?
-(val_add, ":initial_gold", ":initial_wealth"),
-(val_clamp, ":initial_gold", 1000, 10000), #madsci
-(try_begin),
-	#Changes must be enabled
-	(ge, "$g_dplmc_gold_changes", DPLMC_GOLD_CHANGES_MEDIUM),
-	#initial gold is 2500 * (10 + trade + looting) / 10, rounded.
-	(store_skill_level, ":modifier", "skl_trade", "$g_talk_troop"),
-	(store_skill_level, ":skill_level", "skl_looting", "$g_talk_troop"),
-	(val_add, ":modifier", ":skill_level"),
-	(val_add, ":modifier", 10),
-	(val_mul, ":initial_gold", ":modifier"),
-	(val_add, ":initial_gold", 5),
-	(val_div, ":initial_gold", 10),
-(try_end),
-(troop_set_slot, "$g_talk_troop", slot_troop_wealth, ":initial_gold"), #represents accumulated loot
-##diplomacy end+
-#		(troop_set_slot, "$g_talk_troop", slot_troop_readiness_to_join_army, 100),
-#		(troop_set_slot, "$g_talk_troop", slot_troop_readiness_to_follow_orders, 100),
+(troop_get_slot, ":troop_wealth", "$g_talk_troop", slot_troop_wealth),
+(val_clamp, ":troop_wealth", 5000, 50000),
+(troop_set_slot, "$g_talk_troop", slot_troop_wealth, ":troop_wealth"), #madsci simplify this system so that their wealth is around what a regular lord's wealth would be
 
 (str_store_troop_name_plural, s12, "$g_talk_troop"),
    ##diplomacy start+

@@ -100,7 +100,7 @@ factions = [
 #manhunters is kingdoms_end
   ("manhunters","Slavers", 0, 0.5,[("outlaws",-0.6),("player_faction",0.1)], []),
   ("pirates","Pirates", 0, 0.5,[("commoners",-0.6),("player_faction",-0.15),("player_supporters_faction",-0.15)], [], 0x4B4A4A),
-  ("indigenoi","Indigenoi", 0, 0.5,[("manhunters",0.1)], [], 0x765B6C),
+  ("indigenoi","Indigenae", 0, 0.5,[("manhunters",0.1)], [], 0x765B6C),
   ("deserters","Deserters", 0, 0.5,[("manhunters",-0.6),("merchants",-0.5),("player_faction",-0.1)], [], 0x888888),
   ("mountain_bandits","Isaurians", 0, 0.5,[("commoners",-0.2),("merchants",-0.5),("manhunters",-0.6),("player_faction",-0.05),("kingdom_2",-0.01)], [], 0x888888), #updated faction color 0x033677
   ("forest_bandits","Bagaudae", 0, 0.5,[("commoners",-0.2),("merchants",-0.5),("manhunters",-0.6),("player_faction",-0.15),("kingdom_1",-0.75),("kingdom_3",-0.75),("kingdom_8",0.5)], [], 0x888888),

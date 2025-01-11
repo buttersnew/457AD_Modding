@@ -3299,7 +3299,6 @@ weight(1)|abundance(80)|head_armor(24)|body_armor(14)|leg_armor(6)|difficulty(0)
 ## itp_type_one_handed_wpn|itp_primary, itc_longsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn, 183 , weight(1.25)|difficulty(0)|spd_rtng(103) | weapon_length(75)|swing_damage(25 , cut) | thrust_damage(19 ,  pierce),imodbits_sword ],
 
 #excubitor equipment
-["excubitor_mail", "Excubitor Mail", [("excubitor_mail",0)], itp_civilian|itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,7000 , weight(17)|abundance(1)|head_armor(0)|body_armor(50)|leg_armor(13)|difficulty(12) ,imodbits_scale, [], [fac_culture_empire] ],
 ["excubitor_boots", "Cothurni", [("excubitor_boots",0)], itp_merchandise|itp_type_foot_armor|itp_civilian|itp_attach_armature ,0, 600 , weight(1.5)|abundance(10)|head_armor(0)|body_armor(0)|leg_armor(20)|difficulty(0) ,imodbits_cloth, [], [fac_culture_empire] ],
 ["excubitor_shield_1", "Excubitor Shield", [("concave_shield_large_2",0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_round_shield, 1000 , weight(3.55)|abundance(5)|hit_points(520)|body_armor(16)|spd_rtng(87)|shield_width(45),imodbits_shield, [(ti_on_init_item,[(cur_item_set_material, "str_unique_round_shields_1"),]),], [fac_culture_empire] ],
 ["excubitor_spear","Gilded Contus", [("excubitor_spear",0)], itp_type_polearm|itp_merchandise|itp_offset_lance|itp_primary|itp_secondary|itp_no_blur|itp_wooden_parry, itc_spear_upstab, 860 , weight(2.35)|abundance(2)|difficulty(6)|spd_rtng(96) | weapon_length(134)|swing_damage(19 , blunt) | thrust_damage(31 ,  pierce),imodbits_polearm ],
@@ -3451,7 +3450,7 @@ weight(1)|abundance(80)|head_armor(24)|body_armor(14)|leg_armor(6)|difficulty(0)
 
 #shields
 #changed to oval shield
-["mithras_shield", "Mithrain Oval Shield", [("oval_shield_1",0)], itp_unique|itp_type_shield|itp_cant_use_on_horseback|itp_wooden_parry, itcf_carry_round_shield, 5000 , weight(3.50)|hit_points(700)|body_armor(18)|spd_rtng(87)|shield_width(46)|shield_height(107),imodbits_shield, [(ti_on_init_item,[(cur_item_set_material, "str_oval_shield_mithras"),]),], ],
+["mithras_shield", "Mithrain Oval Shield", [("oval_shield_2",0)], itp_unique|itp_type_shield|itp_cant_use_on_horseback|itp_wooden_parry, itcf_carry_round_shield, 5000 , weight(3.50)|hit_points(700)|body_armor(18)|spd_rtng(87)|shield_width(46)|shield_height(107),imodbits_shield, [(ti_on_init_item,[(cur_item_set_material, "str_oval_shields_unique_1"),]),], ],
 ["aetius_shield", "Aetius's Shield", [("concave_shield_large_1",0)], itp_unique|itp_type_shield|itp_wooden_parry, itcf_carry_round_shield, 3000 , weight(3.75)|hit_points(600)|body_armor(15)|spd_rtng(88)|shield_width(47),imodbits_shield, [(ti_on_init_item,[(cur_item_set_material, "str_round_shields_roman_27"),]),], ], #found in ravenna
 ["arthur_shield", "Pridwen", [("concave_shield_small_3",0)], itp_unique|itp_type_shield|itp_wooden_parry, itcf_carry_round_shield, 9000 , weight(2.5)|hit_points(650)|body_armor(18)|spd_rtng(92)|shield_width(37),imodbits_shield, [(ti_on_init_item,[(cur_item_set_material, "str_unique_round_shields_1"),]),], ], #given to ambrosius
 

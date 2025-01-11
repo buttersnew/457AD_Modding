@@ -529,3 +529,7 @@ mnu_rebellion_launched = 527
 mnu_cheat_add_troops = 528
 mnu_suebi_civil_war_ended = 529
 mnu_rebels_join_rome = 530
+mnu_men_drowned = 531
+mnu_uprising_successful = 532
+mnu_armenian_uprising_no_player = 533
+mnu_jewish_rebellion_launched = 534

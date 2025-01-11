@@ -1297,6 +1297,9 @@ scene_props = [
   ("banner_roman_20", 0, "banner_roman_20", "0", []),
   ("banner_roman_21", 0, "banner_roman_21", "0", []),
 
+  ("banner_g01", 0, "banner_g01", "0", []),
+  ("banner_g02", 0, "banner_g02", "0", []),
+
   ("banner_kingdom_a", 0, "banner_kingdom_1", "0", []),
   ("banner_kingdom_b", 0, "banner_kingdom_2", "0", []),
   ("banner_kingdom_c", 0, "banner_kingdom_3", "0", []),
@@ -1331,6 +1334,7 @@ scene_props = [
   ("banner_kingdom_32", 0, "banner_kingdom_32", "0", []),
   ("banner_kingdom_33", 0, "banner_kingdom_33", "0", []),
   ("banner_kingdom_34", 0, "banner_kingdom_34", "0", []),
+  ("banner_kingdom_35", 0, "banner_kingdom_35", "0", []),
 
   ("banner_end", 0, "banner_a15", "0", []),
 

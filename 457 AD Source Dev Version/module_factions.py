@@ -90,7 +90,7 @@ factions = [
   ("kingdom_28",  "Arran",    0, 0.9, [("saxons", -0.5),("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05)], [], 0x1e817f),
   ("kingdom_29",  "Regnum Anglii",    0, 0.9, [("saxons", 0.05),("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05)], [], 0x583b37), #Kingdom of the Jutes / Regnum Iuti
   ("kingdom_30",  "Regnum Framtanis",  0, 0.9, [("saxons", -0.5),("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05),("minor_gallaeci", -0.5)], [], 0xc9ad34),
-  ("kingdom_31",  "Regnum Armeniacum",  0, 0.9, [("saxons", -0.5),("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05),("minor_gallaeci", -0.5)], [], 0xCCE5FF),
+  ("kingdom_31",  "Regnum Armeniacum",  0, 0.9, [("saxons", -0.5),("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05),("minor_gallaeci", -0.5)], [], 0x7b0633),
 
 #madsci Spanish rebel factions, will be renamed automatically by a script depending on where they start
   ("rebel_kingdom_1",  "Rebels",    0, 0.9, [("saxons", -0.5),("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05)], [], 0x7d2439), #7d2439

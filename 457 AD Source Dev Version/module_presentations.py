@@ -19141,10 +19141,12 @@ presentations = [
               (assign, ":c", 1),
             (else_try), #AOR armenians
               (this_or_next|eq, "$current_town", "p_castle_48"),
-              (eq, "$current_town", "p_castle_54"),
-              (this_or_next|eq, ":troop", "trp_armenian_bowman"),
-              (this_or_next|eq, ":troop", "trp_armenian_footman"),
-              (eq, ":troop", "trp_armenian_cataphract"),
+              (this_or_next|eq, "$current_town", "p_castle_54"),
+              (eq, "$current_town", "p_town_45"),
+              (this_or_next|eq, ":troop", "trp_armenian_slinger"),
+              (this_or_next|eq, ":troop", "trp_armenian_levy"),
+              (this_or_next|eq, ":troop", "trp_armenian_horseman"),
+              (eq, ":troop", "trp_armenian_cavalry"),
               (assign, ":c", 1),
             (else_try), #AOR daylamites
               (this_or_next|eq, "$current_town", "p_castle_65"),

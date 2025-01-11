@@ -20319,7 +20319,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
           (assign, ":scene_to_use", "scn_lair_steppe_bandits"),
         (else_try),
           (eq, ":template", "pt_armenian_bandit_lair"), #armenian bandits
-          (assign, ":bandit_troop", "trp_armenian_bandit"),
+          (assign, ":bandit_troop", "trp_armenian_brigand"),
           (assign, ":scene_to_use", "scn_lair_mountain_bandits"),
         (else_try),
           (eq, ":template", "pt_coptic_bandit_lair"),

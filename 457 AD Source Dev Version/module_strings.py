@@ -5967,9 +5967,8 @@ Even in the last case, the player can make formations up to four lines by orderi
   ("oval_shields_east_7","oval_shields_east_7"),
 
   ("oval_shields_domestici_1","oval_shields_domestici_1"),
-
   #unique
-  ("oval_shield_mithras","oval_shield_mithras"),
+  ("oval_shields_unique_1","oval_shields_unique_1"),
 
 
   #eastern germanic shields by fabio

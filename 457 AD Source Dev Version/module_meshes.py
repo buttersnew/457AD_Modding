@@ -453,6 +453,9 @@ meshes = [
   ("banner_roman_20", 0, "banner_roman_20", 0, 0, 0, -90, 0, 0, 1, 1, 1),
   ("banner_roman_21", 0, "banner_roman_21", 0, 0, 0, -90, 0, 0, 1, 1, 1),
 
+  ("banner_g01", 0, "banner_g01", 0, 0, 0, -90, 0, 0, 1, 1, 1),
+  ("banner_g02", 0, "banner_g02", 0, 0, 0, -90, 0, 0, 1, 1, 1),
+
   ("banner_kingdom_a", 0, "banner_kingdom_1", 0, 0, 0, -90, 0, 0, 1, 1, 1),
   ("banner_kingdom_b", 0, "banner_kingdom_2", 0, 0, 0, -90, 0, 0, 1, 1, 1),
   ("banner_kingdom_c", 0, "banner_kingdom_3", 0, 0, 0, -90, 0, 0, 1, 1, 1),
@@ -487,6 +490,7 @@ meshes = [
   ("banner_kingdom_32", 0, "banner_kingdom_32", 0, 0, 0, -90, 0, 0, 1, 1, 1),
   ("banner_kingdom_33", 0, "banner_kingdom_33", 0, 0, 0, -90, 0, 0, 1, 1, 1),
   ("banner_kingdom_34", 0, "banner_kingdom_34", 0, 0, 0, -90, 0, 0, 1, 1, 1),
+  ("banner_kingdom_35", 0, "banner_kingdom_35", 0, 0, 0, -90, 0, 0, 1, 1, 1),
 
   ("banner_end", 0, "banner_a15", 0, 0, 0, -90, 0, 0, 1, 1, 1),
 
@@ -663,6 +667,9 @@ meshes = [
   ("arms_roman_20", 0, "arms_roman_20", 0, 0, 0, -90, 0, 0, 1, 1, 1),
   ("arms_roman_21", 0, "arms_roman_21", 0, 0, 0, -90, 0, 0, 1, 1, 1),
 
+  ("arms_g01", 0, "arms_g01", 0, 0, 0, -90, 0, 0, 1, 1, 1),
+  ("arms_g02", 0, "arms_g02", 0, 0, 0, -90, 0, 0, 1, 1, 1),
+
   ("arms_kingdom_a", 0, "arms_kingdom_01", 0, 0, 0, -90, 0, 0, 1, 1, 1),
   ("arms_kingdom_b", 0, "arms_kingdom_02", 0, 0, 0, -90, 0, 0, 1, 1, 1),
   ("arms_kingdom_c", 0, "arms_kingdom_03", 0, 0, 0, -90, 0, 0, 1, 1, 1),
@@ -697,6 +704,7 @@ meshes = [
   ("arms_kingdom_32", 0, "arms_kingdom_32", 0, 0, 0, -90, 0, 0, 1, 1, 1),
   ("arms_kingdom_33", 0, "arms_kingdom_33", 0, 0, 0, -90, 0, 0, 1, 1, 1),
   ("arms_kingdom_34", 0, "arms_kingdom_34", 0, 0, 0, -90, 0, 0, 1, 1, 1),
+  ("arms_kingdom_35", 0, "arms_kingdom_35", 0, 0, 0, -90, 0, 0, 1, 1, 1),
 
   ("arms_end", 0, "banner_a15", 0, 0, 0, -90, 0, 0, 1, 1, 1),
 

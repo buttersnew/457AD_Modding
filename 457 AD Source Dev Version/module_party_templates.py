@@ -56,7 +56,7 @@ party_templates = [
   ("sea_raiders","Saxon Raiders",icon_sea_raider|carries_goods(2),0,fac_saxons,bandit_personality,[(trp_sea_raider,5,20)]),
   ("saxon_raiders","Saxon Warband",icon_sea_raider|carries_goods(2),0,fac_saxons,bandit_personality,[(trp_sea_raider,15,40)]),
   ("sabir_bandits","Sabir Bandits",icon_khergit_horseman_b|carries_goods(3),0,fac_outlaws,bandit_personality,[(trp_sabir_bandit,4,20)]),
-  ("armenian_rebels","Armenian Rebels",icon_vaegir_knight|carries_goods(2),0,fac_armenian_rebels,bandit_personality,[(trp_armenian_bandit,5,15),(trp_armenian_rebel,3,10),(trp_armenian_brigand,3,10)]),
+  ("armenian_rebels","Armenian Rebels",icon_vaegir_knight|carries_goods(2),0,fac_armenian_rebels,bandit_personality,[(trp_armenian_slinger,5,15),(trp_armenian_levy,3,10),(trp_armenian_brigand,3,10)]),
   ("coptic_rebels","Coptic Rebels",icon_roman_footman_1|carries_goods(2)|pf_show_faction,0,fac_coptic_rebels,bandit_personality,[(trp_coptic_youth,4,25),(trp_coptic_footman,4,15),(trp_coptic_watchman,2,10),(trp_coptic_guard,2,8)]),
   ("arab_bandits","Saraceni",icon_khergit_horseman_b|carries_goods(2)|pf_show_faction,0,fac_outlaws,bandit_personality,[(trp_arab_bandit,6,30)]),
   ("bandits","Bandits",icon_axeman|carries_goods(8),0,fac_outlaws,bandit_personality,[(trp_robber,5,35),(trp_bandit,2,15),(trp_brigand,1,5)]),
@@ -198,11 +198,11 @@ party_templates = [
   ("kingdom_16_reinforcements_b", "{!}Alan Reinforcements", 0, 0, fac_commoners, 0, [(trp_caucasian_alan_footman,2,5),(trp_caucasian_alan_tribesman,3,6),(trp_barsil_horse_archer,1,4),(trp_draco_bearer,1,1)]),
   ("kingdom_16_reinforcements_c", "{!}Alan Reinforcements", 0, 0, fac_commoners, 0, [(trp_aursa_rider,1,4),(trp_caucasian_alan_retainer,3,6)]),  
 
-  ("kingdom_17_reinforcements_a", "{!}Armenian Reinforcements", 0, 0, fac_commoners, 0, [(trp_armenian_levy,3,7),(trp_armenian_bowman,3,7),(trp_armenian_footman,2,6)]),
-  ("kingdom_17_reinforcements_b", "{!}Armenian Reinforcements", 0, 0, fac_commoners, 0, [(trp_armenian_bowman,2,5),(trp_armenian_footman,3,6),(trp_armenian_cavalry,1,4),(trp_draco_bearer,1,1)]),
+  ("kingdom_17_reinforcements_a", "{!}Armenian Reinforcements", 0, 0, fac_commoners, 0, [(trp_armenian_levy,4,10),(trp_armenian_slinger,4,10)]),
+  ("kingdom_17_reinforcements_b", "{!}Armenian Reinforcements", 0, 0, fac_commoners, 0, [(trp_armenian_bowman,2,5),(trp_armenian_footman,3,6),(trp_armenian_horseman,1,4),(trp_caucasian_standard_bearer,1,1)]),
   ("kingdom_17_reinforcements_c", "{!}Armenian Reinforcements", 0, 0, fac_commoners, 0, [(trp_armenian_cavalry,1,4),(trp_armenian_cataphract,3,6)]),
 
-("kingdom_18_reinforcements_a", "{!}Jewish Reinforcements", 0, 0, fac_commoners, 0, [(trp_jewish_levy,3,7),(trp_jewish_slinger,3,7),(trp_jewish_footman,2,6)]),
+  ("kingdom_18_reinforcements_a", "{!}Jewish Reinforcements", 0, 0, fac_commoners, 0, [(trp_jewish_levy,3,7),(trp_jewish_slinger,3,7),(trp_jewish_footman,2,6)]),
 
   ("kingdom_empire_reinforcements_a", "{!}Roman Reinforcements", 0, 0, fac_commoners, 0, [(trp_tiro,4,10),(trp_exculator,2,4),(trp_eques_mauri,2,6)]),
   ("kingdom_empire_reinforcements_b", "{!}Roman Reinforcements", 0, 0, fac_commoners, 0, [(trp_pedes,4,10),(trp_sagittarius,3,6),(trp_eques_ala,2,7),(trp_imperial_signifer,1,1)]),
@@ -518,7 +518,7 @@ party_templates = [
   ("sea_raider_lair","Saxon Raider Landing",icon_bandit_lair|carries_goods(2)|pf_is_static|pf_hide_defenders,0,fac_neutral,bandit_personality,[(trp_sea_raider,5,20)]),
   ("sea_raider_lair_2","Saxon Raider Landing",icon_bandit_lair|carries_goods(2)|pf_is_static|pf_hide_defenders,0,fac_neutral,bandit_personality,[(trp_sea_raider,5,20)]),
   ("sabir_bandit_lair" ,"Sabir Bandit Camp",icon_bandit_lair|carries_goods(2)|pf_is_static|pf_hide_defenders,0,fac_neutral,bandit_personality,[(trp_sabir_bandit,5,20)]),
-  ("armenian_bandit_lair" ,"Armenian Rebel Hideout",icon_bandit_lair|carries_goods(2)|pf_is_static|pf_hide_defenders,0,fac_neutral,bandit_personality,[(trp_armenian_bandit,5,20)]),
+  ("armenian_bandit_lair" ,"Armenian Rebel Hideout",icon_bandit_lair|carries_goods(2)|pf_is_static|pf_hide_defenders,0,fac_neutral,bandit_personality,[(trp_armenian_brigand,5,20)]),
   ("coptic_bandit_lair" ,"Coptic Rebel Hideout",icon_bandit_lair|carries_goods(2)|pf_is_static|pf_hide_defenders,0,fac_neutral,bandit_personality,[(trp_coptic_youth,3,10),(trp_coptic_footman,2,10)]),
   ("arab_bandit_lair" ,"Saraceni Camp",icon_bandit_lair|carries_goods(2)|pf_is_static|pf_hide_defenders,0,fac_neutral,bandit_personality,[(trp_arab_bandit,5,20)]),
   ("looter_lair","Kidnappers' Hideout",icon_bandit_lair|carries_goods(2)|pf_is_static|pf_hide_defenders,0,fac_neutral,bandit_personality,[(trp_looter,5,20)]),

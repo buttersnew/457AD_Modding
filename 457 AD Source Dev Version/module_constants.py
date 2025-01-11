@@ -1809,6 +1809,9 @@ original_kingdom_heroes_begin = "trp_kingdom_1_lord"
 heroes_begin = active_npcs_begin
 heroes_end = king_companions_end
 
+fake_npcs_begin = "trp_jewish_agitator"
+fake_npcs_end = "trp_no_troop"
+
 soldiers_begin = "trp_farmer"
 soldiers_end = "trp_town_walker_1"
 

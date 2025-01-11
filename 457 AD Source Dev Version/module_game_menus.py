@@ -13844,7 +13844,7 @@ TOTAL:  {reg5}"),
 (neg|is_currently_night),
 (neg|faction_slot_eq, "fac_kingdom_31", slot_faction_state, sfs_active),
 (neg|troop_slot_eq, "trp_armenian_agitator", slot_troop_occupation, dplmc_slto_dead),
-(set_visitor, 37, "trp_armenian_agitator"),     
+(set_visitor, 30, "trp_armenian_agitator"),     
 (try_end),
 
            (party_get_slot, ":spawned_troop", "$current_town", slot_town_armorer),

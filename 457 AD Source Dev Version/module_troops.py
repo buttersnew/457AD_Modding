@@ -1965,6 +1965,11 @@ troops = [
    [itm_nomad_boots,itm_skirmisher_tunic_2,itm_roman_peasant_tunic_2,itm_roman_peasant_tunic_10,itm_roman_peasant_tunic_12,itm_persian_tunic_1,itm_bandana1,itm_bandana2,itm_sarranid_two_handed_mace_1,itm_light_lance,itm_strong_bow,itm_barbed_arrows,itm_barbed_arrows,itm_concave_shield_leather_small_1,itm_concave_shield_leather_small_2,itm_concave_shield_leather_small_3,itm_concave_shield_leather_small_1]+horses_persian_1,
    def_attrib_lvl_18|level(18),wp_one_handed (130) | wp_two_handed (100) | wp_polearm (140) | wp_archery (150) | wp_crossbow (100) | wp_throwing (100) | wp_firearm(140),knows_lvl_18|knows_power_draw_6|knows_horse_archery_5,caucaus_face_1, caucaus_face_2], 
 
+#armenian rebel is used the the riot quest
+ ["armenian_rebel","Armenian Rebel","Armenian Rebels",tf_guarantee_ranged|tf_guarantee_boots|tf_guarantee_armor,0,0,fac_culture_17, 
+   [itm_nomad_boots,itm_skirmisher_tunic_2,itm_roman_peasant_tunic_2,itm_roman_peasant_tunic_10,itm_roman_peasant_tunic_12,itm_persian_tunic_1,itm_bandana1,itm_bandana2,itm_sarranid_two_handed_mace_1,itm_light_lance,itm_strong_bow,itm_barbed_arrows,itm_barbed_arrows,itm_concave_shield_leather_small_1,itm_concave_shield_leather_small_2,itm_concave_shield_leather_small_3,itm_concave_shield_leather_small_1],
+   def_attrib_lvl_18|level(18),wp_one_handed (130) | wp_two_handed (100) | wp_polearm (140) | wp_archery (150) | wp_crossbow (100) | wp_throwing (100) | wp_firearm(140),knows_lvl_18|knows_power_draw_6,caucaus_face_1, caucaus_face_2], 
+
  ["armenian_horseman","Armenian Horseman (Ayrudzi)","Armenian Horsemen (Ayrudzi)",tf_mounted|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_horse|tf_guarantee_helmet|tf_guarantee_polearm|tf_guarantee_ranged,0,0,fac_culture_17,
  [itm_wrapping_boots,itm_nomad_boots,itm_persian_riding_coat_2a,itm_persian_riding_coat_2b,itm_persian_tunic_1,itm_persian_tunic_3,itm_sassanid_mail_1,itm_sassanid_mail_3,itm_tarasovsky_1784_helmet_cloth,itm_batumi_helmet_leather,itm_jarid,itm_poleaxe,itm_samad_sword]+horses_persian_1,
    def_attrib_lvl_21|level(21),wp_one_handed(150)|wp_two_handed(140)|wp_polearm(150)|wp_throwing(160)|wp_archery(100),knows_lvl_21,caucaus_face_1, caucaus_face_2],

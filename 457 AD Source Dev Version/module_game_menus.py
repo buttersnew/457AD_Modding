@@ -31237,12 +31237,16 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 
       ("choice_1",[],"Accept him.",
         [
-          (troop_set_slot, "trp_knight_bagadua_1", slot_troop_occupation, slto_kingdom_hero),
-	  (call_script, "script_change_troop_faction", "trp_knight_bagadua_1", "$players_kingdom"),
-          (troop_set_note_available,"trp_knight_bagadua_1",1),
-          (troop_set_slot, "trp_knight_bagadua_1", slot_troop_wealth, 10000),
-          (call_script, "script_create_kingdom_hero_party", "trp_knight_bagadua_1", "$g_player_court"),
-          (change_screen_return, 0),
+	(troop_set_slot, "trp_knight_bagadua_1", slot_troop_occupation, slto_kingdom_hero),
+	(call_script, "script_change_troop_faction", "trp_knight_bagadua_1", "$players_kingdom"),
+	(troop_set_note_available,"trp_knight_bagadua_1",1),
+	(troop_set_slot, "trp_knight_bagadua_1", slot_troop_wealth, 10000),
+		(try_begin),
+		(is_between, "$g_player_court", walled_centers_begin, walled_centers_end),
+		(call_script, "script_create_kingdom_hero_party", "trp_knight_bagadua_1", "$g_player_court"),
+		(try_end),
+	(faction_set_slot, "fac_forest_bandits", slot_faction_leader, "trp_generic_agitator"),
+	(change_screen_return, 0),
         ]
       ),
       ("choice_2",[],"Reject his offer.",

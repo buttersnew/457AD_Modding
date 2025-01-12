@@ -26549,6 +26549,7 @@ mission_templates = [
         (agent_set_team, ":agent", 2),
     (try_end),
 (try_begin),
+(this_or_next|eq, ":troop", "trp_dani_guthlaf"),
 (is_between, ":troop", "trp_dani_hocing", "trp_finn_garulf"),
 (assign, ":banner_mesh", "mesh_banners_default_c"),
 (cur_agent_set_banner_tableau_material, "tableau_game_troop_label_banner", ":banner_mesh"),

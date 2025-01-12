@@ -31966,6 +31966,11 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     "none", [
     (add_quest_note_from_sreg, "qst_finnsburh_quest", 4, "@Finn has ordered to lay siege to his own hall. You have to defend against Frisian attacks.", 0),
     (quest_set_slot, "qst_finnsburh_quest", slot_quest_current_state, 7),
+          (set_fixed_point_multiplier, 100),
+          (position_set_x, pos0, 70),
+          (position_set_y, pos0, 5),
+          (position_set_z, pos0, 75),
+          (set_game_menu_tableau_mesh, "tableau_troop_note_mesh", "trp_finn_garulf", pos0),
     ],
     [
     ("option_1", [],"Continue",

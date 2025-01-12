@@ -19706,7 +19706,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
            (troop_slot_eq, "$supported_pretender", slot_troop_original_faction, "$g_notification_menu_var1"),
 
            #All rebels switch to kingdom
-           (try_for_range, ":cur_troop", active_npcs_begin, active_npcs_end), #dckplmc switch kingdom ladies
+           (try_for_range, ":cur_troop", heroes_begin, heroes_end), #dckplmc switch kingdom ladies
              (this_or_next|troop_slot_eq, ":cur_troop", slot_troop_occupation, slto_kingdom_hero),
              (troop_slot_eq, ":cur_troop", slot_troop_occupation, slto_kingdom_lady),
              (store_troop_faction, ":cur_faction", ":cur_troop"),
@@ -19746,22 +19746,36 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 
            (faction_get_slot, ":old_leader", "$g_notification_menu_var1", slot_faction_leader),
            #(troop_set_slot, ":old_leader", slot_troop_change_to_faction, "fac_commoners"),
-           (call_script, "script_change_troop_faction", ":old_leader", "fac_commoners"), #dckplmc - prevent possible respawn before actual faction changes
-           #SB : renown loss of under 25%
-           (troop_get_slot, ":old_renown", ":old_leader", slot_troop_renown),
-           (store_random_in_range, ":renown_loss", 10, 25),
-           (val_mul, ":renown_loss", ":old_renown"),
-           (val_div, ":renown_loss", 100),
-           (val_sub, ":old_renown", ":renown_loss"),
-           (troop_set_slot, ":old_leader", slot_troop_renown, ":old_renown"),
+		(try_begin),
+		(gt, ":old_leader", 0),
+		(neq, ":old_leader", "$supported_pretender"),
+		(call_script, "script_change_troop_faction", ":old_leader", "fac_commoners"), #dckplmc - prevent possible respawn before actual faction changes
+           	#SB : renown loss of under 25%
+           	(troop_get_slot, ":old_renown", ":old_leader", slot_troop_renown),
+           	(store_random_in_range, ":renown_loss", 10, 25),
+           	(val_mul, ":renown_loss", ":old_renown"),
+           	(val_div, ":renown_loss", 100),
+           	(val_sub, ":old_renown", ":renown_loss"),
+           	(troop_set_slot, ":old_leader", slot_troop_renown, ":old_renown"),
+			(try_begin),
+			(troop_slot_eq, ":old_leader", slot_troop_occupation, slto_kingdom_hero),
+			(neg|troop_slot_ge, ":old_leader", slot_troop_prisoner_of_party, 0),
+			(neg|troop_slot_ge, ":old_leader", slot_troop_leaded_party, 1),
+			(troop_set_slot, ":old_leader", slot_troop_occupation, dplmc_slto_dead), #madsci we dont want dethroned kings to appear as regular vassals in other kingsdoms later like in native because its dumb
+			(try_end),
+		(try_end),
 
            (faction_set_slot, "$g_notification_menu_var1", slot_faction_leader, "$supported_pretender"),
            (troop_set_faction, "$supported_pretender", "$g_notification_menu_var1"),
+
+		(troop_get_slot, ":lord_religion", "$supported_pretender", slot_troop_religion),
+		(faction_set_slot, "$g_notification_menu_var1", slot_faction_religion, ":lord_religion"),  #madsci make sure the faction gets the pretenders religion
 
            (faction_get_slot, ":old_marshall", "$g_notification_menu_var1", slot_faction_marshall),
            (try_begin),
              (ge, ":old_marshall", 0),
              (troop_get_slot, ":old_marshall_party", ":old_marshall", slot_troop_leaded_party),
+		(gt, ":old_marshall_party", 0),
              (party_is_active, ":old_marshall_party"),
              (party_set_marshal, ":old_marshall_party", 0),
            (try_end),

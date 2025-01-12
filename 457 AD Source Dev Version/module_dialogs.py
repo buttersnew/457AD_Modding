@@ -1,4 +1,4 @@
-# -*- coding: cp1254 -*-
+# -*- coding: utf-8 -*-
 from header_common import *
 from header_dialogs import *
 from header_operations import *
@@ -227,6 +227,8 @@ dialogs = [
 
 [anyone ,"member_chat", [
          (store_conversation_troop, "$g_talk_troop"),
+      (call_script, "script_troop_get_player_relation", "$g_talk_troop"),
+      (assign, "$g_talk_troop_relation", reg0),
               (try_begin),
                   (is_between, "$g_talk_troop", companions_begin, companions_end),
                   (talk_info_show, 1),
@@ -2291,7 +2293,7 @@ If you would like to practice your horsemanship, you can take my horse here. The
   ]],
   [anyone|other(trp_sabir_aydar),"ernak_quest_final_battle_2", [
   ],
-    "…because the mouse is an inhabitant of the earth, and eats the same food as man, while the frog passes his life in the water; the bird bears a great resemblance to the horse, and the arrows might signify the surrender of all their power.",
+    "...because the mouse is an inhabitant of the earth, and eats the same food as man, while the frog passes his life in the water; the bird bears a great resemblance to the horse, and the arrows might signify the surrender of all their power.",
   "ernak_quest_final_battle_3",[
   ]],
   [anyone,"ernak_quest_final_battle_3", [
@@ -2336,12 +2338,12 @@ If you would like to practice your horsemanship, you can take my horse here. The
   ]],
   [anyone|other(trp_sabir_aydar), "ernak_quest_oath2_1",
   [],
-    "Like rats hiding in a hole, eh?! You, lowlings: Khan Gostun has arrived with his host. We are moving west… In your lands!  Pay us tribute, homage to our great Khan, or we will trample you with our own horses… You, fragments.",
+    "Like rats hiding in a hole, eh?! You, lowlings: Khan Gostun has arrived with his host. We are moving west... In your lands!  Pay us tribute, homage to our great Khan, or we will trample you with our own horses... You, fragments.",
     "ernak_quest_oath2_2", [
   ]],
   [anyone, "ernak_quest_oath2_2",
   [],
-    "Who are you to talk to an Attilid like this? Sabirs are nothing to me, parvenus from the deserts of the East, no one on these lands know your name if not for those you pestered with your petty requests. And you are even as insolent as to come here and disturb our celebrations… Who are you? Let me know for I am sure there is no other reason to remember your name other than your insolence.",
+    "Who are you to talk to an Attilid like this? Sabirs are nothing to me, parvenus from the deserts of the East, no one on these lands know your name if not for those you pestered with your petty requests. And you are even as insolent as to come here and disturb our celebrations... Who are you? Let me know for I am sure there is no other reason to remember your name other than your insolence.",
     "ernak_quest_oath2_3", [
   ]],
   [anyone|other(trp_sabir_aydar), "ernak_quest_oath2_3",
@@ -51093,7 +51095,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
   ]],
 
   [trp_severinus, "start", [(check_quest_active, "qst_severinus_quest"),(quest_slot_eq, "qst_severinus_quest", slot_quest_current_state, 1),],
-   "The wretched barbarians here have allied with the Romans living here. Do not think they have done it out of the kindness of their hearts… Getting in may prove to be difficult.", "severinus_comagenis_gate_1", []],
+   "The wretched barbarians here have allied with the Romans living here. Do not think they have done it out of the kindness of their hearts... Getting in may prove to be difficult.", "severinus_comagenis_gate_1", []],
 
   [anyone|other(trp_severinus_quest_npc_6), "severinus_comagenis_gate_1", [],
    "You may enter the city but know that if you cause trouble we have ways of dealing with people like you.", "severinus_comagenis_gate_2", []],
@@ -51122,9 +51124,9 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
    "Yes, it is him! I housed the servant of the Good Lord while he lived with the townsfolk of Asturis. Oh, Severinus, my friend, through your kindness I have been spared from the destruction.", "severinus_comagenis_church_6", []],
 
   [anyone|other(trp_roman_civilian_quest_2), "severinus_comagenis_church_6", [],
-   "I see it now! He is a true servant! He warned the people in Asturis but they didn’t believe him!", "severinus_comagenis_church_7", []],
+   "I see it now! He is a true servant! He warned the people in Asturis but they didn't believe him!", "severinus_comagenis_church_7", []],
   [anyone|other(trp_roman_civilian_quest_1), "severinus_comagenis_church_7", [],
-   "We must not make the same mistake, my family and this town are the dearest to me! Let’s listen and act accordingly!", "close_window", [
+   "We must not make the same mistake, my family and this town are the dearest to me! Let's listen and act accordingly!", "close_window", [
    (quest_set_slot,"qst_severinus_quest", slot_quest_current_state, 3),
    (finish_mission),
    (jump_to_menu, "mnu_severinus_comagenis_3"),
@@ -52710,7 +52712,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
   [anyone|plyr, "onogur_answer_2", [],
   "The Sabirs may reign for the time being, but I can sense the hardiness of your people. Countless tribes have vanished beneath the tide of eastern conquerors, yet the Onogurs appear determined to endure. I know that you will lead them to greatness - perhaps your line may even complete that which your forebearer began at Utus in 447.", "onogur_answer_3", []],
   [trp_onoguroi_king, "onogur_answer_3", [],
-  "Hm… You are more perceptive than I took you for, {playername}. Our shamans do indeed foretell the coming of a great unifier - one sure to restore our pride and to avenge our suffering. Perhaps someday your fate may intwine with ours, but for now farewell.", "minor_faction_king_pretalk", []],
+  "Hm... You are more perceptive than I took you for, {playername}. Our shamans do indeed foretell the coming of a great unifier - one sure to restore our pride and to avenge our suffering. Perhaps someday your fate may intwine with ours, but for now farewell.", "minor_faction_king_pretalk", []],
 
   #saraguroi
   [trp_saraguroi_king, "start", [(eq, "$g_talk_troop_met", 0),],
@@ -52718,7 +52720,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
   [anyone|plyr, "saraghur_chief_intro_1", [],
   "Pardon my intrusion great one. I've heard stories of your exceptional victory against the tribe of the Akatziri. I've come here seeking answers.", "saraghur_chief_intro_2", []],
   [trp_saraguroi_king, "saraghur_chief_intro_2", [],
-  "Your pardon is accepted, however, know with certainty that if you raise a hand against my people…. your skull will make a fine drinking cup indeed. Now, to the matter at hand. What is it you dare ask?", "saraghur_chief_question_1", []],
+  "Your pardon is accepted, however, know with certainty that if you raise a hand against my people.... your skull will make a fine drinking cup indeed. Now, to the matter at hand. What is it you dare ask?", "saraghur_chief_question_1", []],
   [anyone|plyr, "saraghur_chief_question_1", [],
   "On my way here I've been pondering on two questions, and two question only. What makes a chief brave enough to attack a subject tribe of the Huns and what motivates the warriors of said chief to fight as fanatically as a rabid beast cornered by its enemies?", "saraghur_chief_question_2", []],
   [trp_saraguroi_king, "saraghur_chief_question_2", [],
@@ -52752,24 +52754,24 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
   [trp_valentia_king, "start", [(eq, "$g_talk_troop_met", 0),],
   "A stranger approaches my city in Valentia, yet you walk with purpose, not fear. I am Sambida, protector of these lands and leader of the Alans who call them home. My loyalty lies with Rome, though the weight of that loyalty grows heavy. Who are you, and why do you tread here?", "valentia_king_intro_1", []],
   [anyone|plyr, "valentia_king_intro_1", [],
-  "My name is {playername}. I’ve heard of you, Sambida, and of the lands entrusted to you by Rome. Your position seems both enviable and precarious—do you not tire of balancing between service to the empire and preserving your people?", "valentia_king_intro_2", []],
+  "My name is {playername}. I've heard of you, Sambida, and of the lands entrusted to you by Rome. Your position seems both enviable and precarious—do you not tire of balancing between service to the empire and preserving your people?", "valentia_king_intro_2", []],
   [anyone, "valentia_king_intro_2", [],
-  "You’ve a sharp tongue for a stranger. Yes, Rome calls us foederati, bound by duty and land grants. But do not mistake us for servants. My people labor on these lands, not as serfs, but as warriors who have earned their place. Yet, I cannot ignore the rising shadows—the Visigoths, the Franks, even my own kin in Aurelianorum. The bonds of old are fraying.", "valentia_king_intro_3", []],
+  "You've a sharp tongue for a stranger. Yes, Rome calls us foederati, bound by duty and land grants. But do not mistake us for servants. My people labor on these lands, not as serfs, but as warriors who have earned their place. Yet, I cannot ignore the rising shadows—the Visigoths, the Franks, even my own kin in Aurelianorum. The bonds of old are fraying.", "valentia_king_intro_3", []],
   [anyone|plyr, "valentia_king_intro_3", [],
   "And if those bonds break? Will the Alans of Valentia stand alone, or will they seek new allies?", "valentia_king_intro_4", []],
   [anyone, "valentia_king_intro_4", [],
   "That depends, stranger. If you come to offer trade or support, you are welcome here. But if you come seeking to sow discord, know that my warriors are never far from their spears. So tell me, {playername}, are you here as friend, foe, or something in between?", "minor_faction_king_pretalk", []],
 
   [trp_aurelianorum_king, "start", [(eq, "$g_talk_troop_met", 0),],
-  "So, you’ve crossed into my lands, the lands of Aurelianorum, where the Alan banners still fly proudly. I am Sangiban, descendant of Goar, who once led our people across the mighty Rhine. But enough about me—who are you, and why should I let you wander here unchallenged?", "aurelianorum_king_intro_1", []],
+  "So, you've crossed into my lands, the lands of Aurelianorum, where the Alan banners still fly proudly. I am Sangiban, descendant of Goar, who once led our people across the mighty Rhine. But enough about me—who are you, and why should I let you wander here unchallenged?", "aurelianorum_king_intro_1", []],
   [anyone|plyr, "aurelianorum_king_intro_1", [],
   "I am {playername}, a traveler and seeker of alliances. Your fame precedes you, Sangiban. The tales of your stand at the Catalaunian Plains against Attila echo far and wide. But I am curious, how do you defend against so many threats—Romans, Visigoths, and others—without faltering?", "aurelianorum_king_intro_2", []],
   [anyone, "aurelianorum_king_intro_2", [],
-  "Hah! Flattery will get you far, stranger, but not far enough. Yes, my name is known, as is my claim over these lands. But you speak of threats. Do you think the Romans’ wavering grip on Gaul frightens me? Do you think the Goths’ ambitions shake me? No. We are Alans—our steeds and spears remind the world who we are. Yet, power comes with cost, and the winds of war are ever-changing. Tell me, {playername}, do you ride to make friends or take them?", "aurelianorum_king_intro_3", []],
+  "Hah! Flattery will get you far, stranger, but not far enough. Yes, my name is known, as is my claim over these lands. But you speak of threats. Do you think the Romans' wavering grip on Gaul frightens me? Do you think the Goths' ambitions shake me? No. We are Alans—our steeds and spears remind the world who we are. Yet, power comes with cost, and the winds of war are ever-changing. Tell me, {playername}, do you ride to make friends or take them?", "aurelianorum_king_intro_3", []],
   [anyone|plyr, "aurelianorum_king_intro_3", [],
   "I ride to understand, and perhaps, to trade strength for strength. What do you seek for your people, Sangiban?", "aurelianorum_king_intro_4", []],
   [anyone, "aurelianorum_king_intro_4", [],
-  "For my people, I seek survival—not at the whims of Rome, nor under the heel of the Goths, but as Alans, sovereign and proud. If you can aid me in this cause, perhaps you’ll earn a place in my hall. But if you come with deceit, well, the plains of Gaul are vast enough to bury another wanderer. Speak your intent wisely.", "minor_faction_king_pretalk", []],
+  "For my people, I seek survival—not at the whims of Rome, nor under the heel of the Goths, but as Alans, sovereign and proud. If you can aid me in this cause, perhaps you'll earn a place in my hall. But if you come with deceit, well, the plains of Gaul are vast enough to bury another wanderer. Speak your intent wisely.", "minor_faction_king_pretalk", []],
 
 [trp_gallic_saxon_king|plyr,"minor_faction_king", [(eq, "$adovacrius_dialog", 0),], 
   "Hail, Adovacrius, lord of Juliomagus. I have heard tales of your Saxon warriors along the banks of the Liger.","adovacrius_intro_1",[
@@ -52782,7 +52784,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
 [anyone, "adovacrius_intro_3", [], 
   "I hold no illusions of peace. The Franks are patient conquerors, but my warriors are restless, eager to defend what we have won. For now, Juliomagus stands as a beacon of Saxon power in Gaul.", "adovacrius_intro_4",[]],
 [anyone|plyr, "adovacrius_intro_4", [], 
-  "Then may Juliomagus remain strong under your rule, Adovacrius. I’ll watch for Saxon banners along the Liger.", "minor_faction_king_pretalk",[]],
+  "Then may Juliomagus remain strong under your rule, Adovacrius. I'll watch for Saxon banners along the Liger.", "minor_faction_king_pretalk",[]],
 
 [trp_iazyg_king|plyr,"minor_faction_king", [(eq, "$benga_dialog", 0),], 
   "Hail, Benga, king of the Iazyges. These lands between the Danubius and the Tissus are steeped in your people's legacy. It is an honor to meet you.","benga_intro_1",[
@@ -52806,7 +52808,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
 [anyone|plyr, "heruli_king_intro_2", [], 
   "Do not underestimate me, I've beaten countless enemies in my travels, we can try and see what you are made of. But my name is {playername} and I'm mostly still a trader in these lands. Who are you, warrior?", "heruli_king_intro_3",[]],
 [anyone, "heruli_king_intro_3", [], 
-  "Hahahaha! That’s the spirit, we live in a time where so many seem to want to use coins or their tongue to squirm themselves out of trouble, honorless curs, the lot of them! I believe in the sharpness of my weapons and skill of my brothers. I’m called Visilaus and we are the warrior’s brotherhood: Heruli they call us, I’m sure you have seen some of us in taverns.", "heruli_king_intro_4",[]],
+  "Hahahaha! That's the spirit, we live in a time where so many seem to want to use coins or their tongue to squirm themselves out of trouble, honorless curs, the lot of them! I believe in the sharpness of my weapons and skill of my brothers. I'm called Visilaus and we are the warrior's brotherhood: Heruli they call us, I'm sure you have seen some of us in taverns.", "heruli_king_intro_4",[]],
 [anyone|plyr, "heruli_king_intro_4", [], 
   "Yes, now when I think, I've seen many of you offering your shield and axe to the highest bidder, one could still say that where is the honor in fighting only for money, you are mercenaries. How can your employers trust you?", "heruli_king_intro_5",[]],
 [anyone, "heruli_king_intro_5", [], 
@@ -53903,7 +53905,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
 
   [anyone,"ordlaf_talk_ship_4", [
   ],
-  "I'm thinking about meat… and honey. I'm hungry and I can't bear one more week of porridge or dried horse meat. ",
+  "I'm thinking about meat... and honey. I'm hungry and I can't bear one more week of porridge or dried horse meat. ",
   "ordlaf_talk_ship_5",[]],
 
   [anyone|plyr,"ordlaf_talk_ship_5", [
@@ -54239,7 +54241,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
   "finnsburg_quest_start_2",[]],
 
   [anyone,"finnsburg_quest_start_2", [],
-  "Hail, stranger. I, indeed, am one of his servants. My name is Hnaef, son of Hoc and leader of my clan, loyal servants of the Skjoldungrs. These are some of my warriors, they are valiant and brave and their names are known far and wide in the lands of the North: among the Saxons, Jutes, Danes, Angles… They all know the names of Hengist, brother of Horsa, vanquisher of the Romans and Picts in the distant lands of Britannia.",
+  "Hail, stranger. I, indeed, am one of his servants. My name is Hnaef, son of Hoc and leader of my clan, loyal servants of the Skjoldungrs. These are some of my warriors, they are valiant and brave and their names are known far and wide in the lands of the North: among the Saxons, Jutes, Danes, Angles... They all know the names of Hengist, brother of Horsa, vanquisher of the Romans and Picts in the distant lands of Britannia.",
   "finnsburg_quest_start_3",[]],
 
   [anyone|other(trp_dani_hengest),"finnsburg_quest_start_3", [],

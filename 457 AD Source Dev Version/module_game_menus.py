@@ -28999,7 +28999,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         ]),
     ]),
 
-  ( "event_08",menu_text_color(0xFF000000)|mnf_disable_all_keys,
+  ( "event_08",mnf_scale_picture|menu_text_color(0xFF000000)|mnf_disable_all_keys,
     "During a break, some of your men, drunk, start to fight for the last drink of wine. Both draw their weapons and appear ready to kill.",
     "none",
     [
@@ -29342,7 +29342,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         ]),
     ]),
 
-  ( "event_16",menu_text_color(0xFF000000)|mnf_disable_all_keys,
+  ( "event_16",mnf_scale_picture|menu_text_color(0xFF000000)|mnf_disable_all_keys,
     "You and your men set up camp, once everything has set up, you lie in your tent. Some of your men gather around the fire, and start talking and drinking together...",
     "none",
     [(set_background_mesh, "mesh_pic_camp"),
@@ -31821,6 +31821,11 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     "none", [
     (quest_set_slot, "qst_finnsburh_quest", slot_quest_current_state, 3),
     (play_track, "track_finnsburg_feast_track",1),
+          (set_fixed_point_multiplier, 100),
+          (position_set_x, pos0, 70),
+          (position_set_y, pos0, 5),
+          (position_set_z, pos0, 75),
+          (set_game_menu_tableau_mesh, "tableau_troop_note_mesh", "trp_finn_hildeburh", pos0),
     ],
     [
     ("option_1", [],"Continue.",
@@ -32172,7 +32177,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 
     ],),
 
-    ("finnsburg_quest_final_end",0,
+    ("finnsburg_quest_final_end",mnf_scale_picture,
     "You advanterous journey has not ended yet. You still need to return to Heorot. Your men are still waiting there for you."
     +"^^You join the next merchant ship travelling to Heorot. After you arrive, you find your men mainly drunken and in company of the local wenches. They have become lazy and some seem to be way fatter than before."
     +" The Dani women indeed showed them too much hospitality. It takes you a whole day to restore order and discipline.",
@@ -32189,7 +32194,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
      ]),
 
     ],),
-    ("finn_2_quest_start",0,
+    ("finn_2_quest_start",mnf_scale_picture,
     "A messenger approaches your warband. He brings news from Hengist and gives you a letter, it reads:"+
     "^^'{playername}, the time to avenge Hnaef has arrived! Come to Heorot as fast as possible. The Dani host is awaiting you.'",
     "none", [

@@ -26548,6 +26548,11 @@ mission_templates = [
         (eq, ":troop", "trp_frisian_freeman"),
         (agent_set_team, ":agent", 2),
     (try_end),
+(try_begin),
+(is_between, ":troop", "trp_dani_hocing", "trp_finn_garulf"),
+(assign, ":banner_mesh", "mesh_banners_default_c"),
+(cur_agent_set_banner_tableau_material, "tableau_game_troop_label_banner", ":banner_mesh"),
+(try_end),
     ]),
  
     (ti_before_mission_start,0,0,[],[
@@ -26612,7 +26617,10 @@ mission_templates = [
     (mission_disable_talk),
     ]),
     
-    (0,3,ti_once,[(eq, "$g_battle_result", 2),],[
+    (0,3,ti_once,[
+(eq, "$g_battle_result", 2),
+(neg|conversation_screen_is_active),
+],[
     (try_for_agents, ":agent"),
         (agent_is_active, ":agent"),
         (agent_is_alive, ":agent"),
@@ -26795,6 +26803,7 @@ mission_templates = [
     (num_active_teams_le, 1),
     (eq, "$temp", -1),
     (neg|main_hero_fallen),
+(neg|conversation_screen_is_active),
     ],[
     (try_begin),
         (check_quest_active, "qst_finnsburh_quest_2"),
@@ -26815,6 +26824,7 @@ mission_templates = [
     (quest_slot_eq, "qst_finnsburh_quest_2", slot_quest_current_state, 9),
     (num_active_teams_le, 2),
     (neg|main_hero_fallen),
+(neg|conversation_screen_is_active),
     ],[
     (mission_enable_talk),
     (start_mission_conversation, "trp_dani_hengest"),
@@ -27030,6 +27040,7 @@ common_battle_init_banner,
     (num_active_teams_le, 2),
     (eq, "$temp", -1),
     (neg|main_hero_fallen),
+(neg|conversation_screen_is_active),
     ],[
     (mission_enable_talk),
     (call_script, "script_change_troop_renown", "trp_player", 5),
@@ -28245,6 +28256,7 @@ common_battle_init_banner,
             (tutorial_message, "@The Huns cheer to Ernak's words and, invigorated by their leader's bold spirit, charge with their horses towards the enemy, on the great steppes of Scythia. The last ride of the Huns... Or a new beginning?"),
             (val_add, "$tutorial_state", 1),
         (else_try),
+	(neg|conversation_screen_is_active),
             (ge, ":cur_time", 52),
             (eq, "$tutorial_state", 4),
             (val_add, "$tutorial_state", 1), #

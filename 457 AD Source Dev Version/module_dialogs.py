@@ -44202,7 +44202,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
    (party_get_template_id, ":bandit_type", ":bandit_lair"),
    (eq, ":bandit_type", "pt_forest_bandit_lair"),
    ],
-  "Bandits such as these will usually set up their encampments deep in the woods, sometimes in the middle of a swamp. The best way to discover its location would be to find a group of bagadua who appear to be heading back to their base to resupply, and follow them.", "merchant_quest_track_bandit_lair_choice",
+  "Bandits such as these will usually set up their encampments deep in the woods, sometimes in the middle of a swamp. The best way to discover its location would be to find a group of bagaudae who appear to be heading back to their base to resupply, and follow them.", "merchant_quest_track_bandit_lair_choice",
    []],
 
   [anyone,"destroy_lair_quest_brief", [
@@ -49999,7 +49999,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
   [anyone|plyr, "hydatius_bagadua_2", [(check_quest_active,"qst_bagadua_quest"),(check_quest_succeeded, "qst_bagadua_quest")],
    "I encountered him in an abandoned mine shaft with a small group of bandits. They all have been taken care of, Basilius is dead.", "hydatius_bagadua_complete_1", []],
   [anyone, "hydatius_bagadua_complete_1", [],
-   "Ah, now we don't have to fear any large, organzied bagadua rebellions for hopefully a long while. Thank you, now take this reward. I have much to do.", "close_window", [
+   "Ah, now we don't have to fear any large, organized bagaudae rebellions for hopefully a long while. Thank you, now take this reward. I have much to do.", "close_window", [
    (troop_add_gold, "trp_player", 800),
    (call_script, "script_change_player_honor", 2),
    (call_script, "script_change_troop_renown", "trp_player", 10),

@@ -31230,7 +31230,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
   ]),
 
   ( "recruit_bagadua_lord",menu_text_color(0xFF000000)|mnf_disable_all_keys,
-    "Basilius, the so called 'king' of the bagadua you let escape approaches you. He requests vassalage.",
+    "Basilius, the so called 'king' of the bagaudae you let escape approaches you. He requests vassalage.",
     "none",
     [],
     [

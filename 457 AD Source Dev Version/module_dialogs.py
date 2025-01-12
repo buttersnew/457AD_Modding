@@ -37781,7 +37781,11 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
 
 
 # Prison Guards
-  [anyone,"start", [(eq, "$talk_context", 0),(faction_slot_eq, "$g_encountered_party_faction", slot_faction_prison_guard_troop, "$g_talk_troop"),
+  [anyone,"start", [
+(is_between, "$g_encountered_party", walled_centers_begin, walled_centers_end),
+(eq, "$talk_context", 0),
+(this_or_next|eq, "$g_talk_troop", "trp_gothic_prison_guard"), #madsci failsafe
+(faction_slot_eq, "$g_encountered_party_faction", slot_faction_prison_guard_troop, "$g_talk_troop"),
 					##diplomacy start+ Handle player is co-ruler of NPC kingdom
 					(assign, ":is_coruler", 0),
 					(try_begin),
@@ -37807,7 +37811,11 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
   [anyone|plyr,"prison_guard_players", [],
    "No, not now.", "close_window",[]],
 
-  [anyone,"start", [(eq, "$talk_context", 0),(faction_slot_eq, "$g_encountered_party_faction", slot_faction_prison_guard_troop, "$g_talk_troop")],
+  [anyone,"start", [
+(is_between, "$g_encountered_party", walled_centers_begin, walled_centers_end),
+(eq, "$talk_context", 0),
+(this_or_next|eq, "$g_talk_troop", "trp_gothic_prison_guard"), #madsci failsafe
+(faction_slot_eq, "$g_encountered_party_faction", slot_faction_prison_guard_troop, "$g_talk_troop")],
    "Yes? What do you want?", "prison_guard_talk",[]],
 
   [anyone|plyr,"prison_guard_talk", [],
@@ -38000,7 +38008,11 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
 
 
 # Castle Guards
-  [anyone,"start", [(eq, "$talk_context", 0),(faction_slot_eq, "$g_encountered_party_faction", slot_faction_castle_guard_troop, "$g_talk_troop"),
+  [anyone,"start", [
+(eq, "$talk_context", 0),
+(is_between, "$g_encountered_party", walled_centers_begin, walled_centers_end),
+(this_or_next|eq, "$g_talk_troop", "trp_gothic_castle_guard"), #madsci failsafe
+(faction_slot_eq, "$g_encountered_party_faction", slot_faction_castle_guard_troop, "$g_talk_troop"),
   					##diplomacy start+ Handle player is co-ruler of NPC kingdom
 					(assign, ":is_coruler", 0),
 					(try_begin),
@@ -38027,7 +38039,12 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
 
 
 #SB : different prompts for different disguises
-  [anyone|auto_proceed,"start", [(eq, "$talk_context", 0),(faction_slot_eq, "$g_encountered_party_faction", slot_faction_castle_guard_troop, "$g_talk_troop"),(gt, "$sneaked_into_town",disguise_none),
+  [anyone|auto_proceed,"start", [
+(eq, "$talk_context", 0),
+(is_between, "$g_encountered_party", walled_centers_begin, walled_centers_end),
+(this_or_next|eq, "$g_talk_troop", "trp_gothic_prison_guard"), #madsci failsafe
+(faction_slot_eq, "$g_encountered_party_faction", slot_faction_castle_guard_troop, "$g_talk_troop"),
+(gt, "$sneaked_into_town",disguise_none),
                     (gt,"$g_time_since_last_talk",0)],
    "Get out of my sight, beggar! You stink!", "castle_guard_sneaked_intro_ask",[]],
   # [anyone,"start", [(eq, "$talk_context", 0),(faction_slot_eq, "$g_encountered_party_faction", slot_faction_castle_guard_troop, "$g_talk_troop"),],
@@ -38071,7 +38088,11 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
   ], "The last minstrel that attempted to gain entrance was chased out of town tarred and feathered. I doubt you wish the same fate.", "close_window",[]],
 
 
-  [anyone,"start", [(eq, "$talk_context", 0),(faction_slot_eq, "$g_encountered_party_faction", slot_faction_castle_guard_troop, "$g_talk_troop"),
+  [anyone,"start", [
+(eq, "$talk_context", 0),
+(is_between, "$g_encountered_party", walled_centers_begin, walled_centers_end),
+(this_or_next|eq, "$g_talk_troop", "trp_gothic_prison_guard"), #madsci failsafe
+(faction_slot_eq, "$g_encountered_party_faction", slot_faction_castle_guard_troop, "$g_talk_troop"),
   (neg|is_between, "$g_encountered_party_faction", minor_kingdoms_begin, minor_kingdoms_end),],
    "What do you want?", "castle_guard_intro_1",[]],
   [anyone|plyr,"castle_guard_intro_1", [],

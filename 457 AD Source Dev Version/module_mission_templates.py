@@ -26716,6 +26716,7 @@ mission_templates = [
     custom_commander_critical_strike,
 ###TO BULLY RETARTED CHEATERS
     (0, 0, 0, [
+	(eq, 1, 0), #madsci need to cheat to test
     (this_or_next|key_is_down, key_left_alt),
     (key_is_down, key_right_alt),
     (key_is_down, key_f4),
@@ -26736,6 +26737,7 @@ mission_templates = [
     ]),
 ###TO BULLY RETARDED CHEATERS
     (0, 0, 0, [
+	(eq, 1, 0), #madsci need to cheat to test
     (this_or_next|key_is_down, key_left_control),
     (key_is_down, key_right_control),
     (key_is_down, key_h),
@@ -26947,6 +26949,7 @@ mission_templates = [
 common_battle_init_banner,
 ###TO BULLY RETARTED CHEATERS
     (0, 0, 0, [
+	(eq, 1, 0), #madsci need to cheat to test
     (this_or_next|key_is_down, key_left_alt),
     (key_is_down, key_right_alt),
     (key_is_down, key_f4),
@@ -26967,6 +26970,7 @@ common_battle_init_banner,
     ]),
 ###TO BULLY RETARDED CHEATERS
     (0, 0, 0, [
+	(eq, 1, 0), #madsci need to cheat to test
     (this_or_next|key_is_down, key_left_control),
     (key_is_down, key_right_control),
     (key_is_down, key_h),
@@ -27267,6 +27271,7 @@ common_battle_init_banner,
     (set_global_haze_amount, 100),
     (set_fog_distance, 350, 0xFF6c6c6c),
     (set_rain, 1, 250),
+	(assign, "$temp", -1),
     ]),
     
     (ti_tab_pressed,0,0,[],[
@@ -27348,11 +27353,49 @@ common_battle_init_banner,
         (try_for_prop_instances, ":ship"),
             (prop_instance_get_scene_prop_kind, ":is_ship", ":ship"),
             (is_between, ":is_ship", "spr_ship", "spr_snowy_barrel_a"),
+		(assign, "$temp", ":ship"),
+        (prop_instance_get_position, pos30, ":ship"),
+        (prop_instance_get_position, pos31, ":ship"),
             (prop_instance_get_position, pos11, ":ship"),
             (position_move_x, pos11, 20000),
             (prop_instance_animate_to_position, ":ship", pos11, 7000),  
         (try_end), 
     (try_end),
+      ]),
+
+#madsci lets keep people on the boat
+    (0, 0, ti_once,
+       [
+(ge, "$temp", 0),
+],[
+		(try_for_agents, ":agent"),
+		(agent_set_no_dynamics, ":agent", 1),
+		(try_end),
+	   ]),
+
+      (0, 0, 0,
+      [
+(ge, "$temp", 0),],
+      [
+	(set_fixed_point_multiplier, 100),
+        (prop_instance_get_position, pos30, "$temp"),
+	(position_get_x, ":x", pos30),
+	(position_get_y, ":y", pos30),
+	(position_get_z, ":z", pos30),
+	(position_get_x, ":x2", pos31),
+	(position_get_y, ":y2", pos31),
+	(position_get_z, ":z2", pos31),
+	(val_sub, ":x", ":x2"),
+	(val_sub, ":y", ":y2"),
+	(val_sub, ":z", ":z2"),
+		(try_for_agents, ":agent"),
+		(agent_get_position, pos1, ":agent"),
+		(position_move_z, pos1, ":z", 1),
+		(position_move_x, pos1, ":x", 1),
+		(position_move_y, pos1, ":y", 1),
+		(agent_set_position, ":agent", pos1),
+		(try_end),
+        (prop_instance_get_position, pos31, "$temp"),
       ]),
 
     (ti_on_agent_spawn, 0, 0, [],	# equipment troops

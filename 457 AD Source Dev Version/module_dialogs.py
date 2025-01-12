@@ -54358,7 +54358,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
 
   [anyone|other(trp_dani_king),"finn_quest_revenge_1", [
   ],
-  "Hail, {playername} . May we begin with the oaths!",
+  "Hail, {playername}. May we begin with the oaths!",
   "finn_quest_revenge_2",[]],
 
   [anyone|other(trp_dani_king),"finn_quest_revenge_2", [

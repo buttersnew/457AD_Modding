@@ -31966,7 +31966,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     ]),
 
     ],),
- ("finnsburg_quest_8",0,
+ ("finnsburg_quest_8",mnf_scale_picture,
     "Finn's men try another assault. His son is leading the troops. It is time to fight!",
     "none", [
     (try_begin),
@@ -32071,7 +32071,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 
     ],),
 
-    ("finnsburg_quest_battle_won",0,
+    ("finnsburg_quest_battle_won",mnf_scale_picture,
     "Finn's men are forced to retreat. However they will regroup and come back next night.",
     "none", [
     (set_background_mesh, "mesh_pic_victory"),
@@ -32097,7 +32097,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
      ]),
 
     ],),
-    ("finnsburg_quest_battle_final",0,
+    ("finnsburg_quest_battle_final",mnf_scale_picture,
     "You wake up with a terrible headache. Luckily you are alive. But you find out the only Danes who survived are Hengist, Ordlaf and Guthlaf. Hnaef lies dead on the ground, as well as Sigeferth and Eaha. Hnaef was mortally wounded by a blow that hit his head. Hengist and the other survivors all agreed to sign peace with Finn Folcwalding and the Frisians. It looks, however, that in the middle of the fray, even Aethelbald, Finn's heir, died fighting against Hnaef."
     +" You treat your wounds. Then Finn, Hildeburh and other Frisian warriors enter the hall through the gate.",
     "none", [
@@ -32129,7 +32129,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
      ]),
      ]),
 
-    ("finnsburg_quest_final_feast",0,
+    ("finnsburg_quest_final_feast",mnf_scale_picture,
     "First, the dead were removed and prepared for burial. Then the hall was cleaned and a great feast was organised the same day, where both Frisians and Danes took part. You, confused by the situation, stuck with the participants, and tried to enjoy the banquet. The evening after, Hnaef and Aethelbald corpses were burned on a pyre next to the beach. You and the Danes slept again in the village. You wake up in the morning and notice Hengist and Guthlaf speaking: Guthlaf placed Hnaef's sword on Hengist's lap.",
     "none", [
     (set_background_mesh, "mesh_pic_defeat"),
@@ -32328,13 +32328,13 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     (modify_visitors_at_site, "scn_frisian_town"),
     (reset_visitors),
     (set_visitor, 0, "trp_player"),
-    (set_visitor, 0, "trp_kingdom_19_lord"),
-    (set_visitor, 0, "trp_dani_guthlaf"),
-    (set_visitor, 0, "trp_dani_hengest"),
-    (set_visitor, 0, "trp_dani_guthormr"),
-    (set_visitor, 0, "trp_dani_ordlaf"),
-    (set_visitor, 0, "trp_dani_haddingr"),
-    (set_visitor, 0, "trp_scandinavian_comes"),
+    (set_visitor, 1, "trp_kingdom_19_lord"),
+    (set_visitor, 2, "trp_dani_guthlaf"),
+    (set_visitor, 3, "trp_dani_hengest"),
+    (set_visitor, 4, "trp_dani_guthormr"),
+    (set_visitor, 5, "trp_dani_ordlaf"),
+    (set_visitor, 6, "trp_dani_haddingr"),
+    (set_visitor, 7, "trp_scandinavian_comes"),
 
 
     (try_for_range, ":entry", 11, 31),
@@ -32346,21 +32346,21 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 
     (assign, ":stack_no", 1),
     (party_get_num_companion_stacks, ":end", "p_main_party"),
-    (try_for_range, ":unused", 1, 11),
+    (try_for_range, ":entry", 1, 11),
         (try_begin),
             (lt, ":stack_no", ":end"),
             (party_stack_get_troop_id, ":troop_no", "p_main_party", ":stack_no"),
             (party_stack_get_size, ":size", "p_main_party", ":stack_no"),
             (val_min, ":size", 3),
-            (set_visitors, 0, ":troop_no", ":size"),
+            (set_visitors, ":entry", ":troop_no", ":size"),
             (val_add, ":stack_no", 1),
             # (display_message, "@Added player troop"),
         (try_end),
-        (set_visitors, 0, "trp_scandinavian_freeman", 2),
-        (set_visitors, 0, "trp_scandinavian_retainer", 2),
-        (set_visitors, 0, "trp_scandinavian_comes", 2),
-        (set_visitors, 0, "trp_dane_vanguard", 2),
-        (set_visitors, 0, "trp_jute_swordsman", 3),
+        (set_visitors, ":entry", "trp_scandinavian_freeman", 2),
+        (set_visitors, ":entry", "trp_scandinavian_retainer", 2),
+        (set_visitors, ":entry", "trp_scandinavian_comes", 2),
+        (set_visitors, ":entry", "trp_dane_vanguard", 2),
+        (set_visitors, ":entry", "trp_jute_swordsman", 3),
     (try_end),
     (assign, "$temp", 1),
     (jump_to_scene, "scn_frisian_town"),
@@ -32374,7 +32374,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     # ]),
      ],),
 
-    ("finnsburg_revenge_lost",0,
+    ("finnsburg_revenge_lost",mnf_scale_picture,
     "You fall on the ground with multiple injuries. As you awake you discover that the Dani and Iuti army was defeated. Your own warband suffered high casualties too."
     +" Shame on the defeated. There names shall be forgotten.",
     "none", [
@@ -32396,7 +32396,12 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     "The ranks of the Frisians and the Jutish mercenaries are soon broke by your men and Hengist's. A few of the remaining warriors take refuge in the hall, with Finn Folcwalding and his retainer Guthere, protecting Hildeburh. You, Hengist, Guthlaf, Ordlaf, Guthormr and Hadding enter the hall alone, to face the last Frisians in an heroic duel.",
     "none", [
     (quest_set_slot, "qst_finnsburh_quest_2", slot_quest_current_state, 8),
-    (set_background_mesh, "mesh_pic_looted_village"),
+    #(set_background_mesh, "mesh_pic_looted_village"), #madsci this blocks too much text
+          (set_fixed_point_multiplier, 100),
+          (position_set_x, pos0, 70),
+          (position_set_y, pos0, 5),
+          (position_set_z, pos0, 75),
+          (set_game_menu_tableau_mesh, "tableau_troop_note_mesh", "trp_frisian_king", pos0),
     ],
     [
 
@@ -32524,7 +32529,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 ],),
 
 ### ERNAK QUEST
-("onoguroi_intro",0,
+("onoguroi_intro",mnf_scale_picture,
     "The great steppes stretched out before you, a vast expanse of grass and dirt that seemed to go on forever. In the distance, you could see the camp of the Onogurs, a tribe of fierce warriors who had left the Huns after Attila's death. You inform them that you have been sent by Ernak, son of Attila, to speak with their chief, Atalgar, and convince him to join Ernak's clan in a grand alliance. You are led to Atalgar's tent, where the chief sat cross-legged on a furskin rug, surrounded by his advisors. Atalgar is an old man, with a lined face and a mane of white hair. His eyes are sharp and wise, and he welcomes you with a mix of curiosity and suspicion.",
     "none", [
       (set_background_mesh, "mesh_pic_khergit"),
@@ -32546,7 +32551,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       (call_script, "script_setup_minor_Faction_king_meeting"),
     ]),
 ],),
-("kutriguroi_intro",0,
+("kutriguroi_intro",mnf_scale_picture,
     "You see a wide-open space with dozens of yurts scattered throughout. The yurts are made of felt, with wooden frames and a central opening for smoke to escape. The camp is alive with activity, with women cooking over open fires and children playing and chasing each other around.^^In the center of the camp, there is a large yurt that stands out from the others. It is adorned with colorful tapestries and banners, and guards stand at the entrance, watching everyone who passes by. This is clearly the dwelling of the Saragur chieftain, Bulyak.^^You approache the guards and announce that you are send by Ernak to speak with Bulyak. The guards nod and allow you to pass into the yurt. Inside, you find Bulyak seated on a large rug, surrounded by his advisors and warriors.^^Bulyak is a tall man with a muscular build, and his face bears the scars of many battles. He wears a fur-lined robe and a leather belt adorned with a large silver buckle. His eyes are sharp and intelligent, and he greets you with a nod.",
     "none", [
       (set_background_mesh, "mesh_pic_khergit"),
@@ -32568,7 +32573,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         (change_screen_mission),
     ]),
 ],),
-("kutriguroi_victory",0,
+("kutriguroi_victory",mnf_scale_picture,
     "Your arrival is already eagerly awaited. The warriors greet you and lead you to their chief. The Sabir ambassador is also here.",
     "none", [
       (set_background_mesh, "mesh_pic_khergit"),
@@ -32591,7 +32596,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     ]),
 ],),
 
-("village_of_the_lekhs",0,
+("village_of_the_lekhs",mnf_scale_picture,
     "{s20}",
     "none", [
       (try_begin),
@@ -32626,7 +32631,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       (change_screen_map),
     ]),
 ],),
-("lekh_victory",0,
+("lekh_victory",mnf_scale_picture,
     "You defeated the Lekh ambush. Their chief is already awaiting you in their village. It is time for negotiations.^^You approach the village. All of a sudden, a cloud darkens the sky and all birds are gone. A thunder roams in the distance. For a moment, you think you hear a voice whispering:^'All creaturs living in the vast steppe, from the flowers to the horses, call for blood to grow.'",
     "none", [
       (set_background_mesh, "mesh_pic_victory"),
@@ -32664,7 +32669,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         (change_screen_mission),
     ]),
 ],),
-("lekh_plunder",0,
+("lekh_plunder",mnf_scale_picture,
     "You give the order to plunder the village. There is no resistance.",
     "none", [
       (set_background_mesh, "mesh_pic_victory"),
@@ -32685,7 +32690,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     ]),
 ],),
 
-("ruins_of_olpia_pontica",0,
+("ruins_of_olpia_pontica",mnf_scale_picture,
     "{s20}",
     "none", [
       (try_begin),
@@ -32723,7 +32728,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     ]),
 ],),
 
-("olpia_victory",0,
+("olpia_victory",mnf_scale_picture,
     "You have defeated the Sabirs. Among the loot you find the Ancient helmet of Farzoy. It is rusty, old and ugly. Return to the Kutriguroi and bring their chief the helmet.^^While you stand there looking at the dead you hear a thunder in the distance. It reminds you of the power and majesty of nature, which has both shaped and been shaped by the people who once called this place home. Even now, birds fly around, a living link to the past that echoes through the ages.",
     "none", [
       (set_background_mesh, "mesh_pic_victory"),
@@ -32740,7 +32745,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 
 ],),
 
-("ernak_defeat",0,
+("ernak_defeat",mnf_scale_picture,
     "You have been defeated. Ernak's task has failed!",
     "none", [
       (set_background_mesh, "mesh_pic_defeat"),
@@ -32757,7 +32762,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     ]),
 ],),
 
-("camp_of_tatra",0,
+("camp_of_tatra",mnf_scale_picture,
     "You spot a camp in the distance.",
     "none", [
       (set_background_mesh, "mesh_pic_khergit"),
@@ -32772,7 +32777,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       (change_screen_map),
     ]),
 ]),
-("camp_of_tatra_speech",0,
+("camp_of_tatra_speech",mnf_scale_picture,
     "As the party arrived at the Sabir camp, they were greeted by the imposing figure of Tatra, a rough warlord from the steppes with a thick beard and piercing eyes. He looked at the group with disdain, sizing them up and down as if they were nothing more than cattle.",
     "none", [
       (set_background_mesh, "mesh_pic_khergit"),
@@ -32793,7 +32798,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       (change_screen_mission),
     ]),
 ]),
-("camp_of_tatra_battle",0,
+("camp_of_tatra_battle",mnf_scale_picture,
     "A last sacrifice is made to the sky-gods. During the ceremony a falcon is sighted. This is a good omen. The warriors are ready and battle can start.",
     "none", [
       (set_background_mesh, "mesh_pic_khergit"),
@@ -32815,7 +32820,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 
 ]),
 
-("tartar_victory",0,
+("tartar_victory",mnf_scale_picture,
     "The battle is won and the steppe is red with the blood of the Sabirs. Alka is found and safe.^^The Onogurs loot everything that has at least some value. Then they fetch some bottles to get drunk. You sit there and observe everything closely. Suddenly, Alka approaches.",
     "none", [
       (set_background_mesh, "mesh_pic_victory"),
@@ -32837,7 +32842,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     ]),
 ],),
 
-("ernak_oath",0,
+("ernak_oath",mnf_scale_picture,
     "You follow Ernak through his camp. Now you notice the multitude of warriors that are gathered in and around it. You have never seen as many Huns in your whole life lifetime. The sound of neighing horses and clashing weapons filled the air as you pass through the throngs of soldiers.^^At the center of the camp, the chieftains are waiting, flanked by their trusted advisors and generals. The chieftains greet prince Ernak and you. They thank you for your efforts in reuniting the tribes.",
     "none", [
       (set_background_mesh, "mesh_pic_khergit"),
@@ -32863,7 +32868,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     ]),
 ],),
 
-("ernak_feast",0,
+("ernak_feast",mnf_scale_picture,
     "After the battle comes the feast and after the feast the battle. Everyone knows that the Sabirs are waiting for a chance to attack, but nevertheless the warriors celebrate with great joy.^^As the feast continues, Ilterish, Bulyak and Atalgar sit together and laugh heartily, reminiscing about their past adventures and battles. They were clearly happy to have each other as allies and Ernak as their leader.^^But their joy was short-lived. Suddenly, the sound of a galloping horse echoed throughout the camp, catching everyone's attention. The warriors looked up and saw a lone rider approaching them. It is Aydar, the Sabir messenger.",
     "none", [
       (set_background_mesh, "mesh_pic_khergit"),
@@ -32885,7 +32890,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     ]),
 ],),
 
-("ernak_final_battle",0,
+("ernak_final_battle",mnf_scale_picture,
     "Aydar rides away with the bird, mouse, frog and five arrows, visibly confused. Ernak knows the time Gostun would have spent trying to decipher the message was for him very valuable as it allows himself to prepare the warriors and saddle the horses.^^An entire day passes. Finally Ernak sallies outside the camp leading his army, towards Gostun's host.",
     "none", [
       (set_background_mesh, "mesh_pic_khergit"),
@@ -32939,7 +32944,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     ]),
 ],),
 
-("ernak_final_battle_victory",0,
+("ernak_final_battle_victory",mnf_scale_picture,
     "The aftermath of the battle between the Huns and the Sabirs is one of devastation for the latter. The Sabirs suffer a crushing defeat at the hands of the Huns, led by prince Ernak, son of Attila. The battlefield is strewn with the bodies of the fallen Sabirs, and the survivors are fleeing towards the river Raha, hoping to escape the wrath of the victorious Huns.^^Meanwhile, Prince Ernak is hailed as a hero by his people. He has proven his mettle in battle and has secured a decisive victory over his enemies.^^The Huns celebrated their triumph with great fervour, with the leaders of the tribes gathering to honour the prince and his army.",
     "none", [
       #temp = 1 player killed, temp = 2 player life
@@ -32978,7 +32983,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     ]),
 ],),
 
-("ernak_final_feast",0,
+("ernak_final_feast",mnf_scale_picture,
     "Following victory over the Sabirs, Prince Ernak held a grand banquet to celebrate his triumph and mark the occasion of his marriage to Alka, daughter of Atalgar, chief of the Onogurs. The banquet is a lavish affair, with food, wine, and music flowing freely, as the Huns celebrate their prince's achievements.^^The marriage between Ernak and Alka is a significant event, cementing the alliance between the Huns and the Onogurs. The couple was joined in matrimony with great pomp and ceremony, with the leaders of the tribes bearing witness to the union.^^The feasting and revelry continues long into the night, as the Huns celebrate the victories of their prince, the marriage and the future of their tribe. The feast itself remains in your memory only as a vague dream. Only the countless stars shining in the endless sky stay clearly in your mind. and the shaman invoking the sky-gods.",
     "none", [
       (set_background_mesh, "mesh_pic_khergit"),

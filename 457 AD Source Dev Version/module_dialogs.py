@@ -54300,9 +54300,24 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
   "More men will be welcome; we don't trust the Frisians.",
   "finnsburg_quest_start_17",[]],
 
-  [anyone|plyr,"finnsburg_quest_start_17", [],
+  [anyone|plyr,"finnsburg_quest_start_17", [
+(store_faction_of_party, ":party_faction", "p_frisian_village"),
+(neq, ":party_faction", "fac_neutral"), #madsci check if the frisian village can be visited
+],
   "I'll gladly follow you, Hnaef son of Hoc. My sword is yours for this task, my men will wait for me next to Heorot while we are abroad.",
   "finnsburg_quest_start_final",[]],
+
+  [anyone|plyr,"finnsburg_quest_start_17", [
+(store_faction_of_party, ":party_faction", "p_frisian_village"),
+(eq, ":party_faction", "fac_neutral"), #madsci check if the frisian village can be visited
+],
+  "I cannot do what you ask, Hnaef son of Hoc. I already slaughtered the Frisians.",
+  "finnsburg_quest_start_refused_b",[]],
+
+
+  [anyone,"finnsburg_quest_start_refused_b", [],
+  "I understand, {playername}.",
+  "close_window",[(quest_set_slot, "qst_finnsburh_quest", slot_quest_current_state, -1),]],
 
   [anyone|plyr,"finnsburg_quest_start_17", [],
   "I cannot do what you ask, Hnaef son of Hoc. I hold no grudges against the Frisians and if I have to draw my sword, I'd rather not do it against them.",
@@ -54483,7 +54498,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
 
 #madsci generic trader dialogue
   [anyone, "start", [
-(is_between, "$g_talk_troop", "trp_aestii_merchant_1", "trp_charioteer_1"),
+(is_between, "$g_talk_troop", minor_merchants_begin, minor_merchants_end),
 (is_between, "$g_encountered_party", minor_towns_begin, minor_towns_end),
                      ],
    "Good day {sir/madam}, will you be looking at my wares?", "generic_trader_talk", []],
@@ -54583,7 +54598,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
 [anyone|plyr, "generic_player_meet_troop",[],"Farewell.", "close_window",[]],
 
   [anyone,"start", [
-  (neg|is_between, "$g_talk_troop", "trp_charioteer_1", "trp_finn_hildeburh"),
+  (neg|is_between, "$g_talk_troop", minor_merchants_end, "trp_finn_hildeburh"),
   ], "Surrender or die. Make your choice.", "battle_reason_stated",[]],
   [anyone|plyr,"battle_reason_stated", [], "I am not afraid of you. I will fight.", "close_window",[[encounter_attack]]],
 

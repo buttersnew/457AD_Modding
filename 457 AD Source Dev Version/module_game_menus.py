@@ -17583,9 +17583,10 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         (party_get_slot, ":trainer_troop", "$g_encountered_party", slot_grounds_trainer),
         (try_begin),
           (le, ":trainer_troop", 0),
-          (store_sub, ":trainer_troop", "$g_encountered_party", training_grounds_begin),
-          (val_add, ":trainer_troop", training_ground_trainers_begin),
-          (party_set_slot, "$g_encountered_party", slot_grounds_trainer, ":trainer_troop"),
+          #(store_sub, ":trainer_troop", "$g_encountered_party", training_grounds_begin),
+          #(val_add, ":trainer_troop", training_ground_trainers_begin),
+          #(party_set_slot, "$g_encountered_party", slot_grounds_trainer, ":trainer_troop"),
+          (party_set_slot, "$g_encountered_party", slot_grounds_trainer, "trp_trainer_1"),
         (try_end),
         (troop_get_slot, ":difficulty", ":trainer_troop", slot_troop_trainer_training_difficulty), #from 0 to 4
         (val_add, ":training", ":difficulty"), #0 to 14

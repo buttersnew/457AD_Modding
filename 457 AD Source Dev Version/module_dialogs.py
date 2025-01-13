@@ -2534,15 +2534,15 @@ If you would like to practice your horsemanship, you can take my horse here. The
   [anyone|plyr, "ernak_quest_alka_6", [],
    "I am sure that together, we can defeat Gostun and his Sabirs. I will leave you now. Take care, and may the gods protect you.",
   "close_window", [
-    (finish_mission, 3),
-    (mission_cam_animate_to_screen_color, 0xFF000000, 2000),
-    (jump_to_menu, "mnu_auto_return_to_map"),
     (quest_set_slot, "qst_ernak_quest", slot_quest_target_onoguroi, 10),
     (str_store_troop_name_link, s3, "$g_talk_troop"),
     (add_quest_note_from_sreg, "qst_ernak_quest", 6, "@Onoguroi task (completed): Tatra is defeated and his camp destroyed.", 0),
     (party_set_name, "p_camp_of_tatra", "@Ruins of Tatra's camp"),
     (party_set_flags, "p_camp_of_tatra", pf_hide_defenders, 1),
     (mission_disable_talk),
+    (finish_mission, 3),
+    (mission_cam_animate_to_screen_color, 0xFF000000, 2000),
+    (jump_to_menu, "mnu_auto_return_to_map"),
   ]],
 
   [trp_sabir_tatra, "start", [
@@ -2595,13 +2595,13 @@ If you would like to practice your horsemanship, you can take my horse here. The
   [anyone, "ernak_quest_saraguroi_intro_8", [],
    "Good. If you succeed, we will consider your offer. But be warned, we will not join any coalition blindly.",
    "close_window", [
-    (finish_mission, 3),
-    (mission_cam_animate_to_screen_color, 0xFF000000, 2000),
-    (jump_to_menu, "mnu_auto_return_to_map"),
-    (enable_party, "p_village_of_the_lekhs"),
     (quest_set_slot, "qst_ernak_quest", slot_quest_target_saraguroi, 2),
     (add_quest_note_from_sreg, "qst_ernak_quest", 5, "@Saraguroi task: Find the village of the Lekhs and demand tribute from them.",0),
     (mission_disable_talk),
+    (enable_party, "p_village_of_the_lekhs"),
+    (finish_mission, 3),
+    (mission_cam_animate_to_screen_color, 0xFF000000, 2000),
+    (jump_to_menu, "mnu_auto_return_to_map"),
    ]],
 
   [trp_onoguroi_king, "start", [
@@ -2621,15 +2621,15 @@ If you would like to practice your horsemanship, you can take my horse here. The
   [anyone, "ernak_quest_onoguroi_finished_4", [],
   "Excellent. We will ride out at dawn. Be prepared for a tough fight. We will meet us near their camp. Travel there and join us in battle.",
    "close_window", [
+    (quest_set_slot, "qst_ernak_quest", slot_quest_target_onoguroi, 4),
+    (str_store_troop_name_link, s3, "$g_talk_troop"),
+    (add_quest_note_from_sreg, "qst_ernak_quest", 6, "@Onoguroi task: Travel to the camp of Tatra and join the forces of {s3}.",0),
+    (mission_disable_talk),
     (finish_mission, 3),
     (mission_cam_animate_to_screen_color, 0xFF000000, 2000),
     (jump_to_menu, "mnu_auto_return_to_map"),
     #player needs to search it
     #(enable_party, "p_camp_of_tatra"),
-    (quest_set_slot, "qst_ernak_quest", slot_quest_target_onoguroi, 4),
-    (str_store_troop_name_link, s3, "$g_talk_troop"),
-    (add_quest_note_from_sreg, "qst_ernak_quest", 6, "@Onoguroi task: Travel to the camp of Tatra and join the forces of {s3}.",0),
-    (mission_disable_talk),
   ]],
 
   [trp_onoguroi_king, "start", [
@@ -2660,15 +2660,15 @@ If you would like to practice your horsemanship, you can take my horse here. The
   [anyone, "ernak_quest_onoguroi_intro_8", [],
    "Good. I have faith in you, young warrior. But be careful. The Sabirs are not to be underestimated.",
    "close_window", [
+    (quest_set_slot, "qst_ernak_quest", slot_quest_target_onoguroi, 2),
+    (str_store_troop_name_link, s3, "$g_talk_troop"),
+    (add_quest_note_from_sreg, "qst_ernak_quest", 6, "@Onoguroi task: Find the camp of Tatra and then report back to {s3}.",0),
+    (mission_disable_talk),
     (finish_mission, 3),
     (mission_cam_animate_to_screen_color, 0xFF000000, 2000),
     (jump_to_menu, "mnu_auto_return_to_map"),
     #player needs to search it
     #(enable_party, "p_camp_of_tatra"),
-    (quest_set_slot, "qst_ernak_quest", slot_quest_target_onoguroi, 2),
-    (str_store_troop_name_link, s3, "$g_talk_troop"),
-    (add_quest_note_from_sreg, "qst_ernak_quest", 6, "@Onoguroi task: Find the camp of Tatra and then report back to {s3}.",0),
-    (mission_disable_talk),
    ]],
 
   ### kutigur intro

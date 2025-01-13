@@ -25236,10 +25236,9 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     [
       ("mithras_quest_1",[],"Tell the messenger that you will visit his master.",
         [
-	(setup_quest_text,"qst_mithras_quest"),
           (str_store_party_name_link, s3, "p_town_8"),
+	(setup_quest_text,"qst_mithras_quest"),
           (str_store_string, s2, "@You have recieved a message that someone wants to meet you. He is located in the tavern of {s3}."),
-
           (call_script, "script_start_quest", "qst_mithras_quest", "trp_player"),
           (quest_set_slot,"qst_mithras_quest",slot_quest_current_state, 1),
           #(add_troop_to_site, "trp_mithraist_iniate", "scn_town_8_tavern", 12), #madsci do this elsewhere

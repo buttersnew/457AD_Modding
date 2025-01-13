@@ -54774,10 +54774,12 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
 [anyone|plyr, "generic_player_meet_troop",[
 (eq, "$g_talk_troop", "trp_armenian_agitator"),
 (check_quest_active, "qst_armenian_kingdom_quest_1"),
-],"I am ready to discuss our next move.", "close_window",[
+],"I am ready to discuss our next move.", "armenian_kingdom_quest_setup",[
 (call_script, "script_succeed_quest", "qst_armenian_kingdom_quest_1"),
 (call_script, "script_finish_quest", "qst_armenian_kingdom_quest_1", 100),
 ]],
+
+[anyone, "armenian_kingdom_quest_setup",[],"I will reveal my plan later.", "close_window",[]],
 
 [anyone|plyr, "generic_player_meet_troop",[
 (troop_is_hero, "$g_talk_troop"),

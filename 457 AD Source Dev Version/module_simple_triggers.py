@@ -2075,7 +2075,7 @@ simple_triggers = [
 (try_begin),
 (check_quest_active, "qst_armenian_kingdom_quest_1"),
 (store_faction_of_party, ":party_faction", "p_town_45"),
-(neq, ":party_faction", "p_town_45"),
+(neq, ":party_faction", "fac_kingdom_31"),
 (call_script, "script_cancel_quest", "qst_armenian_kingdom_quest_1"),
 (try_end),
     ]),

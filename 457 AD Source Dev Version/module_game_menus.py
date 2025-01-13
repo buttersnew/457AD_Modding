@@ -25236,6 +25236,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     [
       ("mithras_quest_1",[],"Tell the messenger that you will visit his master.",
         [
+	(setup_quest_text,"qst_mithras_quest"),
           (str_store_party_name_link, s3, "p_town_8"),
           (str_store_string, s2, "@You have recieved a message that someone wants to meet you. He is located in the tavern of {s3}."),
 

@@ -2071,6 +2071,13 @@ simple_triggers = [
 (display_message, "@The uprising has failed."),
 (troop_set_slot, "trp_armenian_agitator", slot_troop_occupation, dplmc_slto_dead),
 (try_end),
+
+(try_begin),
+(check_quest_active, "qst_armenian_kingdom_quest_1"),
+(store_faction_of_party, ":party_faction", "p_town_45"),
+(neq, ":party_faction", "p_town_45"),
+(call_script, "script_cancel_quest", "qst_armenian_kingdom_quest_1"),
+(try_end),
     ]),
 
 

@@ -3227,13 +3227,8 @@ TOTAL:  {reg5}"),
         (jump_to_menu, "mnu_camp_action_read_book_start"),
         ]
        ),
-      #new books
-      ("action_read_book_8",[(player_has_item, "itm_book_proclus_1"),
-                             (item_slot_eq, "itm_book_proclus_1", slot_item_book_read, 0),
-                             (str_store_item_name, s1, "itm_book_proclus_1"),
-                             ],"{s1}.",
-       [(assign, "$temp", "itm_book_proclus_1"),
-        (jump_to_menu, "mnu_camp_action_read_book_start"),
+      ("book_next_page",[],"Next page.",
+       [(jump_to_menu, "mnu_camp_action_read_book2"),
         ]
        ),
       ("camp_action_4",[],"Back to camp menu.",
@@ -33293,6 +33288,38 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 (jump_to_menu, "mnu_auto_return_to_map"),
 ]),
     ],
+  ),
+
+  ("camp_action_read_book2",0,
+   "Choose a book to read:",
+   "none",
+   [],
+    [
+      ("action_read_book_8",[(player_has_item, "itm_book_proclus_1"),
+                             (item_slot_eq, "itm_book_proclus_1", slot_item_book_read, 0),
+                             (str_store_item_name, s1, "itm_book_proclus_1"),
+                             ],"{s1}.",
+       [(assign, "$temp", "itm_book_proclus_1"),
+        (jump_to_menu, "mnu_camp_action_read_book_start"),
+        ]
+       ),
+      ("action_read_book_9",[(player_has_item, "itm_heretical_codex"),
+                             (item_slot_eq, "itm_heretical_codex", slot_item_book_read, 0),
+                             (str_store_item_name, s1, "itm_heretical_codex"),
+                             ],"{s1}.",
+       [(assign, "$temp", "itm_heretical_codex"),
+        (jump_to_menu, "mnu_camp_action_read_book_start"),
+        ]
+       ),
+      ("book_previous_page",[],"Previous page.",
+       [(jump_to_menu, "mnu_camp_action_read_book"),
+        ]
+       ),
+      ("camp_action_4",[],"Back to camp menu.",
+       [(jump_to_menu, "mnu_camp"),
+        ]
+       ),
+      ]
   ),
 
 ]#end of file

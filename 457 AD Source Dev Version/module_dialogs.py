@@ -54745,10 +54745,21 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
 ]],
 
 [anyone, "generic_player_ask_about_center3",[
+(store_relation, ":relation", "$g_encountered_party_faction", "$players_kingdom"),
+(lt, ":relation", 0),
+],"The people of {s9} don't trust {s10}.", "generic_player_introduce_c",[]],
+
+[anyone, "generic_player_ask_about_center3",[
 (party_get_slot, ":center_religion", "$g_encountered_party", slot_center_religion),
 (faction_get_slot, ":faction_religion", "$players_kingdom", slot_faction_religion),
 (neq, ":center_religion", ":faction_religion"),
 ],"The religious differences between the people of {s9} and {s10} would only lead to conflict. Forget it.", "generic_player_introduce_c",[]],
+
+[anyone, "generic_player_ask_about_center3",[
+(is_between, "$current_town", towns_begin, towns_end),
+(party_get_slot, ":center_relation", "$current_town", slot_center_player_relation),
+(lt, ":center_relation", 0),
+],"The people of {s9} don't trust you, {playername}. ^^(Relation with town is too low)", "generic_player_introduce_c",[]],
 
 [anyone, "generic_player_ask_about_center3",[
 (neg|party_slot_eq, "$g_encountered_party", slot_center_is_besieged_by, -1),

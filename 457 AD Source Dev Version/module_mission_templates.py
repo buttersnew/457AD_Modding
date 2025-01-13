@@ -24185,6 +24185,7 @@ mission_templates = [
             (call_script, "script_change_troop_renown", "trp_player", 15),
 		(troop_set_slot, "trp_knight_bagadua_1", slot_troop_occupation, dplmc_slto_dead), #madsci make sure the game knows this guy is dead as well
 		(troop_set_note_available,"trp_knight_bagadua_1",1),
+		(faction_set_slot, "fac_forest_bandits", slot_faction_leader, "trp_generic_agitator"),
 
             (try_begin), #checks if the quest is active, if so fails it
               (check_quest_active,"qst_bagadua_quest"),
@@ -26548,6 +26549,12 @@ mission_templates = [
         (eq, ":troop", "trp_frisian_freeman"),
         (agent_set_team, ":agent", 2),
     (try_end),
+(try_begin),
+(this_or_next|eq, ":troop", "trp_dani_guthlaf"),
+(is_between, ":troop", "trp_dani_hocing", "trp_finn_garulf"),
+(assign, ":banner_mesh", "mesh_banners_default_c"),
+(cur_agent_set_banner_tableau_material, "tableau_game_troop_label_banner", ":banner_mesh"),
+(try_end),
     ]),
  
     (ti_before_mission_start,0,0,[],[
@@ -26612,7 +26619,10 @@ mission_templates = [
     (mission_disable_talk),
     ]),
     
-    (0,3,ti_once,[(eq, "$g_battle_result", 2),],[
+    (0,3,ti_once,[
+(eq, "$g_battle_result", 2),
+(neg|conversation_screen_is_active),
+],[
     (try_for_agents, ":agent"),
         (agent_is_active, ":agent"),
         (agent_is_alive, ":agent"),
@@ -26716,6 +26726,7 @@ mission_templates = [
     custom_commander_critical_strike,
 ###TO BULLY RETARTED CHEATERS
     (0, 0, 0, [
+	(eq, 1, 0), #madsci need to cheat to test
     (this_or_next|key_is_down, key_left_alt),
     (key_is_down, key_right_alt),
     (key_is_down, key_f4),
@@ -26736,6 +26747,7 @@ mission_templates = [
     ]),
 ###TO BULLY RETARDED CHEATERS
     (0, 0, 0, [
+	(eq, 1, 0), #madsci need to cheat to test
     (this_or_next|key_is_down, key_left_control),
     (key_is_down, key_right_control),
     (key_is_down, key_h),
@@ -26793,6 +26805,7 @@ mission_templates = [
     (num_active_teams_le, 1),
     (eq, "$temp", -1),
     (neg|main_hero_fallen),
+(neg|conversation_screen_is_active),
     ],[
     (try_begin),
         (check_quest_active, "qst_finnsburh_quest_2"),
@@ -26813,6 +26826,7 @@ mission_templates = [
     (quest_slot_eq, "qst_finnsburh_quest_2", slot_quest_current_state, 9),
     (num_active_teams_le, 2),
     (neg|main_hero_fallen),
+(neg|conversation_screen_is_active),
     ],[
     (mission_enable_talk),
     (start_mission_conversation, "trp_dani_hengest"),
@@ -26947,6 +26961,7 @@ mission_templates = [
 common_battle_init_banner,
 ###TO BULLY RETARTED CHEATERS
     (0, 0, 0, [
+	(eq, 1, 0), #madsci need to cheat to test
     (this_or_next|key_is_down, key_left_alt),
     (key_is_down, key_right_alt),
     (key_is_down, key_f4),
@@ -26967,6 +26982,7 @@ common_battle_init_banner,
     ]),
 ###TO BULLY RETARDED CHEATERS
     (0, 0, 0, [
+	(eq, 1, 0), #madsci need to cheat to test
     (this_or_next|key_is_down, key_left_control),
     (key_is_down, key_right_control),
     (key_is_down, key_h),
@@ -27026,6 +27042,7 @@ common_battle_init_banner,
     (num_active_teams_le, 2),
     (eq, "$temp", -1),
     (neg|main_hero_fallen),
+(neg|conversation_screen_is_active),
     ],[
     (mission_enable_talk),
     (call_script, "script_change_troop_renown", "trp_player", 5),
@@ -27267,6 +27284,7 @@ common_battle_init_banner,
     (set_global_haze_amount, 100),
     (set_fog_distance, 350, 0xFF6c6c6c),
     (set_rain, 1, 250),
+	(assign, "$temp", -1),
     ]),
     
     (ti_tab_pressed,0,0,[],[
@@ -27348,11 +27366,49 @@ common_battle_init_banner,
         (try_for_prop_instances, ":ship"),
             (prop_instance_get_scene_prop_kind, ":is_ship", ":ship"),
             (is_between, ":is_ship", "spr_ship", "spr_snowy_barrel_a"),
+		(assign, "$temp", ":ship"),
+        (prop_instance_get_position, pos30, ":ship"),
+        (prop_instance_get_position, pos31, ":ship"),
             (prop_instance_get_position, pos11, ":ship"),
             (position_move_x, pos11, 20000),
             (prop_instance_animate_to_position, ":ship", pos11, 7000),  
         (try_end), 
     (try_end),
+      ]),
+
+#madsci lets keep people on the boat
+    (0, 0, ti_once,
+       [
+(ge, "$temp", 0),
+],[
+		(try_for_agents, ":agent"),
+		(agent_set_no_dynamics, ":agent", 1),
+		(try_end),
+	   ]),
+
+      (0, 0, 0,
+      [
+(ge, "$temp", 0),],
+      [
+	(set_fixed_point_multiplier, 100),
+        (prop_instance_get_position, pos30, "$temp"),
+	(position_get_x, ":x", pos30),
+	(position_get_y, ":y", pos30),
+	(position_get_z, ":z", pos30),
+	(position_get_x, ":x2", pos31),
+	(position_get_y, ":y2", pos31),
+	(position_get_z, ":z2", pos31),
+	(val_sub, ":x", ":x2"),
+	(val_sub, ":y", ":y2"),
+	(val_sub, ":z", ":z2"),
+		(try_for_agents, ":agent"),
+		(agent_get_position, pos1, ":agent"),
+		(position_move_z, pos1, ":z", 1),
+		(position_move_x, pos1, ":x", 1),
+		(position_move_y, pos1, ":y", 1),
+		(agent_set_position, ":agent", pos1),
+		(try_end),
+        (prop_instance_get_position, pos31, "$temp"),
       ]),
 
     (ti_on_agent_spawn, 0, 0, [],	# equipment troops
@@ -28202,6 +28258,7 @@ common_battle_init_banner,
             (tutorial_message, "@The Huns cheer to Ernak's words and, invigorated by their leader's bold spirit, charge with their horses towards the enemy, on the great steppes of Scythia. The last ride of the Huns... Or a new beginning?"),
             (val_add, "$tutorial_state", 1),
         (else_try),
+	(neg|conversation_screen_is_active),
             (ge, ":cur_time", 52),
             (eq, "$tutorial_state", 4),
             (val_add, "$tutorial_state", 1), #

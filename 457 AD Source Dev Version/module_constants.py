@@ -1798,7 +1798,7 @@ minor_kings_begin = "trp_aestii_king"
 minor_kings_end = "trp_aestii_merchant_1"
 
 minor_merchants_begin = "trp_aestii_merchant_1"
-minor_merchants_end = "trp_roman_landowner"
+minor_merchants_end = "trp_chal_bishop_jerusalem_1"
 
 #"active_npcs_begin replaces kingdom_heroes_begin to allow for companions to become lords. Includes anyone who may at some point lead their own party: the original kingdom heroes, companions who may become kingdom heroes, and pretenders. (slto_kingdom_hero as an occupation means that you lead a party on the map. Pretenders have the occupation "slto_inactive_pretender", even if they are part of a player's party, until they have their own independent party)
 #If you're a modder and you don't want to go through and switch every kingdom_heroes to active_npcs, simply define a constant: kingdom_heroes_begin = active_npcs_begin., and kingdom_heroes_end = active_npcs_end. I haven't tested for that, but I think it should work.
@@ -1975,7 +1975,7 @@ arena_masters_end      = "trp_town_1_armorer"
 
 #SB : replaced spelling of "gound"
 training_ground_trainers_begin    = "trp_trainer_1"
-training_ground_trainers_end      = "trp_ransom_broker_1"
+training_ground_trainers_end      = "trp_trainer_1"
 
 town_walkers_begin = "trp_town_walker_1"
 town_walkers_end = "trp_village_walker_1"

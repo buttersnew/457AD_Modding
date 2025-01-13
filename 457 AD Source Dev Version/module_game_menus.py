@@ -17583,9 +17583,10 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         (party_get_slot, ":trainer_troop", "$g_encountered_party", slot_grounds_trainer),
         (try_begin),
           (le, ":trainer_troop", 0),
-          (store_sub, ":trainer_troop", "$g_encountered_party", training_grounds_begin),
-          (val_add, ":trainer_troop", training_ground_trainers_begin),
-          (party_set_slot, "$g_encountered_party", slot_grounds_trainer, ":trainer_troop"),
+          #(store_sub, ":trainer_troop", "$g_encountered_party", training_grounds_begin),
+          #(val_add, ":trainer_troop", training_ground_trainers_begin),
+          #(party_set_slot, "$g_encountered_party", slot_grounds_trainer, ":trainer_troop"),
+          (party_set_slot, "$g_encountered_party", slot_grounds_trainer, "trp_trainer_1"),
         (try_end),
         (troop_get_slot, ":difficulty", ":trainer_troop", slot_troop_trainer_training_difficulty), #from 0 to 4
         (val_add, ":training", ":difficulty"), #0 to 14
@@ -19003,73 +19004,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     "notification_border_incident",0,
     "Border incident^^Word reaches you that {s9}. Though you don't know whether or not the rumors are true, you do know one thing -- this seemingly minor incident has raised passions among the {s4}, making it easier for them to go to war against the {s3}, if they want it...",
     "none",
-    [
-	  (assign, ":acting_village", "$g_notification_menu_var1"),
-	  (assign, ":target_village", "$g_notification_menu_var2"),
-	  (store_faction_of_party, ":acting_faction", ":acting_village"),
-
-	  (try_begin),
-			(eq, ":target_village", -1),
-			(party_get_slot, ":target_faction", ":acting_village", slot_center_original_faction),
-			(try_begin),
-				(this_or_next|eq, ":target_faction", ":acting_faction"),
-                              		(neg|faction_slot_eq, ":target_faction", slot_faction_state, sfs_active),
-				(party_get_slot, ":target_faction", ":acting_village", slot_center_ex_faction),
-			(try_end),
-
-		    (str_store_party_name, s1, ":acting_village"),
-		    (str_store_faction_name, s3, ":acting_faction"),
-		    (str_store_faction_name, s4, ":target_faction"),
-			(faction_get_slot, ":target_leader", ":target_faction", slot_faction_leader),
-		    (str_store_troop_name, s5, ":target_leader"),
-
-			(str_store_string, s9, "str_local_notables_from_s1_a_village_claimed_by_the_s4_have_been_mistreated_by_their_overlords_from_the_s3_and_petition_s5_for_protection"),
-			(display_log_message, "@There has been an alleged border incident: {s9}"),
-
-			(call_script, "script_add_log_entry", logent_border_incident_subjects_mistreated, ":acting_village", -1, -1, ":acting_faction"),
-
-
-      (else_try),
-			(store_faction_of_party, ":target_faction", ":target_village"),
-
-		    (str_store_party_name, s1, ":acting_village"),
-		    (str_store_party_name, s2, ":target_village"),
-
-			(store_random_in_range, ":random", 0, 3),
-			(try_begin),
-				(eq, ":random", 0),
-
-				(str_store_string, s9, "str_villagers_from_s1_stole_some_cattle_from_s2"),
-				(display_log_message, "@There has been an alleged border incident: {s9}"),
-
-				(call_script, "script_add_log_entry", logent_border_incident_cattle_stolen, ":acting_village", ":target_village", -1,":acting_faction"),
-
-			(else_try),
-				(eq, ":random", 1),
-
-				(str_store_string, s9, "str_villagers_from_s1_abducted_a_woman_from_a_prominent_family_in_s2_to_marry_one_of_their_boys"),
-				(display_log_message, "@There has been an alleged border incident: {s9}"),
-
-				(call_script, "script_add_log_entry", logent_border_incident_bride_abducted, ":acting_village", ":target_village", -1, ":acting_faction"),
-			(else_try),
-				(eq, ":random", 2),
-
-				(str_store_string, s9, "str_villagers_from_s1_killed_some_farmers_from_s2_in_a_fight_over_the_diversion_of_a_stream"),
-				(display_log_message, "@There has been an alleged border incident: {s9}"),
-
-			    (call_script, "script_add_log_entry", logent_border_incident_villagers_killed, ":acting_village", ":target_village", -1,":acting_faction"),
-			(try_end),
-
-	  (try_end),
-
-	  (str_store_faction_name, s3, ":acting_faction"),
-	  (str_store_faction_name, s4, ":target_faction"),
-
-	  (store_add, ":slot_provocation_days", ":acting_faction", slot_faction_provocation_days_with_factions_begin),
-	  (val_sub, ":slot_provocation_days", kingdoms_begin),
-	  (faction_set_slot, ":target_faction", ":slot_provocation_days", 30),
-
-      ],
+    [],
     [
       ("continue",[],"Continue",
        [
@@ -19077,9 +19012,6 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         ]),
      ]
   ),
-
-
-
 
   (
     "notification_player_faction_active",0,
@@ -19775,7 +19707,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
            (troop_slot_eq, "$supported_pretender", slot_troop_original_faction, "$g_notification_menu_var1"),
 
            #All rebels switch to kingdom
-           (try_for_range, ":cur_troop", active_npcs_begin, active_npcs_end), #dckplmc switch kingdom ladies
+           (try_for_range, ":cur_troop", heroes_begin, heroes_end), #dckplmc switch kingdom ladies
              (this_or_next|troop_slot_eq, ":cur_troop", slot_troop_occupation, slto_kingdom_hero),
              (troop_slot_eq, ":cur_troop", slot_troop_occupation, slto_kingdom_lady),
              (store_troop_faction, ":cur_faction", ":cur_troop"),
@@ -19815,22 +19747,36 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 
            (faction_get_slot, ":old_leader", "$g_notification_menu_var1", slot_faction_leader),
            #(troop_set_slot, ":old_leader", slot_troop_change_to_faction, "fac_commoners"),
-           (call_script, "script_change_troop_faction", ":old_leader", "fac_commoners"), #dckplmc - prevent possible respawn before actual faction changes
-           #SB : renown loss of under 25%
-           (troop_get_slot, ":old_renown", ":old_leader", slot_troop_renown),
-           (store_random_in_range, ":renown_loss", 10, 25),
-           (val_mul, ":renown_loss", ":old_renown"),
-           (val_div, ":renown_loss", 100),
-           (val_sub, ":old_renown", ":renown_loss"),
-           (troop_set_slot, ":old_leader", slot_troop_renown, ":old_renown"),
+		(try_begin),
+		(gt, ":old_leader", 0),
+		(neq, ":old_leader", "$supported_pretender"),
+		(call_script, "script_change_troop_faction", ":old_leader", "fac_commoners"), #dckplmc - prevent possible respawn before actual faction changes
+           	#SB : renown loss of under 25%
+           	(troop_get_slot, ":old_renown", ":old_leader", slot_troop_renown),
+           	(store_random_in_range, ":renown_loss", 10, 25),
+           	(val_mul, ":renown_loss", ":old_renown"),
+           	(val_div, ":renown_loss", 100),
+           	(val_sub, ":old_renown", ":renown_loss"),
+           	(troop_set_slot, ":old_leader", slot_troop_renown, ":old_renown"),
+			(try_begin),
+			(troop_slot_eq, ":old_leader", slot_troop_occupation, slto_kingdom_hero),
+			(neg|troop_slot_ge, ":old_leader", slot_troop_prisoner_of_party, 0),
+			(neg|troop_slot_ge, ":old_leader", slot_troop_leaded_party, 1),
+			(troop_set_slot, ":old_leader", slot_troop_occupation, dplmc_slto_dead), #madsci we dont want dethroned kings to appear as regular vassals in other kingsdoms later like in native because its dumb
+			(try_end),
+		(try_end),
 
            (faction_set_slot, "$g_notification_menu_var1", slot_faction_leader, "$supported_pretender"),
            (troop_set_faction, "$supported_pretender", "$g_notification_menu_var1"),
+
+		(troop_get_slot, ":lord_religion", "$supported_pretender", slot_troop_religion),
+		(faction_set_slot, "$g_notification_menu_var1", slot_faction_religion, ":lord_religion"),  #madsci make sure the faction gets the pretenders religion
 
            (faction_get_slot, ":old_marshall", "$g_notification_menu_var1", slot_faction_marshall),
            (try_begin),
              (ge, ":old_marshall", 0),
              (troop_get_slot, ":old_marshall_party", ":old_marshall", slot_troop_leaded_party),
+		(gt, ":old_marshall_party", 0),
              (party_is_active, ":old_marshall_party"),
              (party_set_marshal, ":old_marshall_party", 0),
            (try_end),
@@ -29053,7 +28999,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         ]),
     ]),
 
-  ( "event_08",menu_text_color(0xFF000000)|mnf_disable_all_keys,
+  ( "event_08",mnf_scale_picture|menu_text_color(0xFF000000)|mnf_disable_all_keys,
     "During a break, some of your men, drunk, start to fight for the last drink of wine. Both draw their weapons and appear ready to kill.",
     "none",
     [
@@ -29396,7 +29342,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         ]),
     ]),
 
-  ( "event_16",menu_text_color(0xFF000000)|mnf_disable_all_keys,
+  ( "event_16",mnf_scale_picture|menu_text_color(0xFF000000)|mnf_disable_all_keys,
     "You and your men set up camp, once everything has set up, you lie in your tent. Some of your men gather around the fire, and start talking and drinking together...",
     "none",
     [(set_background_mesh, "mesh_pic_camp"),
@@ -31284,19 +31230,23 @@ goods, and books will never be sold. ^^You can change some settings here freely.
   ]),
 
   ( "recruit_bagadua_lord",menu_text_color(0xFF000000)|mnf_disable_all_keys,
-    "Basilius, the so called 'king' of the bagadua you let escape approaches you. He requests vassalage.",
+    "Basilius, the so called 'king' of the bagaudae you let escape approaches you. He requests vassalage.",
     "none",
     [],
     [
 
       ("choice_1",[],"Accept him.",
         [
-          (troop_set_slot, "trp_knight_bagadua_1", slot_troop_occupation, slto_kingdom_hero),
-	  (call_script, "script_change_troop_faction", "trp_knight_bagadua_1", "$players_kingdom"),
-          (troop_set_note_available,"trp_knight_bagadua_1",1),
-          (troop_set_slot, "trp_knight_bagadua_1", slot_troop_wealth, 10000),
-          (call_script, "script_create_kingdom_hero_party", "trp_knight_bagadua_1", "$g_player_court"),
-          (change_screen_return, 0),
+	(troop_set_slot, "trp_knight_bagadua_1", slot_troop_occupation, slto_kingdom_hero),
+	(call_script, "script_change_troop_faction", "trp_knight_bagadua_1", "$players_kingdom"),
+	(troop_set_note_available,"trp_knight_bagadua_1",1),
+	(troop_set_slot, "trp_knight_bagadua_1", slot_troop_wealth, 10000),
+		(try_begin),
+		(is_between, "$g_player_court", walled_centers_begin, walled_centers_end),
+		(call_script, "script_create_kingdom_hero_party", "trp_knight_bagadua_1", "$g_player_court"),
+		(try_end),
+	(faction_set_slot, "fac_forest_bandits", slot_faction_leader, "trp_generic_agitator"),
+	(change_screen_return, 0),
         ]
       ),
       ("choice_2",[],"Reject his offer.",
@@ -31875,6 +31825,11 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     "none", [
     (quest_set_slot, "qst_finnsburh_quest", slot_quest_current_state, 3),
     (play_track, "track_finnsburg_feast_track",1),
+          (set_fixed_point_multiplier, 100),
+          (position_set_x, pos0, 70),
+          (position_set_y, pos0, 5),
+          (position_set_z, pos0, 75),
+          (set_game_menu_tableau_mesh, "tableau_troop_note_mesh", "trp_finn_hildeburh", pos0),
     ],
     [
     ("option_1", [],"Continue.",
@@ -32015,6 +31970,11 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     "none", [
     (add_quest_note_from_sreg, "qst_finnsburh_quest", 4, "@Finn has ordered to lay siege to his own hall. You have to defend against Frisian attacks.", 0),
     (quest_set_slot, "qst_finnsburh_quest", slot_quest_current_state, 7),
+          (set_fixed_point_multiplier, 100),
+          (position_set_x, pos0, 70),
+          (position_set_y, pos0, 5),
+          (position_set_z, pos0, 75),
+          (set_game_menu_tableau_mesh, "tableau_troop_note_mesh", "trp_finn_garulf", pos0),
     ],
     [
     ("option_1", [],"Continue",
@@ -32035,7 +31995,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     ]),
 
     ],),
- ("finnsburg_quest_8",0,
+ ("finnsburg_quest_8",mnf_scale_picture,
     "Finn's men try another assault. His son is leading the troops. It is time to fight!",
     "none", [
     (try_begin),
@@ -32140,7 +32100,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 
     ],),
 
-    ("finnsburg_quest_battle_won",0,
+    ("finnsburg_quest_battle_won",mnf_scale_picture,
     "Finn's men are forced to retreat. However they will regroup and come back next night.",
     "none", [
     (set_background_mesh, "mesh_pic_victory"),
@@ -32166,7 +32126,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
      ]),
 
     ],),
-    ("finnsburg_quest_battle_final",0,
+    ("finnsburg_quest_battle_final",mnf_scale_picture,
     "You wake up with a terrible headache. Luckily you are alive. But you find out the only Danes who survived are Hengist, Ordlaf and Guthlaf. Hnaef lies dead on the ground, as well as Sigeferth and Eaha. Hnaef was mortally wounded by a blow that hit his head. Hengist and the other survivors all agreed to sign peace with Finn Folcwalding and the Frisians. It looks, however, that in the middle of the fray, even Aethelbald, Finn's heir, died fighting against Hnaef."
     +" You treat your wounds. Then Finn, Hildeburh and other Frisian warriors enter the hall through the gate.",
     "none", [
@@ -32198,7 +32158,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
      ]),
      ]),
 
-    ("finnsburg_quest_final_feast",0,
+    ("finnsburg_quest_final_feast",mnf_scale_picture,
     "First, the dead were removed and prepared for burial. Then the hall was cleaned and a great feast was organised the same day, where both Frisians and Danes took part. You, confused by the situation, stuck with the participants, and tried to enjoy the banquet. The evening after, Hnaef and Aethelbald corpses were burned on a pyre next to the beach. You and the Danes slept again in the village. You wake up in the morning and notice Hengist and Guthlaf speaking: Guthlaf placed Hnaef's sword on Hengist's lap.",
     "none", [
     (set_background_mesh, "mesh_pic_defeat"),
@@ -32226,7 +32186,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 
     ],),
 
-    ("finnsburg_quest_final_end",0,
+    ("finnsburg_quest_final_end",mnf_scale_picture,
     "You advanterous journey has not ended yet. You still need to return to Heorot. Your men are still waiting there for you."
     +"^^You join the next merchant ship travelling to Heorot. After you arrive, you find your men mainly drunken and in company of the local wenches. They have become lazy and some seem to be way fatter than before."
     +" The Dani women indeed showed them too much hospitality. It takes you a whole day to restore order and discipline.",
@@ -32243,7 +32203,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
      ]),
 
     ],),
-    ("finn_2_quest_start",0,
+    ("finn_2_quest_start",mnf_scale_picture,
     "A messenger approaches your warband. He brings news from Hengist and gives you a letter, it reads:"+
     "^^'{playername}, the time to avenge Hnaef has arrived! Come to Heorot as fast as possible. The Dani host is awaiting you.'",
     "none", [
@@ -32397,13 +32357,13 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     (modify_visitors_at_site, "scn_frisian_town"),
     (reset_visitors),
     (set_visitor, 0, "trp_player"),
-    (set_visitor, 0, "trp_kingdom_19_lord"),
-    (set_visitor, 0, "trp_dani_guthlaf"),
-    (set_visitor, 0, "trp_dani_hengest"),
-    (set_visitor, 0, "trp_dani_guthormr"),
-    (set_visitor, 0, "trp_dani_ordlaf"),
-    (set_visitor, 0, "trp_dani_haddingr"),
-    (set_visitor, 0, "trp_scandinavian_comes"),
+    (set_visitor, 1, "trp_kingdom_19_lord"),
+    (set_visitor, 2, "trp_dani_guthlaf"),
+    (set_visitor, 3, "trp_dani_hengest"),
+    (set_visitor, 4, "trp_dani_guthormr"),
+    (set_visitor, 5, "trp_dani_ordlaf"),
+    (set_visitor, 6, "trp_dani_haddingr"),
+    (set_visitor, 7, "trp_scandinavian_comes"),
 
 
     (try_for_range, ":entry", 11, 31),
@@ -32415,21 +32375,21 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 
     (assign, ":stack_no", 1),
     (party_get_num_companion_stacks, ":end", "p_main_party"),
-    (try_for_range, ":unused", 1, 11),
+    (try_for_range, ":entry", 1, 11),
         (try_begin),
             (lt, ":stack_no", ":end"),
             (party_stack_get_troop_id, ":troop_no", "p_main_party", ":stack_no"),
             (party_stack_get_size, ":size", "p_main_party", ":stack_no"),
             (val_min, ":size", 3),
-            (set_visitors, 0, ":troop_no", ":size"),
+            (set_visitors, ":entry", ":troop_no", ":size"),
             (val_add, ":stack_no", 1),
             # (display_message, "@Added player troop"),
         (try_end),
-        (set_visitors, 0, "trp_scandinavian_freeman", 2),
-        (set_visitors, 0, "trp_scandinavian_retainer", 2),
-        (set_visitors, 0, "trp_scandinavian_comes", 2),
-        (set_visitors, 0, "trp_dane_vanguard", 2),
-        (set_visitors, 0, "trp_jute_swordsman", 3),
+        (set_visitors, ":entry", "trp_scandinavian_freeman", 2),
+        (set_visitors, ":entry", "trp_scandinavian_retainer", 2),
+        (set_visitors, ":entry", "trp_scandinavian_comes", 2),
+        (set_visitors, ":entry", "trp_dane_vanguard", 2),
+        (set_visitors, ":entry", "trp_jute_swordsman", 3),
     (try_end),
     (assign, "$temp", 1),
     (jump_to_scene, "scn_frisian_town"),
@@ -32443,7 +32403,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     # ]),
      ],),
 
-    ("finnsburg_revenge_lost",0,
+    ("finnsburg_revenge_lost",mnf_scale_picture,
     "You fall on the ground with multiple injuries. As you awake you discover that the Dani and Iuti army was defeated. Your own warband suffered high casualties too."
     +" Shame on the defeated. There names shall be forgotten.",
     "none", [
@@ -32465,7 +32425,12 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     "The ranks of the Frisians and the Jutish mercenaries are soon broke by your men and Hengist's. A few of the remaining warriors take refuge in the hall, with Finn Folcwalding and his retainer Guthere, protecting Hildeburh. You, Hengist, Guthlaf, Ordlaf, Guthormr and Hadding enter the hall alone, to face the last Frisians in an heroic duel.",
     "none", [
     (quest_set_slot, "qst_finnsburh_quest_2", slot_quest_current_state, 8),
-    (set_background_mesh, "mesh_pic_looted_village"),
+    #(set_background_mesh, "mesh_pic_looted_village"), #madsci this blocks too much text
+          (set_fixed_point_multiplier, 100),
+          (position_set_x, pos0, 70),
+          (position_set_y, pos0, 5),
+          (position_set_z, pos0, 75),
+          (set_game_menu_tableau_mesh, "tableau_troop_note_mesh", "trp_frisian_king", pos0),
     ],
     [
 
@@ -32593,7 +32558,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 ],),
 
 ### ERNAK QUEST
-("onoguroi_intro",0,
+("onoguroi_intro",mnf_scale_picture,
     "The great steppes stretched out before you, a vast expanse of grass and dirt that seemed to go on forever. In the distance, you could see the camp of the Onogurs, a tribe of fierce warriors who had left the Huns after Attila's death. You inform them that you have been sent by Ernak, son of Attila, to speak with their chief, Atalgar, and convince him to join Ernak's clan in a grand alliance. You are led to Atalgar's tent, where the chief sat cross-legged on a furskin rug, surrounded by his advisors. Atalgar is an old man, with a lined face and a mane of white hair. His eyes are sharp and wise, and he welcomes you with a mix of curiosity and suspicion.",
     "none", [
       (set_background_mesh, "mesh_pic_khergit"),
@@ -32615,7 +32580,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       (call_script, "script_setup_minor_Faction_king_meeting"),
     ]),
 ],),
-("kutriguroi_intro",0,
+("kutriguroi_intro",mnf_scale_picture,
     "You see a wide-open space with dozens of yurts scattered throughout. The yurts are made of felt, with wooden frames and a central opening for smoke to escape. The camp is alive with activity, with women cooking over open fires and children playing and chasing each other around.^^In the center of the camp, there is a large yurt that stands out from the others. It is adorned with colorful tapestries and banners, and guards stand at the entrance, watching everyone who passes by. This is clearly the dwelling of the Saragur chieftain, Bulyak.^^You approache the guards and announce that you are send by Ernak to speak with Bulyak. The guards nod and allow you to pass into the yurt. Inside, you find Bulyak seated on a large rug, surrounded by his advisors and warriors.^^Bulyak is a tall man with a muscular build, and his face bears the scars of many battles. He wears a fur-lined robe and a leather belt adorned with a large silver buckle. His eyes are sharp and intelligent, and he greets you with a nod.",
     "none", [
       (set_background_mesh, "mesh_pic_khergit"),
@@ -32637,7 +32602,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         (change_screen_mission),
     ]),
 ],),
-("kutriguroi_victory",0,
+("kutriguroi_victory",mnf_scale_picture,
     "Your arrival is already eagerly awaited. The warriors greet you and lead you to their chief. The Sabir ambassador is also here.",
     "none", [
       (set_background_mesh, "mesh_pic_khergit"),
@@ -32660,7 +32625,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     ]),
 ],),
 
-("village_of_the_lekhs",0,
+("village_of_the_lekhs",mnf_scale_picture,
     "{s20}",
     "none", [
       (try_begin),
@@ -32695,7 +32660,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       (change_screen_map),
     ]),
 ],),
-("lekh_victory",0,
+("lekh_victory",mnf_scale_picture,
     "You defeated the Lekh ambush. Their chief is already awaiting you in their village. It is time for negotiations.^^You approach the village. All of a sudden, a cloud darkens the sky and all birds are gone. A thunder roams in the distance. For a moment, you think you hear a voice whispering:^'All creaturs living in the vast steppe, from the flowers to the horses, call for blood to grow.'",
     "none", [
       (set_background_mesh, "mesh_pic_victory"),
@@ -32733,7 +32698,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         (change_screen_mission),
     ]),
 ],),
-("lekh_plunder",0,
+("lekh_plunder",mnf_scale_picture,
     "You give the order to plunder the village. There is no resistance.",
     "none", [
       (set_background_mesh, "mesh_pic_victory"),
@@ -32754,7 +32719,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     ]),
 ],),
 
-("ruins_of_olpia_pontica",0,
+("ruins_of_olpia_pontica",mnf_scale_picture,
     "{s20}",
     "none", [
       (try_begin),
@@ -32792,7 +32757,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     ]),
 ],),
 
-("olpia_victory",0,
+("olpia_victory",mnf_scale_picture,
     "You have defeated the Sabirs. Among the loot you find the Ancient helmet of Farzoy. It is rusty, old and ugly. Return to the Kutriguroi and bring their chief the helmet.^^While you stand there looking at the dead you hear a thunder in the distance. It reminds you of the power and majesty of nature, which has both shaped and been shaped by the people who once called this place home. Even now, birds fly around, a living link to the past that echoes through the ages.",
     "none", [
       (set_background_mesh, "mesh_pic_victory"),
@@ -32809,7 +32774,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 
 ],),
 
-("ernak_defeat",0,
+("ernak_defeat",mnf_scale_picture,
     "You have been defeated. Ernak's task has failed!",
     "none", [
       (set_background_mesh, "mesh_pic_defeat"),
@@ -32826,7 +32791,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     ]),
 ],),
 
-("camp_of_tatra",0,
+("camp_of_tatra",mnf_scale_picture,
     "You spot a camp in the distance.",
     "none", [
       (set_background_mesh, "mesh_pic_khergit"),
@@ -32841,7 +32806,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       (change_screen_map),
     ]),
 ]),
-("camp_of_tatra_speech",0,
+("camp_of_tatra_speech",mnf_scale_picture,
     "As the party arrived at the Sabir camp, they were greeted by the imposing figure of Tatra, a rough warlord from the steppes with a thick beard and piercing eyes. He looked at the group with disdain, sizing them up and down as if they were nothing more than cattle.",
     "none", [
       (set_background_mesh, "mesh_pic_khergit"),
@@ -32862,7 +32827,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       (change_screen_mission),
     ]),
 ]),
-("camp_of_tatra_battle",0,
+("camp_of_tatra_battle",mnf_scale_picture,
     "A last sacrifice is made to the sky-gods. During the ceremony a falcon is sighted. This is a good omen. The warriors are ready and battle can start.",
     "none", [
       (set_background_mesh, "mesh_pic_khergit"),
@@ -32884,7 +32849,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 
 ]),
 
-("tartar_victory",0,
+("tartar_victory",mnf_scale_picture,
     "The battle is won and the steppe is red with the blood of the Sabirs. Alka is found and safe.^^The Onogurs loot everything that has at least some value. Then they fetch some bottles to get drunk. You sit there and observe everything closely. Suddenly, Alka approaches.",
     "none", [
       (set_background_mesh, "mesh_pic_victory"),
@@ -32906,7 +32871,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     ]),
 ],),
 
-("ernak_oath",0,
+("ernak_oath",mnf_scale_picture,
     "You follow Ernak through his camp. Now you notice the multitude of warriors that are gathered in and around it. You have never seen as many Huns in your whole life lifetime. The sound of neighing horses and clashing weapons filled the air as you pass through the throngs of soldiers.^^At the center of the camp, the chieftains are waiting, flanked by their trusted advisors and generals. The chieftains greet prince Ernak and you. They thank you for your efforts in reuniting the tribes.",
     "none", [
       (set_background_mesh, "mesh_pic_khergit"),
@@ -32932,7 +32897,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     ]),
 ],),
 
-("ernak_feast",0,
+("ernak_feast",mnf_scale_picture,
     "After the battle comes the feast and after the feast the battle. Everyone knows that the Sabirs are waiting for a chance to attack, but nevertheless the warriors celebrate with great joy.^^As the feast continues, Ilterish, Bulyak and Atalgar sit together and laugh heartily, reminiscing about their past adventures and battles. They were clearly happy to have each other as allies and Ernak as their leader.^^But their joy was short-lived. Suddenly, the sound of a galloping horse echoed throughout the camp, catching everyone's attention. The warriors looked up and saw a lone rider approaching them. It is Aydar, the Sabir messenger.",
     "none", [
       (set_background_mesh, "mesh_pic_khergit"),
@@ -32954,7 +32919,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     ]),
 ],),
 
-("ernak_final_battle",0,
+("ernak_final_battle",mnf_scale_picture,
     "Aydar rides away with the bird, mouse, frog and five arrows, visibly confused. Ernak knows the time Gostun would have spent trying to decipher the message was for him very valuable as it allows himself to prepare the warriors and saddle the horses.^^An entire day passes. Finally Ernak sallies outside the camp leading his army, towards Gostun's host.",
     "none", [
       (set_background_mesh, "mesh_pic_khergit"),
@@ -33008,7 +32973,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     ]),
 ],),
 
-("ernak_final_battle_victory",0,
+("ernak_final_battle_victory",mnf_scale_picture,
     "The aftermath of the battle between the Huns and the Sabirs is one of devastation for the latter. The Sabirs suffer a crushing defeat at the hands of the Huns, led by prince Ernak, son of Attila. The battlefield is strewn with the bodies of the fallen Sabirs, and the survivors are fleeing towards the river Raha, hoping to escape the wrath of the victorious Huns.^^Meanwhile, Prince Ernak is hailed as a hero by his people. He has proven his mettle in battle and has secured a decisive victory over his enemies.^^The Huns celebrated their triumph with great fervour, with the leaders of the tribes gathering to honour the prince and his army.",
     "none", [
       #temp = 1 player killed, temp = 2 player life
@@ -33047,7 +33012,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     ]),
 ],),
 
-("ernak_final_feast",0,
+("ernak_final_feast",mnf_scale_picture,
     "Following victory over the Sabirs, Prince Ernak held a grand banquet to celebrate his triumph and mark the occasion of his marriage to Alka, daughter of Atalgar, chief of the Onogurs. The banquet is a lavish affair, with food, wine, and music flowing freely, as the Huns celebrate their prince's achievements.^^The marriage between Ernak and Alka is a significant event, cementing the alliance between the Huns and the Onogurs. The couple was joined in matrimony with great pomp and ceremony, with the leaders of the tribes bearing witness to the union.^^The feasting and revelry continues long into the night, as the Huns celebrate the victories of their prince, the marriage and the future of their tribe. The feast itself remains in your memory only as a vague dream. Only the countless stars shining in the endless sky stay clearly in your mind. and the shaman invoking the sky-gods.",
     "none", [
       (set_background_mesh, "mesh_pic_khergit"),

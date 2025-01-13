@@ -3029,10 +3029,6 @@ troops = [
 
    #SB : semi-random arena training rewards
   ["trainer_1","Trainer","Trainer",tf_hero, scn_training_ground_ranged_melee_1|entry(6),reserved,  fac_commoners,[itm_practice_sword,itm_leather_jerkin,itm_hide_boots],def_attrib|level(2),wp(20),knows_common,0x0000000d0d1030c74ae8d661b651c6840000000000000e220000000000000000],
-  ["trainer_2","Trainer","Trainer",tf_hero, scn_training_ground_ranged_melee_2|entry(6),reserved,  fac_commoners,[itm_arena_axe,itm_nomad_vest,itm_hide_boots],def_attrib|level(2),wp(20),knows_common,0x0000000e5a04360428ec253846640b5d0000000000000ee80000000000000000],
-  ["trainer_3","Trainer","Trainer",tf_hero, scn_training_ground_ranged_melee_3|entry(6),reserved,  fac_commoners,[itm_practice_crossbow,itm_padded_leather,itm_hide_boots],def_attrib|level(2),wp(20),knows_common,0x0000000e4a0445822ca1a11ab1e9eaea0000000000000f510000000000000000],
-  ["trainer_4","Trainer","Trainer",tf_hero, scn_training_ground_ranged_melee_4|entry(6),reserved,  fac_commoners,[itm_heavy_practice_sword,itm_leather_jerkin,itm_hide_boots],def_attrib|level(2),wp(20),knows_common,0x0000000e600452c32ef8e5bb92cf1c970000000000000fc20000000000000000],
-  ["trainer_5","Trainer","Trainer",tf_hero, scn_training_ground_ranged_melee_5|entry(6),reserved,  fac_commoners,[itm_arena_lance,itm_leather_vest,itm_hide_boots],def_attrib|level(2),wp(20),knows_common,0x0000000e77082000150049a34c42ec960000000000000e080000000000000000],
 
 # Ransom brokers. added new unique faces for each ransom broker, each rough and mercenary like
   ["ransom_broker_1","Ransom_Broker","Ransom_Broker",tf_hero, 0, reserved, fac_commoners,[itm_common_mail_short_1_cloak,itm_ankle_boots,itm_seax_1],def_attrib_lvl_9|level(5),wp(20),knows_common,0x000000026e01718528d39139536db6db00000000001db6e90000000000000000],
@@ -4978,27 +4974,7 @@ troops = [
 
   ["alan_merchant_1","Merchant","Merchants",tf_hero|tf_randomize_face|tf_is_merchant, no_scene, reserved, fac_commoners,[itm_wrapping_boots,itm_tunic_3],def_attrib|level(6),wp(80),knows_common,sarmatian_face_1, sarmatian_face_2], #sells goods - 
   ["alan_merchant_2","Merchant","Merchants",tf_hero|tf_randomize_face|tf_is_merchant, no_scene, reserved, fac_commoners,[itm_ankle_boots,itm_tunic_4],def_attrib|level(6),wp(80),knows_common,sarmatian_face_1, sarmatian_face_2], #sells gear - 
-
-
   #MINOR FACTION MERCHANTS END
-
-  #CHARIOTEERS START
-  #BY DEFAULT ALL HAVE 1 RIDING SKILL, WILL BE RANDOMIZED AT BEGINNING OF GAME
-  #RED
-  ["charioteer_1","Chariot Racer Epinicus","Epinicus",tf_hero, no_scene, reserved, fac_commoners,[itm_coptic_tunic_1,itm_deurne_campagi_2,itm_augst_helmet_1],str_10|agi_18|int_8|cha_10|level(13),wp(100),knows_athletics_6|knows_ironflesh_4|knows_power_throw_3|knows_power_draw_3|knows_weapon_master_4|knows_inventory_management_4|knows_horse_archery_3|knows_power_strike_3|knows_shield_1,0x000000001410208534d1ce98eb8cd73100000000001cb75a0000000000000000],
-  ["charioteer_2","Chariot Racer Genethlius","Genethlius",tf_hero, no_scene, reserved, fac_commoners,[itm_coptic_tunic_1,itm_deurne_campagi_3,itm_augst_helmet_1],str_10|agi_18|int_8|cha_10|level(13),wp(100),knows_athletics_6|knows_ironflesh_4|knows_power_throw_3|knows_power_draw_3|knows_weapon_master_4|knows_inventory_management_4|knows_horse_archery_3|knows_power_strike_3|knows_shield_1,0x00000005341030422b2c364b2a6ee92b00000000001d24e30000000000000000],
-  #GREEN
-  ["charioteer_3","Chariot Racer Iulianus","Iulianus",tf_hero, no_scene, reserved, fac_commoners,[itm_coptic_tunic_3,itm_deurne_campagi_1,itm_augst_helmet_1],str_10|agi_18|int_8|cha_10|level(13),wp(100),knows_athletics_6|knows_ironflesh_4|knows_power_throw_3|knows_power_draw_3|knows_weapon_master_4|knows_inventory_management_4|knows_horse_archery_3|knows_power_strike_3|knows_shield_1,0x0000000af91064041515d137356cd6f100000000001de9130000000000000000],
-  ["charioteer_4","Chariot Racer Valerius","Valerius",tf_hero, no_scene, reserved, fac_commoners,[itm_coptic_tunic_3,itm_deurne_campagi_2,itm_augst_helmet_1],str_10|agi_18|int_8|cha_10|level(13),wp(100),knows_athletics_6|knows_ironflesh_4|knows_power_throw_3|knows_power_draw_3|knows_weapon_master_4|knows_inventory_management_4|knows_horse_archery_3|knows_power_strike_3|knows_shield_1,0x000000056110508f44a47dc6f68d672300000000001d54dd0000000000000000],
-  #BLUE
-  ["charioteer_5","Chariot Racer Pontius","Pontius",tf_hero, no_scene, reserved, fac_commoners,[itm_coptic_tunic_2,itm_deurne_campagi_1,itm_augst_helmet_1],str_10|agi_18|int_8|cha_10|level(13),wp(100),knows_athletics_6|knows_ironflesh_4|knows_power_throw_3|knows_power_draw_3|knows_weapon_master_4|knows_inventory_management_4|knows_horse_archery_3|knows_power_strike_3|knows_shield_1,0x000000056810a00a68e58ec4a492491c00000000001e269d0000000000000000],
-  ["charioteer_6","Chariot Racer Venantius","Venantius",tf_hero, no_scene, reserved, fac_commoners,[itm_coptic_tunic_2,itm_deurne_campagi_3,itm_augst_helmet_1],str_10|agi_18|int_8|cha_10|level(13),wp(100),knows_athletics_6|knows_ironflesh_4|knows_power_throw_3|knows_power_draw_3|knows_weapon_master_4|knows_inventory_management_4|knows_horse_archery_3|knows_power_strike_3|knows_shield_1,0x0000000579109085485a59badc7198a100000000001cd4f90000000000000000],
-  #WHITE
-  ["charioteer_7","Chariot Racer Senarius","Senarius",tf_hero, no_scene, reserved, fac_commoners,[itm_coptic_tunic_white,itm_deurne_campagi_2,itm_augst_helmet_1],str_10|agi_18|int_8|cha_10|level(13),wp(100),knows_athletics_6|knows_ironflesh_4|knows_power_throw_3|knows_power_draw_3|knows_weapon_master_4|knows_inventory_management_4|knows_horse_archery_3|knows_power_strike_3|knows_shield_1,0x00000005641061442d1d4db89989cb2b00000000001ea6a40000000000000000],
-  ["charioteer_8","Chariot Racer Lauricius","Lauricius",tf_hero, no_scene, reserved, fac_commoners,[itm_coptic_tunic_white,itm_deurne_campagi_3,itm_augst_helmet_1],str_10|agi_18|int_8|cha_10|level(13),wp(100),knows_athletics_6|knows_ironflesh_4|knows_power_throw_3|knows_power_draw_3|knows_weapon_master_4|knows_inventory_management_4|knows_horse_archery_3|knows_power_strike_3|knows_shield_1,0x000000054f10810b144929b5548db76100000000001d653b0000000000000000],
-
-  ["charioteer_end","Chariot Racer END","END",tf_hero, no_scene, reserved, fac_commoners,[],str_10|agi_18|int_8|cha_10|level(13),wp(100),knows_athletics_6|knows_ironflesh_4|knows_power_throw_3|knows_power_draw_3|knows_weapon_master_4|knows_inventory_management_4|knows_horse_archery_3|knows_power_strike_3|knows_shield_1,0x00000001bf0000823adb6db6db6db6db00000000001db6dd0000000000000000],
-  #CHARIOTEERS END
 
   #CHALCEDONIAN BISHOPS, MONKs + HOLY MEN
   #Priests can no longer be hired from monasteries, can only be hired via bishop

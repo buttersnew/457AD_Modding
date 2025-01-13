@@ -1081,27 +1081,34 @@ triggers = [
 ]),
 #Invasions Begin
 (4800,0,ti_once,[],[ #4800 for 200 days
-     (set_spawn_radius, 8),
-     (try_for_range, ":unused", 1, 6), # number of invaders to spawn + 1, roughly 200 days
-           (spawn_around_party, "p_town_21", "pt_coptic_rebellion"),
-     (try_end),
+	(set_spawn_radius, 8),
+	(try_for_range, ":unused", 1, 6), # number of invaders to spawn + 1, roughly 200 days
+	(spawn_around_party, "p_town_21", "pt_coptic_rebellion"),
+	(try_end),
 	(try_begin),
 	(eq, "$g_infinite_camping", 0),
 	(neg|party_slot_eq, "p_main_party", slot_party_on_water, 1), #madsci a messenger doesnt appear if the player is sea traveling 
      	(dialog_box, "@A messenger approaches your warband, bringing news of rebellion! It appears that a large number of Anti-Chalcedonian Christians have revolted near Alexandria, killing the local patriarch, Proterius! The current Comes Limits Aegypti has been removed from his position, and has been replaced on orders from the Emperor.", "@A messenger approaches your warband"),
 	(try_end),
 	(display_log_message, "@Anti-Chalcedonian Christians have revolted near Alexandria, killing the local patriarch, Proterius!"),
-      (try_for_range, ":center", centers_begin, centers_end),
-        (eq, ":center", "p_town_21"), # either is town/castle you want to change
-        (party_slot_eq, ":center", slot_town_lord, "trp_knight_2_4"), # belongs to a specific lord
-        (call_script, "script_give_center_to_lord", ":center", "trp_knight_2_12", 0), #switch it to other shit lord
-        (troop_set_slot, "trp_knight_2_4", slot_troop_military_title, 0),
-        (troop_set_slot, "trp_knight_2_12", slot_troop_military_title, mt_egypt), #new comes aegyptus
-      (try_end),
-     (assign, "$g_coptic_rebellion_triggered", 1),
-    (troop_set_note_available, "trp_mia_bishop_alexandria_1", 1),
-    (add_troop_note_from_sreg, "trp_mia_bishop_alexandria_1", 3, "@Timothy II is the Miaphysite Patriarch of Alexandria.", 0),
-    (add_troop_note_tableau_mesh, "trp_mia_bishop_alexandria_1", "tableau_troop_note_mesh"),
+	(store_faction_of_party, ":party_faction", "p_town_21"),
+		(try_begin),
+        	(party_slot_eq,  "p_town_21", slot_town_lord, "trp_knight_2_4"), # belongs to a specific lord
+        	(troop_set_slot, "trp_knight_2_4", slot_troop_military_title, 0),
+		(party_set_slot, "p_town_21", slot_town_lord, -1),
+			(try_begin),
+			(troop_slot_eq, "trp_knight_2_12", slot_troop_occupation, slto_kingdom_hero),
+			(store_troop_faction, ":troop_faction", "trp_knight_2_12"),
+			(eq, ":troop_faction", ":party_faction"),
+        		(call_script, "script_give_center_to_lord", "p_town_21", "trp_knight_2_12", 0), #switch it to other shit lord
+        		(troop_set_slot, "trp_knight_2_12", slot_troop_military_title, mt_egypt), #new comes aegyptus
+			(try_end),
+      		(try_end),
+	(assign, "$g_coptic_rebellion_triggered", 1),
+	(troop_set_note_available, "trp_mia_bishop_alexandria_1", 1),
+	(add_troop_note_from_sreg, "trp_mia_bishop_alexandria_1", 3, "@Timothy II is the Miaphysite Patriarch of Alexandria.", 0),
+	(add_troop_note_tableau_mesh, "trp_mia_bishop_alexandria_1", "tableau_troop_note_mesh"),
+	(troop_set_slot, "trp_chal_bishop_alexandria_1", slot_troop_occupation, dplmc_slto_dead),
    ]),
 
 (2400,0,ti_once,[

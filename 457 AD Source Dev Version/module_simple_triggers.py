@@ -63,37 +63,6 @@ simple_triggers = [
 
   (0,
    [
-      # (try_begin),
-        # (eq, "$bug_fix_version", 0),
-
-        # #fix for hiding test_scene in older savegames
-        # (disable_party, "p_test_scene"),
-        # #fix for correcting town_1 siege type
-        # (party_set_slot, "p_town_1", slot_center_siege_with_belfry, 0),
-        # #fix for hiding player_faction notes
-        # (faction_set_note_available, "fac_player_faction", 0),
-        # #fix for hiding faction 0 notes
-        # (faction_set_note_available, "fac_no_faction", 0),
-        # #fix for removing kidnapped girl from party
-        # (try_begin),
-          # (neg|check_quest_active, "qst_kidnapped_girl"),
-          # (party_remove_members, "p_main_party", "trp_kidnapped_girl", 1),
-        # (try_end),
-        # #fix for not occupied but belong to a faction lords
-        # (try_for_range, ":cur_troop", lords_begin, lords_end),
-          # (try_begin),
-            # (troop_slot_eq, ":cur_troop", slot_troop_occupation, slto_inactive),
-            # (store_troop_faction, ":cur_troop_faction", ":cur_troop"),
-            # (is_between, ":cur_troop_faction", "fac_kingdom_1", kingdoms_end),
-            # (troop_set_slot, ":cur_troop", slot_troop_occupation, slto_kingdom_hero),
-          # (try_end),
-        # (try_end),
-        # #fix for an error in 1.105, also fills new slot values
-        # (call_script, "script_initialize_item_info"),
-
-        # (assign, "$bug_fix_version", 1),
-      # (try_end),
-
       (eq,"$g_player_is_captive",1),
       (gt, "$capturer_party", 0),
       (party_is_active, "$capturer_party"),
@@ -2162,14 +2131,6 @@ simple_triggers = [
        (troop_set_slot, ":troop_no", slot_troop_does_not_give_quest, 0),
      (try_end),
     ]),
-
-  # Refresh merchant inventories
-  # (168,
-  # [
-  #    (try_for_range, ":village_no", villages_begin, villages_end),
-  #      (call_script, "script_refresh_village_merchant_inventory", ":village_no"),
-  #    (try_end),
-  #  ]),
 
   # Refresh merchant inventories weekly ON AVERAGE
    (24.0*7.0/(number_of_villages),
@@ -7356,12 +7317,6 @@ simple_triggers = [
 (faction_set_slot, "fac_kingdom_31", slot_faction_state, sfs_active),
 (troop_set_slot, "trp_kingdom_31_lord", slot_troop_occupation, slto_kingdom_hero),
 (troop_set_note_available, "trp_kingdom_31_lord", 1),
-	(try_begin),
-	(troop_get_slot, ":leaded_party", "trp_kingdom_31_lord", slot_troop_leaded_party),
-	(this_or_next|le, ":leaded_party", 0),
-	(neg|party_is_active, ":leaded_party"),
-	(call_script, "script_create_kingdom_hero_party", "trp_kingdom_31_lord", "p_town_45"),
-	(try_end),
 (troop_set_slot, "trp_tiridates", slot_troop_occupation, slto_kingdom_hero),
 (troop_set_note_available, "trp_tiridates", 1),
 (troop_set_slot, "trp_kingdom_31_lady_1", slot_troop_occupation, slto_kingdom_lady),
@@ -7374,7 +7329,17 @@ simple_triggers = [
 (troop_set_note_available, "trp_kingdom_31_lady_3", 1),
 (troop_set_slot, "trp_kingdom_31_lady_4", slot_troop_occupation, slto_kingdom_lady),
 (troop_set_note_available, "trp_kingdom_31_lady_4", 1),
+(troop_set_slot, "trp_armenian_lord_1", slot_troop_occupation, slto_kingdom_hero),
+(troop_set_note_available, "trp_armenian_lord_1", 1),
+(troop_set_slot, "trp_armenian_lord_2", slot_troop_occupation, slto_kingdom_hero),
+(troop_set_note_available, "trp_armenian_lord_2", 1),
 (call_script, "script_give_center_to_faction", "p_town_45", "fac_kingdom_31"),
+	(try_begin),
+	(troop_get_slot, ":leaded_party", "trp_kingdom_31_lord", slot_troop_leaded_party),
+	(this_or_next|le, ":leaded_party", 0),
+	(neg|party_is_active, ":leaded_party"),
+	(call_script, "script_create_kingdom_hero_party", "trp_kingdom_31_lord", "p_town_45"),
+	(try_end),
 (faction_set_note_available, "fac_kingdom_31", 1),
 	(try_for_range, ":unused", 0, 20),
 	(party_add_template, "p_town_45", "pt_kingdom_17_reinforcements_a"),
@@ -7382,9 +7347,17 @@ simple_triggers = [
 (str_store_party_name_link, s10, "p_town_45"),
 (display_log_message, "@The Armenians have established a new kingdom in {s10}!"),
 (call_script, "script_diplomacy_start_war_between_kingdoms", "fac_kingdom_31", ":party_faction", 0),
-(party_set_slot, "p_castle_48", slot_center_ex_faction,  "fac_kingdom_31"),
-(party_set_slot, "p_castle_54", slot_center_ex_faction,  "fac_kingdom_31"),
-(set_spawn_radius, 2),
+	(try_begin),
+	(store_faction_of_party, ":castle_faction", "p_castle_48"),
+	(eq, ":castle_faction", ":party_faction"),
+	(call_script, "script_give_center_to_faction", "p_castle_48", "fac_kingdom_31"),
+	(try_end),
+	(try_begin),
+	(store_faction_of_party, ":castle_faction", "p_castle_54"),
+	(eq, ":castle_faction", ":party_faction"),
+	(call_script, "script_give_center_to_faction", "p_castle_54", "fac_kingdom_31"),
+	(try_end),
+(set_spawn_radius, 1),
 	(try_for_range, ":unused", 0, 10), #spawn little helpers
 	(spawn_around_party, "p_town_45", "pt_patrol_party"),
 	(party_set_faction, reg0, "fac_kingdom_31"),
@@ -7445,6 +7418,100 @@ simple_triggers = [
 		(jump_to_menu, "mnu_jewish_rebellion_launched"),
 		(try_end),
 	(try_end),
+
+#FOEDERATI REBELS
+(try_begin),
+(eq, "$g_foederati_event", 0),
+(gt, "$total_days_passed", 100),
+(set_spawn_radius, 8),
+  	(try_for_range, ":unused", 2, 5),
+	(spawn_around_party, "p_town_13", "pt_foederati_rebels"),
+  	(try_end),  
+(spawn_around_party, "p_town_13", "pt_tuldila_rebels"),
+	(try_begin),
+	(eq, "$g_infinite_camping", 0),
+	(neg|party_slot_eq, "p_main_party", slot_party_on_water, 1), #madsci a messenger doesnt appear if the player is sea traveling
+  	(dialog_box, "@Foederati hired by Majorian for his campaigns have begun to pillage the Italian countryside!", "@A messenger approaches your warband"),
+	(try_end),
+(display_log_message, "@Foederati hired by Majorian for his campaigns have begun to pillage the Italian countryside!"),
+(assign, "$g_foederati_event", 1),
+(try_end),
+
+#ARRAN REVOLT
+(try_begin),
+(neq,"$g_arran_revolt",1),
+(gt, "$total_days_passed", 75),
+(faction_slot_eq, "fac_kingdom_6", slot_faction_state, sfs_active),
+(party_slot_eq, "p_castle_36", slot_center_is_besieged_by, -1),
+(party_slot_eq, "p_castle_87", slot_center_is_besieged_by, -1),
+(party_slot_eq, "p_castle_88", slot_center_is_besieged_by, -1),
+(store_faction_of_party, ":fac", "p_castle_36"),
+(neq, ":fac", "fac_kingdom_28"),
+(party_get_slot, ":lord", "p_castle_36", slot_town_lord),
+(ge, ":lord", 1), 
+(call_script, "script_cf_start_arran_revolt"),
+(display_log_message, "@The king of Arran has raised his armies and is now challenging the Shahanshah in order to contest his authority."),
+	(try_begin),
+	(eq, "$g_infinite_camping", 0),
+	(call_script, "script_add_notification_menu", "mnu_event_arran_revolt",0,0),
+	(try_end),
+(try_end),
+
+#COPTIC REBELLION IN ALEXANDRIA
+(try_begin),
+(gt, "$total_days_passed", 200),
+(set_spawn_radius, 8),
+	(try_for_range, ":unused", 1, 6),
+	(spawn_around_party, "p_town_21", "pt_coptic_rebellion"),
+	(try_end),
+	(try_begin),
+	(eq, "$g_infinite_camping", 0),
+	(neg|party_slot_eq, "p_main_party", slot_party_on_water, 1), #madsci a messenger doesnt appear if the player is sea traveling 
+     	(dialog_box, "@A messenger approaches your warband, bringing news of rebellion! It appears that a large number of Anti-Chalcedonian Christians have revolted near Alexandria, killing the local patriarch, Proterius! The current Comes Limits Aegypti has been removed from his position, and has been replaced on orders from the Emperor.", "@A messenger approaches your warband"),
+	(try_end),
+(display_log_message, "@Anti-Chalcedonian Christians have revolted near Alexandria, killing the local patriarch, Proterius!"),
+(store_faction_of_party, ":party_faction", "p_town_21"),
+(neq, ":party_faction", "fac_coptic_rebels"),
+(party_slot_eq,  "p_town_21", slot_town_lord, "trp_knight_2_4"), # belongs to a specific lord
+(troop_set_slot, "trp_knight_2_4", slot_troop_military_title, 0),
+(party_set_slot, "p_town_21", slot_town_lord, -1),
+	(try_begin),
+	(troop_slot_eq, "trp_knight_2_12", slot_troop_occupation, slto_kingdom_hero),
+	(store_troop_faction, ":troop_faction", "trp_knight_2_12"),
+	(eq, ":troop_faction", ":party_faction"),
+        (call_script, "script_give_center_to_lord", "p_town_21", "trp_knight_2_12", 0), #switch it to other shit lord
+        (troop_set_slot, "trp_knight_2_12", slot_troop_military_title, mt_egypt), #new comes aegyptus
+	(else_try),
+	(assign, ":other_guy", 0), #choose someone else if the previous guys isnt available for some reason
+		(try_for_range_backwards, ":other_npc", lords_begin, heroes_end),
+		(eq, ":other_guy", 0),
+		(neq, ":other_npc", "trp_knight_2_4"),
+		(neg|faction_slot_eq, ":party_faction", slot_faction_leader, ":other_npc"),
+		(troop_slot_eq, ":other_npc", slot_troop_occupation, slto_kingdom_hero),
+		(troop_slot_eq, ":other_npc", slot_troop_military_title, 0), #no title
+		(store_troop_faction, ":other_troop_faction", ":other_npc"),
+		(eq, ":other_troop_faction", ":party_faction"),
+		(assign, ":other_guy", ":other_npc"),
+		(try_end),
+	(gt, ":other_guy", 0),
+        (call_script, "script_give_center_to_lord", "p_town_21", ":other_guy", 0), #switch it to other shit lord
+        (troop_set_slot, ":other_guy", slot_troop_military_title, mt_egypt), #new comes aegyptus
+	(try_end),
+	(try_begin), #actually send the lord to the town
+	(party_get_slot, ":center_lord", "p_town_21", slot_town_lord),
+	(gt, ":center_lord", 0),
+	(troop_get_slot, ":leaded_party", ":center_lord", slot_troop_leaded_party),
+	(gt, ":leaded_party", 0),
+	(party_is_active, ":leaded_party"),
+	(call_script, "script_party_set_ai_state", ":leaded_party", spai_holding_center, "p_town_21"),
+	(party_set_flags, ":leaded_party", pf_default_behavior, 1),
+	(try_end),
+(assign, "$g_coptic_rebellion_triggered", 1),
+(troop_set_note_available, "trp_mia_bishop_alexandria_1", 1),
+(add_troop_note_from_sreg, "trp_mia_bishop_alexandria_1", 3, "@Timothy II is the Miaphysite Patriarch of Alexandria.", 0),
+(add_troop_note_tableau_mesh, "trp_mia_bishop_alexandria_1", "tableau_troop_note_mesh"),
+(troop_set_slot, "trp_chal_bishop_alexandria_1", slot_troop_occupation, dplmc_slto_dead),
+(try_end),
     ]),  
 
 (24 * 7,

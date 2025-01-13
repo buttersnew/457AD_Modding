@@ -41,20 +41,6 @@ triggers = [
     (call_script, "script_add_notification_menu","mnu_culture_selection",0,0),
     ]),
 
-  (5.7, 0, 0.0,
-  [
-    (store_num_parties_of_template, reg2, "pt_manhunters"),
-    (lt, reg2, 4)
-  ],
-  [
-    (set_spawn_radius, 1),
-    # (store_add, ":p_town_22_plus_one", "p_town_22", 1), #SB : obvious random range
-    (store_random_in_range, ":selected_town", towns_begin, towns_end),
-    (spawn_around_party, ":selected_town", "pt_manhunters"),
-  ]),
-
-
-
   (1.0, 0.0, 0.0, [
   (check_quest_active, "qst_track_down_bandits"),
   (neg|check_quest_failed, "qst_track_down_bandits"),
@@ -1014,25 +1000,6 @@ triggers = [
 	(try_end),
 ]),
 
-(1800,0,ti_once,[
-(faction_slot_eq, "fac_kingdom_6", slot_faction_state, sfs_active),
-(neq,"$g_arran_revolt",1),
-(party_slot_eq, "p_castle_36", slot_center_is_besieged_by, -1),
-(party_slot_eq, "p_castle_87", slot_center_is_besieged_by, -1),
-(party_slot_eq, "p_castle_88", slot_center_is_besieged_by, -1),
-(store_faction_of_party, ":fac", "p_castle_36"),
-(neq, ":fac", "fac_kingdom_28"),
-(party_get_slot, ":lord", "p_castle_36", slot_town_lord),
-(ge, ":lord", 1), 
-],[#checks if the Sassanids are still around - around 75 (1800 hours) days
-(call_script, "script_cf_start_arran_revolt"),
-(display_log_message, "@The king of Arran has raised his armies and is now challenging the Shahanshah in order to contest his authority."),
-	(try_begin),
-	(eq, "$g_infinite_camping", 0),
-	(call_script, "script_add_notification_menu", "mnu_event_arran_revolt",0,0),
-	(try_end),
-]),
-
 (24, 0, ti_once, [  
     # (store_character_level, ":level", "trp_player"),
   (troop_slot_ge, "trp_player", slot_troop_renown, 100),
@@ -1050,69 +1017,6 @@ triggers = [
 (24,0,ti_once,[(eq, "$g_player_faith", 1),],[ #unique arian location
   (enable_party, "p_vidigoias_grave"),
 ]),
-#Invasions Begin
-(4800,0,ti_once,[],[ #4800 for 200 days
-	(set_spawn_radius, 8),
-	(try_for_range, ":unused", 1, 6), # number of invaders to spawn + 1, roughly 200 days
-	(spawn_around_party, "p_town_21", "pt_coptic_rebellion"),
-	(try_end),
-	(try_begin),
-	(eq, "$g_infinite_camping", 0),
-	(neg|party_slot_eq, "p_main_party", slot_party_on_water, 1), #madsci a messenger doesnt appear if the player is sea traveling 
-     	(dialog_box, "@A messenger approaches your warband, bringing news of rebellion! It appears that a large number of Anti-Chalcedonian Christians have revolted near Alexandria, killing the local patriarch, Proterius! The current Comes Limits Aegypti has been removed from his position, and has been replaced on orders from the Emperor.", "@A messenger approaches your warband"),
-	(try_end),
-	(display_log_message, "@Anti-Chalcedonian Christians have revolted near Alexandria, killing the local patriarch, Proterius!"),
-	(store_faction_of_party, ":party_faction", "p_town_21"),
-		(try_begin),
-        	(party_slot_eq,  "p_town_21", slot_town_lord, "trp_knight_2_4"), # belongs to a specific lord
-        	(troop_set_slot, "trp_knight_2_4", slot_troop_military_title, 0),
-		(party_set_slot, "p_town_21", slot_town_lord, -1),
-			(try_begin),
-			(troop_slot_eq, "trp_knight_2_12", slot_troop_occupation, slto_kingdom_hero),
-			(store_troop_faction, ":troop_faction", "trp_knight_2_12"),
-			(eq, ":troop_faction", ":party_faction"),
-        		(call_script, "script_give_center_to_lord", "p_town_21", "trp_knight_2_12", 0), #switch it to other shit lord
-        		(troop_set_slot, "trp_knight_2_12", slot_troop_military_title, mt_egypt), #new comes aegyptus
-			(else_try),
-			(assign, ":other_guy", 0), #choose someone else if the previous guys isnt available for some reason
-				(try_for_range_backwards, ":other_npc", lords_begin, heroes_end),
-				(eq, ":other_guy", 0),
-				(neq, ":other_npc", "trp_knight_2_4"),
-				(neg|faction_slot_eq, ":party_faction", slot_faction_leader, ":other_npc"),
-				(troop_slot_eq, ":other_npc", slot_troop_occupation, slto_kingdom_hero),
-				(troop_slot_eq, ":other_npc", slot_troop_military_title, 0), #no title
-				(store_troop_faction, ":other_troop_faction", ":other_npc"),
-				(eq, ":other_troop_faction", ":party_faction"),
-				(assign, ":other_guy", ":other_npc"),
-				(try_end),
-			(gt, ":other_guy", 0),
-        		(call_script, "script_give_center_to_lord", "p_town_21", ":other_guy", 0), #switch it to other shit lord
-        		(troop_set_slot, ":other_guy", slot_troop_military_title, mt_egypt), #new comes aegyptus
-			(try_end),
-      		(try_end),
-	(assign, "$g_coptic_rebellion_triggered", 1),
-	(troop_set_note_available, "trp_mia_bishop_alexandria_1", 1),
-	(add_troop_note_from_sreg, "trp_mia_bishop_alexandria_1", 3, "@Timothy II is the Miaphysite Patriarch of Alexandria.", 0),
-	(add_troop_note_tableau_mesh, "trp_mia_bishop_alexandria_1", "tableau_troop_note_mesh"),
-	(troop_set_slot, "trp_chal_bishop_alexandria_1", slot_troop_occupation, dplmc_slto_dead),
-   ]),
-
-(2400,0,ti_once,[
-  (eq, "$g_foederati_event", 0),
-],[
-  (set_spawn_radius, 8),
-  (try_for_range, ":unused", 2, 5),
-    (spawn_around_party, "p_town_13", "pt_foederati_rebels"),
-  (try_end),  
-  (spawn_around_party, "p_town_13", "pt_tuldila_rebels"),
-	(try_begin),
-	(eq, "$g_infinite_camping", 0),
-	(neg|party_slot_eq, "p_main_party", slot_party_on_water, 1), #madsci a messenger doesnt appear if the player is sea traveling
-  	(dialog_box, "@Foederati hired by Majorian for his campaigns have begun to pillage the Italian countryside!", "@A messenger approaches your warband"),
-	(try_end),
-	(display_log_message, "@Foederati hired by Majorian for his campaigns have begun to pillage the Italian countryside!"),
-  (assign, "$g_foederati_event", 1),
-   ]),
 
 (24,0,22,[(eq,"$prayer",1)],[
     (assign, "$prayer", 0),    

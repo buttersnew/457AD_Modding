@@ -1073,6 +1073,21 @@ triggers = [
 			(eq, ":troop_faction", ":party_faction"),
         		(call_script, "script_give_center_to_lord", "p_town_21", "trp_knight_2_12", 0), #switch it to other shit lord
         		(troop_set_slot, "trp_knight_2_12", slot_troop_military_title, mt_egypt), #new comes aegyptus
+			(else_try),
+			(assign, ":other_guy", 0), #choose someone else if the previous guys isnt available for some reason
+				(try_for_range_backwards, ":other_npc", lords_begin, heroes_end),
+				(eq, ":other_guy", 0),
+				(neq, ":other_npc", "trp_knight_2_4"),
+				(neg|faction_slot_eq, ":party_faction", slot_faction_leader, ":other_npc"),
+				(troop_slot_eq, ":other_npc", slot_troop_occupation, slto_kingdom_hero),
+				(troop_slot_eq, ":other_npc", slot_troop_military_title, 0), #no title
+				(store_troop_faction, ":other_troop_faction", ":other_npc"),
+				(eq, ":other_troop_faction", ":party_faction"),
+				(assign, ":other_guy", ":other_npc"),
+				(try_end),
+			(gt, ":other_guy", 0),
+        		(call_script, "script_give_center_to_lord", "p_town_21", ":other_guy", 0), #switch it to other shit lord
+        		(troop_set_slot, ":other_guy", slot_troop_military_title, mt_egypt), #new comes aegyptus
 			(try_end),
       		(try_end),
 	(assign, "$g_coptic_rebellion_triggered", 1),

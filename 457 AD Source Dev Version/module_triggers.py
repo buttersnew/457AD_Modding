@@ -41,35 +41,6 @@ triggers = [
     (call_script, "script_add_notification_menu","mnu_culture_selection",0,0),
     ]),
 
-# Tutorial:
-  (0.1, 0, ti_once, [(map_free,0)], [(dialog_box,"str_tutorial_map1")]),
-
-# Refresh Merchants
-  (0.0, 0, 168.0, [],
-  [
-    (call_script, "script_refresh_center_inventories"),
-                     ]),
-
-# Refresh Armor sellers
-  (0.0, 0, 168.0, [],
-  [
-    (call_script, "script_refresh_center_armories"),
-                     ]),
-
-# Refresh Weapon sellers
-  (0.0, 0, 168.0, [],
-  [
-    (call_script, "script_refresh_center_weaponsmiths"),
-                     ]),
-
-# Refresh Horse sellers
-  (0.0, 0, 168.0, [],
-  [
-    (call_script, "script_refresh_center_stables"),
-                     ]),
-
-
-
   (5.7, 0, 0.0,
   [
     (store_num_parties_of_template, reg2, "pt_manhunters"),

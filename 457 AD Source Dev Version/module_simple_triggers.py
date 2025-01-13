@@ -7312,6 +7312,10 @@ simple_triggers = [
   (168,
    [
        (call_script, "script_spawn_merc_company"),
+(call_script, "script_refresh_center_inventories"),
+(call_script, "script_refresh_center_armories"),
+(call_script, "script_refresh_center_weaponsmiths"),
+(call_script, "script_refresh_center_stables"),
 
 (try_begin), #armenian rebellion if the player is not involved
 (eq, "$armenian_rebellion", 0),
@@ -7378,7 +7382,18 @@ simple_triggers = [
 (str_store_party_name_link, s10, "p_town_45"),
 (display_log_message, "@The Armenians have established a new kingdom in {s10}!"),
 (call_script, "script_diplomacy_start_war_between_kingdoms", "fac_kingdom_31", ":party_faction", 0),
+(party_set_slot, "p_castle_48", slot_center_ex_faction,  "fac_kingdom_31"),
 (party_set_slot, "p_castle_54", slot_center_ex_faction,  "fac_kingdom_31"),
+(set_spawn_radius, 2),
+	(try_for_range, ":unused", 0, 10), #spawn little helpers
+	(spawn_around_party, "p_town_45", "pt_patrol_party"),
+	(party_set_faction, reg0, "fac_kingdom_31"),
+	(party_add_template, reg0, "pt_kingdom_17_reinforcements_b"),
+	(party_add_template, reg0, "pt_kingdom_17_reinforcements_a"),
+	(party_add_template, reg0, "pt_kingdom_17_reinforcements_a"),
+	(party_add_template, reg0, "pt_kingdom_17_reinforcements_a"),
+	(party_set_name, reg0, "@Armenians"),
+	(try_end),
 	(try_begin),
 	(eq, "$g_infinite_camping", 0),
 	(assign, "$temp", "p_town_45"),

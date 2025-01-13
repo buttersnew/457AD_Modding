@@ -19443,13 +19443,19 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 
   (
     "notification_village_raided",0,
-    "Enemies have Laid Waste to a Fief^^{s1} has been raided by {s2} of {s3}!",
+    "Enemies have Laid Waste to a Fief^^{s1} has been raided by {s10}!",
     "none",
     [
       (str_store_party_name, s1, "$g_notification_menu_var1"),
       (str_store_troop_name, s2, "$g_notification_menu_var2"),
       (store_troop_faction, ":troop_faction", "$g_notification_menu_var2"),
       (str_store_faction_name, s3, ":troop_faction"),
+	(try_begin),
+	(ge, ":troop_faction", kingdoms_begin),
+	(str_store_string, s10, "@{s2} of {s3}"),
+	(else_try),
+	(str_store_string, s10, "@{s2}"),
+	(try_end),
       (set_fixed_point_multiplier, 100),
       (position_set_x, pos0, 62),
       (position_set_y, pos0, 30),
@@ -33263,6 +33269,24 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 (set_background_mesh, "mesh_pic_swad"),
 (assign, ":center", "$g_notification_menu_var1"),
 (str_store_party_name, s10, ":center"),
+],
+    [
+      ("continue",[],"Continue...",[
+(jump_to_menu, "mnu_auto_return_to_map"),
+]),
+    ],
+  ),
+
+  (
+    "generic_rebellion_launched",mnf_disable_all_keys|mnf_scale_picture,
+    "A major rebellion has erupted in {s10} as the {s11} attempt to overthrow their oppressors.",
+    "none",
+    [
+(set_background_mesh, "mesh_pic_swad"),
+(assign, ":center", "$g_notification_menu_var1"),
+(assign, ":faction", "$g_notification_menu_var2"),
+(str_store_party_name, s10, ":center"),
+(str_store_faction_name, s11, ":faction"),
 ],
     [
       ("continue",[],"Continue...",[

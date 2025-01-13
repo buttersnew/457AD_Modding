@@ -2503,6 +2503,20 @@ troops = [
    [itm_wrapping_boots,itm_simple_shoes,itm_obenaltendorf_shoes_1,itm_obenaltendorf_shoes_2,itm_tunic_10_cloak,itm_tunic_rich_3_cloak,itm_common_mail_short_6_cloak,itm_common_mail_short_2_cloak,itm_tarasovsky_782,itm_sword_viking_3,itm_polehammer,itm_concave_shield_germanic_small_17,itm_concave_shield_germanic_small_20]+horses_germanic_4,
    def_attrib_lvl_25|level(25),wp_one_handed(180)|wp_two_handed(180)|wp_polearm(185)|wp_archery(100)|wp_throwing(180),knows_lvl_23|knows_power_strike_5,germanic_face_1, germanic_face_2],  
 
+#IAZYGS
+  #Iazyg Fat Aexsdzhytae
+  ["steppe_bandit","Iazyg Vagabond (Fat Aexsdzhytae)","Iazyg Vagabonds (Fat Aexsdzhytaes)",tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_horse|tf_guarantee_ranged|tf_mounted,0,0,fac_culture_minor_10,
+   [itm_simple_shoes,itm_wrapping_boots,itm_nomad_boots,itm_tunic_1,itm_tunic_3,itm_tunic_4,itm_tunic_8,itm_roman_spear_3,itm_fighting_axe,itm_strong_bow,itm_roman_arrows_2,itm_roman_arrows_2]+horses_alan_1+pannonian_hats,
+   def_attrib_lvl_13|level(13),wp_one_handed(100)|wp_two_handed(80)|wp_polearm(120)|wp_throwing(130)|wp_archery(140),knows_riding_4|knows_horse_archery_4|knows_power_draw_3|knows_ironflesh_1,sarmatian_face_1, sarmatian_face_2],
+  #Iazyg Baexdzhyntae
+  ["steppe_rider","Iazyg Rider (Baexdzhyntae)","Iazyg Riders (Baexdzhyntaes)",tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_horse|tf_guarantee_ranged|tf_guarantee_polearm|tf_mounted,0,0,fac_culture_minor_10,
+   [itm_simple_shoes,itm_wrapping_boots,itm_nomad_boots,itm_tunic_1,itm_tunic_3,itm_tunic_4,itm_tunic_8,itm_battered_mail_3,itm_breda_helmet_1,itm_roman_spear_3,itm_roman_spear_4,itm_lance,itm_aquincum_spatha_1,itm_throwing_spears,itm_throwing_spears,itm_concave_shield_leather_small_1,itm_concave_shield_leather_small_2,itm_concave_shield_leather_small_3]+horses_alan_1,
+   def_attrib_lvl_21|level(21),wp_one_handed(150)|wp_two_handed(150)|wp_polearm(170)|wp_throwing(170)|wp_archery(150),knows_riding_5|knows_horse_archery_5|knows_power_draw_4|knows_ironflesh_4|knows_power_strike_2|knows_power_throw_3,sarmatian_face_1, sarmatian_face_2],
+  #Iazyg Uaezdaettae
+  ["steppe_cataphract","Iazyg Cataphract (Uaezdaettae)","Iazyg Cataphracts (Uaezdaettaes)",tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_horse|tf_guarantee_ranged|tf_guarantee_polearm|tf_mounted,0,0,fac_culture_minor_10,
+   [itm_nomad_boots,itm_splinted_greaves,itm_battered_mail_3,itm_common_mail_long_4,itm_common_mail_long_6,itm_breda_helmet_1,itm_breda_helmet_plume_1,itm_intercisa_helmet_1,itm_iatrus_1,itm_augst_helmet_1,itm_christies_helmet_1,itm_long_lance,itm_khergit_bow,itm_niya_bow_2,itm_khergit_arrows,itm_aquincum_spatha_2]+horses_alan_2,
+   def_attrib_lvl_28|level(28),wp_one_handed(200)|wp_two_handed(200)|wp_polearm(230)|wp_throwing(200)|wp_archery(170),knows_athletics_3|knows_riding_7|knows_ironflesh_8|knows_power_throw_3|knows_power_draw_5|knows_weapon_master_6|knows_inventory_management_4|knows_power_strike_5|knows_horse_archery_5,sarmatian_face_1, sarmatian_face_2],
+
 #MORDENS
   ["mordvin_skirmisher","Morden Skirmisher","Morden Skirmishers",tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_ranged,0,0,fac_culture_minor_6,
    [itm_wrapping_boots,itm_simple_shoes,itm_nomad_boots,itm_tunic_1,itm_tunic_2,itm_tunic_3,itm_tunic_8,itm_fur_hat,itm_new_hood_d,itm_new_hood_c,itm_brown_hood1,itm_wooden_javelin,itm_wooden_javelin,itm_club,itm_mace_1,itm_seax_8,itm_hatchet,itm_simple_shield_1,itm_simple_shield_2,itm_wicker_round_shield],
@@ -2798,19 +2812,6 @@ troops = [
   ["sea_raider","Saxon Warrior (Duguthi)","Saxon Warriors (Duguthi)",tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_shield,0,0,fac_outlaws,
    [itm_wrapping_boots,itm_hunter_boots,itm_tunic_1_cloak,itm_tunic_5_cloak,itm_tunic_8_cloak,itm_tunic_rich_7_cloak,itm_battered_mail_1_cloak,itm_common_mail_short_1_cloak,itm_common_mail_short_6_cloak,itm_drengsted_helmet_leather,itm_drengsted_helmet_mail,itm_triveres_leather,itm_triveres_mail,itm_pilna_helmet_mail,itm_pilna_helmet_leather,itm_tarasovsky_782_mail,itm_woolen_cap_c,itm_woolen_cap_1,itm_woolen_cap_2,itm_angon_1,itm_boar_spear,itm_sword_medieval_a,itm_round_shield_germanic_5,itm_round_shield_germanic_11,itm_concave_shield_germanic_11,itm_round_shield_yellow_1,itm_round_shield_blue_2,itm_round_shield_red_2],
    def_attrib_lvl_23|level(23),wp_one_handed(190)|wp_two_handed(170)|wp_polearm(170)|wp_throwing(180),knows_ironflesh_8|knows_shield_4|knows_power_strike_7|knows_power_throw_6|knows_riding_2|knows_athletics_7,germanic_face_1, germanic_face_2],
-
-  #Iazyg Fat Aexsdzhytae
-  ["steppe_bandit","Iazyg Vagabond (Fat Aexsdzhytae)","Iazyg Vagabonds (Fat Aexsdzhytaes)",tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_horse|tf_guarantee_ranged|tf_mounted,0,0,fac_minor_iazyges,
-   [itm_simple_shoes,itm_wrapping_boots,itm_nomad_boots,itm_tunic_1,itm_tunic_3,itm_tunic_4,itm_tunic_8,itm_roman_spear_3,itm_fighting_axe,itm_strong_bow,itm_roman_arrows_2,itm_roman_arrows_2]+horses_alan_1+pannonian_hats,
-   def_attrib_lvl_13|level(13),wp_one_handed(100)|wp_two_handed(80)|wp_polearm(120)|wp_throwing(130)|wp_archery(140),knows_riding_4|knows_horse_archery_4|knows_power_draw_3|knows_ironflesh_1,sarmatian_face_1, sarmatian_face_2],
-  #Iazyg Baexdzhyntae
-  ["steppe_rider","Iazyg Rider (Baexdzhyntae)","Iazyg Riders (Baexdzhyntaes)",tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_horse|tf_guarantee_ranged|tf_guarantee_polearm|tf_mounted,0,0,fac_minor_iazyges,
-   [itm_simple_shoes,itm_wrapping_boots,itm_nomad_boots,itm_tunic_1,itm_tunic_3,itm_tunic_4,itm_tunic_8,itm_battered_mail_3,itm_breda_helmet_1,itm_roman_spear_3,itm_roman_spear_4,itm_lance,itm_aquincum_spatha_1,itm_throwing_spears,itm_throwing_spears,itm_concave_shield_leather_small_1,itm_concave_shield_leather_small_2,itm_concave_shield_leather_small_3]+horses_alan_1,
-   def_attrib_lvl_21|level(21),wp_one_handed(150)|wp_two_handed(150)|wp_polearm(170)|wp_throwing(170)|wp_archery(150),knows_riding_5|knows_horse_archery_5|knows_power_draw_4|knows_ironflesh_4|knows_power_strike_2|knows_power_throw_3,sarmatian_face_1, sarmatian_face_2],
-  #Iazyg Uaezdaettae
-  ["steppe_cataphract","Iazyg Cataphract (Uaezdaettae)","Iazyg Cataphracts (Uaezdaettaes)",tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_horse|tf_guarantee_ranged|tf_guarantee_polearm|tf_mounted,0,0,fac_minor_iazyges,
-   [itm_nomad_boots,itm_splinted_greaves,itm_battered_mail_3,itm_common_mail_long_4,itm_common_mail_long_6,itm_breda_helmet_1,itm_breda_helmet_plume_1,itm_intercisa_helmet_1,itm_iatrus_1,itm_augst_helmet_1,itm_christies_helmet_1,itm_long_lance,itm_khergit_bow,itm_niya_bow_2,itm_khergit_arrows,itm_aquincum_spatha_2]+horses_alan_2,
-   def_attrib_lvl_28|level(28),wp_one_handed(200)|wp_two_handed(200)|wp_polearm(230)|wp_throwing(200)|wp_archery(170),knows_athletics_3|knows_riding_7|knows_ironflesh_8|knows_power_throw_3|knows_power_draw_5|knows_weapon_master_6|knows_inventory_management_4|knows_power_strike_5|knows_horse_archery_5,sarmatian_face_1, sarmatian_face_2],
 
   ["taiga_bandit","Germanic Brigand","Germanic Brigands",tf_guarantee_boots|tf_guarantee_armor,0,0,fac_outlaws, #skirmishers
    [itm_wooden_javelin,itm_wooden_javelin,itm_fighting_axe,itm_club,itm_winged_mace,itm_pilna_helmet_leather]+shoes_generic+tunics_western_germanic_1+hats_german+germanic_caps+shields_simple,

@@ -26896,6 +26896,16 @@ I will use this to make amends to those you have wronged, and I will let it be k
 (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 20),
 ]],
 
+#madsci armenian quest
+[anyone|plyr,"lord_talk", [
+                       	(eq, "$players_kingdom", 0),
+			(eq, "$freelancer_state", 0),
+			(check_quest_active, "qst_armenian_kingdom_quest_2"),
+			(faction_get_slot, ":faction_leader", "fac_kingdom_31", slot_faction_leader),
+                      	(eq, "$g_talk_troop", ":faction_leader"),
+                       	(neg|troop_slot_ge, "$g_talk_troop", slot_troop_prisoner_of_party, 0),
+                      ],
+"{s66}, I have come to pledge my allegiance to you!", "lord_give_oath_2",[]],
 
   [anyone|plyr,"lord_talk", [#(troop_slot_eq, "$g_talk_troop", slot_troop_is_prisoner, 0),
                              (neq,  "$freelancer_state", 1),  #Caba chief freelancer fixes
@@ -27224,6 +27234,7 @@ I will use this to make amends to those you have wronged, and I will let it be k
                        (neq, "$players_kingdom", "$g_talk_troop_faction"),
                        (store_partner_quest, ":lords_quest"),
                        (neq, ":lords_quest", "qst_join_faction"),
+			(neg|check_quest_active, "qst_armenian_kingdom_quest_2"),
                       ],
 "{s66}, I have come to offer you my sword in vassalage!", "lord_ask_enter_service",[]],
 
@@ -27236,6 +27247,7 @@ I will use this to make amends to those you have wronged, and I will let it be k
 			(eq, "$freelancer_state", 0), #madsci
                        (store_partner_quest, ":lords_quest"),
                        (neq, ":lords_quest", "qst_join_faction"),
+			(neg|check_quest_active, "qst_armenian_kingdom_quest_2"),
                       ],
 "{s66}, I wish to become your sworn {man/woman} and fight for your honour.", "lord_ask_enter_service",[]],
 
@@ -30832,8 +30844,8 @@ I've to keep my mind on getting this weight off my neck.", "knight_offer_join_2"
 
 
 
-[anyone,"lord_enter_service_reject", [], "What pigswill!\
-And to think I would offer you a place among my nobles. Begone, beggar, before I lose my temper!", "close_window",
+[anyone,"lord_enter_service_reject", [], "What pigswill! "+
+"And to think I would offer you a place among my nobles. Begone, beggar, before I lose my temper!", "close_window",
 [
   (try_begin),
     (store_partner_quest, ":lords_quest"),
@@ -31034,14 +31046,20 @@ And to think I would offer you a place among my nobles. Begone, beggar, before I
     (str_store_party_name, s1, "$g_invite_offered_center"),
   (try_end),
   ],
-"Let it be known that from this day forward, you are my sworn {man/follower} and vassal.\
- I give you my protection and grant you the right to bear arms in my name, and I pledge that I shall not deprive you of your life, liberty or properties except by the lawful judgment of your peers or by the law and custom of the land.{reg1? Furthermore I give you the fief of {s1} with all its rents and revenues.:}", "lord_give_oath_go_on_3", []],
+"Let it be known that from this day forward, you are my sworn {man/follower} and vassal. "+
+ "I give you my protection and grant you the right to bear arms in my name, and I pledge that I shall not deprive you of your life, liberty or properties except by the lawful judgment of your peers or by the law and custom of the land.{reg1? Furthermore I give you the fief of {s1} with all its rents and revenues.:}", "lord_give_oath_go_on_3", []],
 
 [anyone,"lord_give_oath_go_on_3",
-[
-  ],
+[],
 
-"You have done a wise thing, {playername}. Serve me well and I promise, you will rise high.", "lord_give_conclude", []],
+"You have done a wise thing, {playername}. Serve me well and I promise, you will rise high.", "lord_give_conclude", [
+(try_begin),
+(check_quest_active, "qst_armenian_kingdom_quest_2"),
+(eq, "$g_talk_troop_faction", "fac_kingdom_31"),
+(call_script, "script_succeed_quest", "qst_armenian_kingdom_quest_2"),
+(call_script, "script_finish_quest", "qst_armenian_kingdom_quest_2", 100),
+(try_end),
+]],
 
 
 
@@ -54790,7 +54808,40 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
 (call_script, "script_finish_quest", "qst_armenian_kingdom_quest_1", 100),
 ]],
 
-[anyone, "armenian_kingdom_quest_setup",[],"I will reveal my plan later.", "close_window",[]],
+[anyone, "armenian_kingdom_quest_setup",[
+(faction_get_slot, ":faction_leader", "fac_kingdom_31", slot_faction_leader),
+(str_store_troop_name, s11, ":faction_leader"),
+],"I will reveal my plan in time. But first I need you to formally pledge allegiance to {s11}.", "armenian_kingdom_quest_setup2",[]],
+
+[anyone|plyr, "armenian_kingdom_quest_setup2",[
+(neq, "$players_kingdom", "fac_kingdom_31"),],"Of course. I will talk to {s11}.", "armenian_kingdom_quest_setup2_accept",[
+(call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 1),
+]],
+
+[anyone, "armenian_kingdom_quest_setup2_accept",[],"Please talk to {s11} without delay. Good luck!", "close_window",[
+(faction_get_slot, ":faction_leader", "fac_kingdom_31", slot_faction_leader),
+(quest_set_slot, "qst_armenian_kingdom_quest_2", slot_quest_xp_reward, 1000),
+(str_store_troop_name_link, s10, "$g_talk_troop"),
+(str_store_troop_name_link, s11, ":faction_leader"),
+(quest_set_slot, "qst_armenian_kingdom_quest_2", slot_quest_expiration_days, 30),
+(setup_quest_text, "qst_armenian_kingdom_quest_2"),
+(str_store_string, s2, "@{s10} asked you to pledge allegiance to {s11}."),
+(call_script, "script_start_quest", "qst_armenian_kingdom_quest_2", "trp_armenian_agitator"),
+]],
+
+[anyone|plyr, "armenian_kingdom_quest_setup2",[
+(eq, "$players_kingdom", "fac_kingdom_31"),
+(eq, "$player_has_homage", 1),
+],"I am already a vassal of {s11}.", "armenian_kingdom_quest_setup2_done_already",[
+(call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 1),
+]],
+
+[anyone, "armenian_kingdom_quest_setup2_done_already",[],"Oh, really? Well that's great.", "close_window",[]],
+
+[anyone|plyr, "armenian_kingdom_quest_setup2",[],"I am not interested. Farewell.", "close_window",[
+(call_script, "script_change_player_relation_with_troop", "$g_talk_troop", -10),
+]],
+
 
 [anyone|plyr, "generic_player_meet_troop",[
 (troop_is_hero, "$g_talk_troop"),

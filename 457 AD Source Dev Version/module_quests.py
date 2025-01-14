@@ -599,6 +599,7 @@ quests = [
  ("jewish_riot_meet", "Meet {s10} in {s11}", 0, "{!}."), 
  ("armenian_riot_meet", "Meet {s10} in {s11}", 0, "{!}."), 
  ("armenian_kingdom_quest_1", "Meet {s10} in {s11}", 0, "{!}."), 
+ ("armenian_kingdom_quest_2", "Become a vassal of {s11}", 0, "{!}."), 
  ("quests_end", "Quests End", 0, "{!}."),
 
 #madsci VC sea battles these are not actual quests

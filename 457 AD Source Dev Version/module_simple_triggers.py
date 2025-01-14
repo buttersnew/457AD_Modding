@@ -2078,6 +2078,17 @@ simple_triggers = [
 (neq, ":party_faction", "fac_kingdom_31"),
 (call_script, "script_cancel_quest", "qst_armenian_kingdom_quest_1"),
 (try_end),
+(try_begin),
+(check_quest_active, "qst_armenian_kingdom_quest_2"),
+(faction_slot_eq, "fac_kingdom_31", slot_faction_state, sfs_defeated),
+(call_script, "script_cancel_quest", "qst_armenian_kingdom_quest_2"),
+(try_end),
+(try_begin),
+(check_quest_active, "qst_armenian_kingdom_quest_2"),
+(eq, "$players_kingdom", "fac_kingdom_31"),
+(call_script, "script_succeed_quest", "qst_armenian_kingdom_quest_2"),
+(call_script, "script_finish_quest", "qst_armenian_kingdom_quest_2", 100),
+(try_end),
     ]),
 
 
@@ -2587,9 +2598,10 @@ simple_triggers = [
    (32,
    [
 	(eq, "$freelancer_state", 0), #madsci
-     (eq, "$players_kingdom", 0),
-     (le, "$g_invite_faction", 0),
-     (eq, "$g_player_is_captive", 0),
+     	(eq, "$players_kingdom", 0),
+     	(le, "$g_invite_faction", 0),
+     	(eq, "$g_player_is_captive", 0),
+	(neg|check_quest_active, "qst_armenian_kingdom_quest_2"),
 	 ##diplomacy start+ Use script for gender
 	 #(troop_get_type, ":type", "trp_player"),
 	 (assign, ":type", "$character_gender"),#<-- this should have been set correctly during character creation

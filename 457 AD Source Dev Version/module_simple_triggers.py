@@ -7755,10 +7755,14 @@ simple_triggers = [
   #random events
   (24 * 4, #every 4 days - 50% chance of an event
     [ 
+	(map_free),
 	(eq, "$freelancer_state", 0), #not freelancing
 	(eq, "$g_infinite_camping", 0),
 	(neq, "$g_player_is_captive", 1),
-	(map_free),
+	(party_get_current_terrain, ":terrain", "p_main_party"),
+	(neq, ":terrain", rt_river),
+	(neq, ":terrain", rt_water),
+	(neq, ":terrain", rt_deep_water),
 	(store_random_in_range, ":rnd", 0, 5),
 	(eq, ":rnd", 1),
       
@@ -7788,7 +7792,6 @@ simple_triggers = [
           (party_get_current_terrain, ":terrain", "p_main_party"), #cannot happen in the desert
           (neq, ":terrain", rt_desert),
           (neq, ":terrain", rt_desert_forest),
-	(neq, ":terrain", rt_deep_water),
 	(troops_can_join, 3), #madsci
           (jump_to_menu,"mnu_event_03"),
         (else_try),

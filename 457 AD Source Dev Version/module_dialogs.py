@@ -54814,7 +54814,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
 ],"I will reveal my plan in time. But first I need you to formally pledge allegiance to {s11}.", "armenian_kingdom_quest_setup2",[]],
 
 [anyone|plyr, "armenian_kingdom_quest_setup2",[
-(neq, "$players_kingdom", "fac_kingdom_31"),],"Of course. I will talk to {s11}.", "armenian_kingdom_quest_setup2_accept",[
+(neg|is_between, "$players_kingdom", kingdoms_begin, kingdoms_end),],"Of course. I will talk to {s11}.", "armenian_kingdom_quest_setup2_accept",[
 (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 1),
 ]],
 
@@ -54830,13 +54830,20 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
 ]],
 
 [anyone|plyr, "armenian_kingdom_quest_setup2",[
-(eq, "$players_kingdom", "fac_kingdom_31"),
+(is_between, "$players_kingdom", npc_kingdoms_begin, npc_kingdoms_end),
 (eq, "$player_has_homage", 1),
-],"I am already a vassal of {s11}.", "armenian_kingdom_quest_setup2_done_already",[
+(str_store_faction_name, s12, "$players_kingdom"),
+],"I am already a vassal of {s12}.", "armenian_kingdom_quest_setup2_done_already",[]],
+
+[anyone, "armenian_kingdom_quest_setup2_done_already",[
+(eq, "$players_kingdom", "fac_kingdom_31"),
+],"Oh, really? That's great news.", "close_window",[
 (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 1),
 ]],
 
-[anyone, "armenian_kingdom_quest_setup2_done_already",[],"Oh, really? Well that's great.", "close_window",[]],
+[anyone, "armenian_kingdom_quest_setup2_done_already",[],"Oh, really? How disappointing...", "close_window",[
+(call_script, "script_change_player_relation_with_troop", "$g_talk_troop", -1),
+]],
 
 [anyone|plyr, "armenian_kingdom_quest_setup2",[],"I am not interested. Farewell.", "close_window",[
 (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", -10),

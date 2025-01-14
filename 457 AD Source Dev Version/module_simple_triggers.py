@@ -7215,11 +7215,15 @@ simple_triggers = [
 	(try_begin),
 	(store_faction_of_party, ":castle_faction", "p_castle_48"),
 	(eq, ":castle_faction", ":party_faction"),
+	(party_slot_eq, "p_castle_48", slot_center_is_besieged_by, -1), #center not under siege
+	(neg|party_slot_eq, "p_castle_48", slot_town_lord, "trp_player"), #center does not belong to player.
 	(call_script, "script_give_center_to_faction", "p_castle_48", "fac_kingdom_31"),
 	(try_end),
 	(try_begin),
 	(store_faction_of_party, ":castle_faction", "p_castle_54"),
 	(eq, ":castle_faction", ":party_faction"),
+	(party_slot_eq, "p_castle_54", slot_center_is_besieged_by, -1), #center not under siege
+	(neg|party_slot_eq, "p_castle_54", slot_town_lord, "trp_player"), #center does not belong to player.
 	(call_script, "script_give_center_to_faction", "p_castle_54", "fac_kingdom_31"),
 	(try_end),
 (set_spawn_radius, 1),
@@ -7242,6 +7246,7 @@ simple_triggers = [
 	(try_begin), #jewish rebellion if player isnt involved
 	(eq, "$jewish_rebellion", 0),
 	(gt, "$total_days_passed", 250),
+	(party_slot_eq, "p_town_22", slot_center_is_besieged_by, -1),
 	(store_faction_of_party, ":faction", "p_town_22"),
 	(this_or_next|eq, ":faction", "fac_kingdom_2"),
 	(eq, ":faction", "fac_kingdom_1"),
@@ -7255,7 +7260,6 @@ simple_triggers = [
 		(eq, ":faction", "$players_kingdom"),
 		(call_script, "script_set_player_relation_with_faction", "fac_samaritan_rebels", -50),
 		(try_end),
-	(party_slot_eq, "p_town_22", slot_center_is_besieged_by, -1),
  	(set_spawn_radius, 0),
 	(spawn_around_party, "p_main_party", "pt_rebel_army"),
 	(assign, ":rebel_army", reg0),

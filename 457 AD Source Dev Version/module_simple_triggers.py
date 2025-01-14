@@ -639,52 +639,6 @@ simple_triggers = [
     (assign, reg0, ":save_reg0"),
 ]),
 
-#Party AI: pruning some of the prisoners in each center (once a week)
-  (24.0*7.0/(number_of_walled_centers),
-   [
-   #SB : save g_talk_troop
-       (assign, ":save_talk_troop", "$g_talk_troop"),
-       (assign, "$g_talk_troop", ransom_brokers_begin), #to get the right price
-       (store_random_in_range, ":center_no", walled_centers_begin, walled_centers_end),
-       
-       (try_begin),
-         (party_get_num_prisoner_stacks, ":num_prisoner_stacks",":center_no"),
-         (try_for_range_backwards, ":stack_no", 0, ":num_prisoner_stacks"),
-           (party_prisoner_stack_get_troop_id, ":stack_troop",":center_no",":stack_no"),
-           (neg|troop_is_hero, ":stack_troop"),
-           (party_prisoner_stack_get_size, ":stack_size",":center_no",":stack_no"),
-           (store_random_in_range, ":rand_no", 0, 40),
-           (val_mul, ":stack_size", ":rand_no"),
-           (val_div, ":stack_size", 100),
-           (party_remove_prisoners, ":center_no", ":stack_troop", ":stack_size"),
-		   ##diplomacy start+ add prisoner value to center wealth
-		   (try_begin),
-		      (ge, "$g_dplmc_gold_changes", DPLMC_GOLD_CHANGES_HIGH),#must be explicitly enabled
-			  (ge, ":center_no", 1),
-			  (this_or_next|party_slot_eq, ":center_no", slot_party_type, spt_town),
-				(party_slot_eq, ":center_no", slot_party_type, spt_castle),
-			  (party_slot_ge, ":center_no", slot_town_lord, 1),#"wealth" isn't used for player garrisons
-			  (party_get_slot, ":cur_wealth", ":center_no", slot_town_wealth),
-			  (lt, ":cur_wealth", 6000),
-              #SB : calculate real prisoner price
-              (call_script, "script_game_get_prisoner_price", ":stack_troop"),
-			  (store_mul, ":ransom_profits", ":stack_size", reg0),#a fraction of what it could be sold for (50 would be a rule of thumb)
-              (val_div, ":ransom_profits", 10),
-              #SB : ransom broker doubles profit
-              (try_begin),
-                (party_slot_ge, ":center_no", slot_center_ransom_broker, ransom_brokers_begin),
-                (val_mul, ":ransom_profits", 5),
-                (val_div, ":ransom_profits", 2),
-              (try_end),
-			  (val_add, ":cur_wealth", ":ransom_profits"),
-			  (party_set_slot, ":center_no", slot_town_wealth, ":cur_wealth"),
-		   (try_end),
-		   ##diplomacy end+
-         (try_end),
-       (try_end),
-       (assign, "$g_talk_troop", ":save_talk_troop"),
-    ]),
-
   #Adding net incomes to heroes (once a week)
   #Increasing debts to heroes by 1% (once a week)
   (24*7.0/(number_of_active_npcs),
@@ -841,117 +795,9 @@ simple_triggers = [
 #hire men to towns and castles
 (24.0/(number_of_walled_centers), [#24h on average
       (store_random_in_range, ":center_no", walled_centers_begin, walled_centers_end),
-       # (neg|party_slot_eq, ":center_no", slot_town_lord, "trp_player"), #center does not belong to player.
-       #SB : useless condition
-        (party_slot_ge, ":center_no", slot_town_lord, active_npcs_begin), #center belongs to someone.
-        (party_slot_eq, ":center_no", slot_center_is_besieged_by, -1), #center not under siege
+       (call_script, "script_prune_prisoners", ":center_no"),
+       (call_script, "script_hire_men_to_center", ":center_no"),
 
-        (store_faction_of_party, ":center_faction", ":center_no"),
-        ##diplomacy end+
-        
-        (try_begin),
-          (this_or_next|eq, ":center_faction", "fac_player_supporters_faction"),
-          (eq, ":center_faction", "$players_kingdom"),
-          (assign, ":reinforcement_cost", reinforcement_cost_moderate),
-          (assign, ":num_hiring_rounds", 1),#player's center is already excluded
-        (else_try),
-          (game_get_reduce_campaign_ai, ":reduce_campaign_ai"),
-          (assign, ":reinforcement_cost", reinforcement_cost_moderate),
-          (try_begin),
-            (eq, ":reduce_campaign_ai", 0), #hard (1x or 2x reinforcing)
-            (assign, ":reinforcement_cost", reinforcement_cost_hard),
-            (store_random_in_range, ":num_hiring_rounds", 0, 2),
-            (val_add, ":num_hiring_rounds", 1),
-          (else_try),
-            (eq, ":reduce_campaign_ai", 1), #moderate (1x reinforcing)
-            (assign, ":reinforcement_cost", reinforcement_cost_moderate),
-            (assign, ":num_hiring_rounds", 1),
-          (else_try),
-            (eq, ":reduce_campaign_ai", 2), #easy (none or 1x reinforcing)
-            (assign, ":reinforcement_cost", reinforcement_cost_easy),
-            (store_random_in_range, ":num_hiring_rounds", 0, 2),
-          (try_end),
-        (try_end),
-
-        (try_begin),
-          (gt, "$g_king_start", 0),
-          (this_or_next|eq, ":center_faction", "fac_player_faction"),
-          (eq, ":center_faction", "fac_player_supporters_faction"),
-          (is_between, "$g_player_culture", npc_kingdoms_begin, npc_kingdoms_end),
-          (assign, ":center_faction", "$g_player_culture"),
-        (try_end),
-
-        #SB : initial budget to top
-        (party_get_slot, ":cur_wealth", ":center_no", slot_town_wealth),
-
-        (faction_get_slot, ":pt_a", ":center_faction", slot_faction_reinforcements_a),
-        (faction_get_slot, ":pt_b", ":center_faction", slot_faction_reinforcements_b),
-        (faction_get_slot, ":pt_c", ":center_faction", slot_faction_reinforcements_c),
-        # do village reinforcement loops
-        (try_for_range, ":village_reinforcements", villages_begin, villages_end),
-          
-          (gt, ":num_hiring_rounds", 0),
-          (party_slot_eq, ":village_reinforcements", slot_village_state, svs_normal), ## Not if the village is being raided or is looted
-          (party_slot_eq, ":village_reinforcements", slot_village_bound_center, ":center_no"),
-          (store_div, ":hiring_budget", ":cur_wealth", 2),
-          (gt, ":hiring_budget", ":reinforcement_cost"),
-          
-          (party_get_slot, ":result", ":village_reinforcements", slot_village_reinforcement_party),
-          (try_begin), #inactive, etc
-            (this_or_next|le, ":result", 0),
-            (neg|party_is_active, ":result"),
-            (spawn_around_party, ":village_reinforcements", "pt_center_reinforcements"),
-            (assign, ":result", reg0),
-          (try_end),
-
-          (store_random_in_range, ":rand", 0, 100),
-          (try_begin),
-            (is_between, ":center_faction", kingdoms_begin, kingdoms_end),
-            (faction_get_slot, ":dplmc_quality", ":center_faction", dplmc_slot_faction_quality),
-            (val_clamp, ":dplmc_quality", -3, 4),
-            (val_add, ":rand", ":dplmc_quality"),
-          (try_end),
-                   
-          (try_begin),
-            (lt, ":rand", 65),
-		(gt, ":pt_a", 0),
-            (party_add_template, ":result", ":pt_a"),
-          (else_try),
-            (lt, ":rand", 100),
-		(gt, ":pt_b", 0),
-            (party_add_template, ":result", ":pt_b"),
-          (else_try), #small chance based on faction quality
-		(gt, ":pt_c", 0),
-            (party_add_template, ":result", ":pt_c"),
-	(else_try),
-            (party_add_members, ":result", "trp_manhunter", 15), #madsci failsafe if no valid template is found
-          (try_end),
-          #one reinforcement per village at a time
-          (try_begin), #a new party
-            (neg|party_slot_eq, ":village_reinforcements", slot_village_reinforcement_party, ":result"),
-            (party_set_faction, ":result", ":center_faction"),
-            (party_set_slot, ":result", slot_party_type, spt_reinforcement),
-            (party_set_slot, ":result", slot_party_ai_object, ":center_no"),
-            (party_set_slot, ":result", slot_party_home_center, ":village_reinforcements"),
-            (party_set_slot, ":village_reinforcements", slot_village_reinforcement_party, ":result"),
-            (str_store_party_name, s5, ":village_reinforcements"),
-            (party_set_name, ":result", "str_s5_reinf"),
-            (party_set_ai_behavior,":result", ai_bhvr_travel_to_party),
-            (party_set_ai_object,":result", ":center_no"),
-            (party_set_flags, ":result", pf_default_behavior, 1),
-          (try_end),
-          (val_sub, ":cur_wealth", ":reinforcement_cost"),
-          (val_sub, ":num_hiring_rounds", 1),
-        (try_end),
-        (try_for_range, ":unused", 0, ":num_hiring_rounds"),
-          (store_div, ":hiring_budget", ":cur_wealth", 2),
-          (gt, ":hiring_budget", ":reinforcement_cost"),
-          (call_script, "script_cf_reinforce_party", ":center_no"),
-          (val_sub, ":cur_wealth", ":reinforcement_cost"),
-          (party_set_slot, ":center_no", slot_town_wealth, ":cur_wealth"),
-        (try_end),
-       #SB : move to bottom
-        (party_set_slot, ":center_no", slot_town_wealth, ":cur_wealth"),
 ]),
 
   #Checking if the troops are resting at a half payment point
@@ -7908,10 +7754,13 @@ simple_triggers = [
 
   #random events
   (24 * 4, #every 4 days - 50% chance of an event
-    [ (eq, "$enlisted_party", -1),#not freelancing
-      (map_free),
-      (neq, "$g_player_is_captive", 1),
-      (neg|troop_slot_ge, "trp_player", slot_troop_prisoner_of_party, 0),
+    [ 
+	(eq, "$freelancer_state", 0), #not freelancing
+	(eq, "$g_infinite_camping", 0),
+	(neq, "$g_player_is_captive", 1),
+	(map_free),
+	(store_random_in_range, ":rnd", 0, 5),
+	(eq, ":rnd", 1),
       
       (troop_get_slot, ":player_renown", "trp_player", slot_troop_renown),
       (party_get_num_companion_stacks, ":num_stacks","p_main_party"),
@@ -7939,6 +7788,8 @@ simple_triggers = [
           (party_get_current_terrain, ":terrain", "p_main_party"), #cannot happen in the desert
           (neq, ":terrain", rt_desert),
           (neq, ":terrain", rt_desert_forest),
+	(neq, ":terrain", rt_deep_water),
+	(troops_can_join, 3), #madsci
           (jump_to_menu,"mnu_event_03"),
         (else_try),
           (eq, ":rand", 3),
@@ -7982,6 +7833,7 @@ simple_triggers = [
           (jump_to_menu,"mnu_event_14"),
         (else_try),
           (eq, ":rand", 14),
+	(troops_can_join, 6), #madsci
           (jump_to_menu,"mnu_event_15"),
         (else_try),
           (eq, ":rand", 15),
@@ -8000,6 +7852,7 @@ simple_triggers = [
           (jump_to_menu,"mnu_event_20"),
         (else_try),
           (eq, ":rand", 20),
+	(troops_can_join, 3), #madsci
           (jump_to_menu,"mnu_event_21"),
         (else_try),
           (eq, ":rand", 21),

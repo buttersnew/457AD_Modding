@@ -240,15 +240,15 @@ slot_faction_tributary_of	            = 100
 
 #diplomacy
 slot_faction_truce_days_with_factions_begin             = 820
-slot_faction_provocation_days_with_factions_begin         = 870 #50 more than before, because we have 32 kingdoms
-slot_faction_war_damage_inflicted_on_factions_begin     = 920 #50 more than before, because we have 32 kingdoms
-slot_faction_sum_advice_about_factions_begin             = 970 #50 more than before, because we have 32 kingdoms
+slot_faction_provocation_days_with_factions_begin         = 920 #50 more than before, because we have 32 kingdoms
+slot_faction_war_damage_inflicted_on_factions_begin     = 1020 #50 more than before, because we have 32 kingdoms
+slot_faction_sum_advice_about_factions_begin             = 1120 #50 more than before, because we have 32 kingdoms
 ##diplomacy start+ end-points for the ranges for iteration and range checks
 slot_faction_truce_days_with_factions_end 			= slot_faction_provocation_days_with_factions_begin
 slot_faction_provocation_days_with_factions_end 		= slot_faction_war_damage_inflicted_on_factions_begin
 slot_faction_war_damage_inflicted_on_factions_end 	= slot_faction_sum_advice_about_factions_begin
-slot_faction_sum_advice_about_factions_end            = 1020
-slot_faction_neighbors_begin    = 1070    #MOTO chief avoid center2 loop by storing results
+slot_faction_sum_advice_about_factions_end            = 1220
+slot_faction_neighbors_begin    = 1320    #MOTO chief avoid center2 loop by storing results
 ##diplomacy end+
 
 slot_faction_player_tributary               = 299
@@ -1312,9 +1312,9 @@ slot_troop_will_join_prison_break      = 161
 #SB : 193 for npc as of 1.168
 troop_slots_reserved_for_relations_start        = 165 #this is based on id_troops, and might change
 
-slot_troop_embedded_party = 1100
-slot_faction_days_survived = 1249
-slot_troop_relations_begin = 1250
+slot_troop_embedded_party = 1400
+slot_faction_days_survived = 1449
+slot_troop_relations_begin = 1450
 
 ########################################################
 ##  PLAYER SLOTS           #############################

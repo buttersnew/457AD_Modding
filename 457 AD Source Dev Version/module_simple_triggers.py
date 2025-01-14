@@ -747,36 +747,32 @@ simple_triggers = [
        (party_slot_eq, ":cur_attached_party", slot_center_is_besieged_by, -1), #center not under siege
 
        (store_faction_of_party, ":party_faction", ":party_no"),
-       (try_begin),
-         (this_or_next|eq, ":party_faction", "fac_player_supporters_faction"),
-         (eq, ":party_faction", "$players_kingdom"),
-         (assign, ":num_hiring_rounds", 1),
-         (store_random_in_range, ":random_value", 0, 2),
-         (val_add, ":num_hiring_rounds", ":random_value"),
-       (else_try),
+	(try_begin),
+	(this_or_next|eq, ":party_faction", "fac_player_supporters_faction"),
+	(eq, ":party_faction", "$players_kingdom"),
+	(store_random_in_range, ":num_hiring_rounds", 1, 3),
+	(else_try),
          (game_get_reduce_campaign_ai, ":reduce_campaign_ai"),
-         (try_begin),
-           (eq, ":reduce_campaign_ai", 0), #hard (2x reinforcing)
-           (assign, ":num_hiring_rounds", 2),
-         (else_try),
-           (eq, ":reduce_campaign_ai", 1), #medium (1x or 2x reinforcing)
-           (assign, ":num_hiring_rounds", 1),
-           (store_random_in_range, ":random_value", 0, 2),
-           (val_add, ":num_hiring_rounds", ":random_value"),
-         (else_try),
-           (eq, ":reduce_campaign_ai", 2), #easy (1x reinforcing)
-           (assign, ":num_hiring_rounds", 1),
-         (try_end),
-       (try_end),
+		(try_begin),
+		(eq, ":reduce_campaign_ai", 0), #hard (2x reinforcing)
+		(assign, ":num_hiring_rounds", 2),
+		(else_try),
+		(eq, ":reduce_campaign_ai", 1), #medium (1x or 2x reinforcing)
+		(store_random_in_range, ":num_hiring_rounds", 1, 3),
+		(else_try),
+		(eq, ":reduce_campaign_ai", 2), #easy (1x reinforcing)
+		(assign, ":num_hiring_rounds", 1),
+		(try_end),
+	(try_end),
 
        (try_begin),
          (faction_slot_eq,  ":party_faction", slot_faction_marshall, "$g_hire_troops_and_controversy"),
          (val_add, ":num_hiring_rounds", 1),
        (try_end),
 
-       (try_for_range, ":unused", 0, ":num_hiring_rounds"),
-         (call_script, "script_hire_men_to_kingdom_hero_party", "$g_hire_troops_and_controversy"), #Hiring men with current wealth
-       (try_end),
+	(try_for_range, ":unused", 0, ":num_hiring_rounds"),
+	(call_script, "script_hire_men_to_kingdom_hero_party", "$g_hire_troops_and_controversy"), #Hiring men with current wealth
+	(try_end),
        
         (try_begin),#upgrade troops a bit
             (assign, ":xp_addition_for_party_no", 2500),
@@ -794,10 +790,12 @@ simple_triggers = [
 
 #hire men to towns and castles
 (24.0/(number_of_walled_centers), [#24h on average
-      (store_random_in_range, ":center_no", walled_centers_begin, walled_centers_end),
-       (call_script, "script_prune_prisoners", ":center_no"),
-       (call_script, "script_hire_men_to_center", ":center_no"),
-
+	(try_begin),
+	(neg|is_between, "$center_to_check", walled_centers_begin, walled_centers_end),
+	(assign, "$center_to_check", walled_centers_begin),
+	(try_end),
+(call_script, "script_prune_prisoners", "$center_to_check"),
+(call_script, "script_hire_men_to_center", "$center_to_check"),
 ]),
 
   #Checking if the troops are resting at a half payment point

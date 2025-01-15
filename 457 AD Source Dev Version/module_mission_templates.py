@@ -23330,7 +23330,7 @@ convert_horse_props_to_living_horses,
         [
           (try_begin),
             (main_hero_fallen),
-            (display_message, "@You have lost the battle against the cynocephali. They think you're dead...",color_good_news),
+            (display_message, "@You have lost the battle against the Cynocephali. They think you're dead...",color_good_news),
             (call_script, "script_change_troop_renown", "trp_player", -10),
             (call_script, "script_fail_quest", "qst_the_wolfmen"),
             (disable_party, "p_wolfmen_lair"),
@@ -23339,7 +23339,7 @@ convert_horse_props_to_living_horses,
             (change_screen_return),
           (else_try),
             (tutorial_message_set_background, 1),
-            (tutorial_message,"@You have defeated the ferocious cynocephali, and now whatever valuables they have are yours for the taking..."),
+            (tutorial_message,"@You have defeated the ferocious Cynocephali, and now whatever valuables they have are yours for the taking..."),
             (call_script, "script_troop_add_gold", "trp_player", 850),
             (call_script, "script_end_quest", "qst_the_wolfmen"),
             (call_script, "script_change_troop_renown", "trp_player", 50),
@@ -23457,6 +23457,7 @@ convert_horse_props_to_living_horses,
     custom_commander_critical_strike,
 ###TO BULLY RETARTED CHEATERS
     (0, 0, 0, [
+	(eq, 1, 0), #madsci need to cheat to test
     (this_or_next|key_is_down, key_left_alt),
     (key_is_down, key_right_alt),
     (key_is_down, key_f4),
@@ -23477,6 +23478,7 @@ convert_horse_props_to_living_horses,
     ]),
 ###TO BULLY RETARDED CHEATERS
     (0, 0, 0, [
+	(eq, 1, 0), #madsci need to cheat to test
     (this_or_next|key_is_down, key_left_control),
     (key_is_down, key_right_control),
     (key_is_down, key_h),

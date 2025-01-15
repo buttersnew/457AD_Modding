@@ -26717,7 +26717,13 @@ goods, and books will never be sold. ^^You can change some settings here freely.
   ("wolfmen_duel",0,
     "After a few hours of rest, you are given your arms and armor back. After arming yourself, you approach the old shaman. He steps aside and summons an old, strong warrior to come forth. His gaze is feirce, almost as if he is a beast gazing on its prey. He draws his sword, and points it towards you. You have just the time to draw your blade as well that the warrior will begin charging at you. The duel has begun!",
     "none",
-    [],
+    [
+          (set_fixed_point_multiplier, 100),
+          (position_set_x, pos0, 70),
+          (position_set_y, pos0, 5),
+          (position_set_z, pos0, 75),
+          (set_game_menu_tableau_mesh, "tableau_troop_note_mesh", "trp_cynocephalus_boss", pos0),
+],
     [
 
     ("continue",[],"Fight!",[
@@ -26736,7 +26742,14 @@ goods, and books will never be sold. ^^You can change some settings here freely.
   ("wolfmen_duel_won",0,
     "The fight was tough but you finally manage to beat the champion. The moment you can strike the final blow you have to decide if to spare the warrior or kill him. Everyone's yelling at you 'DEATH DEATH DEATH!', but what does your soul tell you?",
     "none",
-    [],
+    [
+          (set_fixed_point_multiplier, 100),
+          (position_set_x, pos0, 70),
+          (position_set_y, pos0, 5),
+          (position_set_z, pos0, 75),
+          (set_game_menu_tableau_mesh, "tableau_troop_note_mesh", "trp_cynocephalus_boss", pos0),
+	(call_script, "script_play_victorious_sound"),
+],
     [
      ("choice_1",[],"Kill him!",[
       (call_script, "script_change_troop_renown", "trp_player", 10),
@@ -26801,7 +26814,13 @@ goods, and books will never be sold. ^^You can change some settings here freely.
   ("wolfmen_duel_lost",0,
     "The warrior cuts your belly open and leaves you rotting on the ground. Your men rush to save you, some of them luckily were experienced healers and manage you treat you. Once you recover, the cynocephali are gone, nowhere to be found.",
     "none",
-    [],
+    [
+          (set_fixed_point_multiplier, 100),
+          (position_set_x, pos0, 70),
+          (position_set_y, pos0, 5),
+          (position_set_z, pos0, 75),
+          (set_game_menu_tableau_mesh, "tableau_troop_note_mesh", "trp_cynocephalus_boss", pos0),
+],
     [
      ("leave",[],"Leave",[
       (call_script, "script_fail_quest", "qst_the_wolfmen"),
@@ -26865,6 +26884,8 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     [
 
     ("option_1",[],"Join them.",[
+(call_script, "script_get_closest_village", "p_main_party"),
+(call_script, "script_change_player_relation_with_center", reg0, -1),
       (val_sub, "$g_wolf_quest_morality", 1),
 
       (store_current_hours, ":cur_hour"),

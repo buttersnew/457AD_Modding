@@ -1775,7 +1775,7 @@ And if you need explanation of any combat concepts, just ask, and I will do my b
 
 [anyone|plyr, "fighter_talk",
 [],
-"[Leave]", "close_window", []],
+"Farewell.", "close_window", []],
 
 [anyone, "fighter_talk_train_attack",
 [
@@ -3473,7 +3473,7 @@ or you won't be able to hang on to a single man you catch.", "ramun_ask_about_ca
 [anyone,"member_castellan_join", [],
 "And where would we sleep? You're dragging a whole army with you, {playername}, there's no more room for all of us.", "member_castellan_pretalk",[]],
 
-[anyone|plyr,"member_castellan_talk", [], "[Leave]", "close_window",[]],
+[anyone|plyr,"member_castellan_talk", [], "Farewell.", "close_window",[]],
 
 
 [anyone,"start", [(troop_slot_eq,"$g_talk_troop", slot_troop_occupation, slto_player_companion),
@@ -37834,7 +37834,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
 	(call_script, "script_diplomacy_party_attacks_neutral", "p_main_party", "$g_encountered_party"),
     ]],
 
-  [anyone|plyr,"merchant_talk", [], "[Leave]", "close_window",[(assign, "$g_leave_encounter",1)]],
+  [anyone|plyr,"merchant_talk", [], "Farewell.", "close_window",[(assign, "$g_leave_encounter",1)]],
 
 
 
@@ -38125,7 +38125,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
   ], "Where do you think you're going?", "castle_guard_sneaked_intro_1",[]],
 
   [anyone|plyr,"castle_guard_sneaked_intro_1", [], "I want to enter the hall and speak to the lord.", "castle_guard_sneaked_intro_2",[]],
-  [anyone|plyr,"castle_guard_sneaked_intro_1", [], "[Leave]", "close_window",[]],
+  [anyone|plyr,"castle_guard_sneaked_intro_1", [], "Farewell.", "close_window",[]],
   [anyone,"castle_guard_sneaked_intro_2", [
     (eq, "$sneaked_into_town",disguise_pilgrim),
   ], "Are you out of your mind, {man/woman}?\
@@ -38282,7 +38282,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
   [anyone|plyr,"castle_gate_guard_talk", [(party_slot_ge, "$g_encountered_party", slot_town_lord, 1)], "I want to speak with the lord of the castle.", "request_meeting_castle_lord",[]],
   [anyone|plyr,"castle_gate_guard_talk", [], "I want to speak with someone in the castle.", "request_meeting_other",[]],
 
-  [anyone|plyr,"castle_gate_guard_talk", [], "[Leave]", "close_window",[]],
+  [anyone|plyr,"castle_gate_guard_talk", [], "Farewell.", "close_window",[]],
 
   [anyone,"request_meeting_castle_lord", [(party_get_slot, ":castle_lord", "$g_encountered_party", slot_town_lord),
                                          (call_script, "script_get_troop_attached_party", ":castle_lord"),
@@ -40428,7 +40428,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
   ]],
 
 
-  [anyone|plyr,"ransom_broker_talk",[], "Not this time. Good-bye.", "close_window",[]],
+  [anyone|plyr,"ransom_broker_talk",[], "Not this time. Farewell.", "close_window",[]],
   [anyone,"ransom_broker_sell_prisoners", [],
   "Let me see what you have...", "ransom_broker_sell_prisoners_2",
    [[change_screen_trade_prisoners]]],
@@ -41703,7 +41703,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
 "minstrel_pretalk", []],
 
   [anyone|plyr, "minstrel_1", [],
-   "Good-bye.", "close_window", []],
+   "Farewell.", "close_window", []],
 
   [anyone, "minstrel_courtship_questions", [],
    "What do you wish to know?",
@@ -44646,8 +44646,8 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
    [
      (eq, "$talk_context", tc_entering_center_quest_talk),
      ],
-   "Thank you so much for bringing me back!\
-  I can't wait to see my family. Good-bye.",
+   "Thank you so much for bringing me back! "+
+  "I can't wait to see my family. Farewell.",
    "close_window",
    [(remove_member_from_party, "trp_kidnapped_girl"),
     (quest_set_slot, "qst_kidnapped_girl", slot_quest_current_state, 4),
@@ -45718,7 +45718,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
 
 
   [anyone|plyr,"village_elder_talk", [],
-   "[Leave]", "close_window",[]],
+   "Farewell.", "close_window",[]],
 
 
 
@@ -46735,7 +46735,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
   [trp_galeas|plyr,"galeas_talk",
    [[store_num_regular_prisoners,reg(0)],[ge,reg(0),1]],
    "Then you'd better bring your purse. I have got prisoners to sell.", "galeas_sell_prisoners",[]],
-  [trp_galeas|plyr,"galeas_talk",[], "Not this time. Good-bye.", "close_window",[]],
+  [trp_galeas|plyr,"galeas_talk",[], "Not this time. Farewell.", "close_window",[]],
   [trp_galeas,"galeas_sell_prisoners", [],
   "Let me see what you have...", "galeas_sell_prisoners_2",
    [[change_screen_trade_prisoners]]],
@@ -47665,7 +47665,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
   [anyone,"merchant_trade", [], "Anything else?", "town_merchant_talk",[]],
   [anyone|plyr,"town_merchant_talk", [], "Tell me. What are people talking about these days?", "merchant_gossip",[]],
   [anyone,"merchant_gossip", [], "Well, nothing new lately. Prices, weather, the war, the same old things.", "town_merchant_talk",[]],
-  [anyone|plyr,"town_merchant_talk", [], "Good-bye.", "close_window",[]],
+  [anyone|plyr,"town_merchant_talk", [], "Farewell.", "close_window",[]],
 
 
 
@@ -47782,10 +47782,12 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
      ]],
 # Ryan END
 
-  [anyone|plyr,"town_dweller_talk", [(party_slot_eq, "$current_town", slot_party_type, spt_village),
-                                     (eq, "$info_inquired", 0)], "What can you tell me about this village?", "town_dweller_ask_info",[(assign, "$info_inquired", 1)]],
-  [anyone|plyr,"town_dweller_talk", [(party_slot_eq, "$current_town", slot_party_type, spt_town),
-                                     (eq, "$info_inquired", 0)], "What can you tell me about this town?", "town_dweller_ask_info",[(assign, "$info_inquired", 1)]],
+  [anyone|plyr,"town_dweller_talk", [
+(is_between, "$g_encountered_party", villages_begin, villages_end),
+(eq, "$info_inquired", 0)], "What can you tell me about this village?", "town_dweller_ask_info",[(assign, "$info_inquired", 1)]],
+  [anyone|plyr,"town_dweller_talk", [
+(is_between, "$g_encountered_party", towns_begin, towns_end),
+(eq, "$info_inquired", 0)], "What can you tell me about this town?", "town_dweller_ask_info",[(assign, "$info_inquired", 1)]],
 
 
   [anyone,"town_dweller_ask_info", [(str_store_party_name, s5, "$current_town"),
@@ -48054,7 +48056,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
 #MADSCI CITY GUIDES
   [anyone|plyr,"town_dweller_talk", [
 (eq, "$talk_context", tc_town_talk),
-(is_between, "$current_town", centers_begin, centers_end),
+(is_between, "$g_encountered_party", centers_begin, centers_end),
 ], "Can you help me find what I'm looking for?", "town_dweller_ask_directions",[]],
 
   [anyone, "town_dweller_ask_directions", [
@@ -51369,8 +51371,10 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
    "Your initiation begins now. Your warriors will wait in their own camp in the clearance, we shall set them free now. We don't want them to disturb us. In the next days you will learn what it means to be a wolf-warrior.", "close_window", [
    (quest_set_slot,"qst_severinus_quest", slot_quest_current_state, 7),
    (troop_add_item, "trp_player","itm_ranja", 0),
-   (finish_mission),
-   (assign, "$auto_menu", "mnu_wolfmen_initiation_1"),
+   	(finish_mission),
+	(leave_encounter),
+	(assign, "$auto_menu", "mnu_wolfmen_initiation_1"),
+	(jump_to_menu, "mnu_auto_return_to_map"),
    ]],
 
   [trp_berserker_leader, "start", [(check_quest_active, "qst_the_wolfmen"),(quest_slot_eq, "qst_the_wolfmen", slot_quest_current_state, 6)], #player wins duel and is not germanic pagan
@@ -51388,7 +51392,8 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
       (call_script, "script_change_troop_renown", "trp_player", 25),
       (finish_mission),
       (leave_encounter),
-      (change_screen_return),
+      #(change_screen_return),
+	(jump_to_menu, "mnu_auto_return_to_map"),
    ]],
 
   [trp_berserker_leader, "start", [],
@@ -55393,8 +55398,8 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
 ## Floris - Rebellion Option
 ##diplomacy end+
 
-  [anyone|plyr,"free", [[in_meta_mission]], " Good-bye.", "close_window",[]],
-  [anyone|plyr,"free", [[neg|in_meta_mission]], " [Leave]", "close_window",[]],
+  [anyone|plyr,"free", [[in_meta_mission]], "Farewell.", "close_window",[]],
+  [anyone|plyr,"free", [[neg|in_meta_mission]], "Farewell.", "close_window",[]],
 #  [anyone,"free", [], "NO MATCHING SENTENCE!", "close_window",[]],
 
 

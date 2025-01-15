@@ -32762,7 +32762,12 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       (else_try),
           (str_store_string, s20, "@You spot the ruins of Olpia Pontica in the distance."),
       (try_end),
-      (set_background_mesh, "mesh_pic_looted_village"),
+      #(set_background_mesh, "mesh_pic_looted_village"), #madsci this blocks text
+      (set_fixed_point_multiplier, 100),
+      (position_set_x, pos0, 62),
+      (position_set_y, pos0, 30),
+      (position_set_z, pos0, 170),
+      (set_game_menu_tableau_mesh, "tableau_center_note_mesh", "p_ruins_of_oplia_pontica", pos0),
     ],
     [
     ("option_1", [

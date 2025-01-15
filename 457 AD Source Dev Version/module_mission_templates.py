@@ -8216,6 +8216,33 @@ tournament_triggers = [
        ]),
   ] #SB : include horse cull + unarmed_agent_damage?
 
+convert_horse_props_to_living_horses =(0, 0, ti_once, [(mission_tpl_are_all_agents_spawned)],
+       [(try_begin),
+            (neg|is_edit_mode_enabled),
+            (try_for_range, ":horse", all_items_begin, all_items_end),#itp_type_horse
+                (item_get_type, ":type", ":horse"),
+                (this_or_next|eq, ":horse", "itm_animal_horse"),
+                (eq, ":type", itp_type_horse),
+		(assign, ":spawn_horse", ":horse"),
+			(try_begin),
+			(eq, ":horse", "itm_animal_horse"),
+			(assign, ":spawn_horse", "itm_bareback_horse_1"),
+			(try_end),
+                (scene_item_get_num_instances, ":num_instances", ":horse"),
+		(gt, ":num_instances", 0),
+                (try_for_range, ":number", 0, ":num_instances"),
+                    (scene_item_get_instance, ":scene_item", ":horse", ":number"),
+                    (prop_instance_get_position, pos53, ":scene_item"),
+                    (prop_instance_set_scale, ":scene_item", 0, 0, 0),
+                    (set_spawn_position, pos53),
+                    (spawn_horse, ":spawn_horse", 0),#saves the reference to the new agent in reg0
+                    (agent_get_position, pos1, reg0),
+                    (agent_set_scripted_destination, reg0, pos1, 0),            
+                (try_end),
+            (try_end),
+        (try_end),
+      ])
+
 mission_templates = [
   ("town_default",0,-1,
    "Default town visit",[
@@ -8577,6 +8604,7 @@ mission_templates = [
 
         (call_script, "script_neutral_behavior_in_fight"),
       ]),
+convert_horse_props_to_living_horses,
     ] + bodyguard_triggers,
   ),
 
@@ -9247,6 +9275,7 @@ mission_templates = [
 (display_message, "@The uprising has failed."),
 (try_end),
 ]),
+convert_horse_props_to_living_horses,
 
   ] + bodyguard_triggers,
   ),
@@ -9403,6 +9432,7 @@ mission_templates = [
       (call_script, "script_change_player_relation_with_center", "$current_town", -1),
     (try_end),
    ]),
+	convert_horse_props_to_living_horses,
     ] + bodyguard_triggers,
   ),
 
@@ -25828,6 +25858,7 @@ mission_templates = [
         (try_end),
       ],
       []),
+	convert_horse_props_to_living_horses,
     ] + bodyguard_triggers
   ),  
 

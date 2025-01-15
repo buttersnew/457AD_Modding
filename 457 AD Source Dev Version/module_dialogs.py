@@ -2575,7 +2575,7 @@ If you would like to practice your horsemanship, you can take my horse here. The
   [trp_saraguroi_king, "start", [
     (check_quest_active, "qst_ernak_quest"),
     (quest_slot_eq, "qst_ernak_quest", slot_quest_target_saraguroi, 1),],
-   "Welcome, stranger,what brings you to our camp?", "ernak_quest_saraguroi_intro_1", []],
+   "Welcome, stranger. What brings you to our camp?", "ernak_quest_saraguroi_intro_1", []],
   [anyone|plyr, "ernak_quest_saraguroi_intro_1", [],
    "I am a messenger from Ernak. He has sent me to speak with you.", "ernak_quest_saraguroi_intro_2", []],
   [anyone, "ernak_quest_saraguroi_intro_2", [],
@@ -2596,7 +2596,7 @@ If you would like to practice your horsemanship, you can take my horse here. The
    "Good. If you succeed, we will consider your offer. But be warned, we will not join any coalition blindly.",
    "close_window", [
     (quest_set_slot, "qst_ernak_quest", slot_quest_target_saraguroi, 2),
-    (add_quest_note_from_sreg, "qst_ernak_quest", 5, "@Saraguroi task: Find the village of the Lekhs and demand tribute from them.",0),
+    (add_quest_note_from_sreg, "qst_ernak_quest", 5, "@Saraguroi task: Find the village of the Lekhs on the mountains and demand tribute from them.",0),
     (mission_disable_talk),
     (enable_party, "p_village_of_the_lekhs"),
     (finish_mission, 3),

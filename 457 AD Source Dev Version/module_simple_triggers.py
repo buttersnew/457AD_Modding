@@ -1637,6 +1637,16 @@ simple_triggers = [
 (val_add, ":spotting", ":skill"),
 (try_end),
 
+    	(try_begin),
+      	(quest_slot_eq, "qst_ernak_quest", slot_quest_target_onoguroi, 2),
+      	(store_distance_to_party_from_party, ":distance", "p_main_party", "p_camp_of_tatra"),
+      	(lt, ":distance", ":spotting"),
+      	(quest_set_slot, "qst_ernak_quest", slot_quest_target_onoguroi, 3),
+      	(party_set_flags, "p_camp_of_tatra", pf_disabled, 0),
+      	(party_set_flags, "p_camp_of_tatra", pf_always_visible, 1),
+      	(tutorial_box, "@You found the camp of Tatra. Report back to the Onoguroi chief.", "@Camp found!"),
+	(try_end),
+
     	(try_for_parties, ":bandit_camp"),
       	(gt, ":bandit_camp", last_static_party), #madsci
       	(party_get_template_id, ":template", ":bandit_camp"), #SB : fix template range
@@ -1646,15 +1656,6 @@ simple_triggers = [
       		(lt, ":distance", ":spotting"),
       		(party_set_flags, ":bandit_camp", pf_disabled, 0),
       		(party_set_flags, ":bandit_camp", pf_always_visible, 1),
-    		(else_try),
-      		(quest_slot_eq, "qst_ernak_quest", slot_quest_target_onoguroi, 2),
-      		(eq, ":bandit_camp", "p_camp_of_tatra"),
-      		(store_distance_to_party_from_party, ":distance", "p_main_party", ":bandit_camp"),
-      		(lt, ":distance", ":spotting"),
-      		(quest_set_slot, "qst_ernak_quest", slot_quest_target_onoguroi, 3),
-      		(party_set_flags, ":bandit_camp", pf_disabled, 0),
-      		(party_set_flags, ":bandit_camp", pf_always_visible, 1),
-      		(tutorial_box, "@You found the camp of Tatra. Report back to the Onoguroi chief.", "@Camp found!"),
 		(try_end),
     (try_end),
    ]),
@@ -1832,6 +1833,9 @@ simple_triggers = [
 (try_begin),
 (check_quest_active, "qst_ernak_quest"), #cancel this quest if Ernak somehow ends up being unavailable
 (store_troop_faction, ":kingdom_hero_faction", "trp_knight_23_8"),
+(this_or_next|faction_slot_eq, "fac_minor_kutriguroi", slot_faction_state, sfs_defeated),
+(this_or_next|faction_slot_eq, "fac_minor_onoguroi", slot_faction_state, sfs_defeated),
+(this_or_next|faction_slot_eq, "fac_minor_saraguroi", slot_faction_state, sfs_defeated),
 (this_or_next|eq, ":kingdom_hero_faction", "fac_outlaws"),
 (neg|troop_slot_eq, "trp_knight_23_8", slot_troop_occupation, slto_kingdom_hero),
 (call_script, "script_cancel_quest", "qst_ernak_quest"),

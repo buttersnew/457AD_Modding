@@ -25539,6 +25539,8 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       (assign, "$g_paganism_dedication", 1),
       (call_script, "script_change_player_relation_with_faction", "fac_pagans", 5),
       (display_message,"@You have dedicated yourself to the gods within the Germanic pantheon.",0x6495ed),
+	(troop_get_slot, ":player_religion", "trp_player", slot_troop_religion),
+	(call_script, "script_change_player_relation_lords_religion", ":player_religion", 5), #madsci buff relation with lords of same religion
       (change_screen_return),
     ]),
 
@@ -25553,6 +25555,8 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       (assign, "$g_paganism_roman_dedication", 1),
       (call_script, "script_change_player_relation_with_faction", "fac_pagans", 5),
       (display_message,"@You have dedicated yourself to the gods within the Roman pantheon.",0x6495ed),
+	(troop_get_slot, ":player_religion", "trp_player", slot_troop_religion),
+	(call_script, "script_change_player_relation_lords_religion", ":player_religion", 5), #madsci buff relation with lords of same religion
       (change_screen_return),
     ]),
 
@@ -25566,7 +25570,9 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       (val_add, "$piety", 1), #increase in piety
       (assign, "$g_paganism_dedication", 2),
       (call_script, "script_change_player_relation_with_faction", "fac_pagans", 5),
-      (display_message,"@You have dedicated yourself to the gods within the Germanic pantheon.",0x6495ed),
+      (display_message,"@You have dedicated yourself to the gods within the Celtic pantheon.",0x6495ed),
+	(troop_get_slot, ":player_religion", "trp_player", slot_troop_religion),
+	(call_script, "script_change_player_relation_lords_religion", ":player_religion", 5), #madsci buff relation with lords of same religion
       (change_screen_return),
     ]),
 
@@ -25581,6 +25587,8 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       (assign, "$g_paganism_dedication", 3),
       (call_script, "script_change_player_relation_with_faction", "fac_pagans", 5),
       (display_message,"@You have dedicated yourself to the gods within the steppe pantheon.",0x6495ed),
+	(troop_get_slot, ":player_religion", "trp_player", slot_troop_religion),
+	(call_script, "script_change_player_relation_lords_religion", ":player_religion", 5), #madsci buff relation with lords of same religion
       (change_screen_return),
     ]),
 
@@ -25595,6 +25603,8 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       (assign, "$g_paganism_roman_dedication", 2),
       (call_script, "script_change_player_relation_with_faction", "fac_pagans", 5),
       (display_message,"@You have dedicated yourself to the gods within the Aegyptian pantheon.",0x6495ed),
+	(troop_get_slot, ":player_religion", "trp_player", slot_troop_religion),
+	(call_script, "script_change_player_relation_lords_religion", ":player_religion", 5), #madsci buff relation with lords of same religion
       (change_screen_return),
     ]),
       #DEDICATIONS OVER
@@ -25646,6 +25656,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     (try_begin),
       (eq, ":player_religion", ":religion_center"),
       (val_sub, "$piety", 10), #sacking religious locations of your religion will lower piety
+	(call_script, "script_change_player_relation_lords_religion", ":player_religion", -5), #madsci punish relation with lords of same religion
     (else_try),
       (val_add, "$piety", 2), #sacking other religion's locations will give a small boost to piety (ie sword of the faith)
     (try_end),

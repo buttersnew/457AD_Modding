@@ -1888,6 +1888,11 @@ simple_triggers = [
 (neg|party_is_active, ":target"),
 (assign, "$nero_army_spawned", -1),
 (display_log_message, "@Nero has been defeated!"),
+	(try_begin),
+	(check_quest_active, "qst_nero_larper_quest"),
+	(call_script, "script_cancel_quest", "qst_nero_larper_quest"),
+	(quest_set_slot,"qst_nero_larper_quest",slot_quest_current_state, -1),
+	(try_end),
 (try_end),
 
 (try_begin), #water travel event
@@ -7335,6 +7340,8 @@ simple_triggers = [
 (party_slot_eq, "p_town_21", slot_center_is_besieged_by, -1),
 (party_slot_eq,  "p_town_21", slot_town_lord, "trp_knight_2_4"), # belongs to a specific lord
 (store_faction_of_party, ":party_faction", "p_town_21"),
+(neq, ":party_faction", "fac_coptic_rebels"),
+(set_relation, "fac_coptic_rebels", ":party_faction", -50),
 (set_spawn_radius, 8),
 	(try_for_range, ":unused", 1, 6),
 	(spawn_around_party, "p_town_21", "pt_coptic_rebellion"),

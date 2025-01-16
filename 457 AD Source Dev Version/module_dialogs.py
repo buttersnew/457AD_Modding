@@ -4793,12 +4793,13 @@ Still I am sorry that I'll leave you soon. You must promise me, you'll come visi
 [
 (party_force_add_prisoners, "p_main_party", "$g_talk_troop", 1),
 (troop_set_slot, "$g_talk_troop", slot_troop_prisoner_of_party, "p_main_party"),
-(try_begin),
-(check_quest_active,"qst_nero_larper_quest"),
-(call_script, "script_cancel_quest", "qst_nero_larper_quest"),
-(quest_set_slot,"qst_nero_larper_quest",slot_quest_current_state, -1),
-(disable_party, "p_grove_of_nymphs"),
-(try_end),]],
+	(try_begin),
+	(check_quest_active,"qst_nero_larper_quest"),
+	(call_script, "script_cancel_quest", "qst_nero_larper_quest"),
+	(quest_set_slot,"qst_nero_larper_quest",slot_quest_current_state, -1),
+	(disable_party, "p_grove_of_nymphs"),
+	(try_end),
+]],
 
 [anyone, "start",
 [
@@ -16779,11 +16780,10 @@ What kind of recruits do you want?", "dplmc_constable_recruit_select",
 #Morality objections
 [anyone, "event_triggered", [
                (store_conversation_troop, "$map_talk_troop"),
-          (is_between, "$map_talk_troop", companions_begin, companions_end),
+		(is_between, "$map_talk_troop", companions_begin, companions_end),
 
-               (eq, "$map_talk_troop", "$npc_with_grievance"),
-               (eq, "$npc_map_talk_context", slot_troop_morality_state),
-
+		(eq, "$map_talk_troop", "$npc_with_grievance"),
+		(eq, "$npc_map_talk_context", slot_troop_morality_state),
 
                 (try_begin),
                 (eq, "$npc_grievance_slot", slot_troop_morality_state),
@@ -16825,81 +16825,83 @@ What kind of recruits do you want?", "dplmc_constable_recruit_select",
               (troop_set_slot, "$map_talk_troop", slot_troop_morality_penalties, ":grievance"),
     ]],
 
-
-##  [anyone|plyr, "companion_objection_response", [
-##      ],  "I prefer my followers to keep their opinions to themselves.", "close_window", [
-##                    (troop_set_slot, "$map_talk_troop", "$npc_grievance_slot", tms_dismissed),
-##                    (troop_get_slot, ":grievance", "$map_talk_troop", slot_troop_morality_penalties),
-##                    (val_add, ":grievance", 10),
-##                    (troop_set_slot, "$map_talk_troop", slot_troop_morality_penalties, ":grievance"),
-##                    (assign, "$disable_npc_complaints", 1),
-##          ]],
-
-
-
-# Personality clash 2 objections
 [anyone, "event_triggered", [
                (store_conversation_troop, "$map_talk_troop"),
-          (is_between, "$map_talk_troop", companions_begin, companions_end),
+		(is_between, "$map_talk_troop", companions_begin, companions_end),
 
-               (eq, "$map_talk_troop", "$npc_with_personality_clash_2"),
-               (eq, "$npc_map_talk_context", slot_troop_personalityclash2_state),
+		(eq, "$map_talk_troop", "$npc_with_personality_clash_2"),
+		(eq, "$npc_map_talk_context", slot_troop_personalityclash2_state),
 
-               (troop_get_slot, ":speech", "$map_talk_troop", slot_troop_personalityclash2_speech),
-               (troop_get_slot, ":object", "$map_talk_troop", slot_troop_personalityclash2_object),
-               (str_store_troop_name, s11, ":object"),
-               (str_store_string, s5, ":speech"),
+		(troop_get_slot, ":speech", "$map_talk_troop", slot_troop_personalityclash2_speech),
+		(troop_get_slot, ":object", "$map_talk_troop", slot_troop_personalityclash2_object),
+			(try_begin),
+			(gt, ":object", 0),
+			(str_store_troop_name, s11, ":object"),
+			(else_try),
+			(str_store_string, s11, "@This other companion"), #madsci failsafe, if this appears it means that nothing is stored in the slot_troop_personalityclash2_object slot
+			(try_end),
+			(try_begin),
+			(gt, ":speech", 0),
+			(str_store_string, s5, ":speech"),
+			(else_try),
+			(str_store_string, s5, "@I'm not happy about how things are."), #madsci generic line if for some reason no actual line is stored
+			(try_end),
                ],
 "{s5}", "companion_personalityclash2_b", [
-              (assign, "$npc_with_personality_clash_2", 0),
-              (troop_get_slot, ":grievance", "$map_talk_troop", slot_troop_personalityclash_penalties),
-              (val_add, ":grievance", 5),
-              (troop_set_slot, "$map_talk_troop", slot_troop_personalityclash_penalties, ":grievance"),
+		(assign, "$npc_with_personality_clash_2", 0),
+		(troop_get_slot, ":grievance", "$map_talk_troop", slot_troop_personalityclash_penalties),
+		(val_add, ":grievance", 5),
+		(troop_set_slot, "$map_talk_troop", slot_troop_personalityclash_penalties, ":grievance"),
 
-              (troop_get_slot, ":object", "$map_talk_troop", slot_troop_personalityclash2_object),
-         (call_script, "script_troop_change_relation_with_troop", "$map_talk_troop", ":object", -15),
+		(troop_get_slot, ":object", "$map_talk_troop", slot_troop_personalityclash2_object),
+		(try_begin),
+		(gt, ":object", 0),
+		(call_script, "script_troop_change_relation_with_troop", "$map_talk_troop", ":object", -15),
+		(try_end),
  ]],
 
 [anyone, "companion_personalityclash2_b", [
 ],  "{s5}", "companion_personalityclash2_response", [
                (troop_get_slot, ":speech", "$map_talk_troop", slot_troop_personalityclash2_speech_b),
                (troop_get_slot, ":object", "$map_talk_troop", slot_troop_personalityclash2_object),
-               (str_store_troop_name, s11, ":object"),
-               (str_store_string, s5, ":speech"),
+			(try_begin),
+			(gt, ":object", 0),
+			(str_store_troop_name, s11, ":object"),
+			(else_try),
+			(str_store_string, s11, "@This other companion"), #madsci failsafe, if this appears it means that nothing is stored in the slot_troop_personalityclash2_object slot
+			(try_end),
+			(try_begin),
+			(gt, ":speech", 0),
+			(str_store_string, s5, ":speech"),
+			(else_try),
+			(str_store_string, s5, "@I'm not happy about how things are."), #madsci generic line if for some reason no actual line is stored
+			(try_end),
     ]],
 
 
 
 [anyone|plyr, "companion_personalityclash2_response", [
 (troop_get_slot, ":object", "$map_talk_troop", slot_troop_personalityclash2_object),
+(gt, ":object", 0),
 (str_store_troop_name, s11, ":object"),
-##diplomacy start+
-##OLD:
-#(troop_get_type, reg11, ":object"),
-##NEW:
 (assign, reg11, 0),
 (try_begin),
 	(call_script, "script_cf_dplmc_troop_is_female", ":object"),
 	(assign, reg11, 1),
 (try_end),
-##diplomacy end+
 ],  "{s11} is a valuable member of this company. I don't want you picking any more fights with {reg11?her:him}.", "close_window", [
               (troop_set_slot, "$map_talk_troop", slot_troop_personalityclash2_state, pclash_penalty_to_self),
     ]],
 
 [anyone|plyr, "companion_personalityclash2_response", [
 (troop_get_slot, ":object", "$map_talk_troop", slot_troop_personalityclash2_object),
+(gt, ":object", 0),
 (str_store_troop_name, s11, ":object"),
-##diplomacy start+
-##OLD:
-#(troop_get_type, reg11, ":object"),
-##NEW:
 (assign, reg11, 0),
 (try_begin),
 	(call_script, "script_cf_dplmc_troop_is_female", ":object"),
 	(assign, reg11, 1),
 (try_end),
-##diplomacy end+
 ],  "Tell {s11} you have my support in this, and {reg11?she:he} should hold {reg11?her:his} tongue.", "close_window", [
               (troop_set_slot, "$map_talk_troop", slot_troop_personalityclash2_state, pclash_penalty_to_other),
     ]],
@@ -16908,21 +16910,6 @@ What kind of recruits do you want?", "dplmc_constable_recruit_select",
 ],  "I don't have time for your petty dispute. Do not bother me with this again.", "close_window", [
               (troop_set_slot, "$map_talk_troop", slot_troop_personalityclash2_state, pclash_penalty_to_both),
     ]],
-
-
-##  [anyone|plyr, "companion_personalityclash2_response", [
-##      ],  "Your grievance is noted. Now fall back in line.", "close_window", [
-##                    (troop_set_slot, "$map_talk_troop", slot_troop_personalityclash2_state, 1),
-##          ]],
-
-##  [anyone|plyr, "companion_personalityclash2_response", [
-##      ],  "I prefer my followers to keep their opinions to themselves.", "close_window", [
-##                    (troop_set_slot, "$map_talk_troop", slot_troop_personalityclash2_state, 1),
-##                    (assign, "$disable_npc_complaints", 1),
-##          ]],
-
-
-
 
 # Personality clash objections
 
@@ -16935,8 +16922,18 @@ What kind of recruits do you want?", "dplmc_constable_recruit_select",
 
                (troop_get_slot, ":speech", "$map_talk_troop", slot_troop_personalityclash_speech),
                (troop_get_slot, ":object", "$map_talk_troop", slot_troop_personalityclash_object),
-               (str_store_troop_name, 11, ":object"),
-               (str_store_string, 5, ":speech"),
+			(try_begin),
+			(gt, ":object", 0),
+			(str_store_troop_name, s11, ":object"),
+			(else_try),
+			(str_store_string, s11, "@This other companion"), #madsci failsafe, if this appears it means that nothing is stored in the slot_troop_personalityclash2_object slot
+			(try_end),
+			(try_begin),
+			(gt, ":speech", 0),
+			(str_store_string, s5, ":speech"),
+			(else_try),
+			(str_store_string, s5, "@I'm not happy about how things are."), #madsci generic line if for some reason no actual line is stored
+			(try_end),
                ],
 "{s5}", "companion_personalityclash_b", [
               (assign, "$npc_with_personality_clash", 0),
@@ -16945,7 +16942,10 @@ What kind of recruits do you want?", "dplmc_constable_recruit_select",
               (troop_set_slot, "$map_talk_troop", slot_troop_personalityclash_penalties, ":grievance"),
 
               (troop_get_slot, ":object", "$map_talk_troop", slot_troop_personalityclash_object),
+	(try_begin),
+	(gt, ":object", 0),
          (call_script, "script_troop_change_relation_with_troop", "$map_talk_troop", ":object", -15),
+	(try_end),
 
  ]],
 
@@ -16953,8 +16953,18 @@ What kind of recruits do you want?", "dplmc_constable_recruit_select",
 ],  "{s5}", "companion_personalityclash_response", [
                (troop_get_slot, ":speech", "$map_talk_troop", slot_troop_personalityclash_speech_b),
                (troop_get_slot, ":object", "$map_talk_troop", slot_troop_personalityclash_object),
-               (str_store_troop_name, 11, ":object"),
-               (str_store_string, 5, ":speech"),
+			(try_begin),
+			(gt, ":object", 0),
+			(str_store_troop_name, s11, ":object"),
+			(else_try),
+			(str_store_string, s11, "@This other companion"), #madsci failsafe, if this appears it means that nothing is stored in the slot_troop_personalityclash2_object slot
+			(try_end),
+			(try_begin),
+			(gt, ":speech", 0),
+			(str_store_string, s5, ":speech"),
+			(else_try),
+			(str_store_string, s5, "@I'm not happy about how things are."), #madsci generic line if for some reason no actual line is stored
+			(try_end),
     ]],
 
 [anyone|plyr, "companion_personalityclash_response", [
@@ -17048,14 +17058,6 @@ What kind of recruits do you want?", "dplmc_constable_recruit_select",
               (troop_set_slot, "$map_talk_troop", slot_troop_personalitymatch_state, 1),
 
          ]],
-
-
-
-##  [anyone|plyr, "companion_personalitymatch_response", [
-##      ],  "I prefer my followers to keep their opinions to themselves.", "close_window", [
-##                    (troop_set_slot, "$map_talk_troop", slot_troop_personalitymatch_state, 1),
-##                    (assign, "$disable_npc_complaints", 1),
-##          ]],
 
 [anyone, "event_triggered", [
                (eq, "$npc_map_talk_context", slot_troop_woman_to_woman_string),

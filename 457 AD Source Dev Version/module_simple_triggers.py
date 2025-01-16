@@ -7413,21 +7413,47 @@ simple_triggers = [
 
 (24 * 7,
    [
-    (eq, "$g_player_owns_farm", 1),
-    (assign, "$g_earnings", 0), #resets earnings
-    (store_random_in_range, "$g_earnings", 300, 450),
-    	(try_begin),
-	(party_get_num_prisoners, "$g_num_prisoners", "p_diocletians_palace"),
-        (gt, "$g_num_prisoners", 0),
-	(store_mul, ":earnings", 25, "$g_num_prisoners"), #tocan: change this to amount per prisoner you want
-	(val_add, "$g_earnings", ":earnings"),
-	(assign, reg1, "$g_earnings"),
-	(call_script, "script_remove_hero_prisoners", "p_diocletians_palace"), #madsci dont let the player put lords here forever
-    	(try_end),
-    (display_message, "@Your farm has made a profit of {reg1} siliquae this week"),
-    (troop_add_gold, "trp_player", "$g_earnings"),
-    (play_sound, "snd_money_received", 0),
-    #(jump_to_menu,"mnu_slave_labor"),
+    	(eq, "$g_player_owns_farm", 1),
+    	(assign, "$g_earnings", 0), #resets earnings
+    	(store_random_in_range, "$g_earnings", 300, 450),
+	(party_get_num_prisoners, ":g_num_prisoners", "p_diocletians_palace"),
+
+    		(try_begin),
+        	(gt, ":g_num_prisoners", 0),
+		(store_mul, ":earnings", 25, ":g_num_prisoners"), #tocan: change this to amount per prisoner you want
+		(val_add, "$g_earnings", ":earnings"),
+		(assign, reg1, "$g_earnings"),
+    		(try_end),
+
+    	(display_message, "@Your farm has made a profit of {reg1} siliquae this week."),
+    	(troop_add_gold, "trp_player", "$g_earnings"),
+    	(play_sound, "snd_money_received", 0),
+
+		(try_begin), #maybe some escape if too many prisoners
+		(party_get_num_prisoner_stacks, ":num_prisoner_stacks", "p_diocletians_palace"),
+		(gt, ":num_prisoner_stacks", 0),
+		(assign, ":escaped", 0),
+			(try_for_range_backwards, ":stack_no", 0, ":num_prisoner_stacks"),
+			(party_prisoner_stack_get_troop_id, ":stack_troop", "p_diocletians_palace", ":stack_no"),
+				(try_begin),
+				(troop_is_hero, ":stack_troop"),
+				(call_script, "script_remove_troop_from_prison", ":stack_troop"),
+				(party_remove_prisoners, "p_diocletians_palace", ":stack_troop", 1),
+				(val_add, ":escaped", 1),
+				(else_try),
+				(gt, ":g_num_prisoners", 50),
+				(party_stack_get_size, ":stack_size", "p_diocletians_palace", ":stack_no"),
+				(gt, ":stack_size", 3),
+				(store_random_in_range, ":remove", 1, ":stack_size"),
+				(val_div, ":remove", 2),
+				(party_remove_prisoners, "p_diocletians_palace", ":stack_troop", ":remove"),
+				(val_add, ":escaped", ":remove"),
+				(try_end),
+			(try_end),
+		(gt, ":escaped", 0),
+		(assign, reg2, ":escaped"),
+    		(display_message, "@{reg2} prisoners have escaped from your farm..."),
+		(try_end),
     ]),
 
 (24 * 7,

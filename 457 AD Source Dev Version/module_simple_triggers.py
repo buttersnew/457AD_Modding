@@ -7332,6 +7332,9 @@ simple_triggers = [
 #COPTIC REBELLION IN ALEXANDRIA
 (try_begin),
 (gt, "$total_days_passed", 200),
+(party_slot_eq, "p_town_21", slot_center_is_besieged_by, -1),
+(party_slot_eq,  "p_town_21", slot_town_lord, "trp_knight_2_4"), # belongs to a specific lord
+(store_faction_of_party, ":party_faction", "p_town_21"),
 (set_spawn_radius, 8),
 	(try_for_range, ":unused", 1, 6),
 	(spawn_around_party, "p_town_21", "pt_coptic_rebellion"),
@@ -7342,9 +7345,6 @@ simple_triggers = [
      	(dialog_box, "@A messenger approaches your warband, bringing news of rebellion! It appears that a large number of Anti-Chalcedonian Christians have revolted near Alexandria, killing the local patriarch, Proterius! The current Comes Limits Aegypti has been removed from his position, and has been replaced on orders from the Emperor.", "@A messenger approaches your warband"),
 	(try_end),
 (display_log_message, "@Anti-Chalcedonian Christians have revolted near Alexandria, killing the local patriarch, Proterius!"),
-(store_faction_of_party, ":party_faction", "p_town_21"),
-(neq, ":party_faction", "fac_coptic_rebels"),
-(party_slot_eq,  "p_town_21", slot_town_lord, "trp_knight_2_4"), # belongs to a specific lord
 (troop_set_slot, "trp_knight_2_4", slot_troop_military_title, 0),
 (party_set_slot, "p_town_21", slot_town_lord, -1),
 	(try_begin),
@@ -7376,8 +7376,26 @@ simple_triggers = [
 	(gt, ":leaded_party", 0),
 	(party_is_active, ":leaded_party"),
 	(call_script, "script_party_set_ai_state", ":leaded_party", spai_holding_center, "p_town_21"),
-	(party_set_flags, ":leaded_party", pf_default_behavior, 1),
 	(try_end),
+
+#spawn actual rebels but very small group to attack the town, just to get the faction to react
+ 	(set_spawn_radius, 0),
+	(spawn_around_party, "p_town_21", "pt_rebel_army"),
+	(assign, ":rebel_army", reg0),
+	(party_set_slot, ":rebel_army", slot_party_home_center, "p_town_21"),
+	(party_add_members, ":rebel_army", "trp_coptic_youth", 100),
+	(party_add_members, ":rebel_army", "trp_coptic_footman", 100),
+	(party_set_faction, ":rebel_army", "fac_coptic_rebels"),
+	(party_ignore_player, ":rebel_army", 1),
+	(party_set_ai_behavior, ":rebel_army", ai_bhvr_attack_party),
+	(party_set_ai_object, ":rebel_army", "p_town_21"),
+	(party_set_flags, ":rebel_army", pf_default_behavior, 1),
+	(party_set_slot, ":rebel_army", slot_party_ai_substate, 1),
+	(party_set_slot, "p_town_21", slot_center_is_besieged_by, ":rebel_army"),
+	(store_current_hours, ":cur_hours"),
+	(party_set_slot, "p_town_21", slot_center_siege_begin_hours, ":cur_hours"),
+	(call_script, "script_village_set_state", "p_town_21", svs_under_siege),
+
 (assign, "$g_coptic_rebellion_triggered", 1),
 (troop_set_note_available, "trp_mia_bishop_alexandria_1", 1),
 (add_troop_note_from_sreg, "trp_mia_bishop_alexandria_1", 3, "@Timothy II is the Miaphysite Patriarch of Alexandria.", 0),

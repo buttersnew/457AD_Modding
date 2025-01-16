@@ -13841,6 +13841,7 @@ TOTAL:  {reg5}"),
 
           (try_begin),
             (eq, "$current_town", "p_town_12"),
+	    (neg|main_party_has_troop, "trp_npc20"),
             (try_begin),
               (check_quest_active,"qst_sword_of_mars"),
               (quest_slot_ge,"qst_sword_of_mars",slot_quest_current_state, 6),

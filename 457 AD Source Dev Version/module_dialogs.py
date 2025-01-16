@@ -50762,6 +50762,27 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
   (jump_to_menu, "mnu_venedi_battle"),
   ]],
 
+#gold merchant
+  [anyone ,"start", [(eq, "$g_talk_troop", "trp_gold_merchant")],
+    "Greetings, stranger. Interested in jewellery?", "gold_merchant_talk", []],
+  
+  [anyone|plyr, "gold_merchant_talk", [],
+    "I want to take a look at your merchandise.", "gold_merchant_talk_buy",
+    []],
+
+  [anyone|plyr, "gold_merchant_talk", [],
+    "I'm not interested at this time. Farewell.", "close_window", []],
+  
+  [anyone,"gold_merchant_talk_buy", [],
+    "Well, you've come the right place.", "gold_merchant_talk_cont",[
+(troop_clear_inventory, "trp_gold_merchant"),
+(troop_add_item,"trp_gold_merchant", "itm_quest_gold"),
+(change_screen_trade),
+  ]],
+  
+[anyone,"gold_merchant_talk_cont", [], "Anything else?", "gold_merchant_talk",[]],
+   
+
 #zamb man!
   [trp_zamb_man, "start", [(eq, "$g_talk_troop_met", 0)],
    "Zamb?", "zamb_man_intro_1", []],

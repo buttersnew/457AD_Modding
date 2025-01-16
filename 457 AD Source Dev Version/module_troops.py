@@ -5193,6 +5193,10 @@ troops = [
    [itm_wrapping_boots,itm_tunic_1], #oh lord why did I do this???
    def_attrib_lvl_35|level(40),wp(400),knows_ironflesh_10|knows_power_strike_10|knows_power_throw_10|knows_athletics_10|knows_shield_10|knows_wound_treatment_3|knows_surgery_8,0x000000058000001071db6f183af5b6db00000000001eb7470000000000000000],
 
+  ["gold_merchant","Jeweller","Jeweller",tf_hero|tf_is_merchant,0,0,fac_commoners,
+   [itm_deurne_campagi_2,itm_tunic_rich_4_cloak,itm_aquincum_spatha_2],
+   def_attrib_lvl_35|level(30),wp(300),knows_ironflesh_10|knows_power_strike_10|knows_power_throw_10|knows_athletics_10|knows_shield_10|knows_wound_treatment_3|knows_surgery_8|knows_inventory_management_10,0x000000058000001071db6f183af5b6db00000000001eb7470000000000000000],
+
   #agrippinus quest
   ["agrippinus", "Agrippinus", "Agrippinus", tf_hero, no_scene, 0, fac_commoners,[itm_deurne_campagi_1,itm_coptic_tunic_3,itm_arabian_sword_b],knight_attrib_5,wp(300),knight_skills_5|knows_trainer_4,0x00000000d900500236db6e46936db2da00000000001d36e20000000000000000],
 

@@ -14081,6 +14081,14 @@ TOTAL:  {reg5}"),
 	(try_end),
 
 	(try_begin), #madsci quest troop spawns go here
+	(eq, "$current_town", "p_town_24"),
+	(check_quest_active, "qst_wayland_quest"),
+        (set_visitor, ":cur_entry", "trp_gold_merchant"),
+        (val_add, ":cur_entry", 1),
+	(try_end),
+
+
+	(try_begin), #madsci quest troop spawns go here
 	(eq, "$current_town", "p_town_22"),
 	(eq, "$jewish_rebellion", 0),
 	(this_or_next|troop_slot_eq, "trp_player", slot_troop_culture, "fac_culture_18"),
@@ -33193,6 +33201,14 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 	(else_try),
 	(display_message, "@can't besiege {s10}"),
 	(try_end),
+        ]
+       ),
+      ("camp_action_1",[
+(eq,"$cheat_mode",1),
+],"{!}Cheat: Walk around the test scene.",
+       [(set_jump_mission,"mt_ai_training"),
+        (jump_to_scene, "scn_field_1"),
+        (change_screen_mission),
         ]
        ),
 

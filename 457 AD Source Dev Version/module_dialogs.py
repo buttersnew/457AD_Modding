@@ -3401,7 +3401,6 @@ or you won't be able to hang on to a single man you catch.", "ramun_ask_about_ca
 [anyone|plyr,"village_farmer_talk",
 [
 (store_faction_of_party, ":faction_of_villager", "$g_encountered_party"),
-
 (neq, ":faction_of_villager", "$players_kingdom"),
 (neq, ":faction_of_villager", "fac_player_supporters_faction"),
 ],
@@ -3411,7 +3410,10 @@ or you won't be able to hang on to a single man you catch.", "ramun_ask_about_ca
 (party_get_slot, ":village_owner", ":home_center", slot_town_lord),
 (call_script, "script_change_player_relation_with_center", ":home_center", -4),
 (call_script, "script_change_player_relation_with_center", ":market_town", -2),
-(call_script, "script_change_player_relation_with_troop", ":village_owner", -2),
+	(try_begin),
+	(gt, ":village_owner", 0),
+	(call_script, "script_change_player_relation_with_troop", ":village_owner", -2),
+	(try_end),
 (call_script, "script_diplomacy_party_attacks_neutral", "p_main_party", "$g_encountered_party"),
 
 (store_relation,":rel", "$g_encountered_party_faction","fac_player_supporters_faction"),
@@ -51804,7 +51806,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
 
   [trp_holy_lance_keeper, "start", [],
    "Yes, what is it? What do you need?", "holy_lance_keeper_1", []],
-  [trp_holy_lance_keeper|plyr, "holy_lance_keeper_1", [],
+  [trp_holy_lance_keeper|plyr, "holy_lance_keeper_1", [(neq, "$g_holy_lance_quest", 2),],
    "Am I worthy of the lance?", "holy_lance_keeper_lance_1", []],
   [trp_holy_lance_keeper|plyr, "holy_lance_keeper_1", [],
    "Nevermind...", "close_window", []],

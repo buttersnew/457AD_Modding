@@ -529,12 +529,8 @@ triggers = [
    ),
 
 #Process morale and determine personality clashes
-  (0, 0, 24,
-   [],
-[
-
-#Count NPCs in party and get the "grievance divisor", which determines how fast grievances go away
-#Set their relation to the player
+      (24.5, 0, 0,
+   [],[
         (assign, ":npcs_in_party", 0),
         (assign, ":grievance_divisor", 100),
         (try_for_range, ":npc1", companions_begin, companions_end),
@@ -543,14 +539,10 @@ triggers = [
         (try_end),
         (val_sub, ":grievance_divisor", ":npcs_in_party"),
         (store_skill_level, ":persuasion_level", "skl_persuasion", "trp_player"),
+	(val_clamp, ":persuasion_level", 1, 16),
         (val_add, ":grievance_divisor", ":persuasion_level"),
         (assign, reg7, ":grievance_divisor"),
 
-#        (display_message, "@{!}Process NPC changes. GD: {reg7}"),
-
-
-
-##Activate personality clash from 24 hours ago
         (try_begin), #scheduled personality clashes require at least 24hrs together
              (gt, "$personality_clash_after_24_hrs", 0),
              (eq, "$disable_npc_complaints", 0),
@@ -563,54 +555,39 @@ triggers = [
              (try_end),
              (assign, "$personality_clash_after_24_hrs", 0),
         (try_end),
-#
-
 
         (try_for_range, ":npc", companions_begin, companions_end),
-###Reset meeting variables
-            (troop_set_slot, ":npc", slot_troop_turned_down_twice, 0),
+            (try_begin),
+              (troop_slot_eq, ":npc", slot_troop_turned_down_twice, 1),
+              (store_random_in_range, ":rand", 0, 100),
+              (lt, ":rand", 40),
+              (troop_set_slot, ":npc", slot_troop_turned_down_twice, 0),
+            (try_end),
             (try_begin),
                 (troop_slot_eq, ":npc", slot_troop_met, 1),
                 (troop_set_slot, ":npc", slot_troop_met_previously, 1),
             (try_end),
 
-###Check for coming out of retirement
             (troop_get_slot, ":occupation", ":npc", slot_troop_occupation),
             (try_begin),
                 (eq, ":occupation", slto_retirement),
                 (troop_get_slot, ":renown_min", ":npc", slot_troop_return_renown),
-
-                (str_store_troop_name, s31, ":npc"),
                 (troop_get_slot, ":player_renown", "trp_player", slot_troop_renown),
-                (assign, reg4, ":player_renown"),
-                (assign, reg5, ":renown_min"),
-#                (display_message, "@{!}Test {s31}  for retirement return {reg4}, {reg5}."),
-
                 (gt, ":player_renown", ":renown_min"),
+              	(store_random_in_range, ":rand", 0, 100),
+              	(lt, ":rand", 30),
                 (troop_set_slot, ":npc", slot_troop_personalityclash_penalties, 0),
                 (troop_set_slot, ":npc", slot_troop_morality_penalties, 0),
                 (troop_set_slot, ":npc", slot_troop_occupation, 0),
             (try_end),
 
-
-#Check for political issues
 			(try_begin), #does npc's opponent pipe up?
 				(troop_slot_ge, ":npc", slot_troop_days_on_mission, 5),
 				(troop_slot_eq, ":npc", slot_troop_current_mission, npc_mission_kingsupport),
-
 				(troop_get_slot, ":other_npc", ":npc", slot_troop_kingsupport_opponent),
 				(gt, ":other_npc", 0),
 				(troop_slot_eq, ":other_npc", slot_troop_kingsupport_objection_state, 0),
-
 				(troop_set_slot, ":other_npc", slot_troop_kingsupport_objection_state, 1),
-
-				(str_store_troop_name, s3, ":npc"),
-				(str_store_troop_name, s4, ":other_npc"),
-
-				(try_begin),
-					(eq, "$cheat_mode", 1),
-					#(display_message, "str_s4_ready_to_voice_objection_to_s3s_mission_if_in_party"),
-				(try_end),
 			(try_end),
 
 			#Check for quitting
@@ -670,11 +647,6 @@ triggers = [
                     (troop_set_slot, ":npc", slot_troop_personalityclash_penalties, ":grievance"),
                 (try_end),
 
-
-
-#Check for new personality clashes
-
-				#Active personality clash 1 if at least 24 hours have passed
                 (try_begin),
                     (eq, "$disable_npc_complaints", 0),
                     (eq, "$npc_with_personality_clash", 0),
@@ -702,18 +674,10 @@ triggers = [
 
                 (troop_get_slot, ":days_on_mission", ":npc", slot_troop_days_on_mission),
 
-                (try_begin), #debug
-                    (eq, "$cheat_mode", 1),
-                    (str_store_troop_name, s10, ":npc"),
-                    (assign, reg0, ":days_on_mission"),
-                    #(display_message, "@Checking rejoin of {s10} days on mission: {reg0}"),
-                (try_end),
-
                 (try_begin),
                     (gt, ":days_on_mission", 0),
                     (val_sub, ":days_on_mission", 1),
                     (troop_set_slot, ":npc", slot_troop_days_on_mission, ":days_on_mission"),
-                ##diplomacy begin
                 (else_try),
                   (this_or_next|troop_slot_eq, ":npc", slot_troop_current_mission, dplmc_npc_mission_spy_request), #spy mission
                   (troop_slot_eq, ":npc", slot_troop_current_mission, dplmc_npc_mission_rescue_prisoner), #SB : rescue mission

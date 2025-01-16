@@ -50116,6 +50116,22 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
    (assign, "$corrupt_priest_left", 1),
   ]],
 
+  [anyone|plyr, "chalcedonian_bishop_talk", [
+(player_has_item, "itm_lance_of_longiunus"),
+(str_store_item_name, s11, "itm_lance_of_longiunus"),
+],
+   "I found the {s11} and I want to return it to the church.", "chalcedonian_bishop_return_lance", [
+(troop_remove_item, "trp_player", "itm_lance_of_longiunus"),
+(assign, "$g_holy_lance_quest", 3),
+]],
+
+  [anyone, "chalcedonian_bishop_return_lance", [],"Ah, look what we have here. I heard rumors that the {s11} wasn't lost forever... Thank you, {playername}, and God's blessings be upon you, faithful servant.", "chalcedonian_bishop_talk", [
+   (call_script, "script_change_troop_renown", "trp_player", 5),
+   (call_script, "script_change_player_honor", 1),
+   (add_xp_as_reward, 450),
+   (val_add, "$piety", 10),
+  ]],
+
   [anyone|plyr, "chalcedonian_bishop_talk", [],
    "I do not need a man of God at this time, farewell.", "close_window", []],
 
@@ -50169,6 +50185,23 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
    (call_script, "script_change_troop_renown", "trp_player", 5),
    (add_xp_as_reward, 200),
    ]],
+
+  [anyone|plyr, "miaphysite_talk_1", [
+(player_has_item, "itm_lance_of_longiunus"),
+(str_store_item_name, s11, "itm_lance_of_longiunus"),
+],
+   "I found the {s11} and I want to return it to the church.", "miaphysite_talk_1_return_lance", [
+(troop_remove_item, "trp_player", "itm_lance_of_longiunus"),
+(assign, "$g_holy_lance_quest", 3),
+]],
+
+  [anyone, "miaphysite_talk_1_return_lance", [],"Ah, look what we have here. I heard rumors that the {s11} wasn't lost forever... Thank you, {playername}, and God's blessings be upon you, faithful servant.", "miaphysite_talk_1", [
+   (call_script, "script_change_troop_renown", "trp_player", 5),
+   (call_script, "script_change_player_honor", 1),
+   (add_xp_as_reward, 450),
+   (val_add, "$piety", 10),
+  ]],
+
   [anyone|plyr, "miaphysite_talk_1", [],
    "I do not need a man of God at this time, farewell.", "close_window", []],
 
@@ -50220,6 +50253,23 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
    (call_script, "script_change_troop_renown", "trp_player", 5),
    (add_xp_as_reward, 200),
    ]],
+
+  [anyone|plyr, "arian_bishop_talk_1", [
+(player_has_item, "itm_lance_of_longiunus"),
+(str_store_item_name, s11, "itm_lance_of_longiunus"),
+],
+   "I found the {s11} and I want to return it to the church.", "arian_bishop_return_lance", [
+(troop_remove_item, "trp_player", "itm_lance_of_longiunus"),
+(assign, "$g_holy_lance_quest", 3),
+]],
+
+  [anyone, "arian_bishop_return_lance", [],"Ah, look what we have here. I heard rumors that the {s11} wasn't lost forever... Thank you, {playername}, and God's blessings be upon you, faithful servant.", "arian_bishop_talk_1", [
+   (call_script, "script_change_troop_renown", "trp_player", 5),
+   (call_script, "script_change_player_honor", 1),
+   (add_xp_as_reward, 450),
+   (val_add, "$piety", 10),
+  ]],
+
   [anyone|plyr, "arian_bishop_talk_1", [],
    "I do not need a man of God at this time, farewell.", "close_window", []],
 
@@ -50271,6 +50321,21 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
    (call_script, "script_change_troop_renown", "trp_player", 5),
    (add_xp_as_reward, 200),
    ]],
+  [anyone|plyr, "nestorian_talk_1", [
+(player_has_item, "itm_lance_of_longiunus"),
+(str_store_item_name, s11, "itm_lance_of_longiunus"),
+],
+   "I found the {s11} and I want to return it to the church.", "nestorian_talk_1_return_lance", [
+(troop_remove_item, "trp_player", "itm_lance_of_longiunus"),
+(assign, "$g_holy_lance_quest", 3),
+]],
+
+  [anyone, "nestorian_talk_1_return_lance", [],"Ah, look what we have here. I heard rumors that the {s11} wasn't lost forever... Thank you, {playername}, and God's blessings be upon you, faithful servant.", "nestorian_talk_1", [
+   (call_script, "script_change_troop_renown", "trp_player", 5),
+   (call_script, "script_change_player_honor", 1),
+   (add_xp_as_reward, 450),
+   (val_add, "$piety", 10),
+  ]],
   [anyone|plyr, "nestorian_talk_1", [],
    "I do not need a man of God at this time, farewell.", "close_window", []],
 
@@ -51753,7 +51818,10 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
    "Nevermind.", "close_window", []],
 
 #Holy lance quest
-  [trp_holy_lance_keeper, "start", [(eq, "$g_talk_troop_met", 0),],
+  [trp_holy_lance_keeper, "start", [
+(eq, "$g_talk_troop_met", 0),
+(lt, "$g_holy_lance_quest", 2),
+],
    "What's this, someone approaches me? What do you need?", "holy_lance_keeper_intro_1", []],
   [trp_holy_lance_keeper|plyr, "holy_lance_keeper_intro_1", [],
    "Who are you and what are you doing in this cave, old man?", "holy_lance_keeper_intro_2", []],
@@ -51806,7 +51874,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
 
   [trp_holy_lance_keeper, "start", [],
    "Yes, what is it? What do you need?", "holy_lance_keeper_1", []],
-  [trp_holy_lance_keeper|plyr, "holy_lance_keeper_1", [(neq, "$g_holy_lance_quest", 2),],
+  [trp_holy_lance_keeper|plyr, "holy_lance_keeper_1", [(lt, "$g_holy_lance_quest", 2),],
    "Am I worthy of the lance?", "holy_lance_keeper_lance_1", []],
   [trp_holy_lance_keeper|plyr, "holy_lance_keeper_1", [],
    "Nevermind...", "close_window", []],

@@ -20314,7 +20314,7 @@ I knew that I had found someone worthy of becoming my vassal.", "lord_invite_1",
 ], #must have +20 relations
   "Ah, the Cynocephali. These warriors are not mere legends, but a part of our history as they granted us victory over the Assipitti when our kin just landed from the shores of Scandza. They are known for their wild ferocity on the battlefield, channeling the spirits of beasts to fight with unmatched strength and vigor.", "wolfmen_quest_intro_2",[]],
 [anyone, "wolfmen_quest_intro_1", [], #rebuked
-  "Ha, and you think I would freely share their secrets to someone like you? Begone, you fool!", "close_window",[]],
+  "Ha, and you think I would freely share their secrets to someone like you? Begone, you fool! ^^(Relation too low)", "close_window",[]],
 
 [anyone|plyr, "wolfmen_quest_intro_2", [],
   "Your Majesty, is there a way to learn more about their whereabouts? Any guidance you can provide?", "wolfmen_quest_intro_3",[]],
@@ -45327,6 +45327,23 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
 
   [anyone|plyr,"village_elder_trade_talk", [], "I changed my mind. I don't need to buy anything.", "village_elder_pretalk",[]],
 
+#madsci let the player investigate the whereabouts of eadric because the hint you get from the villager doesnt really help to find him
+  [anyone|plyr,"village_elder_talk", [
+	(party_get_slot, ":religion_center", "$current_town", slot_center_religion),
+	(eq, ":religion_center", slot_religion_paganism),
+	(eq, "$g_wolf_quest", 1),],
+   "I am looking for a man by the name of Eadric. Do you know him?", "village_elder_ask_eadric",[]],
+
+  [anyone ,"village_elder_ask_eadric", [
+	(faction_get_slot, ":king", "fac_kingdom_17", slot_faction_leader),
+	(gt, ":king", 0),
+	(str_store_troop_name, s9, ":king"),
+	(party_get_slot, ":center_relation", "$current_town", slot_center_player_relation),
+	(ge, ":center_relation", 0),
+], "Eadric the priest? I heard he travelled to the court of {s9}.", "village_elder_pretalk",[]],
+
+  [anyone ,"village_elder_ask_eadric", [], "I don't know what you are talking about.", "village_elder_pretalk",[]],
+
   [anyone|plyr,"village_elder_talk",
    [
      ],
@@ -46036,54 +46053,25 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
   [anyone|plyr,"village_elder_tell_deliver_cattle_mission_3", [],
    "I am afraid I don't have time for this. You'll need to find help elsewhere.", "village_elder_deliver_cattle_mission_reject",[]],
 
-  ##diplomacy start+ replace {sir/madam} with {my lord/my lady} or your highness if appropriate
   [anyone,"village_elder_deliver_cattle_mission_accept", [(call_script, "script_dplmc_print_subordinate_says_sir_madame_to_s0"),], "Thank you, {s0}. We'll be praying for you night and day.", "close_window",
-  ##diplomacy end+
    [(assign, "$g_leave_encounter",1),
     (call_script, "script_change_player_relation_with_center", "$current_town", 3),
     (call_script, "script_start_quest", "$random_quest_no", "$g_talk_troop"),
     ]],
 
-  ##diplomacy start+ replace {sir/madam} with {my lord/my lady} or your highness if appropriate
   [anyone,"village_elder_deliver_cattle_mission_reject", [(call_script, "script_dplmc_print_subordinate_says_sir_madame_to_s0"),], "Yes {s0}, of course. I am sorry if I have bothered you with our troubles.", "close_window",
-  ##diplomacy end+
    [(troop_set_slot, "$g_talk_troop", slot_troop_does_not_give_quest, 1),
     ]],
 
-  #diplomacy start+ replace {sir/madam} with {my lord/my lady} or your highness if appropriate
   [anyone,"village_elder_tell_mission", [(call_script, "script_dplmc_print_subordinate_says_sir_madame_to_s0"),], "Thank you, {s0}, but we do not really need anything right now.", "village_elder_pretalk",[]],
-  #diplomacy end+
-
-##  [anyone|plyr,"village_elder_mission_told", [], "TODO: As you wish sir. You can count on me.", "village_elder_mission_accepted",[]],
-##  [anyone|plyr,"village_elder_mission_told", [], "TODO: I'm afraid I can't carry out this mission right now, sir.", "village_elder_mission_rejected",[]],
-##
-##  [anyone,"village_elder_mission_accepted", [], "TODO: Excellent. Do this {playername}. I really have high hopes for you.", "close_window",
-##   [(assign, "$g_leave_encounter",1),
-##    (try_begin),
-##    #TODO: Add quest initializations here
-##    (try_end),
-##    (call_script, "script_start_quest", "$random_quest_no", "$g_talk_troop"),
-##    ]],
-
-##  [anyone,"village_elder_mission_rejected", [], "TODO: Is that so? Perhaps you are not up for the task anyway...", "close_window",
-##   [(assign, "$g_leave_encounter",1),
-##    (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", -1),
-##    (troop_set_slot, "$g_talk_troop", slot_troop_does_not_give_quest, 1),
-##    ]],
-
-#Goods Merchants
 
   [anyone ,"start", [(is_between,"$g_talk_troop",goods_merchants_begin,goods_merchants_end),
                      (party_slot_eq, "$current_town", slot_town_lord, "trp_player")],
    "{My lord/my lady}, you honour my humble shop with your presence.", "goods_merchant_talk",[]],
-  ##diplomacy start+ replace {sir/madam} with {my lord/my lady} or your highness if appropriate
+
   [anyone ,"start", [(is_between,"$g_talk_troop",goods_merchants_begin,goods_merchants_end),
 			         (call_script, "script_dplmc_print_subordinate_says_sir_madame_to_s0"),],
    "Welcome {s0}. What can I do for you?", "goods_merchant_talk",[]],
-  ##diplomacy end+
-#  [trp_salt_mine_merchant,"start", [], "Hello.", "goods_merchant_talk",[]],
-
-#  [anyone,"merchant_begin", [], " What can I do for you?", "goods_merchant_talk",[]],
 
   [anyone,"goods_merchant_pretalk", [], "Anything else?", "goods_merchant_talk",[]],
 
@@ -54054,7 +54042,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
    "Fascinating, but do you have any insights beyond these tales? How might one learn more or find them?", "eadric_talk_wolf_3", []],
 [trp_eadric, "eadric_talk_wolf_3", [
 (neg|faction_slot_eq, "fac_kingdom_17", slot_faction_state, sfs_active), #madsci this quest requires langobards to be around
-(assign, "$g_wolf_quest", -1)
+(assign, "$g_wolf_quest", -1),
 ],
    "Unfortunately I can't think of anyone who has knowledge that others may not possess...", "close_window", []],
   [trp_eadric, "eadric_talk_wolf_3", [],
@@ -54063,6 +54051,8 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
    "I appreciate your guidance. I shall approach the Langobard king and seek the truth behind these tales.", "eadric_talk_wolf_5", []],
   [trp_eadric, "eadric_talk_wolf_5", [],
    "May the gods watch over you on your quest for knowledge, and may you find the answers you seek, traveler. Just remember, curiosity can be a double-edged sword.", "close_window", []],
+  [trp_eadric|plyr, "eadric_talk_1", [(eq, "$g_wolf_quest", 2)],
+   "Remind me again how I can learn more about the Cynocephali?", "eadric_talk_wolf_3", []],
   [trp_eadric|plyr, "eadric_talk_1", [],
    "I do not need a man of faith right now, farewell.", "close_window", []],
 

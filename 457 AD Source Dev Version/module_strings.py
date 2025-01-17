@@ -6892,6 +6892,140 @@ Even in the last case, the player can make formations up to four lines by orderi
   ("as_the_marshal_i_am_leading_our_forces_in_search_of_the_enemy", "As the marshal, I am leading our forces in search of the enemy."),
   ("as_the_marshal_i_am_leading_our_forces_to_engage_the_enemy_in_battle", "As the marshal, I am leading our forces to engage the enemy in battle."),
 
+#description string start
+("desc_kingdom_1", "the Western Roman Empire is in a state of severe decline, both politically and territorially. The once-mighty empire has fractured, beset by internal instability, barbarian invasions, and a loss of central authority. This period is marked by the rise of powerful military generals and external pressures that diminish the empire's influence over its remaining territories."),
+
+("desc_kingdom_2", "The Eastern Roman Empire, also known as the Byzantine Empire, is relatively stable compared to the Western Roman Empire. While the West is rapidly disintegrating, the Eastern Empire is consolidating its power and resources under the leadership of a new emperor, Leo I."),
+
+("desc_kingdom_3", "The Balthorum are the ruling dynasty of the Visigoths, one of the most prominent Germanic tribes of the Migration Period."),
+
+("desc_kingdom_4", "The Amalorum are the ruling dynasty of the Ostrogoths, one of the most prominent Gothic groups of the Migration Period."),
+
+("desc_kingdom_5", "The Picts trace their origins back to ancient Celtic tribes. They have a strong warrior culture and are organized into a confederation of tribes, each led by a king or tribal chieftain, with loose alliances between them."),
+
+("desc_kingdom_6", "Empire of the Iranians face many threats and dangers. Hephthalites are raiding the Eastern parts of the empire frequently, the transition of power from Yazdegerd II to current ruler Hormizd III was not a smooth and open wounds yet exist, the disputes with Rome over Armenia are still fresh in memory, and droughts ravage the empire. Current ruler also has his brother Peroz to watch out. Zoroastrian faith is the ruling religion in the empire but particulary in the western portions the relationship between Christians is strained."),
+
+("desc_kingdom_7", "The Salii are one of the many tribes that make up the Franks, a Germanic group that inhabits areas along the Lower Rhine and northern Gaul."),
+
+("desc_kingdom_8", "The Suevi Kingdom is a Germanic kingdom established in the northwest of the Iberian Peninsula. The Suevi had originally been pagan, but they converted to Christianity earlier than many other Germanic peoples."),
+
+("desc_kingdom_9", "The Kingdom of Burgundy is a Germanic kingdom established within the collapsing Western Roman Empire. The Burgundians have transitioned from being a migratory tribe to rulers of a stable kingdom, blending Roman and Germanic traditions."),
+
+("desc_kingdom_10", "The Alemmani are a Germanic tribal confederation. They are primarily agrarian but also engage in raiding and warfare, which is central to their economy and society."),
+
+("desc_kingdom_11", "The Gepids are a significant force in the post-Roman world, playing a key role in the shifting balance of power."),
+
+("desc_kingdom_12", "The Saxons are one of the Germanic tribes migrating and settling in Britain. Like other Germanic tribes, they migrated westward following the decline of Roman influence in northern Europe, seeking fertile land and opportunities for settlement."),
+
+("desc_kingdom_13", "The Roman-Britons are a people in transition, living in the power vacuum created by the Roman withdrawal from Britain in 410 AD."),
+
+("desc_kingdom_14", "The Rugii are a tribe of East Germanic origin, closely related to other tribes like the Gepids and Goths. They are one of many Germanic peoples involved in the shifting power dynamics instigated by the decline of the Western Roman Empire."),
+
+("desc_kingdom_15", "The Vandals are a prominent Germanic tribe with a reputation for warrior strength and seafaring expertise. Under Gaiseric, the Vandals have established a powerful kingdom in North Africa. Gaiseric is particularly infamous for sacking Rome in 455 AD, a blow to the Western Roman Empire that weakened its authority and prestige"),
+
+("desc_kingdom_16", "Kartli is a small but strategically significant state caught between two powerful empires: the Eastern Roman Empire to the west and the Sasanian Empire to the east."),
+
+("desc_kingdom_17", "The Langobardi are a Germanic tribe from the region of southern Scandinavia who began migrating southward in the 4th and 5th centuries, seeking more fertile lands and opportunities for expansion."),
+
+("desc_kingdom_18", "The Thuringians are a Germanic tribe that migrated from regions to the north and settled in central and eastern Germania."),
+
+("desc_kingdom_19", "The Jutes are a Germanic tribe known for their maritime skills, trade, and ongoing conflicts with both the native Britons and other Germanic tribes."),
+
+("desc_kingdom_20", "The Ripurians are a Germanic tribe living in northeastern Gaul."),
+
+("desc_kingdom_21", "The Scirii are a Germanic tribe closely associated with the Ostrogoths and other Germanic tribes, playing a role in the fragmentation and reshaping of power in the region following the fall of Roman dominance."),
+
+("desc_kingdom_22", "Mauretania was Romanized during the early Imperial period but has retained a strong Berber cultural influence."),
+
+("desc_kingdom_23", "Following Attila's death, the Hunni empire has rapidly fragmented due to internal rivalries, external pressures, and the inability of his successors to maintain unity."),
+("desc_kingdom_24", "Lazica is a small but strategically significant state caught between two powerful empires: the Eastern Roman Empire to the west and the Sasanian Empire to the east."),
+
+("desc_kingdom_25", "Nobadia is a Nubian kingdom. It has an important role in the region due to its strategic position along the Nile River."),
+
+("desc_kingdom_26", "The Blemmyae are a desert-dwelling people from Nubia, an area south of ancient Egypt."),
+
+("desc_kingdom_27", "Alania is the remnants of a larger Alan confederation that has not migrated westward into Europe. They have made North Caucasus region and neighboring areas their abode, where they maintain a semi-nomadic lifestyle."),
+
+("desc_kingdom_28", "The king of Arran, Vache II, relative to the Shahanshah, raised his armies and is now challenging the Shahanshah in order to contest his authority."),
+
+("desc_kingdom_29", "The Angles are a Germanic tribe originating from the Angeln region. Their trajectory during this time is closely tied to the broader migrations of Germanic tribes into Britain."),
+
+("desc_kingdom_30", "The Suevi Kingdom is a Germanic kingdom established in the northwest of the Iberian Peninsula. The Suevi had originally been pagan, but they converted to Christianity earlier than many other Germanic peoples."),
+
+("desc_kingdom_31", "The Armenians are an ancient people."),
+("desc_kingdom_32", "The rebels fight for their freedom."),
+("desc_kingdom_33", "The rebels fight for their freedom."),
+("desc_kingdom_34", "The rebels fight for their freedom."),
+
+("desc_minor_aestii", "The Aestii are a group of tribes of likely Baltic language who live along the eastern shores of the Baltic Sea as well as part of Eastern Pomerania. The name 'Aestii' is widely reported since ancient times and during the Migration Era they consist of several tribes who were never united under one single ruler."),
+
+("desc_minor_irish", "'Scoti' is the name given to raiders and settlers coming from the Irish coast during Late Antiquity by Roman sources."),
+
+("desc_minor_garamantians", "The Garamantes are a berber civilization living in southern Libya. Known by the Romans since their first expansion in North Africa, they represent a powerful polity. Their capital, Garama, is an important trading centre that connects North Africa, and therefore Europe, to the Subsaharan civilizations. The Garamantes are well known as farmers but occasionally wage war against the Roman Empire."),
+
+("desc_minor_dani", "The Dani are a Germanic tribe living in the islands of Denmark and southern Sweden."),
+
+("desc_minor_mordens", "The Mordens are a tribal union of uncertain origins."),
+
+("desc_minor_sporoi", "Living in the forest-steppe area of Ukraine, the Sporoi (the many) live in their villages. Former subjects of the Goths, Sarmatians and Huns, they are now free from their yoke and about to change the cultural shape of Europe forever."),
+
+("desc_minor_bosphoran", "The Bosporan Kingdom is an ancient polity formed by Greek milesian settlers in the 5th century BCE. During the centuries that separate its foundation from the decline, the Bosporan Kingdom was the northernmost Hellenistic state and the one that was more influenced by the peoples and tribes living in the steppes, in the Maeotian swamps and on the shores of the sea. The results were, since the beginning of the Common Era, of a material culture that went through a strong process of sarmatisation as it is clearly visible by the names of the rulers and the customs of the deceased displayed on their funerary stelae. The kingdom became client of the Roman Empire around the beginning of the 1st CE and continued its existence prospering and by being the gates of the Mediterranean world to the steppes and the Forest Belt. Able to exert a considerable influence over its neighbors, the Bosporan Kingdom begun its decline in the 3rd century, at the arrival of the Goths and the westward expansion of the Alans from the Caucasus and the Pontic Caspian steppes."),
+
+("desc_minor_abagasians", "The Abasgians are an indigenous Caucasian tribe living south-west of the Caucasus. They have ties to the Georgian polity of Lazika to which they pay tribute. However, Lazika's control over the warlike tribes living between the Caucasus mountains and the Black Sea shore is always very feeble as Lazika has to face revolts and serious threats from mountain tribes such as the Suani, neighbours to the Abasgians."),
+
+("desc_minor_tauri", "The Tauri, or Tauroscythae, are known since ancient times to have lived in the area called Taurica in southern Crimea. They are considered indigenous, heavily influenced by the Scythians in their customs. They are known as pirates and robbers and are currently a protectorate of the Imperium Romanorum Pars Orientalis."),
+
+("desc_minor_augundzi", "The Augandzi are a Germanic tribe living in Norway, probably near today's Agder fylke. The Augandzi are ruled by Svipdagr, the nemesis of the Danir king Garmr."),
+
+("desc_minor_vidivarii", "On the shore of Ocean, where the floods of the river Vistula empty from three mouths, the Vidivarii dwell, a people gathered out of various tribes."),
+
+("desc_minor_frisians", "The Frisii are a Germanic tribe living along the coast of the low-lying marshlands. They are mentioned by Latin sources from the earliest Roman presence and contacts with the tribe of the area, and in the past they even managed to wage succesful wars against the Roman Empire. However, the gradual worsening of the conditions of the marshes and coasts where they live in has forced many of them to migrate to Britain or fall under the influence of the Franks."),
+
+("desc_minor_vascones", "Defined by Latin sources as 'latrones' (brigands), the Vascones, similarly to the Gallaeci, are nothing but former disgruntled roman provincials who, after the loss of Hispania at the beginning of the 5th century, had no choice but to self-govern themselves. This has led in a slow but progressive abandonment of many Roman cities and the reappearance of castra built on top of the ruins of iron age fortifications."),
+
+("desc_minor_gallaeci", "The loss of Hispania by the Roman authority has forced many former Roman provincials, especially in the harsh regions of northern Hispania, to take up arms and resist the Germanic invaders with their own forces, this is well recorded by the Christian bishop Hydatius in his chronicle. The aristocracy of the local provincials have started reoccupying iron age castrums by their own initiative, as a display of wealth and power, and this has led to a political and military problem for the Visigothic and Suebi monarchs."),
+
+("desc_minor_venedi", "The Vistula Venedi are a tribe, or confederacy of tribes and clans, of uncertain ethnic background living along the eastern shores of the Vistula."),
+
+("desc_minor_saraguroi", "The Saraguroi are a nomadic tribe. They originated from Central Asian steppes, later migrating to the Pontic–Caspian steppe. Priscus, a Byzantine historian, mentions that the Saraguroi, along with other tribes, sought protection from the Eastern Roman Empire after being driven from their homeland by the Sabiroi."),
+
+("desc_minor_onoguroi", "The Onoguroi are a nomadic tribal confederation who live in the Pontic–Caspian steppe and the Volga region. Their name, 'Onogur,' is believed to mean 'ten tribes,' reflecting their tribal structure."),
+
+("desc_minor_kutriguroi", "The Kutriguroi are a nomadic tribal confederation that emerged in the Eurasian steppes. As nomadic horsemen, the Kutriguroi were skilled warriors, particularly adept in mounted archery and steppe warfare. Their society was organized around tribal alliances, and their economy depended on a combination of animal husbandry, trade with sedentary peoples, and raiding."),
+
+("desc_minor_sabiroi", "The Sabiroi are a nomadic tribal confederation mentioned by the Byzantine historian Priscus in the 5th century. Priscus describes them as a confederation of Huns who invaded the Eastern Roman Empire during the reign of Emperor Theodosius II."),
+
+("desc_minor_valentia", "The Regnum Valentiae, ruled by Sambida, is a crucial defensive outpost of the Western Roman Empire. Appointed by Aetius in the mid-5th century, Sambida leads his people in guarding the Rhone Valley, a region of strategic importance for the Empire's communication and defense. The Alans settled in Valentia as loyal federates, receiving lands in exchange for their military service. Sambida's leadership is characterized by pragmatism and stability; he maintains a cooperative relationship with Roman officials while preparing his warriors to defend against external threats such as the Burgundians and Visigoths. Though tributary to the Western Roman Empire, Sambida's domain stands as a beacon of Alan resilience and adaptability, blending loyalty to the Empire with the preservation of their distinct cultural identity."),
+
+("desc_minor_aurelianorum", "The Regnum Aurelianorum, led by King Sangiban, stands as a testament to the resilience of this ancient Sarmatian people. Probably descending from Goar, the renowned Alan warlord who crossed the Rhine during the great migrations of the early 5th century, Sangiban commands a proud and independent realm. The Alans were originally invited into Gaul by the Roman general Aetius and granted lands in Aurelianorum to bolster defenses against the Visigoths. Sangiban proved his loyalty and martial prowess at the Battle of the Catalaunian Plains, where he led his Alan cavalry against Attila the Hun. Despite this legacy, his position remains precarious, as Visigothic expansion threatens the stability of his domain."),
+
+("desc_minor_iazyges", "The Iazyges are a Sauromatae tribe that migrated from the Pontic-Caspian steppes to the Danubian plains during the 1st century CE. Settling between the rivers Tissus and Danubius, they carved a reputation as skilled riders and fierce warriors, often clashing with the Roman Empire. However, centuries of conflict and economic stagnation due to the limited pastures of the Danubian plains has led the Iazyges to an inevitable decline. The arrival of the Huns in the region left the Iazyges weakened and reliant on their neighbors for survival. Now caught between the rising power of the Amal dynasty to the west and their alliances with the Rugii, Scirii, and Suebi, they struggle to maintain their independence and warrior traditions."),
+
+("desc_minor_heruli", "The Heruli are a Germanic tribe, originally hailing from Scandinavia, who migrated southward. Initially referred to as 'Scythians' by the Romans, they were instead following the larger Gothic confederation during their migration. Renowned for their agility and prowess as light horsemen, the Heruli are often employed as skilled mercenaries by the Romans, serving in various military campaigns. Currently, under the leadership of their chieftain Visilaus, the Heruli strive to maintain their identity and warrior traditions amidst the shifting powers of the era."),
+
+("desc_adovacrius_host", "Adovacrius, also known as Eadwacer, is the leader of a Saxon warband that has carved a domain for itself in the western reaches of Gaul. Adovacrius and his warriors likely arrived by sea, coming from Britain or northern Germania. With a mixture of pirate raids and opportunistic conquests, they seized lands along the lower Liger, even capturing the city of Juliomagus. ^The Saxon host under Adovacrius wields both fear and ambition, but their position remains precarious. The Franks, under Childeric I, eye their domain with growing concern, while the remnants of Roman authority in the region still attempt to assert control."),
+
+("desc_roman_christians", "Chalcedonian Christians adhere to the doctrines established by the Council of Chalcedon in 451 AD. This council articulated that Jesus Christ exists in two distinct natures-divine and human-united in one person without confusion or division. They face opposition from Copts and from those who follow the Miaphysite branch. The Nestorians who demanded clear distinction of Christ's nature also oppose Chalcedonians."),
+
+("desc_arian_christians", "Arian Christians follow the teachings of Arius, a priest from Alexandria, who asserted that Jesus Christ, the Son of God, was a created being and not co-eternal with God the Father. This belief diverged from the mainstream Christian doctrine of the Trinity, which holds that the Father, Son, and Holy Spirit are of the same substance and co-eternal. Visigoths and Germanic tribes especially follow this branch of Christianity. They are opposed by Nicene Christians, tensions sometimes run high."),
+
+("desc_coptic_christians", "Miaphysite Christians adhere to the Christological position that Jesus Christ has one united nature (miaphysis), both fully divine and fully human. This perspective was heavily influenced by the teachings of Cyril of Alexandria, who emphasized the unity of Christ's nature. Miaphysitism is particularly prominent among certain Christian communities, notably the Coptic Church in Egypt. Following their bishop Cyril, they embrace the Miaphysite stance, especially in response to the controversies surrounding Nestorianism. The primary opposition to Miaphysite Christians comes from those who accepted the Chalcedonian Definition established by the Council of Chalcedon."),
+
+("desc_nestorian_christians", "Nestorian Christians follow the teachings of Nestorius, the Patriarch of Constantinople, who emphasized a distinction between Christ's divine and human natures. Nestorius proposed that Mary should be called 'Christotokos' (Christ-bearer) rather than 'Theotokos' (God-bearer), reflecting his view that the divine and human aspects of Jesus were distinct. This was deemed heretical by the First Council at Ephesus in 431 AD. Following their condemnation, many Nestorian Christians moved eastward, establishing the Church of the East, which became prominent in Persia and later expanded into Asia."),
+
+("desc_donatist_christians", "Donatist Christians are a rigorist sect in North Africa who believe that the sanctity of the church depends on the purity of its members and clergy. They hold that sacraments administered by priests or bishops who had lapsed in faith during persecution (known as 'traditores') are invalid. The primary opposition to Donatism comes from the broader Catholic Church, notably figures like Augustine of Hippo, who argue that the validity of sacraments was not dependent on the moral purity of the clergy administering them.  This schism has led to significant religious and social tensions in North Africa with the Roman authorities often siding against the Donatists. Despite this, the Donatist movement persists."),
+
+("desc_pagans", "Various pagan beliefs and groups yet exist, even after the Christianization of much of Europe. Anglo-Saxon pagans practice a polytheistic belief system venerating deities such as Woden, Thunor, and Tiw. Their spirituality is deeply connected to nature and ancestral traditions. Germanic tribes engage in the worship of gods like Odin and Thor, with rituals centered around natural elements and warrior ethos. These practices could still be found among tribes such as the Goths and Vandals. These faiths often face persecution and mockery from mainstream beliefs and some would like to see them stamped out once and for all."),
+
+("desc_roman_pagans", "Greco-Roman pagans adhere to traditional polytheistic religions of ancient Greece and Rome, worshipping deities such as Zeus (Jupiter), Hera (Juno), and Athena (Minerva). Their beliefs encompass a rich tapestry of myths, rituals, and festivals integral to cultural and civic life and who would wish for Rome to return to the old ways. Christian leaders and emperors have implemented policies to suppress paganism, including the removal of symbols like the Altar of Victory from the Roman Senate and the prohibition of public sacrifices. Despite these efforts, paganism persists, especially in rural areas, leading to a religious landscape where traditional beliefs coexist with the expanding Christian faith."),
+
+("desc_zoroastrians", "Mazdaist Zoroastrians are followers of Zoroastrianism, a monotheistic religion founded by the prophet Zarathustra (Zoroaster) in ancient Persia. They worship Ahura Mazda, the 'Wise Lord,' as the supreme deity and believe in a cosmic dualism between the forces of good (Ahura Mazda) and evil (Angra Mainyu). Central to their faith is the emphasis on individual responsibility to choose righteousness (asha) over deceit (druj), promoting values of truth, order, and moral integrity.  During this period, Zoroastrianism is the state religion of the Sassanian Empire, which often leads to tensions with neighboring regions and emerging religious groups. In regions like Armenia and Caucasian Albania, efforts are made by Sassanian rulers to impose Zoroastrianism, leading to conflicts with Christian populations who resist conversion."),
+
+("desc_zurvanism", "Zurvanite Zoroastrians are devout to a branch of Zoroastrianism known as Zurvanism, which posits Zurvan, the deity of infinite time and space, as the primordial creator. This belief system proposes that Zurvan begots twin entities: Ahura Mazda, representing good, and Angra Mainyu, embodying evil. This interpretation introduced a monist perspective, differing from the traditional Zoroastrian dualism that emphasizes a clear distinction between good and evil forces. It faces opposition from orthodox Zoroastrians who view the Zurvanite interpretation as a deviation from established teachings. The orthodox faction maintains the traditional dualistic framework, emphasizing the independent and opposing nature of Ahura Mazda and Angra Mainyu."),
+
+("desc_jews", "Judaism is a monotheistic religion centered on the belief in one transcendent God who revealed Himself to figures like Abraham and Moses. Jewish religious life is guided by Scriptures and rabbinic traditions, emphasizing adherence to the Mosaic covenant. They hold to the belief in a coming Messiah, a future anointed king who would restore Israel, rebuild the Temple in Jerusalem, and bring peace and justice to the world. The majority of Jews are now living in diaspora, with significant populations in the east as well in places like Alexandria, Babylon and Persia."),
+#description strings end
+
 #utility for skill names
 ]+[
 ("skl_"+skills[x][0], skills[x][1]) for x in range(0, len(skills))]

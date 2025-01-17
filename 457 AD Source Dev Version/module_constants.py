@@ -1313,8 +1313,9 @@ slot_troop_will_join_prison_break      = 161
 troop_slots_reserved_for_relations_start        = 165 #this is based on id_troops, and might change
 
 slot_troop_embedded_party = 1400
-slot_faction_days_survived = 1449
-slot_troop_relations_begin = 1450
+slot_faction_description = 1449
+slot_faction_days_survived = 1450
+slot_troop_relations_begin = 1451
 
 ########################################################
 ##  PLAYER SLOTS           #############################

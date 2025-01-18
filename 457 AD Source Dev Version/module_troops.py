@@ -5544,4 +5544,3 @@ upgrade(troops,"armenian_levy","armenian_footman")
 upgrade(troops,"armenian_cavalry","armenian_cataphract")
 
 upgrade2(troops,"jewish_levy","jewish_footman","jewish_slinger")
-upgrade(troops,"irish_warrior","irish_follower")

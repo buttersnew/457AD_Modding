@@ -7409,6 +7409,17 @@ simple_triggers = [
 (add_troop_note_tableau_mesh, "trp_mia_bishop_alexandria_1", "tableau_troop_note_mesh"),
 (troop_set_slot, "trp_chal_bishop_alexandria_1", slot_troop_occupation, dplmc_slto_dead),
 (try_end),
+
+(try_begin),
+(eq, "$suebi_war_ended", 0),
+(faction_slot_eq, "fac_kingdom_8", slot_faction_state, sfs_active),
+(faction_slot_eq, "fac_kingdom_30", slot_faction_state, sfs_active),
+(faction_get_slot, ":tributary_cur", "fac_kingdom_30", slot_faction_tributary_of),
+(neg|is_between, ":tributary_cur", kingdoms_begin, kingdoms_end),
+(store_relation, ":reln", "fac_kingdom_8", "fac_kingdom_30"),
+(ge, ":reln", 0),
+(call_script, "script_diplomacy_start_war_between_kingdoms", "fac_kingdom_30", "fac_kingdom_8", 0), #restart the suebi civil war if it ends
+(try_end),
     ]),  
 
 (24 * 7,

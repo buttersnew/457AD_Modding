@@ -19917,6 +19917,13 @@ presentations = [
                 (eq, ":troop", "trp_jewish_footman"),
                 (assign, ":c", 1),
               (else_try),
+                (eq, ":culture", "fac_culture_19"), #irish
+                (this_or_next|eq, ":troop", "trp_irish_skirmisher"), #t1
+                (this_or_next|eq, ":troop", "trp_irish_follower"), 
+                (this_or_next|eq, ":troop", "trp_irish_companion"), 
+                (eq, ":troop", "trp_irish_warrior"),
+                (assign, ":c", 1),
+              (else_try),
                 (eq, ":culture", "fac_culture_empire"), #romans - this is where the fun begins!
                 (this_or_next|eq, ":troop", "trp_tiro"),
                 (this_or_next|eq, ":troop", "trp_exculator"),
@@ -19945,12 +19952,12 @@ presentations = [
                 (eq, ":troop", "trp_aestii_companion"),
                 (assign, ":c", 1),
               (else_try), #irish
-                (eq, "$g_encountered_party", "p_irish_village"),
-                (this_or_next|eq, ":troop", "trp_irish_skirmisher"),
-                (this_or_next|eq, ":troop", "trp_irish_warrior"),
-                (eq, ":troop", "trp_irish_follower"),
-                (assign, ":c", 1),
-              (else_try), #garamantians
+                #(eq, "$g_encountered_party", "p_irish_village"),
+                #(this_or_next|eq, ":troop", "trp_irish_skirmisher"),
+                #(this_or_next|eq, ":troop", "trp_irish_warrior"),
+                #(eq, ":troop", "trp_irish_follower"),
+                #(assign, ":c", 1),
+              #(else_try), #garamantians
                 (eq, "$g_encountered_party", "p_garamantian_village_1"),
                 (this_or_next|eq, ":troop", "trp_garamantian_warrior"),
                 (eq, ":troop", "trp_garamantian_horseman"),
@@ -20165,6 +20172,13 @@ presentations = [
                     (this_or_next|eq, ":troop", "trp_jewish_levy"), #t1
                     (this_or_next|eq, ":troop", "trp_jewish_slinger"),
                     (eq, ":troop", "trp_jewish_footman"),
+                    (assign, ":c", 1),
+                  (else_try),
+                    (eq, ":culture", "fac_culture_19"), #irish
+                    (this_or_next|eq, ":troop", "trp_irish_skirmisher"), #t1
+                    (this_or_next|eq, ":troop", "trp_irish_follower"),
+                    (this_or_next|eq, ":troop", "trp_irish_companion"),
+                    (eq, ":troop", "trp_irish_warrior"),
                     (assign, ":c", 1),
                   (else_try),
                     (eq, ":culture", "fac_culture_empire"), #romans - this is where the fun begins!

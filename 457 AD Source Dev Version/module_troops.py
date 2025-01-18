@@ -2632,17 +2632,21 @@ troops = [
    def_attrib_lvl_28|level(28),wp_one_handed(210)|wp_two_handed(210)|wp_polearm(230)|wp_throwing(210)|wp_archery(160),knows_cataphract,caucaus_face_1, caucaus_face_2],
 
 #POTATO-MEN (irish)
-  ["irish_skirmisher","Irish Skirmisher (Ceithernach)","Irish Skirmishers (Ceithernach)",tf_guarantee_armor|tf_guarantee_ranged,0,0,fac_minor_irish,
+  ["irish_skirmisher","Irish Skirmisher (Ceithernach)","Irish Skirmishers (Ceithernach)",tf_guarantee_armor|tf_guarantee_ranged,0,0,fac_culture_19,
    [itm_woolen_hose,itm_wrapping_boots,itm_pictish_tunic_2,itm_pictish_tunic_3,itm_pictish_tunic_4,itm_pictish_tunic_6,itm_roman_spear_1,itm_glaive,itm_fighting_axe,itm_celt_axe_1,itm_jarid,itm_jarid,itm_pictish_hood_1,itm_pictish_hood_2,itm_pictish_hood_3,itm_leather_cap]+shields_simple,
    def_attrib_skirmisher|level(16),wp_one_handed(140)|wp_two_handed(140)|wp_polearm(140)|wp_archery(100)|wp_throwing(160),knows_skirmisher|knows_power_strike_6,celtic_face_1, celtic_face_2],
 
-  ["irish_warrior","Irish Warrior (Cliarthaire)","Irish Warriors (Cliarthaire)",tf_guarantee_armor|tf_guarantee_shield|tf_guarantee_polearm,0,0,fac_minor_irish,
+  ["irish_warrior","Irish Warrior (Cliarthaire)","Irish Warriors (Cliarthaire)",tf_guarantee_armor|tf_guarantee_shield|tf_guarantee_polearm,0,0,fac_culture_19,
    [itm_woolen_hose,itm_wrapping_boots,itm_pictish_tunic_2,itm_pictish_tunic_6,itm_pictish_tunic_9,itm_roman_spear_1,itm_glaive,itm_fighting_axe,itm_pict_axe_a,itm_pict_axe_b,itm_coygan_dagger,itm_javelin,itm_javelin,itm_leather_cap,itm_pictish_hood_1,itm_pictish_hood_2,itm_pictish_hood_3,itm_brown_hood1,itm_pict_shield_2,itm_pict_shield_3,itm_pict_shield_7],
    def_attrib_lvl_18|level(16),wp_one_handed(150)|wp_two_handed(150)|wp_polearm(150)|wp_archery(100)|wp_throwing(140),knows_lvl_18|knows_power_strike_6,celtic_face_1, celtic_face_2],
 
-  ["irish_follower","Irish Follower (Forbfer)","Irish Followers (Forbfer)",tf_mounted|tf_guarantee_basic,0,0,fac_minor_irish,
+  ["irish_follower","Irish Follower (Forbfer)","Irish Followers (Forbfer)",tf_guarantee_basic,0,0,fac_culture_19,
    [itm_woolen_hose,itm_wrapping_boots,itm_pictish_tunic_9,itm_pictish_tunic_2,itm_pictish_mail_2,itm_pictish_mail_9,itm_burgh_helmet_mail,itm_burgh_helmet_light,(itm_intercisa_helmet_1,imod_battered),itm_irish_spatha_1,itm_throwing_spears,itm_throwing_spears,itm_tab_shield_small_round_c,itm_pict_shield_2,itm_pict_shield_3,itm_pict_shield_7],
    def_attrib_lvl_28|level(28),wp_one_handed(230)|wp_two_handed(220)|wp_polearm(220)|wp_archery(100)|wp_throwing(220),knows_lvl_28|knows_power_strike_8,celtic_face_1, celtic_face_2],
+
+["irish_companion","Irish Companion (Celi)","Irish Companions (Celi)",tf_mounted|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_shield|tf_guarantee_horse|tf_guarantee_polearm,0,0,fac_culture_19,[itm_woolen_hose,itm_wrapping_boots,itm_pictish_tunic_9,itm_pictish_tunic_2,itm_pictish_mail_2,itm_pictish_mail_9,itm_burgh_helmet_mail,itm_burgh_helmet_light,(itm_intercisa_helmet_1,imod_battered),itm_irish_spatha_1,itm_throwing_spears,itm_throwing_spears,itm_tab_shield_small_round_c,itm_pict_shield_2,itm_pict_shield_3,itm_pict_shield_7]+horses_pictish_2,
+   def_attrib_lvl_28|level(28),wp_one_handed(215)|wp_two_handed(210)|wp_polearm(215)|wp_archery(100)|wp_crossbow(100)|wp_throwing(200),knows_lvl_28,celtic_face_1, celtic_face_2],
+
 
 #ARABS
   ["arab_skirmisher","Arabian Skirmisher","Arab Skirmishers",tf_guarantee_armor|tf_guarantee_ranged,0,0,fac_commoners,
@@ -3249,6 +3253,8 @@ troops = [
 
 ["kingdom_31_lord",  "Artashir Artaxiad",  "Artashir Artaxiad",  tf_hero, 0,reserved,  fac_kingdom_31,[itm_simple_shoes,itm_coptic_tunic_emperor_2,itm_crown_1, itm_heavy_lance, itm_ingushetia_spatha, itm_tab_shield_small_round_c, itm_heavy_greaves, itm_leather_gloves, itm_caucasian_cataphract_3 ,itm_toaoe_sassanid_helmet_2], knight_attrib_5,wp_one_handed(310)|wp_two_handed(250)|wp_polearm(300)|wp_archery(100)|wp_crossbow(100)|wp_throwing(100)|wp_firearm(100),knight_skills_6|knows_trainer_8, 0x000000060e002045345251b69369b4db00000000001d36e20000000000000000],
 
+  ["irish_king","Dallan Dail Fiatach","Dallan Dail Fiatach",tf_hero, no_scene, reserved, fac_kingdom_32,[itm_marcos_4,itm_pictish_tunic_1,itm_wrapping_boots,itm_pictish_mail_1,itm_burgh_helmet_2,itm_pictish_sword,itm_vae_pictish_rectangle_16],knight_attrib_5,wp_one_handed(290)|wp_two_handed(290)|wp_polearm(290)|wp_archery(100)|wp_crossbow(100)|wp_throwing(100)|wp_firearm(100),knight_skills_4|knows_trainer_5,0x0000000da50060465051a0975b512b2300000000001db6980000000000000000],
+
 #                                                                               Horse                   Bodywear                Armor                               Footwear_in                 Footwear_out                        Headwear                    Weapon               Shield
 
 #Faction to remove lords (1-2 each): Kartli (4), Gepids (5), Lazika (4), Visigoths (7), Ostrogoths (7), Vandals (7), Huns (7), Thuringians (4), Langobards (4), Ripaurii (3) - would in total allow 10 extra lords for same count as currently
@@ -3513,6 +3519,10 @@ troops = [
 ["armenag_artsruni",  "Sparapet Armenag Artsruni",  "Armenag Artsruni",  tf_hero, 0,reserved,  fac_kingdom_31,[itm_simple_shoes,itm_tunic_rich_7,itm_crown_1, itm_heavy_lance, itm_ingushetia_spatha, itm_tab_shield_small_round_c, itm_heavy_greaves, itm_leather_gloves, itm_long_cataphract_mail ,itm_tsaritsyno_1_veiled], knight_attrib_5,wp_one_handed(290)|wp_two_handed(270)|wp_polearm(290)|wp_archery(150)|wp_crossbow(100)|wp_throwing(100)|wp_firearm(100),knight_skills_5|knows_trainer_3,0x00000002081030852ad4b248a391b2eb00000000001e36910000000000000000],
 ["armenian_lord_1",  "Sparapet Hravart Mamikonian",  "Hravart Mamikonian",  tf_hero, 0,reserved,  fac_kingdom_31,[itm_simple_shoes,itm_tunic_rich_7,itm_crown_1, itm_heavy_lance, itm_ingushetia_spatha, itm_tab_shield_small_round_c, itm_heavy_greaves, itm_leather_gloves, itm_long_cataphract_mail ,itm_tsaritsyno_1_veiled], knight_attrib_3,wp_one_handed(290)|wp_two_handed(270)|wp_polearm(290)|wp_archery(150)|wp_crossbow(100)|wp_throwing(100)|wp_firearm(100),knight_skills_3|knows_trainer_1,0x0000000d180c93c131598225137569b000000000001db6ff0000000000000000],
 ["armenian_lord_2",  "Sparapet Karen Saharuni",  "Karen Saharuni",  tf_hero, 0,reserved,  fac_kingdom_31,[itm_simple_shoes,itm_tunic_rich_7,itm_crown_1, itm_heavy_lance, itm_ingushetia_spatha, itm_tab_shield_small_round_c, itm_heavy_greaves, itm_leather_gloves, itm_long_cataphract_mail ,itm_tsaritsyno_1_veiled], knight_attrib_3,wp_one_handed(290)|wp_two_handed(270)|wp_polearm(290)|wp_archery(150)|wp_crossbow(100)|wp_throwing(100)|wp_firearm(100),knight_skills_3|knows_trainer_1,0x0000000da610f301540d514cdb513b3500000000001e4b1b0000000000000000],
+
+["knight_32_1", "Tovisaci Baidagni", "Biadagni", tf_hero, 0, reserved,  fac_kingdom_32, [itm_marcos_1, itm_sword_viking_2_small, itm_augsburg_1_helmet, (itm_pictish_mail_8,imod_reinforced), itm_pictish_tunic_8, itm_ankle_boots, itm_tab_shield_small_round_c],     knight_attrib_5,wp(300),knight_skills_1|knows_trainer_1, 0x0000000d4d04610f36db6db6db6db6db00000000001db6db0000000000000000],
+["knight_32_2", "Tovisaci Votecorigas", "Votecorigas", tf_hero, 0, reserved,  fac_kingdom_32, [itm_marcos_2, itm_pictish_sword, itm_intercisa_helmet_rich_3, (itm_pictish_mail_9,imod_reinforced), itm_pictish_tunic_9, itm_ankle_boots, itm_tab_shield_small_round_c],     knight_attrib_5,wp(300),knight_skills_2|knows_trainer_2, 0x00000009930434c336db6db6db6db6db00000000001db6db0000000000000000],
+["knight_32_3", "Tovisaci Cairatini", "Cairatini", tf_hero, 0, reserved,  fac_kingdom_32,[itm_marcos_3, itm_arabian_sword_a, itm_burgh_helmet_2, itm_pictish_tunic_10, (itm_pictish_mail_10,imod_reinforced), itm_ankle_boots, itm_tab_shield_small_round_c],knight_attrib_5,wp(280),knight_skills_3,0x000000000e0412c21adb6db6db6db6dd00000000001e36df0000000000000000],
 
 #MADSCI REBEL KINGDOM HEROES, THESE WILL BE DISABLED AT START
 ["rebel_knight_1_1", "Marcianus", "Marcianus", tf_hero, 0, reserved,  fac_rebel_kingdom_1,[itm_nisean_cataphract_1, itm_coptic_tunic_12, itm_deurne_campagi_1, itm_deurne_campagi_greaves_1, itm_rich_mail_8, itm_tab_shield_small_round_c, itm_arabian_sword_b, itm_jarak_helmet_1],knight_attrib_5,wp_one_handed(290)|wp_two_handed(270)|wp_polearm(290)|wp_archery(150)|wp_crossbow(100)|wp_throwing(100)|wp_firearm(100),knight_skills_5|knows_trainer_4,0x000000071e0c20423daa8c98748dd92400000000001d92e00000000000000000],
@@ -4911,7 +4921,6 @@ troops = [
 
   #MINOR FACTION KINGS START
   ["aestii_king","Aiwarikiar Scylfingr","Aiwarikiar Scylfingr",tf_hero, no_scene, reserved, fac_minor_aestii,[itm_wrapping_boots,itm_rich_mail_7_cloak,itm_gultlingen_helmet_plume,itm_taurapilis_spatha,itm_concave_shield_germanic_17],def_attrib_lvl_32|level(32),wp_one_handed(300)|wp_two_handed(300)|wp_polearm(300)|wp_throwing(280)|wp_archery(160)|wp_crossbow(130)|wp_firearm(130),knows_ironflesh_10|knows_power_strike_8|knows_shield_6|knows_athletics_6|knows_riding_5,0x00000008c00000c236db6db6db6db6db00000000001db6db0000000000000000],
-  ["irish_king","Dallan Dail Fiatach","Dallan Dail Fiatach",tf_hero, no_scene, reserved, fac_minor_irish,[itm_wrapping_boots,itm_pictish_mail_1,itm_burgh_helmet_2,itm_pictish_sword,itm_vae_pictish_rectangle_16],def_attrib_lvl_32|level(32),wp_one_handed(300)|wp_two_handed(300)|wp_polearm(300)|wp_throwing(280)|wp_archery(160)|wp_crossbow(130)|wp_firearm(130),knows_ironflesh_10|knows_power_strike_8|knows_shield_6|knows_athletics_6|knows_riding_5,0x0000000da50060465051a0975b512b2300000000001db6980000000000000000],
   ["garamantian_king","Tikfarin","Tikfarin",tf_hero, no_scene, reserved, fac_minor_garamantians,[itm_sword_khergit_4,itm_war_spear,itm_wrapping_boots,itm_garamantian_king_scale,itm_african_band_1],def_attrib_lvl_32|level(32),wp_one_handed(300)|wp_two_handed(300)|wp_polearm(300)|wp_throwing(280)|wp_archery(160)|wp_crossbow(130)|wp_firearm(130),knows_ironflesh_10|knows_power_strike_8|knows_shield_6|knows_athletics_6|knows_riding_5,0x0000000c7f0130885a9b4ac96bb1272500000000001e371b0000000000000000],
   ["dani_king","Gramr Skjoldungr","Gramr Skjoldungr",tf_hero, no_scene, reserved, fac_minor_dani,[itm_khergit_leather_boots,itm_danish_king_mail,itm_danish_king_mace,itm_gultlingen_helmet_plume,itm_round_shield_germanic_5],def_attrib_lvl_32|level(32),wp_one_handed(300)|wp_two_handed(300)|wp_polearm(300)|wp_throwing(280)|wp_archery(160)|wp_crossbow(130)|wp_firearm(130),knows_ironflesh_10|knows_power_strike_8|knows_shield_6|knows_athletics_6|knows_riding_5,0x00000001bf0000823adb6db6db6db6db00000000001db6dd0000000000000000],
   ["morden_king","Terekh","Terekh",tf_hero, no_scene, reserved, fac_minor_mordens,[itm_simple_shoes,itm_common_mail_long_6_cloak,itm_tsaritsyno_1_veiled,itm_borok_spatha,itm_niya_bow_2,itm_khergit_arrows],def_attrib_lvl_32|level(32),wp_one_handed(300)|wp_two_handed(300)|wp_polearm(300)|wp_throwing(280)|wp_archery(160)|wp_crossbow(130)|wp_firearm(130),knows_ironflesh_10|knows_power_strike_8|knows_shield_6|knows_athletics_6|knows_riding_5,0x00000009210043cb32548dd91a4db4c900000000001db4e40000000000000000],
@@ -5528,3 +5537,4 @@ upgrade(troops,"armenian_levy","armenian_footman")
 upgrade(troops,"armenian_cavalry","armenian_cataphract")
 
 upgrade2(troops,"jewish_levy","jewish_footman","jewish_slinger")
+upgrade(troops,"irish_warrior","irish_follower")

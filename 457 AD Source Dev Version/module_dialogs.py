@@ -19870,12 +19870,40 @@ I knew that I had found someone worthy of becoming my vassal.", "lord_invite_1",
                ],
 "We meet again, {playername}...", "lord_start", []],
 
+#custom dialogue for meeting faction lords
+#IRISH KING
+[anyone ,"start", [
+(eq, "$g_talk_troop", "trp_irish_king"),
+(troop_slot_eq,"$g_talk_troop",slot_troop_occupation, slto_kingdom_hero),
+               (eq, "$g_talk_troop_met", 0),
+               (ge, "$g_talk_troop_faction_relation", 0),
+               (le,"$talk_context",tc_siege_commander),
+               ],
+"Consan pleascach strainseir! Who dares to come before me, the sword-carrier and master laech of Inisfail, vanquisher of heathen dúnmharfoiri of cursed Ui Neill, conqueror of godless black crows of Airgialla, foul offspring of Eochaid Doimlen and his bastards?", "irish_king_intro_1", []],
+  [trp_irish_king|plyr, "irish_king_intro_1", [],
+   "Hail and well met, great swordbearer, I am {playername}, a lowly traveller in the land of green hills and of warriors might unrivaled, I come seeking favor and men of strong axe-hand for all know of saighdiuir of Hibernia, whose bows and slings can fell the strongest Fomhóraigh, unholy enemies of Tuatha De Danann. May I ask in whose presence I have the honor to stand?", "irish_king_intro_2", []],
+  [trp_irish_king, "irish_king_intro_2", [],
+   "The gall you have to approach me so thus, so brazenly. Yet I can respect men of action who dare, for if man does not drench his sword in the red gore of his foes, he can never bring glory to clan, bring peace or win riches as I did in Ard Macha. I am Dallan Dail Fiatach the ri of Ulaid, chosen of Iosa Criost and one who will bring light to the darkened lands of unbelievers.", "irish_king_intro_3", []],
+  [trp_irish_king|plyr, "irish_king_intro_3", [],
+   "Follower of the True God you are, the people of Gallia and Britannia have been shown the way of justice and righteousness, illuminated by Iesous. But now you seek to bring the sheep to shepard, the sword to protect Christians, the cross to guide the lost?", "irish_king_intro_4", []],
+  [trp_irish_king, "irish_king_intro_4", [],
+   "Yes, truth must be brought if ever we are to rise from the ignorance of Pagan ways. Palladius who came before me brought the wisdom to the wretched, hope to hopeless and humility to vain ones. He may be gone but as long as I carry my chlaidheamh I will not rest. God's fury burns in me but it may yet burn even brighter in my son, Forga Macc Dallan, I have taught him all I know and if I were to die an untimely death, my passing will only signal a time when all people in this land come united under the symbol of cross, he is even more vigorous and enthusiastic than me...", "irish_king_intro_5", []],
+  [trp_irish_king|plyr, "irish_king_intro_5", [],
+   "Of the great deeds of Patraic I have heard, he came to this land to give alms for the poor, to uplift the spirits of downtrodden. But do you believe his work and zeal will hold the gnawing of time?", "irish_king_intro_6", []],
+  [trp_irish_king, "irish_king_intro_6", [],
+   "Teacher and apostle is he. The people have carried the brunt of chains. We have toiled and lived as slaves but Patraic has shown the errors in the ways of our countrymen. Ui Neill will be made to break the chains of servitude that bind the low-born and unlucky. Slavery will end in Inisfail for all time! if they refuse out of sin of pride, then my hand will punish them. God will have mercy for them, but I will not.", "irish_king_intro_7", []],
+  [trp_irish_king|plyr, "irish_king_intro_7", [],
+   "I bow my head to your words, you will be a hero of whom the scolaire will commemorate. Go n-eiri an t-adh leat!", "lord_start", []],
+#IRISH KING END
+
+
 [anyone ,"start", [(troop_slot_eq,"$g_talk_troop",slot_troop_occupation, slto_kingdom_hero),
                (eq, "$g_talk_troop_met", 0),
                (ge, "$g_talk_troop_faction_relation", 0),
                (le,"$talk_context",tc_siege_commander),
                ],
 "Do I know you?", "lord_meet_neutral", []],
+
 [anyone|plyr ,"lord_meet_neutral", [],  "I am {playername}.", "lord_intro", []],
 [anyone|plyr ,"lord_meet_neutral", [
 ##diplomacy start+ use correct gender
@@ -52714,24 +52742,6 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
    "This is my story, {playername}. As long as you will stay behind these walls you will be my guest.", "aestii_king_intro_7", []],
   [trp_aestii_king|plyr, "aestii_king_intro_7", [],
    "You give me much honor, Visavaldas.", "minor_faction_king_pretalk", [(call_script, "script_change_player_relation_with_troop", "trp_aestii_king",5),]],
-
-  #intro for irish king
-  [trp_irish_king, "start", [(eq, "$g_talk_troop_met", 0),],
-   "Consan pleascach strainseir! Who dares to come before me, the sword-carrier and master laech of Inisfail, vanquisher of heathen dúnmharfoiri of cursed Ui Neill, conqueror of godless black crows of Airgialla, foul offspring of Eochaid Doimlen and his bastards?", "irish_king_intro_1", []],
-  [trp_irish_king|plyr, "irish_king_intro_1", [],
-   "Hail and well met, great swordbearer, I am {playername}, a lowly traveller in the land of green hills and of warriors might unrivaled, I come seeking favor and men of strong axe-hand for all know of saighdiuir of Hibernia, whose bows and slings can fell the strongest Fomhóraigh, unholy enemies of Tuatha De Danann. May I ask in whose presence I have the honor to stand?", "irish_king_intro_2", []],
-  [trp_irish_king, "irish_king_intro_2", [],
-   "The gall you have to approach me so thus, so brazenly. Yet I can respect men of action who dare, for if man does not drench his sword in the red gore of his foes, he can never bring glory to clan, bring peace or win riches as I did in Ard Macha. I am Dallan Dail Fiatach the ri of Ulaid, chosen of Iosa Criost and one who will bring light to the darkened lands of unbelievers.", "irish_king_intro_3", []],
-  [trp_irish_king|plyr, "irish_king_intro_3", [],
-   "Follower of the True God you are, the people of Gallia and Britannia have been shown the way of justice and righteousness, illuminated by Iesous. But now you seek to bring the sheep to shepard, the sword to protect Christians, the cross to guide the lost?", "irish_king_intro_4", []],
-  [trp_irish_king, "irish_king_intro_4", [],
-   "Yes, truth must be brought if ever we are to rise from the ignorance of Pagan ways. Palladius who came before me brought the wisdom to the wretched, hope to hopeless and humility to vain ones. He may be gone but as long as I carry my chlaidheamh I will not rest. God's fury burns in me but it may yet burn even brighter in my son, Forga Macc Dallan, I have taught him all I know and if I were to die an untimely death, my passing will only signal a time when all people in this land come united under the symbol of cross, he is even more vigorous and enthusiastic than me...", "irish_king_intro_5", []],
-  [trp_irish_king|plyr, "irish_king_intro_5", [],
-   "Of the great deeds of Patraic I have heard, he came to this land to give alms for the poor, to uplift the spirits of downtrodden. But do you believe his work and zeal will hold the gnawing of time?", "irish_king_intro_6", []],
-  [trp_irish_king, "irish_king_intro_6", [],
-   "Teacher and apostle is he. The people have carried the brunt of chains. We have toiled and lived as slaves but Patraic has shown the errors in the ways of our countrymen. Ui Neill will be made to break the chains of servitude that bind the low-born and unlucky. Slavery will end in Inisfail for all time! if they refuse out of sin of pride, then my hand will punish them. God will have mercy for them, but I will not.", "irish_king_intro_7", []],
-  [trp_irish_king|plyr, "irish_king_intro_7", [],
-   "I bow my head to your words, you will be a hero of whom the scolaire will commemorate. Go n-eiri an t-adh leat!", "minor_faction_king_pretalk", []],
 
   #garamantian king
   [trp_garamantian_king, "start", [(eq, "$g_talk_troop_met", 0),],

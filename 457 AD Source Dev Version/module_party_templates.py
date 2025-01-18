@@ -204,6 +204,10 @@ party_templates = [
 
   ("kingdom_18_reinforcements_a", "{!}Jewish Reinforcements", 0, 0, fac_commoners, 0, [(trp_jewish_levy,3,7),(trp_jewish_slinger,3,7),(trp_jewish_footman,2,6)]),
 
+  ("kingdom_32_reinforcements_a", "{!}Irish Reinforcements", 0, 0, fac_commoners, 0, [(trp_irish_skirmisher,4,10),(trp_irish_warrior,4,10)]),
+  ("kingdom_32_reinforcements_b", "{!}Irish Reinforcements", 0, 0, fac_commoners, 0, [(trp_irish_warrior,4,10),(trp_irish_companion,2,5),(trp_standard_bearer,1,1)]),
+  ("kingdom_32_reinforcements_c", "{!}Irish Reinforcements", 0, 0, fac_commoners, 0, [(trp_irish_follower,2,5),(trp_irish_companion,2,5)]),
+
   ("kingdom_empire_reinforcements_a", "{!}Roman Reinforcements", 0, 0, fac_commoners, 0, [(trp_tiro,4,10),(trp_exculator,2,4),(trp_eques_mauri,2,6)]),
   ("kingdom_empire_reinforcements_b", "{!}Roman Reinforcements", 0, 0, fac_commoners, 0, [(trp_pedes,4,10),(trp_sagittarius,3,6),(trp_eques_ala,2,7),(trp_imperial_signifer,1,1)]),
   ("kingdom_empire_reinforcements_c", "{!}Roman Reinforcements", 0, 0, fac_commoners, 0, [(trp_eques_scutarii,2,6),(trp_eques_cataphractarii,1,3),(trp_centenarius,1,1)]),
@@ -554,7 +558,7 @@ party_templates = [
   ("aestii_party","Aestii Warriors",icon_gray_knight|carries_goods(30)|pf_show_faction,0,fac_minor_aestii,bandit_personality,[(trp_aestii_skirmisher,10,25),(trp_aestii_tribesman,15,25),(trp_aestii_companion,5,10)]), #for patrols
   ("aestii_party_1","Aestii Warriors",icon_gray_knight|carries_goods(30)|pf_show_faction,0,fac_minor_aestii,bandit_personality,[(trp_aestii_skirmisher,10,25),(trp_aestii_tribesman,15,25),(trp_suiones_guard,5,10),(trp_aestii_companion,5,10)]), #before quest is completed
   ("aestii_party_2","Aestii Warriors",icon_gray_knight|carries_goods(30)|pf_show_faction,0,fac_minor_aestii,bandit_personality,[(trp_aestii_skirmisher,10,25),(trp_aestii_tribesman,15,25),(trp_sitones_retainer,5,10),(trp_aestii_companion,5,10)]), #after quest is completed
-  ("irish_party","Scoti Warriors",icon_axeman|carries_goods(30)|pf_show_faction,0,fac_minor_irish,bandit_personality,[(trp_irish_skirmisher,10,25),(trp_irish_warrior,15,25),(trp_irish_follower,5,10)]),
+  #("irish_party","Scoti Warriors",icon_axeman|carries_goods(30)|pf_show_faction,0,fac_minor_irish,bandit_personality,[(trp_irish_skirmisher,10,25),(trp_irish_warrior,15,25),(trp_irish_follower,5,10)]),
   ("garamantian_party","Garamantian Warriors",icon_axeman|carries_goods(30)|pf_show_faction,0,fac_minor_garamantians,bandit_personality,[(trp_garamantian_warrior,14,30),(trp_garamantian_horseman,14,25),(trp_african_mercenary,2,5)]),
   ("dani_party","Dani Warriors",icon_gray_knight|carries_goods(30)|pf_show_faction,0,fac_minor_dani,bandit_personality,[(trp_scandinavian_freeman,10,25),(trp_scandinavian_retainer,5,10),(trp_dane_vanguard,5,15),(trp_scandinavian_comes,5,10)]),
   ("morden_party","Morden Warriors",icon_gray_knight|carries_goods(30)|pf_show_faction,0,fac_minor_mordens,bandit_personality,[(trp_mordvin_skirmisher,10,15),(trp_mordvin_footman,10,25),(trp_mordvin_mounted_skirmisher,5,10),(trp_mordvin_companion,3,6),(trp_komi_warrior,2,4)]),

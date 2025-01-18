@@ -2675,6 +2675,7 @@ strings = [
   ("kingdom_28_adjective",                     "Aghwan"),
   ("kingdom_29_adjective",                     "Angle"),
   ("kingdom_31_adjective",                     "Armenian"),
+  ("kingdom_32_adjective",                     "Irish"),
 
   ("credits_1", "Mount&Blade: Warband Copyright 2008-2015 Taleworlds Entertainment"),
   ("credits_2", "Game design:^Armagan Yavuz^Steve Negus^Cem Cimenbicer"),
@@ -3420,6 +3421,8 @@ We apologize sincerely if you contributed your suggestions and feedback but were
   ("deserters", "deserters"),
   ("your_followers", "your followers"),
   ("armenians", "Armenians"),
+  ("jews", "Jews"),
+  ("irish", "Irish"),
 
 
   ("we_have_heard_that_travellers_heading_to_s40_were_attacked_on_the_road_s46_by_s39", "We have heard that travellers heading to {s40} were attacked on the road {s46} by {s39}"),
@@ -4407,6 +4410,7 @@ We apologize sincerely if you contributed your suggestions and feedback but were
   ("faction_title_male_29", "Harjatogo {s0}"),
   ("faction_title_male_30", "Harjatogo {s0}"),
   ("faction_title_male_31", "Sparapet {s0}"),
+  ("faction_title_male_32", "Tovisaci {s0}"),
   ("faction_title_male_rebel_1", "Dominus {s0}"),
   ("faction_title_male_rebel_2", "Dominus {s0}"),
   ("faction_title_male_rebel_3", "Dominus {s0}"),
@@ -4443,6 +4447,7 @@ We apologize sincerely if you contributed your suggestions and feedback but were
   ("faction_title_female_29", "Frao {s0}"),
   ("faction_title_female_30", "{s0}"),
   ("faction_title_female_31", "{s0}"),
+  ("faction_title_female_32", "{s0}"),
   ("faction_title_female_rebel_1", "{s0}"),
   ("faction_title_female_rebel_2", "{s0}"),
   ("faction_title_female_rebel_3", "{s0}"),
@@ -4479,6 +4484,7 @@ We apologize sincerely if you contributed your suggestions and feedback but were
   ("faction_leader_title_male_29", "Rex {s0}"),
   ("faction_leader_title_male_30", "Rex {s0}"),
   ("faction_leader_title_male_31", "{s0}"),
+  ("faction_leader_title_male_32", "Ris {s0}"),
   ("faction_leader_title_male_rebel_1", "Defensor Civitatis {s0}"),
   ("faction_leader_title_male_rebel_2", "Defensor Civitatis {s0}"),
   ("faction_leader_title_male_rebel_3", "Defensor Civitatis {s0}"),
@@ -4515,6 +4521,7 @@ We apologize sincerely if you contributed your suggestions and feedback but were
   ("faction_leader_title_female_29", "Queen {s0}"),
   ("faction_leader_title_female_30", "Queen {s0}"),
   ("faction_leader_title_female_31", "Queen {s0}"),
+  ("faction_leader_title_female_32", "Queen {s0}"),
   ("faction_leader_title_female_rebel_1", "{s0}"),
   ("faction_leader_title_female_rebel_2", "{s0}"),
   ("faction_leader_title_female_rebel_3", "{s0}"),
@@ -6612,6 +6619,7 @@ Even in the last case, the player can make formations up to four lines by orderi
 ("face_culture_caucasian_alan", "00000000320c214336db6db6db6db6db00000000001db6db0000000000000000"),
 ("face_culture_armenian", "000000000b10f1405614b1c89aad596900000000001ee30a0000000000000000"),
 ("face_culture_jewish", "000000003010c10745622fef5a84c6e800000000001e38ea0000000000000000"),
+("face_culture_irish", "000000000b10614a36db6db6db6db6db00000000001db6db0000000000000000"),
 
 ("face_culture_gothic_female", "00000000340c0005449a6b372d791d2300000000000db8920000000000000000"),
 ("face_culture_eastgermanic_female", "00000000230c300b5b5669bb1472392400000000000d42cb0000000000000000"),
@@ -6628,6 +6636,7 @@ Even in the last case, the player can make formations up to four lines by orderi
 ("face_culture_caucasian_alan_female", "000000003d0c2001349494c88a85375d000000000011a5530000000000000000"),
 ("face_culture_armenian_female", "000000003d0c2001349494c88a85375d000000000011a5530000000000000000"),
 ("face_culture_jewish_female", "000000003d08100324cc75c6f22f3bab000000000015a7340000000000000000"),
+("face_culture_irish_female", "000000003204300b676b8e5a4cadbadc000000000011cb530000000000000000"),
 
 ("culture_gothic","You_are_a_Goth._Your_people_are_scions_of_Berig,_the_warrior-king_who_led_your_forefathers_from_their_ancestral_homes_in_Scandza._They_travelled_far,_through_the_dark_forests_and_swamps_of_eastern_Europa,_across_mountains_and_wide_rivers,_in_search_of_new_lands_to_settle._When_the_Huns_came,_some_fled_while_others_fought._Now,_to_east_and_west,_they_carve_out_kingdoms_by_their_strength_and_courage."),
 ("culture_eastgermanic","You_are_a_German_of_the_east._Long_your_ancestors_roamed_the_forests_and_steppes_of_Germania_Scythica,_hard,_cruel_lands_that_breed_stern,_doughty_folk._In_recent_times,_many_of_your_people_have_journeyed_south,_whether_in_search_of_wealth_and_warmer_climes,_or_fleeing_the_terror_from_the_east."),
@@ -6644,6 +6653,7 @@ Even in the last case, the player can make formations up to four lines by orderi
 ("culture_caucasian_alan","You_are_an_Alan._Your_people,_called_Scyths_by_the_settled_men_of_the_south,_have_ever_been_masters_of_the_great_steppe._But_the_Huns,_who_swept_in_from_the_east_with_arrow_and_fire,_have_brought_much_suffering,_stealing_your_herds_and_richest_hunting_grounds,_extorting_tribute,_taking_slaves_and_forcing_you_back_to_the_foothills_of_the_mountains_and_the_shores_of_the_ocean."),
 ("culture_armenian","You_are_an_Armenian._Your_people_are_the_descendants_of_the_ancient_kingdoms_of_Urartu_and_Armenia,_a_proud_nation_that_has_stood_at_the_crossroads_of_empires._Once_ruled_by_the_mighty_Arsacid_dynasty,_Armenia_was_divided_between_the_Eastern_Roman_and_Sasanian_Empires._Now,_as_a_vassal_of_the_Sasanians,_your_people_cling_to_their_Christian_faith,_which_was_first_adopted_in_301_AD,_and_to_their_unique_identity._Despite_persecution_and_geopolitical_turmoil,_Armenia_remains_a_land_of_fierce_warriors,_wise_clergy,_and_resilient_families._You_live_in_a_time_when_the_memories_of_Vardan_Mamikonian's_sacrifice_at_Avarayr_inspire_your_people_to_stand_strong_against_any_oppression."),
 ("culture_jew","You_are_a_Jew._Your_people_are_the_descendants_of_the_ancient_Israelites,_whose_kingdoms_of_Israel_and_Judah_once_flourished_in_the_hills_and_plains_of_the_Holy_Land._Centuries_of_exile,_displacement,_and_empires_have_scattered_your_community_across_the_Mediterranean,_but_their_identity_remains_unshaken._In_Palaestina,_your_people_suffer_under_Roman_rule,_facing_restrictions_and_persecutions._Despite_this,_your_tradition_endures_through_prayer,_study,_and a_tenacious_hope_for_redemption_and_freedom."),
+("culture_irish","You_are_an_Irish._Since_the_world_was_made,_your_people_have_ruled_the_chill,_beautiful_island_of_Eriu._Wild_and_free,_you_look_with_contempt_on_your_weak_eastern_neighbours_who_tremble_behind_their_great_walls_and_towers_of_stone,_which_now_stand_abandoned_and_silent."),
 
 ("background_slave","Your_parents_were_slaves_and_thus_you_were_born._Your_life_has_been_one_of_hardship_and_suffering._As_a_child,_you_watched_your_family_cruelly_punished_by_the_master_for_any_small_mistake_or_perceived_offense._Nor_did_you_receive_mercy_because_of_your_age._Your_parents_died_young,_as_slaves_usually_do._Determined_to_avoid_the_same_fate,_you_escaped,_leaving_the_place_far_behind."),
 ("background_freeman","Your_parents_were_freemen,_owners_of_a_smallholding_worked_by_serfs._As_soon_as_you_could_walk,_you_too_were_put_to_work._You_helped_gather_the_harvest,_fetched_water,_fed_the_animals._Though_life_could_be_hard,_it_was_happy:_you_played_and_fought_with_the_other_children,_made_fun_baiting_livestock_and_enjoyed_the_many_cultural_and_religious_festivities_of_your_people."),
@@ -6953,13 +6963,13 @@ Even in the last case, the player can make formations up to four lines by orderi
 ("desc_kingdom_30", "The Suevi Kingdom is a Germanic kingdom established in the northwest of the Iberian Peninsula. The Suevi had originally been pagan, but they converted to Christianity earlier than many other Germanic peoples."),
 
 ("desc_kingdom_31", "The Armenians are an ancient people."),
-("desc_kingdom_32", "The rebels fight for their freedom."),
-("desc_kingdom_33", "The rebels fight for their freedom."),
-("desc_kingdom_34", "The rebels fight for their freedom."),
+("desc_kingdom_32", "'Scoti' is the name given to raiders and settlers coming from the Irish coast during Late Antiquity by Roman sources."),
+
+("desc_rebel_kingdom_1", "The rebels fight for their freedom."),
+("desc_rebel_kingdom_2", "The rebels fight for their freedom."),
+("desc_rebel_kingdom_3", "The rebels fight for their freedom."),
 
 ("desc_minor_aestii", "The Aestii are a group of tribes of likely Baltic language who live along the eastern shores of the Baltic Sea as well as part of Eastern Pomerania. The name 'Aestii' is widely reported since ancient times and during the Migration Era they consist of several tribes who were never united under one single ruler."),
-
-("desc_minor_irish", "'Scoti' is the name given to raiders and settlers coming from the Irish coast during Late Antiquity by Roman sources."),
 
 ("desc_minor_garamantians", "The Garamantes are a berber civilization living in southern Libya. Known by the Romans since their first expansion in North Africa, they represent a powerful polity. Their capital, Garama, is an important trading centre that connects North Africa, and therefore Europe, to the Subsaharan civilizations. The Garamantes are well known as farmers but occasionally wage war against the Roman Empire."),
 

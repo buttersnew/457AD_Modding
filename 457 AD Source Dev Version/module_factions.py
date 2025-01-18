@@ -45,6 +45,7 @@ factions = [
   ("culture_16",  "Caucasian Alan", 0, 0.9, [], []),
   ("culture_17",  "Armenian", 0, 0.9, [], []),
   ("culture_18",  "Jewish", 0, 0.9, [], []),
+  ("culture_19",  "Irish", 0, 0.9, [], []),
   #minor cultures
   ("culture_minor_1",  "Hispano-Roman", 0, 0.9, [], []),
   ("culture_minor_2",  "Slavic", 0, 0.9, [], []),
@@ -72,7 +73,7 @@ factions = [
   ("kingdom_10",  "Regnum Alemmani",    0, 0.9, [("saxons", -0.5),("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05)], [], 0xbd832f), #Kingdom of the Alemmani / Regnum Alemmani
   ("kingdom_11",  "Regnum Gepidae",    0, 0.9, [("saxons", -0.5),("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05)], [], 0x904659), #Kingdom of the Gepids / Regnum Gepidae 904659
   ("kingdom_12",  "Regnum Saxones",    0, 0.9, [("saxons", 0.5),("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05)], [], 0x4f6e45), #Kingdom of the Saxons / Regnum Saxones 0xf93504
-  ("kingdom_13",  "Regnum Britannorum",    0, 0.9, [("saxons", -0.5),("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05),("minor_irish", -0.7)], [], 0xab4343), #Romano-Britons / Regnum Britannorum
+  ("kingdom_13",  "Regnum Britannorum",    0, 0.9, [("saxons", -0.5),("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05),("kingdom_32", -0.7)], [], 0xab4343), #Romano-Britons / Regnum Britannorum
   ("kingdom_14",  "Regnum Rugurum",    0, 0.9, [("saxons", -0.5),("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05)], [], 0x4e5f89), #Kingdom of the Rugii / Regnum Rugurum 65cd65
   ("kingdom_15",  "Regnum Vandalorum et Alanorum",    0, 0.9, [("saxons", -0.5),("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.75),("coptic_rebels", -0.05)], [], 0xd5d6b4), #Kingdom of the Vandals / Regnum Vandalorum et Alanorum
   ("kingdom_16",  "Kartli",    0, 0.9, [("saxons", -0.5),("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05)], [], 0x0c42c4), #Kartli / Kingdom of Iberia
@@ -91,6 +92,7 @@ factions = [
   ("kingdom_29",  "Regnum Anglii",    0, 0.9, [("saxons", 0.05),("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05)], [], 0x583b37), #Kingdom of the Jutes / Regnum Iuti
   ("kingdom_30",  "Regnum Framtanis",  0, 0.9, [("saxons", -0.5),("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05),("minor_gallaeci", -0.5)], [], 0xc9ad34),
   ("kingdom_31",  "Regnum Armeniacum",  0, 0.9, [("saxons", -0.5),("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05),("minor_gallaeci", -0.5)], [], 0x7b0633),
+("kingdom_32",  "Regnum Scoti",  0, 0.9, [("outlaws",-0.75),("peasant_rebels", -0.1),("deserters", -0.05),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05),("manhunters",0.6),("kingdom_13", -0.7),("kingdom_5",-0.75),("kingdom_19",-0.75),("kingdom_29",-0.75),("kingdom_12",-0.75),("kingdom_1",-0.75)], [], 0x395035),
 
 #madsci Spanish rebel factions, will be renamed automatically by a script depending on where they start
   ("rebel_kingdom_1",  "Rebels",    0, 0.9, [("saxons", -0.5),("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05)], [], 0x7d2439), #7d2439
@@ -128,8 +130,10 @@ factions = [
   #Unique flavor dialogue about the minor faction/culture
   #minor factions start
   ("minor_aestii","Aestii", 0, 0.9,[("outlaws",-0.75),("peasant_rebels", -0.1),("deserters", -0.05),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05),("manhunters",0.6),("minor_vidivarii",-0.5)], [], 0x713735),
-  ("minor_irish","Scoti", 0, 0.9,[("outlaws",-0.75),("peasant_rebels", -0.1),("deserters", -0.05),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05),("manhunters",0.6),("kingdom_13", -0.7),("kingdom_5",-0.75),("kingdom_19",-0.75),("kingdom_29",-0.75),("kingdom_12",-0.75),("kingdom_1",-0.75)], [], 0x395035),
-  ("minor_garamantians","Garamantians", 0, 0.9,[("outlaws",-0.75),("peasant_rebels", -0.1),("deserters", -0.05),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", 0.5),("coptic_rebels", -0.05),("manhunters",0.6),("kingdom_15",-0.75),("kingdom_1",-0.75)], [], 0xc87b50),
+
+  ##("minor_irish","Scoti", 0, 0.9,[("outlaws",-0.75),("peasant_rebels", -0.1),("deserters", -0.05),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05),("manhunters",0.6),("kingdom_13", -0.7),("kingdom_5",-0.75),("kingdom_19",-0.75),("kingdom_29",-0.75),("kingdom_12",-0.75),("kingdom_1",-0.75)], [], 0x395035),
+
+("minor_garamantians","Garamantians", 0, 0.9,[("outlaws",-0.75),("peasant_rebels", -0.1),("deserters", -0.05),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", 0.5),("coptic_rebels", -0.05),("manhunters",0.6),("kingdom_15",-0.75),("kingdom_1",-0.75)], [], 0xc87b50),
   ("minor_dani","Danir", 0, 0.9,[("outlaws",-0.75),("peasant_rebels", -0.1),("deserters", -0.05),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05),("manhunters",0.6),("kingdom_19",-0.75),("minor_augundzi",-0.75)], [], 0x993322),
   ("minor_mordens","Mordens", 0, 0.9,[("outlaws",-0.75),("peasant_rebels", -0.1),("deserters", -0.05),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05),("manhunters",0.6)], [], 0x65563F),
   ("minor_sporoi","Sporoi", 0, 0.9,[("outlaws",-0.75),("peasant_rebels", -0.1),("deserters", -0.05),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05),("manhunters",0.6),("minor_saraguroi",-0.75),("minor_kutriguroi",-0.75),("minor_sabiroi",-0.75),("minor_onoguroi",-0.75),("minor_iazyges",-0.75),("kingdom_23",-0.75),("kingdom_11",-0.75)], [], 0xFFFFFF),

@@ -12765,8 +12765,8 @@ TOTAL:  {reg5}"),
 
   (
     "village_loot_no_resist",0,
-    "The villagers here are few and frightened, and they quickly scatter and run before you.\
- The village is at your mercy.",
+    "The villagers here are few and frightened, and they quickly scatter and run before you. "+
+ "The village is at your mercy.",
     "none",
     [
     #SB : if we just wanted to steal food, return to doing that instead of plundering
@@ -12789,6 +12789,19 @@ TOTAL:  {reg5}"),
             (ge, ":relation", 0),
             (call_script, "script_diplomacy_party_attacks_neutral", "p_main_party", "$current_town"),
           (try_end),
+
+(try_begin), #madsci the village's lord comes investigate if he is nearby
+(party_get_slot, ":cur_lord", "$current_town", slot_town_lord),
+(gt, ":cur_lord", 0),
+(troop_get_slot, ":party_no", ":cur_lord", slot_troop_leaded_party),
+(gt, ":party_no", 0),
+(party_is_active, ":party_no"),
+(neg|party_slot_eq, ":party_no", slot_party_ai_state, spai_besieging_center),
+(store_distance_to_party_from_party, ":dist", ":party_no", "$current_town"),
+(lt, ":dist", 40),
+(call_script, "script_party_set_ai_state", ":party_no",  spai_patrolling_around_center, "$current_town"),
+(party_set_ai_initiative, ":party_no", 100),
+(try_end),
 
           (rest_for_hours, 3, 5, 1), #rest while attackable (3 hours will be extended by the trigger)
           (party_set_slot, "$current_town", slot_town_last_nearby_fire_time, 1), #raiding mode
@@ -12815,6 +12828,19 @@ TOTAL:  {reg5}"),
             (ge, ":relation", 0),
             (call_script, "script_diplomacy_party_attacks_neutral", "p_main_party", "$current_town"),
           (try_end),
+
+(try_begin), #madsci the village's lord comes investigate if he is nearby
+(party_get_slot, ":cur_lord", "$current_town", slot_town_lord),
+(gt, ":cur_lord", 0),
+(troop_get_slot, ":party_no", ":cur_lord", slot_troop_leaded_party),
+(gt, ":party_no", 0),
+(party_is_active, ":party_no"),
+(neg|party_slot_eq, ":party_no", slot_party_ai_state, spai_besieging_center),
+(store_distance_to_party_from_party, ":dist", ":party_no", "$current_town"),
+(lt, ":dist", 40),
+(call_script, "script_party_set_ai_state", ":party_no",  spai_patrolling_around_center, "$current_town"),
+(party_set_ai_initiative, ":party_no", 100),
+(try_end),
 
           #add a party template to represent hiding villagers so we don't go empty-handed
           (party_add_template, "$current_town", "pt_village_defenders"),

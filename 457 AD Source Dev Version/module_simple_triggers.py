@@ -7526,9 +7526,19 @@ simple_triggers = [
 (168, #resets locations from being sacked
   [
   (try_for_range, ":center_no", minor_towns_begin, minor_towns_end),
-    (party_slot_eq, ":center_no", slot_party_been_sacked, 1),
-    (party_set_slot, ":center_no", slot_party_been_sacked, 0),
-(party_set_extra_text, ":center_no", "str_empty_string"), #clear extra text
+    	(party_slot_eq, ":center_no", slot_party_been_sacked, 1),
+    	(party_set_slot, ":center_no", slot_party_been_sacked, 0),
+	(party_set_extra_text, ":center_no", "str_empty_string"), #clear extra text
+	(store_faction_of_party, ":fac", ":center_no"),
+		(try_begin),
+		(neq, ":fac", "fac_neutral"),
+   		(faction_get_slot, ":template", ":fac", slot_faction_reinforcements_a),
+   		(gt, ":template", 0),
+   		(party_add_template, ":center_no", ":template"),
+		(else_try),
+		(neq, ":fac", "fac_neutral"),
+		(party_add_members, ":center_no", "trp_manhunter", 45), #madsci failsafe if no valid template is found
+		(try_end),
   (try_end), 
 ]),  
 
@@ -7539,12 +7549,13 @@ simple_triggers = [
    (store_party_size_wo_prisoners, ":garrison", ":party"),
    (lt, ":garrison", 400),
    (store_faction_of_party, ":fac", ":party"),
+   (neq, ":fac", "fac_neutral"),
 	(try_begin),
    	(faction_get_slot, ":template", ":fac", slot_faction_reinforcements_a),
    	(gt, ":template", 0),
    	(party_add_template, ":party", ":template"),
 	(else_try),
-	(party_add_members, ":party", "trp_manhunter", 15), #madsci failsafe if no valid template is found
+	(party_add_members, ":party", "trp_manhunter", 45), #madsci failsafe if no valid template is found
 	(try_end),
    (party_set_slot, ":party", slot_center_volunteer_troop_type, -1),
 (try_end),

@@ -796,6 +796,7 @@ simple_triggers = [
 	(try_end),
 (call_script, "script_prune_prisoners", "$center_to_check"),
 (call_script, "script_hire_men_to_center", "$center_to_check"),
+(val_add, "$center_to_check", 1),
 ]),
 
   #Checking if the troops are resting at a half payment point

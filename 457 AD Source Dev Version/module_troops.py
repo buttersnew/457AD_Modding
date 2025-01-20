@@ -3776,6 +3776,11 @@ troops = [
   ["kingdom_29_lady_6","Aelfwyn","Aelfwyn",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_19, [      itm_court_dress ,   itm_wrapping_boots],     def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x000000090b0010042d097117da91590c00000000001e724a0000000000000000],
   ["kingdom_29_lady_7","Guthrun","Guthrun",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_19, [      itm_court_dress ,   itm_wrapping_boots],     def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x000000090b0040062d097117da91590c00000000001e724a0000000000000000],
 
+  ["kingdom_32_lady_1","Cairenn","Cairenn",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_32, [      itm_lady_dress_green,     itm_wrapping_boots],     def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x0000000a2708100d3733a5c55b6ec89400000000001252220000000000000000],
+  ["kingdom_32_lady_2","Edana","Edana",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_32, [      itm_lady_dress_green,      itm_wrapping_boots],     def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x0000000a2a0810111b5b6cb5a92a46e600000000000e58630000000000000000],
+  ["kingdom_32_lady_3","Cinnia","Cinnia",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_32, [      itm_lady_dress_green,     itm_wrapping_boots],     def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x000000003b103004391c949ba312e895000000000009d6d40000000000000000],
+  ["kingdom_32_lady_4","Eithne","Eithne",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_32, [      itm_lady_dress_green,      itm_wrapping_boots],     def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x000000002b084005149b8e227b733ca300000000000a56920000000000000000],
+
 
 #madsci rebel kingdom ladies will be disabled at start
   ["rebel_kingdom_1_lady_1","Sabina","Sabina",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_rebel_kingdom_1, [      itm_roman_noble_dress_1,       itm_wrapping_boots],     def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x0000000fb7000002371b711bec91b8db00000000001dc7140000000000000000],

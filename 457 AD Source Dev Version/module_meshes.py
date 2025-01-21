@@ -455,6 +455,12 @@ meshes = [
 
   ("banner_g01", 0, "banner_g01", 0, 0, 0, -90, 0, 0, 1, 1, 1),
   ("banner_g02", 0, "banner_g02", 0, 0, 0, -90, 0, 0, 1, 1, 1),
+  ("banner_g03", 0, "banner_g03", 0, 0, 0, -90, 0, 0, 1, 1, 1),
+  ("banner_g04", 0, "banner_g04", 0, 0, 0, -90, 0, 0, 1, 1, 1),
+  ("banner_g05", 0, "banner_g05", 0, 0, 0, -90, 0, 0, 1, 1, 1),
+  ("banner_g06", 0, "banner_g06", 0, 0, 0, -90, 0, 0, 1, 1, 1),
+  ("banner_g07", 0, "banner_g07", 0, 0, 0, -90, 0, 0, 1, 1, 1),
+  ("banner_g08", 0, "banner_g08", 0, 0, 0, -90, 0, 0, 1, 1, 1),
 
   ("banner_kingdom_a", 0, "banner_kingdom_1", 0, 0, 0, -90, 0, 0, 1, 1, 1),
   ("banner_kingdom_b", 0, "banner_kingdom_2", 0, 0, 0, -90, 0, 0, 1, 1, 1),
@@ -491,6 +497,7 @@ meshes = [
   ("banner_kingdom_33", 0, "banner_kingdom_33", 0, 0, 0, -90, 0, 0, 1, 1, 1),
   ("banner_kingdom_34", 0, "banner_kingdom_34", 0, 0, 0, -90, 0, 0, 1, 1, 1),
   ("banner_kingdom_35", 0, "banner_kingdom_35", 0, 0, 0, -90, 0, 0, 1, 1, 1),
+  ("banner_kingdom_36", 0, "banner_kingdom_36", 0, 0, 0, -90, 0, 0, 1, 1, 1),
 
   ("banner_end", 0, "banner_a15", 0, 0, 0, -90, 0, 0, 1, 1, 1),
 
@@ -669,6 +676,12 @@ meshes = [
 
   ("arms_g01", 0, "arms_g01", 0, 0, 0, -90, 0, 0, 1, 1, 1),
   ("arms_g02", 0, "arms_g02", 0, 0, 0, -90, 0, 0, 1, 1, 1),
+  ("arms_g03", 0, "arms_g03", 0, 0, 0, -90, 0, 0, 1, 1, 1),
+  ("arms_g04", 0, "arms_g04", 0, 0, 0, -90, 0, 0, 1, 1, 1),
+  ("arms_g05", 0, "arms_g05", 0, 0, 0, -90, 0, 0, 1, 1, 1),
+  ("arms_g06", 0, "arms_g06", 0, 0, 0, -90, 0, 0, 1, 1, 1),
+  ("arms_g07", 0, "arms_g07", 0, 0, 0, -90, 0, 0, 1, 1, 1),
+  ("arms_g08", 0, "arms_g08", 0, 0, 0, -90, 0, 0, 1, 1, 1),
 
   ("arms_kingdom_a", 0, "arms_kingdom_01", 0, 0, 0, -90, 0, 0, 1, 1, 1),
   ("arms_kingdom_b", 0, "arms_kingdom_02", 0, 0, 0, -90, 0, 0, 1, 1, 1),
@@ -705,6 +718,7 @@ meshes = [
   ("arms_kingdom_33", 0, "arms_kingdom_33", 0, 0, 0, -90, 0, 0, 1, 1, 1),
   ("arms_kingdom_34", 0, "arms_kingdom_34", 0, 0, 0, -90, 0, 0, 1, 1, 1),
   ("arms_kingdom_35", 0, "arms_kingdom_35", 0, 0, 0, -90, 0, 0, 1, 1, 1),
+  ("arms_kingdom_36", 0, "arms_kingdom_36", 0, 0, 0, -90, 0, 0, 1, 1, 1),
 
   ("arms_end", 0, "banner_a15", 0, 0, 0, -90, 0, 0, 1, 1, 1),
 

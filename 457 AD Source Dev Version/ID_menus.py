@@ -533,3 +533,5 @@ mnu_men_drowned = 531
 mnu_uprising_successful = 532
 mnu_armenian_uprising_no_player = 533
 mnu_jewish_rebellion_launched = 534
+mnu_generic_rebellion_launched = 535
+mnu_camp_action_read_book2 = 536

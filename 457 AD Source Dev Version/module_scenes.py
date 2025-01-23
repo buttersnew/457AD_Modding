@@ -1374,6 +1374,20 @@ scenes = [
   ("castle_84_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000013001c98d0005b56d000072a70000240a00001e09",
     [],[],"outer_terrain_forest"),
 
+
+  ("castle_27_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000013002541c00062d8b00000a01000068cb00006d9b",
+    [],[],"outer_terrain_plain"),
+  ("castle_27_interior",sf_indoors, "interior_castle_k", "bo_interior_castle_k", (-100,-100),(100,100),-100,"0",
+    ["exit"],[]),
+  ("castle_27_prison",sf_indoors,"interior_prison_i", "bo_interior_prison_i", (-100,-100),(100,100),-100,"0",
+    [],[]),
+
+  ("castle_41_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000013005213200077dda0000733300002edf000052ba",
+    [],[],"outer_terrain_plain"),
+  ("castle_41_interior",sf_indoors, "castle_h_interior_a", "bo_castle_h_interior_a", (-100,-100),(100,100),-100,"0",
+    ["exit"],[]),
+  ("castle_41_prison",sf_indoors,"interior_prison_h", "bo_interior_prison_h", (-100,-100),(100,100),-100,"0",
+    [],[]),  
 #!!Villages !!#
 #Roman village templates:
   ("village_roman_1",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000300005000003a8ea00006acd0000637600004d7f", #village_125

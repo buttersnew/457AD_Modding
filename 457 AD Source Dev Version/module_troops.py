@@ -1325,12 +1325,12 @@ troops = [
    def_attrib_lvl_18|level(18),wp_one_handed(145)|wp_two_handed(135)|wp_polearm(130)|wp_archery(90)|wp_throwing(135),knows_lvl_18,germanic_face_1, germanic_face_2],
 
   ["northern_germanic_warrior","N. Germanic Warrior (Duguthi)","N. Germanic Warriors (Duguthi)",tf_guarantee_basic,0,0,fac_culture_4,
-   [itm_obenaltendorf_shoes_1,itm_obenaltendorf_shoes_2,itm_triveres_mail,itm_drengsted_helmet_mail,itm_pilna_helmet_mail,
+   [itm_obenaltendorf_shoes_1,itm_obenaltendorf_shoes_2,itm_triveres_mail,itm_drengsted_helmet_mail,itm_pilna_helmet_mail,itm_intercisa_helmet_1,
    itm_seax_10,itm_sword_medieval_a,itm_long_seax_2,itm_poleaxe,itm_battle_axe_3,itm_bearded_axe_2]+shoes_generic+shields_northern_germanic_2+angons+cloaks_northern_germanic_2+mail_northern_germanic_1,
    def_attrib_lvl_23|level(23),wp_one_handed(185)|wp_two_handed(180)|wp_polearm(175)|wp_archery(100)|wp_throwing(180),knows_lvl_23,germanic_face_1, germanic_face_2],
 
   ["northern_germanic_companion","N. Germanic Companion (Herthganauti)","N. Germanic Companions (Herthganauto)",tf_guarantee_basic|tf_guarantee_helmet,0,0,fac_culture_4,
-   [itm_tab_shield_round_d,itm_obenaltendorf_shoes_1,itm_obenaltendorf_shoes_2,itm_triveres_mail,itm_pilna_helmet_mail,itm_tarasovsky_782_mail,itm_tarasovsky_782,
+   [itm_tab_shield_round_d,itm_obenaltendorf_shoes_1,itm_obenaltendorf_shoes_2,itm_triveres_mail,itm_pilna_helmet_mail,itm_tarasovsky_782_mail,itm_tarasovsky_782,itm_intercisa_helmet_rich_3,
    itm_war_spear,itm_poleaxe,itm_sword_viking_c_long,itm_arabian_sword_a,itm_battle_axe_5,itm_battle_axe,itm_seax_10]+shoes_generic+angons+shields_northern_germanic_2+mail_northern_germanic_1+mail_northern_germanic_2,
    def_attrib_lvl_28|level(28),wp_one_handed(225)|wp_two_handed(215)|wp_polearm(205)|wp_archery(100)|wp_throwing(215),knows_lvl_28,germanic_face_1, germanic_face_2],
 
@@ -1343,7 +1343,7 @@ troops = [
    def_attrib_lvl_18|level(17),wp_one_handed (135) | wp_two_handed (130) | wp_polearm (120) | wp_archery (130) | wp_crossbow (90) | wp_throwing (130) | wp_firearm(130),knows_archer,germanic_face_1, germanic_face_2],
 
   ["northern_germanic_horseman","N. Germanic Horseman (Hrossmanna)","N. Germanic Horsemen (Hrossmanni)",tf_mounted|tf_guarantee_horse|tf_guarantee_boots|tf_guarantee_shield|tf_guarantee_armor|tf_guarantee_polearm,0,0,fac_culture_4,
-   [itm_obenaltendorf_shoes_1,itm_obenaltendorf_shoes_2,itm_triveres_leather,itm_triveres_mail,itm_pilna_helmet_mail,itm_drengsted_helmet_mail,itm_battle_axe,itm_medium_spear_3,itm_sword_medieval_c_long]+horses_northern_1+horses_northern_2+shields_northern_germanic_cavalry_1+tunics_northern_germanic_2+cloaks_northern_germanic_2+hats_northern+shoes_generic,
+   [itm_obenaltendorf_shoes_1,itm_obenaltendorf_shoes_2,itm_triveres_leather,itm_triveres_mail,itm_pilna_helmet_mail,itm_drengsted_helmet_mail,itm_intercisa_helmet_2,itm_battle_axe,itm_medium_spear_3,itm_sword_medieval_c_long]+horses_northern_1+horses_northern_2+shields_northern_germanic_cavalry_1+tunics_northern_germanic_2+cloaks_northern_germanic_2+hats_northern+shoes_generic,
    def_attrib_lvl_18|level(18),wp_one_handed(140)|wp_two_handed(135)|wp_polearm(145)|wp_archery(90)|wp_throwing(140),knows_lvl_18,germanic_face_1, germanic_face_2],
 
   ["northern_germanic_messenger","Northern Germanic Messenger","Northern Germanic Messengers",tf_mounted|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_gloves|tf_guarantee_horse|tf_guarantee_ranged,0,0,fac_culture_4,
@@ -2545,11 +2545,11 @@ troops = [
    def_attrib_lvl_18|level(17),wp_one_handed(150)|wp_two_handed(140)|wp_polearm(130)|wp_throwing(130)|wp_archery(90),knows_lvl_18|knows_power_strike_4,germanic_face_1, germanic_face_2],
 
   ["scandinavian_retainer","Scandzae Retainer (Heimathegar)","Scandzae Retainers (Heimathegar)",tf_guarantee_basic,0,0,fac_culture_minor_7,
-   [itm_tab_shield_round_d,itm_wrapping_boots,itm_ankle_boots,itm_deurne_campagi_3,itm_deurne_campagi_5,itm_tunic_rich_1_cloak,itm_tunic_rich_7_cloak,itm_tunic_7_cloak,itm_battered_mail_3_cloak,itm_common_mail_short_2,itm_common_mail_short_3,itm_drengsted_helmet_mail,itm_pilna_helmet_mail,itm_tarasovsky_782_mail,itm_seax_10,itm_long_seax_3,itm_boar_spear,itm_war_spear,itm_sword_medieval_c_long,itm_sword_viking_1,itm_round_shield_germanic_9,itm_round_shield_germanic_20]+germanic_caps+angons,
+   [itm_tab_shield_round_d,itm_wrapping_boots,itm_ankle_boots,itm_deurne_campagi_3,itm_deurne_campagi_5,itm_tunic_rich_1_cloak,itm_tunic_rich_7_cloak,itm_tunic_7_cloak,itm_battered_mail_3_cloak,itm_common_mail_short_2,itm_common_mail_short_3,itm_drengsted_helmet_mail,itm_pilna_helmet_mail,itm_tarasovsky_782_mail,itm_intercisa_helmet_1,itm_seax_10,itm_long_seax_3,itm_boar_spear,itm_war_spear,itm_sword_medieval_c_long,itm_sword_viking_1,itm_round_shield_germanic_9,itm_round_shield_germanic_20]+germanic_caps+angons,
    def_attrib_lvl_23|level(23),wp_one_handed(190)|wp_two_handed(180)|wp_polearm(170)|wp_throwing(170)|wp_archery(90),knows_lvl_23|knows_power_strike_5,germanic_face_1, germanic_face_2],
 
   ["scandinavian_comes","Scandzae Bodyguard (Thegnar)","Scandzae Bodyguards (Thegnar)",tf_guarantee_basic|tf_guarantee_helmet,0,0,fac_culture_minor_7,
-   [itm_wrapping_boots,itm_ankle_boots,itm_common_mail_short_2_cloak,itm_common_mail_short_3_cloak,itm_rich_mail_5_cloak,itm_tarasovsky_782,itm_drengsted_helmet_mail,itm_pilna_helmet_mail,itm_war_spear,itm_sword_viking_2,itm_sword_viking_c_long,itm_tab_shield_round_e,itm_tab_shield_small_round_c]+angons,
+   [itm_wrapping_boots,itm_ankle_boots,itm_common_mail_short_2_cloak,itm_common_mail_short_3_cloak,itm_rich_mail_5_cloak,itm_tarasovsky_782,itm_drengsted_helmet_mail,itm_pilna_helmet_mail,itm_intercisa_helmet_rich_3,itm_war_spear,itm_sword_viking_2,itm_sword_viking_c_long,itm_tab_shield_round_e,itm_tab_shield_small_round_c]+angons,
    def_attrib_lvl_28|level(28),wp_one_handed(220)|wp_two_handed(210)|wp_polearm(200)|wp_throwing(190)|wp_archery(90),knows_lvl_28|knows_power_strike_7,germanic_face_1, germanic_face_2],
 
   ["dane_vanguard","Danir Vanguard (Ordfruman)","Danir Vanguards (Ordfruman)",tf_guarantee_basic,0,0,fac_culture_minor_7,

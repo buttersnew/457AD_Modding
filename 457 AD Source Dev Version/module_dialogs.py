@@ -44263,7 +44263,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
    (this_or_next|eq, ":bandit_type", "pt_steppe_bandit_lair"),
    (eq, ":bandit_type", "pt_sabir_bandit_lair"),
    ],
-  "{s4} such as these will usually set up their encampments in the woodland on the steppe, where they have some concealment. The best way to discover its location would be to find a group of {s4} who appear to be heading back to their base to resupply, and follow them.", "merchant_quest_track_bandit_lair_choice",
+  "{s4} such as these will usually set up their encampments around the coastlines of the Azov Sea, around the Don river. The best way to discover its location would be to find a group of {s4} who appear to be heading back to their base to resupply, and follow them.", "merchant_quest_track_bandit_lair_choice",
    []],
 
   [anyone,"destroy_lair_quest_brief", [
@@ -44292,6 +44292,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
     (str_store_troop_name_link, s11, "$g_talk_troop"),
     (str_store_party_name, s9, ":target_party"),
     (setup_quest_text, "qst_destroy_bandit_lair"),
+
     (str_store_string, s2, "str_bandit_lair_quest_description"),
     (call_script, "script_start_quest", "qst_destroy_bandit_lair", "$g_talk_troop"),
   ]],

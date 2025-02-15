@@ -12,7 +12,7 @@ from compiler import *
 ####################################################################################################################
 
 quests = [
-# Note : This is defined as the first governer quest in module_constants.py: 
+# Note : This is defined as the first governer quest in module_constants.py:
  ("deliver_message", "Deliver Message to {s13}", qf_random_quest,
   "{!}{s9} asked you to take a message to {s13}. {s13} was at {s4} when you were given this quest."
   ),
@@ -134,7 +134,7 @@ quests = [
 # Kingdom Lady quests
 ##################
 # Note : This is defined as the first kingdom lady quest in module_constants.py:
-#Rescue lord by replace will become a 
+#Rescue lord by replace will become a
  ("rescue_lord_by_replace", "Rescue {s13} from {s14}", qf_random_quest,
   "{!}None"
   ),
@@ -155,13 +155,13 @@ quests = [
   ("duel_avenge_insult", "Challenge {s13} to a Trial of Arms", qf_random_quest,
   "{!}None"
   ),
-  
-  
-  
+
+
+
 ##################
 # Mayor quests
 ##################
-# Note : This is defined as the first mayor quest in module_constants.py: 
+# Note : This is defined as the first mayor quest in module_constants.py:
  ("move_cattle_herd", "Move Cattle Herd to {s13}", qf_random_quest,
   "{!}Guildmaster of {s10} asked you to move a cattle herd to {s13}."
   ),
@@ -174,19 +174,19 @@ quests = [
  ("troublesome_bandits", "Hunt Down Troublesome Bandits", qf_random_quest,
   "{!}{s9} of {s4} asked you to hunt down the troublesome bandits in the vicinity of the town."
   ),
-  
+
  ("kidnapped_girl", "Ransom Girl from Bandits", qf_random_quest,
   "{!}Guildmaster of {s4} gave you {reg12} denars to pay the ransom of a girl kidnapped by bandits.\
  You are to meet the bandits near {s3} and pay them the ransom fee.\
  After that you are to bring the girl back to {s4}."
   ),
-  
+
  ("persuade_lords_to_make_peace", "Make Sure Two Lords Do Not Object to Peace", qf_random_quest, #possibly deprecate., or change effects
   "{!}Guildmaster of {s4} promised you {reg12} denars if you can make sure that\
  {s12} and {s13} no longer pose a threat to a peace settlement between {s15} and {s14}.\
  In order to do that, you must either convince them or make sure they fall captive and remain so until a peace agreement is made."
   ),
-  
+
  ("deal_with_looters", "Deal with Looters", qf_random_quest,
   "{!}The Guildmaster of {s4} has asked you to deal with several bands of looters around {s4}, and bring back any goods you recover."
   ),
@@ -200,13 +200,13 @@ quests = [
 # Note : This is defined as the first village elder quest in module_constants.py:
  ("deliver_grain", "Bring wheat to {s3}", qf_random_quest,
   "{!}The elder of the village of {s3} asked you to bring them {reg5} packs of wheat.."
-  ), 
+  ),
  ("deliver_cattle", "Deliver {reg5} Heads of Cattle to {s3}", qf_random_quest,
   "{!}The elder of the village of {s3} asked you to bring {reg5} heads of cattle."
-  ), 
+  ),
  ("train_peasants_against_bandits", "Train the Peasants of {s13} Against Bandits.", qf_random_quest,
   "{!}None"
-  ), 
+  ),
 # Deliver horses, Deliver food, Escort_Caravan, Hunt bandits, Ransom Merchant.
 ## ("capture_nobleman", "Capture Nobleman",qf_random_quest,
 ##  "{s1} wanted you to capture an enemy nobleman on his way from {s3} to {s4}. He said the nobleman would leave {s3} in {reg1} days."
@@ -242,7 +242,7 @@ quests = [
   "{!}None"
   ),  #in this case, the giver troop is the spouse
 
-  
+
  # Join Kingdom quest
   ("join_faction", "Give Oath of Homage to {s1}", qf_random_quest,
   "{!}Find {s1} and give him your oath of homage."
@@ -255,47 +255,47 @@ quests = [
 
   #Political quests begin here
  ("consult_with_minister", "Consult With Minister", qf_random_quest, "{!}Consult your minister, {s11}, currently at {s12}"),
- 
+
  ("organize_feast",        "Organize Feast", qf_random_quest,        "{!}Bring goods for a feast to your spouse {s11}, currently at {s12}"),
  ("resolve_dispute",       "Resolve Dispute", qf_random_quest,       "{!}Resolve the dispute between {s11} and {s12}"),
  ("offer_gift",            "Procure Gift", qf_random_quest,          "{!}Give {s10} a gift to provide to {reg4?her:his} {s11}, {s12}"),
  ("denounce_lord",         "Denounce Lord", qf_random_quest,         "{!}Denounce {s11} in Public"),
  ("intrigue_against_lord", "Intrigue against Lord", qf_random_quest, "{!}Criticize {s11} in Private"),
- 
- 
+
+
   #Dynamic quests begin here
   #These quests are determined dynamically by external conditions -- bandits who have carried out a raid, an impending war, etc...
  ("track_down_bandits", "Track Down Bandits", qf_random_quest,
   "{!}{s9} of {s4} asked you to track down {s6}, who attacked travellers on the roads near town."
   ), #this is a fairly simple quest for the early game to make the town guildmaster's description of the economy a little more relevant, and also to give the player a reason to talk to other neutral parties on the map
-   
+
  ("track_down_provocateurs", "Track Down Provocateurs", qf_random_quest,
   "{!}{s9} of {s4} asked you to track down a group of thugs, hired to create a border incident between {s5} and {s6}."
-  ), 
+  ),
  ("retaliate_for_border_incident", "Retaliate for a Border Incident", qf_random_quest,
   "{!}{s9} of {s4} asked you to defeat {s5} of the {s7} in battle, defusing tension in the {s8} to go to war."
   ), #perhaps replaces persuade_lords_to_make_peace
-  
+
  ("raid_caravan_to_start_war", "Attack a Neutral Caravan to Provoke War", qf_random_quest,
   "{!}placeholder",
-  ), 
+  ),
 
   ("cause_provocation", "Give a Kingdom Provocation to Attack Another", qf_random_quest,
   "{!}placeholder",
   ), #replaces raid_caravan_to_start_war
-  
+
  ("rescue_prisoner", "Rescue or Ransom a Prisoner", qf_random_quest,
   "{!}placeholder"
   ), #possibly replaces rescue lord
 
  ("destroy_bandit_lair", "Destroy Bandit Lair", qf_random_quest,
   "{!}{s9} of {s4} asked you to discover a {s6} and destroy it."
-  ), 
-  
+  ),
+
  ("blank_quest_2", "{!}blank_quest", qf_random_quest,
   "{!}placeholder"
   ),
-  
+
  ("blank_quest_3", "{!}blank_quest", qf_random_quest,
   "{!}placeholder"
   ),
@@ -399,19 +399,19 @@ quests = [
   #SB : clarified quest description of player + 5 more men
  ("collect_men", "Collect Five Men", 0,
   "{!}{s9} asked you to collect at least 5 more men before you move against the bandits threatening the townsmen. You can recruit soldiers from villages as well as town taverns. You can find {s9} at the tavern in {s4} when you have think you have enough men."
-  ), 
-  
+  ),
+
   ("learn_where_merchant_brother_is", "Learn Where the Hostages are Held.", 0,
   "{!}placeholder."
-  ), 
-  
+  ),
+
   ("save_relative_of_merchant", "Attack the Bandit Lair", 0,
   "{!}placeholder."
-  ),   
+  ),
 
   ("save_town_from_bandits", "Save Town from Bandits", 0,
   "{!}placeholder."
-  ),   
+  ),
 
   ("freelancer_enlisted", "Enlisted in the Party of {s13}", 0,
    "{!}You are currently enlisted in the party of {s13} of {s14}."),
@@ -422,13 +422,13 @@ quests = [
   ("freelancer_revolt", "Enlisted: Revolting", 0,
    "{!}You have revolted from the party of {s13} of {s14}."),
   ("freelancer_end", "Freelancer Quests End", 0, "{!}."), ##FOR EASE OF LOOPING
-  
+
 #new mod quests
 
 #new quests 11/3/20
  ("holy_lance", "The Holy Lance", 0,
   "{!}placeholder"
- ),  
+ ),
 
  ("founding_the_excubitors", "The Excubitors", 0,
   "{!}None"
@@ -484,19 +484,19 @@ quests = [
 
  ("agrippinus_quest", "Gallic Rivals", 0, #Majorian given quest to investigate a rival, former Magister Militum Agrippuinus, who would be tried during Majorian's rein and sentenced to death, but escaped and took refuge in the church of saint peter. Later would be pardoned
   "{!}None"
- ), 
+ ),
 
  ("severinus_quest", "The Apostle to Noricum", 0,
   "{!}None"
- ), 
+ ),
 
- ("caius_quest", "Caius's Orders", 0, 
+ ("caius_quest", "Caius's Orders", 0,
   "{!}"
- ), 
+ ),
 
  ("heretical_codex", "A Certain Heretical Codex", 0, #changed
   "{!}None"
- ),   
+ ),
 
  ("battle_of_bolia", "Anti-Amal Coalition", 0,
   "{!}None"
@@ -508,14 +508,18 @@ quests = [
 
  ("finnsburh_quest", "Battle of Finnsburh Part I", 0, #
   "{!}"
- ),    
+ ),
  ("finnsburh_quest_2", "Battle of Finnsburh Part II", 0, #
   "{!}"
- ),    
-  
- ("ernak_quest", "Sky-gods", 0, 
+ ),
+ ("haddingrs_revenge", "Haddingrs Revenge Part II", 0, #
   "{!}"
- ),    
+ ),
+
+
+ ("ernak_quest", "Sky-gods", 0,
+  "{!}"
+ ),
 
  ("the_wolfmen", "The Wolf Headed Men", 0,
   "{!}None"
@@ -534,9 +538,9 @@ quests = [
  ),
 
 #TO BE DONE QUESTS
- ("haddingr_quest", "Haddingr's Revenge", 0, 
+ ("haddingr_quest", "Haddingr's Revenge", 0,
   "{!}"
- ),   
+ ),
 
  ("revenge_of_paganism", "Revenge of Paganism", 0, #by northwind - will rename
   "{!}None"
@@ -544,66 +548,66 @@ quests = [
 
  ("alexandria_rebellion_chal", "The Empire Strikes Back", 0, #Pro-Chalcedonian side of the quest, player restores order + installs Chalcedonian patriarch in alexandria
   "{!}"
- ), 
+ ),
 
  ("alexandria_rebellion_mia", "King of Egypt", 0, #Anti-Chalcedonian side of the quest, player can establish Miaphysite kingdom of Alexandria
   "{!}"
- ), 
+ ),
 #CONQUEST QUESTS
  ("conquest_gaul", "The Reconquest of Gaul", 0, #WRE
   "{!}Just as Julius Caesar conquered Gaul 500 years ago, you must conquer the lands once again."
- ),  
+ ),
 
  ("conquest_hispania", "The Reconquest of Hispania", 0, #WRE
   "{!}The Empire has lost the lands of hispania to the Visigoths and Suebi. It is time to take it back."
- ),  
+ ),
 
  ("conquest_africa", "The Reconquest of Africa", 0, #WRE
   "{!}The Empire has lost the rich lands of Africa to the Vandals and Mauri rebels. This land is vital to the empire, and must be taken back."
- ),  
+ ),
 
  ("unite_britannia", "The Conquest of Britannia", 0, #Britons
   "{!}Saxon, Jute, Pictish and Irish raiders have fractured the former Roman province of Britannia. Britannia must be united at all costs!"
- ), 
+ ),
 
  ("conquest_suebi", "Conquer the Suebi", 0, #Visigoths - must conquer Bracara, Asturica, Scallabis
   "{!}"
- ), 
+ ),
 
  ("conquest_northern_gaul", "Conquer Northern Gaul", 0, #shared for the Salian + Visigoth starts - must conquer Lutetia, Augusta Suessionum, Avaricum
   "{!}Through the tourmoil of the 5th century, the rich lands of Northern Gaul stay under Roman rule. Conquering the land is at the utmost importance!"
- ), 
+ ),
 
  ("conquest_ripuari", "Conquer the Ripuarii", 0, #Salian Franks - must conquer Colonia Agrippina, Mogontiacum
   "{!}"
- ), 
+ ),
 
  ("conquest_saxons", "Conquer the Saxons", 0, #Salian Franks - must conquer Tulifurdunum, Amisia, Bogadium, Asciburgium
   "{!}"
- ), 
+ ),
 
  ("conquest_alemmani", "Conquer the Alemmani", 0, #Salian Franks - must conquer Argentoratum, Uburzis, Augusta Rauricorum
   "{!}"
- ),  
+ ),
 
  ("conquest_mauri", "Conquer Mauretania", 0, #Vandals - must conquer Altava, Tingartia, Volubilis, Tingis
   "{!}"
- ),   
+ ),
 
  ("conquest_sicily", "Conquer Sicily", 0, #Vandals - must conquer Syracuse - small reward
   "{!}"
- ),    
- 
- ("jewish_riot", "Jewish Uprising", 0, "{!}."), 
- ("armenian_riot", "Armenian Uprising", 0, "{!}."), 
- ("jewish_riot_meet", "Meet {s10} in {s11}", 0, "{!}."), 
- ("armenian_riot_meet", "Meet {s10} in {s11}", 0, "{!}."), 
- ("armenian_kingdom_quest_1", "Meet {s10} in {s11}", 0, "{!}."), 
- ("armenian_kingdom_quest_2", "Become a vassal of {s11}", 0, "{!}."), 
+ ),
+
+ ("jewish_riot", "Jewish Uprising", 0, "{!}."),
+ ("armenian_riot", "Armenian Uprising", 0, "{!}."),
+ ("jewish_riot_meet", "Meet {s10} in {s11}", 0, "{!}."),
+ ("armenian_riot_meet", "Meet {s10} in {s11}", 0, "{!}."),
+ ("armenian_kingdom_quest_1", "Meet {s10} in {s11}", 0, "{!}."),
+ ("armenian_kingdom_quest_2", "Become a vassal of {s11}", 0, "{!}."),
  ("quests_end", "Quests End", 0, "{!}."),
 
 #madsci VC sea battles these are not actual quests
-  ("sea_battle_spawn", "a spawning system.", 0, "{!}placeholder."),  
-  ("team_0_ships", "a spawning system.", 0, "{!}placeholder."),  
-  ("team_1_ships", "a spawning system.", 0, "{!}placeholder."), 
+  ("sea_battle_spawn", "a spawning system.", 0, "{!}placeholder."),
+  ("team_0_ships", "a spawning system.", 0, "{!}placeholder."),
+  ("team_1_ships", "a spawning system.", 0, "{!}placeholder."),
 ]

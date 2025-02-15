@@ -5404,8 +5404,8 @@ TOTAL:  {reg5}"),
 		(this_or_next|gt, reg0, -1),
 		(this_or_next|eq, ":terrain", rt_deep_water),
 		(this_or_next|eq, ":terrain", rt_water),
-		(eq, ":terrain", rt_river),	
-		(assign, ":sea_battle", 1),	
+		(eq, ":terrain", rt_river),
+		(assign, ":sea_battle", 1),
 		(else_try),
 		(eq, "$sea_battles", 1),
             	(party_slot_eq, "p_main_party", slot_party_on_water, 1),	# = sea battle
@@ -9449,7 +9449,7 @@ TOTAL:  {reg5}"),
         (party_set_slot,"$g_encountered_party",slot_center_ladder_time,0),
         (party_set_slot,"$g_encountered_party",slot_center_latrines,0),
         (party_set_slot,"$g_encountered_party",slot_center_infiltration_type,0),
-        
+
         (assign, "$g_siege_saneamiento", 0),
         (assign, "$g_traicion_interna", 0),
         (assign, "$g_infiltracion_interna", 0),
@@ -13771,11 +13771,11 @@ TOTAL:  {reg5}"),
            (assign, ":tier_2_troop", -1),
            (assign, ":tier_3_troop", -1),
            	(try_begin),
-             	(faction_get_slot, ":culture", ":town_faction", slot_faction_culture), 
+             	(faction_get_slot, ":culture", ":town_faction", slot_faction_culture),
 		(gt, ":culture", 0),
            	(else_try), #fallback
              	(party_get_slot, ":town_faction", "$current_town", slot_center_original_faction),
-             	(faction_get_slot, ":culture", ":town_faction", slot_faction_culture), 
+             	(faction_get_slot, ":culture", ":town_faction", slot_faction_culture),
 		(gt, ":culture", 0),
            	(try_end),
 	(faction_get_slot, ":troop_prison_guard", ":town_faction", slot_faction_prison_guard_troop),
@@ -13895,8 +13895,8 @@ TOTAL:  {reg5}"),
 (eq, "$jewish_rebellion", 1),
 (eq, "$freelancer_state", 0),
 (neg|is_currently_night),
-(neg|troop_slot_eq, "trp_jewish_agitator", slot_troop_occupation, dplmc_slto_dead), 
-(set_visitor, 30, "trp_jewish_agitator"),      
+(neg|troop_slot_eq, "trp_jewish_agitator", slot_troop_occupation, dplmc_slto_dead),
+(set_visitor, 30, "trp_jewish_agitator"),
 (else_try),
 (eq, "$current_town", "p_town_45"),
 (neq, "$talk_context", tc_prison_break),
@@ -13906,7 +13906,7 @@ TOTAL:  {reg5}"),
 (neg|is_currently_night),
 (neg|faction_slot_eq, "fac_kingdom_31", slot_faction_state, sfs_active),
 (neg|troop_slot_eq, "trp_armenian_agitator", slot_troop_occupation, dplmc_slto_dead),
-(set_visitor, 30, "trp_armenian_agitator"),     
+(set_visitor, 30, "trp_armenian_agitator"),
 (try_end),
 
            (party_get_slot, ":spawned_troop", "$current_town", slot_town_armorer),
@@ -18126,8 +18126,8 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         (eq, "$g_empieza_asedio", 1),
         (call_script, "script_lift_siege", "$g_player_besiege_town", 0),
         (assign, "$g_player_besiege_town", -1),
-    (try_end),   
-     
+    (try_end),
+
        (assign, "$g_player_is_captive", 1),
        (assign,"$auto_menu",-1), #We need this since we may come here by something other than auto_menu
        (assign, "$capturer_party", "$g_encountered_party"),
@@ -20368,7 +20368,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
           (assign, ":scene_to_use", "scn_lair_forest_bandits"),
 	(else_try),
           (assign, ":bandit_troop", "trp_bandit"), #madsci failsafe
-          (assign, ":scene_to_use", "scn_lair_forest_bandits"),	
+          (assign, ":scene_to_use", "scn_lair_forest_bandits"),
         (try_end),
 
         (modify_visitors_at_site,":scene_to_use"),
@@ -25468,7 +25468,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     (call_script, "script_change_troop_renown", "trp_player", 20),
     (change_screen_return),
     ]),
-  ]),  
+  ]),
 
   ("promotion_officorum",0,
     "You have been promoted to the office of Magister Officiorum.",
@@ -25528,11 +25528,11 @@ goods, and books will never be sold. ^^You can change some settings here freely.
           (try_begin),
             (eq, ":fac", "fac_pagans"),
             (party_get_slot, ":culture", "$g_encountered_party", slot_center_culture),
-            (faction_get_slot, ":walker_1", ":culture", slot_faction_town_walker_male_troop), 
+            (faction_get_slot, ":walker_1", ":culture", slot_faction_town_walker_male_troop),
             (faction_get_slot, ":walker_2", ":culture", slot_faction_town_walker_female_troop),
           (else_try),
-            (faction_get_slot, ":walker_1", ":fac", slot_faction_tier_2_troop), 
-            (faction_get_slot, ":walker_2", ":fac", slot_faction_tier_3_troop),        
+            (faction_get_slot, ":walker_1", ":fac", slot_faction_tier_2_troop),
+            (faction_get_slot, ":walker_2", ":fac", slot_faction_tier_3_troop),
           (try_end),
 	(try_begin), #madsci failsafe
 	(le, ":walker_1", 0),
@@ -25695,7 +25695,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       (call_script, "script_change_player_relation_with_faction", ":fac", 5),
       (change_screen_return),
     ]),
-      ("religious_center_5",[],"Raid for gold and valuables.", 
+      ("religious_center_5",[],"Raid for gold and valuables.",
     [
     (call_script, "script_change_player_party_morale", 10),
     (call_script, "script_change_player_honor", -5),
@@ -25772,8 +25772,8 @@ goods, and books will never be sold. ^^You can change some settings here freely.
           #setting up walker troops
           (store_faction_of_party, ":fac", "$g_encountered_party"),
           (try_begin),
-            (faction_get_slot, ":walker_1", ":fac", slot_faction_tier_2_troop), 
-            (faction_get_slot, ":walker_2", ":fac", slot_faction_tier_3_troop),        
+            (faction_get_slot, ":walker_1", ":fac", slot_faction_tier_2_troop),
+            (faction_get_slot, ":walker_2", ":fac", slot_faction_tier_3_troop),
           (try_end),
 
 	(try_begin), #madsci failsafe
@@ -25858,7 +25858,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       (call_script, "script_change_player_relation_with_faction", ":fac", 5),
       (change_screen_return),
     ]),
-      ("religious_center_5",[],"Raid for gold and valuables.", 
+      ("religious_center_5",[],"Raid for gold and valuables.",
     [
     (call_script, "script_change_player_party_morale", 10),
     (call_script, "script_change_player_honor", -5),
@@ -25935,7 +25935,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     [(set_background_mesh, "mesh_pic_looted_village"),],
     [("continue",[],"Continue...",[(leave_encounter),(change_screen_return)]),
     ],
-  ),  
+  ),
 
   ( "settlement_burned",0,
     "This settlement has been destroyed.",
@@ -25943,7 +25943,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     [(set_background_mesh, "mesh_pic_looted_village"),],
     [("continue",[],"Continue...",[(leave_encounter),(change_screen_return)]),
     ],
-  ),  
+  ),
 
   ( "monastery_conquered",0,
     "You and your men force your way into the monastic community, driving out the monks, and striking down those who dare oppose you. No doubt you have created martyrs for their faith, but the schismatic heretics have been dealt with...",
@@ -25956,7 +25956,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       (change_screen_return),
       ]),
     ],
-  ),  
+  ),
 
   #hiring farmers
   ("town_recruit_coptic",0,
@@ -26887,7 +26887,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       ]),
     ]),
 
-#ritual sacrifice - communion with (Wotan) - wolf sacrafice 
+#ritual sacrifice - communion with (Wotan) - wolf sacrafice
 #lack of social taboos, all manners of evil and trickery were allowed
 #association with darkness, becoming one with the wolf/savagery
 
@@ -26909,7 +26909,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 
     ("option_1",[],"Partake in the feast.",[
       (val_sub, "$g_wolf_quest_morality", 1),
-      
+
       (store_current_hours, ":cur_hour"),
       (val_add, ":cur_hour", 24),
       (quest_set_slot, "qst_the_wolfmen", slot_quest_gold_reward, ":cur_hour"),
@@ -26919,7 +26919,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       ]),
 
     ("option_2",[],"Opt out.",[
-      (val_add, "$g_wolf_quest_morality", 1), 
+      (val_add, "$g_wolf_quest_morality", 1),
 
       (store_current_hours, ":cur_hour"),
       (val_add, ":cur_hour", 24),
@@ -26949,7 +26949,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       ]),
 
     ("option_2",[],"Stay back.",[
-      (val_add, "$g_wolf_quest_morality", 1), 
+      (val_add, "$g_wolf_quest_morality", 1),
 
       (store_current_hours, ":cur_hour"),
       (val_add, ":cur_hour", 24),
@@ -26978,7 +26978,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       ]),
 
     ("option_2",[],"Stay back.",[
-      (val_add, "$g_wolf_quest_morality", 1), 
+      (val_add, "$g_wolf_quest_morality", 1),
 
       (store_current_hours, ":cur_hour"),
       (val_add, ":cur_hour", 24),
@@ -27007,7 +27007,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       ]),
 
     ("option_2",[],"Stay back.",[
-      (val_add, "$g_wolf_quest_morality", 1), 
+      (val_add, "$g_wolf_quest_morality", 1),
 
       (store_current_hours, ":cur_hour"),
       (val_add, ":cur_hour", 24),
@@ -27018,7 +27018,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     ]),
 
   ("wolfmen_initiation_5",0,
-    "As you spend more of your days among the Cynocephali, you have learned many of their rituals and way of life. You have become familiar to what it means to live on the edge of society, away from the rules and taboos that society enforces. " 
+    "As you spend more of your days among the Cynocephali, you have learned many of their rituals and way of life. You have become familiar to what it means to live on the edge of society, away from the rules and taboos that society enforces. "
     + "You feel a sense of brotherhood with the warriors, as you join them in their hunts, battles and raids. One morning, a thick fog falls over the forest, the Old Shaman approaches you. He has one more task for you. "
     + "You must lead a raid against a small village on the edge of the forest. Although the villagers attempted to appease the Cynocephali, they found themselves on the wrong side of the conflict, and therefore must be dealt with... ",
     "none",
@@ -27042,9 +27042,9 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     (set_visitor, 58, "trp_player"),
 
     #Defenders
-    (set_visitors, 51, "trp_cynocephalus", 15), 
+    (set_visitors, 51, "trp_cynocephalus", 15),
     (set_visitor, 52,  "trp_berserker_leader"),
-    (set_visitors, 53, "trp_cynocephalus", 5), 
+    (set_visitors, 53, "trp_cynocephalus", 5),
     (set_visitors, 54, "trp_cynocephalus", 3),
     (set_visitors, 55, "trp_cynocephalus", 3),
     (set_visitors, 56, "trp_cynocephalus", 5),
@@ -27356,8 +27356,8 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     "none", [],
     [
 
-    ("option_1",[ 
-      ],"Listen to the man...", 
+    ("option_1",[
+      ],"Listen to the man...",
         [
       (assign, "$g_severinus_quest", 2),
       (assign, "$temp1", 4),
@@ -27399,7 +27399,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     "none", [],
     [
 
-    ("option_1",[ 
+    ("option_1",[
       ],"Approach the gate...",
         [
       (assign, "$g_severinus_quest", 4),
@@ -27504,7 +27504,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     "none", [],
     [
 
-    ("option_1",[ 
+    ("option_1",[
       ],"Onwards!",
         [
         (jump_to_menu, "mnu_severinus_favianis_1"),
@@ -27517,7 +27517,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     "none", [],
     [
 
-    ("option_1",[ 
+    ("option_1",[
       ],"Listen to him.",
         [
         (assign, "$g_severinus_quest", 6),
@@ -27574,7 +27574,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     "none", [],
     [
 
-    ("option_1",[ 
+    ("option_1",[
       ],"Approach Severinus.",
         [
         (assign, "$g_severinus_quest", 7),
@@ -27602,7 +27602,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         (jump_to_scene, "scn_favianis"),
         (change_screen_mission),
         ]),
-    ],),  
+    ],),
 
   ("severinus_favianis_3",0,
     "Procula's hoard of goods were able to relieve the starving people of Favianis for several days. Once the supply was low, many townsfolk were worried what would happen when they ran out. However, unexpectedly several merchant vessels worth of food arrived from Raetia, bringing an abundance of food."
@@ -27611,10 +27611,10 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     "none", [],
     [
 
-    ("option_1",[ 
+    ("option_1",[
       ],"Speak to Mamertinus.",
         [
-      (assign, "$g_severinus_quest", 8),  
+      (assign, "$g_severinus_quest", 8),
       (assign, "$temp1", 4),
       (assign, "$talk_context", 0),
       (set_jump_mission, "mt_conversation_generic"),
@@ -27633,7 +27633,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       (jump_to_scene, "scn_comagena_church"),
       (change_screen_mission),
         ]),
-    ],),  
+    ],),
 
   ("severinus_favianis_4",0,
     "On Severinus's orders, you join Mamertinus and a small group of poorly armed soldiers. Following his directions, you come by a brook which is called Tiguntia, and there you spot a group of bandits and their camp...",
@@ -27662,7 +27662,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     (jump_to_scene, "scn_tiguntia"),
     (change_screen_mission),
       ]),
-    ],),  
+    ],),
 
 
   ("severinus_favianis_5",0,
@@ -27672,7 +27672,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 
     ("option_1",[],"Listen...",
         [
-      (assign, "$g_severinus_quest", 9),  
+      (assign, "$g_severinus_quest", 9),
       (assign, "$temp1", 4),
       (assign, "$talk_context", 0),
       (set_jump_mission, "mt_conversation_generic"),
@@ -27697,7 +27697,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       (change_screen_mission),
       ]),
 
-    ],),  
+    ],),
 
     (   "asturis_ruins",0,
         "You arrive at an abandoned Asturis. Once a bustling town on the danube, has now been reduced to a ghost town. Its inhabitants killed or captured by a group of huns, the town now remains uninhabitated, or so you think...",
@@ -27899,10 +27899,44 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 
 
 #MINOR FACTIONS
-  ( "minor_faction_town",menu_text_color(0xFF000000)|mnf_disable_all_keys,
-    "In the distance you see {s50}. It is the capital of the {s51}.^^{s52}^^{s49}",
-    "none",
-    [
+( "minor_faction_town",menu_text_color(0xFF000000)|mnf_disable_all_keys,
+  "In the distance you see {s50}. It is the capital of the {s51}.^^{s52}^^{s49}",
+  "none",[
+
+    (try_begin),
+        (eq, "$g_encountered_party", "p_dani_village"),
+        (check_quest_active, "qst_haddingrs_revenge"),
+        (quest_slot_ge, "qst_haddingrs_revenge", slot_quest_current_state, 7),
+        (jump_to_menu, "mnu_auto_return_to_map"),
+        (display_message, "@The garrison is hostile towards you.", message_alert),
+    (else_try),
+        (eq, "$g_encountered_party", "p_dani_village"),
+        (check_quest_active, "qst_haddingrs_revenge"),
+        (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 4),
+        (jump_to_menu, "mnu_haddingrs_revenge_escape"),
+    (else_try),
+        (eq, "$g_encountered_party", "p_augundzi_village"),
+        (check_quest_active, "qst_haddingrs_revenge"),
+        (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 3),
+        # (leave_encounter),
+        (jump_to_menu, "mnu_haddingrs_revenge_imprisoned"),
+    (try_end),
+
+    (try_begin),
+        (eq, "$g_encountered_party", "p_dani_village"),
+        (neg|check_quest_active, "qst_finnsburh_quest_2"),
+        (neg|check_quest_active, "qst_haddingrs_revenge"),
+        (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 0),
+        (quest_slot_eq, "qst_finnsburh_quest_2", slot_quest_current_state, 12),
+        (troop_slot_ge, "trp_augundzi_king", slot_troop_met, 1),
+        (quest_get_slot, ":days", "qst_finnsburh_quest_2", slot_quest_dont_give_again_remaining_days),
+        (store_current_day, ":cur_day"),
+        (ge, ":cur_day", ":days"),
+        (assign, "$auto_menu", "mnu_haddingrs_revenge_meeting_guthormr"),
+        (leave_encounter),
+        (change_screen_map),
+    (try_end),
+
     (try_begin),
         (check_quest_active, "qst_ernak_quest"),
         (quest_slot_eq, "qst_ernak_quest", slot_quest_current_state, 1),
@@ -27952,7 +27986,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     (try_end),
 
     (try_begin), #first checks if the party has been burned
-	(eq, "$g_encountered_party_faction", "fac_neutral"),
+	      (eq, "$g_encountered_party_faction", "fac_neutral"),
         (jump_to_menu, "mnu_settlement_burned"),
     (try_end),
 
@@ -27986,8 +28020,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         (faction_slot_eq, "$g_encountered_party_faction", slot_faction_player_tributary, 1),
         (str_store_string, s52, "@The {s51} are a tributary of you. You may hire new troops here."),
     (try_end),
-    ],
-    [
+  ],[
   ("sneak_into",
   [(store_faction_of_party, ":encountered_faction", "$g_encountered_party"),
    (store_relation, ":faction_relation", ":encountered_faction", "fac_player_supporters_faction"),
@@ -28140,7 +28173,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 (this_or_next|eq, ":terrain", rt_river),
 (eq, ":terrain", rt_water),
 (disable_menu_option),
-(try_end), 
+(try_end),
 (try_begin), #dont let the player attack if the player is unable to fight due to being wounded
 (troop_is_wounded, "trp_player"),
 (disable_menu_option),
@@ -28685,7 +28718,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 	(str_store_party_name, s5, "$g_encountered_party"),
 	(party_set_name, "$g_encountered_party", "@Ruins of {s5}"),
 	(party_set_faction, "$g_encountered_party", "fac_neutral"),
-	(party_set_flags, "$g_encountered_party", pf_hide_defenders, 1),	
+	(party_set_flags, "$g_encountered_party", pf_hide_defenders, 1),
 	(party_set_flags, "$g_encountered_party", pf_show_faction, 0),
 	(party_set_flags, "$g_encountered_party", pf_label_medium, 0),
 	(party_set_flags, "$g_encountered_party", pf_label_small, 1),
@@ -28782,7 +28815,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     (val_sub, ":prosperity_total", 5), #lose 5 prosperity per sack
     (party_set_slot, "$g_encountered_party", slot_town_prosperity, ":prosperity_total"),
     (party_set_slot,"$g_encountered_party", slot_party_been_sacked, 1), #has to recover for 7 days before being pillaged again
-	(party_set_extra_text, "$g_encountered_party", "@(Looted)"),
+	  (party_set_extra_text, "$g_encountered_party", "@(Looted)"),
     ],
 
     [("continue",[],"Continue...",
@@ -29758,21 +29791,21 @@ goods, and books will never be sold. ^^You can change some settings here freely.
   ##################
   #####################SIEGE WARFARE RANDOM EVENTS
   ####siege warfare random event chief
-  
+
   #si no tiene hecho letrinas y saneamiento
   (
     "event_siege_01",menu_text_color(0xFF000000)|mnf_disable_all_keys,
     "One of your advisers tells you that he has found rats in the provisions that your men are eating. This could have been prevented with sanitation!",
     "none",
     [(set_background_mesh, "mesh_pic_mb_warrior_1"),
-      
+
     ],
     [
       ("choice_01_1a",[],"That is terrible! Destroy the contaminated supplies.",
         [
           (assign, ":number_of_foods_player_has", 0),
           (try_for_range, ":cur_edible", food_begin, food_end),
-            
+
             (call_script, "script_cf_player_has_item_without_modifier", ":cur_edible", imod_rotten),
             (val_add, ":number_of_foods_player_has", 1),
             (store_random_in_range, ":food_lose", 0, 2),
@@ -29808,7 +29841,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       ),
     ]
   ),
-  
+
   ###matar ratas submenu
   ("ratas_siege",0,
     "Before all the rats are exterminated, many of your men fall sick and die. ^^Your casualties: {s8}",
@@ -29816,7 +29849,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       (call_script, "script_inflict_casualties_to_party_vc", "p_main_party", 8),
       (call_script, "script_collect_friendly_parties"),
     ],
-    
+
     [("back_to_siegea",[],"Done.",
         [
           (call_script, "script_change_player_party_morale", -5),
@@ -29832,7 +29865,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     "Poor hygiene in your camp has led to dysentery. The men start dying all around you. This could have been prevented with sanitation!",
     "none",
     [(set_background_mesh, "mesh_pic_mb_warrior_1"),
-      
+
     ],
     [
       ("choice_02_1b",[],"Hire a physician to try to help the sick (1000 siliquae).",
@@ -29868,14 +29901,14 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       ),
     ]
   ),
-  
+
   ("enfermedad_siege",0,
     "Death governs your camp. Many of your men are sick and dying. ^^Your casualties: {s8}",
     "none", [  (set_background_mesh, "mesh_pic_mb_warrior_1"),
       (call_script, "script_inflict_casualties_to_party_vc", "p_main_party", 10),
       (call_script, "script_collect_friendly_parties"),
     ],
-    
+
     [("back_to_siegeb",[],"Damn.",
         [
           (call_script, "script_change_player_party_morale", -8),
@@ -29892,7 +29925,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       (call_script, "script_inflict_casualties_to_party_vc", "p_main_party", 2),
       (call_script, "script_collect_friendly_parties"),
     ],
-    
+
     [("back_to_siegeb",[],"Back to siege.",
         [
           (call_script, "script_change_player_party_morale", 5),
@@ -29909,7 +29942,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       (call_script, "script_inflict_casualties_to_party_vc", "p_main_party", 9),
       (call_script, "script_collect_friendly_parties"),
     ],
-    
+
     [("back_to_sieged",[],"Done.",
         [
           (call_script, "script_change_player_party_morale", -5),
@@ -29919,14 +29952,14 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       ]),
     ],
   ),
-  
+
   ("enfermedad4_siege",0,
     "Thanks to your healing abilities, you manage to save many men, but some still die. ^^Your casualties: {s8}",
     "none", [  (set_background_mesh, "mesh_pic_mb_warrior_1"),
       (call_script, "script_inflict_casualties_to_party_vc", "p_main_party", 2),
       (call_script, "script_collect_friendly_parties"),
     ],
-    
+
     [("back_to_siegees",[],"Back to siege.",
         [
           (call_script, "script_change_player_honor", 1),
@@ -29936,7 +29969,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     ],
   ),
   ###bajas enfermedad acaba
-  
+
   (
     "event_siege_03",menu_text_color(0xFF000000)|mnf_disable_all_keys,
     "There is so much garbage, vermin and other nasty things that your camp seems to be more of a pigsty. Your men are unhappy. This could have been prevented with sanitation!",
@@ -29961,7 +29994,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       ),
     ]
   ),
-  
+
   ###acaba enfermedades chief
   #seguir
   #eventos incursion, infiltracion y emboscadas
@@ -29972,7 +30005,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     [(set_background_mesh, "mesh_pic_messenger"),
       (assign, ":number_of_foods_player_has", 0),
       (try_for_range, ":cur_edible", food_begin, food_end),
-        
+
         (call_script, "script_cf_player_has_item_without_modifier", ":cur_edible", imod_rotten),
         (val_add, ":number_of_foods_player_has", 1),
         (store_random_in_range, ":food_lose", 0, 3),
@@ -30018,7 +30051,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       ),
     ]
   ),
-  
+
   (
     "event_siege_05",menu_text_color(0xFF000000)|mnf_disable_all_keys,
     "During the night, your men captured and executed a group of enemies who tried to infiltrate and burn supplies. ^^Enemy casualties: {s8}",
@@ -30074,8 +30107,8 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       ),
     ]
   ),
-  
-  
+
+
   (
     "event_siege_06",menu_text_color(0xFF000000)|mnf_disable_all_keys,
     "{reg59?Lady:Sir}, our food supply routes may be in danger. Our scouts have discovered enemy raiders behind our lines.^^" +
@@ -30099,7 +30132,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         [
           (assign, ":number_of_foods_player_has", 0),
           (try_for_range, ":cur_edible", food_begin, food_end),
-            
+
             (call_script, "script_cf_player_has_item_without_modifier", ":cur_edible", imod_rotten),
             (val_add, ":number_of_foods_player_has", 1),
             (store_random_in_range, ":food_lose", 0, 3),
@@ -30130,14 +30163,14 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       ),
     ]
   ),
-  
+
   #submenu encuentro avituallamiento
   ("encuentro_avituallamiento",0,
     "You dispatch a group of men to protect and pursue the enemies that plague your supply routes. Your men attempt to corner the enemy to force him to fight until death. There are some losses, but your men manage to win the battle and secure the supply routes.^^Your casualties: {s8}^^Enemy casualties: {s10}",
     "none", [
       (call_script, "script_simulate_battle_with_parties", 40, "$g_enemy_party", 40, 0, 0),
     ],
-    
+
     [("back_to_siegeg2",[],"Well done.",
         [
           (leave_encounter),
@@ -30148,7 +30181,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
   ("encuentro_avituallamiento2",0,
     "{!}{s4}",
     "none", [
-      
+
       (str_clear, s4),
       (set_background_mesh, "mesh_pic_messenger"),
       (store_random_in_range, ":options", 0,5),
@@ -30164,11 +30197,11 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       (else_try),
         (str_store_string, s4, "@The raiders take the money, kill the messengers, and continue to damage your supply routes."),
         (set_background_mesh, "mesh_pic_messenger"),
-        
+
         #comida
         (assign, ":number_of_foods_player_has", 0),
         (try_for_range, ":cur_edible", food_begin, food_end),
-          
+
           (call_script, "script_cf_player_has_item_without_modifier", ":cur_edible", imod_rotten),
           (val_add, ":number_of_foods_player_has", 1),
           (store_random_in_range, ":food_lose", 0, 3),
@@ -30201,9 +30234,9 @@ goods, and books will never be sold. ^^You can change some settings here freely.
           (call_script, "script_cf_party_remove_random_regular_troop", "p_main_party"),
         (try_end),
       (try_end),
-      
+
     ],
-    
+
     [("back_to_siegeg3",[],"Very well.",
         [
           (leave_encounter),
@@ -30212,8 +30245,8 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     ],
   ),
   ####encuentro avituallamiento acaba
-  
-  
+
+
   (
     "event_siege_07",menu_text_color(0xFF000000)|mnf_disable_all_keys,
     "Our scouts have found that the defenders have poisoned the water with dead animals. Do you want to buy water and ask the merchants to bring it via our supply route?",
@@ -30249,7 +30282,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       ),
     ]
   ),
-  
+
   ###perdidas por sed mientras cavan pozos
   ("sed_siege",0,
     "Water is running out, and your men weaken. Driven by the madness of thirst, some of them drink poisoned water and die. Finally, a well is completed and you get water for the time being. You can continue the siege. ^^Your casualties from poisoned water:{s8}",
@@ -30257,7 +30290,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       (call_script, "script_inflict_casualties_to_party_vc", "p_main_party", 4),
       (call_script, "script_collect_friendly_parties"),
     ],
-    
+
     [("back_to_siegeh",[],"Fate is inexorable.",
         [
           (call_script, "script_change_player_party_morale", -5),
@@ -30268,7 +30301,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     ],
   ),
   ####sed acaba
-  
+
   (
     "event_siege_08",menu_text_color(0xFF000000)|mnf_disable_all_keys,
     "Bad news: one of our men has deserted to the enemy. It may be because of his low morale or because they have offered him money. Whatever it is, the enemy may know our plans.",
@@ -30356,7 +30389,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       ),
     ]
   ),
-  
+
   (
     "event_siege_10",menu_text_color(0xFF000000)|mnf_disable_all_keys,
     "Our men and the enemy do not insult each other as much any more, and sometimes talk to each other. This can affect their fighting spirit when we attack. What shall we do?",
@@ -30398,7 +30431,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       ),
     ]
   ),
-  
+
   (
     "event_siege_12",menu_text_color(0xFF000000)|mnf_disable_all_keys,
     "A farmer comes to you and says that one of your men has raped his daughter, who lives in a village near your siege camp. The farmer desires wergild (compensation) of 100 siliquae. What do you do?",
@@ -30452,7 +30485,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       ),
     ]
   ),
-  
+
   (
     "no_paymentandkill",menu_text_color(0xFF000000)|mnf_disable_all_keys,
     "In revenge, the men of the nearby villages joined together and attacked your foraging parties. ^^Your casualties: {s8}",
@@ -30470,7 +30503,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       ),
     ]
   ),
-  
+
   #escaramuza pequena
   (
     "event_siege_13",menu_text_color(0xFF000000)|mnf_disable_all_keys,
@@ -30487,7 +30520,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       ),
     ]
   ),
-  
+
   (
     "event_siege_14",menu_text_color(0xFF000000)|mnf_disable_all_keys,
     "While foraging, a group of enemies encountered a group of our men.^^Your casualties: {s8}^^Enemy casualties: {s10}",
@@ -30503,7 +30536,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       ),
     ]
   ),
-  
+
   (
     "event_siege_15",menu_text_color(0xFF000000)|mnf_disable_all_keys,
     "We were attacked by an enemy force while raiding neighboring villages. The villagers joined the enemy, causing us many casualties.^^Your casualties: {s8}^^Enemy casualties: {s10}",
@@ -30519,7 +30552,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       ),
     ]
   ),
-  
+
   (
     "event_siege_16",menu_text_color(0xFF000000)|mnf_disable_all_keys,
     "The enemy and our men came upon each other near a river, and the fight for water caused numerous casualties on both sides.^^Your casualties: {s8}^^Enemy casualties: {s10}",
@@ -30535,7 +30568,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       ),
     ]
   ),
-  
+
   (
     "event_siege_17",menu_text_color(0xFF000000)|mnf_disable_all_keys,
     "The enemy sallied out through a secret passage, attacking us before swiftly retreating back to the protection of their walls.^^Your casualties: {s8}^^Enemy casualties: {s10}",
@@ -30551,13 +30584,13 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       ),
     ]
   ),
-  
+
   (
     "event_siege_18",menu_text_color(0xFF000000)|mnf_disable_all_keys,
     "Some of your men have abducted women from the surrounding villages and brought them to the siege camp for fun.",
     "none",
     [(set_background_mesh, "mesh_pic_messenger"),
-      
+
     ],
     [
       ("choice_18_1b",[],"You allow it and ask for the most beautiful woman.",
@@ -30577,7 +30610,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       ),
     ]
   ),
-  
+
   (
     "event_siege_19",menu_text_color(0xFF000000)|mnf_disable_all_keys,
     "The enemy is trying to break our blockade, and our men are trying to contain them.^^Your casualties: {s8}^^Enemy casualties: {s10}", #enemy desesperate, player adventage
@@ -30615,7 +30648,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       ),
     ]
   ),
-  
+
   ###ataque a circunvallation por defensores
   (
     "no_defendiendo",menu_text_color(0xFF000000)|mnf_disable_all_keys,
@@ -30668,7 +30701,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     ]
   ),
   #####ataque a circunvallation acaba
-  
+
   ###ataque a maquinas de asedio
   (
     "event_siege_20",menu_text_color(0xFF000000)|mnf_disable_all_keys,
@@ -30763,15 +30796,15 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     ]
   ),
   #####ataque a equipamiento acaba
-  
-  
+
+
   #continuamos aqui
   (
     "event_siege_21",menu_text_color(0xFF000000)|mnf_disable_all_keys,
     "Your guards discovered several men trying to sneak out at night to escape your blockade.",
     "none",
     [(set_background_mesh, "mesh_pic_messenger"),
-      
+
     ],
     [
       ("choice_21_1b",[],"Allow them to escape.",
@@ -30782,7 +30815,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
           (try_for_range, ":unused", 0, ":num_troops"),
             (call_script, "script_cf_party_remove_random_regular_troop", "$g_encountered_party"),
           (try_end),
-          
+
           (change_screen_return),
         ]
       ),
@@ -30799,13 +30832,13 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       ),
     ]
   ),
-  
+
   (
     "event_siege_22",menu_text_color(0xFF000000)|mnf_disable_all_keys,
     "At night, your guards report that they observed a group of enemies dressed in sheepskins heading to a nearby stream. Right now, they are filling leather sacks with water to bring back to the settlement.",
     "none",
     [(set_background_mesh, "mesh_pic_messenger"),
-      
+
     ],
     [
       ("atacar_emboscada_player2",[],"Go there with any companions who want to join.",
@@ -30816,7 +30849,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
             (val_add, ":health", 35),               #add to it the 5%
             (troop_set_health,   "trp_player", ":health"),   #set it
           (try_end),
-          
+
           (store_random_in_range, ":scene_a_usar", 0,3),
           (try_begin),
             (eq, ":scene_a_usar", 1),
@@ -30827,7 +30860,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
           (else_try),
             (assign, ":scene_to_use", "scn_custom_battle_forest_4"),
           (try_end),
-          
+
           (set_jump_mission,"mt_ambush_riversw"),
           (modify_visitors_at_site,":scene_to_use"),
           #### tropas cambiar por las del asentamiento
@@ -30839,7 +30872,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
             (set_visitor, ":cur_entry", ":companion"),
             (val_add, ":cur_entry", 1),
           (try_end),
-          
+
           (assign, ":num_troops", 8),
           (try_for_range, ":unused", 0, ":num_troops"),
             (call_script, "script_cf_party_remove_random_regular_troop", "$g_encountered_party"),
@@ -30852,7 +30885,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
           (jump_to_scene,":scene_to_use"),
           (change_screen_mission),
       ]),
-      
+
       ("choice_22_1b",[],"Send men to ambush the enemy in sheepskins.",
         [
           (store_random_in_range, ":rand", 0, 3),
@@ -30874,7 +30907,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       ),
     ]
   ),
-  
+
   #####atacar ovejas chief
   (
     "victoria_ovejas",menu_text_color(0xFF000000)|mnf_disable_all_keys,
@@ -30924,7 +30957,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     ]
   ),
   ###atacar ovejas acaba
-  
+
   (
     "event_siege_23",menu_text_color(0xFF000000)|mnf_disable_all_keys,
     "Today a mercenary who wants to join our ranks came to our camp. He says he is an exile from the place that we are besieging, and he wants revenge.",
@@ -30937,7 +30970,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         [
           (party_add_members, "p_main_party", "trp_mercenary_horseman", 1),
           (call_script, "script_change_player_relation_with_center", "$g_encountered_party", -20),
-          
+
           (change_screen_return),
         ]
       ),
@@ -30948,13 +30981,13 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       ),
     ]
   ),
-  
+
   (
     "event_siege_24",menu_text_color(0xFF000000)|mnf_disable_all_keys,
     "We have accumulated the heads of enemies and dead peasants. Do you want to launch them over the walls to undermine the morale of the enemy and cause disease?",
     "none",
     [(set_background_mesh, "mesh_pic_messenger"),
-      
+
     ],
     [
       ("choice_24_1b",[],"What? You're a crazy maniac. Do not do that!",
@@ -30971,8 +31004,8 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       ),
     ]
   ),
-  
-  
+
+
   ###cabezas
   (
     "cabezas_moral",menu_text_color(0xFF000000)|mnf_disable_all_keys,
@@ -30994,13 +31027,13 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     ]
   ),
   ###cabezas acaba
-  
+
   (
     "event_siege_25",menu_text_color(0xFF000000)|mnf_disable_all_keys,
     "A merchant offers a group of dancers to entertain your men during the night.",
     "none",
     [(set_background_mesh, "mesh_pic_messenger"),
-      
+
     ],
     [
       ("choice_25_1b",[],"This will just distract and tire my men.",
@@ -31043,7 +31076,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       ),
     ]
   ),
-  
+
   (
     "event_siege_26",menu_text_color(0xFF000000)|mnf_disable_all_keys,
     "A group of bandits approaches your camp. As your men reach for their arms, the bandits put down their weapons and say they come in peace. The leader of the bandits steps forward and asks if they may join you.",
@@ -31083,7 +31116,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       ),
     ]
   ),
-  
+
   (
     "sanguinario_p",menu_text_color(0xFF000000)|mnf_disable_all_keys,
     "After two hours, the bandits return with some loot and someone's head...",
@@ -31105,7 +31138,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       ),
     ]
   ),
-  
+
   (
     "event_siege_27",menu_text_color(0xFF000000)|mnf_disable_all_keys,
     "Several merchants approach you wanting to sell goods in the camp that has formed close to yours with the wives of the soldiers, prostitutes, refugees, children and other followers of the army.",
@@ -31118,14 +31151,14 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         [
           (call_script, "script_troop_add_gold", "trp_player", 400),
           (call_script, "script_change_player_party_morale", 5),
-          
+
           (store_random_in_range, ":p_leave", 5, 10),
           (assign, ":num_troops", ":p_leave"),
           (try_for_range, ":unused", 0, ":num_troops"),
             (call_script, "script_cf_party_remove_random_regular_troop", "p_main_party"),
           (try_end),
           (display_message, "@At night, some of your men make off with happy widows."),
-          
+
           (change_screen_return), #menos disciplina
         ]
       ),
@@ -31146,7 +31179,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       ),
     ]
   ),
-  
+
   (
     "event_siege_28",menu_text_color(0xFF000000)|mnf_disable_all_keys,
     "To make the food last longer, the defenders threw out their women, children and elderly. You can see them moving towards your circumvallation, begging for food.",
@@ -31188,7 +31221,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       ),
     ]
   ),
-  
+
   (
     "event_siege_29",menu_text_color(0xFF000000)|mnf_disable_all_keys,
     "One of your soldiers, angered by the long siege, rapes the wife of one of your officers.",
@@ -31221,7 +31254,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
           (call_script, "script_change_troop_renown", "trp_player", 5),
           (display_message,"@Your men think that you are a very strong leader."),
           (display_message,"@Your officer seems happy."),
-          
+
           (assign, ":num_troops", 1),
           (try_for_range, ":unused", 0, ":num_troops"),
             (call_script, "script_cf_party_remove_random_regular_troop", "p_main_party"),
@@ -31238,7 +31271,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       ),
     ]
   ),
-  
+
   ###soldado problematico
   (
     "lucha_oficial",menu_text_color(0xFF000000)|mnf_disable_all_keys,
@@ -31250,7 +31283,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       (try_for_range, ":unused", 0, ":num_troops"),
         (call_script, "script_cf_party_remove_random_regular_troop", "p_main_party"),
       (try_end),
-      
+
       (set_background_mesh, "mesh_pic_mb_warrior_1"),
     ],
     [
@@ -31427,7 +31460,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 			(neg|party_is_active, "$enlisted_party"),
 			(str_store_troop_name, s4, "$enlisted_lord"),
 	], "{s4}'s party has been destroyed.",
-	   [	
+	   [
 	        (call_script, "script_freelancer_event_player_captured"),
 			(try_begin),
 			(gt, "$g_enemy_party", 0),
@@ -31440,7 +31473,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 			(else_try),
 			(store_random_in_range, "$g_encountered_party", towns_begin, towns_end),
 			(try_end),
-	        (jump_to_menu, "mnu_captivity_start_wilderness"),		
+	        (jump_to_menu, "mnu_captivity_start_wilderness"),
 		]),
 
     ("report",[
@@ -32605,7 +32638,9 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     "none", [
     (quest_set_slot, "qst_finnsburh_quest_2", slot_quest_current_state, 12),
     (party_relocate_near_party, "p_main_party", "p_frisian_village", 0),
-
+    (store_current_day, ":day"),
+    (val_add, ":day", 40),
+    (quest_set_slot, "qst_finnsburh_quest_2", slot_quest_dont_give_again_remaining_days, ":day"),
     (call_script, "script_end_quest", "qst_finnsburh_quest_2"),
     (call_script, "script_change_troop_renown", "trp_player", 5),
     (call_script, "script_change_player_honor", 1),
@@ -33277,7 +33312,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     [
 (str_store_faction_name, s10, "$temp"),
 (str_store_faction_name, s11, "fac_kingdom_1"),
-        (try_begin),          
+        (try_begin),
           (faction_get_slot, ":faction_leader", "$temp", slot_faction_leader),
           (ge, ":faction_leader", 0),
           (set_fixed_point_multiplier, 100),
@@ -33301,7 +33336,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 	#(set_background_mesh, "mesh_pic_mb_warrior_1"),
       (call_script, "script_inflict_casualties_to_party_vc", "p_main_party", 4),
     ],
-    
+
     [("back_to_sea",[],"Continue...",
         [
           (call_script, "script_change_player_party_morale", -5),
@@ -33313,7 +33348,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
   ("uprising_successful",0,
     "The uprising has been successful.",
     "none", [
-        (try_begin),          
+        (try_begin),
           (faction_get_slot, ":faction_leader", "$temp", slot_faction_leader),
           (gt, ":faction_leader", 0),
           (set_fixed_point_multiplier, 100),
@@ -33323,7 +33358,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
           (set_game_menu_tableau_mesh, "tableau_troop_note_mesh", ":faction_leader", pos0),
         (try_end),
     ],
-    
+
     [("back_to_map",[],"Continue...",
         [
 	  (leave_encounter),
@@ -33337,7 +33372,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     "none", [
 	(str_store_party_name, s10, "$temp"),
 	(str_store_troop_name, s11, "trp_kingdom_31_lord"),
-        (try_begin),          
+        (try_begin),
           (set_fixed_point_multiplier, 100),
           (position_set_x, pos0, 70),
           (position_set_y, pos0, 5),
@@ -33345,7 +33380,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
           (set_game_menu_tableau_mesh, "tableau_troop_note_mesh", "trp_kingdom_31_lord", pos0),
         (try_end),
     ],
-    
+
     [("back_to_map",[],"Continue...",
         [
 	  (leave_encounter),
@@ -33419,6 +33454,255 @@ goods, and books will never be sold. ^^You can change some settings here freely.
        ),
       ]
   ),
+
+("haddingrs_revenge_meeting_guthormr",0,
+  "As you cross the threshold of Heorot, Guthormr rises to meet you, his gaze sharp as the northern winds.",
+  "none",[
+    (set_background_mesh, "mesh_pic_nord"),
+  ],[
+  ("option_1",[],"Continue...",[
+    (call_script, "script_setup_troop_meeting", "trp_dani_guthormr", -1), #SB : script call
+  ]),
+]),
+
+("haddingrs_revenge_beach_battle",0,
+  "You follow Guthormr toward the beach, where a host of Dani warriors stands ready, their blades gleaming as they await the enemy's arrival.",
+  "none",[
+    (set_background_mesh, "mesh_pic_charge"),
+  ],[
+  ("option_1",[
+    (ge, "$cheat_mode", 1)
+  ],"Test scene...",[
+    (jump_to_scene, "scn_haddingrs_revenge_beach_battle"),
+    (change_screen_mission),
+  ]),
+  ("option_1",[],"Continue...",[
+    #haddingrs_revenge_beach_battle
+    #17,18,19,25 for talk
+    (set_jump_mission, "mt_longboat_landing_1"),
+    (assign, "$g_next_menu", "mnu_haddingrs_revenge_beach_battle_landing"),
+    (modify_visitors_at_site, "scn_haddingrs_revenge_beach_battle"),
+    (reset_visitors),
+    (assign, "$temp", "trp_dani_king"),
+    (set_visitor, 10, "trp_dani_king"),
+    (set_visitor, 11, "trp_player"),
+    (set_visitor, 12, "trp_dani_guthormr"),
+    (set_visitor, 13, "trp_dani_haddingr"),
+
+    (jump_to_scene, "scn_haddingrs_revenge_beach_battle"),
+    (change_screen_mission),
+  ]),
+]),
+
+("haddingrs_revenge_defeat",mnf_scale_picture,
+"The clash of steel fades, and the cries of war grow distant. The ravens circle above, bearing witness to your fate. Will your name be sung in the sagas, or is this where your story ends?",
+"none", [
+    (set_background_mesh, "mesh_pic_defeat"),
+  ],[
+  ("option_1", [],"Embrace the halls of the fallen!",[
+    (change_screen_quit),
+  ]),
+]),
+
+("haddingrs_revenge_beach_battle_landing",0,
+  "The ships carve through the surf, their prows biting into the shore as warriors leap onto the sand. At their head strides Svipdagr, his armor gleaming like a beacon, rallying his men with every step. Both hosts form their battle lines, shields locked and weapons raised, before surging forward to meet in the crash of steel and fury.",
+  "none",[
+    (set_background_mesh, "mesh_pic_charge"),
+
+    (assign, ":end", 50),
+    (try_for_range, ":unused", 0, ":end"),
+      (store_party_size_wo_prisoners, ":size", "p_augundzi_village"),
+      (try_begin),
+        (le, ":size", 200),
+        (store_faction_of_party, ":fac", "p_augundzi_village"),
+        (try_begin),
+          (neq, ":fac", "fac_neutral"),
+          (faction_get_slot, ":template", ":fac", slot_faction_reinforcements_a),
+          (gt, ":template", 0),
+          (party_add_template, "p_augundzi_village", ":template"),
+        (else_try),
+          (neq, ":fac", "fac_neutral"),
+          (party_add_members, "p_augundzi_village", "trp_manhunter", 45), #madsci failsafe if no valid template is found
+        (try_end),
+      (else_try),
+        (assign, ":end", -1),
+      (try_end),
+    (try_end),
+
+    (assign, ":end", 50),
+    (try_for_range, ":unused", 0, ":end"),
+      (store_party_size_wo_prisoners, ":size", "p_dani_village"),
+      (try_begin),
+        (le, ":size", 200),
+        (store_faction_of_party, ":fac", "p_dani_village"),
+        (try_begin),
+          (neq, ":fac", "fac_neutral"),
+          (faction_get_slot, ":template", ":fac", slot_faction_reinforcements_a),
+          (gt, ":template", 0),
+          (party_add_template, "p_dani_village", ":template"),
+        (else_try),
+          (neq, ":fac", "fac_neutral"),
+          (party_add_members, "p_dani_village", "trp_manhunter", 45), #madsci failsafe if no valid template is found
+        (try_end),
+      (else_try),
+        (assign, ":end", -1),
+      (try_end),
+    (try_end),
+    (start_encounter, "p_augundzi_village"),
+    # (party_quick_attach_to_current_battle, "p_augundzi_village", 1), #enemies
+    (party_quick_attach_to_current_battle, "p_dani_village", 0), #allies
+
+    # calculate battle variables (mainly necessary if there are also allies)
+    (assign, "$g_ally_party", "p_dani_village"),
+    (assign, "$g_enemy_party", "p_augundzi_village"),
+    (call_script, "script_encounter_calculate_fit"),
+    (try_begin),
+      (eq, "$new_encounter", 1),
+      (assign, "$new_encounter", 0),
+      (assign, "$g_encounter_is_in_village", 0),
+      (assign, "$g_encounter_type", 0),
+      (call_script, "script_encounter_init_variables"),
+      (assign, "$encountered_party_hostile", 1),
+      (assign, "$encountered_party_friendly", 0),
+    (try_end),
+  ],[
+  ("option_1",[],"Continue...",[
+    (quest_set_slot, "qst_haddingrs_revenge", slot_quest_current_state, 2),
+    (assign, "$g_battle_result", 0),
+    (assign, "$g_engaged_enemy", 1),
+    (assign, "$g_next_menu", "mnu_haddingrs_revenge_beach_battle_won"),#victory menu
+    (assign, "$temp4", "mnu_haddingrs_revenge_defeat"),#defeat menu
+
+    # as its a larger battle we should also calculate battle advantage
+    (call_script, "script_calculate_battle_advantage"),
+    (set_battle_advantage, reg0),
+
+    (set_party_battle_mode),
+    (set_jump_mission,"mt_lead_charge_quest"),#can be used for any quest battle
+    (jump_to_scene, "scn_haddingrs_revenge_beach_battle"),
+    (change_screen_mission),
+  ]),
+]),
+
+("haddingrs_revenge_beach_battle_won",mnf_scale_picture,
+"Amid the chaos of battle, Gramr sets his sights on Svipdagr and strides toward him, his voice cutting through the clash of steel. Raising his sword, he commands the warriors to form a ring, clearing the field for a duel to the death. The din of war dims as the two rivals face each other, their blades hungry for blood.",
+"none", [
+    (set_background_mesh, "mesh_pic_charge"),
+  ],[
+  ("option_1",[
+    (ge, "$cheat_mode", 1)
+  ],"Test scene...",[
+    (jump_to_scene, "scn_haddingrs_revenge_beach_battle"),
+    (change_screen_mission),
+  ]),
+  ("option_1", [],"Duel!",[
+    (quest_set_slot, "qst_haddingrs_revenge", slot_quest_current_state, 2),
+    (set_jump_mission, "mt_haddingr_duel"),
+    (modify_visitors_at_site, "scn_haddingrs_revenge_beach_battle"),
+    (reset_visitors),
+    (assign, "$temp", "trp_augundzi_king"),
+    (set_visitor, 15, "trp_dani_king"),
+    (set_visitor, 16, "trp_augundzi_king"),
+    (set_visitor, 17, "trp_player"),
+
+    (set_visitor, 18, "trp_saami_hunter", 1),
+    (set_visitor, 19, "trp_scandinavian_retainer", 1),
+    (set_visitor, 20, "trp_saami_hunter", 1),
+    (set_visitor, 21, "trp_scandinavian_retainer", 1),
+    (set_visitor, 22, "trp_saami_hunter", 1),
+    (set_visitor, 23, "trp_scandinavian_retainer", 1),
+    (set_visitor, 24, "trp_saami_hunter", 1),
+    (set_visitor, 25, "trp_scandinavian_retainer", 1),
+
+    (set_visitor, 26, "trp_dane_vanguard", 1),
+    (set_visitor, 27, "trp_dane_vanguard", 1),
+    (set_visitor, 28, "trp_dane_vanguard", 1),
+    (set_visitor, 29, "trp_dane_vanguard", 1),
+    (set_visitor, 30, "trp_dane_vanguard", 1),
+    (set_visitor, 31, "trp_dane_vanguard", 1),
+    (set_visitor, 32, "trp_dani_guthormr", 1),
+    (set_visitor, 33, "trp_dani_haddingr", 1),
+
+    (jump_to_scene, "scn_haddingrs_revenge_beach_battle"),
+    (change_screen_mission),
+  ]),
+]),
+
+("haddingrs_revenge_imprisoned",mnf_scale_picture,
+"Days pass in the dim confines of the great hall, the weight of iron and fate heavy upon you. Haddingr and Guthormr sit in silence, their eyes shadowed with thought."
++" Only the guards break the solitude, bringing meager rations while the sounds of feasting and song echo beyond the walls - the Augandzi reveling in their triumph.",
+"none", [
+    (set_background_mesh, "mesh_pic_defeat"),
+  ],[
+  ("option_1", [],"Continue...",[
+    (quest_set_slot, "qst_haddingrs_revenge", slot_quest_current_state, 4),
+
+    (store_time_of_day,":cur_time_of_day"),#0 to 24
+    (val_add, ":cur_time_of_day", 1),
+    (assign, reg22, 72),
+    (val_sub,reg22,":cur_time_of_day"),
+
+    (assign, "$auto_enter_town", "p_dani_village"),
+    (assign, "$g_town_visit_after_rest", 1),
+    (assign, "$g_last_rest_center", "p_dani_village"),
+    (assign, "$g_last_rest_payment_until", -1),
+    (rest_for_hours, reg22, 15, 0),
+    # (leave_encounter),
+    (change_screen_map),
+  ]),
+]),
+
+("haddingrs_revenge_escape",mnf_scale_picture,
+"Three nights have passed in uneasy silence - until now. A great clamor erupts beyond the walls, the din of steel and shouts cutting through the night. Suddenly, the doors burst open. Ordlaf stands before you, breathless, his eyes burning with urgency.",
+"none", [
+    (set_background_mesh, "mesh_pic_charge"),
+  ],[
+  ("option_1", [],"Continue...",[
+    (quest_set_slot, "qst_haddingrs_revenge", slot_quest_current_state, 5),
+    (set_jump_mission, "mt_longboat_landing_1"),
+    (assign, "$g_next_menu", "mnu_haddingrs_revenge_escape_2"),
+    (modify_visitors_at_site, "scn_finns_hall_interior"),
+    (reset_visitors),
+    (assign, "$temp", "trp_dani_ordlaf"),
+    (set_visitor, 0, "trp_player"),
+    (set_visitor, 1, "trp_dani_haddingr"),
+    (set_visitor, 7, "trp_dani_guthormr"),
+    (set_visitor, 8, "trp_dani_ordlaf"),
+
+    (jump_to_scene, "scn_finns_hall_interior"),
+    (change_screen_mission),
+  ]),
+]),
+
+("haddingrs_revenge_escape_2",mnf_scale_picture,
+"Ordlaf leads you and Haddingr through the chaos raging outside Heorot's walls, the clash of steel and cries of battle filling the air. Moving swiftly, you weave through the turmoil until the shadowed embrace of the forest offers refuge. There, among the trees, a familiar figure awaits - Signe, Haddingr's mother.",
+"none", [
+    (set_background_mesh, "mesh_pic_escape_1"),
+  ],[
+  ("option_1",[
+    (ge, "$cheat_mode", 1)
+  ],"Test scene...",[
+    (jump_to_scene, "scn_haddingrs_revenge_forest_hideout"),
+    (change_screen_mission),
+  ]),
+  ("option_1", [],"Continue...",[
+    (quest_set_slot, "qst_haddingrs_revenge", slot_quest_current_state, 6),
+    (set_jump_mission, "mt_longboat_landing_1"),
+    (assign, "$g_next_menu", "mnu_auto_return_to_map"),
+    (modify_visitors_at_site, "scn_haddingrs_revenge_forest_hideout"),
+    (reset_visitors),
+    (assign, "$temp", "trp_dani_signe"),
+    (set_visitor, 0, "trp_player"),
+    (set_visitor, 1, "trp_dani_haddingr"),
+    (set_visitor, 2, "trp_dani_guthormr"),
+    (set_visitor, 3, "trp_dani_ordlaf"),
+    (set_visitor, 4, "trp_dani_signe"),
+    (set_visitor, 5, "trp_dani_groa"),
+
+    (jump_to_scene, "scn_haddingrs_revenge_forest_hideout"),
+    (change_screen_mission),
+  ]),
+]),
 
 ]#end of file
 

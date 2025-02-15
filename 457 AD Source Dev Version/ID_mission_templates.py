@@ -92,3 +92,4 @@ mt_explore_secret_place = 90
 mt_ambush_riversw = 91
 mt_asturis_ruins = 92
 mt_sea_battle = 93
+mt_haddingr_duel = 94

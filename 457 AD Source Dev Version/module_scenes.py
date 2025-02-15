@@ -1387,7 +1387,7 @@ scenes = [
   ("castle_41_interior",sf_indoors, "castle_h_interior_a", "bo_castle_h_interior_a", (-100,-100),(100,100),-100,"0",
     ["exit"],[]),
   ("castle_41_prison",sf_indoors,"interior_prison_h", "bo_interior_prison_h", (-100,-100),(100,100),-100,"0",
-    [],[]),  
+    [],[]),
 #!!Villages !!#
 #Roman village templates:
   ("village_roman_1",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000300005000003a8ea00006acd0000637600004d7f", #village_125
@@ -1798,7 +1798,7 @@ scenes = [
   ("duel_plain_forest", sf_generate, "none", "none", (0, 0), (200, 200), -0.5, "0x00000000300005000005495000002ee4000032f600000753",
     [],[], "outer_terrain_plain"),
 
-   ("finnquest_dani_camp", sf_generate, "none", "none", (0, 0), (200, 200), -0.5, "0x00000000300005000005495000002ee4000032f600000753",
+  ("finnquest_dani_camp", sf_generate, "none", "none", (0, 0), (200, 200), -0.5, "0x00000000300005000005495000002ee4000032f600000753",
     [],[], "outer_terrain_beach"),
 
   ("cutscene_longboat", sf_generate, "none", "none", (0, 0), (200, 200), -0.5, "0x00000000300005000005495000002ee4000032f600000753",
@@ -1833,4 +1833,11 @@ scenes = [
    [],[],"sea_battle_terrain"),
  ("sea_battle_coast",sf_generate|sf_no_horses,"none", "none", (-1000,-1000),(1000,1000), 0,"0x0000000730000500000d23480000035180006c8200004a21",
    [],[],"sea_outer_terrain_3"),
+
+
+  ("haddingrs_revenge_beach_battle",sf_generate|sf_no_horses,"none", "none", (-1000,-1000),(1000,1000), 0,"0x00000002b1e005000007a1e800001570000016b500000561",
+    [],[],"outer_terrain_beach"),
+  ("haddingrs_revenge_forest_hideout",sf_generate|sf_no_horses,"none", "none", (-1000,-1000),(1000,1000), 0,"0x00000000bc6005000004190900007f0a00003c1800001ab3",
+    [],[],"outer_terrain_plain_2"),
+
 ]

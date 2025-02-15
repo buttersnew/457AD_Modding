@@ -1097,23 +1097,24 @@ dialogs = [
 "We won! The Bull Spirit was clearly with us and judged us as the most valiants. This hall is yours now, playername and you have my friendship. The Aestii are now free from this zhuvedas and they will gladly follow you in battle if you need them do so.", "aestii_after_battle_talk_5",[]],
 [anyone|plyr,"aestii_after_battle_talk_5", [],
 "Thanks, Vadas Shvarnas. May your people stay free and no tyrant dare rule you again.", "close_window",[
-(call_script, "script_change_player_relation_with_troop", "trp_aestii_rebel_king",30),
-(call_script, "script_succeed_quest", "qst_aestii_rebel_quest"),
-(call_script, "script_end_quest", "qst_aestii_rebel_quest"),
-(call_script, "script_change_troop_renown", "trp_player", 80),
-(call_script, "script_change_player_honor", 2),
-(call_script, "script_troop_add_gold", "trp_player", 6000),
-(add_xp_as_reward,2500),
-(assign, "$g_aestii_quest", 3), #allows the recruitment of unique troop from Shvarnas
-(str_store_troop_name, s40, "trp_player"), #sets up tributary
-(add_faction_note_from_sreg, "fac_minor_aestii", 3, "@They are a tributary of {s40}.", 0),
-(call_script, "script_change_player_relation_with_faction", "fac_minor_aestii", 30),
-(faction_set_slot, "fac_minor_aestii", slot_faction_player_tributary, 1),
-(remove_member_from_party, "trp_aestii_rebel_king"),
-(remove_troop_from_site,"trp_aestii_king","scn_aestii_town"),
-(troop_add_item, "trp_player", "itm_taurapilis_spatha",0), #player gets taurapilis sword
-(finish_mission),
-(change_screen_map),
+  (call_script, "script_change_player_relation_with_troop", "trp_aestii_rebel_king",30),
+  (call_script, "script_succeed_quest", "qst_aestii_rebel_quest"),
+  (call_script, "script_end_quest", "qst_aestii_rebel_quest"),
+  (call_script, "script_change_troop_renown", "trp_player", 80),
+  (call_script, "script_change_player_honor", 2),
+  (call_script, "script_troop_add_gold", "trp_player", 6000),
+  (add_xp_as_reward,2500),
+  (assign, "$g_aestii_quest", 3), #allows the recruitment of unique troop from Shvarnas
+  (str_store_troop_name, s40, "trp_player"), #sets up tributary
+  (add_faction_note_from_sreg, "fac_minor_aestii", 3, "@They are a tributary of {s40}.", 0),
+  (call_script, "script_change_player_relation_with_faction", "fac_minor_aestii", 30),
+  (faction_set_slot, "fac_minor_aestii", slot_faction_player_tributary, 1),
+  (remove_member_from_party, "trp_aestii_rebel_king"),
+  (remove_troop_from_site,"trp_aestii_king","scn_aestii_town"),
+  (troop_set_slot, "trp_aestii_king", slot_troop_occupation, dplmc_slto_dead),
+  (troop_add_item, "trp_player", "itm_taurapilis_spatha",0), #player gets taurapilis sword
+  (finish_mission),
+  (change_screen_map),
 ]],
 
 #SB: because we now use change_screen_map_conversation, this is a duplicate
@@ -50781,23 +50782,23 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
 #gold merchant
   [anyone ,"start", [(eq, "$g_talk_troop", "trp_gold_merchant")],
     "Greetings, stranger. Interested in jewellery?", "gold_merchant_talk", []],
-  
+
   [anyone|plyr, "gold_merchant_talk", [],
     "I want to take a look at your merchandise.", "gold_merchant_talk_buy",
     []],
 
   [anyone|plyr, "gold_merchant_talk", [],
     "I'm not interested at this time. Farewell.", "close_window", []],
-  
+
   [anyone,"gold_merchant_talk_buy", [],
     "Well, you've come the right place.", "gold_merchant_talk_cont",[
 (troop_clear_inventory, "trp_gold_merchant"),
 (troop_add_item,"trp_gold_merchant", "itm_quest_gold"),
 (change_screen_trade),
   ]],
-  
+
 [anyone,"gold_merchant_talk_cont", [], "Anything else?", "gold_merchant_talk",[]],
-   
+
 
 #zamb man!
   [trp_zamb_man, "start", [(eq, "$g_talk_troop_met", 0)],
@@ -52240,6 +52241,365 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
   (agent_set_slot, "$g_talk_agent", slot_agent_is_in_scripted_mode, 1),
   ]],
 
+## haddingrs revenge
+[trp_dani_signe, "start", [
+  (check_quest_active, "qst_haddingrs_revenge"),
+  (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 6),
+],
+"Good Haddingr, you are safe at least!",
+"haddingrs_revenge_escape2_1", []],
+[anyone|other(trp_dani_haddingr),"haddingrs_revenge_escape2_1", [
+],
+"Mother, how are you free? What has happened to you?",
+"haddingrs_revenge_escape2_2",[
+  (call_script, "script_set_conversation_troop", "trp_dani_haddingr"),
+]],
+[anyone,"haddingrs_revenge_escape2_2", [
+],
+"Svipdagr saw no value in our lives and when he reached Heorot he exiled us to foreign lands. But we did not leave! We hid in the woods with friends and sent messages to Ordlaf and Guthlaf.",
+"haddingrs_revenge_escape2_3",[
+]],
+[anyone|other(trp_dani_guthormr),"haddingrs_revenge_escape2_3", [
+],
+"Where is Guthlaf? My eyes have yet to spot him.",
+"haddingrs_revenge_escape2_4",[
+  (call_script, "script_set_conversation_troop", "trp_dani_guthormr"),
+]],
+[anyone|other(trp_dani_groa),"haddingrs_revenge_escape2_4", [
+],
+"Dear son, the news of your father caused many troubles in the North. We also tried to reach our good lords Hengist and Horsa but we are afraid our messangers were caught in a trap. Only Ordlaf arrived.",
+"haddingrs_revenge_escape2_5",[
+  (call_script, "script_set_conversation_troop", "trp_dani_groa"),
+]],
+[anyone|other(trp_dani_guthormr),"haddingrs_revenge_escape2_5", [
+],
+"Good mother, may Freya bless you for you also managed to escape the wrath of the Augandzi.",
+"haddingrs_revenge_escape2_6",[
+  (call_script, "script_set_conversation_troop", "trp_dani_guthormr"),
+]],
+[anyone|other(trp_dani_groa),"haddingrs_revenge_escape2_6", [
+],
+"I did, but there is no time left. The Sedgeans are a small clan, they will not manage to repel the hordes of our enemies. We must honour their sacrifice and use what is left of our time to find shelter.",
+"haddingrs_revenge_escape2_7",[
+  (call_script, "script_set_conversation_troop", "trp_dani_groa"),
+]],
+[anyone,"haddingrs_revenge_escape2_7", [
+],
+"There is a place we can go. And where you, Haddingr and Guthormr will find tutorship. There you will train and plot to regain our kingdom. In the land of the Gautar there is a giant, Wagnofthus: his skills with the blade are renown in all Scandza and he is said to train only the best princes of the royal families of the north.",
+"haddingrs_revenge_escape2_8",[
+]],
+[anyone|other(trp_dani_ordlaf),"haddingrs_revenge_escape2_8", [
+],
+"There you shall go. {playername} , I managed to gather your men. Please leave these lands now, come visit me at the hall of the Sedgeans and make then visit to Guthlaf and Hengist. Inform them of what has just happened, and they will answer your call.",
+"haddingrs_revenge_escape2_9",[
+  (call_script, "script_set_conversation_troop", "trp_dani_ordlaf"),
+]],
+[anyone|other(trp_dani_haddingr),"haddingrs_revenge_escape2_9", [
+],
+"{playername} , you are an honorable friend, and we won’t forget the blood you shed for us. When Guthlaf and Hengist will be made aware of the carnage that happened in Heorot please join us, with them, in the lands of the Gautar. There we will decide our next move together.",
+"haddingrs_revenge_escape2_10",[
+  (call_script, "script_set_conversation_troop", "trp_dani_haddingr"),
+]],
+[anyone|other(trp_dani_guthormr),"haddingrs_revenge_escape2_10", [
+],
+"Good friend if you have allies it is time to call for their favours. Once we will reclaim our hall you will bathe in gold.",
+"haddingrs_revenge_escape2_11",[
+  (call_script, "script_set_conversation_troop", "trp_dani_guthormr"),
+]],
+[anyone|plyr,"haddingrs_revenge_escape2_11", [
+],
+"This is honourable, friends. But I do not fight for gold, rather for the friendships that were forged in the lands of the Frisii. ",
+"close_window",[
+  (call_script, "script_change_player_relation_with_troop", "trp_dani_guthormr", 5),
+  (call_script, "script_change_player_relation_with_troop", "trp_dani_haddingr", 5),
+  (call_script, "script_change_player_relation_with_troop", "trp_dani_ordlaf", 5),
+  (call_script, "script_change_player_relation_with_troop", "trp_dani_groa", 5),
+  (call_script, "script_change_player_relation_with_troop", "trp_dani_signe", 5),
+  (call_script, "script_change_player_honor", 5),
+
+  (quest_set_slot, "qst_haddingrs_revenge", slot_quest_current_state, 7),
+
+  (assign, "$g_battle_result", 1),
+]],
+[anyone|plyr,"haddingrs_revenge_escape2_11", [
+],
+"It better be the case.",
+"close_window",[
+  (call_script, "script_change_troop_renown", "trp_player", 20),
+  (call_script, "script_change_player_honor", -5),
+  (call_script, "script_change_player_relation_with_troop", "trp_dani_guthormr", -5),
+  (call_script, "script_change_player_relation_with_troop", "trp_dani_haddingr", -5),
+  (call_script, "script_change_player_relation_with_troop", "trp_dani_ordlaf", -5),
+  (call_script, "script_change_player_relation_with_troop", "trp_dani_groa", -5),
+  (call_script, "script_change_player_relation_with_troop", "trp_dani_signe", -5),
+
+  (quest_set_slot, "qst_haddingrs_revenge", slot_quest_current_state, 7),
+
+  (assign, "$g_battle_result", 1),
+]],
+[anyone|plyr,"haddingrs_revenge_escape2_11", [
+],
+"I am sorry, but our paths split here. Your father was a murderer, and he was the one who started the feud with Svipdagr. Continue this bloodbath, but without me.",
+"close_window",[
+  (val_add, "$piety", 100), #increase in piety
+  (call_script, "script_change_troop_renown", "trp_player", -100),
+  (call_script, "script_fail_quest", "qst_haddingrs_revenge"),
+  (call_script, "script_end_quest", "qst_haddingrs_revenge"),
+
+  (call_script, "script_change_player_relation_with_troop", "trp_dani_guthormr", -50),
+  (call_script, "script_change_player_relation_with_troop", "trp_dani_haddingr", -50),
+  (call_script, "script_change_player_relation_with_troop", "trp_dani_ordlaf", -50),
+  (call_script, "script_change_player_relation_with_troop", "trp_dani_groa", -50),
+  (call_script, "script_change_player_relation_with_troop", "trp_dani_signe", -50),
+
+  (assign, "$g_battle_result", 1),
+]],
+
+
+
+[trp_dani_ordlaf, "start", [
+  (check_quest_active, "qst_haddingrs_revenge"),
+  (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 5),
+],
+"I have to come to save you. I brought the Sedgeans with me. However, hurry up! There is no time for all the Augandzi left here by Svipdagr, cursed be his name, will arrive and make us feast for the crows.",
+"haddingrs_revenge_escape_1", []],
+[anyone|plyr,"haddingrs_revenge_escape_1", [
+],
+"Ordlaf! This is an unexpected surprise!",
+"haddingrs_revenge_escape_2",[
+]],
+[anyone|plyr,"haddingrs_revenge_escape_1", [
+],
+"After three long nights of darkness, daylight greets me at last in form of Ordlaf.",
+"haddingrs_revenge_escape_2",[
+]],
+[anyone|other(trp_dani_haddingr),"haddingrs_revenge_escape_2", [
+],
+"rother, we need to escape. We will gather an army, avenge our father, and reclaim Heorot.",
+"haddingrs_revenge_escape_3",[
+  (call_script, "script_set_conversation_troop", "trp_dani_haddingr"),
+]],
+[anyone,"haddingrs_revenge_escape_3", [
+],
+"Quick, there's no time! Your mother already awaits you in the woods.",
+"close_window",[
+  (assign, "$g_battle_result", 1),
+]],
+
+
+
+[trp_augundzi_king, "start", [
+  (check_quest_active, "qst_haddingrs_revenge"),
+  (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 3),
+],
+"This your winter, Gramr's seeds. Years ago, your father killed mine and with Gods' help today I made justice. You will remain here, as my slaves, in Heorot and each winter I shall come here, the day your father died, to collect your riches. And you shall comply.",
+"haddingrs_revenge_beach_duel_lost_1", []],
+[anyone|other(trp_dani_haddingr),"haddingrs_revenge_beach_duel_lost_1", [
+],
+"You shifty hypocrite, don't come whining to us. I hate you more than any other man in Scandza. Rivalry, war, fighting – these are the breath of life to you.",
+"haddingrs_revenge_beach_duel_lost_2",[
+  (call_script, "script_set_conversation_troop", "trp_dani_haddingr"),
+]],
+[anyone|other(trp_dani_guthormr),"haddingrs_revenge_beach_duel_lost_2", [
+],
+"Our father died honourably in battle, leave us be. It isn't us who caused you grief but our father. As you said, justice has been done, now leave us be.",
+"haddingrs_revenge_beach_duel_lost_3",[
+  (call_script, "script_set_conversation_troop", "trp_dani_guthormr"),
+]],
+[anyone,"haddingrs_revenge_beach_duel_lost_3", [
+],
+"Cut it, you miserable worms. You are all mine now, by right of conquest and as I said, the Danir will offer me tribute every year and you will finish your lives in the hall your father built with the bones of his rivals.",
+"haddingrs_revenge_beach_duel_lost_4",[
+]],
+[anyone|other(trp_dani_haddingr),"haddingrs_revenge_beach_duel_lost_4", [
+],
+"These faint-hearted words do not suit you, brother. Svipdagr is our enemy and so his offspring now. We will be enemy ‘till the end.",
+"haddingrs_revenge_beach_duel_lost_5",[
+  (call_script, "script_set_conversation_troop", "trp_dani_haddingr"),
+]],
+[anyone,"haddingrs_revenge_beach_duel_lost_5", [
+],
+"… And yet you will have no chance for revenge. Off to the hall you go! And you, did you really favour them? I'll charge you the same.",
+"haddingrs_revenge_beach_duel_lost_6",[
+]],
+[anyone|plyr,"haddingrs_revenge_beach_duel_lost_6", [
+],
+"If this is what I have to face for siding with friends, then I shall.",
+"haddingrs_revenge_beach_duel_lost_7",[
+]],
+[anyone|plyr,"haddingrs_revenge_beach_duel_lost_6", [
+],
+"I will not leave your side, Haddingr!",
+"haddingrs_revenge_beach_duel_lost_7",[
+]],
+[anyone,"haddingrs_revenge_beach_duel_lost_7", [
+],
+"Pathetic, you will rot in the hall.",
+"close_window",[
+  # (assign, "$auto_menu", "mnu_haddingrs_revenge_imprisoned"),^
+  (jump_to_menu, "mnu_auto_return_to_map"),
+  (mission_disable_talk),
+  (finish_mission, 3),
+  (mission_cam_animate_to_screen_color, 0xFF000000, 2000),
+]],
+
+[trp_augundzi_king, "start", [
+  (check_quest_active, "qst_haddingrs_revenge"),
+  (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 2),
+],
+"I'll fight with none but thee, for I do hate thee.",
+"haddingrs_revenge_beach_duel_1", []],
+[anyone|other(trp_dani_king),"haddingrs_revenge_beach_duel_1", [
+],
+"We hate alike.",
+"close_window",[
+  (mission_disable_talk),
+  (quest_set_slot, "qst_haddingrs_revenge", slot_quest_current_state, 3),
+  (call_script, "script_set_conversation_troop", "trp_dani_king"),
+  (team_set_relation, 2, 3, -1),
+  (team_set_relation, 3, 2, -1),
+  (try_for_agents, ":agent"),
+      (agent_is_active, ":agent"),
+      (agent_is_alive, ":agent"),
+      (agent_get_troop_id, ":troop", ":agent"),
+      (try_begin),
+          (eq, ":troop", "trp_dani_king"),
+          (agent_set_team, ":agent", 2),
+          (agent_set_damage_modifier, ":agent", 50),
+      (else_try),
+          (eq, ":troop", "trp_augundzi_king"),
+          (agent_set_team, ":agent", 3),
+          (agent_set_no_death_knock_down_only, ":agent", 1),
+          (agent_set_damage_modifier, ":agent", 150),
+      (try_end),
+      (agent_ai_set_aggressiveness, ":agent", 10000),
+      (agent_force_rethink, ":agent"),
+  (try_end),
+]],
+
+[trp_dani_king, "start", [
+  (check_quest_active, "qst_haddingrs_revenge"),
+  (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 1),
+],
+"There is the man of my soul's hate, Svipdagr, braving our seas: then, valiant Guthormr, take convenient numbers to make good Heorot; Whilst I, with those that have the spirit, will haste to kill him.",
+"haddingrs_revenge_beach_battle_1_1", []],
+[anyone|other(trp_dani_haddingr),"haddingrs_revenge_beach_battle_1_1", [
+],
+"Worthy king, please listen; Thy exercise will be too violent for a second course of fight. We will stay with you!",
+"haddingrs_revenge_beach_battle_1_2",[
+  (call_script, "script_set_conversation_troop", "trp_dani_haddingr"),
+]],
+[anyone|other(trp_dani_guthormr),"haddingrs_revenge_beach_battle_1_2", [
+],
+"Haddingr speaks the truth, let us help you!",
+"haddingrs_revenge_beach_battle_1_3",[
+  (call_script, "script_set_conversation_troop", "trp_dani_guthormr"),
+]],
+[anyone|plyr,"haddingrs_revenge_beach_battle_1_3", [
+],
+"Come I too late?",
+"haddingrs_revenge_beach_battle_1_4",[
+]],
+[anyone|plyr,"haddingrs_revenge_beach_battle_1_3", [
+],
+"Is the battle already fought?",
+"haddingrs_revenge_beach_battle_1_4",[
+]],
+[anyone,"haddingrs_revenge_beach_battle_1_4", [
+],
+"Slayer of Frisians, good friend. O, let me clip you in arms as sound as when I wooed, in heart as merry as when our nuptial day was done, and tapers burnt to bedward! Welcome!",
+"haddingrs_revenge_beach_battle_1_5",[
+]],
+[anyone|plyr,"haddingrs_revenge_beach_battle_1_5", [
+],
+"I am honoured, oh great king. How lies their battle?",
+"haddingrs_revenge_beach_battle_1_6",[
+]],
+[anyone|plyr,"haddingrs_revenge_beach_battle_1_5", [
+],
+"It's an honour, great king. Know you on which side they have placed their men of trust?",
+"haddingrs_revenge_beach_battle_1_6",[
+]],
+[anyone|other(trp_dani_guthormr),"haddingrs_revenge_beach_battle_1_6", [
+],
+"As I guess, {playername}, their bands i' the vaward are the Augandzi and the Arochi, of their best trust; o'er them Svipdagr, their very heart of hope.",
+"haddingrs_revenge_beach_battle_1_7",[
+  (call_script, "script_set_conversation_troop", "trp_dani_guthormr"),
+]],
+[anyone,"haddingrs_revenge_beach_battle_1_7", [
+],
+"I do beseech you, by all the battles wherein we have fought, by the blood we have shed together, by the vows we have made to endure friends, that you directly set me against Svipdagr and his Augandzi; and that you do not delay the present, but, filling the air with swords advanced and darts, we prove this very hour.",
+"close_window",[
+  (assign, "$g_battle_result", 1),
+]],
+
+
+ [trp_dani_guthormr,"start", [
+  (eq, "$g_encountered_party", "p_dani_village"),
+  (neg|check_quest_active, "qst_finnsburh_quest_2"),
+  (neg|check_quest_active, "qst_haddingrs_revenge"),
+  (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 0),
+  (quest_slot_eq, "qst_finnsburh_quest_2", slot_quest_current_state, 12),
+  (troop_slot_ge, "trp_augundzi_king", slot_troop_met, 1),
+  (quest_get_slot, ":days", "qst_finnsburh_quest_2", slot_quest_dont_give_again_remaining_days),
+  (store_current_day, ":cur_day"),
+  (ge, ":cur_day", ":days"),
+],
+"{playername}, you're here! Thank the Gods! We're in great danger, you must help us.",
+"haddingrs_revenge_begin",[
+  (quest_set_slot, "qst_haddingrs_revenge", slot_quest_current_state, 1),
+]],
+[anyone|plyr,"haddingrs_revenge_begin", [
+],
+"What happens, Guthormr, son of Gramr, prince of the Danes?",
+"haddingrs_revenge_begin_2",[
+]],
+[anyone,"haddingrs_revenge_begin_2", [
+],
+"An enemy is reaching our shores: Svipdagr. My father's enemy! He has come here to kill him. A group of fishermen has seen his fleet and they're about to land. We need as many men as we can get. Will you help us?",
+"haddingrs_revenge_begin_3",[
+]],
+[anyone|plyr,"haddingrs_revenge_begin_3", [
+],
+"My sword is with you, dear friend. Lead the way to the beach, we shall draw blades.",
+"haddingrs_revenge_begin_3_yes",[
+]],
+[anyone,"haddingrs_revenge_begin_3_yes", [
+],
+"Then stand strong, brother. The tide shall carry our deeds to the sagas. To the beach—we make war!",
+"close_window",[
+  (setup_quest_text, "qst_haddingrs_revenge"),
+  (str_store_string, s2, "@The Dani are under attack by the Augundzi. You agreed to help the Dani."),
+  (call_script, "script_start_quest", "qst_haddingrs_revenge", "trp_dani_guthormr"),
+  (jump_to_menu, "mnu_haddingrs_revenge_beach_battle"),
+  (assign, "$g_leave_encounter", 1),
+]],
+[anyone|plyr,"haddingrs_revenge_begin_3", [
+],
+"This is not our fight, Guthormr. We wish you luck.",
+"haddingrs_revenge_begin_3_no",[
+]],
+[anyone,"haddingrs_revenge_begin_3_no", [
+],
+"Luck is a fleeting thing, but steel and honor endure. When the ravens feast, may they not whisper your names in cowardice.",
+"close_window",[
+
+  (call_script, "script_change_player_relation_with_troop", "trp_dani_guthormr", -50),
+  (call_script, "script_change_player_relation_with_troop", "trp_dani_guthlaf", -50),
+  (call_script, "script_change_player_relation_with_troop", "trp_dani_ordlaf", -50),
+  (call_script, "script_change_player_relation_with_troop", "trp_dani_haddingr", -50),
+  (call_script, "script_change_player_relation_with_troop", "trp_dani_king", -50),
+
+  (party_set_slot, "$g_encountered_party", slot_town_prosperity, 15),
+  (party_set_slot,"$g_encountered_party", slot_party_been_sacked, 1), #has to recover for 7 days before being pillaged again
+  (party_set_extra_text, "$g_encountered_party", "@(Looted)"),
+
+  (quest_set_slot, "qst_haddingrs_revenge", slot_quest_current_state, -1),
+  (jump_to_menu, "mnu_auto_return_to_map"),
+  (assign, "$g_leave_encounter", 1),
+]],
+
+## finnsburg
  [trp_dani_guthormr,"start", [
   (check_quest_active, "qst_finnsburh_quest_2"),
   (quest_slot_eq, "qst_finnsburh_quest_2", slot_quest_current_state, 11),

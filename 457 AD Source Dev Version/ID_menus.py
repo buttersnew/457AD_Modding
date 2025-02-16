@@ -543,3 +543,6 @@ mnu_haddingrs_revenge_beach_battle_won = 541
 mnu_haddingrs_revenge_imprisoned = 542
 mnu_haddingrs_revenge_escape = 543
 mnu_haddingrs_revenge_escape_2 = 544
+mnu_haddingrs_revenge_sedgean = 545
+mnu_haddingrs_revenge_wagnofthus_hall = 546
+mnu_haddingrs_revenge_guthormr_talk = 547

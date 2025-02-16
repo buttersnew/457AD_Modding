@@ -113,6 +113,8 @@ slot_agent_horse_rider      = 43
 slot_agent_berserk_modeon         = 44	#berserker chief mode on
 slot_agent_berserk_use_cooldown   = 45
 slot_agent_berserk_cooldown       = 46
+
+slot_agent_talked = 47
 #slot_agent_new_division = 46
 
 ########################################################
@@ -3297,17 +3299,17 @@ slot_quest_6_ship_prop	= slot_quest_menu_26
 slot_quest_7_ship_prop	= slot_quest_menu_27
 
 #####sea battles chief phaiak empieza
-scene_prop_sail						= 6 
-scene_prop_rowing				    = 7  
-scene_prop_rudder				    = 8  
-scene_prop_last_speed				= 9  
-scene_prop_last_turn			    = 10 
-scene_prop_wank_state			    = 11 
+scene_prop_sail						= 6
+scene_prop_rowing				    = 7
+scene_prop_rudder				    = 8
+scene_prop_last_speed				= 9
+scene_prop_last_turn			    = 10
+scene_prop_wank_state			    = 11
 scene_prop_boarding_wanted		    = 12 # "-1"=no, "0"=yes, "1"=yes, also with friendly ships
 scene_prop_landing_wanted		    = 13 # "0"=no, "1"=yes
-scene_prop_boarding_left		    = 14 
-scene_prop_boarding_right		    = 15 
-scene_prop_boarding_progress	    = 16 
+scene_prop_boarding_left		    = 14
+scene_prop_boarding_right		    = 15
+scene_prop_boarding_progress	    = 16
 scene_prop_main_instance		    = 17
 scene_prop_ramp_right			    = 18
 scene_prop_ramp_2				    = 19

@@ -851,4 +851,6 @@ scn_sea_battle = 848
 scn_sea_battle_coast = 849
 scn_haddingrs_revenge_beach_battle = 850
 scn_haddingrs_revenge_forest_hideout = 851
+scn_haddingrs_revenge_sedgean = 852
+scn_haddingrs_revenge_wangofthus_hall = 853
 scn_exit = 100000

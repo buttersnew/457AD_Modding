@@ -2248,6 +2248,17 @@ TOTAL:  {reg5}"),
    "You set up camp. What do you want to do?",
    "none",
    [
+    (try_begin),
+      (ge, "$cheat_mode", 1),
+      (set_fixed_point_multiplier, 1000),
+      (party_get_position, pos1, "p_main_party"),
+      (position_get_x, reg44, pos1),
+      (position_get_y, reg45, pos1),
+      (position_get_z, reg46, pos1),
+      (str_store_string, s60, "@Coordinates: x={reg44} y={reg45} z={reg46}."),
+      (display_message, "@{s60}"),
+    (try_end),
+
     (assign, "$g_player_icon_state", pis_normal),
     (set_background_mesh, "mesh_pic_camp"),
 
@@ -27906,6 +27917,11 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     (try_begin),
         (eq, "$g_encountered_party", "p_dani_village"),
         (check_quest_active, "qst_haddingrs_revenge"),
+        (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 10),
+        (jump_to_menu, "mnu_haddingrs_revenge_guthormr_talk"),
+    (else_try),
+        (eq, "$g_encountered_party", "p_dani_village"),
+        (check_quest_active, "qst_haddingrs_revenge"),
         (quest_slot_ge, "qst_haddingrs_revenge", slot_quest_current_state, 7),
         (jump_to_menu, "mnu_auto_return_to_map"),
         (display_message, "@The garrison is hostile towards you.", message_alert),
@@ -27915,7 +27931,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 4),
         (jump_to_menu, "mnu_haddingrs_revenge_escape"),
     (else_try),
-        (eq, "$g_encountered_party", "p_augundzi_village"),
+        (eq, "$g_encountered_party", "p_dani_village"),
         (check_quest_active, "qst_haddingrs_revenge"),
         (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 3),
         # (leave_encounter),
@@ -27929,12 +27945,11 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 0),
         (quest_slot_eq, "qst_finnsburh_quest_2", slot_quest_current_state, 12),
         (troop_slot_ge, "trp_augundzi_king", slot_troop_met, 1),
-        (quest_get_slot, ":days", "qst_finnsburh_quest_2", slot_quest_dont_give_again_remaining_days),
+        (quest_get_slot, ":days", "qst_finnsburh_quest_2", slot_quest_dont_give_again_period),
+        (ge, ":days", 1),
         (store_current_day, ":cur_day"),
         (ge, ":cur_day", ":days"),
-        (assign, "$auto_menu", "mnu_haddingrs_revenge_meeting_guthormr"),
-        (leave_encounter),
-        (change_screen_map),
+        (jump_to_menu,"mnu_haddingrs_revenge_meeting_guthormr"),
     (try_end),
 
     (try_begin),
@@ -28381,6 +28396,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 
     (try_begin),
         (eq, "$g_encountered_party", "p_dani_village"),
+        (troop_slot_eq, "trp_dani_hengest", slot_troop_occupation, slto_inactive),# hangest is not a lord yet
         (quest_slot_eq, "qst_finnsburh_quest", slot_quest_current_state, 0),
         (set_visitor, 36, "trp_dani_hocing"),
         (set_visitor, 37, "trp_dani_sigeferth"),
@@ -32640,7 +32656,8 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     (party_relocate_near_party, "p_main_party", "p_frisian_village", 0),
     (store_current_day, ":day"),
     (val_add, ":day", 40),
-    (quest_set_slot, "qst_finnsburh_quest_2", slot_quest_dont_give_again_remaining_days, ":day"),
+    (val_max, ":day", 1),
+    (quest_set_slot, "qst_finnsburh_quest_2", slot_quest_dont_give_again_period, ":day"),
     (call_script, "script_end_quest", "qst_finnsburh_quest_2"),
     (call_script, "script_change_troop_renown", "trp_player", 5),
     (call_script, "script_change_player_honor", 1),
@@ -33181,6 +33198,48 @@ goods, and books will never be sold. ^^You can change some settings here freely.
    [
      ],
     [
+      ("camp_cheat_riders_of_rohan",[],"Skip Finnsburg quest",[
+        (quest_set_slot, "qst_finnsburh_quest_2", slot_quest_current_state, 12),
+        (troop_set_slot, "trp_augundzi_king", slot_troop_met, 1),
+        (quest_set_slot, "qst_finnsburh_quest_2", slot_quest_dont_give_again_period, 2),
+
+        (call_script, "script_change_player_relation_with_faction", "fac_minor_frisians", 200),
+        (faction_set_slot, "fac_minor_frisians", slot_faction_leader, "trp_dani_guthlaf"),
+        (str_store_troop_name, s1, "trp_frisian_king"),
+        (str_store_troop_name, s2, "trp_dani_guthlaf"),
+        (display_message, "@{s1} was killed in battle."),
+        (display_message, "@{s2} is the new leader of the Frisi."),
+
+        (troop_set_note_available, "trp_frisian_king", 0),
+        (troop_set_note_available, "trp_dani_guthlaf", 1),
+        (add_troop_note_tableau_mesh, "trp_dani_guthlaf", "tableau_troop_note_mesh"),
+        (party_set_slot, "p_frisian_village", slot_town_lord, "trp_dani_guthlaf"),
+        (party_remove_members, "p_frisian_village", "trp_frisian_king", 1),
+        (troop_set_slot, "trp_frisian_king", slot_troop_occupation, dplmc_slto_dead), #madsci
+        (try_begin),
+          (troop_get_slot, ":leaded_party", "trp_frisian_king", slot_troop_leaded_party),
+          (gt, ":leaded_party", 0),
+          (party_is_active, ":leaded_party", 0),
+          (call_script, "script_remove_hero_prisoners", ":leaded_party"),
+          (remove_party, ":leaded_party"),
+        (try_end),
+        (party_add_leader, "p_frisian_village", "trp_dani_guthlaf"),
+        (troop_set_slot, "trp_dani_guthlaf", slot_troop_age, 25),
+        (troop_set_slot, "trp_dani_guthlaf", slot_troop_religion, slot_religion_paganism),
+        (troop_set_slot, "trp_dani_guthlaf", slot_troop_renown, 450),
+
+        (troop_set_slot, "trp_dani_hengest", slot_troop_occupation, slto_kingdom_hero),
+	      (call_script, "script_change_troop_faction", "trp_dani_hengest", "fac_kingdom_19"),
+        (troop_set_note_available,"trp_dani_hengest",1),
+        (troop_set_slot, "trp_dani_hengest", slot_troop_wealth, 10000),
+        (call_script, "script_cf_select_random_walled_center_with_faction", "fac_kingdom_19", -1),
+        (assign, ":center", reg0),
+        (try_begin),
+          (is_between, ":center", walled_centers_begin, walled_centers_end),
+          (call_script, "script_create_kingdom_hero_party", "trp_dani_hengest", ":center"),
+        (try_end),
+      ]),
+
       ("camp_cheat_riders_of_rohan",[],"Riders of Rohan",
        [
 	(display_message, "@Add troops"),
@@ -33508,49 +33567,32 @@ goods, and books will never be sold. ^^You can change some settings here freely.
   "The ships carve through the surf, their prows biting into the shore as warriors leap onto the sand. At their head strides Svipdagr, his armor gleaming like a beacon, rallying his men with every step. Both hosts form their battle lines, shields locked and weapons raised, before surging forward to meet in the crash of steel and fury.",
   "none",[
     (set_background_mesh, "mesh_pic_charge"),
-
+  ],[
+  ("option_1",[],"Continue...",[
     (assign, ":end", 50),
-    (try_for_range, ":unused", 0, ":end"),
-      (store_party_size_wo_prisoners, ":size", "p_augundzi_village"),
+    (enable_party, "p_haddingrs_revenge_sedgean"),
+    (party_clear, "p_haddingrs_revenge_sedgean"),
+    (try_for_range, ":unused", 0, ":end"),# use p_camp_bandits as temp ally party
+      (store_party_size_wo_prisoners, ":size", "p_haddingrs_revenge_sedgean"),
       (try_begin),
         (le, ":size", 200),
-        (store_faction_of_party, ":fac", "p_augundzi_village"),
-        (try_begin),
-          (neq, ":fac", "fac_neutral"),
-          (faction_get_slot, ":template", ":fac", slot_faction_reinforcements_a),
-          (gt, ":template", 0),
-          (party_add_template, "p_augundzi_village", ":template"),
-        (else_try),
-          (neq, ":fac", "fac_neutral"),
-          (party_add_members, "p_augundzi_village", "trp_manhunter", 45), #madsci failsafe if no valid template is found
-        (try_end),
+        (faction_get_slot, ":template", "fac_minor_dani", slot_faction_reinforcements_a),
+        (gt, ":template", 0),
+        (party_add_template, "p_haddingrs_revenge_sedgean", ":template"),
       (else_try),
         (assign, ":end", -1),
       (try_end),
     (try_end),
+    (party_add_leader, "p_haddingrs_revenge_sedgean", "trp_dani_king"),
+    (party_set_faction, "p_haddingrs_revenge_sedgean", "fac_minor_dani"),
 
-    (assign, ":end", 50),
-    (try_for_range, ":unused", 0, ":end"),
-      (store_party_size_wo_prisoners, ":size", "p_dani_village"),
-      (try_begin),
-        (le, ":size", 200),
-        (store_faction_of_party, ":fac", "p_dani_village"),
-        (try_begin),
-          (neq, ":fac", "fac_neutral"),
-          (faction_get_slot, ":template", ":fac", slot_faction_reinforcements_a),
-          (gt, ":template", 0),
-          (party_add_template, "p_dani_village", ":template"),
-        (else_try),
-          (neq, ":fac", "fac_neutral"),
-          (party_add_members, "p_dani_village", "trp_manhunter", 45), #madsci failsafe if no valid template is found
-        (try_end),
-      (else_try),
-        (assign, ":end", -1),
-      (try_end),
-    (try_end),
-    (start_encounter, "p_augundzi_village"),
-    # (party_quick_attach_to_current_battle, "p_augundzi_village", 1), #enemies
-    (party_quick_attach_to_current_battle, "p_dani_village", 0), #allies
+    (party_set_faction, "p_dani_village", "fac_minor_augundzi"),
+    (party_clear, "p_dani_village"),# the dani village is the  encountered party and thus the enemy, we give it to the augundzi, as they conquer them anyway
+    (call_script, "script_fully_refresh_minor_faction_garrison", "p_dani_village", 200),
+
+    # (party_add_leader, "p_dani_village", "trp_scandinavian_comes"),
+
+    (party_quick_attach_to_current_battle, "p_haddingrs_revenge_sedgean", 0), #allies
 
     # calculate battle variables (mainly necessary if there are also allies)
     (assign, "$g_ally_party", "p_dani_village"),
@@ -33565,8 +33607,10 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       (assign, "$encountered_party_hostile", 1),
       (assign, "$encountered_party_friendly", 0),
     (try_end),
-  ],[
-  ("option_1",[],"Continue...",[
+
+    (troop_set_health, "trp_dani_king", 100),
+    (troop_set_health, "trp_augundzi_king", 100),
+
     (quest_set_slot, "qst_haddingrs_revenge", slot_quest_current_state, 2),
     (assign, "$g_battle_result", 0),
     (assign, "$g_engaged_enemy", 1),
@@ -33581,6 +33625,11 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     (set_jump_mission,"mt_lead_charge_quest"),#can be used for any quest battle
     (jump_to_scene, "scn_haddingrs_revenge_beach_battle"),
     (change_screen_mission),
+
+    #kill dani king, as he dies in battle
+    (remove_member_from_party, "trp_dani_king", "p_dani_village"),
+    (troop_set_slot, "trp_dani_king", slot_troop_occupation, dplmc_slto_dead),
+    (party_set_slot, "p_dani_village", slot_town_lord, -1),
   ]),
 ]),
 
@@ -33596,6 +33645,17 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     (change_screen_mission),
   ]),
   ("option_1", [],"Duel!",[
+
+    (party_clear, "p_haddingrs_revenge_sedgean"), # clear temp ally party
+    (party_set_faction, "p_haddingrs_revenge_sedgean", "fac_neutral"),# clear temp ally party
+    (disable_party, "p_haddingrs_revenge_sedgean"),# clear temp ally party
+
+    #refresh the dani village after battle
+    (call_script, "script_fully_refresh_minor_faction_garrison", "p_dani_village", 200),
+
+    (troop_set_health, "trp_dani_king", 100),
+    (troop_set_health, "trp_augundzi_king", 100),
+
     (quest_set_slot, "qst_haddingrs_revenge", slot_quest_current_state, 2),
     (set_jump_mission, "mt_haddingr_duel"),
     (modify_visitors_at_site, "scn_haddingrs_revenge_beach_battle"),
@@ -33703,7 +33763,164 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     (change_screen_mission),
   ]),
 ]),
+("haddingrs_revenge_sedgean",mnf_scale_picture,
+"The scent of damp earth and woodsmoke greets you as you step into the Sedgean village. Modest huts stand amidst the reeds, their thatched roofs swaying in the breeze. Villagers pause their work to eye you warily - strangers are rare here.",
+"none", [
+    (set_background_mesh, "mesh_pic_castlesnow"),
+  ],[
+  ("option_1",[
+    (ge, "$cheat_mode", 1)
+  ],"Test scene...",[
+    (jump_to_scene, "scn_haddingrs_revenge_sedgean"),
+    (change_screen_mission),
+  ]),
+  ("option_1", [
+    (check_quest_active, "qst_haddingrs_revenge"),
+    (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 7),
+  ],"Continue...",[
+    (try_begin),
+      (is_currently_night),
+      (display_message, "@Come back during day!", message_alert),
+    (else_try),
+      (set_jump_mission, "mt_visit_minor_town"),
+      (modify_visitors_at_site, "scn_haddingrs_revenge_sedgean"),
+      (reset_visitors),
+      #villagers
+      (set_visitor, 13, "trp_town_walker_1"),
+      (set_visitor, 14, "trp_town_walker_2"),
+      (set_visitor, 15, "trp_town_walker_1"),
+      (set_visitor, 16, "trp_town_walker_2"),
+      (set_visitor, 17, "trp_town_walker_1"),
+      (set_visitor, 18, "trp_town_walker_2"),
+      (set_visitor, 19, "trp_town_walker_1"),
+      (set_visitor, 20, "trp_town_walker_2"),
+      (set_visitor, 21, "trp_town_walker_1"),
+      (set_visitor, 22, "trp_town_walker_2"),
+      (set_visitor, 23, "trp_town_walker_1"),
+      (set_visitor, 24, "trp_town_walker_2"),
+      (set_visitor, 25, "trp_town_walker_1"),
+      (set_visitor, 26, "trp_town_walker_2"),
+      (set_visitor, 27, "trp_town_walker_1"),
+      (set_visitor, 28, "trp_town_walker_2"),
+      (set_visitor, 29, "trp_town_walker_1"),
+      (set_visitor, 30, "trp_town_walker_2"),
+      (set_visitor, 31, "trp_town_walker_1"),
+      (set_visitor, 32, "trp_town_walker_2"),
 
+      (set_visitor, 35, "trp_dani_ordlaf"),
+
+      (set_jump_entry, 0),
+      (assign, "$talk_context", tc_town_talk),
+      (jump_to_scene, "scn_haddingrs_revenge_sedgean"),
+      (change_screen_mission),
+    (try_end),
+  ]),
+  ("option_1", [],"Leave...",[
+    (change_screen_map),
+  ]),
+]),
+("haddingrs_revenge_wagnofthus_hall",mnf_scale_picture,
+"{s9}",
+"none", [
+    (try_begin),
+      (check_quest_active, "qst_haddingrs_revenge"),
+      (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 9),
+      (str_store_string, s9, "@The cold winds of Scandza bite at your skin as you arrive at Wagnofthus's dwelling. Outside, Haddingr moves with precision, locked in a sparring match against one of his loyal warriors. Nearby, Wagnofthus observes in silence, his gaze stern and unyielding.^^Not far from them, Signe and Harthgrepa sit together, speaking in hushed tones. As you draw closer, Haddingr notices your approach and steps forward to greet you."),
+    (else_try),
+      (str_store_string, s9, "@You see Wangofthus hall in the distance."),
+    (try_end),
+    (set_background_mesh, "mesh_pic_castlesnow"),
+  ],[
+  ("option_1",[
+    (ge, "$cheat_mode", 1)
+  ],"Test scene...",[
+    (jump_to_scene, "scn_haddingrs_revenge_wangofthus_hall"),
+    (change_screen_mission),
+  ]),
+  ("option_1", [
+    (check_quest_active, "qst_haddingrs_revenge"),
+    (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 9),
+  ],"Continue...",[
+    #0 pplayer outside, 1 player inside, 2 haddingr, 3 soldier sparring, 4 gigant, 5 daughter of giant, 6-7 dani bitches
+    # 8-16 other soldiers
+    (assign, "$temp", "trp_dani_haddingr"),# start conversation with haddingr
+    (set_jump_mission, "mt_haddingr_giant_hall"),
+    (modify_visitors_at_site, "scn_haddingrs_revenge_wangofthus_hall"),
+    (reset_visitors),
+    (assign, "$g_battle_result", 0),
+    #villagers
+    (set_visitor, 1, "trp_player"),
+    (set_visitor, 2, "trp_dani_haddingr"),
+    (set_visitor, 3, "trp_scandinavian_comes"),
+    (set_visitor, 4, "trp_giant_wagnofthus"),
+    (set_visitor, 5, "trp_giant_harthgrepa"),
+    (set_visitor, 6, "trp_dani_groa"),
+    (set_visitor, 7, "trp_dani_signe"),
+    (set_visitor, 8, "trp_scandinavian_freeman"),
+    (set_visitor, 9, "trp_scandinavian_freeman"),
+    (set_visitor, 10, "trp_scandinavian_freeman"),
+    (set_visitor, 11, "trp_scandinavian_freeman"),
+    (set_visitor, 12, "trp_scandinavian_freeman"),
+    (set_visitor, 13, "trp_scandinavian_freeman"),
+    (set_visitor, 14, "trp_scandinavian_freeman"),
+    (set_visitor, 15, "trp_scandinavian_freeman"),
+    (set_visitor, 16, "trp_scandinavian_freeman"),
+
+    (assign, "$talk_context", tc_town_talk),
+    (jump_to_scene, "scn_haddingrs_revenge_wangofthus_hall"),
+    (change_screen_mission),
+  ]),
+  ("option_1", [],"Leave...",[
+    (change_screen_map),
+  ]),
+]),
+
+("haddingrs_revenge_guthormr_talk",mnf_scale_picture,
+"{s9}",
+"none", [
+    (try_begin),
+      (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 10),
+      (str_store_string, s9, "@The guards bar your entry, yet grant you permission to speak with Guthormr."),
+    (else_try),
+      (str_store_string, s9, "@Groa stands quietly by the hearth, her gaze fixed on the conversation unfolding before her. As you leave, she turns to you, her voice soft and burdened with sorrow."),
+    (try_end),
+    (set_background_mesh, "mesh_pic_castlesnow"),
+  ],[
+  ("option_0", [
+    (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 10),
+  ],"Talk with Guthormr...",[
+    (set_jump_mission, "mt_longboat_landing_1"),
+    (assign, "$g_next_menu", "mnu_haddingrs_revenge_guthormr_talk"),
+    (modify_visitors_at_site, "scn_finns_hall_interior"),
+    (reset_visitors),
+    (assign, "$temp", "trp_dani_guthormr"),
+    (set_visitor, 0, "trp_player"),
+    (set_visitor, 7, "trp_dani_guthormr"),
+    (set_visitor, 8, "trp_dani_groa"),
+
+    (jump_to_scene, "scn_finns_hall_interior"),
+    (change_screen_mission),
+  ]),
+  ("option_1", [
+    (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 10),
+  ],"Leave...",[
+    (change_screen_map),
+  ]),
+  ("option_2", [
+    (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 11),
+  ],"Continue...",[
+    (set_jump_mission, "mt_longboat_landing_1"),
+    (assign, "$g_next_menu", "mnu_auto_return_to_map"),
+    (modify_visitors_at_site, "scn_finns_hall_interior"),
+    (reset_visitors),
+    (assign, "$temp", "trp_dani_groa"),
+    (set_visitor, 0, "trp_player"),
+    (set_visitor, 8, "trp_dani_groa"),
+
+    (jump_to_scene, "scn_finns_hall_interior"),
+    (change_screen_mission),
+  ]),
+]),
 ]#end of file
 
 

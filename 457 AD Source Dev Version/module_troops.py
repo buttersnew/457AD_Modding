@@ -3452,6 +3452,12 @@ troops = [
 ["knight_19_1", "Thegn Ohthere", "Ohthere", tf_hero, 0, reserved,  fac_kingdom_19, [itm_tunic_rich_1, itm_rich_mail_5, itm_obenaltendorf_shoes_2, itm_burgh_helmet_2, itm_leather_gloves, itm_sword_viking_3_small, itm_tab_shield_round_d, itm_angon_1], knight_attrib_5,wp(300),knight_skills_4, 0x00000007ed0041c536d9adb75c2d249d00000000001aa5910000000000000000],
 ["knight_19_2", "Thegn Tatuini", "Tatuini", tf_hero, 0, reserved,  fac_kingdom_19, [itm_tunic_rich_2, itm_rich_mail_6, itm_obenaltendorf_shoes_1, itm_tarasovsky_782, itm_leather_gloves, itm_sword_viking_3_small, itm_tab_shield_round_d, itm_angon_1],  knight_attrib_5,wp(300),knight_skills_4|knows_trainer_3, 0x0000000b060044864d0b57592b3abb6c00000000001e35690000000000000000],
 ["knight_19_5", "Thegn Oisc", "Oisc", tf_hero, 0, reserved,  fac_kingdom_19, [itm_tunic_3, itm_common_mail_short_2_cloak, itm_obenaltendorf_shoes_1, itm_tarasovsky_782, itm_sword_viking_a_long, itm_tab_shield_round_d, itm_friesian_1], knight_attrib_5,wp(290),knight_skills_5, 0x000000014e0010094ce5713a9db254a100000000001db6eb0000000000000000], #the only one of these lords to get a horse - primarily infantry faction
+
+#hengest, brother of Horsa, will become lord after finnsburg quest
+["dani_hengest","Hengest Wodning","Hengest Wodning",tf_hero,0,0,fac_outlaws,
+   [itm_obenaltendorf_shoes_2,itm_rich_mail_11_cloak,itm_tsaritsyno_2_helmet,itm_samson_spatha_2_rich,itm_concave_shield_germanic_25,itm_tunic_rich_6_cloak],
+   knight_attrib_5,wp(300),knows_berserker,0x00000006800044c759522e454b91231a00000000001eb6e20000000000000000],
+
 # ripuarian franks
 ["knight_20_1", "Comes Faroinus", "Faroinus", tf_hero, 0, reserved,  fac_kingdom_20, [itm_tunic_rich_8, itm_rich_mail_11, itm_ankle_boots, itm_burgh_helmet_2, itm_sword_viking_2, itm_tab_shield_round_d, itm_westger_warhorse_2], knight_attrib_5,wp(300),knight_skills_1, 0x0000000c84000202369c4db4e36db4db00000000001db6d30000000000000000],
 ["knight_20_2", "Comes Lantbertus", "Lantbertus", tf_hero, 0, reserved,  fac_kingdom_20, [itm_tunic_13,  itm_common_mail_short_3, itm_wrapping_boots, (itm_fernpass_helmet_1,imod_lordly), itm_sword_viking_3_small, itm_tab_shield_round_d, itm_westger_warhorse_1],  knight_attrib_5,wp(300),knight_skills_2|knows_trainer_3, 0x0000000958002243369c51b6db6db4db00000000001db6d30000000000000000],
@@ -5315,9 +5321,7 @@ troops = [
   ["dani_eaha","Eaha","Eaha",tf_hero,0,0,fac_minor_dani,
    [itm_simple_shoes,itm_tunic_2_cloak,itm_germanic_cap_1,itm_sword_medieval_c_long,itm_round_shield_germanic_12],
    knight_attrib_5,wp(300),knows_berserker,0x00000005ab00144136536e586951b4e300000000001d36a30000000000000000],
-  ["dani_hengest","Hengest Wodning","Hengest Wodning",tf_hero,0,0,fac_minor_dani,
-   [itm_obenaltendorf_shoes_2,itm_rich_mail_11_cloak,itm_tsaritsyno_2_helmet,itm_samson_spatha_2_rich,itm_concave_shield_germanic_25],
-   knight_attrib_5,wp(300),knows_berserker,0x00000006800044c759522e454b91231a00000000001eb6e20000000000000000],
+
   ["dani_ordlaf","Ordlaf","Ordlaf",tf_hero,0,0,fac_minor_dani,
    [itm_obenaltendorf_shoes_2,itm_tunic_7_cloak,itm_concave_shield_germanic_21,itm_angon_1,itm_long_seax_3],
    knight_attrib_5,wp(300),knows_berserker,0x00000004e300508836536d3793aca91b00000000001db6d30000000000000000],
@@ -5348,23 +5352,23 @@ troops = [
 ## haddingrs revenge quest characters
   ["dani_signe","Signe","Signe",tf_hero|tf_female,0,0,fac_minor_dani,
    [itm_wrapping_boots,itm_dress_4],
-   def_attrib,wp(60),knows_common,0x000000018000500246924924d2a9a6dc00000000001d53920000000000000000],
+   def_attrib,wp(60),knows_common,0x0000000d4b04400d4ae8d2b75651cc6300000000001d87a90000000000000000],
 
-  ["dani_groa","Signe","Signe",tf_hero|tf_female,0,0,fac_minor_dani,
+  ["dani_groa","Groa","Groa",tf_hero|tf_female,0,0,fac_minor_dani,
    [itm_wrapping_boots,itm_dress_3],
-   def_attrib,wp(60),knows_common,0x000000018000500246924924d2a9a6dc00000000001d53920000000000000000],
+   def_attrib,wp(60),knows_common,0x0000000d4200300932da52eb5575d46200000000001696c90000000000000000],
 
   ["giant_wagnofthus","Wagnofthus","Wagnofthus",tf_hero,0,0,fac_neutral,
-   [itm_ankle_boots,itm_common_mail_short_7_cloak,itm_triveres_leather,itm_round_shield_germanic_10,itm_sword_viking_3],
-   knight_attrib_5,wp(500),knows_berserker,0x00000004c00020451651c248a195a49100000000001d368a0000000000000000],
+   [itm_ankle_boots,itm_common_mail_short_2,itm_bearskin_1,itm_round_shield_germanic_10,itm_sword_viking_3],
+   knight_attrib_5,wp(500),knows_berserker,0x000000090508018342db70b91e2db25a00000000001f84b40000000000000000],
 
   ["giant_harthgrepa","Harthgrepa","Harthgrepa",tf_hero|tf_female,0,0,fac_neutral,
    [itm_wrapping_boots,itm_dress_1],
-   def_attrib,wp(60),knows_common,0x000000018000500246924924d2a9a6dc00000000001d53920000000000000000],
+   def_attrib,wp(60),knows_common,0x00000000000800012823702b55e9aee300000000001d93960000000000000000],
 
   ["odin","Mysterious Man","Mysterious Man",tf_hero,0,0,fac_neutral,
    [itm_ankle_boots,itm_robe,itm_roman_civilian_hood_3],
-   knight_attrib_5,wp(500),knows_berserker,0x00000004c00020451651c248a195a49100000000001d368a0000000000000000],
+   knight_attrib_5,wp(500),knows_berserker,0x0000000fc0045508376456389d8da71c00000000001ec9630000000000000000],
 
 
 #other pagans of importance: Severianus of Damascus

@@ -28072,7 +28072,7 @@ common_battle_init_banner,
             (store_mission_timer_a,":mission_time"),
             (ge,":mission_time",10),
             (store_normalized_team_count,":num_defenders", 0),
-            (lt,":num_defenders",6)],
+            (lt,":num_defenders",20)],
       [ (add_reinforcements_to_entry,0,45),
         (assign, "$defender_reinforcement_limit_increased", 0),
         (val_add,"$defender_reinforcement_stage",1)
@@ -28082,7 +28082,7 @@ common_battle_init_banner,
                  (store_mission_timer_a,":mission_time"),
                  (ge,":mission_time",10),
                  (store_normalized_team_count,":num_attackers", 1),
-                 (lt,":num_attackers",6)],
+                 (lt,":num_attackers",20)],
       [(add_reinforcements_to_entry,3,45),(val_add,"$attacker_reinforcement_stage",1)]),
 
       (1, 60, ti_once,[
@@ -29459,7 +29459,7 @@ common_battle_init_banner,
     ]),
 
     (ti_tab_pressed, 0, 0, [],[
-      (display_message,"str_can_not_retreat"),
+      (display_message,"str_cannot_leave_now"),
     ]),
 
     (0, 2.5, ti_once,[
@@ -29477,13 +29477,91 @@ common_battle_init_banner,
       (eq, ":troop", "trp_dani_king"),
       (mission_enable_talk),
       (start_mission_conversation, "trp_augundzi_king"),
-
-      (remove_member_from_party, "trp_dani_king", "p_dani_village"),
-      (troop_set_slot, "trp_dani_king", slot_troop_occupation, dplmc_slto_dead),
-      (party_set_slot, "p_dani_village", slot_town_lord, -1),
-
       (set_trigger_result, 1),
     ]),
 ]),
 
+("haddingr_giant_hall",mtf_battle_mode,-1,
+  "plundering a settlement",[
+    (0,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#player
+    (1,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#player
+    (2,mtef_visitor_source|mtef_team_2,af_override_horse,aif_start_alarmed,1,[]),#guard
+	  (3,mtef_visitor_source|mtef_team_3,af_override_horse,aif_start_alarmed,1,[]),#legatus
+    (4,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#legatus
+    (5,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#unused
+    (6,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#unused
+    (7,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#unused
+    (8,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#spectators
+    (9,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#spectators
+    (10,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#player
+    (11,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#player
+    (12,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#guard
+	  (13,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#legatus
+    (14,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#legatus
+    (15,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#unused
+    (16,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#unused
+    (17,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#unused
+    (18,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#spectators
+    (19,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#spectators
+    (20,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#player
+    (21,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#player
+    (22,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#guard
+	  (23,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#legatus
+    (24,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#legatus
+    (25,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#unused
+    (26,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#unused
+    (27,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#unused
+    (28,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#spectators
+    (29,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#spectators
+    (30,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#player
+    (31,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#player
+    (32,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#guard
+	  (33,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#legatus
+    (34,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#legatus
+    (35,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#unused
+    (36,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#unused
+    (37,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#unused
+    (38,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#spectators
+    (39,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#spectators
+  ],vc_weather + [
+    (ti_before_mission_start,0,0,[],[
+      (call_script, "script_music_set_situation_with_culture", mtf_sit_ambushed),
+      (team_set_relation, 0,1,1),
+      (team_set_relation, 1,0,1),
+      (team_set_relation, 2,1,1),
+      (team_set_relation, 1,2,1),
+      (team_set_relation, 3,1,1),
+      (team_set_relation, 1,3,1),
+      (team_set_relation, 3,2,-1),
+      (team_set_relation, 2,3,-1),
+    ]),
+    (ti_tab_pressed, 0, 0, [],[
+      (try_begin),
+        (ge, "$g_battle_result", 5),
+        (mission_disable_talk),
+        (mission_cam_animate_to_screen_color, 0xFF000000, 2000),
+        (finish_mission, 3),
+      (else_try),
+        (tutorial_box, "@Cannot leave now. Talk with all heroes first.", "@Hint"),
+      (try_end),
+    ]),
+    (0, 2.5, ti_once,[
+      (neg|conversation_screen_is_active),
+    ],[
+      (mission_enable_talk),
+      (start_mission_conversation, "$temp"),
+    ]),
+    common_inventory_not_available,
+    (ti_on_agent_spawn, 0, 0, [],[
+      (store_trigger_param_1, ":agent"),
+      (agent_is_active, ":agent"),
+      (agent_get_troop_id, ":troop", ":agent"),
+      (this_or_next|eq, ":troop", "trp_scandinavian_comes"),
+      (eq, ":troop", "trp_dani_haddingr"),
+      (agent_set_no_death_knock_down_only, ":agent", 1),
+      (agent_set_damage_modifier, ":agent", 50),
+      (agent_set_speed_modifier, ":agent", 75),
+      (agent_ai_set_always_attack_in_melee, ":agent", 1),
+    ]),
+]),
 ]#end of file

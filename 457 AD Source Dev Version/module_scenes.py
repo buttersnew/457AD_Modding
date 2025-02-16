@@ -1839,5 +1839,8 @@ scenes = [
     [],[],"outer_terrain_beach"),
   ("haddingrs_revenge_forest_hideout",sf_generate|sf_no_horses,"none", "none", (-1000,-1000),(1000,1000), 0,"0x00000000bc6005000004190900007f0a00003c1800001ab3",
     [],[],"outer_terrain_plain_2"),
-
+  ("haddingrs_revenge_sedgean",sf_generate,"none", "none", (-1000,-1000),(1000,1000), 0,"0x00000000300000000005194a000041ef00005ae800003c55",
+    [],[],"outer_terrain_plain_2"),
+  ("haddingrs_revenge_wangofthus_hall",sf_generate,"none", "none", (-1000,-1000),(1000,1000), 0,"0x000000023000050000076ddb000029ba000027660000651a",
+    [],[],"outer_terrain_plain_2"),
 ]

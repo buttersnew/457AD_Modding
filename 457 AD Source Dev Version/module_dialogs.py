@@ -20406,6 +20406,28 @@ I knew that I had found someone worthy of becoming my vassal.", "lord_invite_1",
 #[anyone|plyr, "history_battle_of_nedao_4", [],
 #  "Thank you for telling me this epic tale!", "lord_pretalk",[(assign, "$gaiseric_dialog", 1),(call_script, "script_change_player_relation_with_troop","$g_talk_troop",2),]],
 
+[trp_kingdom_19_lord|plyr,"lord_talk", [
+  (check_quest_active, "qst_haddingrs_revenge"),
+  (this_or_next|quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 7),
+  (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 8),
+],
+"Thy aid, Horsa. Svipdagr threatens not only the Danes but the balance of all Scandza. Will thou truly stand aside?",
+"haddingrs_revenge_horsa_first_1",[]],
+[anyone, "haddingrs_revenge_horsa_first_1", [],
+"Thy spirit is fierce, I'll grant thee that. Yet my fight lies not with Svipdagr. My brother and I face threats enough without entangling ourselves in Danish quarrels. I wish thee luck, {playername}, but thou shalt not find my blade at thy side.",
+"lord_pretalk",[]],
+
+[trp_dani_hengest|plyr,"lord_talk", [
+  (check_quest_active, "qst_haddingrs_revenge"),
+  (this_or_next|quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 7),
+  (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 8),
+],
+"Hengist, I come to ask thee once more. Thy strength could turn the tide against Svipdagr. Will thou not stand with us?",
+"haddingrs_revenge_horsa_first_1",[]],
+[anyone, "haddingrs_revenge_horsa_first_1", [],
+"Thy cause is just, yet it is not mine. Gramr sought my people's lands and left us scars that time cannot heal. My sword is sworn to my kin and to the battles of Britannia, not the quarrels of the Danes. Still, thou hast my respect. When thy war is done, come to my hall. Perhaps then we shall find common purpose.",
+"lord_pretalk",[]],
+
 [trp_kingdom_19_lord|plyr,"lord_talk", [(eq, "$hengist_dialog", 0),],
   "It must be you, the great conqueror of Britannia who's making the Britons shake in fear!","hengist_unique_dialogue_1",[]],
 [anyone, "hengist_unique_dialogue_1", [],
@@ -52243,6 +52265,560 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
   ]],
 
 ## haddingrs revenge
+[trp_dani_groa, "start", [
+  (check_quest_active, "qst_haddingrs_revenge"),
+  (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 11),
+],
+"Thou dost see it now, don't thou? The boy I raised is no more. Guthormr's heart is lost to fear, though he calls it duty. I pray thou canst forgive him, even if I cannot.",
+"haddingrs_revenge_training_groa_2_1", [
+]],
+[anyone|plyr,"haddingrs_revenge_training_groa_2_1", [
+],
+"He is thy son, lady Gróa. Forgiveness is thine to give, not mine.",
+"haddingrs_revenge_training_groa_2_2",[
+]],
+[anyone,"haddingrs_revenge_training_groa_2_2", [
+],
+"-- A faint smile tinged with sadness. --^^Thou art kind, {playername}, but kindness will not save us. Go now. Haddingr awaits thee, and he needs thy strength more than we do.",
+"haddingrs_revenge_training_groa_2_3",[
+]],
+[anyone,"haddingrs_revenge_training_groa_2_3", [
+],
+"-- She turns back to the hearth, her silhouette framed by the flickering flames. --",
+"close_window",[
+  (assign, "$g_battle_result", 1),
+]],
+
+
+[trp_dani_guthormr, "start", [
+  (check_quest_active, "qst_haddingrs_revenge"),
+  (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 10),
+],
+"What leads you to me, {playername}?",
+"haddingrs_revenge_training_guthormr_1", [
+  (quest_set_slot, "qst_haddingrs_revenge", slot_quest_current_state, 11),
+]],
+[anyone|plyr,"haddingrs_revenge_training_guthormr_1", [
+],
+"Guthormr Skjoldungr, prince of the Danes. I thought I would find a warrior here, not a man who has traded honor for chains.",
+"haddingrs_revenge_training_guthormr_2",[
+]],
+[anyone,"haddingrs_revenge_training_guthormr_2", [
+],
+"-- Setting down his goblet, his tone defensive but calm. --^^Watch thy tongue, {playername}. Thou knowest little of the burdens I bear. These chains, as thou call'st them, are the only thing keeping Heorot from ruin.",
+"haddingrs_revenge_training_guthormr_3",[
+]],
+[anyone|plyr,"haddingrs_revenge_training_guthormr_3", [
+],
+"Chains forged by the very man who slew thy father. Dost thou not see the dishonor thou bring'st upon thy name and bloodline?",
+"haddingrs_revenge_training_guthormr_5",[
+]],
+[anyone|plyr,"haddingrs_revenge_training_guthormr_3", [
+],
+"Chains, wrought by the hand of the man who killed thy father. Can you not see the shame you bring upon your name and your bloodline?",
+"haddingrs_revenge_training_guthormr_5",[
+]],
+[anyone,"haddingrs_revenge_training_guthormr_5", [
+],
+"-- Leaning forward, his voice sharper. --^^Dishonor? Dost thou call it dishonor to protect my people from slaughter? To keep the hall of my father from burning? Thou art a swordsman, not a king. Leave matters of rule to those who bear its weight.",
+"haddingrs_revenge_training_guthormr_6",[
+]],
+[anyone|plyr,"haddingrs_revenge_training_guthormr_6", [
+],
+"Thy brother bears that weight with pride. Haddingr fights to reclaim what was taken. Would thou have him spill blood for the throne thou wouldst willingly surrender?",
+"haddingrs_revenge_training_guthormr_7",[
+]],
+[anyone,"haddingrs_revenge_training_guthormr_7", [
+],
+"Haddingr is a child, chasing a dream built on ashes. And thou? Thou art but a pawn in his game. If thou seek'st glory, find it elsewhere. Heorot is mine to protect, and I shall do so in the manner I see fit.",
+"close_window",[
+  (assign, "$g_battle_result", 1),
+]],
+
+
+[trp_dani_signe|auto_proceed, "start", [
+  (check_quest_active, "qst_haddingrs_revenge"),
+  (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 10),
+  (agent_slot_eq, "$g_talk_agent", slot_agent_talked, 0),
+],
+"{!}Autoproceed",
+"haddingrs_revenge_training_signe_1", [
+  (try_for_agents, ":agent"),
+    (agent_is_active, ":agent"),
+    (agent_get_troop_id, ":troop", ":agent"),
+    (this_or_next|eq, ":troop", "trp_dani_signe"),
+    (eq, ":troop", "trp_dani_groa"),
+    (agent_set_slot, ":agent", slot_agent_talked, 1),
+  (try_end),
+]],
+[trp_dani_groa|auto_proceed, "start", [
+  (check_quest_active, "qst_haddingrs_revenge"),
+  (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 9),
+  (agent_slot_eq, "$g_talk_agent", slot_agent_talked, 0),
+],
+"{!}Autoproceed",
+"haddingrs_revenge_training_signe_1", [
+  (try_for_agents, ":agent"),
+    (agent_is_active, ":agent"),
+    (agent_get_troop_id, ":troop", ":agent"),
+    (this_or_next|eq, ":troop", "trp_dani_signe"),
+    (eq, ":troop", "trp_dani_groa"),
+    (agent_set_slot, ":agent", slot_agent_talked, 1),
+  (try_end),
+]],
+
+[anyone|other(trp_dani_signe),"haddingrs_revenge_training_signe_1", [
+],
+"Ah, {playername}. Come, sit with us if thou dost not mind the company of two grieving widows.",
+"haddingrs_revenge_training_signe_2",[
+  (call_script, "script_set_conversation_troop", "trp_dani_signe"),
+]],
+[anyone|plyr,"haddingrs_revenge_training_signe_2", [
+],
+"I do not mind, lady Signe. Thy grief is shared by many, and thy strength is an inspiration.",
+"haddingrs_revenge_training_signe_3",[
+]],
+[anyone|plyr,"haddingrs_revenge_training_signe_2", [
+],
+"Think not of it, Lady Signe. Thy sorrow is felt by many, yet thy strength stands as a beacon to us all.",
+"haddingrs_revenge_training_signe_3",[
+]],
+[anyone|other(trp_dani_signe),"haddingrs_revenge_training_signe_3", [
+],
+"-- Turning to Groa with a faint smile. --^^This one speaks as if carved from the same stone as Gramr himself. A friend to my son, and now a light in this shadowed hour.",
+"haddingrs_revenge_training_signe_4",[
+  (call_script, "script_set_conversation_troop", "trp_dani_signe"),
+]],
+[anyone|other(trp_dani_groa),"haddingrs_revenge_training_signe_4", [
+],
+"-- Lowers her gaze, her voice heavy. --^^Gramr's light burns no more, and I fear my own path darkens by the day. My son, Guthormr, has chosen a course I cannot follow, yet my heart aches to stand by him, even in his folly.",
+"haddingrs_revenge_training_signe_5",[
+  (call_script, "script_set_conversation_troop", "trp_dani_groa"),
+]],
+[anyone|other(trp_dani_signe),"haddingrs_revenge_training_signe_5", [
+],
+"And what of thy heart, Gróa? Can it bear to see Heorot under the hand of the man who felled thy lord? Would not thy presence lend strength to his chains rather than break them?",
+"haddingrs_revenge_training_signe_6",[
+  (call_script, "script_set_conversation_troop", "trp_dani_signe"),
+]],
+[anyone|other(trp_dani_groa),"haddingrs_revenge_training_signe_6", [
+],
+"Perhaps, but a mother's heart knows no logic. Guthormr is my son, and though his path dishonors our blood, I cannot bear to leave him entirely. Still, my place is here, for now, with Haddingr. His fire may yet reignite the honor that Guthormr has cast aside.",
+"haddingrs_revenge_training_signe_7",[
+  (call_script, "script_set_conversation_troop", "trp_dani_groa"),
+]],
+[anyone|plyr,"haddingrs_revenge_training_signe_7", [
+],
+"Thy devotion is noble, but thy grief weighs heavy. Would that I could ease thy burden, though my path lies beyond these woods.",
+"haddingrs_revenge_training_signe_8",[
+]],
+[anyone|plyr,"haddingrs_revenge_training_signe_7", [
+],
+"Thy heart is steadfast, yet sorrow clings to thee. Would that I could lighten thy burden, but my road leads beyond these woods.",
+"haddingrs_revenge_training_signe_8",[
+]],
+[anyone|other(trp_dani_signe),"haddingrs_revenge_training_signe_8", [
+],
+"-- Looking at the player with gratitude. --^^Thou hast already done much, {playername}. Thy words and thy sword have given my son hope. Let that be enough for now.",
+"haddingrs_revenge_training_signe_9",[
+  (call_script, "script_set_conversation_troop", "trp_dani_signe"),
+]],
+[anyone|other(trp_dani_groa),"haddingrs_revenge_training_signe_9", [
+],
+"Go, then, and carry with thee the prayers of two widows. If the Fates are kind, we shall see the halls of Heorot freed from its chains, and the blood of our kin avenged.",
+"close_window",[
+  (call_script, "script_set_conversation_troop", "trp_dani_groa"),
+  (val_add, "$g_battle_result", 2),
+]],
+
+[trp_dani_groa, "start", [
+  (check_quest_active, "qst_haddingrs_revenge"),
+  (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 10),
+  (agent_slot_eq, "$g_talk_agent", slot_agent_talked, 1),
+],
+"Thy presence brings comfort, {playername}, but my heart is too heavy for more words. Go now, and let thy deeds speak where mine cannot.",
+"close_window", [
+]],
+
+[trp_dani_signe, "start", [
+  (check_quest_active, "qst_haddingrs_revenge"),
+  (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 10),
+  (agent_slot_eq, "$g_talk_agent", slot_agent_talked, 1),
+],
+"Thou hast done enough for now, friend. Haddingr needs thee more than I do. We shall speak again when the Fates allow.",
+"close_window", [
+]],
+
+[trp_giant_harthgrepa, "start", [
+  (check_quest_active, "qst_haddingrs_revenge"),
+  (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 10),
+  (agent_slot_eq, "$g_talk_agent", slot_agent_talked, 1),
+],
+"So, thou art the famed {playername}, the one who carried tales of victory from Finn's hall to these far woods. The winds speak much of thee, though thy face is new to mine eyes.",
+"close_window", [
+]],
+
+[trp_giant_harthgrepa, "start", [
+  (check_quest_active, "qst_haddingrs_revenge"),
+  (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 10),
+  (agent_slot_eq, "$g_talk_agent", slot_agent_talked, 0),
+],
+"-- A towering figure of mighty stature, she stands with unshorn golden hair flowing like sunlit strands, her heavy frame wrought with the strength of her giant blood. --^^So, thou art the famed {playername}, the one who carried tales of victory from Finn's hall to these far woods. The winds speak much of thee, though thy face is new to mine eyes.",
+"haddingrs_revenge_training_giant_daughter_1", [
+  (agent_set_slot, "$g_talk_agent", slot_agent_talked, 1),
+]],
+[anyone|plyr,"haddingrs_revenge_training_giant_daughter_1", [
+],
+"And thou art Harthgrepa, daughter of Wagnofthus? Your name is known even in the halls of warriors. What brings thee to this tale of swords and vengeance?",
+"haddingrs_revenge_training_giant_daughter_2",[
+]],
+[anyone|plyr,"haddingrs_revenge_training_giant_daughter_1", [
+],
+"Wagnofthus's daughter Harthgrepa, if my guess serves me well. Thy deeds are not unknown among warriors.What path hath led thee into this storm of vengeance?",
+"haddingrs_revenge_training_giant_daughter_2",[
+]],
+[anyone,"haddingrs_revenge_training_giant_daughter_2", [
+],
+"Fate, I suppose, for it is fate that binds us all to its weaving. My father, the keeper of blades and breaker of would-be heroes, holds young Haddingr in his tutelage. And I… I stand as witness to his becoming. He is a fine student, and his heart beats fiercely - for his kin, for his people, and for what is to come.",
+"haddingrs_revenge_training_giant_daughter_3",[
+]],
+[anyone|plyr,"haddingrs_revenge_training_giant_daughter_3", [
+],
+"Thy words paint him well. But tell me, what of thee? Thy presence here feels as much a part of this tale as any sword.",
+"haddingrs_revenge_training_giant_daughter_4",[
+]],
+[anyone,"haddingrs_revenge_training_giant_daughter_4", [
+],
+"I am but the shadow by the hearth, the whisper in the trees. My father says I have my mother's gift for sight, though he fears the roads it may lead me down. As for my part in this tale… who can say? The Fates are known for their cruelty as much as their wisdom.^^-- She pauses, gazing at Haddingr, who is sparring in the background. --^^But know this, {playername}: there is strength in Haddingr's heart, and strength in those who stand by him. Yet, even the strongest tree may fall if the roots are poisoned. Pray that no such poison takes hold here.",
+"haddingrs_revenge_training_giant_daughter_5",[
+]],
+[anyone|plyr,"haddingrs_revenge_training_giant_daughter_5", [
+],
+"A riddle indeed, yet one worthy of thought. Thy words bear the weight of thy father's wisdom, and I shall not take them lightly.",
+"haddingrs_revenge_training_giant_daughter_6",[
+]],
+[anyone|plyr,"haddingrs_revenge_training_giant_daughter_5", [
+],
+"A riddle, yet one worth pondering. Thou speak'st with the wisdom of thy sire, and I shall heed thy words.",
+"haddingrs_revenge_training_giant_daughter_6",[
+]],
+[anyone,"haddingrs_revenge_training_giant_daughter_6", [
+],
+"Wisdom or folly, time alone shall tell. Go now, and carry thy purpose with thee. We shall meet again, of that I am certain.",
+"close_window",[
+  (val_add, "$g_battle_result", 1),
+]],
+
+
+[trp_giant_wagnofthus, "start", [
+  (check_quest_active, "qst_haddingrs_revenge"),
+  (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 10),
+  (agent_slot_eq, "$g_talk_agent", slot_agent_talked, 0),
+],
+"-- His voice deep and commanding, as though the very earth spoke. --^^Mark my words, wanderer. The boy's heart burns with vengeance, but his arm must yet learn the weight of a king's sword. Until then, he shall not leave these woods. Tell thy allies to bide their time, for when Haddingr is ready, the earth itself shall tremble at his call.",
+"close_window", [
+  (val_add, "$g_battle_result", 1),
+  (agent_set_slot, "$g_talk_agent", slot_agent_talked, 1),
+]],
+[trp_giant_wagnofthus, "start", [
+  (check_quest_active, "qst_haddingrs_revenge"),
+  (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 10),
+  (agent_slot_eq, "$g_talk_agent", slot_agent_talked, 1),
+],
+"Go, wanderer. The roots of this tree grow deep, but it is thy task to see its branches reach the sky.",
+"close_window", [
+]],
+[trp_dani_haddingr, "start", [
+  (check_quest_active, "qst_haddingrs_revenge"),
+  (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 10),
+  (agent_slot_eq, "$g_talk_agent", slot_agent_talked, 1),
+],
+"Farewell, {playername}. The hour is not yet upon us, but when it strikes, thou shalt hear my call. Until then, keep thy blade sharp and thy allies closer still.",
+"close_window", [
+]],
+[trp_dani_haddingr, "start", [
+  (check_quest_active, "qst_haddingrs_revenge"),
+  (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 9),
+  (agent_slot_eq, "$g_talk_agent", slot_agent_talked, 0),
+],
+"Ah, {playername}, bearer of both swords and tidings. What word dost thou bring from the lands of our allies and kinsfolk? Speak freely, for I yearn to know.",
+"haddingrs_revenge_training_haddingr_1", [
+  (agent_set_slot, "$g_talk_agent", slot_agent_talked, 1),
+  (quest_set_slot, "qst_haddingrs_revenge", slot_quest_current_state, 10),
+  (store_current_day, ":timer"),
+  (val_add, ":timer", 70),
+  (quest_set_slot, "qst_haddingrs_revenge", slot_quest_temp_slot, ":timer"),
+
+  (party_add_leader, "p_dani_village", "trp_dani_guthormr"),
+  (party_set_faction, "p_dani_village", "fac_minor_dani"),
+  (troop_set_slot, "p_dani_village", slot_town_lord, "trp_dani_guthormr"),
+  (faction_set_slot, "fac_minor_dani", slot_faction_leader, "trp_dani_guthormr"),
+
+  (troop_set_slot, "trp_dani_guthormr", slot_troop_age, 20),
+  (troop_set_slot, "trp_dani_guthormr", slot_troop_religion, slot_religion_paganism),
+  (troop_set_slot, "trp_dani_guthormr", slot_troop_renown, 450),
+  (troop_set_note_available, "trp_dani_guthormr", 1),
+  (add_troop_note_tableau_mesh, "trp_dani_guthormr", "tableau_troop_note_mesh"),
+
+  (party_clear, "p_dani_village"),# the dani village is the  encountered party and thus the enemy, we give it to the augundzi, as they conquer them anyway
+  (call_script, "script_fully_refresh_minor_faction_garrison", "p_dani_village", 200),
+]],
+
+[anyone|plyr,"haddingrs_revenge_training_haddingr_1", [
+],
+"I come with mixed tidings, young Haddingr. Guthlaf of the Frisii and Ordlaf of the Sedgeans have sworn to thy cause. Yet, Hengist and Horsa, sons of Woden, shall not lend their arms. Their quarrel is not with Svipdagr, nor do they owe allegiance to thy bloodline.",
+"haddingrs_revenge_training_haddingr_2",[
+]],
+[anyone,"haddingrs_revenge_training_haddingr_2", [
+],
+"Faith, this I did expect. The sons of Woden carry their pride as a cloak, yet beneath it lies a blade ever unsheathed for the Danir. The tribes of Jutes and Danes have oft clashed like storm upon the sea; my father, Gramr, sought the old lands of the Cimbri, and in doing so, stirred their enmity. I hold no grudge for their absence - let their swords serve them well in Britannia.",
+"haddingrs_revenge_training_haddingr_3",[
+]],
+[anyone|plyr,"haddingrs_revenge_training_haddingr_3", [
+],
+"And thy brother, Guthormr? His blade was swift when last we met; where is he now?",
+"haddingrs_revenge_training_haddingr_4",[
+]],
+[anyone|plyr,"haddingrs_revenge_training_haddingr_3", [
+],
+"Thy brother, Guthormr, where is he? Why doth he not grace thy side in these woods?",
+"haddingrs_revenge_training_haddingr_4",[
+]],
+[anyone,"haddingrs_revenge_training_haddingr_4", [
+],
+"“Alas, my brother is a hawk whose eye is ever on the wrong prey. Svipdagr, cursed be his name, sent emissaries to him with poisoned words wrapped in silken promises. They offered him the throne of Heorot, peace within its gilded halls, and a kingdom bound not by strength but by tribute. And Guthormr, in his guileless heart, accepted.",
+"haddingrs_revenge_training_haddingr_5",[
+]],
+[anyone|plyr,"haddingrs_revenge_training_haddingr_5", [
+],
+"This cannot be! Would he so easily yield to the man who stained the sands of Sjaelland with thy father's blood?",
+"haddingrs_revenge_training_haddingr_6",[
+]],
+[anyone,"haddingrs_revenge_training_haddingr_6", [
+],
+"Thou speak'st the truth of my despair, dear friend. Guthormr, my elder by birth, is ever the softer reed. I love him as a brother must, yet I cannot abide his dishonor. To kneel before Svipdagr is to spit upon the grave of our father. Still, let not my wrath fall upon him, for his naivety is a greater foe than Svipdagr's sword.",
+"haddingrs_revenge_training_haddingr_7_1",[
+]],
+[anyone,"haddingrs_revenge_training_haddingr_7_1", [
+],
+"Yet in my dreams, a tall blond-haired noble woman doth appear, clad in the finest raiments, and at her side thirteen green-eyed cats, their gaze sharp as blades that slay. She showeth me a battle yet to come, a tide of sorrow and woe. Yet in my heart, I know - we shall prevail. Surely, it is Freyja who standeth with us.",
+"haddingrs_revenge_training_haddingr_7_2",[
+]],
+
+[anyone|plyr,"haddingrs_revenge_training_haddingr_7_2", [
+],
+"Fortunate are we, for the gods stand beside us.",
+"haddingrs_revenge_training_haddingr_7_3",[
+]],
+
+[anyone,"haddingrs_revenge_training_haddingr_7_3", [
+],
+"Aye, their might is a shield unseen, and their whispers guide our blades. With their blessing, none shall stand against us.",
+"haddingrs_revenge_training_haddingr_7",[
+]],
+
+[anyone|plyr,"haddingrs_revenge_training_haddingr_7_2", [
+],
+"Yet the favor of the gods is never given freely - it always comes at a cost.",
+"haddingrs_revenge_training_haddingr_7_4",[
+]],
+
+[anyone,"haddingrs_revenge_training_haddingr_7_4", [
+],
+"A cost we shall pay, be it in blood or toil. If the gods will it, we shall carve our fate with steel and fire.",
+"haddingrs_revenge_training_haddingr_7",[
+]],
+
+[anyone|plyr,"haddingrs_revenge_training_haddingr_7", [
+],
+"What course dost thou now chart, young lord? Shall we march upon Heorot to challenge this usurper?",
+"haddingrs_revenge_training_haddingr_8",[
+]],
+[anyone,"haddingrs_revenge_training_haddingr_8", [
+],
+"Not yet, noble {playername}. I am but an untempered blade in the hand of destiny. Here, under the watchful gaze of Wagnofthus, I shall harden my steel and learn the ways of war that even Svipdagr shall fear. When the time is ripe, I shall summon thee to my side, and we shall carve our justice into the bones of history.",
+"haddingrs_revenge_training_haddingr_9",[
+]],
+[anyone|plyr,"haddingrs_revenge_training_haddingr_9", [
+],
+"I shall carry thy words to those who await thee, and when the hour strikes, I shall return to stand at thy side.",
+"haddingrs_revenge_training_haddingr_10",[
+]],
+[anyone|plyr,"haddingrs_revenge_training_haddingr_9", [
+],
+"I will bear your message to those who await you, and when the time comes, I shall return to stand beside you once more.",
+"haddingrs_revenge_training_haddingr_10",[
+]],
+[anyone,"haddingrs_revenge_training_haddingr_10", [
+],
+"Farewell, {playername}. May the winds carry thee swiftly to thy next battle. And when next we meet, it shall be as brothers in arms against the foe who seeks to chain us all.",
+"close_window",[
+  (val_add, "$g_battle_result", 1),
+]],
+
+
+[trp_dani_guthlaf, "start", [
+  (check_quest_active, "qst_haddingrs_revenge"),
+  (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 8),
+],
+"Who do my eyes see? As fair as as a prince and as strong as a bull? {playername} , dear friend! Welcome to lands of the Frisii. What brings you here?",
+"haddingrs_revenge_allies_guthlaf_1", [
+]],
+[anyone|plyr,"haddingrs_revenge_allies_guthlaf_1", [
+],
+"Guthlaf, dear friend, my arrival brings sad news and death. I have come to ask you for assistance.",
+"haddingrs_revenge_allies_guthlaf_2",[
+]],
+[anyone|plyr,"haddingrs_revenge_allies_guthlaf_1", [
+],
+"Guthlaf! I bring dire tidings of death and sorrow. I have come to seek your aid in our hour of need.",
+"haddingrs_revenge_allies_guthlaf_2",[
+]],
+[anyone,"haddingrs_revenge_allies_guthlaf_2", [
+],
+"What causes this much grief that required to send you to my hall? You bring dark clouds, but I have my cloak.",
+"haddingrs_revenge_allies_guthlaf_3",[
+]],
+[anyone|plyr,"haddingrs_revenge_allies_guthlaf_3", [
+],
+"An enemy of the Danes has landed in Heorot, murdered Gramr and exiled his sons, Guthorm and Haddingr. The two princes have sent me to call the Frisians to war and return the Danes the favour they gave you by granting you this kingdom with the strength of their arms.",
+"haddingrs_revenge_allies_guthlaf_4",[
+]],
+[anyone,"haddingrs_revenge_allies_guthlaf_4", [
+],
+"Pah, the Jutes were part of the ordeal too, not just the men of the Danir helped storm Finnsburg… Not to mention you and your men! Why are you here, advocating for their causes? ",
+"haddingrs_revenge_allies_guthlaf_5",[
+]],
+[anyone|plyr,"haddingrs_revenge_allies_guthlaf_5", [
+],
+"Guthlaf, my comrade. I have come here because Ordlaf asked me to. It wasn't my intention to ask you to gather your warriors for a fight that did not involve me, but it did.  I was imprisoned alongside the two princes, but Ordlaf broke us free. Now the princes are hiding, but they are eager to reclaim their throne.",
+"haddingrs_revenge_allies_guthlaf_6",[
+]],
+[anyone,"haddingrs_revenge_allies_guthlaf_6", [
+],
+"{playername} , you are an honourable warrior and, if you ask me, I will gather my men to help you. However, please do tell, who is this enemy you're speaking about?",
+"haddingrs_revenge_allies_guthlaf_7",[
+]],
+[anyone|plyr,"haddingrs_revenge_allies_guthlaf_7", [
+],
+"He is Svipdagr, of the same lineage of the Skjoldungrs. A cousin of Gramr he is, but a long-lasting feud divided the two. Now Svipdagr gathered a large army in Scandza and did manage to subjugate the Danir to his own power.",
+"haddingrs_revenge_allies_guthlaf_8",[
+]],
+[anyone,"haddingrs_revenge_allies_guthlaf_8", [
+],
+"I know his name; hatred burns his heart and soul. What do you require me to do? Remember, the Frisians lost many men during the last fight, I cannot provide a large host of trustworthy men, many of them are still loyal to old Finn and others are leaving for Britannia. However, we will do what we can, honour dictates it.",
+"haddingrs_revenge_allies_guthlaf_9",[
+]],
+[anyone|plyr,"haddingrs_revenge_allies_guthlaf_9", [
+],
+"I know. The Sedgeans too are a small clan, but they trust the two princes can gather enough men to support them. They are now being trained by Wagnofthus, a giant from the lands of the Gautar.",
+"haddingrs_revenge_allies_guthlaf_10",[
+]],
+[anyone,"haddingrs_revenge_allies_guthlaf_10", [
+],
+"Trained by a giant? Worthy sir, giants are magic creatures, and those men should not dwell among the beasts from other worlds. However, if their training will be fruitful, many warriors will indeed flock to their banners. ",
+"haddingrs_revenge_allies_guthlaf_11",[
+]],
+[anyone|plyr,"haddingrs_revenge_allies_guthlaf_11", [
+],
+"I will be headed to Wagnofthus house next, will you escort me? The princes will be happy to grant you audience. ",
+"haddingrs_revenge_allies_guthlaf_12",[
+]],
+[anyone,"haddingrs_revenge_allies_guthlaf_12", [
+],
+"I cannot, oh valiant one. I cannot leave Finnsburg in this moment, there are still far too many men that are still loyal to the old house. But please, you should go, and you shall keep me informed of the fate of the princes. Whatever happens, I will be yours to cross blades if you will ever need help.",
+"haddingrs_revenge_allies_guthlaf_13",[
+]],
+[anyone|plyr,"haddingrs_revenge_allies_guthlaf_13", [
+],
+" This is it then, I shall ride to Scandza once more. Stay safe, Guthlaf… And prepare your men. We will need them.",
+"haddingrs_revenge_allies_guthlaf_14",[
+]],
+[anyone,"haddingrs_revenge_allies_guthlaf_14", [
+],
+"Farewell, {playername}.",
+"close_window",[
+  (quest_set_slot, "qst_haddingrs_revenge", slot_quest_current_state, 9),
+  (enable_party, "p_haddingrs_revenge_wagnofthus_hall"),
+]],
+
+[trp_dani_ordlaf, "start", [
+  (check_quest_active, "qst_haddingrs_revenge"),
+  (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 8),
+],
+"Go and speak with Guthlaf, prince of the Frisians!",
+"close_window", [
+]],
+
+[trp_dani_ordlaf, "start", [
+  (check_quest_active, "qst_haddingrs_revenge"),
+  (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 7),
+],
+"You have arrived, finally. Know that the princes are now safe and are being trained by Wagnofthus the Giant. The giant will turn those two young men, whose blades already won them good glory, into conquerors and with the Gods help, they will have their vengeance.",
+"haddingrs_revenge_allies_ordlaf_1", [
+  (quest_set_slot, "qst_haddingrs_revenge", slot_quest_current_state, 8),
+]],
+[anyone|plyr,"haddingrs_revenge_allies_ordlaf_1", [
+],
+"This is good, but what can we do to help them?",
+"haddingrs_revenge_allies_ordlaf_2",[
+]],
+[anyone|plyr,"haddingrs_revenge_allies_ordlaf_1", [
+],
+"Excellent, but we should help them!",
+"haddingrs_revenge_allies_ordlaf_2",[
+]],
+[anyone,"haddingrs_revenge_allies_ordlaf_2", [
+],
+"We shall gather our most trusted friends. First Guthlaf, the new prince of the Frisians. ",
+"haddingrs_revenge_allies_ordlaf_3",[
+]],
+[anyone|plyr,"haddingrs_revenge_allies_ordlaf_3", [
+],
+"The second should be Hengist and his brother Horsa, sons of Woden.",
+"haddingrs_revenge_allies_ordlaf_4",[
+]],
+[anyone,"haddingrs_revenge_allies_ordlaf_4", [
+],
+"They won't join our shieldwall. Unfortunately",
+"haddingrs_revenge_allies_ordlaf_5",[
+]],
+[anyone|plyr,"haddingrs_revenge_allies_ordlaf_5", [
+],
+"How's that possible?",
+"haddingrs_revenge_allies_ordlaf_6",[
+]],
+[anyone|plyr,"haddingrs_revenge_allies_ordlaf_5", [
+],
+"Why? They should!",
+"haddingrs_revenge_allies_ordlaf_6",[
+]],
+[anyone,"haddingrs_revenge_allies_ordlaf_6", [
+],
+"Don't you remember? Hengist showed no sympathy towards Gramr and owes him nothing. The reason he helped us was because of the oath that tied him to Hnaef son of Hoc.",
+"haddingrs_revenge_allies_ordlaf_7",[
+]],
+[anyone|plyr,"haddingrs_revenge_allies_ordlaf_7", [
+],
+"I recall the Jute admitting he feared the Danes. It saddens me to know he won't join us, but he is right: this is not his fight. He has his own battles in Britannia.",
+"haddingrs_revenge_allies_ordlaf_8",[
+]],
+[anyone,"haddingrs_revenge_allies_ordlaf_8", [
+],
+"His brother Horsa is on his same page; he won't help us either. Gramr of the Skjoldungrs did aquire a few enemies during his life. Svipdagr, his cousin, is merely the most vengeful. I'm afraid we won't have many allies to reclaim the brothers lost throne. ",
+"haddingrs_revenge_allies_ordlaf_9",[
+]],
+[anyone|plyr,"haddingrs_revenge_allies_ordlaf_9", [
+],
+"Fret not, Ordlaf of the Sedgeans: hope is not lost. I will leave now and head towards Guthlaf's hall. Once his warriors will have sworn loyalty to the cause, we will meet with Guthormr and Haddingr in the land of the Gautar. ",
+"haddingrs_revenge_allies_ordlaf_10",[
+]],
+[anyone,"haddingrs_revenge_allies_ordlaf_10", [
+],
+"Move swiftly with your horse, {playername}. Our enemy's power grows day by day. ",
+"close_window",[
+]],
+
 [trp_dani_signe, "start", [
   (check_quest_active, "qst_haddingrs_revenge"),
   (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 6),
@@ -52297,7 +52873,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
 ]],
 [anyone|other(trp_dani_haddingr),"haddingrs_revenge_escape2_9", [
 ],
-"{playername} , you are an honorable friend, and we won’t forget the blood you shed for us. When Guthlaf and Hengist will be made aware of the carnage that happened in Heorot please join us, with them, in the lands of the Gautar. There we will decide our next move together.",
+"{playername} , you are an honorable friend, and we won't forget the blood you shed for us. When Guthlaf and Hengist will be made aware of the carnage that happened in Heorot please join us, with them, in the lands of the Gautar. There we will decide our next move together.",
 "haddingrs_revenge_escape2_10",[
   (call_script, "script_set_conversation_troop", "trp_dani_haddingr"),
 ]],
@@ -52318,6 +52894,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
   (call_script, "script_change_player_relation_with_troop", "trp_dani_signe", 5),
   (call_script, "script_change_player_honor", 5),
 
+  (enable_party, "p_haddingrs_revenge_sedgean"),
   (quest_set_slot, "qst_haddingrs_revenge", slot_quest_current_state, 7),
 
   (assign, "$g_battle_result", 1),
@@ -52334,6 +52911,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
   (call_script, "script_change_player_relation_with_troop", "trp_dani_groa", -5),
   (call_script, "script_change_player_relation_with_troop", "trp_dani_signe", -5),
 
+  (enable_party, "p_haddingrs_revenge_sedgean"),
   (quest_set_slot, "qst_haddingrs_revenge", slot_quest_current_state, 7),
 
   (assign, "$g_battle_result", 1),
@@ -52438,7 +53016,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
 "Pathetic, you will rot in the hall.",
 "close_window",[
   # (assign, "$auto_menu", "mnu_haddingrs_revenge_imprisoned"),^
-  (jump_to_menu, "mnu_auto_return_to_map"),
+  (jump_to_menu, "mnu_haddingrs_revenge_imprisoned"),
   (mission_disable_talk),
   (finish_mission, 3),
   (mission_cam_animate_to_screen_color, 0xFF000000, 2000),
@@ -52567,7 +53145,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
 ]],
 [anyone,"haddingrs_revenge_begin_3_yes", [
 ],
-"Then stand strong, brother. The tide shall carry our deeds to the sagas. To the beach—we make war!",
+"Then stand strong, brother. The tide shall carry our deeds to the sagas. To the beach - we make war!",
 "close_window",[
   (setup_quest_text, "qst_haddingrs_revenge"),
   (str_store_string, s2, "@The Dani are under attack by the Augundzi. You agreed to help the Dani."),
@@ -52772,6 +53350,17 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
     (troop_set_slot, "trp_dani_guthlaf", slot_troop_age, 25),
     (troop_set_slot, "trp_dani_guthlaf", slot_troop_religion, slot_religion_paganism),
     (troop_set_slot, "trp_dani_guthlaf", slot_troop_renown, 450),
+
+    (troop_set_slot, "trp_dani_hengest", slot_troop_occupation, slto_kingdom_hero),
+    (call_script, "script_change_troop_faction", "trp_dani_hengest", "fac_kingdom_19"),
+    (troop_set_note_available,"trp_dani_hengest",1),
+    (troop_set_slot, "trp_dani_hengest", slot_troop_wealth, 10000),
+    (call_script, "script_cf_select_random_walled_center_with_faction", "fac_kingdom_19", -1),
+    (assign, ":center", reg0),
+    (try_begin),
+      (is_between, ":center", walled_centers_begin, walled_centers_end),
+      (call_script, "script_create_kingdom_hero_party", "trp_dani_hengest", ":center"),
+    (try_end),
    ]],
 
   [anyone|plyr, "finn_quest_2_real_final_6", [

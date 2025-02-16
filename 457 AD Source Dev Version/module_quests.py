@@ -512,7 +512,7 @@ quests = [
  ("finnsburh_quest_2", "Battle of Finnsburh Part II", 0, #
   "{!}"
  ),
- ("haddingrs_revenge", "Haddingrs Revenge Part II", 0, #
+ ("haddingrs_revenge", "Haddingrs Revenge", 0, #
   "{!}"
  ),
 

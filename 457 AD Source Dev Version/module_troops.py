@@ -732,7 +732,7 @@ troops = [
    str_4|agi_4|int_4|cha_4,wp(15),0,0x000000018000000136db6db6db6db6db00000000001db6db0000000000000000],
   ["multiplayer_profile_troop_male","multiplayer_profile_troop_male","multiplayer_profile_troop_male", tf_hero|tf_guarantee_all, 0, 0,fac_commoners,
    [itm_leather_jerkin, itm_leather_boots],
-   0, 0, 0, 0x000000018000000136db6db6db6db6db00000000001db6db0000000000000000],
+   str_30|agi_30|int_30|cha_30, 0, knows_berserker, 0x000000018000000136db6db6db6db6db00000000001db6db0000000000000000],
   ["multiplayer_profile_troop_female","multiplayer_profile_troop_female","multiplayer_profile_troop_female", tf_hero|tf_female|tf_guarantee_all, 0, 0,fac_commoners,
    [itm_tribal_warrior_outfit, itm_leather_boots],
    0, 0, 0, 0x000000018000000136db6db6db6db6db00000000001db6db0000000000000000],

@@ -9101,4 +9101,51 @@ simple_triggers = [
 (try_end),
  ]),
 
+(24,[
+  (check_quest_active, "qst_haddingrs_revenge"),
+  (this_or_next|quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 10),
+  (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 11),
+  (quest_get_slot, ":timer", qst_haddingrs_revenge, slot_quest_temp_slot),
+  (store_current_day, ":cur_day"),
+  (val_sub, ":timer", ":cur_day"),
+  (val_max, ":timer", 0),
+  (eq, ":timer", 0),
+  (jump_to_menu, "mnu_haddingrs_revenge_message"),
+]),
+
+(0.7,[
+    (check_quest_active, "qst_haddingrs_revenge"),
+    (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 13),
+    (eq, "$g_player_is_captive", 1),
+
+    (set_fixed_point_multiplier, 100),
+    (init_position, pos32),
+    (position_set_x, pos32, -9500),
+    (position_set_y, pos32, 15500),
+
+    (party_get_position, pos31, "p_transporter"),
+    (get_distance_between_positions, ":distance", pos31, pos32),
+    (try_begin),
+        (le, ":distance", 400),
+
+        (init_position, pos33),
+        (position_set_x, pos33, -9500),
+        (position_set_y, pos33, 15300),
+
+        (party_set_position, "p_main_party", pos33),
+        (set_camera_follow_party, "p_main_party"),
+        (rest_for_hours, 0, 0, 0),
+        (assign, "$g_player_is_captive", 0),
+        #(party_set_flags, "p_transporter", pf_is_ship, 0),
+        (disable_party, "p_transporter"),
+        #(change_screen_return),
+        (jump_to_menu, "$auto_menu"),
+        (assign, "$auto_menu", -1),
+        #(store_current_hours, "$g_check_autos_at_hour"),	#new 02.01.14
+    (else_try),
+        (set_camera_follow_party, "p_transporter"),
+    (try_end),
+
+]),
+
 ]#end of file

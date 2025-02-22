@@ -1843,4 +1843,7 @@ scenes = [
     [],[],"outer_terrain_plain_2"),
   ("haddingrs_revenge_wangofthus_hall",sf_generate,"none", "none", (-1000,-1000),(1000,1000), 0,"0x000000023000050000076ddb000029ba000027660000651a",
     [],[],"outer_terrain_plain_2"),
+  ("haddingrs_revenge_travel_cutscene", sf_generate, "none", "none", (0, 0), (100, 100), -0.5, "0x000000003c600563000d2348000052d4000067d5000029c1",
+    [], [], "outer_terrain_forest"),
+
 ]

@@ -1,5 +1,5 @@
 #s9_wants_you_to_meet_with_s11# -*- coding: cp1254 -*-
-from module_skills import * 
+from module_skills import *
 from compiler import *
 #SB : skill strings from CC, see bottom
 strings = [
@@ -740,14 +740,14 @@ strings = [
 #npc5 = sunicas - done -wlod
 #npc6 = Wadomar - done -wlod
 #npc7 = Ingrid - done -wlod
-#npc8 = 
+#npc8 =
 #npc9 = Thalassius
-#npc10 = Aistulf - finished 
+#npc10 = Aistulf - finished
 #npc11 = Alodia - done -wlod
-#npc12 = Artemios - finished  
+#npc12 = Artemios - finished
 #npc13 = Eirpanome
 #npc14 = Comminus - finished
-#npc15 = Marcus Lincinus Poscas - done 
+#npc15 = Marcus Lincinus Poscas - done
 #npc16 = Shapurdukhtak - needs work and rename
 #npc17 = Alachis - done -wlod
 #npc18 = Khaetag - done -wlod
@@ -783,7 +783,7 @@ strings = [
   ("npc22_intro", "Vanity... all is vanity, all is lost, so hopelessly lost, there is no hope for any of us..."),
   ("npc23_intro", "Me mou tous kuklous taratte! I am about to find out a mathematical solution to this problem that has pestered me and I'm trying to read this philosophical text by the great Proclus! I'd appreciate that a plebian and a barbarian like you does not bother me..."),
   ("npc24_intro", "If you are another priest or a beggar come to ask me for blessings or coins, leave before I run you through with my sword, I want to be left in peace when I am drinking my mead!"),
-("npc25_intro", 
+("npc25_intro",
  "Greetings, traveler. I am Babai, son of Benga, leader of the Iazyges. My father commands our people between the Tissus and the Danubius, but I seek to see the world and prove myself worthy of leading one day."),
 
 ("npc26_intro", "Christ's blessing on you if you are a righteous and right-thinking Christian, endless curses if you are one of those vile pagans or infidels who shall soon die by the wrath brought on by God!"),
@@ -870,7 +870,7 @@ strings = [
   ("npc22_backstory_a", "I am weeping for Rome, for all those who have fallen defending her: Stilicho, Aetius and so many more and even more I weep for I know we Romans no longer have warriors and heroes worthy of Aeneas of old."),
   ("npc23_backstory_a", "Oh! I did not expect to see an educated man in this cesspool of ignorance and all that is vile for a good Greek, such as myself! My name is Helladios, I am a philosopher, merchant and a mathematician and I am trying to bring light to all these savages you see around you, but as of yet I'm having little luck, they do not care, some of them have even been very rude with me, but my intellect is surely greater than theirs combined. Squares, rhombuses, pentagrams... I know these all and I use them to create art and superior structures that are the marvel of the whole world!"),
   ("npc24_backstory_a", "This is not a whorehouse so you won't find company here and judging by the looks of the locals I doubt you will find a warrior from here either, except me. I was born for battle and battle is what I live for, the name is Ladislaus."),
-("npc25_backstory_a", "The Iazyges were once the masters of these lands. My ancestors rode with pride, feared by Romans and respected by the steppe tribes. But now, our strength has faded. My father struggles to defend our people against the growing power of the Ostrogoths, and the Huns have weakened us further. ^He hopes I will take his place one day, but I do not wish to lead without proving myself worthy. That is why I am here—to fight, to learn, and to earn the right to rule."),
+("npc25_backstory_a", "The Iazyges were once the masters of these lands. My ancestors rode with pride, feared by Romans and respected by the steppe tribes. But now, our strength has faded. My father struggles to defend our people against the growing power of the Ostrogoths, and the Huns have weakened us further. ^He hopes I will take his place one day, but I do not wish to lead without proving myself worthy. That is why I am here - to fight, to learn, and to earn the right to rule."),
 ("npc26_backstory_a", "Radical is the only way to go, Christ drove the swindlers and merchants from the temple, he said he comes with the sword and does not come in peace. I only follow him. My name is Alexius, and I am awoken priest, reborn you could say. For I was not always like this."),
 
 
@@ -890,7 +890,7 @@ strings = [
   ("npc11_backstory_b", "Maybe you don't know me, but I know you! I saw you and your followers entering the city earlier, this day. Maybe you're looking for someone to manage your stuff in your warband! I have been a merchant most of my life."),
   ("npc12_backstory_b", "Let me see... Just as I thought, it heals well, but it'll heal faster when I apply the maggots. Don't worry, it's a common way to treat wounds like these. I've done it many times when I served as additional medicus in Legio X. They say war is the best school for a physician and I agree with it. I've never seen so many cuts and broken bones before or after. Unfortunately one day the primus pilus became sick. I did everything I could - I poured wax on his belly button, I gave him mercury mixed with lead to swallow, I even secretly sacrificed white hare to the goddess Spes, like all open-minded physicians would do... unfortunately, nothing worked. There's simply nothing more I could've done in his case."),
   #("npc13_backstory_b", "I was a peasant swineherder from Dardania. However, not long ago when I was just a teenager, I and a few companions fled from my home from a barbarian invasion. We came to Constantinople and joined the Excubitors, Emperor Leo's palace guards."),
-  ("npc13_backstory_b", "You barbarians from the north don't know us well, but we've been here since the dawn of times, guarding the southern gates of the Niles from you and the Greeks before you! We are hardy warriors, famous for our skills with the bow. Test me on the battlefield, I won't disappoint you."),  
+  ("npc13_backstory_b", "You barbarians from the north don't know us well, but we've been here since the dawn of times, guarding the southern gates of the Niles from you and the Greeks before you! We are hardy warriors, famous for our skills with the bow. Test me on the battlefield, I won't disappoint you."),
   ("npc14_backstory_b", "I am a former Roman Officer. After serving in the wars against Attila, I retired. However, my heart itches to go back into the field of battle."),
   #SB : replace cash with silver
   ("npc15_backstory_b", "The Comes Civitas {s19} in {s20} wanted a new tower added to the wall. Trouble is, he ran out of silver halfway through the process, before I could complete the supports. I told him that it would collapse, and it did. Unfortunately he was standing on it, at the time. The new Comes Civitas didn't feel like honouring his predecessor's debts and implied that I might find myself charged with murder if I push the point."),
@@ -903,7 +903,7 @@ strings = [
   ("npc22_backstory_b", "My parents named me Decimus and my soldiers in arms agreed it is a name I deserve. I was born in Rome a long time ago during times when all started to crumble, oh so fast. My parents were rich patricians, my father was a respected veteran from wars against all manner of barbarians. My mother was a healer and tried to keep the old beliefs of Rome alive even during these times when Christ is the ruler. I remember only little of them, a shame. Both died when Alaric and his horde ravaged Rome. I was young and they didn't wish to kill me, perhaps out of pity or out of spite and wanted to leave me to my misery. I was saved by a friendly merchant who was fleeing the city and we managed to avoid the Visigoth patrols and I lived with him until I came to age."),
   ("npc23_backstory_b", "I am originally from Athens. That city has seen better days, where philosophers once debated and great decisions for my dear Hellas were once made. Now it is a city with only boors and uncultured swine and even worse  my brother said that he had seen a... a-a Goth walking down the Tripodon! If Pericles had seen this, oh how much he would've wept. I swore when I finished my studies that I would once again reignite the fire of civilization that would illuminate this darkened world."),
   ("npc24_backstory_b", "I and my family lived far in the east in the tundra, my father was a tribal leader and my mother his concubine, I guess there's no other way to say it. Our village elder told that my father went to even further to the east to fight an evil dragon who had taken up residence in some mountain, I doubt it has any truth, more than likely he got drunk and got killed, like my mother said how he was most of the time. My mother... I have no idea, where she is now, the Huns attacked my village and I only remember that she ran to a forest, and I was separated. There is not a lot of hope of her being alive either, if those cowards didn't get her, the wolves or the weather did."),
-("npc25_backstory_b", "I am no stranger to battle. The Iazyges are riders and warriors by tradition, and I have trained with our finest. Yet, I know I lack the experience of true conflict. My father tells me that leadership is more than strength—it is wisdom and courage. I hope to gain those by traveling with a warband such as yours."),
+("npc25_backstory_b", "I am no stranger to battle. The Iazyges are riders and warriors by tradition, and I have trained with our finest. Yet, I know I lack the experience of true conflict. My father tells me that leadership is more than strength - it is wisdom and courage. I hope to gain those by traveling with a warband such as yours."),
 ("npc26_backstory_b", "My father I do not know, he left when he was serving in Valentinian's army. I remember only my mother crying that he would never come back, he didn't. My mother yet lives... somewhere but he had to flee because my father's enemies wanted her dead too."),
 
 
@@ -950,7 +950,7 @@ strings = [
   ("npc11_backstory_later", "Oh, nothing much you see... I just stick to my caravan, try to protect my merchants to the best of my abilities. That's all."),
   ("npc12_backstory_later", "Ugh, I've just had to pull another rotten tooth and apply the mixture of olives and dung there. It's not a job for a renowned physician like me."),
   #("npc13_backstory_later", "I have been waiting for my chance to gain power and glory, and have yet to find it."),
-  ("npc13_backstory_later", "Do what I do best, killing, commander. But here we are again. Do you need my bow now?"),  
+  ("npc13_backstory_later", "Do what I do best, killing, commander. But here we are again. Do you need my bow now?"),
   ("npc14_backstory_later", "I have gone from court to court, but I have not yet found a noble in need of my services."),
   ("npc15_backstory_later", "I've been going from city to city, looking to see if any walls need repair. But either the lord's away, or he's got other things on his mind, or I run into his creditors on the street, begging for change, and I realize that here's one job not to take. So if you hear of anything, let me know."),
   ("npc16_backstory_later", "I do the odd job from time to time. But there's naught like steady employment, and a regular run of corpses to loot."),
@@ -1070,7 +1070,7 @@ strings = [
   ("npc22_signup_2", "I still have my sword, my plumbatae and rusted but trusty shield and I still have strength in me. I will follow you if you stay loyal to the Roman way and to you keep your morals with you."),
   ("npc23_signup_2", "My wits and sharp tongue will keep me safe and if those do not then I have my dagger, I was quite the fighter when I was younger, killed many who insulted me can do it still if needed, so what you say?"),
   ("npc24_signup_2", "But blood and guts do not bring food to the table, as such I require a modest sum of 800 siliquae as a signup cost. A thin man is either a sick man or a poor man as they say."),
-("npc25_signup_2", "I ask for no payment—only the opportunity to fight and learn by your side. Wealth does not concern me; experience is what I seek."),
+("npc25_signup_2", "I ask for no payment - only the opportunity to fight and learn by your side. Wealth does not concern me; experience is what I seek."),
   ("npc26_signup_2", "I do not fight for money like some mercenary or some boor so if you only promise to stay on the godly path, I will follow you in that path."),
 
   ("npc1_signup_response_1", "By the twelve tribes that is some cost, but I guess you must be worth it, I certainly hope so for your and my sake, here."),
@@ -1117,7 +1117,7 @@ strings = [
   ("npc14_signup_response_2", "Actually, I have no wish to provoke a mutiny in my ranks. Good day, sir."),
   ("npc15_signup_response_2", "Actually, I need a different kind of expertise. My apologies."),
   ("npc16_signup_response_2", "To be honest, I'd prefer someone who was a little less tempted to larceny."),
-  ("npc17_signup_response_2", "You may be right, but I think I'll look for someone else."),  
+  ("npc17_signup_response_2", "You may be right, but I think I'll look for someone else."),
   ("npc18_signup_response_2", "Mmmh... I understand this, but my host is not a place where to get your revenge. Find someone else for this, Khaetag."),
   ("npc19_signup_response_2", "A barbarian warrior in full panoply? It's insultful to see such precious gear wasted on such lowly being."),
   ("npc20_signup_response_2", "Sorry but not today... maybe later."),
@@ -1152,7 +1152,7 @@ strings = [
   ("npc22_payment", "I just need a payment of {reg3} siliquae."),
   ("npc23_payment", "I just need a payment of {reg3} siliquae."),
   ("npc24_payment", "All right then. I will come with you, however I do need that payment of {reg3} siliquae... I have built quite the debt here, and need to pay it off..."),
-("npc25_payment", "There is no payment to discuss—I fight for the experience, not for coin. Let us ride without delay."),
+("npc25_payment", "There is no payment to discuss - I fight for the experience, not for coin. Let us ride without delay."),
   ("npc26_payment", "I just need a payment of {reg3} siliquae."),
 
   ("npc1_payment_response", "Very well, here's the money."),
@@ -1192,7 +1192,7 @@ strings = [
   ("npc7_morality_speech", "Captain -- I do not like to see us {s21}. Such are the actions of a common bandit chief, with no regard for his followers."),
   ("npc8_morality_speech", "I never shy away from battle, my father fought against the Romans and the Persians too, he once told me that someday we will live free of them both, but I fear I or my children will not see that day..."),
   ("npc9_morality_speech", "Dux -- it is not my way to {s21}. Men of my house will accept death but not dishonour. Please do not make me ashamed to serve under you."),
-  ("npc10_morality_speech", "I don't mind to butcher from time to time but I don't like to {s21}. We should just take the loot and go."), 
+  ("npc10_morality_speech", "I don't mind to butcher from time to time but I don't like to {s21}. We should just take the loot and go."),
   ("npc11_morality_speech", "Excuse me, captain. It's not good that we {s21}. I've followed armies and warbands for 30 years, and the least the soldiers expect of a leader is to feed them, pay them, and do {his/her} best to keep their sorry skins intact as best {he/she} can."),
   ("npc12_morality_speech", "Captain -- I do not like to see us {s21}. I am prepared to be a warrior, but not a brigand. Pray let us try to show a little more compassion."),
   ("npc13_morality_speech", "Commander! Did we just {s21} ? This is dishonorable and I wish we won't repeat this kind of behavior."),
@@ -1207,7 +1207,7 @@ strings = [
   ("npc22_morality_speech", "I trust in your judgement and when we are fighting the enemies of Rome, I believe our conduct should be merciless. Take no prisoners and send every one of them to Pluto and fear will keep the rest of them in line."),
   ("npc23_morality_speech", "You'll get no objections from me if you kill a few innocents, if they are not Greeks I could not care less. Though you might wish to spare some, we need servants and slaves as well and you know that work is the greatest joy and value of a slave."),
   ("npc24_morality_speech", "We are living an unpeaceful era, I have fought in more battles than my father at my age, I wonder what's the root cause of all this, not that I'd really care for battle is where I am at home."),
-("npc25_morality_speech", "Captain, I must speak my mind. A leader's strength is measured not just by their victories, but by their honor. I urge you to do better—for your sake and for those who follow you."),
+("npc25_morality_speech", "Captain, I must speak my mind. A leader's strength is measured not just by their victories, but by their honor. I urge you to do better - for your sake and for those who follow you."),
   ("npc26_morality_speech", "Battles where the blood of filthy pagans is spilled is always a sacred work. We still have a long way to go before we have cleansed all that needs to be purged... "),
 
   ("npc1_2ary_morality_speech", "I am not a soldier, but I know how dishonorable it is to run from battle, the ancient tribes of Israel did not run away from challenges, and neither should you. You are making me question my choices, let's go back and reduce those men to heap of bones!"),
@@ -1250,7 +1250,7 @@ strings = [
   ("npc11_personalityclash_speech", "Begging your pardon, captain, but I can't keep silent. That man, {s11} -- did terrible things in his past."),
   ("npc12_personalityclash_speech", "My lord. The arab, {s11}, complained of headaches -- a possible symptom of excess of sanguinity. I thought to apply my leeches."),
   #("npc13_personalityclash_speech", "Captain, I weary of {s11}, who curses the Lord my God."),
-  ("npc13_personalityclash_speech", "Commander, that small-eyed barbarian from the Skythia that plague this party with his sickening presence: he doesn't know his place."),  
+  ("npc13_personalityclash_speech", "Commander, that small-eyed barbarian from the Skythia that plague this party with his sickening presence: he doesn't know his place."),
   ("npc14_personalityclash_speech", "Excuse me, captain. A few minutes ago, I had expressed the opinion that liberal use of the lash and occasional use of the gallows is essential to keep soldiers in line. Men without a healthy fear of their commanders are more likely to run from battle."),
   ("npc15_personalityclash_speech", "Excuse me. I hope you don't mind me telling you that in my opinion, that girl {s11} is a danger to the party. She's a feral brat, disrespectful of authority and the basic principles of the military art."),
   ("npc16_personalityclash_speech", "Oy, captain. Just so you know -- there's something funny about {s11}. He makes strange scrawlings in the dirt, and mutters to himself."),
@@ -1278,7 +1278,7 @@ strings = [
   ("npc11_personalityclash_speech_b", "He's a kinslayer, cursed by heaven, and he'll bring misfortune and sorrow upon us, that's for certain. I don't like being around him and I don't think he should be with us. That's all. Sorry for troubling you."),
   ("npc12_personalityclash_speech_b", "But when I tried to afix them, he recoiled and struck me, and accused me of witchcraft. Captain, I am deeply tired of attending to the complaints of such an ungrateful and ignorant lot."),
   #("npc13_personalityclash_speech_b", "My faith is an important part of my life, I do not take kindly to those insults."),
-  ("npc13_personalityclash_speech_b", "His cruelty on the battlefield knows no bounds and his elongated skull makes me question his human nature in the first place. I think we would be better if we were to get rid of him. What do you think? ."),  
+  ("npc13_personalityclash_speech_b", "His cruelty on the battlefield knows no bounds and his elongated skull makes me question his human nature in the first place. I think we would be better if we were to get rid of him. What do you think? ."),
   ("npc14_personalityclash_speech_b", "That chit {s11} saw fit to admonish me for this. I will not have my methods questioned in front of the men, and I will not serve any commander who tolerates such insubordination in his company. Thank you for allowing me to speak my peace."),
   ("npc15_personalityclash_speech_b", "What's more, I suspect she's a thief. I found her going through my baggage and pawing some of my schematics, and she pulled a knife on me when I thought fit to object. A wise captain would not allow her in his company."),
   ("npc16_personalityclash_speech_b", "Fearing witchcraft, I asked him about it, and he told me that a chit of a girl like myself should mind her own business. So I had a look in his baggage, and found strange plans and diagrams. I think he's a sorceror, Captain, and if I catch him trying to hex me he'll have a knife in his throat."),
@@ -1330,13 +1330,13 @@ strings = [
   ("npc7_personalityclash2_speech_b", "He claims to be an educated man of his faith, yet he is no more than a filthy sailor; which speaks to his true nature..."),
   ("npc8_personalityclash2_speech_b",  "As we were cleaning our weapons after that last battle, I remarked that I thought her a handsome girl, and after I regained my lands I would happily find her a match with one of my warriors. I thought it was a very generous offer, as a woman disinherited by her father is hardly going to find herself awash in prospects. But rather than thank me, she simply turned her back without a word. It was only out of respect for your leadership that I did not immediately try to teach her some manners."),  #matheld - ymira
   ("npc9_personalityclash2_speech_b", "I appreciate that he is willing to risk his life in battle, but that alone does not make a gentleman. He is not of noble birth, and his family's wealth comes from commerce and usury. He may fight with us as an auxiliary, but should not attempt to steal glory from his betters."),# alayen - marnid
-  ("npc10_personalityclash2_speech_b", "In that last battle he was shouting at me: 'Go forward, go back, hold the line.' When I told him to mind his own trimming he said he'd have the entire warband decimated.  Captain, that man is looking for an axe in his chest, begging your pardon."), 
+  ("npc10_personalityclash2_speech_b", "In that last battle he was shouting at me: 'Go forward, go back, hold the line.' When I told him to mind his own trimming he said he'd have the entire warband decimated.  Captain, that man is looking for an axe in his chest, begging your pardon."),
   ("npc11_personalityclash2_speech_b", "He said it was a prayer of thanksgiving for victory, but it didn't sound like that to me. Captain, I don't want him raising up the ghosts of the dead to make trouble for us on our travels. I think you had best be rid of him"),
   ("npc12_personalityclash2_speech_b", "Captain, if that man knew the slightest thing about medical matters, he would know that one should never undermine a patient's confidence in his doctor, particularly not during a complicated operation. If you would be kind enough to dismiss him from this company, you would be doing all of us a great service."), # jeremenus - artimenner
   ("npc13_personalityclash2_speech_b", "The way she whistles cheerfully as she does it -- it puts a chill down my spine, it does?"), #nizar - firentis
   ("npc14_personalityclash2_speech_b", "{Sir/Madame}, such defiance of proper authority is a corrosive influence on our company, and I shall have him flogged if he does so again."), #lazalit - bunduk
   ("npc15_personalityclash2_speech_b", "{s11} responded that Galenian was an 'antiquated know-nothing.' Captain, no true doctor would have such disrespect for the great masters of the past. I do not believe you should employ such an obvious impostor."), #artimenner - Artemios
-  ("npc16_personalityclash2_speech_b", "After our last scrap, I was slicing open the guts of some our foes to check for hidden gold, as a girl who counts her pennies ought. He gagged and muttered that I was an 'animal.' I'll inspect his innards for contraband if he doesn't keep a civil tongue in his head."), 
+  ("npc16_personalityclash2_speech_b", "After our last scrap, I was slicing open the guts of some our foes to check for hidden gold, as a girl who counts her pennies ought. He gagged and muttered that I was an 'animal.' I'll inspect his innards for contraband if he doesn't keep a civil tongue in his head."),
   ("npc17_personalityclash2_speech_b", "If he keeps strutting like that I'll end his life with my seax one of these nights."),#alachis - aistulf
   ("npc18_personalityclash2_speech_b", "We're fighting, open field battles, not skirmishing in some swampy forests. He needs to learn how to fight properly."),#khaetag - bogdan
   ("npc19_personalityclash2_speech_b", "{s11} is dishonorable."),#khaetag - bogdan
@@ -1537,7 +1537,7 @@ strings = [
   ("npc22_home_description_2", "The countryside around Rome is not safe, all manner of criminals walk these hills and sometimes barbarian hordes penetrate almost to the city itself. What an insufferable injustice, there was a time when it was unthinkable that Rome could fall or be sacked."),
   ("npc23_home_description_2", "I said that if Sparta had adopted our ways sooner it would have soared much higher and that I believe Spartans should be educated more. He answered 'If' and 'you believe' and walked away with a grin on his face. I swear if I had had my dagger I'd have used it. It was a humiliating situation, yet I still feel warmly about my home, the Acropolis is a magnificent place."),
   ("npc24_home_description_2", "After that, I have lost every single gamble I have ever taken and all games of luck are hazardous to my purse. I have been sick a lot more than I was when I still had that amulet, what I would give to be able to have it still."),
-("npc25_home_description_2", "Despite its challenges, I love my homeland. The rivers, the plains, the herds of horses—it is in my blood. My father's hope, and mine, is that the Iazyges can rise again to reclaim their strength."),
+("npc25_home_description_2", "Despite its challenges, I love my homeland. The rivers, the plains, the herds of horses - it is in my blood. My father's hope, and mine, is that the Iazyges can rise again to reclaim their strength."),
   ("npc26_home_description_2", "{s21} has great walls but it's internal problems with traditional believers, Christians, Jews and more has lead it to be a hotbed of disputes. What is there to dispute? {s21} is rightful Christian clay."),
 
   ("npc1_home_recap", "Cyrenaica is my dear home but It's been a long time since I have been there and I feel that I should visit it someday."),
@@ -1575,7 +1575,7 @@ strings = [
   ("npc5_honorific", "{playername} Khagan"), #beheshtur
   ("npc6_honorific", "warlord"), #firentis
   ("npc7_honorific", "captain"), #deshavi
-  ("npc8_honorific", "captain"), 
+  ("npc8_honorific", "captain"),
   ("npc9_honorific", "{my good sir/my good lady}"), #Alayen
   ("npc10_honorific", "{Brother/Sister}"), #Bunduk
   ("npc11_honorific", "{laddie/lassie} -- I mean Captain"), #katrin
@@ -1602,7 +1602,7 @@ strings = [
   ("npc5_kingsupport_1", "A fine idea, Khagan - you have shown that you know how to govern men. Mind that you govern them justly, though..."), #beheshtur
   ("npc6_kingsupport_1", "You are strong, Warlord. And I honor strenght! I will support you in this quest."), #firentis
   ("npc7_kingsupport_1", "Oh... I didn't expect this, to be honest, captain. But if you seek to take some land for you and your warriors why would I object? I myself am without a place to call home and, to be honest, I miss having a place to return at night."), #deshavi
-  ("npc8_kingsupport_1", "I can indeed help you with that."), 
+  ("npc8_kingsupport_1", "I can indeed help you with that."),
   ("npc9_kingsupport_1", "Very good, my lord. I'm a roman by blood, but the Empire never stood for me when the Picts burned down my villa. So I don't owe Rome anything, and I say, 'Let Italia go to the most valiant!' Which would be you, Dux."), #Alayen
   ("npc10_kingsupport_1", "Well, {Brother/Sister}, I suppose there must be {kings/kings and queens}, and if there must be {kings/kings and queens}, then you would be as good a {king/queen} as any..."),#Bunduk
   ("npc11_kingsupport_1", "Why, that's a fine idea, Dux! I suppose I shall have to learn to call you 'Regulus', or 'Rex', then..."), #katrin
@@ -1612,15 +1612,15 @@ strings = [
   ("npc15_kingsupport_1", "Well, you pay your men on time, when you can, generally speaking. That's the best qualification for kingship there is, in my book. You show some respect for the rights of others."), #artimenner
   ("npc16_kingsupport_1", "Why not, captain? I'm sure you'd make a fine {king/queen} -- and of course I'd hope you remember the little people like myself who did you a pretty turn on your scramble to the throne."), #klethi
   ("npc17_kingsupport_1", "Warlord... YES! That's what Godan wants for us. We will forge our imperium through fire and steel and conquer whoever will try to fight us. I'm with you, Warlord.... Warlord? No! Rex! You're my Rex now."),
-  ("npc18_kingsupport_1", "You're ambitious, chief, I like this and I will help you. You will, however, need men, horses, arrows and spears... This land wont be conquered alone. But yes, for what matters I'm with you. Always and forever, you gave me a purpose, I owe you my life."), 
+  ("npc18_kingsupport_1", "You're ambitious, chief, I like this and I will help you. You will, however, need men, horses, arrows and spears... This land wont be conquered alone. But yes, for what matters I'm with you. Always and forever, you gave me a purpose, I owe you my life."),
   ("npc19_kingsupport_1", "Your own chiefdom? With a hall and loyal druzhyna, I suppose? Well, it will require finding of loyal men, ready to serve, and riches to provide to them, to stay loyal. People paying tribute to you and whole other things a chiefdom needs. With power comes both wealth and responsibility, but also a threat."),
-  ("npc20_kingsupport_1", "You've got quite the guts, {playername}. Strong warriors tend to get a lot of fame, and loyal followers."), 
-  ("npc21_kingsupport_1", "A ruler such as you might save Rome, even if some might snicker at the idea. You are strong and capable, it is the only thing I can offer."), 
-  ("npc22_kingsupport_1", "You have shown to be a capable leader of men, maybe even worthy of Caesar of old, I'd be honored to support your cause."), 
-  ("npc23_kingsupport_1", "I'd rather nominate some Greek man to this but you are not the worst barbarian there is so I'l give you my support... for now."), 
-  ("npc24_kingsupport_1", "My trust in rulers is not exactly great but I think you could do fine."), 
+  ("npc20_kingsupport_1", "You've got quite the guts, {playername}. Strong warriors tend to get a lot of fame, and loyal followers."),
+  ("npc21_kingsupport_1", "A ruler such as you might save Rome, even if some might snicker at the idea. You are strong and capable, it is the only thing I can offer."),
+  ("npc22_kingsupport_1", "You have shown to be a capable leader of men, maybe even worthy of Caesar of old, I'd be honored to support your cause."),
+  ("npc23_kingsupport_1", "I'd rather nominate some Greek man to this but you are not the worst barbarian there is so I'l give you my support... for now."),
+  ("npc24_kingsupport_1", "My trust in rulers is not exactly great but I think you could do fine."),
   ("npc25_kingsupport_1", "Captain, you have proven yourself to be a leader of strength and honor. The Iazyges respect such traits, and I will speak of your deeds to those who will listen."),
-  ("npc26_kingsupport_1", "God's rule comes first but we need earthly support too."), 
+  ("npc26_kingsupport_1", "God's rule comes first but we need earthly support too."),
 
   ("npc1_kingsupport_2", "You can help us reclaim our homeland too, I think."), #Borcha
   ("npc2_kingsupport_2", "Most of the lords of this land -- well, let's just say that they never held a siliqua that they didn't collect as rent or take as pillage. You, on the other hand, have some experience of commerce and trade, of the effort and risk involved in making sure that men don't go hungry in Rome while there's a glut of grain in Alexandria, to give an example.... If you like, captain, I reckon I could find some support for you among the merchants and burghers of this realm."), #marnid
@@ -1693,9 +1693,9 @@ strings = [
   ("npc15_kingsupport_2b", "{King/Queen} of the Clerks, maybe, Enough of such talk"), #artimenner
   ("npc16_kingsupport_2b", "No offense, but I'm not sure that's the approach I'd take"), #klethi
   ("npc17_kingsupport_2b", "Well. We saw how that turned out..."),
-  ("npc18_kingsupport_2b", "No offense, but are you really sure of this?"), 
+  ("npc18_kingsupport_2b", "No offense, but are you really sure of this?"),
   ("npc19_kingsupport_2b", "On another, I don't think it's yet a time to do that."),
-  ("npc20_kingsupport_2b", "No offense, but I'm not sure that's the approach I'd take"), 
+  ("npc20_kingsupport_2b", "No offense, but I'm not sure that's the approach I'd take"),
   ("npc21_kingsupport_2b", "Well. We saw how that turned out..."),
   ("npc22_kingsupport_2b", "Hmm. Let me think it over."),
   ("npc23_kingsupport_2b", "Hmm. Let me think it over."),
@@ -1749,18 +1749,18 @@ strings = [
   ("npc17_kingsupport_objection", "Rex! I heard you sent one of your eunuchs to spread word about the arrival of a new, just king that will uphold the rights of the common and blablabla... What the hell is this? You seem to me like one of those silly Franks pretending to be romans! Pah! Men will follow you if you're strong! No one cares about the rights of the commoners."), #Alachis
   ("npc18_kingsupport_objection", "Boss -- you've given leave to Shimon to tell the nobles that they will have rights over pasture, market, and forest? I can't say I like that. Give him his way, and he'll set up gibbets in every village in the land, where there will dangle some poor sod who has a distaste for him... You've seen how he talks about the Christians in our company."), #khaetag
   ("npc19_kingsupport_objection", "Sending Sunicas to gather support for you? I do not admire this choice. He is greedy, ruthless, brutal and simpleton in nature. I do not think if sending someone like him will say anything good about you, Chief."),
-  ("npc20_kingsupport_objection", "Unfished - you shouldn't see this."), 
-  ("npc21_kingsupport_objection", "{Sir/Madame} you've given leave to the berber to go tell the nobles that they will have rights over pasture, market, and forest? I can't say I like that. You will only have more enemies than friends if you continue enlisting him as your emissary."), 
-  ("npc22_kingsupport_objection", "General have you lost your mind? You asked Ingrid to help you gather support? What do you think that whore can do? Ask the rabbits or maybe the little birds to aid you in your fight for legitimacy? How do you think a young girl like that can convince anyone: if she says your name, you will be the laughingstock of the whole land and my honor will be stained too."), 
-  ("npc23_kingsupport_objection", "Captain! You asked that Siestrewiz to help you gather support for the claim? Why? What do you think he can do? He is a barbarian and of so low intellect that if a rat and he would compete he would lose, hard. Not to mention that he's not even loyal to you, truly, I've seen men lusting over coin like he is, the second you cannot pay him he will show you his true colors."), 
-  ("npc24_kingsupport_objection", "I don't see a point in sending Decimus to gather support, he's a broken man who will bring us only as broken support as he is. This is meaningless."), 
+  ("npc20_kingsupport_objection", "Unfished - you shouldn't see this."),
+  ("npc21_kingsupport_objection", "{Sir/Madame} you've given leave to the berber to go tell the nobles that they will have rights over pasture, market, and forest? I can't say I like that. You will only have more enemies than friends if you continue enlisting him as your emissary."),
+  ("npc22_kingsupport_objection", "General have you lost your mind? You asked Ingrid to help you gather support? What do you think that whore can do? Ask the rabbits or maybe the little birds to aid you in your fight for legitimacy? How do you think a young girl like that can convince anyone: if she says your name, you will be the laughingstock of the whole land and my honor will be stained too."),
+  ("npc23_kingsupport_objection", "Captain! You asked that Siestrewiz to help you gather support for the claim? Why? What do you think he can do? He is a barbarian and of so low intellect that if a rat and he would compete he would lose, hard. Not to mention that he's not even loyal to you, truly, I've seen men lusting over coin like he is, the second you cannot pay him he will show you his true colors."),
+  ("npc24_kingsupport_objection", "I don't see a point in sending Decimus to gather support, he's a broken man who will bring us only as broken support as he is. This is meaningless."),
 ("npc25_kingsupport_objection", "Sending Wadomar to represent you? A Goth speaking on your behalf? That will only sow distrust among the Iazyges. I urge you to choose someone else."),
-  ("npc26_kingsupport_objection", "Why send Decimus to gather support, he may gather support, for a PAGAN rebellion and revival, that's what he would do. You may have just done a great disservice for the cross... I do not like it at all."), 
+  ("npc26_kingsupport_objection", "Why send Decimus to gather support, he may gather support, for a PAGAN rebellion and revival, that's what he would do. You may have just done a great disservice for the cross... I do not like it at all."),
 
   ("npc1_intel_mission", "Information gathering is something I can do, we Jews are encouraged to be knowledgeable so you have chosen the right man, sailors will open their mouth after some beer."), #Borcha
   ("npc2_intel_mission", "{Sir/My lady}, if you're interested in events in {s18}, I can still make contact with my old trading partners in {s17}. They're usually well-informed about political events."), #marnid
   ("npc3_intel_mission", "Captain, although I cannot return to my father's house in {s17}, I still may make contact with my sister. She will be privy to the councils of the great merchant houses, and may tell us much about the state of the {s18}."), #ymira
-  ("npc4_intel_mission", "Good Berber can easily find out any information he wants, we are talented in espionage too, so just point and I'll star gathering."), 
+  ("npc4_intel_mission", "Good Berber can easily find out any information he wants, we are talented in espionage too, so just point and I'll star gathering."),
   ("npc5_intel_mission", "If you like, Khagan {playername} , I can take a few days to visit my mother's sister's people. They work in a caravanserie in {s17}, and hear the news from all across the {s18}. They may have some gossip about the feuds and rivaries of the great lords, if that is of interest to you."), #beheshtur
   ("npc6_intel_mission", "Warlord -- while I am not strictly welcome in {s17}, I would be able to make contact with some former tenants of an estate of mine nearby. I granted them ownership after my abrupt departure, and they are now well-placed in society, and also less inclined than most to hold my crime against me. If you give me a few days, I may be able to collect some interesting information about the {s18}."), #firentis
   ("npc7_intel_mission", "Captain. When I left my former home in Alemannia, I had promised myself that I would never return, except for the purposes of taking out vengeance on those who wronged me. Perhaps I was rash. I am occasionally curious as to how my relatives are going there, those that are still alive, at least. Perhaps I can bring them some gifts, to let them know what I have made of myself! Any rate, they are wretched people, but just as a cringing dog keeps its ear to the wind, so do they. They may have useful information about the {s18}, if you would give me a few days to pay them a visit."), #deshavi
@@ -1770,7 +1770,7 @@ strings = [
   ("npc11_intel_mission", "Dux -- I was thinking that it's been a while since I visited my kinfolk in {s17}. They've been kind enough to me over the years, helping me out during the lean times, so I feel I'd like to share some of my newfound fortune with them. I've also bought wholesale enough times from the {s17} grain merchants for them to trust me. I'd reckon they might be persuaded to spill a few tidbits about events in the {s18}, if that would interest you."), #katrin
   ("npc12_intel_mission", "If you wish, Captain, I would not mind taking the time to pay a visit to a pupil of mine, now employed by the lord of {s17}. I had great hopes for him, but I have heard that he has lately endorsed the use of muskmelon for the treatment of palsy, on the grounds that its cold essence offsets an abundance of yellow bile. This is a travesty of medicine, and I must journey there swiftly to correct him. While I am there, if you wish, I could question him on the latest trends within the {s18}, a matter which may interest you."), #Artemios
 #  ("npc13_intel_mission", "Oh valiant one! With your permission, I was thinking that I might pay a visit to the dales near {s17}. I try not to revisit old pastures, but I must confess a certain curiosity as to how a comely shepherdess of my former acquaintance is getting along. On the way, I may attempt to stop in at the castle. I suspect that it would not be terribly difficult for me to charm my way into the lord's hall, and I may be able to provide you with the latest news from the {s18}."), #nizar
-  ("npc13_intel_mission", "As I told you, commander. I would be more than willing to help you. I'll leave tomorrow morning for my homeland, Nubia, and I'll spread the word of your noble name."), #nizar 
+  ("npc13_intel_mission", "As I told you, commander. I would be more than willing to help you. I'll leave tomorrow morning for my homeland, Nubia, and I'll spread the word of your noble name."), #nizar
   ("npc14_intel_mission", "Captain... As you may know, I helped train the garrison of {s17}. One of their number has lately been in touch with me, and suggests that if I were to visit him, he could pass me information on events within the {s18}. I am willing to do this, if you can spare me. While it is a great disgrace to be a traitor, there is no dishonor in making use of one."), #lazalit
   ("npc15_intel_mission", "Captain. As you may know, I have for some time harbored a wish to go to {s17}, and study the masonry -- one of the finest examples of the old Imperial style. As it happens, one of my colleagues is currently engaged there doing repair work on the curtain wall. While his sense of professional obligation I think would prevent him, rightfully, from disclosing to me any weaknesses in its defenses, I suspect that he would not be averse to offering up his opinion on the general state of the {s18}, if that is of interest to you."), #artimenner
   ("npc16_intel_mission", "Oy, Captain! I had a mind to pay a visit to my old haunts at {s17}. Let's just say that the lord and lady of the place had commissioned a certain service from me, and had been a bit lax about payment. However, a certain sparkly bauble in the lady's possession will fit the bill nicely. I see no need to trouble them by letting them know about my visit, but I could have a wee chat with my old friend the castle steward, who'll be letting me into the place, about goings-on in the {s18}."), #klethi
@@ -1778,10 +1778,10 @@ strings = [
   ("npc18_intel_mission", "I have an idea, let me go to {s17} in disguise, they wont recognise me. In the tavern or in the streets I may find valuable information about {s18}, does it seem to you like a good deal? If they capture me I will die there without giving them a single information, mark my words."), #khaetag
   ("npc19_intel_mission", "Hm, I recall that under Hunnic service, we did a tour or two in lands of Eastern Germania, along where Eburodunum is. I think I could pay locals a visit to ask how they are going and how is their tribe doing. Something worth of note if you ever wanted to pay a visit to that area."),
   ("npc20_intel_mission", "Well, I will go to {s17}, land occupied by my kin. They will hear your stories and flock to you, Reiks."),
-  ("npc21_intel_mission", "I'm afraid I cannot help you there. I am simply a young barbarian, as the Romans would say, I lack any big contact to help you cement your claim. I am terribly sorry."), 
-  ("npc22_intel_mission", "I've yet to manage to contact my old brothers and others who might help you, I need more time and a strategy to better help you, I will when the time is right!"), 
-  ("npc23_intel_mission", "I am talented in gathering any information, mathematical or otherwise, since I am a trader I know all the latest words and rumors that go around. Wish to send me find out how our situation could be improved?"), 
-  ("npc24_intel_mission", "I learned how to listen when I hunted game, I'm sure I can do the same with people."), 
+  ("npc21_intel_mission", "I'm afraid I cannot help you there. I am simply a young barbarian, as the Romans would say, I lack any big contact to help you cement your claim. I am terribly sorry."),
+  ("npc22_intel_mission", "I've yet to manage to contact my old brothers and others who might help you, I need more time and a strategy to better help you, I will when the time is right!"),
+  ("npc23_intel_mission", "I am talented in gathering any information, mathematical or otherwise, since I am a trader I know all the latest words and rumors that go around. Wish to send me find out how our situation could be improved?"),
+  ("npc24_intel_mission", "I learned how to listen when I hunted game, I'm sure I can do the same with people."),
 ("npc25_intel_mission", "Scouting is a skill we riders of the plains know well. I will find the information you need and return swiftly."),
   ("npc26_intel_mission", "A good priest always finds gossip and can find out what's the latest word."),
 
@@ -1804,7 +1804,7 @@ strings = [
   ("npc17_fief_acceptance", "I was raised to fight and that's what I did my entire life... I cannot believe you're now giving me land, Rex! You're doing me great honor and I swear, I will never, never betray your trust. Maybe it is time for a man of war like me to find some peace and settle down."), #Alachis
   ("npc18_fief_acceptance", "What? Really?! Chief, you are fulfilling my wish and quench the thirst for revenge I always had. Finally, being the owner of a land and of a proper host I will finally be able to clean my family name entirely. Thank you chief, I bow to your magnanimity."), #khaetag
   ("npc19_fief_acceptance", "A fief? For myself? I am thankful, Chief, very much. Never expected to inherit my own after my father and here I get one. I will try to keep things in order so that the people are happy and peace in land settled."),
-  ("npc20_fief_acceptance", "You're giving me {s17} to rule over, Reiks? I never thought I'd ever have my own land. Thank you my Reiks!"), 
+  ("npc20_fief_acceptance", "You're giving me {s17} to rule over, Reiks? I never thought I'd ever have my own land. Thank you my Reiks!"),
   ("npc21_fief_acceptance", "You'd make me lord of {s17}, {Sir/Madame}? I never expected to receive a lordship, I am the son of a huntsman after all and I know very little of stewardship. I accept this honor however; my family could move to this new land and our lives would be better. I will govern them to the best of my capabilities, and I swear I will not disappoint you!"),
   ("npc22_fief_acceptance", "I will be a lord? a lord of {s17}, General? If only my father was here to see this and my dear mother, too. Look! Gaze upon me! I am now a landowner. I will do everything in my power to raise you Roman legionaries worthy of being called just that. {s18} will be a center of Roman power from where we will take back what belongs to us!"),
   ("npc23_fief_acceptance", "Finally! I can start my own philosophical school, one that is dedicated to turning young boys into erudite speakers and thinkers who can move the minds and hearts of thousands, of course I will raise troops to protect us and to civilize the marauding hordes by force, if necessary, I thank you, I might even consider you my friend and that is a lot coming from me."),
@@ -1829,14 +1829,14 @@ strings = [
   ("npc15_woman_to_woman", "{!}."), #artimenner
   ("npc16_woman_to_woman", "Oy, Captain -- if you don't mind me saying, you've made quite a name for yourself in these parts. I suspect that if you were a man, a king would have offered you a fief by now. But we ladies should come to expect things like that. Men will find any excuse not to reward us for our work, so if we take a fancy to a bit of land somewhere, maybe we should just reach out and take it. That's the way I look at the world, anyway."), #klethi
   ("npc17_woman_to_woman", "{!}."), #Alachis
-  ("npc18_woman_to_woman", "{!}."), 
-  ("npc19_woman_to_woman", "{!}."), 
-  ("npc20_woman_to_woman", "{!}."), 
-  ("npc21_woman_to_woman", "{!}."), 
-  ("npc22_woman_to_woman", "{!}."), 
-  ("npc23_woman_to_woman", "{!}."), 
-  ("npc24_woman_to_woman", "{!}."), 
-("npc25_woman_to_woman", 
+  ("npc18_woman_to_woman", "{!}."),
+  ("npc19_woman_to_woman", "{!}."),
+  ("npc20_woman_to_woman", "{!}."),
+  ("npc21_woman_to_woman", "{!}."),
+  ("npc22_woman_to_woman", "{!}."),
+  ("npc23_woman_to_woman", "{!}."),
+  ("npc24_woman_to_woman", "{!}."),
+("npc25_woman_to_woman",
  "My lady, you lead with the strength and wisdom of the greatest Iazyg chieftains. Even in a world where women are underestimated, you have earned the respect of warriors like me."),
   ("npc26_woman_to_woman", "{!}."), #alayen
 
@@ -1860,11 +1860,11 @@ strings = [
   ("npc17_turn_against", "Rex... Warlord... It was never meant to end like this. If I win, I will make sure to jump on my very same sword and die. If you win, please, grant me the funerals of a proper warrior. Now prepare."), #Alachis
   ("npc18_turn_against", "I'm sorry that we meet like this, Chief. There's no question that I owe my rise in life to you. You doubtless think me ungrateful. However, one has to follow one's destiny -- isn't that correct?"), #khaetag
   ("npc19_turn_against", "That's with great regret that we have to take swords against each other, Chief. However, I have my obligations to my new liege and have to follow them."),
-  ("npc20_turn_against", "This is a sad day, {playername}. I never would have thought I would be against you when I was in your company, but it seems times have changed..."), 
-  ("npc21_turn_against", "I owe everything to you, this much is true, but I had to decide what was best for my family and myself. I'm sorry, Sir/Madame, but duty demands we fight."), 
-  ("npc22_turn_against", "I see we are now at opposite sides. I believed in you, and I trusted you, but you have forsaken reason and the Roman way of which I told you about, I will always follow it, no matter who is my liege! I will never give up! Now draw steel, wretch!"), 
-  ("npc23_turn_against", "You have strayed far enough from the way I have deemed good and which should be followed by those I consider to be good men. I must kill you for Hellas, for all that is sacred and as a punishment for your missteps. Andron gar epiphanon pasa ge taphos!"), 
-  ("npc24_turn_against", "Sometimes our sides are not chosen but given to us, by some of fate's turns I've become your enemy, I am sorry but my honor requires me to follow my current liege. Do not take this amiss but this is what I must do!"), 
+  ("npc20_turn_against", "This is a sad day, {playername}. I never would have thought I would be against you when I was in your company, but it seems times have changed..."),
+  ("npc21_turn_against", "I owe everything to you, this much is true, but I had to decide what was best for my family and myself. I'm sorry, Sir/Madame, but duty demands we fight."),
+  ("npc22_turn_against", "I see we are now at opposite sides. I believed in you, and I trusted you, but you have forsaken reason and the Roman way of which I told you about, I will always follow it, no matter who is my liege! I will never give up! Now draw steel, wretch!"),
+  ("npc23_turn_against", "You have strayed far enough from the way I have deemed good and which should be followed by those I consider to be good men. I must kill you for Hellas, for all that is sacred and as a punishment for your missteps. Andron gar epiphanon pasa ge taphos!"),
+  ("npc24_turn_against", "Sometimes our sides are not chosen but given to us, by some of fate's turns I've become your enemy, I am sorry but my honor requires me to follow my current liege. Do not take this amiss but this is what I must do!"),
 ("npc25_turn_against", "Captain, I owe you much, but my loyalty now belongs elsewhere. My honor binds me to fight for my new leader, even if it means standing against you. I hope one day you will understand."),
   ("npc26_turn_against", "Sometimes our sides are not chosen but given to us, by some of fate's turns I've become your enemy, I am sorry but my honor requires me to follow my current liege. Do not take this amiss but this is what I must do!"),
 
@@ -2919,7 +2919,7 @@ We apologize sincerely if you contributed your suggestions and feedback but were
   ("multi_scene_23", "Canyon"),
   ("multi_scene_24", "Desert Town"),
   #INVASION MODE START
-  # ("multi_scene_25", "Cold Coast"),  
+  # ("multi_scene_25", "Cold Coast"),
   #INVASION MODE END
   ("multi_scene_12", "Random Plains (Medium)"),
   ("multi_scene_13", "Random Plains (Large)"),
@@ -3774,7 +3774,7 @@ We apologize sincerely if you contributed your suggestions and feedback but were
   ("s12s15_is_at_war_on_too_many_fronts_and_eager_to_make_peace_with_s16", "{s12}{s15} is at war on too many fronts, and eager to make peace with {s16}."),
   ("s12s15_seems_to_think_that_s16_and_reg4shehe_have_a_common_enemy_in_the_s17", "{s12}{s15} seems to think that {s16} and {reg4?she:he} have a common enemy in the {s17}."),
   ("s12s15_feels_frustrated_by_reg4herhis_inability_to_strike_a_decisive_blow_against_s16", "{s12}{s15} feels frustrated by {reg4?her:his} inability to strike a decisive blow against {s16}."),
-  
+
   ("s12s15_has_suffered_enough_in_the_war_with_s16_for_too_little_gain_and_is_ready_to_pursue_a_peace", "{s12}{s15} has suffered enough in the war with {s16}, for too little gain, and is ready to pursue a peace."),
   ("s12s15_has_suffered_enough_in_the_war_with_s16_for_too_little_gain_and_is_ready_to_pursue_a_peace_2", "{s12}{s15} has suffered too much in the war with {s16}, for no gain, and is ready to pursue a peace."),
   ("s12s15_has_suffered_enough_in_the_war_with_s16_for_too_little_gain_and_is_ready_to_pursue_a_peace_3", "{s12}{s15} has suffered too much in the war with {s16} and is ready to pursue a peace."),
@@ -3783,7 +3783,7 @@ We apologize sincerely if you contributed your suggestions and feedback but were
   ("s12s15_dominates_its_weaker_neighbor_s16", "{s12}{s15} attempts to dominate his weaker neighbor {s16}."),	#MOTO for new diplomatic result
   ("s12s15_acts_to_drive_the_people_of_s16_and_their_like_out_of_the_Isles", "{s12}{s15} acts to kill the people of {s16}!"),	#MOTO for new diplomatic result
 
-  
+
   ("s12s15_would_like_to_firm_up_a_truce_with_s16_to_respond_to_the_threat_from_the_s17", "{s12}{s15} would like to firm up a truce with {s16} to respond to the threat from the {s17}."),
   ("s12s15_wishes_to_be_at_peace_with_s16_so_as_to_pursue_the_war_against_the_s17", "{s12}{s15} wishes to be at peace with {s16} so as to pursue the war against the {s17}."),
   ("s12s15_seems_to_be_intimidated_by_s16_and_would_like_to_avoid_hostilities", "{s12}{s15} seems to be intimidated by {s16}, and would like to avoid hostilities."),
@@ -5080,25 +5080,25 @@ We apologize sincerely if you contributed your suggestions and feedback but were
  ("dplmc_s0_and_s1",     "{s0} and {s1}"),
  ("dplmc_s0_newline_s1", "{!}{s0}^{s1}"),
  ##diplomacy end+
- 
+
  #morality objections
  ("hire_deserters", "take those scoundrels under our banner"),
  ("rotten_food", "consume those foul foodstuff and find insects with every bite we take"),
  ("repress_farmers", "repress those peasants and propagate the violence inherent in the system"),
  ("stop_cheating", "waste time playing around with 'consoles' when you can just change the damn thing under camp options"),
- 
+
  #auxiliary item types
  ("dplmc_hero_wpn_slot_morningstar","Two-handed/One-handed"), #21
  ("dplmc_hero_wpn_slot_lance","Lances"), #22
  ("dplmc_hero_wpn_slot_pikes","Pikes"), #23
  ("dplmc_hero_wpn_slot_halberd","Bladed Polearms"), #23
  ("dplmc_hero_wpn_slot_no_metatype","No Preference"), #23
- 
+
   ("camera_keyboard", "To watch the fight you can use direction keys to move horizontally, numpad +- to move vertically, and numpad keys to rotate."),
   ("camera_mouse", "Use the mouse or numpad to rotate the camera, direction keys to move (holding Zoom will move faster). Tilt to adjust sensitivity, numpad to rotate and move vertically."),
   ("camera_follow", "Use tilt keys or mouse wheel to follow friendly agents. Hold Ctrl while using numpad to change view angle."),
 
-  #ai behaviour strings (probably correct)  
+  #ai behaviour strings (probably correct)
   ("ai_bhvr_hold", "Holding"),
   ("ai_bhvr_travel_to_party", "Travelling to Party"),
   ("ai_bhvr_patrol_location", "Patrolling Point"),
@@ -5113,12 +5113,12 @@ We apologize sincerely if you contributed your suggestions and feedback but were
   ("ai_bhvr_escort_party", "Accompanying Party"),
   ("ai_bhvr_driven_by_party", "Being Driven"),
 
-  #party template names 
+  #party template names
   ("s5_transfer", "Transfer to {s5}"),
   ("s5_reinf", "Reinforcements from {s5}"),
   ("s5_scout", "{s5} Scout"),
   ("s5_patrol", "{s5} Patrol"),
-  
+
   #companion mission strings
   ("preparing_prison_break", "Preparing a prison break in {s9}"),
   ("on_loan", "On loan"),
@@ -5127,9 +5127,9 @@ We apologize sincerely if you contributed your suggestions and feedback but were
   # ("damage_cut", "cut"),
   # ("damage_pierce", "pierce"),
   # ("damage_blunt", "blunt"),
- 
+
  #utility for keys array
- 
+
   ("key_0", "0"),
   ("key_1", "1"),
   ("key_2", "2"),
@@ -5258,7 +5258,7 @@ We apologize sincerely if you contributed your suggestions and feedback but were
  You were only one of many other foundlings and orphans, but you nonetheless received a lot of attention\
  as well as many years of study in the church library and before the altar. They taught you many things.\
  Gradually, faith became such a part of your life that it was no different from the blood coursing through your veins."),
-  
+
   ##   As a {reg11?girl:boy} growing out of childhood,\
   ("story_childhood_page","you were sent to live in the court of one of the nobles of the land.\
  There, your first lessons were in humility, as you waited upon the lords and ladies of the household.\
@@ -5361,7 +5361,7 @@ We apologize sincerely if you contributed your suggestions and feedback but were
  You want to be the one whom others hurry to obey.\
  You want people to know your name, and tremble whenever it is spoken.\
  You want everything, and you won't let anyone stop you from having it..."),
-  
+
   ("story_all", "{s10}^^You started to learn about the world almost as soon as you could walk and talk. As a {reg11?girl:boy} growing out of childhood, {s11}^^\
 Though the distinction felt sudden to you, somewhere along the way you had become a {reg11?woman:man}, and the whole world seemed to change around you. {s12}^^\
 Only you know exactly what caused you to give up your old life and become an adventurer. {s13}"),
@@ -5400,50 +5400,50 @@ Only you know exactly what caused you to give up your old life and become an adv
   ("ctm_ranged", "Stay behind the line on the ground and shoot the targets. Try not to waste any shots."),
   ("ctm_mounted", "Try to destroy as many targets as you can. You have two and a half minutes to clear the track."),
 #utility from CC for item modifiers
-  ("imod_plain", "{!}"), 
+  ("imod_plain", "{!}"),
   ("imod_cracked", "Cracked "),
-  ("imod_rusty", "Rusty "), 
-  ("imod_bent", "Bent "), 
-  ("imod_chipped", "Chipped "), 
-  ("imod_battered", "Battered "), 
-  ("imod_poor", "Poor "), 
-  ("imod_crude", "Crude "), 
-  ("imod_old", "Old "), 
-  ("imod_cheap", "Cheap "), 
-  ("imod_fine", "Fine "), 
-  ("imod_well_made", "Well Made "), 
-  ("imod_sharp", "Sharp "), 
-  ("imod_balanced", "Balanced "), 
-  ("imod_tempered", "Tempered "), 
-  ("imod_deadly", "Deadly "), 
-  ("imod_exquisite", "Exquisite "), 
-  ("imod_masterwork", "Masterwork "), 
-  ("imod_heavy", "Heavy "), 
-  ("imod_strong", "Strong "), 
-  ("imod_powerful", "Powerful "), 
-  ("imod_tattered", "Tattered "), 
-  ("imod_ragged", "Ragged "), 
-  ("imod_rough", "Rough "), 
-  ("imod_sturdy", "Sturdy "), 
-  ("imod_thick", "Thick "), 
-  ("imod_hardened", "Hardened "), 
-  ("imod_reinforced", "Reinforced "), 
-  ("imod_superb", "Superb "), 
-  ("imod_lordly", "Lordly "), 
-  ("imod_lame", "Lame "), 
-  ("imod_swaybacked", "Swaybacked "), 
-  ("imod_stubborn", "Stubborn "), 
-  ("imod_timid", "Timid "), 
-  ("imod_meek", "Meek "), 
-  ("imod_spirited", "Spirited "), 
-  ("imod_champion", "Champion "), 
-  ("imod_fresh", "Fresh "), 
-  ("imod_day_old", "Day Old "), 
-  ("imod_two_day_old", "Two Day Old "), 
-  ("imod_smelling", "Smelling "), 
-  ("imod_rotten", "Rotten "), 
-  ("imod_large_bag", "Large Bag "), 
-  
+  ("imod_rusty", "Rusty "),
+  ("imod_bent", "Bent "),
+  ("imod_chipped", "Chipped "),
+  ("imod_battered", "Battered "),
+  ("imod_poor", "Poor "),
+  ("imod_crude", "Crude "),
+  ("imod_old", "Old "),
+  ("imod_cheap", "Cheap "),
+  ("imod_fine", "Fine "),
+  ("imod_well_made", "Well Made "),
+  ("imod_sharp", "Sharp "),
+  ("imod_balanced", "Balanced "),
+  ("imod_tempered", "Tempered "),
+  ("imod_deadly", "Deadly "),
+  ("imod_exquisite", "Exquisite "),
+  ("imod_masterwork", "Masterwork "),
+  ("imod_heavy", "Heavy "),
+  ("imod_strong", "Strong "),
+  ("imod_powerful", "Powerful "),
+  ("imod_tattered", "Tattered "),
+  ("imod_ragged", "Ragged "),
+  ("imod_rough", "Rough "),
+  ("imod_sturdy", "Sturdy "),
+  ("imod_thick", "Thick "),
+  ("imod_hardened", "Hardened "),
+  ("imod_reinforced", "Reinforced "),
+  ("imod_superb", "Superb "),
+  ("imod_lordly", "Lordly "),
+  ("imod_lame", "Lame "),
+  ("imod_swaybacked", "Swaybacked "),
+  ("imod_stubborn", "Stubborn "),
+  ("imod_timid", "Timid "),
+  ("imod_meek", "Meek "),
+  ("imod_spirited", "Spirited "),
+  ("imod_champion", "Champion "),
+  ("imod_fresh", "Fresh "),
+  ("imod_day_old", "Day Old "),
+  ("imod_two_day_old", "Two Day Old "),
+  ("imod_smelling", "Smelling "),
+  ("imod_rotten", "Rotten "),
+  ("imod_large_bag", "Large Bag "),
+
   #lowercase descriptions for disguises
   ("pilgrim_disguise", "pilgrim"),
   ("farmer_disguise", "farmer"),
@@ -5451,7 +5451,7 @@ Only you know exactly what caused you to give up your old life and become an adv
   ("guard_disguise", "guard"),
   ("merchant_disguise", "merchant"),
   ("bard_disguise", "bard"),
-  
+
   #recolor presentation strings
   ("html", "HTML Code: {s0}"),
   ("html_color", "{!}#{s11}{s12}{s13}{s14}{s15}{s16}"),
@@ -5459,25 +5459,25 @@ Only you know exactly what caused you to give up your old life and become an adv
   # ("color_kingdom", "your realm"),
   ("color_banner", "the back of your banner"),
   ("color_group", "the {s0} group on the minimap"),
-  
+
   #update settings
   ("setting_of", "Current Setting: {s1}"),
-  
+
   #SB : new strings from Invasion, moved down here to keep slot compatibility
   ("multi_scene_25", "Cold Coast"),
   # ("multi_game_type_9", "Invasion"),
-  
-  ("s1_team", "{s1} squad"), 
+
+  ("s1_team", "{s1} squad"),
   # ("warning_max_players_count_caption", "{!}NOT USED"),
   # ("warning_max_players_count_text", "{!}The recommended number of players for this mode is 16 players"),
   # ("warning_max_players_count_text2", "The recommended number of players for this mode is 16 players"),
   # ("command_info_text", "{!}Squad size: {reg1}, cost: {reg2}"),
-  
+
   # ("morale_reason_faction_conflict", "{!}NOT USED"),
   # ("morale_reason_faction_common", "{!}NOT USED"),
-  # ("multi_disable_granades", "Disable grenades"), 
+  # ("multi_disable_granades", "Disable grenades"),
   # ("squad_size_s0", "Squad size: {s0}"),
-  
+
   ("mp_add_troop", "Companions"),
   # ("mp_squad", "Squad"),
   # ("mp_squad_req_size_reg0", "Requested: {reg0}"),
@@ -5492,8 +5492,8 @@ Only you know exactly what caused you to give up your old life and become an adv
   ("time_left_reg2_mins_reg1_secs", "Time Left: {reg2} minutes and {reg1} seconds"),
   ("time_left_reg1_secs", "Time Left: {reg1} seconds"),
   ("enemies_reg1_total_reg2_arriving", "Enemies: {reg1} Alive, {reg2} Arriving"),
-  ("ccoop_enemy_info", "   {reg4} {s0} ({reg3} arriving)"),  
-  
+  ("ccoop_enemy_info", "   {reg4} {s0} ({reg3} arriving)"),
+
   #Suvorov add 01/06/2011
   # ("oim_black_hetman_failed", "You no longer control the capital, there is no chance of victory. All is lost!"),
 
@@ -5521,9 +5521,9 @@ Only you know exactly what caused you to give up your old life and become an adv
   # ("s1_s2", "{!}{s1} {s2}"),
   # ("your_troops_are_dying_because_of_illness", "Your troops are dying because of a disease!"),
   # ("has_died_because_of_illness", "has died of {s4}."),
-  # ("have_died_because_of_illness", "have died of {s4}."),  
-  
-  
+  # ("have_died_because_of_illness", "have died of {s4}."),
+
+
   ("ccoop_wave_reg1_is_coming_in_reg0_seconds", "Wave {reg1} is coming in {reg0} seconds"),
   ("ccoop_veteran_wave_reg1_is_coming_in_reg0_seconds", "Veteran wave {reg1} is coming in {reg0} seconds"),
   ("ccoop_elite_wave_reg1_is_coming_in_reg0_seconds", "Elite wave {reg1} (Tier {reg2}) is coming in {reg0} seconds"),
@@ -5537,9 +5537,9 @@ Only you know exactly what caused you to give up your old life and become an adv
   ("elite_wave_hint", "Beware: Elites have increased health and deliver more damage!"),
   ("ask_for_help_to_respawn_hint", "You'll respawn once your comrades destroy the prisoner cart or pass the current round."),
   ("wait_for_next_turn_to_respawn_hint", "You will respawn in the next round."),
-  
+
   # ("mp_cbf_squad_auto_ratio", "Auto-balance captain squad ratio"),
-  
+
   ("default", "Default"),
 
   #settings
@@ -5566,7 +5566,7 @@ Only you know exactly what caused you to give up your old life and become an adv
 
   #yet to be determined <-known to be {s4} -> here
   #we're not sure which could <- the town of {s4} is believed to -> we think ourselves to
-  
+
   ("mayor_wealth_compare", "Here in {s3}, we {s4} than {reg4} towns{reg6?, and {s5} than {reg5}:}."),
   ("mayor_wealth_no_data", "All things considered, we are on par with all others towns."),
   ("mayor_wealth_rank_1", "yet to be reckoned"),
@@ -5585,7 +5585,7 @@ Only you know exactly what caused you to give up your old life and become an adv
   ("mayor_wealth_compare_more_3", "have villagers producing more"),
   ("mayor_wealth_compare_more_4", "are more visited"),
   ("mayor_wealth_compare_more_5", "are more afflicted by raiders"),
-  
+
   ("mayor_wealth_comparison_1", "Overall, the wealthiest town is {s2}. {s1}"),
   ("mayor_wealth_comparison_2", "In terms of local industry, the most productive town is {s2}. {s1}\
  Production is of course affected by the supply of raw materials, as well as by the overall prosperity of the town."),
@@ -5593,7 +5593,7 @@ Only you know exactly what caused you to give up your old life and become an adv
  The wealth of a town's hinterland, of course, is heavily dependent on the tides of war. Looting and pillage, and shifts in territory, can make a major impact."),
   ("mayor_wealth_comparison_4", "In terms of trade, {s2} have received the most visits from caravans over the past few months. {s1}"),
   ("mayor_wealth_comparison_5", "In terms of attacks on travellers, {s2} be the most dangerous. {s1}"),
-  
+
   ("npc_mission_delegate_quest", "Questing on your behalf"), #generic description "on an errand"
   #these are 3rd-person descriptions of objectives {x} for {y} since string registers are not always known
   ("dplmc_npc_qst_deliver_message", "Deliver a peaceful message"),
@@ -5645,7 +5645,7 @@ Only you know exactly what caused you to give up your old life and become an adv
   ("s5_over_s14", "{s21}^* The {s5} is the overlord of {s14}.{s18} It will degrade into an alliance in {reg1} days."),
   ("s14_over_s5", "{s21}^* The {s5} is a tributary vassal of {s14}.{s18} It will degrade into an alliance in {reg1} days."),
   ("tributary_attack", "They are our tributary state. If you attack them you violate the treaty."),
-  
+
   # Object Titles
   ("mcc_label_done", "Done"),
   ("mcc_label_back", "Back"),
@@ -5728,7 +5728,7 @@ Even in the last case, the player can make formations up to four lines by orderi
   ("com_miaphysite_christian", "{s1}^^Religion: Miaphysite Christianity"),
   ("com_nestorian_christian", "{s1}^^Religion: Nestorian Christianity"),
   ("com_donatist_christian", "{s1}^^Religion: Donatist Christianity"),
-  ("com_pagan", "{s1}^^Religion: Pagan"),  
+  ("com_pagan", "{s1}^^Religion: Pagan"),
   ("com_roman_paganism", "{s1}^^Religion: Roman Paganism"),
   ("com_zoroastrianism", "{s1}^^Religion: Mazdaist Zoroastrianism"),
   ("com_zurvanism", "{s1}^^Religion: Zurvanite Zoroastrianism"),
@@ -5767,7 +5767,7 @@ Even in the last case, the player can make formations up to four lines by orderi
   ("accessories_pouch","accessories_pouch"),
   ("accessories_canteen","accessories_canteen"),
   ("accessories_end","accessories_pouch"),
-  
+
   #pictish accessories
   ("pictish_backpack","pictish_backpack"),
   ("pictish_satchel", "pictish_satchel"),
@@ -6077,7 +6077,7 @@ Even in the last case, the player can make formations up to four lines by orderi
   ("go_to_the_lords_hall_s1", "Visit the lord's hall{s1}."),
 #######SIEGE WARFARE
   ("circunvalation_none",">>There is no blockade. Men and supplies can enter and exit practically at will.^^"),
-  ("water_poison_im","Your men could throw dead rats in the wells and other water sources. That would make the population and the garrison sick." ),  
+  ("water_poison_im","Your men could throw dead rats in the wells and other water sources. That would make the population and the garrison sick." ),
   ("cattle_kill_im","Your men could kill the cattle they have here and in nearby villages. That would drastically reduce their food reserves.^^Moreover, this would damage the prestige and income of the lord of this place."),
   ("people_morale_im","Your men could spread rumors, leave the dead bodies of some locals at night in the square, and sow dissension among the defenders. This could also bring some men from their garrison to us."),
   ("food_burn_im","Your men could burn their granaries. This would cause devastation in their food stocks."),
@@ -6584,24 +6584,24 @@ Even in the last case, the player can make formations up to four lines by orderi
 ("extort_toll_xp", "You can raise a special toll on goods which are traded today. This would upset the merchants of {s39} and the villagers of the surrounding villages, who come here to sell their goods. As the party member with the highest trade skill ({reg2}), {reg3?you expect:{s1} expects} it would take {reg40} hours to collect the toll and would give you {reg30} siliquae."),
 ("extort_concile_xp", "The town counsel has {reg31} in their treasury. You can force them to take over their funds. It would take you 2 hours and you would gain {reg31} siliquae."),
 
-("region_strings_begin","ZAMB LAND"),      
-("region_spain","Spain"),      
-("region_north_africa","North Africa"),      
-("region_southitaly","South Italy"),      
-("region_nile","Nile"),      
-("region_syria_palestine","Syria and Palestine"),      
-("region_anatolia_central","Anatolia Central"),      
-("region_anatolia_coastal","Anatolia Coastal"),      
-("region_mesopotamia","Mesopotamia"),      
-("region_persianhill_green","Persian hills (green)"),      
-("region_persianhill_desert","Persian hills (desert)"),      
-("region_caucasus","Caucasus"),      
-("region_greece","Greece"),      
-("region_nile_delta","Nile Delta"),      
-("region_mountain_europe","Mountain Europe Alps"),      
-("region_mountain_europe_spain_france","Mountain Europe Spain France"),      
-("region_mountain_europe_romania","Mountain Europe Romania"),      
-("region_mountain_europe_bohemia","Mountain Europe Bohemia"),      
+("region_strings_begin","ZAMB LAND"),
+("region_spain","Spain"),
+("region_north_africa","North Africa"),
+("region_southitaly","South Italy"),
+("region_nile","Nile"),
+("region_syria_palestine","Syria and Palestine"),
+("region_anatolia_central","Anatolia Central"),
+("region_anatolia_coastal","Anatolia Coastal"),
+("region_mesopotamia","Mesopotamia"),
+("region_persianhill_green","Persian hills (green)"),
+("region_persianhill_desert","Persian hills (desert)"),
+("region_caucasus","Caucasus"),
+("region_greece","Greece"),
+("region_nile_delta","Nile Delta"),
+("region_mountain_europe","Mountain Europe Alps"),
+("region_mountain_europe_spain_france","Mountain Europe Spain France"),
+("region_mountain_europe_romania","Mountain Europe Romania"),
+("region_mountain_europe_bohemia","Mountain Europe Bohemia"),
 ("other","other region"),
 
 ("face_culture_gothic", "000000001e0c244a3daa8c987489496400000000000193390000000000000000"),
@@ -6676,9 +6676,9 @@ Even in the last case, the player can make formations up to four lines by orderi
 ("background_religion_roman_paganism", "Your parents believed in the old Roman Gods. You learned that the Gods are arbitrary and fallible as the humans are. Thus you need to make sacrifices to appease them and receive their favor. You always listen with excitement to the old tales of the Illias and the Aeneid."),
 ("background_religion_zoroastrianism", "Your parents were devout worshippers of Ahura Mazda. You learned about the importance of the four elements, from which the fire is the most important one. Fire and clean water are agents of ritual purity."),
 ("background_religion_zurvanism", "Your parents were devout worshippers of Zurvan. In contrast with your Mazdaist Zoroastrian brethren, you were taught that Zurvan is the primordial creator, who begot the two twin entities; that of Ahura Mazda, embodying goodness, and Angra Mainyu, embodying evil."),
-("background_religion_judaism", "Your parents were devout followers of Yahweh, and maintain the rabbinic traditions and the Mosaic covenant. You and your faithfully wait for the coming Messiah and the restoration of the Temple in Jerusalem."), 
+("background_religion_judaism", "Your parents were devout followers of Yahweh, and maintain the rabbinic traditions and the Mosaic covenant. You and your faithfully wait for the coming Messiah and the restoration of the Temple in Jerusalem."),
 
-("diplo_casus_expired_reparations_accepted","In order to avoid war they decide to accept the demand. A sum of {reg40} siliquae has been paid as tribute."),      
+("diplo_casus_expired_reparations_accepted","In order to avoid war they decide to accept the demand. A sum of {reg40} siliquae has been paid as tribute."),
 ("diplo_casus_expired_reparations_refused_war","They refuse the demand and declare war!"),
 
 
@@ -6862,7 +6862,7 @@ Even in the last case, the player can make formations up to four lines by orderi
   ("ship_wood_1", "Oak"),
   ("ship_wood_2", "Pine"),
   ("ship_wood_3", "Ash"),
-  
+
   ("ship_name_1", "Tranann"),
   ("ship_name_2", "Ormurin Skamma"),
   ("ship_name_3", "Ormurin Langi"),
@@ -6887,7 +6887,7 @@ Even in the last case, the player can make formations up to four lines by orderi
   ("ship_name_22", "Alptr"),
   ("ship_name_23", "Saeulfr"),
   ("ship_names_end", "ship_names_end"),
-  
+
   ("cant_set_sail", "You can't set sail. Your ships don't have room for {reg3} of your men."),
   ("regnum_suevorum", "Regnum Suevorum"),
   ("mercenary", "Mercenary"),

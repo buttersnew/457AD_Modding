@@ -853,4 +853,5 @@ scn_haddingrs_revenge_beach_battle = 850
 scn_haddingrs_revenge_forest_hideout = 851
 scn_haddingrs_revenge_sedgean = 852
 scn_haddingrs_revenge_wangofthus_hall = 853
+scn_haddingrs_revenge_travel_cutscene = 854
 scn_exit = 100000

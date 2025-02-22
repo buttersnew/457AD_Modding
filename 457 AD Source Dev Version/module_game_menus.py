@@ -5780,17 +5780,6 @@ TOTAL:  {reg5}"),
       ("leave",[],"Leave.",[(leave_encounter),(change_screen_return)]),
     ]
   ),
-  (
-    "dhorak_keep",0,
-#    "Dhorak Keep, the stronghold of the bandits stands overlooking the barren wilderness.",
-    "You enter the Dhorak Keep",
-    "none",
-    [],
-    [
-      ("enter",[],"Enter.",[(set_jump_mission,"mt_town_center"),(jump_to_scene,"scn_dhorak_keep"),(change_screen_mission)]),
-      ("leave",[],"Leave.",[(leave_encounter),(change_screen_return)]),
-    ]
-  ),
 
 ##  (
 ##    "center_under_attack_while_resting",0,
@@ -27920,11 +27909,12 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 10),
         (jump_to_menu, "mnu_haddingrs_revenge_guthormr_talk"),
     (else_try),
+        (this_or_next|eq, "$g_encountered_party", "p_augundzi_village"),
         (eq, "$g_encountered_party", "p_dani_village"),
         (check_quest_active, "qst_haddingrs_revenge"),
         (quest_slot_ge, "qst_haddingrs_revenge", slot_quest_current_state, 7),
         (jump_to_menu, "mnu_auto_return_to_map"),
-        (display_message, "@The garrison is hostile towards you.", message_alert),
+        (display_message, "@The garrison is hostile towards you. You are not allowed to enter.", message_alert),
     (else_try),
         (eq, "$g_encountered_party", "p_dani_village"),
         (check_quest_active, "qst_haddingrs_revenge"),
@@ -33824,6 +33814,10 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 "none", [
     (try_begin),
       (check_quest_active, "qst_haddingrs_revenge"),
+      (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 12),
+      (str_store_string, s9, "@Near Wagnofthus's dwelling, Haddingr stands by the crackling fire, his stance firm, his eyes alight with unwavering resolve. Not far off, Harthgrepa watches in silence, her gaze lingering upon him."),
+    (else_try),
+      (check_quest_active, "qst_haddingrs_revenge"),
       (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 9),
       (str_store_string, s9, "@The cold winds of Scandza bite at your skin as you arrive at Wagnofthus's dwelling. Outside, Haddingr moves with precision, locked in a sparring match against one of his loyal warriors. Nearby, Wagnofthus observes in silence, his gaze stern and unyielding.^^Not far from them, Signe and Harthgrepa sit together, speaking in hushed tones. As you draw closer, Haddingr notices your approach and steps forward to greet you."),
     (else_try),
@@ -33838,6 +33832,29 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     (change_screen_mission),
   ]),
   ("option_1", [
+    (check_quest_active, "qst_haddingrs_revenge"),
+    (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 12),
+  ],"Continue...",[
+    #0 pplayer outside, 1 player inside, 2 haddingr, 3 soldier sparring, 4 gigant, 5 daughter of giant, 6-7 dani bitches
+    # 8-16 other soldiers
+    (assign, "$temp", "trp_dani_haddingr"),# start conversation with haddingr
+    (set_jump_mission, "mt_longboat_landing_1"),
+    (assign, "$g_next_menu", "mnu_auto_return_to_map"),
+    (modify_visitors_at_site, "scn_haddingrs_revenge_wangofthus_hall"),
+    (reset_visitors),
+    (assign, "$g_battle_result", 0),
+    #villagers
+    (set_visitor, 1, "trp_player"),
+    (set_visitor, 4, "trp_dani_haddingr"),
+    (set_visitor, 5, "trp_giant_harthgrepa"),
+    (set_visitor, 6, "trp_giant_wagnofthus"),
+    (set_visitor, 7, "trp_dani_signe"),
+
+    (assign, "$talk_context", tc_town_talk),
+    (jump_to_scene, "scn_haddingrs_revenge_wangofthus_hall"),
+    (change_screen_mission),
+  ]),
+  ("option_2", [
     (check_quest_active, "qst_haddingrs_revenge"),
     (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 9),
   ],"Continue...",[
@@ -33921,6 +33938,155 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     (change_screen_mission),
   ]),
 ]),
+
+("haddingrs_revenge_message",mnf_scale_picture,
+"A messenger approaches with a sealed letter bearing Haddingr's crest:"
++"^^To my most trusted companion, {playername},"
++"^^The time of waiting is over. My training under Wagnofthus has reached its end, and I am now ready to gather the strength needed to reclaim what is ours."
++"^But ill news accompanies my readiness: my brother Guthormr has passed in his seclusion, leaving me as the last heir to our father's legacy. Though his actions in life caused us grief, his death only hardens my resolve to restore honor to the Skjoldungr name."
++"^I beseech thee, {playername}, to meet me once more at the dwelling of Wagnofthus in Gothiscandza. Together, we shall begin the next step of this great undertaking."
++"^^With respect and determination,"
++"^Haddingr Skjoldungr",
+"none", [
+    (set_background_mesh, "mesh_pic_messenger"),
+  ],[
+  ("option_2", [
+  ],"Continue...",[
+
+    # kill old
+    (party_remove_members, "p_dani_village", "trp_dani_guthormr", 1),
+    (troop_set_slot, "trp_dani_guthormr", slot_troop_occupation, dplmc_slto_dead),
+
+    # set the augundzi king as ruler of the Dani, as he subjugated them
+    (party_set_slot, "p_frisian_village", slot_town_lord, "trp_augundzi_king"),
+    (faction_set_slot, "fac_minor_dani", slot_faction_leader, "trp_augundzi_king"),
+
+    (str_store_troop_name, s10, "trp_dani_guthormr"),
+    (str_store_troop_name, s11, "trp_augundzi_king"),
+    (display_log_message, "@{s10} deceased. {s11} is now the the new ruler of the Dani!", message_alert),
+
+    # just in case also remove party if there is any
+    (try_begin),
+      (troop_get_slot, ":leaded_party", "trp_dani_guthormr", slot_troop_leaded_party),
+      (gt, ":leaded_party", 0),
+      (party_is_active, ":leaded_party", 0),
+      (call_script, "script_remove_hero_prisoners", ":leaded_party"),
+      (remove_party, ":leaded_party"),
+    (try_end),
+
+
+    (quest_set_slot, "qst_haddingrs_revenge", slot_quest_current_state, 12),
+    (change_screen_map),
+  ]),
+]),
+
+("journey_to_raid",mnf_scale_picture,
+"With steady strides, Haddingr, Harthgrepa, and Signe march at your side, their resolve firm as iron. Behind you, a band of loyal warriors moves in solemn unity."
++" As you press forward, your gaze catches a green-eyed cat trailing the procession. With silent grace, it leaps onto a weathered stone, settling there to watch as you depart."
++" The path ahead is shrouded in uncertainty, yet the fire of purpose burns bright in every heart.",
+"none", [
+    (set_background_mesh, "mesh_pic_nord"),
+  ],[
+  ("option_1", [
+  ],"Continue...",[
+    (add_xp_as_reward, 1500),
+
+    (assign, "$g_next_menu", "mnu_journey_to_raid_2"),
+    (assign, "$tutorial_state", 0),
+    (assign, "$temp3", 1),
+    (try_for_range, ":slot", 0, 8),
+      (troop_set_slot, "trp_temp_array_c", ":slot", -1),
+    (try_end),
+
+    # spawn troops in group and move them
+    (troop_set_slot, "trp_temp_array_c", 1, "trp_dani_haddingr"),
+    (troop_set_slot, "trp_temp_array_c", 2, "trp_giant_harthgrepa"),
+    (troop_set_slot, "trp_temp_array_c", 3, "trp_dani_signe"),
+    (troop_set_slot, "trp_temp_array_c", 4, "trp_scandinavian_comes"),
+    (troop_set_slot, "trp_temp_array_c", 5, "trp_scandinavian_retainer"),
+    (troop_set_slot, "trp_temp_array_c", 6, "trp_scandinavian_freeman"),
+    (troop_set_slot, "trp_temp_array_c", 7, "trp_multiplayer_profile_troop_male"), # used as player clone
+
+    (troop_clear_inventory, "trp_multiplayer_profile_troop_male"),
+    (try_begin),
+        (eq,"$character_gender", tf_female),
+        (troop_set_type,"trp_multiplayer_profile_troop_male", tf_female),
+    (else_try),
+        (troop_set_type,"trp_multiplayer_profile_troop_male", tf_male),
+    (try_end),
+    (str_store_troop_face_keys, s10, "trp_player"),
+    (troop_set_face_keys, "trp_multiplayer_profile_troop_male", s10),
+    (call_script, "script_dplmc_copy_inventory", "trp_player", "trp_multiplayer_profile_troop_male"),
+    # they are all on foot, so ensure player is too
+    (troop_set_inventory_slot, "trp_multiplayer_profile_troop_male",  ek_horse, -1),
+
+    (set_jump_mission, "mt_travel_cutscene"),
+    (set_jump_entry, 1),
+    (jump_to_scene, "scn_haddingrs_revenge_travel_cutscene"),
+    (change_screen_mission),
+  ]),
+]),
+
+("journey_to_raid_2",mnf_scale_picture,
+"Haddingr's host sets sail for the Mare Suebicum. Prepare for the battles ahead.",
+"none", [
+    (set_background_mesh, "mesh_pic_nord"),
+  ],[
+  ("option_1", [
+  ],"Continue...",[
+      # detache player party
+      (try_begin),
+          (party_get_attached_to, ":cur_town", "p_main_party"),
+          (ge, ":cur_town", 1),
+          (party_detach, "p_main_party"),
+          (party_relocate_near_party, "p_main_party", "p_village_153", 5),
+          (party_set_position, "p_main_party", pos32),
+      (try_end),
+      (leave_encounter),
+      (change_screen_map),
+
+      (enable_party, "p_transporter"),
+      (set_fixed_point_multiplier, 1),
+      (init_position, pos32),
+      (position_set_x, pos32, -104),
+      (position_set_y, pos32, 171),
+
+      (party_set_slot, "p_transporter", slot_party_on_water, 1),
+      (party_set_flags, "p_transporter", pf_is_ship, 0),
+      (party_set_position, "p_transporter", pos32),
+
+      (set_fixed_point_multiplier, 1),
+      (init_position, pos31),
+      (position_set_x, pos31, -95),
+      (position_set_y, pos31, 155),
+
+      (party_set_ai_behavior, "p_transporter", ai_bhvr_travel_to_point),
+      (party_set_ai_target_position, "p_transporter", pos31),
+
+      (party_set_icon, "p_transporter", "icon_ship"),
+
+      # SEA TRAVEL
+      (assign, "$auto_menu", "mnu_journey_to_raid_landing"),
+      (rest_for_hours, 10 * 24, 1, 0),
+      (set_camera_follow_party, "p_transporter"),
+      (assign, "$g_player_is_captive", 1),
+      (change_screen_return),
+      (quest_set_slot, "qst_haddingrs_revenge", slot_quest_current_state, 13),
+  ]),
+]),
+("journey_to_raid_landing",mnf_scale_picture|mnf_enable_hot_keys,
+"The host journeys to the distant shores of the Mare Suebicum, where the lands of the Aestii and the Venedi stretch beneath vast, whispering forests. In a secluded place, your company makes camp, spending days in quiet preparation - tending to gear, scouting the land, and gathering what little news the winds may carry."
++"^^As time passes, footsteps approach. Haddingr stands before you, his gaze steady, his words soon to follow.",
+"none", [
+    (set_background_mesh, "mesh_pic_camp"),
+  ],[
+  ("option_1", [
+  ],"Continue...",[
+    (quest_set_slot, "qst_haddingrs_revenge", slot_quest_current_state, 14),
+    (jump_to_menu, "mnu_journey_to_raid"),
+  ]),
+]),
+
 ]#end of file
 
 

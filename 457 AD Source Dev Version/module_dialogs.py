@@ -52265,6 +52265,114 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
   ]],
 
 ## haddingrs revenge
+[trp_dani_haddingr, "start", [
+  (check_quest_active, "qst_haddingrs_revenge"),
+  (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 12),
+],
+"{playername}, thou art come at last. Thy arrival marks the beginning of the next chapter in our tale.",
+"haddingrs_revenge_set_sail_1", [
+]],
+[anyone|plyr,"haddingrs_revenge_set_sail_1", [
+],
+"Haddingr, it is good to see thee well. Thy words carry weight—what chapter dost thou speak of?",
+"haddingrs_revenge_set_sail_2",[
+]],
+[anyone|plyr,"haddingrs_revenge_set_sail_1", [
+],
+"Thou hast summoned me, and lo, I stand before thee. What is thy will?",
+"haddingrs_revenge_set_sail_2",[
+]],
+[anyone,"haddingrs_revenge_set_sail_2", [
+],
+"My training under Wagnofthus is complete. He has forged in me a warrior's arm and a king's will. Yet, strength alone shall not carry me to Heorot's throne. For that, we need men, steel, and gold.",
+"haddingrs_revenge_set_sail_3",[
+]],
+[anyone|other(trp_giant_harthgrepa),"haddingrs_revenge_set_sail_3", [
+],
+"-- He halts for a moment, casting a fleeting glance toward Harthgrepa before speaking once more. --",
+"haddingrs_revenge_set_sail_4",[
+  (call_script, "script_set_conversation_troop", "trp_giant_harthgrepa"),
+]],
+[anyone,"haddingrs_revenge_set_sail_4", [
+],
+"And… there is one more truth I would share with thee. Harthgrepa, daughter of Wagnofthus, holds my heart. She has stood by me as I trained and endured. Yet fate calls me away from this place, and though my love for her burns bright, duty outweighs desire.",
+"haddingrs_revenge_set_sail_5",[
+]],
+[anyone|plyr,"haddingrs_revenge_set_sail_5", [
+],
+"Thy resolve is admirable, Haddingr. What dost thou propose we do?",
+"haddingrs_revenge_set_sail_6",[
+]],
+[anyone|plyr,"haddingrs_revenge_set_sail_5", [
+],
+"Thy progress is most commendable, and I am heartened to see that love hath not dimmed thy sense of duty.",
+"haddingrs_revenge_set_sail_6",[
+]],
+[anyone,"haddingrs_revenge_set_sail_6", [
+],
+"Now, we must make a name for ourselves, {playername}, and fill our coffers with riches. Across the Mare Suebicum, east of us, lie villages ripe for the taking. Their defenses are weak, their hillforts scattered. We shall loot their wealth, sack their strongholds, and return with both gold and glory.",
+"haddingrs_revenge_set_sail_7",[
+]],
+[anyone|plyr,"haddingrs_revenge_set_sail_7", [
+],
+"A bold plan, but one fraught with peril. Are we ready for such a venture?",
+"haddingrs_revenge_set_sail_8",[
+]],
+[anyone,"haddingrs_revenge_set_sail_8", [
+],
+"-- Nods firmly. --^^With thy sword at my side and the blessings of Wagnofthus's teaching, I have no doubt."
++" This is the path that will lead us to an army and the throne of Heorot. What say thee? Will thou stand with me?",
+"haddingrs_revenge_set_sail_9",[
+]],
+[anyone|plyr,"haddingrs_revenge_set_sail_9", [
+],
+"I stand with thee, Haddingr. Let us carve our name into the annals of history.",
+"haddingrs_revenge_set_sail_continue",[
+]],
+[anyone|plyr,"haddingrs_revenge_set_sail_9", [
+],
+"I cannot follow thee, Haddingr. Thy ambition is noble, but my path lies elsewhere.",
+"haddingrs_revenge_set_sail_end",[
+]],
+
+[anyone,"haddingrs_revenge_set_sail_continue", [
+],
+"-- Grinning, his voice filled with fire. --^^Thy loyalty does thee credit, {playername}. Together, we shall make the heavens tremble. Gather thy strength, for the Mare Suebicum awaits!",
+"close_window",[
+  (assign, "$g_battle_result", 1),
+  (assign, "$g_next_menu", "mnu_journey_to_raid"),
+]],
+
+[anyone,"haddingrs_revenge_set_sail_end", [
+],
+"-- His expression hardens, disappointment in his eyes. --^^Thou art free to choose thy path, {playername}, yet I cannot help but grieve thy absence. Farewell. May thy journey bring thee peace, even as mine seeks vengeance.",
+"close_window",[
+  (assign, "$g_battle_result", 1),
+
+  (call_script, "script_change_troop_renown", "trp_player", -25),
+  (call_script, "script_change_player_honor", -10),
+
+  (call_script, "script_fail_quest", "qst_haddingrs_revenge"),
+  (call_script, "script_end_quest", "qst_haddingrs_revenge"),
+
+  (call_script, "script_change_player_relation_with_troop", "trp_dani_haddingr", -50),
+  (call_script, "script_change_player_relation_with_troop", "trp_dani_ordlaf", -50),
+  (call_script, "script_change_player_relation_with_troop", "trp_dani_groa", -50),
+  (call_script, "script_change_player_relation_with_troop", "trp_dani_signe", -50),
+
+  (party_add_leader, "p_dani_village", "trp_dani_haddingr"),
+  (party_set_faction, "p_dani_village", "fac_minor_dani"),
+  (troop_set_slot, "p_dani_village", slot_town_lord, "trp_dani_haddingr"),
+  (faction_set_slot, "fac_minor_dani", slot_faction_leader, "trp_dani_haddingr"),
+
+  (troop_set_slot, "trp_dani_haddingr", slot_troop_age, 18),
+  (troop_set_slot, "trp_dani_haddingr", slot_troop_religion, slot_religion_paganism),
+  (troop_set_slot, "trp_dani_haddingr", slot_troop_renown, 650),
+  (troop_set_note_available, "trp_dani_haddingr", 1),
+  (add_troop_note_tableau_mesh, "trp_dani_haddingr", "tableau_troop_note_mesh"),
+]],
+
+
 [trp_dani_groa, "start", [
   (check_quest_active, "qst_haddingrs_revenge"),
   (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 11),

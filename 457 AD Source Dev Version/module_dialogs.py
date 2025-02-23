@@ -52270,7 +52270,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
   (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 20),
 ],
 "Look upon what we have claimed, {playername}! This crossing, this artery of trade, is ours. Gold, amber, and all who dare pass through here will now serve our cause.",
-"haddingrs_revenge_camp_1", [
+"haddingrs_revenge_trade_post_1", [
 ]],
 [anyone|plyr,"haddingrs_revenge_trade_post_1", [
 ],

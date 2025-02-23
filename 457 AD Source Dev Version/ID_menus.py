@@ -549,3 +549,7 @@ mnu_haddingrs_revenge_message = 547
 mnu_journey_to_raid = 548
 mnu_journey_to_raid_2 = 549
 mnu_journey_to_raid_landing = 550
+mnu_haddingr_move_party = 551
+mnu_haddingr_aesti_battle = 552
+mnu_haddingr_aesti_battle_won = 553
+mnu_haddingrs_revenge_camp = 554

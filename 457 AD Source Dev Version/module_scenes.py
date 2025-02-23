@@ -1845,5 +1845,12 @@ scenes = [
     [],[],"outer_terrain_plain_2"),
   ("haddingrs_revenge_travel_cutscene", sf_generate, "none", "none", (0, 0), (100, 100), -0.5, "0x000000003c600563000d2348000052d4000067d5000029c1",
     [], [], "outer_terrain_forest"),
-
+  ("haddingrs_aesti_village", sf_generate, "none", "none", (0, 0), (100, 100), -0.5, "0x00000002a0000500000d234800007d8e00006aca00005ad8",
+    [], [], "outer_terrain_beach"),
+  ("haddingrs_aesti_grove", sf_generate, "none", "none", (0, 0), (100, 100), -0.5, "0x000000033a0797428005614e000023608000708d00007a0d",
+    [], [], "outer_terrain_forest"),
+  ("haddingrs_aesti_ambush", sf_generate, "none", "none", (0, 0), (100, 100), -0.5, "0x00000000300005000007bdef0000750f000056d900005a07",
+    [], [], "outer_terrain_forest"),
+  ("haddingrs_aesti_trade_post", sf_generate, "none", "none", (0, 0), (100, 100), -0.5, "0x000000023000050000076ddb000029ba000027660000651a",
+    [], [], "outer_terrain_forest"),
 ]

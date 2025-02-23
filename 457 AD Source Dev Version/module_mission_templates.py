@@ -27943,6 +27943,57 @@ common_battle_init_banner,
      (4,mtef_attackers|mtef_team_1,0,aif_start_alarmed,0,[]),
      ], vc_weather +
     [
+      # Let it burn
+      (0, 80, ti_once, [
+        (eq, "$g_encounter_is_in_village", 1),
+      ],[
+        (display_message, "@Fire has broken out!"),
+        (set_fixed_point_multiplier, 100),
+        (assign, reg1, "psys_village_fire_big"),
+
+        (assign, reg2, "psys_war_smoke_tall"),
+        (assign, reg3, 0),
+        (assign, ":counter", 0),
+        (try_for_prop_instances, ":curr_instance", -1, somt_object),
+            (lt, ":counter", 15),	#not more then 60 part sys, now 25 since people get performance issues
+            (prop_instance_get_scene_prop_kind, ":scene_prop_kind", ":curr_instance"),
+            (this_or_next|is_between, ":scene_prop_kind", "spr_village_house_e", "spr_carpet_d"),
+            (this_or_next|is_between, ":scene_prop_kind", "spr_village_stable_a", "spr_dungeon_door_cell_a"),
+            (this_or_next|is_between, ":scene_prop_kind", "spr_town_house_a", "spr_windmill"),
+            (this_or_next|is_between, ":scene_prop_kind", "spr_earth_house_a", "spr_town_house_aa"),
+            (this_or_next|is_between, ":scene_prop_kind", "spr_village_house_a", "spr_crude_fence"),
+            (this_or_next|is_between, ":scene_prop_kind", "spr_arabian_house_a", "spr_arabian_square_keep_a"),
+            (this_or_next|is_between, ":scene_prop_kind", "spr_viking_house_a", "spr_harbour_a"),
+            (this_or_next|is_between, ":scene_prop_kind", "spr_rhodok_houses_a", "spr_bridge_b"),
+            (this_or_next|is_between, ":scene_prop_kind", "spr_roman_house_a", "spr_roman_market_new"),
+            (this_or_next|is_between, ":scene_prop_kind", "spr_ado_wood_house", "spr_ado_wood_judas_cradle"),
+            (this_or_next|is_between, ":scene_prop_kind", "spr_ado_wood_stable", "spr_ado_wood_stairs"),
+            (this_or_next|is_between, ":scene_prop_kind", "spr_b_house0_t1", "spr_b_roof0_t1"),
+            (this_or_next|is_between, ":scene_prop_kind", "spr_b_villasevulus0_t1", "spr_b_wall0_t1"),
+            (this_or_next|is_between, ":scene_prop_kind", "spr_kolba_a", "spr_410_tent"),
+            (this_or_next|is_between, ":scene_prop_kind", "spr_house_saxon", "spr_wood_platform"),
+            (this_or_next|is_between, ":scene_prop_kind", "spr_roman_house_f_alt", "spr_umayyad_battlement_a"),
+            (this_or_next|is_between, ":scene_prop_kind", "spr_castrum_house_5", "spr_arabian_pyramid"),
+            (is_between, ":scene_prop_kind", "spr_scythian_hut_1", "spr_scythian_wagon"),
+            (shuffle_range, 1, 4),
+            (neq, reg1, 0),
+            (val_add, ":counter", 1),
+            (try_for_range, ":unused", 0, 4),
+              (store_random_in_range, ":rand23", -150, 150),
+              (position_set_x, pos1, ":rand23"),
+              (store_random_in_range, ":rand23", -150, 150),
+              (position_set_y, pos1, ":rand23"),
+              (store_random_in_range, ":rand23", 50, 150),
+              (position_set_z, pos1, ":rand23"),
+              (prop_instance_add_particle_system, ":curr_instance", reg1, pos1),
+              (eq, reg1, "psys_village_fire_big"),
+              (position_move_z, pos1, 100),
+              (prop_instance_add_particle_system, ":curr_instance", "psys_village_fire_smoke_big", pos1),
+              #(prop_instance_play_sound, ":curr_instance", "snd_fire", sf_looping),
+            (end_try),
+        (try_end),
+      ]),
+
 
       (ti_after_mission_start, 0, ti_once, [], [
         (mission_cam_set_screen_color, 0xFF000000),
@@ -28022,7 +28073,7 @@ common_battle_init_banner,
           (assign, "$g_latest_order_2", 1),
           (assign, "$g_latest_order_3", 1),
           (assign, "$g_latest_order_4", 1),
-          (assign, "$FormAI_AI_no_defense", 0),#enable it for battle
+          # (assign, "$FormAI_AI_no_defense", 0),#enable it for battle
       ]),
 
 
@@ -28133,27 +28184,31 @@ common_battle_init_banner,
 
 	#madsci
       (3, 0, 0, [
-          (this_or_next|eq, "$battle_phase", BP_Fight),
-          (eq, "$battle_phase", 0),
-          (mission_tpl_are_all_agents_spawned), #madsci
-          (call_script, "script_apply_effect_of_other_people_on_courage_scores_vc"),
-              ], []), #calculating and applying effect of people on others courage scores
+        (this_or_next|eq, "$battle_phase", BP_Fight),
+        (eq, "$battle_phase", 0),
+        (mission_tpl_are_all_agents_spawned), #madsci
+        (call_script, "script_apply_effect_of_other_people_on_courage_scores_vc"),
+      ], []), #calculating and applying effect of people on others courage scores
 
       (3, 0, 0, [
-          (try_for_agents, ":agent_no"),
-            (agent_is_human, ":agent_no"),
-            (agent_is_alive, ":agent_no"),
-            (store_mission_timer_a,":mission_time"),
-            (ge,":mission_time",3),
-            #(call_script, "script_decide_run_away_or_not", ":agent_no", ":mission_time"),
-            (call_script, "script_decide_run_away_or_not_vc", ":agent_no", ":mission_time"), #madsci
-          (try_end),
-              ], []),
+        (try_for_agents, ":agent_no"),
+          (agent_is_human, ":agent_no"),
+          (agent_is_alive, ":agent_no"),
+          (store_mission_timer_a,":mission_time"),
+          (ge,":mission_time",3),
+          #(call_script, "script_decide_run_away_or_not", ":agent_no", ":mission_time"),
+          (call_script, "script_decide_run_away_or_not_vc", ":agent_no", ":mission_time"), #madsci
+        (try_end),
+      ], []),
 
       common_battle_order_panel,
       common_battle_order_panel_tick,
-	common_battle_init_banner,
-    ] + dplmc_battle_mode_triggers + dplmc_horse_cull + utility_triggers + battle_panel_triggers + extended_battle_menu + common_division_data + division_order_processing + real_deployment + formations_triggers + AI_triggers + jacobhinds_morale_triggers + enhanced_common_battle_triggers + battle_notifications + ai_horn,  #SB : horse cull
+	    common_battle_init_banner,
+    ] + dplmc_battle_mode_triggers + dplmc_horse_cull + utility_triggers
+    + battle_panel_triggers + extended_battle_menu + common_division_data
+    + division_order_processing + real_deployment + formations_triggers
+    + AI_triggers + jacobhinds_morale_triggers + enhanced_common_battle_triggers
+    + battle_notifications + ai_horn,
 ),
 
 ("ernak_final_battle",mtf_battle_mode,-1,
@@ -28715,7 +28770,7 @@ common_battle_init_banner,
           (assign, "$g_latest_order_2", 1),
           (assign, "$g_latest_order_3", 1),
           (assign, "$g_latest_order_4", 1),
-          (assign, "$FormAI_AI_no_defense", 0),#enable it for battle
+          # (assign, "$FormAI_AI_no_defense", 0),#enable it for battle
       ]),
 
 

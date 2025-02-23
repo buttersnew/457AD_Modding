@@ -52267,6 +52267,332 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
 ## haddingrs revenge
 [trp_dani_haddingr, "start", [
   (check_quest_active, "qst_haddingrs_revenge"),
+  (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 20),
+],
+"Look upon what we have claimed, {playername}! This crossing, this artery of trade, is ours. Gold, amber, and all who dare pass through here will now serve our cause.",
+"haddingrs_revenge_camp_1", [
+]],
+[anyone|plyr,"haddingrs_revenge_trade_post_1", [
+],
+"This victory is more than just riches, Haddingr. Thou hast dealt a blow to the Aestii’s unity and taken the lifeblood of their power.",
+"haddingrs_revenge_trade_post_2",[
+]],
+[anyone,"haddingrs_revenge_trade_post_2", [
+],
+"-- Smiling, his voice filled with pride. --^^Aye, and with it, we solidify our name in these lands. But this is not the end, {playername}. This is merely the foundation upon which we build our return to Heorot.",
+"haddingrs_revenge_trade_post_3",[
+]],
+[anyone|plyr,"haddingrs_revenge_trade_post_3", [
+],
+"Then let us prepare for the next steps. Thy warriors will need to see this triumph lead to something greater.",
+"haddingrs_revenge_trade_post_4",[
+]],
+[anyone|plyr,"haddingrs_revenge_trade_post_3", [
+],
+"Soon, thy vengeance shall be wrought, and fate shall weave its design to completion.",
+"haddingrs_revenge_trade_post_4",[
+]],
+[anyone,"haddingrs_revenge_trade_post_4", [
+],
+"They shall, my friend. For now, we rest, gather our strength, and prepare to sail home. This was the final piece of our legend here, but the true battle lies ahead.",
+"close_window",[
+  (assign, "$g_battle_result", 1),
+]],
+
+
+[trp_dani_haddingr, "start", [
+  (check_quest_active, "qst_haddingrs_revenge"),
+  (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 19),
+],
+"{playername}, the time has come to strike at the heart of the Aestii's wealth. Their trade routes, built upon amber and guarded by scattered warriors, are the lifeblood of these lands.",
+"haddingrs_revenge_camp_1", [
+]],
+[anyone|plyr,"haddingrs_revenge_camp_1", [
+],
+"What dost thou propose, Haddingr?",
+"haddingrs_revenge_camp_2",[
+]],
+[anyone|plyr,"haddingrs_revenge_camp_1", [
+],
+"I hope they hold treasures most rare and worthy of our taking.",
+"haddingrs_revenge_camp_2",[
+]],
+[anyone,"haddingrs_revenge_camp_2", [
+],
+"My scouts have found a key route. It is not a single road but a crossing of paths where traders converge, laden with amber, grain, and treasures bound for far-off markets. If we take it, we not only gain its riches but sever the ties that bind these clans together.",
+"haddingrs_revenge_camp_3",[
+]],
+[anyone|plyr,"haddingrs_revenge_camp_3", [
+],
+"Will it be defended?",
+"haddingrs_revenge_camp_4",[
+]],
+[anyone,"haddingrs_revenge_camp_4", [
+],
+"Aye. Their leaders know its value and have posted guards, likely some of their finest. But their strength pales against the fire of our ambition. This is the final blow, {playername}. With this strike, we secure the wealth and fame needed to reclaim Heorot.",
+"haddingrs_revenge_camp_5",[
+]],
+[anyone|plyr,"haddingrs_revenge_camp_5", [
+],
+"Let us strike. The trade route shall be ours by sunset.",
+"haddingrs_revenge_camp_6",[
+]],
+[anyone|plyr,"haddingrs_revenge_camp_5", [
+],
+"The risk is high, but we shall try our luck!",
+"haddingrs_revenge_camp_6",[
+]],
+[anyone,"haddingrs_revenge_camp_6", [
+],
+"To battle!",
+"close_window",[
+  (assign, "$g_battle_result", 1),
+]],
+
+[trp_dani_haddingr, "start", [
+  (check_quest_active, "qst_haddingrs_revenge"),
+  (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 18),
+],
+"Come I too late?!",
+"haddingrs_revenge_ambush_victory", [
+]],
+[anyone|plyr,"haddingrs_revenge_ambush_victory", [
+],
+"The shepherd knows not thunder from a tabour more than I know the sound of Haddingr' tongue from every meaner man.",
+"haddingrs_revenge_ambush_victory_2",[
+]],
+[anyone,"haddingrs_revenge_ambush_victory_2", [
+],
+"Come I too late?",
+"haddingrs_revenge_ambush_victory_3",[
+]],
+[anyone|plyr,"haddingrs_revenge_ambush_victory_3", [
+],
+"Ay, if you come not in the blood of others, but mantled in your own.",
+"haddingrs_revenge_ambush_victory_4",[
+]],
+[anyone,"haddingrs_revenge_ambush_victory_4", [
+],
+"Victory is ours, {playername}. These woods are stained with the blood of our enemies, a warning to all who dare challenge us.",
+"haddingrs_revenge_ambush_victory_5",[
+]],
+[anyone|plyr,"haddingrs_revenge_ambush_victory_5", [
+],
+"They were bold to strike, but their fury outmatched their skill. What dost thou make of this, Haddingr?",
+"haddingrs_revenge_ambush_victory_6",[
+]],
+[anyone,"haddingrs_revenge_ambush_victory_6", [
+],
+"They fight for vengeance, yet their disunity is their weakness. Each clan stands alone, their courage faltering without unity. Still, we must not grow complacent. They will strike again, and in greater numbers.",
+"haddingrs_revenge_ambush_victory_7",[
+]],
+[anyone|plyr,"haddingrs_revenge_ambush_victory_7", [
+],
+"Then let us prepare for what comes next. This campaign is far from over.",
+"haddingrs_revenge_ambush_victory_8",[
+]],
+[anyone|plyr,"haddingrs_revenge_ambush_victory_7", [
+],
+"My blade thirsts for the next battle. Let them come.",
+"haddingrs_revenge_ambush_victory_8",[
+]],
+[anyone,"haddingrs_revenge_ambush_victory_8", [
+],
+"Thou speak'st the truth. Gather the men and tend the wounded. Tonight, we feast on their folly, and tomorrow, we march to solidify our dominance.",
+"close_window",[
+  (assign, "$g_battle_result", 1),
+]],
+
+
+[trp_scandinavian_freeman, "start", [
+  (check_quest_active, "qst_haddingrs_revenge"),
+  (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 16),
+],
+"Lord Haddingr! The woods are alive with warriors! The Aestii lie in wait—an ambush!",
+"haddingrs_revenge_ambush_1", [
+]],
+[anyone|other(trp_dani_haddingr),"haddingrs_revenge_ambush_1", [
+],
+"Stand firm, men! These cowards think to catch us unaware, but they will find their match in us. {playername}, rally the warriors—we shall break this trap.",
+"haddingrs_revenge_ambush_2",[
+  (call_script, "script_set_conversation_troop", "trp_dani_haddingr"),
+]],
+[anyone|plyr,"haddingrs_revenge_ambush_2", [
+],
+"They come in numbers, Haddingr. What is thy plan?",
+"haddingrs_revenge_ambush_3",[
+]],
+[anyone|other(trp_dani_haddingr),"haddingrs_revenge_ambush_3", [
+],
+"We form a shieldwall here, at the narrowest point. They cannot flank us in this terrain. Once their charge falters, we strike and drive them into the trees. Their courage will crumble as quickly as their lines.",
+"haddingrs_revenge_ambush_4",[
+  (call_script, "script_set_conversation_troop", "trp_dani_haddingr"),
+]],
+[anyone|plyr,"haddingrs_revenge_ambush_4", [
+],
+"A sound plan. Let us teach them the price of defiance.",
+"haddingrs_revenge_ambush_agree",[
+]],
+[anyone|plyr,"haddingrs_revenge_ambush_4", [
+],
+"This fight is too great a risk. Let us retreat and regroup.",
+"haddingrs_revenge_ambush_5",[
+]],
+[anyone|other(trp_dani_haddingr),"haddingrs_revenge_ambush_agree", [
+],
+"To battle, then!",
+"close_window",[
+  (assign, "$g_battle_result", 1),
+  (call_script, "script_set_conversation_troop", "trp_dani_haddingr"),
+  (quest_set_slot, "qst_haddingrs_revenge", slot_quest_current_state, 17),
+]],
+[anyone,"haddingrs_revenge_ambush_5", [
+],
+"This is not possible! They are also behind us!",
+"haddingrs_revenge_ambush_agree",[
+]],
+
+[trp_dani_haddingr, "start", [
+  (check_quest_active, "qst_haddingrs_revenge"),
+  (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 16),
+],
+"Look upon what we have claimed, {playername}! Gold, amber, and the symbols of their gods - all taken by our hands. This shall be remembered not only here but across the seas.",
+"haddingrs_revenge_raid_grove_1", [
+]],
+[anyone|plyr,"haddingrs_revenge_raid_grove_1", [
+],
+"The Aestii will not forget this, Haddingr. Their vengeance may follow us.",
+"haddingrs_revenge_raid_grove_2",[
+]],
+[anyone|plyr,"haddingrs_revenge_raid_grove_1", [
+],
+"I fear they shall rise in vengeance for the deeds we have wrought.",
+"haddingrs_revenge_raid_grove_2",[
+]],
+[anyone,"haddingrs_revenge_raid_grove_2", [
+],
+"Let them come, then. With every step they take, they shall find us stronger and richer for it. This victory is ours, and it will echo in the halls of Heorot.",
+"close_window",[
+  (assign, "$g_battle_result", 1),
+]],
+
+
+[trp_dani_haddingr, "start", [
+  (check_quest_active, "qst_haddingrs_revenge"),
+  (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 15),
+],
+"{playername}, my scouts have found something of great value - a place revered by the Aestii as sacred.",
+"haddingrs_revenge_raid_village_1", [
+]],
+[anyone|plyr,"haddingrs_revenge_raid_village_1", [
+],
+"A sacred place? What dost thou mean?",
+"haddingrs_revenge_raid_village_2",[
+]],
+[anyone|plyr,"haddingrs_revenge_raid_village_1", [
+],
+"A sacred grove, dost thou mean? Tell me, doth it hold treasures within?",
+"haddingrs_revenge_raid_village_2",[
+]],
+[anyone,"haddingrs_revenge_raid_village_2", [
+],
+"-- A glint of ambition in his eyes. -- ^^A sacred grove, deep within their lands. The Aestii bring offerings there—gold, amber, and other treasures—to honor their gods and seek blessings. It is said they guard it fervently, yet its riches would supply us for many campaigns to come.",
+"haddingrs_revenge_raid_village_3",[
+]],
+[anyone|plyr,"haddingrs_revenge_raid_village_3", [
+],
+"Do we risk angering the spirits of these lands? Sacred places hold more than just wealth.",
+"haddingrs_revenge_raid_village_4",[
+]],
+[anyone,"haddingrs_revenge_raid_village_4", [
+],
+"Perhaps. But such beliefs are for those who cannot wield steel. We have no need of their gods' blessings, only their gold. This strike will not only fill our coffers but also break their spirit. What say'st thou?",
+"haddingrs_revenge_raid_village_5",[
+]],
+[anyone|plyr,"haddingrs_revenge_raid_village_5", [
+],
+"The risk is worth the reward. Lead the way to the grove.",
+"haddingrs_revenge_raid_village_5_agree",[
+]],
+[anyone,"haddingrs_revenge_raid_village_5_agree", [
+],
+"A bold wager, yet fortune favors the daring. Come, let us tread the path to the grove.",
+"close_window",[
+  (assign, "$g_battle_result", 1),
+]],
+[anyone|plyr,"haddingrs_revenge_raid_village_5", [
+],
+"We should not disturb their sacred place. This is not our fight. We should search elsewhere for loot!",
+"haddingrs_revenge_raid_village_5_disagree",[
+]],
+[anyone,"haddingrs_revenge_raid_village_5_disagree", [
+],
+"I know well thy fears, yet I say we must strike nonetheless. Have I spoken to thee of my dreams? Oft do I see a noble woman, tall and fair, her golden hair flowing like the morning sun, her eyes blue as the deep sea. Ever by her side are thirteen green-eyed cats, their gaze sharp as steel. On the eve of battle, she did come to me once more, whispering in mine ear—bid me not to waver when fate lays its gifts before me.",
+"haddingrs_revenge_raid_village_5_disagree_1",[
+]],
+[anyone|plyr,"haddingrs_revenge_raid_village_5_disagree_1", [
+],
+"If the gods stand with us, then victory is ours to claim.",
+"haddingrs_revenge_raid_village_5_agree",[
+]],
+[anyone|plyr,"haddingrs_revenge_raid_village_5_disagree_1", [
+],
+"Then let steel clash and battle rage, that we may see whose gods wield the greater might!",
+"haddingrs_revenge_raid_village_5_agree",[
+]],
+
+[trp_dani_haddingr, "start", [
+  (check_quest_active, "qst_haddingrs_revenge"),
+  (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 14),
+],
+"{playername}, thou art needed. My scouts have returned with tidings from the surrounding lands.",
+"haddingrs_revenge_raid_start_1", [
+]],
+[anyone|plyr,"haddingrs_revenge_raid_start_1", [
+],
+"Speak, Haddingr. What have they found?",
+"haddingrs_revenge_raid_start_2",[
+]],
+[anyone|plyr,"haddingrs_revenge_raid_start_1", [
+],
+"I trust it be a thing of great worth.",
+"haddingrs_revenge_raid_start_2",[
+]],
+
+[anyone,"haddingrs_revenge_raid_start_2", [
+],
+"The lands of the Aestii lie open before us, ripe for the taking. Villages dot both the coast and the inland, most of them unprotected. The Aestii are a simple folk, without kings or lords to rally them. They know naught of unity, though they do know the value of amber - traded south to lands far and wide.^^-- He pauses, a faint grin tugging at the corner of his mouth. --^^More than that, many of them were mercenaries in Attila's wars. When the scourge of the gods fell, they returned with treasures plundered from distant lands. This is a good place to begin, {playername}. A stroke of our blades here will fill our coffers and our bellies.",
+"haddingrs_revenge_raid_start_3",[
+]],
+[anyone|plyr,"haddingrs_revenge_raid_start_3", [
+],
+"It is a start, Haddingr, but if thou wouldst gather warriors to thy cause, thou must aim higher. What say'st thou to that?",
+"haddingrs_revenge_raid_start_4",[
+]],
+[anyone,"haddingrs_revenge_raid_start_4", [
+],
+"-- Acknowledges with a nod, his tone thoughtful yet firm. -- ^^Thy words ring true, my friend. Provisions alone will not stir the hearts of warriors, nor will the plunder of small hamlets. Yet every journey begins with a single step. These raids shall sustain us, and in the coming days, I will send scouts further afield. Hillforts, trading hubs—there are richer prizes to be found, and we shall claim them.",
+"haddingrs_revenge_raid_start_5",[
+]],
+[anyone|plyr,"haddingrs_revenge_raid_start_5", [
+],
+"Very well. Let us begin as thou hast planned. Where shall we strike first?",
+"haddingrs_revenge_raid_start_6",[
+]],
+[anyone|plyr,"haddingrs_revenge_raid_start_5", [
+],
+"Aye, my heart yearns for battle. Where shall we strike?",
+"haddingrs_revenge_raid_start_6",[
+]],
+[anyone,"haddingrs_revenge_raid_start_6", [
+],
+"The nearest coastal village. It lies not a day's march from here, and its defenses are scant. Rest well tonight, {playername}, for come the dawn, we ride to show these lands the strength of the Skjoldungr name.",
+"close_window",[
+  (assign, "$g_battle_result", 1),
+]],
+
+[trp_dani_haddingr, "start", [
+  (check_quest_active, "qst_haddingrs_revenge"),
   (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 12),
 ],
 "{playername}, thou art come at last. Thy arrival marks the beginning of the next chapter in our tale.",

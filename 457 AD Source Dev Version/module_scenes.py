@@ -1853,4 +1853,6 @@ scenes = [
     [], [], "outer_terrain_forest"),
   ("haddingrs_aesti_trade_post", sf_generate, "none", "none", (0, 0), (100, 100), -0.5, "0x000000023000050000076ddb000029ba000027660000651a",
     [], [], "outer_terrain_forest"),
+  # ("haddingrs_aesti_final_battle", sf_generate, "none", "none", (0, 0), (100, 100), -0.5, "0x000000023000050000076ddb000029ba000027660000651a",
+  #   [], [], "outer_terrain_forest"),
 ]

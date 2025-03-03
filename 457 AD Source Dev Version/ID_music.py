@@ -78,3 +78,4 @@ track_coronation = 76
 track_cutscene_longboat_track = 77
 track_finnsburg_feast_track = 78
 track_finnsburg_hengist_revenge = 79
+track_haddingrs_revenge = 80

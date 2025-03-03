@@ -52269,15 +52269,543 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
   "guthlaf_final_talk_4",[
   ]],
 
-   [anyone,"guthlaf_final_talk_4", [
-  ],
-  "That is true, but next time we meet it will be made anew! You will always be welcome here.",
-  "close_window",[
+[anyone,"guthlaf_final_talk_4", [
+],
+"That is true, but next time we meet it will be made anew! You will always be welcome here.",
+"close_window",[
   (val_add, "$g_battle_result", 1),
   (agent_set_slot, "$g_talk_agent", slot_agent_is_in_scripted_mode, 1),
-  ]],
+]],
 
 ## haddingrs revenge
+[trp_dani_haddingr, "start", [
+  (check_quest_active, "qst_haddingrs_revenge"),
+  (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 28),
+],
+"Men, look upon what we have achieved. Heorot is ours, and with it, the throne of my forefathers. Today marks the dawn of a new era.",
+"haddingrs_revenge_victory_of_heorot_1", [
+]],
+[anyone|plyr,"haddingrs_revenge_victory_of_heorot_1", [
+],
+"The hall is taken, Haddingr, but what of Svipdagr? He shall not let this go unanswered.",
+"haddingrs_revenge_victory_of_heorot_2",[
+]],
+[anyone|plyr,"haddingrs_revenge_victory_of_heorot_1", [
+],
+"Though victory is ours, Haddingr, Svipdagr's strength remains unbroken.",
+"haddingrs_revenge_victory_of_heorot_2",[
+]],
+[anyone,"haddingrs_revenge_victory_of_heorot_2", [
+],
+"-- Acknowledging with a nod. --^^Aye, his reckoning will come soon enough. But first, we prepare. These halls must be filled with men, and our banners raised high. {playername}, I shall need thy strength once more. Go forth and seek the counsel of Guthlaf and Ordlaf; bid them lend their strength to our cause. Then, rally more men to your banner, for the hour of battle draws near.",
+"close_window",[
+  (assign, "$g_battle_result", 1),
+  (quest_set_slot, "qst_haddingrs_revenge", slot_quest_current_state, 29),
+]],
+
+[trp_dani_haddingr, "start", [
+  (check_quest_active, "qst_haddingrs_revenge"),
+  (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 26),
+],
+"Behold, Heorot. Once a symbol of our strength, now held by men who betrayed their oaths. This day, we reclaim what is ours.",
+"haddingrs_revenge_attack_of_heorot_1", [
+]],
+[anyone|plyr,"haddingrs_revenge_attack_of_heorot_1", [
+],
+"The Augandzi are seasoned warriors. What is thy plan?",
+"haddingrs_revenge_attack_of_heorot_2",[
+]],
+[anyone,"haddingrs_revenge_attack_of_heorot_2", [
+],
+"We strike hard and fast. Divide their forces, overwhelm their defenses, and leave no quarter for those who stand against us. Thy sword shall be my spearhead, {playername}.",
+"haddingrs_revenge_attack_of_heorot_3",[
+]],
+[anyone|plyr,"haddingrs_revenge_attack_of_heorot_3", [
+],
+"Let us begin. Heorot shall be ours before the sun sets.",
+"haddingrs_revenge_attack_of_heorot_4_1",[
+]],
+[anyone|plyr,"haddingrs_revenge_attack_of_heorot_3", [
+],
+"Are we truly ready, Haddingr? Perhaps more preparation is needed.",
+"haddingrs_revenge_attack_of_heorot_4_2",[
+]],
+[anyone,"haddingrs_revenge_attack_of_heorot_4_1", [
+],
+"To arms! Let the Norns weave our fate upon the battlefield!",
+"close_window",[
+  (quest_set_slot, "qst_haddingrs_revenge", slot_quest_current_state, 27),
+  (assign, "$g_next_menu", "mnu_haddingrs_revenge_assault_heorot"),
+  (assign, "$g_battle_result", 1),
+]],
+[anyone,"haddingrs_revenge_attack_of_heorot_4_2", [
+],
+"Make haste, then! The sands of time slip swiftly, and we dare not linger.",
+"close_window",[
+  (assign, "$g_next_menu", "mnu_auto_return_to_map"),
+  (assign, "$g_battle_result", 1),
+]],
+
+[trp_odin, "start", [
+  (check_quest_active, "qst_haddingrs_revenge"),
+  (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 25),
+],
+"She, with her cats of emerald-green gaze, hath already graced thy presence. Now, 'tis I who stand before thee.^^Thy path is set, Haddingr Skjoldungr, yet it is fraught with peril. Dost thou seek wisdom for the battles to come?",
+"haddingrs_revenge_odin_1", [
+]],
+[anyone|other(trp_dani_haddingr),"haddingrs_revenge_odin_1", [
+],
+"-- Standing, his tone reverent yet cautious. --^^Who art thou, wanderer? Thy words carry weight, yet thy face is hidden.",
+"haddingrs_revenge_odin_2",[
+  (call_script, "script_set_conversation_troop", "trp_dani_haddingr"),
+]],
+[anyone,"haddingrs_revenge_odin_2", [
+],
+"Names matter not, young prince. Suffice it to say, I have walked this earth since before thy bloodline was forged. I come to speak of what lies ahead.",
+"haddingrs_revenge_odin_3",[
+]],
+[anyone|plyr,"haddingrs_revenge_odin_3", [
+],
+"And what dost thou see, wanderer? Why dost thou come now?",
+"haddingrs_revenge_odin_4",[
+]],
+[anyone|plyr,"haddingrs_revenge_odin_3", [
+],
+"Why dost thou rouse us from our slumber in the dead of night? Speak, what is thy bidding?",
+"haddingrs_revenge_odin_4",[
+]],
+[anyone,"haddingrs_revenge_odin_4", [
+],
+"The winds whisper thy names to me, mortal. Haddingr, son of Gramr, thou shalt rise as high as the eagles, yet beware the fall. Thy sword shall carve thy destiny, but the gods demand their share.",
+"haddingrs_revenge_odin_5",[
+]],
+[anyone|other(trp_dani_haddingr),"haddingrs_revenge_odin_5", [
+],
+"Speak plainly, wanderer. What dost thou mean?",
+"haddingrs_revenge_odin_6",[
+  (call_script, "script_set_conversation_troop", "trp_dani_haddingr"),
+]],
+[anyone,"haddingrs_revenge_odin_6", [
+],
+"Plainly? Very well. Thou shalt face thy foes in the halls of thy father, and thou shalt taste victory. Yet thy crown shall weigh heavy, and thy triumph shall come at a price.^^-- The wolves growl softly, their eyes gleaming in the firelight. The figure turns to leave, his voice fading. --",
+"close_window",[
+  (play_sound, "snd_wolf_short"),
+  (assign, "$g_battle_result", 1),
+]],
+
+
+[trp_dani_haddingr, "start", [
+  (check_quest_active, "qst_haddingrs_revenge"),
+  (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 24),
+],
+"{playername}, thou art come. Look upon her, the woman who once walked beside me. Now she lies cold and still.",
+"haddingrs_revenge_death_of_harthgrepa_1", [
+]],
+[anyone|plyr,"haddingrs_revenge_death_of_harthgrepa_1", [
+],
+"What befell thee, Haddingr? This... this is no mere passing, but a fate most grim and unnatural.",
+"haddingrs_revenge_death_of_harthgrepa_2",[
+]],
+[anyone|plyr,"haddingrs_revenge_death_of_harthgrepa_1", [
+],
+"Harthgrepa, slain? By what dark hand or cruel design could such a thing come to pass?",
+"haddingrs_revenge_death_of_harthgrepa_2",[
+]],
+[anyone,"haddingrs_revenge_death_of_harthgrepa_2", [
+],
+"-- Steeling himself, his tone filled with conviction. --^^She delved where no mortal should tread. Necromancy, witchcraft-deeds meant for gods, not men. Her fate was sealed the moment she chose to defy their will.",
+"haddingrs_revenge_death_of_harthgrepa_3",[
+]],
+[anyone|other(trp_dani_signe),"haddingrs_revenge_death_of_harthgrepa_3", [
+],
+"-- Softly, her voice trembling. --^^She spoke of visions, of whispers in the dark. I begged her to stop, but she would not listen. This… this is what comes of it.",
+"haddingrs_revenge_death_of_harthgrepa_4",[
+  (call_script, "script_set_conversation_troop", "trp_dani_signe"),
+]],
+[anyone|plyr,"haddingrs_revenge_death_of_harthgrepa_4", [
+],
+"Perhaps thou art right, Haddingr. The gods have judged her, and their justice is swift.",
+"haddingrs_revenge_death_of_harthgrepa_5_1",[
+]],
+[anyone|plyr,"haddingrs_revenge_death_of_harthgrepa_4", [
+],
+"Gift of the gods, yet the gods demand their due. Perhaps this is the price that must be paid.",
+"haddingrs_revenge_death_of_harthgrepa_5_2",[
+]],
+[anyone,"haddingrs_revenge_death_of_harthgrepa_5_1", [
+],
+"-- Haddingr nods, his resolve strengthened. --",
+"close_window",[
+  (assign, "$g_battle_result", 1),
+]],
+[anyone,"haddingrs_revenge_death_of_harthgrepa_5_2", [
+],
+"-- Haddingr frowns but remains silent, considering the words. --",
+"close_window",[
+  (assign, "$g_battle_result", 1),
+]],
+
+
+[trp_dani_haddingr, "start", [
+  (check_quest_active, "qst_haddingrs_revenge"),
+  (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 23),
+  (faction_slot_eq, "fac_minor_aestii", slot_faction_leader, "trp_aestii_rebel_king"),
+],
+"Well, {playername}, it seems thy friend Shvarnas is less than fond of us.",
+"haddingrs_revenge_final_final_aesti_rebel_after_1", [
+]],
+[anyone|plyr,"haddingrs_revenge_final_final_aesti_rebel_after_1", [
+],
+"His anger is justified, Haddingr. Our raids have cost him dearly.",
+"haddingrs_revenge_final_final_aesti_rebel_after_3",[
+]],
+[anyone|plyr,"haddingrs_revenge_final_final_aesti_rebel_after_1", [
+],
+"We didst furnish him with cause to despise us. We lay waste to much of their lands, and take spoils aplenty.",
+"haddingrs_revenge_final_final_aesti_rebel_after_3",[
+]],
+[anyone,"haddingrs_revenge_final_final_aesti_rebel_after_3", [
+],
+"Perhaps, but his grudges are his burden. We have what we came for-gold, trade, and a reputation that grows with each step. Let him stew in his bitterness; we have greater foes to face.",
+"close_window",[
+  (assign, "$g_battle_result", 1),
+]],
+
+[trp_dani_haddingr, "start", [
+  (check_quest_active, "qst_haddingrs_revenge"),
+  (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 23),
+],
+"Well, {playername}, what dost thou make of Aiwarikiar? A man of stature, to be sure.",
+"haddingrs_revenge_final_final_aesti_after_1", [
+]],
+[anyone|plyr,"haddingrs_revenge_final_final_aesti_after_1", [
+],
+"He carries himself as a prince should, though his exile must weigh heavy. Dost thou trust his word?",
+"haddingrs_revenge_final_final_aesti_after_3",[
+]],
+[anyone|plyr,"haddingrs_revenge_final_final_aesti_after_1", [
+],
+"I know not if he is worthy of trust, or if his words are but smoke upon the wind.",
+"haddingrs_revenge_final_final_aesti_after_3",[
+]],
+[anyone,"haddingrs_revenge_final_final_aesti_after_3", [
+],
+"-- Laughs lightly. -- ^^rust? Nay. But respect, perhaps. This meeting was a reminder of what lies ahead for us. We shall take his trade and his blessing, and with it, return to Heorot with our heads held high.",
+"close_window",[
+  (assign, "$g_battle_result", 1),
+]],
+
+[trp_aestii_rebel_king, "start", [
+  (check_quest_active, "qst_haddingrs_revenge"),
+  (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 22),
+  (quest_slot_ge,"qst_aestii_rebel_quest",slot_quest_current_state, 1),
+],
+"So thou art the one who burns our villages and desecrates our sacred ground. Thy crimes are known far and wide, Dane.",
+"haddingrs_revenge_final_final_aesti_slavic_knows_player_1", [
+]],
+[anyone|other(trp_dani_haddingr),"haddingrs_revenge_final_final_aesti_slavic_knows_player_1", [
+],
+"“And thou art Shvarnas, a name that carries little weight. If thou seek'st vengeance, then draw thy blade and face me here.",
+"haddingrs_revenge_final_final_aesti_slavic_knows_player_2",[
+  (call_script, "script_set_conversation_troop", "trp_dani_haddingr"),
+]],
+[anyone,"haddingrs_revenge_final_final_aesti_slavic_knows_player_2", [
+],
+"Do not mistake my restraint for weakness, Dane. Thy plundering has drawn my ire, yet thou art more trouble than thou art worth. Speak plainly-why dost thou trespass in my lands?",
+"haddingrs_revenge_final_final_aesti_slavic_knows_player_3",[
+]],
+[anyone|other(trp_dani_haddingr),"haddingrs_revenge_final_final_aesti_slavic_knows_player_3", [
+],
+"I seek gold and glory, nothing more. Thy people are scattered, thy strength feeble. Thy lands were ripe for the taking.",
+"haddingrs_revenge_final_final_aesti_slavic_knows_player_4",[
+  (call_script, "script_set_conversation_troop", "trp_dani_haddingr"),
+]],
+[anyone,"haddingrs_revenge_final_final_aesti_slavic_knows_player_4", [
+],
+"And thou, {playername}? Once thou stood with us against Aiwarikiar. Now thou dost bring these northern wolves to our doorstep. Have thee no honor?",
+"haddingrs_revenge_final_final_aesti_slavic_knows_player_5_1",[
+]],
+[anyone|plyr,"haddingrs_revenge_final_final_aesti_slavic_knows_player_5_1", [
+],
+"Shvarnas, thy quarrel is misplaced. Haddingr seeks to carve his path, and I stand with him.",
+"haddingrs_revenge_final_final_aesti_slavic_knows_player_5_1_1",[
+]],
+[anyone|plyr,"haddingrs_revenge_final_final_aesti_slavic_knows_player_5_1", [
+],
+"Shvarnas, the past cannot be undone. Let us speak of what may yet be salvaged.",
+"haddingrs_revenge_final_final_aesti_slavic_knows_player_5_1_2",[
+]],
+
+[anyone,"haddingrs_revenge_final_final_aesti_slavic_knows_player_5_1_1", [
+],
+"Thy loyalty is misplaced, and it shall cost thee.",
+"haddingrs_revenge_final_final_aesti_slavic_knows_player_5",[
+  (call_script, "script_change_player_relation_with_troop", "trp_aestii_rebel_king"),
+]],
+[anyone,"haddingrs_revenge_final_final_aesti_slavic_knows_player_5_1_2", [
+],
+"-- Snarling. --^^There is little to salvage, {playername}. Thy actions have made that clear. Speak quickly, or thy welcome here will end.",
+"haddingrs_revenge_final_final_aesti_slavic_knows_player_5",[
+  (call_script, "script_change_player_relation_with_troop", "trp_aestii_rebel_king"),
+]],
+
+[anyone|other(trp_dani_haddingr),"haddingrs_revenge_final_final_aesti_slavic_knows_player_5", [
+],
+"Enough of this bickering. Shvarnas, I care not for thy grudges. I offer thee this: grant me passage and trade, and I shall trouble thy lands no further. Refuse, and my warriors shall finish what they began.",
+"haddingrs_revenge_final_final_aesti_slavic_knows_player_6",[
+  (call_script, "script_set_conversation_troop", "trp_dani_haddingr"),
+]],
+
+[anyone,"haddingrs_revenge_final_final_aesti_slavic_knows_player_6", [
+],
+"Thy words are venom, yet thy strength cannot be ignored. Very well, Dane. Take thy spoils and go, but do not return. Should I see thy banners again, there shall be no parley.",
+"close_window",[
+  (assign, "$g_battle_result", 1),
+]],
+
+[trp_aestii_king, "start", [
+  (check_quest_active, "qst_haddingrs_revenge"),
+  (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 22),
+  (quest_slot_ge,"qst_aestii_rebel_quest",slot_quest_current_state, 1),
+],
+"Well, fate weaves its web once more. {playername}, thou dost wander far from where we last met. What brings thee to these lands, and in such company?",
+"haddingrs_revenge_final_final_aesti_aiwarikiar_knows_player_1", [
+]],
+[anyone|plyr,"haddingrs_revenge_final_final_aesti_aiwarikiar_knows_player_1", [
+],
+"Aiwarikiar, thy presence is as striking as ever. I ride with Haddingr Skjoldungr, a prince who seeks to carve his path in this world.",
+"haddingrs_revenge_final_final_aesti_aiwarikiar_knows_player_2",[
+]],
+[anyone,"haddingrs_revenge_final_final_aesti_aiwarikiar_knows_player_2", [
+],
+"Ah, so thou art the Dane who stirs these lands. Thy raids have reached even my hall, and now thou stand'st upon my borders. Tell me, what dost thou seek here?",
+"haddingrs_revenge_final_final_aesti_aiwarikiar_knows_player_3",[
+]],
+[anyone|other(trp_dani_haddingr),"haddingrs_revenge_final_final_aesti_aiwarikiar_knows_player_3", [
+],
+"I seek gold and glory, Aiwarikiar. Thy lands are rich in both, and thy people offer little resistance. Yet, if thou dost wish for peace, we can strike a bargain. Thy amber flows westward; grant me a share, and I shall take my blade elsewhere.",
+"haddingrs_revenge_final_final_aesti_aiwarikiar_knows_player_4",[
+  (call_script, "script_set_conversation_troop", "trp_dani_haddingr"),
+]],
+[anyone,"haddingrs_revenge_final_final_aesti_aiwarikiar_knows_player_4", [
+],
+"Thy choice of allies grows ever bold, {playername}. Dost thou vouch for this man and his cause?",
+"haddingrs_revenge_final_final_aesti_aiwarikiar_knows_player_5",[
+]],
+[anyone|plyr,"haddingrs_revenge_final_final_aesti_aiwarikiar_knows_player_5", [
+],
+"Haddingr seeks only to reclaim what is his by right. His strength is unmatched. I stand by his cause.",
+"haddingrs_revenge_final_final_aesti_aiwarikiar_knows_player_6_1",[
+]],
+[anyone|plyr,"haddingrs_revenge_final_final_aesti_aiwarikiar_knows_player_5", [
+],
+"Thy judgment is thine to make, Aiwarikiar. I am but a companion on this journey.",
+"haddingrs_revenge_final_final_aesti_aiwarikiar_knows_player_6_2",[
+]],
+
+[anyone,"haddingrs_revenge_final_final_aesti_aiwarikiar_knows_player_6_1", [
+],
+"-- Nods, his tone measured. --^^Then thy word carries weight, as it did before. Yet, even princes must know their bounds. These lands are mine, and I shall tolerate no further intrusion. If thou dost seek trade and safe passage, swear to me here and now that thou shalt go no further east.",
+"haddingrs_revenge_final_final_aesti_aiwarikiar_knows_player_7",[
+]],
+[anyone,"haddingrs_revenge_final_final_aesti_aiwarikiar_knows_player_6_2", [
+],
+"-- Looks between Haddingr and you, his voice firm. --^^Fair enough, but hear me well. These lands are mine, and I shall tolerate no further intrusion. If thou dost seek trade and safe passage, swear to me here and now that thou shalt go no further east.",
+"haddingrs_revenge_final_final_aesti_aiwarikiar_knows_player_7",[
+]],
+
+[anyone|other(trp_dani_haddingr),"haddingrs_revenge_final_final_aesti_aiwarikiar_knows_player_7", [
+],
+"Very well, Aiwarikiar. Thy terms are fair, and thy strength is clear. We shall honor thy boundaries and take no step further into thy clay.",
+"haddingrs_revenge_final_final_aesti_aiwarikiar_knows_player_8",[
+  (call_script, "script_set_conversation_troop", "trp_dani_haddingr"),
+]],
+
+[anyone,"haddingrs_revenge_final_final_aesti_aiwarikiar_knows_player_8", [
+],
+"Then let this meeting be one of understanding, not enmity. Go with my blessing, Dane, and may thy blade find fortune where it may.",
+"close_window",[
+  (assign, "$g_battle_result", 1),
+]],
+
+
+[anyone, "start", [
+  (check_quest_active, "qst_haddingrs_revenge"),
+  (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 22),
+  (faction_get_slot, ":faction_leader", "fac_minor_aestii", slot_faction_leader),
+  (eq, ":faction_leader", "$g_talk_troop"),
+  # (quest_slot_ge,"qst_aestii_rebel_quest",slot_quest_current_state, 1),
+],
+"-- Stopping a few paces away, his voice calm but firm. --^^So, thou art the one who stirs the forests and sets fire to villages. Thy name has reached even my hall, Haddingr Skjoldungr.",
+"haddingrs_revenge_final_final_aesti_aiwarikiar_1", [
+]],
+[anyone|other(trp_dani_haddingr),"haddingrs_revenge_final_final_aesti_aiwarikiar_1", [
+],
+"-- Stepping forward, his tone equally composed. --^^And thou art Aiwarikiar, prince of the Swehanaz, now lord of these lands. Thy fame precedes thee, though thy presence here is unexpected.",
+"haddingrs_revenge_final_final_aesti_aiwarikiar_2",[
+  (call_script, "script_set_conversation_troop", "trp_dani_haddingr"),
+]],
+[anyone,"haddingrs_revenge_final_final_aesti_aiwarikiar_2", [
+],
+"-- Looking past Haddingr to you briefly, then back. --^^I have heard much of thee and thy ambitions, Dane. Thy raids have filled my coffers with complaints from the clans, and now thou stand'st upon my doorstep. Tell me, what dost thou seek here?",
+"haddingrs_revenge_final_final_aesti_aiwarikiar_3",[
+]],
+[anyone|other(trp_dani_haddingr),"haddingrs_revenge_final_final_aesti_aiwarikiar_3", [
+],
+"-- Standing tall, his tone resolute. --^^I seek gold and glory, Aiwarikiar. Thy lands are rich in both, and thy people offer little resistance. Yet, if thou dost wish for peace, we can strike a bargain. Thy amber flows westward; grant me a share, and I shall take my blade elsewhere.",
+"haddingrs_revenge_final_final_aesti_aiwarikiar_4",[
+  (call_script, "script_set_conversation_troop", "trp_dani_haddingr"),
+]],
+[anyone,"haddingrs_revenge_final_final_aesti_aiwarikiar_4", [
+],
+"-- Smiling faintly, his voice carrying a note of respect. --^^Bold words, Dane. Thou dost speak as one who knows no fear, but thou art far from home, and these lands are not thine to carve as thou wilt. Yet, I see in thee the fire of a true prince-a fire I once knew well.",
+"haddingrs_revenge_final_final_aesti_aiwarikiar_5_1",[
+]],
+[anyone|plyr,"haddingrs_revenge_final_final_aesti_aiwarikiar_5_1", [
+],
+"And what dost thou propose, Aiwarikiar? Is it battle you seek?",
+"haddingrs_revenge_final_final_aesti_aiwarikiar_5",[
+]],
+[anyone|plyr,"haddingrs_revenge_final_final_aesti_aiwarikiar_5_1", [
+],
+"Shall we fight, or can we find common ground? What is thou propose, Aiwarikiar?",
+"haddingrs_revenge_final_final_aesti_aiwarikiar_5",[
+]],
+[anyone,"haddingrs_revenge_final_final_aesti_aiwarikiar_5", [
+],
+"-- Glancing at you with measured curiosity, then addressing both. --^^There is no need for blood today. I shall grant thee passage and trade, Haddingr Skjoldungr, but thou must swear to take thy ambitions no further east. My lands are my own, and I will tolerate no challengers.",
+"haddingrs_revenge_final_final_aesti_aiwarikiar_6",[
+]],
+[anyone|other(trp_dani_haddingr),"haddingrs_revenge_final_final_aesti_aiwarikiar_6", [
+],
+"-- Looks to you briefly, then back to Aiwarikiar. --^^Very well, Aiwarikiar. Thy terms are fair, and thy strength is clear. We shall honor thy boundaries and take no step further into thy clay.",
+"haddingrs_revenge_final_final_aesti_aiwarikiar_7",[
+  (call_script, "script_set_conversation_troop", "trp_dani_haddingr"),
+]],
+[anyone,"haddingrs_revenge_final_final_aesti_aiwarikiar_7", [
+],
+"-- Nods, his expression firm but respectful. --^^Then let this meeting be one of understanding, not enmity. Go with my blessing, Dane, and may thy blade find fortune where it may.",
+"close_window",[
+  (assign, "$g_battle_result", 1),
+]],
+
+[trp_dani_haddingr, "start", [
+  (check_quest_active, "qst_haddingrs_revenge"),
+  (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 21),
+  (faction_slot_eq, "fac_minor_aestii", slot_faction_leader, "trp_aestii_rebel_king"),
+  (quest_slot_ge,"qst_aestii_rebel_quest",slot_quest_current_state, 1),
+],
+"Behold who approaches-a scout bearing tidings. Let us hope his words be worthy of our ears.",
+"haddingrs_revenge_final_aesti_shvarnas_1", [
+]],
+[anyone|other(trp_scandinavian_freeman),"haddingrs_revenge_final_aesti_shvarnas_1", [
+],
+"Lord Haddingr! A warband approaches from the east-poorly armed but sizable. Their leader demands to speak with thee.",
+"haddingrs_revenge_final_aesti_shvarnas_2",[
+  (call_script, "script_set_conversation_troop", "trp_scandinavian_freeman"),
+]],
+[anyone,"haddingrs_revenge_final_aesti_shvarnas_2", [
+],
+"A leader of the eastern folk, thou say'st? What banner dost they bear?",
+"haddingrs_revenge_final_aesti_shvarnas_3",[
+]],
+[anyone|other(trp_scandinavian_freeman),"haddingrs_revenge_final_aesti_shvarnas_3", [
+  (str_store_troop_name, s10, "trp_aestii_rebel_king"),
+],
+"No banner of renown, my lord. He names himself {s10}, a local chieftain. He speaks of vengeance for thy raids.",
+"haddingrs_revenge_final_aesti_shvarnas_4",[
+  (call_script, "script_set_conversation_troop", "trp_scandinavian_freeman"),
+]],
+[anyone,"haddingrs_revenge_final_aesti_shvarnas_4", [
+],
+"A petty warlord, then. Let him come, {playername}. We shall see what vengeance he dares speak of.",
+"haddingrs_revenge_final_aesti_shvarnas_5",[
+]],
+[anyone|plyr,"haddingrs_revenge_final_aesti_shvarnas_5", [
+],
+"I know this man well. Once, in battle, I stood beside him.",
+"haddingrs_revenge_final_aesti_shvarnas_6_1",[
+]],
+[anyone|plyr,"haddingrs_revenge_final_aesti_shvarnas_5", [
+],
+"Can we place our faith in them, or shall their words prove hollow as the wind?",
+"haddingrs_revenge_final_aesti_shvarnas_6_2",[
+]],
+[anyone,"haddingrs_revenge_final_aesti_shvarnas_6_1", [
+],
+"Most curious indeed. You are a warrior thou art, one who hath walked the far roads and seen the world beyond. Come, then-let us hear what words he brings.",
+"close_window",[
+  (assign, "$g_battle_result", 1),
+]],
+[anyone,"haddingrs_revenge_final_aesti_shvarnas_6_2", [
+],
+"Trust is a blade double-edged-oft as treacherous as it is true. We shall weigh their words as the smith weighs his iron, and see if they ring strong or shatter like brittle steel.",
+"close_window",[
+  (assign, "$g_battle_result", 1),
+]],
+
+# use this as aesti fallback
+[trp_dani_haddingr, "start", [
+  (check_quest_active, "qst_haddingrs_revenge"),
+  (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 21),
+  # (faction_slot_eq, "fac_minor_aestii", slot_faction_leader, "trp_aestii_king"),
+],
+"Behold who approaches-a scout bearing tidings. Let us hope his words be worthy of our ears.",
+"haddingrs_revenge_final_aesti_aiwarikiar_1", [
+]],
+[anyone|other(trp_scandinavian_freeman),"haddingrs_revenge_final_aesti_aiwarikiar_1", [
+],
+"Lord Haddingr! A warband approaches from the east-heavily armed and bearing foreign banners.",
+"haddingrs_revenge_final_aesti_aiwarikiar_2",[
+  (call_script, "script_set_conversation_troop", "trp_scandinavian_freeman"),
+]],
+[anyone,"haddingrs_revenge_final_aesti_aiwarikiar_2", [
+],
+"-- Frowning, his tone curious but wary. --^^Foreign banners, thou say'st? What dost thou make of it?",
+"haddingrs_revenge_final_aesti_aiwarikiar_3",[
+]],
+[anyone|other(trp_scandinavian_freeman),"haddingrs_revenge_final_aesti_aiwarikiar_3", [
+  (str_store_troop_name, s10, "trp_aestii_king"),
+],
+"They claim to come under the name of {s10}, lord of these lands. He requests parley.",
+"haddingrs_revenge_final_aesti_aiwarikiar_4",[
+  (call_script, "script_set_conversation_troop", "trp_scandinavian_freeman"),
+]],
+[anyone,"haddingrs_revenge_final_aesti_aiwarikiar_4", [
+],
+"-- A gleam of intrigue in his eyes. --^^Aiwarikiar... a name I have heard whispered. A prince in exile, if the tales are true. Very well. Let him come.",
+"haddingrs_revenge_final_aesti_aiwarikiar_5",[
+]],
+[anyone|plyr,"haddingrs_revenge_final_aesti_aiwarikiar_5", [
+  (quest_slot_ge,"qst_aestii_rebel_quest",slot_quest_current_state, 1),
+],
+"Thou shalt find him no stranger to me, Haddingr. I know this Aiwarikiar - our paths have crossed before.",
+"haddingrs_revenge_final_aesti_aiwarikiar_6_know",[
+]],
+[anyone|plyr,"haddingrs_revenge_final_aesti_aiwarikiar_5", [
+],
+"Thou seem'st eager, Haddingr. Dost thou not think it a trap?",
+"haddingrs_revenge_final_aesti_aiwarikiar_6",[
+]],
+[anyone|plyr,"haddingrs_revenge_final_aesti_aiwarikiar_5", [
+],
+"Can we place our faith in them, or shall their words prove hollow as the wind?",
+"haddingrs_revenge_final_aesti_aiwarikiar_6",[
+]],
+[anyone,"haddingrs_revenge_final_aesti_aiwarikiar_6", [
+],
+"-- Smiling faintly. --^^A meeting of princes is rare, {playername}. Let us see what this Aiwarikiar desires.",
+"close_window",[
+  (assign, "$g_battle_result", 1),
+]],
+[anyone,"haddingrs_revenge_final_aesti_aiwarikiar_6_know", [
+],
+"-- Raises an eyebrow, his tone curious. --^^Is that so? Then this meeting grows more intriguing. Let us see how thy past fares in the light of our present.",
+"close_window",[
+  (assign, "$g_battle_result", 1),
+]],
+
+
 [trp_dani_haddingr, "start", [
   (check_quest_active, "qst_haddingrs_revenge"),
   (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 20),
@@ -52287,7 +52815,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
 ]],
 [anyone|plyr,"haddingrs_revenge_trade_post_1", [
 ],
-"This victory is more than just riches, Haddingr. Thou hast dealt a blow to the Aestii’s unity and taken the lifeblood of their power.",
+"This victory is more than just riches, Haddingr. Thou hast dealt a blow to the Aestii's unity and taken the lifeblood of their power.",
 "haddingrs_revenge_trade_post_2",[
 ]],
 [anyone,"haddingrs_revenge_trade_post_2", [
@@ -52421,12 +52949,12 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
   (check_quest_active, "qst_haddingrs_revenge"),
   (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 16),
 ],
-"Lord Haddingr! The woods are alive with warriors! The Aestii lie in wait—an ambush!",
+"Lord Haddingr! The woods are alive with warriors! The Aestii lie in wait-an ambush!",
 "haddingrs_revenge_ambush_1", [
 ]],
 [anyone|other(trp_dani_haddingr),"haddingrs_revenge_ambush_1", [
 ],
-"Stand firm, men! These cowards think to catch us unaware, but they will find their match in us. {playername}, rally the warriors—we shall break this trap.",
+"Stand firm, men! These cowards think to catch us unaware, but they will find their match in us. {playername}, rally the warriors-we shall break this trap.",
 "haddingrs_revenge_ambush_2",[
   (call_script, "script_set_conversation_troop", "trp_dani_haddingr"),
 ]],
@@ -52509,7 +53037,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
 ]],
 [anyone,"haddingrs_revenge_raid_village_2", [
 ],
-"-- A glint of ambition in his eyes. -- ^^A sacred grove, deep within their lands. The Aestii bring offerings there—gold, amber, and other treasures—to honor their gods and seek blessings. It is said they guard it fervently, yet its riches would supply us for many campaigns to come.",
+"-- A glint of ambition in his eyes. -- ^^A sacred grove, deep within their lands. The Aestii bring offerings there-gold, amber, and other treasures-to honor their gods and seek blessings. It is said they guard it fervently, yet its riches would supply us for many campaigns to come.",
 "haddingrs_revenge_raid_village_3",[
 ]],
 [anyone|plyr,"haddingrs_revenge_raid_village_3", [
@@ -52540,7 +53068,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
 ]],
 [anyone,"haddingrs_revenge_raid_village_5_disagree", [
 ],
-"I know well thy fears, yet I say we must strike nonetheless. Have I spoken to thee of my dreams? Oft do I see a noble woman, tall and fair, her golden hair flowing like the morning sun, her eyes blue as the deep sea. Ever by her side are thirteen green-eyed cats, their gaze sharp as steel. On the eve of battle, she did come to me once more, whispering in mine ear—bid me not to waver when fate lays its gifts before me.",
+"I know well thy fears, yet I say we must strike nonetheless. Have I spoken to thee of my dreams? Oft do I see a noble woman, tall and fair, her golden hair flowing like the morning sun, her eyes blue as the deep sea. Ever by her side are thirteen green-eyed cats, their gaze sharp as steel. On the eve of battle, she did come to me once more, whispering in mine ear-bid me not to waver when fate lays its gifts before me.",
 "haddingrs_revenge_raid_village_5_disagree_1",[
 ]],
 [anyone|plyr,"haddingrs_revenge_raid_village_5_disagree_1", [
@@ -52584,7 +53112,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
 ]],
 [anyone,"haddingrs_revenge_raid_start_4", [
 ],
-"-- Acknowledges with a nod, his tone thoughtful yet firm. -- ^^Thy words ring true, my friend. Provisions alone will not stir the hearts of warriors, nor will the plunder of small hamlets. Yet every journey begins with a single step. These raids shall sustain us, and in the coming days, I will send scouts further afield. Hillforts, trading hubs—there are richer prizes to be found, and we shall claim them.",
+"-- Acknowledges with a nod, his tone thoughtful yet firm. -- ^^Thy words ring true, my friend. Provisions alone will not stir the hearts of warriors, nor will the plunder of small hamlets. Yet every journey begins with a single step. These raids shall sustain us, and in the coming days, I will send scouts further afield. Hillforts, trading hubs-there are richer prizes to be found, and we shall claim them.",
 "haddingrs_revenge_raid_start_5",[
 ]],
 [anyone|plyr,"haddingrs_revenge_raid_start_5", [
@@ -52613,7 +53141,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
 ]],
 [anyone|plyr,"haddingrs_revenge_set_sail_1", [
 ],
-"Haddingr, it is good to see thee well. Thy words carry weight—what chapter dost thou speak of?",
+"Haddingr, it is good to see thee well. Thy words carry weight-what chapter dost thou speak of?",
 "haddingrs_revenge_set_sail_2",[
 ]],
 [anyone|plyr,"haddingrs_revenge_set_sail_1", [
@@ -52634,7 +53162,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
 ]],
 [anyone,"haddingrs_revenge_set_sail_4", [
 ],
-"And… there is one more truth I would share with thee. Harthgrepa, daughter of Wagnofthus, holds my heart. She has stood by me as I trained and endured. Yet fate calls me away from this place, and though my love for her burns bright, duty outweighs desire.",
+"And... there is one more truth I would share with thee. Harthgrepa, daughter of Wagnofthus, holds my heart. She has stood by me as I trained and endured. Yet fate calls me away from this place, and though my love for her burns bright, duty outweighs desire.",
 "haddingrs_revenge_set_sail_5",[
 ]],
 [anyone|plyr,"haddingrs_revenge_set_sail_5", [
@@ -52926,7 +53454,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
 ]],
 [anyone,"haddingrs_revenge_training_giant_daughter_2", [
 ],
-"Fate, I suppose, for it is fate that binds us all to its weaving. My father, the keeper of blades and breaker of would-be heroes, holds young Haddingr in his tutelage. And I… I stand as witness to his becoming. He is a fine student, and his heart beats fiercely - for his kin, for his people, and for what is to come.",
+"Fate, I suppose, for it is fate that binds us all to its weaving. My father, the keeper of blades and breaker of would-be heroes, holds young Haddingr in his tutelage. And I... I stand as witness to his becoming. He is a fine student, and his heart beats fiercely - for his kin, for his people, and for what is to come.",
 "haddingrs_revenge_training_giant_daughter_3",[
 ]],
 [anyone|plyr,"haddingrs_revenge_training_giant_daughter_3", [
@@ -52936,7 +53464,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
 ]],
 [anyone,"haddingrs_revenge_training_giant_daughter_4", [
 ],
-"I am but the shadow by the hearth, the whisper in the trees. My father says I have my mother's gift for sight, though he fears the roads it may lead me down. As for my part in this tale… who can say? The Fates are known for their cruelty as much as their wisdom.^^-- She pauses, gazing at Haddingr, who is sparring in the background. --^^But know this, {playername}: there is strength in Haddingr's heart, and strength in those who stand by him. Yet, even the strongest tree may fall if the roots are poisoned. Pray that no such poison takes hold here.",
+"I am but the shadow by the hearth, the whisper in the trees. My father says I have my mother's gift for sight, though he fears the roads it may lead me down. As for my part in this tale... who can say? The Fates are known for their cruelty as much as their wisdom.^^-- She pauses, gazing at Haddingr, who is sparring in the background. --^^But know this, {playername}: there is strength in Haddingr's heart, and strength in those who stand by him. Yet, even the strongest tree may fall if the roots are poisoned. Pray that no such poison takes hold here.",
 "haddingrs_revenge_training_giant_daughter_5",[
 ]],
 [anyone|plyr,"haddingrs_revenge_training_giant_daughter_5", [
@@ -53133,7 +53661,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
 ]],
 [anyone,"haddingrs_revenge_allies_guthlaf_4", [
 ],
-"Pah, the Jutes were part of the ordeal too, not just the men of the Danir helped storm Finnsburg… Not to mention you and your men! Why are you here, advocating for their causes? ",
+"Pah, the Jutes were part of the ordeal too, not just the men of the Danir helped storm Finnsburg... Not to mention you and your men! Why are you here, advocating for their causes? ",
 "haddingrs_revenge_allies_guthlaf_5",[
 ]],
 [anyone|plyr,"haddingrs_revenge_allies_guthlaf_5", [
@@ -53178,7 +53706,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
 ]],
 [anyone|plyr,"haddingrs_revenge_allies_guthlaf_13", [
 ],
-" This is it then, I shall ride to Scandza once more. Stay safe, Guthlaf… And prepare your men. We will need them.",
+" This is it then, I shall ride to Scandza once more. Stay safe, Guthlaf... And prepare your men. We will need them.",
 "haddingrs_revenge_allies_guthlaf_14",[
 ]],
 [anyone,"haddingrs_revenge_allies_guthlaf_14", [
@@ -53445,7 +53973,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
 ]],
 [anyone,"haddingrs_revenge_beach_duel_lost_5", [
 ],
-"… And yet you will have no chance for revenge. Off to the hall you go! And you, did you really favour them? I'll charge you the same.",
+"... And yet you will have no chance for revenge. Off to the hall you go! And you, did you really favour them? I'll charge you the same.",
 "haddingrs_revenge_beach_duel_lost_6",[
 ]],
 [anyone|plyr,"haddingrs_revenge_beach_duel_lost_6", [
@@ -54123,6 +54651,58 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
    ]],
 
 #aestii king
+# alf, puppet of player, installed during the Haddingr saga
+[trp_dani_alf, "start", [
+  (eq, "$g_talk_troop_met", 0),
+],"Well met, lord. Thy name precedes thee, and thy deeds have reached even the quiet corners of this land. I am Alf, a humble servant of the Augandzi, and I come to speak on behalf of my people.",
+"alf_puppet_king_intro_1", [
+]],
+[anyone|plyr, "alf_puppet_king_intro_1", [
+],"What dost thou wish to say, Alf? Speak plainly.",
+"alf_puppet_king_intro_2", [
+]],
+[anyone|plyr, "alf_puppet_king_intro_1", [
+],"Aye, speak swift.",
+"alf_puppet_king_intro_2", [
+]],
+[anyone, "alf_puppet_king_intro_2", [
+],"We Augandzi are a simple folk, lord. We wish no vengeance for Svipdagr's death, for while he was our leader, he was not without his faults. A wicked man, some might say, though he had his reasons.",
+"alf_puppet_king_intro_3", [
+]],
+[anyone|plyr, "alf_puppet_king_intro_3", [
+],"Reasons? What reasons dost thou speak of?",
+"alf_puppet_king_intro_4", [
+]],
+[anyone|plyr, "alf_puppet_king_intro_3", [
+],"Enough riddles - speak plainly.",
+"alf_puppet_king_intro_4", [
+]],
+[anyone, "alf_puppet_king_intro_4", [
+],"Long ago, thy ally Haddingr's father, Gramr, slew Svipdagr's sire. That wound festered, breeding hatred and bloodshed. Yet, even so, Svipdagr's rule brought more harm than good. With him gone, the Augandzi seek peace, not war.",
+"alf_puppet_king_intro_5", [
+]],
+[anyone|plyr, "alf_puppet_king_intro_5", [
+],"And what of thy people? Will they accept me as their overlord?",
+"alf_puppet_king_intro_6", [
+]],
+[anyone, "alf_puppet_king_intro_6", [
+],"Aye, lord. Thou hast proven thy strength, and the Augandzi respect such power. We welcome thee, not as a conqueror but as one who might bring balance to these lands.^^-- He bows slightly. --^^As for myself, I offer my service as thy middleman. Whatever the needs of thy people or thy rule, I shall see to it that they are met.",
+"alf_puppet_king_intro_7", [
+]],
+[anyone|plyr, "alf_puppet_king_intro_7", [
+],"Very well, Alf. Thy loyalty is noted. Together, we shall ensure that Vicus Augandzorum prospers.",
+"alf_puppet_king_intro_8", [
+]],
+[anyone|plyr, "alf_puppet_king_intro_7", [
+],"Time will tell if thy words are true, Alf. For now, thou may'st serve.",
+"alf_puppet_king_intro_8", [
+]],
+[anyone, "alf_puppet_king_intro_8", [
+],"-- Smiling faintly. --^^As thou wish'st, lord. The Augandzi shall await thy guidance.",
+"minor_faction_king_pretalk", [
+  (call_script, "script_change_player_relation_with_troop", "trp_aestii_king",50),
+]],
+
   [trp_aestii_king, "start", [(eq, "$g_talk_troop_met", 0),],
    "Who's yonder, that appears as he lost his path?", "aestii_king_intro_1", []],
   [trp_aestii_king|plyr, "aestii_king_intro_1", [],

@@ -553,3 +553,5 @@ mnu_haddingr_move_party = 551
 mnu_haddingr_aesti_battle = 552
 mnu_haddingr_aesti_battle_won = 553
 mnu_haddingrs_revenge_camp = 554
+mnu_haddingrs_revenge_return = 555
+mnu_haddingrs_revenge_assault_heorot = 556

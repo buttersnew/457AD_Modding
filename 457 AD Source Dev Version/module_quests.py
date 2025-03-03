@@ -516,7 +516,6 @@ quests = [
   "{!}"
  ),
 
-
  ("ernak_quest", "Sky-gods", 0,
   "{!}"
  ),

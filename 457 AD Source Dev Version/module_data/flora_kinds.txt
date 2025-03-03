@@ -1,16 +1,13 @@
 96
-grass 6442469688324 7
+grass 6442469688324 5
  grass_a  0
  grass_b  0
  grass_c  0
  grass_d  0
  grass_e  0
- hhy_grass  0
- hhy_sedge  0
-grass_bush 42950461452 3
+grass_bush 42950461452 2
  grass_bush_a  0
  grass_bush_b  0
- hhy_lavender  0
 grass_saz 2147485227036 2
  grass_bush_c  0
  grass_bush_d  0
@@ -26,11 +23,10 @@ grass_steppe 6442469689352 5
  grass_yellow_c  0
  grass_yellow_d  0
  grass_yellow_e  0
-grass_bush_g 1717987707916 4
+grass_bush_g 1717987707916 3
  grass_bush_g01  0
  grass_bush_g02  0
  grass_bush_g03  0
- hhy_lavender  0
 grass_bush_h 1717987705860 3
  grass_bush_h01  0
  grass_bush_h02  0
@@ -433,13 +429,11 @@ med_bushes_2 1288490192912 9
  crusader_big_bush_c_1  0
  crusader_big_bush_c_2  0
  crusader_big_bush_c_3  0
-med_grass 6442468642832 6
+med_grass 6442468642832 4
  grass_yellow_c  0
  grass_yellow_b  0
  grass_yellow_d  0
  grass_e  0
- hhy_grass  0
- hhy_sedge  0
 med_rock 214750533656 5
  sa_grass_rock_6  bo_sa_grass_rock_6
  sa_grass_rock_7  bo_sa_grass_rock_7

@@ -39,14 +39,14 @@ def density(g):
 
 
 fauna_kinds = [
-  ("grass",fkf_grass|fkf_on_green_ground|fkf_guarantee|fkf_align_with_ground|fkf_point_up|fkf_plain|fkf_plain_forest|density(1500),[["grass_a","0"],["grass_b","0"],["grass_c","0"],["grass_d","0"],["grass_e","0"],["hhy_grass","0"],["hhy_sedge","0"]]),
-  ("grass_bush",fkf_grass|fkf_align_with_ground|fkf_plain|fkf_steppe|fkf_steppe_forest|density(10),[["grass_bush_a","0"],["grass_bush_b","0"],["hhy_lavender","0"]]),
+  ("grass",fkf_grass|fkf_on_green_ground|fkf_guarantee|fkf_align_with_ground|fkf_point_up|fkf_plain|fkf_plain_forest|density(1500),[["grass_a","0"],["grass_b","0"],["grass_c","0"],["grass_d","0"],["grass_e","0"]]),
+  ("grass_bush",fkf_grass|fkf_align_with_ground|fkf_plain|fkf_steppe|fkf_steppe_forest|density(10),[["grass_bush_a","0"],["grass_bush_b","0"]]),
   ("grass_saz",fkf_grass|fkf_on_green_ground|fkf_plain|fkf_snow|fkf_snow_forest|fkf_steppe|fkf_steppe_forest|density(500),[["grass_bush_c","0"],["grass_bush_d","0"]]),
   ("grass_purple",fkf_grass|fkf_plain|fkf_steppe|fkf_steppe_forest|density(500),[["grass_bush_e","0"],["grass_bush_f","0"]]),
   ("fern",fkf_grass|fkf_plain_forest|fkf_align_with_ground|density(1000),[["fern_a","0"],["fern_b","0"]]),
   ("grass_steppe",fkf_grass|fkf_on_green_ground|fkf_guarantee|fkf_align_with_ground|fkf_point_up|fkf_steppe|fkf_steppe_forest|density(1500),[["grass_yellow_a","0"],["grass_yellow_b","0"],["grass_yellow_c","0"],["grass_yellow_d","0"],["grass_yellow_e","0"]]),
 
-  ("grass_bush_g",fkf_grass|fkf_align_with_ground|fkf_steppe|fkf_steppe_forest|fkf_plain|fkf_plain_forest|density(400),[["grass_bush_g01","0"],["grass_bush_g02","0"],["grass_bush_g03","0"],["hhy_lavender","0"]]),
+  ("grass_bush_g",fkf_grass|fkf_align_with_ground|fkf_steppe|fkf_steppe_forest|fkf_plain|fkf_plain_forest|density(400),[["grass_bush_g01","0"],["grass_bush_g02","0"],["grass_bush_g03","0"]]),
   ("grass_bush_h",fkf_grass|fkf_align_with_ground|fkf_plain|fkf_plain_forest|density(400),[["grass_bush_h01","0"],["grass_bush_h02","0"],["grass_bush_h03","0"]]),
   ("grass_bush_i",fkf_grass|fkf_align_with_ground|fkf_plain|fkf_plain_forest|density(400),[["grass_bush_i01","0"],["grass_bush_i02","0"]]),
   ("grass_bush_j",fkf_grass|fkf_align_with_ground|fkf_steppe|fkf_steppe_forest|fkf_plain|fkf_plain_forest|density(400),[["grass_bush_j01","0"],["grass_bush_j02","0"]]),
@@ -173,7 +173,7 @@ fauna_kinds = [
   ("med_bushes_2",fkf_snow|fkf_snow_forest|density(300),[["seedy_plant_a","0"],["thorn_c","0"],["thorn_d","0"],["crusader_big_bush_b_1","0"],
   ["crusader_big_bush_b_2","0"],["crusader_big_bush_b_3","0"],["crusader_big_bush_c_1","0"],
   ["crusader_big_bush_c_2","0"],["crusader_big_bush_c_3","0"]]),
-  ("med_grass",fkf_grass|fkf_snow|fkf_snow_forest|fkf_guarantee|fkf_align_with_ground|fkf_point_up|density(1500),[["grass_yellow_c","0"],["grass_yellow_b","0"],["grass_yellow_d","0"],["grass_e","0"],["hhy_grass","0"],["hhy_sedge","0"]]),
+  ("med_grass",fkf_grass|fkf_snow|fkf_snow_forest|fkf_guarantee|fkf_align_with_ground|fkf_point_up|density(1500),[["grass_yellow_c","0"],["grass_yellow_b","0"],["grass_yellow_d","0"],["grass_e","0"]]),
 
   ("med_rock",fkf_snow|fkf_snow_forest|fkf_steppe|fkf_steppe_forest|fkf_realtime_ligting|fkf_rock|density(50),[
   ["sa_grass_rock_6","bo_sa_grass_rock_6"],

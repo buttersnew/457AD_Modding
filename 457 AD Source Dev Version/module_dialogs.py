@@ -50913,6 +50913,19 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
   [trp_isaurian_king, "start", [],
    "Yes, what do you need?", "close_window", []],
 
+  #peroz quest
+  [trp_quest_peroz, "start", [(eq, "$g_talk_troop_met", 0),],
+   "Yes, what do you want?", "peroz_1", []],
+
+  [trp_quest_peroz, "start", [],
+   "You again? What do you need?", "peroz_1", []],
+
+
+  [trp_quest_peroz|plyr, "peroz_1", [],
+   "I did not mean to disturb you.", "close_window", []],
+
+
+
   [trp_antiquarian, "start", [(eq, "$g_talk_troop_met", 0),],
    "Hello there. You wouldn't happen to be interested in antiques?", "antiquarian_merchant_intro_1", []],
   [trp_antiquarian|plyr, "antiquarian_merchant_intro_1", [],
@@ -54233,7 +54246,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
 
   #intro dialogue for the vidivarii king
   [trp_vidivarii_king, "start", [(eq, "$g_talk_troop_met", 0),],
-   "A {man/woman} walks into the lands of Truso and carries with him/her a purse and in his/her eyes I see a willingness to trade and deal making, but I am old enough to know that the eyes lie much like the mouth when it spouts insincere words. Tell me who I am looking at, traveller.", "vidivarii_king_intro_1", []],
+   "A {man/woman} walks into the lands of Truso and carries a purse and in their eyes I see a willingness to trade and deal making, but I am old enough to know that the eyes lie much like the mouth when it spouts insincere words. Tell me who I am looking at, traveller.", "vidivarii_king_intro_1", []],
   [trp_vidivarii_king|plyr, "vidivarii_king_intro_1", [],
    "Hail to you! I am {playername} and you speak truth that I might be here for trade. Among your people hunters and people from the Northern lands I see but I do not recognize them or you, care to tell me who you are?", "vidivarii_king_intro_2", []],
   [trp_vidivarii_king, "vidivarii_king_intro_2", [],

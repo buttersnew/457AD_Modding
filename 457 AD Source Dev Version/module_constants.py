@@ -405,6 +405,9 @@ slot_party_food_store           = 53 #used for sieges
 slot_center_is_besieged_by      = 54 #used for sieges
 slot_center_last_spotted_enemy  = 55
 
+castle_food_days        = 8
+town_food_days          = 12
+
 slot_party_cached_strength        = 56
 slot_party_nearby_friend_strength = 57
 slot_party_nearby_enemy_strength  = 58

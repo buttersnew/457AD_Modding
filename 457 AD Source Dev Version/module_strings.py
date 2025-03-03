@@ -1125,7 +1125,7 @@ strings = [
   ("npc22_signup_response_2", "By Sol Invictus man, with all that whining and wailing you would do better in this life as a Vestal virgin, I doubt you ever even were a soldier, either way I suggest you fall to your sword now."),
   ("npc23_signup_response_2", "Will you shut the hell up before I run you through with my sword. I truly hope that your sharp tongue and your constant provocations ends up getting you the reward Socrates got after people got tired of him."),
   ("npc24_signup_response_2", "Why should I hire you, the only thing I see is a boorish, Eastern pampered noble, what use would you be to us?"),
-("npc25_signup_response_2", "If you think I have nothing to offer, I will not force your hand. But know this: one day you may regret passing on a chance to shape a future leader."),
+  ("npc25_signup_response_2", "If you think I have nothing to offer, I will not force your hand. But know this: one day you may regret passing on a chance to shape a future leader."),
   ("npc26_signup_response_2", "You are not in charge of who I hire or won't hire. And frankly your voice is beginning to annoy me, go find someone else to spout your nonsense to."),
 
   ("npc1_payment", "Excellent! I will be taking the {reg3} siliquae now, I have a few payments to make before we leave..."),
@@ -1152,7 +1152,7 @@ strings = [
   ("npc22_payment", "I just need a payment of {reg3} siliquae."),
   ("npc23_payment", "I just need a payment of {reg3} siliquae."),
   ("npc24_payment", "All right then. I will come with you, however I do need that payment of {reg3} siliquae... I have built quite the debt here, and need to pay it off..."),
-("npc25_payment", "There is no payment to discuss - I fight for the experience, not for coin. Let us ride without delay."),
+  ("npc25_payment", "There is no payment to discuss - I fight for the experience, not for coin. Let us ride without delay."),
   ("npc26_payment", "I just need a payment of {reg3} siliquae."),
 
   ("npc1_payment_response", "Very well, here's the money."),
@@ -1733,7 +1733,7 @@ strings = [
   ("npc1_kingsupport_objection", "Artemios is not the kind of man you should place your trust on, he is a know-it-all Roman noble who thinks he is so much better than others. Why would a Roman want someone like you to rule? In the worst case he will go to gather support for himself and I would not be surprised at all. You have made a mistake here."), #Borcha
   ("npc2_kingsupport_objection", "Um, captain. Beorhtric has ridden off to tell the lords of this land that you'll let them settle their quarrels by force and violence. You know they rarely actually fight each other, right? Most of the time, it's the traders and travellers on the roads between their castles that get clobbered in their petty disputes. Any excuse to shake down a caravan, they'll take. I really hope that he misunderstood you, sir."), #marnid
   ("npc3_kingsupport_objection", "Captain! Are you really relying on Beorhtric and Rufinius for this task? They will not ensure you a new flow of good warriors... But rather cutthroats and criminals alike! Stop them! There must be another way."),
-  ("npc4_kingsupport_objection", "Sending Khaetag to gather fur support is your most foolish decision bar none. I am ashamed and angry to call you a 'Captain' when he is the one who sends a fucking strawhead to gather support from all manner of Germanics no doubt. I should go after him and leave his body in a ditch."),
+  ("npc4_kingsupport_objection", "Sending Khaetag to gather for support is your most foolish decision bar none. I am ashamed and angry to call you a 'Captain' when he is the one who sends a fucking strawhead to gather support from all manner of Germanics no doubt. I should go after him and leave his body in a ditch."),
   ("npc5_kingsupport_objection", "{playername} , my Khagan -- I overhead what you told the other warrior. But I wonder -- if the lords who live from farming, and the merchants who earn from trade, are allowed to determine what taxes will be leveed, then who will be taxed? Those who live from flocks, of course -- my people, the people of the steppes. I would have nothing to do with these councils, Khagan -- all free men should be one, under the khan, and that is the end of it."), #beheshtur
   ("npc6_kingsupport_objection", "I understand that you have dispatched Mastigas to fabricate a claim of royal descent. I have to tell you, {sir/madame} -- I do not think that the heavens will smile on such an attempt to take the throne by fraud."), #firentis
   ("npc7_kingsupport_objection", "I have heard what you told Aistulf, about giving every common criminal the right of appeal to the {king/ruler}. I do not approve. Bandits should be hanged when caught. Give them a trial or an appeal, and they will talk their way out of the noose. Aistulf is a good man, but no man can fully understand what these wolves in human form do to women"), #deshavi

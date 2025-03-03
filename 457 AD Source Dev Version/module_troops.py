@@ -3181,7 +3181,9 @@ troops = [
    knows_power_throw_5|knows_athletics_3|knows_riding_2|knows_shield_2|knows_inventory_management_2|knows_weapon_master_3|knows_power_strike_5|knows_ironflesh_5|knows_first_aid_1, #28
    0x00000001630c6088475489592a95b52400000000001db6eb0000000000000000],
 #madsci dont move the position of Babai in this file unless you also adjust script_update_companion_candidates_in_taverns
-["npc25","Babai","Babai",tf_hero|tf_mounted|tf_guarantee_horse|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_ranged, no_scene, reserved, fac_commoners,[itm_nomad_boots,itm_kaftan_lamellar_7,itm_sword_viking_c_long,itm_heavy_lance,itm_khergit_bow,itm_khergit_arrows,itm_hun_rich_horse_1],def_attrib_lvl_13|level(13),wp_one_handed(110)|wp_two_handed(80)|wp_polearm(100)|wp_throwing(80)|wp_archery(100),knows_ironflesh_3|knows_power_strike_3|knows_athletics_3|knows_riding_3|knows_power_draw_3|knows_horse_archery_3,0x0000000d9f0083cb555b6ec5124db6db00000000001d36ea0000000000000000],
+  ["npc25","Babai","Babai",tf_hero|tf_mounted|tf_guarantee_horse|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_ranged, no_scene, reserved, fac_commoners,[itm_nomad_boots,itm_kaftan_lamellar_7,itm_sword_viking_c_long,itm_heavy_lance,itm_khergit_bow,itm_khergit_arrows,itm_hun_rich_horse_1],
+  def_attrib_lvl_13|level(13),wp_one_handed(110)|wp_two_handed(80)|wp_polearm(100)|wp_throwing(80)|wp_archery(100),knows_ironflesh_3|knows_power_strike_3|knows_athletics_3|knows_riding_3|knows_power_draw_3|knows_horse_archery_3,
+  0x0000000d9f0083cb555b6ec5124db6db00000000001d36ea0000000000000000],
 
   ["npc26","Alexius","Alexius",tf_hero|tf_unmoveable_in_party_window, 0, reserved,  fac_commoners,[itm_persian_tunic_3,itm_turban_red_1,itm_sassanid_cavalry_boots_2,itm_arab_machete,itm_medium_spear_4,itm_arab_shield_1],
    str_13|agi_10|int_9|cha_9|level(6),wp_one_handed(100)|wp_two_handed(100)|wp_polearm(100)|wp_archery(60)|wp_crossbow(60)|wp_throwing(130)|wp_firearm(60),
@@ -3560,6 +3562,7 @@ troops = [
   ["kingdom_3_pretender",  "Euric II", "Euric II",  tf_hero|tf_unmoveable_in_party_window, 0,reserved,  fac_kingdom_3,[itm_nisean_roman_1, itm_tunic_rich_5, itm_ankle_boots, itm_deurne_campagi_greaves_3, itm_rich_mail_8, itm_sword_viking_3, itm_tab_shield_small_round_c, itm_burgh_helmet_2],      lord_attrib,wp(320),knight_skills_5, 0x000000002700210954da9136db6db6db00000000001db6ea0000000000000000],
   ["kingdom_4_pretender",  "Odoin",   "Odoin",  tf_hero|tf_unmoveable_in_party_window, 0,reserved,  fac_kingdom_4,[itm_nisean_roman_2, itm_tunic_10, itm_wrapping_boots, itm_deurne_campagi_greaves_5, itm_rich_mail_9_cloak, itm_sword_viking_2, itm_tab_shield_round_e,itm_koblenz_helmet_3],            lord_attrib,wp(320),knight_skills_5, 0x0000000b8900020a54da7136db6db6db00000000001d36d40000000000000000],
   ["kingdom_5_pretender",  "lol",  "faje",  tf_hero|tf_unmoveable_in_party_window, 0,reserved,  fac_kingdom_5,[],         lord_attrib,wp(220),knight_skills_5, 0x0000000bed1031051da9abc49ecce25e00000000001e98680000000000000000],
+
   ["kingdom_6_pretender",  "Peroz", "Peroz", tf_hero|tf_unmoveable_in_party_window, 0,reserved,  fac_kingdom_6,[itm_nisean_royal_3, itm_sassanid_cavalry_boots_2, itm_persian_tunic_14,  itm_emperor_armor_c, itm_heavy_greaves, itm_sassanid_helmet_shah, itm_crown_3, itm_ingushetia_spatha, itm_tab_shield_small_round_c],          lord_attrib,wp(360),knight_skills_5, 0x00000000230100c248db71b8eb95c6db00000000001db6f10000000000000000],
 
 #Royal family members
@@ -5277,6 +5280,9 @@ troops = [
   ["corrupt_priest","Shady Priest","Priest",tf_hero, 0, reserved, fac_commoners,[itm_wrapping_boots,itm_robes_church],def_attrib_lvl_18|level(18),wp(180),knows_ironflesh_2|knows_power_strike_2|knows_athletics_2,0x000000096700908f330dae56d26db6db00000000001db6f50000000000000000],
   #holy lance quest
   ["holy_lance_keeper","Old Man","Old Man",tf_hero, 0, reserved, fac_commoners,[itm_wrapping_boots,itm_robes_church],def_attrib_lvl_20|level(19),wp(180),knows_ironflesh_2|knows_power_strike_2|knows_athletics_2,0x0000000f3600314f46da91b6636db6db00000000001db6d20000000000000000],
+
+  #peroz copy for persian civil war quest
+  ["quest_peroz",  "Peroz", "Peroz", tf_hero, 0,reserved,  fac_commoners,[itm_sassanid_cavalry_boots_2,itm_persian_tunic_14,itm_crown_3,itm_ingushetia_spatha],lord_attrib,wp(360),knight_skills_5, 0x00000000230100c248db71b8eb95c6db00000000001db6f10000000000000000],
 
 #shitpost troops
   ["shitpost_unit","Langobardi Crossbow Cataphract Looter","Langobardi Crossbow Cataphract Looters",tf_mounted|tf_guarantee_all,0,0,fac_commoners,

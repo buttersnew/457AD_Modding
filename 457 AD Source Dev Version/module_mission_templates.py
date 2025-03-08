@@ -25058,7 +25058,7 @@ convert_horse_props_to_living_horses,
     (position_get_y, ":y", pos10),
     (val_add, ":y", 10000),
     (position_set_y, pos10, ":y"),
-    (team_set_order_position, pos10),
+    (team_set_order_position, 0, grc_everyone, pos10),
     (try_for_range, ":cur_group", 0, grc_everyone),
       (team_give_order, 0, ":cur_group", mordr_hold),
       (team_give_order, 0, ":cur_group", mordr_spread_out),
@@ -25068,7 +25068,7 @@ convert_horse_props_to_living_horses,
     (position_get_y, ":y", pos10),
     (val_add, ":y", 10000),
     (position_set_y, pos10, ":y"),
-    (team_set_order_position, pos10),
+    (team_set_order_position, 1, grc_everyone, pos10),
     (try_for_range, ":cur_group", 0, grc_everyone),
       (team_give_order, 1, ":cur_group", mordr_hold),
       (team_give_order, 1, ":cur_group", mordr_spread_out),
@@ -27771,6 +27771,14 @@ common_battle_init_banner,
       (30,mtef_visitor_source,0,0,1,[]),#spectators
     ],
     [
+    (0, 2.5, ti_once,[
+      (neg|conversation_screen_is_active),
+      (ge, "$temp", 1),
+    ],[
+      (mission_enable_talk),
+      (start_mission_conversation, "$temp"),
+    ]),
+
     (0, 0, ti_once,
        [],[
     (get_player_agent_no, ":player"),
@@ -28095,14 +28103,31 @@ common_battle_init_banner,
 ]+ dplmc_battle_mode_triggers + enhanced_common_battle_triggers),
 
 ("lead_charge_quest", mtf_battle_mode|mtf_synch_inventory,charge,
-    "You lead your men to battle.",
+    "You lead your men to battle.",[
+      (1,mtef_defenders|mtef_team_0,0,aif_start_alarmed,65,[]),
+      (0,mtef_defenders|mtef_team_0,0,aif_start_alarmed,0,[]),
+      (4,mtef_attackers|mtef_team_1,0,aif_start_alarmed,65,[]),
+      (4,mtef_attackers|mtef_team_1,0,aif_start_alarmed,0,[]),
+    ], vc_weather +
     [
-     (1,mtef_defenders|mtef_team_0,0,aif_start_alarmed,65,[]),
-     (0,mtef_defenders|mtef_team_0,0,aif_start_alarmed,0,[]),
-     (4,mtef_attackers|mtef_team_1,0,aif_start_alarmed,65,[]),
-     (4,mtef_attackers|mtef_team_1,0,aif_start_alarmed,0,[]),
-     ], vc_weather +
-    [
+      (0, 6.5, ti_once,[
+        (neg|conversation_screen_is_active),
+        (check_quest_active, "qst_haddingrs_revenge"),
+        (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 32),
+      ],[
+        (mission_enable_talk),
+
+        (start_mission_conversation, "trp_dani_haddingr"),
+        (set_fixed_point_multiplier, 100),
+        (entry_point_get_position, pos10, 3),
+        # player is attacker team. let them hold during conversation
+        (try_for_range, ":cur_group", 0, grc_everyone),
+          (team_set_order_position, "$attacker_team", ":cur_group", pos10),
+          (team_set_order_position, "$attacker_team_2", ":cur_group", pos10),
+          (team_give_order, "$attacker_team", ":cur_group", mordr_hold),
+          (team_give_order, "$attacker_team_2", ":cur_group", mordr_hold),
+        (try_end),
+      ]),
       # Let it burn
       (0, 80, ti_once, [
         (eq, "$g_encounter_is_in_village", 1),
@@ -29612,46 +29637,46 @@ common_battle_init_banner,
 
 ("haddingr_duel",mtf_battle_mode,-1,
   "plundering a settlement",[
-    (0,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#player
-    (1,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#player
-    (2,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#guard
-	  (3,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#legatus
-    (4,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#legatus
-    (5,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#unused
-    (6,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#unused
-    (7,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#unused
-    (8,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#spectators
-    (9,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#spectators
-    (10,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#player
-    (11,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#player
-    (12,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#guard
-	  (13,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#legatus
-    (14,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#legatus
-    (15,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#unused
-    (16,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#unused
-    (17,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#unused
-    (18,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#spectators
-    (19,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#spectators
-    (20,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#player
-    (21,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#player
-    (22,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#guard
-	  (23,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#legatus
-    (24,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#legatus
-    (25,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#unused
-    (26,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#unused
-    (27,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#unused
-    (28,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#spectators
-    (29,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#spectators
-    (30,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#player
-    (31,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#player
-    (32,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#guard
-	  (33,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#legatus
-    (34,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#legatus
-    (35,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#unused
-    (36,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#unused
-    (37,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#unused
-    (38,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#spectators
-    (39,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),#spectators
+    (0,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),
+    (1,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),
+    (2,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),
+	  (3,mtef_visitor_source|mtef_team_1,af_override_horse|af_override_weapons,aif_start_alarmed,1,[]),#player, override weapons
+    (4,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),
+    (5,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),
+    (6,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),
+    (7,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),
+    (8,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),
+    (9,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),
+    (10,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),
+    (11,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),
+    (12,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),
+	  (13,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),
+    (14,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),
+    (15,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),
+    (16,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),
+    (17,mtef_visitor_source|mtef_team_1,af_override_horse|af_override_weapons,aif_start_alarmed,1,[]),#player, override weapons
+    (18,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),
+    (19,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),
+    (20,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),
+    (21,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),
+    (22,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),
+	  (23,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),
+    (24,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),
+    (25,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),
+    (26,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),
+    (27,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),
+    (28,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),
+    (29,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),
+    (30,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),
+    (31,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),
+    (32,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),
+	  (33,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),
+    (34,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),
+    (35,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),
+    (36,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),
+    (37,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),
+    (38,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),
+    (39,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),
   ],vc_weather + [
     (0, 0, ti_once,[],[
       (get_player_agent_no, ":player"),
@@ -29684,14 +29709,55 @@ common_battle_init_banner,
     ]),
     common_inventory_not_available,
 
+
+    (ti_on_agent_knocked_down, 0, 0, [],[
+      (store_trigger_param_1, ":dead_agent"),
+      (agent_get_troop_id, ":troop", ":dead_agent"),
+      (try_begin),
+        (eq, ":troop", "trp_augundzi_king"),
+        (assign, ":speed", 100),
+        (try_begin),
+          (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 34),
+          (agent_get_speed_modifier, ":speed", ":dead_agent"),
+          (val_sub, ":speed", 25),
+          (val_max, ":speed", 25),
+          (agent_set_speed_modifier, ":dead_agent", ":speed"),
+          (val_add, "$temp2", 1),
+        (else_try),
+          (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 35),
+          (neg|conversation_screen_is_active),
+          (mission_enable_talk),
+          (start_mission_conversation, "trp_dani_haddingr"),
+        (try_end),
+      (try_end),
+      (try_begin),
+        (ge, "$temp2", 3),
+        (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 34),
+        (neg|conversation_screen_is_active),
+        (mission_enable_talk),
+        (start_mission_conversation, "trp_augundzi_king"),
+        (team_set_relation, 2, 3, 1),
+        (team_set_relation, 3, 2, 1),
+      (try_end),
+    ]),
     (ti_on_agent_killed_or_wounded, 0, 0, [],[
       (store_trigger_param_1, ":dead_agent"),
-
       (agent_get_troop_id, ":troop", ":dead_agent"),
-      (eq, ":troop", "trp_dani_king"),
-      (mission_enable_talk),
-      (start_mission_conversation, "trp_augundzi_king"),
-      (set_trigger_result, 1),
+      (try_begin),
+        (eq, ":troop", "trp_dani_king"),
+        (mission_enable_talk),
+        (start_mission_conversation, "trp_augundzi_king"),
+        (set_trigger_result, 1),
+      (else_try),
+        (eq, ":troop", "trp_augundzi_king"),
+        (try_begin),
+          (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 35),
+          (neg|conversation_screen_is_active),
+          (mission_enable_talk),
+          (start_mission_conversation, "trp_dani_haddingr"),
+          (set_trigger_result, 1),
+        (try_end),
+      (try_end),
     ]),
 ]),
 

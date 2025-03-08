@@ -52278,6 +52278,591 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
 ]],
 
 ## haddingrs revenge
+[trp_giant_wagnofthus, "start", [
+  (check_quest_active, "qst_haddingrs_revenge"),
+  (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 38),
+  (agent_slot_eq, "$g_talk_agent", slot_agent_talked, 1),
+],
+"Ride on {playername}, battle is near.",
+"close_window", [
+]],
+
+[trp_giant_wagnofthus, "start", [
+  (check_quest_active, "qst_haddingrs_revenge"),
+  (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 38),
+  (agent_slot_eq, "$g_talk_agent", slot_agent_talked, 0),
+],
+"-- Wagnofthus sits alone, his massive form hunched over a cup. His gaze is distant, his voice low as he beckons the player closer. --^^{playername}, thou dost walk a path carved by the gods. Harthgrepa's death - know that it was not chance nor mortal hand that took her, but the will of the Norns.^^-- He pauses, his gaze piercing. --^^The threads of fate are woven, yet their patterns are known only to the gods. What lies ahead for Haddingr will test both his strength and his spirit. Watch him well, for the gods demand much of those they favor.",
+"haddingrs_revenge_final_feast_giant_1", [
+  (agent_set_slot, "$g_talk_agent", slot_agent_talked, 1),
+]],
+[anyone|plyr,"haddingrs_revenge_final_feast_giant_1", [
+],
+"What dost thou see, Wagnofthus? Is his destiny set?",
+"haddingrs_revenge_final_feast_giant_2",[
+]],
+[anyone,"haddingrs_revenge_final_feast_giant_2", [
+],
+"-- Chuckling softly. --^^No destiny is set, yet the signs are clear. Haddingr walks a path of greatness, but greatness is never without sacrifice. Mark my words, {playername}, the gods are not done with him.",
+"close_window",[
+  (val_add, "$g_battle_result", 1),
+]],
+
+
+[trp_dani_groa, "start", [
+  (check_quest_active, "qst_haddingrs_revenge"),
+  (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 38),
+  (agent_slot_eq, "$g_talk_agent", slot_agent_talked, 1),
+],
+"We shall speak later, dear {playername}.",
+"close_window", [
+]],
+
+[trp_dani_groa, "start", [
+  (check_quest_active, "qst_haddingrs_revenge"),
+  (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 38),
+  (agent_slot_eq, "$g_talk_agent", slot_agent_talked, 0),
+],
+"-- Gróa sits quietly near the edge of the hall, her face shadowed by grief. She looks up as you approach. --^^ {playername}, thou dost revel among the victors, but my heart remains heavy. My son, Guthormr, lies cold because of Svipdagr's treachery.^^-- She looks into her cup, her voice trembling. --^^What glory is there in war, when even the sweetest victories are stained with loss?",
+"haddingrs_revenge_final_feast_groa_1", [
+  (agent_set_slot, "$g_talk_agent", slot_agent_talked, 1),
+]],
+[anyone|plyr,"haddingrs_revenge_final_feast_groa_1", [
+],
+"Thy loss is great, Gróa, and no words can mend it. Yet, know this: thy son's name shall not be forgotten. He is honored in our hearts.",
+"haddingrs_revenge_final_feast_groa_2",[
+]],
+[anyone|plyr,"haddingrs_revenge_final_feast_groa_1", [
+],
+"War is cruel, Gróa. Yet through sacrifice, we shape a better tomorrow.",
+"haddingrs_revenge_final_feast_groa_2",[
+]],
+[anyone,"haddingrs_revenge_final_feast_groa_2", [
+],
+"-- Sighing deeply. --^^Perhaps thou art right, {playername}. Yet my heart cannot help but mourn.",
+"close_window",[
+  (val_add, "$g_battle_result", 1),
+]],
+
+[trp_dani_signe, "start", [
+  (check_quest_active, "qst_haddingrs_revenge"),
+  (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 38),
+  (agent_slot_eq, "$g_talk_agent", slot_agent_talked, 1),
+],
+"We shall speak later, dear {playername}.",
+"close_window", [
+]],
+
+[trp_dani_signe, "start", [
+  (check_quest_active, "qst_haddingrs_revenge"),
+  (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 38),
+  (agent_slot_eq, "$g_talk_agent", slot_agent_talked, 0),
+],
+"-- Signe sits at the high table, a serene smile on her face. She waves you over as she sips from her cup. --^^Well met, {playername}. Thou hast done much for my son, and for that, I owe thee gratitude.^^-- She glances at Haddingr, who is surrounded by revelers. --^^Look at him - a king blessed by the gods. Now, all that remains is to find him a queen, the fairest maiden of the north. What say'st thou? Shall we plan a grand wedding for our young king?",
+"haddingrs_revenge_final_feast_signe_1", [
+  (agent_set_slot, "$g_talk_agent", slot_agent_talked, 1),
+]],
+[anyone|plyr,"haddingrs_revenge_final_feast_signe_1", [
+],
+"A fine notion, Signe. A union to match the strength of his reign.",
+"haddingrs_revenge_final_feast_signe_2",[
+]],
+[anyone|plyr,"haddingrs_revenge_final_feast_signe_1", [
+],
+"Perhaps let him savor this victory first. The gods' plans unfold in their own time.",
+"haddingrs_revenge_final_feast_signe_2",[
+]],
+[anyone,"haddingrs_revenge_final_feast_signe_2", [
+],
+"-- Smiling warmly. --^^Thy wisdom speaks true, {playername}. Yet a mother's heart cannot help but dream.",
+"close_window",[
+  (val_add, "$g_battle_result", 1),
+]],
+
+[trp_dani_guthlaf, "start", [
+  (check_quest_active, "qst_haddingrs_revenge"),
+  (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 38),
+  (agent_slot_eq, "$g_talk_agent", slot_agent_talked, 1),
+],
+"We shall speak later.",
+"close_window", [
+]],
+[trp_dani_ordlaf, "start", [
+  (check_quest_active, "qst_haddingrs_revenge"),
+  (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 38),
+  (agent_slot_eq, "$g_talk_agent", slot_agent_talked, 0),
+],
+"We shall speak later.",
+"close_window", [
+]],
+
+[trp_dani_guthlaf|auto_proceed, "start", [
+  (check_quest_active, "qst_haddingrs_revenge"),
+  (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 38),
+  (agent_slot_eq, "$g_talk_agent", slot_agent_talked, 0),
+],
+"Shouldnt be reading this",
+"haddingrs_revenge_final_feast_guthlaf_ordlaf_1", [
+  (agent_set_slot, "$g_talk_agent", slot_agent_talked, 1),
+  (try_for_agents, ":agent"),
+    (agent_is_active, ":agent"),
+    (agent_is_alive, ":agent"),
+    (agent_get_troop_id, ":troop", ":agent"),
+    (eq, ":troop", "trp_dani_ordlaf"),
+    (agent_set_slot, ":agent", slot_agent_talked, 1),
+  (try_end),
+]],
+[trp_dani_ordlaf|auto_proceed, "start", [
+  (check_quest_active, "qst_haddingrs_revenge"),
+  (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 38),
+  (agent_slot_eq, "$g_talk_agent", slot_agent_talked, 0),
+],
+"Shouldnt be reading this",
+"haddingrs_revenge_final_feast_guthlaf_ordlaf_1", [
+  (agent_set_slot, "$g_talk_agent", slot_agent_talked, 1),
+  (try_for_agents, ":agent"),
+    (agent_is_active, ":agent"),
+    (agent_is_alive, ":agent"),
+    (agent_get_troop_id, ":troop", ":agent"),
+    (eq, ":troop", "trp_dani_guthlaf"),
+    (agent_set_slot, ":agent", slot_agent_talked, 1),
+  (try_end),
+]],
+[anyone|other(trp_dani_ordlaf),"haddingrs_revenge_final_feast_guthlaf_ordlaf_1", [
+],
+"{playername}! A toast to thee, the shield that held firm and the blade that struck true! Without thee, I dare say, we'd be lying in those cursed marshes.",
+"haddingrs_revenge_final_feast_guthlaf_ordlaf_2",[
+  (call_script, "script_set_conversation_troop", "trp_dani_ordlaf"),
+]],
+[anyone|other(trp_dani_guthlaf),"haddingrs_revenge_final_feast_guthlaf_ordlaf_2", [
+],
+"-- Nods solemnly, his tone respectful. --^^Aye. Thy courage was a beacon, {playername}. In battle, honor binds us all, and thou hast shown thyself worthy of the highest.",
+"haddingrs_revenge_final_feast_guthlaf_ordlaf_3",[
+  (call_script, "script_set_conversation_troop", "trp_dani_guthlaf"),
+]],
+[anyone|plyr,"haddingrs_revenge_final_feast_guthlaf_ordlaf_3", [
+],
+"To honor, to courage, and to comradeship! May we all meet again in glory. After Hnaef's tale and Haddingr's revenge, we formed a strong bound.",
+"haddingrs_revenge_final_feast_guthlaf_ordlaf_toast_1",[
+]],
+[anyone|other(trp_dani_ordlaf),"haddingrs_revenge_final_feast_guthlaf_ordlaf_toast_1", [
+],
+"I raise the cup.",
+"haddingrs_revenge_final_feast_guthlaf_ordlaf_toast_2",[
+  (call_script, "script_set_conversation_troop", "trp_dani_ordlaf"),
+]],
+[anyone|other(trp_dani_guthlaf),"haddingrs_revenge_final_feast_guthlaf_ordlaf_toast_2", [
+],
+"I raise the horn.",
+"close_window",[
+  (call_script, "script_set_conversation_troop", "trp_dani_guthlaf"),
+  (val_add, "$g_battle_result", 2),
+]],
+[anyone|plyr,"haddingrs_revenge_final_feast_guthlaf_ordlaf_3", [
+],
+"The battle was won by all, not just by my hand. To victory and to the future!",
+"haddingrs_revenge_final_feast_guthlaf_ordlaf_toast_no_1",[
+]],
+[anyone|other(trp_dani_ordlaf),"haddingrs_revenge_final_feast_guthlaf_ordlaf_toast_no_1", [
+],
+"-- Guthlaf and Ordlaf exchange a knowing look but cheer regardless. --",
+"haddingrs_revenge_final_feast_guthlaf_ordlaf_toast_no_2",[
+  (call_script, "script_set_conversation_troop", "trp_dani_ordlaf"),
+]],
+[anyone|other(trp_dani_guthlaf),"haddingrs_revenge_final_feast_guthlaf_ordlaf_toast_no_2", [
+],
+"-- Guthlaf and Ordlaf exchange a knowing look but cheer regardless. --",
+"close_window",[
+  (call_script, "script_set_conversation_troop", "trp_dani_guthlaf"),
+  (val_add, "$g_battle_result", 2),
+]],
+
+[trp_dani_haddingr, "start", [
+  (check_quest_active, "qst_haddingrs_revenge"),
+  (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 38),
+  (agent_slot_eq, "$g_talk_agent", slot_agent_talked, 1),
+],
+"Revel in the mead, and bask in the company of fair maidens.",
+"close_window", [
+]],
+
+[trp_dani_haddingr, "start", [
+  (check_quest_active, "qst_haddingrs_revenge"),
+  (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 38),
+  (agent_slot_eq, "$g_talk_agent", slot_agent_talked, 0),
+],
+"{playername}, come forth. This victory was not mine alone - it was ours. Thy strength, thy wisdom, thy blade - without these, this hall would still belong to the foe.",
+"haddingrs_revenge_final_feast_haddingr_1", [
+  (agent_set_slot, "$g_talk_agent", slot_agent_talked, 1),
+]],
+[anyone,"haddingrs_revenge_final_feast_haddingr_1", [
+],
+"-- He gestures to a sword laid upon the table. --",
+"haddingrs_revenge_final_feast_haddingr_2",[
+]],
+[anyone,"haddingrs_revenge_final_feast_haddingr_2", [
+],
+"Take this, the blade of Svipdagr, a symbol of what we have achieved. And with it, I name thee lord of Vicus Augandzorum, thy own place to rule as thou see'st fit.",
+"haddingrs_revenge_final_feast_haddingr_3",[
+]],
+[anyone|plyr,"haddingrs_revenge_final_feast_haddingr_3", [
+],
+"Thy words honor me, Haddingr. Together, we have forged a kingdom worthy of song.",
+"haddingrs_revenge_final_feast_haddingr_4",[
+]],
+[anyone,"haddingrs_revenge_final_feast_haddingr_4", [
+],
+"Nay, it is thee who should be honored. Without thy strength and counsel, this kingdom would still be but a dream. Together, we have carved a legacy that shall endure long after our bones have turned to dust.",
+"close_window",[
+  (val_add, "$g_battle_result", 1),
+]],
+
+[trp_dani_haddingr, "start", [
+  (check_quest_active, "qst_haddingrs_revenge"),
+  (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 37),
+],
+"Let it be known that this day marks the dawn of a new age for the Danir. We shall build a kingdom that rivals the heavens themselves!",
+"haddingrs_revenge_battle_final_feast_speech_1", [
+  (quest_set_slot, "qst_haddingrs_revenge", slot_quest_current_state, 38),
+]],
+[anyone|plyr,"haddingrs_revenge_battle_final_feast_speech_1", [
+],
+"And what of the future, Haddingr? What lies beyond this victory?",
+"haddingrs_revenge_battle_final_feast_speech_2",[
+]],
+[anyone|plyr,"haddingrs_revenge_battle_final_feast_speech_1", [
+],
+"Shall there be yet more spoils to claim and greater glory to seize in the days to come?",
+"haddingrs_revenge_battle_final_feast_speech_2",[
+]],
+[anyone,"haddingrs_revenge_battle_final_feast_speech_2", [
+],
+"-- Smiling knowingly. --^^The Swehanaz, the Gautar - there are lands yet to be tamed, treasures yet to be claimed. Rest now, {playername}, for our saga has only begun.",
+"close_window",[
+]],
+
+[trp_dani_haddingr, "start", [
+  (check_quest_active, "qst_haddingrs_revenge"),
+  (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 36),
+],
+"-- With Svipdagr slain, his forces begin to crumble. Haddingr stands bloodied but victorious, raising his sword high as his men cheer. -- ^^Danes and allies! This day, we have broken the chains of tyranny. The throne is ours, and with it, the promise of peace and prosperity!",
+"haddingrs_revenge_battle_final_victory_1", [
+  (quest_set_slot, "qst_haddingrs_revenge", slot_quest_current_state, 37),
+]],
+[anyone|plyr,"haddingrs_revenge_battle_final_victory_1", [
+],
+"A great victory, Haddingr. Thy name shall echo through the halls of history.",
+"haddingrs_revenge_battle_final_victory_2",[
+]],
+[anyone,"haddingrs_revenge_battle_final_victory_2", [
+],
+"-- Looking to you with gratitude. --^^And thou, {playername}, shalt always have a place in my hall. Together, we have forged a kingdom worthy of the gods.",
+"close_window",[
+  (assign, "$g_battle_result", 1),
+]],
+
+[trp_dani_haddingr, "start", [
+  (check_quest_active, "qst_haddingrs_revenge"),
+  (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 35),
+],
+"-- Standing over Svipdagr's lifeless form, addressing the gathered warriors. --^^This day, the chains of tyranny are broken. Heorot is free once more, and the throne is restored to its rightful blood. Let this be a lesson to all who would challenge the Skjoldungr name!",
+"close_window", [
+  (quest_set_slot, "qst_haddingrs_revenge", slot_quest_current_state, 36),
+  # (assign, "$auto_menu", "mnu_haddingrs_revenge_imprisoned"),^
+  (jump_to_menu, "mnu_haddingr_aesti_battle_won"),
+  (mission_disable_talk),
+  (finish_mission, 3),
+  (mission_cam_animate_to_screen_color, 0xFF000000, 2000),
+]],
+
+[trp_augundzi_king, "start", [
+  (check_quest_active, "qst_haddingrs_revenge"),
+  (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 34),
+],
+"-- Coughing, bloodied, and on his knees, yet his voice remains defiant. --^^Thou think'st thy victory is complete, boy? The throne thou claim'st is but ash in thy hands. Thy strength cannot hold what thy father lost.",
+"haddingrs_revenge_battle_final_duel_won_1", [
+  (quest_set_slot, "qst_haddingrs_revenge", slot_quest_current_state, 35),
+]],
+[anyone|other(trp_dani_haddingr),"haddingrs_revenge_battle_final_duel_won_1", [
+],
+"-- Standing tall, his sword raised, his voice calm but resolute. -- ^^Thy words are as hollow as thy reign, Svipdagr. Thy treachery took my father, but thy death shall return this kingdom to its rightful line.",
+"haddingrs_revenge_battle_final_duel_won_2",[
+(call_script, "script_set_conversation_troop", "trp_dani_haddingr"),
+]],
+[anyone,"haddingrs_revenge_battle_final_duel_won_2", [
+],
+"-- Sneering, his voice fading but bitter. --^^Rightful? The gods shall judge thy claim, Dane. Thou shalt see… the weight of the crown… crush even thee.",
+"haddingrs_revenge_battle_final_duel_won_3",[
+]],
+[anyone|other(trp_dani_haddingr),"haddingrs_revenge_battle_final_duel_won_3", [
+],
+"-- Glaring, his tone sharp as steel. --^^The gods have already spoken, Svipdagr. Thy time is over.",
+"haddingrs_revenge_battle_final_duel_won_4",[
+(call_script, "script_set_conversation_troop", "trp_dani_haddingr"),
+]],
+[anyone,"haddingrs_revenge_battle_final_duel_won_4", [
+],
+"I will not yield!",
+"close_window",[
+  (mission_disable_talk),
+  (team_set_relation, 2, 3, -1),
+  (team_set_relation, 3, 2, -1),
+  (try_for_agents, ":agent"),
+      (agent_is_active, ":agent"),
+      (agent_is_alive, ":agent"),
+      (agent_get_troop_id, ":troop", ":agent"),
+      (try_begin),
+          (eq, ":troop", "trp_dani_haddingr"),
+          (agent_set_team, ":agent", 2),
+          (agent_set_no_death_knock_down_only, ":agent", 1),
+          (agent_set_damage_modifier, ":agent", 500),
+      (else_try),
+          (eq, ":troop", "trp_augundzi_king"),
+          (agent_set_team, ":agent", 3),
+          (agent_set_no_death_knock_down_only, ":agent", 0),
+          (agent_set_damage_modifier, ":agent", 5),
+      (try_end),
+      (agent_ai_set_aggressiveness, ":agent", 10000),
+      (agent_force_rethink, ":agent"),
+  (try_end),
+]],
+
+[trp_augundzi_king, "start", [
+  (check_quest_active, "qst_haddingrs_revenge"),
+  (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 33),
+],
+"-- Sneering, his tone mocking. --^^So, the boy king comes to die in his father's shadow. Thy bloodline ends here, Haddingr.",
+"haddingrs_revenge_battle_final_duel_1", [
+  (quest_set_slot, "qst_haddingrs_revenge", slot_quest_current_state, 34),
+]],
+[anyone|other(trp_dani_haddingr),"haddingrs_revenge_battle_final_duel_1", [
+],
+"-- Stepping forward, his voice calm and resolute. --^^Thou shalt find no shadow here, Svipdagr. Only the light of my blade and the end of thy reign.",
+"haddingrs_revenge_battle_final_duel_2",[
+  (call_script, "script_set_conversation_troop", "trp_dani_haddingr"),
+  (mission_disable_talk),
+  (team_set_relation, 2, 3, -1),
+  (team_set_relation, 3, 2, -1),
+  (try_for_agents, ":agent"),
+      (agent_is_active, ":agent"),
+      (agent_is_alive, ":agent"),
+      (agent_get_troop_id, ":troop", ":agent"),
+      (try_begin),
+          (eq, ":troop", "trp_dani_haddingr"),
+          (agent_set_team, ":agent", 2),
+          (agent_set_no_death_knock_down_only, ":agent", 1),
+          (agent_set_damage_modifier, ":agent", 125),
+      (else_try),
+          (eq, ":troop", "trp_augundzi_king"),
+          (agent_set_team, ":agent", 3),
+          (assign, "$temp2", 0),
+          (agent_set_no_death_knock_down_only, ":agent", 1),
+          (agent_set_damage_modifier, ":agent", 50),
+      (try_end),
+      (agent_ai_set_aggressiveness, ":agent", 10000),
+      (agent_force_rethink, ":agent"),
+  (try_end),
+]],
+[anyone,"haddingrs_revenge_battle_final_duel_2", [
+],
+"Then, fight!",
+"close_window",[
+]],
+
+[trp_dani_haddingr, "start", [
+  (check_quest_active, "qst_haddingrs_revenge"),
+  (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 32),
+],
+"There they are, {playername}. Svipdagr's iron host marches to unseat us, yet they shall find their graves in these marshes.",
+"haddingrs_revenge_battle_speech_1", [
+  (quest_set_slot, "qst_haddingrs_revenge", slot_quest_current_state, 33),
+]],
+[anyone|plyr,"haddingrs_revenge_battle_speech_1", [
+],
+"They are many, Haddingr, and well-prepared. What is thy plan?",
+"haddingrs_revenge_battle_speech_2",[
+]],
+[anyone,"haddingrs_revenge_battle_speech_2", [
+],
+"Divide and conquer. The marshes favor us - tight spaces will disrupt their formations. Thou shalt lead our left flank, draw their attention, and I shall strike at their heart.",
+"haddingrs_revenge_battle_speech_3",[
+]],
+[anyone|plyr,"haddingrs_revenge_battle_speech_3", [
+],
+"This terrain is treacherous. Perhaps a more cautious approach is wise.",
+"haddingrs_revenge_battle_speech_4_1",[
+]],
+[anyone,"haddingrs_revenge_battle_speech_4_1", [
+],
+"This slope may be treacherous, yet the Danir tread it as their own. Here, the land bends to our will, and we shall wield it as keenly as any blade. To battle! Shieldwall!",
+"close_window",[
+  (mission_disable_talk),
+]],
+
+[anyone|plyr,"haddingrs_revenge_battle_speech_3", [
+],
+"It shall be done. Thy plan will carry us to victory.",
+"haddingrs_revenge_battle_speech_4",[
+]],
+[anyone,"haddingrs_revenge_battle_speech_4", [
+],
+"To battle! Shieldwall!",
+"close_window",[
+  (mission_disable_talk),
+]],
+
+
+
+
+[trp_dani_haddingr, "start", [
+  (check_quest_active, "qst_haddingrs_revenge"),
+  (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 31),
+],
+"Men of Denmark, tomorrow we face a foe who seeks to steal what we have fought to reclaim. Svipdagr marches with an iron host, yet it is we who stand upon the threshold of destiny.",
+"haddingrs_revenge_prebattle_speech_1", [
+]],
+[anyone|plyr,"haddingrs_revenge_prebattle_speech_1", [
+],
+"They come for our hall, our lands, and our honor. But we shall show them the strength of Heorot's hearthfire.",
+"haddingrs_revenge_prebattle_speech_2",[
+]],
+
+[anyone,"haddingrs_revenge_prebattle_speech_2", [
+],
+"-- Smiling fiercely. --^^Aye, {playername}! Together, we shall make the ground tremble beneath their feet. Rest well tonight, for tomorrow we make history.",
+"close_window",[
+  (assign, "$g_battle_result", 1),
+]],
+
+
+[trp_scandinavian_freeman, "start", [
+  (check_quest_active, "qst_haddingrs_revenge"),
+  (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 30),
+],
+"Lord Haddingr! Svipdagr has landed with his forces. They march southward, unchallenged, toward Heorot.",
+"haddingrs_revenge_prebattle_scout_1", [
+]],
+[anyone|other(trp_dani_haddingr),"haddingrs_revenge_prebattle_scout_1", [
+],
+"So, the serpent comes at last. Where was he sighted, and how many march with him?",
+"haddingrs_revenge_prebattle_scout_2",[
+  (call_script, "script_set_conversation_troop", "trp_dani_haddingr"),
+]],
+[anyone,"haddingrs_revenge_prebattle_scout_2", [
+],
+"They landed in the northern marshes of Jutland. His banners bear the Augandzi sigil, and their host is formidable - armored warriors, ashen forest of spears, and riders of horses among them.",
+"haddingrs_revenge_prebattle_scout_3",[
+]],
+[anyone|plyr,"haddingrs_revenge_prebattle_scout_3", [
+],
+"How long until they reach us?",
+"haddingrs_revenge_prebattle_scout_4",[
+]],
+[anyone,"haddingrs_revenge_prebattle_scout_4", [
+],
+"Two days, perhaps three, if the marshes slow them.",
+"haddingrs_revenge_prebattle_scout_5",[
+]],
+[anyone|other(trp_dani_haddingr),"haddingrs_revenge_prebattle_scout_5", [
+],
+"Then we have little time to prepare. Summon the men - this shall be a battle for the ages.",
+"close_window",[
+  (call_script, "script_set_conversation_troop", "trp_dani_haddingr"),
+  (assign, "$g_battle_result", 1),
+]],
+
+[trp_dani_ordlaf, "start", [
+  (check_quest_active, "qst_haddingrs_revenge"),
+  (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 29),
+  (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_temp_slot_3, 0),
+],
+"Well met, {playername}! What news dost thou bring from the wider world?",
+"haddingrs_revenge_defense_ordlaf_1", [
+]],
+[anyone|plyr,"haddingrs_revenge_defense_ordlaf_1", [
+],
+"Haddingr sits upon the throne of Heorot, but Svipdagr marches to reclaim it. We need thy strength, Ordlaf.",
+"haddingrs_revenge_defense_ordlaf_2",[
+]],
+[anyone,"haddingrs_revenge_defense_ordlaf_2", [
+],
+"Haddingr, eh? The boy has done it then! By the gods, I always knew he had it in him. Aye, {playername}, thou need'st not ask twice. My sword is thine.",
+"haddingrs_revenge_defense_ordlaf_3",[
+]],
+[anyone|plyr,"haddingrs_revenge_defense_ordlaf_3", [
+],
+"Good. Thy strength shall turn the tide in the battles ahead.",
+"haddingrs_revenge_defense_ordlaf_4",[
+]],
+[anyone,"haddingrs_revenge_defense_ordlaf_4", [
+],
+"Then let us march, friend. The glory of Heorot awaits!",
+"close_window",[
+  (mission_disable_talk),
+  (finish_mission, 3),
+  (mission_cam_animate_to_screen_color, 0xFF000000, 2000),
+  (jump_to_menu, "mnu_auto_return_to_map"),
+  (quest_set_slot, "qst_haddingrs_revenge", slot_quest_temp_slot_3, 1),
+  (try_begin),
+    (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_temp_slot_2, 1),
+    (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_temp_slot_3, 1),
+    (dialog_box, "@The preparations are done. Travel back to Heorot", "@New task!"),
+  (try_end),
+]],
+
+[trp_dani_guthlaf, "start", [
+  (check_quest_active, "qst_haddingrs_revenge"),
+  (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 29),
+  (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_temp_slot_2, 0),
+],
+"{playername}, I was waiting for you. What dost thou seek in this hall of shadows?",
+"haddingrs_revenge_defense_guthlaf_1", [
+]],
+[anyone|plyr,"haddingrs_revenge_defense_guthlaf_1", [
+],
+"Guthlaf, Heorot has been reclaimed. Haddingr Skjoldungr sits upon the throne, but Svipdagr gathers his forces. Thy sword is needed in the battles to come.",
+"haddingrs_revenge_defense_guthlaf_2",[
+]],
+[anyone,"haddingrs_revenge_defense_guthlaf_2", [
+],
+"-- Sighs heavily, his tone reluctant. --^^So, the winds of war blow once more. Know this: my place here is tenuous, my debts many. Yet, I owe thee and thy cause a debt of my own.",
+"haddingrs_revenge_defense_guthlaf_3",[
+]],
+[anyone|plyr,"haddingrs_revenge_defense_guthlaf_3", [
+],
+"Will thou follow, then? Heorot needs thee.",
+"haddingrs_revenge_defense_guthlaf_4",[
+]],
+[anyone|plyr,"haddingrs_revenge_defense_guthlaf_3", [
+],
+"The Danir call for thee.",
+"haddingrs_revenge_defense_guthlaf_4",[
+]],
+[anyone,"haddingrs_revenge_defense_guthlaf_4", [
+],
+"Aye, I shall follow. Not for glory, nor for gold, but because honor binds me to thy side. Lead on, {playername}, and let us see this through.",
+"close_window",[
+  (mission_disable_talk),
+  (finish_mission, 3),
+  (mission_cam_animate_to_screen_color, 0xFF000000, 2000),
+  (jump_to_menu, "mnu_auto_return_to_map"),
+  (quest_set_slot, "qst_haddingrs_revenge", slot_quest_temp_slot_2, 1),
+  (try_begin),
+    (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_temp_slot_2, 1),
+    (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_temp_slot_3, 1),
+    (dialog_box, "@The preparations are done. Travel back to Heorot", "@New task!"),
+  (try_end),
+]],
+
+
+[trp_dani_haddingr, "start", [
+  (check_quest_active, "qst_haddingrs_revenge"),
+  (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 28),
+],
+"Men, look upon what we have achieved. Heorot is ours, and with it, the throne of my forefathers. Today marks the dawn of a new era.",
+"haddingrs_revenge_victory_of_heorot_1", [
+]],
+
 [trp_dani_haddingr, "start", [
   (check_quest_active, "qst_haddingrs_revenge"),
   (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 28),
@@ -52301,6 +52886,8 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
 "close_window",[
   (assign, "$g_battle_result", 1),
   (quest_set_slot, "qst_haddingrs_revenge", slot_quest_current_state, 29),
+  (quest_set_slot, "qst_haddingrs_revenge", slot_quest_temp_slot_2, 0),
+  (quest_set_slot, "qst_haddingrs_revenge", slot_quest_temp_slot_3, 0),
 ]],
 
 [trp_dani_haddingr, "start", [
@@ -54023,6 +54610,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
       (else_try),
           (eq, ":troop", "trp_augundzi_king"),
           (agent_set_team, ":agent", 3),
+          (assign, "$temp2", 0),
           (agent_set_no_death_knock_down_only, ":agent", 1),
           (agent_set_damage_modifier, ":agent", 150),
       (try_end),

@@ -1853,6 +1853,11 @@ scenes = [
     [], [], "outer_terrain_forest"),
   ("haddingrs_aesti_trade_post", sf_generate, "none", "none", (0, 0), (100, 100), -0.5, "0x000000023000050000076ddb000029ba000027660000651a",
     [], [], "outer_terrain_forest"),
+  ("haddingrs_final_battle",sf_generate|sf_muddy_water,"none", "none", (0,0),(100,100),-0.5,"0x00000000300005000007bdef0000750f000056d900005a07",
+  [],[], "outer_terrain_plain"), #plains
+  ("haddingrs_final_battle_duel",sf_generate|sf_muddy_water,"none", "none", (0,0),(100,100),-0.5,"0x00000000300005000007bdef0000750f000056d900005a07",
+  [],[], "outer_terrain_plain"), #plains
+
   # ("haddingrs_aesti_final_battle", sf_generate, "none", "none", (0, 0), (100, 100), -0.5, "0x000000023000050000076ddb000029ba000027660000651a",
   #   [], [], "outer_terrain_forest"),
 ]

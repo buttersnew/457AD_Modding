@@ -1474,6 +1474,9 @@ slot_quest_failure_consequence      = 26
 slot_quest_temp_slot      			= 27
 slot_quest_delegate_level      		= 28 #SB : threshold for delegating quests, -1 for disable
 
+slot_quest_temp_slot_2 = 29
+slot_quest_temp_slot_3 = 30
+
 ########################################################
 ##  PARTY TEMPLATE SLOTS   #############################
 ########################################################

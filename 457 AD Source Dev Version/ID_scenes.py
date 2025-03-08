@@ -858,4 +858,6 @@ scn_haddingrs_aesti_village = 855
 scn_haddingrs_aesti_grove = 856
 scn_haddingrs_aesti_ambush = 857
 scn_haddingrs_aesti_trade_post = 858
+scn_haddingrs_final_battle = 859
+scn_haddingrs_final_battle_duel = 860
 scn_exit = 100000

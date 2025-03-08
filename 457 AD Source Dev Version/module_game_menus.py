@@ -27902,8 +27902,19 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 ( "minor_faction_town",menu_text_color(0xFF000000)|mnf_disable_all_keys,
   "In the distance you see {s50}. It is the capital of the {s51}.^^{s52}^^{s49}",
   "none",[
-
     (try_begin),
+        (eq, "$g_encountered_party", "p_dani_village"),
+        (check_quest_active, "qst_haddingrs_revenge"),
+        (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 37),
+        (jump_to_menu, "mnu_haddingrs_revenge_final_feast"),
+    (else_try),
+        (eq, "$g_encountered_party", "p_dani_village"),
+        (check_quest_active, "qst_haddingrs_revenge"),
+        (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 29),
+        (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_temp_slot_2, 1),
+        (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_temp_slot_3, 1),
+        (jump_to_menu, "mnu_haddingrs_revenge_camp"),
+    (else_try),
         (eq, "$g_encountered_party", "p_dani_village"),
         (check_quest_active, "qst_haddingrs_revenge"),
         (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 26),
@@ -28158,50 +28169,53 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     (change_screen_mission),
   ]),
 
-  ("attack_town",
-  [(neg|faction_slot_eq, "$g_encountered_party_faction", slot_faction_player_tributary, 1),
-  (assign, reg50, 0),
-  (try_begin),
-    (check_quest_active, "qst_finnsburh_quest_2"),
-    (this_or_next|eq, "$g_encountered_party", "p_frisian_village"),
-    (eq, "$g_encountered_party", "p_dani_village"),
-    (assign, reg50, 1),
-  (try_end),
-  (eq, reg50, 0),
-(try_begin),
-(party_get_icon, ":icon", "$g_encountered_party"),
-(this_or_next|eq, ":icon", "icon_ship"),
-(this_or_next|eq, ":icon", "icon_steppe_lord"),
-(eq, ":icon", "icon_nomad_camp"),
-(str_store_string, s11, "@camp"),
-(else_try),
-(str_store_string, s11, "@town"),
-(try_end),
-(try_begin), #dont do this if in water
-(party_get_current_terrain, ":terrain", "$g_encountered_party"),
-(this_or_next|eq, ":terrain", rt_deep_water),
-(this_or_next|eq, ":terrain", rt_bridge),
-(this_or_next|eq, ":terrain", rt_river),
-(eq, ":terrain", rt_water),
-(disable_menu_option),
-(try_end),
-(try_begin), #dont let the player attack if the player is unable to fight due to being wounded
-(troop_is_wounded, "trp_player"),
-(disable_menu_option),
-(str_store_string, s11, "@{s11}. (you are wounded)"),
-(try_end),
-  ],
-    "Attack the {s11}.",
-  [
-(try_begin), #madsci if this is a moving camp it will stop when attacked
-(party_get_icon, ":icon", "$g_encountered_party"),
-(eq, ":icon", "icon_steppe_lord"), #the camp is on the move
-(party_set_icon, "$g_encountered_party", "icon_nomad_camp"),
-(party_set_ai_behavior, "$g_encountered_party", ai_bhvr_hold),
-(party_set_flags, "$g_encountered_party", pf_always_visible, 1),
-(party_set_flags, "$g_encountered_party", pf_is_static, 1),
-(party_set_flags, "$g_encountered_party", pf_quest_party, 0),
-(try_end),
+  ("attack_town",[
+    (neg|faction_slot_eq, "$g_encountered_party_faction", slot_faction_player_tributary, 1),
+    (assign, reg50, 0),
+    (try_begin),
+      (check_quest_active, "qst_finnsburh_quest_2"),
+      (this_or_next|eq, "$g_encountered_party", "p_frisian_village"),
+      (eq, "$g_encountered_party", "p_dani_village"),
+      (assign, reg50, 1),
+    (else_try),
+      (check_quest_active, "qst_haddingrs_revenge"),
+      (this_or_next|eq, "$g_encountered_party", "p_frisian_village"),
+      (eq, "$g_encountered_party", "p_dani_village"),
+      (assign, reg50, 1),
+    (try_end),
+    (eq, reg50, 0),
+    (try_begin),
+      (party_get_icon, ":icon", "$g_encountered_party"),
+      (this_or_next|eq, ":icon", "icon_ship"),
+      (this_or_next|eq, ":icon", "icon_steppe_lord"),
+      (eq, ":icon", "icon_nomad_camp"),
+      (str_store_string, s11, "@camp"),
+    (else_try),
+      (str_store_string, s11, "@town"),
+    (try_end),
+    (try_begin), #dont do this if in water
+      (party_get_current_terrain, ":terrain", "$g_encountered_party"),
+      (this_or_next|eq, ":terrain", rt_deep_water),
+      (this_or_next|eq, ":terrain", rt_bridge),
+      (this_or_next|eq, ":terrain", rt_river),
+      (eq, ":terrain", rt_water),
+      (disable_menu_option),
+    (try_end),
+    (try_begin), #dont let the player attack if the player is unable to fight due to being wounded
+      (troop_is_wounded, "trp_player"),
+      (disable_menu_option),
+      (str_store_string, s11, "@{s11}. (you are wounded)"),
+    (try_end),
+  ],"Attack the {s11}.",[
+    (try_begin), #madsci if this is a moving camp it will stop when attacked
+      (party_get_icon, ":icon", "$g_encountered_party"),
+      (eq, ":icon", "icon_steppe_lord"), #the camp is on the move
+      (party_set_icon, "$g_encountered_party", "icon_nomad_camp"),
+      (party_set_ai_behavior, "$g_encountered_party", ai_bhvr_hold),
+      (party_set_flags, "$g_encountered_party", pf_always_visible, 1),
+      (party_set_flags, "$g_encountered_party", pf_is_static, 1),
+      (party_set_flags, "$g_encountered_party", pf_quest_party, 0),
+    (try_end),
     # (try_begin),
     #     (call_script, "script_party_count_members_with_full_health", "p_main_party"), #player must have 100 troops fit for battle, ie not injured
     #     (gt, reg0, 100),
@@ -28685,7 +28699,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 	(neq, "$players_kingdom", ":other_faction"),
         (store_relation, ":reln", "$g_encountered_party_faction", ":other_faction"),
         (gt, ":reln", 0),
-	(set_relation, "$g_encountered_party_faction", ":other_faction", 0), #this minor is no longer someone elses ally if the player subjugate them
+	(set_relation, "$g_encountered_party_faction", ":other_faction", 0), #this minor is no longer someone else ally if the player subjugate them
 	(try_end),
       (change_screen_map),
       ]),
@@ -33772,7 +33786,8 @@ goods, and books will never be sold. ^^You can change some settings here freely.
   ]),
   ("option_1", [
     (check_quest_active, "qst_haddingrs_revenge"),
-    (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 7),
+    (this_or_next|quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 7),
+    (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 29),
   ],"Continue...",[
     (try_begin),
       (is_currently_night),
@@ -34284,6 +34299,51 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 25),
       (disable_party, "p_haddingrs_revenge_raiding_camp"),
       (jump_to_menu, "mnu_haddingrs_revenge_return"),
+    (else_try),# spawn haddingrs camp party and use it as host of the augudanzi
+      (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 30),
+      (enable_party, "p_haddingrs_revenge_raiding_camp"),
+      (party_set_name, "p_haddingrs_revenge_raiding_camp", "@Augundzi host"),
+      (party_set_faction, "p_haddingrs_revenge_raiding_camp", "fac_minor_augundzi"),
+      (set_fixed_point_multiplier, 1000),
+      (init_position, pos31),
+      (position_set_x, pos31, -130620),
+      (position_set_y, pos31, 167005),
+      (party_set_position, "p_haddingrs_revenge_raiding_camp", pos31),
+
+      (call_script, "script_fully_refresh_minor_faction_garrison", "p_haddingrs_revenge_raiding_camp", 750),#initialize army
+      # (party_add_leader, "p_haddingrs_revenge_raiding_camp", "trp_dani_haddingr"),
+      (party_set_icon, "p_haddingrs_revenge_raiding_camp", "icon_germanic_army_1"),
+      (party_set_flags, "p_haddingrs_revenge_raiding_camp", pf_is_static, 0), # in case this is somehow wrong set
+      (party_set_flags, "p_haddingrs_revenge_raiding_camp", pf_is_ship, 0),
+
+      (party_get_position, pos31, "p_dani_village"),
+      (party_set_ai_target_position, "p_haddingrs_revenge_raiding_camp", pos31),
+      (party_set_ai_behavior, "p_haddingrs_revenge_raiding_camp", ai_bhvr_travel_to_point),
+
+      (assign, "$auto_menu", "mnu_haddingr_aesti_battle"),
+      (rest_for_hours, 10 * 24, 1, 0),
+      (set_camera_follow_party, "p_haddingrs_revenge_raiding_camp"),
+      (assign, "$g_player_is_captive", 1),
+      (change_screen_map),
+    (else_try),# wait for one day until feast
+      (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 37),
+
+      (store_time_of_day,":cur_time_of_day"),#0 to 24
+      (val_add, ":cur_time_of_day", 11),
+      (assign, reg22, 48),
+      (val_sub,reg22,":cur_time_of_day"),
+
+      (assign, "$auto_enter_town", "p_dani_village"),
+      (assign, "$g_town_visit_after_rest", 1),
+      (assign, "$g_last_rest_center", "p_dani_village"),
+      (assign, "$g_last_rest_payment_until", -1),
+
+      (party_clear, "p_haddingrs_revenge_raiding_camp"),
+      (disable_party, "p_haddingrs_revenge_raiding_camp"),
+
+      (rest_for_hours, reg22, 17, 0),
+      # (leave_encounter),
+      (change_screen_map),
     (try_end),
   ],[
   ("option_1", [
@@ -34317,6 +34377,12 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       (faction_get_slot, ":faction_leader", "fac_minor_aestii", slot_faction_leader),
       (str_store_troop_name, s11, ":faction_leader"),
       (str_store_string, s10, "@Through the murmur of the camp, a figure strides forth with measured steps - {s11}, flanked by his loyal retainers. His armor catches the fading light, each polished plate a testament to his rank and station. There is weight in his presence, a quiet authority that stills the air.^^His gaze is steady, his expression unreadable. Whether he comes as friend or foe remains to be seen, but one thing is certain-his words shall bear consequence."),
+    (else_try),
+      (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 30),
+      (str_store_string, s10, "@Night shrouds Heorot, but within its great hall, the fire burns bright, casting long shadows upon the gathered warriors. Mead flows, yet none drink deep, for the weight of the coming battle stills their hands. Haddingr stands before them, his blade catching the fire's glow, his gaze unwavering. The air is thick with unspoken oaths, the hush before the storm."),
+    (else_try),
+      (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 31),
+      (str_store_string, s10, "@Word spreads like wildfire - Svipdagr marches south, his host at his back, vengeance burning in his heart. The warriors of Heorot sharpen their blades and ready their shields, knowing the final reckoning is at hand. Haddingr stands at the hall's threshold, gazing toward the horizon where his enemy gathers. The fate of the kingdom hangs in the balance, and soon, the fields before Heorot shall run red with the blood of the fallen."),
     (try_end),
   ],[
   ("option_0",[
@@ -34326,6 +34392,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     (this_or_next|quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 16),
     (this_or_next|quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 19),
     (this_or_next|quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 21),
+    (this_or_next|quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 31),
     # (this_or_next|quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 22),
     (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 17),
   ],"Test scene",[
@@ -34347,9 +34414,9 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     (else_try),
       (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 21),
       (assign, ":scene_to_use", "scn_haddingrs_revenge_travel_cutscene"),
-    # (else_try),
-    #   (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 22),
-    #   (assign, ":scene_to_use", "scn_haddingrs_aesti_final_battle"),
+    (else_try),
+      (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 31),
+      (assign, ":scene_to_use", "scn_haddingrs_final_battle"),
     (try_end),
 
     (jump_to_scene, ":scene_to_use"),
@@ -34387,6 +34454,51 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     (change_screen_mission),
   ]),
 
+  #prebattle speech of final battle
+  ("option_0",[
+    (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 30),
+  ],"Continue...",[
+    # give haddingr weapons of his father
+    (try_for_range, ":item_slot", 0, 10),
+      (troop_set_inventory_slot, "trp_dani_haddingr", ":item_slot", -1),
+    (try_end),
+    (troop_add_items, "trp_dani_haddingr", "itm_khergit_leather_boots",1),
+    (troop_add_items, "trp_dani_haddingr", "itm_danish_king_mail",1),
+    (troop_add_items, "trp_dani_haddingr", "itm_danish_king_mace",1),
+    (troop_add_items, "trp_dani_haddingr", "itm_gultlingen_helmet_plume",1),
+    (troop_add_items, "trp_dani_haddingr", "itm_round_shield_germanic_5",1),
+    (troop_equip_items, "trp_dani_haddingr"),
+
+    (quest_set_slot, "qst_haddingrs_revenge", slot_quest_current_state, 31),
+
+    (set_jump_mission, "mt_longboat_landing_1"),
+    (modify_visitors_at_site, "scn_finns_hall_interior"),
+    (reset_visitors),
+
+    (assign, "$g_next_menu", "mnu_haddingr_aesti_battle"),
+
+    (set_visitor, 0, "trp_player"),
+    (set_visitor, 1, "trp_dani_guthlaf"),
+    (set_visitor, 2, "trp_scandinavian_comes"),
+    (set_visitor, 3, "trp_scandinavian_comes"),
+    (set_visitor, 4, "trp_dani_ordlaf"),
+    (set_visitor, 5, "trp_dani_haddingr"),
+    (set_visitor, 6, "trp_scandinavian_comes"),
+    (set_visitor, 7, "trp_scandinavian_comes"),
+    (set_visitor, 8, "trp_scandinavian_comes"),
+    (set_visitor, 9, "trp_scandinavian_comes"),
+    (set_visitor, 10, "trp_scandinavian_comes"),
+    (set_visitor, 11, "trp_scandinavian_comes"),
+    (set_visitor, 12, "trp_scandinavian_comes"),
+    (set_visitor, 13, "trp_scandinavian_comes"),
+    (set_visitor, 14, "trp_scandinavian_comes"),
+
+    (assign, "$temp", "trp_dani_haddingr"),
+
+    (jump_to_scene, "scn_finns_hall_interior"),
+    (change_screen_mission),
+  ]),
+
   ("option_0",[
     (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 16),
   ],"Continue...",[
@@ -34421,6 +34533,68 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     (jump_to_scene, "scn_haddingrs_aesti_ambush"),
     (change_screen_mission),
   ]),
+  # the final battle
+  ("option_1",[
+    (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 31),
+  ],"To battle Dani champions!",[
+    (quest_set_slot, "qst_haddingrs_revenge", slot_quest_current_state, 32),
+
+    (store_encountered_party, "$g_enemy_party"),
+
+    (assign, "$g_ally_party", "p_dani_village"),
+    (assign, ":scene_to_use", "scn_haddingrs_final_battle"),
+
+    # reset health to make it easier and more fun fun fun
+    (troop_set_health, "trp_dani_haddingr", 100),
+    (troop_set_health, "trp_dani_guthlaf", 100),
+    (troop_set_health, "trp_dani_ordlaf", 100),
+
+    (troop_set_health, "trp_player", 100),
+
+    (party_clear, "$g_ally_party"),
+    (call_script, "script_fully_refresh_minor_faction_garrison", "$g_ally_party", 300),
+    (party_add_leader, "$g_ally_party", "trp_dani_haddingr"),
+
+    (party_clear, "p_haddingrs_revenge_sedgean"),
+    (party_set_faction, "p_haddingrs_revenge_sedgean", "fac_minor_frisians"),
+    (call_script, "script_fully_refresh_minor_faction_garrison", "p_haddingrs_revenge_sedgean", 225),
+    (party_add_leader, "p_haddingrs_revenge_sedgean", "trp_dani_guthlaf"),
+    (party_add_members, "p_haddingrs_revenge_sedgean", "trp_dani_ordlaf", 1),
+
+    # attach allies to battle
+    (set_party_battle_mode),
+    (party_quick_attach_to_current_battle, "$g_ally_party", 0), #allies
+    (party_quick_attach_to_current_battle, "p_haddingrs_revenge_sedgean", 0), #allies
+    # (party_quick_attach_to_current_battle, "$g_enemy_party", 1), #enemies
+
+    # calculate battle variables (mainly necessary if there are also allies)
+    (call_script, "script_encounter_calculate_fit"),
+    # (display_message, "@{reg11}, {reg10}"),
+    (try_begin),
+      (eq, "$new_encounter", 1),
+      (assign, "$new_encounter", 0),
+      (assign, "$g_encounter_is_in_village", 1),
+      (assign, "$g_encounter_type", 0),
+      (call_script, "script_encounter_init_variables"),
+      (assign, "$encountered_party_hostile", 1),
+      (assign, "$encountered_party_friendly", 0),
+    (try_end),
+
+    (assign, "$g_battle_result", 0),
+    (assign, "$g_engaged_enemy", 1),
+    (assign, "$g_next_menu", "mnu_haddingr_aesti_battle_won"),#victory menu
+    (assign, "$temp4", "mnu_haddingrs_revenge_defeat"),#defeat menu
+
+    # as its a larger battle we should also calculate battle advantage
+    (call_script, "script_calculate_battle_advantage"),
+    (set_battle_advantage, reg0),
+
+    (set_jump_mission,"mt_lead_charge_quest"),#can be used for any quest battle
+    (jump_to_scene, ":scene_to_use"),
+    (change_screen_mission),
+  ]),
+
+  ## battles against the Aesti
   ("option_1",[
     (this_or_next|quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 14),
     (this_or_next|quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 15),
@@ -34560,9 +34734,81 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       (else_try),
         (str_store_string, s10, "@With a measured gesture, {s11} bids his retainers to step back, their armored forms retreating into the shadows. The tension lingers in the air as Haddingr watches him go, his gaze distant, his thoughts veiled. At last, he turns to you, his expression unreadable yet heavy with meaning."),
       (try_end),
+    (else_try),
+      (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 33),
+      (str_store_string, s10, "@As the battle rages, steel clashing and war cries filling the air, fate draws Svipdagr and Haddingr together upon the blood-soaked field. Amidst the chaos, their blades meet, a duel that will decide the fate of Heorot. Warriors on both sides pause, their breath held, as king faces king in a contest of steel, will, and destiny."),
+    (else_try),
+      (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 36),
+      (str_store_string, s10, "@As the dust of battle settles, Haddingr stands victorious, his blade dripping with the blood of his foe. A roar of triumph erupts from his warriors, their cheers shaking the walls of Heorot. The war is won, the throne secured, and the Skjoldung name restored to its rightful glory."),
     (try_end),
   ],[
   ("option_1", [
+    (quest_slot_eq, "qst_haddingrs_revenge",  slot_quest_current_state, 33),
+    (ge, "$cheat_mode", 1),
+  ],"Test scene",[
+    (jump_to_scene, "scn_haddingrs_final_battle_duel"),
+    (change_screen_mission),
+  ]),
+  ("option_1", [
+    (quest_slot_eq, "qst_haddingrs_revenge",  slot_quest_current_state, 33),
+  ],"Duel!",[
+    (party_clear, "p_haddingrs_revenge_sedgean"), # clear temp ally party
+    (party_set_faction, "p_haddingrs_revenge_sedgean", "fac_neutral"),# clear temp ally party
+
+    (troop_set_health, "trp_dani_haddingr", 100),
+    (assign, ":weapons", 0),
+    (try_for_range, ":i_slot", ek_item_0, ek_item_3 + 1),
+      (troop_get_inventory_slot, ":item", "trp_dani_haddingr", ":i_slot"),
+      (gt, ":item", -1),
+      (item_get_type, ":type", ":item"),
+      (this_or_next|eq, ":type", itp_type_one_handed_wpn),
+      (this_or_next|eq, ":type", itp_type_two_handed_wpn),
+      (eq, ":type", itp_type_polearm),
+      (val_add, ":weapons", 1),
+    (try_end),
+    (try_begin),
+      (eq, ":weapons", 0),
+      (troop_add_item, "trp_dani_haddingr", "itm_danish_king_mace"),
+      (troop_add_item, "trp_dani_haddingr", "itm_round_shield_germanic_5"),
+      (troop_equip_items, "trp_dani_haddingr"),
+    (try_end),
+
+    (troop_set_health, "trp_augundzi_king", 100),
+
+    (set_jump_mission, "mt_haddingr_duel"),
+    (modify_visitors_at_site, "scn_haddingrs_final_battle_duel"),
+    (reset_visitors),
+    (assign, "$temp", "trp_augundzi_king"),
+    (set_visitor, 1, "trp_dani_haddingr"),
+    (set_visitor, 2, "trp_augundzi_king"),
+    (set_visitor, 3, "trp_player"),
+
+    (set_visitor, 4, "trp_dani_guthlaf"),
+    (set_visitor, 5, "trp_dani_ordlaf"),
+
+    (set_visitor, 6, "trp_saami_hunter"),
+    (set_visitor, 7, "trp_scandinavian_retainer"),
+    (set_visitor, 8, "trp_saami_hunter"),
+    (set_visitor, 9, "trp_scandinavian_retainer"),
+    (set_visitor, 10, "trp_saami_hunter"),
+    (set_visitor, 11, "trp_scandinavian_retainer"),
+    (set_visitor, 12, "trp_saami_hunter"),
+    (set_visitor, 13, "trp_scandinavian_retainer"),
+
+    (set_visitor, 14, "trp_dane_vanguard"),
+    (set_visitor, 15, "trp_dane_vanguard"),
+    (set_visitor, 16, "trp_frisian_companion"),
+    (set_visitor, 17, "trp_dane_vanguard"),
+    (set_visitor, 18, "trp_dane_vanguard"),
+    (set_visitor, 19, "trp_dane_vanguard"),
+    (set_visitor, 20, "trp_frisian_companion"),
+    (set_visitor, 21, "trp_frisian_companion"),
+
+    (jump_to_scene, "scn_haddingrs_final_battle_duel"),
+    (change_screen_mission),
+  ]),
+  ("option_1", [
+    (neg|quest_slot_eq, "qst_haddingrs_revenge",  slot_quest_current_state, 33),
   ],"Continue...",[
     (try_begin),
       (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 14),
@@ -34613,6 +34859,10 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       (try_end),
       (add_xp_as_reward, 10000),
       (assign, ":scene_to_use", "scn_haddingrs_revenge_travel_cutscene"),
+    (else_try),
+      (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 36),
+      (add_xp_as_reward, 10000),
+      (assign, ":scene_to_use", "scn_haddingrs_final_battle_duel"),
     (try_end),
     (set_jump_mission, "mt_longboat_landing_1"),
     (assign, "$g_next_menu", "mnu_haddingr_move_party"),
@@ -34673,9 +34923,12 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     (else_try),
       (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 27),
       (str_store_string, s10, "@Victory is yours - Heorot stands reclaimed, and Haddingr now sits upon the throne of the Skjoldungr. The warriors sing of triumph, and the banners of the Danir once more fly over the great hall. Yet, even in this moment of glory, the specter of war lingers.^^Svipdagr still lives, his wrath unquenched, and his forces gather beyond the horizon. Peace is but a fleeting breath before the storm. The Danir must ready themselves, for the battle to come shall shape the fate of the North."),
+    (else_try),
+      (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 29),
+      (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_temp_slot_2, 1),
+      (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_temp_slot_3, 1),
+      (str_store_string, s10, "@The great hall of Heorot stands once more, its banners unfurled, its throne reclaimed. Within, the court gathers - chieftains, warriors, and scribes - each bearing a task in the forging of a new reign. Haddingr, seated upon his rightful throne, listens intently as matters of governance unfold. By his side, you stand, a trusted sword in the shaping of this realm's future.^Amidst the murmurs of counsel and the weight of decision, the doors burst open. A scout stumbles forward, breathless and dust-covered, urgency written upon his face."),
     (try_end),
-    (quest_get_slot, reg10, "qst_haddingrs_revenge", slot_quest_current_state),
-    (display_message, "@{reg10}"),
   ],[
   ("option_1", [
   ],"Continue...",[
@@ -34708,12 +34961,30 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       (troop_set_slot, "trp_dani_haddingr", slot_troop_renown, 450),
       (troop_set_note_available, "trp_dani_haddingr", 1),
       (add_troop_note_tableau_mesh, "trp_dani_haddingr", "tableau_troop_note_mesh"),
+    (else_try),
+      (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 29),
+      (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_temp_slot_2, 1),
+      (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_temp_slot_3, 1),
+      (quest_set_slot, "qst_haddingrs_revenge", slot_quest_current_state, 30),
+      (assign, ":scene", "scn_finns_hall_interior"),
     (try_end),
     (set_jump_mission, "mt_longboat_landing_1"),
     (try_for_range, ":entry_no", 1, 20),
       (mission_tpl_entry_set_override_flags, "mt_longboat_landing_1", ":entry_no", af_override_horse),
     (try_end),
     (try_begin),
+      (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 30),
+      (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_temp_slot_2, 1),
+      (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_temp_slot_3, 1),
+      (modify_visitors_at_site, ":scene"),
+      (reset_visitors),
+      (assign, "$temp", "trp_scandinavian_freeman"),
+      (set_visitor, 3, "trp_player"),
+      (set_visitor, 7, "trp_scandinavian_freeman"),
+      (set_visitor, 1, "trp_dani_haddingr"),
+      (jump_to_scene, ":scene"),
+      (change_screen_mission),
+    (else_try),
       (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 25),
       (modify_visitors_at_site, ":scene"),
       (reset_visitors),
@@ -34847,7 +35118,88 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     (change_screen_mission),
   ]),
 ]),
+("haddingrs_revenge_final_feast",0,
+  "The procession marches into Heorot, greeted by thunderous cheers as the people hail Haddingr's name. Banners of the Skjoldung line the great hall, where warriors revel in their hard-won triumph. Goblets clash, laughter echoes, and the air is thick with the scent of roasted meat and spilled mead. Amidst the celebration, Haddingr rises, lifting his cup high. The hall falls silent, all eyes turning to him as he prepares to speak.",
+  "none",[
+    (set_background_mesh, "mesh_pic_victory"),
+  ],[
+  ("option_1",[],"Today we feast, tomorrow we battle!",[
+    (set_jump_mission, "mt_final_feast"),
+    (modify_visitors_at_site, "scn_finns_hall_interior"),
+    (reset_visitors),
 
+    (assign, "$g_next_menu", "mnu_haddingrs_revenge_final_end"),
+
+    (set_visitor, 0, "trp_player"),
+    (set_visitor, 1, "trp_dani_guthlaf"),
+    (set_visitor, 2, "trp_giant_wagnofthus"),
+    (set_visitor, 3, "trp_dani_signe"),
+    (set_visitor, 4, "trp_dani_ordlaf"),
+    (set_visitor, 5, "trp_dani_haddingr"),
+    (set_visitor, 6, "trp_scandinavian_comes"),
+    (set_visitor, 7, "trp_scandinavian_comes"),
+    (set_visitor, 8, "trp_scandinavian_comes"),
+    (set_visitor, 9, "trp_scandinavian_comes"),
+    (set_visitor, 10, "trp_scandinavian_comes"),
+    (set_visitor, 11, "trp_scandinavian_comes"),
+    (set_visitor, 12, "trp_dani_groa"),
+    (set_visitor, 13, "trp_musican_male"),
+    (set_visitor, 14, "trp_musican_female"),
+
+    (assign, "$temp", "trp_dani_haddingr"),
+
+    (jump_to_scene, "scn_finns_hall_interior"),
+    (change_screen_mission),
+  ]),
+]),
+("haddingrs_revenge_final_end",0,
+  "With Svipdagr slain, the Battle of Jutland ends in triumph. Haddingr ascends the throne, ruling over Heorot with strength and wisdom, ushering in an era of peace and prosperity. Yet, even as the land settles, the horizon whispers of new adventures, calling those who would seek glory beyond the comforts of victory.",
+  "none",[
+    (set_background_mesh, "mesh_pic_victory"),
+  ],[
+  ("option_1",[],"The shores of Britannia are calling!",[
+    (faction_set_slot, "fac_minor_augundzi", slot_faction_leader, "trp_dani_alf"),
+    (faction_set_slot, "fac_minor_augundzi", slot_faction_player_tributary, 1),
+    (party_add_leader, "p_augundzi_village", "trp_dani_alf"),
+    (party_set_slot, "p_augundzi_village", slot_town_lord, "trp_dani_alf"),
+    (troop_set_faction, "trp_dani_alf", "fac_minor_augundzi"),
+
+    (troop_set_slot, "trp_dani_alf", slot_troop_age, 45),
+    (troop_set_slot, "trp_dani_alf", slot_troop_religion, slot_religion_paganism),
+    (troop_set_slot, "trp_dani_alf", slot_troop_renown, 100),
+    (troop_set_note_available, "trp_dani_alf", 1),
+    (add_troop_note_tableau_mesh, "trp_dani_alf", "tableau_troop_note_mesh"),
+
+    (str_store_troop_name_link, s11, "trp_dani_alf"),
+    (str_store_faction_name_link, s10, "fac_minor_augundzi"),
+    (display_log_message, "@The {s10} are now your vassal! Their new ruler is {s11}, your puppet king."),
+
+    (troop_set_slot, "trp_augundzi_king", slot_troop_occupation, dplmc_slto_dead),
+
+    (call_script, "script_set_player_relation_with_faction", "fac_minor_augundzi", 10),
+
+    (troop_add_items, "trp_player", "itm_evebo_spatha", 1),
+    (troop_add_gold, "trp_player", 10000),
+    (add_xp_as_reward, 5000),
+    (call_script, "script_end_quest", "qst_haddingrs_revenge"),
+    (call_script, "script_change_troop_renown", "trp_player", 100),
+    (call_script, "script_change_player_honor", 15),
+    (jump_to_menu, "mnu_auto_return_to_map"),
+
+    (try_begin),
+      (is_between, "$players_kingdom", npc_kingdoms_begin, npc_kingdoms_end),
+      (store_relation, ":reln", "fac_minor_augundzi", "$players_kingdom"),
+      (lt, ":reln", 0),
+      (set_relation, "fac_minor_augundzi", "$players_kingdom", 0), #make neutral towards the players faction if subjugated
+    (try_end),
+    (try_for_range, ":other_faction", npc_kingdoms_begin, npc_kingdoms_end),
+      (neq, "$players_kingdom", ":other_faction"),
+      (store_relation, ":reln", "fac_minor_augundzi", ":other_faction"),
+      (gt, ":reln", 0),
+      (set_relation, "fac_minor_augundzi", ":other_faction", 0), #this minor is no longer someone else ally if the player subjugate them
+    (try_end),
+  ]),
+]),
 ]#end of file
 
 

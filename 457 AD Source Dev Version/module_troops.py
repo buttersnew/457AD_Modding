@@ -1105,6 +1105,11 @@ troops = [
    [itm_deurne_campagi_greaves_2,itm_deurne_campagi_greaves_3,itm_rich_mail_1_cloak,itm_common_mail_long_7,itm_common_mail_long_8,itm_concesti_helmet,itm_burgh_helmet_plume_2,itm_iatrus_plume_2,itm_augst_helmet_crested_rich_1,itm_breda_helmet_plume_1,itm_arabian_sword_b,itm_tab_shield_round_e,itm_angon_1],
    def_attrib_lvl_28|level(28),wp_one_handed(200)|wp_two_handed(200)|wp_polearm(200)|wp_archery(120)|wp_throwing(200),knows_lvl_28|knows_trainer_5,germanic_face_1, germanic_face_2],
 
+  #modernized/romanized gothic kit, for Visigoths, Ostrogoths - will use more roman equipment
+  ["gothic_infantry","Militonds","Militondans",tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_shield|tf_guarantee_helmet|tf_guarantee_polearm,0,0,fac_culture_1,
+   [,itm_common_mail_short_1,itm_common_mail_short_2],
+   def_attrib_lvl_25|level(25),wp_one_handed(180)|wp_two_handed(180)|wp_polearm(180)|wp_archery(100)|wp_throwing(180),knows_lvl_25,germanic_face_1, germanic_face_2],
+
   ["gothic_messenger","Gothic Messenger (Airus)","Gothic Messengers (Airus)",tf_mounted|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_gloves|tf_guarantee_horse|tf_guarantee_ranged,0,0,fac_culture_1,
    [itm_narona_helmet_mail,itm_sword_viking_2,itm_cavalry_javelins]+tunics_gothic_1+horses_eastern_germanic_1+shoes_generic,
    def_attrib_lvl_23|level(25),wp(180),knows_common|knows_riding_7|knows_horse_archery_5,germanic_face_1, germanic_face_2],

@@ -1107,7 +1107,7 @@ troops = [
 
   #modernized/romanized gothic kit, for Visigoths, Ostrogoths - will use more roman equipment
   ["gothic_infantry","Militonds","Militondans",tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_shield|tf_guarantee_helmet|tf_guarantee_polearm,0,0,fac_culture_1,
-   [,itm_common_mail_short_1,itm_common_mail_short_2],
+   [itm_common_mail_short_1,itm_common_mail_short_2],
    def_attrib_lvl_25|level(25),wp_one_handed(180)|wp_two_handed(180)|wp_polearm(180)|wp_archery(100)|wp_throwing(180),knows_lvl_25,germanic_face_1, germanic_face_2],
 
   ["gothic_messenger","Gothic Messenger (Airus)","Gothic Messengers (Airus)",tf_mounted|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_gloves|tf_guarantee_horse|tf_guarantee_ranged,0,0,fac_culture_1,

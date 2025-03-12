@@ -50920,8 +50920,8 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
   [trp_quest_peroz, "start", [],
    "You again? What do you need?", "peroz_1", []],
 
-  [trp_quest_peroz|plyr, "peroz_1", [],
-   "Who are you?", "peroz_quest_intro_1", []],
+  #[trp_quest_peroz|plyr, "peroz_1", [],
+  # "Who are you?", "peroz_quest_intro_1", []],
 
 
   [trp_quest_peroz|plyr, "peroz_1", [],

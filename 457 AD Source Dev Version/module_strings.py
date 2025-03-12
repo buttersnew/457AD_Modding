@@ -5775,6 +5775,17 @@ Even in the last case, the player can make formations up to four lines by orderi
   ("pictish_chain",   "pictish_chain"),
   ("pictish_end",   "pictish_backpack"),
 
+  #germanic dresses
+  ("germanic_f_clothes_germanic_brooch","germanic_f_clothes_germanic_brooch"),
+  ("germanic_f_clothes_celtic_brooch","germanic_f_clothes_celtic_brooch"),
+  ("germanic_f_clothes_berber_brooch","germanic_f_clothes_berber_brooch"),
+  ("germanic_f_clothes_brooch_end","germanic_f_clothes_germanic_brooch"),
+
+  ("germanic_f_cloak_brooch_1","germanic_f_cloak_brooch_1"),
+  ("germanic_f_cloak_brooch_2","germanic_f_cloak_brooch_1"),
+  ("germanic_f_cloak_brooch_end","germanic_f_cloak_brooch_1"),
+
+
 #new cloaks by asher
   #a - to be used by thorsburg tunic
   #b - to be used by others

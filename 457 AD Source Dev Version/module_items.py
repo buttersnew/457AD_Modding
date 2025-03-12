@@ -66,11 +66,11 @@ imodbits_bad    = imodbit_rusty | imodbit_chipped | imodbit_tattered | imodbit_r
 culture_roman = [fac_culture_3,fac_culture_empire,fac_culture_11] #Romans, Britons, Mauri
 culture_germanic = [fac_culture_2,fac_culture_4,fac_culture_7,fac_culture_minor_4,fac_culture_minor_7] #Northern, Western, Eastern
 culture_gothic = [fac_culture_1,fac_culture_minor_8] #goths
-culture_celtic = [fac_culture_3,fac_culture_5,fac_culture_minor_1] #picts, britons
+culture_celtic = [fac_culture_3,fac_culture_5,fac_culture_19] #picts, britons
 culture_hunnic = [fac_culture_12] #huns
 culture_alan = [fac_culture_16,fac_culture_minor_9] #alans
-culture_caucasian = [fac_culture_8] #caucasians
-culture_sassanid = [fac_culture_6] #sassanids
+culture_caucasian = [fac_culture_8,fac_culture_17] #caucasians
+culture_sassanid = [fac_culture_6,fac_culture_17] #sassanids
 culture_african = [fac_culture_15] #nubians
 
 items = [
@@ -1025,6 +1025,47 @@ items = [
 ["roman_noble_dress_sleeveless_3", "Rich Roman Dress", [("roman_noble_dress_sleeveless_3",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian ,0, 400 , weight(1)|abundance(100)|head_armor(0)|body_armor(12)|leg_armor(10)|difficulty(0) ,imodbits_cloth, [(ti_on_init_item,[  (call_script, "script_init_roman_dress_arms"),]),], culture_roman ],
 ["roman_noble_dress_sleeveless_4", "Rich Roman Dress", [("roman_noble_dress_sleeveless_4",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian ,0, 400 , weight(1)|abundance(100)|head_armor(0)|body_armor(12)|leg_armor(10)|difficulty(0) ,imodbits_cloth, [(ti_on_init_item,[  (call_script, "script_init_roman_dress_arms"),]),], culture_roman ],
 
+["germanic_dress_low_1", "Simple Dress", [("germanic_dress_low_1",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
+ 50 , weight(1)|abundance(70)|head_armor(0)|body_armor(10)|leg_armor(10)|difficulty(0) ,imodbits_cloth,
+[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_germanic_f_clothes_germanic_brooch","str_germanic_f_clothes_brooch_end"),(cur_item_add_mesh, ":rand_accessory"),])], culture_germanic+culture_gothic+culture_celtic ],
+["germanic_dress_low_2", "Simple Dress", [("germanic_dress_low_2",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
+ 50 , weight(1)|abundance(70)|head_armor(0)|body_armor(10)|leg_armor(10)|difficulty(0) ,imodbits_cloth,
+[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_germanic_f_clothes_germanic_brooch","str_germanic_f_clothes_brooch_end"),(cur_item_add_mesh, ":rand_accessory"),])], culture_germanic+culture_gothic+culture_celtic ],
+["germanic_dress_low_3", "Simple Dress", [("germanic_dress_low_3",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
+ 50 , weight(1)|abundance(70)|head_armor(0)|body_armor(10)|leg_armor(10)|difficulty(0) ,imodbits_cloth,
+[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_germanic_f_clothes_germanic_brooch","str_germanic_f_clothes_brooch_end"),(cur_item_add_mesh, ":rand_accessory"),])], culture_germanic+culture_gothic+culture_celtic ],
+["germanic_dress_low_4", "Simple Dress", [("germanic_dress_low_4",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
+ 50 , weight(1)|abundance(70)|head_armor(0)|body_armor(10)|leg_armor(10)|difficulty(0) ,imodbits_cloth,
+[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_germanic_f_clothes_germanic_brooch","str_germanic_f_clothes_brooch_end"),(cur_item_add_mesh, ":rand_accessory"),])], culture_germanic+culture_gothic+culture_celtic ],
+["germanic_dress_low_5", "Simple Dress", [("germanic_dress_low_5",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
+ 50 , weight(1)|abundance(70)|head_armor(0)|body_armor(10)|leg_armor(10)|difficulty(0) ,imodbits_cloth,
+[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_germanic_f_clothes_germanic_brooch","str_germanic_f_clothes_brooch_end"),(cur_item_add_mesh, ":rand_accessory"),])], culture_germanic+culture_gothic+culture_celtic ],
+["germanic_dress_low_6", "Simple Dress", [("germanic_dress_low_6",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
+ 50 , weight(1)|abundance(70)|head_armor(0)|body_armor(10)|leg_armor(10)|difficulty(0) ,imodbits_cloth,
+[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_germanic_f_clothes_germanic_brooch","str_germanic_f_clothes_brooch_end"),(cur_item_add_mesh, ":rand_accessory"),])], culture_germanic+culture_gothic+culture_celtic ],
+["germanic_dress_low_7", "Simple Dress", [("germanic_dress_low_7",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
+ 50 , weight(1)|abundance(70)|head_armor(0)|body_armor(10)|leg_armor(10)|difficulty(0) ,imodbits_cloth,
+[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_germanic_f_clothes_germanic_brooch","str_germanic_f_clothes_brooch_end"),(cur_item_add_mesh, ":rand_accessory"),])], culture_germanic+culture_gothic+culture_celtic ],
+["germanic_dress_low_8", "Simple Dress", [("germanic_dress_low_8",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
+ 50 , weight(1)|abundance(70)|head_armor(0)|body_armor(10)|leg_armor(10)|difficulty(0) ,imodbits_cloth,
+[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_germanic_f_clothes_germanic_brooch","str_germanic_f_clothes_brooch_end"),(cur_item_add_mesh, ":rand_accessory"),])], culture_germanic+culture_gothic+culture_celtic ],
+["germanic_dress_low_9", "Simple Dress", [("germanic_dress_low_9",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
+ 50 , weight(1)|abundance(70)|head_armor(0)|body_armor(10)|leg_armor(10)|difficulty(0) ,imodbits_cloth,
+[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_germanic_f_clothes_germanic_brooch","str_germanic_f_clothes_brooch_end"),(cur_item_add_mesh, ":rand_accessory"),])], culture_germanic+culture_gothic+culture_celtic ],
+["germanic_dress_low_10", "Simple Dress", [("germanic_dress_low_10",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
+ 50 , weight(1)|abundance(70)|head_armor(0)|body_armor(10)|leg_armor(10)|difficulty(0) ,imodbits_cloth,
+[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_germanic_f_clothes_germanic_brooch","str_germanic_f_clothes_brooch_end"),(cur_item_add_mesh, ":rand_accessory"),])], culture_germanic+culture_gothic+culture_celtic ],
+
+["germanic_dress_middle_1", "Rich Germanic Dress", [("germanic_dress_middle_1",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian ,0, 400 , weight(1)|abundance(50)|head_armor(0)|body_armor(12)|leg_armor(10)|difficulty(0) ,imodbits_cloth, [], culture_germanic+culture_gothic ],
+["germanic_dress_middle_2", "Rich Germanic Dress", [("germanic_dress_middle_2",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian ,0, 400 , weight(1)|abundance(50)|head_armor(0)|body_armor(12)|leg_armor(10)|difficulty(0) ,imodbits_cloth, [], culture_germanic+culture_gothic ],
+["germanic_dress_middle_3", "Rich Germanic Dress", [("germanic_dress_middle_3",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian ,0, 400 , weight(1)|abundance(50)|head_armor(0)|body_armor(12)|leg_armor(10)|difficulty(0) ,imodbits_cloth, [], culture_germanic+culture_gothic ],
+["germanic_dress_middle_4", "Rich Germanic Dress", [("germanic_dress_middle_4",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian ,0, 400 , weight(1)|abundance(50)|head_armor(0)|body_armor(12)|leg_armor(10)|difficulty(0) ,imodbits_cloth, [], culture_germanic+culture_gothic ],
+["germanic_dress_middle_5", "Rich Germanic Dress", [("germanic_dress_middle_5",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian ,0, 400 , weight(1)|abundance(50)|head_armor(0)|body_armor(12)|leg_armor(10)|difficulty(0) ,imodbits_cloth, [], culture_germanic+culture_gothic ],
+
+["germanic_dress_high_1", "Rich Germanic Dress", [("germanic_dress_high_1",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian ,0, 600 , weight(1)|abundance(20)|head_armor(0)|body_armor(12)|leg_armor(12)|difficulty(0) ,imodbits_cloth, [], culture_germanic+culture_gothic ],
+["germanic_dress_high_2", "Rich Germanic Dress", [("germanic_dress_high_2",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian ,0, 600 , weight(1)|abundance(20)|head_armor(0)|body_armor(12)|leg_armor(12)|difficulty(0) ,imodbits_cloth, [], culture_germanic+culture_gothic ],
+["germanic_dress_high_3", "Rich Germanic Dress", [("germanic_dress_high_3",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian ,0, 600 , weight(1)|abundance(20)|head_armor(0)|body_armor(12)|leg_armor(12)|difficulty(0) ,imodbits_cloth, [], culture_germanic+culture_gothic ],
+
 ["lady_dress_ruby", "Dress", [("briton_dress",0)], itp_type_body_armor  |itp_covers_legs|itp_civilian ,0, 100 , weight(3)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(10)|difficulty(0) ,imodbits_cloth],
 ["lady_dress_green", "Blue Dress", [("briton_dress_d",0)], itp_type_body_armor  |itp_covers_legs|itp_civilian ,0, 100 , weight(3)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(10)|difficulty(0) ,imodbits_cloth],
 ["lady_dress_blue", "Blue Dress", [("suknia_4",0)], itp_type_body_armor  |itp_covers_legs|itp_civilian ,0, 100 , weight(3)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(10)|difficulty(0) ,imodbits_cloth],
@@ -1666,6 +1707,22 @@ items = [
 ["felt_hat", "Veil", [("veil_f",0)], itp_type_head_armor  |itp_civilian |itp_attach_armature,0, 90 , weight(0.5)|abundance(100)|head_armor(10)|body_armor(0)|leg_armor(0)|difficulty(0) ,imodbits_cloth ],
 ["felt_hat_b", "Veil", [("veil_g",0)], itp_type_head_armor  |itp_civilian |itp_attach_armature,0, 90 , weight(0.5)|abundance(100)|head_armor(10)|body_armor(0)|leg_armor(0)|difficulty(0) ,imodbits_cloth ],
 
+["germanic_f_headware_1", "Common Veil", [("germanic_f_headware_1",0)], itp_type_head_armor  |itp_civilian |itp_attach_armature,0, 90 , weight(0.5)|abundance(100)|head_armor(10)|body_armor(0)|leg_armor(0)|difficulty(0) ,imodbits_cloth ],
+["germanic_f_headware_2", "Common Veil", [("germanic_f_headware_2",0)], itp_type_head_armor  |itp_civilian |itp_attach_armature,0, 90 , weight(0.5)|abundance(100)|head_armor(10)|body_armor(0)|leg_armor(0)|difficulty(0) ,imodbits_cloth ],
+["germanic_f_headware_3", "Common Veil", [("germanic_f_headware_3",0)], itp_type_head_armor  |itp_civilian |itp_attach_armature,0, 90 , weight(0.5)|abundance(100)|head_armor(10)|body_armor(0)|leg_armor(0)|difficulty(0) ,imodbits_cloth ],
+["germanic_f_headware_4", "Common Veil", [("germanic_f_headware_4",0)], itp_type_head_armor  |itp_civilian |itp_attach_armature,0, 90 , weight(0.5)|abundance(100)|head_armor(10)|body_armor(0)|leg_armor(0)|difficulty(0) ,imodbits_cloth ],
+
+["germanic_f_cloak_1", "Woman's Cloak", [("germanic_f_cloak_1",0)], itp_type_head_armor  |itp_civilian |itp_attach_armature,0, 90 , weight(0.5)|abundance(100)|head_armor(4)|body_armor(8)|leg_armor(0)|difficulty(0) ,imodbits_cloth,
+[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_germanic_f_cloak_brooch_1","str_germanic_f_cloak_brooch_end"),(cur_item_add_mesh, ":rand_accessory"),])], culture_germanic+culture_gothic+culture_celtic ],
+["germanic_f_cloak_2", "Woman's Cloak", [("germanic_f_cloak_2",0)], itp_type_head_armor  |itp_civilian |itp_attach_armature,0, 90 , weight(0.5)|abundance(100)|head_armor(4)|body_armor(8)|leg_armor(0)|difficulty(0) ,imodbits_cloth,
+[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_germanic_f_cloak_brooch_1","str_germanic_f_cloak_brooch_end"),(cur_item_add_mesh, ":rand_accessory"),])], culture_germanic+culture_gothic+culture_celtic ],
+["germanic_f_cloak_3", "Woman's Cloak", [("germanic_f_cloak_3",0)], itp_type_head_armor  |itp_civilian |itp_attach_armature,0, 90 , weight(0.5)|abundance(100)|head_armor(4)|body_armor(8)|leg_armor(0)|difficulty(0) ,imodbits_cloth,
+[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_germanic_f_cloak_brooch_1","str_germanic_f_cloak_brooch_end"),(cur_item_add_mesh, ":rand_accessory"),])], culture_germanic+culture_gothic+culture_celtic ],
+["germanic_f_cloak_4", "Woman's Cloak", [("germanic_f_cloak_4",0)], itp_type_head_armor  |itp_civilian |itp_attach_armature,0, 90 , weight(0.5)|abundance(100)|head_armor(4)|body_armor(8)|leg_armor(0)|difficulty(0) ,imodbits_cloth,
+[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_germanic_f_cloak_brooch_1","str_germanic_f_cloak_brooch_end"),(cur_item_add_mesh, ":rand_accessory"),])], culture_germanic+culture_gothic+culture_celtic ],
+["germanic_f_cloak_5", "Woman's Cloak", [("germanic_f_cloak_5",0)], itp_type_head_armor  |itp_civilian |itp_attach_armature,0, 90 , weight(0.5)|abundance(100)|head_armor(4)|body_armor(8)|leg_armor(0)|difficulty(0) ,imodbits_cloth,
+[(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_germanic_f_cloak_brooch_1","str_germanic_f_cloak_brooch_end"),(cur_item_add_mesh, ":rand_accessory"),])], culture_germanic+culture_gothic+culture_celtic ],
+
 #["roman_noble_shawl_1", "Shawl", [("roman_noble_shawl_1",0),("roman_noble_shawl_1_inv",ixmesh_inventory)], itp_merchandise|itp_attach_armature|itp_type_head_armor|itp_doesnt_cover_hair,0,100 , weight(0.5)|abundance(100)|head_armor(8)|body_armor(2)|leg_armor(0)|difficulty(0) ,imodbits_cloth],
 
 ["bandana1", "Bandana", [("bandana1",0)], itp_type_head_armor|itp_civilian|itp_doesnt_cover_hair|itp_fit_to_head,0,60, weight(0.5)|abundance(10)|head_armor(4)|body_armor(0)|leg_armor(0)|difficulty(0),imodbits_cloth],
@@ -1973,7 +2030,6 @@ weight(1)|abundance(80)|head_armor(24)|body_armor(14)|leg_armor(6)|difficulty(0)
 
 #used by caucasian nobles, some sassanids
 ["crossband_helmet_1", "Rich Crossband Helmet", [("crossband_helmet_1",0),("crossband_helmet_1_inv",ixmesh_inventory)], itp_merchandise|itp_attach_armature|itp_type_head_armor,0,1230 , weight(2.5)|abundance(18)|head_armor(48)|body_armor(0)|leg_armor(0)|difficulty(7) ,imodbits_plate, [], culture_sassanid+culture_caucasian ],
-["crossband_helmet_2", "Rich Crossband Helmet", [("crossband_helmet_2",0),("crossband_helmet_2_inv",ixmesh_inventory)], itp_merchandise|itp_attach_armature|itp_type_head_armor,0,1230 , weight(2.5)|abundance(18)|head_armor(48)|body_armor(0)|leg_armor(0)|difficulty(7) ,imodbits_plate, [], culture_sassanid+culture_caucasian ],
 
 ["tarasovsky_782", "Gilded Spangenhelm", [("tarasovsky_782",0),("tarasovsky_782_inv",ixmesh_inventory)], itp_merchandise|itp_attach_armature|itp_type_head_armor,0,1430 , weight(2.5)|abundance(20)|head_armor(48)|body_armor(0)|leg_armor(0)|difficulty(6) ,imodbits_plate, [], culture_hunnic ],
 

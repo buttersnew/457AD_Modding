@@ -2676,6 +2676,7 @@ strings = [
   ("kingdom_29_adjective",                     "Angle"),
   ("kingdom_31_adjective",                     "Armenian"),
   ("kingdom_32_adjective",                     "Irish"),
+  ("kingdom_33_adjective",                     "Sporoi"),
 
   ("credits_1", "Mount&Blade: Warband Copyright 2008-2015 Taleworlds Entertainment"),
   ("credits_2", "Game design:^Armagan Yavuz^Steve Negus^Cem Cimenbicer"),
@@ -3423,6 +3424,7 @@ We apologize sincerely if you contributed your suggestions and feedback but were
   ("armenians", "Armenians"),
   ("jews", "Jews"),
   ("irish", "Irish"),
+  ("sporoi", "Sporoi"),
 
 
   ("we_have_heard_that_travellers_heading_to_s40_were_attacked_on_the_road_s46_by_s39", "We have heard that travellers heading to {s40} were attacked on the road {s46} by {s39}"),
@@ -6975,6 +6977,7 @@ Even in the last case, the player can make formations up to four lines by orderi
 
 ("desc_kingdom_31", "The Armenians are an ancient people."),
 ("desc_kingdom_32", "'Scoti' is the name given to raiders and settlers coming from the Irish coast during Late Antiquity by Roman sources."),
+("desc_kingdom_33", "'Sporoi' are the proto-slavic people in the east, eager and ready to settle Eastern Europe in a piece"),
 
 ("desc_rebel_kingdom_1", "The rebels fight for their freedom."),
 ("desc_rebel_kingdom_2", "The rebels fight for their freedom."),

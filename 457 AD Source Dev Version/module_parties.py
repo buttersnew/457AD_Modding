@@ -81,7 +81,7 @@ parties = [
  ("town_21", "Alexandria", icon_town|pf_town, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (44.66, -70.33), [], 288),
  ("town_22", "Jerusalem", icon_town|pf_town, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (87.64, -56.1), [], 190),
 
-#New Cities
+    #New Cities
  ("town_23","Bracara", icon_town_old|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-281.59,29.48),[], 170),
  ("town_24","Londinium", icon_town_old|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-204.49,126.64),[], 170),
  ("town_25","Emerita Augusta", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-263.46,4.16),[], 170),
@@ -112,7 +112,8 @@ parties = [
  ("town_44", "Phanagoria", icon_town_old|pf_town, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (61.14, 83.77), [], 170),
  ("town_45","Dvin", icon_town_desert|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(138.91, 40.46),[], 45),
  ("town_46", "Thabudeos", icon_town|pf_town, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-178.8, -52.8), [], 170),
-
+ ("town_47", "Kiev", icon_town|pf_town, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (3.06, 121.46), [], 170),
+    
  ("castle_1", "Batavis", icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-110.59, 91.01), [], 50),    #[swycartographr] prev. coords: (-173, 41.75)
  ("castle_2", "Venta_Silurum", icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-227.58, 128.32), [], 83),       #[swycartographr] prev. coords: (-230.05, 124.45)
  ("castle_3", "Aquincum", icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-76.24,82.33), [], 100),              #[swycartographr] prev. coords: (-116.81, 75.23) #[swycartographr] prev. coords: (-76.19, 83.89)
@@ -230,7 +231,12 @@ parties = [
   ("castle_100", "Rath_Celtchair", icon_castle_b|pf_castle, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-251, 144.4), [], 235),
   ("castle_101", "Eblana", icon_castle_b|pf_castle, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-242.6, 155.5), [], 235),
   ("castle_102", "Segontium",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-231.27, 142.91),[],75),
+  
+  ("castle_103", "Castrum Venedia",icon_castle_b|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-56.9, 161.4),[],75),
+  ("castle_104", "Beloozero",icon_castle_b|pf_minor_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-16.00, 196.00),[],75),
+  ("castle_105", "Praesidium Antium",icon_castle_b|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-13.0, 95.0),[],75),
 
+  # == VILLAGES == 
  ("village_1", "Olisipo", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-292.93, 5.89), [], 100),           #[swycartographr] prev. coords: (-85.1181, -28.2196) #[swycartographr] prev. coords: (-293.74, 18.35)
  ("village_2", "Smyrna", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (2.38, 0.99), [], 110),               #[swycartographr] prev. coords: (-50.9496, -8.74263)
  ("village_3", "Vindinum", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-202.81, 93.22), [], 120), #Heraclea Pontica #[swycartographr] prev. coords: (-32.5367, 24.7948) #[swycartographr] prev. coords: (-218.7, 87)
@@ -529,6 +535,17 @@ parties = [
   ("village_271", "Raeba", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-250, 147.6), [], 55),
   ("village_272", "Laberos", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-249, 159), [], 55),
   ("village_273", "Ynys_Mon", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-230.8, 146.5), [], 55),
+  ## urrraaaa
+  ("village_274", "Turov", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-20.0, 136.5), [], 55),
+  ("village_275", "Arsonium", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-51.7, 146.2), [], 55),
+  ("village_276", "Navarum", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (26.5, 126.5), [], 55),
+  ("village_277", "Leinum", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-18.5, 117.5), [], 55),
+  ("village_278", "Azagarium", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-7.2, 131.7), [], 55),
+  ("village_279", "Sarbacum", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (12.0, 114.0), [], 55),
+  ("village_280", "Serimum", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (22.1, 111.7), [], 55),
+  ("village_281", "Arsonium", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-51.7, 146.2), [], 55),
+  ("village_282", "Calisa", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-54.9,130.4), [], 55),
+  ("village_283", "Vicus Venedorum", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-37.0, 154.0), [], 55),
 
   ("salt_mine","Salt_Mine",icon_village_a|pf_disabled|pf_is_static|pf_always_visible|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(14.2, -31),[]), #special locations
   ("diocletians_palace","Old Palace",icon_village_snow_a|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-79.14, 34.56),[]), #[swycartographr] prev. coords: (-123.14, 29.53)
@@ -754,7 +771,6 @@ parties = [
   ("garamantian_village_1", "Garama", icon_village_c|pf_minor_town, no_menu, pt_none, fac_minor_garamantians, 0, ai_bhvr_hold, 0, (-80, -136), []),
   ("dani_village", "Heorot", icon_village_a|pf_minor_town, no_menu, pt_none, fac_minor_dani, 0, ai_bhvr_hold, 0, (-126.88, 167.08), []),
   ("morden_village", "Terekh's_Hall", icon_castle_b|pf_minor_town, no_menu, pt_none, fac_minor_mordens, 0, ai_bhvr_hold, 0, (36.85, 160.96), []),
-  ("sporoi_village", "Niossus", icon_village_a|pf_minor_town, no_menu, pt_none, fac_minor_sporoi, 0, ai_bhvr_hold, 0, (3.06, 121.46), []),
   ("bosphoran_village", "Panticapaeum", icon_castle_a|pf_minor_town, no_menu, pt_none, fac_minor_bosphoran, 0, ai_bhvr_hold, 0, (54.96, 84.42), []),
   ("abagasian_village", "Anakopia", icon_castle_a|pf_minor_town, no_menu, pt_none, fac_minor_abagasians, 0, ai_bhvr_hold, 0, (85.78,73.74), []),
   ("tauri_village", "Vicus_Taurorum", icon_village_a|pf_minor_town, no_menu, pt_none, fac_minor_tauri, 0, ai_bhvr_hold, 0, (45.09, 77.36), []),

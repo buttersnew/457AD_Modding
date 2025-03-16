@@ -544,7 +544,7 @@ parties = [
   ("village_279", "Sarbacum", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (12.0, 114.0), [], 55),
   ("village_280", "Serimum", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (22.1, 111.7), [], 55),
   ("village_281", "Arsonium", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-51.7, 146.2), [], 55),
-  ("village_282", "Calisa", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-54.9,130.4), [], 55),
+  ("village_282", "Calisa", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-54.9, 130.4), [], 55),
   ("village_283", "Vicus Venedorum", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-37.0, 154.0), [], 55),
 
   ("salt_mine","Salt_Mine",icon_village_a|pf_disabled|pf_is_static|pf_always_visible|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(14.2, -31),[]), #special locations
@@ -620,15 +620,15 @@ parties = [
   # ("Bridge_14","{!}14",pf_disabled|icon_bridge_a|pf_is_static|pf_always_visible|pf_no_label, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-273.26, 10.11),[], 88),
 
 	#madsci pyramids
-	("pyramid_1","{!}Pyramid_1",icon_pyramids|pf_is_static|pf_always_visible|pf_no_label, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(50.44, -82.96),[], -17.7),
-	("pyramid_2","{!}Pyramid_2",icon_pyramids|pf_is_static|pf_always_visible|pf_no_label, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(49.03, -82.63),[], -17.7),
-	("pyramid_3","{!}Pyramid_3",icon_pyramids|pf_is_static|pf_always_visible|pf_no_label, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(49.51, -83.76),[], -17.7),
-  ("malta"  ,"Island of Melita",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(-93, -45.5),[]),
-  ("ibiza"  ,"Island of Ebusus",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(-207, -7),[]),
-  ("rhodos"  ,"Island of Rhodos",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(13.4, -25.4),[]),
-  ("mediterranean_sea"  ,"the Mare Mediterranean",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(-67,-37),[]),
-  ("adriatic_sea"  ,"the Mare Adriaticum",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(-96.95, 34.77),[]),
-  ("tyrrhenian_sea"  ,"the Mare Tyrrhenum",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(-120.66, 1.66),[]),
+	  ("pyramid_1","{!}Pyramid_1",icon_pyramids|pf_is_static|pf_always_visible|pf_no_label, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(50.44, -82.96),[], -17.7),
+	  ("pyramid_2","{!}Pyramid_2",icon_pyramids|pf_is_static|pf_always_visible|pf_no_label, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(49.03, -82.63),[], -17.7),
+	  ("pyramid_3","{!}Pyramid_3",icon_pyramids|pf_is_static|pf_always_visible|pf_no_label, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(49.51, -83.76),[], -17.7),
+    ("malta"  ,"Island of Melita",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(-93, -45.5),[]),
+    ("ibiza"  ,"Island of Ebusus",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(-207, -7),[]),
+    ("rhodos"  ,"Island of Rhodos",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(13.4, -25.4),[]),
+    ("mediterranean_sea"  ,"the Mare Mediterranean",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(-67,-37),[]),
+    ("adriatic_sea"  ,"the Mare Adriaticum",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(-96.95, 34.77),[]),
+    ("tyrrhenian_sea"  ,"the Mare Tyrrhenum",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(-120.66, 1.66),[]),
 
 #madsci ports begin
   ("port_1"  ,"Port",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(-198.7, 118.5),[]),
@@ -738,23 +738,24 @@ parties = [
   ("kutriguroi_village_anchor"   ,"{!}camp_anchor",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(26, 77),[]),
   ("sabiroi_village_anchor"   ,"{!}camp_anchor",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(26, 77),[]),
 
-  ("looter_spawn_point"   ,"{!}looter_sp",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(26, 77),[(trp_looter,15,0)]),
-  ("steppe_bandit_spawn_point"  ,"the Danube",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(-76.42, 76.85),[(trp_looter,15,0)]),
-  ("taiga_bandit_spawn_point"   ,"Germania",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(-139.87, 126.39),[(trp_looter,15,0)]),
-  ("forest_bandit_spawn_point"  ,"Gaul and Hispania",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(-232.77, 21.13),[(trp_looter,15,0)]),
-  ("mountain_bandit_spawn_point","the mountains",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(48.81,10.46),[(trp_looter,15,0)]),
-  ("desert_bandit_spawn_point"  ,"the desert",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(-147.98, -59.72),[(trp_looter,15,0)]),
-  ("sea_raider_spawn_point_1"   ,"Frisia",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(-177.40, 128.56),[(trp_looter,15,0)]),
-  ("sea_raider_spawn_point_2"   ,"Britannia",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(-206.12, 145.24),[(trp_looter,15,0)]),
-  ("sabir_bandit_spawn_point","the steppe",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(70.83,92.39),[(trp_looter,15,0)]),
+  ("looter_spawn_point", "{!}looter_sp",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(26, 77),[(trp_looter,15,0)]),
+  ("steppe_bandit_spawn_point", "The Danube",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(-76.42, 76.85),[(trp_looter,15,0)]),
+  ("taiga_bandit_spawn_point" , "Germania",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(-139.87, 126.39),[(trp_looter,15,0)]),
+  ("forest_bandit_spawn_point", "Gaul and Hispania",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(-232.77, 21.13),[(trp_looter,15,0)]),
+  ("taiga_bandit_spawn_point", "Slavic Wilds",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(-24.00, 171.00,),[(trp_looter,15,0)]), # pl4tte
+  ("mountain_bandit_spawn_point", "the mountains",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(48.81,10.46),[(trp_looter,15,0)]),
+  ("desert_bandit_spawn_point", "the desert",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(-147.98, -59.72),[(trp_looter,15,0)]),
+  ("sea_raider_spawn_point_1", "Frisia",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(-177.40, 128.56),[(trp_looter,15,0)]),
+  ("sea_raider_spawn_point_2", "Britannia",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(-206.12, 145.24),[(trp_looter,15,0)]),
+  ("sabir_bandit_spawn_point", "The Steppe",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(70.83,92.39),[(trp_looter,15,0)]),
   ("armenian_rebel_spawn_point","Armenia",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(128.46,50.49),[(trp_looter,15,0)]),
   ("coptic_spawn_point"  ,"Egypt",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(57.36, -80.69),[(trp_looter,15,0)]),
   ("arab_bandit_spawn_point"  ,"the desert",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(118.23, -33.87),[(trp_looter,15,0)]),
  # add extra towns before this point
   ("spawn_points_end"                  ,"{!}last_spawn_point",    pf_disabled|pf_is_static, no_menu, pt_none, fac_commoners,0,ai_bhvr_hold,0,(0., 0),[(trp_looter,15,0)]),
 
-  ("pirate_spawn_point"  ,"the coast",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(-87.38, -1.83),[(trp_looter,15,0)]),
-  ("scirii_spawn_point"  ,"the Danube",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(-93.86, 92.58),[(trp_looter,15,0)]),
+  ("pirate_spawn_point"  ,"The Coast",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(-87.38, -1.83),[(trp_looter,15,0)]),
+  ("scirii_spawn_point"  ,"The Danube",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(-93.86, 92.58),[(trp_looter,15,0)]),
   ("heruli_spawn_point"  ,"Germania",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(-118.47, 103.51),[(trp_looter,15,0)]),
 
   ("reserved_1"                  ,"{!}last_spawn_point",    pf_disabled|pf_is_static, no_menu, pt_none, fac_commoners,0,ai_bhvr_hold,0,(0., 0),[(trp_looter,15,0)]),
@@ -779,7 +780,7 @@ parties = [
   ("frisian_village", "Finn's Hall", icon_village_a|pf_minor_town, no_menu, pt_none, fac_minor_frisians, 0, ai_bhvr_hold, 0, (-174.68, 135.89), []),
   ("vascones_village", "Flaviobriga", icon_castle_a|pf_minor_town, no_menu, pt_none, fac_minor_vascones, 0, ai_bhvr_hold, 0, (-243.57, 43.55), []),
   ("gallaeci_village", "Lucus_Augusti", icon_castle_a|pf_minor_town, no_menu, pt_none, fac_minor_gallaeci, 0, ai_bhvr_hold, 0, (-267.49,42.04), []),
-  ("venedi_village", "Dunepru", icon_village_a|pf_minor_town, no_menu, pt_none, fac_minor_venedi, 0, ai_bhvr_hold, 0, (-6.4, 159.72), []),
+  ("venedi_village", "Venedi Outpost", icon_village_a|pf_minor_town, no_menu, pt_none, fac_minor_venedi, 0, ai_bhvr_hold, 0, (-6.4, 159.72), []),
 
   ("onoguroi_village", "Campus Onogurorum", icon_nomad_camp|pf_minor_town, no_menu, pt_none, fac_minor_onoguroi, escorted_merchant_personality, ai_bhvr_hold, 0, (111.7, 126.6), []), #first moving nomad camp
   ("saraguroi_village", "Campus Saragurorum", icon_nomad_camp|pf_minor_town, no_menu, pt_none, fac_minor_saraguroi, escorted_merchant_personality, ai_bhvr_hold, 0, (98.2, 154.34), []),

@@ -55241,7 +55241,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
    (mission_disable_talk),
    ]],
 
-# == MINOR FACTION KING INTRODUCTIONS == 
+# == MINOR FACTION KING INTRODUCTIONS ==
   #aestii king
   # alf, puppet of player, installed during the Haddingr saga
   [trp_dani_alf, "start", [
@@ -55361,24 +55361,24 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
    "You watch your tongue, läntiläinen! In this age the strong prosper and prevail, the weak crumble. Our lifestyle is simple and it is how we like it, We praise Mastorava and our ancestors who guard our way, we crave not an ornate palace or an easy life of a farmer. The wind in our hair when we ride, the fallen enemy at your feet, loot taken after a raid, the deer shot and prepared by hot fire, a beautiful woman to take care of your house, these are what make life worth living!", "minor_faction_king_pretalk", []],
 
   #intro dialogue for the sporoi king
-  [kingdom_33_lord, "start", [(eq, "$g_talk_troop_met", 0),],
+  [trp_kingdom_33_lord, "start", [(eq, "$g_talk_troop_met", 0),],
    "What brazen bravery is required for one to march into my halls, so lax in posture and attentiveness that you seem undisturbed by the world around you-- Perhaps another would be champion? Come to challenge me for the throne of the Sporoi? I request you announce yourself, so I may understand the name of my foe.", "sporoi_king_intro_1", []],
-  [kingdom_33_lord|plyr, "sporoi_king_intro_1", [],
+  [trp_kingdom_33_lord|plyr, "sporoi_king_intro_1", [],
    "My name is {playername}. I do not seek to challenge you, 'O great one. I have heard yourself and your warriors are slayers of men, and you haunt the forests and marshes just as the germans, now moved west, once did, yes?", "sporoi_king_intro_2", []],
-  [kingdom_33_lord, "sporoi_king_intro_2", [],
+  [trp_kingdom_33_lord, "sporoi_king_intro_2", [],
    "Ah, {playername}. I believe I have indeed heard rumors around you. You are correct, we lay to ruin those who invade our harsh, strengthening land, and in turn we send out warbands, formed of young men, to attain us wealth and glory from those around us! ", "sporoi_king_intro_3", []],
-  [kingdom_33_lord|plyr, "sporoi_king_intro_3", [],
+  [trp_kingdom_33_lord|plyr, "sporoi_king_intro_3", [],
    "From merely observing, I conclude you are quite the giant-- not as in insult, you must understand, it is a matter of fact and an obvious driver to how you attained power. The gods surely must be on your side.", "sporoi_king_intro_4", []],
-  [kingdom_33_lord, "sporoi_king_intro_4", [],
+  [trp_kingdom_33_lord, "sporoi_king_intro_4", [],
    "Correct again, {playername}, Perun has blessed me with great strength, though in returning tax my mother was taken from this mortal plane, and into the afterlife at my birth. Ever since my father passed I ascended to King, with a buxom wife and many servants! One of them, a southern girl brought all the way from... what is it called-.. Pan..n..onia? No matter what, she is a fine one, with a pretty face, and voice. A good singer,and well taken to strong drink, despite her size. Too small, for my taste-- ah! I'm getting off track, my apologies.", "sporoi_king_intro_5", []],
-  [kingdom_33_lord|plyr, "sporoi_king_intro_5", [],
+  [trp_kingdom_33_lord|plyr, "sporoi_king_intro_5", [],
    "I bear no mind to it, your highness.", "sporoi_king_intro_6", []],
-  [kingdom_33_lord, "sporoi_king_intro_6", [],
+  [trp_kingdom_33_lord, "sporoi_king_intro_6", [],
    "Excellent! Now, where was I... ah! Yes, my goal as King has been to unite the smaller tribes around us, and one day, we will be sick of this land, and we will leave. Anyone who gets in our way? Crushed, {playername}, we will crush them!", "sporoi_king_intro_7", []],
-  [kingdom_33_lord|plyr, "sporoi_king_intro_7", [],
+  [trp_kingdom_33_lord|plyr, "sporoi_king_intro_7", [],
    "I do not believe any doubt about it, your highness. I wish you the best of luck in your conquests, and hold my most sincere hope that your  people will soon be so rich with wealth they may swim in liquid gold!", "sporoi_king_intro_8", []],
-  [kingdom_33_lord, "sporoi_king_intro_8", [],
-   "I thank thee, {playername}.", "minor_faction_king_pretalk", [(call_script, "script_change_player_relation_with_troop", "kingdom_33_lord",5),]],
+  [trp_kingdom_33_lord, "sporoi_king_intro_8", [],
+   "I thank thee, {playername}.", "minor_faction_king_pretalk", [(call_script, "script_change_player_relation_with_troop", "trp_kingdom_33_lord",5),]],
 
   #intro dialogue for the abagasian king
   [trp_abagasian_king, "start", [(eq, "$g_talk_troop_met", 0),],

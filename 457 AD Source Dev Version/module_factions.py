@@ -49,7 +49,7 @@ factions = [
   ("culture_20",  "Slavic", 0, 0.9, [], []),
   #minor cultures
   ("culture_minor_1",  "Hispano-Roman", 0, 0.9, [], []),
-  #("culture_minor_2",  "Slavic", 0, 0.9, [], []),
+  ("culture_minor_2",  "Slavic", 0, 0.9, [], []),
   ("culture_minor_3",  "Coptic", 0, 0.9, [], []),
   ("culture_minor_4",  "Frisian", 0, 0.9, [], []),
   ("culture_minor_5",  "Baltic", 0, 0.9, [], []),
@@ -94,14 +94,14 @@ factions = [
   ("kingdom_30",  "Regnum Framtanis",  0, 0.9, [("saxons", -0.5),("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05),("minor_gallaeci", -0.5)], [], 0xc9ad34),
   ("kingdom_31",  "Regnum Armeniacum",  0, 0.9, [("saxons", -0.5),("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05),("minor_gallaeci", -0.5)], [], 0x7b0633),
   ("kingdom_32",  "Regnum Scoti",  0, 0.9, [("saxons", -0.5),("outlaws",-0.75),("peasant_rebels", -0.1),("deserters", -0.05),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05),("manhunters",0.6)], [], 0x395035),
-  ("kingdom_33",  "Sporoi", 0, 0.9,[("outlaws",-0.75),("peasant_rebels", -0.1),("deserters", -0.05),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05),("manhunters",0.6),("minor_saraguroi",-0.75),("minor_kutriguroi",-0.75),("minor_sabiroi",-0.75),("minor_onoguroi",-0.75),("minor_iazyges",-0.75),("kingdom_23",-0.75),("kingdom_11",-0.75)], [], 0x25AD68),
+  ("kingdom_33",  "Sporoi", 0, 0.9,[("outlaws",-0.75),("peasant_rebels", -0.1),("deserters", -0.05),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05),("manhunters",0.6),("minor_saraguroi",-0.75),("minor_kutriguroi",-0.75),("minor_sabiroi",-0.75),("minor_onoguroi",-0.75),("minor_iazyges",-0.75),("kingdom_23",-0.75),("kingdom_11",-0.75)], [], 0xA59870),
 #madsci Spanish rebel factions, will be renamed automatically by a script depending on where they start
   ("rebel_kingdom_1",  "Rebels",    0, 0.9, [("saxons", -0.5),("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05)], [], 0x7d2439), #7d2439
   ("rebel_kingdom_2",  "Rebels",    0, 0.9, [("saxons", -0.5),("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05)], [], 0x622228),
   ("rebel_kingdom_3",  "Rebels",    0, 0.9, [("saxons", -0.5),("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05)], [], 0x741f1a),
 
-#manhunters is kingdoms_end
-  ("manhunters","Slavers", 0, 0.5,[("outlaws",-0.6),("player_faction",0.1)], []),
+# == KINGDOMS END ==
+  ("manhunters","Slavers", 0, 0.5,[("outlaws",-0.6),("player_faction",0.1)], []), #manhunters is kingdoms_end
   ("pirates","Pirates", 0, 0.5,[("commoners",-0.6),("player_faction",-0.15),("player_supporters_faction",-0.15)], [], 0x4B4A4A),
   ("indigenoi","Indigenae", 0, 0.5,[("manhunters",0.1)], [], 0x765B6C),
   ("deserters","Deserters", 0, 0.5,[("manhunters",-0.6),("merchants",-0.5),("player_faction",-0.1)], [], 0x888888),
@@ -157,7 +157,7 @@ factions = [
   ("minor_heruli","Heruli", 0, 0.5,[("kingdom_4",-0.75),("outlaws",-0.75),("peasant_rebels", -0.1),("deserters", -0.05),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05),("manhunters",0.6)], [], 0x993322), #lead by Visilaus, at war with ostrogoths
   ("adovacrius_host","Adovacrius_Host", 0, 0.9,[("kingdom_1",-0.75),("kingdom_3",-0.75),("kingdom_7",-0.75),("outlaws",-0.75),("peasant_rebels", -0.1),("deserters", -0.05),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05),("manhunters",0.6)], [], 0xc19135),
 
-  #religions roman_christians is minor_factions_end
+# == RELIGIONS END (roman_christians) ==
   ("roman_christians","Chalcedonian Christians", 0, 0.5,[("arian_christians",-0.05),("coptic_christians",-0.05),("nestorian_christians",-0.05),("donatist_christians",-0.05),("kingdom_1", 0.9),("kingdom_2", 0.9)], [], 0xFFFFFF), #very friendly with the romans
   ("arian_christians","Arian Christians", 0, 0.5,[("roman_christians",-0.05),("coptic_christians",-0.05),("nestorian_christians",-0.05),("donatist_christians",-0.05)], [], 0xFFFFFF),
   ("coptic_christians","Miaphysite Christians", 0, 0.5,[("arian_christians",-0.05),("roman_christians",-0.05),("nestorian_christians",-0.05),("donatist_christians",-0.05)], [], 0xFFFFFF),

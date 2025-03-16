@@ -6977,7 +6977,7 @@ Even in the last case, the player can make formations up to four lines by orderi
 
 ("desc_kingdom_31", "The Armenians are an ancient people."),
 ("desc_kingdom_32", "'Scoti' is the name given to raiders and settlers coming from the Irish coast during Late Antiquity by Roman sources."),
-("desc_kingdom_33", "'Sporoi' are the proto-slavic people in the east, eager and ready to settle Eastern Europe in a piece"),
+("desc_kingdom_33", "'Sporoi' are the proto-slavic people settled around Kiev, back in the days called Navissus."),
 
 ("desc_rebel_kingdom_1", "The rebels fight for their freedom."),
 ("desc_rebel_kingdom_2", "The rebels fight for their freedom."),

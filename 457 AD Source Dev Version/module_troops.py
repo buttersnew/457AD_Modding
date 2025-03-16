@@ -2423,7 +2423,7 @@ troops = [
    def_attrib_lvl_18|level(18),wp_one_handed(150)|wp_two_handed(130)|wp_polearm(140)|wp_throwing(180)|wp_archery(100),knows_lvl_18|knows_power_strike_5|knows_horse_archery_6,briton_face_1, briton_face_2],
 
 ##SPOROI
-  ["slav_archer","Sporoi Hunter","Sporoi Hunters",tf_guarantee_armor|tf_guarantee_ranged,0,0,fac_culture_20,
+  ["slav_archer","Sporoi Hunter","Sporoi Hunters",tf_guarantee_armor|tf_guarantee_ranged,0,0,fac_culture_minor_2,
    [itm_simple_shoes,itm_nomad_boots,itm_wrapping_boots,itm_basic_axe,itm_hand_axe,itm_club,itm_fur_hat,
    itm_poisoned_arrows,itm_short_bow,itm_long_bow]+tunics_slavic_1+pants_slav,
    def_attrib_lvl_18|level(18),wp_one_handed(130)|wp_two_handed(130)|wp_polearm(130)|wp_throwing(160)|wp_archery(170),knows_archer,germanic_face_1, germanic_face_2],

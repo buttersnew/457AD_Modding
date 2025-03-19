@@ -5462,6 +5462,8 @@ troops = [
    def_attrib_lvl_13|level(13),wp_one_handed(210)|wp_polearm(100)|wp_firearm(150),knows_lvl_13|knows_power_strike_4,0x0000000f210134c04b0a8bcd75e6c72d00000000001d28a50000000000000000],
   ["indigenoi_noble_4","Zamma","Zamma",tf_hero,0,0,fac_indigenoi,   [itm_barb_cham_1,itm_sassanid_cavalry_boots_2,itm_common_mail_short_2,itm_burgh_helmet_1,itm_turban,itm_strong_hammer,itm_simple_shoes,itm_tunic_rich_7],
    def_attrib_lvl_13|level(13),wp_one_handed(210)|wp_polearm(100)|wp_firearm(150),knows_lvl_13|knows_power_strike_4,0x0000000d3f11448a12d40ca86276951400000000001e572b0000000000000000],
+  ["indigenoi_noble_5","Skoro","Jugij",tf_hero,0,0,fac_indigenoi,   [itm_barb_cham_1,itm_sassanid_cavalry_boots_2,itm_common_mail_short_2,itm_burgh_helmet_1,itm_turban,itm_strong_hammer,itm_simple_shoes,itm_tunic_rich_7],
+   def_attrib_lvl_13|level(13),wp_one_handed(210)|wp_polearm(100)|wp_firearm(150),knows_lvl_13|knows_power_strike_4,0x0000000d3f11448a12d40ca86276951400000000001e572b0000000000000000],
 
 
   ##diplomacy end

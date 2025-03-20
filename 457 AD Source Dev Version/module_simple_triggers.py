@@ -476,11 +476,11 @@ simple_triggers = [
     ]),
 
   # Reducing luck by 1 in every 180 hours
-  (180,
-   [
-     (val_sub, "$g_player_luck", 1),
-     (val_max, "$g_player_luck", 0),
-    ]),
+  #(180,
+  # [
+  #   (val_sub, "$g_player_luck", 1),
+  #   (val_max, "$g_player_luck", 0),
+  #  ]),
 
   #courtship reset
   (72,

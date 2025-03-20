@@ -989,7 +989,8 @@ strings = [
   ("npc22_backstory_response_1", "I too am longing for the days when Rome commanded and others obeyed, when Imperator was the law, people had faith in him, when the Eagle was respected."),
   ("npc23_backstory_response_1", "You are like the wise men of old, are you perhaps interested travelling with us, I'm sure my troops could use some deep thoughts and a calming logic from time to time..."),
   ("npc24_backstory_response_1", "So... if you are looking for employment, my offer still stands"),
-("npc25_backstory_response_1", "A wise choice, {playername}. I may be young, but I am eager to prove myself. I will not let you down, and one day you will speak of my loyalty with pride."),
+#("npc25_backstory_response_1", "A wise choice, {playername}. I may be young, but I am eager to prove myself. I will not let you down, and one day you will speak of my loyalty with pride."),
+("npc25_backstory_response_1", "I need people like you indeed."),
 ("npc26_backstory_response_1", "Well, you've had a rough life indeed, you could try finding this destiny with my warband, how do you plead? "),
 
   ("npc1_backstory_response_2", "Frankly I kill anyone I wish and I won't let some Jewish sentimentality or make-belief stop me. Second: why should I hire a man who is only armed with a wooden staff? one stroke from a sword and it would be cut in half. I wish you luck, you will need it"),
@@ -1016,7 +1017,8 @@ strings = [
   ("npc22_backstory_response_2", "What a pathetic, sad sob story, washed-up son of a soldier who has seen better days and now has delusional dreams of grand Rome, keep drinking wine, it is all you can do and all you ever will be good for."),
   ("npc23_backstory_response_2", "It is an injustice! Your complaining. To my ears. Go back to that symposium of yours or wherever the hell you have talked garbage to other gullible people. I've heard enough, these people are smart when they do not listen to you."),
   ("npc24_backstory_response_2", "Did that wizard also teach you the meaning of 'no, I am not interested in hiring you.'"),
-("npc25_backstory_response_2", "If you think I am unworthy, then so be it. But remember, even the greatest warriors started somewhere. Perhaps we will meet again when I have more scars to show."),
+#("npc25_backstory_response_2", "If you think I am unworthy, then so be it. But remember, even the greatest warriors started somewhere. Perhaps we will meet again when I have more scars to show."),
+("npc25_backstory_response_2", "Sorry. I've got all the men that I can manage right now."),
 ("npc26_backstory_response_2", "Would be messiahs come and go, I only pray your passing happens soon. You are insane."),
 
   ("npc1_signup", "Good to hear, they can be so annoying sometimes."),

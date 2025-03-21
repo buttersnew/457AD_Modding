@@ -783,7 +783,7 @@ parties = [
   ("frisian_village", "Finn's Hall", icon_village_a|pf_minor_town, no_menu, pt_none, fac_minor_frisians, 0, ai_bhvr_hold, 0, (-174.68, 135.89), []),
   ("vascones_village", "Flaviobriga", icon_castle_a|pf_minor_town, no_menu, pt_none, fac_minor_vascones, 0, ai_bhvr_hold, 0, (-243.57, 43.55), []),
   ("gallaeci_village", "Lucus_Augusti", icon_castle_a|pf_minor_town, no_menu, pt_none, fac_minor_gallaeci, 0, ai_bhvr_hold, 0, (-267.49,42.04), []),
-  ("venedi_village", "Venedi Outpost", icon_village_a|pf_minor_town, no_menu, pt_none, fac_minor_venedi, 0, ai_bhvr_hold, 0, (-6.4, 159.72), []),
+  ("venedi_village", "Venedi Outpost", icon_village_a|pf_minor_town, no_menu, pt_none, fac_kingdom_34, 0, ai_bhvr_hold, 0, (-6.4, 159.72), []), # for quest
 
   ("onoguroi_village", "Campus Onogurorum", icon_nomad_camp|pf_minor_town, no_menu, pt_none, fac_minor_onoguroi, escorted_merchant_personality, ai_bhvr_hold, 0, (111.7, 126.6), []), #first moving nomad camp
   ("saraguroi_village", "Campus Saragurorum", icon_nomad_camp|pf_minor_town, no_menu, pt_none, fac_minor_saraguroi, escorted_merchant_personality, ai_bhvr_hold, 0, (98.2, 154.34), []),

@@ -58,30 +58,30 @@ parties = [
   ("routed_enemies","{!}routed_enemies",pf_disabled, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(1,1),[]),
   ("zendar","Zendar",pf_disabled|icon_town|pf_is_static|pf_always_visible|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(300,300),[]),
 
-   ("town_1", "Colonia Agrippina", icon_town_old|pf_town, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-159.88, 112.82), [], 170),
-   ("town_2", "Apurnethige", icon_town_snow|pf_town, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-218.75, 181.29), [], 99),
-   ("town_3", "Tolosa", icon_town|pf_town, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-200.27, 41.43), [], 80),
-   ("town_4", "Sepahan", icon_town_desert|pf_town, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (234.94, 1.89), [], 279),
-   ("town_5", "Burdigala", icon_town|pf_town, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-218.5, 61.87), [], 93),
-   ("town_6", "Constantinopolis", icon_town|pf_town, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (6.27, 27.68), [], 178),
-   ("town_7", "Thessaloniki", icon_town|pf_town, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-35.52, 15.19), [], 260),
-   ("town_8", "Roma", icon_town|pf_town, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-116.82, 19.37), [], 213),
-   ("town_9", "Salonae", icon_town|pf_town, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-81.8,38.29), [], 90),
-   ("town_10", "Sirmium", icon_town|pf_town, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-69.39,59.68), [], 310),
-   ("town_11", "Neapolis", icon_town|pf_town, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-104.72, 11.56), [], 150),
-   ("town_12", "Napoca", icon_town_old|pf_town, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-34.91, 76.97), [], 25),
-   ("town_13", "Ravenna", icon_town|pf_town, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-121.45, 47.16), [], 47),
-   ("town_14", "Argentoratum", icon_town_old|pf_town, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-155.88, 92.09), [], 135),
-   ("town_15", "Lutetia", icon_town|pf_town, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-192.92, 95.04), [], 45),
-   ("town_16", "Lugdunum", icon_town|pf_town, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-174.31, 62.13), [], 24),
-   ("town_17", "Carthago", icon_town|pf_town, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-136.69, -32.42), [], 90),
-   ("town_18", "Deva Victrix", icon_town_old|pf_town, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-223.9, 144.94), [], 135),
-   ("town_19", "Ctesiphon", icon_town_desert|pf_town, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (148.84, -3.58), [], 45),
-   ("town_20", "Nasibin", icon_town_desert|pf_town, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (117.71, 20.31), [], 269),
-   ("town_21", "Alexandria", icon_town|pf_town, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (44.66, -70.33), [], 288),
-   ("town_22", "Jerusalem", icon_town|pf_town, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (87.64, -56.1), [], 190),
+  ("town_1", "Colonia Agrippina", icon_town_old|pf_town, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-159.88, 112.82), [], 170),
+  ("town_2", "Apurnethige", icon_town_snow|pf_town, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-218.75, 181.29), [], 99),
+  ("town_3", "Tolosa", icon_town|pf_town, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-200.27, 41.43), [], 80),
+  ("town_4", "Sepahan", icon_town_desert|pf_town, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (234.94, 1.89), [], 279),
+  ("town_5", "Burdigala", icon_town|pf_town, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-218.5, 61.87), [], 93),
+  ("town_6", "Constantinopolis", icon_town|pf_town, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (6.27, 27.68), [], 178),
+  ("town_7", "Thessaloniki", icon_town|pf_town, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-35.52, 15.19), [], 260),
+  ("town_8", "Roma", icon_town|pf_town, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-116.82, 19.37), [], 213),
+  ("town_9", "Salonae", icon_town|pf_town, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-81.8,38.29), [], 90),
+  ("town_10", "Sirmium", icon_town|pf_town, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-69.39,59.68), [], 310),
+  ("town_11", "Neapolis", icon_town|pf_town, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-104.72, 11.56), [], 150),
+  ("town_12", "Napoca", icon_town_old|pf_town, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-34.91, 76.97), [], 25),
+  ("town_13", "Ravenna", icon_town|pf_town, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-121.45, 47.16), [], 47),
+  ("town_14", "Argentoratum", icon_town_old|pf_town, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-155.88, 92.09), [], 135),
+  ("town_15", "Lutetia", icon_town|pf_town, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-192.92, 95.04), [], 45),
+  ("town_16", "Lugdunum", icon_town|pf_town, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-174.31, 62.13), [], 24),
+  ("town_17", "Carthago", icon_town|pf_town, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-136.69, -32.42), [], 90),
+  ("town_18", "Deva Victrix", icon_town_old|pf_town, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-223.9, 144.94), [], 135),
+  ("town_19", "Ctesiphon", icon_town_desert|pf_town, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (148.84, -3.58), [], 45),
+  ("town_20", "Nasibin", icon_town_desert|pf_town, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (117.71, 20.31), [], 269),
+  ("town_21", "Alexandria", icon_town|pf_town, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (44.66, -70.33), [], 288),
+  ("town_22", "Jerusalem", icon_town|pf_town, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (87.64, -56.1), [], 190),
 
-    #New Cities
+  #New Cities
   ("town_23","Bracara", icon_town_old|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-281.59,29.48),[], 170),
   ("town_24","Londinium", icon_town_old|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-204.49,126.64),[], 170),
   ("town_25","Emerita Augusta", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-263.46,4.16),[], 170),
@@ -230,270 +230,264 @@ parties = [
   ("castle_107", "Castrum Baltica",icon_castle_b|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-64.48, 184.54),[],75),
 
   # == VILLAGES == 
-  ("village_1", "Olisipo", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-292.93, 5.89), [], 100),           #[swycartographr] prev. coords: (-85.1181, -28.2196) #[swycartographr] prev. coords: (-293.74, 18.35)
-  ("village_2", "Smyrna", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (2.38, 0.99), [], 110),               #[swycartographr] prev. coords: (-50.9496, -8.74263)
-  ("village_3", "Vindinum", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-202.81, 93.22), [], 120), #Heraclea Pontica #[swycartographr] prev. coords: (-32.5367, 24.7948) #[swycartographr] prev. coords: (-218.7, 87)
-  ("village_4", "Larissa", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-36.53, -0.7), [], 130),            #[swycartographr] prev. coords: (-83.3282, -4.26458)
-  ("village_5", "Cataractonium", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-212.54, 164.98), [], 170),   #[swycartographr] prev. coords: (-217.35, 156.3)
+  ("village_1", "Olisipo", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-292.93, 5.89), [], 100),
+  ("village_2", "Smyrna", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (2.38, 0.99), [], 110),
+  ("village_3", "Vindinum", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-202.81, 93.22), [], 120),
+  ("village_4", "Larissa", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-36.53, -0.7), [], 130),
+  ("village_5", "Cataractonium", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-212.54, 164.98), [], 170),
   ("village_6", "Curia", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-138.08,69.84), [], 100),
-  ("village_7", "Amisus", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (64.07, 41.98), [], 110),             #[swycartographr] prev. coords: (-1.5998, 33.8451)
-  ("village_8", "Astuia", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-113.78, 144.22), [], 120),          #[swycartographr] prev. coords: (-148.24, 129.43)
-  ("village_9", "Duriorigum", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-226.66, 84.5), [], 130),        #[swycartographr] prev. coords: (-236.64, 84.7051)
-  ("village_10", "Dun_Neachdain", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-219.92, 187.76), [], 170),      #[swycartographr] prev. coords: (-217.99, 177.55)
+  ("village_7", "Amisus", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (64.07, 41.98), [], 110),
+  ("village_8", "Astuia", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-113.78, 144.22), [], 120),
+  ("village_9", "Duriorigum", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-226.66, 84.5), [], 130),
+  ("village_10", "Dun_Neachdain", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-219.92, 187.76), [], 170)
   ("village_11", "Vindonissa", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-143.05, 78.18), [], 100),
-  ("village_12", "Iader", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-90.73,41.58), [], 110),             #[swycartographr] prev. coords: (-131.9, 39)
-  ("village_13", "Athenae", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-24.79, -11.64), [], 120),         #[swycartographr] prev. coords: (-76.6, -18.36)
-  ("village_14", "Tarsatica", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-100, 54.01), [], 130),          #[swycartographr] prev. coords: (-137.19, 48.78)
-  ("village_15", "Philippopolis", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-24.72, 32.7), [], 170),     #[swycartographr] prev. coords: (-77.29, 25.23)
-  ("village_16", "Dianium", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-218.86, -7.17), [], 170),         #[swycartographr] prev. coords: (-233.65, -3.09)
-  ("village_17", "Tarentum", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-84.5, 4.45), [], 35),            #[swycartographr] prev. coords: (-119.4, 0.98)
-  ("village_18", "Placentia", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-136.55, 50.43), [], 170),       #[swycartographr] prev. coords: (-167.81, 49.29)
-  ("village_19", "Consentia", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-85.84, -4.62), [], 170), #will have secret chest hidden at some point (alaric I's grave)
-  ("village_20", "Samshuilde",  icon_village_c|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(145.8,55.85),[], 40),              #[swycartographr] prev. coords: (68.88, 45.7)
-  ("village_21", "Valarshapat", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (133.55, 43.18), [], 100),      #[swycartographr] prev. coords: (63.64, 41.48) #[swycartographr] prev. coords: (140.01, 41.86)
-  ("village_22", "Florentia", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-126.27, 38.3), [], 110), #      #[swycartographr] prev. coords: (-161.704, 37.2467)
-  ("village_23", "Rotomagus", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-197.42, 104.14), [], 120),      #[swycartographr] prev. coords: (-210.084, 99.7676)
-  ("village_24", "Constantia", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-217.07, 100.23), [], 130), #now Brest #[swycartographr] prev. coords: (-244.695, 92.4219) #[swycartographr] prev. coords: (-226.92, 97.65)
-  ("village_25", "Mamucium", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-220.13, 150.07), [], 170),       #[swycartographr] prev. coords: (-221.58, 144.65)
-  #("village_26", "Romula Malva", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-82.2,49.6), [], 170),
-  ("village_26", "Naissus", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-49.5,43.13), [], 170),            #[swycartographr] prev. coords: (-93.23, 31.4)
-  ("village_27", "Augustodunum", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-181.26, 69.82), [], 170),    #[swycartographr] prev. coords: (-197.98, 70.07) #[swycartographr] prev. coords: (-180.78, 67.04)
-  ("village_28", "Pictavis", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-214.29, 68.88), [], 170), #taifals #[swycartographr] prev. coords: (-227, 72.8) #[swycartographr] prev. coords: (-215.87, 67.87)
-  ("village_29", "Gesoriacum", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-185.5, 118.42), [], 170),      #[swycartographr] prev. coords: (-201.38, 111.31)
-  ("village_30", "Letocetum", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-217.74, 139.08), [], 170),      #[swycartographr] prev. coords: (-219.7, 136.18)
-  ("village_31", "Barium", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-90.24, 16.93), [], 100),            #[swycartographr] prev. coords: (-124.65, 7)
-  ("village_32", "Aventicum", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-158.68, 72.97), [], 110),       #[swycartographr] prev. coords: (-185, 64.87)
-  ("village_33", "Dionysiopolis", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (1.54, 51.51), [], 120),      #[swycartographr] prev. coords: (-53.24, 42.45)
-  ("village_34","Vani",  icon_village_c|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(117.16,52.66),[], 40),                    #[swycartographr] prev. coords: (35.34, 50)
-  ("village_35", "Tullum", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-162.39, 87.36), [], 170),          #[swycartographr] prev. coords: (-183.56, 87.23)
-  ("village_36", "Dorostorum", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-9.12, 52.54), [], 170),        #[swycartographr] prev. coords: (-65.58, 46.22)
-  ("village_37", "Borbetomagus", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-153.56, 98.46), [], 170),      #[swycartographr] prev. coords: (-166.612, 102.367) #[swycartographr] prev. coords: (-170.7, 90.13) #[swycartographr] prev. coords: (-171.26, 100.22)
-  ("village_38", "Stobi", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-37.88, 27.53), [], 170),            #[swycartographr] prev. coords: (-82.4766, 14.0508) #[swycartographr] prev. coords: (-76.64, 14.48) #[swycartographr] prev. coords: (-93.07, 17.06) #[swycartographr] prev. coords: (-99.95, 33.69)
+  ("village_12", "Iader", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-90.73,41.58), [], 110),
+  ("village_13", "Athenae", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-24.79, -11.64), [], 120),
+  ("village_14", "Tarsatica", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-100, 54.01), [], 130),
+  ("village_15", "Philippopolis", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-24.72, 32.7), [], 170),
+  ("village_16", "Dianium", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-218.86, -7.17), [], 170),
+  ("village_17", "Tarentum", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-84.5, 4.45), [], 35),
+  ("village_18", "Placentia", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-136.55, 50.43), [], 170),
+  ("village_19", "Consentia", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-85.84, -4.62), [], 170),
+  ("village_20", "Samshuilde",  icon_village_c|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(145.8,55.85),[], 40),
+  ("village_21", "Valarshapat", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (133.55, 43.18), [], 100),
+  ("village_22", "Florentia", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-126.27, 38.3), [], 110),
+  ("village_23", "Rotomagus", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-197.42, 104.14), [], 120),
+  ("village_24", "Constantia", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-217.07, 100.23), [], 130),
+  ("village_25", "Mamucium", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-220.13, 150.07), [], 170),
+  ("village_26", "Naissus", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-49.5,43.13), [], 170),
+  ("village_27", "Augustodunum", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-181.26, 69.82), [], 170),
+  ("village_28", "Pictavis", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-214.29, 68.88), [], 170),
+  ("village_29", "Gesoriacum", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-185.5, 118.42), [], 170),
+  ("village_30", "Letocetum", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-217.74, 139.08), [], 170),
+  ("village_31", "Barium", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-90.24, 16.93), [], 100),
+  ("village_32", "Aventicum", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-158.68, 72.97), [], 110),
+  ("village_33", "Dionysiopolis", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (1.54, 51.51), [], 120),
+  ("village_34","Vani",  icon_village_c|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(117.16,52.66),[], 40),
+  ("village_35", "Tullum", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-162.39, 87.36), [], 170),
+  ("village_36", "Dorostorum", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-9.12, 52.54), [], 170),
+  ("village_37", "Borbetomagus", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-153.56, 98.46), [], 170),
+  ("village_38", "Stobi", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-37.88, 27.53), [], 170),
   ("village_39", "Oiasso", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-228.7, 39.58), [], 170),
-  ("village_40", "Pons_Abbatis", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-35.01, 82.32), [], 170),     #[swycartographr] prev. coords: (-82.4, 69.95)
-  ("village_41", "Bonna", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-157.89, 110.91), [], 100),          #[swycartographr] prev. coords: (-170.81, 109.41)
-  ("village_42", "Vienna", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-174.44, 56.61), [], 110),            #[swycartographr] prev. coords: (-93.2404, 118.683) #[swycartographr] prev. coords: (-190.58, 59.7) #[swycartographr] prev. coords: (-191.58, 57.43)
-  ("village_43", "Augusta Vindelicum", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-125.53, 84.78), [], 120),  #[swycartographr] prev. coords: (-152.55, 81.81)
-  ("village_44", "Turris", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-146.5,10.6), [], 130),             #[swycartographr] prev. coords: (-183.4, 4.7)
-  ("village_45","Tsunda",  icon_village_c|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(129.58,57.05),[], 40),                  #[swycartographr] prev. coords: (53.31, 49.39)
-  ("village_46","Mokvi",  icon_village_c|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(101.82,68.68),[], 40),                   #[swycartographr] prev. coords: (26.68, 60.31)
+  ("village_40", "Pons_Abbatis", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-35.01, 82.32), [], 170),
+  ("village_41", "Bonna", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-157.89, 110.91), [], 100),
+  ("village_42", "Vienna", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-174.44, 56.61), [], 110),
+  ("village_43", "Augusta Vindelicum", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-125.53, 84.78), [], 120),
+  ("village_44", "Turris", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-146.5,10.6), [], 130),
+  ("village_45","Tsunda",  icon_village_c|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(129.58,57.05),[], 40),
+  ("village_46","Mokvi",  icon_village_c|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(101.82,68.68),[], 40),
   ("village_47", "Nemetacum", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-184, 111.66), [], 170),
-  ("village_48", "Samosata", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (92.85, 1.85), [], 170),           #[swycartographr] prev. coords: (26, -4.8)
-  ("village_49","Urbnisi",  icon_village_c|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(130.27,67.38),[], 40),                 #[swycartographr] prev. coords: (53, 55.8)
-  ("village_50", "Barcino", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-198.05, 19.79), [], 170),         #[swycartographr] prev. coords: (-213.4, 21.25)
-  ("village_51", "Lilybaeum", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-115.56, -20.15), [], 100),      #[swycartographr] prev. coords: (-150.59, -20.96)
-  ("village_52", "Porolissum", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-41.02, 87.15), [], 110),      #[swycartographr] prev. coords: (-89.3, 74.3) #[swycartographr] prev. coords: (-110.78, 44.92)
-  ("village_53", "Adramyttium", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-2.02, 11.03), [], 120),            #[swycartographr] prev. coords: (-54.5434, 5.68571) #[swycartographr] prev. coords: (-54.8, 0.73)
-  ("village_54", "Poetovio", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-95.54, 66.03), [], 130),         #[swycartographr] prev. coords: (-128.8, 60.13) #[swycartographr] prev. coords: (-96.55, 65.87)
-  ("village_55", "Iconium", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (54.32, -4.06), [], 170),         #[swycartographr] prev. coords: (-24.7383, 7.21991) #[swycartographr] prev. coords: (-19.7205, -3.72606)
-  ("village_56", "Atuatuca_Tongrorum", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-166.4, 113.69), [], 170), #[swycartographr] prev. coords: (-182.76, 111.09)
-  ("village_57", "Nahavand", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (181.65, -4.18), [], 170),         #[swycartographr] prev. coords: (95.77, -1.68) #[swycartographr] prev. coords: (174.74, -3.96)
-  ("village_58", "Cotais",  icon_village_c|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(120.32,63.45),[], 40),                 #[swycartographr] prev. coords: (41.3, 56.7)
-  ("village_59", "Portus Namnetum", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-223.83, 79.92), [], 170),  #[swycartographr] prev. coords: (-233.76, 81.34)
-  ("village_60", "Hadrianopolis", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-11.26, 32.33), [], 170),    #[swycartographr] prev. coords: (-63.6, 24.58)
+  ("village_48", "Samosata", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (92.85, 1.85), [], 170),
+  ("village_49","Urbnisi",  icon_village_c|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(130.27,67.38),[], 40),
+  ("village_50", "Barcino", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-198.05, 19.79), [], 170),
+  ("village_51", "Lilybaeum", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-115.56, -20.15), [], 100),
+  ("village_52", "Porolissum", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-41.02, 87.15), [], 110),
+  ("village_53", "Adramyttium", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-2.02, 11.03), [], 120),
+  ("village_54", "Poetovio", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-95.54, 66.03), [], 130),
+  ("village_55", "Iconium", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (54.32, -4.06), [], 170),
+  ("village_56", "Atuatuca_Tongrorum", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-166.4, 113.69), [], 170),
+  ("village_57", "Nahavand", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (181.65, -4.18), [], 170),
+  ("village_58", "Cotais",  icon_village_c|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(120.32,63.45),[], 40),
+  ("village_59", "Portus Namnetum", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-223.83, 79.92), [], 170),
+  ("village_60", "Hadrianopolis", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-11.26, 32.33), [], 170),
   ("village_61", "Rutunium", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-224, 142), [], 100),
-  ("village_62", "Lissus", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-61.72, 12.83), [], 100),           #[swycartographr] prev. coords: (-107.75, 12.5)
-  ("village_63", "Arsamosata", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (32.83, 24.17), [], 100),        #[swycartographr] prev. coords: (28.4829, 21.2656)
+  ("village_62", "Lissus", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-61.72, 12.83), [], 100),
+  ("village_63", "Arsamosata", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (32.83, 24.17), [], 100),
   ("village_64", "Genua", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-143.15, 47.38), [], 100),
   ("village_65", "Saldae", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-172.9, -35.15), [], 100),
-  ("village_66", "Mursa", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-76.44, 61.52), [], 100),            #[swycartographr] prev. coords: (-116.8, 56.3) #[swycartographr] prev. coords: (-106.93, 40.7)
+  ("village_66", "Mursa", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-76.44, 61.52), [], 100),
   ("village_67", "Narbona", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-191.75, 34.96), [], 100),
-  ("village_68", "Vesunna", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-204.24, 54.16), [], 100),         #[swycartographr] prev. coords: (-220.209, 58.2107)
-  ("village_69", "Samarobriva", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-177.5, 107.53), [], 100),     #[swycartographr] prev. coords: (-200.5, 104.24)
-  ("village_70", "Durocortorum", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-181.09, 102.79), [], 100),    #[swycartographr] prev. coords: (-190.38, 98.35) #[swycartographr] prev. coords: (-212.61, 95.99)
-  #("village_71", "Derbenz", icon_village_c|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (90.31, 63.66), [], 35),
-  ("village_71", "Partav", icon_village_c|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (159.72, 59.31), [], 35),            #[swycartographr] prev. coords: (82.5, 46.7)
-  ("village_72", "Spoletum", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-117.88, 30.6), [], 60),          #[swycartographr] prev. coords: (-152.361, 29.2445)
+  ("village_68", "Vesunna", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-204.24, 54.16), [], 100),
+  ("village_69", "Samarobriva", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-177.5, 107.53), [], 100),
+  ("village_70", "Durocortorum", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-181.09, 102.79), [], 100),
+  ("village_71", "Partav", icon_village_c|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (159.72, 59.31), [], 35),
+  ("village_72", "Spoletum", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-117.88, 30.6), [], 60),
   ("village_73", "Arregathel", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-234.3, 182.59), [], 55),
-  ("village_74", "Andematunum", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-173.21,77.44), [], 15),            #[swycartographr] prev. coords: (-128.477, 11.0678) #[swycartographr] prev. coords: (-118.73, 4.33) #[swycartographr] prev. coords: (-191.14, 74.74)
-  ("village_75", "Segobriga", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-238.27, 10.13), [], 10),        #[swycartographr] prev. coords: (-248.6, 14)
-  ("village_76", "Sebastopolis", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (95.25, 70.93), [], 35),       #[swycartographr] prev. coords: (22.16, 62.13)
-  ("village_77", "Myra", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (24.31, -21.04), [], 160),             #[swycartographr] prev. coords: (-34.6, -25.8)
-  #("village_77", "Leontopolis", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (44.6, 28.2), [], 160),
-  ("village_78","Rustavi",  icon_village_c|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(144.04,62.74),[], 40),                 #[swycartographr] prev. coords: (70.7, 51.86)
+  ("village_74", "Andematunum", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-173.21,77.44), [], 15),
+  ("village_75", "Segobriga", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-238.27, 10.13), [], 10),
+  ("village_76", "Sebastopolis", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (95.25, 70.93), [], 35),
+  ("village_77", "Myra", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (24.31, -21.04), [], 160),
+  ("village_78","Rustavi",  icon_village_c|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(144.04,62.74),[], 40),
   ("village_79", "Aginnum", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-217.689987, 49.985104), []),
-  ("village_80", "Portus Blendium", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-253.31, 46.1), [], 40),          #[swycartographr] prev. coords: (-105.964, 149.087) #[swycartographr] prev. coords: (-249.31, 50.56)
-  ("village_81", "Singidunum", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-63.44, 52.51), [], 20),        #[swycartographr] prev. coords: (-104.23, 50.4) #[swycartographr] prev. coords: (-78.47, 61.99)
-  ("village_82","Asparos",  icon_village_c|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(103.79,52.43),[], 40),                 #[swycartographr] prev. coords: (26.51, 46.95)
-  ("village_83", "Nicopolis", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-47.3, -8.37), [], 55),         #[swycartographr] prev. coords: (-94.6068, -10.2971) #[swycartographr] prev. coords: (-99.12, -8.16) #[swycartographr] prev. coords: (-95, -11.51)
+  ("village_80", "Portus Blendium", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-253.31, 46.1), [], 40),
+  ("village_81", "Singidunum", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-63.44, 52.51), [], 20),
+  ("village_82","Asparos",  icon_village_c|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(103.79,52.43),[], 40),
+  ("village_83", "Nicopolis", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-47.3, -8.37), [], 55),
   ("village_84", "Vesontio", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-164.45, 80.7), [], 15),
-  ("village_85", "Agedincum", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-182.26, 87.35), [], 10),          #[swycartographr] prev. coords: (-196.9, 49.4)
-  ("village_86", "Apulum", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-30.01, 73.52), [], 35),            #[swycartographr] prev. coords: (-84.6, 62.9)
-  ("village_87", "Thagaste", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-155.45, -44.53), [], 160),        #[swycartographr] prev. coords: (-197.207, -30.2992) #[swycartographr] prev. coords: (-189.15, -33.84)
-  ("village_88", "Limonum", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-197.33, 64.38), [], 180),        #[swycartographr] prev. coords: (-105.923, 131.182) #[swycartographr] prev. coords: (-217.66, 69.88) #[swycartographr] prev. coords: (-228.95, 73.88)
-  ("village_89", "Flevum", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-176.57, 129.66), []),              #[swycartographr] prev. coords: (-190.71, 124.15)
-  #("village_90", "Naissus", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-93.23,31.4), [], 40),
-  ("village_90", "Deultum", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-2.21,42.58), [], 40), #was ratiara, -87.33,43.2 #[swycartographr] prev. coords: (-56.44, 33.14)
-  ("village_91", "Tyrus", icon_village_c|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (83.23, -36.09), [], 20),             #[swycartographr] prev. coords: (12.0936, -39.4521) #[swycartographr] prev. coords: (12.05, -41.89)
-  ("village_92", "Paraetonium", icon_village_c|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (8.31, -76.73), [], 60),        #[swycartographr] prev. coords: (-46.7, -76.24)
-  ("village_93", "Macomades", icon_village_c|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-152.21, -51.91), [], 67),         #[swycartographr] prev. coords: (10.7035, -49.859) #[swycartographr] prev. coords: (-187.9, -39)
-  ("village_94", "Palmyra", icon_village_c|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (108.01, -24.77), [], 15),          #[swycartographr] prev. coords: (36.3, -33.08)
-  ("village_95", "Gerrha", icon_village_c|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (237.86, -71.3), [], 10),             #[swycartographr] prev. coords: (98.53, -35.35) #[swycartographr] prev. coords: (122.01, -75.92) #[swycartographr] prev. coords: (125.44, -81.73)
-  ("village_96", "Tripoli", icon_village_c|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (84.27, -28.5), [], 35),            #[swycartographr] prev. coords: (12.4885, -28.3669)
-  ("village_97", "Pelusium", icon_village_c|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (65.32, -68.54), [], 160),       #[swycartographr] prev. coords: (6.16186, -69.2138) #[swycartographr] prev. coords: (0.25, -70.16)
-  ("village_98", "Amida", icon_village_c|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (103.94, 17.47), [], 180),              #[swycartographr] prev. coords: (45.3, 12.6) #[swycartographr] prev. coords: (41.81, 9.95) #[swycartographr] prev. coords: (101.48, -17.43)
+  ("village_85", "Agedincum", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-182.26, 87.35), [], 10),
+  ("village_86", "Apulum", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-30.01, 73.52), [], 35),
+  ("village_87", "Thagaste", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-155.45, -44.53), [], 160),
+  ("village_88", "Limonum", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-197.33, 64.38), [], 180),
+  ("village_89", "Flevum", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-176.57, 129.66), []),
+  ("village_90", "Deultum", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-2.21,42.58), [], 40), #was ratiara
+  ("village_91", "Tyrus", icon_village_c|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (83.23, -36.09), [], 20),
+  ("village_92", "Paraetonium", icon_village_c|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (8.31, -76.73), [], 60),
+  ("village_93", "Macomades", icon_village_c|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-152.21, -51.91), [], 67),
+  ("village_94", "Palmyra", icon_village_c|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (108.01, -24.77), [], 15),
+  ("village_95", "Gerrha", icon_village_c|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (237.86, -71.3), [], 10),
+  ("village_96", "Tripoli", icon_village_c|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (84.27, -28.5), [], 35),
+  ("village_97", "Pelusium", icon_village_c|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (65.32, -68.54), [], 160),
+  ("village_98", "Amida", icon_village_c|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (103.94, 17.47), [], 180),
   ("village_99", "Sisauranon", icon_village_c|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (125.18,21.52), []),
-  ("village_100", "Sari", icon_village_c|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (218, 47.99), [], 40),                #[swycartographr] prev. coords: (130.46, 42.45)
-  ("village_101", "Susa", icon_village_c|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (195.84, -12.13), [], 20),             #[swycartographr] prev. coords: (113.25, -20.39) #[swycartographr] prev. coords: (192.55, -7.91) #[swycartographr] prev. coords: (193.18, -10.62)
-  ("village_102", "Niniveh", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (138.35, 9.95), [], 170),          #[swycartographr] prev. coords: (61.5, 1)
-  ("village_103", "Ganzak", icon_village_c|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (163.17, 24.5), [], 55),           #[swycartographr] prev. coords: (77.7175, 20.5276) #[swycartographr] prev. coords: (162.32, 20.21)
+  ("village_100", "Sari", icon_village_c|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (218, 47.99), [], 40),
+  ("village_101", "Susa", icon_village_c|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (195.84, -12.13), [], 20),
+  ("village_102", "Niniveh", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (138.35, 9.95), [], 170),
+  ("village_103", "Ganzak", icon_village_c|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (163.17, 24.5), [], 55),
   ("village_104", "Oxyrhynchus", icon_village_c|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (55.47, -110.91), [], 15),
-  ("village_105", "Singara", icon_village_c|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (123.21, 9.12), [], 10),            #[swycartographr] prev. coords: (50.13, -4.13) #[swycartographr] prev. coords: (52.9, -5.26)
-  ("village_106", "Tarsus", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (66.27, -7.34), [], 20),            #[swycartographr] prev. coords: (2.35, -10.5)
+  ("village_105", "Singara", icon_village_c|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (123.21, 9.12), [], 10),
+  ("village_106", "Tarsus", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (66.27, -7.34), [], 20),
   ("village_107", "Tabriz", icon_village_c|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (156.78, 32.1), [], 160),
-  ("village_108", "Peroz_Shapur", icon_village_c|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (137.18, 3.28), [], 180),            #[swycartographr] prev. coords: (59.3069, -11.7166)
-  ("village_109", "Diospolis", icon_village_c|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (50.51, -68.66), []),            #[swycartographr] prev. coords: (-14.9103, -70.3516)
-  ("village_110", "Gaza", icon_village_c|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (78.03, -64.45), [], 40),             #[swycartographr] prev. coords: (10.23, -60.26)
+  ("village_108", "Peroz_Shapur", icon_village_c|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (137.18, 3.28), [], 180),
+  ("village_109", "Diospolis", icon_village_c|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (50.51, -68.66), []),
+  ("village_110", "Gaza", icon_village_c|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (78.03, -64.45), [], 40),
 #New Villages in Mod
-  ("village_111","Nishapur",  icon_village_c|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(262.01,43.62),[], 40),              #[swycartographr] prev. coords: (157.84, 32.19)
-  ("village_112","Royan",  icon_village_c|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(186.14,39.44),[], 40),                 #[swycartographr] prev. coords: (99.75, 40.13)
-  ("village_113", "Hormirzad", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (289.1,-27.78), [], 180),       #[swycartographr] prev. coords: (173.2, -50)
-  ("village_114","Daba",  icon_village_c|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(288.34,-46.06),[], 40),                 #[swycartographr] prev. coords: (177.83, -68.95)
-  ("village_115","Pax Julia",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-284.2,-5.85),[], 40),             #[swycartographr] prev. coords: (-289.07, 3.14)
-  ("village_116","Iuvavum",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-113.58,80.17),[], 40),                #[swycartographr] prev. coords: (-137.3, 73)
-  ("village_117","Venonis",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-217.02,132.18),[], 40),             #[swycartographr] prev. coords: (-221.95, 129.46)
-  ("village_118","Huensis",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-234.22,191.39),[], 40),             #[swycartographr] prev. coords: (-235.17, 179.66)
-  ("village_119","Noviomagnus_Reginorum",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-210.14,119.73),[], 40),  #[swycartographr] prev. coords: (-214.88, 112.96)
-  ("village_120","Delminium",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-69.38,35.73),[], 40),             #[swycartographr] prev. coords: (-118.68, 30.24)
+  ("village_111","Nishapur",  icon_village_c|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(262.01,43.62),[], 40),
+  ("village_112","Royan",  icon_village_c|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(186.14,39.44),[], 40),
+  ("village_113", "Hormirzad", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (289.1,-27.78), [], 180),
+  ("village_114","Daba",  icon_village_c|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(288.34,-46.06),[], 40),
+  ("village_115","Pax Julia",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-284.2,-5.85),[], 40),
+  ("village_116","Iuvavum",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-113.58,80.17),[], 40),
+  ("village_117","Venonis",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-217.02,132.18),[], 40),
+  ("village_118","Huensis",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-234.22,191.39),[], 40),
+  ("village_119","Noviomagnus_Reginorum",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-210.14,119.73),[], 40),
+  ("village_120","Delminium",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-69.38,35.73),[], 40),
   ("village_121","Moreb",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-222.08,197.87),[], 40),
-  ("village_122","Salamatica",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-251.85, 17.22),[], 40),          #[swycartographr] prev. coords: (-264.88, 28.38)
+  ("village_122","Salamatica",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-251.85, 17.22),[], 40), 
   ("village_123","Forum_Limicorum",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-269.22,34.6),[], 40),
-  ("village_124","Aquae_Flaviae",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-267.5,28.59),[], 40),         #[swycartographr] prev. coords: (-277.5, 37.83)
-  ("village_125","Patavium",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-122.84,56.72),[], 40),             #[swycartographr] prev. coords: (-153.49, 49.38)
-  ("village_126","Gorsium",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-78.37,79.3),[], 40),               #[swycartographr] prev. coords: (-118, 71.7)
-  ("village_127","Durobrivae",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-204.38,138.1),[], 40),           #[swycartographr] prev. coords: (-207.13, 134.97)
-  ("village_128","Brigantium",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-272.66,51.58),[], 40),           #[swycartographr] prev. coords: (-275.58, 58.24)
-  ("village_129","Goyman",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(227.29,12.41),[], 40),                #[swycartographr] prev. coords: (126.83, 6.43)
-  ("village_130","Corduba",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-264.45,-6.77),[], 40),              #[swycartographr] prev. coords: (-273.34, -1.18)
-  ("village_131","Golshan",  icon_village_c|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(294.65, 16.56),[], 40),              #[swycartographr] prev. coords: (170, 18)
-  ("village_132","Hispalis",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-267.11,-16.25),[], 40),            #[swycartographr] prev. coords: (-277.71, -6.85)
-  ("village_133","Mariana",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-244.53,-10.07),[], 40),             #[swycartographr] prev. coords: (-258.36, -0.1)
-  ("village_134", "Hadrumetum", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-132.54, -45.65), [], 10),    #[swycartographr] prev. coords: (-167.531, -39.6997)
-  ("village_135","Ardestan",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(251.55,4.91),[], 40),               #[swycartographr] prev. coords: (146.34, 4.63)
-  #("village_136","Zamb",  icon_village_c|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(200,63.31),[], 40),
-  ("village_136", "Vahshatabad_Ardashir", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (198.54, -33.87), [], 130),         #[swycartographr] prev. coords: (105, -42)
-  ("village_137", "Aila", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (90.23, -76.89), [], 170),           #[swycartographr] prev. coords: (18.8, -89.4)
-  ("village_138","Gorgan",  icon_village_c|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(219.24,54.64),[], 40),                #[swycartographr] prev. coords: (134.25, 48.6)
-  ("village_139", "Argan", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (214.33, -23.75), [], 170),           #[swycartographr] prev. coords: (116.6, -38)
-  ("village_140", "Hormoz_Ardashir", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (173.45, -23.27), [], 60),        #[swycartographr] prev. coords: (83.49, -24.11)
+  ("village_124","Aquae_Flaviae",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-267.5,28.59),[], 40),
+  ("village_125","Patavium",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-122.84,56.72),[], 40),
+  ("village_126","Gorsium",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-78.37,79.3),[], 40),
+  ("village_127","Durobrivae",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-204.38,138.1),[], 40),
+  ("village_128","Brigantium",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-272.66,51.58),[], 40),
+  ("village_129","Goyman",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(227.29,12.41),[], 40),
+  ("village_130","Corduba",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-264.45,-6.77),[], 40),
+  ("village_131","Golshan",  icon_village_c|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(294.65, 16.56),[], 40),
+  ("village_132","Hispalis",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-267.11,-16.25),[], 40),
+  ("village_133","Mariana",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-244.53,-10.07),[], 40),
+  ("village_134", "Hadrumetum", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-132.54, -45.65), [], 10),
+  ("village_135","Ardestan",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(251.55,4.91),[], 40),
+  ("village_136", "Vahshatabad_Ardashir", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (198.54, -33.87), [], 130),         
+  ("village_137", "Aila", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (90.23, -76.89), [], 170),
+  ("village_138","Gorgan",  icon_village_c|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(219.24,54.64),[], 40),
+  ("village_139", "Argan", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (214.33, -23.75), [], 170),
+  ("village_140", "Hormoz_Ardashir", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (173.45, -23.27), [], 60),
   ("village_141", "Sitifis", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-172.57, -45.22), [], 170),
-  ("village_142", "Leptis Magna", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-91.26, -79.77), [], 170),          #[swycartographr] prev. coords: (-143.54, -73.67)
-  ("village_143","Thevestis",  icon_village_c|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-147.43,-41.34),[], 40),           #[swycartographr] prev. coords: (-178.96, -39.84)
-  ("village_144","Tipasa",  icon_village_c|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-132.08, -66.38),[], 40),             #[swycartographr] prev. coords: (-166.91, -62.51)
-  ("village_145","Tucca",  icon_village_c|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-139.98,-36.86),[], 40),               #[swycartographr] prev. coords: (-175.48, -31.9)
-  ("village_146","Mogentiana",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-86.05,76.16),[], 40),            #[swycartographr] prev. coords: (-126.47, 71.02)
-  ("village_147","Tricciana",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-80.35,73.15),[], 40),             #[swycartographr] prev. coords: (-120.4, 67.4)
-  ("village_148","Segestica",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-86.89,60.29),[], 40),             #[swycartographr] prev. coords: (-125, 52)
-  ("village_149","Sopinae",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-80.89,67.88),[], 40),                #[swycartographr] prev. coords: (-120, 61) #[swycartographr] prev. coords: (-80.09, 71.8)
+  ("village_142", "Leptis Magna", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-91.26, -79.77), [], 170),
+  ("village_143","Thevestis",  icon_village_c|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-147.43,-41.34),[], 40),
+  ("village_144","Tipasa",  icon_village_c|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-132.08, -66.38),[], 40),
+  ("village_145","Tucca",  icon_village_c|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-139.98,-36.86),[], 40),
+  ("village_146","Mogentiana",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-86.05,76.16),[], 40),
+  ("village_147","Tricciana",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-80.35,73.15),[], 40),
+  ("village_148","Segestica",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-86.89,60.29),[], 40),
+  ("village_149","Sopinae",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-80.89,67.88),[], 40),
   ("village_150","Cularo",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-167.98,60.12),[], 40),
   #new villages 5/22/20
-  ("village_151","Navalia",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-157.36,120.98),[], 40),             #[swycartographr] prev. coords: (-175.51, 117.25)
-  ("village_152","Siatutanda",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-165.05,130.46),[], 40),          #[swycartographr] prev. coords: (-182.87, 123.92)
-  ("village_153","Manarmanis",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-172.58,138.87),[], 40),          #[swycartographr] prev. coords: (-184.83, 132.55)
-  ("village_154","Alisum",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-155.09,116.31),[], 40),              #[swycartographr] prev. coords: (-171.03, 115.56)
+  ("village_151","Navalia",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-157.36,120.98),[], 40),
+  ("village_152","Siatutanda",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-165.05,130.46),[], 40),
+  ("village_153","Manarmanis",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-172.58,138.87),[], 40),
+  ("village_154","Alisum",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-155.09,116.31),[], 40),
   ("village_155","Bezabde",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(128.15,26.32),[], 40),
-  ("village_156","Treva",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-137.62,143.49),[], 40),               #[swycartographr] prev. coords: (-162.71, 132.96)
+  ("village_156","Treva",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-137.62,143.49),[], 40),
   ("village_157","Hronan",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-147.09,170.67),[], 40),
-  ("village_158","Vindobona",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-90.19,87.76),[], 40),             #[swycartographr] prev. coords: (-139.07, 79.33)
+  ("village_158","Vindobona",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-90.19,87.76),[], 40),
   ("village_159","Englathorp",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-142.87,157.97),[], 40),
-  ("village_160","Marionis",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-120.37,150.17),[], 40),            #[swycartographr] prev. coords: (-150.95, 135)
-  ("village_161","Menosgada",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-111.66,101.82),[], 40),           #[swycartographr] prev. coords: (-144.4, 96.4)
-  ("village_162","Bicurgium",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-114.74,116.08),[], 40),           #[swycartographr] prev. coords: (-143, 104)
-  ("village_163","Celegia",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-105.14,123.45),[], 40),             #[swycartographr] prev. coords: (-136.84, 112.7)
-  ("village_164","Semnon",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-123.89,137.43),[], 40),              #[swycartographr] prev. coords: (-122.59, 135.74) #[swycartographr] prev. coords: (-146.8, 121)
+  ("village_160","Marionis",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-120.37,150.17),[], 40),
+  ("village_161","Menosgada",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-111.66,101.82),[], 40),
+  ("village_162","Bicurgium",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-114.74,116.08),[], 40),
+  ("village_163","Celegia",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-105.14,123.45),[], 40),
+  ("village_164","Semnon",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-123.89,137.43),[], 40),
   ("village_165","Dastagerd",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(153.93,5.74),[], 40),
-  ("village_166","Candunum",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-131.36,120.55),[], 40),            #[swycartographr] prev. coords: (-151, 111)
-  ("village_167","Ascalingium",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-143.92,124.76),[], 40),         #[swycartographr] prev. coords: (-162.25, 125.07)
-  ("village_168","Caolanconum",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-105.97,130.76),[], 40),           #[swycartographr] prev. coords: (-126, 105)
+  ("village_166","Candunum",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-131.36,120.55),[], 40),
+  ("village_167","Ascalingium",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-143.92,124.76),[], 40),
+  ("village_168","Caolanconum",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-105.97,130.76),[], 40),
   ("village_169","Stragona",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-88, 120),[], 40),
-  ("village_170","Abieta",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-63.64,95.46),[], 40),                 #[swycartographr] prev. coords: (-107.84, 87.26) #[swycartographr] prev. coords: (-61.7, 99.76)
+  ("village_170","Abieta",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-63.64,95.46),[], 40),
   ("village_171","Bagavan",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(132.41,31.71),[], 40),
   ("village_172","Tergeste",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-109.62,60.86),[], 40),
-  ("village_173","Settuia",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-68.32,107.16),[], 40),              #[swycartographr] prev. coords: (-110.69, 97.42)
-  ("village_174","Arsicua",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-84.58,96.61),[], 40),               #[swycartographr] prev. coords: (-122.7, 86) #[swycartographr] prev. coords: (-76.67, 93.42)
+  ("village_173","Settuia",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-68.32,107.16),[], 40),
+  ("village_174","Arsicua",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-84.58,96.61),[], 40),
 
-  ("village_175","Divodurum",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-158.58,95.48),[], 40),           #[swycartographr] prev. coords: (-178.09, 93.58) #[swycartographr] prev. coords: (-179.62, 101.76)
-  ("village_176","Fabiranum",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-149.27,143.35),[], 40),           #[swycartographr] prev. coords: (-170.18, 133.88)
-  ("village_177","Corinium",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-220.71,128.02),[], 40),            #[swycartographr] prev. coords: (-220.84, 123.8)
-  ("village_178","Calleva",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-218.26,123.05),[], 40),             #[swycartographr] prev. coords: (-218.6, 117.3)
-  ("village_179","Venta",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-197.77,138.02),[], 40),               #[swycartographr] prev. coords: (-204.26, 126.13)
-  ("village_180","Moridunum",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-234.82,133.05),[], 40),           #[swycartographr] prev. coords: (-235.5, 126.6)
+  ("village_175","Divodurum",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-158.58,95.48),[], 40),
+  ("village_176","Fabiranum",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-149.27,143.35),[], 40),
+  ("village_177","Corinium",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-220.71,128.02),[], 40),
+  ("village_178","Calleva",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-218.26,123.05),[], 40),
+  ("village_179","Venta",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-197.77,138.02),[], 40),
+  ("village_180","Moridunum",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-234.82,133.05),[], 40),
   ("village_181","Tulisurgium",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-137.46,129.85),[], 40),
-  ("village_182","Munitium",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-145.5,116.64),[], 40),             #[swycartographr] prev. coords: (-161.25, 110.78)
-  ("village_183","Gravionarium",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-133.73,107.23),[], 40),         #[swycartographr] prev. coords: (-157, 104.9)
-  ("village_184","Segodunum",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-140.61,97.88),[], 40),            #[swycartographr] prev. coords: (-162.3, 95.28)
-  ("village_185","Arrabona",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-84.76,85.42),[], 40),              #[swycartographr] prev. coords: (-123.04, 76.7)
+  ("village_182","Munitium",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-145.5,116.64),[], 40),
+  ("village_183","Gravionarium",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-133.73,107.23),[], 40),
+  ("village_184","Segodunum",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-140.61,97.88),[], 40),
+  ("village_185","Arrabona",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-84.76,85.42),[], 40),
 
-  ("village_186","Uscenum",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-75.03,92.19),[], 40),               #[swycartographr] prev. coords: (-112.25, 82.85) #[swycartographr] prev. coords: (-68.81, 93.04)
-  ("village_187","Tbilisi",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(149.93,64.26),[], 40),               #[swycartographr] prev. coords: (65.5, 50.11)
-  ("village_188","Tibiscum",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-48.42,67.12),[], 40),              #[swycartographr] prev. coords: (-96.3, 57.3)
-  ("village_189","Athribis",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(54.3,-76.51),[], 40),              #[swycartographr] prev. coords: (-13.3, -82.7)
+  ("village_186","Uscenum",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-75.03,92.19),[], 40),
+  ("village_187","Tbilisi",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(149.93,64.26),[], 40),
+  ("village_188","Tibiscum",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-48.42,67.12),[], 40),
+  ("village_189","Athribis",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(54.3,-76.51),[], 40),
 
-  ("village_190","Toronum",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-199.33,80.66),[], 40),              #[swycartographr] prev. coords: (-213, 81.9)
-  ("village_191","Augusta Ausciorum",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-206.52,40.51),[], 40),    #[swycartographr] prev. coords: (-220.7, 39)
-  ("village_192","Elusa",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-206.42,45.27),[], 40),                #[swycartographr] prev. coords: (-222.62, 44.4)
-  ("village_193","Augustonemetum",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-184.43,60.86),[], 40),       #[swycartographr] prev. coords: (-204, 56)
+  ("village_190","Toronum",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-199.33,80.66),[], 40),
+  ("village_191","Augusta Ausciorum",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-206.52,40.51),[], 40),
+  ("village_192","Elusa",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-206.42,45.27),[], 40),
+  ("village_193","Augustonemetum",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-184.43,60.86),[], 40),
   #new villages 6/14/20
   #start off with new roman villages - wre first
-  ("village_194","Rhegium",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-90.24,-16.97),[], 40),              #[swycartographr] prev. coords: (-128.85, -19.1)
-  ("village_195","Amiternum",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-110.26,23.55),[], 40),            #[swycartographr] prev. coords: (-146.6, 20.62)
-  ("village_196","Pisae",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-132.77,40.63),[], 40),                #[swycartographr] prev. coords: (-167.2, 34.4)
-  ("village_197","Verona",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-129.36,58.9),[], 40),                #[swycartographr] prev. coords: (-159.34, 53.53)
-  ("village_198","Domavium",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-74.85,47.36),[], 40),              #[swycartographr] prev. coords: (-110.5, 40.3)
-  ("village_199","Narona",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-69.25,27.7),[], 40),                 #[swycartographr] prev. coords: (-117.9, 25.5)
-  ("village_200","Alalie",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-143.37,18.17),[], 40),               #[swycartographr] prev. coords: (-175, 16.76)
-  ("village_201","Philippi",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-21.29,23.04),[], 40),              #[swycartographr] prev. coords: (-74.2, 14.5)
-  ("village_202","Synnada",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(39.66,4.76),[], 40), #taifals        #[swycartographr] prev. coords: (-26.3, 4)
-  ("village_203","Attalia",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(33.22,-15.43),[], 40),               #[swycartographr] prev. coords: (-28, -22)
-  ("village_204","Gortyna",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-11.6,-39.21),[], 40),               #[swycartographr] prev. coords: (-66.3, -44.6)
-  ("village_205","Nicomedia",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(16.39,21.95),[], 40),              #[swycartographr] prev. coords: (-37.3, 19)
-  ("village_206","Caesarea Eusebia",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(64.45,16.2),[], 40),      #[swycartographr] prev. coords: (-2.36, 8.83) #[swycartographr] prev. coords: (-0.08, -30.24)
-  ("village_207","Nicosia",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(60.41,-25.45),[], 40),               #[swycartographr] prev. coords: (-8.45, -30.1)
-  ("village_208","Palma",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-193.62,-1.82),[], 40),                #[swycartographr] prev. coords: (-217.4, 1.8)
+  ("village_194","Rhegium",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-90.24,-16.97),[], 40),
+  ("village_195","Amiternum",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-110.26,23.55),[], 40),
+  ("village_196","Pisae",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-132.77,40.63),[], 40),
+  ("village_197","Verona",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-129.36,58.9),[], 40),
+  ("village_198","Domavium",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-74.85,47.36),[], 40),
+  ("village_199","Narona",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-69.25,27.7),[], 40),
+  ("village_200","Alalie",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-143.37,18.17),[], 40),
+  ("village_201","Philippi",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-21.29,23.04),[], 40),
+  ("village_202","Synnada",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(39.66,4.76),[], 40), #taifals
+  ("village_203","Attalia",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(33.22,-15.43),[], 40),
+  ("village_204","Gortyna",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-11.6,-39.21),[], 40),
+  ("village_205","Nicomedia",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(16.39,21.95),[], 40),
+  ("village_206","Caesarea Eusebia",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(64.45,16.2),[], 40),
+  ("village_207","Nicosia",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(60.41,-25.45),[], 40),
+  ("village_208","Palma",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-193.62,-1.82),[], 40),
   #frankish villages
-  ("village_209","Levefanum",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-176.02,124.43),[], 40),           #[swycartographr] prev. coords: (-186.82, 119.55)
-  ("village_210","Virodunum",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-164.47,98.43),[], 40),           #[swycartographr] prev. coords: (-184.2, 96.85) #[swycartographr] prev. coords: (-165.83, 101.59)
-  ("village_211","Arae Flaviae",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-149.95,88.16),[], 40),         #[swycartographr] prev. coords: (-170.4, 85.3)
+  ("village_209","Levefanum",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-176.02,124.43),[], 40),
+  ("village_210","Virodunum",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-164.47,98.43),[], 40),
+  ("village_211","Arae Flaviae",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-149.95,88.16),[], 40),
   #new desert villages - ere - vandals - mauri
-  ("village_212","Memphis",  icon_village_c|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(52.38,-85.43),[], 40),               #[swycartographr] prev. coords: (-15.7, -90.8)
-  ("village_213","Cyrene",  icon_village_c|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-41.76,-72.71),[], 40),               #[swycartographr] prev. coords: (-82.2, -66.3)
-  ("village_214","Augila",  icon_village_c|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-38.3,-99.45),[], 40),                #[swycartographr] prev. coords: (-87, -98.7)
-  ("village_215","Syrorum",  icon_village_c|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-210.29,-50.53),[], 40),             #[swycartographr] prev. coords: (-240.6, -39.8)
-  ("village_216","Cartena",  icon_village_c|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-206.79,-34.41),[], 40),             #[swycartographr] prev. coords: (-234.4, -26.2)
-  ("village_217","Cesarea",  icon_village_c|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-195.15,-31.88),[], 40),             #[swycartographr] prev. coords: (-225.25, -26)
-  ("village_218","Siga",  icon_village_c|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-231.09,-40.87),[], 40),                #[swycartographr] prev. coords: (-251.1, -32.7)
-  ("village_219","Cirta",  icon_village_c|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-162.65,-40.04),[], 40),               #[swycartographr] prev. coords: (-197.01, -31.43)
-  ("village_220","Rusaddir",  icon_village_c|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-247.91,-42.63),[], 40),            #[swycartographr] prev. coords: (-261.8, -30.7)
-  ("village_221","Columnata",  icon_village_c|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-212.31,-41.15),[], 40),           #[swycartographr] prev. coords: (-237.6, -33.65)
-  ("village_222","Arsennaria",  icon_village_c|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-214.29,-34.81),[], 40),          #[swycartographr] prev. coords: (-239, -28.6)
-  ("village_223","Bararus",  icon_village_c|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-132.8,-51.85),[], 40),              #[swycartographr] prev. coords: (-166, -46.85)
-  ("village_224","Thabrasa",  icon_village_c|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-146.48,-30.67),[], 40),            #[swycartographr] prev. coords: (-182.3, -29)
+  ("village_212","Memphis",  icon_village_c|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(52.38,-85.43),[], 40),
+  ("village_213","Cyrene",  icon_village_c|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-41.76,-72.71),[], 40),
+  ("village_214","Augila",  icon_village_c|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-38.3,-99.45),[], 40),
+  ("village_215","Syrorum",  icon_village_c|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-210.29,-50.53),[], 40),
+  ("village_216","Cartena",  icon_village_c|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-206.79,-34.41),[], 40),
+  ("village_217","Cesarea",  icon_village_c|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-195.15,-31.88),[], 40),
+  ("village_218","Siga",  icon_village_c|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-231.09,-40.87),[], 40),
+  ("village_219","Cirta",  icon_village_c|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-162.65,-40.04),[], 40),
+  ("village_220","Rusaddir",  icon_village_c|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-247.91,-42.63),[], 40),
+  ("village_221","Columnata",  icon_village_c|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-212.31,-41.15),[], 40),
+  ("village_222","Arsennaria",  icon_village_c|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-214.29,-34.81),[], 40),
+  ("village_223","Bararus",  icon_village_c|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-132.8,-51.85),[], 40),
+  ("village_224","Thabrasa",  icon_village_c|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-146.48,-30.67),[], 40),
   #sad! no more desert villages!
-  ("village_225","Arelate",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-177.92,41.23),[], 40),              #[swycartographr] prev. coords: (-197.5, 37.1)
-  ("village_226","Asculum",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-108.11,30.85),[], 40),              #[swycartographr] prev. coords: (-142.53, 27.13)
-  ("village_227","Ovilava",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-102.93, 85.14),[], 40),              #[swycartographr] prev. coords: (-139.51, 63.27)
-  #("village_228","Augustomagnus",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-202, 96),[], 40),
-  ("village_228","Lindum",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-208.02, 145.89),[], 40),             #[swycartographr] prev. coords: (-211.91, 143.4)
-  #new villages 8/12/20 - huns in crimea and ukraine
-  ("village_229","Theodosia",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(49.88, 79.98),[], 342),            #[swycartographr] prev. coords: (-17.21, 70.05)
-  ("village_230","Argedava",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-18.39, 54.59),[], 40),             #[swycartographr] prev. coords: (-70.7, 50.63)
-  ("village_231","Charax",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(38.06, 69.86),[], 40),                #[swycartographr] prev. coords: (-24.6, 64.08)
-  ("village_232","Kalos Limen",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(31.45, 78.56),[], 40), #was Naubarum (-20.5, 101.5) #[swycartographr] prev. coords: (-30.3, 69.65)
-  ("village_233","Hermonassa",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(66.67, 80.73),[], 40),            #[swycartographr] prev. coords: (-5.16, 71.76)
-  ("village_234","Tyras",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(8.18, 80.25),[], 40),                 #[swycartographr] prev. coords: (-48, 68.5) #[swycartographr] prev. coords: (11.55, 62.86)
-  ("village_235","Tracana",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(35.77, 98.19),[], 40),               #[swycartographr] prev. coords: (-22.4, 85.2)
-  ("village_236","Arargus",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(55.2, 105.99),[], 40),               #[swycartographr] prev. coords: (-12.72, 91)
-  ("village_237","Ionopolis",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(35.13, 35.7),[], 40),              #[swycartographr] prev. coords: (-21.15, 36)
-  ("village_238","Gargaza",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(64.44, 88.23),[], 40),               #[swycartographr] prev. coords: (0.04, 76.77)
-  ("village_239","Patria Onoguria",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(75.48, 108.14),[], 40),      #[swycartographr] prev. coords: (5, 93.6)
+  ("village_225","Arelate",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-177.92,41.23),[], 40),
+  ("village_226","Asculum",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-108.11,30.85),[], 40),
+  ("village_227","Ovilava",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-102.93, 85.14),[], 40),
+  ("village_228","Lindum",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-208.02, 145.89),[], 40),
+  # huns in crimea and ukraine
+  ("village_229","Theodosia",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(49.88, 79.98),[], 342),
+  ("village_230","Argedava",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-18.39, 54.59),[], 40),
+  ("village_231","Charax",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(38.06, 69.86),[], 40),
+  ("village_232","Kalos Limen",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(31.45, 78.56),[], 40),
+  ("village_233","Hermonassa",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(66.67, 80.73),[], 40), 
+  ("village_234","Tyras",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(8.18, 80.25),[], 40),
+  ("village_235","Tracana",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(35.77, 98.19),[], 40),
+  ("village_236","Arargus",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(55.2, 105.99),[], 40),
+  ("village_237","Ionopolis",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(35.13, 35.7),[], 40),
+  ("village_238","Gargaza",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(64.44, 88.23),[], 40),
+  ("village_239","Patria Onoguria",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(75.48, 108.14),[], 40),
   #new villages 1/11/21
-  ("village_240","Sala",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-283.45, -51.36),[], 40),               #[swycartographr] prev. coords: (-291.7, -34.1)
-  ("village_241","Lixus",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-274.8, -42.1),[], 40),                #[swycartographr] prev. coords: (-284.4, -26.25)
+  ("village_240","Sala",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-283.45, -51.36),[], 40),
+  ("village_241","Lixus",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-274.8, -42.1),[], 40),
   #new villages 3/12/21 - hispania
   ("village_242","Calagurris",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-238.43, 33.58),[], 40),
-  ("village_243","Saguntum",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-220.41, 4.17),[], 40),             #[swycartographr] prev. coords: (-231.11, 10.44)
-  ("village_244","Ilerda",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-215.74, 20.25),[], 40),              #[swycartographr] prev. coords: (-227.9, 26.45)
-  ("village_245","Conimbriga",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-282.81, 22.01),[], 40),          #[swycartographr] prev. coords: (-287, 31.3)
+  ("village_243","Saguntum",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-220.41, 4.17),[], 40),
+  ("village_244","Ilerda",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-215.74, 20.25),[], 40),
+  ("village_245","Conimbriga",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-282.81, 22.01),[], 40),
   #anatolia
   ("village_246","Gangra",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(47.51, 19.97),[], 40),
   ("village_247","Cyzicus",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(8.27, 18.53),[], 40),
@@ -541,6 +535,7 @@ parties = [
   ("village_284", "Carsidava", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-16.58, 87.28), [], 55),
   ("village_285", "Zargidava", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-5.42, 87.57), [], 55),
   ("village_286", "Jintarne", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-43.67, 189.81), [], 55),
+  ("village_287", "Rybinum", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-36.60, 183.5), [], 55),
 
   ("salt_mine","Salt_Mine",icon_village_a|pf_disabled|pf_is_static|pf_always_visible|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(14.2, -31),[]), #special locations
   ("diocletians_palace","Old Palace",icon_village_snow_a|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-79.14, 34.56),[]), #[swycartographr] prev. coords: (-123.14, 29.53)

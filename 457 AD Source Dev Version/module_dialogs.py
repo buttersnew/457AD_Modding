@@ -55489,19 +55489,19 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
    "You expect me to run tail between my legs because some hardships have hit my people? Never. I acknowledge that we have seen better days. My scouts report that the Romans are preparing to retake this land and bring order once more and yet Suebi kings think they are a match to Ariovistus of old. They test our resolve. Sometimes I wish I could just fish and hunt in peace and that my people could live in tranquility too, but when others give you no peace it must be taken.", "minor_faction_king_pretalk", []],
 
   #venedi
-  [trp_venedi_king, "start", [(eq, "$g_talk_troop_met", 0),],
+  [trp_kingdom_34_lord, "start", [(eq, "$g_talk_troop_met", 0),],
    "The forests whisper and bring word of your coming. The wind tells that men come but it does not tell us about their intentions, so why do you tread here?", "venedi_king_intro_1", []],
-  [trp_venedi_king|plyr, "venedi_king_intro_1", [],
+  [trp_kingdom_34_lord|plyr, "venedi_king_intro_1", [],
    "Hail to you, chief. I brought riverlands and danger in order to trade with the Venedi and I have a feeling I have found them. I am {playername}, can you tell whether I have found the ones I seek?", "venedi_king_intro_2", []],
-  [trp_venedi_king, "venedi_king_intro_2", [],
+  [trp_kingdom_34_lord, "venedi_king_intro_2", [],
    "I thought you might be a merchant, you seem like a coal biter and not hardened by the cold grip of war, the dwellers in great cities are soft.....but to answer your question I'm called Voldimer, my folk know me as a great swordsman and vanquisher of lesser tribes.", "venedi_king_intro_3", []],
-  [trp_venedi_king|plyr, "venedi_king_intro_3", [],
+  [trp_kingdom_34_lord|plyr, "venedi_king_intro_3", [],
    "Woe to the one who thinks I have not seen men get bitten by the steel snake, women stolen to be servants and children taken to be slaves, your caution I understand, better to be too careful than too careless and pay the price later.", "venedi_king_intro_4", []],
-  [trp_venedi_king, "venedi_king_intro_4", [],
+  [trp_kingdom_34_lord, "venedi_king_intro_4", [],
    "You have more spine than many of the merchants I've encountered and I can respect that. We feel that battles harden us and make us stronger eventually, that's why we seldom complain when life is hard, every time we are crushed down we come back stronger. The Goths in the times of my grandfather conquered us but nothing is eternal as you can see. Some have moved west to the lands of Germanic tribes. It was easy to settle since there were so few people there, only some stubborn men and elders who refused to leave but neither of them caused trouble to the newcomers. Journey to that land was a perilous one however, diseases fell men like hay, hostile bandits and thiefs stole goods and horses died but the resilient managed to survive all this. I have a feeling that soon they will have a kingdom there.", "venedi_king_intro_5", []],
-  [trp_venedi_king|plyr, "venedi_king_intro_5", [],
+  [trp_kingdom_34_lord|plyr, "venedi_king_intro_5", [],
    "I have heard that later the Goths beat some of you to submission, did you still rise stronger from that too? I find this hard to believe, no man can endure endless punishment, like the city walls he will break when enough damage has been made.", "venedi_king_intro_6", []],
-  [trp_venedi_king, "venedi_king_intro_6", [],
+  [trp_kingdom_34_lord, "venedi_king_intro_6", [],
    "Bastards and whoresons, they did do that, but we cannot be killed that easily. We feel that war and dying in battle is natural way of life. Look around you, laws and treaties crumble, tribes are preparing for a great struggle and the empires of old are getting older. I feel that this time they cannot stem the tides that crash towards them, after all only the dead have seen the end of war...", "minor_faction_king_pretalk", []],
 
   ##onogur

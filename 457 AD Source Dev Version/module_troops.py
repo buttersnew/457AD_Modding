@@ -2458,20 +2458,6 @@ troops = [
    [itm_simple_shoes,itm_wrapping_boots,itm_tunic_1_cloak,itm_tunic_2_cloak,itm_tunic_14_cloak,itm_tunic_16_cloak,itm_tunic_12_cloak,itm_battered_mail_2_cloak,itm_common_mail_short_5_cloak,itm_fur_hat,itm_be_hunnic_cap_2,itm_be_hunnic_cap_4,itm_turaevo_helmet,itm_burgh_helmet_mail,itm_tarasovsky_1784_helmet_mail_1,itm_tarasovsky_1784_helmet_mail_2,itm_battle_axe,itm_cavalry_javelins,itm_cavalry_javelins,itm_concave_shield_leather_small_3,itm_concave_shield_blue_small_1,itm_concave_shield_green_small_1]+horses_slavic_1+horses_slavic_2,
    def_attrib_lvl_25|level(25),wp_one_handed(205)|wp_two_handed(180)|wp_polearm(200)|wp_throwing(200),knows_lvl_25|knows_power_strike_7, germanic_face_1, germanic_face_2],
 
-#NORICUM - culture has been dissolved, player can recruit troops from castles!
-  #["noricum_footman","Pedes Norici","Pedites Norici",tf_guarantee_basic,0,0,fac_kingdom_1,
-  # [itm_roman_military_tunic_2,itm_roman_peasant_tunic_1,itm_roman_peasant_tunic_3,itm_roman_peasant_tunic_4,itm_roman_peasant_tunic_7,itm_roman_peasant_tunic_10,itm_tunic_1,itm_tunic_5,itm_tunic_7,itm_roman_subarmalis_2,itm_roman_subarmalis_noricum,
-  # itm_narona_helmet_mail,itm_intercisa_helmet_1,itm_augst_helmet_1,itm_intercisa_helmet_2,itm_iatrus_1,
-  # itm_late_roman_spear_1,itm_securis,itm_oval_shield_blue_1,itm_oval_shield_blue_2,itm_oval_shield_red_2,itm_darts]+shoes_roman+pannonian_hats,
-  # def_attrib_lvl_18|level(17),wp_one_handed(130)|wp_polearm(140)|wp_throwing(135)|wp_archery(100),knows_lvl_18|knows_shield_4,roman_face_1, roman_face_2],
-
-  #["noricum_horseman","Eques Norici","Equites Norici",tf_mounted|tf_guarantee_basic|tf_guarantee_horse|tf_guarantee_helmet,0,0,fac_kingdom_1,
-  # [itm_ankle_boots,itm_roman_military_tunic_2,itm_roman_peasant_tunic_1,itm_roman_peasant_tunic_3,itm_roman_peasant_tunic_4,itm_roman_peasant_tunic_7,itm_tunic_5,itm_tunic_7,
-  # itm_roman_subarmalis_2,itm_roman_subarmalis_noricum,itm_common_mail_short_1,itm_common_mail_short_2,
-  # itm_leather_gloves,itm_late_roman_spear_1,itm_aquincum_spatha_1,itm_iatrus_1,itm_intercisa_helmet_1,itm_intercisa_helmet_2,itm_augst_helmet_1,itm_narona_helmet,itm_narona_helmet_mail,
-  # itm_concave_shield_blue_small_1,itm_concave_shield_white_small_1,itm_cavalry_javelins,itm_cavalry_javelins]+shoes_roman+horses_roman_2,
-  # def_attrib_lvl_23|level(22),wp_one_handed(170)|wp_polearm(185)|wp_throwing(190)|wp_archery(100),knows_lvl_23|knows_power_strike_5|knows_horse_archery_5,roman_face_1, roman_face_2],
-
 #FRISIANS
   ["frisian_freeman","Frisesk Freeman","Frisesk Freemen",tf_guarantee_basic,0,0,fac_culture_minor_4,
    [itm_ankle_boots,itm_simple_shoes,itm_wrapping_boots,itm_deurne_campagi_2,itm_deurne_campagi_5,itm_obenaltendorf_shoes_1,itm_obenaltendorf_shoes_2,
@@ -3215,11 +3201,11 @@ troops = [
 
   ["kingdom_9_lord",  "Rex Gundioc",  "Gundioc",  tf_hero, 0,reserved,  fac_kingdom_9,[itm_iberian_warhorse_roman_2, itm_tunic_rich_4, itm_simple_shoes, itm_rich_mail_8,  itm_sword_viking_3_small, itm_tab_shield_round_e, itm_augsburg_2_helmet],knight_attrib_5,wp_one_handed(290)|wp_two_handed(250)|wp_polearm(290)|wp_archery(140)|wp_crossbow(100)|wp_throwing(100)|wp_firearm(100),knight_skills_6|knows_trainer_5,0x000000078e0020c5589b7138e349a2db00000000001d36ea0000000000000000],
 
-["kingdom_10_lord",  "Rex Gibuld",  "Gibuld",  tf_hero, 0,reserved,  fac_kingdom_10,[itm_westger_warhorse_1, itm_tunic_rich_7, itm_wrapping_boots, itm_deurne_campagi_greaves_5, itm_rich_mail_10, itm_sword_viking_3, itm_tab_shield_round_e, itm_gultlingen_helmet_plume],knight_attrib_5,wp_one_handed(280)|wp_two_handed(280)|wp_polearm(280)|wp_archery(100)|wp_crossbow(100)|wp_throwing(200)|wp_firearm(100),knight_skills_5|knows_trainer_5,0x000000024e00014b589b7248db49a6db00000000001db6dc0000000000000000],
+  ["kingdom_10_lord",  "Rex Gibuld",  "Gibuld",  tf_hero, 0,reserved,  fac_kingdom_10,[itm_westger_warhorse_1, itm_tunic_rich_7, itm_wrapping_boots, itm_deurne_campagi_greaves_5, itm_rich_mail_10, itm_sword_viking_3, itm_tab_shield_round_e, itm_gultlingen_helmet_plume],knight_attrib_5,wp_one_handed(280)|wp_two_handed(280)|wp_polearm(280)|wp_archery(100)|wp_crossbow(100)|wp_throwing(200)|wp_firearm(100),knight_skills_5|knows_trainer_5,0x000000024e00014b589b7248db49a6db00000000001db6dc0000000000000000],
 
-["kingdom_11_lord",  "Reiks Ardaric",  "Ardaric",  tf_hero, 0,reserved,  fac_kingdom_11,[itm_east_germ_warhorse_4, itm_tunic_16, itm_simple_shoes, itm_rich_mail_3, itm_pannonhalma_spatha, itm_tab_shield_round_e, itm_kalhkni_helmet_1],knight_attrib_5,wp_one_handed(310)|wp_two_handed(310)|wp_polearm(260)|wp_archery(180)|wp_crossbow(100)|wp_throwing(180)|wp_firearm(100),knight_skills_5|knows_trainer_5,0x0000000b960063c9329c6ab4db69a6db00000000001db6e10000000000000000],
+  ["kingdom_11_lord",  "Reiks Ardaric",  "Ardaric",  tf_hero, 0,reserved,  fac_kingdom_11,[itm_east_germ_warhorse_4, itm_tunic_16, itm_simple_shoes, itm_rich_mail_3, itm_pannonhalma_spatha, itm_tab_shield_round_e, itm_kalhkni_helmet_1],knight_attrib_5,wp_one_handed(310)|wp_two_handed(310)|wp_polearm(260)|wp_archery(180)|wp_crossbow(100)|wp_throwing(180)|wp_firearm(100),knight_skills_5|knows_trainer_5,0x0000000b960063c9329c6ab4db69a6db00000000001db6e10000000000000000],
 
-["kingdom_12_lord",  "Rex Aelle",  "Aelle",  tf_hero, 0,reserved,  fac_kingdom_12,[itm_westger_warhorse_2, itm_tunic_rich_3, itm_simple_shoes, itm_rich_mail_7, itm_sword_viking_3, itm_tab_shield_round_e, itm_tarasovsky_782],knight_attrib_5,wp_one_handed(300)|wp_two_handed(300)|wp_polearm(270)|wp_archery(100)|wp_crossbow(100)|wp_throwing(280)|wp_firearm(100),knight_skills_6|knows_trainer_5,0x00000002cb003145329c6936db71a6db00000000001e36db0000000000000000],
+  ["kingdom_12_lord",  "Rex Aelle",  "Aelle",  tf_hero, 0,reserved,  fac_kingdom_12,[itm_westger_warhorse_2, itm_tunic_rich_3, itm_simple_shoes, itm_rich_mail_7, itm_sword_viking_3, itm_tab_shield_round_e, itm_tarasovsky_782],knight_attrib_5,wp_one_handed(300)|wp_two_handed(300)|wp_polearm(270)|wp_archery(100)|wp_crossbow(100)|wp_throwing(280)|wp_firearm(100),knight_skills_6|knows_trainer_5,0x00000002cb003145329c6936db71a6db00000000001e36db0000000000000000],
 
 #was riothamus
   ["kingdom_13_lord",  "Rex Ambrosius Aurelianus",  "Ambrosius Aurelianus",  tf_hero, 0,reserved,  fac_kingdom_13,[itm_nisean_cataphract_1, itm_coptic_tunic_13, itm_deurne_campagi_1, itm_deurne_campagi_greaves_1, itm_arthur_scale, itm_arthur_shield, itm_excalibur, itm_deurne_helmet], knight_attrib_5,wp_one_handed(320)|wp_two_handed(230)|wp_polearm(270)|wp_archery(150)|wp_crossbow(100)|wp_throwing(250)|wp_firearm(100),knight_skills_6|knows_trainer_5, 0x000000071c00108744da5126a28db2db00000000001db6da0000000000000000],
@@ -3542,11 +3528,12 @@ troops = [
 ["knight_32_2", "Tovisaci Votecorigas", "Votecorigas", tf_hero, 0, reserved,  fac_kingdom_32, [itm_marcos_2, itm_pictish_sword, itm_intercisa_helmet_rich_3, (itm_pictish_mail_2,imod_reinforced), itm_pictish_tunic_2, itm_ankle_boots, itm_tab_shield_small_round_c],     knight_attrib_5,wp(300),knight_skills_2|knows_trainer_2, 0x00000005970c5143385a8d249a6da6db00000000001d26d40000000000000000],
 ["knight_32_3", "Tovisaci Cairatini", "Cairatini", tf_hero, 0, reserved,  fac_kingdom_32,[itm_marcos_3, itm_arabian_sword_a, itm_burgh_helmet_2, itm_pictish_tunic_6, (itm_pictish_mail_6,imod_reinforced), itm_ankle_boots, itm_tab_shield_small_round_c],knight_attrib_5,wp(280),knight_skills_3,0x00000005a10c42055cca8d249a6da2db00000000001da6e30000000000000000],
 
-# pl4tte sporoi lord
-["knight_33_1", "Rurik Olegovich", "Olegovich", tf_hero, 0, reserved,  fac_kingdom_33, [itm_simple_shoes, itm_pictish_sword, itm_intercisa_helmet_rich_3, (itm_pictish_mail_2,imod_reinforced), itm_pictish_tunic_2, itm_ankle_boots, itm_tab_shield_small_round_c],     knight_attrib_5,wp(300),knight_skills_2|knows_trainer_2, 0x00000005970c5143385a8d249a6da6db00000000001d26d40000000000000000],
-["knight_33_2", "Veleslav Vostokov", "Vostokov", tf_hero, 0, reserved,  fac_kingdom_33,[itm_simple_shoes, itm_pictish_sword, itm_burgh_helmet_2, itm_pictish_tunic_6, (itm_pictish_mail_6,imod_reinforced), itm_ankle_boots, itm_tab_shield_small_round_c],knight_attrib_5,wp(280),knight_skills_3,0x00000005a10c42055cca8d249a6da2db00000000001da6e30000000000000000],
+# pl4tte sporoi lords
+["knight_33_1", "Ziroslav Olegovich", "Olegovich", tf_hero, 0, reserved,  fac_kingdom_33, [itm_simple_shoes, itm_pictish_sword, itm_intercisa_helmet_rich_3, (itm_pictish_mail_2,imod_reinforced), itm_pictish_tunic_2, itm_ankle_boots, itm_tab_shield_small_round_c],     knight_attrib_5,wp(300),knight_skills_2|knows_trainer_2, 0x00000005970c5143385a8d249a6da6db00000000001d26d40000000000000000],
+["knight_33_2", "Bogdan Vostokov", "Vostokov", tf_hero, 0, reserved,  fac_kingdom_33,[itm_simple_shoes, itm_pictish_sword, itm_burgh_helmet_2, itm_pictish_tunic_6, (itm_pictish_mail_6,imod_reinforced), itm_ankle_boots, itm_tab_shield_small_round_c],knight_attrib_5,wp(280),knight_skills_3,0x00000005a10c42055cca8d249a6da2db00000000001da6e30000000000000000],
 
-["knight_34_1", "Vladimir Serversky", "Serversky", tf_hero, 0, reserved,  fac_kingdom_34, [itm_simple_shoes, itm_pictish_sword, itm_intercisa_helmet_rich_3, (itm_pictish_mail_2,imod_reinforced), itm_pictish_tunic_2, itm_ankle_boots, itm_tab_shield_small_round_c],     knight_attrib_5,wp(300),knight_skills_2|knows_trainer_2, 0x00000005970c5143385a8d249a6da6db00000000001d26d40000000000000000],
+# pl4tte venedi lords
+["knight_34_1", "Veteslav Serversky", "Serversky", tf_hero, 0, reserved,  fac_kingdom_34, [itm_simple_shoes, itm_pictish_sword, itm_intercisa_helmet_rich_3, (itm_pictish_mail_2,imod_reinforced), itm_pictish_tunic_2, itm_ankle_boots, itm_tab_shield_small_round_c],     knight_attrib_5,wp(300),knight_skills_2|knows_trainer_2, 0x00000005970c5143385a8d249a6da6db00000000001d26d40000000000000000],
 
 #MADSCI REBEL KINGDOM HEROES, THESE WILL BE DISABLED AT START
 ["rebel_knight_1_1", "Marcianus", "Marcianus", tf_hero, 0, reserved,  fac_rebel_kingdom_1,[itm_nisean_cataphract_1, itm_coptic_tunic_12, itm_deurne_campagi_1, itm_deurne_campagi_greaves_1, itm_rich_mail_8, itm_tab_shield_small_round_c, itm_arabian_sword_b, itm_jarak_helmet_1],knight_attrib_5,wp_one_handed(290)|wp_two_handed(270)|wp_polearm(290)|wp_archery(150)|wp_crossbow(100)|wp_throwing(100)|wp_firearm(100),knight_skills_5|knows_trainer_4,0x000000071e0c20423daa8c98748dd92400000000001d92e00000000000000000],
@@ -3815,8 +3802,11 @@ troops = [
   ["kingdom_31_lady_4","Zepour","Zepour",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_31, [      itm_roman_noble_dress_2,       itm_wrapping_boots],     def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x00000007ef0010043adb923d7491b8db00000000001dc6d40000000000000000],
 
   ["kingdom_33_lady_1","Alina","Alina",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_33, [      itm_roman_noble_dress_2,       itm_wrapping_boots],     def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x00000007ef0010043adb923d7491b8db00000000001dc6d40000000000000000],
-
+  ["kingdom_33_lady_2","Vera","Vera",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_33, [      itm_germanic_dress_low_4,       itm_wrapping_boots],     def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x00000007ef0010043adb923d7491b8db00000000001dc6d40000000000000000],
+  ["kingdom_34_lady_1","Ziva","Ziva",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_34, [      itm_germanic_dress_low_2,       itm_wrapping_boots],     def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x00000007ef0010043adb923d7491b8db00000000001dc6d40000000000000000],
+  ["kingdom_34_lady_2","Sonja","Sonja",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_34, [      itm_germanic_dress_low_6,       itm_wrapping_boots],     def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x00000007ef0010043adb923d7491b8db00000000001dc6d40000000000000000],
 #KING COMPANIONS START HERE
+
   ["king_companion_1","Alpin", "Alpin", tf_hero, 0, reserved,  fac_kingdom_5, [itm_marcos_1, itm_sword_viking_2_small, itm_augsburg_1_helmet, itm_pictish_mail_8, itm_pictish_tunic_8, itm_ankle_boots, itm_tab_shield_small_round_c],     knight_attrib_1,wp(150),knight_skills_1, 0x00000001b90972c45a9d6928948638e300000000001153580000000000000000],
 
   ["heroes_end", "{!}heroes end", "{!}heroes end", tf_hero, 0,reserved,  fac_neutral,[itm_saddle_horse,itm_leather_jacket,itm_nomad_boots],def_attrib|level(2),wp(20),knows_common, 0x000000000008318101f390c515555594],

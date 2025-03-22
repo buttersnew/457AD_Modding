@@ -1350,8 +1350,7 @@ scenes = [
   ("castle_33_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000300000000005194a000041ef00005ae800003c55", #from wlod
     [],[],"outer_terrain_plain"),
 
-
-#uniques
+ # uniques
 
   ("castle_15_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000230029cb2000709c200003c9500004b9b00002f4d", #dun at
     [],[], "outer_terrain_plain"),

@@ -1737,7 +1737,7 @@ scenes = [
     [],[], "outer_terrain_forest"),
   ("silingi_village",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000300005000006218900004315000047030000587e",
     [],[],"outer_terrain_forest"),
-  ("venedi_village",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000300005000007a1e800000b5400003ad100005795",
+  ("venedi_outpost",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000300005000007a1e800000b5400003ad100005795",
     [],[],"outer_terrain_forest"),
   ("noricum_refugee_camp",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000300005000004c13100001d3100006d4100001edd",
     [],[],"outer_terrain_forest"),

@@ -50755,7 +50755,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
   (quest_set_slot,"qst_silingi_quest", slot_quest_current_state, 2),
   (display_message, "str_quest_log_updated"),
   (add_quest_note_from_sreg, "qst_silingi_quest", 5, "@In order for the Silingi to migrate to Africa, the Venedi tribe must be defeated.",0),
-  (enable_party, "p_venedi_village_quest"),
+  (enable_party, "p_venedi_outpost_quest"),
    ]],
 
   [trp_silingi_chief, "start", [],

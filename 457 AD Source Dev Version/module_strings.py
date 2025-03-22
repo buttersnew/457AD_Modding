@@ -2678,6 +2678,8 @@ strings = [
   ("kingdom_29_adjective",                     "Angle"),
   ("kingdom_31_adjective",                     "Armenian"),
   ("kingdom_32_adjective",                     "Irish"),
+  ("kingdom_33_adjective",                     "Sporoi"),
+  ("kingdom_34_adjective",                     "Venedi"),
 
   ("credits_1", "Mount&Blade: Warband Copyright 2008-2015 Taleworlds Entertainment"),
   ("credits_2", "Game design:^Armagan Yavuz^Steve Negus^Cem Cimenbicer"),
@@ -3425,7 +3427,8 @@ We apologize sincerely if you contributed your suggestions and feedback but were
   ("armenians", "Armenians"),
   ("jews", "Jews"),
   ("irish", "Irish"),
-
+  ("sporoi", "Sporoi"),
+  ("venedi", "Venedi"),
 
   ("we_have_heard_that_travellers_heading_to_s40_were_attacked_on_the_road_s46_by_s39", "We have heard that travellers heading to {s40} were attacked on the road {s46} by {s39}"),
   ("s43_s44", "{!}{s43}^{s44}"),
@@ -6977,6 +6980,8 @@ Even in the last case, the player can make formations up to four lines by orderi
 
 ("desc_kingdom_31", "The Armenians are an ancient people."),
 ("desc_kingdom_32", "'Scoti' is the name given to raiders and settlers coming from the Irish coast during Late Antiquity by Roman sources."),
+("desc_kingdom_33", "'Sporoi' are the proto-slavic people settled around Kiev, back in the days called Navissus."),
+("desc_kingdom_34", "The Vistula Venedi are a tribe, or confederacy of tribes and clans, of uncertain ethnic background living along the eastern shores of the Vistula."),
 
 ("desc_rebel_kingdom_1", "The rebels fight for their freedom."),
 ("desc_rebel_kingdom_2", "The rebels fight for their freedom."),
@@ -6990,7 +6995,7 @@ Even in the last case, the player can make formations up to four lines by orderi
 
 ("desc_minor_mordens", "The Mordens are a tribal union of uncertain origins."),
 
-("desc_minor_sporoi", "Living in the forest-steppe area of Ukraine, the Sporoi (the many) live in their villages. Former subjects of the Goths, Sarmatians and Huns, they are now free from their yoke and about to change the cultural shape of Europe forever."),
+# ("desc_minor_sporoi", "Living in the forest-steppe area of Ukraine, the Sporoi (the many) live in their villages. Former subjects of the Goths, Sarmatians and Huns, they are now free from their yoke and about to change the cultural shape of Europe forever."),
 
 ("desc_minor_bosphoran", "The Bosporan Kingdom is an ancient polity formed by Greek milesian settlers in the 5th century BCE. During the centuries that separate its foundation from the decline, the Bosporan Kingdom was the northernmost Hellenistic state and the one that was more influenced by the peoples and tribes living in the steppes, in the Maeotian swamps and on the shores of the sea. The results were, since the beginning of the Common Era, of a material culture that went through a strong process of sarmatisation as it is clearly visible by the names of the rulers and the customs of the deceased displayed on their funerary stelae. The kingdom became client of the Roman Empire around the beginning of the 1st CE and continued its existence prospering and by being the gates of the Mediterranean world to the steppes and the Forest Belt. Able to exert a considerable influence over its neighbors, the Bosporan Kingdom begun its decline in the 3rd century, at the arrival of the Goths and the westward expansion of the Alans from the Caucasus and the Pontic Caspian steppes."),
 
@@ -7008,7 +7013,7 @@ Even in the last case, the player can make formations up to four lines by orderi
 
 ("desc_minor_gallaeci", "The loss of Hispania by the Roman authority has forced many former Roman provincials, especially in the harsh regions of northern Hispania, to take up arms and resist the Germanic invaders with their own forces, this is well recorded by the Christian bishop Hydatius in his chronicle. The aristocracy of the local provincials have started reoccupying iron age castrums by their own initiative, as a display of wealth and power, and this has led to a political and military problem for the Visigothic and Suebi monarchs."),
 
-("desc_minor_venedi", "The Vistula Venedi are a tribe, or confederacy of tribes and clans, of uncertain ethnic background living along the eastern shores of the Vistula."),
+# ("desc_minor_venedi", "The Vistula Venedi are a tribe, or confederacy of tribes and clans, of uncertain ethnic background living along the eastern shores of the Vistula."),
 
 ("desc_minor_saraguroi", "The Saraguroi are a nomadic tribe. They originated from Central Asian steppes, later migrating to the Pontic–Caspian steppe. Priscus, a Byzantine historian, mentions that the Saraguroi, along with other tribes, sought protection from the Eastern Roman Empire after being driven from their homeland by the Sabiroi."),
 

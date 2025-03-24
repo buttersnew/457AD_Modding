@@ -70,6 +70,7 @@ icon_tableau_trigger_caucasian = (ti_on_init_map_icon,
     ])
 
 map_icons = [
+  # == LOCATION ICONS ==
   ("player",0,"player", avatar_scale, snd_footstep_grass, 0.15, 0.173, 0),
   ("player_horseman",0,"player_horseman", avatar_scale, snd_gallop, 0.15, 0.173, 0),
   ("gray_knight",0,"icon_regular_footman", avatar_scale, snd_footstep_grass, 0.15, 0.173, 0),
@@ -121,6 +122,7 @@ map_icons = [
   ("bridge_b",mcn_no_shadow,"map_river_bridge_b", 0.7,0),
   ("bridge_snow_a",mcn_no_shadow,"map_river_bridge_snow_a", 1.27,0),
 
+  # == FLAGS & BANNERS ==
   ("custom_banner_01",0,"custom_map_banner_01", banner_scale, 0,
    [
      (ti_on_init_map_icon,
@@ -413,6 +415,9 @@ map_icons = [
   ("map_flag_kingdom_28",0,"map_flag_kingdom_28", banner_scale,0),
   #ghassanids minor faction
   ("map_flag_kingdom_29",0,"map_flag_kingdom_29", banner_scale,0),
+  # new: slavs
+  ("map_flag_kingdom_33",0,"map_flag_kingdom_33", banner_scale,0),
+  ("map_flag_kingdom_34",0,"map_flag_kingdom_34", banner_scale,0),
 
   ("heraldic_banner_03",0,"heraldic_map_flag_03", banner_scale, 0,
     [(ti_on_init_map_icon,
@@ -427,7 +432,7 @@ map_icons = [
 
   ("bandit_lair",mcn_no_shadow,"map_bandit_lair", 0.45, 0),
 
-#new map icons
+  # == ARMY ICONS ==
   ("town_old",mcn_no_shadow,"post_roman_map_icon_town", 0.35,0), #used for old roman towns
   ("sea_raider",0,"icon_regular_footman_group", avatar_scale,snd_footstep_grass, 0.15, 0.173, 0),  
   ("archer_1",0,"map_archer_1", avatar_scale,snd_footstep_grass, 0.15, 0.173, 0),  
@@ -438,7 +443,7 @@ map_icons = [
   ("regular_army",0,"icon_regular_army", avatar_scale,snd_gallop, 0.15, 0.173, 0),  
   ("caucasian_army",0,"icon_caucasian_army", avatar_scale,snd_footstep_grass, [icon_tableau_trigger_caucasian,]),  
   ("african_army",0,"icon_african_army", avatar_scale,snd_gallop, 0.15, 0.173, 0),  
-  #romans are special!
+  # romans are special!
   ("roman_army_1",0,"icon_roman_army_1", avatar_scale,snd_footstep_grass, [icon_tableau_trigger_roman,]), #common lords
   ("roman_army_2",0,"icon_roman_army_2", avatar_scale,snd_footstep_grass, [icon_tableau_trigger_roman,]), #magister
   ("roman_army_3",0,"icon_roman_army_3", avatar_scale,snd_footstep_grass, [icon_tableau_trigger_roman,]), #faction leader 
@@ -449,6 +454,7 @@ map_icons = [
   ("roman_footman_3",0,"icon_roman_footman_3", avatar_scale,snd_footstep_grass, 0.15, 0.173, 0), #for roman smaller parties
   ("roman_footman_army",0,"icon_roman_footman_army", avatar_scale,snd_footstep_grass, 0.15, 0.173, 0), #for roman smaller parties
 
+  # == SPECIAL ICONS ==
   ("camp_siege",mcn_no_shadow,"camp_siege", 0.13, 0),
   ("pyramids",mcn_no_shadow,"pyramids", 1.27,0),
   ("tomb",mcn_no_shadow,"icon_tomb", 0.35,0),

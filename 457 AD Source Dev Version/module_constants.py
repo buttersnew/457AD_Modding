@@ -2214,6 +2214,7 @@ num_forest_bandit_spawn_points = 1
 num_mountain_bandit_spawn_points = 1
 num_steppe_bandit_spawn_points = 1
 num_taiga_bandit_spawn_points = 1
+num_baltic_bandit_spawn_points = 1
 num_desert_bandit_spawn_points = 1
 num_black_khergit_spawn_points = 1
 num_sea_raider_spawn_points = 2

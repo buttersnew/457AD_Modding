@@ -50755,7 +50755,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
   (quest_set_slot,"qst_silingi_quest", slot_quest_current_state, 2),
   (display_message, "str_quest_log_updated"),
   (add_quest_note_from_sreg, "qst_silingi_quest", 5, "@In order for the Silingi to migrate to Africa, the Venedi tribe must be defeated.",0),
-  (enable_party, "p_venedi_village_quest"),
+  (enable_party, "p_venedi_outpost_quest"),
    ]],
 
   [trp_silingi_chief, "start", [],
@@ -55260,58 +55260,59 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
    (mission_disable_talk),
    ]],
 
-#aestii king
-# alf, puppet of player, installed during the Haddingr saga
-[trp_dani_alf, "start", [
-  (eq, "$g_talk_troop_met", 0),
-],"Well met, lord. Thy name precedes thee, and thy deeds have reached even the quiet corners of this land. I am Alf, a humble servant of the Augandzi, and I come to speak on behalf of my people.",
-"alf_puppet_king_intro_1", [
-]],
-[anyone|plyr, "alf_puppet_king_intro_1", [
-],"What dost thou wish to say, Alf? Speak plainly.",
-"alf_puppet_king_intro_2", [
-]],
-[anyone|plyr, "alf_puppet_king_intro_1", [
-],"Aye, speak swift.",
-"alf_puppet_king_intro_2", [
-]],
-[anyone, "alf_puppet_king_intro_2", [
-],"We Augandzi are a simple folk, lord. We wish no vengeance for Svipdagr's death, for while he was our leader, he was not without his faults. A wicked man, some might say, though he had his reasons.",
-"alf_puppet_king_intro_3", [
-]],
-[anyone|plyr, "alf_puppet_king_intro_3", [
-],"Reasons? What reasons dost thou speak of?",
-"alf_puppet_king_intro_4", [
-]],
-[anyone|plyr, "alf_puppet_king_intro_3", [
-],"Enough riddles - speak plainly.",
-"alf_puppet_king_intro_4", [
-]],
-[anyone, "alf_puppet_king_intro_4", [
-],"Long ago, thy ally Haddingr's father, Gramr, slew Svipdagr's sire. That wound festered, breeding hatred and bloodshed. Yet, even so, Svipdagr's rule brought more harm than good. With him gone, the Augandzi seek peace, not war.",
-"alf_puppet_king_intro_5", [
-]],
-[anyone|plyr, "alf_puppet_king_intro_5", [
-],"And what of thy people? Will they accept me as their overlord?",
-"alf_puppet_king_intro_6", [
-]],
-[anyone, "alf_puppet_king_intro_6", [
-],"Aye, lord. Thou hast proven thy strength, and the Augandzi respect such power. We welcome thee, not as a conqueror but as one who might bring balance to these lands.^^-- He bows slightly. --^^As for myself, I offer my service as thy middleman. Whatever the needs of thy people or thy rule, I shall see to it that they are met.",
-"alf_puppet_king_intro_7", [
-]],
-[anyone|plyr, "alf_puppet_king_intro_7", [
-],"Very well, Alf. Thy loyalty is noted. Together, we shall ensure that Vicus Augandzorum prospers.",
-"alf_puppet_king_intro_8", [
-]],
-[anyone|plyr, "alf_puppet_king_intro_7", [
-],"Time will tell if thy words are true, Alf. For now, thou may'st serve.",
-"alf_puppet_king_intro_8", [
-]],
-[anyone, "alf_puppet_king_intro_8", [
-],"-- Smiling faintly. --^^As thou wish'st, lord. The Augandzi shall await thy guidance.",
-"minor_faction_king_pretalk", [
-  (call_script, "script_change_player_relation_with_troop", "trp_aestii_king",50),
-]],
+# == MINOR FACTION KING INTRODUCTIONS ==
+  #aestii king
+  # alf, puppet of player, installed during the Haddingr saga
+  [trp_dani_alf, "start", [
+    (eq, "$g_talk_troop_met", 0),
+  ],"Well met, lord. Thy name precedes thee, and thy deeds have reached even the quiet corners of this land. I am Alf, a humble servant of the Augandzi, and I come to speak on behalf of my people.",
+  "alf_puppet_king_intro_1", [
+  ]],
+  [anyone|plyr, "alf_puppet_king_intro_1", [
+  ],"What dost thou wish to say, Alf? Speak plainly.",
+  "alf_puppet_king_intro_2", [
+  ]],
+  [anyone|plyr, "alf_puppet_king_intro_1", [
+  ],"Aye, speak swift.",
+  "alf_puppet_king_intro_2", [
+  ]],
+  [anyone, "alf_puppet_king_intro_2", [
+  ],"We Augandzi are a simple folk, lord. We wish no vengeance for Svipdagr's death, for while he was our leader, he was not without his faults. A wicked man, some might say, though he had his reasons.",
+  "alf_puppet_king_intro_3", [
+  ]],
+  [anyone|plyr, "alf_puppet_king_intro_3", [
+  ],"Reasons? What reasons dost thou speak of?",
+  "alf_puppet_king_intro_4", [
+  ]],
+  [anyone|plyr, "alf_puppet_king_intro_3", [
+  ],"Enough riddles - speak plainly.",
+  "alf_puppet_king_intro_4", [
+  ]],
+  [anyone, "alf_puppet_king_intro_4", [
+  ],"Long ago, thy ally Haddingr's father, Gramr, slew Svipdagr's sire. That wound festered, breeding hatred and bloodshed. Yet, even so, Svipdagr's rule brought more harm than good. With him gone, the Augandzi seek peace, not war.",
+  "alf_puppet_king_intro_5", [
+  ]],
+  [anyone|plyr, "alf_puppet_king_intro_5", [
+  ],"And what of thy people? Will they accept me as their overlord?",
+  "alf_puppet_king_intro_6", [
+  ]],
+  [anyone, "alf_puppet_king_intro_6", [
+  ],"Aye, lord. Thou hast proven thy strength, and the Augandzi respect such power. We welcome thee, not as a conqueror but as one who might bring balance to these lands.^^-- He bows slightly. --^^As for myself, I offer my service as thy middleman. Whatever the needs of thy people or thy rule, I shall see to it that they are met.",
+  "alf_puppet_king_intro_7", [
+  ]],
+  [anyone|plyr, "alf_puppet_king_intro_7", [
+  ],"Very well, Alf. Thy loyalty is noted. Together, we shall ensure that Vicus Augandzorum prospers.",
+  "alf_puppet_king_intro_8", [
+  ]],
+  [anyone|plyr, "alf_puppet_king_intro_7", [
+  ],"Time will tell if thy words are true, Alf. For now, thou may'st serve.",
+  "alf_puppet_king_intro_8", [
+  ]],
+  [anyone, "alf_puppet_king_intro_8", [
+  ],"-- Smiling faintly. --^^As thou wish'st, lord. The Augandzi shall await thy guidance.",
+  "minor_faction_king_pretalk", [
+    (call_script, "script_change_player_relation_with_troop", "trp_aestii_king",50),
+  ]],
 
   [trp_aestii_king, "start", [(eq, "$g_talk_troop_met", 0),],
    "Who's yonder, that appears as he lost his path?", "aestii_king_intro_1", []],
@@ -55379,24 +55380,24 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
    "You watch your tongue, läntiläinen! In this age the strong prosper and prevail, the weak crumble. Our lifestyle is simple and it is how we like it, We praise Mastorava and our ancestors who guard our way, we crave not an ornate palace or an easy life of a farmer. The wind in our hair when we ride, the fallen enemy at your feet, loot taken after a raid, the deer shot and prepared by hot fire, a beautiful woman to take care of your house, these are what make life worth living!", "minor_faction_king_pretalk", []],
 
   #intro dialogue for the sporoi king
-  [trp_sporoi_king, "start", [(eq, "$g_talk_troop_met", 0),],
+  [trp_kingdom_33_lord, "start", [(eq, "$g_talk_troop_met", 0),],
    "What brazen bravery is required for one to march into my halls, so lax in posture and attentiveness that you seem undisturbed by the world around you-- Perhaps another would be champion? Come to challenge me for the throne of the Sporoi? I request you announce yourself, so I may understand the name of my foe.", "sporoi_king_intro_1", []],
-  [trp_sporoi_king|plyr, "sporoi_king_intro_1", [],
+  [trp_kingdom_33_lord|plyr, "sporoi_king_intro_1", [],
    "My name is {playername}. I do not seek to challenge you, 'O great one. I have heard yourself and your warriors are slayers of men, and you haunt the forests and marshes just as the germans, now moved west, once did, yes?", "sporoi_king_intro_2", []],
-  [trp_sporoi_king, "sporoi_king_intro_2", [],
+  [trp_kingdom_33_lord, "sporoi_king_intro_2", [],
    "Ah, {playername}. I believe I have indeed heard rumors around you. You are correct, we lay to ruin those who invade our harsh, strengthening land, and in turn we send out warbands, formed of young men, to attain us wealth and glory from those around us! ", "sporoi_king_intro_3", []],
-  [trp_sporoi_king|plyr, "sporoi_king_intro_3", [],
+  [trp_kingdom_33_lord|plyr, "sporoi_king_intro_3", [],
    "From merely observing, I conclude you are quite the giant-- not as in insult, you must understand, it is a matter of fact and an obvious driver to how you attained power. The gods surely must be on your side.", "sporoi_king_intro_4", []],
-  [trp_sporoi_king, "sporoi_king_intro_4", [],
+  [trp_kingdom_33_lord, "sporoi_king_intro_4", [],
    "Correct again, {playername}, Perun has blessed me with great strength, though in returning tax my mother was taken from this mortal plane, and into the afterlife at my birth. Ever since my father passed I ascended to King, with a buxom wife and many servants! One of them, a southern girl brought all the way from... what is it called-.. Pan..n..onia? No matter what, she is a fine one, with a pretty face, and voice. A good singer,and well taken to strong drink, despite her size. Too small, for my taste-- ah! I'm getting off track, my apologies.", "sporoi_king_intro_5", []],
-  [trp_sporoi_king|plyr, "sporoi_king_intro_5", [],
+  [trp_kingdom_33_lord|plyr, "sporoi_king_intro_5", [],
    "I bear no mind to it, your highness.", "sporoi_king_intro_6", []],
-  [trp_sporoi_king, "sporoi_king_intro_6", [],
+  [trp_kingdom_33_lord, "sporoi_king_intro_6", [],
    "Excellent! Now, where was I... ah! Yes, my goal as King has been to unite the smaller tribes around us, and one day, we will be sick of this land, and we will leave. Anyone who gets in our way? Crushed, {playername}, we will crush them!", "sporoi_king_intro_7", []],
-  [trp_sporoi_king|plyr, "sporoi_king_intro_7", [],
+  [trp_kingdom_33_lord|plyr, "sporoi_king_intro_7", [],
    "I do not believe any doubt about it, your highness. I wish you the best of luck in your conquests, and hold my most sincere hope that your  people will soon be so rich with wealth they may swim in liquid gold!", "sporoi_king_intro_8", []],
-  [trp_sporoi_king, "sporoi_king_intro_8", [],
-   "I thank thee, {playername}.", "minor_faction_king_pretalk", [(call_script, "script_change_player_relation_with_troop", "trp_sporoi_king",5),]],
+  [trp_kingdom_33_lord, "sporoi_king_intro_8", [],
+   "I thank thee, {playername}.", "minor_faction_king_pretalk", [(call_script, "script_change_player_relation_with_troop", "trp_kingdom_33_lord",5),]],
 
   #intro dialogue for the abagasian king
   [trp_abagasian_king, "start", [(eq, "$g_talk_troop_met", 0),],
@@ -55507,19 +55508,19 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
    "You expect me to run tail between my legs because some hardships have hit my people? Never. I acknowledge that we have seen better days. My scouts report that the Romans are preparing to retake this land and bring order once more and yet Suebi kings think they are a match to Ariovistus of old. They test our resolve. Sometimes I wish I could just fish and hunt in peace and that my people could live in tranquility too, but when others give you no peace it must be taken.", "minor_faction_king_pretalk", []],
 
   #venedi
-  [trp_venedi_king, "start", [(eq, "$g_talk_troop_met", 0),],
+  [trp_kingdom_34_lord, "start", [(eq, "$g_talk_troop_met", 0),],
    "The forests whisper and bring word of your coming. The wind tells that men come but it does not tell us about their intentions, so why do you tread here?", "venedi_king_intro_1", []],
-  [trp_venedi_king|plyr, "venedi_king_intro_1", [],
-   "Hail to you, chief. I brave riverlands and danger in order to trade with the Venedi and I have a feeling I have found them. I am {playername}, can you tell whether I have found the ones I seek?", "venedi_king_intro_2", []],
-  [trp_venedi_king, "venedi_king_intro_2", [],
-   "I thought you might be a merchant, you seem like a coal biter and not hardened by the cold grip of war, the dwellers in great cities are soft.....but to answer your question I'm called Voldimer,my folk know me as a great swordsman and vanquisher of lesser tribes.", "venedi_king_intro_3", []],
-  [trp_venedi_king|plyr, "venedi_king_intro_3", [],
+  [trp_kingdom_34_lord|plyr, "venedi_king_intro_1", [],
+   "Hail to you, chief. I brought riverlands and danger in order to trade with the Venedi and I have a feeling I have found them. I am {playername}, can you tell whether I have found the ones I seek?", "venedi_king_intro_2", []],
+  [trp_kingdom_34_lord, "venedi_king_intro_2", [],
+   "I thought you might be a merchant, you seem like a coal biter and not hardened by the cold grip of war, the dwellers in great cities are soft.....but to answer your question I'm called Voldimer, my folk know me as a great swordsman and vanquisher of lesser tribes.", "venedi_king_intro_3", []],
+  [trp_kingdom_34_lord|plyr, "venedi_king_intro_3", [],
    "Woe to the one who thinks I have not seen men get bitten by the steel snake, women stolen to be servants and children taken to be slaves, your caution I understand, better to be too careful than too careless and pay the price later.", "venedi_king_intro_4", []],
-  [trp_venedi_king, "venedi_king_intro_4", [],
+  [trp_kingdom_34_lord, "venedi_king_intro_4", [],
    "You have more spine than many of the merchants I've encountered and I can respect that. We feel that battles harden us and make us stronger eventually, that's why we seldom complain when life is hard, every time we are crushed down we come back stronger. The Goths in the times of my grandfather conquered us but nothing is eternal as you can see. Some have moved west to the lands of Germanic tribes. It was easy to settle since there were so few people there, only some stubborn men and elders who refused to leave but neither of them caused trouble to the newcomers. Journey to that land was a perilous one however, diseases fell men like hay, hostile bandits and thiefs stole goods and horses died but the resilient managed to survive all this. I have a feeling that soon they will have a kingdom there.", "venedi_king_intro_5", []],
-  [trp_venedi_king|plyr, "venedi_king_intro_5", [],
+  [trp_kingdom_34_lord|plyr, "venedi_king_intro_5", [],
    "I have heard that later the Goths beat some of you to submission, did you still rise stronger from that too? I find this hard to believe, no man can endure endless punishment, like the city walls he will break when enough damage has been made.", "venedi_king_intro_6", []],
-  [trp_venedi_king, "venedi_king_intro_6", [],
+  [trp_kingdom_34_lord, "venedi_king_intro_6", [],
    "Bastards and whoresons, they did do that, but we cannot be killed that easily. We feel that war and dying in battle is natural way of life. Look around you, laws and treaties crumble, tribes are preparing for a great struggle and the empires of old are getting older. I feel that this time they cannot stem the tides that crash towards them, after all only the dead have seen the end of war...", "minor_faction_king_pretalk", []],
 
   ##onogur

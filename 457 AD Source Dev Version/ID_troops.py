@@ -2146,4 +2146,5 @@ trp_indigenoi_noble_5 = 2144
 trp_indigenoi_noble_6 = 2145
 trp_indigenoi_noble_7 = 2146
 trp_indigenoi_noble_8 = 2147
-trp_no_troop = 2148
+trp_indigenoi_noble_9 = 2148
+trp_no_troop = 2149

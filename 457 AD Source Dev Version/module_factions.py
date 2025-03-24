@@ -133,9 +133,6 @@ factions = [
   #Unique flavor dialogue about the minor faction/culture
   #minor factions start
   ("minor_aestii","Aestii", 0, 0.9,[("outlaws",-0.75),("peasant_rebels", -0.1),("deserters", -0.05),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05),("manhunters",0.6),("minor_vidivarii",-0.5)], [], 0x713735),
-
-  ##("minor_irish","Scoti", 0, 0.9,[("outlaws",-0.75),("peasant_rebels", -0.1),("deserters", -0.05),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05),("manhunters",0.6),("kingdom_13", -0.7),("kingdom_5",-0.75),("kingdom_19",-0.75),("kingdom_29",-0.75),("kingdom_12",-0.75),("kingdom_1",-0.75)], [], 0x395035),
-
   ("minor_garamantians","Garamantians", 0, 0.9,[("outlaws",-0.75),("peasant_rebels", -0.1),("deserters", -0.05),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", 0.5),("coptic_rebels", -0.05),("manhunters",0.6),("kingdom_15",-0.75),("kingdom_1",-0.75)], [], 0xc87b50),
   ("minor_dani","Danir", 0, 0.9,[("outlaws",-0.75),("peasant_rebels", -0.1),("deserters", -0.05),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05),("manhunters",0.6),("kingdom_19",-0.75),("minor_augundzi",-0.75)], [], 0x993322),
   ("minor_mordens","Mordens", 0, 0.9,[("outlaws",-0.75),("peasant_rebels", -0.1),("deserters", -0.05),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05),("manhunters",0.6)], [], 0x65563F),

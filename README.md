@@ -1,6 +1,6 @@
 # 457AD module system
 
-![Preview 1](./templates_and_dev_resources/presentation/heroscene2.png)
+![Preview 1](https://github.com/pl4ttenbau/457AD_Modding/blob/add-a-bit-of-github-readme/457%20AD%20Source%20Dev%20Version/templates_and_dev_resources/presentation/heroscene.png?raw=true)
 
 
 The year is 457 AD. After the death of Avitus the Western Roman Empire had no emperor. 
@@ -12,7 +12,7 @@ The victory was celebrated as Majorians, and he was proclaimed emperor by his tr
 
 After the death of Attila in 453, the Hunnic empire began to collapse.
  
-![Preview 2](./templates_and_dev_resources/presentation/romancityruins.png)
+![Preview 2](https://github.com/pl4ttenbau/457AD_Modding/blob/add-a-bit-of-github-readme/457%20AD%20Source%20Dev%20Version/templates_and_dev_resources/presentation/romancityruins.jpg?raw=true)
 
 Under the leadership of Ardaric, king of the Gepids, the Huns were defeated at the Battle of Nedao in 454, ending Hunnic rule over their vassals. 
 In Britannia, the abandoned Roman colony struggles to defend its territory from the Saxons, Jutes, and Angles who they invited as foederati to fight off the invading northern tribes. 

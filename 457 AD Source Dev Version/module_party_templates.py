@@ -209,6 +209,10 @@ party_templates = [
   ("kingdom_32_reinforcements_b", "{!}Irish Reinforcements", 0, 0, fac_commoners, 0, [(trp_irish_warrior,4,10),(trp_irish_companion,2,5),(trp_standard_bearer,1,1)]),
   ("kingdom_32_reinforcements_c", "{!}Irish Reinforcements", 0, 0, fac_commoners, 0, [(trp_irish_follower,2,5),(trp_irish_companion,2,5)]),
 
+  ("kingdom_34_reinforcements_a", "{!}Veneti Reinforcements", 0, 0, fac_commoners, 0, [(trp_venedi_skirmisher,4,10),(trp_slav_archer, 4,10)]),
+  ("kingdom_34_reinforcements_b", "{!}Veneti Reinforcements", 0, 0, fac_commoners, 0, [(trp_venedi_warrior,4,10),(trp_venedi_nobleman, 4,10)]),
+  ("kingdom_34_reinforcements_c", "{!}Veneti Reinforcements", 0, 0, fac_commoners, 0, [(trp_slav_horseman,2,5),(trp_slav_horsearcher,2,5)]),
+
   ("culture_20_reinforcements_a", "{!}Slavic Reinforcements", 0, 0, fac_commoners, 0, [(trp_slav_skirmisher,4,10),(trp_slav_archer, 4,10)]),
   ("culture_20_reinforcements_b", "{!}Slavic Reinforcements", 0, 0, fac_commoners, 0, [(trp_slav_footman,6,15),(trp_standard_bearer,1,1)]),
   ("culture_20_reinforcements_c", "{!}Slavic Reinforcements", 0, 0, fac_commoners, 0, [(trp_slav_horseman,2,5),(trp_slav_horsearcher,2,5)]),

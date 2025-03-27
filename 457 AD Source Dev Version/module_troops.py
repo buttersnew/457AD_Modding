@@ -2765,8 +2765,17 @@ troops = [
    def_attrib_lvl_18|level(17),wp_one_handed(130)|wp_two_handed(120)|wp_polearm(100)|wp_archery(130)|wp_throwing(110),knows_archer,germanic_face_1, germanic_face_2],
 
   ["phinnoi_horseman","Phinnoi Horseman (Ratsumees)","Phinnoi Horsemen (Ratsumeehet)",tf_mounted|tf_guarantee_armor|tf_guarantee_boots|tf_guarantee_horse|tf_guarantee_ranged|tf_guarantee_shield|tf_guarantee_polearm,0,0,fac_commoners,
-   [itm_tunic_1_cloak,itm_tunic_3_cloak,itm_tunic_7_cloak,itm_wrapping_boots,itm_simple_shoes,itm_obenaltendorf_shoes_1,itm_fur_hat,itm_pilna_helmet_leather,itm_battle_axe_2,itm_great_lance,itm_throwing_spears,itm_round_shield_leather_small_1,itm_round_shield_white_small_1,itm_round_shield_blue_small_1],
+   [itm_tunic_1_cloak,itm_tunic_3_cloak,itm_tunic_7_cloak,itm_wrapping_boots,itm_simple_shoes,itm_obenaltendorf_shoes_1,itm_fur_hat,itm_pilna_helmet_leather,itm_battle_axe_2,itm_great_lance,itm_throwing_spears,itm_round_shield_leather_small_1,itm_round_shield_white_small_1,itm_round_shield_blue_small_1]+horses_slavic_1,
    def_attrib_lvl_18|level(18),wp_one_handed(130)|wp_two_handed(100)|wp_polearm(140)|wp_throwing(140)|wp_archery(115),knows_lvl_18,germanic_face_1, germanic_face_2],
+
+#carpathian dacians
+  ["carpi_skirmisher","Carpi Skirmisher (Komatai)","Carpi Skirmishers (Komatai)",tf_guarantee_armor|tf_guarantee_boots|tf_guarantee_ranged,0,0,fac_commoners,
+   [itm_tunic_8,itm_tunic_9,itm_tunic_1,itm_tunic_1_cloak,itm_woolen_cap_4,itm_woolen_cap_2,itm_woolen_cap_3,itm_wrapping_boots,itm_fighting_axe,itm_throwing_spears,itm_heavy_spear_1,itm_ad_small_shield_2,itm_simple_shield_1],
+   def_attrib_lvl_18|level(17),wp_one_handed(135)|wp_two_handed(90)|wp_polearm(130)|wp_archery(130)|wp_throwing(145),knows_skirmisher|knows_ironflesh_5|knows_power_strike_5,germanic_face_1, germanic_face_2],
+
+  ["carpi_horseman","Carpi Horseman (Mezenai)","Carpi Horsemen (Mezenai)",tf_mounted|tf_guarantee_basic|tf_guarantee_horse,0,0,fac_commoners,
+   [itm_wrapping_boots,itm_tunic_8_cloak,itm_tunic_9_cloak,itm_tunic_1_cloak,itm_woolen_cap_4,itm_woolen_cap_2,itm_woolen_cap_3,itm_pilna_helmet_leather,itm_throwing_spears,itm_throwing_spears,itm_sword_medieval_c,itm_polehammer]+horses_eastern_germanic_2,
+   def_attrib_lvl_23|level(23),wp_one_handed(180)|wp_two_handed(170)|wp_polearm(190)|wp_throwing(170),knows_lvl_23,germanic_face_1, germanic_face_2],
 
 #arab bandits
   ["arab_bandit","Saraceni","Saraceni",tf_mounted|tf_guarantee_horse|tf_guarantee_armor|tf_guarantee_polearm,0,0,fac_outlaws,
@@ -5604,3 +5613,5 @@ upgrade(troops,"armenian_levy","armenian_footman")
 upgrade(troops,"armenian_cavalry","armenian_cataphract")
 
 upgrade2(troops,"jewish_levy","jewish_footman","jewish_slinger")
+
+upgrade(troops,"phinnoi_warrior","phinnoi_retainer")

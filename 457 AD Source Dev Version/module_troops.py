@@ -1107,7 +1107,7 @@ troops = [
 
   #modernized/romanized gothic kit, for Visigoths, Ostrogoths - will use more roman equipment
   ["gothic_infantry","Militonds","Militondans",tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_shield|tf_guarantee_helmet|tf_guarantee_polearm,0,0,fac_culture_1,
-   [itm_common_mail_short_1,itm_common_mail_short_2],
+   [itm_common_mail_short_1,itm_common_mail_short_2,itm_pilna_helmet_mail,itm_narona_helmet_mail,itm_intercisa_helmet_1,itm_iatrus_1,itm_deurne_campagi_1,itm_deurne_campagi_3,itm_deurne_campagi_greaves_2,itm_war_spear_3,itm_sword_medieval_b,itm_tab_shield_heater_a],
    def_attrib_lvl_25|level(25),wp_one_handed(180)|wp_two_handed(180)|wp_polearm(180)|wp_archery(100)|wp_throwing(180),knows_lvl_25,germanic_face_1, germanic_face_2],
 
   ["gothic_messenger","Gothic Messenger (Airus)","Gothic Messengers (Airus)",tf_mounted|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_gloves|tf_guarantee_horse|tf_guarantee_ranged,0,0,fac_culture_1,
@@ -2635,7 +2635,7 @@ troops = [
    [itm_woolen_hose,itm_wrapping_boots,itm_pictish_tunic_9,itm_pictish_tunic_2,itm_pictish_mail_2,itm_pictish_mail_9,itm_burgh_helmet_mail,itm_burgh_helmet_light,(itm_intercisa_helmet_1,imod_battered),itm_irish_spatha_1,itm_throwing_spears,itm_throwing_spears,itm_tab_shield_small_round_c,itm_pict_shield_2,itm_pict_shield_3,itm_pict_shield_7],
    def_attrib_lvl_28|level(28),wp_one_handed(230)|wp_two_handed(220)|wp_polearm(220)|wp_archery(100)|wp_throwing(220),knows_lvl_28|knows_power_strike_8,celtic_face_1, celtic_face_2],
 
-["irish_companion","Irish Companion (Celi)","Irish Companions (Celi)",tf_mounted|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_shield|tf_guarantee_horse|tf_guarantee_polearm,0,0,fac_culture_19,[itm_woolen_hose,itm_wrapping_boots,itm_pictish_tunic_9,itm_pictish_tunic_2,itm_pictish_mail_2,itm_pictish_mail_9,itm_burgh_helmet_mail,itm_burgh_helmet_light,(itm_intercisa_helmet_1,imod_battered),itm_irish_spatha_1,itm_throwing_spears,itm_throwing_spears,itm_tab_shield_small_round_c,itm_pict_shield_2,itm_pict_shield_3,itm_pict_shield_7]+horses_pictish_2,
+  ["irish_companion","Irish Companion (Celi)","Irish Companions (Celi)",tf_mounted|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_shield|tf_guarantee_horse|tf_guarantee_polearm,0,0,fac_culture_19,[itm_woolen_hose,itm_wrapping_boots,itm_pictish_tunic_9,itm_pictish_tunic_2,itm_pictish_mail_2,itm_pictish_mail_9,itm_burgh_helmet_mail,itm_burgh_helmet_light,(itm_intercisa_helmet_1,imod_battered),itm_irish_spatha_1,itm_throwing_spears,itm_throwing_spears,itm_tab_shield_small_round_c,itm_pict_shield_2,itm_pict_shield_3,itm_pict_shield_7]+horses_pictish_2,
    def_attrib_lvl_28|level(28),wp_one_handed(215)|wp_two_handed(210)|wp_polearm(215)|wp_archery(100)|wp_crossbow(100)|wp_throwing(200),knows_lvl_28,celtic_face_1, celtic_face_2],
 
 
@@ -2736,6 +2736,32 @@ troops = [
   ["coptic_guard","Coptic Guard (Refteshma)","Coptic Guards (Refteshma)",tf_mounted|tf_guarantee_basic|tf_guarantee_helmet,0,0,fac_culture_minor_3,
    [itm_intercisa_helmet_1,itm_intercisa_helmet_2,itm_augst_helmet_1,itm_iatrus_1,itm_intercisa_helmet_gilded_1,itm_haditha_1,itm_narona_helmet_mail,itm_narona_helmet,itm_burgh_helmet_1,itm_koblenz_helmet_1,itm_christies_helmet_1,itm_roman_spear_2_c1,itm_roman_spear_2_c2,itm_roman_spear_2_c3,itm_sword_khergit_3,itm_round_shield_roman_25]+shields_coptic+shoes_roman+mail_coptic_1,
    def_attrib_lvl_23|level(23),wp_one_handed(180)|wp_two_handed(160)|wp_polearm(180)|wp_throwing(170)|wp_archery(100),knows_lvl_23,coptic_face_1, coptic_face_2],
+
+#Phinnoi
+  ["phinnoi_warrior","Phinnoi Warrior (Soturi)","Phinnoi Warriors (Soturit)",tf_guarantee_basic,0,0,fac_commoners,
+   [itm_tunic_1_cloak,itm_tunic_3_cloak,itm_tunic_7_cloak,itm_wrapping_boots,itm_simple_shoes,itm_obenaltendorf_shoes_1,itm_fur_hat,itm_kovas_hat_3,itm_germanic_cap_3,itm_germanic_cap_4,itm_balt_shield_wood_2,itm_balt_shield_2_white,itm_balt_shield_2_blue,itm_spear,itm_javelin,itm_hand_axe],
+   def_attrib_lvl_18|level(18),wp_one_handed(130)|wp_two_handed(100)|wp_polearm(145)|wp_throwing(140)|wp_archery(100),knows_lvl_18,germanic_face_1, germanic_face_2],
+
+  ["phinnoi_retainer","Phinnoi Retainer (Sotijalo)","Phinnoi Retainer (Sotijalot)",tf_guarantee_basic|tf_guarantee_helmet,0,0,fac_commoners,
+   [itm_tunic_1_cloak,itm_tunic_3_cloak,itm_tunic_7_cloak,itm_battered_mail_1_cloak,itm_common_mail_short_2_cloak,itm_wrapping_boots,itm_simple_shoes,itm_obenaltendorf_shoes_1,itm_fur_hat,itm_kovas_hat_3,itm_pilna_helmet_mail,itm_pilna_helmet_leather,itm_balt_shield_wood_1,itm_balt_shield_1_white,itm_balt_shield_1_blue,itm_angon_1,itm_poleaxe,itm_baltic_sword_1],
+   def_attrib_lvl_23|level(23),wp_one_handed(175)|wp_two_handed(160)|wp_polearm(175)|wp_throwing(165)|wp_archery(100),knows_lvl_23,germanic_face_1, germanic_face_2],
+
+  ["phinnoi_hunter","Phinnoi Hunter (Metsaemees)","Phinnoi Hunters (Metsaemeehet)",tf_guarantee_armor|tf_guarantee_boots|tf_guarantee_ranged,0,0,fac_commoners,
+   [itm_tunic_1,itm_tunic_3,itm_tunic_2,itm_tunic_8,itm_wrapping_boots,itm_simple_shoes,itm_obenaltendorf_shoes_1,itm_fur_hat,itm_woolen_cap_4,itm_woolen_cap_b,itm_woolen_cap_1,itm_woolen_cap_6,itm_club,itm_arrows,itm_arrows,itm_long_bow,itm_short_bow,itm_hunting_bow],
+   def_attrib_lvl_18|level(17),wp_one_handed(130)|wp_two_handed(120)|wp_polearm(100)|wp_archery(130)|wp_throwing(110),knows_archer,germanic_face_1, germanic_face_2],
+
+  ["phinnoi_horseman","Phinnoi Horseman (Ratsumees)","Phinnoi Horsemen (Ratsumeehet)",tf_mounted|tf_guarantee_armor|tf_guarantee_boots|tf_guarantee_horse|tf_guarantee_ranged|tf_guarantee_shield|tf_guarantee_polearm,0,0,fac_commoners,
+   [itm_tunic_1_cloak,itm_tunic_3_cloak,itm_tunic_7_cloak,itm_wrapping_boots,itm_simple_shoes,itm_obenaltendorf_shoes_1,itm_fur_hat,itm_pilna_helmet_leather,itm_battle_axe_2,itm_great_lance,itm_throwing_spears,itm_round_shield_leather_small_1,itm_round_shield_white_small_1,itm_round_shield_blue_small_1]+horses_slavic_1,
+   def_attrib_lvl_18|level(18),wp_one_handed(130)|wp_two_handed(100)|wp_polearm(140)|wp_throwing(140)|wp_archery(115),knows_lvl_18,germanic_face_1, germanic_face_2],
+
+#carpathian dacians
+  ["carpi_skirmisher","Carpi Skirmisher (Komatai)","Carpi Skirmishers (Komatai)",tf_guarantee_armor|tf_guarantee_boots|tf_guarantee_ranged,0,0,fac_commoners,
+   [itm_tunic_8,itm_tunic_9,itm_tunic_1,itm_tunic_1_cloak,itm_woolen_cap_4,itm_woolen_cap_2,itm_woolen_cap_3,itm_wrapping_boots,itm_fighting_axe,itm_throwing_spears,itm_heavy_spear_1,itm_ad_small_shield_2,itm_simple_shield_1],
+   def_attrib_lvl_18|level(17),wp_one_handed(135)|wp_two_handed(90)|wp_polearm(130)|wp_archery(130)|wp_throwing(145),knows_skirmisher|knows_ironflesh_5|knows_power_strike_5,germanic_face_1, germanic_face_2],
+
+  ["carpi_horseman","Carpi Horseman (Mezenai)","Carpi Horsemen (Mezenai)",tf_mounted|tf_guarantee_basic|tf_guarantee_horse,0,0,fac_commoners,
+   [itm_wrapping_boots,itm_tunic_8_cloak,itm_tunic_9_cloak,itm_tunic_1_cloak,itm_woolen_cap_4,itm_woolen_cap_2,itm_woolen_cap_3,itm_pilna_helmet_leather,itm_throwing_spears,itm_throwing_spears,itm_sword_medieval_c,itm_polehammer]+horses_eastern_germanic_2,
+   def_attrib_lvl_23|level(23),wp_one_handed(180)|wp_two_handed(170)|wp_polearm(190)|wp_throwing(170),knows_lvl_23,germanic_face_1, germanic_face_2],
 
 #arab bandits
   ["arab_bandit","Saraceni","Saraceni",tf_mounted|tf_guarantee_horse|tf_guarantee_armor|tf_guarantee_polearm,0,0,fac_outlaws,
@@ -3570,37 +3596,37 @@ troops = [
 
 #Royal family members
 
-  ["knight_1_1_wife","Error - knight_1_1_wife should not appear in game","knight_1_1_wife",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_commoners, [itm_lady_dress_ruby ,   itm_turret_hat_ruby,    itm_wrapping_boots],     def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x000000055910200107632d675a92b92d00000000001e45620000000000000000],
+  ["knight_1_1_wife","Error - knight_1_1_wife should not appear in game","knight_1_1_wife",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_commoners, [itm_lady_dress_ruby ,   itm_turret_hat_ruby,    itm_woolen_hose],     def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x000000055910200107632d675a92b92d00000000001e45620000000000000000],
 
-  ["kingdom_1_lady_1","Comitessa Valeriana","Valeriana",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_1, [      itm_roman_noble_dress_1,       itm_wrapping_boots],     def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x0000000fb7000002371b711bec91b8db00000000001dc7140000000000000000],
-  ["kingdom_1_lady_2","Comitessa Marcellina","Marcellina",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_1, [      itm_roman_noble_dress_2,       itm_wrapping_boots],     def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x00000007ef0010043adb923d7491b8db00000000001dc6d40000000000000000],
+  ["kingdom_1_lady_1","Comitessa Valeriana","Valeriana",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_1, [      itm_germanic_dress_high_2,       itm_woolen_hose],     def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x0000000fb7000002371b711bec91b8db00000000001dc7140000000000000000],
+  ["kingdom_1_lady_2","Comitessa Marcellina","Marcellina",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_1, [      itm_germanic_dress_high_1,       itm_woolen_hose],     def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x00000007ef0010043adb923d7491b8db00000000001dc6d40000000000000000],
   #was licinia eudoxia
-  ["kingdom_1_lady_3","Comitessa Julia","Julia",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_1, [itm_roman_noble_dress_3,     itm_wrapping_boots], def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x0000000daf00200c36d9699d7449a69a00000000001d42e30000000000000000],
-  ["kingdom_1_lady_4","Comitessa Eudocia","Eutropia",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_1,  [    itm_roman_noble_dress_4 ,     itm_wrapping_boots], def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x0000000aaa00400c36d1b2b8e251b69a00000000001d42e30000000000000000],
-  ["kingdom_1_lady_5","Comitessa Placidia","Placidia",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_1, [      itm_roman_noble_dress_1,       itm_wrapping_boots],     def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x00000002b400000336d1b2d8e2b2a69100000000001d42e30000000000000000],
-  ["kingdom_1_lady_6","Comitessa Lysandra","Lysandra",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_1, [      itm_roman_noble_dress_2,       itm_wrapping_boots],     def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x00000000a5001006165195d8eaca471a00000000001ca1130000000000000000],
-  ["kingdom_1_lady_7","Comitessa Blandina","Blandina",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_1,  [    itm_roman_noble_dress_sleeveless_1,     itm_ankle_boots], def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x0000000bef001009145196156b92471a00000000001ca1530000000000000000],
-  ["kingdom_1_lady_8","Comitessa Prisca","Prisca",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_1,  [    itm_roman_noble_dress_sleeveless_2,     itm_ankle_boots], def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x000000022f00300312597658ab8e471a00000000001cc1630000000000000000],
-  ["kingdom_1_lady_9","Comitessa Agape","Agape",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_1, [      itm_roman_noble_dress_sleeveless_3,       itm_ankle_boots],     def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x00000000370050122499762524a634d300000000001cb1930000000000000000], #added in to support 1 more lord
-  ["kingdom_1_lady_11","Comitessa Anapsychia","Anapsychia",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_1,  [    itm_roman_noble_dress_sleeveless_4 ,     itm_ankle_boots], def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x000000002900000a571a75b2a3b234d300000000001cb18b0000000000000000],
-  ["kingdom_1_lady_14","Comitessa Anastasia","Anastasia",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_1, [      itm_roman_noble_dress_sleeveless_2,       itm_ankle_boots],     def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x000000012300400d371a76451b8e38d300000000001d319b0000000000000000],
+  ["kingdom_1_lady_3","Comitessa Julia","Julia",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_1, [itm_roman_noble_dress_3,     itm_woolen_hose], def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x0000000daf00200c36d9699d7449a69a00000000001d42e30000000000000000],
+  ["kingdom_1_lady_4","Comitessa Eudocia","Eutropia",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_1,  [    itm_roman_noble_dress_4 ,     itm_woolen_hose], def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x0000000aaa00400c36d1b2b8e251b69a00000000001d42e30000000000000000],
+  ["kingdom_1_lady_5","Comitessa Placidia","Placidia",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_1, [      itm_roman_noble_dress_1,       itm_woolen_hose],     def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x00000002b400000336d1b2d8e2b2a69100000000001d42e30000000000000000],
+  ["kingdom_1_lady_6","Comitessa Lysandra","Lysandra",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_1, [      itm_roman_noble_dress_2,       itm_woolen_hose],     def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x00000000a5001006165195d8eaca471a00000000001ca1130000000000000000],
+  ["kingdom_1_lady_7","Comitessa Blandina","Blandina",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_1,  [    itm_roman_noble_dress_sleeveless_1,     itm_woolen_hose], def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x0000000bef001009145196156b92471a00000000001ca1530000000000000000],
+  ["kingdom_1_lady_8","Comitessa Prisca","Prisca",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_1,  [    itm_roman_noble_dress_sleeveless_2,     itm_woolen_hose], def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x000000022f00300312597658ab8e471a00000000001cc1630000000000000000],
+  ["kingdom_1_lady_9","Comitessa Agape","Agape",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_1, [      itm_roman_noble_dress_sleeveless_3,       itm_woolen_hose],     def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x00000000370050122499762524a634d300000000001cb1930000000000000000], #added in to support 1 more lord
+  ["kingdom_1_lady_11","Comitessa Anapsychia","Anapsychia",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_1,  [    itm_roman_noble_dress_sleeveless_4 ,     itm_woolen_hose], def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x000000002900000a571a75b2a3b234d300000000001cb18b0000000000000000],
+  ["kingdom_1_lady_14","Comitessa Anastasia","Anastasia",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_1, [      itm_roman_noble_dress_sleeveless_2,       itm_woolen_hose],     def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x000000012300400d371a76451b8e38d300000000001d319b0000000000000000],
 
-  ["kingdom_2_lady_1","Comitessa Verina","Verina",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_2, [      itm_roman_noble_dress_1,       itm_ankle_boots],     def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x0000000af40010103aa17646e391d8d300000000001d51530000000000000000],
-  ["kingdom_2_lady_2","Comitessa Ariadne","Ariadne",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_2, [      itm_roman_noble_dress_3,       itm_excubitor_boots],     def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x0000000035004003241975975989469b00000000001cf38b0000000000000000],
+  ["kingdom_2_lady_1","Comitessa Verina","Verina",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_2, [      itm_germanic_dress_high_3,       itm_woolen_hose],     def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x0000000af40010103aa17646e391d8d300000000001d51530000000000000000],
+  ["kingdom_2_lady_2","Comitessa Ariadne","Ariadne",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_2, [      itm_germanic_dress_high_2,       itm_excubitor_boots],     def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x0000000035004003241975975989469b00000000001cf38b0000000000000000],
   #Wife of Basiliscus
-  ["kingdom_2_lady_3","Comitessa Aelia Zenonis","Aelia Zenonis",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_2, [itm_roman_noble_dress_2 ,itm_ankle_boots], def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x000000032c00500b585a7519238a469a00000000001cd18b0000000000000000],
+  ["kingdom_2_lady_3","Comitessa Aelia Zenonis","Aelia Zenonis",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_2, [itm_roman_noble_dress_2 ,itm_woolen_hose], def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x000000032c00500b585a7519238a469a00000000001cd18b0000000000000000],
   #No longer daughters of leo, was born later
   #Wife of Anthemius
-  ["kingdom_2_lady_4","Comitessa Marcia Euphemia","Marcia Euphemia",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_2,  [    itm_roman_noble_dress_3 ,     itm_ankle_boots], def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x000000092000100d585a762db3d24a9a00000000001cd18b0000000000000000],
+  ["kingdom_2_lady_4","Comitessa Marcia Euphemia","Marcia Euphemia",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_2,  [    itm_roman_noble_dress_3 ,     itm_excubitor_boots], def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x000000092000100d585a762db3d24a9a00000000001cd18b0000000000000000],
   #gotta change this up, she wasn't even born yet when the mod starts
-  ["kingdom_2_lady_5","Comitessa Leontia","Leontia",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_2, [      itm_lady_dress_ruby,       itm_ankle_boots],     def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x0000000220000008585a762db291b49a00000000001cc14b0000000000000000],
+  ["kingdom_2_lady_5","Comitessa Leontia","Leontia",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_2, [      itm_roman_noble_dress_1,       itm_woolen_hose],     def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x0000000220000008585a762db291b49a00000000001cc14b0000000000000000],
   #end
-  ["kingdom_2_lady_6","Comitessa Sigilda","Sigilda",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_2, [      itm_lady_dress_green,       itm_ankle_boots],     def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x0000000800002009465a7619b251b49a00000000001cc16b0000000000000000], #theoderic strabo's wife
-  ["kingdom_2_lady_7","Comitessa Arcadia","Arcadia",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_2,  [    itm_roman_noble_dress_4,     itm_ankle_boots], def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x0000000277000004375a6c45598dc69b00000000001db6db0000000000000000],
-  ["kingdom_2_lady_8","Comitessa Pomponia","Pomponia",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_2,  [    itm_roman_noble_dress_sleeveless_2 ,     itm_wrapping_boots], def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x00000004b100300436dcd1a111a9d2e400000000001db32b0000000000000000],
-  ["kingdom_2_lady_9","Comitessa Faustina","Faustina",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_2,  [    itm_roman_noble_dress_sleeveless_4 ,     itm_wrapping_boots], def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x000000000e0050043b142c956da946da00000000001d235b0000000000000000],
-  ["kingdom_2_lady_10","Comitessa Honoria","Honoria",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_2,  [    itm_roman_noble_dress_sleeveless_3 ,     itm_wrapping_boots], def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x0000000032001003469ab21b6b8d2b6a00000000001d24d20000000000000000],
-  ["kingdom_2_lady_11","Comitessa Sophia","Marcia Sophia",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_2,  [    itm_roman_noble_dress_sleeveless_1 ,     itm_ankle_boots], def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x000000046000000b3911762db3d24a9a00000000001d33810000000000000000], #married to Iohannes
+  ["kingdom_2_lady_6","Comitessa Sigilda","Sigilda",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_2, [      itm_roman_noble_dress_2,       itm_woolen_hose],     def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x0000000800002009465a7619b251b49a00000000001cc16b0000000000000000], #theoderic strabo's wife
+  ["kingdom_2_lady_7","Comitessa Arcadia","Arcadia",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_2,  [    itm_roman_noble_dress_4,     itm_woolen_hose], def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x0000000277000004375a6c45598dc69b00000000001db6db0000000000000000],
+  ["kingdom_2_lady_8","Comitessa Pomponia","Pomponia",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_2,  [    itm_roman_noble_dress_sleeveless_2 ,     itm_woolen_hose], def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x00000004b100300436dcd1a111a9d2e400000000001db32b0000000000000000],
+  ["kingdom_2_lady_9","Comitessa Faustina","Faustina",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_2,  [    itm_roman_noble_dress_sleeveless_4 ,     itm_woolen_hose], def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x000000000e0050043b142c956da946da00000000001d235b0000000000000000],
+  ["kingdom_2_lady_10","Comitessa Honoria","Honoria",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_2,  [    itm_roman_noble_dress_sleeveless_3 ,     itm_woolen_hose], def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x0000000032001003469ab21b6b8d2b6a00000000001d24d20000000000000000],
+  ["kingdom_2_lady_11","Comitessa Sophia","Marcia Sophia",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_2,  [    itm_roman_noble_dress_sleeveless_1 ,     itm_woolen_hose], def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x000000046000000b3911762db3d24a9a00000000001d33810000000000000000], #married to Iohannes
 
 
   ["kingdom_3_lady_1","Ragnahild","Ragnahild",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_3, [itm_germanic_dress_high_1, itm_wrapping_boots],     def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x00000007c910000107632d675a92b92d00000000001e45620000000000000000],
@@ -5642,3 +5668,5 @@ upgrade(troops,"armenian_levy","armenian_footman")
 upgrade(troops,"armenian_cavalry","armenian_cataphract")
 
 upgrade2(troops,"jewish_levy","jewish_footman","jewish_slinger")
+
+upgrade(troops,"phinnoi_warrior","phinnoi_retainer")

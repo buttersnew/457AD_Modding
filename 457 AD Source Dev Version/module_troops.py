@@ -3559,7 +3559,10 @@ troops = [
 ["knight_33_2", "Bogdan Vostokov", "Vostokov", tf_hero, 0, reserved,  fac_kingdom_33,[itm_simple_shoes, itm_pictish_sword, itm_burgh_helmet_2, itm_pictish_tunic_6, (itm_pictish_mail_6,imod_reinforced), itm_ankle_boots, itm_tab_shield_small_round_c],knight_attrib_5,wp(280),knight_skills_3,0x00000005a10c42055cca8d249a6da2db00000000001da6e30000000000000000],
 
 # pl4tte venedi lords
+["knight_33_1", "Borimir Derevny", "Derevny", tf_hero, 0, reserved,  fac_kingdom_34, [itm_simple_shoes, itm_pictish_sword, itm_intercisa_helmet_rich_3, (itm_pictish_mail_2,imod_reinforced), itm_pictish_tunic_2, itm_ankle_boots, itm_tab_shield_small_round_c],     knight_attrib_5,wp(300),knight_skills_2|knows_trainer_2, 0x00000005970c5143385a8d249a6da6db00000000001d26d40000000000000000],
+["knight_33_2", "Veteslav Derevny", "Derevny", tf_hero, 0, reserved,  fac_kingdom_34, [itm_simple_shoes, itm_pictish_sword, itm_intercisa_helmet_rich_3, (itm_pictish_mail_2,imod_reinforced), itm_pictish_tunic_2, itm_ankle_boots, itm_tab_shield_small_round_c],     knight_attrib_5,wp(300),knight_skills_2|knows_trainer_2, 0x00000005970c5143385a8d249a6da6db00000000001d26d40000000000000000],
 ["knight_34_1", "Veteslav Serversky", "Serversky", tf_hero, 0, reserved,  fac_kingdom_34, [itm_simple_shoes, itm_pictish_sword, itm_intercisa_helmet_rich_3, (itm_pictish_mail_2,imod_reinforced), itm_pictish_tunic_2, itm_ankle_boots, itm_tab_shield_small_round_c],     knight_attrib_5,wp(300),knight_skills_2|knows_trainer_2, 0x00000005970c5143385a8d249a6da6db00000000001d26d40000000000000000],
+["knight_34_2", "Mtislav Serversky", "Serversky", tf_hero, 0, reserved,  fac_kingdom_34, [itm_simple_shoes, itm_pictish_sword, itm_intercisa_helmet_rich_3, (itm_pictish_mail_2,imod_reinforced), itm_pictish_tunic_2, itm_ankle_boots, itm_tab_shield_small_round_c],     knight_attrib_5,wp(300),knight_skills_2|knows_trainer_2, 0x00000005970c5143385a8d249a6da6db00000000001d26d40000000000000000],
 
 #MADSCI REBEL KINGDOM HEROES, THESE WILL BE DISABLED AT START
 ["rebel_knight_1_1", "Marcianus", "Marcianus", tf_hero, 0, reserved,  fac_rebel_kingdom_1,[itm_nisean_cataphract_1, itm_coptic_tunic_12, itm_deurne_campagi_1, itm_deurne_campagi_greaves_1, itm_rich_mail_8, itm_tab_shield_small_round_c, itm_arabian_sword_b, itm_jarak_helmet_1],knight_attrib_5,wp_one_handed(290)|wp_two_handed(270)|wp_polearm(290)|wp_archery(150)|wp_crossbow(100)|wp_throwing(100)|wp_firearm(100),knight_skills_5|knows_trainer_4,0x000000071e0c20423daa8c98748dd92400000000001d92e00000000000000000],
@@ -3812,6 +3815,12 @@ troops = [
   ["kingdom_32_lady_2","Edana","Edana",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_32, [      itm_germanic_dress_low_6,      itm_wrapping_boots],     def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x0000000a2a0810111b5b6cb5a92a46e600000000000e58630000000000000000],
   ["kingdom_32_lady_3","Cinnia","Cinnia",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_32, [      itm_germanic_dress_low_7,     itm_wrapping_boots],     def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x000000003b103004391c949ba312e895000000000009d6d40000000000000000],
   ["kingdom_32_lady_4","Eithne","Eithne",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_32, [      itm_germanic_dress_low_8,      itm_wrapping_boots],     def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x000000002b084005149b8e227b733ca300000000000a56920000000000000000],
+
+  ["kingdom_33_lady_1","Cairenn","Cairenn",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_33, [      itm_germanic_dress_low_5,     itm_wrapping_boots],     def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x0000000a2708100d3733a5c55b6ec89400000000001252220000000000000000],
+  ["kingdom_33_lady_2","Edana","Edana",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_33, [      itm_germanic_dress_low_6,      itm_wrapping_boots],     def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x0000000a2a0810111b5b6cb5a92a46e600000000000e58630000000000000000],
+
+  ["kingdom_34_lady_1","Cairenn","Cairenn",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_34, [      itm_germanic_dress_low_5,     itm_wrapping_boots],     def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x0000000a2708100d3733a5c55b6ec89400000000001252220000000000000000],
+  ["kingdom_34_lady_2","Edana","Edana",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_34, [      itm_germanic_dress_low_6,      itm_wrapping_boots],     def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x0000000a2a0810111b5b6cb5a92a46e600000000000e58630000000000000000],
 
 
 #madsci rebel kingdom ladies will be disabled at start

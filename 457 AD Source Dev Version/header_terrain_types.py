@@ -11,6 +11,7 @@ rt_steppe_forest = 10
 rt_forest = 11
 rt_snow_forest = 12
 rt_desert_forest = 13
+rt_deep_water = 15
 
 ##diplomacy start+
 #These aren't technically terrain types, but they're used as terrain codes by

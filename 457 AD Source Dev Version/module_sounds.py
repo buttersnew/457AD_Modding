@@ -249,4 +249,23 @@ sounds = [
  #INVASION MODE END
   # ("thunder_close", sf_2d|sf_priority_10|sf_vol_10|sf_stream_from_hd, ["thunder_close_1.wav","thunder_close_2.wav","thunder_close_3.wav", "thunder.wav"]),
 
+#madsci the engine looks for hardcoded sounds so having the dummys below prevents false errors
+    ("release_crossbow_medium",0,[]),
+    ("release_crossbow_far",0,[]),
+    ("bullet_hit_body",0,[]),
+    ("player_hit_by_bullet",0,[]),
+
+#madsci VC sea battle add these sounds if you can
+("set_sail", sf_vol_15|sf_priority_10|sf_stream_from_hd,["sail.wav"]),
+("crash", sf_vol_12|sf_priority_12|sf_stream_from_hd,["ships_crash2.wav"]),
+("ship_start_boarding", sf_vol_12|sf_priority_13|sf_stream_from_hd,["ships_crash.wav", "creaks_squeaks.wav"]),
+("ship_sailing_loop", sf_2d|sf_priority_10|sf_vol_8|sf_looping,["ship_sailing_loop.wav"]),
+("ship_static_loop", sf_2d|sf_priority_10|sf_vol_7|sf_looping,["ship_static_loop.wav"]),
+("ship_rowing_r", sf_priority_11|sf_vol_14,["ship_row_r.wav","ship_row_l.wav"]),
+("front_water_begin", sf_vol_12|sf_priority_9,["ship_splash_1.wav","ship_splash_2.wav","ship_splash_3.wav",]),
+("front_water_end", sf_vol_12|sf_priority_9,["ship_splash_end_1.wav","ship_splash_end_2.wav","ship_splash_end_3.wav",]),
+("ship_rowing_l", sf_priority_11|sf_vol_14,["ship_row_l.wav","ship_row_2.wav","ship_row_3.wav"]),
+("water",sf_priority_5|sf_vol_6, ["water_splash_03.wav"]),
+("ambient_sea_loop", sf_2d|sf_priority_6|sf_vol_3|sf_looping|sf_stream_from_hd, ["sea_loop.wav","oceansurf01.wav","oceansurf02.wav"]),
+
 ]

@@ -34,58 +34,15 @@ num_merchandise_goods = 36
 
 triggers = [
 
-    (0,0,ti_once,[(troop_slot_eq, "trp_player", slot_troop_religion, 0),],[
-      (call_script, "script_add_notification_menu","mnu_religion_selection",0,0),
-    ]),
+#    (0,0,ti_once,[(troop_slot_eq, "trp_player", slot_troop_religion, 0),],[
+#      (call_script, "script_add_notification_menu","mnu_religion_selection",0,0),
+#    ]),
 
     (0,0,ti_once,[
     (troop_slot_eq, "trp_player", slot_troop_culture, 0),
     ],[
     (call_script, "script_add_notification_menu","mnu_culture_selection",0,0),
     ]),
-
-# Tutorial:
-  (0.1, 0, ti_once, [(map_free,0)], [(dialog_box,"str_tutorial_map1")]),
-
-# Refresh Merchants
-  (0.0, 0, 168.0, [],
-  [
-    (call_script, "script_refresh_center_inventories"),
-                     ]),
-
-# Refresh Armor sellers
-  (0.0, 0, 168.0, [],
-  [
-    (call_script, "script_refresh_center_armories"),
-                     ]),
-
-# Refresh Weapon sellers
-  (0.0, 0, 168.0, [],
-  [
-    (call_script, "script_refresh_center_weaponsmiths"),
-                     ]),
-
-# Refresh Horse sellers
-  (0.0, 0, 168.0, [],
-  [
-    (call_script, "script_refresh_center_stables"),
-                     ]),
-
-
-
-  (5.7, 0, 0.0,
-  [
-    (store_num_parties_of_template, reg2, "pt_manhunters"),
-    (lt, reg2, 4)
-  ],
-  [
-    (set_spawn_radius, 1),
-    # (store_add, ":p_town_22_plus_one", "p_town_22", 1), #SB : obvious random range
-    (store_random_in_range, ":selected_town", towns_begin, towns_end),
-    (spawn_around_party, ":selected_town", "pt_manhunters"),
-  ]),
-
-
 
   (1.0, 0.0, 0.0, [
   (check_quest_active, "qst_track_down_bandits"),
@@ -119,7 +76,7 @@ triggers = [
 			(try_begin),
 				(eq, "$cheat_mode", 1),
 				(str_store_party_name, s4, ":party"),
-				(display_message, "@{!}DEBUG -- Wanted bandits spotted by {s4}"),
+				#(display_message, "@{!}DEBUG -- Wanted bandits spotted by {s4}"),
 			(try_end),
 
 			(call_script, "script_get_closest_center", ":bandit_party"),
@@ -227,6 +184,7 @@ triggers = [
          (quest_set_slot, "qst_incriminate_loyal_commander", slot_quest_current_state, 3),
          (call_script, "script_fail_quest", "qst_incriminate_loyal_commander"),
        (else_try),
+	(gt, ":quest_target_party", 0), #madsci dont accidentally delete main party
          (party_is_in_town, ":quest_target_party", ":quest_target_center"),
          (remove_party, ":quest_target_party"),
          (quest_set_slot, "qst_incriminate_loyal_commander", slot_quest_current_state, 3),
@@ -256,7 +214,14 @@ triggers = [
            (gt, ":target_faction", 0),
            (call_script, "script_change_troop_faction", ":quest_object_troop", ":target_faction"),
          (else_try),
-           (call_script, "script_change_troop_faction", ":quest_object_troop", "fac_robber_knights"),
+           #(call_script, "script_change_troop_faction", ":quest_object_troop", "fac_robber_knights"), #robber_knights is leftover from the old mb warband uses outlaws and commoners for factionless lords instead 
+		(try_begin), #madsci cant have a kingdom hero party of non-kingdom faction on the map
+		(troop_get_slot, ":current_party", ":quest_object_troop", slot_troop_leaded_party),
+		(gt, ":current_party", 0),
+		(party_is_active, ":current_party"),
+		(remove_party, ":current_party"),
+		(try_end),
+           (call_script, "script_change_troop_faction", ":quest_object_troop", "fac_outlaws"),
          (try_end),
          (call_script, "script_succeed_quest", "qst_incriminate_loyal_commander"),
        (try_end),
@@ -494,6 +459,9 @@ triggers = [
 #move
 (0, 0, 24 * 14,[
     (try_for_range, ":pretender", pretenders_begin, pretenders_end),
+	(store_troop_faction, ":kingdom_hero_faction", ":pretender"),
+	(neq, ":kingdom_hero_faction", "fac_outlaws"), #madsci exclude deliberately disabled pretenders
+
         (troop_set_slot, ":pretender", slot_troop_cur_center, 0),
         (neq, ":pretender", "$supported_pretender"),
         (troop_get_slot, ":target_faction", ":pretender", slot_troop_original_faction),
@@ -501,6 +469,7 @@ triggers = [
         (faction_slot_eq, ":target_faction", slot_faction_has_rebellion_chance, 1),
         (neg|troop_slot_eq, ":pretender", slot_troop_occupation, slto_kingdom_hero),
         (neg|troop_slot_eq, ":pretender", slot_troop_occupation, slto_inactive),
+        (neg|troop_slot_eq, ":pretender", slot_troop_occupation, dplmc_slto_dead),
 
         (assign, ":break", 30),
         (try_for_range, ":unused", 0, ":break"),
@@ -517,7 +486,7 @@ triggers = [
                 (eq, "$cheat_mode", 1),
                 (str_store_troop_name_link, 4, ":pretender"),
                 (str_store_party_name_link, 5, ":town"),
-                (display_message, "@{!}{s4} is in {s5}"),
+                #(display_message, "@{!}{s4} is in {s5}"),
             (try_end),
             (try_begin), #SB : actually give out base gold and some renown
                 (ge, "$g_dplmc_ai_changes", DPLMC_AI_CHANGES_MEDIUM),
@@ -563,12 +532,8 @@ triggers = [
    ),
 
 #Process morale and determine personality clashes
-  (0, 0, 24,
-   [],
-[
-
-#Count NPCs in party and get the "grievance divisor", which determines how fast grievances go away
-#Set their relation to the player
+      (24.5, 0, 0,
+   [],[
         (assign, ":npcs_in_party", 0),
         (assign, ":grievance_divisor", 100),
         (try_for_range, ":npc1", companions_begin, companions_end),
@@ -577,72 +542,55 @@ triggers = [
         (try_end),
         (val_sub, ":grievance_divisor", ":npcs_in_party"),
         (store_skill_level, ":persuasion_level", "skl_persuasion", "trp_player"),
+	(val_clamp, ":persuasion_level", 1, 16),
         (val_add, ":grievance_divisor", ":persuasion_level"),
         (assign, reg7, ":grievance_divisor"),
 
-#        (display_message, "@{!}Process NPC changes. GD: {reg7}"),
-
-
-
-##Activate personality clash from 24 hours ago
         (try_begin), #scheduled personality clashes require at least 24hrs together
              (gt, "$personality_clash_after_24_hrs", 0),
              (eq, "$disable_npc_complaints", 0),
              (try_begin),
                   (troop_get_slot, ":other_npc", "$personality_clash_after_24_hrs", slot_troop_personalityclash_object),
+		(gt, ":other_npc", 0),
                   (main_party_has_troop, "$personality_clash_after_24_hrs"),
                   (main_party_has_troop, ":other_npc"),
                   (assign, "$npc_with_personality_clash", "$personality_clash_after_24_hrs"),
              (try_end),
              (assign, "$personality_clash_after_24_hrs", 0),
         (try_end),
-#
-
 
         (try_for_range, ":npc", companions_begin, companions_end),
-###Reset meeting variables
-            (troop_set_slot, ":npc", slot_troop_turned_down_twice, 0),
+            (try_begin),
+              (troop_slot_eq, ":npc", slot_troop_turned_down_twice, 1),
+              (store_random_in_range, ":rand", 0, 100),
+              (lt, ":rand", 40),
+              (troop_set_slot, ":npc", slot_troop_turned_down_twice, 0),
+            (try_end),
             (try_begin),
                 (troop_slot_eq, ":npc", slot_troop_met, 1),
                 (troop_set_slot, ":npc", slot_troop_met_previously, 1),
             (try_end),
 
-###Check for coming out of retirement
             (troop_get_slot, ":occupation", ":npc", slot_troop_occupation),
             (try_begin),
                 (eq, ":occupation", slto_retirement),
                 (troop_get_slot, ":renown_min", ":npc", slot_troop_return_renown),
-
-                (str_store_troop_name, s31, ":npc"),
                 (troop_get_slot, ":player_renown", "trp_player", slot_troop_renown),
-                (assign, reg4, ":player_renown"),
-                (assign, reg5, ":renown_min"),
-#                (display_message, "@{!}Test {s31}  for retirement return {reg4}, {reg5}."),
-
                 (gt, ":player_renown", ":renown_min"),
+              	(store_random_in_range, ":rand", 0, 100),
+              	(lt, ":rand", 30),
                 (troop_set_slot, ":npc", slot_troop_personalityclash_penalties, 0),
                 (troop_set_slot, ":npc", slot_troop_morality_penalties, 0),
                 (troop_set_slot, ":npc", slot_troop_occupation, 0),
             (try_end),
 
-
-#Check for political issues
 			(try_begin), #does npc's opponent pipe up?
 				(troop_slot_ge, ":npc", slot_troop_days_on_mission, 5),
 				(troop_slot_eq, ":npc", slot_troop_current_mission, npc_mission_kingsupport),
-
 				(troop_get_slot, ":other_npc", ":npc", slot_troop_kingsupport_opponent),
+				(gt, ":other_npc", 0),
 				(troop_slot_eq, ":other_npc", slot_troop_kingsupport_objection_state, 0),
-
 				(troop_set_slot, ":other_npc", slot_troop_kingsupport_objection_state, 1),
-
-				(str_store_troop_name, s3, ":npc"),
-				(str_store_troop_name, s4, ":other_npc"),
-
-				(try_begin),
-					(eq, "$cheat_mode", 1),
-					(display_message, "str_s4_ready_to_voice_objection_to_s3s_mission_if_in_party"),
-				(try_end),
 			(try_end),
 
 			#Check for quitting
@@ -678,6 +626,7 @@ triggers = [
                     (this_or_next|troop_slot_ge, ":npc", slot_troop_personalityclash_state, 1),
                         (eq, "$disable_npc_complaints", 1),
                     (troop_get_slot, ":object", ":npc", slot_troop_personalityclash_object),
+		(gt, ":object", 0),
                     (main_party_has_troop, ":object"),
                     (call_script, "script_reduce_companion_morale_for_clash", ":npc", ":object", slot_troop_personalityclash_state),
                 (try_end),
@@ -685,6 +634,7 @@ triggers = [
                     (this_or_next|troop_slot_ge, ":npc", slot_troop_personalityclash2_state, 1),
                         (eq, "$disable_npc_complaints", 1),
                     (troop_get_slot, ":object", ":npc", slot_troop_personalityclash2_object),
+		(gt, ":object", 0),
                     (main_party_has_troop, ":object"),
                     (call_script, "script_reduce_companion_morale_for_clash", ":npc", ":object", slot_troop_personalityclash2_state),
                 (try_end),
@@ -692,6 +642,7 @@ triggers = [
                     (this_or_next|troop_slot_ge, ":npc", slot_troop_personalitymatch_state, 1),
                         (eq, "$disable_npc_complaints", 1),
                     (troop_get_slot, ":object", ":npc", slot_troop_personalitymatch_object),
+			(gt, ":object", 0),
                     (main_party_has_troop, ":object"),
                     (troop_get_slot, ":grievance", ":npc", slot_troop_personalityclash_penalties),
                     (val_mul, ":grievance", 9),
@@ -699,11 +650,6 @@ triggers = [
                     (troop_set_slot, ":npc", slot_troop_personalityclash_penalties, ":grievance"),
                 (try_end),
 
-
-
-#Check for new personality clashes
-
-				#Active personality clash 1 if at least 24 hours have passed
                 (try_begin),
                     (eq, "$disable_npc_complaints", 0),
                     (eq, "$npc_with_personality_clash", 0),
@@ -711,6 +657,7 @@ triggers = [
                     (eq, "$personality_clash_after_24_hrs", 0),
                     (troop_slot_eq, ":npc", slot_troop_personalityclash_state, 0),
                     (troop_get_slot, ":other_npc", ":npc", slot_troop_personalityclash_object),
+			(gt, ":other_npc", 0),
                     (main_party_has_troop, ":other_npc"),
                     (assign, "$personality_clash_after_24_hrs", ":npc"),
                 (try_end),
@@ -730,18 +677,10 @@ triggers = [
 
                 (troop_get_slot, ":days_on_mission", ":npc", slot_troop_days_on_mission),
 
-                (try_begin), #debug
-                    (eq, "$cheat_mode", 1),
-                    (str_store_troop_name, s10, ":npc"),
-                    (assign, reg0, ":days_on_mission"),
-                    (display_message, "@Checking rejoin of {s10} days on mission: {reg0}"),
-                (try_end),
-
                 (try_begin),
                     (gt, ":days_on_mission", 0),
                     (val_sub, ":days_on_mission", 1),
                     (troop_set_slot, ":npc", slot_troop_days_on_mission, ":days_on_mission"),
-                ##diplomacy begin
                 (else_try),
                   (this_or_next|troop_slot_eq, ":npc", slot_troop_current_mission, dplmc_npc_mission_spy_request), #spy mission
                   (troop_slot_eq, ":npc", slot_troop_current_mission, dplmc_npc_mission_rescue_prisoner), #SB : rescue mission
@@ -821,7 +760,7 @@ triggers = [
     (try_begin), #debug
       (eq, "$cheat_mode", 1),
       (assign, reg0, "$g_player_chamberlain"),
-      (display_message, "@{!}DEBUG : chamberlain: {reg0}"),
+      #(display_message, "@{!}DEBUG : chamberlain: {reg0}"),
     (try_end),
 
     (assign, ":notification", 0),
@@ -855,7 +794,7 @@ triggers = [
     (try_begin), #debug
       (eq, "$cheat_mode", 1),
       (assign, reg0, "$g_player_constable"),
-      (display_message, "@{!}DEBUG : constable: {reg0}"),
+      #(display_message, "@{!}DEBUG : constable: {reg0}"),
     (try_end),
 
     (assign, ":notification", 0),
@@ -890,7 +829,7 @@ triggers = [
     (try_begin), #debug
       (eq, "$cheat_mode", 1),
       (assign, reg0, "$g_player_chancellor"),
-      (display_message, "@{!}DEBUG : chancellor: {reg0}"),
+      #(display_message, "@{!}DEBUG : chancellor: {reg0}"),
     (try_end),
 
     (assign, ":notification", 0),
@@ -915,27 +854,98 @@ triggers = [
 
 #new triggers so cool!
 
+  (24, 0, 0, [(eq, "$g_empieza_asedio", 1),], ####siege warfare, player lose money each day while siege. Sieges are expensive.
+    [
+      (store_troop_gold,":money","trp_player"),
+      (try_begin),
+        (ge,":money",100),
+        (troop_remove_gold, "trp_player", 100),
+        (display_message,"@Each day of the siege, you need to cover a number of expenses. You pay for rewards, digging latrines, cleaning stables, buying and bringing water and food, cooking, entertaining the troops...", 0xFF0000),
+        (store_random_in_range,":chance",1,10),
+        (try_begin),
+          (le,":chance",4),
+          (call_script, "script_change_player_party_morale", -1),
+        (try_end),
+      (else_try),
+        (display_message,"@You do not have money to cover the basic expenses of a siege. This greatly undermines morale.", 0xFF0000),
+        (call_script, "script_change_player_party_morale", -5),
+      (try_end),
+  ]),
+
+#titles and ranks
 (24, 0, ti_once, [ 
   (neq, "$player_has_homage", 0),
-  (eq, "$players_kingdom", "fac_kingdom_1"), #WRE
-  (troop_get_slot, ":rank", "trp_player", slot_troop_rank),
-  (neq, ":rank", slot_rank_officiorum), #cant already have the rank
+  (this_or_next|eq, "$players_kingdom", "fac_kingdom_1"),
+  (eq, "$players_kingdom", "fac_kingdom_2"),
+
   (call_script, "script_troop_get_relation_with_troop", "trp_kingdom_1_lord", "trp_player"),
-  (ge, reg0, 40), #need to have high relations
+  (assign, ":relation_1", reg0),
+  (call_script, "script_troop_get_relation_with_troop", "trp_kingdom_2_lord", "trp_player"),
+  (assign, ":relation_2", reg0),
+
+  (this_or_next|ge, ":relation_1", 15),
+  (ge, ":relation_2", 15),
 ],
-[(jump_to_menu, "mnu_promotion_officorum"),]),
+[(jump_to_menu, "mnu_promotion_clarissimus"),]),
 
 (24, 0, ti_once, [ 
   (neq, "$player_has_homage", 0),
-  (eq, "$players_kingdom", "fac_kingdom_2"), #ERE
-  (troop_get_slot, ":rank", "trp_player", slot_troop_rank),
-  (neq, ":rank", slot_rank_officiorum), #cant already have the rank
+  (this_or_next|eq, "$players_kingdom", "fac_kingdom_1"),
+  (eq, "$players_kingdom", "fac_kingdom_2"),
+  (troop_get_slot, ":rank", "trp_player", slot_troop_honorary_title),
+  (eq, ":rank", ht_clarissimus), #must have previous title
+
+  (call_script, "script_troop_get_relation_with_troop", "trp_kingdom_1_lord", "trp_player"),
+  (assign, ":relation_1", reg0),
   (call_script, "script_troop_get_relation_with_troop", "trp_kingdom_2_lord", "trp_player"),
-  (ge, reg0, 40), #need to have high relations
+  (assign, ":relation_2", reg0),
+
+  (this_or_next|ge, ":relation_1", 30),
+  (ge, ":relation_2", 30),
+],
+[(jump_to_menu, "mnu_promotion_spectabilis"),]),
+
+
+(24, 0, ti_once, [ 
+  (neq, "$player_has_homage", 0),
+  (this_or_next|eq, "$players_kingdom", "fac_kingdom_1"),
+  (eq, "$players_kingdom", "fac_kingdom_2"),
+  (troop_get_slot, ":rank", "trp_player", slot_troop_honorary_title),
+  (eq, ":rank", ht_spectabilis), #must have previous title
+
+  (call_script, "script_troop_get_relation_with_troop", "trp_kingdom_1_lord", "trp_player"),
+  (assign, ":relation_1", reg0),
+  (call_script, "script_troop_get_relation_with_troop", "trp_kingdom_2_lord", "trp_player"),
+  (assign, ":relation_2", reg0),
+
+  (this_or_next|ge, ":relation_1", 45),
+  (ge, ":relation_2", 45),
+],
+[(jump_to_menu, "mnu_promotion_illustris"),]),
+
+(24, 0, ti_once, [ 
+  (neq, "$player_has_homage", 0),
+  (this_or_next|eq, "$players_kingdom", "fac_kingdom_1"),
+  (eq, "$players_kingdom", "fac_kingdom_2"),
+  (troop_get_slot, ":rank", "trp_player", slot_troop_honorary_title),
+  (eq, ":rank", ht_illustris), #must have previous title
+  (troop_get_slot, ":rank", "trp_player", slot_troop_military_title),
+  (neq, ":rank", mt_officiorum), #cant already have the rank
+  
+  (call_script, "script_troop_get_relation_with_troop", "trp_kingdom_1_lord", "trp_player"),
+  (assign, ":relation_1", reg0),
+  (call_script, "script_troop_get_relation_with_troop", "trp_kingdom_2_lord", "trp_player"),
+  (assign, ":relation_2", reg0),
+
+  (this_or_next|ge, ":relation_1", 50),
+  (ge, ":relation_2", 50),
 ],
 [(jump_to_menu, "mnu_promotion_officorum"),]),
 
-(168,0,ti_once,[(faction_slot_eq, "fac_kingdom_9", slot_faction_state, sfs_inactive),(faction_slot_eq, "fac_kingdom_1", slot_faction_state, sfs_active)],[ #majorian gains claims on vandal, visigoth, suebi territory after conquering burgundians
+
+(168,0,ti_once,[
+(neg|faction_slot_eq, "fac_kingdom_9", slot_faction_state, sfs_active),
+(faction_slot_eq, "fac_kingdom_1", slot_faction_state, sfs_active),],[ #majorian gains claims on vandal, visigoth, suebi territory after conquering burgundians
   #towns - primarily focuses on areas that he did conquer or try to conquer
   (party_set_slot, "p_town_17", slot_center_ex_faction, "fac_kingdom_1"), #WRE Claims carthage
   (party_set_slot, "p_town_23", slot_center_ex_faction, "fac_kingdom_1"), #WRE Claims bracara
@@ -949,23 +959,13 @@ triggers = [
   (party_set_slot, "p_castle_40", slot_center_ex_faction, "fac_kingdom_1"),
   (party_set_slot, "p_castle_55", slot_center_ex_faction, "fac_kingdom_1"),
 
-  (call_script, "script_diplomacy_start_war_between_kingdoms", "fac_kingdom_1", "fac_kingdom_3", 0), #declares war
+	(try_begin),
+	(faction_slot_eq, "fac_kingdom_3", slot_faction_state, sfs_active),
+        (store_relation, ":reln", "fac_kingdom_1", "fac_kingdom_3"),
+        (ge, ":reln", 0),
+	(call_script, "script_diplomacy_start_war_between_kingdoms", "fac_kingdom_1", "fac_kingdom_3", 0), #declares war
+	(try_end),
 ]),
-
-(1800,0,ti_once,[(faction_slot_eq, "fac_kingdom_6", slot_faction_state, sfs_active),(neq,"$g_arran_revolt",1)],[  #checks if the Sassanids are still around - around 75 (1800 hours) days
-    (store_faction_of_party, ":fac", "p_castle_36"),
-    (neq, ":fac", "fac_kingdom_28"),
-    (party_get_slot, ":lord", "p_castle_36", slot_town_lord),
-    (ge, ":lord", 1), 
-    (call_script, "script_add_notification_menu", "mnu_event_arran_revolt",0,0),
-   ]),
-
-
-(24, 0, ti_once, [  (store_character_level, ":level", "trp_player"),
-  (ge, ":level", 10),
-  (troop_slot_ge, "trp_player", slot_troop_renown, 350),
-  (eq, "$g_player_faith", 1),], #changed so that the player must be chalcedonian to get quest
-[(jump_to_menu, "mnu_holy_lance_messenger"),]),
 
 (24, 0, ti_once, [  
     # (store_character_level, ":level", "trp_player"),
@@ -977,99 +977,13 @@ triggers = [
   (eq, "$g_player_faith", 6),], #must be roman pagan
 [(jump_to_menu, "mnu_mithras_messenger"),]),
 
-(24,0,ti_once,[(store_character_level, ":level", "trp_player"),(ge, ":level", 10),(eq, "$g_player_faith", 2),],[ #unique germanic pagan location
+(24,0,ti_once,[(store_character_level, ":level", "trp_player"),(ge, ":level", 10),(eq, "$g_player_faith", 5),],[ #unique germanic pagan location
   (enable_party, "p_donar_forest"),
 ]),
 
-(24,0,ti_once,[(eq, "$g_player_faith", 3),],[ #unique arian location
+(24,0,ti_once,[(eq, "$g_player_faith", 1),],[ #unique arian location
   (enable_party, "p_vidigoias_grave"),
 ]),
-#Invasions Begin
-(4800,0,ti_once,[],[ #4800 for 200 days
-     (set_spawn_radius, 8),
-     (try_for_range, ":unused", 0, 6), # number of invaders to spawn + 1, roughly 200 days
-           (spawn_around_party, "p_town_21", "pt_coptic_rebellion"),
-     (try_end),  
-     (dialog_box, "@A messenger approaches your warband, bringing news of rebellion! It appears that a large number of Anti-Chalcedonian Christians have revolted near Alexandria, killing the local patriarch, Proterius!", "@A messenger approaches your warband"),
-     (assign, "$g_coptic_rebellion_triggered", 1),
-   ]),
-
-(72,0,ti_once,[(eq, "$g_player_owns_farm", 1),],[ #several days after the player sides with basilius
-     (set_spawn_radius, 12),
-     (try_for_range, ":unused", 0, 4), # number of invaders to spawn + 1, roughly 200 days
-           (spawn_around_party, "p_town_40", "pt_bagaudae_army_event"),
-     (try_end),  
-     (dialog_box, "@A messenger approaches your warband, bringing news of rebellion! It appears that a large number of Bagadua, under the leadership of Basilius have revolted in Hispania Tarraconensis!", "@A messenger approaches your warband"),
-   ]),
-
-(724,0,ti_once,[(eq, "$g_foederati_event", 0),],[
-  (set_spawn_radius, 8),
-  (try_for_range, ":unused", 0, 3),
-    (spawn_around_party, "p_town_13", "pt_foederati_rebels"),
-  (try_end),  
-  (dialog_box, "@Foederati hired by Majorian for his campaigns have begun to pillage the italian countryside!", "@A messenger approaches your warband"),
-  (assign, "$g_foederati_event", 1),
-   ]),
-
-#Invasions END
-#Battle of Bolia
-(2400,0,ti_once,[(faction_slot_eq, "fac_kingdom_4", slot_faction_state, sfs_active)],[ #2400 for 100 days, checks if ostrogoths are still around
-    (try_begin), #Spawning in the Heruli
-       (store_num_parties_of_template, ":num_parties", "pt_heruli_horde"),
-       (lt,":num_parties",1),
-       (store_random,":spawn_point",num_heruli_horde_spawn_points),
-       (val_add,":spawn_point","p_heruli_spawn_point"),
-       (spawn_around_party,":spawn_point","pt_heruli_horde"),
-     #(assign,"$heruli_horde",reg(0)),
-     #(party_set_banner_icon, "$heruli_horde", "icon_banner_14"),
-     (try_end),
-    (try_begin), #Spawning in the Danubian Suebi
-       (store_num_parties_of_template, ":num_parties", "pt_scirii_horde"),
-       (lt,":num_parties",1),
-       (store_random,":spawn_point",num_scirii_horde_spawn_points),
-       (val_add,":spawn_point","p_scirii_spawn_point"),
-       (spawn_around_party,":spawn_point","pt_scirii_horde"),
-     #(assign,"$scirii_horde",reg(0)),
-     #(party_set_banner_icon, "$scirii_horde", "icon_banner_15"),
-     (try_end),
-
-    (try_begin), #additional ostrogothic armies (3)
-       (store_num_parties_of_template, ":num_parties", "pt_ostrogothic_army"),
-       (lt,":num_parties",3),
-       (store_random,":spawn_point",1),
-       (val_add,":spawn_point","p_village_147"),
-       (spawn_around_party,":spawn_point","pt_ostrogothic_army"),
-     #(assign,"$ostrogothic_horde",reg(0)),
-     #(party_set_banner_icon, "$ostrogothic_horde", "icon_map_flag_kingdom_4"),
-     (try_end),
-
-     (try_begin), #now setting up diplomatic changes
-      (faction_slot_eq, "fac_kingdom_14", slot_faction_state, sfs_active),
-      (call_script, "script_diplomacy_start_war_between_kingdoms", "fac_kingdom_4", "fac_kingdom_14", 0), #Ostrogoths vs Rugii
-     (try_end),
-     (try_begin), #now setting up diplomatic changes
-      (faction_slot_eq, "fac_kingdom_21", slot_faction_state, sfs_active),
-      (call_script, "script_diplomacy_start_war_between_kingdoms", "fac_kingdom_4", "fac_kingdom_21", 0), #Ostrogoths vs Scirii
-     (try_end),
-
-     (dialog_box, "@A messenger approaches your warband, bringing news of war! The Ostrogoths have declared war on their former allies, the Rugii, Heruli, Scirii, and the danubian Suebi, with an attempt to conquer all of Illyria!", "@A messenger approaches your warband"),
-     (assign, "$g_battle_of_bolia", 1),
-   ]),
-
-(24,0,ti_once,[],[ #adds merchant to tavern, zamb man
-  (add_troop_to_site, "trp_visigothic_merchant", "scn_town_40_tavern", 12),
-  (add_troop_to_site, "trp_zamb_man", "scn_town_17_tavern", 12),
-   ]),
-
-(72,0,ti_once,[(check_quest_active,"qst_agrippinus_quest"),(quest_slot_eq,"qst_agrippinus_quest",slot_quest_current_state, 4)],[ #agrippinus quest
-  (quest_set_slot,"qst_agrippinus_quest", slot_quest_current_state, 5),
-  (jump_to_menu,"mnu_lupicinus_encounter"),
-]),
-
-(24,0,ti_once,[(check_quest_active,"qst_agrippinus_quest"),(quest_slot_eq,"qst_agrippinus_quest",slot_quest_current_state, 7),(check_quest_succeeded, "qst_agrippinus_quest")],[ #agrippinus quest
-  (jump_to_menu,"mnu_lupicinus_encounter"),
-]),
-
 
 (24,0,22,[(eq,"$prayer",1)],[
     (assign, "$prayer", 0),    
@@ -1097,6 +1011,142 @@ triggers = [
       (try_end),  
       (display_message, "@Gallaecians revolt against oppressive Suebi rule!", color_bad_news),
     (try_end),
+]),
+
+#religion related stat increases for faith
+(24,0,ti_once,[
+  (gt,"$piety",40), #high piety
+  (eq,"$g_faith_stat_increase",0),
+],[
+  (troop_get_slot, ":player_religion", "trp_player", slot_troop_religion),
+  (try_begin),
+    (this_or_next|eq, ":player_religion", slot_religion_christian_chalcedonian), #christians all share the same buff
+    (this_or_next|eq, ":player_religion", slot_religion_christian_arian),
+    (this_or_next|eq, ":player_religion", slot_religion_christian_miaphysite),
+    (this_or_next|eq, ":player_religion", slot_religion_christian_nestorian),
+    (eq, ":player_religion", slot_religion_christian_donatist),
+    (troop_raise_attribute, "trp_player",ca_intelligence,1),
+    (troop_raise_attribute, "trp_player",ca_charisma,1),
+    (dialog_box, "@Your dedication to God has increased some of your attributes!", "@Your faith..."),
+    (assign,"$g_faith_stat_increase",1),
+  (else_try),
+    (eq, ":player_religion", slot_religion_paganism), #Germanic paganism
+    (eq,"$g_paganism_dedication",1),
+    (troop_raise_attribute, "trp_player",ca_strength,2),
+    (dialog_box, "@Your dedication to the Germanic gods has increased some of your attributes!", "@Your faith..."),
+    (assign,"$g_faith_stat_increase",1),
+  (else_try),
+    (eq, ":player_religion", slot_religion_paganism), #Celtic paganism
+    (eq,"$g_paganism_dedication",2),
+    (troop_raise_attribute, "trp_player",ca_strength,1),
+    (troop_raise_attribute, "trp_player",ca_agility,1),
+    (dialog_box, "@Your dedication to the Celtic gods has increased some of your attributes!", "@Your faith..."),
+    (assign,"$g_faith_stat_increase",1),
+  (else_try),
+    (eq, ":player_religion", slot_religion_paganism), #Steppe paganism/Shamanism
+    (eq,"$g_paganism_dedication",3),
+    (troop_raise_attribute, "trp_player",ca_agility,2),
+    (dialog_box, "@Your dedication to the skyfather has increased some of your attributes!", "@Your faith..."),
+    (assign,"$g_faith_stat_increase",1),
+  (else_try),
+    (eq, ":player_religion", slot_religion_christian_arian),
+    (troop_raise_attribute, "trp_player",ca_intelligence,1),
+    (troop_raise_attribute, "trp_player",ca_charisma,1),
+    (dialog_box, "@Your dedication to God has increased some of your attributes!", "@Your faith..."),
+    (assign,"$g_faith_stat_increase",1),
+  (else_try),
+    (this_or_next|eq, ":player_religion", slot_religion_zoroastrianism), #zoroastrianism
+    (eq, ":player_religion", slot_religion_zurvanism), 
+    (eq,"$g_paganism_dedication",1),
+    (troop_raise_attribute, "trp_player",ca_strength,1),
+    (troop_raise_attribute, "trp_player",ca_intelligence,1),
+    (dialog_box, "@Your dedication to Ahura Mazda has increased some of your attributes!", "@Your faith..."),
+    (assign,"$g_faith_stat_increase",1),
+  (else_try),
+    (eq, ":player_religion", slot_religion_roman_paganism), #Roman paganism
+    (eq,"$g_paganism_roman_dedication",1),
+    (troop_raise_attribute, "trp_player",ca_intelligence,2), #le intellectual big brain reddit
+    (dialog_box, "@Your dedication to the Roman gods has increased some of your attributes!", "@Your faith..."),
+    (assign,"$g_faith_stat_increase",1),
+  (else_try),
+    (eq, ":player_religion", slot_religion_roman_paganism), #Egyptian paganism
+    (eq,"$g_paganism_roman_dedication",2),
+    (troop_raise_attribute, "trp_player",ca_strength,1),
+    (troop_raise_attribute, "trp_player",ca_charisma,1),
+    (dialog_box, "@Your dedication to the Aegyptian gods has increased some of your attributes!", "@Your faith..."),
+    (assign,"$g_faith_stat_increase",1),
+  (else_try),
+  (try_end)
+]),
+
+(24*14,0,ti_once,[ #enables asturis ruins
+  (ge, "$g_severinus_quest", 2),
+],[
+  (enable_party, "p_sq_asturis_2"),
+]),
+
+#nero larper events
+(24*5,0,ti_once,[ #becoming a beggar in Rome
+  (neg|check_quest_active,"qst_nero_larper_quest"),
+  (quest_slot_eq,"qst_nero_larper_quest",slot_quest_current_state, 2),
+],[
+  (assign, "$g_nero_quest", 3),
+]),
+
+(24*5,0,ti_once,[ #storming the palace
+  (neg|check_quest_active,"qst_nero_larper_quest"),
+  (quest_slot_eq,"qst_nero_larper_quest",slot_quest_current_state, 3),
+],[
+	(try_begin),
+	(eq, "$g_infinite_camping", 0),
+  	(neg|party_slot_eq, "p_main_party", slot_party_on_water, 1), #madsci a messenger doesnt appear if the player is sea traveling
+  	(dialog_box, "@While travelling, you hear news that a man claiming to be Nero stormed the Domus Augusti in Rome, with a small group of supporters. During a scuffle with the Palatini, he was struck down and killed...", "@While travelling..."),
+	(try_end),
+	(display_log_message, "@A man claiming to be Nero stormed the Domus Augusti in Rome, with a small group of supporters. During a scuffle with the Palatini, he was struck down and killed..."),
+  (quest_set_slot,"qst_nero_larper_quest",slot_quest_current_state, 5),
+  (troop_set_slot, "trp_nero_larper", slot_troop_occupation, dplmc_slto_dead),
+]),
+
+(24*5,0,ti_once,[ #leading armed rebellion
+  (neg|check_quest_active,"qst_nero_larper_quest"),
+  (quest_slot_eq,"qst_nero_larper_quest",slot_quest_current_state, 4),
+],[
+	(try_begin),
+	(eq, "$g_infinite_camping", 0),
+  	(neg|party_slot_eq, "p_main_party", slot_party_on_water, 1), #madsci a messenger doesnt appear if the player is sea traveling
+  	(dialog_box, "@A messenger approaches your warband, bringing news of rebellion! A man claiming to Nero has hired an army and marched on Rome!", "@A messenger approaches your warband"),
+	(try_end),
+	(display_log_message, "@A man claiming to Nero has hired an army and marched on Rome!"),
+  (set_spawn_radius, 4),
+  (spawn_around_party, "p_town_8", "pt_nero_rebel_army"),
+  (quest_set_slot, "qst_nero_larper_quest", slot_quest_target_party, reg0),
+  (quest_set_slot,"qst_nero_larper_quest",slot_quest_current_state, 5),
+  (assign, "$nero_army_spawned", 1),
+]),
+
+(24*7,0,ti_once,[ #leading armed rebellion
+  (neg|check_quest_active,"qst_agrippinus_quest"),
+  (quest_slot_eq,"qst_agrippinus_quest",slot_quest_current_state, 11),
+],[
+	(try_begin),
+	(eq, "$g_infinite_camping", 0),
+	(neg|party_slot_eq, "p_main_party", slot_party_on_water, 1), #madsci a messenger doesnt appear if the player is sea traveling
+  	(dialog_box, "@A messenger approaches your warband, bringing news of rebellion! The former Magister Militum Per Gallias, Agrippinus has risen up after a failed capture by Majorian!", "@A messenger approaches your warband"),
+	(try_end),
+	(display_log_message, "@The former Magister Militum Per Gallias, Agrippinus has risen up after a failed capture by Majorian!"),
+  (spawn_around_party, "p_town_8", "pt_agrippinus_rebel_army"),
+]),
+
+(24*7,0,ti_once,[ #escapes trial
+	(neg|check_quest_active,"qst_agrippinus_quest"),
+  	(quest_slot_eq,"qst_agrippinus_quest",slot_quest_current_state, 12),
+],[
+	(try_begin),
+	(eq, "$g_infinite_camping", 0),
+	(neg|party_slot_eq, "p_main_party", slot_party_on_water, 1), #madsci a messenger doesnt appear if the player is sea traveling
+	(dialog_box, "@News spreads that Agrippinus has been found guilty of treason and was sentenced to death in Rome, however he was able to escape and how takes refuge in the church of St. Peter!", "@A messenger approaches your warband"),
+	(try_end),
+	(display_log_message, "@Agrippinus has been found guilty of treason and was sentenced to death in Rome, however he was able to escape."),
 ]),
 
 (24,0,ti_once,[
@@ -1321,6 +1371,7 @@ triggers = [
 ]),
 
 (24*7,0,ti_once,[
+  (neg|party_slot_eq, "p_main_party", slot_party_on_water, 1), #madsci a messenger doesnt appear if the player is sea traveling
     (eq, "$unique_sword_crafted", 2),
 ],[
     (dialog_box, "@A messenger approaches your warband, carrying the sword wayland has forged for you...", "@A messenger approaches your warband"),
@@ -1328,6 +1379,17 @@ triggers = [
     (troop_add_item, "trp_player", "itm_nagelring", 0),
 ]),
 #+freelancer start
+
+(72,0,ti_once,[
+  (neg|party_slot_eq, "p_main_party", slot_party_on_water, 1), #madsci a messenger doesnt appear if the player is sea traveling
+  (faction_slot_eq, "fac_player_supporters_faction", slot_faction_state, sfs_active), # player faction is active
+  (faction_slot_eq, "fac_player_supporters_faction", slot_faction_leader, "trp_player"), # player is king
+  (eq, "$players_kingdom", "fac_player_supporters_faction"),
+  (eq,"$basilius_interaction",3), #basilius will join the player
+  (neg|troop_slot_eq, "trp_knight_bagadua_1", slot_troop_occupation, dplmc_slto_dead),
+],[
+    (jump_to_menu, "mnu_recruit_bagadua_lord"),
+]),
 
 #  CHECKS IF "$enlisted_party" IS DEFEATED
     (0.0, 0, 0, [

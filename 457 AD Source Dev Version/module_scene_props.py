@@ -17,6 +17,10 @@ from compiler import *
 #  5) Triggers: Simple triggers that are associated with the scene prop
 ####################################################################################################################
 
+#madsci vc sea battle
+sokfs_ship_cage = sokf_type_ai_limiter3d|sokf_moveable|sokf_invisible
+sokfs_ship_land_ramp = sokf_moveable|sokf_missiles_not_attached|sokf_type_ladder
+
 check_item_use_trigger = (ti_on_scene_prop_use,
     [
       (store_trigger_param_1, ":agent_id"),
@@ -154,6 +158,23 @@ check_ladder_animation_finish_trigger = (ti_on_scene_prop_animation_finished,
       (store_trigger_param_1, ":instance_id"),
 
       (prop_instance_enable_physics, ":instance_id", 1),
+      ])
+
+check_ship_hit_trigger = (ti_on_scene_prop_hit,
+    [
+      (play_sound, "snd_dummy_hit"),
+	  #(play_sound_at_position, <sound_id>, <position_no>, [options]),	#???
+      (particle_system_burst, "psys_dummy_smoke", pos1, 3),
+      (particle_system_burst, "psys_dummy_straw", pos1, 10),     
+      ])
+
+check_ship_burn_trigger = (ti_on_scene_prop_hit,
+    [
+	  (play_sound, "snd_dummy_hit"),
+	  (store_trigger_param_1, ":instance_no"), 
+	  (prop_instance_get_position, pos2, ":instance_no"),
+	  (position_transform_position_to_local, pos3, pos2, pos1),
+      (prop_instance_add_particle_system, ":instance_no", "psys_fireplace_fire_big", pos3),     
       ])
 
 scene_props = [
@@ -569,14 +590,10 @@ scene_props = [
   ("carpet_e",0,"carpet_e","0", []),
   ("carpet_f",0,"carpet_f","0", []),
 
-  ("ship",sokf_moveable,"ship","bo_ship", []),
-
-  ("ship_b",sokf_moveable,"ship_b","bo_ship_b", []),
-  ("ship_c",sokf_moveable,"ship_c","bo_ship_c", []),
-
-
-
-  ("ship_d",sokf_moveable,"ship_d","bo_ship_d", []),
+  ("ship",0,"ship","bo_ship", []),
+  ("ship_b",0,"ship_b","bo_ship_b", []),
+  ("ship_c",0,"ship_c","bo_ship_c", []),
+  ("ship_d",0,"ship_d","bo_ship_d", []),
 
   ("snowy_barrel_a",0,"snowy_barrel_a","bo_snowy_barrel_a", []),
   ("snowy_fence",0,"snowy_fence","bo_snowy_fence", []),
@@ -1257,39 +1274,6 @@ scene_props = [
   ("banner_f19", 0, "banner_f19", "0", []),
   ("banner_f20", 0, "banner_f20", "0", []),
   ("banner_f21", 0, "banner_f21", "0", []),
- 
-#  ("banner_g01", 0, "banner_f01", "0", []),
-#  ("banner_g02", 0, "banner_f02", "0", []),
-#  ("banner_g03", 0, "banner_f03", "0", []),
-#  ("banner_g04", 0, "banner_f04", "0", []),
-#  ("banner_g05", 0, "banner_f05", "0", []),
-#  ("banner_g06", 0, "banner_f06", "0", []),
-#  ("banner_g07", 0, "banner_f07", "0", []),
-#  ("banner_g08", 0, "banner_f08", "0", []),
-#  ("banner_g09", 0, "banner_f09", "0", []),
-#  ("banner_g10", 0, "banner_f10", "0", []),
-
-  #("banner_h01", 0, "banner_h01", "0", []),
-  #("banner_h02", 0, "banner_h02", "0", []),
-  #("banner_h03", 0, "banner_h03", "0", []),
-  #("banner_h04", 0, "banner_h04", "0", []),
-  #("banner_h05", 0, "banner_h05", "0", []),
-  #("banner_h06", 0, "banner_h06", "0", []),
-  #("banner_h07", 0, "banner_h07", "0", []),
-  #("banner_h08", 0, "banner_h08", "0", []),
-  #("banner_h09", 0, "banner_h09", "0", []),
-  #("banner_h10", 0, "banner_h10", "0", []),
-  #("banner_h11", 0, "banner_h11", "0", []),
-  #("banner_h12", 0, "banner_h12", "0", []),
-  #("banner_h13", 0, "banner_h13", "0", []),
-  #("banner_h14", 0, "banner_h14", "0", []),
-  #("banner_h15", 0, "banner_h15", "0", []),
-  #("banner_h16", 0, "banner_h16", "0", []),
-  #("banner_h17", 0, "banner_h17", "0", []),
-  #("banner_h18", 0, "banner_h18", "0", []),
-  #("banner_h19", 0, "banner_h19", "0", []),
-  #("banner_h20", 0, "banner_h20", "0", []),
-  #("banner_h21", 0, "banner_h21", "0", []),
 
   ("banner_roman_01", 0, "banner_roman_01", "0", []),
   ("banner_roman_02", 0, "banner_roman_02", "0", []),
@@ -1312,6 +1296,15 @@ scene_props = [
   ("banner_roman_19", 0, "banner_roman_19", "0", []),
   ("banner_roman_20", 0, "banner_roman_20", "0", []),
   ("banner_roman_21", 0, "banner_roman_21", "0", []),
+
+  ("banner_g01", 0, "banner_g01", "0", []),
+  ("banner_g02", 0, "banner_g02", "0", []),
+  ("banner_g03", 0, "banner_g03", "0", []),
+  ("banner_g04", 0, "banner_g04", "0", []),
+  ("banner_g05", 0, "banner_g05", "0", []),
+  ("banner_g06", 0, "banner_g06", "0", []),
+  ("banner_g07", 0, "banner_g07", "0", []),
+  ("banner_g08", 0, "banner_g08", "0", []),
 
   ("banner_kingdom_a", 0, "banner_kingdom_1", "0", []),
   ("banner_kingdom_b", 0, "banner_kingdom_2", "0", []),
@@ -1345,6 +1338,10 @@ scene_props = [
   ("banner_kingdom_30", 0, "banner_kingdom_30", "0", []),
   ("banner_kingdom_31", 0, "banner_kingdom_31", "0", []),
   ("banner_kingdom_32", 0, "banner_kingdom_32", "0", []),
+  ("banner_kingdom_33", 0, "banner_kingdom_33", "0", []),
+  ("banner_kingdom_34", 0, "banner_kingdom_34", "0", []),
+  ("banner_kingdom_35", 0, "banner_kingdom_35", "0", []),
+  ("banner_kingdom_36", 0, "banner_kingdom_36", "0", []),
 
   ("banner_end", 0, "banner_a15", "0", []),
 
@@ -3053,6 +3050,10 @@ scene_props = [
   ("snowy_destroy_tree_b",0,"snowy_destroy_tree_b","bo_snowy_destroy_tree_b", []),  
   ("snowy_destroy_bridge_a",0,"snowy_destroy_bridge_a","bo_snowy_destroy_bridge_a", []),  
   ("snowy_destroy_bridge_b",0,"snowy_destroy_bridge_b","bo_snowy_destroy_bridge_b", []),    
+
+  #New boat scene props
+  ("navis_iusoria_1",sokf_moveable,"navis_iusoria_1","bo_navis_iusoria_1", []),
+  ("navis_iusoria_2",sokf_moveable,"navis_iusoria_2","bo_navis_iusoria_1", []),
 
 #Roman Buildings
 # from 'OSP_new_rome_2.brf': begin (OpenBRF)
@@ -4830,5 +4831,162 @@ scene_props = [
  #       (prop_instance_dynamics_apply_impulse, ":head_id", pos11), #force
  #    ]),
  # ]),
+
+#madsci VC sea battles
+ ("wind", 0, "0", "0", []),
+ ("agent_blade", sokf_moveable, "0", "bo_agent_blade", []),
+ ("barrier_ship", sokf_moveable|sokf_invisible,"barrier_ship","bo_barrier_ship", []),
+ 
+ ("ship1_destroyed",	0,"ship1_destroyed", "0", []),
+ ("ship2_destroyed",	0,"ship2_destroyed", "0", []),
+
+ ("dyn_ship_substrate", 0, "0","0", [  ]),
+ ("dyn_ship_substrate_2", 0, "0","0", [  ]),
+  
+ #DYN_SHIP PROPS:
+ ("dyn_ship_main_busse_no_coll",	0,"busse", "0", []),  
+ ("dyn_ship_main_skeid_no_coll",	0,"hedeby1", "0", []),
+ ("dyn_ship_main_karvi_no_coll",	0,"navis_iusoria", "0", []),
+ ("dyn_ship_main_snekkja_no_coll",	0,"snekkja", "0", []),
+ ("dyn_ship_main_knorr_no_coll",	0,"knorr", "0", []), 
+ ("dyn_ship_main_byrding_no_coll",	0,"byrding", "0", []),
+ ("dyn_ship_main_curragh_no_coll",	0,"0", "0", []),
+ ("dyn_ship_main_skeid2_no_coll",	0,"0", "0", []),
+ 
+ ("dyn_ship_main_busse",	sokf_moveable,"busse","bo_busse", []),  
+ ("dyn_ship_main_skeid",	sokf_moveable, "hedeby1","bo_hedeby1", []),
+ ("dyn_ship_main_karvi",	sokf_moveable, "navis_iusoria","bo_navis_iusoria", []),
+ ("dyn_ship_main_snekkja",	sokf_moveable, "snekkja","bo_snekkja", []),
+ ("dyn_ship_main_knorr",	sokf_moveable,"knorr","bo_knorr", []), 		#(check_ship_hit_trigger), causes CTD for some reason
+ ("dyn_ship_main_byrding",	sokf_moveable,"byrding","bo_byrding", []),
+ ("dyn_ship_main_curragh",	sokf_moveable,"0","0", []),
+ ("dyn_ship_main_skeid2",	sokf_moveable,"0","0", []),
+ ("dyn_ship_main_end",0, "0", "0", []),
+ ("dyn_ship_boom_busse",	0,"busse_boom", "0", []),  	#sokf_static_movement
+ ("dyn_ship_boom_skeid",	0,"hedeby1_boom", "0", []),
+ ("dyn_ship_boom_karvi",	0,"navis_iusoria_boom", "0", []),
+ ("dyn_ship_boom_snekkja",	0,"snekkja_boom", "0", []),
+ ("dyn_ship_boom_knorr",	0,"knorr_boom", "0", []), 
+ ("dyn_ship_boom_byrding",	0,"byrding_boom", "0", []),
+ ("dyn_ship_boom_curragh",	0,"0", "0", []),
+ ("dyn_ship_boom_skeid2",	0,"0", "0", []),
+ ("dyn_ship_boom_end",0, 0, 0, []), 
+ 
+ # #WITH MOVABLE FLAG !!!
+ ("dyn_ship_coll_busse",	sokf_moveable|sokf_invisible, "0", "bo_busse_collision", []),  
+ ("dyn_ship_coll_skeid",	sokf_moveable|sokf_invisible, "0", "bo_hedeby1_collision", []),
+ ("dyn_ship_coll_karvi",	sokf_moveable|sokf_invisible,"0", "bo_navis_iusoria_collision", []),
+ ("dyn_ship_coll_snekkja",	sokf_moveable|sokf_invisible,"0", "bo_snekkja_collision", []),
+ ("dyn_ship_coll_knorr",	sokf_moveable|sokf_invisible,"0", "bo_knorr_collision", []), 
+ ("dyn_ship_coll_byrding",	sokf_moveable|sokf_invisible,"0", "bo_byrding_collision", []),
+ ("dyn_ship_coll_curragh",	0, "0", "0", []),
+ ("dyn_ship_coll_skeid2",	0, "0", "0", []),
+ ("dyn_ship_coll_end",0, 0, 0, []), 
+ ("dyn_ship_coll2_busse",	sokf_moveable|sokf_invisible,"0", "bo_busse_collision_2", []),  
+ ("dyn_ship_coll2_skeid",	sokf_moveable|sokf_invisible,"0", "bo_hedeby1_collision_2", []),
+ ("dyn_ship_coll2_karvi",	sokf_moveable|sokf_invisible,"0", "bo_navis_iusoria_collision_2", []),
+ ("dyn_ship_coll2_snekkja",	sokf_moveable|sokf_invisible,"0", "bo_snekkja_collision_2", []),
+ ("dyn_ship_coll2_knorr",	sokf_moveable|sokf_invisible,"0", "bo_knorr_collision_2", []), 
+ ("dyn_ship_coll2_byrding",	sokf_moveable|sokf_invisible,"0", "bo_byrding_collision_2", []),
+ ("dyn_ship_coll2_curragh",	0, "0", "0", []),
+ ("dyn_ship_coll2_skeid2",	0, "0", "0", []),
+ ("dyn_ship_coll2_end",0, 0, 0, []), 
+ ("dyn_ship_ramp_right_busse",	sokf_moveable|sokf_missiles_not_attached, "0", "bo_busse_ramp_right", []),  
+ ("dyn_ship_ramp_right_skeid",	sokf_moveable|sokf_missiles_not_attached, "0", "bo_hedeby1_ramp_right", []),
+ ("dyn_ship_ramp_right_karvi",	sokf_moveable|sokf_missiles_not_attached, "0", "bo_navis_iusoria_ramp_right", []),
+ ("dyn_ship_ramp_right_snekkja",sokf_moveable|sokf_missiles_not_attached, "0", "bo_snekkja_ramp_right", []),
+ ("dyn_ship_ramp_right_knorr",	sokf_moveable|sokf_missiles_not_attached, "0", "bo_knorr_ramp_right", []), 	
+ ("dyn_ship_ramp_right_byrding",sokf_moveable|sokf_missiles_not_attached, "0", "bo_byrding_ramp_right", []),
+ ("dyn_ship_ramp_right_curragh",sokf_missiles_not_attached, "0", "0", []),
+ ("dyn_ship_ramp_right_skeid2",	sokf_missiles_not_attached, "0", "0", []),
+ ("dyn_ship_ramp_right_end",0, 0, 0, []),
+ ("dyn_ship_ramp_left_busse",	sokf_moveable|sokf_missiles_not_attached, "0", "bo_busse_ramp_left", []),  
+ ("dyn_ship_ramp_left_skeid",	sokf_moveable|sokf_missiles_not_attached, "0", "bo_hedeby1_ramp_left", []),
+ ("dyn_ship_ramp_left_karvi",	sokf_moveable|sokf_missiles_not_attached, "0", "bo_navis_iusoria_ramp_left", []),
+ ("dyn_ship_ramp_left_snekkja",	sokf_moveable|sokf_missiles_not_attached, "0", "bo_snekkja_ramp_left", []),
+ ("dyn_ship_ramp_left_knorr",	sokf_moveable|sokf_missiles_not_attached, "0", "bo_knorr_ramp_left", []),
+ ("dyn_ship_ramp_left_byrding",	sokf_moveable|sokf_missiles_not_attached, "0", "bo_byrding_ramp_left", []),
+ ("dyn_ship_ramp_left_curragh",	sokf_missiles_not_attached, "0", "0", []),
+ ("dyn_ship_ramp_left_skeid2",	sokf_missiles_not_attached, "0", "0", []),
+ ("dyn_ship_ramp_left_end",0, 0, 0, []),
+ ("dyn_ship_ramp_land_busse",	sokfs_ship_land_ramp, "0", "bo_busse_ramp_land", []),  
+ ("dyn_ship_ramp_land_skeid",	sokfs_ship_land_ramp, "0", "bo_hedeby1_ramp_land", []),
+ ("dyn_ship_ramp_land_karvi",	sokfs_ship_land_ramp, "0", "bo_navis_iusoria_ramp_land", []),
+ ("dyn_ship_ramp_land_snekkja",	sokfs_ship_land_ramp, "0", "bo_snekkja_ramp_land", []),
+ ("dyn_ship_ramp_land_knorr",	sokfs_ship_land_ramp, "0", "bo_knorr_ramp_land", []), 
+ ("dyn_ship_ramp_land_byrding",	sokfs_ship_land_ramp, "0", "bo_byrding_ramp_land", []),
+ ("dyn_ship_ramp_land_curragh",	sokf_missiles_not_attached|sokf_type_ladder, "0", "0", []),
+ ("dyn_ship_ramp_land_skeid2",	sokf_missiles_not_attached|sokf_type_ladder, "0", "0", []),
+ ("dyn_ship_ramp_land_end",0, 0, 0, []),
+ ("dyn_ship_cage_right_busse",	sokfs_ship_cage, "0", "bo_busse_cage_right", []),  
+ ("dyn_ship_cage_right_skeid",	sokfs_ship_cage, "0", "bo_hedeby1_cage_right", []),
+ ("dyn_ship_cage_right_karvi",	sokfs_ship_cage, "0", "bo_navis_iusoria_cage_right", []),
+ ("dyn_ship_cage_right_snekkja",sokfs_ship_cage, "0", "bo_snekkja_cage_right", []),
+ ("dyn_ship_cage_right_knorr",	sokfs_ship_cage, "0", "bo_knorr_cage_right", []),
+ ("dyn_ship_cage_right_byrding",sokfs_ship_cage, "0", "bo_byrding_cage_right", []),
+ ("dyn_ship_cage_right_curragh",sokf_invisible, "0", "0", []),
+ ("dyn_ship_cage_right_skeid2",	sokf_invisible, "0", "0", []),
+ ("dyn_ship_cage_right_end",0, 0, 0, []),
+ ("dyn_ship_cage_right_2_busse",	sokfs_ship_cage, "0", "bo_busse_cage_right2", []),  
+ ("dyn_ship_cage_right_2_skeid",	sokfs_ship_cage, "0", "bo_hedeby1_cage_right2", []),
+ ("dyn_ship_cage_right_2_karvi",	sokfs_ship_cage, "0", "bo_navis_iusoria_cage_right2", []),
+ ("dyn_ship_cage_right_2_snekkja",	sokfs_ship_cage, "0", "bo_snekkja_cage_right2", []),
+ ("dyn_ship_cage_right_2_knorr",	sokfs_ship_cage, "0", "bo_knorr_cage_right2", []),
+ ("dyn_ship_cage_right_2_byrding",	sokf_invisible, "0", "0", []),
+ ("dyn_ship_cage_right_2_curragh",	sokf_invisible, "0", "0", []),
+ ("dyn_ship_cage_right_2_skeid2",	sokf_invisible, "0", "0", []),
+ ("dyn_ship_cage_right_2_end",0, 0, 0, []),
+ ("dyn_ship_cage_right_3_busse",	sokfs_ship_cage, "0", "bo_busse_cage_right3", []),  
+ ("dyn_ship_cage_right_3_skeid",	sokfs_ship_cage, "0", "bo_hedeby1_cage_right3", []),
+ ("dyn_ship_cage_right_3_karvi",	sokf_invisible, "0", "0", []),
+ ("dyn_ship_cage_right_3_snekkja",	sokf_invisible, "0", "0", []),
+ ("dyn_ship_cage_right_3_knorr",	sokf_invisible, "0", "0", []),
+ ("dyn_ship_cage_right_3_byrding",	sokf_invisible, "0", "0", []),
+ ("dyn_ship_cage_right_3_curragh",	sokf_invisible, "0", "0", []),
+ ("dyn_ship_cage_right_3_skeid2",	sokf_invisible, "0", "0", []),
+ ("dyn_ship_cage_right_3_end",0, 0, 0, []),
+ ("dyn_ship_cage_left_busse",	sokfs_ship_cage, "0", "bo_busse_cage_left", []),  
+ ("dyn_ship_cage_left_skeid",	sokfs_ship_cage, "0", "bo_hedeby1_cage_left", []),
+ ("dyn_ship_cage_left_karvi",	sokfs_ship_cage, "0", "bo_navis_iusoria_cage_left", []),
+ ("dyn_ship_cage_left_snekkja",	sokfs_ship_cage, "0", "bo_snekkja_cage_left", []),
+ ("dyn_ship_cage_left_knorr",	sokfs_ship_cage, "0", "bo_knorr_cage_left", []),
+ ("dyn_ship_cage_left_byrding",	sokfs_ship_cage, "0", "bo_byrding_cage_left", []),
+ ("dyn_ship_cage_left_curragh",	sokf_invisible, "0", "0", []),
+ ("dyn_ship_cage_left_skeid2",	sokf_invisible, "0", "0", []),
+ ("dyn_ship_cage_left_end",0, 0, 0, []),
+ ("dyn_ship_cage_left_2_busse",		sokfs_ship_cage, "0", "bo_busse_cage_left2", []),  
+ ("dyn_ship_cage_left_2_skeid",		sokfs_ship_cage, "0", "bo_hedeby1_cage_left2", []),
+ ("dyn_ship_cage_left_2_karvi",		sokfs_ship_cage, "0", "bo_navis_iusoria_cage_left2", []),
+ ("dyn_ship_cage_left_2_snekkja",	sokfs_ship_cage, "0", "bo_snekkja_cage_left2", []),
+ ("dyn_ship_cage_left_2_knorr",		sokfs_ship_cage, "0", "bo_knorr_cage_left2", []),
+ ("dyn_ship_cage_left_2_byrding",	sokf_invisible, "0", "0", []),
+ ("dyn_ship_cage_left_2_curragh",	sokf_invisible, "0", "0", []),
+ ("dyn_ship_cage_left_2_skeid2",	sokf_invisible, "0", "0", []),
+ ("dyn_ship_cage_left_2_end",0, 0, 0, []),
+ ("dyn_ship_cage_left_3_busse",		sokfs_ship_cage, "0", "bo_busse_cage_left3", []),  
+ ("dyn_ship_cage_left_3_skeid",		sokfs_ship_cage, "0", "bo_hedeby1_cage_left3", []),
+ ("dyn_ship_cage_left_3_karvi",		sokf_invisible, "0", "0", []),
+ ("dyn_ship_cage_left_3_snekkja",	sokf_invisible, "0", "0", []),
+ ("dyn_ship_cage_left_3_knorr",		sokf_invisible, "0", "0", []),
+ ("dyn_ship_cage_left_3_byrding",	sokf_invisible, "0", "0", []),
+ ("dyn_ship_cage_left_3_curragh",	sokf_invisible, "0", "0", []),
+ ("dyn_ship_cage_left_3_skeid2",	sokf_invisible, "0", "0", []),
+ ("dyn_ship_cage_left_3_end",0, 0, 0, []),
+ ("dyn_ship_cage_main_busse",	sokfs_ship_cage, "0", "bo_busse_cage_main", []),  
+ ("dyn_ship_cage_main_skeid",	sokfs_ship_cage, "0", "bo_hedeby1_cage_main", []),
+ ("dyn_ship_cage_main_karvi",	sokfs_ship_cage, "0", "bo_navis_iusoria_cage_main", []),
+ ("dyn_ship_cage_main_snekkja",	sokfs_ship_cage, "0", "bo_snekkja_cage_main", []),
+ ("dyn_ship_cage_main_knorr",	sokfs_ship_cage, "0", "bo_knorr_cage_main", []), 
+ ("dyn_ship_cage_main_byrding",	sokfs_ship_cage, "0", "bo_byrding_cage_main", []),
+ ("dyn_ship_cage_main_curragh",	sokf_invisible, "0", "0", []),
+ ("dyn_ship_cage_main_skeid2",	sokf_invisible, "0", "0", []),
+ ("dyn_ship_cage_main_end",0, 0, 0, []), 
+ #Cargo for ships:
+ ("cargo_0_knorr",		sokf_dynamic, "knorr_cover", "0", []),
+ ("cargo_1_knorr",		sokf_moveable, "knorr_cargo", "bo_knorr_cargo", []),
+ ("cargo_1_byrding",	sokf_dynamic, "byrding_cargo", "0", []),
+  ("z_entry_ship",			sokf_invisible,"0","0",[(ti_on_init_scene_prop,[])]),
+  ("z_entry_ship_small",	sokf_invisible,"0","0",[(ti_on_init_scene_prop,[])]),
+
 
 ]

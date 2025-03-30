@@ -1283,3 +1283,6 @@ g_latest_character_relation_entry
 g_jrider_last_checked_indicator
 g_autoloot
 g_next_pay_time
+adovacrius_dialog
+benga_dialog
+heruli_dialog

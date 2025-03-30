@@ -1031,4 +1031,95 @@ particle_systems = [
      0.5                        #rotation damping
     ),
 
+		##### WATER HIT ######
+		
+		("water_hit_a", psf_billboard_3d | psf_randomize_size | psf_randomize_rotation | psf_global_emit_dir, "prtcl_splash_b",
+        80, 1.5, 4, 0.8, 0, 0, #num_particles, life, damping, gravity_strength, turbulance_size, turbulance_strength
+        (0.0, 1), (1, 0),     #alpha keys
+        (0.0, 0.95), (1, 0.95),          #red keys
+        (0.0, 0.90), (1, 0.90),           #green keys
+        (0.0, 0.70), (1, 0.70),          #blue keys
+        (0, 0.3), (1, 2),  #scale keys
+        (0, 0, 0),         #emit box size
+        (0, 0, 6),               #emit velocity
+        0,                      #emit dir randomness
+        100,                     #rotation speed
+        0.2                       #rotation damping
+        ),
+		
+		("water_hit_b",psf_randomize_size | psf_randomize_rotation | psf_turn_to_velocity|psf_global_emit_dir, "prtcl_splash_b",
+        4, 3, 0, 0, 0, 0, #num_particles, life, damping, gravity_strength, turbulance_size, turbulance_strength
+        (0.0, 1), (1, 0),     #alpha keys
+        (0.0, 0.95), (1, 0.95),          #red keys
+        (0.0, 0.90), (1, 0.90),           #green keys
+        (0.0, 0.70), (1, 0.70),          #blue keys
+        (0, 1), (1, 5),  #scale keys
+        (0.1, 0.1, 0),         #emit box size
+        (0, 0, -0.01),               #emit velocity
+        0,                      #emit dir randomness
+        25,                     #rotation speed
+        0.15                       #rotation damping
+        ),
+
+#madsci vs sea battles
+#phaiak begin sea battles chief
+    ("front_water", psf_billboard_3d|psf_randomize_size|psf_randomize_rotation, "prtcl_splash_b",
+	#("front_water", psf_randomize_size|psf_randomize_rotation|psf_emit_at_water_level, "prtcl_splash_b",
+     10, 1, 6, 4, 5, 2,     #num_particles, life, damping, gravity_strength, turbulance_size, turbulance_strength
+     (0.2, 1), (1, 0),        #alpha keys
+     (1, 1.0), (1, 1.0),      #red keys
+     (1, 1.0), (1, 1.0),      #green keys
+     (1, 1.0), (1, 1.0),      #blue keys
+     (0.2, 2),   (1, 0),   #scale keys
+     (-1, 0.2, 0.5),           #emit box size
+     (3, 0, 7),               #emit velocity
+     0.2,                       #emit dir randomness
+     30,                       #rotation speed
+     0.5                        #rotation damping
+    ),
+
+    ("front_water_2", psf_emit_at_water_level, "prt_foam_a_new",	#"prtcl_splash_b",	#psf_randomize_size|
+     2, 2, 0.15, 0, 0, 0,     #num_particles, life, damping, gravity_strength, turbulance_size, turbulance_strength
+     (0.1, 0.3), (1, 0),        #alpha keys
+     (1, 1.0), (1, 1.0),      #red keys
+     (1, 1.0), (1, 1.0),      #green keys
+     (1, 1.0), (1, 1.0),      #blue keys
+     (0.1, 3.0), (1, 2.0),   #scale keys
+     (0, 0, 0),           	#emit box size
+     (0, 1, 0),               #emit velocity
+     0,                       #emit dir randomness
+     0,                       #rotation speed
+     0.1                        #rotation damping
+    ),
+	
+    ("heck_water", psf_emit_at_water_level, "prt_foam_a_new",	#"prtcl_splash_b",	#psf_randomize_size|
+     1, 13, 0.3, 0, 0, 0,     #num_particles, life, damping, gravity_strength, turbulance_size, turbulance_strength
+     (0.1, 0.2), (1, 0),        #alpha keys
+     (1, 1), (1, 1),      #red keys
+     (1, 1), (1, 1),      #green keys
+     (1, 1), (1, 1),      #blue keys
+     (0.1, 5.0), (1, 6.0),   #scale keys
+     (0, 0, 0),           #emit box size
+     (0, 0.5, 0),               #emit velocity
+     0,                       #emit dir randomness
+     0,                       #rotation speed
+     0.1                        #rotation damping
+    ),
+	
+    ("ocean_wave", psf_emit_at_water_level, "prt_foam_a_new",
+     1, 3, 0, 0, 0, 0,     #num_particles, life, damping, gravity_strength, turbulance_size, turbulance_strength
+     (0.5, 0.5), (1, 0),        #alpha keys
+     (1, 1), (1, 1),      #red keys
+     (1, 1), (1, 1),      #green keys
+     (1, 1), (1, 1),      #blue keys
+     (0.1, 10), (1, 9),   #scale keys
+     (0, 0, 0),           #emit box size
+     (0, 2, 0),               #emit velocity
+     0,                       #emit dir randomness
+     0,                       #rotation speed
+     0                       #rotation damping
+    ),
+	
+#phaiak end
+
 ]

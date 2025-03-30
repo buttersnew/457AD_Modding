@@ -699,23 +699,37 @@ tableaus = [
     (cur_tableau_set_camera_parameters, 0, 200, 200, 0, 100000),
        ]),
 
-  ("oval_shield_tableau", 0, "oval_shield_1", 1024, 1024, 0, 0, 0, 0,
+  #("oval_shield_tableau", 0, "oval_shield_1", 1024, 1024, 0, 0, 0, 0,
+  # [
+  #     (store_script_param, ":banner_mesh", 1),
+  #     (set_fixed_point_multiplier, 100),
+  #     (init_position, pos1),
+  #     (position_set_x, pos1, -46),
+  #     (position_set_y, pos1, 180.5),
+  #     (cur_tableau_add_mesh, ":banner_mesh", pos1, 140, 0),
+  #     (init_position, pos1),
+  #     (position_set_z, pos1, 20),
+  #     (cur_tableau_add_mesh, "mesh_tableau_mesh_oval_shield", pos1, 0, 0),
+  #     (cur_tableau_set_camera_parameters, 0, 200, 200, 0, 100000),
+  #]),
+
+  ("oval_shield_tableau", 0, "oval_shields_white_1", 1024, 1024, 0, 0, 0, 0,
    [
        (store_script_param, ":banner_mesh", 1),
 
        (set_fixed_point_multiplier, 100),
 
        (init_position, pos1),
-       (position_set_x, pos1, -46),
-       (position_set_y, pos1, 180.5),
+       (position_set_x, pos1, -49.75),
+       (position_set_y, pos1, 186.5),
        (cur_tableau_add_mesh, ":banner_mesh", pos1, 140, 0),
        (init_position, pos1),
        (position_set_z, pos1, 20),
-       (cur_tableau_add_mesh, "mesh_tableau_mesh_oval_shield", pos1, 0, 0),
+       (cur_tableau_add_mesh, "mesh_tableau_mesh_oval_shields", pos1, 0, 0),
        (cur_tableau_set_camera_parameters, 0, 200, 200, 0, 100000),
   ]),
 
-  ("oval_shield_tableau_color", 0, "oval_shield_1", 1024, 1024, 0, 0, 0, 0,
+  ("oval_shield_tableau_color", 0, "oval_shields_white_1", 1024, 1024, 0, 0, 0, 0,
    [
     (store_script_param, ":banner_mesh", 1),
 
@@ -728,12 +742,158 @@ tableaus = [
     (init_position, pos1),
     (position_set_z, pos1, 10),
     (val_div, ":banner_mesh", 1000),
-    (val_add, ":banner_mesh", "mesh_tableau_mesh_oval_shield"),
+    (val_add, ":banner_mesh", "mesh_tableau_mesh_oval_shields"),
     (assign, reg3, ":banner_mesh"),
     (cur_tableau_add_mesh, ":banner_mesh", pos1, 0, 0),
     (cur_tableau_set_camera_parameters, 0, 200, 200, 0, 100000),
        ]),
 
+  ("icon_roman_footman", 0, "sample_roman_chars", 1024, 1024, 0, 0, 0, 0, [
+    (store_script_param, ":leader_troop", 1),
+    (set_fixed_point_multiplier, 100),
+    #(assign,":arms_mesh", arms_default),
+    #(assign, ":background_color", banner_bg_default),
+    
+    (try_begin),
+      (ge, ":leader_troop", 0),
+      
+      (troop_get_slot, ":banner_index", ":leader_troop", slot_troop_banner_scene_prop),
+      (is_between, ":banner_index", banner_scene_props_begin, banner_scene_props_end_minus_one),
+      
+      (val_sub, ":banner_index", banner_scene_props_begin),
+      (troop_get_slot, reg0, "trp_banner_background_color_array", ":banner_index"),
+      #(store_add, ":arms_mesh", arms_meshes_begin, ":banner_index"),
+      
+      (gt, reg0, 0),
+      (assign, ":background_color", reg0),
+    (try_end),
+    
+    (cur_tableau_set_background_color, ":background_color"),
+    
+    (set_fixed_point_multiplier, 1000),
+    (init_position, pos1),
+    (position_set_x, pos1, 615),
+    (position_set_y, pos1, -299),
+    (set_fixed_point_multiplier, 100),
+    
+    (position_get_scale_y, reg0, pos1), #amazingly, this corrects distortion
+    (val_mul, reg0, 445),
+    (val_div, reg0, 1000),
+    (position_set_scale_y, pos1, reg0),
+    
+    #(cur_tableau_add_mesh, ":arms_mesh", pos1, 30),
+  
+    (init_position, pos1),
+    (position_set_x, pos1, 48),
+    (position_set_y, pos1, -37),
+    (position_set_z, pos1, 10),
+    
+    (cur_tableau_add_mesh_with_vertex_color, "mesh_white_bg_plane_a", pos1, 250, 100, ":background_color"),  #back of shield
+    
+    (init_position, pos1),
+    (position_set_z, pos1, 20),
+    (cur_tableau_add_mesh, "mesh_tableau_roman_chars", pos1, 0),
+    
+    (cur_tableau_set_camera_parameters, 0, 200, 100, 0, 100000),
+  ]),
+
+  ("icon_german_footman", 0, "sample_german_chars", 1024, 1024, 0, 0, 0, 0, [
+    (store_script_param, ":leader_troop", 1),
+    (set_fixed_point_multiplier, 100),
+    #(assign,":arms_mesh", arms_default),
+    #(assign, ":background_color", banner_bg_default),
+    
+    (try_begin),
+      (ge, ":leader_troop", 0),
+      
+      (troop_get_slot, ":banner_index", ":leader_troop", slot_troop_banner_scene_prop),
+      (is_between, ":banner_index", banner_scene_props_begin, banner_scene_props_end_minus_one),
+      
+      (val_sub, ":banner_index", banner_scene_props_begin),
+      (troop_get_slot, reg0, "trp_banner_background_color_array", ":banner_index"),
+      #(store_add, ":arms_mesh", arms_meshes_begin, ":banner_index"),
+      
+      (gt, reg0, 0),
+      (assign, ":background_color", reg0),
+    (try_end),
+    
+    (cur_tableau_set_background_color, ":background_color"),
+    
+    (set_fixed_point_multiplier, 1000),
+    (init_position, pos1),
+    (position_set_x, pos1, 615),
+    (position_set_y, pos1, -299),
+    (set_fixed_point_multiplier, 100),
+    
+    (position_get_scale_y, reg0, pos1), #amazingly, this corrects distortion
+    (val_mul, reg0, 445),
+    (val_div, reg0, 1000),
+    (position_set_scale_y, pos1, reg0),
+    
+    #(cur_tableau_add_mesh, ":arms_mesh", pos1, 30),
+  
+    (init_position, pos1),
+    (position_set_x, pos1, 48),
+    (position_set_y, pos1, -37),
+    (position_set_z, pos1, 10),
+    
+    (cur_tableau_add_mesh_with_vertex_color, "mesh_white_bg_plane_a", pos1, 250, 100, ":background_color"),  #back of shield
+    
+    (init_position, pos1),
+    (position_set_z, pos1, 20),
+    (cur_tableau_add_mesh, "mesh_tableau_german_chars", pos1, 0),
+    
+    (cur_tableau_set_camera_parameters, 0, 200, 100, 0, 100000),
+  ]),
+
+  ("icon_caucasian_footman", 0, "sample_caucasian_chars", 1024, 1024, 0, 0, 0, 0, [
+    (store_script_param, ":leader_troop", 1),
+    (set_fixed_point_multiplier, 100),
+    #(assign,":arms_mesh", arms_default),
+    #(assign, ":background_color", banner_bg_default),
+    
+    (try_begin),
+      (ge, ":leader_troop", 0),
+      
+      (troop_get_slot, ":banner_index", ":leader_troop", slot_troop_banner_scene_prop),
+      (is_between, ":banner_index", banner_scene_props_begin, banner_scene_props_end_minus_one),
+      
+      (val_sub, ":banner_index", banner_scene_props_begin),
+      (troop_get_slot, reg0, "trp_banner_background_color_array", ":banner_index"),
+      #(store_add, ":arms_mesh", arms_meshes_begin, ":banner_index"),
+      
+      (gt, reg0, 0),
+      (assign, ":background_color", reg0),
+    (try_end),
+    
+    (cur_tableau_set_background_color, ":background_color"),
+    
+    (set_fixed_point_multiplier, 1000),
+    (init_position, pos1),
+    (position_set_x, pos1, 615),
+    (position_set_y, pos1, -299),
+    (set_fixed_point_multiplier, 100),
+    
+    (position_get_scale_y, reg0, pos1), #amazingly, this corrects distortion
+    (val_mul, reg0, 445),
+    (val_div, reg0, 1000),
+    (position_set_scale_y, pos1, reg0),
+    
+    #(cur_tableau_add_mesh, ":arms_mesh", pos1, 30),
+  
+    (init_position, pos1),
+    (position_set_x, pos1, 48),
+    (position_set_y, pos1, -37),
+    (position_set_z, pos1, 10),
+    
+    (cur_tableau_add_mesh_with_vertex_color, "mesh_white_bg_plane_a", pos1, 250, 100, ":background_color"),  #back of shield
+    
+    (init_position, pos1),
+    (position_set_z, pos1, 20),
+    (cur_tableau_add_mesh, "mesh_tableau_caucasian_chars", pos1, 0),
+    
+    (cur_tableau_set_camera_parameters, 0, 200, 100, 0, 100000),
+  ]),
 
   # ("color_shirt_roman", 0, "roman_shirt_1", 1024, 1024, 0, 0, 0, 0,
   #  [
@@ -779,7 +939,7 @@ tableaus = [
   #   # (display_message, "@{reg3}&{reg1} = {reg2}", ":background_color"),
   #      ]),
 
-    ("heraldic_banner_03", 0, "missiles", 512, 256, 0, 0, 0, 0,
+    ("heraldic_banner_03", 0, "sample_banners", 512, 256, 0, 0, 0, 0,
         [
             (store_script_param, ":banner_mesh", 1),
             (set_fixed_point_multiplier, 100),
@@ -1360,6 +1520,20 @@ tableaus = [
     (position_set_z, pos1, 200),
     (cur_tableau_add_tableau_mesh, "tableau_troop_profile_alpha_mask", ":troop_no", pos1, 0, 0),
     ]),
+
+  ("faction_note_mesh_banner_religion", 0, "tableau_with_transparency", 1024, 1024, 0, 0, 200, 200,
+   [
+     (store_script_param, ":faction_no", 1),
+     (set_fixed_point_multiplier, 100),
+     (try_begin),
+       (faction_get_slot, ":cur_faction_banner", ":faction_no", slot_faction_banner),
+	(gt, ":cur_faction_banner", 0),
+       (init_position, pos1),
+       (position_set_y, pos1, 100),
+       (cur_tableau_add_mesh, ":cur_faction_banner", pos1, 0, 0),
+       (cur_tableau_set_camera_parameters, 0, 210, 210, 0, 100000),
+     (try_end),
+     ]),
 
   
 ]

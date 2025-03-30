@@ -82,8 +82,8 @@ fauna_kinds = [
   ("pine_2",fkf_plain|fkf_plain_forest|fkf_steppe|fkf_steppe_forest|fkf_tree|density(4),[["pine_2_a","bo_pine_2_a",("0","0")]]),
   ("pine_3",fkf_plain|fkf_plain_forest|fkf_steppe|fkf_steppe_forest|fkf_tree|density(4),[["pine_3_a","bo_pine_3_a",("0","0")]]),
   ("pine_4",fkf_plain|fkf_plain_forest|fkf_steppe|fkf_steppe_forest|fkf_tree|density(4),[["pine_4_a","bo_pine_4_a",("0","0")]]),
-  ("snowy_pine",fkf_snow|fkf_snow_forest|fkf_tree|density(3),[["acacia_a","bo_acacia_a",("0","0")]]),
-  ("snowy_pine_2",fkf_snow|fkf_snow_forest|fkf_tree|density(5),[["acacia_savana_a","bo_acacia_savana_a",("0","0")]]),
+  ("snowy_pine",fkf_snow|fkf_snow_forest|fkf_tree|density(3),[["pinus_med2","bo_pinus_med",("0","0")]]), #L'Aigle trees
+  ("snowy_pine_2",fkf_snow|fkf_snow_forest|fkf_tree|density(5),[["pinus_med","bo_pinus_med",("0","0")]]), #L'Aigle trees
   ("small_rock",fkf_plain|fkf_plain_forest|fkf_steppe|fkf_steppe_forest|fkf_realtime_ligting|fkf_rock|density(5),[["rock_c","bo_rock_c"],["rock_d","bo_rock_d"],["rock_e","bo_rock_e"],["rock_f","bo_rock_f"],["rock_g","bo_rock_g"],["rock_h","bo_rock_h"],["rock_i","bo_rock_i"],["rock_k","bo_rock_k"]]),
   ("rock_snowy",fkf_snow|fkf_snow_forest|fkf_realtime_ligting|fkf_rock|density(5),[
   ["sa_grass_rock_6","bo_sa_grass_rock_6"],
@@ -103,10 +103,10 @@ fauna_kinds = [
   ["rock1_snowy","bo_rock1"],
   ]),
 
-  ("tree_1",fkf_plain|fkf_plain_forest|fkf_steppe|fkf_steppe_forest|fkf_tree|density(4),[("tree_1_a","bo_tree_1_a",("0","0")),("tree_1_b","bo_tree_1_b",("0","0"))]),
-  ("tree_3",fkf_plain|fkf_plain_forest|fkf_steppe|fkf_steppe_forest|fkf_tree|density(4),[("tree_3_a","bo_tree_3_a",("0","0")),("tree_3_b","bo_tree_3_b",("0","0"))]),
-  ("tree_4",fkf_plain|fkf_plain_forest|fkf_steppe|fkf_steppe_forest|fkf_tree|density(4),[("tree_4_a","bo_tree_4_a",("0","0")),("tree_4_b","bo_tree_4_b",("0","0"))]),
-  ("tree_5",fkf_plain|fkf_plain_forest|fkf_steppe|fkf_steppe_forest|fkf_tree|density(4),[("tree_5_a","bo_tree_5_a",("0","0")),("tree_5_b","bo_tree_5_b",("0","0")),("tree_5_c","bo_tree_5_c",("0","0")),("tree_5_d","bo_tree_5_d",("0","0"))]),
+  ("tree_1",fkf_plain|fkf_plain_forest|fkf_steppe|fkf_steppe_forest|fkf_tree|density(4),[("pinus_nigra","bo_pinus_nigra",("0","0")),("pinus_nigra","bo_pinus_nigra",("0","0"))]), #L'Aigle trees
+  ("tree_3",fkf_plain|fkf_plain_forest|fkf_steppe|fkf_steppe_forest|fkf_tree|density(4),[("hhy_birch_1","bo_hhy_birch",("0","0")),("hhy_birch_2","bo_hhy_birch",("0","0"))]), #DAC trees
+  ("tree_4",fkf_plain|fkf_plain_forest|fkf_steppe|fkf_steppe_forest|fkf_tree|density(4),[("pinus_1","bo_pinus_1",("0","0")),("pinus_1","bo_pinus_1",("0","0"))]), #L'Aigle trees
+  ("tree_5",fkf_plain|fkf_plain_forest|fkf_steppe|fkf_steppe_forest|fkf_tree|density(4),[("abies_1","bo_abies_1",("0","0")),("abies_2","bo_abies_2",("0","0")),("abies_3","bo_abies_3",("0","0")),("abies_4","bo_abies_4",("0","0"))]), #L'Aigle trees
   ("tree_6",fkf_plain|fkf_plain_forest|fkf_steppe|fkf_steppe_forest|fkf_tree|density(4),[("tree_6_a","bo_tree_6_a",("0","0")),("tree_6_b","bo_tree_6_b",("0","0")),("tree_6_c","bo_tree_6_c",("0","0")),("tree_6_d","bo_tree_6_d",("0","0"))]),
   ("tree_7",fkf_plain|fkf_plain_forest|fkf_steppe|fkf_steppe_forest|fkf_tree|density(4),[("tree_7_a","bo_tree_7_a",("0","0")),("tree_7_b","bo_tree_7_b",("0","0")),("tree_7_c","bo_tree_7_c",("0","0"))]),
   ("tree_8",fkf_plain|fkf_plain_forest|fkf_steppe|fkf_steppe_forest|fkf_tree|density(4),[("tree_8_a","bo_tree_8_a",("0","0")),("tree_8_b","bo_tree_8_b",("0","0")),("tree_8_c","bo_tree_8_c",("0","0"))]),
@@ -149,7 +149,7 @@ fauna_kinds = [
 
   ("tree_plane",fkf_plain|fkf_plain_forest|fkf_steppe|fkf_steppe_forest|fkf_tree|density(4),[("tree_18_a","bo_tree_18_a",("0","0")),("tree_18_b","bo_tree_18_b",("0","0"))]),
   ("tree_19",fkf_plain|fkf_plain_forest|fkf_steppe|fkf_steppe_forest|fkf_tree|density(4),[("tree_19_a","bo_tree_19_a",("0","0"))]),
-  ("beech",fkf_plain|fkf_plain_forest|fkf_steppe|fkf_steppe_forest|fkf_tree|density(3),[("tree_20_a","bo_tree_20_a",("0","0")),("tree_20_b","bo_tree_20_b",("0","0"))]),
+  ("beech",fkf_plain|fkf_plain_forest|fkf_steppe|fkf_steppe_forest|fkf_tree|density(3),[("tree_20_a","bo_tree_20_a",("0","0")),("tree_20_b","bo_tree_20_b",("0","0")),("hhy_beech","bo_hhy_beech",("0","0"))]), #DAC trees
 
   ("tall_tree",fkf_plain|fkf_plain_forest|fkf_steppe|fkf_steppe_forest|fkf_tree|density(4),[("tall_tree_a","bo_tall_tree_a",("0","0"))]),
 
@@ -230,6 +230,9 @@ fauna_kinds = [
   ["crusader_big_bush_b_2","0"],
   ["crusader_big_bush_b_3","0"],
   ]),
+
+  #("pine_steppe_1",fkf_steppe|fkf_steppe_forest|fkf_tree|density(4),[("pinus_sylv","bo_pinus_sylv",("0","0")),("pinus_sylv2","bo_pinus_sylv2",("0","0")),("pinus_sylv3","bo_pinus_sylv3",("0","0"))]), #L'Aigle trees
+  #("pine_steppe_2",fkf_steppe|fkf_steppe_forest|fkf_tree|density(4),[("pinus_eastern","bo_pinus_eastern",("0","0")),("pinus_eastern2","bo_pinus_eastern2",("0","0"))]), #L'Aigle trees
 
 ]
 

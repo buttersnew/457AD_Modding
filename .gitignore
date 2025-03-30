@@ -3,3 +3,6 @@
 #as it seems, ID files are necessary
 #however we can ignore those files
 *.pyc
+map_editor
+campaign_maps
+quest_files

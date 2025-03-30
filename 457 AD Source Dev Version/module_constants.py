@@ -86,7 +86,7 @@ slot_agent_duel_start_time        = 22
 
 slot_agent_walker_occupation      = 23
 slot_agent_bought_horse           = 24
-slot_agent_is_poisoned            = 25    
+slot_agent_is_poisoned            = 25
 #slot_possessed = 100
 #slot_real_troop = 101
 
@@ -112,6 +112,12 @@ slot_agent_direction        = 41
 slot_agent_banner           = 42
 
 slot_agent_horse_rider      = 43
+
+slot_agent_berserk_modeon         = 44	#berserker chief mode on
+slot_agent_berserk_use_cooldown   = 45
+slot_agent_berserk_cooldown       = 46
+
+slot_agent_talked = 47
 #slot_agent_new_division = 46
 
 ########################################################
@@ -238,16 +244,16 @@ slot_faction_morale_of_player_troops    = 99
 slot_faction_tributary_of	            = 100
 
 #diplomacy
-slot_faction_truce_days_with_factions_begin             = 120
-slot_faction_provocation_days_with_factions_begin         = 150 #30 more than before, because we have 26 kingdoms
-slot_faction_war_damage_inflicted_on_factions_begin     = 180 #30 more than before, because we have 26 kingdoms
-slot_faction_sum_advice_about_factions_begin             = 210 #30 more than before, because we have 26 kingdoms
+slot_faction_truce_days_with_factions_begin             = 820
+slot_faction_provocation_days_with_factions_begin         = 920 #50 more than before, because we have 32 kingdoms
+slot_faction_war_damage_inflicted_on_factions_begin     = 1020 #50 more than before, because we have 32 kingdoms
+slot_faction_sum_advice_about_factions_begin             = 1120 #50 more than before, because we have 32 kingdoms
 ##diplomacy start+ end-points for the ranges for iteration and range checks
 slot_faction_truce_days_with_factions_end 			= slot_faction_provocation_days_with_factions_begin
 slot_faction_provocation_days_with_factions_end 		= slot_faction_war_damage_inflicted_on_factions_begin
 slot_faction_war_damage_inflicted_on_factions_end 	= slot_faction_sum_advice_about_factions_begin
-slot_faction_sum_advice_about_factions_end            = 240
-slot_faction_neighbors_begin    = 241    #MOTO chief avoid center2 loop by storing results
+slot_faction_sum_advice_about_factions_end            = 1220
+slot_faction_neighbors_begin    = 1320    #MOTO chief avoid center2 loop by storing results
 ##diplomacy end+
 
 slot_faction_player_tributary               = 299
@@ -401,6 +407,9 @@ slot_party_last_toll_paid_hours = 52
 slot_party_food_store           = 53 #used for sieges
 slot_center_is_besieged_by      = 54 #used for sieges
 slot_center_last_spotted_enemy  = 55
+
+castle_food_days        = 8
+town_food_days          = 12
 
 slot_party_cached_strength        = 56
 slot_party_nearby_friend_strength = 57
@@ -584,7 +593,7 @@ walled_center_improvements_begin 			 = slot_center_has_messenger_post
 walled_center_improvements_end               = slot_center_has_temple_god
 
 number_of_buildings_town =    walled_center_improvements_end - walled_center_improvements_begin
-number_of_buildings_village = village_improvements_end - village_improvements_begin 
+number_of_buildings_village = village_improvements_end - village_improvements_begin
 
 
 # village_improvements_begin = slot_center_has_manor
@@ -712,7 +721,7 @@ slot_center_religion = 254 # 1 -roman christian, 2 -pagan, 3 arian, 4 zoroastria
 slot_party_been_sacked	= 255
 #slot_center_support_roman = 235 #Old system, now unused
 #slot_center_support_pagan = 236
-#slot_center_support_arian = 237 
+#slot_center_support_arian = 237
 #slot_center_support_zoroastrian = 238
 #slot_center_support_coptic = 239
 
@@ -735,12 +744,12 @@ slot_party_orders_time				    	= 267
 slot_party_temp_slot_1			            = 268 #right now used only within a single script, merchant_road_info_to_s42, to denote closed roads. Now also used in comparative scripts
 slot_party_under_player_suggestion			= 269 #move this up a bit
 
-slot_center_disease                         = 270
+slot_center_disease                         = 801
 
 #use only prime numbers
 disease_consumption_timer     = 2
 disease_consumption           = 5
-    
+
 disease_slow_fever_timer      = 7
 disease_slow_fever            = 10
 
@@ -759,7 +768,12 @@ disease_smallpox              = 30
 disease_greatpoxpox_timer     = 32
 disease_greatpoxpox           = 35
 
-slot_center_event                 = 271
+#madsci dont share slots so they dont get accidentally overwritten
+#slot_center_event                 = 271
+slot_center_event                 = 800
+slot_party_rebellion_timer = 811
+slot_party_rebellion_cooldown = 812
+slot_party_rebel_faction = 813
 
 slot_icon_backup        = 271
 slot_party_on_water     = 270
@@ -792,7 +806,18 @@ event_conquered           =   140
 slot_center_current_improvement_builder     = 272
 slot_center_current_improvement_2_builder   = 273
 
-slot_town_trade_good_prices_begin 			= 274
+#make sure stuff doesnt overwrite other stuff
+slot_town_trade_good_prices_begin 			= 1274
+
+slot_center_blockaded             = 275 #used for but a single value; global should be used
+slot_center_blockaded_time        = 276 #used for but a single value; global should be used
+slot_center_mantlets_placed       = 277 #used for but a single value; global should be used
+slot_center_latrines              = 278 #used for but a single value; global should be used
+slot_center_ladder_time           = 279 #used for but a single value; global should be used
+slot_center_infiltration_type     = 280 #used for but a single value; global should be used
+slot_center_starvation_time       = 281 #used for but a single value; global should be used
+
+slot_party_messenger_time         = 282 #used for but a single value; global should be used
 
 ##assume 50 trade goods
 #hence slots: 274-324 are for trade goods
@@ -969,9 +994,9 @@ slot_troop_original_faction     = 14 # for pretenders
 #slot_troop_loyalty              = 15 #deprecated - this is now derived from other figures
 #slot_troop_player_order_state   = 16 #Deprecated
 #slot_troop_player_order_object  = 17 #Deprecated
-slot_troop_rank	= 15 #used for the new rank system for romans, sassanids + other organized empires
-slot_troop_religion	= 16 #added from VC
-slot_troop_conv = 17 # conversion attempted 0-initial state, 1-tried&failed 2-converted
+#slot_troop_rank	= 15 #used for the new rank system for romans, sassanids + other organized empires
+slot_troop_religion	= 15 #added from VC
+slot_troop_conv = 16 # conversion attempted 0-initial state, 1-tried&failed 2-converted
 #troop_player order state are all deprecated in favor of party_order_state. This has two reasons -- 1) to reset AI if the party is eliminated, and 2) to allow the player at a later date to give orders to leaderless parties, if we want that
 
 
@@ -1248,6 +1273,38 @@ slot_troop_recent_offense_object           = 152 #to whom it happened
 slot_troop_recent_offense_time             = 153
 slot_troop_stance_on_faction_issue         = 154 #when it happened
 
+slot_troop_military_title                  = 155 #unique military title, allows for lord to have unique (stronger) party template
+slot_troop_honorary_title				   = 156 #honorary title for roman/post roman areas
+
+#shared between ERE + WRE
+mt_domestici = 1 #Comes Domesticorum
+mt_officiorum = 2 #Magister Officiorum
+#WRE
+mt_gallia = 3 #Magister Militum per Gallia
+mt_utriusque = 4 #Magister Utriusque Militiae
+mt_dalmatia = 5 #Comes Illyricum
+#lesser ranks
+mt_hispenias = 6 #Granted over Hispania, vacant (open to player if they own Emerita Augusta)
+mt_africae = 7 #Granted over Africa, vacant (open for player if they own carthage?)
+#ERE
+mt_praesentalis_1 = 8 #Magister Militum Praesentalis I - vacant at start
+mt_praesentalis_2 = 9 #Magister Militum Praesentalis II
+mt_orientem = 10 #Magister Militum per Orientem
+mt_thracias = 11 #Magister Militum per Thracias - vacant at start
+mt_illyricum = 12 #Magister Militum per Illyricum
+#lesser ranks
+mt_egypt = 13 #Comes Limits Aegypti
+mt_foenicis = 14 #Dux Foenicis
+mt_armeniae = 15 #Dux Armeniae
+mt_daciae = 16 #Dux Daciae Ripensis
+mt_palaestinae = 17 #Dux Palaestinae
+#Sassanid Persia
+mt_spahbed = 18 #Eran-Spahbed
+
+ht_clarissimus = 1 #first title
+ht_spectabilis = 2 #granted comes title
+ht_illustris = 3 #magister title
+
 tro_failed_to_join_army                    = 1
 tro_failed_to_support_colleague            = 2
 
@@ -1263,10 +1320,10 @@ slot_troop_will_join_prison_break      = 161
 #SB : 193 for npc as of 1.168
 troop_slots_reserved_for_relations_start        = 165 #this is based on id_troops, and might change
 
-slot_troop_relations_begin				= 0 #this creates an array for relations between troops
-											#Right now, lords start at 165 and run to around 290, including pretenders
-
-
+slot_troop_embedded_party = 1400
+slot_faction_description = 1449
+slot_faction_days_survived = 1450
+slot_troop_relations_begin = 1451
 
 ########################################################
 ##  PLAYER SLOTS           #############################
@@ -1350,7 +1407,7 @@ slto_kingdom_hero       = 2
 
 slto_player_companion   = 5 #This is specifically for companions in the employ of the player -- ie, in the party, or on a mission
 slto_kingdom_lady       = 6 #Usually inactive (Calradia is a traditional place). However, can be made potentially active if active_npcs are expanded to include ladies
-slto_kingdom_seneschal  = 7
+# slto_kingdom_seneschal  = 7
 slto_robber_knight      = 8
 slto_inactive_pretender = 9
 
@@ -1399,6 +1456,12 @@ slot_quest_target_dna               = 13
 slot_quest_target_item              = 14
 slot_quest_object_faction           = 15
 
+#only used for ernak quest
+slot_quest_target_onoguroi          = 13
+slot_quest_target_saraguroi         = 14
+slot_quest_target_kutriguroi        = 15
+
+
 slot_quest_target_state             = 16
 slot_quest_object_state             = 17
 
@@ -1413,6 +1476,9 @@ slot_quest_dont_give_again_remaining_days = 25
 slot_quest_failure_consequence      = 26
 slot_quest_temp_slot      			= 27
 slot_quest_delegate_level      		= 28 #SB : threshold for delegating quests, -1 for disable
+
+slot_quest_temp_slot_2 = 29
+slot_quest_temp_slot_3 = 30
 
 ########################################################
 ##  PARTY TEMPLATE SLOTS   #############################
@@ -1703,19 +1769,25 @@ cultures_end   = major_cultures_end #changed so the player is unable to select m
 ##diplomacy end+
 
 kingdoms_begin = "fac_player_supporters_faction"
-kingdoms_end = "fac_kingdoms_end"
+kingdoms_end = "fac_manhunters"
 
 npc_kingdoms_begin = "fac_kingdom_1"
 npc_kingdoms_end = kingdoms_end
 
+religions_begin = "fac_roman_christians"
+religions_end = "fac_religion_end"
+
 minor_kingdoms_begin = "fac_minor_aestii"
-minor_kingdoms_end = "fac_minor_factions_end"
+minor_kingdoms_end = religions_begin
 
 bandits_begin = "trp_looter"
 bandits_end = "trp_rich_bandit" #changed due to quest characters
 
+king_companions_begin = "trp_king_companion_1"
+king_companions_end = "trp_heroes_end"
+
 kingdom_ladies_begin = "trp_knight_1_1_wife"
-kingdom_ladies_end = "trp_heroes_end"
+kingdom_ladies_end = king_companions_begin
 
 #active NPCs in order: companions, kings, lords, pretenders
 
@@ -1738,7 +1810,8 @@ minor_kings_begin = "trp_aestii_king"
 minor_kings_end = "trp_aestii_merchant_1"
 
 minor_merchants_begin = "trp_aestii_merchant_1"
-minor_merchants_end = "trp_roman_landowner"
+minor_merchants_end = "trp_chal_bishop_jerusalem_1"
+
 #"active_npcs_begin replaces kingdom_heroes_begin to allow for companions to become lords. Includes anyone who may at some point lead their own party: the original kingdom heroes, companions who may become kingdom heroes, and pretenders. (slto_kingdom_hero as an occupation means that you lead a party on the map. Pretenders have the occupation "slto_inactive_pretender", even if they are part of a player's party, until they have their own independent party)
 #If you're a modder and you don't want to go through and switch every kingdom_heroes to active_npcs, simply define a constant: kingdom_heroes_begin = active_npcs_begin., and kingdom_heroes_end = active_npcs_end. I haven't tested for that, but I think it should work.
 
@@ -1746,7 +1819,10 @@ active_npcs_including_player_begin = "trp_kingdom_heroes_including_player_begin"
 original_kingdom_heroes_begin = "trp_kingdom_1_lord"
 
 heroes_begin = active_npcs_begin
-heroes_end = kingdom_ladies_end
+heroes_end = king_companions_end
+
+fake_npcs_begin = "trp_jewish_agitator"
+fake_npcs_end = "trp_no_troop"
 
 soldiers_begin = "trp_farmer"
 soldiers_end = "trp_town_walker_1"
@@ -1884,11 +1960,11 @@ number_of_villages       = p_salt_mine - p_village_1
 number_of_towns          = p_castle_1 - p_town_1
 number_of_walled_centers = number_of_towns+number_of_castles
 number_of_centers        = number_of_walled_centers + number_of_villages
-number_of_factions       = fac_kingdoms_end - fac_player_supporters_faction
+number_of_factions       = fac_manhunters - fac_player_supporters_faction
 number_of_active_npcs    = trp_knight_1_1_wife - trp_npc1
 
 training_grounds_begin   = "p_training_ground_1"
-training_grounds_end     = "p_looter_spawn_point"
+training_grounds_end     = "p_pyramid_1"
 
 scenes_begin = "scn_town_1_center"
 scenes_end = "scn_castle_1_exterior"
@@ -1911,7 +1987,7 @@ arena_masters_end      = "trp_town_1_armorer"
 
 #SB : replaced spelling of "gound"
 training_ground_trainers_begin    = "trp_trainer_1"
-training_ground_trainers_end      = "trp_ransom_broker_1"
+training_ground_trainers_end      = "trp_trainer_1"
 
 town_walkers_begin = "trp_town_walker_1"
 town_walkers_end = "trp_village_walker_1"
@@ -2090,7 +2166,7 @@ east_banners_begin_offset = 98
 east_banners_end_offset = 109
 
 brit_banners_begin_offset = 110
-brit_banners_end_offset = 115 
+brit_banners_end_offset = 115
 
 pict_banners_begin_offset = 116
 pict_banners_end_offset = 120
@@ -2368,13 +2444,13 @@ dplmc_slot_item_type_not_for_sell  = 71
 # These are troops slots
 ##diplomacy start+ Altered because 154 is slot_troop_stance_on_faction_issue.
 #(Companions can become lords, so parts of the auto-loot system had undesired consequences for promoted companions.)
-dplmc_slot_upgrade_armor = 155 #was 153 before Diplomacy 4.0
-dplmc_slot_upgrade_horse = 156 #was 154 before Diplomacy 4.0
+dplmc_slot_upgrade_armor = 814 #was 153 before Diplomacy 4.0
+dplmc_slot_upgrade_horse = 815 #was 154 before Diplomacy 4.0
 ##diplomacy end+
-dplmc_slot_upgrade_wpn_0 = 157
-dplmc_slot_upgrade_wpn_1 = 158
-dplmc_slot_upgrade_wpn_2 = 159
-dplmc_slot_upgrade_wpn_3 = 160
+dplmc_slot_upgrade_wpn_0 = 816
+dplmc_slot_upgrade_wpn_1 = 817
+dplmc_slot_upgrade_wpn_2 = 818
+dplmc_slot_upgrade_wpn_3 = 819
 
 dplmc_wpn_setting_1                 = 1
 dplmc_wpn_setting_2                 = 2
@@ -2784,7 +2860,7 @@ slot_team_d0_exists                     = 320
 #NEXT                                   = 329
 #Battlegroup slots end
 
-reset_team_stats_begin = slot_team_size  
+reset_team_stats_begin = slot_team_size
 reset_team_stats_end   = slot_team_d0_type
 
 minimum_ranged_ammo = 3	#below this not considered ranged type troop
@@ -2912,8 +2988,8 @@ Team3_Cavalry_Destination	= 59	#pos59
 #+FREELANCER start
 freelancer_version = 15
 #Floris or no Diplomacy:
-freelancer_can_use_item  = "script_dplmc_troop_can_use_item" 
-#with Diplomacy: 
+freelancer_can_use_item  = "script_dplmc_troop_can_use_item"
+#with Diplomacy:
 #freelancer_can_use_item = "script_dplmc_troop_can_use_item"
 
 #Party Slots #only used for freelancer_party_backup
@@ -2922,11 +2998,11 @@ slot_freelancer_version     = slot_freelancer_equip_start - 2 #only used for fre
 
 #Quest Slots
 #Only for Freelancer_Enlisted
-slot_quest_freelancer_start_xp       = slot_quest_object_state 
+slot_quest_freelancer_start_xp       = slot_quest_object_state
 slot_quest_freelancer_start_date     = slot_quest_target_state
 slot_quest_freelancer_banner_backup  = slot_quest_object_faction
 slot_quest_freelancer_next_payday    = slot_quest_target_item
-slot_quest_freelancer_upgrade_xp     = slot_quest_target_dna 
+slot_quest_freelancer_upgrade_xp     = slot_quest_target_dna
 slot_quest_freelancer_orig_morale    = slot_quest_giver_center
 
 #Non-Slot Constants for Quests
@@ -3005,30 +3081,25 @@ banner_background_black = 0x1c1c1c
 
 banner_bg_default = 0xFFC0B090
 
-slot_religion_chalcedonian = 1
-slot_religion_paganism = 2
-slot_religion_arianism = 3
-slot_religion_zoroastrianism = 4
-slot_religion_coptic = 5
+slot_religion_christian_chalcedonian = 0
+slot_religion_christian_arian = 1
+slot_religion_christian_miaphysite = 2
+slot_religion_christian_nestorian = 3
+slot_religion_christian_donatist = 4
+slot_religion_paganism = 5
 slot_religion_roman_paganism = 6
-
-#WRE
-slot_rank_none = 0 #none 
-slot_rank_gallia = 1 #Magister Militum per Gallia
-slot_rank_dalmatia = 2 #Used for Marcellenius
-slot_rank_utriusque = 3 #Highest WRE MM position, given to Ricimer
-#ERE
-slot_rank_praesentalis_1 = 4 #Anthemius at start
-slot_rank_praesentalis_2 = 5 #Aspar
-slot_rank_orientem = 6 #Ardabur
-slot_rank_egypt = 7 #Comes Limits Aegypti
-slot_rank_domestici = 8 #Comes Domesticorum
-slot_rank_officiorum = 9 #Magister Officiorum
-slot_rank_spahbed = 10 #Eran-Spahbed
-slot_rank_thracias = 11 #MM per Thracias
+slot_religion_zoroastrianism = 7
+slot_religion_zurvanism = 8
+slot_religion_judaism = 9
+#slot_religion_manichaeism = 10
 
 minor_towns_begin = "p_aestii_village"
 minor_towns_end   = "p_religious_site_1"
+
+religious_sites_begin   = "p_religious_site_1"
+religious_sites_end   = "p_religious_sites_end"
+ports_begin = "p_port_1"
+ports_end = "p_ports_end"
 
 Troop_Tree_Area_Height = Screen_Title_Height-4*Screen_Text_Height
 Troop_Tree_Area_Width = Screen_Width-2*Screen_Border_Width
@@ -3124,3 +3195,222 @@ region_mountain_europe_romania          =16
 region_mountain_europe_bohemia          =17
 ###END REGIONS
 #######################################
+
+#madsci make sure the party below is the last static party
+last_static_party = "p_boar_spawn_point"
+
+#madsci VC sea battles
+### PHAIAK begin ( sea battles chief
+slot_agent_on_ship                = 23
+slot_agent_position_on_ship       = 24
+### ) PHAIAK end
+
+# Phaiak begin
+slot_quest_menu_1					= 31
+slot_quest_menu_2					= 32
+slot_quest_menu_3					= 33
+slot_quest_menu_4					= 34
+slot_quest_menu_5					= 35
+slot_quest_menu_6					= 36
+slot_quest_menu_7					= 37
+slot_quest_menu_8					= 38
+slot_quest_menu_9					= 39
+slot_quest_menu_10					= 40
+slot_quest_menu_11					= 41
+slot_quest_menu_12					= 42
+slot_quest_menu_13					= 43
+slot_quest_menu_14					= 44
+slot_quest_menu_15					= 45
+slot_quest_menu_16					= 46
+slot_quest_menu_17					= 47
+slot_quest_menu_18					= 48
+slot_quest_menu_19					= 49
+slot_quest_menu_20					= 50
+slot_quest_menu_21					= 51
+slot_quest_menu_22					= 52
+slot_quest_menu_23					= 53
+slot_quest_menu_24					= 54
+slot_quest_menu_25					= 55
+slot_quest_menu_26					= 56
+slot_quest_menu_27					= 57
+# Phaiak end
+
+slot_quest_menu_begin = slot_quest_menu_1
+slot_quest_menu_end = slot_quest_menu_24 + 1
+
+# wound system
+slot_quest_int_penalty_left_days = slot_quest_menu_1
+slot_quest_cha_penalty_left_days = slot_quest_menu_2
+slot_quest_str_penalty_left_days = slot_quest_menu_3
+slot_quest_agi_penalty_left_days = slot_quest_menu_4
+slot_quest_end_penalty_left_days = slot_quest_menu_5
+
+slot_quest_int_penalty_fluid_points = slot_quest_menu_11
+slot_quest_cha_penalty_fluid_points = slot_quest_menu_12
+slot_quest_str_penalty_fluid_points = slot_quest_menu_13
+slot_quest_agi_penalty_fluid_points = slot_quest_menu_14
+slot_quest_end_penalty_fluid_points = slot_quest_menu_15
+
+slot_quest_int_penalty_perma_points = slot_quest_menu_21
+slot_quest_cha_penalty_perma_points = slot_quest_menu_22
+slot_quest_str_penalty_perma_points = slot_quest_menu_23
+slot_quest_agi_penalty_perma_points = slot_quest_menu_24
+slot_quest_end_penalty_perma_points = slot_quest_menu_25
+
+# spawn system
+slot_quest_team_0_spawn_troop1_type = slot_quest_menu_1
+slot_quest_team_0_spawn_troop2_type = slot_quest_menu_2
+slot_quest_team_0_spawn_troop3_type = slot_quest_menu_3
+slot_quest_team_0_spawn_troop4_type = slot_quest_menu_4
+slot_quest_team_0_spawn_troop5_type = slot_quest_menu_5
+slot_quest_team_0_spawn_troop1_count = slot_quest_menu_6
+slot_quest_team_0_spawn_troop2_count = slot_quest_menu_7
+slot_quest_team_0_spawn_troop3_count = slot_quest_menu_8
+slot_quest_team_0_spawn_troop4_count = slot_quest_menu_9
+slot_quest_team_0_spawn_troop5_count = slot_quest_menu_10
+
+slot_quest_team_1_spawn_troop1_type = slot_quest_menu_11
+slot_quest_team_1_spawn_troop2_type = slot_quest_menu_12
+slot_quest_team_1_spawn_troop3_type = slot_quest_menu_13
+slot_quest_team_1_spawn_troop4_type = slot_quest_menu_14
+slot_quest_team_1_spawn_troop5_type = slot_quest_menu_15
+slot_quest_team_1_spawn_troop1_count = slot_quest_menu_16
+slot_quest_team_1_spawn_troop2_count = slot_quest_menu_17
+slot_quest_team_1_spawn_troop3_count = slot_quest_menu_18
+slot_quest_team_1_spawn_troop4_count = slot_quest_menu_19
+slot_quest_team_1_spawn_troop5_count = slot_quest_menu_20
+
+slot_quest_team_0_ship_count = slot_quest_menu_21
+slot_quest_team_1_ship_count = slot_quest_menu_22
+
+slot_quest_1_ship_type	= slot_quest_menu_1
+slot_quest_2_ship_type	= slot_quest_menu_2
+slot_quest_3_ship_type	= slot_quest_menu_3
+slot_quest_4_ship_type	= slot_quest_menu_4
+slot_quest_5_ship_type	= slot_quest_menu_5
+slot_quest_6_ship_type	= slot_quest_menu_6
+slot_quest_7_ship_type	= slot_quest_menu_7
+
+slot_quest_1_ship_cond	= slot_quest_menu_11
+slot_quest_2_ship_cond	= slot_quest_menu_12
+slot_quest_3_ship_cond	= slot_quest_menu_13
+slot_quest_4_ship_cond	= slot_quest_menu_14
+slot_quest_5_ship_cond	= slot_quest_menu_15
+slot_quest_6_ship_cond	= slot_quest_menu_16
+slot_quest_7_ship_cond	= slot_quest_menu_17
+
+slot_quest_1_ship_prop	= slot_quest_menu_21
+slot_quest_2_ship_prop	= slot_quest_menu_22
+slot_quest_3_ship_prop	= slot_quest_menu_23
+slot_quest_4_ship_prop	= slot_quest_menu_24
+slot_quest_5_ship_prop	= slot_quest_menu_25
+slot_quest_6_ship_prop	= slot_quest_menu_26
+slot_quest_7_ship_prop	= slot_quest_menu_27
+
+#####sea battles chief phaiak empieza
+scene_prop_sail						= 6
+scene_prop_rowing				    = 7
+scene_prop_rudder				    = 8
+scene_prop_last_speed				= 9
+scene_prop_last_turn			    = 10
+scene_prop_wank_state			    = 11
+scene_prop_boarding_wanted		    = 12 # "-1"=no, "0"=yes, "1"=yes, also with friendly ships
+scene_prop_landing_wanted		    = 13 # "0"=no, "1"=yes
+scene_prop_boarding_left		    = 14
+scene_prop_boarding_right		    = 15
+scene_prop_boarding_progress	    = 16
+scene_prop_main_instance		    = 17
+scene_prop_ramp_right			    = 18
+scene_prop_ramp_2				    = 19
+scene_prop_boom_instance		    = 20
+scene_prop_max_speed		   		= 21
+scene_prop_max_x_rotation	   		= 22
+scene_prop_max_y_rotation 		    = 23
+scene_prop_distance_to_front	    = 24
+scene_prop_quality				    = 25
+scene_prop_collision_instance		= 26
+scene_prop_radius					= 27
+scene_prop_going_to_boarding_with	= 28
+scene_prop_timer					= 29
+scene_prop_ship_type				= 30
+scene_prop_ship_number				= 31
+scene_prop_sound					= 32
+scene_prop_slots_end                = 33
+scene_prop_lead_player              = 34
+scene_prop_ramp_left			    = 35
+scene_prop_cage_main			    = 36
+scene_prop_cage_left			    = 37
+scene_prop_cage_right			    = 38
+scene_prop_oar_state			    = 39
+scene_prop_crew_number			    = 40
+scene_prop_cargo_1				    = 41
+scene_prop_collision_2_instance		= 42
+scene_prop_cage_left_2			    = 43
+scene_prop_cage_left_3			    = 44
+scene_prop_cage_right_2			    = 45
+scene_prop_cage_right_3			    = 46
+scene_prop_timer_2					= 47
+scene_prop_timer_3					= 48
+
+scene_prop_ramp_1			  		= scene_prop_ramp_right
+scene_prop_y_cosinus			    = scene_prop_wank_state
+###phaiak acaba chief
+########################################################
+#ship types
+ship_type_busse		= 1
+ship_type_skei		= 2
+ship_type_karvi		= 3
+ship_type_snekkja	= 4
+ship_type_knorr		= 5
+ship_type_byrding	= 6
+#sea battle
+boarding_progress_peak_0 = 60
+boarding_progress_peak = 70
+slot_agent_vc_wounded             = 2038
+#Camera
+camera_trigger_interval = .1  #fastest trigger rate with 1000 agents in scene on my machine is 100 milliseconds
+camera_animation_time = camera_trigger_interval * 1300  #the actual call interval is often 20% longer
+camera_key_rotate_attenuator = 2
+camera_minimum_z = 150
+camera_minimum_pitch = 271
+camera_maximum_pitch = 450
+camera_effective_min_zoom = 35  #engine won't zoom in more than this (though the zoom "setting" will go as low as 1)
+camera_fixed_angle_h = 7  #fixed angle to targeted agents/props
+camera_fixed_angle_v = 6
+
+#Camera Bit Switches
+camera_manual          = 0x001
+camera_follow_terrain  = 0x002
+camera_reverse_y       = 0x004
+camera_pan_to_rotation = 0x008  #camera pans AFTER it is rotated
+camera_pan_back_forth  = 0x010  #camera command groups
+camera_pan_right_left  = 0x020
+camera_pan_up_down     = 0x040
+camera_rotate          = 0x080
+camera_target_agent    = 0x100
+camera_target_prop     = 0x200  #not yet implemented
+camera_game_slow       = 0x400
+first_time_death_camera    = 0x0001
+first_time_strategy_camera = 0x0002
+first_time_game_rules      = 0x0004
+first_time_doccinga        = 0x0008
+first_time_check_lairs     = 0x0010	#remove extra lairs VC 1.04 beta
+first_time_check_l_lairs   = 0x0020	#remove all looter lairs VC 1.04 beta
+first_time_check_l2_lairs  = 0x0040	#try again
+first_time_load_main_party = 0x0080  #this used in reverse
+first_time_cam_battle      = 0x0100
+first_time_hold_F1         = 0x0200
+first_time_formations      = 0x0400
+first_time_food_store      = 0x0800	#change food system after VC 2.0
+first_time_fix_centers     = 0x1000	#VC-3241
+first_time_fix_ports       = 0x2000	#VC-3829
+first_time_fix_home_center = 0x4000	#VC-3829
+first_time_redo_defectors  = 0x8000	#VC-3909
+dot_size        = 4000
+dot_spacing_div = 30
+dot_color       = 0x000000
+dot_alpha       = 0xC0  #75%
+player_func_none      = 0
+player_func_creeping  = 0x01
+player_func_trait     = 0x02
+player_func_horsecall = 0x04

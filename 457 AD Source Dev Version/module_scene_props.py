@@ -5027,7 +5027,7 @@ scene_props = [
     (store_trigger_param_1, ":gate_no"),
     (prop_instance_get_starting_position, pos1, ":gate_no"),
     (particle_system_burst,"psys_village_fire_smoke_big",pos1,40),
-    (position_rotate_x, pos1, 85),
+    (position_rotate_x, pos1, -85),
     (prop_instance_animate_to_position, ":gate_no", pos1, 400), #animate in 4 second
     (play_sound, "snd_dummy_destroyed"),
     (display_message,"@Gate is breached!"),

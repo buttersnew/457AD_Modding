@@ -4988,5 +4988,73 @@ scene_props = [
   ("z_entry_ship",			sokf_invisible,"0","0",[(ti_on_init_scene_prop,[])]),
   ("z_entry_ship_small",	sokf_invisible,"0","0",[(ti_on_init_scene_prop,[])]),
 
+("gate_destructible",sokf_destructible,"draw_bridge_a","bo_draw_bridge_a",   [
+ 
+  (ti_on_scene_prop_init, [
+   (store_trigger_param_1, ":instance_no"),
+   
+   #set health from var 2
+   (prop_instance_get_variation_id_2, ":health", ":instance_no"),
+    (try_begin),
+        (gt, ":health", 0), #if not assigned, get fallback health from scene prop entry (WB only)
+        (val_mul, ":health", 100),
+        (val_add, ":health",1000), #base health is 1000
+        (scene_prop_set_hit_points, ":instance_no", ":health"),
+    (try_end),
+    
+    #spawn gate aggravator
+    (prop_instance_get_starting_position, pos1, ":instance_no"),
+    (set_fixed_point_multiplier, 100),
+    (position_move_z, pos1, 100,1), #safeguard against aggravators spawning underground
+    (set_spawn_position, pos1),
+    (spawn_agent,"trp_tutorial_swordsman"), #just a random dude
+    (assign, ":gate_aggravator", reg0),
+    (agent_set_speed_limit, ":gate_aggravator", 0),
+    (agent_set_team, ":gate_aggravator", "$defender_team"),
+    (agent_set_visibility, ":gate_aggravator", 0),
+    (agent_set_damage_modifier, ":gate_aggravator",0),
+    (agent_set_no_dynamics, ":gate_aggravator",1),
+    (agent_set_no_death_knock_down_only, ":gate_aggravator", 1),
+    (scene_prop_set_slot, ":instance_no", slot_prop_agent_1, ":gate_aggravator"),
+    
+    #tutorial message for sceners: mission time check makes sure that this only appears if the prop is placed 
+    (store_mission_timer_a, ":time"),
+    (gt, ":time", 5),
+    (display_message, "@destructible gate: var1 checks for ai limiters with same var 1; var2*100+1000 is gate health"),
+   ]),
+   
+   (ti_on_scene_prop_destroy, [
+    (store_trigger_param_1, ":gate_no"),
+    (prop_instance_get_starting_position, pos1, ":gate_no"),
+    (particle_system_burst,"psys_village_fire_smoke_big",pos1,40),
+    (position_rotate_x, pos1, -85),
+    (prop_instance_animate_to_position, ":gate_no", pos1, 400), #animate in 4 second
+    (play_sound, "snd_dummy_destroyed"),
+    (display_message,"@Gate is breached!"),
+ 
+    (scene_prop_get_slot, ":gate_aggravator", ":gate_no", slot_prop_agent_1),
+    (agent_fade_out, ":gate_aggravator"),
+    
+    (scene_prop_get_num_instances,":max_barriers","spr_ai_limiter_gate_breached"),  #move away all dependent barriers, which are marked in var1
+    (try_begin),
+      (gt, ":max_barriers",0),
+      (try_for_range,":count",0,":max_barriers"),
+        (scene_prop_get_instance,":barrier_no", "spr_ai_limiter_gate_breached", ":count"),
+        (prop_instance_get_starting_position, pos1, ":barrier_no"),
+        (prop_instance_get_variation_id, ":var1", ":barrier_no"),
+        (prop_instance_get_variation_id, ":var1_gate", ":gate_no"),
+        (eq, ":var1", ":var1_gate"),
+        (position_move_z,pos1,-10000),
+        (prop_instance_set_position,":barrier_no",pos1),
+      (try_end),
+    (try_end),
+   ]),
+
+   (ti_on_scene_prop_hit,[
+    (play_sound, "snd_dummy_hit"),
+    (particle_system_burst, "psys_dummy_smoke", pos1, 3),
+    (particle_system_burst, "psys_dummy_straw", pos1, 10),
+    ]),
+]),
 
 ]

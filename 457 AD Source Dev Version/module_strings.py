@@ -7054,6 +7054,7 @@ Even in the last case, the player can make formations up to four lines by orderi
 ("desc_jews", "Judaism is a monotheistic religion centered on the belief in one transcendent God who revealed Himself to figures like Abraham and Moses. Jewish religious life is guided by Scriptures and rabbinic traditions, emphasizing adherence to the Mosaic covenant. They hold to the belief in a coming Messiah, a future anointed king who would restore Israel, rebuild the Temple in Jerusalem, and bring peace and justice to the world. The majority of Jews are now living in diaspora, with significant populations in the east as well in places like Alexandria, Babylon and Persia."),
 #description strings end
 
+("generic_lord_intro", "I am {s10}."),
 #utility for skill names
 ]+[
 ("skl_"+skills[x][0], skills[x][1]) for x in range(0, len(skills))]

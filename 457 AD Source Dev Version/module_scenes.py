@@ -514,7 +514,7 @@ scenes = [
     [],[],"outer_terrain_plain_2"),
 
   ("town_47_center",sf_generate,"none", "none",(0,0),(100,100),-100,"0x00000001300000000005194a000041ef00005ae800003c55",
-    [],[],"outer_terrain_plain_2"),
+    [],[],"outer_terrain_mountain"),
 
   ("town_1_castle",sf_indoors,"viking_interior_keep_a", "bo_viking_interior_keep_a", (-100,-100),(100,100),-100,"0",
     ["exit"],["town_1_seneschal"]),
@@ -1148,9 +1148,8 @@ scenes = [
     [],[],"outer_terrain_mountain"),
   ("town_46_walls",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000001300000000005194a000041ef00005ae800003c55",
     [],[],"outer_terrain_plain_2"),
-
-  ("town_47_walls",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000001300000000005194a000041ef00005ae800003c55",
-    [],[],"outer_terrain_plain_2"),
+  ("town_47_walls",sf_generate,"none", "none",(0,0),(100,100),-100,"0x00000000300005000007a1e800000b5400003ad100005795",
+    [],[],"outer_terrain_mountain"),
 
   ("town_1_alley",sf_generate,"none", "none", (0,0),(100,100),-100,"0x300bc5430001e0780000448a0000049f00007932",
     [],[],"outer_terrain_plain"),
@@ -1414,6 +1413,9 @@ scenes = [
     ["exit"],[]),
   ("castle_41_prison",sf_indoors,"interior_prison_h", "bo_interior_prison_h", (-100,-100),(100,100),-100,"0",
     [],[]),
+
+  ("venedi_town",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000220000500000d23480000540b000076c900003f3f", #dunepru scene, now reused for castle
+    [],[],"outer_terrain_forest"),
 
   # == Villages ==
   #Roman village templates:
@@ -1697,8 +1699,6 @@ scenes = [
   ("vidivarii_town",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000002a0000500000d234800007d8e00006aca00005ad8",
     [],[],"outer_terrain_plain"),
   ("iberian_town",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000130000500000aa2a8000035b600002c1b00002af9", #shared by both vascones + gallacians for now
-    [],[],"outer_terrain_forest"),
-  ("venedi_town",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000220000500000d23480000540b000076c900003f3f",
     [],[],"outer_terrain_forest"),
   ("saraguroi_town", sf_generate, "none", "none", (0, 0), (220, 220), -100, "0x0000000220000500000811ff00007c1000000733000040f4",
     [], [], "outer_terrain_steppe"),

@@ -5498,22 +5498,6 @@ troops = [
    def_attrib_lvl_13|level(13),wp_one_handed(210)|wp_polearm(100)|wp_firearm(150),knows_lvl_13|knows_power_strike_4,0x0000000f210134c04b0a8bcd75e6c72d00000000001d28a50000000000000000],
   ["indigenoi_noble_4","Zamma","Zamma",tf_hero,0,0,fac_indigenoi,   [itm_barb_cham_1,itm_sassanid_cavalry_boots_2,itm_common_mail_short_2,itm_burgh_helmet_1,itm_turban,itm_strong_hammer,itm_simple_shoes,itm_tunic_rich_7],
    def_attrib_lvl_13|level(13),wp_one_handed(210)|wp_polearm(100)|wp_firearm(150),knows_lvl_13|knows_power_strike_4,0x0000000d3f11448a12d40ca86276951400000000001e572b0000000000000000],
-<<<<<<< Updated upstream
-  # slav indie lord
-  ["indigenoi_noble_5","Theomar Adalulfing","Adalulfing",tf_hero,0,0,fac_indigenoi,   [itm_barb_cham_1,itm_khergit_leather_boots,itm_common_mail_short_2,itm_turaevo_helmet,itm_strong_hammer,itm_simple_shoes,itm_tunic_rich_7],
-   def_attrib_lvl_13|level(13),wp_one_handed(210)|wp_polearm(100)|wp_firearm(150),knows_lvl_13|knows_power_strike_4,0x00000006220063814ae155e90bf1455a00000000000556da0000000000000000],
-  # "polish" lord
-  ["indigenoi_noble_6","Rodereic Godaberting","Godaberting",tf_hero,0,0,fac_indigenoi, [itm_barb_cham_1,itm_khergit_leather_boots,itm_battered_mail_1,itm_gultlingen_helmet_plume,itm_concave_shield_germanic_17,itm_sword_viking_2,itm_simple_shoes,itm_tunic_rich_7],
-   def_attrib_lvl_13|level(13),wp_one_handed(210)|wp_polearm(100)|wp_firearm(150),knows_lvl_13|knows_power_strike_4,0x000000060b0c108236b38e4a59553ce600000000001d389d0000000000000000 ],
-  # dacian indie lord
-  ["indigenoi_noble_7","Mucaporis of the Carpi","of the Carpi",tf_hero,0,0,fac_indigenoi,   [itm_barb_cham_1,itm_khergit_leather_boots,itm_battered_mail_1,itm_burgh_helmet_1,itm_sword_viking_2,itm_simple_shoes,itm_tunic_rich_7],
-   def_attrib_lvl_13|level(13),wp_one_handed(210)|wp_polearm(100)|wp_firearm(150),knows_lvl_13|knows_power_strike_4,0x00000006070890c6386471d94b33372b00000000001446d10000000000000000],
-  # finnic indie lord (jaervi)
-  ["indigenoi_noble_8","Valta of the Phinnoi","of the Phinnoi",tf_hero,0,0,fac_indigenoi,   [itm_barb_cham_1,itm_khergit_leather_boots,itm_battered_mail_1,itm_burgh_helmet_1,itm_baltic_sword_1,itm_simple_shoes,itm_tunic_rich_7],
-   def_attrib_lvl_13|level(13),wp_one_handed(210)|wp_polearm(100)|wp_firearm(150),knows_lvl_13|knows_power_strike_4,0x000000061410048b56a3ca58a385bd5900000000001632db0000000000000000],
-  # moskva lord
-  ["indigenoi_noble_9","Kargata of the Merens","of the Merens",tf_hero,0,0,fac_indigenoi,   [itm_barb_cham_1,itm_khergit_leather_boots,itm_battered_mail_1,itm_suvorovsky_helmet_mail,itm_tarasovo_axe_1,itm_simple_shoes,itm_tunic_rich_7],
-=======
   # slav indie lord  
   ["indigenoi_noble_5","Theomar Adalulfing","Adalulfing",tf_hero,0,0,fac_indigenoi,   [itm_slav_heavy_forest_horse_2,itm_common_mail_short_2,itm_kerch_lamellenhelm_gilded,itm_hunnic_spatha,itm_obenaltendorf_shoes_2,itm_tunic_11_cloak],
    def_attrib_lvl_13|level(13),wp_one_handed(210)|wp_polearm(100)|wp_firearm(150),knows_lvl_13|knows_power_strike_4,0x00000006220063814ae155e90bf1455a00000000000556da0000000000000000],
@@ -5528,7 +5512,6 @@ troops = [
    def_attrib_lvl_13|level(13),wp_one_handed(210)|wp_polearm(100)|wp_firearm(150),knows_lvl_13|knows_power_strike_4,0x000000061410048b56a3ca58a385bd5900000000001632db0000000000000000],
   # moskva lord
   ["indigenoi_noble_9","Kargata of the Merens","of the Merens",tf_hero,0,0,fac_indigenoi,   [itm_slav_heavy_forest_horse_2,itm_battered_mail_1,itm_suvorovsky_helmet_mail,itm_tarasovo_axe_1,itm_simple_shoes,itm_tunic_rich_7],
->>>>>>> Stashed changes
    def_attrib_lvl_13|level(13),wp_one_handed(210)|wp_polearm(100)|wp_firearm(150),knows_lvl_13|knows_power_strike_4,0x00000006160453904b544592e3199cc300000000000edb1b0000000000000000],
 
   ##diplomacy end

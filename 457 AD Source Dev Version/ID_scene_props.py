@@ -1980,3 +1980,4 @@ spr_cargo_1_knorr = 1978
 spr_cargo_1_byrding = 1979
 spr_z_entry_ship = 1980
 spr_z_entry_ship_small = 1981
+spr_gate_destructible = 1982

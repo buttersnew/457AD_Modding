@@ -17,3 +17,5 @@ ip_division_placement = 15
 ip_formations = 16
 ip_religions = 17
 ip_aor_recruitment = 18
+
+

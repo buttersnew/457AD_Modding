@@ -26538,7 +26538,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         (troop_set_health,   "trp_player", ":health"),   #set it
       (try_end),
       (set_background_mesh, "mesh_pic_nord"),
-      (assign, "$g_enemy_party", "p_venedi_village_quest"),
+      (assign, "$g_enemy_party", "p_venedi_outpost_quest"),
       (assign, "$g_ally_party", -1),
       (call_script, "script_encounter_calculate_fit"),
     ],
@@ -26547,7 +26547,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         ],"To battle!",
         [
            (assign, "$g_battle_result", 0),
-           (modify_visitors_at_site,"scn_venedi_village"),
+           (modify_visitors_at_site,"scn_venedi_outpost"),
            (reset_visitors),
            (set_visitor,0,"trp_player"), #player
            (call_script, "script_party_count_fit_for_battle", "p_main_party"),
@@ -26558,14 +26558,14 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 
            (set_visitors,4,"trp_venedi_skirmisher", 20), #skirmishers, also up front
 
-          (jump_to_scene, "scn_venedi_village"),
+          (jump_to_scene, "scn_venedi_outpost"),
           (set_jump_mission,"mt_venedi_battle"),
           (change_screen_mission),
       ]),
     ]),
 
   (
-    "venedi_village",0,
+    "venedi_outpost",0,
     "{!}{s5}",
     "none",
     [
@@ -26615,7 +26615,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         (call_script, "script_change_player_honor", 2),
         (leave_encounter),
         (change_screen_return),
-        (disable_party, "p_venedi_village_quest"),
+        (disable_party, "p_venedi_outpost_quest"),
       ]),
     ]),
 
@@ -26631,7 +26631,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         (call_script, "script_change_troop_renown", "trp_player", -15),
         (call_script, "script_change_player_relation_with_troop", "trp_kingdom_15_lord", -5),
         (disable_party, "p_silingi_village"),
-        (disable_party, "p_venedi_village_quest"),
+        (disable_party, "p_venedi_outpost_quest"),
         (leave_encounter),
         (change_screen_return),
       ]),

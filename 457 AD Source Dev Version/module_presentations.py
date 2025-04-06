@@ -19451,6 +19451,20 @@ presentations = [
               (eq, "$current_town", "p_castle_69"),
               (eq, ":troop", "trp_cynocephalus"),
               (assign, ":c", 1),
+            (else_try), #venedi
+              (this_or_next|eq, "$current_town", "p_castle_103"),
+              (this_or_next|eq, "$current_town", "p_castle_107"),
+              (eq, "$current_town", "p_castle_111"),
+              (this_or_next|eq, ":troop", "trp_venedi_skirmisher"),
+              (this_or_next|eq, ":troop", "trp_venedi_warrior"),
+              (eq, ":troop", "trp_venedi_nobleman"),
+              (assign, ":c", 1),
+            (else_try), #sporoi
+              (this_or_next|eq, "$current_town", "p_town_47"),
+              (eq, "$current_town", "p_castle_105"),
+              (this_or_next|eq, ":troop", "trp_slav_archer"),
+              (eq, ":troop", "trp_slav_horsearcher"),
+              (assign, ":c", 1),
   ####################################################################
             #and now for the roman AOR!
             (else_try),
@@ -19760,12 +19774,6 @@ presentations = [
               (eq, "$current_town", "p_village_274"),
               (eq, ":troop", "trp_slav_horsearcher"),
               (assign, ":c", 1),
-            (else_try), #venedi
-              (eq, "$current_town", "p_venedi_outpost"),
-              (this_or_next|eq, ":troop", "trp_aestii_skirmisher"),
-              (this_or_next|eq, ":troop", "trp_aestii_tribesman"),
-              (eq, ":troop", "trp_slav_horsearcher"),
-              (assign, ":c", 1),
             (else_try), #gallic alans
               (this_or_next|eq, "$current_town", "p_alan_1_village"),
               (eq, "$current_town", "p_alan_2_village"),
@@ -19924,6 +19932,12 @@ presentations = [
                 (eq, ":troop", "trp_irish_warrior"),
                 (assign, ":c", 1),
               (else_try),
+                (eq, ":culture", "fac_culture_20"), #slavic
+                (this_or_next|eq, ":troop", "trp_slav_skirmisher"), #t1
+                (this_or_next|eq, ":troop", "trp_slav_footman"), 
+                (eq, ":troop", "trp_slav_horseman"),
+                (assign, ":c", 1),
+              (else_try),
                 (eq, ":culture", "fac_culture_empire"), #romans - this is where the fun begins!
                 (this_or_next|eq, ":troop", "trp_tiro"),
                 (this_or_next|eq, ":troop", "trp_exculator"),
@@ -20020,12 +20034,6 @@ presentations = [
                 (this_or_next|eq, ":troop", "trp_hibero_roman_venator"),
                 (this_or_next|eq, ":troop", "trp_hibero_roman_rusticus"),
                 (eq, ":troop", "trp_hibero_roman_defensor"),
-                (assign, ":c", 1),
-              (else_try), #slavs
-                (eq, "$g_encountered_party", "p_venedi_outpost"),
-                (this_or_next|eq, ":troop", "trp_venedi_skirmisher"),
-                (this_or_next|eq, ":troop", "trp_venedi_warrior"),
-                (eq, ":troop", "trp_venedi_nobleman"),
                 (assign, ":c", 1),
               (else_try), #sabir
                 (eq, "$g_encountered_party", "p_sabiroi_village"),
@@ -20179,6 +20187,12 @@ presentations = [
                     (this_or_next|eq, ":troop", "trp_irish_follower"),
                     (this_or_next|eq, ":troop", "trp_irish_companion"),
                     (eq, ":troop", "trp_irish_warrior"),
+                    (assign, ":c", 1),
+                  (else_try),
+                    (eq, ":culture", "fac_culture_20"), #slavic
+                    (this_or_next|eq, ":troop", "trp_slav_skirmisher"), #t1
+                    (this_or_next|eq, ":troop", "trp_slav_footman"), 
+                    (eq, ":troop", "trp_slav_horseman"),
                     (assign, ":c", 1),
                   (else_try),
                     (eq, ":culture", "fac_culture_empire"), #romans - this is where the fun begins!

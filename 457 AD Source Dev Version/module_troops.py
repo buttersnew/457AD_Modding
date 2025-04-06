@@ -2423,7 +2423,7 @@ troops = [
    def_attrib_lvl_18|level(18),wp_one_handed(150)|wp_two_handed(130)|wp_polearm(140)|wp_throwing(180)|wp_archery(100),knows_lvl_18|knows_power_strike_5|knows_horse_archery_6,briton_face_1, briton_face_2],
 
 ##SPOROI
-  ["slav_archer","Sporoi Hunter","Sporoi Hunters",tf_guarantee_armor|tf_guarantee_ranged,0,0,fac_culture_minor_2,
+  ["slav_archer","Sporoi Hunter","Sporoi Hunters",tf_guarantee_armor|tf_guarantee_ranged,0,0,fac_culture_20,
    [itm_simple_shoes,itm_nomad_boots,itm_wrapping_boots,itm_basic_axe,itm_hand_axe,itm_club,itm_fur_hat,
    itm_poisoned_arrows,itm_short_bow,itm_long_bow]+tunics_slavic_1+pants_slav,
    def_attrib_lvl_18|level(18),wp_one_handed(130)|wp_two_handed(130)|wp_polearm(130)|wp_throwing(160)|wp_archery(170),knows_archer,germanic_face_1, germanic_face_2],
@@ -2738,19 +2738,19 @@ troops = [
    def_attrib_lvl_23|level(23),wp_one_handed(180)|wp_two_handed(160)|wp_polearm(180)|wp_throwing(170)|wp_archery(100),knows_lvl_23,coptic_face_1, coptic_face_2],
 
 #Phinnoi
-  ["phinnoi_warrior","Phinnoi Warrior (Soturi)","Phinnoi Warriors (Soturit)",tf_guarantee_basic,0,0,fac_commoners,
+  ["phinnoi_warrior","Phinnoi Warrior (Soturi)","Phinnoi Warriors (Soturit)",tf_guarantee_basic,0,0,fac_culture_minor_2,
    [itm_tunic_1_cloak,itm_tunic_3_cloak,itm_tunic_7_cloak,itm_wrapping_boots,itm_simple_shoes,itm_obenaltendorf_shoes_1,itm_fur_hat,itm_kovas_hat_3,itm_germanic_cap_3,itm_germanic_cap_4,itm_balt_shield_wood_2,itm_balt_shield_2_white,itm_balt_shield_2_blue,itm_spear,itm_javelin,itm_hand_axe],
    def_attrib_lvl_18|level(18),wp_one_handed(130)|wp_two_handed(100)|wp_polearm(145)|wp_throwing(140)|wp_archery(100),knows_lvl_18,germanic_face_1, germanic_face_2],
 
-  ["phinnoi_retainer","Phinnoi Retainer (Sotijalo)","Phinnoi Retainer (Sotijalot)",tf_guarantee_basic|tf_guarantee_helmet,0,0,fac_commoners,
+  ["phinnoi_retainer","Phinnoi Retainer (Sotijalo)","Phinnoi Retainer (Sotijalot)",tf_guarantee_basic|tf_guarantee_helmet,0,0,fac_culture_minor_2,
    [itm_tunic_1_cloak,itm_tunic_3_cloak,itm_tunic_7_cloak,itm_battered_mail_1_cloak,itm_common_mail_short_2_cloak,itm_wrapping_boots,itm_simple_shoes,itm_obenaltendorf_shoes_1,itm_fur_hat,itm_kovas_hat_3,itm_pilna_helmet_mail,itm_pilna_helmet_leather,itm_balt_shield_wood_1,itm_balt_shield_1_white,itm_balt_shield_1_blue,itm_angon_1,itm_poleaxe,itm_baltic_sword_1],
    def_attrib_lvl_23|level(23),wp_one_handed(175)|wp_two_handed(160)|wp_polearm(175)|wp_throwing(165)|wp_archery(100),knows_lvl_23,germanic_face_1, germanic_face_2],
 
-  ["phinnoi_hunter","Phinnoi Hunter (Metsaemees)","Phinnoi Hunters (Metsaemeehet)",tf_guarantee_armor|tf_guarantee_boots|tf_guarantee_ranged,0,0,fac_commoners,
+  ["phinnoi_hunter","Phinnoi Hunter (Metsaemees)","Phinnoi Hunters (Metsaemeehet)",tf_guarantee_armor|tf_guarantee_boots|tf_guarantee_ranged,0,0,fac_culture_minor_2,
    [itm_tunic_1,itm_tunic_3,itm_tunic_2,itm_tunic_8,itm_wrapping_boots,itm_simple_shoes,itm_obenaltendorf_shoes_1,itm_fur_hat,itm_woolen_cap_4,itm_woolen_cap_b,itm_woolen_cap_1,itm_woolen_cap_6,itm_club,itm_arrows,itm_arrows,itm_long_bow,itm_short_bow,itm_hunting_bow],
    def_attrib_lvl_18|level(17),wp_one_handed(130)|wp_two_handed(120)|wp_polearm(100)|wp_archery(130)|wp_throwing(110),knows_archer,germanic_face_1, germanic_face_2],
 
-  ["phinnoi_horseman","Phinnoi Horseman (Ratsumees)","Phinnoi Horsemen (Ratsumeehet)",tf_mounted|tf_guarantee_armor|tf_guarantee_boots|tf_guarantee_horse|tf_guarantee_ranged|tf_guarantee_shield|tf_guarantee_polearm,0,0,fac_commoners,
+  ["phinnoi_horseman","Phinnoi Horseman (Ratsumees)","Phinnoi Horsemen (Ratsumeehet)",tf_mounted|tf_guarantee_armor|tf_guarantee_boots|tf_guarantee_horse|tf_guarantee_ranged|tf_guarantee_shield|tf_guarantee_polearm,0,0,fac_culture_minor_2,
    [itm_tunic_1_cloak,itm_tunic_3_cloak,itm_tunic_7_cloak,itm_wrapping_boots,itm_simple_shoes,itm_obenaltendorf_shoes_1,itm_fur_hat,itm_pilna_helmet_leather,itm_battle_axe_2,itm_great_lance,itm_throwing_spears,itm_round_shield_leather_small_1,itm_round_shield_white_small_1,itm_round_shield_blue_small_1]+horses_slavic_1,
    def_attrib_lvl_18|level(18),wp_one_handed(130)|wp_two_handed(100)|wp_polearm(140)|wp_throwing(140)|wp_archery(115),knows_lvl_18,germanic_face_1, germanic_face_2],
 
@@ -3555,11 +3555,11 @@ troops = [
 ["knight_32_3", "Tovisaci Cairatini", "Cairatini", tf_hero, 0, reserved,  fac_kingdom_32,[itm_marcos_3, itm_arabian_sword_a, itm_burgh_helmet_2, itm_pictish_tunic_6, (itm_pictish_mail_6,imod_reinforced), itm_ankle_boots, itm_tab_shield_small_round_c],knight_attrib_5,wp(280),knight_skills_3,0x00000005a10c42055cca8d249a6da2db00000000001da6e30000000000000000],
 
 # pl4tte sporoi lords
-["knight_33_1", "Ziroslav Olegovich", "Olegovich", tf_hero, 0, reserved,  fac_kingdom_33, [itm_simple_shoes, itm_pictish_sword, itm_intercisa_helmet_rich_3, (itm_pictish_mail_2,imod_reinforced), itm_pictish_tunic_2, itm_ankle_boots, itm_tab_shield_small_round_c],     knight_attrib_5,wp(300),knight_skills_2|knows_trainer_2, 0x00000005970c5143385a8d249a6da6db00000000001d26d40000000000000000],
-["knight_33_2", "Bogdan Vostokov", "Vostokov", tf_hero, 0, reserved,  fac_kingdom_33,[itm_simple_shoes, itm_pictish_sword, itm_burgh_helmet_2, itm_pictish_tunic_6, (itm_pictish_mail_6,imod_reinforced), itm_ankle_boots, itm_tab_shield_small_round_c],knight_attrib_5,wp(280),knight_skills_3,0x00000005a10c42055cca8d249a6da2db00000000001da6e30000000000000000],
+["knight_33_1", "Ziroslav Olegovich", "Olegovich", tf_hero, 0, reserved,  fac_kingdom_33, [itm_simple_shoes, itm_tetraxitae_spatha, itm_kerch_lamellenhelm_gilded, itm_common_mail_long_8_cloak, itm_tunic_10, itm_tab_shield_small_round_c, itm_sporoi_hun_horse_2],     knight_attrib_5,wp(300),knight_skills_2|knows_trainer_2, 0x0000000a9810118b1b117268a325a75b00000000001e76dc0000000000000000],
+["knight_33_2", "Bogdan Vostokov", "Vostokov", tf_hero, 0, reserved,  fac_kingdom_33,[itm_simple_shoes, itm_sword_viking_3_small, itm_tyum_helmet_2, itm_common_mail_short_7_cloak, itm_tunic_rich_5, itm_tab_shield_small_round_c, itm_sporoi_hun_horse_3],knight_attrib_5,wp(280),knight_skills_3,0x000000071800244c159b8cb493b6b91c00000000001cd6e40000000000000000],
 
 # pl4tte venedi lords
-["knight_34_1", "Veteslav Serversky", "Serversky", tf_hero, 0, reserved,  fac_kingdom_34, [itm_simple_shoes, itm_pictish_sword, itm_intercisa_helmet_rich_3, (itm_pictish_mail_2,imod_reinforced), itm_pictish_tunic_2, itm_ankle_boots, itm_tab_shield_small_round_c],     knight_attrib_5,wp(300),knight_skills_2|knows_trainer_2, 0x00000005970c5143385a8d249a6da6db00000000001d26d40000000000000000],
+["knight_34_1", "Veteslav Serversky", "Serversky", tf_hero, 0, reserved,  fac_kingdom_34, [itm_simple_shoes, itm_sword_viking_3_small, itm_suvorovsky_helmet_mail, itm_common_mail_long_5_cloak, itm_tunic_rich_3_cloak, itm_tab_shield_small_round_c, itm_slav_heavy_forest_horse_4],     knight_attrib_5,wp(300),knight_skills_2|knows_trainer_2, 0x0000000a9d0830c4786caf5cb44dd31b00000000001db72d0000000000000000],
 
 #MADSCI REBEL KINGDOM HEROES, THESE WILL BE DISABLED AT START
 ["rebel_knight_1_1", "Marcianus", "Marcianus", tf_hero, 0, reserved,  fac_rebel_kingdom_1,[itm_nisean_cataphract_1, itm_coptic_tunic_12, itm_deurne_campagi_1, itm_deurne_campagi_greaves_1, itm_rich_mail_8, itm_tab_shield_small_round_c, itm_arabian_sword_b, itm_jarak_helmet_1],knight_attrib_5,wp_one_handed(290)|wp_two_handed(270)|wp_polearm(290)|wp_archery(150)|wp_crossbow(100)|wp_throwing(100)|wp_firearm(100),knight_skills_5|knows_trainer_4,0x000000071e0c20423daa8c98748dd92400000000001d92e00000000000000000],
@@ -3827,7 +3827,7 @@ troops = [
   ["kingdom_31_lady_3","Mariyam","Mariyam",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_31, [      itm_roman_noble_dress_2,       itm_wrapping_boots],     def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x0000000fb7000002371b711bec91b8db00000000001dc7140000000000000000],
   ["kingdom_31_lady_4","Zepour","Zepour",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_31, [      itm_roman_noble_dress_2,       itm_wrapping_boots],     def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x00000007ef0010043adb923d7491b8db00000000001dc6d40000000000000000],
 
-  ["kingdom_33_lady_1","Alina","Alina",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_33, [      itm_roman_noble_dress_2,       itm_wrapping_boots],     def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x00000007ef0010043adb923d7491b8db00000000001dc6d40000000000000000],
+  ["kingdom_33_lady_1","Alina","Alina",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_33, [      itm_germanic_dress_middle_1,       itm_wrapping_boots],     def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x00000007ef0010043adb923d7491b8db00000000001dc6d40000000000000000],
   ["kingdom_33_lady_2","Vera","Vera",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_33, [      itm_germanic_dress_low_4,       itm_wrapping_boots],     def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x00000007ef0010043adb923d7491b8db00000000001dc6d40000000000000000],
   ["kingdom_34_lady_1","Ziva","Ziva",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_34, [      itm_germanic_dress_low_2,       itm_wrapping_boots],     def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x00000007ef0010043adb923d7491b8db00000000001dc6d40000000000000000],
   ["kingdom_34_lady_2","Sonja","Sonja",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_34, [      itm_germanic_dress_low_6,       itm_wrapping_boots],     def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x00000007ef0010043adb923d7491b8db00000000001dc6d40000000000000000],
@@ -5498,6 +5498,7 @@ troops = [
    def_attrib_lvl_13|level(13),wp_one_handed(210)|wp_polearm(100)|wp_firearm(150),knows_lvl_13|knows_power_strike_4,0x0000000f210134c04b0a8bcd75e6c72d00000000001d28a50000000000000000],
   ["indigenoi_noble_4","Zamma","Zamma",tf_hero,0,0,fac_indigenoi,   [itm_barb_cham_1,itm_sassanid_cavalry_boots_2,itm_common_mail_short_2,itm_burgh_helmet_1,itm_turban,itm_strong_hammer,itm_simple_shoes,itm_tunic_rich_7],
    def_attrib_lvl_13|level(13),wp_one_handed(210)|wp_polearm(100)|wp_firearm(150),knows_lvl_13|knows_power_strike_4,0x0000000d3f11448a12d40ca86276951400000000001e572b0000000000000000],
+<<<<<<< Updated upstream
   # slav indie lord
   ["indigenoi_noble_5","Theomar Adalulfing","Adalulfing",tf_hero,0,0,fac_indigenoi,   [itm_barb_cham_1,itm_khergit_leather_boots,itm_common_mail_short_2,itm_turaevo_helmet,itm_strong_hammer,itm_simple_shoes,itm_tunic_rich_7],
    def_attrib_lvl_13|level(13),wp_one_handed(210)|wp_polearm(100)|wp_firearm(150),knows_lvl_13|knows_power_strike_4,0x00000006220063814ae155e90bf1455a00000000000556da0000000000000000],
@@ -5512,6 +5513,22 @@ troops = [
    def_attrib_lvl_13|level(13),wp_one_handed(210)|wp_polearm(100)|wp_firearm(150),knows_lvl_13|knows_power_strike_4,0x000000061410048b56a3ca58a385bd5900000000001632db0000000000000000],
   # moskva lord
   ["indigenoi_noble_9","Kargata of the Merens","of the Merens",tf_hero,0,0,fac_indigenoi,   [itm_barb_cham_1,itm_khergit_leather_boots,itm_battered_mail_1,itm_suvorovsky_helmet_mail,itm_tarasovo_axe_1,itm_simple_shoes,itm_tunic_rich_7],
+=======
+  # slav indie lord  
+  ["indigenoi_noble_5","Theomar Adalulfing","Adalulfing",tf_hero,0,0,fac_indigenoi,   [itm_slav_heavy_forest_horse_2,itm_common_mail_short_2,itm_kerch_lamellenhelm_gilded,itm_hunnic_spatha,itm_obenaltendorf_shoes_2,itm_tunic_11_cloak],
+   def_attrib_lvl_13|level(13),wp_one_handed(210)|wp_polearm(100)|wp_firearm(150),knows_lvl_13|knows_power_strike_4,0x00000006220063814ae155e90bf1455a00000000000556da0000000000000000],
+  # "polish" lord
+  ["indigenoi_noble_6","Rodereic Godaberting","Godaberting",tf_hero,0,0,fac_indigenoi, [itm_slav_heavy_forest_horse_3,itm_common_mail_short_5_cloak,itm_gultlingen_helmet_plume,itm_concave_shield_germanic_17,itm_sword_viking_2,itm_obenaltendorf_shoes_1,itm_tunic_12],
+   def_attrib_lvl_13|level(13),wp_one_handed(210)|wp_polearm(100)|wp_firearm(150),knows_lvl_13|knows_power_strike_4,0x000000060b0c108236b38e4a59553ce600000000001d389d0000000000000000],
+  # dacian indie lord  
+  ["indigenoi_noble_7","Mucaporis of the Carpi","of the Carpi",tf_hero,0,0,fac_indigenoi,   [itm_slav_heavy_forest_horse_1,itm_battered_mail_3_cloak,itm_breda_helmet_plume_1,itm_sword_viking_3,itm_simple_shoes,itm_tunic_13],
+   def_attrib_lvl_13|level(13),wp_one_handed(210)|wp_polearm(100)|wp_firearm(150),knows_lvl_13|knows_power_strike_4,0x00000006070890c6386471d94b33372b00000000001446d10000000000000000],
+  # finnic indie lord (jaervi)
+  ["indigenoi_noble_8","Valta of the Phinnoi","of the Phinnoi",tf_hero,0,0,fac_indigenoi,   [itm_slav_heavy_forest_horse_4,itm_common_mail_short_8_cloak,itm_komi_ridge_helmet_1,itm_baltic_sword_1,itm_simple_shoes,itm_tunic_rich_2],
+   def_attrib_lvl_13|level(13),wp_one_handed(210)|wp_polearm(100)|wp_firearm(150),knows_lvl_13|knows_power_strike_4,0x000000061410048b56a3ca58a385bd5900000000001632db0000000000000000],
+  # moskva lord
+  ["indigenoi_noble_9","Kargata of the Merens","of the Merens",tf_hero,0,0,fac_indigenoi,   [itm_slav_heavy_forest_horse_2,itm_battered_mail_1,itm_suvorovsky_helmet_mail,itm_tarasovo_axe_1,itm_simple_shoes,itm_tunic_rich_7],
+>>>>>>> Stashed changes
    def_attrib_lvl_13|level(13),wp_one_handed(210)|wp_polearm(100)|wp_firearm(150),knows_lvl_13|knows_power_strike_4,0x00000006160453904b544592e3199cc300000000000edb1b0000000000000000],
 
   ##diplomacy end

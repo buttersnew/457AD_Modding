@@ -721,6 +721,8 @@ meshes = [
   ("arms_kingdom_34", 0, "arms_kingdom_34", 0, 0, 0, -90, 0, 0, 1, 1, 1),
   ("arms_kingdom_35", 0, "arms_kingdom_35", 0, 0, 0, -90, 0, 0, 1, 1, 1),
   ("arms_kingdom_36", 0, "arms_kingdom_36", 0, 0, 0, -90, 0, 0, 1, 1, 1),
+  ("arms_kingdom_37", 0, "arms_kingdom_37", 0, 0, 0, -90, 0, 0, 1, 1, 1),
+  ("arms_kingdom_38", 0, "arms_kingdom_38", 0, 0, 0, -90, 0, 0, 1, 1, 1),
 
   ("arms_end", 0, "banner_a15", 0, 0, 0, -90, 0, 0, 1, 1, 1),
 

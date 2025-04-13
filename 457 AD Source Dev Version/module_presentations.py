@@ -19468,6 +19468,15 @@ presentations = [
               (this_or_next|eq, ":troop", "trp_slav_archer"),
               (eq, ":troop", "trp_slav_horsearcher"),
               (assign, ":c", 1),
+            (else_try), #carpi
+              (eq, "$current_town", "p_castle_106"),
+              (this_or_next|eq, ":troop", "trp_carpi_skirmisher"),
+              (eq, ":troop", "trp_carpi_horseman"),
+              (assign, ":c", 1),
+            (else_try), #warini
+              (eq, "$current_town", "p_castle_109"),
+              (eq, ":troop", "trp_warenae_armatus"),
+              (assign, ":c", 1),
   ####################################################################
             #and now for the roman AOR!
             (else_try),

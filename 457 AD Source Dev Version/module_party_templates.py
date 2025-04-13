@@ -226,6 +226,10 @@ party_templates = [
   ("culture_minor_1_reinforcements_b", "{!}Cantabrian Reinforcements", 0, 0, fac_commoners, 0, [(trp_hibero_roman_rusticus,6,15),(trp_imperial_signifer,1,1)]),
   ("culture_minor_1_reinforcements_c", "{!}Cantabrian Reinforcements", 0, 0, fac_commoners, 0, [(trp_eques_cantabri,1,5),(trp_bagaudae_footman,2,3),(trp_hibero_roman_defensor,1,2)]),
 
+  ("culture_minor_2_reinforcements_a", "{!}Phinnoi Reinforcements", 0, 0, fac_commoners, 0, [(trp_phinnoi_warrior,4,12),(trp_phinnoi_warrior,4,8)]),
+  ("culture_minor_2_reinforcements_b", "{!}Phinnoi Reinforcements", 0, 0, fac_commoners, 0, [(trp_phinnoi_warrior,3,8),(trp_phinnoi_horseman,3,7),(trp_standard_bearer,1,1)]),
+  ("culture_minor_2_reinforcements_c", "{!}Phinnoi Reinforcements", 0, 0, fac_commoners, 0, [(trp_phinnoi_retainer,4,10)]),
+
   ("culture_minor_3_reinforcements_a", "{!}Coptic Reinforcements", 0, 0, fac_commoners, 0, [(trp_coptic_youth,4,10),(trp_coptic_footman,4,10)]),
   ("culture_minor_3_reinforcements_b", "{!}Coptic Reinforcements", 0, 0, fac_commoners, 0, [(trp_coptic_footman,3,8),(trp_coptic_watchman,3,7),(trp_standard_bearer,1,1)]),
   ("culture_minor_3_reinforcements_c", "{!}Coptic Reinforcements", 0, 0, fac_commoners, 0, [(trp_coptic_guard,2,5),(trp_eques_sexto_dalmatae,2,5)]),

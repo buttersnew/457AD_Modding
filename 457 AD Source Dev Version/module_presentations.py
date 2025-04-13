@@ -19343,6 +19343,8 @@ presentations = [
               (eq, ":troop", "trp_thuringian_horseman"),
               (assign, ":c", 1),
             (else_try), #langobard aor
+              (this_or_next|eq, "$current_town", "p_castle_94"),
+              (this_or_next|eq, "$current_town", "p_castle_96"),
               (eq, "$current_town", "p_town_31"),
               (this_or_next|eq, ":troop", "trp_charudes_retainer"),
               (this_or_next|eq, ":troop", "trp_langobard_retainer"),
@@ -19352,6 +19354,7 @@ presentations = [
             (else_try), #scirii / langobard aor
               (this_or_next|eq, "$current_town", "p_castle_3"),
               (this_or_next|eq, "$current_town", "p_castle_29"),
+              (this_or_next|eq, "$current_town", "p_castle_95"),
               (eq, "$current_town", "p_town_31"),
               (eq, ":troop", "trp_limigantes_rebel"),
               (assign, ":c", 1),
@@ -19953,6 +19956,63 @@ presentations = [
                 #(this_or_next|eq, ":troop", "trp_roman_sailor"),
                 (this_or_next|eq, ":troop", "trp_bucellarius"),
                 (eq, ":troop", "trp_centenarius"),
+                (assign, ":c", 1),
+              (else_try), #minor cultures - hispano roman
+                (eq, ":culture", "fac_culture_minor_1"), #
+                (this_or_next|eq, ":troop", "trp_hibero_roman_venator"), #t1
+                (eq, ":troop", "trp_hibero_roman_rusticus"),
+                (assign, ":c", 1),
+              (else_try), #phinnoi
+                (eq, ":culture", "fac_culture_minor_2"), #
+                (this_or_next|eq, ":troop", "trp_phinnoi_warrior"), #t1
+                (this_or_next|eq, ":troop", "trp_phinnoi_hunter"), #t1
+                (eq, ":troop", "trp_phinnoi_horseman"),
+                (assign, ":c", 1),
+              (else_try), #minor cultures
+                (eq, ":culture", "fac_culture_minor_3"), #copts
+                (this_or_next|eq, ":troop", "trp_coptic_youth"),
+                (this_or_next|eq, ":troop", "trp_coptic_watchman"),
+                (eq, ":troop", "trp_coptic_footman"),
+                (assign, ":c", 1),
+              (else_try), 
+                (eq, ":culture", "fac_culture_minor_4"), 
+                (this_or_next|eq, ":troop", "trp_frisian_freeman"), #t1
+                (eq, ":troop", "trp_frisian_companion"),
+                (assign, ":c", 1),
+              (else_try), 
+                (eq, ":culture", "fac_culture_minor_5"), 
+                (this_or_next|eq, ":troop", "trp_aestii_skirmisher"), #t1
+                (this_or_next|eq, ":troop", "trp_aestii_tribesman"), #t1
+                (eq, ":troop", "trp_aestii_companion"),
+                (assign, ":c", 1),
+              (else_try), 
+                (eq, ":culture", "fac_culture_minor_6"), 
+                (this_or_next|eq, ":troop", "trp_mordvin_skirmisher"), #t1
+                (this_or_next|eq, ":troop", "trp_mordvin_footman"), #t1
+                (this_or_next|eq, ":troop", "trp_mordvin_mounted_skirmisher"), #t1
+                (eq, ":troop", "trp_mordvin_companion"),
+                (assign, ":c", 1),
+              (else_try), 
+                (eq, ":culture", "fac_culture_minor_7"), 
+                (eq, ":troop", "trp_scandinavian_freeman"),
+                (assign, ":c", 1),
+              (else_try), 
+                (eq, ":culture", "fac_culture_minor_8"), 
+                (this_or_next|eq, ":troop", "trp_crimean_gothic_skirmisher"), #t1
+                (this_or_next|eq, ":troop", "trp_crimean_gothic_freeman"), #t1
+                (eq, ":troop", "trp_crimean_gothic_horseman"),
+                (assign, ":c", 1),
+              (else_try), 
+                (eq, ":culture", "fac_culture_minor_9"), 
+                (this_or_next|eq, ":troop", "trp_pedes_alani"), #t1
+                (this_or_next|eq, ":troop", "trp_eques_alani_leves"), #t1
+                (eq, ":troop", "trp_eques_sagittarii_alani"),
+                (assign, ":c", 1),
+              (else_try), 
+                (eq, ":culture", "fac_culture_minor_10"), 
+                (this_or_next|eq, ":troop", "trp_steppe_bandit"), #t1
+                (this_or_next|eq, ":troop", "trp_steppe_rider"), #t1
+                (eq, ":troop", "trp_steppe_cataphract"),
                 (assign, ":c", 1),
               (try_end),
             (try_end),

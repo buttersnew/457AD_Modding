@@ -9161,6 +9161,7 @@ TOTAL:  {reg5}"),
      (store_sub, reg4, 14, ":max_skill"),
      (val_mul, reg4, 2),
      (val_div, reg4, 3),
+	(val_mul, reg4, 2), #madsci increase siege time so that events have more time to trigger
 
      (try_begin),
        (eq, ":max_skill_owner", "trp_player"),
@@ -9186,6 +9187,7 @@ TOTAL:  {reg5}"),
            (store_sub, ":hours_takes", 14, reg0),
            (val_mul, ":hours_takes", 2),
            (val_div, ":hours_takes", 3),
+		(val_mul, ":hours_takes", 2), #madsci
            (store_add, "$g_siege_method_finish_hours",":cur_hours", ":hours_takes"),
            (assign,"$auto_besiege_town","$current_town"),
            (rest_for_hours_interactive, 96, 5, 1), #rest while attackable. A trigger will divert control when attack is ready.
@@ -9209,6 +9211,7 @@ TOTAL:  {reg5}"),
 
      (store_sub, reg4, 15, ":max_skill"),
      (val_mul, reg4, 6),
+	(val_mul, reg4, 2), #madsci
 
      (try_begin),
        (eq, ":max_skill_owner", "trp_player"),
@@ -9233,6 +9236,7 @@ TOTAL:  {reg5}"),
            (call_script, "script_get_max_skill_of_player_party", "skl_engineer"),
            (store_sub, ":hours_takes", 15, reg0),
            (val_mul, ":hours_takes", 6),
+		(val_mul, ":hours_takes", 2), #madsci
            (store_add, "$g_siege_method_finish_hours",":cur_hours", ":hours_takes"),
            (assign,"$auto_besiege_town","$current_town"),
            (rest_for_hours_interactive, 240, 5, 1), #rest while attackable. A trigger will divert control when attack is ready.

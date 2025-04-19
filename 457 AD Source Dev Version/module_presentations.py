@@ -19134,6 +19134,7 @@ presentations = [
               (eq, ":troop", "trp_crimean_gothic_horseman"),
               (assign, ":c", 1),
             (else_try), #AOR arabs
+              (this_or_next|eq, "$current_town", "p_castle_112"),
               (this_or_next|eq, "$current_town", "p_castle_44"),
               (eq, "$current_town", "p_castle_49"),
               (this_or_next|eq, ":troop", "trp_arab_skirmisher"),
@@ -20572,7 +20573,12 @@ presentations = [
     (try_end),
 
     (party_get_slot, ":center_culture", "$g_encountered_party", slot_center_culture),
-    (str_store_faction_name, s61, ":center_culture"),
+	(try_begin),
+	(gt, ":center_culture", 0),
+    	(str_store_faction_name, s61, ":center_culture"),
+	(else_try),
+	(str_store_string, s61, "@unknown"),
+	(try_end),
 
     #(str_store_string, s1, "@Culture:{s61}^Prosperity: {reg1}.^Town wealth: {reg3}.^Budget of the town counsel: {reg2}.^Relation: {reg4}.^Garrison size: {reg5} men.^Prisoners: {s2}."),
     (str_store_string, s1, "@Culture:{s61}^Prosperity: {reg1}.^Town wealth: {reg3}.^Town treasury: {reg2}.^Relation: {reg4}.^Garrison size: {reg5} men.^Prisoners: {s2}."),

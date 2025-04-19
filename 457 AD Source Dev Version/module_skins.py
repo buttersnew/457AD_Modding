@@ -160,6 +160,9 @@ skins = [
      ("manface_black3",0xff634d3e,["hair_blonde"],[0xff171313, 0xff007080c]), #20
      ("manface_african",0xff807c8a,["hair_blonde"],[0xff120808, 0xff007080c]), #21
      ("nubian_face",0xff2F241F,["hair_blonde"],[0xff171313, 0xff007080c]), #22
+     ("xmanface_berber1",0xffaeb0a6,["hair_blonde"],[0xff171313, 0xff007080c]), #23
+     ("xmanface_berber2",0xffaeb0a6,["hair_blonde"],[0xff171313, 0xff007080c]), #24
+     ("xmanface_berber3",0xffaeb0a6,["hair_blonde"],[0xff171313, 0xff007080c]), #25
      ], #man_face_textures,
     [(voice_die,"snd_man_die"),(voice_hit,"snd_man_hit"),(voice_grunt,"snd_man_grunt"),(voice_grunt_long,"snd_man_grunt_long"),(voice_yell,"snd_man_yell"),(voice_stun,"snd_man_stun"),(voice_victory,"snd_man_victory")], #voice sounds
     "skel_human", 1.0,

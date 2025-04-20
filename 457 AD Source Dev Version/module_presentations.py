@@ -19157,10 +19157,12 @@ presentations = [
               (assign, ":c", 1),
             (else_try), #AOR morden
               (eq, "$current_town", "p_castle_108"),
+              (this_or_next|eq, ":troop", "trp_mordvin_footman"),
               (eq, ":troop", "trp_mordvin_skirmisher"),
               (assign, ":c", 1),
             (else_try), #AOR phinnoi
               (eq, "$current_town", "p_castle_104"),
+              (this_or_next|eq, ":troop", "trp_phinnoi_hunter"),
               (eq, ":troop", "trp_phinnoi_warrior"),
               (assign, ":c", 1),
             (else_try), #AOR gilan

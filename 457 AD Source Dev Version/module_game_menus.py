@@ -14494,6 +14494,14 @@ TOTAL:  {reg5}"),
            (modify_visitors_at_site,":cur_castle_exterior"),
            (reset_visitors),
 
+    (try_begin),
+        (eq, "$g_encountered_party", "p_castle_104"), #jaervi
+        (troop_slot_eq, "trp_npc27", slot_troop_occupation, slto_inactive), #harva
+	(neg|troop_slot_eq, "trp_npc27", slot_troop_playerparty_history, pp_history_scattered),
+	(neg|main_party_has_troop, "trp_npc27"),
+        (set_visitor, 42, "trp_npc27"),
+    (try_end),
+
            	(try_begin),
              	(faction_get_slot, ":troop_prison_guard", "$g_encountered_party_faction", slot_faction_prison_guard_troop),
 		(gt, ":troop_prison_guard", 0),

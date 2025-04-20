@@ -223,7 +223,7 @@ parties = [
   ("castle_102", "Segontium",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-231.27, 142.91),[],75),
   # new castles 20/03/25
   ("castle_103", "Askaukalis",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-56.9, 161.4),[],75),
-  ("castle_104", "Jaervi",icon_castle_c|pf_minor_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-16.00, 196.00),[],75),
+  ("castle_104", "Jaervi",icon_castle_c|pf_minor_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-12, 188),[],75),
   ("castle_105", "Praesidium Antium",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-13.0, 95.0),[],75),
   ("castle_106", "Petrodava",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-29.00, 98.75),[],75), # indigenae
   ("castle_107", "Droguva",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-35.48, 143.99),[],75),
@@ -745,12 +745,12 @@ parties = [
   ("steppe_bandit_spawn_point", "the Danube",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(-76.42, 76.85),[(trp_looter,15,0)]),
   ("taiga_bandit_spawn_point" , "Germania",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(-139.87, 126.39),[(trp_looter,15,0)]),
   ("forest_bandit_spawn_point", "Gaul and Hispania",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(-232.77, 21.13),[(trp_looter,15,0)]),
-  ("baltic_bandit_spawn_point", "Baltic coast",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(-1.25, 184.34,),[(trp_looter,15,0)]), # pl4tte
+  ("baltic_bandit_spawn_point", "the Baltic coast",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(-64, 169),[(trp_looter,15,0)]), # pl4tte
   ("mountain_bandit_spawn_point", "the mountains",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(48.81,10.46),[(trp_looter,15,0)]),
   ("desert_bandit_spawn_point", "the desert",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(-147.98, -59.72),[(trp_looter,15,0)]),
   ("sea_raider_spawn_point_1", "Frisia",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(-177.40, 128.56),[(trp_looter,15,0)]),
   ("sea_raider_spawn_point_2", "Britannia",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(-206.12, 145.24),[(trp_looter,15,0)]),
-  ("sabir_bandit_spawn_point", "the wteppe",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(70.83,92.39),[(trp_looter,15,0)]),
+  ("sabir_bandit_spawn_point", "the steppe",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(70.83,92.39),[(trp_looter,15,0)]),
   ("armenian_rebel_spawn_point","Armenia",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(128.46,50.49),[(trp_looter,15,0)]),
   ("coptic_spawn_point"  ,"Egypt",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(57.36, -80.69),[(trp_looter,15,0)]),
   ("arab_bandit_spawn_point"  ,"the desert",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(118.23, -33.87),[(trp_looter,15,0)]),

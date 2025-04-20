@@ -53,6 +53,7 @@ party_templates = [
   ("baltic_bandits","Baltic Bandits",icon_gray_knight|carries_goods(2),0,fac_outlaws,bandit_personality,[(trp_baltic_bandit,5,18)]),
 ("slavic_bandits","Slavic Bandits",icon_sea_raider|carries_goods(8),0,fac_outlaws,bandit_personality,[(trp_slavic_bandit,15,40)]), 
   ("desert_bandits","Austuriani Rebels",icon_axeman|carries_goods(2)|pf_show_faction,0,fac_berber_rebels,bandit_personality,[(trp_desert_bandit,6,30)]),
+  ("persian_bandits","Persian Bandits",icon_khergit_horseman_b|carries_goods(2),0,fac_outlaws,bandit_personality,[(trp_persian_bandit,3,20)]),
   ("forest_bandits","Bagaudae Band",icon_roman_footman_2|carries_goods(2),0,fac_forest_bandits,bandit_personality,[(trp_forest_bandit_recruit,4,10),(trp_forest_bandit,4,25),(trp_bagaudae_footman,2,15)]),
   ("mountain_bandits","Isaurian Bandits",icon_roman_footman_2|carries_goods(2),0,fac_mountain_bandits,bandit_personality,[(trp_mountain_bandit,4,30),(trp_isaurian_warrior,1,10)]),
   ("sea_raiders","Saxon Raiders",icon_sea_raider|carries_goods(2),0,fac_saxons,bandit_personality,[(trp_sea_raider,5,20)]),
@@ -523,11 +524,11 @@ party_templates = [
   #britones seniores (palatina)
   #germaniciani seniores (comitatenses) - had both "equites" and another listing, probably shared the same pattern?
 
-  ("steppe_bandit_lair" ,"Iazyges Bandit Lair",icon_bandit_lair|carries_goods(2)|pf_is_static|pf_hide_defenders,0,fac_neutral,bandit_personality,[(trp_steppe_bandit,5,20)]),
-  ("taiga_bandit_lair","Germanic Bandit Lair",icon_bandit_lair|carries_goods(2)|pf_is_static|pf_hide_defenders,0,fac_neutral,bandit_personality,[(trp_taiga_bandit,5,20)]),
-  ("baltic_bandit_lair","Baltic Bandit Lair",icon_bandit_lair|carries_goods(2)|pf_is_static|pf_hide_defenders,0,fac_neutral,bandit_personality,[(trp_baltic_bandit,5,20)]),
-  ("slavic_bandit_lair","Slavic Bandit Lair",icon_bandit_lair|carries_goods(2)|pf_is_static|pf_hide_defenders,0,fac_neutral,bandit_personality,[(trp_slavic_bandit,5,20)]),
-  ("desert_bandit_lair" ,"Austuriani Rebel Lair",icon_bandit_lair|carries_goods(2)|pf_is_static|pf_hide_defenders,0,fac_neutral,bandit_personality,[(trp_desert_bandit,5,20)]),
+  ("steppe_bandit_lair" ,"Iazyges Bandit Camp",icon_bandit_lair|carries_goods(2)|pf_is_static|pf_hide_defenders,0,fac_neutral,bandit_personality,[(trp_steppe_bandit,5,20)]),
+  ("taiga_bandit_lair","Germanic Bandit Camp",icon_bandit_lair|carries_goods(2)|pf_is_static|pf_hide_defenders,0,fac_neutral,bandit_personality,[(trp_taiga_bandit,5,20)]),
+  ("baltic_bandit_lair","Baltic Bandit Hideout",icon_bandit_lair|carries_goods(2)|pf_is_static|pf_hide_defenders,0,fac_neutral,bandit_personality,[(trp_baltic_bandit,5,20)]),
+  ("slavic_bandit_lair","Slavic Bandit Hideout",icon_bandit_lair|carries_goods(2)|pf_is_static|pf_hide_defenders,0,fac_neutral,bandit_personality,[(trp_slavic_bandit,5,20)]),
+  ("desert_bandit_lair" ,"Austuriani Rebel Camp",icon_bandit_lair|carries_goods(2)|pf_is_static|pf_hide_defenders,0,fac_neutral,bandit_personality,[(trp_desert_bandit,5,20)]),
   ("forest_bandit_lair" ,"Bagaudae Camp",icon_bandit_lair|carries_goods(2)|pf_is_static|pf_hide_defenders,0,fac_neutral,bandit_personality,[(trp_forest_bandit,5,20),(trp_bagaudae_footman,1,8)]),
   ("mountain_bandit_lair" ,"Isaurian Bandit Hideout",icon_bandit_lair|carries_goods(2)|pf_is_static|pf_hide_defenders,0,fac_neutral,bandit_personality,[(trp_mountain_bandit,5,20)]),
   ("sea_raider_lair","Saxon Raider Landing",icon_bandit_lair|carries_goods(2)|pf_is_static|pf_hide_defenders,0,fac_neutral,bandit_personality,[(trp_sea_raider,5,20)]),

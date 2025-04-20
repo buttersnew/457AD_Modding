@@ -2863,7 +2863,11 @@ troops = [
    [itm_wrapping_boots,itm_ankle_boots,itm_roman_spear_2,itm_securis,itm_cavalry_javelins]+shields_simple+horses_mauri_1+tunics_mauri_1,
    def_attrib_lvl_13|level(12),wp(110),knows_riding_4|knows_horse_archery_3|knows_power_throw_4|knows_ironflesh_2,mauri_face_1, mauri_face_2],
 
-  ["sabir_bandit","Sabir Bandit","Sabir Bandits",tf_mounted|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_horse|tf_guarantee_ranged,0,0,fac_outlaws,
+["persian_bandit","Persian Bandit","Persian Bandits",tf_mounted|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_horse,0,0,fac_outlaws,
+   [itm_javelin,itm_nomad_boots,itm_sassanid_simple_boots_1,itm_sassanid_simple_boots_2,itm_sassanid_simple_boots_3,itm_sassanid_cavalry_boots_1,itm_sassanid_cavalry_boots_2,itm_samad_sword,itm_mace_sassanid,itm_yrzi_bow_1,itm_roman_arrows_2]+horses_persian_2+mail_persian_1+mail_persian_coat_1+hats_sassanids,
+   def_attrib_lvl_23|level(18),wp_one_handed(150)|wp_two_handed(150)|wp_polearm(150)|wp_archery(120),knows_lvl_23|knows_horse_archery_2,persian_face_1, persian_face_2],
+
+["sabir_bandit","Sabir Bandit","Sabir Bandits",tf_mounted|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_horse|tf_guarantee_ranged,0,0,fac_outlaws,
    [itm_nomad_boots,itm_sarranid_boots_b,itm_leather_vest,itm_kaftan_hunnic_red,itm_kaftan_hunnic_blue,itm_kaftan_hunnic_green,itm_kaftan_hunnic_white,itm_kaftan_lamellar_10,itm_hunnic_phrygian_leather,itm_hunnic_phrygian_4,itm_hunnic_phrygian_5,itm_kalhkni_helmet_1,itm_tarasovo_helmet_1,itm_suvorovsky_helmet_mail,itm_khergit_bow,itm_niya_bow_2,itm_khergit_arrows,itm_khergit_arrows,itm_battle_axe_2]+horses_hunnic_1,
    def_attrib_lvl_18|level(18),wp_one_handed(140)|wp_two_handed(130)|wp_polearm(130)|wp_throwing(130)|wp_archery(175),knows_common|knows_riding_6|knows_horse_archery_7|knows_power_strike_2|knows_power_draw_6|knows_ironflesh_2,hunnic_face_1, hunnic_face_2],
 

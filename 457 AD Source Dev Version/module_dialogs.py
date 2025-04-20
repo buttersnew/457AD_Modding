@@ -20107,8 +20107,8 @@ I knew that I had found someone worthy of becoming my vassal.", "lord_invite_1",
 (store_partner_quest,":lords_quest"),
 (eq,":lords_quest","qst_lend_surgeon"),
 (quest_slot_eq, "qst_lend_surgeon", slot_quest_giver_troop, "$g_talk_troop")
-], "Your surgeon managed to convince my friend and made the operation. The matter is in God's hands now, and all we can do is pray for his recovery.\
- Anyway, I thank you for lending your surgeon to me {sir/madam}. You have a noble spirit. I will not forget it.", "lord_generic_mission_completed",
+], "Your surgeon managed to convince my friend and made the operation. The matter is in God's hands now, and all we can do is pray for his recovery. "+
+ "Anyway, I thank you for lending your surgeon to me {sir/madam}. You have a noble spirit. I will not forget it.", "lord_generic_mission_completed",
 [
 (call_script, "script_finish_quest", "qst_lend_surgeon", 100),
 (troop_set_slot, "$g_talk_troop", slot_troop_does_not_give_quest, 1),
@@ -44264,7 +44264,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
    (this_or_next|eq, ":bandit_type", "pt_sea_raider_lair_2"),
    (eq, ":bandit_type", "pt_sea_raider_lair"),
    ],
-  "The raiders are likely to have laid up their ships in a well-concealed cove, somewhere along the coastline, preferably next to a small stream where they have some water. The best way to discover its location would be to find a group of saxon raiders who appear to be heading back to their base to resupply, and follow them.", "merchant_quest_track_bandit_lair_choice",
+  "The raiders are likely to have laid up their ships in a well-concealed cove, somewhere along the coastline, preferably next to a small stream where they have some water. The best way to discover its location would be to find a group of Saxon raiders who appear to be heading back to their base to resupply, and follow them.", "merchant_quest_track_bandit_lair_choice",
    []],
 
   [anyone,"destroy_lair_quest_brief", [
@@ -44311,6 +44311,8 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
      (eq,"$random_quest_no", "qst_destroy_bandit_lair"),
    (quest_get_slot, ":bandit_lair", "qst_destroy_bandit_lair", slot_quest_target_party),
    (party_get_template_id, ":bandit_type", ":bandit_lair"),
+   (this_or_next|eq, ":bandit_type", "pt_slavic_bandit_lair"),
+   (this_or_next|eq, ":bandit_type", "pt_baltic_bandit_lair"),
    (eq, ":bandit_type", "pt_taiga_bandit_lair"),
    ],
   "{s4} such as these will usually set up their encampments deep in the woods. The best way to discover its location would be to find a group of {s4} who appear to be heading back to their base to resupply, and follow them.", "merchant_quest_track_bandit_lair_choice",

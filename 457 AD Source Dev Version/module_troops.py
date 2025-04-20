@@ -2851,7 +2851,15 @@ troops = [
    [itm_wooden_javelin,itm_wooden_javelin,itm_fighting_axe,itm_club,itm_winged_mace,itm_pilna_helmet_leather]+shoes_generic+tunics_western_germanic_1+hats_german+germanic_caps+shields_simple,
    def_attrib_lvl_18|level(16),wp_one_handed(150)|wp_two_handed(130)|wp_polearm(135)|wp_archery(100)|wp_crossbow(100)|wp_throwing(150)|wp_firearm(100),knows_common|knows_power_throw_3|knows_power_strike_3|knows_ironflesh_3|knows_shield_2|knows_athletics_4,germanic_face_1, germanic_face_2],
 
-  ["desert_bandit","Mauri Bandit","Mauri Bandits",tf_mounted|tf_guarantee_armor|tf_guarantee_horse|tf_guarantee_ranged,0,0,fac_berber_rebels,
+["slavic_bandit","Slavic Bandit","Slavic Bandits",tf_guarantee_armor|tf_guarantee_ranged,0,0,fac_outlaws,
+   [itm_simple_shoes,itm_nomad_boots,itm_wrapping_boots,itm_basic_axe,itm_hand_axe,itm_club,itm_winged_mace,itm_fur_hat,itm_throwing_spears,itm_throwing_spears,itm_eastern_germanic_shield_5]+tunics_slavic_1+pants_slav+shields_simple,
+   def_attrib_skirmisher|level(18),wp_one_handed(150)|wp_two_handed(100)|wp_polearm(100)|wp_throwing(155)|wp_archery(100),knows_skirmisher, germanic_face_1, germanic_face_2],
+
+["baltic_bandit","Baltic Bandit","Baltic Bandits",tf_guarantee_armor|tf_guarantee_ranged,0,0,fac_outlaws,
+   [itm_simple_shoes,itm_wrapping_boots,itm_tunic_1,itm_tunic_2,itm_tunic_9,itm_tunic_14,itm_tunic_16,itm_fur_hat,itm_be_hunnic_cap_2,itm_be_hunnic_cap_4,itm_club,itm_battle_scythe_2,itm_throwing_spears,itm_throwing_spears,itm_balt_shield_wood_2,itm_balt_shield_2_blue,itm_balt_shield_2_green]+pants_slav+shields_simple,
+   def_attrib_skirmisher|level(18),wp_one_handed(150)|wp_two_handed(100)|wp_polearm(100)|wp_throwing(155)|wp_archery(100),knows_skirmisher, germanic_face_1, germanic_face_2],
+
+["desert_bandit","Mauri Bandit","Mauri Bandits",tf_mounted|tf_guarantee_armor|tf_guarantee_horse|tf_guarantee_ranged,0,0,fac_berber_rebels,
    [itm_wrapping_boots,itm_ankle_boots,itm_roman_spear_2,itm_securis,itm_cavalry_javelins]+shields_simple+horses_mauri_1+tunics_mauri_1,
    def_attrib_lvl_13|level(12),wp(110),knows_riding_4|knows_horse_archery_3|knows_power_throw_4|knows_ironflesh_2,mauri_face_1, mauri_face_2],
 

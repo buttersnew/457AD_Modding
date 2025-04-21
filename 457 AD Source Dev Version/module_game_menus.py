@@ -14501,6 +14501,12 @@ TOTAL:  {reg5}"),
 	(neg|troop_slot_eq, "trp_npc27", slot_troop_playerparty_history, pp_history_scattered),
 	(neg|main_party_has_troop, "trp_npc27"),
         (set_visitor, 42, "trp_npc27"),
+	(else_try),
+        (eq, "$g_encountered_party", "p_castle_78"), #tingis
+        (troop_slot_eq, "trp_npc28", slot_troop_occupation, slto_inactive), #harva
+	(neg|troop_slot_eq, "trp_npc28", slot_troop_playerparty_history, pp_history_scattered),
+	(neg|main_party_has_troop, "trp_npc28"),
+        (set_visitor, 42, "trp_npc28"),
     (try_end),
 
            	(try_begin),

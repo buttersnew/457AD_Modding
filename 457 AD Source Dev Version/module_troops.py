@@ -3236,6 +3236,11 @@ troops = [
    str_12|agi_12|int_10|cha_8|level(8),wp_one_handed(130)|wp_two_handed(60)|wp_polearm(150)|wp_archery(60)|wp_crossbow(60)|wp_throwing(130)|wp_firearm(60),
    knows_weapon_master_4|knows_ironflesh_4|knows_power_throw_3|knows_athletics_4|knows_power_strike_3|knows_riding_3|knows_shield_3|knows_inventory_management_2|knows_athletics_4|knows_trainer_1|knows_leadership_1,0x000000001610634156da289b6256492b00000000000b55a10000000000000000],
 
+["npc28","Malzam","Malzam",tf_hero|tf_unmoveable_in_party_window, no_scene, reserved,  fac_commoners,[itm_coptic_tunic_2,itm_ankle_boots,itm_nubian_shield_1,itm_cavalry_javelins,itm_barb_light_2], #horse, small hide shield, javelins
+   str_12|agi_13|int_8|cha_8|level(8),wp_one_handed(100)|wp_two_handed(150)|wp_polearm(150)|wp_archery(100)|wp_crossbow(60)|wp_throwing(160)|wp_firearm(50),
+   knows_weapon_master_4|knows_ironflesh_4|knows_power_throw_3|knows_athletics_3|knows_power_strike_3|knows_inventory_management_2|knows_riding_4|knows_horse_archery_4|knows_power_draw_2, #29
+  0x00000000350514c1446492570da96c6300000000001f4d630000000000000000],
+
 #Was Anthemius
   ["kingdom_1_lord",  "Flavius Julius Valerius Majorianus Augustus",  "Majorianus",  tf_hero, 0,reserved,  fac_kingdom_1,[itm_nisean_cataphract_1, (itm_roman_squamata_emperor,imod_lordly), itm_coptic_tunic_emperor_2, itm_crown_1, itm_roman_lorum_fasciari_6, itm_roman_greaves_6, itm_tab_shield_small_round_c, itm_arabian_sword_d, itm_berk_helmet], knight_attrib_5,wp_one_handed(310)|wp_two_handed(250)|wp_polearm(300)|wp_archery(100)|wp_crossbow(100)|wp_throwing(100)|wp_firearm(100),knight_skills_6|knows_trainer_8, 0x000000060e002045345251b69369b4db00000000001d36e20000000000000000],
 

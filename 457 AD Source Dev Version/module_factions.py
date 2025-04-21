@@ -1,3 +1,4 @@
+#-*-coding:utf-8-*-
 from header_factions import *
 
 from compiler import *

@@ -1,3 +1,4 @@
+#-*-coding:utf-8-*-
 import string
 from header_common import *
 from header_presentations import *

@@ -1,3 +1,4 @@
+#-*-coding:utf-8-*-
 from header_common import *
 from header_parties import *
 from ID_troops import *
@@ -223,7 +224,7 @@ parties = [
   ("castle_102", "Segontium",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-231.27, 142.91),[],75),
   # new castles 20/03/25
   ("castle_103", "Askaukalis",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-56.9, 161.4),[],75),
-  ("castle_104", "Jaervi",icon_castle_c|pf_minor_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-12, 188),[],75),
+  ("castle_104", "Järvi",icon_castle_c|pf_minor_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-12, 188),[],75),
   ("castle_105", "Praesidium Antium",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-13.0, 95.0),[],75),
   ("castle_106", "Petrodava",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-29.00, 98.75),[],75), # indigenae
   ("castle_107", "Droguva",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-35.48, 143.99),[],75),

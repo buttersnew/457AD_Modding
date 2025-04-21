@@ -1,3 +1,4 @@
+#-*-coding:utf-8-*-
 from compiler import *
 ####################################################################################################################
 #  Each quest record contains the following fields:

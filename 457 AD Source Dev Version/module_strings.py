@@ -1,4 +1,4 @@
-#s9_wants_you_to_meet_with_s11# -*- coding: cp1254 -*-
+#-*-coding:utf-8-*-
 from module_skills import *
 from compiler import *
 #SB : skill strings from CC, see bottom

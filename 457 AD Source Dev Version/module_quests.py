@@ -1,3 +1,4 @@
+#-*-coding:utf-8-*-
 from header_quests import *
 
 from compiler import *

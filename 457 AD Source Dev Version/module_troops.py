@@ -1,3 +1,4 @@
+#-*-coding:utf-8-*-
 import random
 
 from header_common import *

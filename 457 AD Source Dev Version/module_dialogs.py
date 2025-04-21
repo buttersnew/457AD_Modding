@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+#-*-coding:utf-8-*-
 from header_common import *
 from header_dialogs import *
 from header_operations import *

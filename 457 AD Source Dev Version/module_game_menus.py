@@ -1,3 +1,4 @@
+#-*-coding:utf-8-*-
 from header_game_menus import *
 from header_parties import *
 from header_items import *
@@ -9152,8 +9153,8 @@ TOTAL:  {reg5}"),
 
   (
     "construct_ladders",0,
-    "As the party member with the highest Engineer skill ({reg2}), {reg3?you estimate:{s3} estimates} that it will take\
- {reg4} hours to build enough scaling ladders for the assault.",
+    "As the party member with the highest Engineer skill ({reg2}), {reg3?you estimate:{s3} estimates} that it will take "+
+ "{reg4} hours to build enough scaling ladders for the assault.",
     "none",
     [(call_script, "script_get_max_skill_of_player_party", "skl_engineer"),
      (assign, ":max_skill", reg0),
@@ -9440,8 +9441,8 @@ TOTAL:  {reg5}"),
   (
     "castle_taken",mnf_disable_all_keys,
   ##diplomacy begin
-    "{s3} has fallen to your troops, and you now have full control of the {reg2?town:fortress}. You can plunder spoils of war worth {reg3} siliquae.\
-{reg1? You may station troops here to defend it against enemies who may try to recapture it. Also, you should select now whether you will hold the {reg2?town:fortress} yourself or give it to a faithful vassal...:}",# Only visible when castle is taken without being a vassal of a kingdom.
+    "{s3} has fallen to your troops, and you now have full control of the {reg2?town:fortress}. You can plunder spoils of war worth {reg3} siliquae. "+
+"{reg1? You may station troops here to defend it against enemies who may try to recapture it. Also, you should select now whether you will hold the {reg2?town:fortress} yourself or give it to a faithful vassal...:}",# Only visible when castle is taken without being a vassal of a kingdom.
   ##diplomacy end
     "none",
     [

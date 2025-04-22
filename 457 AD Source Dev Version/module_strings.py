@@ -1268,7 +1268,7 @@ strings = [
   ("npc26_morality_speech", "Battles where the blood of filthy pagans is spilled is always a sacred work. We still have a long way to go before we have cleansed all that needs to be purged... "),
 ("npc27_morality_speech", "Warlord! That was a bold choice. You lead like the reindeer leads the herd - strong and without fear. I am proud to follow such a path."),
 ("npc28_morality_speech", "Warlord, you have the look of someone who knows when to strike and when to wait. Keep to this path, and the desert itself will envy your cunning."),
-("npc29_retirement_speech", "Warlord... This path we walk is bloodier than I imagined. I joined seeking purpose, but I fear this life of war may not be mine to live. I shall leave your warband, with respect and gratitude."),
+("npc29_morality_speech", "I was not pleased that you decided to {s21}."),
 ("npc30_morality_speech", "General, I commend your foresight. Strategy and boldness will lead us to prosperity. A man must do more than just survive - he must build a future worth guarding."),
 
   ("npc1_2ary_morality_speech", "I am not a soldier, but I know how dishonorable it is to run from battle, the ancient tribes of Israel did not run away from challenges, and neither should you. You are making me question my choices, let's go back and reduce those men to heap of bones!"),

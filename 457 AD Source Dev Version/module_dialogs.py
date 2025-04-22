@@ -54937,17 +54937,6 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
     (troop_set_slot, "trp_dani_guthlaf", slot_troop_age, 25),
     (troop_set_slot, "trp_dani_guthlaf", slot_troop_religion, slot_religion_paganism),
     (troop_set_slot, "trp_dani_guthlaf", slot_troop_renown, 450),
-
-    (troop_set_slot, "trp_dani_hengest", slot_troop_occupation, slto_kingdom_hero),
-    (call_script, "script_change_troop_faction", "trp_dani_hengest", "fac_kingdom_19"),
-    (troop_set_note_available,"trp_dani_hengest",1),
-    (troop_set_slot, "trp_dani_hengest", slot_troop_wealth, 10000),
-    (call_script, "script_cf_select_random_walled_center_with_faction", "fac_kingdom_19", -1),
-    (assign, ":center", reg0),
-    (try_begin),
-      (is_between, ":center", walled_centers_begin, walled_centers_end),
-      (call_script, "script_create_kingdom_hero_party", "trp_dani_hengest", ":center"),
-    (try_end),
    ]],
 
   [anyone|plyr, "finn_quest_2_real_final_6", [

@@ -3241,6 +3241,14 @@ troops = [
    knows_weapon_master_4|knows_ironflesh_4|knows_power_throw_3|knows_athletics_3|knows_power_strike_3|knows_inventory_management_2|knows_riding_4|knows_horse_archery_4|knows_power_draw_2, #29
   0x00000000350514c1446492570da96c6300000000001f4d630000000000000000],
 
+["npc29","Sultana","Sultana",tf_female|tf_hero|tf_unmoveable_in_party_window, no_scene, reserved,  fac_commoners,[itm_sarranid_common_dress,itm_deurne_campagi_1,itm_dagger],   str_6|agi_9|int_11|cha_8|level(1), wp(70),knows_inventory_management_3|knows_wound_treatment_1|knows_trade_4|knows_first_aid_3|knows_surgery_1|knows_athletics_3|knows_riding_1,
+  0x00000001be006002559332479f5238e600000000000598e40000000000000000],
+
+["npc30","Barzabod","Barzabod",tf_hero|tf_unmoveable_in_party_window, no_scene, reserved, fac_commoners,[itm_sassanid_mail_1,itm_sassanid_helmet_cloth_1,itm_sarranid_boots_b,itm_hunnic_spatha,itm_heavy_lance,itm_khergit_bow,itm_khergit_arrows,itm_niseansas_2], 
+   str_12|agi_9|int_9|cha_9|level(17), wp_one_handed(140)|wp_two_handed(120)|wp_polearm(130)|wp_archery(60)|wp_crossbow(60)|wp_throwing(120)|wp_firearm(60),
+   knows_weapon_master_3|knows_ironflesh_4|knows_power_strike_3|knows_power_throw_4|knows_power_draw_4|knows_athletics_3|knows_riding_3|knows_horse_archery_4|knows_shield_3|knows_inventory_management_2|knows_trainer_5|knows_tactics_5|knows_leadership_3, 
+   0x0000000032007102651291a92170c81e00000000000cbb2a0000000000000000],
+
 #Was Anthemius
   ["kingdom_1_lord",  "Flavius Julius Valerius Majorianus Augustus",  "Majorianus",  tf_hero, 0,reserved,  fac_kingdom_1,[itm_nisean_cataphract_1, (itm_roman_squamata_emperor,imod_lordly), itm_coptic_tunic_emperor_2, itm_crown_1, itm_roman_lorum_fasciari_6, itm_roman_greaves_6, itm_tab_shield_small_round_c, itm_arabian_sword_d, itm_berk_helmet], knight_attrib_5,wp_one_handed(310)|wp_two_handed(250)|wp_polearm(300)|wp_archery(100)|wp_crossbow(100)|wp_throwing(100)|wp_firearm(100),knight_skills_6|knows_trainer_8, 0x000000060e002045345251b69369b4db00000000001d36e20000000000000000],
 

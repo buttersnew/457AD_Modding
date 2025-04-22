@@ -13681,19 +13681,39 @@ TOTAL:  {reg5}"),
       ],
       "Take a walk around the streets.",
        [
+#madsci custom npcs
+(try_begin),
+(eq, "$talk_context", tc_town_talk),
+    (try_begin),
+        (eq, "$g_encountered_party", "p_town_19"), #ctesiphon
+        (troop_slot_eq, "trp_npc29", slot_troop_occupation, slto_inactive), #sultana
+	(neg|troop_slot_eq, "trp_npc29", slot_troop_playerparty_history, pp_history_scattered),
+	(neg|main_party_has_troop, "trp_npc29"),
+        (set_visitor, 5, "trp_npc29"),
+	(else_try),
+        (eq, "$g_encountered_party", "p_town_28"), #tingis
+        (troop_slot_eq, "trp_npc30", slot_troop_occupation, slto_inactive), #barzabod
+	(neg|troop_slot_eq, "trp_npc30", slot_troop_playerparty_history, pp_history_scattered),
+	(neg|main_party_has_troop, "trp_npc30"),
+        (set_visitor, 5, "trp_npc30"),
+    (try_end),
+(try_end),
+
          #If the player is fighting his or her way out
          (try_begin),
            (eq, "$talk_context", tc_prison_break),
            (assign, "$talk_context", tc_escape),
            (assign, "$g_mt_mode", tcm_escape),
            (store_faction_of_party, ":town_faction", "$current_town"),
-           (try_begin), #SB : this really shouldn't be happening but we'll check player faction center anyway
-             (neg|is_between, ":town_faction", npc_kingdoms_begin, kingdoms_end),
-             (party_get_slot, ":town_faction", "$current_town", slot_center_original_faction),
-           (try_end),
            (faction_get_slot, ":tier_2_troop", ":town_faction", slot_faction_tier_3_troop),
            (faction_get_slot, ":tier_3_troop", ":town_faction", slot_faction_tier_3_troop),
            (faction_get_slot, ":tier_4_troop", ":town_faction", slot_faction_tier_4_troop),
+           	(try_begin), #SB : this really shouldn't be happening but we'll check player faction center anyway
+		(le, ":tier_2_troop", 0),
+             	(neg|is_between, ":town_faction", npc_kingdoms_begin, kingdoms_end),
+             	(party_get_slot, ":town_faction", "$current_town", slot_center_original_faction),
+		(is_between, ":town_faction", npc_kingdoms_begin, npc_kingdoms_end),
+           	(try_end),
 	(try_begin), #madsci failsafe
 	(le, ":tier_2_troop", 0),
 	(assign, ":tier_2_troop", "trp_manhunter"),
@@ -14503,7 +14523,7 @@ TOTAL:  {reg5}"),
         (set_visitor, 42, "trp_npc27"),
 	(else_try),
         (eq, "$g_encountered_party", "p_castle_78"), #tingis
-        (troop_slot_eq, "trp_npc28", slot_troop_occupation, slto_inactive), #harva
+        (troop_slot_eq, "trp_npc28", slot_troop_occupation, slto_inactive), #malzam
 	(neg|troop_slot_eq, "trp_npc28", slot_troop_playerparty_history, pp_history_scattered),
 	(neg|main_party_has_troop, "trp_npc28"),
         (set_visitor, 42, "trp_npc28"),

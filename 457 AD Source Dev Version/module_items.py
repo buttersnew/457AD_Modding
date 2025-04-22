@@ -3575,6 +3575,14 @@ weight(1)|abundance(80)|head_armor(24)|body_armor(14)|leg_armor(6)|difficulty(0)
 ["empty_legs","empty_legs",[("nothing_rig",0)],itp_type_foot_armor|itp_unique,0,130,weight(225)|leg_armor(100)|difficulty(0),0],
 ["empty_head","empty head",[("nothing_rig",0)],itp_type_head_armor|itp_unique|itp_covers_head,0,1,weight(250)|head_armor(100)|difficulty(0),0],
 ["empty_body","empty body",[("nothing",0)],itp_type_body_armor|itp_unique|itp_covers_legs,0,1,weight(250)|head_armor(100)|difficulty(0),0],
+
+["animal_big","Big_Animal", [
+    ("cow_a",0),("cow_b",imodbit_cracked),("cow_c",imodbit_rusty),("cow_d",imodbit_bent)],
+    itp_type_animal|itp_disable_agent_sounds, 0, 10,abundance(10)|hit_points(25)|body_armor(0)|difficulty(10)|horse_speed(5)|horse_maneuver(5)|horse_charge(0)|horse_scale(90),0],
+["animal_small","Small_Animal", [
+    ("goat",0),("goat_c",imodbit_cracked),("sheep_mod_a",imodbit_rusty),("sheep_mod_b",imodbit_bent)],
+    itp_type_animal|itp_disable_agent_sounds, 0, 10,abundance(10)|hit_points(25)|body_armor(0)|difficulty(10)|horse_speed(5)|horse_maneuver(5)|horse_charge(0)|horse_scale(50),0],
+
 ]
 
 from copy import deepcopy

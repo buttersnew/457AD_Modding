@@ -3514,18 +3514,163 @@ scene_props = [
   ( "tree_log_small_half"                        ,0,"tree_log_small_half","bo_tree_log_small_half",[]),
   ( "tree_log_pile"                              ,0,"tree_log_pile","bo_tree_log_pile",[]),
 
-  ("cow_a",0,"cow_a","0", []),
+  ("animal_cow_a",sokf_invisible,"cow_a","0", [
+    (ti_on_init_scene_prop,[
+        (store_trigger_param_1, ":instance_no"),(prop_instance_get_position, pos1, ":instance_no"), (set_spawn_position, pos1), (set_fixed_point_multiplier, 100),
+        (store_random_in_range, ":animal_var", 0, imod_cracked+1),
+        (spawn_horse,"itm_animal_big", ":animal_var"),
+        (agent_set_stand_animation, reg0, "anim_horse_stand"),
+        (scene_prop_set_slot, ":instance_no", slot_prop_agent_1, reg0),
+        (prop_instance_get_position, pos1, ":instance_no"),
+        (prop_instance_animate_to_position, ":instance_no", pos1, 100),
+    ]),
+    (ti_on_scene_prop_animation_finished,[
+        (store_trigger_param_1, ":instance_no"),(set_fixed_point_multiplier, 100),
+        (assign, reg1, 0), #animation 1
+        (assign, reg2, "snd_cow_moo_scene"), #sound 1
+        (assign, reg3, 5), #move chance
+        (call_script, "script_animate_animals",  ":instance_no"),
+        (store_random_in_range, ":timer", 100, 200),
+        (prop_instance_get_position, pos1, ":instance_no"),
+        (prop_instance_animate_to_position, ":instance_no", pos1, ":timer"),
+    ])]),
+
   ("cow_b",0,"cow_b","0", []),
   ("cow_c",0,"cow_c","0", []),
   ("cow_d",0,"cow_d","0", []),
-  ("donkey",0,"donkey_c","0", []),
-  ("goat",0,"goat","0", []),
+  #("donkey",0,"donkey_c","0", []), #pretty sure this is not used anywhere, very low-res asset, so we replace it with a horse
+  ("animal_horse",sokf_invisible,"bareback_horse_1","0", [
+    (ti_on_init_scene_prop,[
+        (store_trigger_param_1, ":instance_no"),(prop_instance_get_position, pos1, ":instance_no"), (set_spawn_position, pos1),
+        (spawn_horse,"itm_animal_horse"),
+        (agent_set_stand_animation, reg0, "anim_horse_stand"), (scene_prop_set_slot, ":instance_no", slot_prop_agent_1, reg0),
+        (prop_instance_get_position, pos1, ":instance_no"),
+        (prop_instance_animate_to_position, ":instance_no", pos1, 100),
+    ]),
+    (ti_on_scene_prop_animation_finished,[
+        (store_trigger_param_1, ":instance_no"),
+        (assign, reg1, 0), #animation 1
+        (assign, reg2, 0), #use hardcoded horse sound
+        (assign, reg3, 15), #move chance
+        (call_script, "script_animate_animals",  ":instance_no"),
+        (store_random_in_range, ":timer", 100, 200),
+        (prop_instance_get_position, pos1, ":instance_no"),
+        (prop_instance_animate_to_position, ":instance_no", pos1, ":timer"),
+    ])]),
+
+  ("animal_goat",sokf_invisible,"goat","0", [
+    (ti_on_init_scene_prop,[
+        (store_trigger_param_1, ":instance_no"),(prop_instance_get_position, pos1, ":instance_no"), (set_spawn_position, pos1),
+        (store_random_in_range, ":animal_var", 0, imod_cracked+1),
+        (spawn_horse,"itm_animal_small", ":animal_var"),(agent_set_stand_animation, reg0, "anim_horse_stand"),(scene_prop_set_slot, ":instance_no", slot_prop_agent_1, reg0),
+        (prop_instance_get_position, pos1, ":instance_no"),
+        (prop_instance_animate_to_position, ":instance_no", pos1, 100),
+    ]),
+    (ti_on_scene_prop_animation_finished,[
+        (store_trigger_param_1, ":instance_no"),
+        (assign, reg1, 0), #animation 1
+        (assign, reg2, "snd_goat"), #sound 1
+        (assign, reg3, 5), #move chance
+        (call_script, "script_animate_animals",  ":instance_no"),
+        (store_random_in_range, ":timer", 100, 200),
+        (prop_instance_get_position, pos1, ":instance_no"),
+        (prop_instance_animate_to_position, ":instance_no", pos1, ":timer"),
+    ])]),
+
   ("goat_c",0,"goat_c","0", []),
-  ("wild_donkey",0,"wild_donkey","0", []),
-  ("animal_chicken",0,"animal_chicken","0", []),
-  ("animal_pig",0,"animal_pig","0", []),
-  ("cow_mod_a",0,"cow_mod_a","0", []),
-  ("sheep_mod_a",0,"sheep_mod_a","0", []),
+
+  ("animal_wild_donkey",sokf_invisible,"wild_donkey","0", [
+    (ti_on_init_scene_prop,[
+        (store_trigger_param_1, ":instance_no"),(prop_instance_get_position, pos1, ":instance_no"), (set_spawn_position, pos1),
+        (spawn_horse,"itm_animal_donkey"),
+        (agent_set_stand_animation, reg0, "anim_horse_stand"), (scene_prop_set_slot, ":instance_no", slot_prop_agent_1, reg0),
+        (prop_instance_get_position, pos1, ":instance_no"),
+        (prop_instance_animate_to_position, ":instance_no", pos1, 100),
+    ]),
+    (ti_on_scene_prop_animation_finished,[
+        (store_trigger_param_1, ":instance_no"),
+        (assign, reg1, 0), #animation 1
+        (assign, reg2, "snd_donkey"), #sound 1
+        (assign, reg3, 5), #move chance
+        (call_script, "script_animate_animals",  ":instance_no"),
+        (store_random_in_range, ":timer", 100, 200),
+        (prop_instance_get_position, pos1, ":instance_no"),
+        (prop_instance_animate_to_position, ":instance_no", pos1, ":timer"),
+    ])]),
+#from sclavinia mod
+ ("animal_chicken",0,"scla_kura_combine",0,   [
+   (ti_on_scene_prop_init,[
+        (store_trigger_param_1, ":instance_no"),
+        (store_random_in_range, ":random", 0, 220),
+        (prop_instance_deform_to_time, ":instance_no", ":random"),
+        (store_random_in_range, ":random", 4000, 8000),
+        #(prop_instance_deform_in_cycle_loop, ":instance_no", 0, 220, ":random"),
+        (prop_instance_deform_in_range, ":instance_no", 0, 220, ":random"),
+    ]),
+    (ti_scene_prop_deformation_finished,[
+        (store_trigger_param_1, ":instance_no"),
+        (prop_instance_play_sound, ":instance_no", "snd_kura"),
+        (store_random_in_range, ":random", 4000, 8000),
+        #(prop_instance_deform_in_cycle_loop, ":instance_no", 0, 220, ":random"),
+        (prop_instance_deform_in_range, ":instance_no", 0, 220, ":random"),
+    ])]),
+
+  ("animal_pig",sokf_invisible,"animal_pig","0", [
+    (ti_on_init_scene_prop,[
+        (store_trigger_param_1, ":instance_no"),(prop_instance_get_position, pos1, ":instance_no"), (set_spawn_position, pos1),
+        (spawn_horse,"itm_animal_pig"),
+        (agent_set_stand_animation, reg0, "anim_horse_stand"), (scene_prop_set_slot, ":instance_no", slot_prop_agent_1, reg0),
+        (prop_instance_get_position, pos1, ":instance_no"),
+        (prop_instance_animate_to_position, ":instance_no", pos1, 100),
+    ]),
+    (ti_on_scene_prop_animation_finished,[
+        (store_trigger_param_1, ":instance_no"),
+        (assign, reg1, 0), #animation 1
+        (assign, reg2, "snd_pig"), #sound 1
+        (assign, reg3, 5), #move chance
+        (call_script, "script_animate_animals",  ":instance_no"),
+        (store_random_in_range, ":timer", 100, 200),
+        (prop_instance_get_position, pos1, ":instance_no"),
+        (prop_instance_animate_to_position, ":instance_no", pos1, ":timer"),
+    ])]),
+
+  ("animal_cow_mod_a",sokf_invisible,"cow_mod_a","0", [
+    (ti_on_init_scene_prop,[
+        (store_trigger_param_1, ":instance_no"),(prop_instance_get_position, pos1, ":instance_no"), (set_spawn_position, pos1),
+        (spawn_horse,"itm_animal_cow"),
+        (agent_set_stand_animation, reg0, "anim_horse_stand"), (scene_prop_set_slot, ":instance_no", slot_prop_agent_1, reg0),
+        (prop_instance_get_position, pos1, ":instance_no"),
+        (prop_instance_animate_to_position, ":instance_no", pos1, 100),
+    ]),
+    (ti_on_scene_prop_animation_finished,[
+        (store_trigger_param_1, ":instance_no"),
+        (assign, reg1, 0), #animation 1
+        (assign, reg2, "snd_pig"), #sound 1
+        (assign, reg3, 5), #move chance
+        (call_script, "script_animate_animals",  ":instance_no"),
+        (store_random_in_range, ":timer", 100, 200),
+        (prop_instance_get_position, pos1, ":instance_no"),
+        (prop_instance_animate_to_position, ":instance_no", pos1, ":timer"),
+    ])]),
+
+  ("animal_sheep_mod_a",sokf_invisible,"sheep_mod_a","0", [
+    (ti_on_init_scene_prop,[
+        (store_trigger_param_1, ":instance_no"),(prop_instance_get_position, pos1, ":instance_no"), (set_spawn_position, pos1),
+        (store_random_in_range, ":sheep", itm_animal_sheep_a, itm_animal_cow),
+        (spawn_horse,":sheep"),(agent_set_stand_animation, reg0, "anim_horse_stand"),(scene_prop_set_slot, ":instance_no", slot_prop_agent_1, reg0),
+        (prop_instance_get_position, pos1, ":instance_no"),
+        (prop_instance_animate_to_position, ":instance_no", pos1, 100),
+    ]),
+    (ti_on_scene_prop_animation_finished,[
+        (store_trigger_param_1, ":instance_no"),
+        (assign, reg1, 0), #animation 1
+        (assign, reg2, "snd_sheep"), #sound 1
+        (assign, reg3, 5), #move chance
+        (call_script, "script_animate_animals",  ":instance_no"),
+        (store_random_in_range, ":timer", 100, 200),
+        (prop_instance_get_position, pos1, ":instance_no"),
+        (prop_instance_animate_to_position, ":instance_no", pos1, ":timer"),
+    ])]),
   ("sheep_mod_b",0,"sheep_mod_b","0", []),
 
   ("wheat_field",0,"wheat_field","0", []),

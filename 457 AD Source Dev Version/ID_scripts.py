@@ -983,4 +983,5 @@ script_get_lord_has_troops = 981
 script_change_player_relation_lords_religion = 982
 script_get_closest_village = 983
 script_fully_refresh_minor_faction_garrison = 984
-script_efe_init = 985
+script_animate_animals = 985
+script_efe_init = 986

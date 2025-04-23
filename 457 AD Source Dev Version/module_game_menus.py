@@ -34149,7 +34149,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       (position_set_y, pos32, 171),
 
       (party_set_slot, "p_transporter", slot_party_on_water, 1),
-      (party_set_flags, "p_transporter", pf_is_ship, 0),
+      (party_set_flags, "p_transporter", pf_is_ship, 1),
       (party_set_position, "p_transporter", pos32),
 
       (set_fixed_point_multiplier, 1),
@@ -35106,6 +35106,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 ("haddingrs_revenge_return",mnf_scale_picture|mnf_enable_hot_keys,
 "With the campaign in the east concluded, Haddingr's warband gathers at the shore, their ships ready to set sail for Denmark. The salt wind carries the scent of distant battles yet to come, and the warriors speak in hushed tones of the gods' will.^^The omens have been read, the path is clear - Heorot awaits, and with it, the clash that shall decide its fate. You and Haddingr stand apart, knowing the road ahead is fraught with peril. To avoid unwanted eyes and ensure success, you agree to travel separately, each taking a different course back to Denmark.",
 "none", [
+	(assign, "$g_player_is_captive", 0),
     (set_background_mesh, "mesh_pic_mb_warrior_1"),
   ],[
   ("option_1", [

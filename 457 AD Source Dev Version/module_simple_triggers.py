@@ -1844,6 +1844,20 @@ simple_triggers = [
 (quest_set_slot, "qst_ernak_quest", slot_quest_current_state, -2),
 (try_end),
 
+(assign, ":end", "qst_haddingrs_revenge"),
+(val_add, ":end", 1),
+(try_for_range, ":quest", "qst_finnsburh_quest", ":end"), #madsci cancel quest if quest parties are razed by the player for some reason
+(check_quest_active, ":quest"),
+(store_faction_of_party, ":party_faction", "p_dani_village"),
+(store_faction_of_party, ":party_faction2", "p_augundzi_village"),
+(store_faction_of_party, ":party_faction3", "p_frisian_village"),
+(this_or_next|eq, ":party_faction", "fac_neutral"),
+(this_or_next|eq, ":party_faction2", "fac_neutral"),
+(eq, ":party_faction3", "fac_neutral"),
+(call_script, "script_cancel_quest", ":quest"),
+(quest_set_slot, ":quest", slot_quest_current_state, -1),
+(try_end),
+
 (try_begin),
 (neg|check_quest_active, "qst_hunt_down_fugitive"),
 (party_count_prisoners_of_type, ":count", "p_main_party", "trp_fugitive"),

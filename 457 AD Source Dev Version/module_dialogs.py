@@ -54929,7 +54929,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
     (try_begin),
       (troop_get_slot, ":leaded_party", "trp_frisian_king", slot_troop_leaded_party),
       (gt, ":leaded_party", 0),
-      (party_is_active, ":leaded_party", 0),
+      (party_is_active, ":leaded_party"),
       (call_script, "script_remove_hero_prisoners", ":leaded_party"),
       (remove_party, ":leaded_party"),
     (try_end),
@@ -55302,7 +55302,7 @@ I suppose there are plenty of bounty hunters around to get the job done...", "lo
   [anyone, "alf_puppet_king_intro_8", [
   ],"-- Smiling faintly. --^^As thou wish'st, lord. The Augandzi shall await thy guidance.",
   "minor_faction_king_pretalk", [
-    (call_script, "script_change_player_relation_with_troop", "trp_aestii_king",50),
+    (call_script, "script_change_player_relation_with_troop", "trp_dani_alf",50),
   ]],
 
   [trp_aestii_king, "start", [(eq, "$g_talk_troop_met", 0),],

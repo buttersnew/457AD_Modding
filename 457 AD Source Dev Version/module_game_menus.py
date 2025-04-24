@@ -35252,6 +35252,14 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     (display_log_message, "@The {s10} are now your vassal! Their new ruler is {s11}, your puppet king."),
 
     (troop_set_slot, "trp_augundzi_king", slot_troop_occupation, dplmc_slto_dead),
+	(party_remove_members, "p_augundzi_village", "trp_augundzi_king", 1),
+        (try_begin),
+          (troop_get_slot, ":leaded_party", "trp_augundzi_king", slot_troop_leaded_party),
+          (gt, ":leaded_party", 0),
+          (party_is_active, ":leaded_party", 0),
+          (call_script, "script_remove_hero_prisoners", ":leaded_party"),
+          (remove_party, ":leaded_party"),
+        (try_end),
 
     (call_script, "script_set_player_relation_with_faction", "fac_minor_augundzi", 10),
 

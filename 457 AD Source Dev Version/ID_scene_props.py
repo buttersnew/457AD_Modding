@@ -1991,3 +1991,5 @@ spr_troop_archer = 1989
 spr_troop_rider = 1990
 spr_troop_civ_walker = 1991
 spr_terrain_mountain_far = 1992
+spr_troop_archer_train = 1993
+spr_troop_guard_train = 1994

@@ -5458,7 +5458,6 @@ scene_props = [
     (agent_set_speed_limit, reg0, ":speed"),
     (scene_prop_set_slot, ":instance_no", slot_prop_agent_1, reg0),
     (agent_set_slot, reg0, slot_agent_target_entry_point, ":instance_no"), #set home prop as first target to activate them
-    (assign, "$test_walker", reg0),
     (prop_instance_deform_in_range, ":instance_no", 0, 100, 500), #fake deform to get a timer
   ]),
   (ti_scene_prop_deformation_finished,[
@@ -5481,5 +5480,113 @@ scene_props = [
 
 ("terrain_mountain_far",0,"mountain_scene_TLD",0,[]), 
 
+("troop_archer_train",sokf_invisible,"arrow_helper_blue","0", [(ti_on_init_scene_prop,[
+    (store_trigger_param_1, ":instance_no"),
+    (store_faction_of_party, ":current_faction", "$g_encountered_party"),
+    (faction_get_slot, ":troop", ":current_faction", slot_faction_tier_1_troop), #seems to be a missile troop most of the time
+    (prop_instance_get_position, pos1, ":instance_no"), (position_move_y, pos1, -1000,0), (set_spawn_position, pos1),  (spawn_agent, ":troop"),
+    (scene_prop_set_slot, ":instance_no", slot_prop_agent_1, reg0),
+    (agent_set_team, reg0, 0),
+
+    (try_for_range, ":weapon_slot", 0, 4), #find bow
+        (agent_get_item_slot, ":item", reg0, ":weapon_slot"),
+        (gt, ":item", 1),
+        (item_get_type, ":item_type", ":item"),
+        (this_or_next|eq, ":item_type", itp_type_bow),
+        (this_or_next|eq, ":item_type", itp_type_thrown),
+        (eq, ":item_type", itp_type_crossbow),
+        #(agent_equip_item, reg0, ":item", 1),
+        (agent_set_wielded_item, reg0, ":item"),
+    (try_end),
+    (prop_instance_deform_in_range, ":instance_no", 0, 100, 500), #fake deform to get a timer
+   ]),
+  (ti_scene_prop_deformation_finished,[
+    (set_fixed_point_multiplier, 100),
+    (store_trigger_param_1, ":instance_no"),
+    (prop_instance_get_position, pos1, ":instance_no"),
+    (get_player_agent_no, ":player"),
+    (agent_get_position, pos3, ":player"),
+    (get_distance_between_positions, ":dist", pos1, pos3),
+    (try_begin),
+        (is_between, ":dist", 300, 4000), #stop at greater distances to avoid noise
+        (copy_position, pos2, pos1),
+        (position_move_y, pos1, -1000,0),
+        (scene_prop_get_slot, ":agent", ":instance_no", slot_prop_agent_1),
+        (agent_refill_ammo, ":agent"),
+        (agent_set_position, ":agent", pos1),
+        (agent_set_look_target_position, ":agent", pos2),
+        (assign, ":attack_action_new", 0),
+        (try_begin),
+            (agent_get_attack_action, ":attack_action_old", ":agent"),
+            (eq, ":attack_action_old", 0),
+            (store_random_in_range, ":attack_action_new", 0, 2),
+        (try_end),
+        (agent_set_attack_action, ":agent", 0, ":attack_action_new"),
+    (try_end),
+
+    (store_random_in_range, ":timer", 2000, 4000),
+    (try_begin), #pauses
+        (eq, ":attack_action_new", 0), #only if attack isn't readied
+        (ge, ":timer", 3500),
+        (store_random_in_range, ":timer", 8000, 13000),
+    (try_end),
+    (prop_instance_deform_in_range, ":instance_no", 0, 100, ":timer"), #fake deform to get a timer
+   ]),
+   ]),
+
+("troop_guard_train",sokf_invisible,"arrow_helper_blue","0", [(ti_on_init_scene_prop,[
+    (store_trigger_param_1, ":instance_no"),
+    (store_faction_of_party, ":current_faction", "$g_encountered_party"),
+    (faction_get_slot, ":troop", ":current_faction", slot_faction_guard_troop),
+    (try_begin), #make sure it's infantry
+        (troop_is_guarantee_horse, ":troop"),
+        (faction_get_slot, ":troop", ":current_faction", slot_faction_tier_2_troop),
+    (try_end),
+
+    (prop_instance_get_position, pos1, ":instance_no"), (set_spawn_position, pos1),  (spawn_agent, ":troop"),
+    (scene_prop_set_slot, ":instance_no", slot_prop_agent_1, reg0),
+
+    (assign, ":weapon_found", 0),
+    (try_for_range, ":weapon_slot", 0, 4), #find weapon
+        (agent_get_item_slot, ":item", reg0, ":weapon_slot"),
+        (gt, ":item", 1),
+        (item_get_type, ":item_type", ":item"),
+        (neq, ":item_type", itp_type_polearm),
+        (neq, ":item_type", itp_type_bow),
+        (neq, ":item_type", itp_type_crossbow),
+        (neq, ":item_type", itp_type_thrown),
+        (agent_set_wielded_item, reg0, ":item"),
+        (assign, ":weapon_found", 1),
+    (try_end),
+    (try_begin),
+        (eq, ":weapon_found", 0),
+        (agent_equip_item, reg0, "itm_practice_staff", 1),
+        (agent_set_wielded_item, reg0, ":item"),
+    (try_end),
+    (prop_instance_deform_in_range, ":instance_no", 0, 100, 500), #fake deform to get a timer
+   ]),
+  (ti_scene_prop_deformation_finished,[
+    (set_fixed_point_multiplier, 100),
+    (store_trigger_param_1, ":instance_no"),
+    (prop_instance_get_position, pos1, ":instance_no"),
+    (get_player_agent_no, ":player"),
+    (agent_get_position, pos3, ":player"),
+    (get_distance_between_positions, ":dist", pos1, pos3),
+    (try_begin),
+        (is_between, ":dist", 300, 4000), #stop at greater distances to avoid noise
+        (scene_prop_get_slot, ":agent", ":instance_no", slot_prop_agent_1),
+        (agent_set_position, ":agent", pos1),
+        (store_random_in_range, ":attack_direction", 1, 4), #no thrust
+        (agent_set_attack_action, ":agent", ":attack_direction", 0),
+    (try_end),
+
+    (store_random_in_range, ":timer", 1000, 2000),
+    (try_begin), #pauses
+        (ge, ":timer", 1800),
+        (store_random_in_range, ":timer", 8000, 13000),
+    (try_end),
+    (prop_instance_deform_in_range, ":instance_no", 0, 100, ":timer"), #fake deform to get a timer
+   ]),
+   ]),
 
 ]

@@ -7609,7 +7609,7 @@ common_siege_defender_reinforcement_check = (
    (store_mission_timer_a,":mission_time"),
    (ge,":mission_time",10),
    (store_normalized_team_count,":num_defenders",0),
-   (lt,":num_defenders",8),
+   (lt,":num_defenders",31),
    (add_reinforcements_to_entry,4, 35),
    (val_add,"$defender_reinforcement_stage",1),
    (try_begin),
@@ -7649,7 +7649,7 @@ common_siege_attacker_reinforcement_check = (
     (store_mission_timer_a,":mission_time"),
     (ge,":mission_time",10),
     (store_normalized_team_count,":num_attackers",1),
-    (lt,":num_attackers",6)
+    (lt,":num_attackers",30)
     ],
   [
     (add_reinforcements_to_entry, 1, 35),
@@ -7705,7 +7705,7 @@ common_battle_victory_display = (
     ])
 
 common_siege_refill_ammo = (
-  120, 0, 0, [],
+  60, 0, 0, [],
   [#refill ammo of defenders every two minutes.
     (get_player_agent_no, ":player_agent"),
     (try_for_agents,":cur_agent"),

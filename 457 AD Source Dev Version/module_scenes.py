@@ -487,8 +487,8 @@ scenes = [
   ("town_36_center",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000a00005000005715c00000935000076e80000443a",
     [],[],"outer_terrain_beach"),
 
-  ("town_37_center",sf_generate,"none", "none",(0,0),(100,100),-100,"0x000000003000050000054150000045e10000331000005af7",
-    [],[],"outer_terrain_plain"),
+  ("town_37_center",sf_generate,"none", "none",(0,0),(100,100),-100,"0x00000001a0000500000d2348000008df00004ce100002de9",
+    [],[],"TLD_outer_terrain_river_west"),
   ("town_38_center",sf_generate,"none", "none",(0,0),(100,100),-100,"0x000000003000050000090240000017ed0000346f0000649d",
     [],[],"outer_terrain_steppe"),
   ("town_39_center",sf_generate,"none", "none",(0,0),(100,100),-100,"0x00000000300005000005b56d00000e1a00007c7d00007c7d",
@@ -1126,8 +1126,8 @@ scenes = [
   ("town_36_walls",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000a00005000005715c00000935000076e80000443a",
     [],[],"outer_terrain_beach"),
 
-  ("town_37_walls",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000003000050000054150000045e10000331000005af7",
-    [],[],"outer_terrain_plain"),
+  ("town_37_walls",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000001a0000500000d2348000008df00004ce100002de9",
+    [],[],"TLD_outer_terrain_river_west"),
   ("town_38_walls",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000003000050000090240000017ed0000346f0000649d",
     [],[],"outer_terrain_steppe"),
   ("town_39_walls",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000300005000005b56d00000e1a00007c7d00007c7d",

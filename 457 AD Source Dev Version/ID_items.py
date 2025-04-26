@@ -1981,3 +1981,5 @@ itm_empty_hands = 1979
 itm_empty_legs = 1980
 itm_empty_head = 1981
 itm_empty_body = 1982
+itm_animal_big = 1983
+itm_animal_small = 1984

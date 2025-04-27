@@ -7372,13 +7372,19 @@ TOTAL:  {reg5}"),
          ],
        "Order your soldiers to attack while you stay back...", [(assign, "$cant_talk_to_enemy", 0),(jump_to_menu,"mnu_castle_attack_walls_simulate")]),
 
-      ("build_ladders",[(party_slot_eq, "$current_town", slot_center_siege_with_belfry, 0),(eq, "$g_siege_method", 0)],
+      ("build_ladders",[(party_slot_eq, "$current_town", slot_center_siege_with_belfry, 0),(eq, "$g_siege_method", 0),
+	(eq, 1, 0), #madsci disable this because ladders are built through the siege warfare menu
+],
        "Prepare ladders to attack the walls.", [(jump_to_menu,"mnu_construct_ladders")]),
 
-      ("build_siege_tower",[(party_slot_eq, "$current_town", slot_center_siege_with_belfry, 1),(eq, "$g_siege_method", 0)],
+      ("build_siege_tower",[(party_slot_eq, "$current_town", slot_center_siege_with_belfry, 1),(eq, "$g_siege_method", 0),
+	(eq, 1, 0), #madsci disable this because ladders are built through the siege warfare menu
+],
        "Build a siege tower.", [(jump_to_menu,"mnu_construct_siege_tower")]),
 
-      ("build_ladders_special",[(party_slot_eq, "$current_town", slot_center_siege_with_belfry, 2),(eq, "$g_siege_method", 0)],
+      ("build_ladders_special",[(party_slot_eq, "$current_town", slot_center_siege_with_belfry, 2),(eq, "$g_siege_method", 0),
+	(eq, 1, 0), #madsci disable this because ladders are built through the siege warfare menu
+],
        "Prepare ladders to attack the walls.", [(jump_to_menu,"mnu_construct_ladders")]),
 
       ("cheat_castle_lead_attack",[(eq, "$cheat_mode", 1),

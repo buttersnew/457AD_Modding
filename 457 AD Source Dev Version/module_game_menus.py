@@ -33616,7 +33616,8 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     (set_background_mesh, "mesh_pic_charge"),
   ],[
   ("option_1",[
-    (ge, "$cheat_mode", 1)
+    (ge, "$cheat_mode", 1),
+	(eq, 1, 0), #madsci disable for now since the quest works
   ],"Test scene...",[
     (jump_to_scene, "scn_haddingrs_revenge_beach_battle"),
     (change_screen_mission),
@@ -33725,7 +33726,8 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     (set_background_mesh, "mesh_pic_charge"),
   ],[
   ("option_1",[
-    (ge, "$cheat_mode", 1)
+    (ge, "$cheat_mode", 1),
+	(eq, 1, 0), #madsci
   ],"Test scene...",[
     (jump_to_scene, "scn_haddingrs_revenge_beach_battle"),
     (change_screen_mission),
@@ -33826,7 +33828,8 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     (set_background_mesh, "mesh_pic_escape_1"),
   ],[
   ("option_1",[
-    (ge, "$cheat_mode", 1)
+    (ge, "$cheat_mode", 1),
+	(eq, 1, 0), #madsci
   ],"Test scene...",[
     (jump_to_scene, "scn_haddingrs_revenge_forest_hideout"),
     (change_screen_mission),
@@ -33855,7 +33858,9 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     (set_background_mesh, "mesh_pic_castlesnow"),
   ],[
   ("option_1",[
-    (ge, "$cheat_mode", 1)
+    (ge, "$cheat_mode", 1),
+	(eq, 1, 0), #madsci
+
   ],"Test scene...",[
     (jump_to_scene, "scn_haddingrs_revenge_sedgean"),
     (change_screen_mission),
@@ -33923,7 +33928,8 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     (set_background_mesh, "mesh_pic_castlesnow"),
   ],[
   ("option_1",[
-    (ge, "$cheat_mode", 1)
+    (ge, "$cheat_mode", 1),
+	(eq, 1, 0), #madsci
   ],"Test scene...",[
     (jump_to_scene, "scn_haddingrs_revenge_wangofthus_hall"),
     (change_screen_mission),
@@ -34463,6 +34469,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
   ],[
   ("option_0",[
     (ge, "$cheat_mode", 1),
+	(eq, 1, 0), #madsci
     (this_or_next|quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 14),
     (this_or_next|quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 15),
     (this_or_next|quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 16),
@@ -34821,6 +34828,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
   ("option_1", [
     (quest_slot_eq, "qst_haddingrs_revenge",  slot_quest_current_state, 33),
     (ge, "$cheat_mode", 1),
+	(eq, 1, 0), #madsci
   ],"Test scene",[
     (jump_to_scene, "scn_haddingrs_final_battle_duel"),
     (change_screen_mission),

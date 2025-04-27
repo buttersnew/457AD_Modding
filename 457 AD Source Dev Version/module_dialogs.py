@@ -289,6 +289,11 @@ dialogs = [
 					(assign, reg65, 0),
 				(try_end),
 				##diplomacy end+
+		           (assign, reg59, 0),
+		           (try_begin),
+		              (call_script, "script_cf_dplmc_troop_is_female", "trp_player"),
+		              (assign, reg59, 1),
+		           (try_end),
                (try_begin),
                  (faction_slot_eq,"$g_talk_troop_faction",slot_faction_leader,"$g_talk_troop"),
                  (str_store_string,s64,"@{reg65?my Lady:my Lord}"), #bug fix
@@ -3349,10 +3354,47 @@ or you won't be able to hang on to a single man you catch.", "ramun_ask_about_ca
 #[(is_between, "$g_talk_troop", "trp_bagaudae_footman", "trp_black_khergit_horseman"),],"He's at a hideout east of here, in the woods! Now let me go!.", "close_window",[(enable_party, "p_hidden_forest"),(setup_quest_text, "qst_special_warrior_quest2"),(str_store_string, s2, "@Maximus's hideout is in a forest in the east, I must hunt him down and kill him."),]],
 
 
+[party_tpl|pt_manhunters,"start", [(eq,"$talk_context",tc_party_encounter),
+      (encountered_party_is_attacker),
+      (call_script, "script_encounter_agent_draw_weapon"),
+    ],
+    "We have not come to talk, {reg59?wench:bastard}! It's time for swords!", "close_window",
+    [
+      (call_script, "script_make_kingdom_hostile_to_player", "$g_encountered_party_faction", -3),
+(assign,"$encountered_party_hostile",1),
+(assign,"$encountered_party_friendly",0),
+[encounter_attack]]],
+
 [party_tpl|pt_manhunters,"start", [(eq,"$talk_context",tc_party_encounter)], "Hey, you there! You seen any outlaws around here?", "manhunter_talk_b",[]],
+
 [party_tpl|pt_manhunters|plyr,"manhunter_talk_b", [], "Yes, they went this way about an hour ago.", "manhunter_talk_b1",[]],
+
 [party_tpl|pt_manhunters,"manhunter_talk_b1", [], "I knew it! Come on, lads, lets go get these bastards! Thanks a lot, friend.", "close_window",[(assign, "$g_leave_encounter",1)]],
+
+[party_tpl|pt_manhunters|plyr,"manhunter_talk_b", [(neg|encountered_party_is_attacker),
+(party_get_num_prisoner_stacks, ":num_stacks", "p_main_party"),
+(gt, ":num_stacks", 0),], "I wish to collect on the bounties of some bandits I have captured.", "manhunter_talk_b3",
+    [[change_screen_trade_prisoners]]],
+  [party_tpl|pt_manhunters,"manhunter_talk_b3", [], "There's your bounty. Now me and the lads are going to hunt down more bandits.", "close_window",[(assign, "$g_leave_encounter",1)]],
+
+[party_tpl|pt_manhunters|plyr,"manhunter_talk_b", [
+(neq, "$g_encountered_party_faction", "$players_kingdom"),
+(neq, "$g_encountered_party_faction", "fac_player_supporters_faction"),
+], "I hate scum such as yourself. Prepare to die!", "manhunter_talk_b4",[
+(call_script, "script_change_player_honor", -1),
+      (party_ignore_player, "$g_encountered_party", 0),
+      (party_set_slot,"$g_encountered_party",slot_party_ignore_player_until, 0),
+  ]],
+
+  [party_tpl|pt_manhunters,"manhunter_talk_b4", [], "How dare you! It is time for swords!", "close_window",
+    [
+      (call_script, "script_make_kingdom_hostile_to_player", "$g_encountered_party_faction", -3),
+(assign,"$encountered_party_hostile",1),
+(assign,"$encountered_party_friendly",0),
+      [encounter_attack]]],
+
 [party_tpl|pt_manhunters|plyr,"manhunter_talk_b", [], "No, haven't seen any outlaws lately.", "manhunter_talk_b2",[]],
+
 [party_tpl|pt_manhunters,"manhunter_talk_b2", [], "Bah. They're holed up in this country like rats, but we'll smoke them out yet. Sooner or later.", "close_window",[(assign, "$g_leave_encounter",1)]],
 
 [party_tpl|pt_looters|auto_proceed,"start", [(eq,"$talk_context",tc_party_encounter),(encountered_party_is_attacker),], "{!}Warning: This line should never be displayed.", "looters_1",[

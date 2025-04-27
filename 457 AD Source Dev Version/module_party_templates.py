@@ -43,7 +43,7 @@ party_templates = [
 # Ryan BEGIN
   ("looters","Looters",icon_axeman|carries_goods(8),0,fac_outlaws,bandit_personality,[(trp_looter,3,75)]),
 # Ryan END
-  ("manhunters","Manhunters",icon_axeman,0,fac_manhunters,soldier_personality,[(trp_manhunter,9,40)]),
+  ("manhunters","Young Warriors",icon_axeman,0,fac_manhunters,soldier_personality,[(trp_manhunter,9,40)]),
 ##  ("peasant","Peasant",icon_peasant,0,fac_commoners,merchant_personality,[(trp_farmer,1,6),(trp_peasant_woman,0,7)]),
 
 #SB : changes to icons

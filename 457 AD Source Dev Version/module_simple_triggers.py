@@ -8966,16 +8966,7 @@ simple_triggers = [
         (party_slot_eq, ":center", slot_town_lord, "trp_player"),
         (call_script, "script_add_notification_menu", "mnu_disaster_event", ":center", 0),
     (try_end),
-
-    # (str_store_party_name, s22, ":center"),
-    # (call_script, "script_get_event_details", event_fire),
-    # (display_log_message, "@{s22} was hit by a {s0}.", color_bad_news),
-    # (troop_get_slot,":number","trp_global_variables", g_number_fire),
-    # (val_add, ":number", 1),
-    # (troop_set_slot,"trp_global_variables", g_number_fire, ":number"),
     ]),
-
-    #check for player in non-main party - madsci
 
 #madsci rebellion stuff
  (3,[

@@ -34923,6 +34923,27 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     (try_end),
   ]),
 ]),
+
+  (
+    "majorian_death",mnf_disable_all_keys|mnf_scale_picture,
+    "{s10} has died! ^^While the official cause of death is dysentery, rumour has it that the emperor was actually murdered... ^^{s11} has quickly seized power in {s12}, and riots have erupted in major cities across the empire.",
+    "none",
+    [
+(set_fixed_point_multiplier, 100),
+(position_set_x, pos0, 70),
+(position_set_y, pos0, 5),
+(position_set_z, pos0, 75),
+(set_game_menu_tableau_mesh, "tableau_troop_note_mesh", "trp_kingdom_1_lord", pos0),
+(str_store_troop_name, s10, "trp_kingdom_1_lord"),
+(str_store_troop_name, s11, "trp_knight_1_1"),
+(str_store_faction_name, s12, "fac_kingdom_1"),
+],
+    [
+      ("continue",[],"Continue...",[
+(jump_to_menu, "mnu_auto_return_to_map"),
+]),
+    ],
+  ),
 ]#end of file
 
 

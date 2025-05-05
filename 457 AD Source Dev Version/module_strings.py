@@ -7022,6 +7022,17 @@ Even in the last case, the player can make formations up to four lines by orderi
  ^Starting allies: None\
  ^\
  ^Starting enemies: Saxons, Jutes, Angles, Frisians, Picts, Scoti"),
+("aioulf_description","Aioulf, King of the Suebi:\
+ ^\
+ ^Aioulf, last hope of the Suebi in this times of great peril. Lead us to victory against the traitorous Framta and the Visigoths!\
+ ^\
+ ^The Suebi start is challenging because you will start at war with several enemies at the same time.\
+ ^\
+ ^Difficulty: Medium\
+ ^\
+ ^Starting allies: None\
+ ^\
+ ^Starting enemies: Visigoths, Framta's Suebi"),
 
 #madsci VC sea battle
   ("quick_battle_troop_cam", "Watch the AI play the battle out. The camera uses the standard movement and rotation controls, plus F for up and V for down, +/- for zoom, Q to toggle follow terrain, numpad for game speed, mouse wheel for camera speed, arrow key rotation, Y to toggle invert y-axis, and R to toggle rotate-before-pan."),
@@ -7149,7 +7160,7 @@ Even in the last case, the player can make formations up to four lines by orderi
 
 ("desc_kingdom_31", "The Armenians are an ancient people."),
 ("desc_kingdom_32", "'Scoti' is the name given to raiders and settlers coming from the Irish coast during Late Antiquity by Roman sources."),
-("desc_kingdom_33", "'Sporoi' are the proto-slavic people settled around Kiev, back in the days called Navissus."),
+("desc_kingdom_33", "The Sporoi are an obscure tribe that are considered the precursor of the Antes and Sklaveni. They live along the course of the Dnieper and for long time they have been subjects of Goths and Huns. Now free, the Sporoi's descendants are about to change the shape of Europe."),
 ("desc_kingdom_34", "The Vistula Venedi are a tribe, or confederacy of tribes and clans, of uncertain ethnic background living along the eastern shores of the Vistula."),
 
 ("desc_rebel_kingdom_1", "The rebels fight for their freedom."),

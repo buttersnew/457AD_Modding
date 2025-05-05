@@ -22165,6 +22165,7 @@ presentations = [
     (troop_set_slot, "trp_temp_array_a", 8, "fac_kingdom_16"),
     (troop_set_slot, "trp_temp_array_a", 9, "fac_kingdom_23"),
     (troop_set_slot, "trp_temp_array_a", 10, "fac_kingdom_13"),
+    (troop_set_slot, "trp_temp_array_a", 11, "fac_kingdom_8"),
 
     #init variables
     (assign, ":num_lords", 0),

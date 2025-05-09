@@ -6802,7 +6802,7 @@ Even in the last case, the player can make formations up to four lines by orderi
 ("culture_armenian","You_are_an_Armenian._Your_people_are_the_descendants_of_the_ancient_kingdoms_of_Urartu_and_Armenia,_a_proud_nation_that_has_stood_at_the_crossroads_of_empires._Once_ruled_by_the_mighty_Arsacid_dynasty,_Armenia_was_divided_between_the_Eastern_Roman_and_Sasanian_Empires._Now,_as_a_vassal_of_the_Sasanians,_your_people_cling_to_their_Christian_faith,_which_was_first_adopted_in_301_AD,_and_to_their_unique_identity._Despite_persecution_and_geopolitical_turmoil,_Armenia_remains_a_land_of_fierce_warriors,_wise_clergy,_and_resilient_families._You_live_in_a_time_when_the_memories_of_Vardan_Mamikonian's_sacrifice_at_Avarayr_inspire_your_people_to_stand_strong_against_any_oppression."),
 ("culture_jew","You_are_a_Jew._Your_people_are_the_descendants_of_the_ancient_Israelites,_whose_kingdoms_of_Israel_and_Judah_once_flourished_in_the_hills_and_plains_of_the_Holy_Land._Centuries_of_exile,_displacement,_and_empires_have_scattered_your_community_across_the_Mediterranean,_but_their_identity_remains_unshaken._In_Palaestina,_your_people_suffer_under_Roman_rule,_facing_restrictions_and_persecutions._Despite_this,_your_tradition_endures_through_prayer,_study,_and a_tenacious_hope_for_redemption_and_freedom."),
 ("culture_irish","You_are_an_Irish._Since_the_world_was_made,_your_people_have_ruled_the_chill,_beautiful_island_of_Eriu._Wild_and_free,_you_look_with_contempt_on_your_weak_eastern_neighbours_who_tremble_behind_their_great_walls_and_towers_of_stone,_which_now_stand_abandoned_and_silent."),
-("culture_slavic","You_are_a_Slavic."),
+("culture_slavic","You are Slavic. Your people who live beyond the northern Danube in the dense forests and cold plains, are a free and unruly folk."),
 
 ("background_slave","Your_parents_were_slaves_and_thus_you_were_born._Your_life_has_been_one_of_hardship_and_suffering._As_a_child,_you_watched_your_family_cruelly_punished_by_the_master_for_any_small_mistake_or_perceived_offense._Nor_did_you_receive_mercy_because_of_your_age._Your_parents_died_young,_as_slaves_usually_do._Determined_to_avoid_the_same_fate,_you_escaped,_leaving_the_place_far_behind."),
 ("background_freeman","Your_parents_were_freemen,_owners_of_a_smallholding_worked_by_serfs._As_soon_as_you_could_walk,_you_too_were_put_to_work._You_helped_gather_the_harvest,_fetched_water,_fed_the_animals._Though_life_could_be_hard,_it_was_happy:_you_played_and_fought_with_the_other_children,_made_fun_baiting_livestock_and_enjoyed_the_many_cultural_and_religious_festivities_of_your_people."),
@@ -6986,6 +6986,17 @@ Even in the last case, the player can make formations up to four lines by orderi
  ^Starting allies: None\
  ^\
  ^Starting enemies: Saxons, Jutes, Angles, Frisians, Picts, Scoti"),
+("aioulf_description","Aioulf, King of the Suebi:\
+ ^\
+ ^Aioulf, last hope of the Suebi in this times of great peril. Lead us to victory against the traitorous Framta and the Visigoths!\
+ ^\
+ ^The Suebi start is challenging because you will start at war with several enemies at the same time.\
+ ^\
+ ^Difficulty: Medium\
+ ^\
+ ^Starting allies: None\
+ ^\
+ ^Starting enemies: Visigoths, Framta's Suebi"),
 
 #madsci VC sea battle
   ("quick_battle_troop_cam", "Watch the AI play the battle out. The camera uses the standard movement and rotation controls, plus F for up and V for down, +/- for zoom, Q to toggle follow terrain, numpad for game speed, mouse wheel for camera speed, arrow key rotation, Y to toggle invert y-axis, and R to toggle rotate-before-pan."),
@@ -7111,10 +7122,10 @@ Even in the last case, the player can make formations up to four lines by orderi
 
 ("desc_kingdom_30", "The Suevi Kingdom is a Germanic kingdom established in the northwest of the Iberian Peninsula. The Suevi had originally been pagan, but they converted to Christianity earlier than many other Germanic peoples."),
 
-("desc_kingdom_31", "The Armenians are an ancient people."),
+("desc_kingdom_31", "The Armenians, a hardy and martial race dwelling in the rugged lands between the Roman and Persian empires, are known for their fierce independence and shifting loyalties."),
 ("desc_kingdom_32", "'Scoti' is the name given to raiders and settlers coming from the Irish coast during Late Antiquity by Roman sources."),
-("desc_kingdom_33", "'Sporoi' are the proto-slavic people settled around Kiev, back in the days called Navissus."),
-("desc_kingdom_34", "The Vistula Venedi are a tribe, or confederacy of tribes and clans, of uncertain ethnic background living along the eastern shores of the Vistula."),
+("desc_kingdom_33", "The Sporoi are an obscure tribe that are considered the precursor of the Antes and Sklaveni. They live along the course of the Dnieper and for long time they have been subjects of Goths and Huns. Now free, the Sporoi's descendants are about to change the shape of Europe."),
+("desc_kingdom_34", "The Veneti are an ancient tribe recorded since the times of Tacitus living in the forested area of Eastern Europe. Ancient chroniclers considered them in between Germans and Scythians. However, it seems they were a Balto-Slavic culture that will later migrate west and will be known under the name of Wends."),
 
 ("desc_rebel_kingdom_1", "The rebels fight for their freedom."),
 ("desc_rebel_kingdom_2", "The rebels fight for their freedom."),

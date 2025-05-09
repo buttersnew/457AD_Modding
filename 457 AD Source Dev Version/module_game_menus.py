@@ -31021,7 +31021,11 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         "Continue.",
         [
         (faction_get_slot, ":leader", "$g_notification_menu_var1", slot_faction_leader),
+	(try_begin),
+	(this_or_next|gt, ":leader", 0),
+	(eq, "$g_notification_menu_var1", "fac_player_supporters_faction"),
         (call_script, "script_change_troop_renown", ":leader", 80),
+	(try_end),
         (change_screen_map),
       ]),
   ]),
@@ -31038,7 +31042,11 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         "Continue.",
         [
         (faction_get_slot, ":leader", "$g_notification_menu_var1", slot_faction_leader),
+	(try_begin),
+	(this_or_next|gt, ":leader", 0),
+	(eq, "$g_notification_menu_var1", "fac_player_supporters_faction"),
         (call_script, "script_change_troop_renown", ":leader", 100),
+	(try_end),
         (change_screen_map),
       ]),
   ]),
@@ -31055,13 +31063,17 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         "Continue.",
         [
         (faction_get_slot, ":leader", "$g_notification_menu_var1", slot_faction_leader),
+	(try_begin),
+	(this_or_next|gt, ":leader", 0),
+	(eq, "$g_notification_menu_var1", "fac_player_supporters_faction"),
         (call_script, "script_change_troop_renown", ":leader", 80),
+	(try_end),
         (change_screen_map),
       ]),
   ]),
 
   ( "recruit_bagadua_lord",menu_text_color(0xFF000000)|mnf_disable_all_keys,
-    "Basilius, the so called 'king' of the bagaudae you let escape approaches you. He requests vassalage.",
+    "Basilius, the so called 'king' of the Bagaudae you let escape approaches you. He requests vassalage.",
     "none",
     [],
     [

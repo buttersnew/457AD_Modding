@@ -5956,42 +5956,6 @@ Even in the last case, the player can make formations up to four lines by orderi
   ("germanic_f_cloak_brooch_2","germanic_f_cloak_brooch_1"),
   ("germanic_f_cloak_brooch_end","germanic_f_cloak_brooch_1"),
 
-
-#new cloaks by asher
-  #a - to be used by thorsburg tunic
-  #b - to be used by others
-
-  ("TOAOE_cloak_1a","TOAOE_cloak_1a"),#brown
-  ("TOAOE_cloak_2a","TOAOE_cloak_2a"),#brown
-  ("TOAOE_cloak_3a","TOAOE_cloak_3a"),#brown
-  ("TOAOE_cloak_4a","TOAOE_cloak_4a"),#brown
-  ("TOAOE_cloak_5a","TOAOE_cloak_5a"),#red/roman
-  ("TOAOE_cloak_6a","TOAOE_cloak_6a"),#red/roman
-  ("TOAOE_cloak_7a","TOAOE_cloak_7a"),#yellow w/ red stripe (roman)
-  ("TOAOE_cloak_8a","TOAOE_cloak_8a"),#yellow w/ decorations (roman)
-  ("TOAOE_cloak_9a","TOAOE_cloak_9a"),#brown with decorations (roman)
-  ("TOAOE_cloak_10a","TOAOE_cloak_10a"),#decorated (roman)
-  ("TOAOE_cloak_11a","TOAOE_cloak_11a"),#decorated (roman)
-  ("TOAOE_cloak_12a","TOAOE_cloak_12a"),#germanic (brown)
-  ("TOAOE_cloak_13a","TOAOE_cloak_13a"),#germanic (red/orange)
-  ("TOAOE_cloak_14a","TOAOE_cloak_14a"),#germanic (red w/ stripes)
-  ("TOAOE_cloak_15a","TOAOE_cloak_15a"),#germanic (red w/ stripes)
-
-  ("TOAOE_cloak_1b","TOAOE_cloak_1b"),#brown
-  ("TOAOE_cloak_2b","TOAOE_cloak_2b"),#brown
-  ("TOAOE_cloak_3b","TOAOE_cloak_3b"),#brown
-  ("TOAOE_cloak_4b","TOAOE_cloak_4b"),#brown
-  ("TOAOE_cloak_5b","TOAOE_cloak_5b"),#red/roman
-  ("TOAOE_cloak_6b","TOAOE_cloak_6b"),#red/roman
-  ("TOAOE_cloak_7b","TOAOE_cloak_7b"),#yellow w/ red stripe (roman)
-  ("TOAOE_cloak_8b","TOAOE_cloak_8b"),#yellow w/ decorations (roman)
-  ("TOAOE_cloak_9b","TOAOE_cloak_9b"),#brown with decorations (roman)
-  ("TOAOE_cloak_10b","TOAOE_cloak_10b"),#decorated (roman)
-  ("TOAOE_cloak_11b","TOAOE_cloak_11b"),#decorated (roman)
-  ("TOAOE_cloak_12b","TOAOE_cloak_12b"),#germanic (brown)
-  ("TOAOE_cloak_13b","TOAOE_cloak_13b"),#germanic (red/orange)
-  ("TOAOE_cloak_14b","TOAOE_cloak_14b"),#germanic (red w/ stripes)
-  ("TOAOE_cloak_15b","TOAOE_cloak_15b"),#germanic (red w/ stripes)
 #TEXTURE STRINGS
 
 #ROUND SHIELDS + CONCAVE SHIELDS - NEW

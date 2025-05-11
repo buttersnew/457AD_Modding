@@ -3218,33 +3218,33 @@ I'm assuming you have a blunt weapon with you...", "ramun_have_blunt_weapon",[]]
 [trp_ramun_the_slave_trader|plyr,"ramun_have_blunt_weapon", [],
 "As a matter of fact, I don't.", "ramun_have_blunt_weapon_no",[]],
 [trp_ramun_the_slave_trader,"ramun_have_blunt_weapon_yes", [],
-"Good. Then all you need to do is beat the bugger down with your weapon, and when the fighting's over you clap him in irons.\
-It's a bit different for nobles and such, they tend to be protected enough that it won't matter what kind of weapon you use,\
-but your average rabble-rouser will bleed like a stuck pig if you get him with something sharp. I don't have many requirements in my merchandise,\
-but I do insist they be breathing when I buy them.", "ramun_ask_about_capturing_2",[]],
+"Good. Then all you need to do is beat the bugger down with your weapon, and when the fighting's over you clap him in irons. "+
+"It's a bit different for nobles and such, they tend to be protected enough that it won't matter what kind of weapon you use, "+
+"but your average rabble-rouser will bleed like a stuck pig if you get him with something sharp. I don't have many requirements in my merchandise, "+
+"but I do insist they be breathing when I buy them.", "ramun_ask_about_capturing_2",[]],
 [trp_ramun_the_slave_trader,"ramun_have_blunt_weapon_no", [],
-"No? Heh, well, this must be your lucky day. I've got an old club lying around that I was going to throw away.\
-It a bit battered, but still good enough bash someone until he stops moving.\
-Here, have it.","ramun_have_blunt_weapon_no_2",[(troop_add_item, "trp_player","itm_club",imod_cracked)]],
+"No? Heh, well, this must be your lucky day. I've got an old club lying around that I was going to throw away. "+
+"It a bit battered, but still good enough bash someone until he stops moving. "+
+"Here, have it.","ramun_have_blunt_weapon_no_2",[(troop_add_item, "trp_player","itm_club",imod_cracked)]],
 [trp_ramun_the_slave_trader|plyr,"ramun_have_blunt_weapon_no_2", [],
 "Thanks, Ramun. Perhaps I may try my hand at it.", "ramun_have_blunt_weapon_yes",[]],
 [trp_ramun_the_slave_trader,"ramun_ask_about_capturing", [],
-"Alright, I'll try and expain it again in simple terms. The basic rule of taking someone prisoner is knocking him down with a blunt weapon, like a mace or a club,\
-rather than cutting him open with a sword. That way he goes to sleep for a little while rather than bleeding to death, you see?\
-It's a bit different for nobles and such, they tend to be protected enough that it won't matter what kind of weapon you use,\
-but your average rabble-rouser will bleed like a stuck pig if you get him with something sharp.", "ramun_ask_about_capturing_2",[]],
+"Alright, I'll try and expain it again in simple terms. The basic rule of taking someone prisoner is knocking him down with a blunt weapon, like a mace or a club, "+
+"rather than cutting him open with a sword. That way he goes to sleep for a little while rather than bleeding to death, you see? "+
+"It's a bit different for nobles and such, they tend to be protected enough that it won't matter what kind of weapon you use, "+
+"but your average rabble-rouser will bleed like a stuck pig if you get him with something sharp.", "ramun_ask_about_capturing_2",[]],
 [trp_ramun_the_slave_trader|plyr,"ramun_ask_about_capturing_2", [], "Alright, I think I understand. Anything else?", "ramun_ask_about_capturing_3",[]],
 [trp_ramun_the_slave_trader,"ramun_ask_about_capturing_3", [],
-"Well, it's not as simple as all that. Blunt weapons don't do as much damage as sharp ones, so they won't bring your enemies down as quickly.\
-And trust me, given the chance, most of the scum you run across would just as soon kill you as look at you, so don't expect any courtesy when you pull out a club instead of a sword.\
-Moreover, having to drag prisoners to and fro will slow down your party, which is why some people simply set their prisoners free after the fighting's done.\
-It's madness. How could anyone turn down all that silver, eh?", "ramun_ask_about_capturing_4",[]],
+"Well, it's not as simple as all that. Blunt weapons don't do as much damage as sharp ones, so they won't bring your enemies down as quickly. "+
+"And trust me, given the chance, most of the scum you run across would just as soon kill you as look at you, so don't expect any courtesy when you pull out a club instead of a sword. "+
+"Moreover, having to drag prisoners to and fro will slow down your party, which is why some people simply set their prisoners free after the fighting's done. "+
+"It's madness. How could anyone turn down all that silver, eh?", "ramun_ask_about_capturing_4",[]],
 [trp_ramun_the_slave_trader|plyr,"ramun_ask_about_capturing_4", [],
 "Is that everything?", "ramun_ask_about_capturing_5",[]],
 [trp_ramun_the_slave_trader,"ramun_ask_about_capturing_5", [],
-"Just one final thing. Managing prisoners safely is not an easy thing to do, you could call it a skill in itself.\
-If you want to capture a lot of prisoners, you should try and learn the tricks of it yourself,\
-or you won't be able to hang on to a single man you catch.", "ramun_ask_about_capturing_7",[]],
+"Just one final thing. Managing prisoners safely is not an easy thing to do, you could call it a skill in itself. "+
+"If you want to capture a lot of prisoners, you should try and learn the tricks of it yourself, "+
+"or you won't be able to hang on to a single man you catch.", "ramun_ask_about_capturing_7",[]],
 [trp_ramun_the_slave_trader|plyr,"ramun_ask_about_capturing_7", [],
 "Thanks, I'll keep it in mind.", "ramun_pre_talk",[]],
 
@@ -27034,6 +27034,99 @@ I will use this to make amends to those you have wronged, and I will let it be k
                #                             (eq,"$g_talk_troop_faction","$players_kingdom")
                        ],
 "Do you have any tasks for me?", "lord_request_mission_ask",[]],
+
+#madsci sell prisoners to lord
+[anyone|plyr,"lord_talk", [
+(neg|check_quest_active, "qst_capture_enemy_hero"),
+(neg|troop_slot_ge, "$g_talk_troop", slot_troop_prisoner_of_party, 0),
+(neq, "$g_talk_troop_faction", "fac_player_supporters_faction"),
+(this_or_next|eq, "$g_talk_troop_faction", "$players_kingdom"),
+(ge, "$g_talk_troop_faction_relation", 0),
+(neq, "$freelancer_state", 1),
+(troop_get_slot, ":faction_hero_party", "$g_talk_troop", slot_troop_leaded_party),
+(gt, ":faction_hero_party", 0),
+(party_is_active, ":faction_hero_party"),
+(party_get_num_prisoner_stacks, ":num_stacks", "p_main_party"),
+(gt, ":num_stacks", 0),
+(assign, ":has_lord_prisoner", 0),
+(try_for_range, ":troop_iterator", 0, ":num_stacks"),
+(eq, ":has_lord_prisoner", 0),
+(party_prisoner_stack_get_troop_id, ":cur_troop_id", "p_main_party", ":troop_iterator"),
+(this_or_next|ge, ":cur_troop_id", "trp_jewish_agitator"),
+(is_between, ":cur_troop_id", heroes_begin, heroes_end),
+(neq, "$g_talk_troop", ":cur_troop_id"),
+(assign, ":has_lord_prisoner", 1),
+(try_end),
+(eq, ":has_lord_prisoner", 1),
+],
+   "I want to turn in a prisoner of high value.", "lord_give_prisoner",[]],
+
+[anyone,"lord_give_prisoner", [],
+   "Very well, who do you want to turn in?", "lord_give_prisoner_2",[]],
+
+[anyone|plyr|repeat_for_troops,"lord_give_prisoner_2", [
+(store_repeat_object, ":troop_no"),
+(neq, ":troop_no", "trp_player"),
+(neq, "$g_talk_troop", ":troop_no"),
+(this_or_next|ge, ":troop_no", "trp_jewish_agitator"),
+(is_between, ":troop_no", heroes_begin, heroes_end),
+(party_get_num_prisoner_stacks, ":num_stacks", "p_main_party"),
+(assign, ":has_lord_prisoner", 0),
+(try_for_range, ":troop_iterator", 0, ":num_stacks"),
+(eq, ":has_lord_prisoner", 0),
+(party_prisoner_stack_get_troop_id, ":cur_troop_id", "p_main_party", ":troop_iterator"),
+(eq, ":cur_troop_id", ":troop_no"),
+(assign, ":has_lord_prisoner", 1),
+(try_end),
+(eq, ":has_lord_prisoner", 1),
+(str_store_troop_name, s1, ":troop_no"),
+(call_script, "script_calculate_ransom_amount_for_troop", ":troop_no"),
+(assign, reg30, reg0),
+(val_div, reg30, 2),
+],"{s1}. ({reg30} siliquae)", "lord_give_prisoner_3",[(store_repeat_object, "$temp"),
+]],
+
+  [anyone|plyr,"lord_give_prisoner_2", [
+  ], "Never mind.", "lord_pretalk",[]],
+
+  [anyone,"lord_give_prisoner_3", [
+(str_store_troop_name, s10, "$temp"),
+(call_script, "script_calculate_ransom_amount_for_troop", "$temp"),
+(assign, reg30, reg0),
+(val_div, reg30, 2),
+],
+   "Thank you for bringing {s10} to me. Here, take these {reg30} siliquae.", "lord_pretalk",[
+(party_remove_prisoners, "p_main_party", "$temp", 1),
+(store_faction_of_troop, ":lord_prisoner_faction", "$temp"),
+(try_begin),
+(neq, ":lord_prisoner_faction", "$g_talk_troop_faction"),
+(store_relation, ":reln", ":lord_prisoner_faction", "$g_talk_troop_faction"),
+(lt, ":reln", 0),
+	(try_begin),
+	(is_between, "$g_encountered_party", walled_centers_begin, walled_centers_end),
+	(party_get_slot, ":town_lord", "$g_encountered_party", slot_town_lord),
+	(eq, ":town_lord", "$g_talk_troop"),
+	(assign, ":cur_party", "$g_encountered_party"),
+	(else_try),
+	(troop_get_slot, ":cur_party", "$g_talk_troop", slot_troop_leaded_party),
+	(gt, ":cur_party", 0),
+	(party_is_active, ":cur_party"),
+	(else_try),
+	(assign, ":cur_party", -1),
+	(try_end),
+(gt, ":cur_party", 0),
+(party_force_add_prisoners, ":cur_party", "$temp", 1),
+(troop_set_slot, "$temp", slot_troop_prisoner_of_party, ":cur_party"),
+(else_try),
+(call_script, "script_remove_troop_from_prison", "$temp"),
+(try_end),
+(str_store_troop_name, s1, "$temp"),
+(str_store_troop_name, s2, "$g_talk_troop"),
+(display_message,"@You release {s1} into the custody of {s2}."),
+(call_script, "script_troop_add_gold", "trp_player", reg30),
+(call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 3),
+]],
+
 
 [anyone|plyr,"lord_talk",
 [

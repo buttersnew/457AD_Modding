@@ -1975,6 +1975,16 @@ simple_triggers = [
 (call_script, "script_succeed_quest", "qst_armenian_kingdom_quest_2"),
 (call_script, "script_finish_quest", "qst_armenian_kingdom_quest_2", 100),
 (try_end),
+
+(try_begin),
+(check_quest_active, "qst_lend_companion"),
+(quest_get_slot, ":quest_giver_troop", "qst_lend_companion", slot_quest_giver_troop),
+(neg|troop_slot_eq, ":quest_giver_troop", slot_troop_occupation, slto_kingdom_hero),
+(quest_get_slot, ":quest_target_troop", "qst_lend_companion", slot_quest_target_troop),
+(troop_set_slot, ":quest_target_troop", slot_troop_current_mission, npc_mission_rejoin_when_possible),
+(troop_set_slot, ":quest_target_troop", slot_troop_days_on_mission, 0),
+(call_script, "script_abort_quest", "qst_lend_companion", 0),
+(try_end),
     ]),
 
 

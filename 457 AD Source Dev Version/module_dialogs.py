@@ -31993,8 +31993,8 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
 		]],
 
   [anyone,"lord_hunt_down_fugitive_reward_reject", [],
-   "You are a {man/woman} for whom justice is its own reward, eh? As you wish it, {playername}, as you wish it.\
- An honourable sentiment, to be true. Regardless, you've my thanks for ridding me of that {s43}.", "lord_pretalk",[
+   "You are a {man/woman} for whom justice is its own reward, eh? As you wish it, {playername}, as you wish it. "+
+ "An honourable sentiment, to be true. Regardless, you've my thanks for ridding me of that {s43}.", "lord_pretalk",[
 
  		# (call_script, "script_lord_comment_to_s43", "$g_talk_troop", "str_lord_insult_default"),
 
@@ -32005,8 +32005,8 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
        ]],
 
   [anyone,"lord_hunt_down_fugitive_fail", [],
-   "It is a sad day when that {s43} manages to avoid the hand of justice yet again.\
- I thought you would be able to do this, {playername}. Clearly I was wrong.", "lord_pretalk",
+   "It is a sad day when that {s43} manages to avoid the hand of justice yet again. "+
+ "I thought you would be able to do this, {playername}. Clearly I was wrong.", "lord_pretalk",
    [
  	# (call_script, "script_lord_comment_to_s43", "$g_talk_troop", "str_lord_insult_default"),
 
@@ -32021,32 +32021,22 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
     ]],
 #Post 0907 changes end
 
+[anyone|plyr,"lord_active_mission_2", [
+(check_quest_active, "qst_destroy_deserters"),
+(quest_slot_eq, "qst_destroy_deserters", slot_quest_giver_troop, "$g_talk_troop"),
+(check_quest_succeeded, "qst_destroy_deserters"),
+],
+   "The deserters have been brought to justice.", "lord_destroy_deserters_success",
+   [
+(call_script, "script_finish_quest", "qst_destroy_deserters", 100),
+]],
 
+  [anyone,"lord_destroy_deserters_success", [],
+   "Thank you, {playername}, "+
+ "for punishing these bastards. It is good to know you can be trusted to handle things. Here is your reward.", "lord_pretalk",
+   [
+    ]],
 
-##
-##
-##  [anyone|plyr,"lord_active_mission_2", [(troop_slot_eq, "$g_talk_troop", slot_troop_is_prisoner, 0),
-##                                         (store_partner_quest,":lords_quest"),
-##                                         (eq,":lords_quest","qst_bring_back_deserters"),
-##                                         (quest_get_slot, ":quest_target_troop", ":lords_quest", slot_quest_target_troop),
-##                                         (quest_get_slot, ":quest_target_amount", ":lords_quest", slot_quest_target_amount),
-##                                         (party_count_prisoners_of_type, ":num_prisoners", "p_main_party", ":quest_target_troop"),
-##                                         (ge, ":num_prisoners", ":quest_target_amount"),
-##                                         (assign, reg1, ":quest_target_amount")],
-##   "Yes sir. I have brought {reg1} deserters as you asked me to.", "lord_generic_mission_thank",[(quest_get_slot, ":quest_target_troop", "qst_bring_back_deserters", slot_quest_target_troop),
-##                                                                                     (quest_get_slot, ":quest_target_amount", "qst_bring_back_deserters", slot_quest_target_amount),
-##                                                                                     (party_remove_prisoners, "p_main_party", ":quest_target_troop", ":quest_target_amount"),
-##                                                                                     (faction_get_slot, ":faction_tier_2_troop", "$g_talk_troop_faction", slot_faction_tier_2_troop),
-##                                                                                     (try_begin),
-##                                                                                       (gt, ":faction_tier_2_troop", 0),
-##                                                                                       (troop_get_slot, ":cur_lords_party", "$g_talk_troop", slot_troop_leaded_party),
-##                                                                                       (gt, ":cur_lords_party", 0),
-##                                                                                       (party_add_members, ":cur_lords_party", ":faction_tier_2_troop", ":quest_target_amount"),
-##                                                                                     (try_end),
-##                                                                                     (call_script, "script_finish_quest", "qst_bring_back_deserters", 100)]],
-##
-##
-##### TODO: QUESTS COMMENT OUT END
   [anyone|plyr,"lord_active_mission_2", [], "I am still working on it.", "lord_active_mission_3",[]],
   [anyone|plyr,"lord_active_mission_2", [], "I am afraid I won't be able to do this quest.", "lord_mission_failed",[]],
 
@@ -33484,10 +33474,10 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
    "Then I will hunt him down and execute the law.", "lord_mission_hunt_down_fugitive_accepted",[]],
   [anyone|plyr,"lord_mission_hunt_down_fugitive_told", [], "I am too busy to go after him at the moment.", "lord_mission_hunt_down_fugitive_rejected",[]],
 
-  [anyone,"lord_mission_hunt_down_fugitive_accepted", [], "That's excellent, {playername}.\
- I will be grateful to you and so will the family of the man he murdered.\
- And of course the bounty on his head will be yours if you can get him.\
- Well, good hunting to you.", "close_window",
+  [anyone,"lord_mission_hunt_down_fugitive_accepted", [], "That's excellent, {playername}. "+
+ "I will be grateful to you and so will the family of the man he murdered. "+
+ "And of course the bounty on his head will be yours if you can get him. "+
+ "Well, good hunting to you.", "close_window",
    [(call_script, "script_start_quest", "$random_quest_no", "$g_talk_troop"),
     (call_script, "script_change_player_relation_with_troop","$g_talk_troop",1),
 
@@ -33497,36 +33487,50 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
     (assign, "$g_leave_encounter",1),
    ]],
 
-  [anyone,"lord_mission_hunt_down_fugitive_rejected", [], "As you wish, {playername}.\
-I suppose there are plenty of bounty hunters around to get the job done...", "lord_pretalk",
+  [anyone,"lord_mission_hunt_down_fugitive_rejected", [], "As you wish, {playername}. "+
+"I suppose there are plenty of bounty hunters around to get the job done...", "lord_pretalk",
    [(troop_set_slot, "$g_talk_troop", slot_troop_does_not_give_quest, 1)]],
 
+[anyone,"lord_tell_mission", [
+(eq,"$random_quest_no","qst_destroy_deserters"),
+],
+   "I have something you could help with. A group of cowards deserted the army a while ago and are now preying on traders and travellers. These deserters were last seen near {s8}. "+"I would be grateful if you could find and bring them to justice.", "lord_mission_destroy_deserters_told",
+   [
+     (quest_get_slot, ":quest_target_center", "$random_quest_no", slot_quest_target_center),
+     (str_store_troop_name_link,s9, "$g_talk_troop"),
+     (str_store_party_name_link,s8, ":quest_target_center"),
+     (setup_quest_text, "$random_quest_no"),
+     (str_store_string, s2, "@{s9} asked you to find and destroy a group of deserters that were last seen near {s8}."),
+   ]],
 
+  [anyone|plyr,"lord_mission_destroy_deserters_told", [],
+   "Then I will find and punish these deserters.", "lord_mission_destroy_deserters_accepted",[]],
+  [anyone|plyr,"lord_mission_destroy_deserters_told", [], "I am too busy to go after them at the moment.", "lord_mission_destroy_deserters_rejected",[]],
 
-##  [anyone,"lord_tell_mission", [(eq,"$random_quest_no","qst_capture_messenger")],
-##   "The enemy seems to be preparing for some kind of action and I want to know what their plans are.\
-## Capture one of their messengers and bring him to me.", "lord_mission_told",
-##   [
-##       (quest_get_slot, ":quest_target_troop", "$random_quest_no", slot_quest_target_troop),
-##
-##       (str_store_troop_name_link,1,"$g_talk_troop"),
-##       (str_store_party_name_link,2,"$g_encountered_party"),
-##       (str_store_troop_name,3,":quest_target_troop"),
-##       (setup_quest_text,"$random_quest_no"),
-##       (try_begin),
-##         (is_between, "$g_encountered_party", centers_begin, centers_end),
-##         (setup_quest_giver, "$random_quest_no", "str_given_by_s1_at_s2"),
-##       (else_try),
-##         (setup_quest_giver,"$random_quest_no", "str_given_by_s1_in_wilderness"),
-##       (try_end),
-##   ]],
-##
+  [anyone,"lord_mission_destroy_deserters_accepted", [], "That's excellent, {playername}. "+
+ "I will be praying for your success night and day.", "close_window",
+   [(call_script, "script_start_quest", "$random_quest_no", "$g_talk_troop"),
+    (call_script, "script_change_player_relation_with_troop","$g_talk_troop",1),
+    (assign, "$g_leave_encounter",1),
+     (quest_get_slot, ":quest_target_center", "$random_quest_no", slot_quest_target_center),
+     (quest_get_slot, ":quest_target_party", "$random_quest_no", slot_quest_target_party),
+(party_set_ai_behavior, ":quest_target_party", ai_bhvr_patrol_party),
+(party_set_ai_object, ":quest_target_party", ":quest_target_center"),
+(party_set_ai_patrol_radius, ":quest_target_party", 3),
+(quest_set_slot, "$random_quest_no", slot_quest_target_party, ":quest_target_party"),
+(party_set_flags, ":quest_target_party", pf_quest_party, 1),
+   ]],
+
+  [anyone,"lord_mission_destroy_deserters_rejected", [], "As you wish, {playername}. "+
+"I will ask someone else to do it then.", "lord_pretalk",
+   [(troop_set_slot, "$g_talk_troop", slot_troop_does_not_give_quest, 1)]],
+
   [anyone,"lord_tell_mission", [(eq,"$random_quest_no","qst_kill_local_merchant")],
-   "The wretched truth is that I owe a considerable sum of money to one of the merchants here in {s3}.\
- I've no intention of paying it back, of course, but that loud-mouthed fool is making a terrible fuss about it.\
- He even had the audacity to come and threaten me -- me! --\
- with a letter of complaint to the trade guilds and bankers. Why, he'd ruin my good reputation!\
- So I need a {man/woman} I can trust, someone who will guarantee the man's silence. For good.", "lord_mission_told_kill_local_merchant",
+   "The wretched truth is that I owe a considerable sum of money to one of the merchants here in {s3}. "+
+ "I've no intention of paying it back, of course, but that loud-mouthed fool is making a terrible fuss about it. "+
+ "He even had the audacity to come and threaten me -- me! -- "+
+ "with a letter of complaint to the trade guilds and bankers. Why, he'd ruin my good reputation! "+
+ "So I need a {man/woman} I can trust, someone who will guarantee the man's silence. For good.", "lord_mission_told_kill_local_merchant",
    [
        (str_store_troop_name_link,s9,"$g_talk_troop"),
        (str_store_party_name_link,s3,"$current_town"),

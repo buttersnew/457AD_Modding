@@ -71,6 +71,9 @@ quests = [
  ("lend_companion", "Lend Your Companion {s3} to {s9}", qf_random_quest,
   "{!}{s9} asked you to lend your companion {s3} to him for a week."
   ),
+ ("destroy_deserters", "Find and Destroy a Group of Deserters", qf_random_quest,
+  "{!}{s9} asked you to find and destroy a group of deserters near {s6}."
+  ),
  ("collect_debt", "Collect the Debt {s3} Owes to {s9}", qf_random_quest,
   "{!}{s9} asked you to collect the debt of {reg4} denars {s3} owes to him."
   ),

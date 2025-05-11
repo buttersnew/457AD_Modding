@@ -1540,67 +1540,6 @@ simple_triggers = [
 	##diplomacy end+
    ]),
 
-#TEMPORARILY DISABLED, AS READINESS IS NOW A PRODUCT OF NPC_DECISION_CHECKLIST
-  # Changing readiness to join army
-#   (10,
- #   [
- #     (try_for_range, ":troop_no", active_npcs_begin, active_npcs_end),
-#		(eq, 1, 0),
-#	    (troop_slot_eq, ":troop_no", slot_troop_occupation, slto_kingdom_hero),
-#        (assign, ":modifier", 1),
-#        (troop_get_slot, ":party_no", ":troop_no", slot_troop_leaded_party),
-#        (try_begin),
-#          (gt, ":party_no", 0),
-#          (party_get_slot, ":commander_party", ":party_no", slot_party_commander_party),
-#          (ge, ":commander_party", 0),
-#          (store_faction_of_party, ":faction_no", ":party_no"),
-#          (faction_get_slot, ":faction_marshall", ":faction_no", slot_faction_marshall),
-#          (ge, ":faction_marshall", 0),
-#          (troop_get_slot, ":marshall_party", ":faction_marshall", slot_troop_leaded_party),
-#          (eq, ":commander_party", ":marshall_party"),
-#          (assign, ":modifier", -1),
-#        (try_end),
-#        (troop_get_slot, ":readiness", ":troop_no", slot_troop_readiness_to_join_army),
-#        (val_add, ":readiness", ":modifier"),
-#        (val_clamp, ":readiness", 0, 100),
-#        (troop_set_slot, ":troop_no", slot_troop_readiness_to_join_army, ":readiness"),
-#        (assign, ":modifier", 1),
-#        (try_begin),
-#          (gt, ":party_no", 0),
-#          (store_troop_faction, ":troop_faction", ":troop_no"),
-#          (eq, ":troop_faction", "fac_player_supporters_faction"),
-#          (neg|troop_slot_eq, ":troop_no", slot_troop_player_order_state, spai_undefined),
-#          (party_get_slot, ":party_ai_state", ":party_no", slot_party_ai_state),
-#          (party_get_slot, ":party_ai_object", ":party_no", slot_party_ai_object),
-#          #Check if party is following player orders
-#          (try_begin),
-#            (troop_slot_eq, ":troop_no", slot_troop_player_order_state, ":party_ai_state"),
-#            (troop_slot_eq, ":troop_no", slot_troop_player_order_object, ":party_ai_object"),
-#            (assign, ":modifier", -1),
-#          (else_try),
-#            #Leaving following player orders if the current party order is not the same.
-#            (troop_set_slot, ":troop_no", slot_troop_player_order_state, spai_undefined),
-#            (troop_set_slot, ":troop_no", slot_troop_player_order_object, -1),
-#          (try_end),
-#        (try_end),
-#        (troop_get_slot, ":readiness", ":troop_no", slot_troop_readiness_to_follow_orders),
-#        (val_add, ":readiness", ":modifier"),
-#        (val_clamp, ":readiness", 0, 100),
-#        (troop_set_slot, ":troop_no", slot_troop_readiness_to_follow_orders, ":readiness"),
-#        (try_begin),
-#          (lt, ":readiness", 10),
-#          (troop_set_slot, ":troop_no", slot_troop_player_order_state, spai_undefined),
-#          (troop_set_slot, ":troop_no", slot_troop_player_order_object, -1),
-#        (try_end),
-#      (try_end),
- #     ]),
-
-  # Process vassal ai
-  # (1,
-  # [
-  #  (call_script, "script_process_alarms"),
-  # ]),
-
 #madsci new process alarms is less laggy
 (3,
 	[
@@ -1623,6 +1562,16 @@ simple_triggers = [
    (1,
    [
     (call_script, "script_process_kingdom_parties_ai"),
+
+(try_begin),
+(check_quest_active, "qst_destroy_deserters"),
+(neg|check_quest_succeeded, "qst_destroy_deserters"),
+(neg|check_quest_failed, "qst_destroy_deserters"),
+(quest_get_slot, ":quest_target_party", "qst_destroy_deserters", slot_quest_target_party),
+(this_or_next|le, ":quest_target_party", 0),
+(neg|party_is_active, ":quest_target_party"),
+(call_script, "script_succeed_quest", "qst_destroy_deserters"),
+(try_end),
    ]),
 
   # Process alarms - perhaps break this down into several groups, with a modula
@@ -1984,6 +1933,22 @@ simple_triggers = [
 (troop_set_slot, ":quest_target_troop", slot_troop_current_mission, npc_mission_rejoin_when_possible),
 (troop_set_slot, ":quest_target_troop", slot_troop_days_on_mission, 0),
 (call_script, "script_abort_quest", "qst_lend_companion", 0),
+(try_end),
+
+(try_begin),
+(check_quest_active, "qst_destroy_deserters"),
+(neg|check_quest_succeeded, "qst_destroy_deserters"),
+(neg|check_quest_failed, "qst_destroy_deserters"),
+(quest_get_slot, ":quest_target_party", "qst_destroy_deserters", slot_quest_target_party),
+(gt, ":quest_target_party", 0),
+(party_is_active, ":quest_target_party"),
+(quest_get_slot, ":quest_target_center", "qst_destroy_deserters", slot_quest_target_center),
+(is_between, ":quest_target_center", centers_begin, centers_end),
+(party_get_position, pos1, ":quest_target_center"),
+(party_set_ai_behavior, ":quest_target_party", ai_bhvr_patrol_location),
+(party_set_ai_target_position, ":quest_target_party", pos1),
+(party_set_ai_object, ":quest_target_party", ":quest_target_center"),
+(party_set_ai_patrol_radius, ":quest_target_party", 5),
 (try_end),
     ]),
 

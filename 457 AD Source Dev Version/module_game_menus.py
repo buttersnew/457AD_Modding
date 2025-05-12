@@ -34956,6 +34956,59 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 ]),
     ],
   ),
+
+("SLAVE_hideout",menu_text_color(0xFF000d2c)|mnf_scale_picture,
+    "You smell smoke coming from a camp nearby. What do you want to do?",
+    "none",
+    [
+      (try_begin),
+        (check_quest_active, "qst_return_slave"),
+        (neg|check_quest_succeeded,"qst_return_slave"),
+        (neg|check_quest_failed,"qst_return_slave"),
+        (quest_slot_eq, "qst_return_slave", slot_quest_target_party, "$g_encountered_party"),
+        (quest_get_slot,":stage","qst_return_slave",slot_quest_current_state),
+        (is_between, ":stage", 0,3),
+        (set_background_mesh, "mesh_pic_camp"),
+      (else_try),
+        (change_screen_map),
+        (remove_party, "$g_encountered_party"),
+        (assign, "$g_encountered_party", -1),
+      (else_try),
+        (set_background_mesh, "mesh_pic_camp"),
+      (end_try),
+    ],
+    [
+      ("land",[
+        (check_quest_active, "qst_return_slave"),
+        (neg|check_quest_succeeded,"qst_return_slave"),
+        (neg|check_quest_failed,"qst_return_slave"),
+        (quest_slot_eq, "qst_return_slave", slot_quest_target_party, "$g_encountered_party"),
+        (quest_get_slot,":stage","qst_return_slave",slot_quest_current_state),
+        (is_between, ":stage", 0,3),
+],"Visit the camp.",
+        [
+        (quest_set_slot, "qst_return_slave", slot_quest_current_state, 2),
+        (set_jump_mission,"mt_slave_hideout"),
+        (set_jump_entry, 0),
+	(call_script, "script_setup_random_scene"),
+        (change_screen_mission),
+        ]
+      ),
+      ("leave",[],"Leave.",
+        [
+          (change_screen_map),
+	(try_begin),
+        (this_or_next|check_quest_succeeded,"qst_return_slave"),
+        (this_or_next|check_quest_failed,"qst_return_slave"),
+        (neg|check_quest_active, "qst_return_slave"),
+          (remove_party, "$g_encountered_party"),
+          (assign, "$g_encountered_party", -1),
+	(try_end),
+        ]
+      ),
+    ]
+  ),
+
 ]#end of file
 
 

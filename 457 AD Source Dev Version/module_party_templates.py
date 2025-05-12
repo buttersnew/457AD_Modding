@@ -101,6 +101,7 @@ party_templates = [
   ("default_prisoners","Default Prisoners",icon_flagbearer_a,0,fac_commoners,0,[(trp_bandit,5,10,pmf_is_prisoner)]),
 
   ("routed_warriors","Routed Enemies",icon_flagbearer_a,0,fac_commoners,soldier_personality,[]),
+  ("slave_hideout" ,"Strange Camp",icon_bandit_lair|pf_is_static|pf_hide_defenders,0,fac_neutral,bandit_personality,[]),
 
   #quest related parties
   ("raiders","Raiders",icon_axeman|carries_goods(8),0,fac_outlaws,bandit_personality,[(trp_robber,10,35),(trp_bandit,5,15),(trp_brigand,5,9),(trp_bandit_leader,1,1)]),

@@ -2951,8 +2951,10 @@ troops = [
   ["peasant_woman","Peasant Woman","Peasant Women",tf_female|tf_guarantee_armor,0,0,fac_commoners,
    [itm_pitch_fork_1,itm_pitch_fork_2,itm_club,itm_sickle,itm_wrapping_boots,itm_ankle_boots,itm_dress_5,itm_khergit_lady_dress_b,itm_sarranid_felt_hat,itm_felt_hat,itm_felt_hat_b,itm_turret_hat_blue],
    def_attrib|level(4),wp(70),knows_common,refugee_face1,refugee_face2],
-
-  ["caravan_master","Caravan Master","Caravan Masters",tf_mounted|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_horse,0,0,fac_commoners,
+["slave","Slave","Slaves",tf_guarantee_ranged,no_scene,reserved,fac_commoners,
+   [itm_stones,itm_wrapping_boots,itm_ankle_boots,itm_simple_shoes]+tunics_generic_1+tunics_generic_2,
+   def_attrib_lvl_9|level(3),wp(70)|wp_firearm(90),knows_lvl_9,roman_face_1, roman_face_2],
+["caravan_master","Caravan Master","Caravan Masters",tf_mounted|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_horse,0,0,fac_commoners,
    [itm_deurne_campagi_1,itm_deurne_campagi_2,itm_deurne_campagi_3,itm_ankle_boots,itm_roman_peasant_tunic_4,itm_roman_peasant_tunic_5,itm_roman_peasant_tunic_6,itm_coptic_tunic_5,itm_coptic_tunic_6,itm_coptic_tunic_7,itm_coptic_tunic_8,itm_arabian_sword_a]+horses_roman_1,
    def_attrib_lvl_18|level(18),wp(130),knows_lvl_18,roman_face_1, roman_face_2],
 
@@ -5716,3 +5718,4 @@ upgrade(troops,"armenian_cavalry","armenian_cataphract")
 upgrade2(troops,"jewish_levy","jewish_footman","jewish_slinger")
 
 upgrade(troops,"phinnoi_warrior","phinnoi_retainer")
+upgrade(troops,"slave","watchman")

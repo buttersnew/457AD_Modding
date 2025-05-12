@@ -45258,36 +45258,72 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
 
     ]],
 
+[anyone,"start", [(is_between,"$g_talk_troop",village_elders_begin,village_elders_end),
+      (store_partner_quest,":elder_quest"),
+      (eq,":elder_quest","qst_return_slave"),
+      (quest_slot_eq, ":elder_quest", slot_quest_current_state, 3),
+      
+      (neg|check_quest_failed, "qst_return_slave"),
+      (call_script, "script_succeed_quest", ":elder_quest"),
+      (call_script, "script_end_quest", ":elder_quest"),
+      (add_xp_as_reward, 200),
+      (call_script, "script_change_player_relation_with_center", "$current_town", 4),
+    ],
+    "Our village is grateful for your help. The slave will be punished now.", "village_elder_deliver_cattle_thank",
+    [
+      (store_conversation_agent,"$g_talk_agent"),
+      (get_player_agent_no, ":player_agent"),
+      (set_fixed_point_multiplier, 100),
+      (agent_get_position, pos1, "$g_talk_agent"),
+      (position_move_y, pos1, 400),
+      
+      (set_spawn_position, pos1),
+      (spawn_agent, "trp_slave"),
+      (assign, "$alpha_animal", reg0),
+      (agent_set_no_death_knock_down_only, "$alpha_animal", 1),
+      (agent_add_relation_with_agent, ":player_agent", "$alpha_animal", 0),
+      (agent_get_position, pos1, "$g_talk_agent"),
+      (position_move_y, pos1, 500),
+      (position_move_x, pos1, -50),
+      (set_spawn_position, pos1),
+      (try_for_range, ":unused", 0, 2),
+        (spawn_agent, "trp_farmer"),
+        (assign, ":agent", reg0),
+        (agent_add_relation_with_agent, ":agent", "$alpha_animal", -1),
+        (agent_add_relation_with_agent, ":player_agent", ":agent", 0),
+        (agent_set_is_alarmed, ":agent", 1),
+        (agent_ai_set_always_attack_in_melee, ":agent", 1),
+        (agent_ai_set_aggressiveness, ":agent", 1000),
+        (try_for_range, ":item_slot", 0, 4),
+          (agent_get_item_slot,  ":item", ":agent", ":item_slot"),
+          (gt, ":item", -1),
+          (agent_unequip_item, ":agent", ":item"),
+        (try_end),
+        (agent_equip_item, ":agent", "itm_club"),
+        (agent_set_wielded_item, ":agent", "itm_club"),
+        (position_move_x, pos1, 100),
+        (set_spawn_position, pos1),
+      (end_try),  
+      
+      (mission_disable_talk),	#?
+  ]],
+  
+  [anyone,"start", [(is_between,"$g_talk_troop",village_elders_begin,village_elders_end),
+      (store_partner_quest,":elder_quest"),
+      (eq,":elder_quest","qst_return_slave"),
+      (quest_slot_eq, ":elder_quest", slot_quest_current_state, 3),
+      
+      (check_quest_failed, "qst_return_slave"),
+      (call_script, "script_change_player_relation_with_center", "$current_town", -3),
+      #(call_script, "script_abort_quest", "qst_return_slave"),
+      (call_script, "script_end_quest", ":elder_quest"),
+    ],
+    "You tried, but you returned without the slave. I guess you couldn't find him...", "village_elder_pretalk",
+    []], 
+
+
   [anyone,"village_elder_deliver_cattle_thank", [],
    "My good {lord/lady}, please, is there anything I can do for you?", "village_elder_talk",[]],
-
-
-##  [anyone,"start",
-##   [
-##     (is_between, "$g_talk_troop", village_elders_begin, village_elders_end),
-##     (store_partner_quest, ":elder_quest"),
-##     (eq, ":elder_quest", "qst_train_peasants_against_bandits"),
-##     (check_quest_succeeded, ":elder_quest"),
-##     (quest_get_slot, reg5, "qst_train_peasants_against_bandits", slot_quest_target_amount)],
-##   "Oh, thank you so much for training our men. Now we may stand a chance against those accursed bandits if they come again.", "village_elder_train_peasants_against_bandits_thank",
-##   [
-##     (add_xp_as_reward, 400),
-##     (call_script, "script_change_player_relation_with_center", "$current_town", 5),
-##     (call_script, "script_end_quest", "qst_train_peasants_against_bandits"),
-##     (call_script, "script_add_log_entry", logent_helped_peasants, "trp_player",  "$current_town", -1, -1),
-##    ]],
-
-#  [anyone,"village_elder_train_peasants_against_bandits_thank", [],
-#   "Now, good {sire/lady}, is there anything I can do for you?", "village_elder_talk",[]],
-
-
-##diplomacy start+
-##
-#Move this village_elder_talk line below, otherwise it wouldn't be able to trigger.
-#  [anyone,"start", [(is_between,"$g_talk_troop", village_elders_begin, village_elders_end),(eq,"$g_talk_troop_met",0),
-#                    (str_store_party_name, s9, "$current_town")],
-#   "Good day, {sir/madam}, and welcome to {s9}. I am the elder of this village.", "village_elder_talk",[]],
-##diplomacy end+
 
   #SB: check dplmc_slot_center_last_attacked_time for expiry dplmc_slot_center_last_attacker
   #the player can still use the menu to trade but won't be able to access quests
@@ -46154,6 +46190,119 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
        (call_script, "script_get_quest", "$g_talk_troop"),
        (assign, "$random_quest_no", reg0),
    ]],
+
+[anyone,"village_elder_tell_mission", [(eq,"$random_quest_no", "qst_return_slave")],
+    "One of our most valuable slaves has stolen a horse and fled the settlement. Would you be able to find the slave and bring him back? He cannot have gone far. I suspect the slave must have a camp near our settlement.",
+    "village_elder_tell_capture_slave_mission",
+    [
+      
+      (quest_get_slot, ":village", "$random_quest_no",slot_quest_target_center),
+      (str_store_party_name_link, s3, ":village"),
+      (setup_quest_text, "$random_quest_no"),
+      (str_store_string, s2, "@The leader of {s3} asked you to bring the runaway slave back to the settlement. Most probably, he is hiding in the area around the settlement."),
+  ]],
+  
+  [anyone|plyr, "village_elder_tell_capture_slave_mission", [],
+    "I will find the slave and bring it back.", "village_elder_capture_slave_mission_accept",[]],
+  [anyone|plyr, "village_elder_tell_capture_slave_mission", [],
+    "I'm no slave hunter.", "village_elder_capture_slave_mission_reject",[]],
+  [anyone|plyr,"village_elder_tell_capture_slave_mission", [],
+    "I am afraid I don't have time for this now.", "village_elder_capture_slave_mission_reject",[]],
+  
+  [anyone,"village_elder_capture_slave_mission_accept", [], "You will? Oh, splendid! " +
+    "Thank you. " +
+    "The slave must be hiding somewhere near our settlement.", "close_window",
+    [
+      (assign, "$g_leave_encounter",1),
+      (call_script, "script_change_player_relation_with_center", "$current_town", 1),
+      (set_spawn_radius, 11),
+      (spawn_around_party, "$current_town", "pt_slave_hideout"),
+      (assign, ":party_no", reg(0)),
+	(party_set_flags, ":party_no", pf_quest_party, 1),
+      (party_set_flags, ":party_no", pf_disabled, 1),
+      (quest_set_slot, "$random_quest_no", slot_quest_target_party,":party_no"),
+      (quest_set_slot, "$random_quest_no", slot_quest_current_state, 1),
+      (call_script, "script_start_quest", "$random_quest_no", "$g_talk_troop"),
+  ]],
+  
+  [anyone,"village_elder_capture_slave_mission_reject", [], "Yes, of course {reg59?madam:sir}. " +
+    "Well, we will find someone else for the job.", "close_window",
+    [
+      (troop_set_slot, "$g_talk_troop", slot_troop_does_not_give_quest, 1),
+  ]],
+  
+  # slave dialogue part
+  
+  [trp_slave,"start", [
+(eq,"$g_encountered_party_template","pt_slave_hideout"),
+(quest_slot_eq, "qst_return_slave", slot_quest_current_state, 2),],
+    "Greetings, traveller.", "capture_slave_pretalk_1",[]],
+  [anyone|plyr, "capture_slave_pretalk_1", [],
+    "Greetings. What are you doing here in the middle of nowhere?", "capture_slave_pretalk_2",[]],
+  [anyone,"capture_slave_pretalk_2", [],
+    "I ran away from a nearby settlement, and I'm hiding here trying to decide what to do next.", "capture_slave_talk",[]],
+  [anyone,"capture_slave_pretalk_x", [],
+    "Anything else you want to know?", "capture_slave_talk",[]],
+  
+  [anyone|plyr, "capture_slave_talk", [],
+    "Why did you run away?", "capture_slave_ask_why",[]],
+  [anyone,"capture_slave_ask_why", [],
+    "My master has beaten me on more than one occasion. I could not stand it any longer.", "capture_slave_pretalk_x",[]],
+  
+  [anyone|plyr, "capture_slave_talk", [],
+    "I'm here to bring you back to your master.", "capture_slave_talk_2",[]],
+  [anyone,"capture_slave_talk_2", [],
+    "I'm begging you, traveller. Anything but that. Suffering awaits me there.", "capture_slave_talk_3",[]],
+  
+  [anyone|plyr, "capture_slave_talk_3", [],
+    "I care very little about your suffering. Follow me!", "close_window",
+    [
+      (quest_set_slot, "qst_return_slave", slot_quest_current_state, 3),
+      (quest_get_slot, ":village", "qst_return_slave", slot_quest_target_center),
+      (str_store_party_name_link, s13, ":village"),
+      (add_quest_note_from_sreg, "qst_return_slave", 7, "@The runaway slave is now forced to follow you. Bring him back to the administrator of {s13} in person.", 1),
+      (mission_disable_talk),
+      (finish_mission, 3),
+    ]
+  ],
+  [anyone|plyr, "capture_slave_talk_3", [],
+    "If suffering is awaiting you anyway, I will destroy you right here.", "capture_slave_kill",
+    [
+      (get_player_agent_no, ":player_agent"),
+      (agent_add_relation_with_agent, ":player_agent", "$alpha_animal", -1),
+      (agent_add_relation_with_agent, "$alpha_animal", ":player_agent", -1),
+      (mission_disable_talk),
+      #(call_script, "script_equip_best_melee_weapon", "$alpha_animal", 0, 0, 0),
+      #(call_script, "script_equip_best_melee_weapon", ":player_agent", 0, 0, 0),
+        (agent_equip_item, "$alpha_animal", "itm_club"),
+        (agent_set_wielded_item, "$alpha_animal", "itm_club"),
+    ]
+  ],
+  [anyone,"capture_slave_kill", [],
+    "In that case, I will defend myself.", "close_window",[]],
+  [anyone|plyr, "capture_slave_talk_3", [(hero_can_join, "p_main_party"),],
+    "Join my party, and you won't have to go back to your master.", "capture_slave_talk_4",
+    [ (quest_set_slot, "qst_return_slave", slot_quest_current_state, 3),
+      (quest_get_slot, ":village", "qst_return_slave", slot_quest_target_center),
+      (party_add_members, "p_main_party", "trp_slave", 1),
+      
+      (call_script, "script_fail_quest", "qst_return_slave"),
+      (call_script, "script_change_player_relation_with_center", ":village", -3),
+      (add_xp_as_reward, 100),
+  ]],
+  [anyone|plyr, "capture_slave_talk_3", [],
+    "Then leave now. I will pretend I haven't seen you.", "capture_slave_talk_4",
+    [ (quest_set_slot, "qst_return_slave", slot_quest_current_state, 3),
+      (quest_get_slot, ":village", "qst_return_slave", slot_quest_target_center),
+      (agent_start_running_away, "$alpha_animal", 0),
+      
+      (call_script, "script_fail_quest", "qst_return_slave"),
+      (call_script, "script_change_player_relation_with_center", ":village", -1),
+      (add_xp_as_reward, 100),
+  ]],
+  
+  [anyone,"capture_slave_talk_4", [],
+    "Thank you so much, friend!", "close_window",[(mission_disable_talk),(finish_mission, 3),]],
 
 
   [anyone,"village_elder_tell_mission", [(eq,"$random_quest_no","qst_deliver_grain")],

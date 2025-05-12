@@ -208,6 +208,9 @@ quests = [
  ("deliver_cattle", "Deliver {reg5} Heads of Cattle to {s3}", qf_random_quest,
   "{!}The elder of the village of {s3} asked you to bring {reg5} heads of cattle."
   ),
+ ("return_slave", "Return Runaway Slave to {s3}", qf_random_quest,
+  "The leader of {s3} asked you to bring a runaway slave back."
+  ),
  ("train_peasants_against_bandits", "Train the Peasants of {s13} Against Bandits.", qf_random_quest,
   "{!}None"
   ),

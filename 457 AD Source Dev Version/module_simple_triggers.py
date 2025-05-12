@@ -1602,11 +1602,18 @@ simple_triggers = [
       	(gt, ":bandit_camp", last_static_party), #madsci
       	(party_get_template_id, ":template", ":bandit_camp"), #SB : fix template range
 		(try_begin),
+		(this_or_next|eq, ":template", "pt_slave_hideout"),
       		(is_between, ":template", "pt_steppe_bandit_lair", "pt_bandit_lair_templates_end"),
       		(store_distance_to_party_from_party, ":distance", "p_main_party", ":bandit_camp"),
       		(lt, ":distance", ":spotting"),
       		(party_set_flags, ":bandit_camp", pf_disabled, 0),
       		(party_set_flags, ":bandit_camp", pf_always_visible, 1),
+			(try_begin),
+			(eq, ":template", "pt_slave_hideout"),
+			(this_or_next|neg|check_quest_active, "qst_return_slave"),
+			(neg|quest_slot_eq, "qst_return_slave", slot_quest_target_party, ":bandit_camp"),
+			(remove_party, ":bandit_camp"),
+			(try_end),
 		(try_end),
     (try_end),
    ]),

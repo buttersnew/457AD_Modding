@@ -30072,4 +30072,95 @@ common_battle_init_banner,
     common_inventory_not_available,
 ]),
 
+("slave_hideout", mtf_battle_mode, 0,
+    "You visit the strange camp.",
+    [
+      (0,mtef_leader_only, 0, 0, 1,[]),
+    ],
+    [ 
+      #1. Spawn the slave
+      (0, 0, ti_once, #[(mission_tpl_are_all_agents_spawned),],
+        [
+          (get_player_agent_no, ":player_agent"),
+          (agent_is_active, ":player_agent"),
+        ],
+        [
+          (mission_enable_talk),
+          
+          (get_player_agent_no, ":agent_no"),
+          (set_fixed_point_multiplier, 100),
+          (agent_get_position, pos1, ":agent_no"),
+          (store_random_in_range, ":rand", 6000, 9000),
+          (position_move_y, pos1, ":rand"),
+          (store_random_in_range, ":rand", -3000, 3000),
+          (position_move_x, pos1, ":rand"),
+          (store_random_in_range, ":rand", 0, 360),
+          (position_rotate_z, pos1, ":rand"),
+          
+          (set_spawn_position, pos1),
+          (spawn_agent, "trp_slave"),
+          (assign, "$alpha_animal", reg0),
+          (agent_get_position, pos1, "$alpha_animal"),
+	(display_message, "@You smell smoke in the air. There is someone nearby."),
+          
+          (try_begin),
+            (position_get_z, ":z", pos1),#VC-3485
+            (lt, ":z", 0),
+            (agent_get_position, pos2, ":agent_no"),
+            (agent_set_scripted_destination, "$alpha_animal", pos2),
+          (else_try),
+            (set_spawn_position, pos1),
+            (spawn_scene_prop, "spr_cooking_fire"),
+            (position_move_y, pos1, -100),
+            (agent_set_position, "$alpha_animal", pos1),
+          (end_try),
+          (agent_add_relation_with_agent, ":agent_no", "$alpha_animal", 0),
+      ]),
+      
+      # End
+      (3, 0, ti_once,
+        [
+          (this_or_next|main_hero_fallen),
+          (neg|agent_is_alive, "$alpha_animal"),
+        ],
+        [
+          (finish_mission, 10),
+          (quest_get_slot, ":village", "qst_return_slave", slot_quest_target_center),
+          
+          (try_begin),
+            (main_hero_fallen),
+            (quest_set_slot, "qst_return_slave", slot_quest_current_state, 3),
+            (call_script, "script_fail_quest", "qst_return_slave"),
+          (else_try),
+            (quest_set_slot, "qst_return_slave", slot_quest_current_state, 3),
+            (call_script, "script_fail_quest", "qst_return_slave"),
+            (set_show_messages, 0),
+            (call_script, "script_end_quest", "qst_return_slave"),
+            (set_show_messages, 1),
+            (call_script, "script_change_player_relation_with_center", ":village", -1),
+          (end_try),
+          
+      ]),
+      
+      (ti_tab_pressed, 0, 0, [],
+        [
+          (set_trigger_result, 0),
+      ]),
+      
+      (0, 0, ti_once, [],
+        [
+          (assign,"$battle_won",0),
+          (call_script, "script_music_set_situation_with_culture", mtf_sit_travel),
+      ]),
+      
+      (ti_before_mission_start, 0, 0, [],
+        [
+          (team_set_relation, 0, 2, 1),
+          (team_set_relation, 1, 3, 1),
+    ]),
+    common_inventory_not_available,
+]),
+
+
+
 ]#end of file

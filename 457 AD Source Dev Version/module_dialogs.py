@@ -46117,8 +46117,8 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
    []],
 
   [anyone,"village_elder_deliver_grain_thank", [(str_store_party_name, s13, "$current_town")],
-   "My good {lord/lady}. You have saved us from hunger and desperation. We cannot thank you enough, but you'll always be in our prayers.\
- The village of {s13} will not forget what you have done for us.", "village_elder_deliver_grain_thank_2",
+   "My good {lord/lady}. You have saved us from hunger and desperation. We cannot thank you enough, but you'll always be in our prayers. "+
+ "The village of {s13} will not forget what you have done for us.", "village_elder_deliver_grain_thank_2",
    [(quest_get_slot, ":quest_target_amount", "qst_deliver_grain", slot_quest_target_amount),
     (troop_remove_items, "trp_player", "itm_grain", ":quest_target_amount"),
     (add_xp_as_reward, 400),
@@ -46128,6 +46128,26 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
 #Troop commentaries begin
     (call_script, "script_add_log_entry", logent_helped_peasants, "trp_player",  "$current_town", -1, -1),
 #Troop commentaries end
+   ]],
+
+[anyone|plyr,"village_elder_active_mission_2",[
+(store_partner_quest,":elder_quest"),
+(eq, ":elder_quest", "qst_kill_slavers"),
+(check_quest_succeeded, "qst_kill_slavers"),
+(quest_get_slot, ":quest_object_center", "qst_kill_slavers", slot_quest_object_center),
+(str_store_party_name, s7, ":quest_object_center"),
+                                                 ],
+   "The slavers will no longer threaten {s7}.", "village_elder_kill_slavers_thank",
+   []],
+
+  [anyone,"village_elder_kill_slavers_thank", [
+(str_store_party_name, s13, "$current_town")],
+   "My good {lord/lady}. You have saved us from the slavers. We cannot thank you enough, but you'll always be in our prayers. "+
+ "{s13} will not forget what you have done for us.", "village_elder_deliver_grain_thank_2",
+   [(add_xp_as_reward, 400),
+    (call_script, "script_change_player_relation_with_center", "$current_town", 3),
+    (call_script, "script_end_quest", "qst_kill_slavers"),
+    (call_script, "script_add_log_entry", logent_helped_peasants, "trp_player",  "$current_town", -1, -1),
    ]],
 
   [anyone,"village_elder_deliver_grain_thank_2", [],
@@ -46260,13 +46280,13 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
       (quest_set_slot, "qst_return_slave", slot_quest_current_state, 3),
       (quest_get_slot, ":village", "qst_return_slave", slot_quest_target_center),
       (str_store_party_name_link, s13, ":village"),
-      (add_quest_note_from_sreg, "qst_return_slave", 7, "@The runaway slave is now forced to follow you. Bring him back to the administrator of {s13} in person.", 1),
+      (add_quest_note_from_sreg, "qst_return_slave", 7, "@The runaway slave is now forced to follow you. Bring him back to the leader of {s13} in person.", 1),
       (mission_disable_talk),
       (finish_mission, 3),
     ]
   ],
   [anyone|plyr, "capture_slave_talk_3", [],
-    "If suffering is awaiting you anyway, I will destroy you right here.", "capture_slave_kill",
+    "If suffering is awaiting you anyway, I will kill you right here.", "capture_slave_kill",
     [
       (get_player_agent_no, ":player_agent"),
       (agent_add_relation_with_agent, ":player_agent", "$alpha_animal", -1),
@@ -46306,10 +46326,10 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
 
 
   [anyone,"village_elder_tell_mission", [(eq,"$random_quest_no","qst_deliver_grain")],
-   "{My good sir/My good lady}, our village has been going through such hardships lately.\
- The harvest has been bad, and recently some merciless bandits took away our seed grain that we had reserved for the planting season.\
- If we cannot find some grain soon, we will not be able to plant our fields and then we will have nothing to eat for the coming year.\
- If you can help us, we would be indebted to you forever.", "village_elder_tell_deliver_grain_mission",
+   "{My good sir/My good lady}, our village has been going through such hardships lately. "+
+ "The harvest has been bad, and recently some merciless bandits took away our seed grain that we had reserved for the planting season. "+
+ "If we cannot find some grain soon, we will not be able to plant our fields and then we will have nothing to eat for the coming year. "+
+ "If you can help us, we would be indebted to you forever.", "village_elder_tell_deliver_grain_mission",
    [
      (quest_get_slot, ":quest_target_center", "$random_quest_no", slot_quest_target_center),
      (str_store_party_name_link,s3,":quest_target_center"),
@@ -46347,13 +46367,60 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
    [(troop_set_slot, "$g_talk_troop", slot_troop_does_not_give_quest, 1),
     ]],
 
+#KILL SLAVERS
+  [anyone,"village_elder_tell_mission", [(eq,"$random_quest_no","qst_kill_slavers")],
+   "{My lord/My lady}, one of our villagers was in the tavern in {s7} recently and overheard slavers discussing a plan to raid our village. "+"If they reach our village, our people will be taken as chattel to the slave markets of distant lands. "+
+ "If you can help us, we would be indebted to you forever.", "village_elder_tell_kill_slavers_mission",
+   [
+     (quest_get_slot, ":quest_target_center", "$random_quest_no", slot_quest_target_center),
+     (str_store_party_name_link,s7,":quest_target_center"),
+     (str_store_party_name_link,s3,"$current_town"),
+     (quest_get_slot, reg5, "$random_quest_no", slot_quest_target_amount),
+	(str_store_troop_name, s9, "$g_talk_troop"),
+     (setup_quest_text,"$random_quest_no"),
+     (str_store_string, s2, "@The {s9} of {s3} asked you to defeat the slavers coming from {s7} before they reach {s3}."),
+   ]],
+
+  [anyone|plyr,"village_elder_tell_kill_slavers_mission", [],
+   "I will go and stop these slavers from reaching your village.", "village_elder_kill_slavers_mission_accept",[]],
+
+  [anyone|plyr,"village_elder_tell_kill_slavers_mission", [],
+   "I am afraid I don't have time for this. You'll need to find help elsewhere.", "village_elder_kill_slavers_mission_reject",[]],
+
+  [anyone|plyr,"village_elder_tell_kill_slavers_mission", [],
+   "I can't be bothered with this. Ask help from someone else.", "village_elder_kill_slavers_mission_reject",[]],
+
+  [anyone,"village_elder_kill_slavers_mission_reject", [], "Yes {my lord/my lady}, of course. I am sorry if I have bothered you with our troubles.", "close_window",
+   [(troop_set_slot, "$g_talk_troop", slot_troop_does_not_give_quest, 1),
+    ]],
+
+  [anyone,"village_elder_kill_slavers_mission_accept",
+   [],
+   "Thank you, {my lord/my lady}. We'll be praying for you night and day.", "close_window",
+   [(assign, "$g_leave_encounter",1),
+     (quest_get_slot, ":quest_target_center", "$random_quest_no", slot_quest_target_center),
+     (quest_get_slot, ":quest_object_center", "$random_quest_no", slot_quest_object_center),
+(set_spawn_radius, 1),
+(spawn_around_party, ":quest_target_center", "pt_wandering_slavers"),
+(assign, ":party_no", reg0),
+(party_set_courage, ":party_no", 3),
+(party_set_flags, ":party_no", pf_quest_party, 1),
+(party_set_ai_behavior, ":party_no", ai_bhvr_travel_to_party),
+(party_set_ai_object, ":party_no", ":quest_object_center"),
+(party_set_flags, ":party_no", pf_default_behavior, 1),
+(party_set_slot, ":party_no", slot_party_home_center, ":quest_object_center"),
+(quest_set_slot, "$random_quest_no", slot_quest_target_party, ":party_no"),
+    (call_script, "script_change_player_relation_with_center", "$current_town", 3),
+    (call_script, "script_start_quest", "$random_quest_no", "$g_talk_troop"),
+    ]],
+#KILL SLAVERS END
 
 
   [anyone,"village_elder_tell_mission", [(eq,"$random_quest_no", "qst_train_peasants_against_bandits")],
-   "We are suffering greatly at the hands of a group of bandits. They take our food and livestock,\
- and kill anyone who doesn't obey them immediately. Our men are angry that we cannot defend ourselves, but we are only simple farmers...\
- However, with some help, I think that some of the people here could be more than that.\
- We just need an experienced warrior to teach us how to fight.",
+   "We are suffering greatly at the hands of a group of bandits. They take our food and livestock, "+
+ "and kill anyone who doesn't obey them immediately. Our men are angry that we cannot defend ourselves, but we are only simple farmers... "+
+ "However, with some help, I think that some of the people here could be more than that. "+
+ "We just need an experienced warrior to teach us how to fight.",
    "village_elder_tell_train_peasants_against_bandits_mission",
    [
      (quest_get_slot, ":quest_target_center", "$random_quest_no", slot_quest_target_center),

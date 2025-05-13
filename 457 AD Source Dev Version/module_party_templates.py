@@ -134,6 +134,7 @@ party_templates = [
   ("agrippinus_rebel_army","Legio Gallia",icon_roman_footman_army|carries_goods(30)|pf_auto_remove_in_town,0,fac_peasant_rebels,bandit_personality,[(trp_agrippinus,1,1),(trp_miles_romani,200,215),(trp_sagittarius,30,50),(trp_bucellarius,45,55),(trp_miles_foederatus_gothorum,50,60)]),
   ("tuldila_rebels","Tuldila's Rebels",icon_roman_footman_army|carries_goods(30),0,fac_deserters,bandit_personality,[(trp_tuldila,1,1),(trp_miles_foederatus_germani,20,40),(trp_miles_foederatus_gothorum,40,60),(trp_eques_symmachi_hunnorum,20,40)]),
   ("vllibos_rebels","Vilibo's Rebels",icon_roman_footman_army|carries_goods(30)|pf_auto_remove_in_town,0,fac_peasant_rebels,bandit_personality,[(trp_vllibos,1,1),(trp_miles_foederatus_gothorum,100,200)]),
+("wandering_slavers","Slavers",icon_sea_raider|carries_goods(2),0,fac_outlaws,soldier_personality,[(trp_slaver_chief,1,1),(trp_slave_hunter,10,35)]),
 
 # Caravans
   # ("center_reinforcements","Reinforcements",icon_axeman|carries_goods(16),0,fac_commoners,soldier_personality,[(trp_townsman,5,30),(trp_watchman,4,20)]),  

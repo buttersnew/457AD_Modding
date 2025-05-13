@@ -211,6 +211,9 @@ quests = [
  ("return_slave", "Return Runaway Slave to {s3}", qf_random_quest,
   "The leader of {s3} asked you to bring a runaway slave back."
   ),
+ ("kill_slavers", "Protect {s3} from Slavers", qf_random_quest,
+  "{!}The leader of {s3} asked you to defeat the slavers coming from {s7} before they reach {s3}."
+  ),
  ("train_peasants_against_bandits", "Train the Peasants of {s13} Against Bandits.", qf_random_quest,
   "{!}None"
   ),

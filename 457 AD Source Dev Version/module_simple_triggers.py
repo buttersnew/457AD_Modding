@@ -5504,24 +5504,7 @@ simple_triggers = [
       (item_set_slot, "itm_flag_pole_1", slot_item_food_bonus, 15),
 
    ]),
-#  (24,
-#   []),
-#  (24,
-#   []),
-#  (24,
-#   []),
-#  (24,
-#   []),
-#  (24,
-#   []),
-#  (24,
-#   []),
-#  (24,
-#   []),
-#  (24,
-#   []),
-#  (24,
-#   []),
+
   ##diplomacy begin
   #Troop AI Spouse: Spouse thinking
   (6,

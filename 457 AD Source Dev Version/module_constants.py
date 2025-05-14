@@ -2063,7 +2063,7 @@ village_prod_max = 20 #was 20
 
 trade_goods_begin = "itm_spice"
 trade_goods_end = "itm_siege_supply"
-food_begin = "itm_smoked_fish"
+food_begin = "itm_wine"
 food_end = "itm_siege_supply"
 reference_books_begin = "itm_book_wound_treatment_reference"
 reference_books_end   = trade_goods_begin

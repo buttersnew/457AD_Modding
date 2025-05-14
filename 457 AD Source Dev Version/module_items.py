@@ -227,11 +227,10 @@ items = [
 
  ["ivory","ivory", [("ivory",0)], itp_merchandise|itp_type_goods, 0, 1020,weight(30)|abundance(10),imodbits_none],
 
- ["wine","Wine", [("amphora_slim",0)], itp_merchandise|itp_type_goods|itp_consumable, 0, 220,weight(30)|abundance(60)|max_ammo(50),imodbits_none],
- ["ale","Ale", [("trade_goods_ale_barrel",0)], itp_merchandise|itp_type_goods|itp_consumable, 0, 120,weight(30)|abundance(70)|max_ammo(50),imodbits_none],
+#foods (first one is wine)
+ ["wine","Wine", [("amphora_slim",0)], itp_merchandise|itp_type_goods|itp_consumable|itp_food, 0, 220,weight(30)|abundance(60)|max_ammo(50),imodbits_none],
+ ["ale","Ale", [("trade_goods_ale_barrel",0)], itp_merchandise|itp_type_goods|itp_consumable|itp_food, 0, 120,weight(30)|abundance(70)|max_ammo(50),imodbits_none],
 
-# ["dry_bread", "wheat_sack", itp_type_goods|itp_consumable, 0, slt_none,view_goods,95,weight(2),max_ammo(50),imodbits_none],
-#foods (first one is smoked_fish)
  ["smoked_fish","Smoked Fish", [("smoked_fish",0)], itp_merchandise|itp_type_goods|itp_consumable|itp_food, 0, 65,weight(15)|abundance(110)|food_quality(50)|max_ammo(150),imodbits_none],
  ["cheese","Cheese", [("cheese_b",0)], itp_merchandise|itp_type_goods|itp_consumable|itp_food, 0, 75,weight(6)|abundance(110)|food_quality(40)|max_ammo(100),imodbits_none],
  ["honey","Honey", [("honey_pot",0)], itp_merchandise|itp_type_goods|itp_consumable|itp_food, 0, 220,weight(5)|abundance(110)|food_quality(40)|max_ammo(100),imodbits_none],

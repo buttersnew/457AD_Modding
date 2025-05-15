@@ -142,6 +142,8 @@ quests = [
  ("rescue_lord_by_replace", "Rescue {s13} from {s14}", qf_random_quest,
   "{!}None"
   ),
+ ("lover_message","Deliver Message to {s3}", qf_random_quest,  "{s11} asked you to take a message to {s3}."
+),
  ("deliver_message_to_prisoner_lord", "Deliver Message to {s13} at {s14}", qf_random_quest,
   "{!}None"
   ),

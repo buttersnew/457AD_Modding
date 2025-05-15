@@ -22100,6 +22100,23 @@ I'll send some men to take him to our prison with due haste.", "lord_pretalk", [
 "Stay your hand! There is something I must say to you in private.", "lord_recruit_1_relation",
 []],
 
+[anyone|plyr,"lord_talk",[
+(neg|troop_slot_ge, "$g_talk_troop", slot_troop_prisoner_of_party, 0),
+(encountered_party_is_attacker),
+(check_quest_active, "qst_lover_message"),
+(quest_slot_eq, "qst_lover_message", slot_quest_target_troop, "$g_talk_troop"),
+(quest_get_slot, ":troop_no", "qst_lover_message", slot_quest_giver_troop),
+(str_store_troop_name, s3, ":troop_no")
+                      ],
+"Stay your hand! I have a letter from {s3} for you.", "message_from_lover_success",
+[
+(store_current_hours,":protected_until"),
+(val_add, ":protected_until", 72),
+(party_set_slot,"$g_encountered_party",slot_party_ignore_player_until,":protected_until"),
+(party_ignore_player, "$g_encountered_party", 72),
+]],
+
+
 
 [anyone|plyr,"lord_talk",
 [(check_quest_active, "qst_track_down_bandits"),
@@ -25903,8 +25920,70 @@ As you wish, {playername}, it will be good sport to bash your head in."),
 (call_script, "script_end_quest", "qst_duel_courtship_rival"),
 ]],
 
+  [anyone|plyr,"lord_talk", [(check_quest_active, "qst_lover_message"),
+      (quest_slot_eq, "qst_lover_message", slot_quest_target_troop, "$g_talk_troop"),
+      (quest_get_slot, ":troop_no", "qst_lover_message", slot_quest_giver_troop),
+      (str_store_troop_name, s3, ":troop_no")],
+    "I have a letter from {s3} for you.", "message_from_lover_success",[]],
 
+  [anyone|plyr,"lord_talk", [
+(check_quest_active, "qst_lover_message"),
+(quest_get_slot, ":troop_no", "qst_lover_message", slot_quest_giver_troop),
+(quest_get_slot, ":target_troop", "qst_lover_message", slot_quest_target_troop),
+(neq, ":target_troop", "$g_talk_troop"),
+(this_or_next|troop_slot_eq, ":troop_no", slot_troop_father, "$g_talk_troop"),
+(troop_slot_eq, ":troop_no", slot_troop_spouse, "$g_talk_troop"),
+(str_store_troop_name, s3, ":troop_no"),
+(str_store_troop_name, s4, ":target_troop")],
+    "{s3} asked me to take a secret letter to {s4}.", "message_from_lover_expose",[]],
+  
+  [anyone,"message_from_lover_success", [], "Thank you so much, {playername}! "+"It is good to hear from my sweet {s3}. "+"Of course, you understand this must be kept confidential, for the sake of the lady's honor. Here is a small compensation for your troubles.", "close_window",[
+      (quest_get_slot, ":quest_giver", "qst_lover_message", slot_quest_giver_troop),
+(call_script, "script_succeed_quest", "qst_lover_message"),
+      (call_script, "script_end_quest", "qst_lover_message"),
+	(call_script, "script_troop_add_gold", "trp_player", 300),
+        (call_script, "script_change_player_relation_with_troop", ":quest_giver", 3),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 3),
+(assign, "$g_leave_encounter",1),
+  ]],
 
+  [anyone,"message_from_lover_expose", [], "Thank you for bringing this shameful matter to my attention, {playername}... "+"Of course, you understand this must be kept confidential, for the sake of my honour. Here is a compensation for your troubles.", "close_window",[
+      (quest_get_slot, ":quest_giver", "qst_lover_message", slot_quest_giver_troop),
+      (quest_get_slot, ":quest_target", "qst_lover_message", slot_quest_target_troop),
+(call_script, "script_fail_quest", "qst_lover_message"),
+      (call_script, "script_end_quest", "qst_lover_message"),
+	(call_script, "script_troop_add_gold", "trp_player", 300),
+        (call_script, "script_change_player_relation_with_troop", ":quest_giver", -5),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 5),
+(call_script, "script_troop_change_relation_with_troop", "$g_talk_troop", ":quest_target", -5),
+
+(try_begin),
+(eq, "$talk_context", tc_court_talk),
+(assign, ":found", 0),
+	(try_for_agents, ":agent_no"),
+	(eq, ":found", 0),
+	(agent_is_alive, ":agent_no"),
+	(agent_is_human, ":agent_no"),
+	(agent_get_troop_id, ":agent_troop", ":agent_no"),
+	(eq, ":agent_troop", ":quest_giver"),	
+	(assign, ":found", 1),
+        (agent_set_is_alarmed, "$g_talk_agent", 1),
+        (agent_ai_set_always_attack_in_melee, "$g_talk_agent", 1),
+        (agent_ai_set_aggressiveness, "$g_talk_agent", 1000),
+        (agent_add_relation_with_agent, "$g_talk_agent", ":agent_no", -1),
+	(try_end),
+(eq, ":found", 1),
+        (try_for_range, ":item_slot", 0, 4),
+          (agent_get_item_slot,  ":item", "$g_talk_agent", ":item_slot"),
+          (gt, ":item", -1),
+          (agent_unequip_item, "$g_talk_agent", ":item"),
+        (try_end),
+        (agent_equip_item, "$g_talk_agent", "itm_wooden_stick"),
+(agent_set_wielded_item, "$g_talk_agent", "itm_wooden_stick"),
+(mission_disable_talk),
+(try_end),
+(assign, "$g_leave_encounter",1),
+  ]],
 
 [anyone|plyr,"lord_talk",[(check_quest_active,"qst_deliver_message"),
                        (quest_get_slot, ":quest_target_troop", "qst_deliver_message", slot_quest_target_troop),
@@ -25920,9 +25999,9 @@ As you wish, {playername}, it will be good sport to bash your head in."),
 (quest_get_slot, ":quest_giver_troop", "qst_deliver_message", slot_quest_giver_troop),
 (call_script, "script_dplmc_store_troop_is_female", ":quest_giver_troop"),
 (assign, reg4, reg0),
-], "Oh? Let me see that...\
-Well, well, well! It was good of you to bring me this, {playername}. Take my seal as proof that I've received it,\
- and give my regards to {s9} when you see {reg4?her:him} again.", "lord_pretalk",[
+], "Oh? Let me see that... "+
+"Well, well, well! It was good of you to bring me this, {playername}. Take my seal as proof that I've received it, "+
+ "and give my regards to {s9} when you see {reg4?her:him} again.", "lord_pretalk",[
 ##diplomacy end+
 (call_script, "script_end_quest", "qst_deliver_message"),
 (quest_get_slot, ":quest_giver", "qst_deliver_message", slot_quest_giver_troop),
@@ -37233,6 +37312,46 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
   ],
    "I don't have anything else for you to do right now.", "lady_pretalk", []],
 
+[anyone,"lady_ask_for_quest",
+    [
+(eq, "$random_quest_no", "qst_lover_message"),
+(quest_get_slot,":quest_target_troop","$random_quest_no", slot_quest_target_troop),
+(str_store_troop_name, s3, ":quest_target_troop"),
+],"Oh, {playername}, there is a delicate matter. "+"I need you to take a letter to my... to {s3}. "+"Do you think you could do me this little favor? {s33}","lady_mission_told",
+    [
+(call_script, "script_dplmc_store_troop_is_female_reg", "$g_talk_troop", 4),
+(str_store_troop_name_link, s11, "$g_talk_troop"),
+      (quest_get_slot,":quest_target_troop","$random_quest_no", slot_quest_target_troop),
+      (store_faction_of_troop, ":faction", ":quest_target_troop"),
+      (store_relation, ":faction_relation", ":faction", "$players_kingdom"),
+      (try_begin),
+        (lt, ":faction_relation", 0),
+        (str_store_string, s33, "@I know, you're at war with his kingdom, so you may have a problem giving him my message, or perhaps your bravery would desert you."),
+      (else_try),
+        (str_store_string, s33, "@And please tell no one about this!"),
+      (try_end),
+      (str_store_troop_name_link, s3, ":quest_target_troop"),
+      (setup_quest_text,"$random_quest_no"),
+	(try_begin),
+(troop_get_slot, ":spouse", "$g_talk_troop", slot_troop_spouse),
+(gt, ":spouse", 0),
+(troop_slot_eq, ":spouse", slot_troop_occupation, slto_kingdom_hero),
+(str_store_troop_name_link, s12, ":spouse"),
+(call_script, "script_dplmc_store_troop_is_female_reg", "$g_talk_troop", 4),
+      (str_store_string, s2, "@Deliver {s11}'s secret letter to {s3} or tell {reg4?her:his} spouse {s12} about it."),
+	(else_try),
+(troop_get_slot, ":spouse", "$g_talk_troop", slot_troop_father),
+(gt, ":spouse", 0),
+(troop_slot_eq, ":spouse", slot_troop_occupation, slto_kingdom_hero),
+(str_store_troop_name_link, s12, ":spouse"),
+(call_script, "script_dplmc_store_troop_is_female_reg", "$g_talk_troop", 4),
+      (str_store_string, s2, "@Deliver {s11}'s secret letter to {s3} or tell {reg4?her:his} father {s12} about it."),
+	(else_try),
+      (str_store_string, s2, "@{s11} asked you to deliver a secret letter to {s3}."),
+	(try_end),
+  ]],
+
+
   [anyone,"lady_ask_for_quest",
   [
      (this_or_next|eq, "$random_quest_no", "qst_rescue_lord_by_replace"),
@@ -37244,12 +37363,12 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
      ##diplomacy start+ Correct pronouns if :quest_target_troop is female, although above script does so already
      (call_script, "script_dplmc_store_troop_is_female_reg",  ":quest_target_troop", 4),
   ],#He -> {reg4?She:He}, his -> {reg4?her:his}, him -> {reg4?her:him}
-   "Oh, I fear I may never see my {s17}, {s13}, again... {reg4?She:He} is a prisoner in the dungeon of {s14}.\
- We have tried to negotiate {reg4?her:his} ransom, but it has been set too high.\
- We can never hope to raise that much money without selling everything we own,\
- and God knows {s13} would rather spend {reg4?her:his} life in prison than make us destitute.\
- Instead I came up with a plan to get {reg4?her:him} out of there, but it requires someone to make a great sacrifice,\
- and so far my pleas have fallen on deaf ears...", "lady_mission_told",
+   "Oh, I fear I may never see my {s17}, {s13}, again... {reg4?She:He} is a prisoner in the dungeon of {s14}. "+
+ "We have tried to negotiate {reg4?her:his} ransom, but it has been set too high. "+
+ "We can never hope to raise that much money without selling everything we own, "+
+ "and God knows {s13} would rather spend {reg4?her:his} life in prison than make us destitute. "+
+ "Instead I came up with a plan to get {reg4?her:him} out of there, but it requires someone to make a great sacrifice, "+
+ "and so far my pleas have fallen on deaf ears...", "lady_mission_told",
  ##diplomacy end+
    [
      (quest_get_slot, ":quest_target_center", "$random_quest_no", slot_quest_target_center),
@@ -37355,9 +37474,9 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
   (call_script, "script_dplmc_store_troop_is_female",  ":quest_target_troop"),#gender of lord to challenge
   ], "If {reg0?she:he}'s that dangerous, perhaps maybe it would be better to ignore {reg0?her:him}...", "lady_quest_duel_for_lady_3_rejected",[]],
   ##diplomacy end+
-  [anyone,"lady_quest_duel_for_lady_3_rejected", [], "Oh... Perhaps you're right, {playername}.\
- I should let go of these silly childhood ideas of chivalry and courage. {Men/People} are not like that,\
- not anymore. Good day to you.", "close_window",
+  [anyone,"lady_quest_duel_for_lady_3_rejected", [], "Oh... Perhaps you're right, {playername}. "+
+ "I should let go of these silly childhood ideas of chivalry and courage. {Men/People} are not like that, "+
+ "not anymore. Good day to you.", "close_window",
    [(troop_set_slot, "$g_talk_troop", slot_troop_does_not_give_quest, 1),
     (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", -1),
     ]],
@@ -37366,10 +37485,21 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
   [anyone,"lady_ask_for_quest", [], "No, {playername}, I've no need for a champion right now.", "lady_pretalk",[]],
 
   [anyone|plyr,"lady_mission_told", [], "As you wish it, {s65}, it shall be done.", "lady_mission_accepted",[]],
+
+[anyone|plyr,"lady_mission_told", [
+(eq, "$random_quest_no", "qst_lover_message"),
+(troop_get_slot, ":spouse", "$g_talk_troop", slot_troop_spouse),
+(gt, ":spouse", 0),
+(troop_slot_eq, ":spouse", slot_troop_occupation, slto_kingdom_hero),
+(call_script, "script_dplmc_store_troop_is_female", ":spouse"),
+], "What would your {reg0?wife:husband} think of this? Forget it!", "lady_mission_rejected",[
+(call_script, "script_change_player_honor", 1),
+]],
+
   [anyone|plyr,"lady_mission_told", [], "{s66}, I fear I cannot help you right now.", "lady_mission_rejected",[]],
 
-  [anyone,"lady_mission_accepted", [], "You are a true {gentleman/lady}, {playername}.\
- Thank you so much for helping me", "close_window",
+  [anyone,"lady_mission_accepted", [], "You are a true {gentleman/lady}, {playername}. "+
+ "Thank you so much for helping me", "close_window",
    [
      (try_begin),
        (eq, "$random_quest_no", "qst_deliver_message_to_prisoner_lord"),

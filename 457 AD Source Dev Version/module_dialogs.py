@@ -31565,6 +31565,15 @@ You are free, {playername}.", "lord_ask_leave_service_end",
  (party_add_prisoners, "$g_encountered_party", ":quest_target_troop", ":quest_target_amount"),
  (call_script, "script_finish_quest", "qst_capture_prisoners", 100)]],
 
+[anyone|plyr,"lord_active_mission_2",[
+                            (neg|troop_slot_ge, "$g_talk_troop", slot_troop_prisoner_of_party, 0),                           
+                            (check_quest_succeeded,"qst_scout_enemy_town"),
+                            (check_quest_active,"qst_scout_enemy_town"),  
+                            (quest_slot_eq, "qst_scout_enemy_town", slot_quest_giver_troop, "$g_talk_troop"),
+                            (quest_slot_eq, "qst_scout_enemy_town", slot_quest_target_troop, 1), #scouted
+                            (quest_get_slot, ":quest_target_center", "qst_scout_enemy_town", slot_quest_target_center),
+                            (str_store_party_name, s13, ":quest_target_center")],
+"Indeed. I have scouted {s13}.", "lord_generic_mission_thank", [(call_script, "script_finish_quest", "qst_scout_enemy_town", 100)]],
 
 [anyone|plyr,"lord_active_mission_2",
 [
@@ -32747,6 +32756,7 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
   (neq, "$random_quest_no", "qst_lend_companion"),
   (neq, "$random_quest_no", "qst_capture_enemy_hero"),
   (neq, "$random_quest_no", "qst_cause_provocation"),
+  (neq, "$random_quest_no", "qst_scout_enemy_town"),
   ##diplomacy start+
   (neq, "$random_quest_no", "qst_collect_debt"),#currently never given, but if it were enabled it would be fine
   #Assign some variables used later to re-enable quests which are usually disabled
@@ -32927,9 +32937,29 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
   (party_stack_get_troop_id, ":bandit_type", ":bandit_lair", 0),
   (str_store_troop_name_plural, s4, ":bandit_type"),
 
-  ], "Yes -- there is something you can do for us. We have heard reports that a group of {s4} have established a hideout in this area, and have been attacking travellers. If you could find their lair and destroy it, we would be very grateful.", "destroy_lair_quest_brief", #s48 is bandits, s42 is the road information
+(try_begin),
+(call_script, "script_get_closest_center", ":bandit_lair"),
+(gt, reg0, -1),
+(str_store_party_name,s5,reg0),
+(else_try),
+(str_store_string,s5,"@this area"),
+(try_end),
+
+  ], "Yes -- there is something you can do for us. We have heard reports that a group of {s4} have established a hideout near {s5}, and have been attacking travellers. If you could find their lair and destroy it, we would be very grateful.", "destroy_lair_quest_brief", #s48 is bandits, s42 is the road information
    []],
 
+[anyone,"lord_tell_mission", [(eq,"$random_quest_no","qst_scout_enemy_town")],
+ "{s5}", "lord_mission_told",
+   [   (quest_get_slot, ":quest_target_center", "qst_scout_enemy_town", slot_quest_target_center),
+       (str_store_party_name_link, s13, ":quest_target_center"),
+       (str_store_troop_name_link, s9, "$g_talk_troop"),
+       
+         (str_store_string, s5, "@My spies tell me of a large group of enemy warriors gathering in {s13}. "+
+ "They should be no match for us, but it wouldn't hurt to know just how many of them are there. "+
+ "I want you to get close enough to {s13}, and find out as much as you can."),
+
+       (setup_quest_text, "qst_scout_enemy_town"),
+       (str_store_string, s2, "@{s9} asked you to scout around {s13}.")]],
 
    #SB : move reg3 assignment to consequence
   [anyone,"lord_tell_mission",

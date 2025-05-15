@@ -1612,6 +1612,24 @@ simple_triggers = [
 	(try_end),
 (try_end),
 
+	(try_begin),
+		(check_quest_active,"qst_scout_enemy_town"),
+		(neg|check_quest_succeeded, "qst_scout_enemy_town"),
+		(quest_get_slot, ":quest_target_center", "qst_scout_enemy_town", slot_quest_target_center),
+		(quest_get_slot, ":quest_target_visited", "qst_scout_enemy_town", slot_quest_target_troop),
+		(try_begin),
+			(eq, ":quest_target_visited", 0),
+			(store_distance_to_party_from_party, ":distance", ":quest_target_center", "p_main_party"),
+			(le, ":distance", 3),
+			(assign, ":quest_target_visited", 1),
+			(str_store_party_name_link, s1, ":quest_target_center"),
+			(display_message, "@{s1} is scouted."),
+		(try_end),
+		(eq, ":quest_target_visited", 1),
+		(quest_set_slot, "qst_scout_enemy_town", slot_quest_target_troop, ":quest_target_visited"),
+		(call_script, "script_succeed_quest", "qst_scout_enemy_town"),
+	(try_end),
+
    ]),
 
   # Process alarms - perhaps break this down into several groups, with a modula

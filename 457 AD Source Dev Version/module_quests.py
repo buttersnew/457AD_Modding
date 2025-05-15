@@ -302,6 +302,10 @@ quests = [
   "{!}{s9} of {s4} asked you to discover a {s6} and destroy it."
   ),
 
+ ("scout_enemy_town", "Scout {s13}", qf_random_quest,
+  "{!}{s9} asked you to scout around {s13}."
+  ),
+
  ("blank_quest_2", "{!}blank_quest", qf_random_quest,
   "{!}placeholder"
   ),

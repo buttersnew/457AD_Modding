@@ -35096,6 +35096,8 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
 
    (faction_set_slot, "$players_kingdom", slot_faction_ai_state, sfai_feast),
    (faction_set_slot, "$players_kingdom", slot_faction_ai_object, "$g_player_court"),
+	(store_current_hours, ":time"),
+	(faction_set_slot, "$players_kingdom", slot_faction_ai_current_state_started, ":time"),
 
    (assign, "$player_marshal_ai_state", sfai_feast),
    (assign, "$player_marshal_ai_object", "$g_player_court"),

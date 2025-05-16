@@ -5280,7 +5280,10 @@ scene_props = [
         (troop_is_guarantee_horse, ":troop"),
         (faction_get_slot, ":troop", ":current_faction", slot_faction_tier_2_troop),
     (try_end),
-
+	(try_begin),
+	(le, ":troop", 0),
+	(assign, ":troop", "trp_manhunter"),
+	(try_end),
     (prop_instance_get_position, pos1, ":instance_no"), (set_spawn_position, pos1),  (spawn_agent, ":troop"),
     (scene_prop_set_slot, ":instance_no", slot_prop_agent_1, reg0),
     
@@ -5382,6 +5385,10 @@ scene_props = [
     (neq, "$talk_context", tc_escape),
     (store_faction_of_party, ":current_faction", "$g_encountered_party"), #needs to be g_encountered_party so it works in sieges
     (faction_get_slot, ":troop", ":current_faction", slot_faction_tier_1_troop), #seems to be a missile troop most of the time
+	(try_begin),
+	(le, ":troop", 0),
+	(assign, ":troop", "trp_mercenary_archer"),
+	(try_end),
     (prop_instance_get_position, pos1, ":instance_no"), (set_spawn_position, pos1),  (spawn_agent, ":troop"),
     (scene_prop_set_slot, ":instance_no", slot_prop_agent_1, reg0),
     (agent_set_team, reg0, 0),
@@ -5422,6 +5429,11 @@ scene_props = [
         (troop_is_guarantee_horse, ":troop"),
         (assign, ":slot", 5),
     (try_end),
+
+	(try_begin),
+	(le, ":troop", 0),
+	(assign, ":troop", "trp_mercenary_horseman"),
+	(try_end),
 
     (prop_instance_get_position, pos1, ":instance_no"), (set_spawn_position, pos1),  (spawn_agent, ":troop"),
     (scene_prop_set_slot, ":instance_no", slot_prop_agent_1, reg0),
@@ -5553,6 +5565,10 @@ scene_props = [
     (neg|is_currently_night),
     (store_faction_of_party, ":current_faction", "$current_town"), 
     (faction_get_slot, ":troop", ":current_faction", slot_faction_tier_1_troop), #seems to be a missile troop most of the time
+	(try_begin),
+	(le, ":troop", 0),
+	(assign, ":troop", "trp_mercenary_archer"),
+	(try_end),
     (prop_instance_get_position, pos1, ":instance_no"), (position_move_y, pos1, -1000,0), (set_spawn_position, pos1),  (spawn_agent, ":troop"),
     (scene_prop_set_slot, ":instance_no", slot_prop_agent_1, reg0),
     (agent_set_team, reg0, 0),
@@ -5615,6 +5631,11 @@ scene_props = [
         (troop_is_guarantee_horse, ":troop"),
         (faction_get_slot, ":troop", ":current_faction", slot_faction_tier_2_troop),
     (try_end),
+
+	(try_begin),
+	(le, ":troop", 0),
+	(assign, ":troop", "trp_manhunter"),
+	(try_end),
 
     (prop_instance_get_position, pos1, ":instance_no"), (set_spawn_position, pos1),  (spawn_agent, ":troop"),
     (scene_prop_set_slot, ":instance_no", slot_prop_agent_1, reg0),

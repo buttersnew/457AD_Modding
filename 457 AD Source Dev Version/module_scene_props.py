@@ -5270,8 +5270,11 @@ scene_props = [
 
 ("troop_guard",sokf_invisible,"arrow_helper_blue","0", [(ti_on_init_scene_prop,[
     (store_trigger_param_1, ":instance_no"),
+    (eq,"$all_doors_locked",0), #this should help with sneak mission
+    (neq, "$talk_context", tc_prison_break),
+    (neq, "$talk_context", tc_escape),    
     (prop_instance_get_variation_id_2, ":var2", ":instance_no"),
-    (store_faction_of_party, ":current_faction", "$g_encountered_party"),
+    (store_faction_of_party, ":current_faction", "$g_encountered_party"), #needs to be g_encountered_party so it works in sieges
     (faction_get_slot, ":troop", ":current_faction", slot_faction_guard_troop),
     (try_begin), #make sure it's infantry
         (troop_is_guarantee_horse, ":troop"),
@@ -5336,6 +5339,7 @@ scene_props = [
 
   (ti_scene_prop_deformation_finished,[
     (set_fixed_point_multiplier, 100),
+    (party_slot_eq, "$current_town", slot_center_has_bandits, 0),
     (store_trigger_param_1, ":instance_no"),
     (prop_instance_get_variation_id_2, ":var2_target", ":instance_no"),
     (try_for_prop_instances, ":guard_prop", "spr_troop_guard"),
@@ -5343,6 +5347,7 @@ scene_props = [
         (eq, ":var2_start", ":var2_target"),
         (ge, ":var2_start", 1),
         (scene_prop_get_slot, ":agent", ":guard_prop", slot_prop_agent_1),
+        (agent_is_active, ":agent"),
         (try_begin), #initialize
             (neg|agent_is_in_special_mode, ":agent"),
             (agent_slot_eq, ":agent", slot_agent_walker_occupation, 0), #not assigned yet?
@@ -5372,7 +5377,10 @@ scene_props = [
 
 ("troop_archer",sokf_invisible,"arrow_helper_blue","0", [(ti_on_init_scene_prop,[
     (store_trigger_param_1, ":instance_no"),
-    (store_faction_of_party, ":current_faction", "$g_encountered_party"),
+    (eq,"$all_doors_locked",0), #this should help with sneak mission and town ambush
+    (neq, "$talk_context", tc_prison_break),
+    (neq, "$talk_context", tc_escape),
+    (store_faction_of_party, ":current_faction", "$g_encountered_party"), #needs to be g_encountered_party so it works in sieges
     (faction_get_slot, ":troop", ":current_faction", slot_faction_tier_1_troop), #seems to be a missile troop most of the time
     (prop_instance_get_position, pos1, ":instance_no"), (set_spawn_position, pos1),  (spawn_agent, ":troop"),
     (scene_prop_set_slot, ":instance_no", slot_prop_agent_1, reg0),
@@ -5401,7 +5409,11 @@ scene_props = [
 
 ("troop_rider",sokf_invisible,"arrow_helper_blue","0", [(ti_on_init_scene_prop,[
     (store_trigger_param_1, ":instance_no"),
-    (store_faction_of_party, ":current_faction", "$g_encountered_party"),
+    (eq,"$all_doors_locked",0), #this should help with sneak mission and town ambush
+    (neq, "$talk_context", tc_prison_break),
+    (neq, "$talk_context", tc_escape),
+    (neg|is_currently_night),
+    (store_faction_of_party, ":current_faction", "$current_town"),
     (faction_get_slot, ":troop", ":current_faction", slot_faction_tier_3_troop), #seems to be a cavalry troop most of the time
     (try_for_range, ":slot", 0, 6),
         (neg|troop_is_guarantee_horse, ":troop"),
@@ -5442,11 +5454,17 @@ scene_props = [
 ("troop_civ_walker",sokf_invisible,"arrow_helper_blue","0", [
   (ti_on_init_scene_prop,[
     (store_trigger_param_1, ":instance_no"),
+    (eq,"$all_doors_locked",0), #this should help with sneak mission and town ambush
+    (neq, "$talk_context", tc_prison_break),
+    (neq, "$talk_context", tc_escape),
+    (neg|is_currently_night),
     (lt, "$g_encountered_party_2", 0), #don't spawn guards in siege battles
     (prop_instance_get_position, pos1, ":instance_no"), (set_spawn_position, pos1),
 	(store_random_in_range, ":rand", 0, 9),
     (store_add, ":troop_slot", slot_center_walker_0_troop, ":rand"),
-    (party_get_slot, ":troop", "$g_encountered_party", ":troop_slot"),
+    (party_get_slot, ":troop", "$current_town", ":troop_slot"),
+    (neg|troop_is_guarantee_horse, ":troop"), #avoid mounted walkers
+    (is_between, ":troop", town_walkers_begin, town_walkers_end),#just in case
 
     (spawn_agent, ":troop"),
     (agent_set_team, reg0, 0),
@@ -5478,11 +5496,62 @@ scene_props = [
     (prop_instance_deform_in_range, ":instance_no", 0, 100, ":timer"), #fake deform to get a timer
   ]),]),
 
+("troop_civ_stand",sokf_invisible,"arrow_helper_blue","0", [
+  (ti_on_init_scene_prop,[
+    (store_trigger_param_1, ":instance_no"),
+    (eq,"$all_doors_locked",0), #this should help with sneak mission and town ambush
+    (neq, "$talk_context", tc_prison_break),
+    (neq, "$talk_context", tc_escape),
+    (neg|is_currently_night),
+    (lt, "$g_encountered_party_2", 0), #don't spawn guards in siege battles
+    (prop_instance_get_position, pos1, ":instance_no"), (set_spawn_position, pos1),
+	(store_random_in_range, ":rand", 0, 9),
+    (store_add, ":troop_slot", slot_center_walker_0_troop, ":rand"),
+    (party_get_slot, ":troop", "$current_town", ":troop_slot"),
+    (neg|troop_is_guarantee_horse, ":troop"), #avoid mounted walkers
+    (is_between, ":troop", town_walkers_begin, town_walkers_end),#just in case
+
+    (spawn_agent, ":troop"),
+    (agent_set_slot, reg0, slot_agent_walker_occupation, 3), #stationary civilian
+    (agent_set_team, reg0, 0),
+    (store_random_in_range, reg6, 0, 100),
+    (agent_set_animation_progress, reg0, reg6),
+  ]),]),
+
+("troop_civ_sit_chair",sokf_invisible,"arrow_helper_blue","0", [
+  (ti_on_init_scene_prop,[
+    (store_trigger_param_1, ":instance_no"),
+    (eq,"$all_doors_locked",0), #this should help with sneak mission and town ambush
+    (neq, "$talk_context", tc_prison_break),
+    (neq, "$talk_context", tc_escape),
+    (neg|is_currently_night),
+    (lt, "$g_encountered_party_2", 0), #don't spawn guards in siege battles
+    (prop_instance_get_position, pos1, ":instance_no"), (set_spawn_position, pos1),
+	(store_random_in_range, ":rand", 0, 9),
+    (store_add, ":troop_slot", slot_center_walker_0_troop, ":rand"),
+    (party_get_slot, ":troop", "$current_town", ":troop_slot"),
+    (neg|troop_is_guarantee_horse, ":troop"), #avoid mounted walkers
+    (is_between, ":troop", town_walkers_begin, town_walkers_end),#just in case
+
+    (spawn_agent, ":troop"),
+    (agent_set_slot, reg0, slot_agent_walker_occupation, 3), #stationary civilian
+    (agent_set_team, reg0, 0),
+    (agent_set_animation, reg0, "anim_sitting_low"),
+    (store_random_in_range, reg6, 0, 100),
+    (agent_set_animation_progress, reg0, reg6),
+    (agent_set_no_dynamics, reg0, 1),
+    (agent_set_position, reg0, pos1),
+  ]),]),
+
 ("terrain_mountain_far",0,"mountain_scene_TLD",0,[]), 
 
 ("troop_archer_train",sokf_invisible,"arrow_helper_blue","0", [(ti_on_init_scene_prop,[
     (store_trigger_param_1, ":instance_no"),
-    (store_faction_of_party, ":current_faction", "$g_encountered_party"),
+    (eq,"$all_doors_locked",0), #this should help with sneak mission and town ambush
+    (neq, "$talk_context", tc_prison_break),
+    (neq, "$talk_context", tc_escape),
+    (neg|is_currently_night),
+    (store_faction_of_party, ":current_faction", "$current_town"), 
     (faction_get_slot, ":troop", ":current_faction", slot_faction_tier_1_troop), #seems to be a missile troop most of the time
     (prop_instance_get_position, pos1, ":instance_no"), (position_move_y, pos1, -1000,0), (set_spawn_position, pos1),  (spawn_agent, ":troop"),
     (scene_prop_set_slot, ":instance_no", slot_prop_agent_1, reg0),
@@ -5536,7 +5605,11 @@ scene_props = [
 
 ("troop_guard_train",sokf_invisible,"arrow_helper_blue","0", [(ti_on_init_scene_prop,[
     (store_trigger_param_1, ":instance_no"),
-    (store_faction_of_party, ":current_faction", "$g_encountered_party"),
+    (eq,"$all_doors_locked",0), #this should help with sneak mission and town ambush
+    (neq, "$talk_context", tc_prison_break),
+    (neq, "$talk_context", tc_escape),
+    (neg|is_currently_night),
+    (store_faction_of_party, ":current_faction", "$current_town"),
     (faction_get_slot, ":troop", ":current_faction", slot_faction_guard_troop),
     (try_begin), #make sure it's infantry
         (troop_is_guarantee_horse, ":troop"),

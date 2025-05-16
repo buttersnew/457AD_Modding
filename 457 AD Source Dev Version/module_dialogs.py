@@ -43985,39 +43985,75 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
   [anyone,"mayor_investment_advice",[], "A couple of things to keep in mind -- skilled laborers are always at a premium, so I doubt that you will be able to open up more than one enterprise here. In order to make a profit for yourself, you should choose a commodity which is in relatively short supply, but for which the raw materials are cheap. What sort of enterprise would you like to start?", "investment_choose_enterprise",[
   ]],
 
-  [anyone|plyr,"investment_choose_enterprise",[], "A mill and bakery, to make bread from grain", "investment_summary",[
+  [anyone|plyr,"investment_choose_enterprise",[
+    	(item_get_slot, ":cost", "itm_bread", slot_item_enterprise_building_cost),
+    	(assign, reg7, ":cost"),
+	(call_script, "script_process_player_enterprise", "itm_bread", "$g_encountered_party"),
+], "A mill and bakery, to make bread from grain (cost {reg7}, profit {reg0})", "investment_summary",[
   (assign, "$enterprise_production", "itm_bread"),
   ]],
 
-  [anyone|plyr,"investment_choose_enterprise",[], "A brewery, to make ale from grain", "investment_summary",[
+  [anyone|plyr,"investment_choose_enterprise",[
+    	(item_get_slot, ":cost", "itm_ale", slot_item_enterprise_building_cost),
+    	(assign, reg7, ":cost"),
+	(call_script, "script_process_player_enterprise", "itm_ale", "$g_encountered_party"),
+], "A brewery, to make ale from grain (cost {reg7}, profit {reg0})", "investment_summary",[
   (assign, "$enterprise_production", "itm_ale"),
   ]],
 
-  [anyone|plyr,"investment_choose_enterprise",[], "A tannery, to make leather from hides", "investment_summary",[
+  [anyone|plyr,"investment_choose_enterprise",[
+    	(item_get_slot, ":cost", "itm_leatherwork", slot_item_enterprise_building_cost),
+    	(assign, reg7, ":cost"),
+	(call_script, "script_process_player_enterprise", "itm_leatherwork", "$g_encountered_party"),
+], "A tannery, to make leather from hides (cost {reg7}, profit {reg0})", "investment_summary",[
   (assign, "$enterprise_production", "itm_leatherwork"),
   ]],
 
-  [anyone|plyr,"investment_choose_enterprise",[], "A wine press, to make wine from grapes", "investment_summary",[
+  [anyone|plyr,"investment_choose_enterprise",[
+    	(item_get_slot, ":cost", "itm_wine", slot_item_enterprise_building_cost),
+    	(assign, reg7, ":cost"),
+	(call_script, "script_process_player_enterprise", "itm_wine", "$g_encountered_party"),
+], "A wine press, to make wine from grapes (cost {reg7}, profit {reg0})", "investment_summary",[
   (assign, "$enterprise_production", "itm_wine"),
   ]],
 
-  [anyone|plyr,"investment_choose_enterprise",[], "An oil press, to make oil from olives", "investment_summary",[
+  [anyone|plyr,"investment_choose_enterprise",[
+    	(item_get_slot, ":cost", "itm_oil", slot_item_enterprise_building_cost),
+    	(assign, reg7, ":cost"),
+	(call_script, "script_process_player_enterprise", "itm_oil", "$g_encountered_party"),
+], "An oil press, to make oil from olives (cost {reg7}, profit {reg0})", "investment_summary",[
   (assign, "$enterprise_production", "itm_oil"),
   ]],
 
-  [anyone|plyr,"investment_choose_enterprise",[], "An ironworks, to make tools from iron", "investment_summary",[
+  [anyone|plyr,"investment_choose_enterprise",[
+    	(item_get_slot, ":cost", "itm_tools", slot_item_enterprise_building_cost),
+    	(assign, reg7, ":cost"),
+	(call_script, "script_process_player_enterprise", "itm_tools", "$g_encountered_party"),
+], "An ironworks, to make tools from iron (cost {reg7}, profit {reg0})", "investment_summary",[
   (assign, "$enterprise_production", "itm_tools"),
   ]],
 
-  [anyone|plyr,"investment_choose_enterprise",[], "A weavery and dyeworks, to make velvet from silk and dye", "investment_summary",[
+  [anyone|plyr,"investment_choose_enterprise",[
+    	(item_get_slot, ":cost", "itm_velvet", slot_item_enterprise_building_cost),
+    	(assign, reg7, ":cost"),
+	(call_script, "script_process_player_enterprise", "itm_velvet", "$g_encountered_party"),
+], "A weavery and dyeworks, to make velvet from silk and dye (cost {reg7}, profit {reg0})", "investment_summary",[
   (assign, "$enterprise_production", "itm_velvet"),
   ]],
 
-  [anyone|plyr,"investment_choose_enterprise",[], "A weavery, to make wool cloth from wool", "investment_summary",[
+  [anyone|plyr,"investment_choose_enterprise",[
+    	(item_get_slot, ":cost", "itm_wool_cloth", slot_item_enterprise_building_cost),
+    	(assign, reg7, ":cost"),
+	(call_script, "script_process_player_enterprise", "itm_wool_cloth", "$g_encountered_party"),
+], "A weavery, to make wool cloth from wool (cost {reg7}, profit {reg0})", "investment_summary",[
   (assign, "$enterprise_production", "itm_wool_cloth"),
   ]],
 
-  [anyone|plyr,"investment_choose_enterprise",[], "A weavery, to make linen from flax", "investment_summary",[
+  [anyone|plyr,"investment_choose_enterprise",[
+    	(item_get_slot, ":cost", "itm_linen", slot_item_enterprise_building_cost),
+    	(assign, reg7, ":cost"),
+	(call_script, "script_process_player_enterprise", "itm_linen", "$g_encountered_party"),
+], "A weavery, to make linen from flax (cost {reg7}, profit {reg0})", "investment_summary",[
   (assign, "$enterprise_production", "itm_linen"),
   ]],
 

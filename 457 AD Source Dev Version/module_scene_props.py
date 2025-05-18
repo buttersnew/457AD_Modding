@@ -5273,6 +5273,14 @@ scene_props = [
     (eq,"$all_doors_locked",0), #this should help with sneak mission
     (neq, "$talk_context", tc_prison_break),
     (neq, "$talk_context", tc_escape),    
+    (eq, "$g_siege_battle_state", 0),
+    (try_begin),
+        (eq, "$current_town", "p_town_22"),
+        (le, "$jewish_rebellion", 0),
+    (else_try),
+        (eq, "$current_town", "p_town_45"),
+        (le, "$armenian_rebellion", 0),
+    (try_end),
     (prop_instance_get_variation_id_2, ":var2", ":instance_no"),
     (store_faction_of_party, ":current_faction", "$g_encountered_party"), #needs to be g_encountered_party so it works in sieges
     (faction_get_slot, ":troop", ":current_faction", slot_faction_guard_troop),
@@ -5383,6 +5391,14 @@ scene_props = [
     (eq,"$all_doors_locked",0), #this should help with sneak mission and town ambush
     (neq, "$talk_context", tc_prison_break),
     (neq, "$talk_context", tc_escape),
+    (eq, "$g_siege_battle_state", 0),
+    (try_begin),
+        (eq, "$current_town", "p_town_22"),
+        (le, "$jewish_rebellion", 0),
+    (else_try),
+        (eq, "$current_town", "p_town_45"),
+        (le, "$armenian_rebellion", 0),
+    (try_end),
     (store_faction_of_party, ":current_faction", "$g_encountered_party"), #needs to be g_encountered_party so it works in sieges
     (faction_get_slot, ":troop", ":current_faction", slot_faction_tier_1_troop), #seems to be a missile troop most of the time
 	(try_begin),
@@ -5419,6 +5435,14 @@ scene_props = [
     (eq,"$all_doors_locked",0), #this should help with sneak mission and town ambush
     (neq, "$talk_context", tc_prison_break),
     (neq, "$talk_context", tc_escape),
+    (eq, "$g_siege_battle_state", 0),
+    (try_begin),
+        (eq, "$current_town", "p_town_22"),
+        (le, "$jewish_rebellion", 0),
+    (else_try),
+        (eq, "$current_town", "p_town_45"),
+        (le, "$armenian_rebellion", 0),
+    (try_end),
     (neg|is_currently_night),
     (store_faction_of_party, ":current_faction", "$current_town"),
     (faction_get_slot, ":troop", ":current_faction", slot_faction_tier_3_troop), #seems to be a cavalry troop most of the time
@@ -5469,6 +5493,14 @@ scene_props = [
     (eq,"$all_doors_locked",0), #this should help with sneak mission and town ambush
     (neq, "$talk_context", tc_prison_break),
     (neq, "$talk_context", tc_escape),
+    (eq, "$g_siege_battle_state", 0),
+    (try_begin),
+        (eq, "$current_town", "p_town_22"),
+        (le, "$jewish_rebellion", 0),
+    (else_try),
+        (eq, "$current_town", "p_town_45"),
+        (le, "$armenian_rebellion", 0),
+    (try_end),
     (neg|is_currently_night),
     (lt, "$g_encountered_party_2", 0), #don't spawn guards in siege battles
     (prop_instance_get_position, pos1, ":instance_no"), (set_spawn_position, pos1),
@@ -5514,6 +5546,14 @@ scene_props = [
     (eq,"$all_doors_locked",0), #this should help with sneak mission and town ambush
     (neq, "$talk_context", tc_prison_break),
     (neq, "$talk_context", tc_escape),
+    (eq, "$g_siege_battle_state", 0),
+    (try_begin),
+        (eq, "$current_town", "p_town_22"),
+        (le, "$jewish_rebellion", 0),
+    (else_try),
+        (eq, "$current_town", "p_town_45"),
+        (le, "$armenian_rebellion", 0),
+    (try_end),
     (neg|is_currently_night),
     (lt, "$g_encountered_party_2", 0), #don't spawn guards in siege battles
     (prop_instance_get_position, pos1, ":instance_no"), (set_spawn_position, pos1),
@@ -5536,6 +5576,14 @@ scene_props = [
     (eq,"$all_doors_locked",0), #this should help with sneak mission and town ambush
     (neq, "$talk_context", tc_prison_break),
     (neq, "$talk_context", tc_escape),
+    (eq, "$g_siege_battle_state", 0),
+    (try_begin),
+        (eq, "$current_town", "p_town_22"),
+        (le, "$jewish_rebellion", 0),
+    (else_try),
+        (eq, "$current_town", "p_town_45"),
+        (le, "$armenian_rebellion", 0),
+    (try_end),
     (neg|is_currently_night),
     (lt, "$g_encountered_party_2", 0), #don't spawn guards in siege battles
     (prop_instance_get_position, pos1, ":instance_no"), (set_spawn_position, pos1),
@@ -5555,13 +5603,19 @@ scene_props = [
     (agent_set_position, reg0, pos1),
   ]),]),
 
-("terrain_mountain_far",0,"mountain_scene_TLD",0,[]), 
-
 ("troop_archer_train",sokf_invisible,"arrow_helper_blue","0", [(ti_on_init_scene_prop,[
     (store_trigger_param_1, ":instance_no"),
     (eq,"$all_doors_locked",0), #this should help with sneak mission and town ambush
     (neq, "$talk_context", tc_prison_break),
     (neq, "$talk_context", tc_escape),
+    (eq, "$g_siege_battle_state", 0),
+    (try_begin),
+        (eq, "$current_town", "p_town_22"),
+        (le, "$jewish_rebellion", 0),
+    (else_try),
+        (eq, "$current_town", "p_town_45"),
+        (le, "$armenian_rebellion", 0),
+    (try_end),
     (neg|is_currently_night),
     (store_faction_of_party, ":current_faction", "$current_town"), 
     (faction_get_slot, ":troop", ":current_faction", slot_faction_tier_1_troop), #seems to be a missile troop most of the time
@@ -5624,6 +5678,14 @@ scene_props = [
     (eq,"$all_doors_locked",0), #this should help with sneak mission and town ambush
     (neq, "$talk_context", tc_prison_break),
     (neq, "$talk_context", tc_escape),
+    (eq, "$g_siege_battle_state", 0),
+    (try_begin),
+        (eq, "$current_town", "p_town_22"),
+        (le, "$jewish_rebellion", 0),
+    (else_try),
+        (eq, "$current_town", "p_town_45"),
+        (le, "$armenian_rebellion", 0),
+    (try_end),
     (neg|is_currently_night),
     (store_faction_of_party, ":current_faction", "$current_town"),
     (faction_get_slot, ":troop", ":current_faction", slot_faction_guard_troop),
@@ -5682,5 +5744,7 @@ scene_props = [
     (prop_instance_deform_in_range, ":instance_no", 0, 100, ":timer"), #fake deform to get a timer
    ]),
    ]),
+
+("terrain_mountain_far",0,"mountain_scene_TLD",0,[]), 
 
 ]

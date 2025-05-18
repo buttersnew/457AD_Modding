@@ -557,3 +557,5 @@ mnu_haddingrs_revenge_return = 555
 mnu_haddingrs_revenge_assault_heorot = 556
 mnu_haddingrs_revenge_final_feast = 557
 mnu_haddingrs_revenge_final_end = 558
+mnu_majorian_death = 559
+mnu_slave_hideout = 560

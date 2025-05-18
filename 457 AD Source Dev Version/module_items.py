@@ -996,6 +996,7 @@ items = [
 ["african_kilt_1", "Nubian Kilt", [("african_kilt_1",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian ,0, 10 , weight(1)|abundance(100)|head_armor(0)|body_armor(4)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [(ti_on_init_item,[(call_script, "script_init_african_kilt_body"),]),], culture_african ],
 ["african_kilt_2", "Nubian Kilt", [("african_kilt_2",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian ,0, 10 , weight(1)|abundance(100)|head_armor(0)|body_armor(4)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [(ti_on_init_item,[(call_script, "script_init_african_kilt_body"),]),], culture_african ],
 ["african_kilt_3", "Nubian Kilt", [("african_kilt_3",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian ,0, 10 , weight(1)|abundance(100)|head_armor(0)|body_armor(4)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [(ti_on_init_item,[(call_script, "script_init_african_kilt_body"),]),], culture_african ],
+["african_kilt_4", "Nubian Kilt", [("african_kilt_4",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian ,0, 10 , weight(1)|abundance(100)|head_armor(0)|body_armor(4)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [(ti_on_init_item,[(call_script, "script_init_african_kilt_body"),]),], culture_african ],
 
 ["coarse_tunic", "Tunic with vest", [("coarse_tunic_a",0)], itp_merchandise| itp_type_body_armor |itp_civilian |itp_covers_legs ,0,
  107 , weight(2)|abundance(100)|head_armor(0)|body_armor(12)|leg_armor(6)|difficulty(0) ,imodbits_cloth ],
@@ -2720,6 +2721,8 @@ weight(1)|abundance(80)|head_armor(24)|body_armor(14)|leg_armor(6)|difficulty(0)
  700 , weight(3)|difficulty(8)|abundance(10)|spd_rtng(84) | weapon_length(67)|swing_damage(32 , blunt) | thrust_damage(0 ,  pierce),imodbits_mace, [], culture_roman ],
 ["rgani_mace", "Caucasian Spiked Mace", [("rgani_mace",0)], itp_merchandise|itp_type_one_handed_wpn|itp_can_knock_down|itp_primary|itp_wooden_parry, itc_longsword|itcf_carry_mace_left_hip,
  720 , weight(3.5)|abundance(20)|difficulty(8)|spd_rtng(83)|weapon_length(61)|swing_damage(29 , pierce) | thrust_damage(26 ,  blunt),imodbits_sword_high, [], culture_caucasian ], #caucasians
+["mace_nubian", "Nubian Mace", [("nubian_mace",0)], itp_merchandise|itp_type_one_handed_wpn|itp_can_knock_down| itp_primary|itp_wooden_parry, itc_scimitar|itcf_carry_mace_left_hip,
+ 700 , weight(3)|difficulty(8)|abundance(10)|spd_rtng(84) | weapon_length(67)|swing_damage(28 , blunt) | thrust_damage(0 ,  pierce),imodbits_mace, [], culture_african ],
 
 
 ["mace_1",         "Spiked Club", [("mace_d",0)], itp_type_one_handed_wpn|itp_can_knock_down|itp_merchandise| itp_primary|itp_wooden_parry, itc_scimitar|itcf_carry_mace_left_hip,

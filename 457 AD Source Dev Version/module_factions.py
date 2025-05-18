@@ -125,7 +125,7 @@ factions = [
   #suebi civil war
   #starts at war with the ostrogothic kingdom, will be spawned in an event war with scirii, rugii, heruli + suebi vs ostrogoths
   ("hunimund_suebi","Danubian Suebi", 0, 0.5,[("kingdom_4",-0.75),("kingdom_11",0.99),("kingdom_14",0.99),("kingdom_21",0.99)], [], 0x3c5a1b), #lead by hunimund, at war with ostrogoths, will make color orange
-  ("faltras_suebi","Faltras's Loyalists", 0, 0.5,[("kingdom_8",-0.75)], [], 0x3c5a1b),
+  #("faltras_suebi","Faltras's Loyalists", 0, 0.5,[("kingdom_8",-0.75)], [], 0x3c5a1b),
 
   #Minor faction features
   #Unique merchant with unique goods

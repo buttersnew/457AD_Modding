@@ -117,7 +117,7 @@ party_templates = [
   ("hunimund_horde_quest","Hunimund's Army",icon_sea_raider|carries_goods(9)|pf_auto_remove_in_town|pf_quest_party,0,fac_neutral,bandit_personality,[(trp_suebi_king,1,1),(trp_western_germanic_freeman,55,105),(trp_western_germanic_skirmisher,15,40),(trp_steppe_bandit,10,40),(trp_steppe_cataphract,5,15)]),
   ("juliobriga_bagadua","Bagaudae Band",icon_roman_footman_army|carries_goods(9)|pf_auto_remove_in_town|pf_quest_party,0,fac_forest_bandits,bandit_personality,[(trp_forest_bandit_recruit,25,35),(trp_forest_bandit,12,21),(trp_bagaudae_footman,5,10)]),
   ("quest_vandal_raiders","Vandal Raiders",icon_sea_raider|carries_goods(9)|pf_auto_remove_in_town|pf_quest_party,0,fac_neutral,bandit_personality,[(trp_vandal_raider_leader,1,1),(trp_eastern_germanic_spearman,30,45),(trp_eastern_germanic_mounted_warrior,3,8),(trp_eques_sagittarii_alani,2,5),(trp_gaetuli_horseman,5,15),]),
-  ("faltras_suebi_band","Faltras's Loyalists",icon_sea_raider|carries_goods(9)|pf_auto_remove_in_town,0,fac_faltras_suebi,soldier_personality,[]),
+  ("faltras_suebi_band","Faltras's Loyalists",icon_sea_raider|carries_goods(9)|pf_auto_remove_in_town,0,fac_neutral,soldier_personality,[]),
   ("faltras_suebi_army","Faltras's Loyalists",icon_sea_raider|carries_goods(9)|pf_auto_remove_in_town|pf_quest_party,0,fac_neutral,soldier_personality,[]),
   ("germanic_raiders","Scamarae",icon_sea_raider|carries_goods(9)|pf_auto_remove_in_town|pf_quest_party,0,fac_neutral,bandit_personality,[(trp_western_germanic_freeman,30,50),(trp_taiga_bandit,8,15),(trp_western_germanic_bowman,5,10)]),
   ("noricum_soldiers","Norici Militia",icon_roman_footman_army|carries_goods(9)|pf_auto_remove_in_town|pf_quest_party,0,fac_neutral,soldier_personality,[(trp_miles_romani,15,20),]),

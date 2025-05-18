@@ -96,3 +96,4 @@ mt_sea_battle = 94
 mt_haddingr_duel = 95
 mt_haddingr_giant_hall = 96
 mt_travel_cutscene = 97
+mt_slave_hideout = 98

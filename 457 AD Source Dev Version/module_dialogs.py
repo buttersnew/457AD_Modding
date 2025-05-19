@@ -3258,9 +3258,20 @@ I'm assuming you have a blunt weapon with you...", "ramun_have_blunt_weapon",[]]
   [anyone,"ramun_buy", [], "Of course. What kind would you like?", "ramun_faction",[]],
   [anyone|repeat_for_factions|plyr,"ramun_faction",
     [  (store_repeat_object, ":faction_no"),
-       (this_or_next|is_between, ":faction_no", npc_kingdoms_begin, kingdoms_end),
-       (this_or_next|is_between, ":faction_no", "fac_commoners", "fac_neutral"),
-       (is_between, ":faction_no", "fac_manhunters", minor_kingdoms_end),
+       #(this_or_next|is_between, ":faction_no", cultures_begin, minor_cultures_end),
+       #(this_or_next|is_between, ":faction_no", npc_kingdoms_begin, kingdoms_end),
+       #(this_or_next|is_between, ":faction_no", "fac_commoners", "fac_neutral"),
+       #(is_between, ":faction_no", "fac_manhunters", minor_kingdoms_end),
+	(ge, ":faction_no", "fac_commoners"),
+	(neq, ":faction_no", "fac_neutral"),
+(assign, ":has_troop", 0),
+	(try_for_range, ":troop", regular_troops_begin, "trp_kidnapped_girl"),
+        (store_faction_of_troop, ":faction", ":troop"),#eliminates the rest
+        (eq, ":faction", ":faction_no"),#by faction obviously
+        (neg|troop_is_hero, ":troop"),#patrol leaders
+	(assign, ":has_troop", 1),
+	(try_end),
+(eq, ":has_troop", 1),
        #(assign, reg1, ":faction_no"),
         (try_begin),
             (is_between, ":faction_no", npc_kingdoms_begin, kingdoms_end),

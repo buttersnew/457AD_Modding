@@ -19475,10 +19475,14 @@ presentations = [
               (eq, ":troop", "trp_venedi_nobleman"),
               (assign, ":c", 1),
             (else_try), #sporoi
-              (this_or_next|eq, "$current_town", "p_town_47"),
-              (eq, "$current_town", "p_castle_105"),
+              (eq, "$current_town", "p_town_47"),
               (this_or_next|eq, ":troop", "trp_slav_archer"),
               (eq, ":troop", "trp_slav_horsearcher"),
+              (assign, ":c", 1),
+            (else_try), #sporoi
+              (eq, "$current_town", "p_castle_105"),
+              (this_or_next|eq, ":troop", "trp_gothic_freeman"),
+              (eq, ":troop", "trp_gothic_skirmisher"),
               (assign, ":c", 1),
             (else_try), #carpi
               (eq, "$current_town", "p_castle_106"),

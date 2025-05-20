@@ -3417,6 +3417,11 @@ I'm assuming you have a blunt weapon with you...", "ramun_have_blunt_weapon",[]]
 (play_sound, "snd_encounter_looters")
 ]],
 [party_tpl|pt_looters,"looters_1", [], "{s4}", "looters_2",[]],
+[party_tpl|pt_looters|plyr,"looters_2", [
+      (store_skill_level, ":persuasion", "skl_persuasion", "trp_player"),
+      (ge, ":persuasion", 1),
+      ], "Don't risk your life fighting me. (Persuasion)", "bandit_escape_talked", [
+  ]],
 [party_tpl|pt_looters|plyr,"looters_2", [[store_character_level,reg(1),"trp_player"],[lt,reg(1),4]], "I'm not afraid of you lot. Fight me if you dare!", "close_window",
 [[encounter_attack]]],
 [party_tpl|pt_looters|plyr,"looters_2", [[store_character_level,reg(1),"trp_player"],[ge,reg(1),4]], "You'll have nothing of mine but cold steel, scum.", "close_window",
@@ -39685,8 +39690,8 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
    ]],
 
  [anyone|plyr,"troublesome_bandits_intro_1", [],
-   "Heh. For me, you are nothing more than walking money bags.\
- A merchant in {s1} offered me good money for your heads.",
+   "Heh. For me, you are nothing more than walking money bags. "+
+ "A merchant in {s1} offered me good money for your heads.",
    "troublesome_bandits_intro_2", [(quest_get_slot, ":quest_giver_center", "qst_track_down_bandits", slot_quest_giver_center),
                                    (str_store_party_name, s1, ":quest_giver_center")
                                    ]],
@@ -39700,11 +39705,11 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
                                      (party_get_slot,":protected_until_hours", "$g_encountered_party",slot_party_ignore_player_until),
                                      (store_current_hours,":cur_hours"),
                                      (store_sub, ":protection_remaining",":protected_until_hours",":cur_hours"),
-                                     (gt, ":protection_remaining", 0)], "What do you want?\
- You want to pay us some more money?", "deserter_paid_talk",[]],
+                                     (gt, ":protection_remaining", 0)], "What do you want? "+
+ "You want to pay us some more money?", "deserter_paid_talk",[]],
   [anyone|plyr,"deserter_paid_talk", [], "Sorry to trouble you. I'll be on my way now.", "deserter_paid_talk_2a",[]],
-  [anyone,"deserter_paid_talk_2a", [], "Yeah. Stop fooling around and go make some money.\
- I want to see that purse full next time I see you.", "close_window",[(assign, "$g_leave_encounter",1)]],
+  [anyone,"deserter_paid_talk_2a", [], "Yeah. Stop fooling around and go make some money. "+
+ "I want to see that purse full next time I see you.", "close_window",[(assign, "$g_leave_encounter",1)]],
   [anyone|plyr,"deserter_paid_talk", [], "No. It's your turn to pay me this time.", "deserter_paid_talk_2b",[]],
   [anyone,"deserter_paid_talk_2b", [], "What nonsense are you talking about? You want trouble? You got it.", "close_window",[
 
@@ -39719,27 +39724,30 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
 
   [party_tpl|pt_deserters,"start", [
       (eq,"$talk_context",tc_party_encounter)
-                    ], "We are the free brothers.\
- We will fight only for ourselves from now on.\
- Now give us your gold or taste our steel.", "deserter_talk",[]],
-##  [anyone|plyr,"deserter_talk", [(check_quest_active, "qst_bring_back_deserters"),
-##                                 (quest_get_slot, ":target_deserter_troop", "qst_bring_back_deserters", slot_quest_target_troop),
-##                                 (party_count_members_of_type, ":num_deserters", "$g_encountered_party",":target_deserter_troop"),
-##                                 (gt, ":num_deserters", 1)],
-##   "If you surrender to me now, you will rejoin the army of your kingdom without being punished. Otherwise you'll get a taste of my sword.", "deserter_join_as_prisoner",[]],
+                    ], "We are the free brothers. "+
+ "We will fight only for ourselves from now on. "+
+ "Now give us your gold or taste our steel.", "deserter_talk",[]],
   [anyone|plyr,"deserter_talk", [], "When I'm done with you, you'll regret ever leaving your army.", "close_window",[]],
+
+[anyone|plyr,"deserter_talk", [
+],
+   "Whose army did you desert?", "deserter_talk_ask_desert", []],
+
+[anyone,"deserter_talk_ask_desert", [
+(party_get_slot, ":home_party", "$g_encountered_party", slot_party_home_center),
+(gt, ":home_party", 0),
+(party_is_active, ":home_party"),
+(str_store_party_name, s3, ":home_party"),
+], "We deserted {s3} over lack of food and unpaid wages.", "deserter_talk_ask_desert_b",[]],
+
+[anyone,"deserter_talk_ask_desert", [
+], "We have not come to answer your questions, {reg59?wench:bastard}!", "deserter_talk_ask_desert_b",[]],
+
+[anyone,"deserter_talk_ask_desert_b", [
+], "Now make your choice!", "deserter_talk",[]],
+
   [anyone|plyr,"deserter_talk", [], "There's no need to fight. I am ready to pay for free passage.", "deserter_barter",[]],
 
-##  [anyone,"deserter_join_as_prisoner", [(call_script, "script_party_calculate_strength", "p_main_party"),
-##                                        (assign, ":player_strength", reg0),
-##                                        (store_encountered_party,":encountered_party"),
-##                                        (call_script, "script_party_calculate_strength", ":encountered_party"),
-##                                        (assign, ":enemy_strength", reg0),
-##                                        (val_mul, ":enemy_strength", 2),
-##                                        (ge, ":player_strength", ":enemy_strength")],
-##   "All right we join you then.", "close_window",[(assign, "$g_enemy_surrenders", 1)]],
-##  [anyone,"deserter_join_as_prisoner", [], "TODO: We will never surrender!", "close_window",[(encounter_attack)]],
-## CC
   [anyone|plyr,"deserter_talk",
     [
       (party_can_join),
@@ -47610,6 +47618,10 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
      (try_end),
     ]],
 
+[anyone|plyr,"bandit_talk", [
+      (store_skill_level, ":persuasion", "skl_persuasion", "trp_player"),
+      (ge, ":persuasion", 1),
+], "Don't risk your life fighting me. (Persuasion)", "bandit_escape_talked",[]],
   [anyone|plyr,"bandit_talk", [], "I'll give you nothing but cold steel, you scum!", "close_window",[(encounter_attack)]],
   [anyone|plyr,"bandit_talk", [], "There's no need to fight. I can pay for free passage.", "bandit_barter",[]],
   [anyone,"bandit_barter",
@@ -58670,6 +58682,38 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
    ], "You are not the same {man/woman} I took as my vassal, {playername}. Be gone from my sight before I end this now.", "close_window", [(assign, "$g_leave_encounter", 1)]],
 ## Floris - Rebellion Option
 ##diplomacy end+
+
+#persuasion in bandit encounters
+[anyone,"bandit_escape_talked", [
+(store_skill_level, ":persuasion", "skl_persuasion", "trp_player"),
+      (store_random_in_range, ":rnd", 0, 19),
+(val_add, ":rnd", ":persuasion"),
+(le, ":rnd", 9),], "{s5}", "close_window",[
+(try_begin),
+(store_random_in_range, ":response", 0, 2),
+(eq, ":response", 1),
+(str_store_string, s5, "@That's funny. Now my sword has something to say to you. ^^(Persuasion failed)"),
+(else_try),
+(str_store_string, s5, "@Enough talk! It's time for swords! ^^(Persuasion failed)"),
+(try_end),
+	(try_begin),
+	(neq, "$g_encountered_party_faction", "$players_kingdom"),
+	(neq, "$g_encountered_party_faction", "fac_neutral"),
+      	(call_script, "script_make_kingdom_hostile_to_player", "$g_encountered_party_faction", -3),
+	(try_end),
+(call_script, "script_encounter_agent_draw_weapon"),
+(assign,"$encountered_party_hostile",1),
+(assign,"$encountered_party_friendly",0),
+[encounter_attack]]],
+
+  [anyone,"bandit_escape_talked", [], "Uh... Alright, you may go. ^^(Persuasion successful)", "close_window",[
+      (store_current_hours,":protected_until"),
+      (val_add, ":protected_until", 72),
+      (party_set_slot,"$g_encountered_party",slot_party_ignore_player_until,":protected_until"),
+      (party_ignore_player, "$g_encountered_party", 72),
+      
+      (assign, "$g_leave_encounter",1)
+  ]],
 
   [anyone|plyr,"free", [[in_meta_mission]], "Farewell.", "close_window",[]],
   [anyone|plyr,"free", [[neg|in_meta_mission]], "Farewell.", "close_window",[]],

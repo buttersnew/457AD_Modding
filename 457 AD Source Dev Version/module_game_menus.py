@@ -31013,7 +31013,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     "Once again this century, the ancient capitol of Rome has been taken, this time by the {s22}. The once great city has fallen further into ruin!",
     "none",
     [
-    (str_store_faction_name, "$g_notification_menu_var1"),
+    (str_store_faction_name, s22, "$g_notification_menu_var1"),
     ],
     [
       ("option_1",
@@ -31034,7 +31034,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     "The walls that held off Attila, once thought impenitrable have failed, and the great city of Constantinople has fallen to {s22}!",
     "none",
     [
-    (str_store_faction_name, "$g_notification_menu_var1"),
+    (str_store_faction_name, s22, "$g_notification_menu_var1"),
     ],
     [
       ("option_1",
@@ -31055,7 +31055,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     "The grand capitol of both the Parthians, and their successors, the Sassanids, Ctesiphon has fallen to the {s22}!",
     "none",
     [
-    (str_store_faction_name, "$g_notification_menu_var1"),
+    (str_store_faction_name, s22, "$g_notification_menu_var1"),
     ],
     [
       ("option_1",

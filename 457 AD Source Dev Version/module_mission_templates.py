@@ -8770,6 +8770,8 @@ convert_horse_props_to_living_horses,
   	 (45,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),
   	 (46,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),
   	 (47,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),
+  	 (48,mtef_visitor_source,af_override_horse,0,1,[]),
+  	 (49,mtef_visitor_source,af_override_horse,0,1,[]),
      (50,mtef_visitor_source,af_override_horse,0,1,[]), #quest npc
      ], tocan_walkers + vc_weather +
     [

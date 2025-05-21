@@ -2883,6 +2883,7 @@ If you would like to practice your horsemanship, you can take my horse here. The
   (try_begin),
     (try_for_range, ":item_slot", ek_item_0, ek_head),
       (agent_get_item_slot, ":item_no", "$g_main_attacker_agent", ":item_slot"),
+	(gt, ":item_no", 0),
       (troop_add_item, "trp_player", ":item_no", 0), # SB: add attacker sword
     (try_end),
   (try_end),
@@ -2891,7 +2892,10 @@ If you would like to practice your horsemanship, you can take my horse here. The
 (else_try),
   (neg|agent_is_alive, "$g_main_attacker_agent"),
   (str_store_string, s9, "str_well_id_say_that_he_started_it_that_entitles_you_to_his_sword_and_purse_i_suppose_have_a_drink_on_the_house_as_i_daresay_youve_saved_a_patron_or_two_a_broken_skull_still_i_hope_he_still_has_a_pulse_its_not_good_for_an_establishment_to_get_a_name_as_a_place_where_men_are_killed"),
-  (troop_add_item, "trp_player", "$g_attacker_drawn_weapon", 0), # SB: add attacker sword
+	(try_begin),
+	(gt, "$g_attacker_drawn_weapon", 0),
+  	(troop_add_item, "trp_player", "$g_attacker_drawn_weapon", 0), # SB: add attacker sword
+	(try_end),
   (try_begin),
     (agent_is_wounded, "$g_main_attacker_agent"),
     (call_script, "script_change_player_relation_with_center", "$current_town", 1), #useless, increase with town instead
@@ -51170,6 +51174,50 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
   [trp_burgundian_looter, "start", [],
    "Yes?", "close_window", []],
 
+#nero in rome?
+[trp_nero_larper, "start", [
+(eq, "$talk_context", tc_town_talk),
+(eq, "$g_nero_quest_3"),
+        (try_begin),
+          (agent_get_item_slot, ":item_no", "$g_talk_agent", ek_item_1),
+          (neq, ":item_no", "itm_nero_lyre"),
+          (agent_equip_item, "$g_talk_agent", "itm_nero_lyre"),
+	  (agent_set_wielded_item, "$g_talk_agent", "itm_nero_lyre"),
+        (agent_set_stand_animation, "$g_talk_agent", "anim_lyre_standing"),
+        (agent_set_animation, "$g_talk_agent", "anim_lyre_standing"),
+        (agent_play_sound,"$g_talk_agent","snd_dedal_tavern_lyre"),
+        (try_end),
+],
+   "Here, let me sing you a beautiful song!", "nero_in_rome_3", []],
+  [trp_nero_larper, "nero_in_rome_3", [],
+    "O radiant son of Leto, Ruler of Tenedos, Chios, Chrysos,^"+
+    "Are you, he who, having in his care^"+
+    "The sacred city of Ilion,^"+
+    "Could yield it to Argive anger,^"+
+    "And suffer sacred altars,^"+
+    "Which blazed unceasingly to his honor,^"+
+    "To be stained with Trojan blood?", "nero_in_rome_4", []],
+  [trp_nero_larper, "nero_in_rome_4", [],
+    "Aged men raised trembling hands to you,^"+
+    "O you of the far-shooting silver bow,^"+
+    "Mothers from the depth of their breasts^"+
+    "Raised tearful cries to you,^"+
+    "Imploring pity on their offspring.^"+
+    "Those complaints might have moved a stone,^"+
+    "But to the suffering of people^"+
+    "You, O Smintheus, have less feeling than a stone!'", "nero_in_rome_5", []],
+  [trp_nero_larper, "nero_in_rome_5", [],
+    "With the sound of your heavenly lyre^"+
+    "You could drown the wailing,^"+
+    "The lament of hearts.^"+
+    "At the sad sound of this song^"+
+    "The eye to-day is filled with tears,^"+
+    "As a flower is filled with dew,^"+
+    "But who can raise from dust and ashes^"+
+    "That day of fire, disaster, ruin?^"+
+    "O Smintheus, where were you then?" , "close_window", []],
+
+
   [trp_nero_larper, "start", [(eq, "$g_talk_troop_met", 0),(neg|check_quest_active,"qst_nero_larper_quest"),(quest_slot_eq,"qst_nero_larper_quest",slot_quest_current_state, 0)],
    "Who are you? What the hell are you doing here?!", "nero_larper_intro_1", []],
   [trp_nero_larper|plyr, "nero_larper_intro_1", [],
@@ -51219,8 +51267,19 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
    "Here, I found your lyre.", "nero_larper_talk_lyre_1", []],
   [trp_nero_larper, "nero_larper_talk_lyre_1", [],
    "Oh, finally! My beautiful possession returns to the true Nero once more!", "nero_larper_talk_lyre_2", [
-  (troop_remove_item,"trp_player","itm_nero_lyre"),]],
-  [trp_nero_larper, "nero_larper_talk_lyre_2", [],
+  (troop_remove_item,"trp_player","itm_nero_lyre"),
+]],
+  [trp_nero_larper, "nero_larper_talk_lyre_2", [
+        (try_begin),
+          (agent_get_item_slot, ":item_no", "$g_talk_agent", ek_item_1),
+          (neq, ":item_no", "itm_nero_lyre"),
+          (agent_equip_item, "$g_talk_agent", "itm_nero_lyre"),
+	  (agent_set_wielded_item, "$g_talk_agent", "itm_nero_lyre"),
+        (agent_set_stand_animation, "$g_talk_agent", "anim_lyre_standing"),
+        (agent_set_animation, "$g_talk_agent", "anim_lyre_standing"),
+        (agent_play_sound,"$g_talk_agent","snd_dedal_tavern_lyre"),
+        (try_end),
+],
    "Here, let me sing you a beautiful song!", "nero_larper_talk_lyre_3", []],
   [trp_nero_larper, "nero_larper_talk_lyre_3", [],
     "O radiant son of Leto, Ruler of Tenedos, Chios, Chrysos,^"+

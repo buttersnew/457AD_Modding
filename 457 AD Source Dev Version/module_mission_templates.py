@@ -4795,6 +4795,8 @@ order_volley_triggers = [
         (try_end),
 
         (try_for_agents, ":agent"),
+		(agent_is_human, ":agent"),
+		(agent_is_alive, ":agent"),
             (agent_is_non_player, ":agent"),
             (agent_slot_ge, ":agent", slot_agent_volley_fire, 1),
             (agent_get_ammo, ":ammo", ":agent", 1),

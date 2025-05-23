@@ -1630,6 +1630,20 @@ simple_triggers = [
 		(call_script, "script_succeed_quest", "qst_scout_enemy_town"),
 	(try_end),
 
+	(try_begin),
+		(check_quest_active,"qst_capture_enemy_hero"),
+		(neg|check_quest_succeeded, "qst_capture_enemy_hero"),
+		(quest_get_slot, ":quest_giver", "qst_capture_enemy_hero", slot_quest_giver_troop),
+		(gt, ":quest_giver", 0),
+		(store_troop_faction, ":giver_faction", ":quest_giver"),
+		(quest_get_slot, ":quest_target", "qst_capture_enemy_hero", slot_quest_target_faction),
+		(gt, ":quest_target", 0),
+		(store_relation, ":relation", ":giver_faction", ":quest_target"),
+		(this_or_next|eq, ":giver_faction", ":quest_target"),
+		(ge, ":relation", 0),
+		(call_script, "script_cancel_quest", "qst_capture_enemy_hero"),
+	(try_end),
+
    ]),
 
   # Process alarms - perhaps break this down into several groups, with a modula

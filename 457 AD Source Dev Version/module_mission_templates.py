@@ -10173,29 +10173,6 @@ convert_horse_props_to_living_horses,
       common_battle_check_victory_condition,
       common_battle_victory_display,
 
-#      (1, 4,
-#      ##diplomacy begin
-#      0,
-#      ##diplomacy end
-#      [(main_hero_fallen)],
-#          [
-#              ##diplomacy begin
-#              (try_begin),
-#                (call_script, "script_cf_dplmc_battle_continuation"),
-#              (else_try),
-#                ##diplomacy end
-#                (assign, "$pin_player_fallen", 1),
-#                (str_store_string, s5, "str_retreat"),
-#                (call_script, "script_simulate_retreat", 10, 20, 1),
-#                (assign, "$g_battle_result", -1),
-#                (set_mission_result, -1),
-#                (call_script, "script_count_mission_casualties_from_agents"),
-#                (finish_mission, 0),
-#                ##diplomacy begin
-#              (try_end),
-#              ##diplomacy end
-#              ]),
-
 #madsci
       (1, 4,
       ##diplomacy begin

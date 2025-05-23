@@ -47551,22 +47551,24 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
     [anyone|plyr, "minor_levies_talk",[],"I have come to bring you some share of the loot.", "minor_faction_king_loot_1",[]],
     [anyone, "minor_levies_pretalk",[],"Great! What have you brought me?", "minor_levies_talk",[]],
 
-    [anyone, "minor_faction_king_loot_1",[],"Great! What have you brought me?", "minor_faction_king_loot_2",[]],
+    [anyone, "minor_faction_king_loot_1",[],"Great! What have you brought me?", "minor_faction_king_loot_2",[
+(party_get_slot, "$temp", "$g_encountered_party", slot_minor_faction_levies_original_faction),
+]],
     #list of gifts
     [anyone|plyr, "minor_faction_king_loot_2",[(store_troop_gold,":money","trp_player"),(ge,":money",1000),],
     "Gold worth 1000 siliquae, for you and your people.", "minor_faction_king_gift_give",
     [(call_script, "script_change_player_relation_with_troop", "$g_talk_troop",2),
-    (call_script, "script_change_player_relation_with_faction", "$g_encountered_party_faction", 1),
+    (call_script, "script_change_player_relation_with_faction", "$temp", 1),
     (troop_remove_gold,"trp_player",1000),]], #coins +5 relations
     [anyone|plyr, "minor_faction_king_loot_2",[(store_troop_gold,":money","trp_player"),(ge,":money",2500),],
     "Gold worth 2500 siliquae, for you and your people.", "minor_faction_king_gift_give",
     [(call_script, "script_change_player_relation_with_troop", "$g_talk_troop",4),
-    (call_script, "script_change_player_relation_with_faction", "$g_encountered_party_faction", 3),
+    (call_script, "script_change_player_relation_with_faction", "$temp", 3),
     (troop_remove_gold,"trp_player",2500),]], #coins +5 relations
     [anyone|plyr, "minor_faction_king_loot_2",[(store_troop_gold,":money","trp_player"),(ge,":money",5000),],
     "Gold worth 5000 siliquae, for you and your people.", "minor_faction_king_gift_give",
     [(call_script, "script_change_player_relation_with_troop", "$g_talk_troop",6),
-    (call_script, "script_change_player_relation_with_faction", "$g_encountered_party_faction", 6),
+    (call_script, "script_change_player_relation_with_faction", "$temp", 6),
     (troop_remove_gold,"trp_player",5000),]], #coins +5 relations
 
     [anyone|plyr, "minor_faction_king_loot_2",[],"Nevermind.", "minor_levies_pretalk",[]],

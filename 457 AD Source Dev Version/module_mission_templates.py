@@ -6141,9 +6141,13 @@ dplmc_horse_cull = [
 
         (agent_get_rider, ":agent_no", ":horse_no"),
         (try_begin),
+	(gt, ":agent_no", -1),
+	(agent_is_active, ":agent_no"),
           (agent_is_non_player, ":agent_no"), #default period for npcs
           (agent_set_slot, ":horse_no", slot_agent_bought_horse, 0), #default duration
         (else_try),
+	(gt, ":agent_no", -1),
+	(agent_is_active, ":agent_no"),
           (agent_set_slot, ":horse_no", slot_agent_bought_horse, 210),
         (try_end),
         # (str_store_agent_name, s1, ":agent_no"),

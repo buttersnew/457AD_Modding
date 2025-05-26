@@ -2075,6 +2075,7 @@ scene_props = [
   ("brazier_with_fire",0,"brazier","bo_brazier",    [
    (ti_on_scene_prop_init,
     [
+	(play_sound, "snd_torch_loop", 0),
         (set_position_delta,0,0,85),
         (particle_system_add_new, "psys_brazier_fire_1"),
         (particle_system_add_new, "psys_fire_sparks_1"),
@@ -2089,6 +2090,7 @@ scene_props = [
    [
    (ti_on_scene_prop_init,
     [
+	(play_sound, "snd_torch_loop", 0),
         (set_position_delta,0,0,12),
         (particle_system_add_new, "psys_cooking_fire_1"),
         (particle_system_add_new, "psys_fire_sparks_1"),
@@ -2242,14 +2244,16 @@ scene_props = [
    [
    (ti_on_scene_prop_init,
     [
-     (particle_system_add_new, "psys_fireplace_fire_small"),
+	(play_sound, "snd_torch_loop", 0),
+	(particle_system_add_new, "psys_fireplace_fire_small"),
     ]),
    ]),
   ("fire_big",0,"0","0",
    [
    (ti_on_scene_prop_init,
     [
-     (particle_system_add_new, "psys_fireplace_fire_big"),
+	(play_sound, "snd_fire_loop", 0),
+	(particle_system_add_new, "psys_fireplace_fire_big"),
     ]),
    ]),
     ("battle_field_smoke",0,"0","0",
@@ -2263,9 +2267,10 @@ scene_props = [
    [
    (ti_on_scene_prop_init,
     [
-     (particle_system_add_new, "psys_village_fire_big"),
-     (set_position_delta,0,0,100),
-     (particle_system_add_new, "psys_village_fire_smoke_big"),
+	(play_sound, "snd_fire_loop", 0),
+     	(particle_system_add_new, "psys_village_fire_big"),
+     	(set_position_delta,0,0,100),
+     	(particle_system_add_new, "psys_village_fire_smoke_big"),
     ]),
    ]),
   #########################

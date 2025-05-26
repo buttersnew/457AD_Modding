@@ -3228,7 +3228,7 @@ troops = [
 #madsci dont move the position of Babai in this file unless you also adjust script_update_companion_candidates_in_taverns
   ["npc25","Babai","Babai",tf_hero|tf_mounted|tf_guarantee_horse|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_ranged, no_scene, reserved, fac_commoners,[itm_nomad_boots,itm_kaftan_lamellar_7,itm_sword_viking_c_long,itm_heavy_lance,itm_khergit_bow,itm_khergit_arrows,itm_hun_rich_horse_1],
   def_attrib_lvl_13|level(13),wp_one_handed(110)|wp_two_handed(80)|wp_polearm(100)|wp_throwing(80)|wp_archery(100),knows_ironflesh_3|knows_power_strike_3|knows_athletics_3|knows_riding_3|knows_power_draw_3|knows_horse_archery_3,
-  0x0000000d9f0083cb555b6ec5124db6db00000000001d36ea0000000000000000],
+  0x000000002908a00b006a4cc8a286433400000000001eb75b0000000000000000],
 
   ["npc26","Alexius","Alexius",tf_hero|tf_unmoveable_in_party_window, 0, reserved,  fac_commoners,[itm_persian_tunic_3,itm_turban_red_1,itm_sassanid_cavalry_boots_2,itm_arab_machete,itm_medium_spear_4,itm_arab_shield_1],
    str_13|agi_10|int_9|cha_9|level(6),wp_one_handed(100)|wp_two_handed(100)|wp_polearm(100)|wp_archery(60)|wp_crossbow(60)|wp_throwing(130)|wp_firearm(60),

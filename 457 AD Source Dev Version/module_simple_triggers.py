@@ -9421,6 +9421,18 @@ simple_triggers = [
 	(jump_to_menu, "mnu_majorian_death"),
 	(try_end),
 (try_end),
+
+(try_begin), #babai leaves if the player burns his village
+(main_party_has_troop, "trp_npc25"),
+(store_faction_of_party, ":party_faction", "p_iazyges_village"),
+(eq, ":party_faction", "fac_neutral"), #razed by player
+(party_remove_members, "p_main_party", "trp_npc25", 1),
+(str_store_troop_name_link, s39, "trp_npc25"),
+(faction_get_color, ":color", "fac_player_supporters_faction"),
+(display_log_message, "@{s39} has left your party because you razed and burned his village.", ":color"),
+(troop_set_slot, "trp_npc25", slot_troop_occupation, slto_kingdom_hero),
+(call_script, "script_change_troop_faction", "trp_npc25", "fac_outlaws"),
+(try_end),
 ]),
 
 ]#end of file

@@ -9430,6 +9430,7 @@ simple_triggers = [
 (str_store_troop_name_link, s39, "trp_npc25"),
 (faction_get_color, ":color", "fac_player_supporters_faction"),
 (display_log_message, "@{s39} has left your party because you razed and burned his village.", ":color"),
+(call_script, "script_change_player_relation_with_troop", "trp_npc25", -100),
 (troop_set_slot, "trp_npc25", slot_troop_occupation, slto_kingdom_hero),
 (call_script, "script_change_troop_faction", "trp_npc25", "fac_outlaws"),
 (try_end),

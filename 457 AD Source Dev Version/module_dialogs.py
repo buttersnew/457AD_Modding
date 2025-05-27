@@ -1099,7 +1099,7 @@ dialogs = [
   (call_script, "script_set_conversation_troop", "trp_aestii_king"),
 ]],
 [anyone,"aestii_after_battle_talk_4", [],
-"We won! The Bull Spirit was clearly with us and judged us as the most valiants. This hall is yours now, playername and you have my friendship. The Aestii are now free from this zhuvedas and they will gladly follow you in battle if you need them do so.", "aestii_after_battle_talk_5",[]],
+"We won! The Bull Spirit was clearly with us and judged us as the most valiants. This hall is yours now, {playername} and you have my friendship. The Aestii are now free from this zhuvedas and they will gladly follow you in battle if you need them do so.", "aestii_after_battle_talk_5",[]],
 [anyone|plyr,"aestii_after_battle_talk_5", [],
 "Thanks, Vadas Shvarnas. May your people stay free and no tyrant dare rule you again.", "close_window",[
   (call_script, "script_change_player_relation_with_troop", "trp_aestii_rebel_king",30),
@@ -20724,10 +20724,10 @@ I meant you to have a nice chat with him and then let him go?! What possessed yo
 
 [anyone,"lord_kill_local_merchant_let_go_2", [],
 ##diplomacy start+ change {men/people} to {men/women}
-"Piffle. You were supposed to remove him, not give him a sermon and send him on his way.\
-He had better do as you say, or you'll both regret it.\
-Here, this is half the money I promised you. Don't say a word, {playername}, you're lucky to get even that.\
-I have little use for {men/women} who cannot follow orders.", "lord_pretalk",
+"Piffle. You were supposed to remove him, not give him a sermon and send him on his way. "+
+"He had better do as you say, or you'll both regret it. "+
+"Here, this is half the money I promised you. Don't say a word, {playername}, you're lucky to get even that. "+
+"I have little use for {men/women} who cannot follow orders.", "lord_pretalk",
 ##diplomacy end+
 [(call_script, "script_troop_add_gold", "trp_player", 300),
 (call_script, "script_change_player_relation_with_troop","$g_talk_troop",2),
@@ -20735,128 +20735,6 @@ I have little use for {men/women} who cannot follow orders.", "lord_pretalk",
 (call_script, "script_end_quest", "qst_kill_local_merchant"),
 (assign, "$g_leave_encounter", 1)
 ]],
-
-##  [anyone,"lord_start", [(store_partner_quest,":lords_quest"),
-##                         (eq,":lords_quest","qst_hunt_down_raiders"),
-##                         (check_quest_failed, "qst_hunt_down_raiders")],
-##   "I heard that those raiders you were after have got away. Do you have an explanation?", "quest_hunt_down_raiders_failed",[]],
-##  [anyone|plyr,"quest_hunt_down_raiders_failed", [],  "They were too quick for us my lord. But next time we'll get them", "quest_hunt_down_raiders_failed_2",[]],
-##  [anyone|plyr,"quest_hunt_down_raiders_failed", [],  "They were too strong and well armed my lord. But we'll be ready for them next time.", "quest_hunt_down_raiders_failed_2",[]],
-##
-##  [anyone|plyr,"quest_hunt_down_raiders_failed", [],  "Well, it was a long call anyway. Next time do make sure that you are better prepared.",
-##   "lord_pretalk",[(call_script, "script_end_quest", "qst_hunt_down_raiders")]],
-##
-##
-##
-##  [anyone,"lord_start", [(store_partner_quest,":lords_quest"),
-##                         (eq,":lords_quest","qst_hunt_down_raiders"),
-##                         (check_quest_succeeded, "qst_hunt_down_raiders")],
-##   "I heard that you have given those raiders the punishment they deserved. Well done {playername}.\
-## ", "lord_generic_mission_completed",[(call_script, "script_finish_quest", "qst_hunt_down_raiders", 100),
-##                                      (call_script, "script_change_player_relation_with_troop","$g_talk_troop",3)]],
-##
-
-
-##  [anyone,"lord_start", [(troop_slot_eq, "$g_talk_troop", slot_troop_is_prisoner, 0),
-##                         (store_partner_quest,":lords_quest"),
-##                         (eq,":lords_quest","qst_defend_nobles_against_peasants"),
-##                         (this_or_next|check_quest_succeeded, "qst_defend_nobles_against_peasants"),
-##                         (check_quest_failed, "qst_defend_nobles_against_peasants"),
-##                         (assign, ":num_saved", "$qst_defend_nobles_against_peasants_num_nobles_saved"),
-##                         (party_count_companions_of_type, ":num_nobles", "p_main_party", "trp_noble_refugee"),
-##                         (val_add, ":num_saved", ":num_nobles"),
-##                         (party_count_companions_of_type, ":num_nobles", "p_main_party", "trp_noble_refugee_woman"),
-##                         (val_add, ":num_saved", ":num_nobles"),
-##                         (assign, "$qst_defend_nobles_against_peasants_num_nobles_saved", ":num_saved"),
-##                         (eq, ":num_saved", "$qst_defend_nobles_against_peasants_num_nobles_to_save")],
-##   "TODO: You have saved all of them. Good boy.", "lord_generic_mission_completed",
-##   [(party_remove_members, "p_main_party", "trp_noble_refugee", "$qst_defend_nobles_against_peasants_num_nobles_saved"),
-##    (party_remove_members, "p_main_party", "trp_noble_refugee_woman", "$qst_defend_nobles_against_peasants_num_nobles_saved"),
-##    (call_script, "script_finish_quest", "qst_defend_nobles_against_peasants", 100)]],
-##
-##  [anyone,"lord_start", [(troop_slot_eq, "$g_talk_troop", slot_troop_is_prisoner, 0),
-##                         (store_partner_quest,":lords_quest"),
-##                         (eq,":lords_quest","qst_defend_nobles_against_peasants"),
-##                         (this_or_next|check_quest_succeeded, "qst_defend_nobles_against_peasants"),
-##                         (check_quest_failed, "qst_defend_nobles_against_peasants"),
-##                         (assign, ":num_saved", "$qst_defend_nobles_against_peasants_num_nobles_saved"),
-##                         (party_count_companions_of_type, ":num_nobles", "p_main_party", "trp_noble_refugee"),
-##                         (val_add, ":num_saved", ":num_nobles"),
-##                         (party_count_companions_of_type, ":num_nobles", "p_main_party", "trp_noble_refugee_woman"),
-##                         (val_add, ":num_saved", ":num_nobles"),
-##                         (assign, "$qst_defend_nobles_against_peasants_num_nobles_saved", ":num_saved"),
-##                         (lt, ":num_saved", "$qst_defend_nobles_against_peasants_num_nobles_to_save"),
-##                         (gt, "$qst_defend_nobles_against_peasants_num_nobles_saved", 0)],
-##   "TODO: You have saved some of them. Half good boy.", "lord_capture_conspirators_half_completed",
-##   [(party_remove_members, "p_main_party", "trp_noble_refugee", "$qst_defend_nobles_against_peasants_num_nobles_saved"),
-##    (party_remove_members, "p_main_party", "trp_noble_refugee_woman", "$qst_defend_nobles_against_peasants_num_nobles_saved"),
-##    (assign, ":ratio", 100),
-##    (val_mul, ":ratio", "$qst_defend_nobles_against_peasants_num_nobles_saved"),
-##    (val_div, ":ratio", "$qst_defend_nobles_against_peasants_num_nobles_to_save"),
-##    (call_script, "script_finish_quest", "qst_defend_nobles_against_peasants", ":ratio")]],
-##
-##  [anyone,"lord_start", [(troop_slot_eq, "$g_talk_troop", slot_troop_is_prisoner, 0),
-##                         (store_partner_quest,":lords_quest"),
-##                         (eq,":lords_quest","qst_defend_nobles_against_peasants"),
-##                         (this_or_next|check_quest_succeeded, "qst_defend_nobles_against_peasants"),
-##                         (check_quest_failed, "qst_defend_nobles_against_peasants"),
-##                         (assign, ":num_saved", "$qst_defend_nobles_against_peasants_num_nobles_saved"),
-##                         (party_count_companions_of_type, ":num_nobles", "p_main_party", "trp_noble_refugee"),
-##                         (val_add, ":num_saved", ":num_nobles"),
-##                         (party_count_companions_of_type, ":num_nobles", "p_main_party", "trp_noble_refugee_woman"),
-##                         (val_add, ":num_saved", ":num_nobles"),
-##                         (eq, ":num_saved", 0)],
-##   "TODO: You have saved none of them. Bad boy.", "lord_generic_mission_failed", []],
-##
-##
-##  [anyone,"lord_start", [(troop_slot_eq, "$g_talk_troop", slot_troop_is_prisoner, 0),
-##                         (store_partner_quest,":lords_quest"),
-##                         (eq,":lords_quest","qst_capture_conspirators"),
-##                         (this_or_next|check_quest_succeeded, "qst_capture_conspirators"),
-##                         (check_quest_failed, "qst_capture_conspirators"),
-##                         (party_count_prisoners_of_type, ":num_conspirators", "p_main_party", "trp_conspirator"),
-##                         (party_count_prisoners_of_type, ":num_conspirator_leaders", "p_main_party", "trp_conspirator_leader"),
-##                         (store_add, ":sum_captured", ":num_conspirators", ":num_conspirator_leaders"),
-##                         (ge, ":sum_captured", "$qst_capture_conspirators_num_troops_to_capture")],
-##   "TODO: You have captured all of them. Good boy.", "lord_generic_mission_completed",
-##   [(party_remove_prisoners, "p_main_party", "trp_conspirator_leader", "$qst_capture_conspirators_num_troops_to_capture"),
-##    (party_remove_prisoners, "p_main_party", "trp_spy_partner", "$qst_capture_conspirators_num_troops_to_capture"),
-##    (call_script, "script_finish_quest", "qst_capture_conspirators", 100)]],
-##
-##  [anyone,"lord_start", [(troop_slot_eq, "$g_talk_troop", slot_troop_is_prisoner, 0),
-##                         (store_partner_quest,":lords_quest"),
-##                         (eq,":lords_quest","qst_capture_conspirators"),
-##                         (this_or_next|check_quest_succeeded, "qst_capture_conspirators"),
-##                         (check_quest_failed, "qst_capture_conspirators"),
-##                         (party_count_prisoners_of_type, ":num_conspirators", "p_main_party", "trp_conspirator"),
-##                         (party_count_prisoners_of_type, ":num_conspirator_leaders", "p_main_party", "trp_conspirator_leader"),
-##                         (store_add, ":sum_captured", ":num_conspirators", ":num_conspirator_leaders"),
-##                         (lt, ":sum_captured", "$qst_capture_conspirators_num_troops_to_capture"),
-##                         (gt, ":sum_captured", 0)],
-##   "TODO: You have captured some of them. Half good boy.", "lord_capture_conspirators_half_completed",
-##   [(assign, ":sum_removed", 0),
-##    (party_remove_prisoners, "p_main_party", "trp_conspirator_leader", "$qst_capture_conspirators_num_troops_to_capture"),
-##    (val_add, ":sum_removed", reg0),
-##    (party_remove_prisoners, "p_main_party", "trp_conspirator", "$qst_capture_conspirators_num_troops_to_capture"),
-##    (val_add, ":sum_removed", reg0),
-##    (val_mul, ":sum_removed", 100),
-##    (val_div, ":sum_removed", "$qst_capture_conspirators_num_troops_to_capture"),
-##    (call_script, "script_finish_quest", "qst_capture_conspirators", ":sum_removed")]],
-##
-##  [anyone,"lord_start", [(troop_slot_eq, "$g_talk_troop", slot_troop_is_prisoner, 0),
-##                         (store_partner_quest,":lords_quest"),
-##                         (eq,":lords_quest","qst_capture_conspirators"),
-##                         (this_or_next|check_quest_succeeded, "qst_capture_conspirators"),
-##                         (check_quest_failed, "qst_capture_conspirators"),
-##                         (party_count_prisoners_of_type, ":num_conspirators", "p_main_party", "trp_conspirator"),
-##                         (party_count_prisoners_of_type, ":num_conspirator_leaders", "p_main_party", "trp_conspirator_leader"),
-##                         (store_add, ":sum_captured", ":num_conspirators", ":num_conspirator_leaders"),
-##                         (eq, ":sum_captured", 0)],
-##   "TODO: You have captured none of them. Bad boy.", "lord_generic_mission_failed", []],
-##
-##  [anyone|plyr,"lord_capture_conspirators_half_completed", [],
-##   "TODO: That's all I can do.", "lord_pretalk", []],
-
 
 [anyone,"lord_start", [#(troop_slot_eq, "$g_talk_troop", slot_troop_is_prisoner, 0),
              (neg|troop_slot_ge, "$g_talk_troop", slot_troop_prisoner_of_party, 0),

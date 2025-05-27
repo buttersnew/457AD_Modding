@@ -138,18 +138,18 @@ particle_systems = [
      0.5                        #rotation damping
     ),
 
-    ("game_hoof_dust_snow", psf_billboard_3d|psf_randomize_size, "prt_mesh_mud_1",#prt_mesh_dust_1
-     1, 0.1, 3.5, 1, 10.0, 0.0, #num_particles, life, damping, gravity_strength, turbulance_size, turbulance_strength
-     (0.2, 1), (1, 1),        #alpha keys
+    ("game_hoof_dust", psf_billboard_3d|psf_randomize_size|psf_randomize_rotation|psf_2d_turbulance, "prt_mesh_dust_1",#prt_mesh_dust_1
+     5, 2.0,  10, 0.08, 20.0, 70.0, #num_particles, life, damping, gravity_strength, turbulance_size, turbulance_strength
+     (0.2, 0.5), (1, 0.0),        #alpha keys
      (0, 1), (1, 1),        #red keys
-     (0, 1),(1, 1),         #green keys
-     (0, 1),(1, 1),         #blue keys
-     (0.5, 4),   (1.0, 5.7),   #scale keys
-     (0.2, 1, 0.1),           #emit box size
-     (0, 0, 1),                 #emit velocity
-     2,                         #emit dir randomness
-     0,                       #rotation speed
-     0                        #rotation damping
+     (0, 0.9),(1, 0.9),         #green keys
+     (0, 0.78),(1, 0.78),         #blue keys
+     (0.0, 2.0),   (1.0, 3.5),   #scale keys
+     (0.2, 0.3, 0.2),           #emit box size
+     (0, 0, 3.9),                 #emit velocity
+     0.5,                         #emit dir randomness
+     130,                       #rotation speed
+     0.5                        #rotation damping
     ),
      ("game_hoof_dust_mud", psf_billboard_2d|psf_randomize_size|psf_randomize_rotation|psf_2d_turbulance, "prt_mesh_mud_1",#prt_mesh_dust_1
      5, .7,  10, 3, 0, 0, #num_particles, life, damping, gravity_strength, turbulance_size, turbulance_strength

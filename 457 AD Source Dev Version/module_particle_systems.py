@@ -138,8 +138,8 @@ particle_systems = [
      0.5                        #rotation damping
     ),
 
-    ("game_hoof_dust_snow", psf_billboard_3d|psf_randomize_size, "prt_mesh_snow_dust_1",#prt_mesh_dust_1
-     6, 2, 3.5, 1, 10.0, 0.0, #num_particles, life, damping, gravity_strength, turbulance_size, turbulance_strength
+    ("game_hoof_dust_snow", psf_billboard_3d|psf_randomize_size, "prt_mesh_mud_1",#prt_mesh_dust_1
+     1, 0.1, 3.5, 1, 10.0, 0.0, #num_particles, life, damping, gravity_strength, turbulance_size, turbulance_strength
      (0.2, 1), (1, 1),        #alpha keys
      (0, 1), (1, 1),        #red keys
      (0, 1),(1, 1),         #green keys

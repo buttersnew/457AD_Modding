@@ -101,7 +101,7 @@ map_icons = [
   ("village_snow_deserted_a",mcn_no_shadow,"roman_icon_village_burned", 0.45, 0),
 
   ("camp",mcn_no_shadow,"camp_icon_new", 0.20, 0),
-  ("ship",mcn_no_shadow,"icon_new_ship", 0.20, snd_footstep_grass, 0.0, 0.05, 0),
+  ("ship",mcn_no_shadow,"icon_new_ship", 0.20, snd_footstep_water, 0.0, 0.05, 0),
   ("ship_on_land",mcn_no_shadow,"icon_new_ship_sail_off", 0.20, 0),
 
   ("castle_a",mcn_no_shadow,"roman_icon_castle", 0.35,0),

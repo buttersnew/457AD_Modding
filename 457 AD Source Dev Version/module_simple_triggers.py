@@ -4551,6 +4551,7 @@ simple_triggers = [
       (party_add_leader, ":home", ":leader"),
     (try_end),
   (try_end),
+(assign, "$last_joined_tournament", -1), #madsci
 ]),
 
 

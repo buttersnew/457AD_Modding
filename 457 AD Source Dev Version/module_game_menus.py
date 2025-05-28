@@ -13627,6 +13627,7 @@ TOTAL:  {reg5}"),
         ]
        ,"Join the competition.",
        [
+	(assign, "$last_joined_tournament", "$current_town"),
            (call_script, "script_fill_tournament_participants_troop", "$current_town", 1),
            (assign, "$g_tournament_cur_tier", 0),
            (assign, "$g_tournament_player_team_won", -1),

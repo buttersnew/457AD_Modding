@@ -35007,6 +35007,7 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
      (neq, "$g_encountered_party", "$g_player_court"),
      (assign, reg4, 0),
    (try_end),
+(assign, "$last_joined_tournament", -1),
    ]],
 
   [anyone,"start",	#too early

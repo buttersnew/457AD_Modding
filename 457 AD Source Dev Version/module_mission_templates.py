@@ -25262,13 +25262,14 @@ convert_horse_props_to_living_horses,
           (team_set_relation, 2, 1, 0),
       ]),
 
-      (ti_escape_pressed, 0, 0, [
-          (quest_slot_eq, "qst_black_river", slot_quest_current_state, 6),
-      ], [
-          (quest_set_slot,"qst_black_river", slot_quest_current_state, 5),
-          (jump_to_menu, "mnu_noricum_sarmatian_attack_won"),
-          (finish_mission),
-      ]),
+#madsci this is wrong?
+#      (ti_escape_pressed, 0, 0, [
+#          (quest_slot_eq, "qst_black_river", slot_quest_current_state, 6),
+#      ], [
+#          (quest_set_slot,"qst_black_river", slot_quest_current_state, 5),
+#          (jump_to_menu, "mnu_noricum_sarmatian_attack_won"),
+#          (finish_mission),
+#      ]),
 
       (0.1, 0, ti_once,
         [

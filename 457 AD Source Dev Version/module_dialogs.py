@@ -6736,9 +6736,14 @@ Still I am sorry that I'll leave you soon. You must promise me, you'll come visi
 [
 (store_repeat_object, ":faction_no"),
 (is_between, ":faction_no", npc_kingdoms_begin, npc_kingdoms_end),
-(store_sub, ":offset", ":faction_no", "fac_kingdom_1"),
-(val_add, ":offset", "str_kingdom_1_adjective"),
-(str_store_string, s11, ":offset"),
+(store_sub, ":offset", ":faction_no", npc_kingdoms_begin),
+(store_add, ":adjective", "str_kingdom_1_adjective", ":offset"),
+(try_begin),
+(is_between, ":adjective", "str_kingdom_1_adjective", "str_credits_1"),
+(str_store_string, s11, ":adjective"),
+(else_try),
+(str_store_faction_name, s11, ":faction_no"),
+(try_end),
 ],
 "{s11}.", "dplmc_recruiter_talk_4",
 [

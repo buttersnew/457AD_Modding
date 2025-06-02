@@ -57856,6 +57856,10 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
   [trp_dani_hengest,"start", [
   ], "I am eating right now. No time for talking.", "close_window",[]],
   [trp_dani_ordlaf,"start", [
+(this_or_next|eq, "$g_next_menu", "mnu_haddingrs_revenge_final_end"),
+(eq, "$g_next_menu", "mnu_finnsburg_quest_final_end"),
+  ], "{playername}, it is time to feast.", "close_window",[]],
+  [trp_dani_ordlaf,"start", [
   ], "I have no time to talk. Better speak with our leader Hnaef Hocing.", "close_window",[]],
   [trp_dani_guthlaf,"start", [
   ], "Its not the right time to talk. Go and speak with our leader Hnaef Hocing if you have anything to say.", "close_window",[]],

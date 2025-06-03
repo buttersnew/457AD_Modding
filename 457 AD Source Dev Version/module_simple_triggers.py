@@ -301,6 +301,15 @@ simple_triggers = [
  [
 #madsci lets use this 24 trigger for countdowns
 (val_add, "$total_days_passed", 1),
+
+(try_begin),
+(eq, "$total_days_passed", 750), #let remaining factions eat the indigenoi if player has ignored them for long enough
+	(try_for_range, ":fac", npc_kingdoms_begin, npc_kingdoms_end),
+	(neq, ":fac", "$players_kingdom"),
+	(set_relation, "fac_indigenoi", ":fac", -50),
+	(try_end),
+(try_end),
+
 (try_for_range, ":center", towns_begin, towns_end),
 (party_get_slot, ":rebellion_timer", ":center", slot_party_rebellion_timer),
 (party_get_slot, ":rebellion_cooldown", ":center", slot_party_rebellion_cooldown),
@@ -848,6 +857,8 @@ simple_triggers = [
 		(store_faction_of_party, ":target_faction", ":target_village"), #target faction receives the provocation
 		(neq, ":acting_village", ":target_village"),
 		(neq, ":acting_faction", ":target_faction"),
+		(is_between, ":acting_faction", kingdoms_begin, kingdoms_end),
+		(is_between, ":target_faction", kingdoms_begin, kingdoms_end),
 
 		(call_script, "script_diplomacy_faction_get_diplomatic_status_with_faction", ":target_faction", ":acting_faction"),
 		(eq, reg0, 0),
@@ -7266,7 +7277,7 @@ simple_triggers = [
 
   (168,
    [
-       (call_script, "script_spawn_merc_company"),
+(call_script, "script_spawn_merc_company"),
 (call_script, "script_refresh_center_inventories"),
 (call_script, "script_refresh_center_armories"),
 (call_script, "script_refresh_center_weaponsmiths"),

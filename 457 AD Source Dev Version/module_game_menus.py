@@ -10010,19 +10010,23 @@ TOTAL:  {reg5}"),
 
 (
     "requested_castle_granted_to_another",mnf_scale_picture,
-    "You receive a message from your monarch, {s3}.^^\
- 'I was most pleased to hear of your valiant efforts in the capture of {s2}. Your victory has gladdened all our hearts.\
- You also requested me to give you ownership of the castle, but that is a favor which I fear I cannot grant,\
- as you already hold significant estates in my realm.\
- Instead I have sent you {reg6} siliquae to cover the expenses of your campaign, but {s2} I give to {s5}.'\
- ",
+    "You receive a message from your monarch, {s3}.^^ "+
+ "'I was most pleased to hear of your valiant efforts in the capture of {s2}. Your victory has gladdened all our hearts. "+
+ "You also requested me to give you ownership of the castle, but that is a favor which I fear I cannot grant, "+
+ "as you already hold significant estates in my realm. "+
+ "Instead I have sent you {reg6} siliquae to cover the expenses of your campaign, but {s2} I give to {s5}.'",
     "none",
     [(set_background_mesh, "mesh_pic_messenger"),
      (faction_get_slot, ":faction_leader", "$players_kingdom", slot_faction_leader),
      (str_store_troop_name, s3, ":faction_leader"),
      (str_store_party_name, s2, "$g_center_to_give_to_player"),
      (party_get_slot, ":new_owner", "$g_center_to_give_to_player", slot_town_lord),
-     (str_store_troop_name, s5, ":new_owner"),
+	(try_begin),
+	(eq, ":new_owner", ":faction_leader"),
+	(str_store_string, s5, "@myself"),
+	(else_try),
+	(str_store_troop_name, s5, ":new_owner"),
+	(try_end),
      (assign, reg6, 900),
 
 	 (assign, "$g_castle_requested_by_player", -1),
@@ -10064,12 +10068,11 @@ TOTAL:  {reg5}"),
 (
     "requested_castle_granted_to_another_female",mnf_scale_picture,
 ##diplomacy start+ make gender correct
-    "You receive a message from your monarch, {s3}.^^\
- 'I was most pleased to hear of your valiant efforts in the capture of {s2}. Your victory has gladdened all our hearts.\
- You also requested me to give ownership of the castle to your {wife/husband}, but that is a favor which I fear I cannot grant,\
- as {she/he} already holds significant estates in my realm.\
- Instead I have sent you {reg6} siliquae to cover the expenses of your campaign, but {s2} I give to {s5}.'\
- ",
+    "You receive a message from your monarch, {s3}. ^^"+
+ "'I was most pleased to hear of your valiant efforts in the capture of {s2}. Your victory has gladdened all our hearts. "+
+ "You also requested me to give ownership of the castle to your {wife/husband}, but that is a favor which I fear I cannot grant, "+
+ "as {she/he} already holds significant estates in my realm. "+
+ "Instead I have sent you {reg6} siliquae to cover the expenses of your campaign, but {s2} I give to {s5}.'",
 ##diplomacy end+
     "none",
     [(set_background_mesh, "mesh_pic_messenger"),
@@ -10077,7 +10080,12 @@ TOTAL:  {reg5}"),
      (str_store_troop_name, s3, ":faction_leader"),
      (str_store_party_name, s2, "$g_center_to_give_to_player"),
      (party_get_slot, ":new_owner", "$g_center_to_give_to_player", slot_town_lord),
-     (str_store_troop_name, s5, ":new_owner"),
+	(try_begin),
+	(eq, ":new_owner", ":faction_leader"),
+	(str_store_string, s5, "@myself"),
+	(else_try),
+	(str_store_troop_name, s5, ":new_owner"),
+	(try_end),
      (assign, reg6, 900),
 
 	 (assign, "$g_castle_requested_by_player", -1),
@@ -10098,8 +10106,8 @@ TOTAL:  {reg5}"),
 
   (
     "leave_faction",0,
-    "Renouncing your oath is a grave act. Your lord may condemn you and confiscate your lands and holdings.\
- However, if you return them of your own free will, he may let the betrayal go without a fight.",
+    "Renouncing your oath is a grave act. Your lord may condemn you and confiscate your lands and holdings. "+
+ "However, if you return them of your own free will, he may let the betrayal go without a fight.",
     "none",
     [
     ],
@@ -10131,9 +10139,9 @@ TOTAL:  {reg5}"),
   (
     "give_center_to_player",mnf_scale_picture,
 ##diplomacy start+ fix gender of pronoun
-    "Your lord offers to extend your fiefs!\
- {s1} sends word that {reg4?she:he} is willing to grant {s2} to you in payment for your loyal service,\
- adding it to your holdings. What is your answer?",
+    "Your lord offers to extend your fiefs! ^"+
+ "{s1} sends word that {reg4?she:he} is willing to grant {s2} to you in payment for your loyal service, "+
+ "adding it to your holdings. What is your answer?",
 ##diplomacy end+
     "none",
     [(set_background_mesh, "mesh_pic_messenger"),
@@ -10159,12 +10167,12 @@ TOTAL:  {reg5}"),
 
   (
     "give_center_to_player_2",0,
-    "With a brief ceremony, you are officially confirmed as the new lord of {s2}{reg3? and its bound village {s4}:}.\
- {reg3?They:It} will make a fine part of your fiefdom.\
- You can now claim the rents and revenues from your personal estates there, draft soldiers from the populace,\
- and manage the lands as you see fit.\
- However, you are also expected to defend your fief and your people from harm,\
- as well as maintaining the rule of law and order.",
+    "With a brief ceremony, you are officially confirmed as the new lord of {s2}{reg3? and its bound village {s4}:}. "+
+ "{reg3?They:It} will make a fine part of your fiefdom. "+
+ "You can now claim the rents and revenues from your personal estates there, draft soldiers from the populace, "+
+ "and manage the lands as you see fit. "+
+ "However, you are also expected to defend your fief and your people from harm, "+
+ "as well as maintaining the rule of law and order.",
     "none",
     [
       (str_store_party_name, s2, "$g_center_to_give_to_player"),
@@ -10189,8 +10197,8 @@ TOTAL:  {reg5}"),
   (
     "oath_fulfilled",0,
 ##diplomacy start+ fix gender of pronoun
-    "You had a contract with {s1} to serve {reg4?her:him} for a certain duration.\
- Your contract has now expired. What will you do?",
+    "You had a contract with {s1} to serve {reg4?her:him} for a certain duration. "+
+ "Your contract has now expired. What will you do?",
 ##diplomacy end+
     "none",
     [
@@ -16983,6 +16991,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
        (store_random_in_range, ":random_town", towns_begin, towns_end),
 
        (party_get_slot, ":cur_merchant", ":org_encountered_party", slot_town_merchant),
+	(gt, ":cur_merchant", 0),
 	   (assign, ":num_items_in_town_inventory", 0),
        (try_for_range, ":i_slot", num_equipment_kinds, max_inventory_items + num_equipment_kinds),
          (troop_get_inventory_slot, ":slot_item", ":cur_merchant", ":i_slot"),

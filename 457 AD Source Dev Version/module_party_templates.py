@@ -50,7 +50,7 @@ party_templates = [
 #  ("black_khergit_raiders","Black Khergit Raiders",icon_khergit_horseman_b|carries_goods(2),0,fac_black_khergits,bandit_personality,[(trp_black_khergit_guard,1,10),(trp_black_khergit_horseman,5,5)]),
   ("steppe_bandits","Iazyges Band",icon_khergit_horseman_b|carries_goods(2),0,fac_outlaws,bandit_personality,[(trp_steppe_bandit,4,30),(trp_steppe_rider,1,10),(trp_steppe_cataphract,0,5)]),
   ("taiga_bandits","Germanic Bandits",icon_gray_knight|carries_goods(2),0,fac_outlaws,bandit_personality,[(trp_taiga_bandit,8,30)]),
-  ("baltic_bandits","Baltic Bandits",icon_gray_knight|carries_goods(2),0,fac_outlaws,bandit_personality,[(trp_baltic_bandit,5,18)]),
+  ("baltic_bandits","Galindoi",icon_gray_knight|carries_goods(2),0,fac_outlaws,bandit_personality,[(trp_baltic_bandit,5,18)]),
 ("slavic_bandits","Slavic Bandits",icon_sea_raider|carries_goods(8),0,fac_outlaws,bandit_personality,[(trp_slavic_bandit,15,40)]), 
   ("desert_bandits","Austuriani Rebels",icon_axeman|carries_goods(2)|pf_show_faction,0,fac_berber_rebels,bandit_personality,[(trp_desert_bandit,6,30)]),
   ("persian_bandits","Persian Bandits",icon_khergit_horseman_b|carries_goods(2),0,fac_outlaws,bandit_personality,[(trp_persian_bandit,3,20)]),
@@ -528,7 +528,7 @@ party_templates = [
 
   ("steppe_bandit_lair" ,"Iazyges Bandit Camp",icon_bandit_lair|carries_goods(2)|pf_is_static|pf_hide_defenders,0,fac_neutral,bandit_personality,[(trp_steppe_bandit,5,20)]),
   ("taiga_bandit_lair","Germanic Bandit Camp",icon_bandit_lair|carries_goods(2)|pf_is_static|pf_hide_defenders,0,fac_neutral,bandit_personality,[(trp_taiga_bandit,5,20)]),
-  ("baltic_bandit_lair","Baltic Bandit Hideout",icon_bandit_lair|carries_goods(2)|pf_is_static|pf_hide_defenders,0,fac_neutral,bandit_personality,[(trp_baltic_bandit,5,20)]),
+  ("baltic_bandit_lair","Galindian Raider Camp",icon_bandit_lair|carries_goods(2)|pf_is_static|pf_hide_defenders,0,fac_neutral,bandit_personality,[(trp_baltic_bandit,5,20)]),
   ("slavic_bandit_lair","Slavic Bandit Hideout",icon_bandit_lair|carries_goods(2)|pf_is_static|pf_hide_defenders,0,fac_neutral,bandit_personality,[(trp_slavic_bandit,5,20)]),
   ("desert_bandit_lair" ,"Austuriani Rebel Camp",icon_bandit_lair|carries_goods(2)|pf_is_static|pf_hide_defenders,0,fac_neutral,bandit_personality,[(trp_desert_bandit,5,20)]),
   ("forest_bandit_lair" ,"Bagaudae Camp",icon_bandit_lair|carries_goods(2)|pf_is_static|pf_hide_defenders,0,fac_neutral,bandit_personality,[(trp_forest_bandit,5,20),(trp_bagaudae_footman,1,8)]),

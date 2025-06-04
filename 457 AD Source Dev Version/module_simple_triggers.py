@@ -3388,8 +3388,11 @@ simple_triggers = [
         (call_script, "script_consume_food", ":selected_food"),
       (else_try),
         (eq, ":no_food_displayed", 0),
-        (display_message, "@Party has nothing to eat!", message_defeated), #SB : same colour const
-        (call_script, "script_change_player_party_morale", -3),
+		(try_begin),
+		(neq, "$g_infinite_camping", 1), #madsci
+        	(display_message, "@Party has nothing to eat!", message_defeated), #SB : same colour const
+        	(call_script, "script_change_player_party_morale", -3),
+		(try_end),
         (assign, ":no_food_displayed", 1),
 #NPC companion changes begin
         (try_begin),

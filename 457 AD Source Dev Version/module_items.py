@@ -3571,6 +3571,10 @@ weight(1)|abundance(80)|head_armor(24)|body_armor(14)|leg_armor(6)|difficulty(0)
 ["dedal_lira","Lyre",[("dedal_liraL",0)],		itp_type_hand_armor,0,0,weight(1),0],
 
 ["ccoop_new_items_end", "Items End", [("cow_mod_a",0)], 0, 0, 1, 0, 0],
+["signet_ring", "Sapphire Ring", [("signet_ring",0)], itp_type_goods, 0, 1000, weight(2)|abundance(100), imodbits_none ],
+["golden_amulet", "Golden Amulet", [("golden_amulet",0)], itp_type_goods, 0, 750, weight(2)|abundance(100), imodbits_none ],
+["gem_bag", "Bag of Gems", [("gem_bag",0)], itp_type_goods, 0, 2000, weight(2)|abundance(100), imodbits_none ],
+["perfume_bottle", "Scented Oil", [("perfume_bottle",0)], itp_type_goods, 0, 500, weight(2)|abundance(100), imodbits_none ],
 #INVASION MODE END
 #invisible items
 ["empty_hands","empty_hands",[("nothing_rig",0)],itp_type_hand_armor|itp_unique,0,130,weight(225)|body_armor(100)|difficulty(0),0],

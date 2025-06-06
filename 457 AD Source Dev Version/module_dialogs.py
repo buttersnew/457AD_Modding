@@ -51065,7 +51065,8 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
 #nero in rome?
 [trp_nero_larper, "start", [
 (eq, "$talk_context", tc_town_talk),
-(eq, "$g_nero_quest_3"),
+(this_or_next|eq, "$current_town", "p_town_8"),
+(eq, "$g_nero_quest", 3),
         (try_begin),
           (agent_get_item_slot, ":item_no", "$g_talk_agent", ek_item_1),
           (neq, ":item_no", "itm_nero_lyre"),

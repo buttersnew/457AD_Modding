@@ -10407,6 +10407,8 @@ What kind of recruits do you want?", "dplmc_constable_recruit_select",
   (gt, reg0, 0),
   (assign, ":tax_lost", reg0),
   (str_store_string, s6, "@{s6} We are losing {reg0} siliquae due to tax inefficiency. That means {reg1} percent."),
+(else_try),
+(assign, ":tax_lost", 0),
 (try_end),
 
 (assign, ":overall", ":income"),

@@ -46782,39 +46782,41 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
                      ],
    "Good day friend. If you came to watch the tournaments you came in vain. There won't be a tournament here anytime soon.", "arena_intro_1",[(assign,"$arena_master_first_talk", 1)]],
   [anyone|plyr,"arena_intro_1", [], "Tournaments? So they hold the tournaments here...", "arena_intro_2",[]],
-  [anyone,"arena_intro_2", [], "Yes. You should see this place during one of the tournament fights.\
- Everyone from the town and nearby villages comes here. The crowd becomes mad with excitement.\
- Anyway, as I said, there won't be an event here soon, so there isn't much to see.\
- Except, there is an official duel every now and then, and  of course we have melee fights almost every day.", "arena_intro_3",[]],
+  [anyone,"arena_intro_2", [], "Yes. You should see this place during one of the tournament fights. "+
+ "Everyone from the town and nearby villages comes here. The crowd becomes mad with excitement. "+
+ "Anyway, as I said, there won't be an event here soon, so there isn't much to see. "+
+ "Except, there is an official duel every now and then, and  of course we have melee fights almost every day.", "arena_intro_3",[]],
   [anyone|plyr,"arena_intro_3", [], "Tell me about the melee fights.", "arena_training_melee_intro",[]],
-  [anyone,"arena_training_melee_intro", [], "The fighters and knights get bored waiting for the next tournament,\
- so they have invented the training melee. It is a simple idea really.\
- Fighters jump into the arena with a weapon. There are no rules, no teams.\
- Everyone beats at each other until there is only one fighter left standing.\
- Sounds like fun, eh?", "arena_training_melee_intro_2",[]],
+  [anyone,"arena_training_melee_intro", [], "The fighters and knights get bored waiting for the next tournament, "+
+ "so they have invented the training melee. It is a simple idea really. "+
+ "Fighters jump into the arena with a weapon. There are no rules, no teams. "+
+ "Everyone beats at each other until there is only one fighter left standing. "+
+ "Sounds like fun, eh?", "arena_training_melee_intro_2",[]],
   [anyone|plyr,"arena_training_melee_intro_2", [(eq, "$arena_reward_asked", 0)], "Is there a reward?", "arena_training_melee_intro_reward",[(assign, "$arena_reward_asked", 1)]],
   [anyone,"arena_training_melee_intro_reward", [(assign, reg1, arena_tier1_opponents_to_beat),(assign, reg11, arena_tier1_prize),
       (assign, reg2, arena_tier2_opponents_to_beat),(assign, reg12, arena_tier2_prize),
       (assign, reg3, arena_tier3_opponents_to_beat),(assign, reg13, arena_tier3_prize),
       (assign, reg4, arena_tier4_opponents_to_beat),(assign, reg14, arena_tier4_prize),
       (assign, reg15, arena_grand_prize)
-    ], "There is, actually. Some of the wealthy townsmen offer prizes for those fighters who show great skill in the fights.\
- If you can beat {reg1} opponents before going down, you'll earn {reg11} siliquae. You'll get {reg12} siliquae for striking down at least {reg2} opponents,\
- {reg13} siliquae if you can defeat {reg3} opponents, and {reg14} siliquae if you can survive long enough to beat {reg4} opponents.\
- If you can manage to be the last {man/fighter} standing, you'll earn the great prize of the fights, {reg15} siliquae. Sounds good, eh?", "arena_training_melee_intro_2",[(assign, "$arena_tournaments_asked", 1),]],
+    ], "There is, actually. Some of the wealthy townsmen offer prizes for those fighters who show great skill in the fights. "+
+ "If you can beat {reg1} opponents before going down, you'll earn {reg11} siliquae. You'll get {reg12} siliquae for striking down at least {reg2} opponents, "+
+ "{reg13} siliquae if you can defeat {reg3} opponents, and {reg14} siliquae if you can survive long enough to beat {reg4} opponents. "+
+ "If you can manage to be the last {man/fighter} standing, you'll earn the great prize of the fights, {reg15} siliquae. Sounds good, eh?", "arena_training_melee_intro_2",[(assign, "$arena_tournaments_asked", 1),]],
   [anyone,"arena_training_melee_explain_reward", [
       (assign, reg1, arena_tier1_opponents_to_beat),(assign, reg11, arena_tier1_prize),
       (assign, reg2, arena_tier2_opponents_to_beat),(assign, reg12, arena_tier2_prize),
       (assign, reg3, arena_tier3_opponents_to_beat),(assign, reg13, arena_tier3_prize),
       (assign, reg4, arena_tier4_opponents_to_beat),(assign, reg14, arena_tier4_prize),
       (assign, reg15, arena_grand_prize)
-      ], "Some of the wealthy townsmen offer prizes for those fighters who show great skill in the fights.\
- If you can beat {reg1} opponents before going down, you'll earn {reg11} siliquae. You'll get {reg12} siliquae for striking down at least {reg2} opponents,\
- {reg13} siliquae if you can defeat {reg3} opponents, and {reg14} siliquae if you can survive long enough to beat {reg4} opponents.\
- If you can manage to be the last {man/fighter} standing, you'll earn the great prize of the fights, {reg15} siliquae. Sounds good, eh?", "arena_master_melee_pretalk",[]],
+      ], "Some of the wealthy townsmen offer prizes for those fighters who show great skill in the fights. "+
+ "If you can beat {reg1} opponents before going down, you'll earn {reg11} siliquae. You'll get {reg12} siliquae for striking down at least {reg2} opponents, "+
+ "{reg13} siliquae if you can defeat {reg3} opponents, and {reg14} siliquae if you can survive long enough to beat {reg4} opponents. "+
+ "If you can manage to be the last {man/fighter} standing, you'll earn the great prize of the fights, {reg15} siliquae. Sounds good, eh?", "arena_master_melee_pretalk",[]],
   [anyone|plyr,"arena_training_melee_intro_2", [], "Can I join too?", "arena_training_melee_intro_3",[]],
-  [anyone,"arena_training_melee_intro_3", [], "Ha ha. You would have to be out of your mind not to. Of course. The melee fights are open to all.\
- Actually there is going to be a fight soon. You can go and hop in if you want to.", "arena_master_melee_talk",[]],
+[anyone|plyr,"arena_training_melee_intro_2", [(eq, "$arena_tournaments_asked", 0)], "Will there be a tournament in nearby towns soon?", "arena_master_ask_tournaments",[(assign, "$arena_tournaments_asked", 1)]],
+[anyone|plyr,"arena_training_melee_intro_2", [], "I've heard enough. Farewell.", "close_window",[]],
+  [anyone,"arena_training_melee_intro_3", [], "Ha ha. You would have to be out of your mind not to. Of course. The melee fights are open to all. "+
+ "Actually there is going to be a fight soon. You can go and hop in if you want to.", "arena_master_melee_talk",[]],
 
 
   [anyone ,"start", [
@@ -46823,8 +46825,15 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
                      #SB : use global instead of storing it again
                      (is_between, "$g_talk_troop", arena_masters_begin, arena_masters_end),
                      (eq,"$g_talk_troop_met", 0),
+(try_begin),
+(this_or_next|faction_slot_eq, "$g_encountered_party_faction", slot_faction_leader, "trp_player"),
+(party_slot_eq, "$current_town", slot_town_lord, "trp_player"),
+(str_store_string, s10, "@Greetings, my {lord/lady}. I am pleased to meet you."),
+(else_try),
+(str_store_string, s10, "@Hello. You seem to be new here. Care to share your name?"),
+(try_end),
                      ],
-   "Hello. You seem to be new here. Care to share your name?", "arena_master_intro_1",[]],
+   "{s10}", "arena_master_intro_1",[]],
   [anyone|plyr,"arena_master_intro_1", [], "I am {playername}.", "arena_master_intro_2",[]],
   [anyone,"arena_master_intro_2", [
   # (store_encountered_party,reg(2)),(str_store_party_name,1,reg(2))

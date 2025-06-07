@@ -7870,7 +7870,7 @@ tournament_triggers = [
                                        (assign, "$g_arena_training_num_agents_spawned", 0)]),
   (ti_inventory_key_pressed, 0, 0, [(display_message,"str_cant_use_inventory_arena")], []),
 
-(0, 0, 5, [
+(5, 0, ti_once, [
 (eq, "$g_mt_mode", abm_tournament),
 ],
    [
@@ -10892,7 +10892,7 @@ convert_horse_props_to_living_horses,
       common_inventory_not_available,
 
 #madsci help agents use one hand weapons when lances are not desired
-(0, 0, ti_once, [
+(5, 0, ti_once, [
 (mission_tpl_are_all_agents_spawned),
 ],
    [
@@ -21425,7 +21425,7 @@ convert_horse_props_to_living_horses,
 
       common_inventory_not_available,
 
-(0, 0, ti_once, [
+(5, 0, ti_once, [
 (mission_tpl_are_all_agents_spawned),
 ],
    [

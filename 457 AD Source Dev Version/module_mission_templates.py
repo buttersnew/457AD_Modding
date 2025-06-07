@@ -7865,11 +7865,38 @@ common_siege_assign_men_to_belfry = (
     (call_script, "script_cf_siege_assign_men_to_belfry"),
     ], [])
 
-
 tournament_triggers = [
   (ti_before_mission_start, 0, 0, [], [(call_script, "script_change_banners_and_chest"),
                                        (assign, "$g_arena_training_num_agents_spawned", 0)]),
   (ti_inventory_key_pressed, 0, 0, [(display_message,"str_cant_use_inventory_arena")], []),
+
+(0, 0, 5, [
+(eq, "$g_mt_mode", abm_tournament),
+],
+   [
+	(get_player_agent_no, ":player"),
+		(try_for_agents, ":agent"),
+		(neq, ":agent", ":player"),
+    		(agent_is_alive, ":agent"),
+    		(agent_is_human, ":agent"),
+		(agent_get_troop_id, ":troop", ":agent"),
+		(neq, ":troop", "trp_player"),
+			(try_begin),
+                	(agent_get_wielded_item, ":old_item_no", ":agent", 0),
+			(gt, ":old_item_no", 0),
+                	(item_get_type, ":old_item_type", ":old_item_no"),
+			(eq, ":old_item_type", itp_type_polearm),
+            			(try_for_range, reg0, 0, 4),
+                		(agent_get_item_slot, ":item", ":agent", reg0),
+				(gt, ":item", 0),
+                		(item_get_type, ":type", ":item"),
+                		(eq, ":type", itp_type_one_handed_wpn),
+                		(agent_set_wielded_item, ":agent", ":item"),
+                		(assign, reg0, -1), ##break
+            			(try_end),
+			(try_end),
+		(try_end),
+   ]),
 
 #madsci agent banner to tell the teams apart from each other because they use the same equipment
 (ti_on_agent_spawn, 0, 0, [(eq, "$g_mt_mode", abm_tournament),],
@@ -7925,78 +7952,7 @@ tournament_triggers = [
         (assign, ":team_set", 1),
       (try_end),
     ]),
-##
-##  (0, 0, 0, [],
-##   [
-##      #refresh hit points for arena visit trainers
-##      (eq, "$g_mt_mode", abm_visit),
-##      (get_player_agent_no, ":player_agent"),
-##      (try_for_agents, ":agent_no"),
-##        (neq, ":agent_no", ":player_agent"),
-##        (agent_get_troop_id, ":troop_id", ":agent_no"),
-##        (is_between, ":troop_id", regular_troops_begin, regular_troops_end),
-##        (agent_set_hit_points, ":agent_no", 100),
-##      (try_end),
-##    ]),
 
-##      (1, 4, ti_once, [(eq, "$g_mt_mode", abm_fight),
-##                       (this_or_next|main_hero_fallen),
-##                       (num_active_teams_le,1)],
-##       [
-##           (try_begin),
-##             (num_active_teams_le,1),
-##             (neg|main_hero_fallen),
-##             (assign,"$arena_fight_won",1),
-##             #Fight won, decrease odds
-##             (assign, ":player_odds_sub", 0),
-##             (try_begin),
-##               (ge,"$arena_bet_amount",1),
-##               (store_div, ":player_odds_sub", "$arena_win_amount", 2),
-##             (try_end),
-##             (party_get_slot, ":player_odds", "$g_encountered_party", slot_town_player_odds),
-##             (val_add, ":player_odds_sub", 5),
-##             (val_sub, ":player_odds", ":player_odds_sub"),
-##             (val_max, ":player_odds", 250),
-##             (party_set_slot, "$g_encountered_party", slot_town_player_odds, ":player_odds"),
-##           (else_try),
-##             #Fight lost, increase odds
-##             (assign, ":player_odds_add", 0),
-##             (try_begin),
-##               (ge,"$arena_bet_amount",1),
-##               (store_div, ":player_odds_add", "$arena_win_amount", 2),
-##             (try_end),
-##             (party_get_slot, ":player_odds", "$g_encountered_party", slot_town_player_odds),
-##             (val_add, ":player_odds_add", 5),
-##             (val_add, ":player_odds", ":player_odds_add"),
-##             (val_min, ":player_odds", 4000),
-##             (party_set_slot, "$g_encountered_party", slot_town_player_odds, ":player_odds"),
-##           (try_end),
-##           (store_remaining_team_no,"$arena_winner_team"),
-##           (assign, "$g_mt_mode", abm_visit),
-##           (party_get_slot, ":arena_mission_template", "$current_town", slot_town_arena_template),
-##           (set_jump_mission, ":arena_mission_template"),
-##           (party_get_slot, ":arena_scene", "$current_town", slot_town_arena),
-##           (modify_visitors_at_site, ":arena_scene"),
-##           (reset_visitors),
-##           (set_visitor, 35, "trp_veteran_fighter"),
-##           (set_visitor, 36, "trp_hired_blade"),
-##           (set_jump_entry, 50),
-##           (jump_to_scene, ":arena_scene"),
-##           ]),
-
-# #SB : tournament preferred weapons
-  # (ti_on_agent_spawn, 0, ti_once, [
-    # (eq, "$g_mt_mode", abm_tournament),
-    # (store_trigger_param_1, ":agent_no"),
-    # (agent_get_troop_id, ":troop_no", ":agent_no"),
-    # (eq, ":troop_no", "trp_player"),
-    # (call_script, "script_dplmc_get_troop_standing_in_faction", "trp_player", "$g_encountered_party_faction"),
-    # (this_or_next|ge, reg0, DPLMC_FACTION_STANDING_MEMBER),
-    # (party_slot_ge, "$current_town", slot_center_player_relation, 15),
-    # ],
-    # [
-    # (store_trigger_param_1, ":agent_no"),
-    # ]),
 #even though $disable_npc_complaints should really only apply for companions
  (ti_on_agent_killed_or_wounded, 0, 0, [
         # (ge, "$g_dplmc_ai_changes", DPLMC_AI_CHANGES_LOW),
@@ -10934,6 +10890,35 @@ convert_horse_props_to_living_horses,
       common_battle_order_panel,
       common_battle_order_panel_tick,
       common_inventory_not_available,
+
+#madsci help agents use one hand weapons when lances are not desired
+(0, 0, ti_once, [
+(mission_tpl_are_all_agents_spawned),
+],
+   [
+	(get_player_agent_no, ":player"),
+		(try_for_agents, ":agent"),
+		(neq, ":agent", ":player"),
+    		(agent_is_alive, ":agent"),
+    		(agent_is_human, ":agent"),
+		(agent_get_troop_id, ":troop", ":agent"),
+		(neq, ":troop", "trp_player"),
+			(try_begin),
+                	(agent_get_wielded_item, ":old_item_no", ":agent", 0),
+			(gt, ":old_item_no", 0),
+                	(item_get_type, ":old_item_type", ":old_item_no"),
+			(eq, ":old_item_type", itp_type_polearm),
+            			(try_for_range, reg0, 0, 4),
+                		(agent_get_item_slot, ":item", ":agent", reg0),
+				(gt, ":item", 0),
+                		(item_get_type, ":type", ":item"),
+                		(eq, ":type", itp_type_one_handed_wpn),
+                		(agent_set_wielded_item, ":agent", ":item"),
+                		(assign, reg0, -1), ##break
+            			(try_end),
+			(try_end),
+		(try_end),
+   ]),
 
       (ti_on_agent_killed_or_wounded, 0, 0, [],
        [
@@ -21439,6 +21424,34 @@ convert_horse_props_to_living_horses,
       common_battle_init_banner,
 
       common_inventory_not_available,
+
+(0, 0, ti_once, [
+(mission_tpl_are_all_agents_spawned),
+],
+   [
+	(get_player_agent_no, ":player"),
+		(try_for_agents, ":agent"),
+		(neq, ":agent", ":player"),
+    		(agent_is_alive, ":agent"),
+    		(agent_is_human, ":agent"),
+		(agent_get_troop_id, ":troop", ":agent"),
+		(neq, ":troop", "trp_player"),
+			(try_begin),
+                	(agent_get_wielded_item, ":old_item_no", ":agent", 0),
+			(gt, ":old_item_no", 0),
+                	(item_get_type, ":old_item_type", ":old_item_no"),
+			(eq, ":old_item_type", itp_type_polearm),
+            			(try_for_range, reg0, 0, 4),
+                		(agent_get_item_slot, ":item", ":agent", reg0),
+				(gt, ":item", 0),
+                		(item_get_type, ":type", ":item"),
+                		(eq, ":type", itp_type_one_handed_wpn),
+                		(agent_set_wielded_item, ":agent", ":item"),
+                		(assign, reg0, -1), ##break
+            			(try_end),
+			(try_end),
+		(try_end),
+   ]),
 
       (ti_on_agent_spawn, 0, 0, [],
       [

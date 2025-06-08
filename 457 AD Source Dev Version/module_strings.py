@@ -5244,7 +5244,7 @@ We apologize sincerely if you contributed your suggestions and feedback but were
   ("dplmc_friend", "friend"),
   ("dplmc_ally", "ally"),
   #status notifier
-  ("s54_is_deceased", "{s54} is deceased."),
+  ("s54_is_deceased", "{s54} is no longer alive."),
   ("dplmc_political_explanation_original_lord", "In this case, the fortress should go its original owner."),
   ##Utility: use these to avoid use of high-numbered string registers
  ("dplmc_s0_comma_s1",   "{!}{s0}, {s1}"),

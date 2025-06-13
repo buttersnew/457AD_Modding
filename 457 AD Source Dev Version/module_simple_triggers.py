@@ -1239,12 +1239,6 @@ simple_triggers = [
 			(store_faction_of_troop, ":faction", ":troop_no"),
 		(try_end),
 
-		(try_begin),
-			(eq, "$cheat_mode", 1),
-			(str_store_troop_name, s9, ":troop_no"),
-			#(display_message, "@{!}DEBUG -- Doing political calculations for {s9}"),
-		(try_end),
-
         #Tally the fiefs owned by the hero, and cache the value in slot.
 		#If a lord owns no fiefs, his relations with his liege may deteriorate.
         (try_begin),
@@ -1296,6 +1290,15 @@ simple_triggers = [
         (try_begin),
 			(this_or_next|troop_slot_eq, ":troop_no", slot_troop_occupation, slto_kingdom_hero),
 			(eq, ":troop_no", "trp_player"),
+
+			(assign, ":block", 0),
+			(try_begin),
+			(gt, ":troop_no", 0),
+			(troop_slot_eq, "trp_player", slot_troop_spouse, ":troop_no"),
+			(eq, ":faction", "$players_kingdom"), #madsci players spouse shouldnt leave their faction
+			(assign, ":block", 1),
+			(try_end),
+			(eq, ":block", 0),
 
 			#There must be a valid faction leader.  The faction leader won't defect from his own kingdom.
 			#To avoid certain potential complications, also skip the defection/indictment check for the

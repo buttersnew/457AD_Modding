@@ -27022,7 +27022,11 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 
     ("option_1",[],"Continue...",
         [
-	(troop_add_item, "trp_player","itm_aquincum_spatha_2",imod_masterwork), #madsci give reward, change item maybe?
+	(try_begin),
+	(neq, "$black_river_reward", 1),
+	(assign, "$black_river_reward", 1),
+	(troop_add_item, "trp_player","itm_aquincum_spatha_2",imod_masterwork),
+	(try_end),
         (quest_set_slot,"qst_black_river", slot_quest_current_state, 5),
 
         (modify_visitors_at_site,"scn_black_river_villa"),

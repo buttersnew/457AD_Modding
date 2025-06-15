@@ -1417,9 +1417,6 @@ items = [
 ["pictish_mail_10", "Mail Shirt", [("pictish_mail_10_1",0),("pictish_mail_10_2",imodbits_good)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
  3150 , weight(19)|abundance(22)|head_armor(0)|body_armor(52)|leg_armor(16)|difficulty(11) ,imodbits_mail, [], culture_celtic ],
 
-["mail_african_1", "Mail Shirt", [("mail_african_1",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian ,0,
- 3400 , weight(12.5)|abundance(25)|head_armor(0)|body_armor(50)|leg_armor(14)|difficulty(10) ,imodbits_mail, [(ti_on_init_item,[(call_script, "script_init_short_tunic_arms"),]),], culture_african ],
-
 #sasanids
 ["sassanid_mail_1", "Rich Persian Mail Shirt", [("sassanid_mail_1",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
  3200 , weight(18)|abundance(30)|head_armor(0)|body_armor(53)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_sassanid ],

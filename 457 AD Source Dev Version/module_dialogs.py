@@ -27260,13 +27260,20 @@ I will use this to make amends to those you have wronged, and I will let it be k
 
   [anyone|plyr,"lord_specialise_choose",
     [
-
+(faction_get_slot, ":troop", "$g_talk_troop_faction", slot_faction_tier_1_troop),
+(gt, ":troop", 0),
+(neg|troop_is_mounted, ":troop"),
     ], "A skirmisher!", "lord_request_enlistment", [(assign, "$temp", slot_faction_tier_1_troop)]],
 
   [anyone|plyr,"lord_specialise_choose",
     [
      #(store_faction_of_party, ":troop_faction", "$g_talk_troop"),
      #(neq, ":troop_faction", "fac_kingdom_23"), #huns have no infantry!
+(faction_get_slot, ":troop", "$g_talk_troop_faction", slot_faction_tier_1_troop),
+(faction_get_slot, ":troop2", "$g_talk_troop_faction", slot_faction_tier_2_troop),
+(gt, ":troop2", 0),
+(neq, ":troop", ":troop2"),
+(neg|troop_is_mounted, ":troop2"),
     ], "A footman!", "lord_request_enlistment", [(assign, "$temp", slot_faction_tier_2_troop)]],
 
   [anyone|plyr,"lord_specialise_choose",
@@ -27281,7 +27288,12 @@ I will use this to make amends to those you have wronged, and I will let it be k
 (faction_get_slot, ":troop", "$g_talk_troop_faction", slot_faction_tier_3_troop),
 (gt, ":troop", 0),
 (troop_is_mounted, ":troop"), #madsci make sure this is actually a horseman
+(store_skill_level, ":skill", skl_riding, "trp_player"),
+(ge, ":skill", 1),
     ], "A horseman!", "lord_request_enlistment", [(assign, "$temp", slot_faction_tier_3_troop)]],
+
+  [anyone|plyr,"lord_specialise_choose",
+    [], "Well, on second thought my lord, I might try my luck alone a bit longer. My thanks.", "lord_pretalk",[]],
 
   # dialog_accept_enlistment
     [anyone,"lord_request_enlistment",
@@ -27308,23 +27320,6 @@ I will use this to make amends to those you have wronged, and I will let it be k
     (assign, "$g_leave_encounter", 1),
   ]],
 
-  #  [anyone,"lord_request_enlistment", [
-  #      (ge, "$g_talk_troop_relation", 0),
-  #  (try_begin),
-  #    (neg|faction_slot_eq, "$g_talk_troop_faction", slot_faction_freelancer_troop, 0),
-  #    (faction_get_slot, reg1, "$g_talk_troop_faction", slot_faction_freelancer_troop),
-  #  (else_try),
-  #    (faction_get_slot, reg1, "$g_talk_troop_faction", slot_faction_tier_1_troop),
-  #  (try_end),
-  #  (str_store_troop_name, s1, reg1),
-  #  (store_character_level, reg1, reg1),
-  #  (val_mul, reg1, 10),
-  #  (str_store_string, s2, "str_reg1_denars"),
-  #  ], "I've got room in my ranks for a {man/woman} of your disposition, {playername}.  I can take you on as a {s1}, with a weekly pay of {s2}. And food, of course.  Plenty of room for promotion and you'll be equipped as befits your rank. You'll have your take of what you can scavange after battle, too.  What do you say?", "lord_request_enlistment_confirm", []],
-  #  [anyone|plyr,"lord_request_enlistment_confirm", [], "Seems a fair lot and steady work in these lands. I'm with you, my lord.", "close_window", [        (call_script, "script_freelancer_event_player_enlists"),
-  #  (eq,"$talk_context",tc_party_encounter),
-  #  (assign, "$g_leave_encounter", 1),
-  # ]],
   [anyone|plyr,"lord_request_enlistment_confirm",[], "Well, on second thought my lord, I might try my luck alone a bit longer. My thanks.", "lord_pretalk",[]],
 # dialog_reject_enlistment
   [anyone,"lord_request_enlistment", [(lt, "$g_talk_troop_relation", 0)], "I do not trust you enough to allow you to serve for me.", "lord_pretalk",[]],

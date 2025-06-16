@@ -1712,7 +1712,13 @@ simple_triggers = [
 	  (assign, ":save_reg1", reg1),
 	  ##diplomacy end+
       (store_current_hours, ":cur_hours"),
-      (store_random_in_range, ":center_no", walled_centers_begin, walled_centers_end),
+      #(store_random_in_range, ":center_no", walled_centers_begin, walled_centers_end),
+		(try_begin),
+		(neg|is_between, "$center_siege_check", walled_centers_begin, walled_centers_end),
+		(assign, "$center_siege_check", walled_centers_begin),
+		(try_end),
+	(assign, ":center_no", "$center_siege_check"),
+	(val_add, "$center_siege_check", 1),
       (try_begin),
         (party_get_slot, ":besieger_party", ":center_no", slot_center_is_besieged_by),
         (gt, ":besieger_party", 0),
@@ -8083,7 +8089,7 @@ simple_triggers = [
         (else_try),
           (eq, ":rand", 22),
           (eq, "$g_unique_event_2", 0),
-          (jump_to_menu,"mnu_event_aurelian_1"),
+          #(jump_to_menu,"mnu_event_aurelian_1"), #madsci temporarily disabled
         (else_try),
           (display_message,"@ "),
         (try_end),

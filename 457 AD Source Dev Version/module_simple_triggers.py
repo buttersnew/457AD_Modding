@@ -4080,6 +4080,7 @@ simple_triggers = [
         (gt, ":total_cost", 0),
         (display_message, "@You pay for accommodation."),
         (troop_remove_gold, "trp_player", ":total_cost"),
+	(call_script, "script_change_player_party_morale", 3),
       (try_end),
       (try_begin), #SB : faction troop morale
         (party_get_slot, ":old_faction", "$g_last_rest_center", slot_center_original_faction),

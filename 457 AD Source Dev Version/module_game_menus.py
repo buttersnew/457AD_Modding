@@ -25865,7 +25865,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     ],
      "Put prisoners to work in the farms{s1}.",
     [
-      (change_screen_exchange_members, 0),
+      (change_screen_exchange_members, 1),
     ]),
 
       ("leave",[],"Leave.",[(leave_encounter),(change_screen_return)]),

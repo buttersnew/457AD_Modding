@@ -27631,6 +27631,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 ( "minor_faction_town",menu_text_color(0xFF000000)|mnf_disable_all_keys,
   "In the distance you see {s50}. It is the capital of the {s51}.^^{s52}^^{s49}",
   "none",[
+    (assign, "$current_town", "$g_encountered_party"),
     (try_begin),
         (eq, "$g_encountered_party", "p_dani_village"),
         (check_quest_active, "qst_haddingrs_revenge"),
@@ -33780,7 +33781,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     (troop_set_slot, "trp_dani_guthormr", slot_troop_occupation, dplmc_slto_dead),
 
     # set the augundzi king as ruler of the Dani, as he subjugated them
-    (party_set_slot, "p_frisian_village", slot_town_lord, "trp_augundzi_king"),
+    (party_set_slot, "p_dani_village", slot_town_lord, "trp_augundzi_king"),
     (faction_set_slot, "fac_minor_dani", slot_faction_leader, "trp_augundzi_king"),
 
     (str_store_troop_name, s10, "trp_dani_guthormr"),

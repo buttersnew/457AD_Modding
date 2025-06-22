@@ -33934,7 +33934,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
   ]),
 ]),
 ("haddingr_move_party",mnf_scale_picture|mnf_enable_hot_keys,
-"Should'nt be reading this.",
+"Should'nt be reading this. Quest state: {reg10}.",
 "none", [
     (try_begin),# moving from landing to aesti village
       (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 14),
@@ -34145,6 +34145,8 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       (rest_for_hours, reg22, 17, 0),
       # (leave_encounter),
       (change_screen_map),
+    (else_try),
+      (quest_get_slot, reg10, "qst_haddingrs_revenge", slot_quest_current_state),
     (try_end),
   ],[
   ("option_1", [

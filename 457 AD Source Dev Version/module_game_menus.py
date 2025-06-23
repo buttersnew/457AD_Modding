@@ -27633,6 +27633,13 @@ goods, and books will never be sold. ^^You can change some settings here freely.
   "none",[
     (assign, "$current_town", "$g_encountered_party"),
     (try_begin),
+    # fix that if the menu does not open properly let the correct menu open if player enters heorot
+        (eq, "$g_encountered_party", "p_dani_village"),
+        (check_quest_active, "qst_haddingrs_revenge"),
+        (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 31),
+        (eq, "$g_encountered_party", "p_haddingrs_revenge_raiding_camp"),
+        (jump_to_menu, "mnu_haddingr_aesti_battle"),
+    (else_try),
         (eq, "$g_encountered_party", "p_dani_village"),
         (check_quest_active, "qst_haddingrs_revenge"),
         (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 37),

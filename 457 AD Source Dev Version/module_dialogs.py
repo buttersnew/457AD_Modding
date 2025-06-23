@@ -12128,8 +12128,8 @@ What kind of recruits do you want?", "dplmc_constable_recruit_select",
 (else_try),
   (assign, reg10, 0),
 (try_end),
-], "Do you take me for a fool, {playername}? My spies bring me tales of your transgressions in this campaign, do not think your sweet words will make up for your gross misconduct. \
-{reg10?I know of your fraternization with our foe, {s10}. :}Your cowardice is noted and your petition is denied.", "close_window",
+], "Do you take me for a fool, {playername}? My spies bring me tales of your transgressions in this campaign, do not think your sweet words will make up for your gross misconduct. "+
+"{reg10?I know of your fraternization with our foe, {s10}. :}Your cowardice is noted and your petition is denied.", "close_window",
 [
 (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", -3),
 (try_begin),
@@ -12155,8 +12155,8 @@ What kind of recruits do you want?", "dplmc_constable_recruit_select",
     # (try_end),
     # (this_or_next|eq, ":num_enemies", 1),
     (gt, "$g_faction_selected", 0),
-    (str_store_faction_name, s1, "$g_faction_selected"),
-], "You believe we should stop fighting the {s1}?", "dplmc_lord_declare_pax_why",
+    (str_store_faction_name, s11, "$g_faction_selected"),
+], "You believe we should stop fighting the {s11}?", "dplmc_lord_declare_pax_why",
 [
     # (try_begin), #fetch again if not set
       # (eq, "$g_faction_selected", -1),

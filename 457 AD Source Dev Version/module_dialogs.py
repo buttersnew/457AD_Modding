@@ -20319,6 +20319,7 @@ I knew that I had found someone worthy of becoming my vassal.", "lord_invite_1",
 
 
 [trp_knight_23_8|plyr,"lord_talk", [
+(neq, "$g_king_start", 9), #Player not dengizich
   (neg|check_quest_active, "qst_ernak_quest"),
   (ge, "$g_talk_troop_faction_relation", 0),
   (quest_slot_eq, "qst_ernak_quest", slot_quest_current_state, 0),
@@ -55958,7 +55959,9 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
    "Bastards and whoresons, they did do that, but we cannot be killed that easily. We feel that war and dying in battle is natural way of life. Look around you, laws and treaties crumble, tribes are preparing for a great struggle and the empires of old are getting older. I feel that this time they cannot stem the tides that crash towards them, after all only the dead have seen the end of war...", "minor_faction_king_pretalk", []],
 
   ##onogur
-  [trp_onoguroi_king, "start", [(eq, "$g_talk_troop_met", 0),
+  [trp_onoguroi_king, "start", [
+(neq, "$g_king_start", 9), #Player not dengizich
+(eq, "$g_talk_troop_met", 0),
 (str_store_troop_name, s10, "$g_talk_troop"),
 (str_store_faction_name, s11, "$g_talk_troop_faction"),
 ],

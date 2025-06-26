@@ -14421,7 +14421,8 @@ TOTAL:  {reg5}"),
        [
            (try_begin),
              (this_or_next|eq,"$all_doors_locked",1),
-             (eq,"$town_nighttime",1),
+             (this_or_next|eq,"$town_nighttime",1),
+        	(neq, "$talk_context", tc_town_talk), #madsci exclude prison breaks and such
              (display_message,"str_door_locked",message_locked),
            (else_try),
              (assign, "$town_entered", 1),
@@ -14434,9 +14435,13 @@ TOTAL:  {reg5}"),
 
              (try_end),
              (party_get_slot, ":cur_scene", "$current_town", slot_town_store),
+		(gt, ":cur_scene", 0),
+		(set_jump_entry, 0),
              (jump_to_scene, ":cur_scene"),
              (scene_set_slot, ":cur_scene", slot_scene_visited, 1),
              (change_screen_mission),
+		(else_try),
+             (display_message,"str_door_locked",message_locked),
            (try_end),
         ],"Door to the shop."),
 

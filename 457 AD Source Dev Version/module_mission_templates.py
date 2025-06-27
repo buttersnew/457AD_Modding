@@ -24725,21 +24725,10 @@ convert_horse_props_to_living_horses,
         (call_script, "script_apply_death_effect_on_courage_scores_vc", ":dead_agent_no", ":killer_agent_no"), #madsci
        ]),
 
-      common_battle_tab_press,
+      (ti_tab_pressed, 0, 0, [(display_message,"str_cannot_leave_now")], []),
+
       immersive_troops,
 
-      (ti_question_answered, 0, 0, [],
-       [(store_trigger_param_1,":answer"),
-        (eq,":answer",0),
-        (assign, "$pin_player_fallen", 0),
-        (try_begin),
-          (store_mission_timer_a, ":elapsed_time"),
-          (gt, ":elapsed_time", 20),
-          (str_store_string, s5, "str_retreat"),
-          (call_script, "script_simulate_retreat", 10, 20, 1),
-        (try_end),
-        (call_script, "script_count_mission_casualties_from_agents"),
-        (finish_mission,0),]),
 
       (ti_before_mission_start, 0, 0, [],
        [

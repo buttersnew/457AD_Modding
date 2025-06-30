@@ -5562,7 +5562,7 @@ troops = [
   # moskva lord
   ["indigenoi_noble_9","Kargata of the Merens","Kargata",tf_hero,0,0,fac_indigenoi,   [itm_slav_heavy_forest_horse_2,itm_battered_mail_1,itm_suvorovsky_helmet_mail,itm_tarasovo_axe_1,itm_simple_shoes,itm_tunic_rich_7],
    def_attrib_lvl_13|level(13),wp_one_handed(210)|wp_polearm(100)|wp_firearm(150),knows_lvl_13|knows_power_strike_4,0x00000006160453904b544592e3199cc300000000000edb1b0000000000000000],
-  ["indigenoi_noble_10","Al-Harith ibn Amr","Al-Harith ibn Amr",tf_hero,0,0,fac_indigenoi,   [itm_barb_cham_1,itm_sassanid_cavalry_boots_2,itm_common_mail_short_2,itm_burgh_helmet_1,itm_turban,itm_strong_hammer,itm_simple_shoes,itm_tunic_rich_7],
+  ["indigenoi_noble_10","Amorkesos","Amorkesos",tf_hero,0,0,fac_indigenoi,   [itm_barb_cham_1,itm_sassanid_cavalry_boots_2,itm_common_mail_short_2,itm_burgh_helmet_1,itm_turban,itm_strong_hammer,itm_simple_shoes,itm_tunic_rich_7],
    def_attrib_lvl_13|level(30),wp_one_handed(210)|wp_polearm(100)|wp_firearm(150),knows_lvl_13|knows_power_strike_4,0x000000001e0d950b3daa8c987489496400000000001d93390000000000000000],
 
   ##diplomacy end

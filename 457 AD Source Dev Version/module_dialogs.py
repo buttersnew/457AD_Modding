@@ -51340,7 +51340,7 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
   [trp_venedi_chief, "start", [(quest_slot_eq,"qst_silingi_quest",slot_quest_current_state, 2),],
   "Behold men, the stranger has arrived!","venedi_chief_1",[]],
   [anyone|plyr, "venedi_chief_1", [],
-  "I am {playername} and I have come here on the behalf of the people of the Silingi, sent by the mighty King Ricimer, ruler of the Vandals and the Alans in Carthage.","venedi_chief_2",[]],
+  "I am {playername} and I have come here on the behalf of the people of the Silingi, sent by the mighty King Gaiseric, ruler of the Vandals and the Alans in Carthage.","venedi_chief_2",[]],
   [anyone, "venedi_chief_2", [],
   "You are far from your turf and we have nothing for you here. Go away!", "venedi_chief_3",[]],
   [anyone|plyr, "venedi_chief_3", [],

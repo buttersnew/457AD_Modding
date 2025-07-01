@@ -1288,6 +1288,12 @@ scenes = [
     [],[]),
   ("castle_34_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000330000500000d234800003d64000017f800003012", #ettenrocal roman castle
     [],[],"outer_terrain_plain"),
+
+  ("castle_34_exterior_gate",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000330000500000d234800003d64000017f800003012", 
+    [],[],"outer_terrain_plain"),
+  ("castle_34_exterior_ladder",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000330000500000d234800003d64000017f800003012", 
+    [],[],"outer_terrain_plain"),
+
   ("castle_34_interior",sf_indoors, "interior_castle_j", "bo_interior_castle_j", (-100,-100),(100,100),-100,"0",
     ["exit"],[]),
   ("castle_34_prison",sf_indoors,"interior_prison_i", "bo_interior_prison_i", (-100,-100),(100,100),-100,"0",

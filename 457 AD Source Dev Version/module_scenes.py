@@ -1286,13 +1286,52 @@ scenes = [
     ["exit"],[]),
   ("castle_12_prison",sf_indoors,"interior_prison_i", "bo_interior_prison_i", (-100,-100),(100,100),-100,"0",
     [],[]),
+
   ("castle_34_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000330000500000d234800003d64000017f800003012", #ettenrocal roman castle
     [],[],"outer_terrain_plain"),
 
+  #castle 34 variants - base scene by ettenrocal, improved by InVain
   ("castle_34_exterior_gate",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000330000500000d234800003d64000017f800003012", 
     [],[],"outer_terrain_plain"),
   ("castle_34_exterior_ladder",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000330000500000d234800003d64000017f800003012", 
     [],[],"outer_terrain_plain"),
+
+  ("castle_34_exterior_var1_ladder_medi",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000330000500000d234800003d64000017f800003012", 
+    [],[],"outer_terrain_plain"),
+  ("castle_34_exterior_var1_ladders",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000330000500000d234800003d64000017f800003012", 
+    [],[],"outer_terrain_plain"),
+
+  ("castle_34_exterior_var2_gate",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000330000500000d234800003d64000017f800003012", 
+    [],[],"outer_terrain_plain"),
+  ("castle_34_exterior_var2_gate_town",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000330000500000d234800003d64000017f800003012", 
+    [],[],"outer_terrain_plain"),
+
+  ("castle_34_exterior_var3_2gates",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000330000500000d234800003d64000017f800003012", 
+    [],[],"outer_terrain_plain"),
+
+  ("castle_34_exterior_var4_ladders",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000330000500000d234800003d64000017f800003012", 
+    [],[],"outer_terrain_plain"),
+  ("castle_34_exterior_var4_ladders_desert",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000330000500000d234800003d64000017f800003012", 
+    [],[],"outer_terrain_desert"),
+  ("castle_34_exterior_var4_ladders_medi",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000330000500000d234800003d64000017f800003012", 
+    [],[],"outer_terrain_plain"),
+  ("castle_34_exterior_var4_ladders_medi_city",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000330000500000d234800003d64000017f800003012", 
+    [],[],"outer_terrain_plain"),
+  ("castle_34_exterior_var4_ladders_medi_town",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000330000500000d234800003d64000017f800003012", 
+    [],[],"outer_terrain_plain"),
+
+  ("castle_34_exterior_var5_gate",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000330000500000d234800003d64000017f800003012", 
+    [],[],"outer_terrain_plain"),
+  ("castle_34_exterior_var5_gate_medi",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000330000500000d234800003d64000017f800003012", 
+    [],[],"outer_terrain_plain"),
+  ("castle_34_exterior_var5_gate_medi_city_harbour",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000330000500000d234800003d64000017f800003012",
+    [],[],"outer_terrain_beach"),
+  ("castle_34_exterior_var5_gate_medi_town",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000330000500000d234800003d64000017f800003012",
+    [],[],"outer_terrain_plain"),
+  ("castle_34_exterior_var5_gate_medi_town_harbour",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000330000500000d234800003d64000017f800003012", 
+    [],[],"outer_terrain_beach"),
+  ("castle_34_exterior_var5_gate_medi_town_seaside",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000330000500000d234800003d64000017f800003012",
+    [],[],"outer_terrain_beach"),
 
   ("castle_34_interior",sf_indoors, "interior_castle_j", "bo_interior_castle_j", (-100,-100),(100,100),-100,"0",
     ["exit"],[]),

@@ -3184,34 +3184,24 @@ poisoned_arrows_damage = (6, 0, 0, [], [
             (store_agent_hit_points,reg22,":cur_agent", 0),
             (val_sub,reg22, 7),
             (agent_set_hit_points,":cur_agent",reg22, 0),
-
-            #debug message
-            # (str_store_agent_name, s1, ":cur_agent"),
-            # (display_message, "@{s1} has {reg22} hp"),
-
-            (le,reg22, 1),
-            (remove_agent,":cur_agent"),
+		(try_begin),
+            	(le,reg22, 1),
+            	(remove_agent,":cur_agent"),
+		(try_end),
         (try_end),
         (try_begin),
             (neg|agent_is_non_player, ":cur_agent"),
             (mission_cam_set_screen_color, 0xFF000000),
             (mission_cam_animate_to_screen_color, 0x4D000000, 2000),
             (display_message, "@The poison decreases your health!", 0x3F8000),
-        #debug message
-        # (else_try),
-            # (str_store_agent_name, s1, ":cur_agent"),
-            # (display_message, "@The poison decreases {s1} health!"),
         (try_end),
 
         (try_begin),
             (eq, ":is_poisoned", 0),
             (try_begin),
                 (neg|agent_is_non_player, ":cur_agent"),
+		(agent_is_alive, ":cur_agent"),
                 (display_message, "@You are no longer poisoned", color_good_news),
-            #debug message
-            # (else_try),
-                # (str_store_agent_name, s1, ":cur_agent"),
-                # (display_message, "@{s1} is no longer poisoned", color_good_news),
             (try_end),
         (try_end),
         (agent_set_slot, ":cur_agent", slot_agent_is_poisoned, ":is_poisoned"),
@@ -24725,21 +24715,10 @@ convert_horse_props_to_living_horses,
         (call_script, "script_apply_death_effect_on_courage_scores_vc", ":dead_agent_no", ":killer_agent_no"), #madsci
        ]),
 
-      common_battle_tab_press,
+      (ti_tab_pressed, 0, 0, [(display_message,"str_cannot_leave_now")], []),
+
       immersive_troops,
 
-      (ti_question_answered, 0, 0, [],
-       [(store_trigger_param_1,":answer"),
-        (eq,":answer",0),
-        (assign, "$pin_player_fallen", 0),
-        (try_begin),
-          (store_mission_timer_a, ":elapsed_time"),
-          (gt, ":elapsed_time", 20),
-          (str_store_string, s5, "str_retreat"),
-          (call_script, "script_simulate_retreat", 10, 20, 1),
-        (try_end),
-        (call_script, "script_count_mission_casualties_from_agents"),
-        (finish_mission,0),]),
 
       (ti_before_mission_start, 0, 0, [],
        [

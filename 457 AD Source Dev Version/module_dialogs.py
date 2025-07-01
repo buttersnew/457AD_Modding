@@ -12128,8 +12128,8 @@ What kind of recruits do you want?", "dplmc_constable_recruit_select",
 (else_try),
   (assign, reg10, 0),
 (try_end),
-], "Do you take me for a fool, {playername}? My spies bring me tales of your transgressions in this campaign, do not think your sweet words will make up for your gross misconduct. \
-{reg10?I know of your fraternization with our foe, {s10}. :}Your cowardice is noted and your petition is denied.", "close_window",
+], "Do you take me for a fool, {playername}? My spies bring me tales of your transgressions in this campaign, do not think your sweet words will make up for your gross misconduct. "+
+"{reg10?I know of your fraternization with our foe, {s10}. :}Your cowardice is noted and your petition is denied.", "close_window",
 [
 (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", -3),
 (try_begin),
@@ -12155,8 +12155,8 @@ What kind of recruits do you want?", "dplmc_constable_recruit_select",
     # (try_end),
     # (this_or_next|eq, ":num_enemies", 1),
     (gt, "$g_faction_selected", 0),
-    (str_store_faction_name, s1, "$g_faction_selected"),
-], "You believe we should stop fighting the {s1}?", "dplmc_lord_declare_pax_why",
+    (str_store_faction_name, s11, "$g_faction_selected"),
+], "You believe we should stop fighting the {s11}?", "dplmc_lord_declare_pax_why",
 [
     # (try_begin), #fetch again if not set
       # (eq, "$g_faction_selected", -1),
@@ -20319,6 +20319,7 @@ I knew that I had found someone worthy of becoming my vassal.", "lord_invite_1",
 
 
 [trp_knight_23_8|plyr,"lord_talk", [
+(neq, "$g_king_start", 9), #Player not dengizich
   (neg|check_quest_active, "qst_ernak_quest"),
   (ge, "$g_talk_troop_faction_relation", 0),
   (quest_slot_eq, "qst_ernak_quest", slot_quest_current_state, 0),
@@ -21220,91 +21221,6 @@ I want you to go to {s13}, {s14} and {s15} and report back whatever you find.", 
 
 [anyone, "lord_pay_debt_3_2", [],
 "Well, don't keep me waiting much longer.", "lord_pretalk", []],
-
-##  [anyone,"lord_start", [(troop_slot_eq, "$g_talk_troop", slot_troop_is_prisoner, 0),
-##                         (is_between,"$g_talk_troop_faction_relation",0,3),
-###                         (eq,"$players_kingdom",0),
-##                         ],
-##   "Why don't you join us in our cause? You seem to be an able fighter.\
-## We need {men/people} like you who will take part in our glory and share the spoils of our victory.", "lord_talk",[]],
-
-
-#Claim center begin
-##  [anyone,"lord_start", [(troop_slot_eq, "$g_talk_troop", slot_troop_is_prisoner, 0),
-##                         (eq,"$g_talk_troop_faction","$players_kingdom"),
-##                         (faction_slot_eq, "$g_talk_troop_faction", slot_faction_leader, "$g_talk_troop"),
-##                         (call_script, "script_get_number_of_unclaimed_centers_by_player"),
-##                         (gt, reg1, 0),
-##                         (assign, "$center_to_be_claimed", reg1),
-##                         (str_store_party_name, s4, "$center_to_be_claimed"),
-##                         ],
-##   "I heard that your forces have taken {s4}. I commend you for your victory {playername}.\
-## But we need to decide what to do with this new castle now.", "lord_claim_center_begin", []],
-
-
-##  [anyone,"lord_start", [(troop_slot_eq, "$g_talk_troop", slot_troop_is_prisoner, 0),
-##                         (ge,"$g_talk_troop_faction_relation",0),
-##                         (call_script, "script_get_number_of_unclaimed_centers_by_player"),
-##                         (gt, reg1, 0),
-##                         (assign, "$center_wanted_to_be_bought", reg1),
-##                         (str_store_party_name, s4, "$center_wanted_to_be_bought"),
-##                         (call_script, "script_get_number_of_hero_centers", "$g_talk_troop"),
-##                         (assign, ":no_of_owned_centers", reg0),
-##                         (neg|faction_slot_eq, "$g_talk_troop_faction", slot_faction_leader, "$g_talk_troop"),
-##                         (lt, ":no_of_owned_centers", 2),
-##                         (troop_get_slot, ":wealth", "$g_talk_troop", slot_troop_wealth),
-##                         (ge, ":wealth", 6000)],
-##   "I heard that your forces have taken {s4}. I applaud your victory {playername}, but you know as well as I do that\
-## as a person of low rank and status you cannot be permitted to hold that castle for yourself.\
-## It is to your benefit to sell it to a Lord like myself who can hold and protect the castle and the surrounding estates.\
-## Anyway, I am ready to make you an offer of 5000 denars, should you decide to sell that castle.", "lord_buy_center", []],
-##
-##
-##  [anyone|plyr,"lord_buy_center", [],
-##   "I accept your offer sir. The castle is yours for 5000 denars.", "lord_buy_center_accept", []],
-##  [anyone|plyr,"lord_buy_center", [],
-##   "I am afraid I can't accept that offer.", "lord_buy_center_deny", []],
-##
-##  [anyone,"lord_buy_center_accept", [],
-##   "Excellent, {playername}! You have decided wisely.\
-## Why bother yourself with the necessities of keeping a castle while you can leave all those boring details to noble Lords like me?\
-## I am sure money will be much more useful to you than a castle would.", "lord_buy_center_accept_2", []],
-##
-##  [anyone|plyr,"lord_buy_center_accept_2", [],
-##   "One day sir, one day I'll have my own castle.", "lord_buy_center_accept_3", []],
-##  [anyone|plyr,"lord_buy_center_accept_2", [],
-##   "Everyone needs money sir. I can take another castle anytime.", "lord_buy_center_accept_3", []],
-##
-##  [anyone,"lord_buy_center_accept_3", [],
-##   "Of course, of course, {playername}.  Then let us conclude our deal. Here's the 5000 denars I offered you.\
-## I'll have my clerk handle the necessary details.\
-## I guess from now on, {s4} belongs to me. Well, that worked very well for both of us, I guess.", "lord_pretalk",
-##   [(troop_get_slot, ":wealth", "$g_talk_troop", slot_troop_wealth),
-##    (val_sub, ":wealth", 6000),
-##    (troop_set_slot, "$g_talk_troop", slot_troop_wealth, ":wealth"),
-##    (call_script, "script_troop_add_gold", "trp_player", 5000),
-##    (party_set_slot, "$center_wanted_to_be_bought", slot_town_lord, "$g_talk_troop"),
-##    #Changing center faction
-##    (party_set_faction, "$center_wanted_to_be_bought", "$g_talk_troop_faction"),
-##    (set_spawn_radius, 1),
-##    (spawn_around_party, "$center_wanted_to_be_bought", "pt_old_garrison"),
-##    (assign, ":new_party", reg0),
-##    (party_set_ai_behavior, ":new_party", ai_bhvr_attack_party),
-##    (party_set_ai_object, ":new_party", "p_main_party"),
-##    (party_set_flags, ":new_party", pf_default_behavior, 0),
-##    (call_script, "script_party_copy", ":new_party", "$center_wanted_to_be_bought"),
-##    (party_clear, "$center_wanted_to_be_bought"),
-##
-##    (faction_get_slot, ":reinforcement_template_archers", "$g_talk_troop_faction", slot_faction_reinforcements_archers),
-##    (faction_get_slot, ":reinforcement_template_infantry", "$g_talk_troop_faction", slot_faction_reinforcements_infantry),
-##    (party_add_template, "$center_wanted_to_be_bought", ":reinforcement_template_archers"),
-##    (party_add_template, "$center_wanted_to_be_bought", ":reinforcement_template_infantry"),
-##    ]],
-##
-##  [anyone,"lord_buy_center_deny", [],
-##   "As you wish {playername}. But don't forget, the great lords of the country won't like a low born {man/woman} like you holding such an estate without their consent.\
-## It is the nature of this world {playername}. Everyone should know their place.", "lord_pretalk", []],
-
 
 [anyone,"lord_start",[
             (eq, "$g_romantic_comment_made", 0),
@@ -27260,13 +27176,20 @@ I will use this to make amends to those you have wronged, and I will let it be k
 
   [anyone|plyr,"lord_specialise_choose",
     [
-
+(faction_get_slot, ":troop", "$g_talk_troop_faction", slot_faction_tier_1_troop),
+(gt, ":troop", 0),
+(neg|troop_is_mounted, ":troop"),
     ], "A skirmisher!", "lord_request_enlistment", [(assign, "$temp", slot_faction_tier_1_troop)]],
 
   [anyone|plyr,"lord_specialise_choose",
     [
      #(store_faction_of_party, ":troop_faction", "$g_talk_troop"),
      #(neq, ":troop_faction", "fac_kingdom_23"), #huns have no infantry!
+(faction_get_slot, ":troop", "$g_talk_troop_faction", slot_faction_tier_1_troop),
+(faction_get_slot, ":troop2", "$g_talk_troop_faction", slot_faction_tier_2_troop),
+(gt, ":troop2", 0),
+(neq, ":troop", ":troop2"),
+(neg|troop_is_mounted, ":troop2"),
     ], "A footman!", "lord_request_enlistment", [(assign, "$temp", slot_faction_tier_2_troop)]],
 
   [anyone|plyr,"lord_specialise_choose",
@@ -27281,7 +27204,12 @@ I will use this to make amends to those you have wronged, and I will let it be k
 (faction_get_slot, ":troop", "$g_talk_troop_faction", slot_faction_tier_3_troop),
 (gt, ":troop", 0),
 (troop_is_mounted, ":troop"), #madsci make sure this is actually a horseman
+(store_skill_level, ":skill", skl_riding, "trp_player"),
+(ge, ":skill", 1),
     ], "A horseman!", "lord_request_enlistment", [(assign, "$temp", slot_faction_tier_3_troop)]],
+
+  [anyone|plyr,"lord_specialise_choose",
+    [], "Well, on second thought my lord, I might try my luck alone a bit longer. My thanks.", "lord_pretalk",[]],
 
   # dialog_accept_enlistment
     [anyone,"lord_request_enlistment",
@@ -27308,23 +27236,6 @@ I will use this to make amends to those you have wronged, and I will let it be k
     (assign, "$g_leave_encounter", 1),
   ]],
 
-  #  [anyone,"lord_request_enlistment", [
-  #      (ge, "$g_talk_troop_relation", 0),
-  #  (try_begin),
-  #    (neg|faction_slot_eq, "$g_talk_troop_faction", slot_faction_freelancer_troop, 0),
-  #    (faction_get_slot, reg1, "$g_talk_troop_faction", slot_faction_freelancer_troop),
-  #  (else_try),
-  #    (faction_get_slot, reg1, "$g_talk_troop_faction", slot_faction_tier_1_troop),
-  #  (try_end),
-  #  (str_store_troop_name, s1, reg1),
-  #  (store_character_level, reg1, reg1),
-  #  (val_mul, reg1, 10),
-  #  (str_store_string, s2, "str_reg1_denars"),
-  #  ], "I've got room in my ranks for a {man/woman} of your disposition, {playername}.  I can take you on as a {s1}, with a weekly pay of {s2}. And food, of course.  Plenty of room for promotion and you'll be equipped as befits your rank. You'll have your take of what you can scavange after battle, too.  What do you say?", "lord_request_enlistment_confirm", []],
-  #  [anyone|plyr,"lord_request_enlistment_confirm", [], "Seems a fair lot and steady work in these lands. I'm with you, my lord.", "close_window", [        (call_script, "script_freelancer_event_player_enlists"),
-  #  (eq,"$talk_context",tc_party_encounter),
-  #  (assign, "$g_leave_encounter", 1),
-  # ]],
   [anyone|plyr,"lord_request_enlistment_confirm",[], "Well, on second thought my lord, I might try my luck alone a bit longer. My thanks.", "lord_pretalk",[]],
 # dialog_reject_enlistment
   [anyone,"lord_request_enlistment", [(lt, "$g_talk_troop_relation", 0)], "I do not trust you enough to allow you to serve for me.", "lord_pretalk",[]],
@@ -46342,8 +46253,16 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
     [
       (assign, "$g_leave_encounter",1),
       (call_script, "script_change_player_relation_with_center", "$current_town", 1),
-      (set_spawn_radius, 11),
+      (set_spawn_radius, 8),
       (spawn_around_party, "$current_town", "pt_slave_hideout"),
+		(try_begin),
+    		(party_get_current_terrain, ":cur_terrain", reg0),
+        	(this_or_next|eq,":cur_terrain",rt_deep_water),
+        	(this_or_next|eq,":cur_terrain",rt_bridge),
+        	(this_or_next|eq,":cur_terrain",rt_river),
+		(eq,":cur_terrain",rt_water),
+		(party_relocate_near_party, reg0, "$current_town", 2),
+		(try_end),
       (assign, ":party_no", reg(0)),
 	(party_set_flags, ":party_no", pf_quest_party, 1),
       (party_set_flags, ":party_no", pf_disabled, 1),
@@ -56048,7 +55967,9 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
    "Bastards and whoresons, they did do that, but we cannot be killed that easily. We feel that war and dying in battle is natural way of life. Look around you, laws and treaties crumble, tribes are preparing for a great struggle and the empires of old are getting older. I feel that this time they cannot stem the tides that crash towards them, after all only the dead have seen the end of war...", "minor_faction_king_pretalk", []],
 
   ##onogur
-  [trp_onoguroi_king, "start", [(eq, "$g_talk_troop_met", 0),
+  [trp_onoguroi_king, "start", [
+(neq, "$g_king_start", 9), #Player not dengizich
+(eq, "$g_talk_troop_met", 0),
 (str_store_troop_name, s10, "$g_talk_troop"),
 (str_store_faction_name, s11, "$g_talk_troop_faction"),
 ],

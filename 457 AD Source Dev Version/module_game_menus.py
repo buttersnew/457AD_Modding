@@ -14421,7 +14421,8 @@ TOTAL:  {reg5}"),
        [
            (try_begin),
              (this_or_next|eq,"$all_doors_locked",1),
-             (eq,"$town_nighttime",1),
+             (this_or_next|eq,"$town_nighttime",1),
+        	(neq, "$talk_context", tc_town_talk), #madsci exclude prison breaks and such
              (display_message,"str_door_locked",message_locked),
            (else_try),
              (assign, "$town_entered", 1),
@@ -14434,9 +14435,13 @@ TOTAL:  {reg5}"),
 
              (try_end),
              (party_get_slot, ":cur_scene", "$current_town", slot_town_store),
+		(gt, ":cur_scene", 0),
+		(set_jump_entry, 0),
              (jump_to_scene, ":cur_scene"),
              (scene_set_slot, ":cur_scene", slot_scene_visited, 1),
              (change_screen_mission),
+		(else_try),
+             (display_message,"str_door_locked",message_locked),
            (try_end),
         ],"Door to the shop."),
 
@@ -25865,7 +25870,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     ],
      "Put prisoners to work in the farms{s1}.",
     [
-      (change_screen_exchange_members, 0),
+      (change_screen_exchange_members, 1),
     ]),
 
       ("leave",[],"Leave.",[(leave_encounter),(change_screen_return)]),
@@ -27022,7 +27027,11 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 
     ("option_1",[],"Continue...",
         [
-	(troop_add_item, "trp_player","itm_aquincum_spatha_2",imod_masterwork), #madsci give reward, change item maybe?
+	(try_begin),
+	(neq, "$black_river_reward", 1),
+	(assign, "$black_river_reward", 1),
+	(troop_add_item, "trp_player","itm_aquincum_spatha_2",imod_masterwork),
+	(try_end),
         (quest_set_slot,"qst_black_river", slot_quest_current_state, 5),
 
         (modify_visitors_at_site,"scn_black_river_villa"),
@@ -27627,7 +27636,14 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 ( "minor_faction_town",menu_text_color(0xFF000000)|mnf_disable_all_keys,
   "In the distance you see {s50}. It is the capital of the {s51}.^^{s52}^^{s49}",
   "none",[
+    (assign, "$current_town", "$g_encountered_party"),
     (try_begin),
+    # fix that if the menu does not open properly let the correct menu open if player enters heorot
+        (eq, "$g_encountered_party", "p_dani_village"),
+        (check_quest_active, "qst_haddingrs_revenge"),
+        (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 31),
+        (jump_to_menu, "mnu_haddingr_aesti_battle"),
+    (else_try),
         (eq, "$g_encountered_party", "p_dani_village"),
         (check_quest_active, "qst_haddingrs_revenge"),
         (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 37),
@@ -33776,7 +33792,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     (troop_set_slot, "trp_dani_guthormr", slot_troop_occupation, dplmc_slto_dead),
 
     # set the augundzi king as ruler of the Dani, as he subjugated them
-    (party_set_slot, "p_frisian_village", slot_town_lord, "trp_augundzi_king"),
+    (party_set_slot, "p_dani_village", slot_town_lord, "trp_augundzi_king"),
     (faction_set_slot, "fac_minor_dani", slot_faction_leader, "trp_augundzi_king"),
 
     (str_store_troop_name, s10, "trp_dani_guthormr"),
@@ -33930,7 +33946,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
   ]),
 ]),
 ("haddingr_move_party",mnf_scale_picture|mnf_enable_hot_keys,
-"Should'nt be reading this.",
+"Should'nt be reading this. Quest state: {reg10}.",
 "none", [
     (try_begin),# moving from landing to aesti village
       (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 14),
@@ -34141,6 +34157,8 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       (rest_for_hours, reg22, 17, 0),
       # (leave_encounter),
       (change_screen_map),
+    (else_try),
+      (quest_get_slot, reg10, "qst_haddingrs_revenge", slot_quest_current_state),
     (try_end),
   ],[
   ("option_1", [

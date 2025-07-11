@@ -27581,8 +27581,11 @@ I will use this to make amends to those you have wronged, and I will let it be k
 
 #only as suggestion
 [anyone|plyr,"lord_give_order", [
+	(gt, "$g_talk_troop_party", 0),
+	(party_is_active, "$g_talk_troop_party"),
     (party_slot_eq, "$g_talk_troop_party", slot_party_ai_state, spai_besieging_center),
      (party_get_slot, ":ai_object", "$g_talk_troop_party", slot_party_ai_object),
+	(is_between, ":ai_object", walled_centers_begin, walled_centers_end),
    (party_slot_eq, ":ai_object", slot_center_is_besieged_by, "$g_talk_troop_party"),
    (party_slot_eq, ":ai_object", slot_village_state, svs_under_siege),
    (str_store_party_name, s11, ":ai_object"),
@@ -27662,6 +27665,7 @@ I will use this to make amends to those you have wronged, and I will let it be k
 "Very well -- to the walls!", "close_window",
 [
  (party_get_slot, ":ai_object", "$g_talk_troop_party", slot_party_ai_object),
+(party_set_slot, "$g_talk_troop_party", slot_party_ai_substate, 0), #madsci bugfix
 (call_script, "script_begin_assault_on_center", ":ai_object"),
 
 (party_set_slot, "$g_talk_troop_party", slot_party_under_player_suggestion, spai_besieging_center),

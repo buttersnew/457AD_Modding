@@ -6775,6 +6775,7 @@ Still I am sorry that I'll leave you soon. You must promise me, you'll come visi
 ##patrol
 [anyone, "start",
 [
+(eq,"$talk_context", tc_party_encounter),
 (party_slot_eq, "$g_encountered_party", slot_party_type, spt_patrol),
 (party_slot_eq, "$g_encountered_party", dplmc_slot_party_mission_diplomacy, "trp_player"),
 (party_get_slot, ":target_party", "$g_encountered_party", slot_party_ai_object),

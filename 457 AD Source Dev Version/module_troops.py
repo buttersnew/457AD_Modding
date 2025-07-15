@@ -3137,7 +3137,7 @@ troops = [
   ["npc3","Valentina","Valentina",tf_female|tf_hero|tf_unmoveable_in_party_window, 0, reserved, fac_commoners,[itm_dress_7,itm_deurne_campagi_1,itm_dagger], #dagger
    str_6|agi_9|int_11|cha_8|level(1),wp(70),
    knows_trade_3|knows_inventory_management_3|knows_wound_treatment_1|knows_trade_2|knows_first_aid_3|knows_surgery_1|knows_athletics_3|knows_riding_3,
-   0x000000003f10500a2a5270931989b69c00000000001d53140000000000000000],
+   0x000000003f10500f3ec36db61b0db7e300000000001c36d80000000000000000],
   ["npc4","Amasten Ou Hiader","Amasten Ou Hiader",tf_hero|tf_unmoveable_in_party_window, 0, reserved,  fac_commoners,[itm_a_exomis_2,itm_roman_spear_1,itm_concave_shield_leather_small_1,itm_javelin], #javelins, spear
    str_12|agi_12|int_9|cha_10|level(10),wp_one_handed(120)|wp_two_handed(120)|wp_polearm(140)|wp_archery(80)|wp_crossbow(60)|wp_throwing(150)|wp_firearm(60),
    knows_ironflesh_4|knows_shield_1|knows_weapon_master_3|knows_power_strike_3|knows_power_throw_3|knows_athletics_4|knows_riding_4|knows_pathfinding_4|knows_tracking_4|knows_horse_archery_2, #tracking, horse/skirmish related skills
@@ -3206,7 +3206,7 @@ troops = [
   ["npc20","Ildico","Ildico",tf_female|tf_hero|tf_unmoveable_in_party_window, 0, reserved,  fac_commoners,[itm_germanic_dress_low_10,itm_germanic_f_cloak_4,itm_wrapping_boots], #warrior-like npc, fitting of her character in germanic legends
    str_15|agi_12|int_9|cha_9|level(12),wp_one_handed(140)|wp_two_handed(140)|wp_polearm(140)|wp_archery(120)|wp_crossbow(60)|wp_throwing(140)|wp_firearm(60),
    knows_weapon_master_4|knows_riding_4|knows_inventory_management_2|knows_ironflesh_5|knows_power_strike_5|knows_power_throw_3|knows_power_draw_2|knows_shield_3|knows_athletics_4|knows_wound_treatment_2, #34
-   0x000000000e004006484a70036989a49c00000000001d53520000000000000000],
+   0x000000000904400f0fc361b61c0db7e300000000001c36d80000000000000000 ],
   #new companions 12/30/22
   ["npc21","Biankhii","Biankhii",tf_hero|tf_unmoveable_in_party_window, 0, reserved,  fac_commoners,[itm_roman_spear_1,itm_long_bow,itm_roman_arrows_2,(itm_simple_shield_3,imod_battered),(itm_intercisa_helmet_2,imod_rusty),itm_a_exomis_1],
    str_14|agi_11|int_7|cha_8|level(9),wp_one_handed(110)|wp_two_handed(110)|wp_polearm(150)|wp_archery(150)|wp_crossbow(60)|wp_throwing(80)|wp_firearm(60),

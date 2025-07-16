@@ -56660,7 +56660,7 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
       (store_current_scene,":current_scene"),(eq,":current_scene","scn_christian_monastery"),
       ], "Glory to God! You should speak to our abbot.", "close_window",[]],
 
-  [anyone,"start", [(store_conversation_troop, "$g_talk_troop"),(neq, "$g_talk_troop", "trp_coptic_abbot"), #religious scene
+  [anyone,"start", [(store_conversation_troop, "$g_talk_troop"),(neq, "$g_talk_troop", "trp_nestorian_abbot"),(neq, "$g_talk_troop", "trp_coptic_abbot"), #religious scene
       (store_current_scene,":current_scene"),(eq,":current_scene","scn_christian_monastery_desert"),
       ], "Glory to God! You should speak to our abbot.", "close_window",[]],
 

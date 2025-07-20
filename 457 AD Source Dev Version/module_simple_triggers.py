@@ -7566,6 +7566,8 @@ simple_triggers = [
 (ge, ":reln", 0),
 (call_script, "script_diplomacy_start_war_between_kingdoms", "fac_kingdom_30", "fac_kingdom_8", 0), #restart the suebi civil war if it ends
 (try_end),
+
+      (assign, "$religious_donation", 0), #madsci reset this
     ]),
 
 (24 * 7,

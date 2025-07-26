@@ -19818,9 +19818,9 @@ Just remember that a {man/woman} needs friends in this world, and you'll never m
                (try_end),
                ],
 #TODO: change conversations according to relation.
-"{playername}, I've been expecting you. Word has reached my ears of your exploits.\
-Why, I keep hearing such tales of prowess and bravery that my mind was quickly made up.\
-I knew that I had found someone worthy of becoming my vassal.", "lord_invite_1",
+"{playername}, I've been expecting you. Word has reached my ears of your exploits. "+
+"Why, I keep hearing such tales of prowess and bravery that my mind was quickly made up. "+
+"I knew that I had found someone worthy of becoming my vassal.", "lord_invite_1",
 []],
 
 
@@ -19851,6 +19851,7 @@ I knew that I had found someone worthy of becoming my vassal.", "lord_invite_1",
           (troop_slot_eq, "$g_talk_troop", slot_troop_betrothed, -1),
           (call_script, "script_npc_decision_checklist_marry_female_pc", "$g_talk_troop"),
           (ge, reg0, 1),
+	(neq, "$freelancer_state", 1),
                ],
 #diplomacy start+ gender-correct language
 "My {lord/lady}, I have been giving much thought to our recent conversation. It is time for me to ask. Would you do me the honor of becoming my {husband/wife}?", "lord_female_pc_marriage_proposal",  [

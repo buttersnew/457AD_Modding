@@ -51414,12 +51414,12 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
   [trp_antiquarian|plyr, "antiquarian_merchant_intro_1", [],
    "What do you mean?", "antiquarian_merchant_intro_2", []],
   [trp_antiquarian, "antiquarian_merchant_intro_2", [],
-   "I am a merchant who greatly appreciates old goods. I thought coming here to Rome I'd find those interested in my goods, however it seems I am mistaken, as no one here cares for historical goods...", "antiquarian_merchant_intro_3", []],
+   "I am a merchant who greatly appreciates old goods. I thought coming here to Rome I'd find those interested in my goods, however it seems I am mistaken, as no one here cares for historical goods...", "antiquarian_merchant_talk_1", []],
 
-  [trp_antiquarian|plyr, "antiquarian_merchant_intro_3", [],
-   "I'll take a look...", "antiquarian_merchant_talk_shop_1", []],
-  [trp_antiquarian|plyr, "antiquarian_merchant_intro_3", [],
-   "Nevermind, good luck!", "close_window", []],
+  #[trp_antiquarian|plyr, "antiquarian_merchant_intro_3", [],
+  # "I'll take a look...", "antiquarian_merchant_talk_shop_1", []],
+  #[trp_antiquarian|plyr, "antiquarian_merchant_intro_3", [],
+  # "Nevermind, good luck!", "close_window", []],
 
   [trp_antiquarian, "start", [],
    "Hello there! Interested in some antique goods?", "antiquarian_merchant_talk_1", []],
@@ -51511,7 +51511,7 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
 
 
   [trp_antiquarian|plyr, "antiquarian_merchant_talk_1", [(check_quest_active, "qst_diocletian_quest"),
-  (this_or_next|quest_slot_eq, "qst_diocletian_quest", slot_quest_current_state, 2),
+  (this_or_next|quest_slot_eq, "qst_diocletian_quest", slot_quest_current_state, 1),
   (quest_slot_eq, "qst_diocletian_quest", slot_quest_current_state, 2),],
    "You wouldn't happen to have a statue of the emperor Maximian, would you?", "antiquarian_maximian_1", []],
   [trp_antiquarian|plyr, "antiquarian_merchant_talk_1", [],

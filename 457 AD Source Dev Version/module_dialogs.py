@@ -14174,6 +14174,7 @@ What kind of recruits do you want?", "dplmc_constable_recruit_select",
 (eq, ":no_join", 1),
 ##diplomacy start+ use reg0 for gender
 (call_script, "script_dplmc_store_troop_is_female", ":target_troop"),
+(str_store_troop_name, s14, ":target_troop"),
 ],#Next line "He" to {reg0?She:he}
 "Well, {s21}, at last I've found you. I have returned from my persuasion mission to {s30}. {s14} doesn't want to join you. {reg0?She:He} said: {s40}","companion_rejoin_response",
 ##diplomacy end+

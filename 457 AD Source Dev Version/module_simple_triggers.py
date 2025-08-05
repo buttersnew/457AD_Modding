@@ -9474,6 +9474,54 @@ simple_triggers = [
 (troop_set_slot, "trp_npc25", slot_troop_occupation, slto_kingdom_hero),
 (call_script, "script_change_troop_faction", "trp_npc25", "fac_outlaws"),
 (try_end),
+
+#end freelancer if lords faction is defeated
+(try_begin),
+(gt, "$freelancer_state", 0),
+(gt, "$enlisted_lord", 0),
+(store_troop_faction, ":lord_faction", "$enlisted_lord"),
+(faction_slot_eq, ":lord_faction", slot_faction_state, sfs_defeated),
+
+	(try_for_range, ":cur_faction", kingdoms_begin, kingdoms_end),
+	(neq, ":lord_faction", ":cur_faction"),
+      	(faction_slot_eq, ":cur_faction", slot_faction_state, sfs_active),
+      	(store_relation, ":player_relation", ":cur_faction", "fac_player_supporters_faction"),
+      	(lt, ":player_relation", 0),
+	(set_show_messages, 0), #madsci stop notification spam
+	(call_script, "script_set_player_relation_with_faction", ":cur_faction", 0),
+	(set_show_messages, 1),
+	(try_end),
+
+  	(faction_set_slot, ":lord_faction", slot_faction_freelancer_troop, 0),
+
+  	(try_begin),
+    	(this_or_next|eq, "$g_player_banner_granted", 1),
+    	(eq, "$background_type", cb_noble),
+    	(quest_get_slot, ":noble_banner", "qst_freelancer_enlisted", slot_quest_freelancer_banner_backup),
+    	(troop_set_slot, "trp_player", slot_troop_banner_scene_prop, ":noble_banner"),
+  	(else_try),
+    	(troop_set_slot, "trp_player", slot_troop_banner_scene_prop, 0),
+  	(try_end),
+
+    	(try_begin),
+	(eq, "$freelancer_state", 1),
+    	(call_script, "script_freelancer_detach_party"),
+  	(rest_for_hours, 0,0,0),
+  	(try_end),
+
+  	(assign, "$freelancer_state", 0),
+
+  	(set_show_messages, 0),
+  	(try_for_range, ":quest", freelancer_quests_begin, freelancer_quests_end),
+    	(check_quest_active, ":quest"),
+    	(call_script, "script_fail_quest", ":quest"),
+    	(call_script, "script_end_quest", ":quest"),
+  	(try_end),
+  	(set_show_messages, 1),
+  	(str_clear, s1),
+    	(add_troop_note_from_sreg, "trp_player", 3, s1),
+
+(try_end),
 ]),
 
 ]#end of file

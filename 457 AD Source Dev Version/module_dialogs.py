@@ -27290,7 +27290,7 @@ I will use this to make amends to those you have wronged, and I will let it be k
 #dialog_accept_leave
     [anyone,"lord_request_vacation", [#(ge, "$g_talk_troop_relation", 0)
      ],
-      "Very well {playername}. You shall take some time off from millitary duty. Return in two weeks.", "lord_pretalk",[
+      "Very well {playername}. You shall take some time off from military duty. Return in two weeks.", "lord_pretalk",[
     (call_script, "script_freelancer_event_player_vacation"),
    ]],
 

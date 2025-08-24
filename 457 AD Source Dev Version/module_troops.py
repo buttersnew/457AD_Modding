@@ -3602,7 +3602,7 @@ troops = [
 ["knight_34_1", "Veteslav Serversky", "Veteslav", tf_hero, 0, reserved,  fac_kingdom_34, [itm_simple_shoes, itm_sword_viking_3_small, itm_suvorovsky_helmet_mail, itm_common_mail_long_5_cloak, itm_tunic_rich_3_cloak, itm_tab_shield_small_round_c, itm_slav_heavy_forest_horse_4],     knight_attrib_5,wp(300),knight_skills_5|knows_trainer_2, 0x0000000a9d0830c4786caf5cb44dd31b00000000001db72d0000000000000000],
 
 # pl4tte mordvin lords
-["knight_35_1", "Kanakon Parovat", "Parovat", tf_hero, 0, reserved,  fac_kingdom_35, [itm_simple_shoes, itm_tetraxitae_spatha, itm_kerch_lamellenhelm_gilded, itm_common_mail_long_5_cloak, itm_tunic_10, itm_tab_shield_small_round_c, itm_sporoi_hun_horse_2],     knight_attrib_5,wp(300),knight_skills_5|knows_trainer_2, 0x0000000a9810118b1b117268a325a75b00000000001e76dc0000000000000000],
+["knight_35_1", "Kanakon Parovat", "Parovat", tf_hero, 0, reserved,  fac_kingdom_35, [itm_simple_shoes, itm_tetraxitae_spatha, itm_suvorovsky_helmet_mail, itm_common_mail_long_5_cloak, itm_tunic_10, itm_tab_shield_small_round_c, itm_sporoi_hun_horse_2],     knight_attrib_5,wp(300),knight_skills_5|knows_trainer_2, 0x0000000a9810118b1b117268a325a75b00000000001e76dc0000000000000000],
 ["knight_35_2", "Somajen Kockin", "Kockin", tf_hero, 0, reserved,  fac_kingdom_35,[itm_simple_shoes, itm_sword_viking_3_small, itm_tyum_helmet_2, itm_common_mail_short_7_cloak, itm_tunic_rich_5, itm_tab_shield_small_round_c, itm_sporoi_hun_horse_3],knight_attrib_5,wp(280),knight_skills_3,0x000000071800244c159b8cb493b6b91c00000000001cd6e40000000000000000],
 
 #MADSCI REBEL KINGDOM HEROES, THESE WILL BE DISABLED AT START
@@ -4720,6 +4720,11 @@ troops = [
   ["village_293_elder","Village_Elder", "{!}village_1_elder",tf_hero|tf_randomize_face|tf_is_merchant, 0,0, fac_commoners,[itm_robe, itm_wrapping_boots],def_attrib|level(2),wp(20),knows_inventory_management_10,                              man_face_1, man_face_2],
   ["village_294_elder","Village_Elder", "{!}village_1_elder",tf_hero|tf_randomize_face|tf_is_merchant, 0,0, fac_commoners,[itm_robe, itm_wrapping_boots],def_attrib|level(2),wp(20),knows_inventory_management_10,                              man_face_1, man_face_2],
   ["village_295_elder","Village_Elder", "{!}village_1_elder",tf_hero|tf_randomize_face|tf_is_merchant, 0,0, fac_commoners,[itm_robe, itm_wrapping_boots],def_attrib|level(2),wp(20),knows_inventory_management_10,                              man_face_1, man_face_2],
+  ["village_296_elder","Village_Elder", "{!}village_1_elder",tf_hero|tf_randomize_face|tf_is_merchant, 0,0, fac_commoners,[itm_robe, itm_wrapping_boots],def_attrib|level(2),wp(20),knows_inventory_management_10,                              man_face_1, man_face_2],
+  ["village_297_elder","Village_Elder", "{!}village_1_elder",tf_hero|tf_randomize_face|tf_is_merchant, 0,0, fac_commoners,[itm_robe, itm_wrapping_boots],def_attrib|level(2),wp(20),knows_inventory_management_10,                              man_face_1, man_face_2],
+  ["village_298_elder","Village_Elder", "{!}village_1_elder",tf_hero|tf_randomize_face|tf_is_merchant, 0,0, fac_commoners,[itm_robe, itm_wrapping_boots],def_attrib|level(2),wp(20),knows_inventory_management_10,                              man_face_1, man_face_2],
+  ["village_299_elder","Village_Elder", "{!}village_1_elder",tf_hero|tf_randomize_face|tf_is_merchant, 0,0, fac_commoners,[itm_robe, itm_wrapping_boots],def_attrib|level(2),wp(20),knows_inventory_management_10,                              man_face_1, man_face_2],
+  ["village_300_elder","Village_Elder", "{!}village_1_elder",tf_hero|tf_randomize_face|tf_is_merchant, 0,0, fac_commoners,[itm_robe, itm_wrapping_boots],def_attrib|level(2),wp(20),knows_inventory_management_10,                              man_face_1, man_face_2],
 
 
 # Place extra merchants before this point
@@ -4773,6 +4778,7 @@ troops = [
   ["town_45_master_craftsman", "{!}Town 45 Seneschal", "{!}Town 45 Seneschal", tf_hero|tf_is_merchant, 0,reserved,  fac_neutral,[ itm_leather_apron,      itm_wrapping_boots],     def_attrib|level(2),wp(20),knows_common, 0x000000001104449136e44cbd1c9352bc000000000005e8d10000000000000000],
   ["town_46_master_craftsman", "{!}Town 46 Seneschal", "{!}Town 46 Seneschal", tf_hero|tf_is_merchant, 0,reserved,  fac_neutral,[ itm_leather_apron,      itm_wrapping_boots],     def_attrib|level(2),wp(20),knows_common, 0x000000001104449136e44cbd1c9352bc000000000005e8d10000000000000000],
   ["town_47_master_craftsman", "{!}Town 46 Seneschal", "{!}Town 46 Seneschal", tf_hero|tf_is_merchant, 0,reserved,  fac_neutral,[ itm_leather_apron,      itm_wrapping_boots],     def_attrib|level(2),wp(20),knows_common, 0x000000001104449136e44cbd1c9352bc000000000005e8d10000000000000000],
+  ["town_48_master_craftsman", "{!}Town 46 Seneschal", "{!}Town 46 Seneschal", tf_hero|tf_is_merchant, 0,reserved,  fac_neutral,[ itm_leather_apron,      itm_wrapping_boots],     def_attrib|level(2),wp(20),knows_common, 0x000000001104449136e44cbd1c9352bc000000000005e8d10000000000000000],
 
 # Chests
   ["zendar_chest","{!}Zendar Chest","{!}Zendar Chest",tf_hero|tf_inactive, 0,reserved,  fac_neutral,

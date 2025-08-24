@@ -548,21 +548,24 @@ parties = [
   ("village_286", "Pagus Stavanorum", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-23.57, 151.19), [], 55),
   ("village_287", "Walka", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-36.60, 183.5), [], 55),
   # polish settlements 24/03/25
-  ("village_288", "Viritium", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-97.0, 126.4), [], 55),
-  ("village_289", "Scurgum", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-102.15, 147.08), [], 55),
+  ("village_288", "Viritium", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-97.0, 126.4), [], 60),
+  ("village_289", "Scurgum", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-102.15, 147.08), [], 51),
   ("village_290", "Rugium", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-100.0, 138.9), [], 55),
   #("village_291", "Leucaristus", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-56.7, 120.7), [], 55),
-  ("village_291", "Naharvalorum Lucus", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-75.8, 131.0), [], 55),
+  ("village_291", "Naharvalorum Lucus", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-75.8, 131.0), [], 52),
   #some now used for North Africa
-  ("village_292", "Mesarfelta", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-184.21, -50.74), [], 55),
+  ("village_292", "Mesarfelta", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-184.21, -50.74), [], 49),
   ("village_293", "Thamugadi", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-174.29, -48.2), [], 40),
   ("village_294", "Carrodunum", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-77.2, 138.7), [], 55),
   ("village_295", "Izra", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (99, -43), [], 55),
   # mordvin villages
   ("village_296", "Letke", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (21.66, 151.54), [], 55),
   ("village_297", "Morgo", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (7.60, 155.78), [], 40),
-  # indie meshera village
-  ("village_298", "Naraj", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (76.29, 169.60), [], 55),
+  # indie mordvin village
+  ("village_298", "Naraj", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (76.29, 169.60), [], 39),
+  ("village_299", "Metsä", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (20.51, 177.00), [], 43),
+  ("village_300", "Kuzo", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (51.33, 195.36), [], 41),
+
 
   # == SPECIAL LOCATIONS ==
   ("salt_mine","Salt_Mine",icon_village_a|pf_disabled|pf_is_static|pf_always_visible|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(14.2, -31),[]), 

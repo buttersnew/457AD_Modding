@@ -19158,7 +19158,7 @@ presentations = [
               (eq, ":troop", "trp_daylamite_hillman"),
               (assign, ":c", 1),
             (else_try), #AOR morden
-              (eq, "$current_town", "p_castle_108"),
+              (eq, "$current_town", "p_town_48"),
               (this_or_next|eq, ":troop", "trp_mordvin_footman"),
               (eq, ":troop", "trp_mordvin_skirmisher"),
               (assign, ":c", 1),
@@ -19756,7 +19756,7 @@ presentations = [
               (eq, ":troop", "trp_african_mercenary"),
               (assign, ":c", 1),
             (else_try), #mordens
-              (eq, "$current_town", "p_morden_village"),
+              (eq, "$current_town", "p_town_48"),
               (eq, ":troop", "trp_komi_warrior"),
               (assign, ":c", 1),
             (else_try), #bosphorans
@@ -20068,12 +20068,6 @@ presentations = [
                 (this_or_next|eq, ":troop", "trp_scandinavian_freeman"),
                 (this_or_next|eq, ":troop", "trp_scandinavian_retainer"),
                 (eq, ":troop", "trp_scandinavian_comes"),
-                (assign, ":c", 1),
-              (else_try), #mordens
-                (eq, "$g_encountered_party", "p_morden_village"),
-                (this_or_next|eq, ":troop", "trp_mordvin_skirmisher"),
-                (this_or_next|eq, ":troop", "trp_mordvin_footman"),
-                (eq, ":troop", "trp_mordvin_mounted_skirmisher"),
                 (assign, ":c", 1),
               (else_try), #slavs
                 (eq, "$g_encountered_party", "p_village_274"),

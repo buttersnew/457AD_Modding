@@ -2837,6 +2837,7 @@ strings = [
   ("kingdom_32_adjective",                     "Irish"),
   ("kingdom_33_adjective",                     "Sporoi"),
   ("kingdom_34_adjective",                     "Venedi"),
+  ("kingdom_35_adjective",                     "Mordvin"),
 
   ("credits_1", "Mount&Blade: Warband Copyright 2008-2015 Taleworlds Entertainment"),
   ("credits_2", "Game design:^Armagan Yavuz^Steve Negus^Cem Cimenbicer"),
@@ -3586,6 +3587,7 @@ We apologize sincerely if you contributed your suggestions and feedback but were
   ("irish", "Irish"),
   ("sporoi", "Sporoi"),
   ("venedi", "Venedi"),
+  ("mordvin", "Mordvin"),
 
   ("we_have_heard_that_travellers_heading_to_s40_were_attacked_on_the_road_s46_by_s39", "We have heard that travellers heading to {s40} were attacked on the road {s46} by {s39}"),
   ("s43_s44", "{!}{s43}^{s44}"),

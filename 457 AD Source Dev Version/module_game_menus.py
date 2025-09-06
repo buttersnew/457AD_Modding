@@ -28377,7 +28377,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       (set_background_mesh, "mesh_pic_victory"),
 
       (try_begin), #given to the player if they defeat the mordens for the first time
-        (eq, "$g_encountered_party", "p_morden_village"),
+        (eq, "$g_encountered_party", "p_town_48"),
         (eq, "$borok_spatha", 0),
         (troop_add_item, "trp_player", "itm_borok_spatha",0),
         (assign, "$borok_spatha", 1),

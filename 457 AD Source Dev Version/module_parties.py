@@ -113,6 +113,7 @@ parties = [
   ("town_45", "Dvin", icon_town_desert|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(138.91, 40.46),[], 45),
   ("town_46", "Thabudeos", icon_town|pf_town, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-178.39, -52.41), [], 170),
   ("town_47", "Niossum", icon_town_snow|pf_town, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (3.06, 121.46), [], 170),
+  ("town_48", "Mustakoj", icon_town_snow|pf_town, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (38.22, 182.94), [], 170),
      
   ("castle_1", "Batavis", icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-110.59, 91.01), [], 50),
   ("castle_2", "Venta_Silurum", icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-227.58, 128.32), [], 83), 
@@ -228,13 +229,20 @@ parties = [
   ("castle_105", "Praesidium Antium",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-13.0, 95.0),[],75),
   ("castle_106", "Petrodava",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-29.00, 98.75),[],75), # indigenae
   ("castle_107", "Droguva",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-35.48, 143.99),[],75),
-  ("castle_108", "Mustajoki",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(38.22, 182.94),[],75),
+  # ("castle_108", "Mustajoki",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(38.22, 182.94),[],75),
   # new castles 24/03/25
   ("castle_109", "Castrum Semnonum",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-94.1, 136.0),[],75),
   ("castle_110", "Castrum Helveconum",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-59.72, 111.7),[],75),
 
   ("castle_111", "Dunepru",icon_castle_b|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-11.46, 154.72),[],75),
   ("castle_112", "Jabiya", icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (93.4, -42), [], 170),
+
+  # new castles 25/08/07: Mordvin
+  ("castle_113", "Vele", icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (44.00, 159.84), [], 170),
+  ("castle_114", "Sanf", icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (44.73, 141.13), [], 170),
+
+  # new castles: 25/08/13: Meshera indie
+  ("castle_115", "Potmo", icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (61.94, 155.91), [], 170),
 
   # == VILLAGES == 
   ("village_1", "Olisipo", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-292.93, 5.89), [], 100),
@@ -540,18 +548,24 @@ parties = [
   ("village_286", "Pagus Stavanorum", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-23.57, 151.19), [], 55),
   ("village_287", "Walka", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-36.60, 183.5), [], 55),
   # polish settlements 24/03/25
-  ("village_288", "Viritium", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-97.0, 126.4), [], 55),
-  ("village_289", "Scurgum", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-102.15, 147.08), [], 55),
+  ("village_288", "Viritium", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-97.0, 126.4), [], 60),
+  ("village_289", "Scurgum", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-102.15, 147.08), [], 51),
   ("village_290", "Rugium", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-100.0, 138.9), [], 55),
   #("village_291", "Leucaristus", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-56.7, 120.7), [], 55),
-  ("village_291", "Naharvalorum Lucus", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-75.8, 131.0), [], 55),
+  ("village_291", "Naharvalorum Lucus", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-75.8, 131.0), [], 52),
   #some now used for North Africa
-  ("village_292", "Mesarfelta", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-184.21, -50.74), [], 55),
-
-  ("village_293", "Thamugadi", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-174.29, -48.2), [], 55),
-  
+  ("village_292", "Mesarfelta", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-184.21, -50.74), [], 49),
+  ("village_293", "Thamugadi", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-174.29, -48.2), [], 40),
   ("village_294", "Carrodunum", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-77.2, 138.7), [], 55),
   ("village_295", "Izra", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (99, -43), [], 55),
+  # mordvin villages
+  ("village_296", "Letke", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (21.66, 151.54), [], 55),
+  ("village_297", "Morgo", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (7.60, 155.78), [], 40),
+  # indie mordvin village
+  ("village_298", "Naraj", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (76.29, 169.60), [], 39),
+  ("village_299", "Metsä", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (20.51, 177.00), [], 43),
+  ("village_300", "Kuzo", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (51.33, 195.36), [], 41),
+
 
   # == SPECIAL LOCATIONS ==
   ("salt_mine","Salt_Mine",icon_village_a|pf_disabled|pf_is_static|pf_always_visible|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(14.2, -31),[]), 
@@ -778,7 +792,6 @@ parties = [
   ("aestii_village", "Fort_of_the_Bull", icon_castle_b|pf_minor_town, no_menu, pt_none, fac_minor_aestii, 0, ai_bhvr_hold, 0, (-43, 171), []),
   ("garamantian_village_1", "Garama", icon_village_c|pf_minor_town, no_menu, pt_none, fac_minor_garamantians, 0, ai_bhvr_hold, 0, (-80, -136), []),
   ("dani_village", "Heorot", icon_village_a|pf_minor_town, no_menu, pt_none, fac_minor_dani, 0, ai_bhvr_hold, 0, (-126.88, 167.08), []),
-  ("morden_village", "Terekh's_Hall", icon_castle_b|pf_minor_town, no_menu, pt_none, fac_minor_mordens, 0, ai_bhvr_hold, 0, (36.85, 160.96), []),
   ("bosphoran_village", "Panticapaeum", icon_castle_a|pf_minor_town, no_menu, pt_none, fac_minor_bosphoran, 0, ai_bhvr_hold, 0, (54.96, 84.42), []),
   ("abagasian_village", "Anakopia", icon_castle_a|pf_minor_town, no_menu, pt_none, fac_minor_abagasians, 0, ai_bhvr_hold, 0, (85.78,73.74), []),
   ("tauri_village", "Vicus_Taurorum", icon_village_a|pf_minor_town, no_menu, pt_none, fac_minor_tauri, 0, ai_bhvr_hold, 0, (45.09, 77.36), []),
@@ -787,7 +800,6 @@ parties = [
   ("frisian_village", "Finn's Hall", icon_village_a|pf_minor_town, no_menu, pt_none, fac_minor_frisians, 0, ai_bhvr_hold, 0, (-174.68, 135.89), []),
   ("vascones_village", "Flaviobriga", icon_castle_a|pf_minor_town, no_menu, pt_none, fac_minor_vascones, 0, ai_bhvr_hold, 0, (-243.57, 43.55), []),
   ("gallaeci_village", "Lucus_Augusti", icon_castle_a|pf_minor_town, no_menu, pt_none, fac_minor_gallaeci, 0, ai_bhvr_hold, 0, (-267.49,42.04), []),
-  #("venedi_outpost", "Dunepru", icon_castle_b|pf_minor_town, no_menu, pt_none, fac_kingdom_34, 0, ai_bhvr_hold, 0, (-11.46, 154.72), []), # for quest -51.7, 146.2
   ("onoguroi_village", "Campus Onogurorum", icon_nomad_camp|pf_minor_town, no_menu, pt_none, fac_minor_onoguroi, escorted_merchant_personality, ai_bhvr_hold, 0, (111.7, 126.6), []), #first moving nomad camp
   ("saraguroi_village", "Campus Saragurorum", icon_nomad_camp|pf_minor_town, no_menu, pt_none, fac_minor_saraguroi, escorted_merchant_personality, ai_bhvr_hold, 0, (98.2, 154.34), []),
   ("kutriguroi_village", "Campus Kutrigurorum", icon_nomad_camp|pf_minor_town, no_menu, pt_none, fac_minor_kutriguroi, escorted_merchant_personality, ai_bhvr_hold, 0, (55.04, 132.01), []),

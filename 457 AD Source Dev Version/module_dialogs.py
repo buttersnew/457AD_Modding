@@ -30854,10 +30854,10 @@ I will use this to make amends to those you have wronged, and I will let it be k
     (val_mul, reg6,reg6),
     (val_mul, reg6, 1000),
     (gt, reg6,0)], #note that we abuse the value of reg6 in the next line.
-"I would be glad to fight at your side, my friend, but there is a problem...\
-The thing is, I've found myself in a bit of debt that I must repay very soon. {reg6} siliquae altogether,\
-and I am honour-bound to return every coin. Unless you've got {reg6} siliquae with you that you can spare,\
-I've to keep my mind on getting this weight off my neck.", "knight_offer_join_2",[]],
+"I would be glad to fight at your side, my friend, but there is a problem... "+
+"The thing is, I've found myself in a bit of debt that I must repay very soon. {reg6} siliquae altogether, "+
+"and I am honour-bound to return every coin. Unless you've got {reg6} siliquae with you that you can spare, "+
+"I've to keep my mind on getting this weight off my neck.", "knight_offer_join_2",[]],
 [anyone ,"knight_offer_join", [(gt,reg6, 100000)], "Join you? I think not.", "close_window",[]],
 [anyone ,"knight_offer_join", [], "Aye, my friend, I'll be happy to join you.", "knight_offer_join_2",[]],
 
@@ -51225,12 +51225,15 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
 
   [trp_silingi_chief|plyr, "silingi_chief_1", [(check_quest_active,"qst_silingi_quest"),(quest_slot_eq,"qst_silingi_quest",slot_quest_current_state, 3)],
    "I have defeated the Venedi, your people are now free.", "silingi_chief_2", []],
+
   [trp_silingi_chief, "silingi_chief_2", [],
-   "Very good. I have already been preparing my people for their great migration since you left. However, there is one problem.", "silingi_chief_3", []],
-  [trp_silingi_chief, "silingi_chief_2", [],
+   "Very good. I have already been preparing my people for their great migration since you left. However, there is one problem.", "silingi_chief_2b", []],
+
+  [trp_silingi_chief, "silingi_chief_2b", [],
    "Much of what the Venedi would raid from us, for tribute was our supply of food. We have enough to survive, for now, however we do not have enough stockpiled for our journey. If you would be so kind, could you bring us 8 sacks of grain?", "silingi_chief_3", []],
+
   [trp_silingi_chief|plyr, "silingi_chief_3", [],
-   "I will return with the grain.", "silingi_chief_1", [
+   "I will return with the grain.", "close_window", [
   (quest_set_slot,"qst_silingi_quest", slot_quest_current_state, 4),
    ]],
 

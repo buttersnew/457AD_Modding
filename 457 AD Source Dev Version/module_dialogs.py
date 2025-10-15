@@ -19703,9 +19703,9 @@ Such oaths to a usurper are of course invalid, and we can expect some of the {s0
 ##diplomacy start+ replace "man" with "{reg0?woman:man}" and "him" with "{reg0?her:him}"
 (call_script, "script_dplmc_store_troop_is_female_reg", ":other_lord", 4), #SB : reg4, not reg0
                ],
-"I heard that you have befriended that {s43} called {s6}.\
- Believe me, you can't trust that {reg4?woman:man}.\
- You should end your dealings with {reg4?her:him}.", "lord_event_choose_friend", [
+"I heard that you have befriended that {s43} called {s6}. "+
+ "Believe me, you can't trust that {reg4?woman:man}. "+
+ "You should end your dealings with {reg4?her:him}.", "lord_event_choose_friend", [
 ##diplomacy end+
 (call_script, "script_lord_comment_to_s43", "$g_talk_troop", "str_lord_insult_default"),
 
@@ -19716,8 +19716,8 @@ Such oaths to a usurper are of course invalid, and we can expect some of the {s0
 (call_script, "script_change_player_relation_with_troop","$temp",-10),
 ]],
 
-[anyone ,"lord_event_choose_friend_renounce", [],  "Glad news, {playername}. I would fear for your safety otherwise.\
-If you do encounter {s6}, be on your guard and don't believe a word.", "lord_pretalk", []],
+[anyone ,"lord_event_choose_friend_renounce", [],  "Glad news, {playername}. I would fear for your safety otherwise. "+
+"If you do encounter {s6}, be on your guard and don't believe a word.", "lord_pretalk", []],
 
 [anyone|plyr ,"lord_event_choose_friend", [
 ##diplomacy start+ replace "man" with "{reg0?woman:man}" and "him" with "{reg0?her:him}"
@@ -19727,8 +19727,8 @@ If you do encounter {s6}, be on your guard and don't believe a word.", "lord_pre
 (call_script, "script_change_player_relation_with_troop","$g_talk_troop",-10),
 (call_script, "script_change_player_relation_with_troop","$temp",5),
 ]],
-[anyone ,"lord_event_choose_friend_defend", [],  "As you like, {playername}.\
-A fool you might be, but a loyal fool at the least. {s6}'s loyalty may not be so steadfast, however...", "lord_pretalk", []],
+[anyone ,"lord_event_choose_friend_defend", [],  "As you like, {playername}. "+
+"A fool you might be, but a loyal fool at the least. {s6}'s loyalty may not be so steadfast, however...", "lord_pretalk", []],
 #Post 0907 changes end
 
 [anyone|plyr ,"lord_event_choose_friend", [],  "I don't want to be involved in your quarrel with {s6}.", "lord_event_choose_friend_neutral", [
@@ -19736,8 +19736,12 @@ A fool you might be, but a loyal fool at the least. {s6}'s loyalty may not be so
 (call_script, "script_change_player_relation_with_troop","$temp",-3),
 ]],
 
-[anyone ,"lord_event_choose_friend_neutral", [],  "Hmph. As you wish, {playername}.\
-Just remember that a {man/woman} needs friends in this world, and you'll never make any if you never stand with anyone.", "lord_pretalk", []],
+[anyone ,"lord_event_choose_friend_neutral", [],  "Hmph. As you wish, {playername}. "+
+"Just remember that a {man/woman} needs friends in this world, and you'll never make any if you never stand with anyone.", "lord_pretalk", []],
+
+  #intro dialogue for the morden king
+  [trp_kingdom_35_lord, "start", [(eq, "$g_talk_troop_met", 0),(neg|encountered_party_is_attacker)],
+   "Ohhoi aavasaksa, What wanders into our humble abode? If be you a rich wanderer then beware for you have walked into the arms of the Morden, who have bloodied their swords in northern tundras, bringing waste to the southern plains. Even the Venedae fear our bows. The steel of Mordens has subjected the Lapi as well. Sano ja puhu! Who are you, {man/woman} of sotisopa.", "morden_king_intro_1", []],
 
 #Meeting.
 [anyone ,"start", [(troop_slot_eq, "$g_talk_troop",slot_troop_occupation, slto_kingdom_hero),
@@ -19773,7 +19777,7 @@ Just remember that a {man/woman} needs friends in this world, and you'll never m
 	(try_end),
 	(eq, ":stop", 0),
     ],
-"It is good to see you, old friend", "lord_start",
+"It is good to see you, old friend.", "lord_start",
 []],
 
 [anyone ,"start", [
@@ -55817,9 +55821,6 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
   [trp_dani_king|plyr, "danish_king_intro_5", [],
    "I wish you luck in your war and may your Gods assist you, Gramr son of Skjoldr.", "minor_faction_king_pretalk", [(call_script, "script_change_player_relation_with_troop", "trp_dani_king",5),]],
 
-  #intro dialogue for the morden king
-  [trp_kingdom_35_lord, "start", [(eq, "$g_talk_troop_met", 0),],
-   "Ohhoi aavasaksa, What wanders into our humble abode? If be you a rich wanderer then beware for you have walked into the arms of the Morden, who have bloodied their swords in northern tundras, bringing waste to the southern plains. Even the Venedae fear our bows. The steel of Mordens has subjected the Lapi as well. Sano ja puhu! Who are you, {man/woman} of sotisopa.", "morden_king_intro_1", []],
   [trp_kingdom_35_lord|plyr, "morden_king_intro_1", [],
    "Fair weather and prosperity to you son of the river, horselord grim. I am {playername}. Safe passage and peace is my desire, no ill or harm for you or your kin I bring. I have travelled the lands from where the sun rises and seen the forested lands of the Finnoi. Cold vistas I have seen, colder men I have met still, yet you I do not know, pray tell me with whom I am speaking?", "morden_king_intro_2", []],
   [trp_kingdom_35_lord, "morden_king_intro_2", [],
@@ -55831,7 +55832,7 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
   [trp_kingdom_35_lord|plyr, "morden_king_intro_5", [],
    "I understand your plight, you have suffered under the rule of stronger, yet now you bring pain to those who are lesser than you, why not try to live in peace, settle down, hang up your sword?", "morden_king_intro_6", []],
   [trp_kingdom_35_lord, "morden_king_intro_6", [],
-   "You watch your tongue, läntiläinen! In this age the strong prosper and prevail, the weak crumble. Our lifestyle is simple and it is how we like it, We praise Mastorava and our ancestors who guard our way, we crave not an ornate palace or an easy life of a farmer. The wind in our hair when we ride, the fallen enemy at your feet, loot taken after a raid, the deer shot and prepared by hot fire, a beautiful woman to take care of your house, these are what make life worth living!", "minor_faction_king_pretalk", []],
+   "You watch your tongue, läntiläinen! In this age the strong prosper and prevail, the weak crumble. Our lifestyle is simple and it is how we like it, We praise Mastorava and our ancestors who guard our way, we crave not an ornate palace or an easy life of a farmer. The wind in our hair when we ride, the fallen enemy at your feet, loot taken after a raid, the deer shot and prepared by hot fire, a beautiful woman to take care of your house, these are what make life worth living!", "lord_pretalk", []],
 
   #intro dialogue for the sporoi king
   [trp_kingdom_33_lord, "start", [(eq, "$g_talk_troop_met", 0),],

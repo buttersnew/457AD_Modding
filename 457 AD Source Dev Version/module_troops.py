@@ -3323,7 +3323,7 @@ troops = [
 
   ["kingdom_34_lord","Voldimer","Voldimer",tf_hero, no_scene, reserved, fac_kingdom_34,[itm_simple_shoes,itm_tunic_13_cloak,itm_kaftan_lamellar_10,itm_suvorovsky_helmet_mail,itm_kruglitsa_spatha],knight_attrib_5,wp_one_handed(300)|wp_two_handed(250)|wp_polearm(300)|wp_archery(100)|wp_crossbow(100)|wp_throwing(280)|wp_firearm(100),knight_skills_6|knows_trainer_5,0x0000000c2200450b1b5569484b2d26db00000000001db4900000000000000000],
 
-  ["kingdom_35_lord","Terekh","Terekh",tf_hero, no_scene, reserved, fac_kingdom_35,[itm_simple_shoes,itm_common_mail_long_6_cloak,itm_tsaritsyno_1_veiled,itm_borok_spatha,itm_niya_bow_2,itm_khergit_arrows],def_attrib_lvl_32|level(32),wp_one_handed(300)|wp_two_handed(300)|wp_polearm(300)|wp_throwing(280)|wp_archery(160)|wp_crossbow(130)|wp_firearm(130),knows_ironflesh_10|knows_power_strike_8|knows_shield_6|knows_athletics_6|knows_riding_5,0x00000009210043cb32548dd91a4db4c900000000001db4e40000000000000000],
+  ["kingdom_35_lord","Terekh","Terekh",tf_hero, no_scene, reserved, fac_kingdom_35,[itm_niseansas_cata_4,itm_simple_shoes,itm_common_mail_long_6_cloak,itm_tsaritsyno_1_veiled,itm_borok_spatha,itm_niya_bow_2,itm_khergit_arrows],knight_attrib_5,wp_one_handed(300)|wp_two_handed(250)|wp_polearm(300)|wp_archery(100)|wp_crossbow(100)|wp_throwing(280)|wp_firearm(100),knight_skills_6|knows_trainer_5,0x00000009210043cb32548dd91a4db4c900000000001db4e40000000000000000],
 
 #                                                                               Horse                   Bodywear                Armor                               Footwear_in                 Footwear_out                        Headwear                    Weapon               Shield
 

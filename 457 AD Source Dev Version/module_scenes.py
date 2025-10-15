@@ -1260,7 +1260,7 @@ scenes = [
 #0x30054da28004050000005a76800022aa00002e3b
 #Castles:
   ("castle_1_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000300005630007d1f800006aba0000574f00001099", #comagena
-    [],[],"outer_terrain_forest"),
+    [],[],"TLD_outer_terrain_river_east"),
 
   ("castle_2_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000023007a3b20005795e0000706d0000381800000bbc", #bry briton hillfort
     [],[],"outer_terrain_plain"),
@@ -1291,54 +1291,101 @@ scenes = [
     [],[],"outer_terrain_plain"),
 
   #castle 34 variants - base scene by ettenrocal, improved by InVain
+  #high tower variants
   ("castle_34_exterior_gate",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000330000500000d234800003d64000017f800003012", 
-    [],[],"outer_terrain_plain"),
+    [],[],"outer_terrain_plain"), #unused
   ("castle_34_exterior_ladder",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000330000500000d234800003d64000017f800003012", 
-    [],[],"outer_terrain_plain"),
+    [],[],"outer_terrain_plain"),  #Brigetio
 
   ("castle_34_exterior_var1_ladder_medi",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000330000500000d234800003d64000017f800003012", 
-    [],[],"outer_terrain_plain"),
+    [],[],"sea_outer_terrain_3"), #seaside west, Pollentia
   ("castle_34_exterior_var1_ladders",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000330000500000d234800003d64000017f800003012", 
-    [],[],"outer_terrain_plain"),
+    [],[],"outer_terrain_plain"), #unused
 
-  ("castle_34_exterior_var2_gate",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000330000500000d234800003d64000017f800003012", 
-    [],[],"outer_terrain_plain"),
+  ("castle_34_exterior_var2_gate",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000003a0000500000d234800003d64000017f800003012", 
+    [],[],"outer_terrain_castle_9"), #Theodosiopolis = Erzurum
   ("castle_34_exterior_var2_gate_town",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000330000500000d234800003d64000017f800003012", 
-    [],[],"outer_terrain_plain"),
+    [],[],"outer_terrain_plain"), #Avaricum
 
+  #low tower variants from here
   ("castle_34_exterior_var3_2gates",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000330000500000d234800003d64000017f800003012", 
-    [],[],"outer_terrain_plain"),
+    [],[],"outer_terrain_plain"), #brigetio
 
+    #ladder attack from the side
   ("castle_34_exterior_var4_ladders",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000330000500000d234800003d64000017f800003012", 
-    [],[],"outer_terrain_plain"),
-  ("castle_34_exterior_var4_ladders_desert",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000330000500000d234800003d64000017f800003012", 
-    [],[],"outer_terrain_desert"),
-  ("castle_34_exterior_var4_ladders_medi",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000330000500000d234800003d64000017f800003012", 
-    [],[],"outer_terrain_plain"),
-  ("castle_34_exterior_var4_ladders_medi_city",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000330000500000d234800003d64000017f800003012", 
-    [],[],"outer_terrain_plain"),
+    [],[],"outer_terrain_castle_9"), #unused
+  ("castle_34_exterior_var4_ladders_desert",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000350000500000d234800003d64000017f800003012", 
+    [],[],"outer_terrain_desert"), #Castellum_Dimmidi
+  ("castle_34_exterior_var4_ladders_medi",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000330000500000d23480000365e000017f800003012", 
+    [],[],"outer_terrain_plain"), #unused
   ("castle_34_exterior_var4_ladders_medi_town",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000330000500000d234800003d64000017f800003012", 
-    [],[],"outer_terrain_plain"),
+    [],[],"outer_terrain_plain"), #unused
+  ("castle_34_exterior_var4_ladders_medi_city",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000330000500000d234800003d64000017f800003012", 
+    [],[],"outer_terrain_plain"), #unused
 
   ("castle_34_exterior_var5_gate",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000330000500000d234800003d64000017f800003012", 
-    [],[],"outer_terrain_plain"),
+    [],[],"outer_terrain_plain"), #unused
   ("castle_34_exterior_var5_gate_medi",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000330000500000d234800003d64000017f800003012", 
-    [],[],"outer_terrain_plain"),
-  ("castle_34_exterior_var5_gate_medi_city_harbour",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000330000500000d234800003d64000017f800003012",
+    [],[],"outer_terrain_castle_9"), #Dariunk, Armenia
+  ("castle_34_exterior_var5_gate_medi_city_harbour",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000003a0000500000d234800003d64000017f800003012",
     [],[],"outer_terrain_beach"),
   ("castle_34_exterior_var5_gate_medi_town",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000330000500000d234800003d64000017f800003012",
-    [],[],"outer_terrain_plain"),
+    [],[],"outer_terrain_plain"), #Scallabis
   ("castle_34_exterior_var5_gate_medi_town_harbour",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000330000500000d234800003d64000017f800003012", 
     [],[],"outer_terrain_beach"),
   ("castle_34_exterior_var5_gate_medi_town_seaside",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000330000500000d234800003d64000017f800003012",
     [],[],"outer_terrain_beach"),
+  ("castle_34_exterior_var5_gate_desert_town",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000350000500000d234800003d64000017f800003012", 
+    [],[],"outer_terrain_desert"), #Emesa
+  ("castle_34_exterior_var5_gate_desert",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000350000500000d234800003d64000017f800003012", 
+    [],[],"outer_terrain_desert"), #unused
+
+
+  ("castle_34_exterior_var6_ladders_barbarian",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000330000500000d234800003d64000017f800003012", 
+    [],[],"outer_terrain_plain"), #Civitas_Riedonum
+  ("castle_34_exterior_var6_ladders_barbarian_village",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000330000500000d234800003d64000017f800003012", 
+    [],[],"outer_terrain_plain"), #Petuaria
+  ("castle_34_exterior_var7_ladders_ruined_barbarian",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000330000500000d234800003d64000017f800003012", 
+    [],[],"outer_terrain_plain"), #Savaria
+  ("castle_34_exterior_var7_ladders_ruined_barbarian_village",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000330000500000d234800003d64000017f800003012", 
+    [],[],"outer_terrain_plain"), #Bagacum; Segontium
+  ("castle_34_exterior_var8_gate_barbarian",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000003a0000500000d234800003d64000017f800003012", 
+    [],[],"outer_terrain_beach_rotated"), #olbia
+  ("castle_34_exterior_var8_gate_barbarian_village",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000330000500000d234800003d64000017f800003012", 
+    [],[],"outer_terrain_plain"), #Colonia_Ulpia_Traiana
 
   ("castle_34_interior",sf_indoors, "interior_castle_j", "bo_interior_castle_j", (-100,-100),(100,100),-100,"0",
     ["exit"],[]),
   ("castle_34_prison",sf_indoors,"interior_prison_i", "bo_interior_prison_i", (-100,-100),(100,100),-100,"0",
     [],[]),
-  ("castle_40_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000050000500400370e000002236000043df0000369c", #roman desert castle by me (sorta shitty)
-    [],[],"outer_terrain_desert"),
+  ("castle_40_exterior_var1_gate",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000030000500000370e000002236000043df0000369c", #roman desert castle by me (sorta shitty) #InVain: not shitty it all, use as a generic fort instead
+    [],[],"outer_terrain_plain"), #unused
+    #InVain: Variants
+  ("castle_40_exterior_var1_ladders",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000030000500000370e000002236000043df0000369c", 
+    [],[],"outer_terrain_plain"), #unused
+  ("castle_40_exterior_var2_gate_medi_town_harbour",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000030000500000370e000002236000043df0000369c", 
+    [],[],"outer_terrain_beach_med"), #Icosium, Kydonia
+  ("castle_40_exterior_var2_gate_village",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000030000500000370e000002236000043df0000369c", 
+    [],[],"outer_terrain_plain"), #Castra_Regina
+  ("castle_40_exterior_var2_gate_village_medi",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000030000500000370e000002236000043df0000369c", 
+    [],[],"outer_terrain_plain"), #Scupi
+  ("castle_40_exterior_var3_ladders",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000030000500000370e000002236000043df0000369c", 
+    [],[],"outer_terrain_plain"), #unused
+  ("castle_40_exterior_var3_ladders_sinope",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000a0000500000370e000002236000043df0000369c", 
+    [],[],"sea_outer_terrain_2"), #Sinope
+  ("castle_40_exterior_var3_ladders_village_medi",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000a0000500000370e000002236000043df0000369c", 
+    [],[],"outer_terrain_plain"), #unused
+  ("castle_40_exterior_var4_ladders",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000030000500000370e000002236000043df0000369c", 
+    [],[],"outer_terrain_plain"), #unused
+  ("castle_40_exterior_var5_ladders_town",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000030000500000370e000002236000043df0000369c", 
+    [],[],"outer_terrain_plain"), #Genava, Augusta_Treverorum
+  ("castle_40_exterior_var5_ladders_town_medi",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000a0000500000370e000002236000043df0000369c", 
+    [],[],"outer_terrain_plain"), #Siscia, Nicaea
+  ("castle_40_exterior_var6_gate_town_medi",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000030000500000370e000002236000043df0000369c", 
+    [],[],"outer_terrain_desert"), #Edessa, Ptolemais
+  ("castle_40_exterior_var7_gate_city_medi_harbour",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000030000500000370e000002236000043df0000369c", 
+    [],[],"outer_terrain_beach_rotated"), #harbour city south
+
   ("castle_40_interior",sf_indoors, "arabian_interior_keep_b2", "bo_arabian_interior_keep_b", (-100,-100),(100,100),-100,"0",
     ["exit"],[]),
   ("castle_40_prison",sf_indoors,"interior_prison_n", "bo_interior_prison_n", (-100,-100),(100,100),-100,"0",
@@ -1355,8 +1402,39 @@ scenes = [
     ["exit"],[]),
   ("castle_48_prison",sf_indoors,"interior_prison_n", "bo_interior_prison_n", (-100,-100),(100,100),-100,"0",
     [],[]),
-  ("castle_59_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000300005000004c13100001d3100006d4100001edd", #roman danube fort
-    [],[],"outer_terrain_plain"),
+    #variants by InVain
+  ("castle_59_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000300005000004c13100001d3100006d4100001edd", #roman danube fort, edited by Invain
+    [],[],"TLD_outer_terrain_river_middle"), #roman village with bridge; Eburodunum
+  ("castle_59_exterior_var0_noriver_town",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000300005000004c13100001d3100006d4100001edd", 
+    [],[],"outer_terrain_plain"), #roman town; Augusta_Suessionum
+  ("castle_59_exterior_var0_town",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000a00005000004c131000073e500006d4100001edd", 
+    [],[],"TLD_outer_terrain_river_middle"), #roman town, steppe ground, hilly outer terrain; unused
+  ("castle_59_exterior_var0_town_barbarian",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000300005000004c13100001d3100006d4100001edd", 
+    [],[],"TLD_outer_terrain_river_middle"), ##Dierna, Durovernum_Cantiacorum
+  ("castle_59_exterior_var1_bridge",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000300005000004c13100001d3100006d4100001edd", 
+    [],[],"TLD_outer_terrain_river_middle"), #Ioviaco #attack via pontoon bridge
+
+  ("castle_59_exterior_var2_barbarian",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000300005000004c13100001d3100006d4100001edd", 
+    [],[],"TLD_outer_terrain_river_middle"), # Avaricum
+  ("castle_59_exterior_var2_barbarian_noriver",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000300005000004c13100001d3100006d4100001edd", 
+    [],[],"outer_terrain_plain"), #unused
+  ("castle_59_exterior_var3_barbarian_steppe_ruined_gate",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000a00005000004c13100001d3100006d4100001edd", 
+    [],[],"sea_outer_terrain_2"), #Tanais
+  ("castle_59_exterior_var3_barbarian_ruined_gate_noriver",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000300005000004c13100001d3100006d4100001edd", 
+    [],[],"outer_terrain_plain"), #Bagacum
+  ("castle_59_exterior_var3_barbarian_ruined_ladder",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000300005000004c13100001d3100006d4100001edd", 
+    [],[],"TLD_outer_terrain_river_middle"), #Castrum_Rauracense
+  ("castle_59_exterior_var3_barbarian_ruined_ladder_noriver",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000300005000004c13100001d3100006d4100001edd", 
+    [],[],"outer_terrain_mountain"), #Carredunum   
+  ("castle_59_exterior_var4_town_barbarian_noriver",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000300005000004c13100001d3100006d4100001edd", 
+    [],[],"outer_terrain_mountain"), #Caranicum
+  ("castle_59_exterior_var5_gate",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000300005000004c13100001d3100006d4100001edd", 
+    [],[],"TLD_outer_terrain_river_west"), #ex-roman/ barbarian village; Isca_Dumnoniarum
+  ("castle_59_exterior_var6_town",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000300005000004c13100001d3100006d4100001edd", 
+    [],[],"TLD_outer_terrain_river_middle"), #roman/barbarian; #Batavis
+  ("castle_59_exterior_var7_desert",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000500005000004c13100001d3100006d4100001edd", 
+    [],[],"outer_terrain_desert"), #Jabiya
+    
   ("castle_59_interior",sf_indoors, "interior_castle_j", "bo_interior_castle_j", (-100,-100),(100,100),-100,"0",
     ["exit"],[]),
   ("castle_59_prison",sf_indoors,"interior_prison_i", "bo_interior_prison_i", (-100,-100),(100,100),-100,"0",
@@ -1381,10 +1459,27 @@ scenes = [
     [],[]),
 
   ("castle_79_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000300000000005c577000041ef00005ae800003c55", #from wlod
-    [],[],"outer_terrain_plain"),
+    [],[],"outer_terrain_plain"), #Tingartia
+    #InVain: Desert variants
+  ("castle_79_exterior_var1_town",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000500000000005c577000041ef00005ae800003c55",
+    [],[],"outer_terrain_desert"), #Gafsa
+  ("castle_79_exterior_var1_village",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000500000000005c577000041ef00005ae800003c55", 
+    [],[],"outer_terrain_desert"), #Cydamus
+  ("castle_79_exterior_var2_ladder",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000500000000005c577000041ef00005ae800003c55", 
+    [],[],"outer_terrain_desert"), #unused
+  ("castle_79_exterior_var3_gate",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000500000000005c577000041ef00005ae800003c55",
+    [],[],"outer_terrain_desert"), #unused
+  ("castle_79_exterior_var4_gate_town",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000300000000005c577000041ef00005ae800003c55",
+    [],[],"outer_terrain_plain"), ##Volubilis
+  ("castle_79_exterior_var4_gate_village",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000500000000005c577000041ef00005ae800003c55", 
+    [],[],"outer_terrain_desert"), #unused
+  ("castle_79_exterior_var4_ladder",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000500000000005c577000041ef00005ae800003c55", 
+    [],[],"outer_terrain_desert"), #unused
+  ("castle_79_exterior_var4_ladder_town",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000500000000005c577000041ef00005ae800003c55", 
+    [],[],"outer_terrain_desert"), #Nova_Trajana_Bostra
 
   ("roman_fortress_exterior_1",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000023007858000049d2a00003c37000040ef000037cd", #from levente - river roman fort
-    [],[],"outer_terrain_plain"),
+    [],[],"outer_terrain_forest"), #Roman river fort by Levente; #Mogontiacum, Bassania
 
   ("dumatha_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000050044e900003dd02000077b20000400100005697", #from levente - dumatha
     [],[],"outer_terrain_desert"),

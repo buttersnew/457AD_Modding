@@ -19967,6 +19967,12 @@ presentations = [
                 (eq, ":troop", "trp_slav_horseman"),
                 (assign, ":c", 1),
               (else_try),
+                (eq, ":culture", "fac_culture_21"), #phinnoi or mordovians
+                (this_or_next|eq, ":troop", "trp_phinnoi_warrior"), #t1
+                (this_or_next|eq, ":troop", "trp_phinnoi_hunter"), #t1
+                (eq, ":troop", "trp_phinnoi_horseman"),
+                (assign, ":c", 1),
+              (else_try),
                 (eq, ":culture", "fac_culture_empire"), #romans - this is where the fun begins!
                 (this_or_next|eq, ":troop", "trp_tiro"),
                 (this_or_next|eq, ":troop", "trp_exculator"),
@@ -20273,6 +20279,12 @@ presentations = [
                     (this_or_next|eq, ":troop", "trp_slav_skirmisher"), #t1
                     (this_or_next|eq, ":troop", "trp_slav_footman"), 
                     (eq, ":troop", "trp_slav_horseman"),
+                    (assign, ":c", 1),
+                  (else_try),
+                    (eq, ":culture", "fac_culture_21"), #phinnoi or mordovians
+                    (this_or_next|eq, ":troop", "trp_phinnoi_warrior"), #t1
+                    (this_or_next|eq, ":troop", "trp_phinnoi_hunter"), #t1
+                    (eq, ":troop", "trp_phinnoi_horseman"),
                     (assign, ":c", 1),
                   (else_try),
                     (eq, ":culture", "fac_culture_empire"), #romans - this is where the fun begins!

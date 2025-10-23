@@ -1342,6 +1342,8 @@ scene_props = [
   ("banner_kingdom_34", 0, "banner_kingdom_34", "0", []),
   ("banner_kingdom_35", 0, "banner_kingdom_35", "0", []),
   ("banner_kingdom_36", 0, "banner_kingdom_36", "0", []),
+  ("banner_kingdom_37", 0, "banner_kingdom_37", "0", []),
+  ("banner_kingdom_38", 0, "banner_kingdom_38", "0", []),
 
   ("banner_end", 0, "banner_a15", "0", []),
 
@@ -2073,6 +2075,7 @@ scene_props = [
   ("brazier_with_fire",0,"brazier","bo_brazier",    [
    (ti_on_scene_prop_init,
     [
+	(play_sound, "snd_torch_loop", 0),
         (set_position_delta,0,0,85),
         (particle_system_add_new, "psys_brazier_fire_1"),
         (particle_system_add_new, "psys_fire_sparks_1"),
@@ -2087,6 +2090,7 @@ scene_props = [
    [
    (ti_on_scene_prop_init,
     [
+	(play_sound, "snd_torch_loop", 0),
         (set_position_delta,0,0,12),
         (particle_system_add_new, "psys_cooking_fire_1"),
         (particle_system_add_new, "psys_fire_sparks_1"),
@@ -2114,8 +2118,8 @@ scene_props = [
   ("grape_b",0,"grape_b","0", []),
   ("apple_a",0,"apple_a","0", []),
   ("apple_b",0,"apple_b","0", []),
-  ("maize_a",0,"maize_a","0", []),
-  ("maize_b",0,"maize_b","0", []),
+  ("maize_a",0,"apple_a","0", []),
+  ("maize_b",0,"apple_b","0", []),
   ("cabbage",0,"cabbage","0", []),
   ("flax_bundle",0,"raw_flax","0",[]),
   ("olive_plane",0,"olive_plane","0",[]),
@@ -2240,14 +2244,16 @@ scene_props = [
    [
    (ti_on_scene_prop_init,
     [
-     (particle_system_add_new, "psys_fireplace_fire_small"),
+	(play_sound, "snd_torch_loop", 0),
+	(particle_system_add_new, "psys_fireplace_fire_small"),
     ]),
    ]),
   ("fire_big",0,"0","0",
    [
    (ti_on_scene_prop_init,
     [
-     (particle_system_add_new, "psys_fireplace_fire_big"),
+	(play_sound, "snd_fire_loop", 0),
+	(particle_system_add_new, "psys_fireplace_fire_big"),
     ]),
    ]),
     ("battle_field_smoke",0,"0","0",
@@ -2261,9 +2267,10 @@ scene_props = [
    [
    (ti_on_scene_prop_init,
     [
-     (particle_system_add_new, "psys_village_fire_big"),
-     (set_position_delta,0,0,100),
-     (particle_system_add_new, "psys_village_fire_smoke_big"),
+	(play_sound, "snd_fire_loop", 0),
+     	(particle_system_add_new, "psys_village_fire_big"),
+     	(set_position_delta,0,0,100),
+     	(particle_system_add_new, "psys_village_fire_smoke_big"),
     ]),
    ]),
   #########################
@@ -3512,18 +3519,163 @@ scene_props = [
   ( "tree_log_small_half"                        ,0,"tree_log_small_half","bo_tree_log_small_half",[]),
   ( "tree_log_pile"                              ,0,"tree_log_pile","bo_tree_log_pile",[]),
 
-  ("cow_a",0,"cow_a","0", []),
+  ("animal_cow_a",sokf_invisible,"cow_a","0", [
+    (ti_on_init_scene_prop,[
+        (store_trigger_param_1, ":instance_no"),(prop_instance_get_position, pos1, ":instance_no"), (set_spawn_position, pos1), (set_fixed_point_multiplier, 100),
+        (store_random_in_range, ":animal_var", 0, imod_cracked+1),
+        (spawn_horse,"itm_animal_big", ":animal_var"),
+        (agent_set_stand_animation, reg0, "anim_horse_stand"),
+        (scene_prop_set_slot, ":instance_no", slot_prop_agent_1, reg0),
+        (prop_instance_get_position, pos1, ":instance_no"),
+        (prop_instance_animate_to_position, ":instance_no", pos1, 100),
+    ]),
+    (ti_on_scene_prop_animation_finished,[
+        (store_trigger_param_1, ":instance_no"),(set_fixed_point_multiplier, 100),
+        (assign, reg1, 0), #animation 1
+        (assign, reg2, "snd_cow_moo_scene"), #sound 1
+        (assign, reg3, 5), #move chance
+        (call_script, "script_animate_animals",  ":instance_no"),
+        (store_random_in_range, ":timer", 100, 200),
+        (prop_instance_get_position, pos1, ":instance_no"),
+        (prop_instance_animate_to_position, ":instance_no", pos1, ":timer"),
+    ])]),
+
   ("cow_b",0,"cow_b","0", []),
   ("cow_c",0,"cow_c","0", []),
   ("cow_d",0,"cow_d","0", []),
-  ("donkey",0,"donkey_c","0", []),
-  ("goat",0,"goat","0", []),
+  #("donkey",0,"donkey_c","0", []), #pretty sure this is not used anywhere, very low-res asset, so we replace it with a horse
+  ("animal_horse",sokf_invisible,"bareback_horse_1","0", [
+    (ti_on_init_scene_prop,[
+        (store_trigger_param_1, ":instance_no"),(prop_instance_get_position, pos1, ":instance_no"), (set_spawn_position, pos1),
+        (spawn_horse,"itm_animal_horse"),
+        (agent_set_stand_animation, reg0, "anim_horse_stand"), (scene_prop_set_slot, ":instance_no", slot_prop_agent_1, reg0),
+        (prop_instance_get_position, pos1, ":instance_no"),
+        (prop_instance_animate_to_position, ":instance_no", pos1, 100),
+    ]),
+    (ti_on_scene_prop_animation_finished,[
+        (store_trigger_param_1, ":instance_no"),
+        (assign, reg1, 0), #animation 1
+        (assign, reg2, 0), #use hardcoded horse sound
+        (assign, reg3, 15), #move chance
+        (call_script, "script_animate_animals",  ":instance_no"),
+        (store_random_in_range, ":timer", 100, 200),
+        (prop_instance_get_position, pos1, ":instance_no"),
+        (prop_instance_animate_to_position, ":instance_no", pos1, ":timer"),
+    ])]),
+
+  ("animal_goat",sokf_invisible,"goat","0", [
+    (ti_on_init_scene_prop,[
+        (store_trigger_param_1, ":instance_no"),(prop_instance_get_position, pos1, ":instance_no"), (set_spawn_position, pos1),
+        (store_random_in_range, ":animal_var", 0, imod_cracked+1),
+        (spawn_horse,"itm_animal_small", ":animal_var"),(agent_set_stand_animation, reg0, "anim_horse_stand"),(scene_prop_set_slot, ":instance_no", slot_prop_agent_1, reg0),
+        (prop_instance_get_position, pos1, ":instance_no"),
+        (prop_instance_animate_to_position, ":instance_no", pos1, 100),
+    ]),
+    (ti_on_scene_prop_animation_finished,[
+        (store_trigger_param_1, ":instance_no"),
+        (assign, reg1, 0), #animation 1
+        (assign, reg2, "snd_goat"), #sound 1
+        (assign, reg3, 5), #move chance
+        (call_script, "script_animate_animals",  ":instance_no"),
+        (store_random_in_range, ":timer", 100, 200),
+        (prop_instance_get_position, pos1, ":instance_no"),
+        (prop_instance_animate_to_position, ":instance_no", pos1, ":timer"),
+    ])]),
+
   ("goat_c",0,"goat_c","0", []),
-  ("wild_donkey",0,"wild_donkey","0", []),
-  ("animal_chicken",0,"animal_chicken","0", []),
-  ("animal_pig",0,"animal_pig","0", []),
-  ("cow_mod_a",0,"cow_mod_a","0", []),
-  ("sheep_mod_a",0,"sheep_mod_a","0", []),
+
+  ("animal_wild_donkey",sokf_invisible,"wild_donkey","0", [
+    (ti_on_init_scene_prop,[
+        (store_trigger_param_1, ":instance_no"),(prop_instance_get_position, pos1, ":instance_no"), (set_spawn_position, pos1),
+        (spawn_horse,"itm_animal_donkey"),
+        (agent_set_stand_animation, reg0, "anim_horse_stand"), (scene_prop_set_slot, ":instance_no", slot_prop_agent_1, reg0),
+        (prop_instance_get_position, pos1, ":instance_no"),
+        (prop_instance_animate_to_position, ":instance_no", pos1, 100),
+    ]),
+    (ti_on_scene_prop_animation_finished,[
+        (store_trigger_param_1, ":instance_no"),
+        (assign, reg1, 0), #animation 1
+        (assign, reg2, "snd_donkey"), #sound 1
+        (assign, reg3, 5), #move chance
+        (call_script, "script_animate_animals",  ":instance_no"),
+        (store_random_in_range, ":timer", 100, 200),
+        (prop_instance_get_position, pos1, ":instance_no"),
+        (prop_instance_animate_to_position, ":instance_no", pos1, ":timer"),
+    ])]),
+#from sclavinia mod
+ ("animal_chicken",0,"scla_kura_combine",0,   [
+   (ti_on_scene_prop_init,[
+        (store_trigger_param_1, ":instance_no"),
+        (store_random_in_range, ":random", 0, 220),
+        (prop_instance_deform_to_time, ":instance_no", ":random"),
+        (store_random_in_range, ":random", 4000, 8000),
+        #(prop_instance_deform_in_cycle_loop, ":instance_no", 0, 220, ":random"),
+        (prop_instance_deform_in_range, ":instance_no", 0, 220, ":random"),
+    ]),
+    (ti_scene_prop_deformation_finished,[
+        (store_trigger_param_1, ":instance_no"),
+        (prop_instance_play_sound, ":instance_no", "snd_kura"),
+        (store_random_in_range, ":random", 4000, 8000),
+        #(prop_instance_deform_in_cycle_loop, ":instance_no", 0, 220, ":random"),
+        (prop_instance_deform_in_range, ":instance_no", 0, 220, ":random"),
+    ])]),
+
+  ("animal_pig",sokf_invisible,"animal_pig","0", [
+    (ti_on_init_scene_prop,[
+        (store_trigger_param_1, ":instance_no"),(prop_instance_get_position, pos1, ":instance_no"), (set_spawn_position, pos1),
+        (spawn_horse,"itm_animal_pig"),
+        (agent_set_stand_animation, reg0, "anim_horse_stand"), (scene_prop_set_slot, ":instance_no", slot_prop_agent_1, reg0),
+        (prop_instance_get_position, pos1, ":instance_no"),
+        (prop_instance_animate_to_position, ":instance_no", pos1, 100),
+    ]),
+    (ti_on_scene_prop_animation_finished,[
+        (store_trigger_param_1, ":instance_no"),
+        (assign, reg1, 0), #animation 1
+        (assign, reg2, "snd_pig"), #sound 1
+        (assign, reg3, 5), #move chance
+        (call_script, "script_animate_animals",  ":instance_no"),
+        (store_random_in_range, ":timer", 100, 200),
+        (prop_instance_get_position, pos1, ":instance_no"),
+        (prop_instance_animate_to_position, ":instance_no", pos1, ":timer"),
+    ])]),
+
+  ("animal_cow_mod_a",sokf_invisible,"cow_mod_a","0", [
+    (ti_on_init_scene_prop,[
+        (store_trigger_param_1, ":instance_no"),(prop_instance_get_position, pos1, ":instance_no"), (set_spawn_position, pos1),
+        (spawn_horse,"itm_animal_cow"),
+        (agent_set_stand_animation, reg0, "anim_horse_stand"), (scene_prop_set_slot, ":instance_no", slot_prop_agent_1, reg0),
+        (prop_instance_get_position, pos1, ":instance_no"),
+        (prop_instance_animate_to_position, ":instance_no", pos1, 100),
+    ]),
+    (ti_on_scene_prop_animation_finished,[
+        (store_trigger_param_1, ":instance_no"),
+        (assign, reg1, 0), #animation 1
+        (assign, reg2, "snd_pig"), #sound 1
+        (assign, reg3, 5), #move chance
+        (call_script, "script_animate_animals",  ":instance_no"),
+        (store_random_in_range, ":timer", 100, 200),
+        (prop_instance_get_position, pos1, ":instance_no"),
+        (prop_instance_animate_to_position, ":instance_no", pos1, ":timer"),
+    ])]),
+
+  ("animal_sheep_mod_a",sokf_invisible,"sheep_mod_a","0", [
+    (ti_on_init_scene_prop,[
+        (store_trigger_param_1, ":instance_no"),(prop_instance_get_position, pos1, ":instance_no"), (set_spawn_position, pos1),
+        (store_random_in_range, ":sheep", itm_animal_sheep_a, itm_animal_cow),
+        (spawn_horse,":sheep"),(agent_set_stand_animation, reg0, "anim_horse_stand"),(scene_prop_set_slot, ":instance_no", slot_prop_agent_1, reg0),
+        (prop_instance_get_position, pos1, ":instance_no"),
+        (prop_instance_animate_to_position, ":instance_no", pos1, 100),
+    ]),
+    (ti_on_scene_prop_animation_finished,[
+        (store_trigger_param_1, ":instance_no"),
+        (assign, reg1, 0), #animation 1
+        (assign, reg2, "snd_sheep"), #sound 1
+        (assign, reg3, 5), #move chance
+        (call_script, "script_animate_animals",  ":instance_no"),
+        (store_random_in_range, ":timer", 100, 200),
+        (prop_instance_get_position, pos1, ":instance_no"),
+        (prop_instance_animate_to_position, ":instance_no", pos1, ":timer"),
+    ])]),
   ("sheep_mod_b",0,"sheep_mod_b","0", []),
 
   ("wheat_field",0,"wheat_field","0", []),
@@ -4988,5 +5140,648 @@ scene_props = [
   ("z_entry_ship",			sokf_invisible,"0","0",[(ti_on_init_scene_prop,[])]),
   ("z_entry_ship_small",	sokf_invisible,"0","0",[(ti_on_init_scene_prop,[])]),
 
+("gate_destructible",sokf_destructible,"draw_bridge_a","bo_draw_bridge_a",   [
+ 
+  (ti_on_scene_prop_init, [
+   (store_trigger_param_1, ":instance_no"),
+   
+   #set health from var 2
+   (prop_instance_get_variation_id_2, ":health", ":instance_no"),
+    (try_begin),
+        (gt, ":health", 0), #if not assigned, get fallback health from scene prop entry (WB only)
+        (val_mul, ":health", 100),
+        (val_add, ":health",1000), #base health is 1000
+        (scene_prop_set_hit_points, ":instance_no", ":health"),
+    (try_end),
+    
+    #spawn gate aggravator
+    (prop_instance_get_starting_position, pos1, ":instance_no"),
+    (set_fixed_point_multiplier, 100),
+    (position_move_z, pos1, 100,1), #safeguard against aggravators spawning underground
+    (set_spawn_position, pos1),
+    (spawn_agent,"trp_tutorial_swordsman"), #just a random dude
+    (assign, ":gate_aggravator", reg0),
+    (agent_set_speed_limit, ":gate_aggravator", 0),
+    (agent_set_team, ":gate_aggravator", "$defender_team"),
+    (agent_set_visibility, ":gate_aggravator", 0),
+    (agent_set_damage_modifier, ":gate_aggravator",0),
+    (agent_set_no_dynamics, ":gate_aggravator",1),
+    (agent_set_no_death_knock_down_only, ":gate_aggravator", 1),
+    (scene_prop_set_slot, ":instance_no", slot_prop_agent_1, ":gate_aggravator"),
+    
+    #tutorial message for sceners: mission time check makes sure that this only appears if the prop is placed 
+    (store_mission_timer_a, ":time"),
+    (gt, ":time", 5),
+    (display_message, "@destructible gate: var1 checks for ai limiters with same var 1; var2*100+1000 is gate health"),
+   ]),
+   
+   (ti_on_scene_prop_destroy, [
+    (store_trigger_param_1, ":gate_no"),
+    (prop_instance_get_starting_position, pos1, ":gate_no"),
+    (particle_system_burst,"psys_village_fire_smoke_big",pos1,40),
+    (position_rotate_x, pos1, -90),
+    (prop_instance_animate_to_position, ":gate_no", pos1, 400), #animate in 4 second
+    (play_sound, "snd_dummy_destroyed"),
+    (display_message,"@Gate is breached!"),
+ 
+    (scene_prop_get_slot, ":gate_aggravator", ":gate_no", slot_prop_agent_1),
+    (agent_fade_out, ":gate_aggravator"),
+    
+    (scene_prop_get_num_instances,":max_barriers","spr_ai_limiter_gate_breached"),  #move away all dependent barriers, which are marked in var1
+    (try_begin),
+      (gt, ":max_barriers",0),
+      (try_for_range,":count",0,":max_barriers"),
+        (scene_prop_get_instance,":barrier_no", "spr_ai_limiter_gate_breached", ":count"),
+        (prop_instance_get_starting_position, pos1, ":barrier_no"),
+        (prop_instance_get_variation_id, ":var1", ":barrier_no"),
+        (prop_instance_get_variation_id, ":var1_gate", ":gate_no"),
+        (eq, ":var1", ":var1_gate"),
+        (position_move_z,pos1,-10000),
+        (prop_instance_set_position,":barrier_no",pos1),
+      (try_end),
+    (try_end),
+   ]),
+
+   (ti_on_scene_prop_hit,[
+    (play_sound, "snd_dummy_hit"),
+    (particle_system_burst, "psys_dummy_smoke", pos1, 3),
+    (particle_system_burst, "psys_dummy_straw", pos1, 10),
+    ]),
+]),
+
+("spike_group_a_destructible",sokf_destructible,"spike_group_a","bo_spike_group_a_big",   [
+   (ti_on_scene_prop_init, [
+   (store_trigger_param_1, ":instance_no"),
+    (prop_instance_get_starting_position, pos1, ":instance_no"),
+    (set_fixed_point_multiplier, 100),
+    (position_move_z, pos1, 100,1), #safeguard against aggravators spawning underground
+    (set_spawn_position, pos1),
+    (spawn_agent,"trp_tutorial_swordsman"), #just a random dude
+    (assign, ":gate_aggravator", reg0),
+    (agent_set_speed_limit, ":gate_aggravator", 0),
+    (agent_set_team, ":gate_aggravator", "$defender_team"),
+    (agent_set_visibility, ":gate_aggravator", 0),
+    (agent_set_damage_modifier, ":gate_aggravator",0),
+    (agent_set_no_dynamics, ":gate_aggravator",1),
+    (agent_set_no_death_knock_down_only, ":gate_aggravator", 1),
+    (scene_prop_set_slot, ":instance_no", slot_prop_agent_1, ":gate_aggravator"),
+    (scene_prop_set_hit_points, ":instance_no", 200),
+  ]),
+
+   (ti_on_scene_prop_destroy, [
+    (store_trigger_param_1, ":gate_no"),
+    (prop_instance_get_starting_position, pos1, ":gate_no"),
+    (particle_system_burst,"psys_dummy_smoke",pos1,10),
+    (position_rotate_x, pos1, -80),
+    (position_move_z, pos1, -200,1),
+    (prop_instance_animate_to_position, ":gate_no", pos1, 400), #animate in 4 second
+    (play_sound, "snd_dummy_destroyed"),
+    (scene_prop_get_slot, ":gate_aggravator", ":gate_no", slot_prop_agent_1),
+    (agent_fade_out, ":gate_aggravator"),
+
+    (scene_prop_get_num_instances,":max_barriers","spr_ai_limiter_spikes_broken"),  #move away all dependent barriers
+    (try_begin),
+      (gt, ":max_barriers",0),
+      (try_for_range,":count",0,":max_barriers"),
+        (scene_prop_get_instance,":barrier_no", "spr_ai_limiter_spikes_broken", ":count"),
+        (prop_instance_get_starting_position, pos1, ":barrier_no"),
+        (prop_instance_get_starting_position, pos2, ":gate_no"),
+        (set_fixed_point_multiplier, 100),
+        (get_distance_between_positions, ":distance", pos1, pos2),
+        (le, ":distance", 200), #two meters
+        (position_move_z,pos1,-10000),
+        (prop_instance_set_position,":barrier_no",pos1),
+      (try_end),
+    (try_end),
+   ]),
+
+   (ti_on_scene_prop_hit,[
+    (try_begin),
+        (store_trigger_param, ":attacker_agent",3),
+        (store_trigger_param, ":missile", 6),
+        (agent_get_team, ":team", ":attacker_agent"),
+        (this_or_next|neg|teams_are_enemies, 2, ":team"),
+        (gt, ":missile", 0),
+        (set_trigger_result, 0),
+    (else_try),
+        (play_sound, "snd_dummy_hit"),
+        (particle_system_burst, "psys_dummy_smoke", pos1, 3),
+        (particle_system_burst, "psys_dummy_straw", pos1, 10),
+    (try_end),
+    ]),
+]),
+
+("ai_limiter_spikes_broken" ,sokf_invisible|sokf_type_ai_limiter|sokf_moveable,"barrier_2m" ,"bo_barrier_2m" , []),
+
+("troop_guard",sokf_invisible,"arrow_helper_blue","0", [(ti_on_init_scene_prop,[
+    (store_trigger_param_1, ":instance_no"),
+    (eq,"$all_doors_locked",0), #this should help with sneak mission
+    (neq, "$talk_context", tc_prison_break),
+    (neq, "$talk_context", tc_escape),    
+    (eq, "$g_siege_battle_state", 0),
+	(assign, ":block", 0),
+    		(try_begin),
+        	(eq, "$current_town", "p_town_22"),
+        	(is_between, "$jewish_rebellion", 1, 4),
+		(assign, ":block", 1),
+    		(else_try),
+        	(eq, "$current_town", "p_town_45"),
+        	(is_between, "$armenian_rebellion", 1, 4),
+		(assign, ":block", 1),
+    		(try_end),
+	(eq, ":block", 0),
+    (prop_instance_get_variation_id_2, ":var2", ":instance_no"),
+    (store_faction_of_party, ":current_faction", "$g_encountered_party"), #needs to be g_encountered_party so it works in sieges
+    (faction_get_slot, ":troop", ":current_faction", slot_faction_guard_troop),
+    (try_begin), #make sure it's infantry
+        (troop_is_guarantee_horse, ":troop"),
+        (faction_get_slot, ":troop", ":current_faction", slot_faction_tier_2_troop),
+    (try_end),
+	(try_begin),
+	(le, ":troop", 0),
+	(assign, ":troop", "trp_manhunter"),
+	(try_end),
+    (prop_instance_get_position, pos1, ":instance_no"), (set_spawn_position, pos1),  (spawn_agent, ":troop"),
+    (scene_prop_set_slot, ":instance_no", slot_prop_agent_1, reg0),
+    
+    (try_begin),
+        (lt, "$g_encountered_party_2", 0), #don't spawn guards in siege battles
+        (agent_set_team, reg0, 0),
+        (assign, ":polearm_found", 0),
+        (assign, ":shield_found", 0),
+
+        (try_for_range, ":weapon_slot", 0, 4), #find polearm
+            (agent_get_item_slot, ":item", reg0, ":weapon_slot"),
+            (gt, ":item", 1),
+            (item_get_type, ":item_type", ":item"),
+            (eq, ":item_type", itp_type_polearm),
+            #(agent_equip_item, reg0, ":item", 1),
+            (agent_set_wielded_item, reg0, ":item"),
+            (assign, ":polearm_found", 1),
+                (eq, ":var2", 0), #not a patrol
+                (try_for_range, ":weapon_slot", 0, 4), #find shield
+                    (agent_get_item_slot, ":item", reg0, ":weapon_slot"),
+                    (gt, ":item", 1),
+                    (store_random_in_range, ":rand", 0, 10),
+                    (le, ":rand", 5), #not everyone carries their shield
+                    (item_get_type, ":item_type", ":item"),
+                    (eq, ":item_type", itp_type_shield),
+                    (agent_set_wielded_item, reg0, ":item"),
+                    (assign, ":shield_found", 1),
+                (try_end),
+        (try_end),
+        (try_begin),
+            (eq, ":polearm_found", 1),
+            (eq, ":shield_found", 1),
+            (eq, ":var2", 0), #not a patrol
+            (agent_set_position, reg0, pos1),
+            (agent_set_defend_action, reg0, 1, 999999),
+        (try_end),
+
+        (store_random_in_range, reg6, 0, 100),
+        (agent_set_animation_progress, reg0, reg6),
+    (else_try),
+        (agent_set_team, reg0, "$defender_team_2"), #non-player defender team
+        (agent_set_division, reg0, grc_archers), #set them to archers, so they stand ground
+        (agent_ai_set_aggressiveness, reg0, 1), #make them somewhat passive
+    (try_end),
+    ])]),
+
+("troop_guard_patrol_target_var2",sokf_invisible,"arrow_helper_blue","0", [
+  (ti_on_init_scene_prop,[
+    (store_trigger_param_1, ":instance_no"),
+    (prop_instance_deform_in_range, ":instance_no", 0, 100, 500), #fake deform to get a timer
+    #tutorial message for sceners: mission time check makes sure that this only appears if the prop is placed
+    (store_mission_timer_a, ":time"),
+    (gt, ":time", 5),
+    (display_message, "@patrol: set var2 of both this prop and spr_troop_guard to the same value to pair."),
+  ]),
+
+  (ti_scene_prop_deformation_finished,[
+    (set_fixed_point_multiplier, 100),
+    (party_slot_eq, "$current_town", slot_center_has_bandits, 0),
+    (store_trigger_param_1, ":instance_no"),
+    (prop_instance_get_variation_id_2, ":var2_target", ":instance_no"),
+    (try_for_prop_instances, ":guard_prop", "spr_troop_guard"),
+        (prop_instance_get_variation_id_2, ":var2_start", ":guard_prop"),
+        (eq, ":var2_start", ":var2_target"),
+        (ge, ":var2_start", 1),
+        (scene_prop_get_slot, ":agent", ":guard_prop", slot_prop_agent_1),
+        (agent_is_active, ":agent"),
+        (try_begin), #initialize
+            (neg|agent_is_in_special_mode, ":agent"),
+            (agent_slot_eq, ":agent", slot_agent_walker_occupation, 0), #not assigned yet?
+            (agent_set_slot, ":agent", slot_agent_walker_occupation, 2), #patrol
+            (agent_set_slot, ":agent", slot_agent_target_entry_point, ":guard_prop"),
+            (store_random_in_range,reg10,1,3),
+            (agent_set_speed_limit, ":agent", reg10),
+            (agent_set_speed_modifier, ":agent", 50), #this makes the walking animation match the speed
+        (else_try), #already initialized? track destination
+            (agent_get_slot, ":destination", ":agent", slot_agent_target_entry_point),
+            (prop_instance_get_position, pos2, ":destination"),
+            (agent_set_scripted_destination, ":agent", pos2),
+            (agent_get_position, pos1, ":agent"),
+            (get_distance_between_positions, ":dist", pos1, pos2),
+            (le, ":dist", 200),
+            (try_begin),
+                (eq, ":destination", ":instance_no"),
+                (agent_set_slot, ":agent", slot_agent_target_entry_point, ":guard_prop"),
+            (else_try),
+                (agent_set_slot, ":agent", slot_agent_target_entry_point, ":instance_no"),
+            (try_end),
+        (try_end),
+    (try_end),
+    (store_random_in_range, ":timer", 2000, 3000),
+    (prop_instance_deform_in_range, ":instance_no", 0, 100, ":timer"), #reset timer
+  ]), ]),
+
+("troop_archer",sokf_invisible,"arrow_helper_blue","0", [(ti_on_init_scene_prop,[
+    (store_trigger_param_1, ":instance_no"),
+    (eq,"$all_doors_locked",0), #this should help with sneak mission and town ambush
+    (neq, "$talk_context", tc_prison_break),
+    (neq, "$talk_context", tc_escape),
+    (eq, "$g_siege_battle_state", 0),
+	(assign, ":block", 0),
+    		(try_begin),
+        	(eq, "$current_town", "p_town_22"),
+        	(is_between, "$jewish_rebellion", 1, 4),
+		(assign, ":block", 1),
+    		(else_try),
+        	(eq, "$current_town", "p_town_45"),
+        	(is_between, "$armenian_rebellion", 1, 4),
+		(assign, ":block", 1),
+    		(try_end),
+	(eq, ":block", 0),
+    (store_faction_of_party, ":current_faction", "$g_encountered_party"), #needs to be g_encountered_party so it works in sieges
+    (faction_get_slot, ":troop", ":current_faction", slot_faction_tier_1_troop), #seems to be a missile troop most of the time
+	(try_begin),
+	(le, ":troop", 0),
+	(assign, ":troop", "trp_mercenary_archer"),
+	(try_end),
+    (prop_instance_get_position, pos1, ":instance_no"), (set_spawn_position, pos1),  (spawn_agent, ":troop"),
+    (scene_prop_set_slot, ":instance_no", slot_prop_agent_1, reg0),
+    (agent_set_team, reg0, 0),
+
+    (assign, ":bow_found", 0),
+    (try_for_range, ":weapon_slot", 0, 4), #find bow
+        (agent_get_item_slot, ":item", reg0, ":weapon_slot"),
+        (gt, ":item", 1),
+        (item_get_type, ":item_type", ":item"),
+        (this_or_next|eq, ":item_type", itp_type_bow),
+        (this_or_next|eq, ":item_type", itp_type_thrown),
+        (eq, ":item_type", itp_type_crossbow),
+        #(agent_equip_item, reg0, ":item", 1),
+        (agent_set_wielded_item, reg0, ":item"),
+        (assign, ":bow_found", 1),
+    (try_end),
+    (try_begin),
+        (neq, ":bow_found", 1),
+        (agent_set_stand_animation, reg0, "anim_stand_townguard"),
+    (try_end),
+
+    (store_random_in_range, reg6, 0, 100),
+    (agent_set_animation_progress, reg0, reg6),
+    ])]),
+
+("troop_rider",sokf_invisible,"arrow_helper_blue","0", [(ti_on_init_scene_prop,[
+    (store_trigger_param_1, ":instance_no"),
+    (eq,"$all_doors_locked",0), #this should help with sneak mission and town ambush
+    (neq, "$talk_context", tc_prison_break),
+    (neq, "$talk_context", tc_escape),
+    (eq, "$g_siege_battle_state", 0),
+	(assign, ":block", 0),
+    		(try_begin),
+        	(eq, "$current_town", "p_town_22"),
+        	(is_between, "$jewish_rebellion", 1, 4),
+		(assign, ":block", 1),
+    		(else_try),
+        	(eq, "$current_town", "p_town_45"),
+        	(is_between, "$armenian_rebellion", 1, 4),
+		(assign, ":block", 1),
+    		(try_end),
+	(eq, ":block", 0),
+    (neg|is_currently_night),
+    (store_faction_of_party, ":current_faction", "$current_town"),
+    (faction_get_slot, ":troop", ":current_faction", slot_faction_tier_3_troop), #seems to be a cavalry troop most of the time
+    (try_for_range, ":slot", 0, 6),
+        (neg|troop_is_guarantee_horse, ":troop"),
+        (store_add, ":troop_slot", slot_faction_tier_1_troop, ":slot"),
+        (faction_get_slot, ":troop", ":current_faction", ":troop_slot"),
+        (troop_is_guarantee_horse, ":troop"),
+        (assign, ":slot", 5),
+    (try_end),
+
+	(try_begin),
+	(le, ":troop", 0),
+	(assign, ":troop", "trp_mercenary_horseman"),
+	(try_end),
+
+    (prop_instance_get_position, pos1, ":instance_no"), (set_spawn_position, pos1),  (spawn_agent, ":troop"),
+    (scene_prop_set_slot, ":instance_no", slot_prop_agent_1, reg0),
+    (lt, "$g_encountered_party_2", 0), #don't spawn riders in siege battles
+    (agent_set_slot, reg0, slot_agent_target_entry_point, ":instance_no"), #home position
+    (agent_set_slot, reg0, slot_agent_walker_occupation, 2), #patrol
+    (store_random_in_range,reg10,5,12),
+    (agent_set_speed_limit, reg0, reg10),
+    (agent_set_team, reg0, 0),
+
+    (try_for_range, ":weapon_slot", 0, 4), #find polearm
+        (agent_get_item_slot, ":item", reg0, ":weapon_slot"),
+        (gt, ":item", 1),
+        (item_get_type, ":item_type", ":item"),
+        (eq, ":item_type", itp_type_polearm),
+        #(agent_equip_item, reg0, ":item", 1),
+        (agent_set_wielded_item, reg0, ":item"),
+            (try_for_range, ":weapon_slot", 0, 4), #find shield
+                (agent_get_item_slot, ":item", reg0, ":weapon_slot"),
+                (gt, ":item", 1),
+                (item_get_type, ":item_type", ":item"),
+                (eq, ":item_type", itp_type_shield),
+                (agent_set_wielded_item, reg0, ":item"),
+            (try_end),
+    (try_end),
+    (store_random_in_range, reg6, 0, 100),
+    (agent_set_animation_progress, reg0, reg6),
+    ])]),
+
+("troop_civ_walker",sokf_invisible,"arrow_helper_blue","0", [
+  (ti_on_init_scene_prop,[
+    (store_trigger_param_1, ":instance_no"),
+    (eq,"$all_doors_locked",0), #this should help with sneak mission and town ambush
+    (neq, "$talk_context", tc_prison_break),
+    (neq, "$talk_context", tc_escape),
+    (eq, "$g_siege_battle_state", 0),
+	(assign, ":block", 0),
+    		(try_begin),
+        	(eq, "$current_town", "p_town_22"),
+        	(is_between, "$jewish_rebellion", 1, 4),
+		(assign, ":block", 1),
+    		(else_try),
+        	(eq, "$current_town", "p_town_45"),
+        	(is_between, "$armenian_rebellion", 1, 4),
+		(assign, ":block", 1),
+    		(try_end),
+	(eq, ":block", 0),
+    (neg|is_currently_night),
+    (lt, "$g_encountered_party_2", 0), #don't spawn guards in siege battles
+    (prop_instance_get_position, pos1, ":instance_no"), (set_spawn_position, pos1),
+	(store_random_in_range, ":rand", 0, 9),
+    (store_add, ":troop_slot", slot_center_walker_0_troop, ":rand"),
+    (party_get_slot, ":troop", "$current_town", ":troop_slot"),
+    (neg|troop_is_guarantee_horse, ":troop"), #avoid mounted walkers
+    (is_between, ":troop", town_walkers_begin, town_walkers_end),#just in case
+
+    (spawn_agent, ":troop"),
+    (agent_set_team, reg0, 0),
+    (store_random_in_range, reg6, 0, 100),
+    (agent_set_animation_progress, reg0, reg6),
+
+    (agent_set_slot, reg0, slot_agent_walker_occupation, 4), #prop walker
+    (store_random_in_range, ":speed", 2, 6),
+    (agent_set_speed_limit, reg0, ":speed"),
+    (scene_prop_set_slot, ":instance_no", slot_prop_agent_1, reg0),
+    (agent_set_slot, reg0, slot_agent_target_entry_point, ":instance_no"), #set home prop as first target to activate them
+    (prop_instance_deform_in_range, ":instance_no", 0, 100, 500), #fake deform to get a timer
+  ]),
+  (ti_scene_prop_deformation_finished,[
+    (set_fixed_point_multiplier, 100),
+    (store_trigger_param_1, ":instance_no"),
+    (scene_prop_get_num_instances, ":num_walker_props", "spr_troop_civ_walker"),
+    (prop_instance_get_position, pos1, ":instance_no"),
+    (try_for_agents, ":walker", pos1, 1000),
+        (agent_slot_eq, ":walker", slot_agent_walker_occupation, 4), #prop walker
+        (agent_slot_eq, ":walker", slot_agent_target_entry_point, ":instance_no"),
+        (store_random_in_range, ":rand_prop", 0, ":num_walker_props"),
+        (scene_prop_get_instance, ":rand_dest", "spr_troop_civ_walker", ":rand_prop"),
+        (agent_set_slot, ":walker", slot_agent_target_entry_point, ":rand_dest"),
+        (prop_instance_get_position, pos2, ":rand_dest"),
+        (agent_set_scripted_destination, ":walker", pos2),
+    (try_end),
+    (store_random_in_range, ":timer", 4000, 8000),
+    (prop_instance_deform_in_range, ":instance_no", 0, 100, ":timer"), #fake deform to get a timer
+  ]),]),
+
+("troop_civ_stand",sokf_invisible,"arrow_helper_blue","0", [
+  (ti_on_init_scene_prop,[
+    (store_trigger_param_1, ":instance_no"),
+    (eq,"$all_doors_locked",0), #this should help with sneak mission and town ambush
+    (neq, "$talk_context", tc_prison_break),
+    (neq, "$talk_context", tc_escape),
+    (eq, "$g_siege_battle_state", 0),
+	(assign, ":block", 0),
+    		(try_begin),
+        	(eq, "$current_town", "p_town_22"),
+        	(is_between, "$jewish_rebellion", 1, 4),
+		(assign, ":block", 1),
+    		(else_try),
+        	(eq, "$current_town", "p_town_45"),
+        	(is_between, "$armenian_rebellion", 1, 4),
+		(assign, ":block", 1),
+    		(try_end),
+	(eq, ":block", 0),
+    (neg|is_currently_night),
+    (lt, "$g_encountered_party_2", 0), #don't spawn guards in siege battles
+    (prop_instance_get_position, pos1, ":instance_no"), (set_spawn_position, pos1),
+	(store_random_in_range, ":rand", 0, 9),
+    (store_add, ":troop_slot", slot_center_walker_0_troop, ":rand"),
+    (party_get_slot, ":troop", "$current_town", ":troop_slot"),
+    (neg|troop_is_guarantee_horse, ":troop"), #avoid mounted walkers
+    (is_between, ":troop", town_walkers_begin, town_walkers_end),#just in case
+
+    (spawn_agent, ":troop"),
+    (agent_set_slot, reg0, slot_agent_walker_occupation, 3), #stationary civilian
+    (agent_set_team, reg0, 0),
+    (store_random_in_range, reg6, 0, 100),
+    (agent_set_animation_progress, reg0, reg6),
+  ]),]),
+
+("troop_civ_sit_chair",sokf_invisible,"arrow_helper_blue","0", [
+  (ti_on_init_scene_prop,[
+    (store_trigger_param_1, ":instance_no"),
+    (eq,"$all_doors_locked",0), #this should help with sneak mission and town ambush
+    (neq, "$talk_context", tc_prison_break),
+    (neq, "$talk_context", tc_escape),
+    (eq, "$g_siege_battle_state", 0),
+	(assign, ":block", 0),
+    		(try_begin),
+        	(eq, "$current_town", "p_town_22"),
+        	(is_between, "$jewish_rebellion", 1, 4),
+		(assign, ":block", 1),
+    		(else_try),
+        	(eq, "$current_town", "p_town_45"),
+        	(is_between, "$armenian_rebellion", 1, 4),
+		(assign, ":block", 1),
+    		(try_end),
+	(eq, ":block", 0),
+    (neg|is_currently_night),
+    (lt, "$g_encountered_party_2", 0), #don't spawn guards in siege battles
+    (prop_instance_get_position, pos1, ":instance_no"), (set_spawn_position, pos1),
+	(store_random_in_range, ":rand", 0, 9),
+    (store_add, ":troop_slot", slot_center_walker_0_troop, ":rand"),
+    (party_get_slot, ":troop", "$current_town", ":troop_slot"),
+    (neg|troop_is_guarantee_horse, ":troop"), #avoid mounted walkers
+    (is_between, ":troop", town_walkers_begin, town_walkers_end),#just in case
+
+    (spawn_agent, ":troop"),
+    (agent_set_slot, reg0, slot_agent_walker_occupation, 3), #stationary civilian
+    (agent_set_team, reg0, 0),
+    (agent_set_animation, reg0, "anim_sitting_low"),
+    (store_random_in_range, reg6, 0, 100),
+    (agent_set_animation_progress, reg0, reg6),
+    (agent_set_no_dynamics, reg0, 1),
+    (agent_set_position, reg0, pos1),
+  ]),]),
+
+("troop_archer_train",sokf_invisible,"arrow_helper_blue","0", [(ti_on_init_scene_prop,[
+    (store_trigger_param_1, ":instance_no"),
+    (eq,"$all_doors_locked",0), #this should help with sneak mission and town ambush
+    (neq, "$talk_context", tc_prison_break),
+    (neq, "$talk_context", tc_escape),
+    (eq, "$g_siege_battle_state", 0),
+	(assign, ":block", 0),
+    		(try_begin),
+        	(eq, "$current_town", "p_town_22"),
+        	(is_between, "$jewish_rebellion", 1, 4),
+		(assign, ":block", 1),
+    		(else_try),
+        	(eq, "$current_town", "p_town_45"),
+        	(is_between, "$armenian_rebellion", 1, 4),
+		(assign, ":block", 1),
+    		(try_end),
+	(eq, ":block", 0),
+    (neg|is_currently_night),
+    (store_faction_of_party, ":current_faction", "$current_town"), 
+    (faction_get_slot, ":troop", ":current_faction", slot_faction_tier_1_troop), #seems to be a missile troop most of the time
+	(try_begin),
+	(le, ":troop", 0),
+	(assign, ":troop", "trp_mercenary_archer"),
+	(try_end),
+    (prop_instance_get_position, pos1, ":instance_no"), (position_move_y, pos1, -1000,0), (set_spawn_position, pos1),  (spawn_agent, ":troop"),
+    (scene_prop_set_slot, ":instance_no", slot_prop_agent_1, reg0),
+    (agent_set_team, reg0, 0),
+
+    (try_for_range, ":weapon_slot", 0, 4), #find bow
+        (agent_get_item_slot, ":item", reg0, ":weapon_slot"),
+        (gt, ":item", 1),
+        (item_get_type, ":item_type", ":item"),
+        (this_or_next|eq, ":item_type", itp_type_bow),
+        (this_or_next|eq, ":item_type", itp_type_thrown),
+        (eq, ":item_type", itp_type_crossbow),
+        #(agent_equip_item, reg0, ":item", 1),
+        (agent_set_wielded_item, reg0, ":item"),
+    (try_end),
+    (prop_instance_deform_in_range, ":instance_no", 0, 100, 500), #fake deform to get a timer
+   ]),
+  (ti_scene_prop_deformation_finished,[
+    (set_fixed_point_multiplier, 100),
+    (store_trigger_param_1, ":instance_no"),
+    (prop_instance_get_position, pos1, ":instance_no"),
+    (get_player_agent_no, ":player"),
+    (agent_get_position, pos3, ":player"),
+    (get_distance_between_positions, ":dist", pos1, pos3),
+    (try_begin),
+        (is_between, ":dist", 300, 4000), #stop at greater distances to avoid noise
+        (copy_position, pos2, pos1),
+        (position_move_y, pos1, -1000,0),
+        (scene_prop_get_slot, ":agent", ":instance_no", slot_prop_agent_1),
+        (agent_refill_ammo, ":agent"),
+        (agent_set_position, ":agent", pos1),
+        (agent_set_look_target_position, ":agent", pos2),
+        (assign, ":attack_action_new", 0),
+        (try_begin),
+            (agent_get_attack_action, ":attack_action_old", ":agent"),
+            (eq, ":attack_action_old", 0),
+            (store_random_in_range, ":attack_action_new", 0, 2),
+        (try_end),
+        (agent_set_attack_action, ":agent", 0, ":attack_action_new"),
+    (try_end),
+
+    (store_random_in_range, ":timer", 2000, 4000),
+    (try_begin), #pauses
+        (eq, ":attack_action_new", 0), #only if attack isn't readied
+        (ge, ":timer", 3500),
+        (store_random_in_range, ":timer", 8000, 13000),
+    (try_end),
+    (prop_instance_deform_in_range, ":instance_no", 0, 100, ":timer"), #fake deform to get a timer
+   ]),
+   ]),
+
+("troop_guard_train",sokf_invisible,"arrow_helper_blue","0", [(ti_on_init_scene_prop,[
+    (store_trigger_param_1, ":instance_no"),
+    (eq,"$all_doors_locked",0), #this should help with sneak mission and town ambush
+    (neq, "$talk_context", tc_prison_break),
+    (neq, "$talk_context", tc_escape),
+    (eq, "$g_siege_battle_state", 0),
+	(assign, ":block", 0),
+    		(try_begin),
+        	(eq, "$current_town", "p_town_22"),
+        	(is_between, "$jewish_rebellion", 1, 4),
+		(assign, ":block", 1),
+    		(else_try),
+        	(eq, "$current_town", "p_town_45"),
+        	(is_between, "$armenian_rebellion", 1, 4),
+		(assign, ":block", 1),
+    		(try_end),
+	(eq, ":block", 0),
+    (neg|is_currently_night),
+    (store_faction_of_party, ":current_faction", "$current_town"),
+    (faction_get_slot, ":troop", ":current_faction", slot_faction_guard_troop),
+    (try_begin), #make sure it's infantry
+        (troop_is_guarantee_horse, ":troop"),
+        (faction_get_slot, ":troop", ":current_faction", slot_faction_tier_2_troop),
+    (try_end),
+
+	(try_begin),
+	(le, ":troop", 0),
+	(assign, ":troop", "trp_manhunter"),
+	(try_end),
+
+    (prop_instance_get_position, pos1, ":instance_no"), (set_spawn_position, pos1),  (spawn_agent, ":troop"),
+    (scene_prop_set_slot, ":instance_no", slot_prop_agent_1, reg0),
+
+    (assign, ":weapon_found", 0),
+    (try_for_range, ":weapon_slot", 0, 4), #find weapon
+        (agent_get_item_slot, ":item", reg0, ":weapon_slot"),
+        (gt, ":item", 1),
+        (item_get_type, ":item_type", ":item"),
+        (neq, ":item_type", itp_type_polearm),
+        (neq, ":item_type", itp_type_bow),
+        (neq, ":item_type", itp_type_crossbow),
+        (neq, ":item_type", itp_type_thrown),
+        (agent_set_wielded_item, reg0, ":item"),
+        (assign, ":weapon_found", 1),
+    (try_end),
+    (try_begin),
+        (eq, ":weapon_found", 0),
+        (agent_equip_item, reg0, "itm_practice_staff", 1),
+        (agent_set_wielded_item, reg0, ":item"),
+    (try_end),
+    (prop_instance_deform_in_range, ":instance_no", 0, 100, 500), #fake deform to get a timer
+   ]),
+  (ti_scene_prop_deformation_finished,[
+    (set_fixed_point_multiplier, 100),
+    (store_trigger_param_1, ":instance_no"),
+    (prop_instance_get_position, pos1, ":instance_no"),
+    (get_player_agent_no, ":player"),
+    (agent_get_position, pos3, ":player"),
+    (get_distance_between_positions, ":dist", pos1, pos3),
+    (try_begin),
+        (is_between, ":dist", 300, 4000), #stop at greater distances to avoid noise
+        (scene_prop_get_slot, ":agent", ":instance_no", slot_prop_agent_1),
+        (agent_set_position, ":agent", pos1),
+        (store_random_in_range, ":attack_direction", 1, 4), #no thrust
+        (agent_set_attack_action, ":agent", ":attack_direction", 0),
+    (try_end),
+
+    (store_random_in_range, ":timer", 1000, 2000),
+    (try_begin), #pauses
+        (ge, ":timer", 1800),
+        (store_random_in_range, ":timer", 8000, 13000),
+    (try_end),
+    (prop_instance_deform_in_range, ":instance_no", 0, 100, ":timer"), #fake deform to get a timer
+   ]),
+   ]),
+
+("terrain_mountain_far",0,"mountain_scene_TLD",0,[]), 
 
 ]

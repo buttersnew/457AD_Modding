@@ -1,3 +1,4 @@
+#-*-coding:utf-8-*-
 from header_game_menus import *
 from header_parties import *
 from header_items import *
@@ -3808,6 +3809,8 @@ TOTAL:  {reg5}"),
           (eq, "$g_encountered_party_template", "pt_steppe_bandits"),
           (set_background_mesh, "mesh_pic_steppe_bandits"),
         (else_try),
+          (this_or_next|eq, "$g_encountered_party_template", "pt_slavic_bandits"),
+          (this_or_next|eq, "$g_encountered_party_template", "pt_baltic_bandits"),
           (eq, "$g_encountered_party_template", "pt_taiga_bandits"),
           (set_background_mesh, "mesh_pic_mb_warrior_1"),
         (else_try),
@@ -7369,13 +7372,19 @@ TOTAL:  {reg5}"),
          ],
        "Order your soldiers to attack while you stay back...", [(assign, "$cant_talk_to_enemy", 0),(jump_to_menu,"mnu_castle_attack_walls_simulate")]),
 
-      ("build_ladders",[(party_slot_eq, "$current_town", slot_center_siege_with_belfry, 0),(eq, "$g_siege_method", 0)],
+      ("build_ladders",[(party_slot_eq, "$current_town", slot_center_siege_with_belfry, 0),(eq, "$g_siege_method", 0),
+	(eq, 1, 0), #madsci disable this because ladders are built through the siege warfare menu
+],
        "Prepare ladders to attack the walls.", [(jump_to_menu,"mnu_construct_ladders")]),
 
-      ("build_siege_tower",[(party_slot_eq, "$current_town", slot_center_siege_with_belfry, 1),(eq, "$g_siege_method", 0)],
+      ("build_siege_tower",[(party_slot_eq, "$current_town", slot_center_siege_with_belfry, 1),(eq, "$g_siege_method", 0),
+	(eq, 1, 0), #madsci disable this because ladders are built through the siege warfare menu
+],
        "Build a siege tower.", [(jump_to_menu,"mnu_construct_siege_tower")]),
 
-      ("build_ladders_special",[(party_slot_eq, "$current_town", slot_center_siege_with_belfry, 2),(eq, "$g_siege_method", 0)],
+      ("build_ladders_special",[(party_slot_eq, "$current_town", slot_center_siege_with_belfry, 2),(eq, "$g_siege_method", 0),
+	(eq, 1, 0), #madsci disable this because ladders are built through the siege warfare menu
+],
        "Prepare ladders to attack the walls.", [(jump_to_menu,"mnu_construct_ladders")]),
 
       ("cheat_castle_lead_attack",[(eq, "$cheat_mode", 1),
@@ -8632,7 +8641,10 @@ TOTAL:  {reg5}"),
             (display_message, "@{s4} lost between 30 and 40% of its food reserves.", 0xFF0000),
           (try_end),
           (party_get_slot, ":town_lord", "$g_encountered_party", slot_town_lord),
-          (call_script, "script_change_troop_renown", ":town_lord", -15),
+		(try_begin),
+		(gt, ":town_lord", 0),
+          	(call_script, "script_change_troop_renown", ":town_lord", -15),
+		(try_end),
           (call_script, "script_change_center_prosperity", "$g_encountered_party", -10),
           (party_set_slot,"$g_encountered_party",slot_center_infiltration_type,0),
           (assign, "$g_infiltracion_interna", 4),
@@ -9150,8 +9162,8 @@ TOTAL:  {reg5}"),
 
   (
     "construct_ladders",0,
-    "As the party member with the highest Engineer skill ({reg2}), {reg3?you estimate:{s3} estimates} that it will take\
- {reg4} hours to build enough scaling ladders for the assault.",
+    "As the party member with the highest Engineer skill ({reg2}), {reg3?you estimate:{s3} estimates} that it will take "+
+ "{reg4} hours to build enough scaling ladders for the assault.",
     "none",
     [(call_script, "script_get_max_skill_of_player_party", "skl_engineer"),
      (assign, ":max_skill", reg0),
@@ -9161,6 +9173,7 @@ TOTAL:  {reg5}"),
      (store_sub, reg4, 14, ":max_skill"),
      (val_mul, reg4, 2),
      (val_div, reg4, 3),
+	(val_mul, reg4, 2), #madsci increase siege time so that events have more time to trigger
 
      (try_begin),
        (eq, ":max_skill_owner", "trp_player"),
@@ -9186,6 +9199,7 @@ TOTAL:  {reg5}"),
            (store_sub, ":hours_takes", 14, reg0),
            (val_mul, ":hours_takes", 2),
            (val_div, ":hours_takes", 3),
+		(val_mul, ":hours_takes", 2), #madsci
            (store_add, "$g_siege_method_finish_hours",":cur_hours", ":hours_takes"),
            (assign,"$auto_besiege_town","$current_town"),
            (rest_for_hours_interactive, 96, 5, 1), #rest while attackable. A trigger will divert control when attack is ready.
@@ -9209,6 +9223,7 @@ TOTAL:  {reg5}"),
 
      (store_sub, reg4, 15, ":max_skill"),
      (val_mul, reg4, 6),
+	(val_mul, reg4, 2), #madsci
 
      (try_begin),
        (eq, ":max_skill_owner", "trp_player"),
@@ -9233,6 +9248,7 @@ TOTAL:  {reg5}"),
            (call_script, "script_get_max_skill_of_player_party", "skl_engineer"),
            (store_sub, ":hours_takes", 15, reg0),
            (val_mul, ":hours_takes", 6),
+		(val_mul, ":hours_takes", 2), #madsci
            (store_add, "$g_siege_method_finish_hours",":cur_hours", ":hours_takes"),
            (assign,"$auto_besiege_town","$current_town"),
            (rest_for_hours_interactive, 240, 5, 1), #rest while attackable. A trigger will divert control when attack is ready.
@@ -9434,8 +9450,8 @@ TOTAL:  {reg5}"),
   (
     "castle_taken",mnf_disable_all_keys,
   ##diplomacy begin
-    "{s3} has fallen to your troops, and you now have full control of the {reg2?town:fortress}. You can plunder spoils of war worth {reg3} siliquae.\
-{reg1? You may station troops here to defend it against enemies who may try to recapture it. Also, you should select now whether you will hold the {reg2?town:fortress} yourself or give it to a faithful vassal...:}",# Only visible when castle is taken without being a vassal of a kingdom.
+    "{s3} has fallen to your troops, and you now have full control of the {reg2?town:fortress}. You can plunder spoils of war worth {reg3} siliquae. "+
+"{reg1? You may station troops here to defend it against enemies who may try to recapture it. Also, you should select now whether you will hold the {reg2?town:fortress} yourself or give it to a faithful vassal...:}",# Only visible when castle is taken without being a vassal of a kingdom.
   ##diplomacy end
     "none",
     [
@@ -9997,19 +10013,23 @@ TOTAL:  {reg5}"),
 
 (
     "requested_castle_granted_to_another",mnf_scale_picture,
-    "You receive a message from your monarch, {s3}.^^\
- 'I was most pleased to hear of your valiant efforts in the capture of {s2}. Your victory has gladdened all our hearts.\
- You also requested me to give you ownership of the castle, but that is a favor which I fear I cannot grant,\
- as you already hold significant estates in my realm.\
- Instead I have sent you {reg6} siliquae to cover the expenses of your campaign, but {s2} I give to {s5}.'\
- ",
+    "You receive a message from your monarch, {s3}.^^ "+
+ "'I was most pleased to hear of your valiant efforts in the capture of {s2}. Your victory has gladdened all our hearts. "+
+ "You also requested me to give you ownership of the castle, but that is a favor which I fear I cannot grant, "+
+ "as you already hold significant estates in my realm. "+
+ "Instead I have sent you {reg6} siliquae to cover the expenses of your campaign, but {s2} I give to {s5}.'",
     "none",
     [(set_background_mesh, "mesh_pic_messenger"),
      (faction_get_slot, ":faction_leader", "$players_kingdom", slot_faction_leader),
      (str_store_troop_name, s3, ":faction_leader"),
      (str_store_party_name, s2, "$g_center_to_give_to_player"),
      (party_get_slot, ":new_owner", "$g_center_to_give_to_player", slot_town_lord),
-     (str_store_troop_name, s5, ":new_owner"),
+	(try_begin),
+	(eq, ":new_owner", ":faction_leader"),
+	(str_store_string, s5, "@myself"),
+	(else_try),
+	(str_store_troop_name, s5, ":new_owner"),
+	(try_end),
      (assign, reg6, 900),
 
 	 (assign, "$g_castle_requested_by_player", -1),
@@ -10051,12 +10071,11 @@ TOTAL:  {reg5}"),
 (
     "requested_castle_granted_to_another_female",mnf_scale_picture,
 ##diplomacy start+ make gender correct
-    "You receive a message from your monarch, {s3}.^^\
- 'I was most pleased to hear of your valiant efforts in the capture of {s2}. Your victory has gladdened all our hearts.\
- You also requested me to give ownership of the castle to your {wife/husband}, but that is a favor which I fear I cannot grant,\
- as {she/he} already holds significant estates in my realm.\
- Instead I have sent you {reg6} siliquae to cover the expenses of your campaign, but {s2} I give to {s5}.'\
- ",
+    "You receive a message from your monarch, {s3}. ^^"+
+ "'I was most pleased to hear of your valiant efforts in the capture of {s2}. Your victory has gladdened all our hearts. "+
+ "You also requested me to give ownership of the castle to your {wife/husband}, but that is a favor which I fear I cannot grant, "+
+ "as {she/he} already holds significant estates in my realm. "+
+ "Instead I have sent you {reg6} siliquae to cover the expenses of your campaign, but {s2} I give to {s5}.'",
 ##diplomacy end+
     "none",
     [(set_background_mesh, "mesh_pic_messenger"),
@@ -10064,7 +10083,12 @@ TOTAL:  {reg5}"),
      (str_store_troop_name, s3, ":faction_leader"),
      (str_store_party_name, s2, "$g_center_to_give_to_player"),
      (party_get_slot, ":new_owner", "$g_center_to_give_to_player", slot_town_lord),
-     (str_store_troop_name, s5, ":new_owner"),
+	(try_begin),
+	(eq, ":new_owner", ":faction_leader"),
+	(str_store_string, s5, "@myself"),
+	(else_try),
+	(str_store_troop_name, s5, ":new_owner"),
+	(try_end),
      (assign, reg6, 900),
 
 	 (assign, "$g_castle_requested_by_player", -1),
@@ -10085,8 +10109,8 @@ TOTAL:  {reg5}"),
 
   (
     "leave_faction",0,
-    "Renouncing your oath is a grave act. Your lord may condemn you and confiscate your lands and holdings.\
- However, if you return them of your own free will, he may let the betrayal go without a fight.",
+    "Renouncing your oath is a grave act. Your lord may condemn you and confiscate your lands and holdings. "+
+ "However, if you return them of your own free will, he may let the betrayal go without a fight.",
     "none",
     [
     ],
@@ -10118,9 +10142,9 @@ TOTAL:  {reg5}"),
   (
     "give_center_to_player",mnf_scale_picture,
 ##diplomacy start+ fix gender of pronoun
-    "Your lord offers to extend your fiefs!\
- {s1} sends word that {reg4?she:he} is willing to grant {s2} to you in payment for your loyal service,\
- adding it to your holdings. What is your answer?",
+    "Your lord offers to extend your fiefs! ^"+
+ "{s1} sends word that {reg4?she:he} is willing to grant {s2} to you in payment for your loyal service, "+
+ "adding it to your holdings. What is your answer?",
 ##diplomacy end+
     "none",
     [(set_background_mesh, "mesh_pic_messenger"),
@@ -10146,12 +10170,12 @@ TOTAL:  {reg5}"),
 
   (
     "give_center_to_player_2",0,
-    "With a brief ceremony, you are officially confirmed as the new lord of {s2}{reg3? and its bound village {s4}:}.\
- {reg3?They:It} will make a fine part of your fiefdom.\
- You can now claim the rents and revenues from your personal estates there, draft soldiers from the populace,\
- and manage the lands as you see fit.\
- However, you are also expected to defend your fief and your people from harm,\
- as well as maintaining the rule of law and order.",
+    "With a brief ceremony, you are officially confirmed as the new lord of {s2}{reg3? and its bound village {s4}:}. "+
+ "{reg3?They:It} will make a fine part of your fiefdom. "+
+ "You can now claim the rents and revenues from your personal estates there, draft soldiers from the populace, "+
+ "and manage the lands as you see fit. "+
+ "However, you are also expected to defend your fief and your people from harm, "+
+ "as well as maintaining the rule of law and order.",
     "none",
     [
       (str_store_party_name, s2, "$g_center_to_give_to_player"),
@@ -10176,8 +10200,8 @@ TOTAL:  {reg5}"),
   (
     "oath_fulfilled",0,
 ##diplomacy start+ fix gender of pronoun
-    "You had a contract with {s1} to serve {reg4?her:him} for a certain duration.\
- Your contract has now expired. What will you do?",
+    "You had a contract with {s1} to serve {reg4?her:him} for a certain duration. "+
+ "Your contract has now expired. What will you do?",
 ##diplomacy end+
     "none",
     [
@@ -10995,6 +11019,8 @@ TOTAL:  {reg5}"),
             (eq, ":bandit_troop", "trp_desert_bandit"),
             (set_background_mesh, "mesh_pic_steppe_bandits"),
           (else_try),
+            (this_or_next|eq, ":bandit_troop", "trp_slavic_bandit"),
+            (this_or_next|eq, ":bandit_troop", "trp_baltic_bandit"),
             (this_or_next|eq, ":bandit_troop", "trp_steppe_bandit"),
             (eq, ":bandit_troop", "trp_taiga_bandit"),
             (set_background_mesh, "mesh_pic_mountain_bandits"),
@@ -11282,6 +11308,8 @@ TOTAL:  {reg5}"),
 		(le, ":bandit_troop", 0),
 		(assign, ":bandit_troop", "trp_bandit"),
 		(try_end),
+(store_div, "$battle_renown_value", "$qst_eliminate_bandits_infesting_village_num_bandits", 4),
+(val_clamp, "$battle_renown_value", 1, 10),
         (party_get_slot, ":scene_to_use", "$current_town", slot_castle_exterior),
         (modify_visitors_at_site,":scene_to_use"),
         (reset_visitors),
@@ -12686,8 +12714,10 @@ TOTAL:  {reg5}"),
            (store_random_in_range, ":enmity", -30, -15),
            (call_script, "script_change_player_relation_with_center", "$current_town", ":enmity"),
            (party_get_slot, ":town_lord", "$current_town", slot_town_lord),
-           (gt, ":town_lord", 0),
-           (call_script, "script_change_player_relation_with_troop", ":town_lord", -3),
+		(try_begin),
+           	(gt, ":town_lord", 0),
+           	(call_script, "script_change_player_relation_with_troop", ":town_lord", -3),
+		(try_end),
          (try_end),
          (jump_to_menu, "mnu_village_loot_no_resist"),
        (else_try),
@@ -13438,8 +13468,19 @@ TOTAL:  {reg5}"),
             (ge, ":center_lord", 0),
             (str_store_string,s11,"@ You see the banner of {s7} over the castle gate."),
           (else_try),
-    ##            (str_store_string,s11,"@ This castle seems to belong to no one."),
-            (str_store_string,s11,"@ This castle has no garrison."),
+		(this_or_next|eq, ":center_faction", "fac_outlaws"),
+		(eq, ":center_faction", "fac_commoners"),
+            	(str_store_string,s11,"@ This castle is in the hands of outlaws."),
+          (else_try),
+		(store_party_size_wo_prisoners, ":num_troops", "$current_town"),
+		(gt, ":num_troops", 200),
+            	(str_store_string,s11,"@ This castle has a strong garrison."),
+          (else_try),
+		(store_party_size_wo_prisoners, ":num_troops", "$current_town"),
+		(gt, ":num_troops", 5),
+            	(str_store_string,s11,"@ This castle has a small garrison."),
+          (else_try),
+            	(str_store_string,s11,"@ This castle has no garrison."),
           (try_end),
         (else_try),
           (try_begin),
@@ -13458,7 +13499,18 @@ TOTAL:  {reg5}"),
             (ge, ":center_lord", 0),
             (str_store_string,s11,"@ You see the banner of {s7} over the town gates."),
           (else_try),
-    ##            (str_store_string,s11,"@ The townsfolk here have declared their independence."),
+		(this_or_next|eq, ":center_faction", "fac_outlaws"),
+		(eq, ":center_faction", "fac_commoners"),
+            	(str_store_string,s11,"@ This town has fallen into anarchy."),
+          (else_try),
+    		(store_party_size_wo_prisoners, ":num_troops", "$current_town"),
+		(gt, ":num_troops", 200),
+            	(str_store_string,s11,"@ This town has a strong garrison."),
+          (else_try),
+		(store_party_size_wo_prisoners, ":num_troops", "$current_town"),
+		(gt, ":num_troops", 5),
+            	(str_store_string,s11,"@ This town has a small garrison."),
+          (else_try),
             (str_store_string,s11,"@ This town has no garrison."),
           (try_end),
         (try_end),
@@ -13612,6 +13664,7 @@ TOTAL:  {reg5}"),
         ]
        ,"Join the competition.",
        [
+	(assign, "$last_joined_tournament", "$current_town"),
            (call_script, "script_fill_tournament_participants_troop", "$current_town", 1),
            (assign, "$g_tournament_cur_tier", 0),
            (assign, "$g_tournament_player_team_won", -1),
@@ -13672,19 +13725,39 @@ TOTAL:  {reg5}"),
       ],
       "Take a walk around the streets.",
        [
+#madsci custom npcs
+(try_begin),
+(eq, "$talk_context", tc_town_talk),
+    (try_begin),
+        (eq, "$g_encountered_party", "p_town_19"), #ctesiphon
+        (troop_slot_eq, "trp_npc29", slot_troop_occupation, slto_inactive), #sultana
+	(neg|troop_slot_eq, "trp_npc29", slot_troop_playerparty_history, pp_history_scattered),
+	(neg|main_party_has_troop, "trp_npc29"),
+        (set_visitor, 5, "trp_npc29"),
+	(else_try),
+        (eq, "$g_encountered_party", "p_town_28"), #tingis
+        (troop_slot_eq, "trp_npc30", slot_troop_occupation, slto_inactive), #barzabod
+	(neg|troop_slot_eq, "trp_npc30", slot_troop_playerparty_history, pp_history_scattered),
+	(neg|main_party_has_troop, "trp_npc30"),
+        (set_visitor, 5, "trp_npc30"),
+    (try_end),
+(try_end),
+
          #If the player is fighting his or her way out
          (try_begin),
            (eq, "$talk_context", tc_prison_break),
            (assign, "$talk_context", tc_escape),
            (assign, "$g_mt_mode", tcm_escape),
            (store_faction_of_party, ":town_faction", "$current_town"),
-           (try_begin), #SB : this really shouldn't be happening but we'll check player faction center anyway
-             (neg|is_between, ":town_faction", npc_kingdoms_begin, kingdoms_end),
-             (party_get_slot, ":town_faction", "$current_town", slot_center_original_faction),
-           (try_end),
            (faction_get_slot, ":tier_2_troop", ":town_faction", slot_faction_tier_3_troop),
            (faction_get_slot, ":tier_3_troop", ":town_faction", slot_faction_tier_3_troop),
            (faction_get_slot, ":tier_4_troop", ":town_faction", slot_faction_tier_4_troop),
+           	(try_begin), #SB : this really shouldn't be happening but we'll check player faction center anyway
+		(le, ":tier_2_troop", 0),
+             	(neg|is_between, ":town_faction", npc_kingdoms_begin, kingdoms_end),
+             	(party_get_slot, ":town_faction", "$current_town", slot_center_original_faction),
+		(is_between, ":town_faction", npc_kingdoms_begin, npc_kingdoms_end),
+           	(try_end),
 	(try_begin), #madsci failsafe
 	(le, ":tier_2_troop", 0),
 	(assign, ":tier_2_troop", "trp_manhunter"),
@@ -13847,6 +13920,8 @@ TOTAL:  {reg5}"),
            (try_end),
 
           (try_begin),
+	  (neq, "$talk_context", tc_prison_break),
+	  (neq, "$talk_context", tc_escape),
             (eq, "$current_town", "p_town_8"),
             (set_visitors, 8, "trp_antiquarian", 1),
             (set_visitors, 13, "trp_chudjak", 1),
@@ -13858,6 +13933,8 @@ TOTAL:  {reg5}"),
           (try_end),
 
           (try_begin),
+	  (neq, "$talk_context", tc_prison_break),
+	  (neq, "$talk_context", tc_escape),
             (eq, "$current_town", "p_town_10"), #sirmium
             (check_quest_active,"qst_black_river"),
             (quest_slot_ge,"qst_black_river",slot_quest_current_state, 1),
@@ -13866,6 +13943,8 @@ TOTAL:  {reg5}"),
           (try_end),
 
           (try_begin),
+	  (neq, "$talk_context", tc_prison_break),
+	  (neq, "$talk_context", tc_escape),
             (eq, "$current_town", "p_town_12"),
 	    (neg|main_party_has_troop, "trp_npc20"),
             (try_begin),
@@ -13879,11 +13958,15 @@ TOTAL:  {reg5}"),
           (try_end),
 
           (try_begin),
+	  (neq, "$talk_context", tc_prison_break),
+	  (neq, "$talk_context", tc_escape),
             (eq, "$current_town", "p_town_13"),
             (set_visitors, 8, "trp_pilos_cultist", 1),
           (try_end),
 
           (try_begin),
+	  (neq, "$talk_context", tc_prison_break),
+	  (neq, "$talk_context", tc_escape),
             (eq, "$current_town", "p_town_36"),
             (set_visitors, 8, "trp_caius_cosades", 1),
           (try_end),
@@ -14343,7 +14426,8 @@ TOTAL:  {reg5}"),
        [
            (try_begin),
              (this_or_next|eq,"$all_doors_locked",1),
-             (eq,"$town_nighttime",1),
+             (this_or_next|eq,"$town_nighttime",1),
+        	(neq, "$talk_context", tc_town_talk), #madsci exclude prison breaks and such
              (display_message,"str_door_locked",message_locked),
            (else_try),
              (assign, "$town_entered", 1),
@@ -14356,9 +14440,13 @@ TOTAL:  {reg5}"),
 
              (try_end),
              (party_get_slot, ":cur_scene", "$current_town", slot_town_store),
+		(gt, ":cur_scene", 0),
+		(set_jump_entry, 0),
              (jump_to_scene, ":cur_scene"),
              (scene_set_slot, ":cur_scene", slot_scene_visited, 1),
              (change_screen_mission),
+		(else_try),
+             (display_message,"str_door_locked",message_locked),
            (try_end),
         ],"Door to the shop."),
 
@@ -14485,6 +14573,24 @@ TOTAL:  {reg5}"),
            (party_get_slot, ":cur_castle_exterior", "$current_town", slot_castle_exterior),
            (modify_visitors_at_site,":cur_castle_exterior"),
            (reset_visitors),
+
+    (try_begin),
+	(neq, "$talk_context", tc_prison_break),
+	(neq, "$talk_context", tc_escape),
+        (eq, "$g_encountered_party", "p_castle_104"), #jaervi
+        (troop_slot_eq, "trp_npc27", slot_troop_occupation, slto_inactive), #harva
+	(neg|troop_slot_eq, "trp_npc27", slot_troop_playerparty_history, pp_history_scattered),
+	(neg|main_party_has_troop, "trp_npc27"),
+        (set_visitor, 42, "trp_npc27"),
+	(else_try),
+	(neq, "$talk_context", tc_prison_break),
+	(neq, "$talk_context", tc_escape),
+        (eq, "$g_encountered_party", "p_castle_78"), #tingis
+        (troop_slot_eq, "trp_npc28", slot_troop_occupation, slto_inactive), #malzam
+	(neg|troop_slot_eq, "trp_npc28", slot_troop_playerparty_history, pp_history_scattered),
+	(neg|main_party_has_troop, "trp_npc28"),
+        (set_visitor, 42, "trp_npc28"),
+    (try_end),
 
            	(try_begin),
              	(faction_get_slot, ":troop_prison_guard", "$g_encountered_party_faction", slot_faction_prison_guard_troop),
@@ -16346,6 +16452,8 @@ TOTAL:  {reg5}"),
         (set_party_battle_mode),
         (set_battle_advantage, 0),
         (assign, "$g_battle_result", 0),
+		(store_div, "$battle_renown_value", ":random_no", 4),
+		(val_clamp, "$battle_renown_value", 1, 10),
         (set_jump_mission,"mt_village_attack_bandits"),
         (jump_to_scene, ":scene_to_use"),
         (assign, "$g_next_menu", "mnu_train_peasants_against_bandits_attack_result"),
@@ -16919,6 +17027,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
        (store_random_in_range, ":random_town", towns_begin, towns_end),
 
        (party_get_slot, ":cur_merchant", ":org_encountered_party", slot_town_merchant),
+	(gt, ":cur_merchant", 0),
 	   (assign, ":num_items_in_town_inventory", 0),
        (try_for_range, ":i_slot", num_equipment_kinds, max_inventory_items + num_equipment_kinds),
          (troop_get_inventory_slot, ":slot_item", ":cur_merchant", ":i_slot"),
@@ -20265,18 +20374,20 @@ goods, and books will never be sold. ^^You can change some settings here freely.
           (str_store_string, s5, "str_bandit_approach_swamp"),
           (set_background_mesh, "mesh_pic_forest_bandits"),
         (else_try),
+          (this_or_next|eq, ":bandit_type", "trp_slavic_bandit"),
           (eq, ":bandit_type", "trp_taiga_bandit"),
           (str_store_string, s5, "str_bandit_approach_swamp"),
           (set_background_mesh, "mesh_pic_steppe_bandits"),
         (else_try),
           (eq, ":bandit_type", "trp_steppe_bandit"),
           (str_store_string, s5, "str_bandit_approach_thickets"),
-          (set_background_mesh, "mesh_pic_steppe_bandits"),\
+          (set_background_mesh, "mesh_pic_steppe_bandits"),
         (else_try),
           (eq, ":bandit_type", "trp_sabir_bandit"),
           (str_store_string, s5, "str_bandit_approach_thickets"),
           (set_background_mesh, "mesh_pic_steppe_bandits"),
         (else_try),
+          (this_or_next|eq, ":bandit_type", "trp_baltic_bandit"),
           (eq, ":bandit_type", "trp_sea_raider"),
           (str_store_string, s5, "str_bandit_approach_cove"),
           (set_background_mesh, "mesh_pic_sea_raiders"),
@@ -20327,6 +20438,10 @@ goods, and books will never be sold. ^^You can change some settings here freely.
           (assign, ":bandit_troop", "trp_sea_raider"),
           (assign, ":scene_to_use", "scn_lair_sea_raiders"),
         (else_try),
+          (eq, ":template", "pt_baltic_bandit_lair"),
+          (assign, ":bandit_troop", "trp_baltic_bandit"),
+          (assign, ":scene_to_use", "scn_lair_forest_bandits"),
+        (else_try),
           (eq, ":template", "pt_forest_bandit_lair"),
           (assign, ":bandit_troop", "trp_forest_bandit"),
           (assign, ":scene_to_use", "scn_lair_forest_bandits"),
@@ -20341,6 +20456,10 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         (else_try),
           (eq, ":template", "pt_taiga_bandit_lair"),
           (assign, ":bandit_troop", "trp_taiga_bandit"),
+          (assign, ":scene_to_use", "scn_lair_taiga_bandits"),
+        (else_try),
+          (eq, ":template", "pt_slavic_bandit_lair"),
+          (assign, ":bandit_troop", "trp_slavic_bandit"),
           (assign, ":scene_to_use", "scn_lair_taiga_bandits"),
         (else_try),
           (eq, ":template", "pt_steppe_bandit_lair"),
@@ -22443,6 +22562,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         (assign, "$new_encounter", 1),
         (try_begin),
           (party_get_slot, ":town_lord","$g_encountered_party", slot_town_lord),
+		(ge, ":town_lord", 0),
           (troop_get_slot, ":cur_banner", ":town_lord", slot_troop_banner_scene_prop),
           (gt, ":cur_banner", 0),
           (val_sub, ":cur_banner", banner_scene_props_begin),
@@ -24250,6 +24370,8 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       (eq, "$g_encountered_party_template", "pt_steppe_bandits"),
       (set_background_mesh, "mesh_pic_steppe_bandits"),
     (else_try),
+      (this_or_next|eq, "$g_encountered_party_template", "pt_baltic_bandits"),
+      (this_or_next|eq, "$g_encountered_party_template", "pt_slavic_bandits"),
       (eq, "$g_encountered_party_template", "pt_taiga_bandits"),
       (set_background_mesh, "mesh_pic_mb_warrior_1"),
     (else_try),
@@ -24881,404 +25003,17 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     ]
   ),
 
-
-  # (
-    # "debug_registers", 0,
-    # "{s1}",
-    # "none",
-    # [
-    # (str_clear, s1),
-    # ]+
-    # [
-    # (str_store_string, s1, "@index"+str(x)+":{reg"+str(x)+"}^"),
-    # ]
-    # for x in range (0, 64),
-    # [
-      # ("back",
-      # [],
-      # "Never mind...",
-      # [
-        # (change_screen_return),
-      # ]),
-    # ]
-  # ),
-
-  # (
-    # "debug_preg", 0,
-    # "{s1}",
-    # "none",
-    # [
-    # (str_clear, s1),
-    # ]+
-    # [
-    # (position_get_x, reg1, x),
-    # (position_get_y, reg2, x),
-    # (position_get_z, reg3, x),
-    # (str_store_string, s1, "@{s1}^index"+str(x)+":({reg1},{reg2},{reg3})"),
-
-    # ]
-    # for x in range (0, pos_belfry_begin),
-    # [
-      # ("back",
-      # [],
-      # "Never mind...",
-      # [
-        # (change_screen_return),
-      # ]),
-    # ]
-  # ),
-
-
-  # (
-    # "debug_sreg", 0,
-    # "{s67}",
-    # "none",
-    # # [
-    # # #need to be careful or string will be built too long
-    # # # (str_clear, s67), #use last string
-    # # ]+
-    # [
-    # (str_store_string, s67, "@index"+str(x)+":({reg1},{reg2},{reg3})"),
-
-    # ]
-    # for x in range (s0, s67),
-    # [
-      # ("back",
-      # [],
-      # "Never mind...",
-      # [
-        # (change_screen_return),
-      # ]),
-    # ]
-  # ),
-
-#new starting as king/emperor
-  # ("start_king_1",mnf_disable_all_keys,
-  #  "Select your King",
-  #  "none",
-  #  [(set_background_mesh, "mesh_pic_intro"),],
-  #  [
-  # ("kingdom_wre",[],"Emperor Majorian of the Western Roman Empire",[(jump_to_menu, "mnu_start_king_wre"),]),
-  # ("kingdom_ere",[],"Emperor Leo of the Eastern Roman Empire",[(jump_to_menu, "mnu_start_king_ere"),]),
-  # ("kingdom_vis",[],"Rex Theodoric II of the Visigoths",[(jump_to_menu, "mnu_start_king_vis"),]),
-  # ("kingdom_ost",[],"Rex Valamir of the Ostrogoths",[(jump_to_menu, "mnu_start_king_ost"),]),
-  # ("kingdom_frank",[],"Rex Childeric of the Franks",[(jump_to_menu, "mnu_start_king_frank"),]),
-  # ("kingdom_sas",[],"Shahanshah Hormizd III of the Sassanid Empire",[(jump_to_menu, "mnu_start_king_sassanid"),]),
-  # ("kingdom_vandal",[],"Vandalrice Gaiseric of the Kingdom of the Vandals and Alans",[(jump_to_menu, "mnu_start_king_vandals"),]),
-  # ("kingdom_iberia",[],"King Vakhtang of Iberia",[(jump_to_menu, "mnu_start_king_iberia"),]),
-  # ("kingdom_huns",[],"Dengizich of the Huns",[(jump_to_menu, "mnu_start_king_huns"),]),
-  # ("kingdom_britons",[],"Ambrosius Aurelianus of the Britons",[(jump_to_menu, "mnu_start_king_britons"),]),
-  # ("go_back",[],"Go back",[(jump_to_menu,"mnu_start_game_0"),]),
-  #   ]
-  # ),
-#western roman emperor
-#Old aka anthemius
-# ("start_king_wre",menu_text_color(0xFF000000)|mnf_disable_all_keys,
-# "Imperator Caesar Procopius Anthemius Augustus:\
-#  ^\
-#  ^Procopius Anthemius was born around the year 420, in Constantinople and was a member of the noble family, Procopii. His mother, Lucina was decended from Flavius Philippus, Praetorian prefect of the East in 346 and was the daughter of Flavius Anthemius.\
-#  ^\
-#  ^His father was Procopius, Magister Militum per Orientem from 422 to 424. Anthemius went to study in Alexandria in the school of Neoplatonic philosopher Proclus with several other important Roman figures, like Marcellinus (Magister Militum and governor of Illyricum). In 453 he married Marcia Euphemia, daughter of the Eastern Emperor at the time, Marcian and he was elevated to the rank of comes. In 454 he was given the title of patricius and in 455 became one of two magistri militum of the east.\
-#  ^\
-#  ^In the winter of 466 he defeated a group of huns who had crossed the frozen Danube and were pillaging Dacia. The huns had captured Serdica, and he besieged them and starved the huns until they accepted to fight in the open battle. Here Anthemius would lead his infantry to victory over the huns. On March 25th of 467 Leo, the Eastern Emperor designated Anthemius as the Western Emperor without the consent of Ricimer, the defacto ruler of the West as a means of combatting vandal influence over the Western Roman Empire and sent Anthemius to Rome, backed by Marcellinus. On the 12th of April he was proclaimed Emperor near Rome",
-# "none",
-# [(set_background_mesh, "mesh_pic_roman_start"),],
-# [
-#  ("go_reign",[(eq, "$current_startup_quest_phase", 0),],"Continue",[(assign, "$jugador_rey", 1),(call_script, "script_player_is_king"),(change_screen_return),]),
-#  ("go_back",[],"Go back.",[(jump_to_menu,"mnu_start_king_1"),]),
-# ]
-# ),
-#  ("start_king_wre",menu_text_color(0xFF000000)|mnf_disable_all_keys,
-#  "Imperator Caesar Iulius Valerius Majorianus Augustus:\
-#   ^\
-#   ^You are Majorian, Emperor of the Pars Occidentalis, the western regions of the Roman Empire. Loyal friend of Flavius Aetius, the Roman general who saved the Empire at the Catalaunian Plains defeating Attila, you proclaimed yourself emperor after Burco, a loyal comes, defeated a group of Alamans who were raiding Liguria.\
-#   ^\
-#   ^With your power and your soldiers you have now the chance to reclaim the lost provinces in Gallia, Hiberia and Africa. Many lands were lost to the barbarians escaping the Huns: your predecessors failed in the quest, but now it's your turn to restore the glory of Rome. This is the last chance of the Empire, if you fail, there will be no one else to prevent some Germanic tribes, or treacherous foederatus generals, to take Ravenna, Milan or even Rome from you.\
-#   ^\
-#   ^\
-#   ^Majorian will start at war on mutiple fronts: the Burgundians, the Visigoths and the Vandals are all hostile to your power and they occupy some of your richest regions you ought to reconquer for them. Picking Majorian's start, you will have some of the most powerful units in the entire game available in Ravenna to recruit, as well as your ordinary and efficent regular roman soldiers.\
-#   ^\
-#   ^Make sure to have enough gold to fill your coffers to pay your troops and make sure your many generals are happy with the land and military promotions you give them. Proceed carefully, if the germanic invaders manage to weaken you, more barbarian states will declare war on you, trying to invade Italy.\
-#   ^\
-#   ^Your northern provinces, controlled by Syagrius, are cut off from the main body of your controlled territories, but the Franks could be useful allies in fighting the Burgundians and reconquer the biggest chunk of Gaul. The Visigoths are indeed your toughest adversaries as they recently mangled the small Kingdom of the Suebi in northern Spain: they have no other enemy but you and the rogue bands of bagaudae raiding the mountainous regions of Northern Spain.\
-#   ^\
-#   ^The Vandals instead are strong in Carthage and the large amount of cities orbitating around the north-African capital allow their kingdom to store immense amounts of wealth. Although, they are being harassed by the Mauri and other tribes and might become soon an easy target. Better if to pick one enemy at once and do not waste too much manpower and wealth trying to fight them all at the same time: if taken alone, most of those post-roman barbarian kingdoms will be no match for you.\
-#   ^\
-#   ^Difficulty: Easy\
-#   ^\
-#   ^Starting allies: Salian Franks (tributaries)\
-#   ^\
-#   ^Starting enemies: Kingdom of the Visigoths, Kingdom of the Burgundians, Kingdom of the Vandals",
-#  "none",
-#  [(set_background_mesh, "mesh_pic_roman_start"),],
-#  [
-#   ("go_reign",[],"Continue",[(assign, "$jugador_rey", 1),(call_script, "script_player_is_king", "fac_kingdom_1"),(change_screen_return),]),
-#   ("go_back",[],"Go back.",[(jump_to_menu,"mnu_start_king_1"),]),
-#  ]
-#  ),
-#  ("start_king_ere",menu_text_color(0xFF000000)|mnf_disable_all_keys,
-#  "Imperator Caesar Flavius Valerius Leo Augustus:\
-#   ^\
-#   ^You are Leo the First, Emperor of the East and you rule from the mighty and new city of Constantinople, built by the old Emperor himself. The old Aspar believed himself to be the brightest, he was convinced he would have been your master once you became Emperor. Pah! You're better than that, you outsmart him and all the other generals in tactical thought and wisdom... And I do believe it's time to show him who is the true Emperor of the Pars Orientalis.\
-#   ^However, your internal threats aren't the only enemies you're going to face: the situation in your eastern provinces is worrisome. The King of Kings, the persian Shahanshah, is rallying his troops and is about to attack Edessa, Theodosiopolis or Damascus. Our long story of conflicts with the Persians is old and tormented, but it is finally time to put an end to this and secure our eastern borders and the Caucasus once and for all. Pay also attention to the West, Majorian might need your assistence.\
-#   ^\
-#   ^Unlike for the Western Roman Empire, you have one main opponent that, in turn, is way stronger than most of the barbarian kingdoms north of the Danube. Your fortresses in the East are poorly defended and your generals struggle to reach Constantinople from distant provinces such as Egypt. Plan your campaigns carefully and protect your allies, such as the Kingdom of Lazika, from the hordes of the steppes.\
-#   ^In Egypt, furthermore, the myaphisite subjects of the Empire are upset with your rule and might revolt soon, this might keep some of your generals busy in the south and draw part of your manpower away from the Levant and Armenia. The Sasanid Empire is your equal in terms of economy and size of your army so expect large scale engagements and a long and exhausting conflict for your Eastern borders. Make sure to defeat the Persians on open field and go straight to their capital, Ctesiphon. If you manage to conquer it, the way to the East will be open to you and their other cities will fall easier than expected.\
-#   ^\
-#   ^Difficulty: Medium\
-#   ^\
-#   ^Starting allies: Kingdom of Lazika (tributaries), Tauri (tributaries)\
-#   ^\
-#   ^Starting enemies: Eranshar, Kingdom of Kartli, Huns",
-#  "none",
-#  [(set_background_mesh, "mesh_pic_roman_start"),],
-#  [
-#   ("go_reign",[],"Continue",[(assign, "$jugador_rey", 2),(call_script, "script_player_is_king", "fac_kingdom_2"),(change_screen_return),]),
-#   ("go_back",[],"Go back.",[(jump_to_menu,"mnu_start_king_1"),]),
-#  ]
-#  ),
-#  ("start_king_vis",menu_text_color(0xFF000000)|mnf_disable_all_keys,
-#  "Theodoric II, King of the Visigoths:\
-#   ^\
-#   ^You are Theodoric the Second, son of Theodoric the First, the great hero and martyr of the Catalaunian Plains, where he was killed by Attila's forces in battle. You do not forget the blood you shed for the Empire, nor how little they repaid your kin for your sacrifices. There isn't a single gothic male, within your domains, that do not have their knees swollen, their arms wounded and their heads damaged by spears, arrows and stones while serving Rome.\
-#   ^You remember how your father lost his life fighting for Aetius! And now... Now the new Emperor, Majorian, is coming to reclaim the lands rightfully given to you for your people to settle! You can't tolerate this injustice. You will break Majorian, as you just did with the Suebi in Iberia..\
-#   ^\
-#   ^Theodoric the Second benefits from one of the best starts among the barbarian kingdoms in Europe. He has a large domain, comprised of Aquitania and almost whole of Iberia and is at the head of a powerful army. In Tolosa you will have the chance to recruit the Gardingi, one of the strongest cavalry units in the game, as well as your regular gothic troops and indigenous iberian allies.\
-#   ^Beware Majorian, the Roman Empire is way stronger than you and their armies more professional and better armed: make sure to lay a trap for them and fight them only in tactical advantage or numerical superiority, such as near your cities.\
-#   ^Make sure to get all the support you can from the Burgundians: the Vandals will hardly help as they are far and already fighting the Mauri. Also, pay a closer look to the Suebi. If Majorian manages to weaken you, they might declare war on you to reclaim their lost land in Spain.\
-#   ^\
-#   ^Difficulty: Hard\
-#   ^\
-#   ^Starting allies: Kingdom of the Burgundians\
-#   ^\
-#   ^Starting enemies: Imperium Romanorum Pars Occidentalis",
-#  "none",
-#  [(set_background_mesh, "mesh_pic_gothic_start"),],
-#  [
-#   ("go_reign",[],"Continue",[(assign, "$jugador_rey", 3),(call_script, "script_player_is_king", "fac_kingdom_3"),(change_screen_return),]),
-#   ("go_back",[],"Go back.",[(jump_to_menu,"mnu_start_king_1"),]),
-#  ]
-#  ),
-#  ("start_king_ost",menu_text_color(0xFF000000)|mnf_disable_all_keys,
-#  "Valamir, King of the Ostrogoths:\
-#   ^\
-#   ^You are Valamir, king of the Eastern Goths, ruler of the Feld, the great plains of the Danube river. Your prowess is known far and wide as you helped your brothers Gepids in freeing your peoples from the yoke of the Huns, few years back. Now you are free, and with many opportunities in front.\
-#   ^First of all, secure your domains in the great plains of the Danube: the tribes of the Skirii, Heruli, Rugii and the Sarmatians fear you and might attack you soon as members of a newborn, anti-gothic, coalition. The two new emperors, Majorian and Leo, are far and busy with their own fights, but if they will ever stregthen their position be sure: they will come for you. King of the Eastern Goths, saddle your horses and grab your spear, there is much to be done.\
-#   ^\
-#   ^Valamis is at the head of the strongest faction in the Danube area, if we do not count the Eastern Roman Empire. This is an interesting start as it allows you to expand quickly against the smaller tribes of Eastern Germans living along the great river. However, beware: your many vassals serving you might soon turn unhappy if you don't grant them land so be quick, strike first, strike hard and force them into obedience.\
-#   ^You have acess to good quality horsemen and a good number of pannonian Huns that settled there during the time of Attila. This gives you a tactical advantage against your neighbours, make sure to use your army at the best of their possibilities and expand your realm to provide a large income for your tribe.\
-#   ^\
-#   ^Difficulty: Medium\
-#   ^\
-#   ^Starting allies: None\
-#   ^\
-#   ^Starting enemies: None",
-#  "none",
-#  [(set_background_mesh, "mesh_pic_gothic_start"),],
-#  [
-#   ("go_reign",[],"Continue",[(assign, "$jugador_rey", 4),(call_script, "script_player_is_king", "fac_kingdom_4"),(change_screen_return),]),
-#   ("go_back",[],"Go back.",[(jump_to_menu,"mnu_start_king_1"),]),
-#  ]
-#  ),
-#  ("start_king_frank",menu_text_color(0xFF000000)|mnf_disable_all_keys,
-#  "Childeric, King of the Salian Franks:\
-#   ^\
-#   ^You are Childeric, king of the Salian Franks. Your dinasty is destined to greatness: you arose from the dark forests of Germania and befriended the Romans that respect you and value you as great allies at the border of Gallia. Your kin valiantly helped against Attila, few years before at the battle of the Catalaunian plains, and now again are called to help the Romans in their struggle as the new emperor, Majorian, is in peril due to the many tribes that swathe through Gaul the years before.\
-#   ^Mayhaps, in this time of confusion, it will be the time to outshine your ancestors, unite the Frankish tribes and expand your domains at the expense of the other nations surrounding you. The Franks ought to rule, and so they shall.\
-#   ^\
-#   ^The Frankish start is, again, a good germanic start for those who seek an interesting challenge without exhausting confrontations against bigger enemies. You will start tied to Majorian's diplomatic stances, but you will soon be able to field a large army to conquer the Ripuarian Franks, subjugate the Frisians and confront both Saxons and Alamans in their own turf.\
-#   ^Use the first stages of the conflicts against the Burgundians and the Visigoths, while helping Rome, to forge your veteran army and amass spoil of wars as the campaigns you will be engaged in after are going to be wealth consuming. Your army is indeed balanced, as you have acess to a good western germanic roster and quality regional troops as well as the famous Antrustiones. \
-#   ^\
-#   ^Difficulty: Medium\
-#   ^\
-#   ^Starting allies: Imperium Romanorum Pars Occidentalis\
-#   ^\
-#   ^Starting enemies: Visigoths, Burgundians.",
-#  "none",
-#  [(set_background_mesh, "mesh_pic_germanic_start"),],
-#  [
-#   ("go_reign",[],"Continue",[(assign, "$jugador_rey", 5),(call_script, "script_player_is_king", "fac_kingdom_7"),(change_screen_return),]),
-#   ("go_back",[],"Go back.",[(jump_to_menu,"mnu_start_king_1"),]),
-#  ]
-#  ),
-#  ("start_king_sassanid",menu_text_color(0xFF000000)|mnf_disable_all_keys,
-#  "Hormizd III, Shahanshah of the Sassanid Empire:\
-#  ^\
-#  ^Oh great Shahansha, Hormizd the Third, your power outshines all the other monarchs and your glory is known from Hrwm to Qin. There is no greater empire than yours and no braver warriors than your soldiers. Your many subjects acclaim your power while your enemies fear you, such as the 'Emperor' from Constantinople.\
-#  ^In the past, when your family was finally recognised as the supreme authority in the realm, the men from the West tried to crush your forces many times but at the end you always managed to prevail. Now, it is finally time to turn your glare West, towards their rich cities and wealthy lands.\
-#  ^At the same time, it is of outmost importance to regain the lost provinces in the East, captured by the Xun decades before, such as Sogdia or the lands of the Kusans. Your fate is to rule the Earth, oh King of Kings, and with your supreme authority lead our through struggles and victories.\
-#  ^\
-#  ^The Sasanid start mirrors the Eastern Roman one. You have one main enemy (untill we add the Iranian Huns next update) that has, more or less, your same power and wealth as well as a strong tributary kingdom in the Caucasus. Your strategy is, of course, to rule in the Levant and in Egypt, taking those lands from the Romans. To do that, you will need your vassals to help you as well the ability to make them support you on large scale campaigns.\
-#  ^You start with a good economy and with excellent troops recruitable in your cities. Make large use of your horsemen, as the Romans beat you in infantry engagement, and you will make sure to have a great advantage against them. Furthermore, by increasing your piety and relationship with the zoroastrian world, you will be rewarded with champions heavily armed and recruitable in zoroastrian temples.\
-#  ^\
-#  ^Difficulty: Easy\
-#  ^\
-#  ^Starting allies: Kingdom of Kartli (tributaries)\
-#  ^\
-#  ^Starting enemies: Imperium Romanorum Pars Orientalis, Kingdom of Lazika",
-#  "none",
-#  [(set_background_mesh, "mesh_pic_sassanid_start"),],
-#  [
-#   ("go_reign",[],"Continue",[(assign, "$jugador_rey", 6),(call_script, "script_player_is_king", "fac_kingdom_6"),(change_screen_return),]),
-#   ("go_back",[],"Go back.",[(jump_to_menu,"mnu_start_king_1"),]),
-#  ]
-#  ),
-#  ("start_king_vandals",menu_text_color(0xFF000000)|mnf_disable_all_keys,
-#  "Gaiseric, King of the Vandals and Alans:\
-#  ^\
-#  ^Great King Gaiseric! You, that led us across the pillars of Hercules and gave us a new home: Carthage! The great city of these seas. Locals told us this city was once a great enemy of Rome. Ah, the irony! As now it belongs to us, for whom the eternal city should be turned into ashes. Gaiseric, your realm couldn't be more prosperous: our lands are rich and the other nations pay us well for the wheat our subjects produce! However, the new emperor, Majorian, eyes our golden shores with envy.\
-#  ^He wants to reconquer Africa and steal it from our very own hands! This cannot be. And what can we say about the Mauri from Altava? Those folks think they can have it all. No. They won't have nothing. The Vandals and the Alans will prevail once more and we will make the Mauri and the Romans bend to our knee. You have the power to do it, king Gaiseric.\
-#  ^\
-#  ^The Vandal start is challenging and not adviced for beginners. The Vandals begin with a strong faction and rich fiefs, they have a decent army and a large income that can support a good retinue. However, they immediatly start at war with two factions: the Romano-Mauri of the Kingdom of Altava, which are very close to your faction, and the Western Roman Empire led by Majorian.\
-#  ^They're both strong opponents, with the Romans being largely superior to you in wealth and power. There are also some minor tribes south of Libya and a rogue band of Austurian kidnapping your peasant parties in Numidia.\
-#  ^All these things make the Vandal start a quite challenging one. Your best tactic is to immediatly weaken the Romano-Mauri and hope Majorian will delay his campaign to focus on the Visigoths and the Burgundians north. If you manage to reunite North-Africa under a single banner or have the Romano-Mauri become your tributaries, you will  have a chance to resist against Majorian. However, it is no easy businness and will require a campaign of exhausting fights.\
-#  ^\
-#  ^Difficulty: Hard\
-#  ^\
-#  ^Starting allies: None\
-#  ^\
-#  ^Starting enemies: Imperium Romanorum Pars Occidentalis, Kingdom of Altava, Austuriani",
-#  "none",
-#  [(set_background_mesh, "mesh_pic_gothic_start"),],
-#  [
-#   ("go_reign",[],"Continue",[(assign, "$jugador_rey", 7),(call_script, "script_player_is_king", "fac_kingdom_15"),(change_screen_return),]),
-#   ("go_back",[],"Go back.",[(jump_to_menu,"mnu_start_king_1"),]),
-#  ]
-#  ),
-#  ("start_king_iberia",menu_text_color(0xFF000000)|mnf_disable_all_keys,
-#  "Vakhtang, King of the Iberians:\
-#  ^\
-#  ^You are King Vakhtang, the supreme ruler of Kartli, Iberia in western chronicles. Your family has come from Persia ages ago to rule over the vast lands at the feet of the Caucasus mountains... And they did wonders! Your realm is rich, but surrounded by daring wolves. The Sasanids claim they have authority over your realm and we, sadly, are still too strong to face them. But this will change soon.\
-#  ^They are too focused to fight the Romans to care about us... And when the time will come, we will strike. The Kingdom of Lazika, west, rules over lands that are rightfully ours. We have to rally our army and show them who's stronger.\
-#  ^North of our towns live the Alans and the barbarians of the mountains, as well as the Huns: we have to pay attention to those nations as they are used to raid our settlements at summer. In time, Kartli will rise and you, King Vakhtang, will be the uncontested ruler of the Caucasus.\
-#  ^\
-#  ^Kartli starts as a vassal state of the Sasanids. Your diplomacy is strictly tied to the Shahanshah's decision and therefore you will start at war with both the Romans and Lazika. It's your chance to expand west and claim the Kingdom of Lazika for your own.\
-#  ^However, beware: Lazika is in decline but they can still field a strong army and are defended by their barbarian clientes in the North, such as the Abasgoi, and of course the Romans who keep Lazika as their tributary state. Your roster is solid, but your economy is not.\
-#  ^Make sure to amass wealth and gold before assaulting the cities in the Colchis. Once secured the Kingdom of Lazika, you will get the chance to look North, in the lands of the Alans. They have been severely weakened by the arrival of the Huns one century before and now live at the feet of the mountains pressured by more hordes North.\
-#  ^One thing you have to avoid: do not anger the Sasanids as they are far stronger than you and you will need the whole Caucasus on your side to be able to resist them.\
-#  ^\
-#  ^Difficulty: Medium\
-#  ^\
-#  ^Starting allies: Eranshar (you are their tributaries)\
-#  ^\
-#  ^Starting enemies: Kingdom of Lazika, Imperium Romanorum Pars Orientalis",
-#  "none",
-#  [(set_background_mesh, "mesh_pic_roman_start"),],
-#  [
-#   ("go_reign",[],"Continue",[(assign, "$jugador_rey", 8),(call_script, "script_player_is_king", "fac_kingdom_16"),(change_screen_return),]),
-#   ("go_back",[],"Go back.",[(jump_to_menu,"mnu_start_king_1"),]),
-#  ]
-#  ),
-#  ("start_king_huns",menu_text_color(0xFF000000)|mnf_disable_all_keys,
-#  "Dengizich, King of the Huns:\
-#  ^\
-#  ^Dengizich, son of the Great Attila. You are the king of the Huns... But what's left of us now? When your father died, many tribes revolted and left our Empire. Our subject nations of the Gepids, Ostrogoths, Skirii and Rugii too decided to turn against you and even killed your brother! This cannot be. The world will be ruled by us and no one else.\
-#  ^Dengizich, it's now or never: the time to reclaim your father's domains and to force your subjects into submission. First, the tribes that refuse to rejoin your empire need to be crushed: the Saragurs, Oghurs and Onogurs think you are weak and cannot protect them from the Sabirs. It's time to prove they're wrong.\
-#  ^After them, the Gepids, west, led the coalition that defeated your brother Ellak at the battle of Nedao, where he lost his life. It's time to avenge him. And when you will finally settle all these unresolved issues with your neighboring nations there will be one left unpaid bill to solve. One with Rome and Constantinople. You will continue what your father started.\
-#  ^\
-#  ^The Hunni start is indeed one of the most peculiar and fun starts in the game and mixes challenges with an interesting gameplay. You start with a medium-sized faction and few tributaries, one of which is quite powerful (Alania). Around you there will be several rebel hordes you have to defeat.\
-#  ^Once the rebellious hordes are dealth with you will have the chance to immediatly expand west and invade the Gepids and possibly the other small polities of the Danube basin. Once your imperium reached a certain extent, you will have the chance to engage with the Eastern Roman Empire and possibly even helps it collapse.\
-#  ^However, beware: your army is diverse and full of good units, but horse archers aren't easy to use on the battlefield. Their skirmishing behavior is excellent against infantry but makes them an easy target for the enemy cavalry. Make sure to have a composite army with good footmen and heavy horsemen to help your horse archers annihilate your enemy.\
-#  ^\
-#  ^Difficulty: Medium/Easy\
-#  ^\
-#  ^Starting allies: Alania (your tributaries), Bosporan Kingdom (tributaries)\
-#  ^\
-#  ^Starting enemies: Imperium Romanorum Pars Orientalis, Gepids, Sabirs.",
-#  "none",
-#  [(set_background_mesh, "mesh_pic_gothic_start"),],
-#  [
-#   ("go_reign",[],"Continue",[(assign, "$jugador_rey", 9),(call_script, "script_player_is_king", "fac_kingdom_23"),(change_screen_return),]),
-#   ("go_back",[],"Go back.",[(jump_to_menu,"mnu_start_king_1"),]),
-#  ]
-#  ),
-#  ("start_king_britons",menu_text_color(0xFF000000)|mnf_disable_all_keys,
-#  "Ambrosius Aurelianus, King of the Britons:\
-#  ^\
-#  ^Ambrosius Aurelianus, last hope of the Britons in this times of great peril. Lead us to victory against the invading forces of Saxons, Angles, Jutes and Frisians coming from the continent to burn our farms, destroy our city and settle with their most terrible kinsmen. We can't let this to happen: rally the men of Britannia and our allies and make them fight against the banner of Rome and Christ once more.\
-#  ^Terrible enemies are ramming our doors, not only the Germans from beyond the sea but also the Picts from the North aim to conquer our cities and the Scoti from Hibernia are eager to turn us into their slaves. Listen to our plea, Ambrosius, and save us from our enemies. Rome might have abandoned us, but we still hold her dearly in our hearts.\
-#  ^\
-#  ^The Romano-Briton start is challenging because you will start at war with several enemies at the same time. They are all weaker and smaller than you, but they can hurt you badly if you don't manage the conflict in the right way. To make things worse, the germanic holdings are still mostly beyond and sea and to reach them will require time and vassals willing to follow you in long distance conflicts.\
-#  ^Your army is organised according to roman fashion, but you don't have neither the infrastructures nor the wealth to arm and train them the same way Ravenna and Constantinople did. However, you won't lack elite units and good mounted troops as well as regional auxiliary units to support you and it is possible your economy will be good enough to sustain your army.\
-#  ^Make sure, however, to reconquer the settlements lost to the Germans on the coast: from there they will have hard times campaigning in Britannia and you will be finally safe.\
-#  ^\
-#  ^Difficulty: Medium\
-#  ^\
-#  ^Starting allies: None\
-#  ^\
-#  ^Starting enemies: Saxons, Jutes, Angles, Frisians, Picts, Scoti",
-#  "none",
-#  [(set_background_mesh, "mesh_pic_roman_start"),],
-#  [
-#   ("go_reign",[],"Continue",[(assign, "$jugador_rey", 10),(call_script, "script_player_is_king", "fac_kingdom_13"),(change_screen_return),]),
-#   ("go_back",[],"Go back.",[(jump_to_menu,"mnu_start_king_1"),]),
-#  ]
-#  ),
-
-# #start as lord
-#   ("start_lord_1",mnf_disable_all_keys,
-#    "Select a culture group.",
-#    "none",
-#    [(set_background_mesh, "mesh_pic_intro"),],
-#    [
-#   ("choice_roman",[],"Roman",[(jump_to_menu,"mnu_start_lord_romans"),]),
-#   ("choice_germanic",[],"Germanic",[(jump_to_menu,"mnu_start_lord_germanic"),]),
-#   ("choice_others",[],"Others",[(jump_to_menu,"mnu_start_lord_eastern"),]),
-#   ("go_back",[],"Go back",[(jump_to_menu,"mnu_start_game_0"),]),
-#     ]
-#   ),
-
-#   ("start_lord_romans",mnf_disable_all_keys,
-#    "Select a faction to join.",
-#    "none",
-#    [(set_background_mesh, "mesh_pic_intro"),],
-#    [
-#   ("menu_wre_lord",[],"Western Roman Empire",[(assign, "$jugador_lord", 1),(call_script, "script_player_is_lord"),(change_screen_return),]),
-#   ("menu_ere_lord",[],"Eastern Roman Empire",[(assign, "$jugador_lord", 2),(call_script, "script_player_is_lord"),(change_screen_return),]),
-#   ("menu_briton_lord",[],"Romano-Britons",[(assign, "$jugador_lord", 13),(call_script, "script_player_is_lord"),(change_screen_return),]),
-#   ("menu_mauri_lord",[],"Romano-Mauri",[(assign, "$jugador_lord", 18),(call_script, "script_player_is_lord"),(change_screen_return),]),
-#   ("go_back",[],"Go back",[(jump_to_menu,"mnu_start_lord_1"),]),
-#     ]
-#   ),
-
-#   ("start_lord_germanic",mnf_disable_all_keys,
-#    "Select a faction to join.",
-#    "none",
-#    [(set_background_mesh, "mesh_pic_intro"),],
-#    [
-#   ("menu_visigoth_lord",[],"Visigoths",[(assign, "$jugador_lord", 3),(call_script, "script_player_is_lord"),(change_screen_return),]),
-#   ("menu_ostrogoth_lord",[],"Ostrogoths",[(assign, "$jugador_lord", 4),(call_script, "script_player_is_lord"),(change_screen_return),]),
-#   ("menu_frankish_lord",[],"Salian Franks",[(assign, "$jugador_lord", 7),(call_script, "script_player_is_lord"),(change_screen_return),]),
-#   ("menu_suebi_lord",[],"Suebi",[(assign, "$jugador_lord", 8),(call_script, "script_player_is_lord"),(change_screen_return),]),
-#   ("menu_gepid_lord",[],"Gepids",[(assign, "$jugador_lord", 11),(call_script, "script_player_is_lord"),(change_screen_return),]),
-#   ("menu_saxon_lord",[],"Saxons",[(assign, "$jugador_lord", 12),(call_script, "script_player_is_lord"),(change_screen_return),]),
-#   ("menu_vandal_lord",[],"Vandals",[(assign, "$jugador_lord", 14),(call_script, "script_player_is_lord"),(change_screen_return),]),
-#   ("menu_lombard_lord",[],"Langobards",[(assign, "$jugador_lord", 16),(call_script, "script_player_is_lord"),(change_screen_return),]),
-#   ("go_back",[],"Go back",[(jump_to_menu,"mnu_start_lord_1"),]),
-#     ]
-#   ),
-
-#   ("start_lord_eastern",mnf_disable_all_keys,
-#    "Select a faction to join.",
-#    "none",
-#    [(set_background_mesh, "mesh_pic_intro"),],
-#    [
-#   ("menu_pictish_lord",[],"Picts",[(assign, "$jugador_lord", 5),(call_script, "script_player_is_lord"),(change_screen_return),]),
-#   ("menu_sassanid_lord",[],"Sassanid",[(assign, "$jugador_lord", 6),(call_script, "script_player_is_lord"),(change_screen_return),]),
-#   ("menu_iberian_lord",[],"Caucasian Iberians",[(assign, "$jugador_lord", 15),(call_script, "script_player_is_lord"),(change_screen_return),]),
-#   ("menu_hun_lord",[],"Huns",[(assign, "$jugador_lord", 19),(call_script, "script_player_is_lord"),(change_screen_return),]),
-#   ("menu_lazikan_lord",[],"Lazika",[(assign, "$jugador_lord", 20),(call_script, "script_player_is_lord"),(change_screen_return),]),
-#   ("menu_alan_lord",[],"Alania",[(assign, "$jugador_lord", 21),(call_script, "script_player_is_lord"),(change_screen_return),]),
-#   ("go_back",[],"Go back",[(jump_to_menu,"mnu_start_lord_1"),]),
-#     ]
-#   ),
-
   ( "mithras_messenger",menu_text_color(0xFF000000)|mnf_disable_all_keys,
     "A messenger approaches, galloping. He stops in front of you, takes a breath and shouts:^^" +
     "'To the {reg59?woman:man}, named {playername}: my master, who shall remain anonymous for now, has sent me to speak with you. " +
     "He asks you to visit him in a tavern in Rome.'",
     "none",
     [
+		           (assign, reg59, 0),
+		           (try_begin),
+		              (call_script, "script_cf_dplmc_troop_is_female", "trp_player"),
+		              (assign, reg59, 1),
+		           (try_end),
       (set_background_mesh, "mesh_pic_messenger"),
     ],
     [
@@ -25686,13 +25421,14 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       (assign, "$memorial_performed",1),
       (change_screen_return),
     ]),
-      ("religious_center_4",[(store_troop_gold,":player_gold", "trp_player"),(gt, ":player_gold", 500)],"Donate 500 siliquae.",
+      ("religious_center_4",[(neq, "$religious_donation", 1),(store_troop_gold,":player_gold", "trp_player"),(gt, ":player_gold", 500)],"Donate 500 siliquae.",
     [
       (troop_remove_gold, "trp_player", 500),
       (val_add, "$piety", 3),
       (call_script, "script_change_player_honor", 8),
       (store_faction_of_party, ":fac", "$g_encountered_party"),
       (call_script, "script_change_player_relation_with_faction", ":fac", 5),
+      (assign, "$religious_donation", 1),
       (change_screen_return),
     ]),
       ("religious_center_5",[],"Raid for gold and valuables.",
@@ -25849,13 +25585,14 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       (assign, "$memorial_performed",1),
       (change_screen_return),
     ]),
-      ("religious_center_4",[(store_troop_gold,":player_gold", "trp_player"),(gt, ":player_gold", 500)],"Donate 500 siliquae.",
+      ("religious_center_4",[(neq, "$religious_donation", 1),(store_troop_gold,":player_gold", "trp_player"),(gt, ":player_gold", 500)],"Donate 500 siliquae.",
     [
       (troop_remove_gold, "trp_player", 500),
       (val_add, "$piety", 3),
       (call_script, "script_change_player_honor", 8),
       (store_faction_of_party, ":fac", "$g_encountered_party"),
       (call_script, "script_change_player_relation_with_faction", ":fac", 5),
+      (assign, "$religious_donation", 1),
       (change_screen_return),
     ]),
       ("religious_center_5",[],"Raid for gold and valuables.",
@@ -26141,7 +25878,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     ],
      "Put prisoners to work in the farms{s1}.",
     [
-      (change_screen_exchange_members, 0),
+      (change_screen_exchange_members, 1),
     ]),
 
       ("leave",[],"Leave.",[(leave_encounter),(change_screen_return)]),
@@ -27298,7 +27035,11 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 
     ("option_1",[],"Continue...",
         [
-	(troop_add_item, "trp_player","itm_aquincum_spatha_2",imod_masterwork), #madsci give reward, change item maybe?
+	(try_begin),
+	(neq, "$black_river_reward", 1),
+	(assign, "$black_river_reward", 1),
+	(troop_add_item, "trp_player","itm_aquincum_spatha_2",imod_masterwork),
+	(try_end),
         (quest_set_slot,"qst_black_river", slot_quest_current_state, 5),
 
         (modify_visitors_at_site,"scn_black_river_villa"),
@@ -27903,7 +27644,14 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 ( "minor_faction_town",menu_text_color(0xFF000000)|mnf_disable_all_keys,
   "In the distance you see {s50}. It is the capital of the {s51}.^^{s52}^^{s49}",
   "none",[
+    (assign, "$current_town", "$g_encountered_party"),
     (try_begin),
+    # fix that if the menu does not open properly let the correct menu open if player enters heorot
+        (eq, "$g_encountered_party", "p_dani_village"),
+        (check_quest_active, "qst_haddingrs_revenge"),
+        (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 31),
+        (jump_to_menu, "mnu_haddingr_aesti_battle"),
+    (else_try),
         (eq, "$g_encountered_party", "p_dani_village"),
         (check_quest_active, "qst_haddingrs_revenge"),
         (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 37),
@@ -28392,8 +28140,16 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         (neg|check_quest_active, "qst_finnsburh_quest"),
         (neg|check_quest_active, "qst_finnsburh_quest_2"),
         (eq, "$g_encountered_party", "p_dani_village"),
-        (set_visitor, 42, "trp_dani_guthormr"),
-        (set_visitor, 43, "trp_dani_haddingr"),
+		(try_begin),
+		(neg|troop_slot_eq, "trp_dani_guthormr", slot_troop_occupation, dplmc_slto_dead),
+		(neq, ":leader", "trp_dani_guthormr"),
+        	(set_visitor, 42, "trp_dani_guthormr"),
+		(try_end),
+		(try_begin),
+		(neg|troop_slot_eq, "trp_dani_haddingr", slot_troop_occupation, dplmc_slto_dead),
+		(neq, ":leader", "trp_dani_haddingr"),
+        	(set_visitor, 43, "trp_dani_haddingr"),
+		(try_end),
     (try_end),
 
     (try_begin),
@@ -28621,7 +28377,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       (set_background_mesh, "mesh_pic_victory"),
 
       (try_begin), #given to the player if they defeat the mordens for the first time
-        (eq, "$g_encountered_party", "p_morden_village"),
+        (eq, "$g_encountered_party", "p_town_48"),
         (eq, "$borok_spatha", 0),
         (troop_add_item, "trp_player", "itm_borok_spatha",0),
         (assign, "$borok_spatha", 1),
@@ -30141,7 +29897,13 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     "{reg59?Lady:Sir}, our food supply routes may be in danger. Our scouts have discovered enemy raiders behind our lines.^^" +
     "We could avoid such problems by blockading the place.^^Do you want to send men to protect the routes and pursue the enemy?",
     "none",
-    [(set_background_mesh, "mesh_pic_messenger"),
+    [
+		           (assign, reg59, 0),
+		           (try_begin),
+		              (call_script, "script_cf_dplmc_troop_is_female", "trp_player"),
+		              (assign, reg59, 1),
+		           (try_end),
+(set_background_mesh, "mesh_pic_messenger"),
     ],
     [
       ("choice_06_1f",[],"Send men.",
@@ -30957,6 +30719,11 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     "It's a trap! {reg59?Lady:Sir}, the men dressed in sheepskins were a decoy to bring out our men and ambush them. Many were killed before returning to the protection of our circumvallation.^^Your casualties: {s8}^^Enemy casualties: {s10}",
     "none",
     [
+		           (assign, reg59, 0),
+		           (try_begin),
+		              (call_script, "script_cf_dplmc_troop_is_female", "trp_player"),
+		              (assign, reg59, 1),
+		           (try_end),
       (call_script, "script_simulate_battle_with_parties", 20, "$g_enemy_party", 100, 0, 0),
     ],
     [
@@ -31328,7 +31095,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     "Once again this century, the ancient capitol of Rome has been taken, this time by the {s22}. The once great city has fallen further into ruin!",
     "none",
     [
-    (str_store_faction_name, "$g_notification_menu_var1"),
+    (str_store_faction_name, s22, "$g_notification_menu_var1"),
     ],
     [
       ("option_1",
@@ -31336,7 +31103,11 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         "Continue.",
         [
         (faction_get_slot, ":leader", "$g_notification_menu_var1", slot_faction_leader),
+	(try_begin),
+	(this_or_next|gt, ":leader", 0),
+	(eq, "$g_notification_menu_var1", "fac_player_supporters_faction"),
         (call_script, "script_change_troop_renown", ":leader", 80),
+	(try_end),
         (change_screen_map),
       ]),
   ]),
@@ -31345,7 +31116,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     "The walls that held off Attila, once thought impenitrable have failed, and the great city of Constantinople has fallen to {s22}!",
     "none",
     [
-    (str_store_faction_name, "$g_notification_menu_var1"),
+    (str_store_faction_name, s22, "$g_notification_menu_var1"),
     ],
     [
       ("option_1",
@@ -31353,7 +31124,11 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         "Continue.",
         [
         (faction_get_slot, ":leader", "$g_notification_menu_var1", slot_faction_leader),
+	(try_begin),
+	(this_or_next|gt, ":leader", 0),
+	(eq, "$g_notification_menu_var1", "fac_player_supporters_faction"),
         (call_script, "script_change_troop_renown", ":leader", 100),
+	(try_end),
         (change_screen_map),
       ]),
   ]),
@@ -31362,7 +31137,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     "The grand capitol of both the Parthians, and their successors, the Sassanids, Ctesiphon has fallen to the {s22}!",
     "none",
     [
-    (str_store_faction_name, "$g_notification_menu_var1"),
+    (str_store_faction_name, s22, "$g_notification_menu_var1"),
     ],
     [
       ("option_1",
@@ -31370,15 +31145,25 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         "Continue.",
         [
         (faction_get_slot, ":leader", "$g_notification_menu_var1", slot_faction_leader),
+	(try_begin),
+	(this_or_next|gt, ":leader", 0),
+	(eq, "$g_notification_menu_var1", "fac_player_supporters_faction"),
         (call_script, "script_change_troop_renown", ":leader", 80),
+	(try_end),
         (change_screen_map),
       ]),
   ]),
 
   ( "recruit_bagadua_lord",menu_text_color(0xFF000000)|mnf_disable_all_keys,
-    "Basilius, the so called 'king' of the bagaudae you let escape approaches you. He requests vassalage.",
+    "Basilius, the so called 'king' of the Bagaudae you let escape approaches you. He requests vassalage.",
     "none",
-    [],
+    [
+          (set_fixed_point_multiplier, 100),
+          (position_set_x, pos0, 70),
+          (position_set_y, pos0, 5),
+          (position_set_z, pos0, 75),
+          (set_game_menu_tableau_mesh, "tableau_troop_note_mesh", "trp_knight_bagadua_1", pos0),
+],
     [
 
       ("choice_1",[],"Accept him.",
@@ -32677,6 +32462,35 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     [
     ("option_1", [],"Today we feast, tomorrow we battle! This is the fate of a warrior!",
     [
+#madsci put this stuff here so that him changing faction doesnt cancel quest
+	(try_begin),
+	(faction_slot_eq, "fac_kingdom_19", slot_faction_state, sfs_active),
+	(assign, ":new_faction", "fac_kingdom_19"),
+	(else_try),
+	(faction_slot_eq, "fac_kingdom_29", slot_faction_state, sfs_active),
+	(assign, ":new_faction", "fac_kingdom_29"),
+	(else_try),
+	(store_random_in_range, ":new_faction", npc_kingdoms_begin, npc_kingdoms_end),
+	(faction_slot_eq, ":new_faction", slot_faction_state, sfs_active),
+	(else_try),
+	(assign, ":new_faction", "fac_outlaws"),
+	(try_end),
+    	(call_script, "script_change_troop_faction", "trp_dani_hengest", ":new_faction"),
+    	(troop_set_slot, "trp_dani_hengest", slot_troop_occupation, slto_kingdom_hero),
+    (troop_set_note_available,"trp_dani_hengest",1),
+    (troop_set_slot, "trp_dani_hengest", slot_troop_wealth, 10000),
+(try_begin),
+(faction_get_slot, ":faction_leader", ":new_faction", slot_faction_leader),
+(gt, ":faction_leader", 0),
+(troop_get_slot, ":cur_banner", ":faction_leader", slot_troop_banner_scene_prop),
+(troop_set_slot, "trp_dani_hengest", slot_troop_banner_scene_prop, ":cur_banner"),
+(try_end),
+    (call_script, "script_cf_select_random_walled_center_with_faction", ":new_faction", -1),
+    (assign, ":center", reg0),
+    (try_begin),
+      (is_between, ":center", walled_centers_begin, walled_centers_end),
+      (call_script, "script_create_kingdom_hero_party", "trp_dani_hengest", ":center"),
+    (try_end),
     (assign, "$auto_enter_town", "p_frisian_village"),
     (assign, "$g_town_visit_after_rest", 1),
     (assign, "$g_last_rest_center", "p_frisian_village"),
@@ -33241,6 +33055,12 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 
         (troop_set_slot, "trp_dani_hengest", slot_troop_occupation, slto_kingdom_hero),
 	      (call_script, "script_change_troop_faction", "trp_dani_hengest", "fac_kingdom_19"),
+	(try_begin),
+	(faction_get_slot, ":faction_leader", "fac_kingdom_19", slot_faction_leader),
+	(gt, ":faction_leader", 0),
+	(troop_get_slot, ":cur_banner", ":faction_leader", slot_troop_banner_scene_prop),
+	(troop_set_slot, "trp_dani_hengest", slot_troop_banner_scene_prop, ":cur_banner"),
+	(try_end),
         (troop_set_note_available,"trp_dani_hengest",1),
         (troop_set_slot, "trp_dani_hengest", slot_troop_wealth, 10000),
         (call_script, "script_cf_select_random_walled_center_with_faction", "fac_kingdom_19", -1),
@@ -33339,7 +33159,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 (eq,"$cheat_mode",1),
 ],"{!}Cheat: Walk around the test scene.",
        [(set_jump_mission,"mt_ai_training"),
-        (jump_to_scene, "scn_field_1"),
+        (jump_to_scene, "scn_haddingrs_aesti_trade_post"),
         (change_screen_mission),
         ]
        ),
@@ -33541,7 +33361,8 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     (set_background_mesh, "mesh_pic_charge"),
   ],[
   ("option_1",[
-    (ge, "$cheat_mode", 1)
+    (ge, "$cheat_mode", 1),
+	(eq, 1, 0), #madsci disable for now since the quest works
   ],"Test scene...",[
     (jump_to_scene, "scn_haddingrs_revenge_beach_battle"),
     (change_screen_mission),
@@ -33650,7 +33471,8 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     (set_background_mesh, "mesh_pic_charge"),
   ],[
   ("option_1",[
-    (ge, "$cheat_mode", 1)
+    (ge, "$cheat_mode", 1),
+	(eq, 1, 0), #madsci
   ],"Test scene...",[
     (jump_to_scene, "scn_haddingrs_revenge_beach_battle"),
     (change_screen_mission),
@@ -33751,7 +33573,8 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     (set_background_mesh, "mesh_pic_escape_1"),
   ],[
   ("option_1",[
-    (ge, "$cheat_mode", 1)
+    (ge, "$cheat_mode", 1),
+	(eq, 1, 0), #madsci
   ],"Test scene...",[
     (jump_to_scene, "scn_haddingrs_revenge_forest_hideout"),
     (change_screen_mission),
@@ -33780,7 +33603,9 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     (set_background_mesh, "mesh_pic_castlesnow"),
   ],[
   ("option_1",[
-    (ge, "$cheat_mode", 1)
+    (ge, "$cheat_mode", 1),
+	(eq, 1, 0), #madsci
+
   ],"Test scene...",[
     (jump_to_scene, "scn_haddingrs_revenge_sedgean"),
     (change_screen_mission),
@@ -33848,7 +33673,8 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     (set_background_mesh, "mesh_pic_castlesnow"),
   ],[
   ("option_1",[
-    (ge, "$cheat_mode", 1)
+    (ge, "$cheat_mode", 1),
+	(eq, 1, 0), #madsci
   ],"Test scene...",[
     (jump_to_scene, "scn_haddingrs_revenge_wangofthus_hall"),
     (change_screen_mission),
@@ -33980,7 +33806,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     (troop_set_slot, "trp_dani_guthormr", slot_troop_occupation, dplmc_slto_dead),
 
     # set the augundzi king as ruler of the Dani, as he subjugated them
-    (party_set_slot, "p_frisian_village", slot_town_lord, "trp_augundzi_king"),
+    (party_set_slot, "p_dani_village", slot_town_lord, "trp_augundzi_king"),
     (faction_set_slot, "fac_minor_dani", slot_faction_leader, "trp_augundzi_king"),
 
     (str_store_troop_name, s10, "trp_dani_guthormr"),
@@ -34074,7 +33900,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       (position_set_y, pos32, 171),
 
       (party_set_slot, "p_transporter", slot_party_on_water, 1),
-      (party_set_flags, "p_transporter", pf_is_ship, 0),
+      (party_set_flags, "p_transporter", pf_is_ship, 1),
       (party_set_position, "p_transporter", pos32),
 
       (set_fixed_point_multiplier, 1),
@@ -34134,7 +33960,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
   ]),
 ]),
 ("haddingr_move_party",mnf_scale_picture|mnf_enable_hot_keys,
-"Should'nt be reading this.",
+"Should'nt be reading this. Quest state: {reg10}.",
 "none", [
     (try_begin),# moving from landing to aesti village
       (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 14),
@@ -34345,6 +34171,8 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       (rest_for_hours, reg22, 17, 0),
       # (leave_encounter),
       (change_screen_map),
+    (else_try),
+      (quest_get_slot, reg10, "qst_haddingrs_revenge", slot_quest_current_state),
     (try_end),
   ],[
   ("option_1", [
@@ -34388,6 +34216,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
   ],[
   ("option_0",[
     (ge, "$cheat_mode", 1),
+	(eq, 1, 0), #madsci
     (this_or_next|quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 14),
     (this_or_next|quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 15),
     (this_or_next|quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 16),
@@ -34746,6 +34575,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
   ("option_1", [
     (quest_slot_eq, "qst_haddingrs_revenge",  slot_quest_current_state, 33),
     (ge, "$cheat_mode", 1),
+	(eq, 1, 0), #madsci
   ],"Test scene",[
     (jump_to_scene, "scn_haddingrs_final_battle_duel"),
     (change_screen_mission),
@@ -35031,6 +34861,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 ("haddingrs_revenge_return",mnf_scale_picture|mnf_enable_hot_keys,
 "With the campaign in the east concluded, Haddingr's warband gathers at the shore, their ships ready to set sail for Denmark. The salt wind carries the scent of distant battles yet to come, and the warriors speak in hushed tones of the gods' will.^^The omens have been read, the path is clear - Heorot awaits, and with it, the clash that shall decide its fate. You and Haddingr stand apart, knowing the road ahead is fraught with peril. To avoid unwanted eyes and ensure success, you agree to travel separately, each taking a different course back to Denmark.",
 "none", [
+	(assign, "$g_player_is_captive", 0),
     (set_background_mesh, "mesh_pic_mb_warrior_1"),
   ],[
   ("option_1", [
@@ -35176,6 +35007,14 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     (display_log_message, "@The {s10} are now your vassal! Their new ruler is {s11}, your puppet king."),
 
     (troop_set_slot, "trp_augundzi_king", slot_troop_occupation, dplmc_slto_dead),
+	(party_remove_members, "p_augundzi_village", "trp_augundzi_king", 1),
+        (try_begin),
+          (troop_get_slot, ":leaded_party", "trp_augundzi_king", slot_troop_leaded_party),
+          (gt, ":leaded_party", 0),
+          (party_is_active, ":leaded_party", 0),
+          (call_script, "script_remove_hero_prisoners", ":leaded_party"),
+          (remove_party, ":leaded_party"),
+        (try_end),
 
     (call_script, "script_set_player_relation_with_faction", "fac_minor_augundzi", 10),
 
@@ -35201,6 +35040,80 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     (try_end),
   ]),
 ]),
+
+  (
+    "majorian_death",mnf_disable_all_keys|mnf_scale_picture,
+    "{s10} has died! ^^While the official cause of death is dysentery, rumour has it that the emperor was actually murdered... ^^{s11} has quickly seized power in {s12}, and riots have erupted in major cities across the empire.",
+    "none",
+    [
+(set_fixed_point_multiplier, 100),
+(position_set_x, pos0, 70),
+(position_set_y, pos0, 5),
+(position_set_z, pos0, 75),
+(set_game_menu_tableau_mesh, "tableau_troop_note_mesh", "trp_kingdom_1_lord", pos0),
+(str_store_troop_name, s10, "trp_kingdom_1_lord"),
+(str_store_troop_name, s11, "trp_knight_1_1"),
+(str_store_faction_name, s12, "fac_kingdom_1"),
+],
+    [
+      ("continue",[],"Continue...",[
+(jump_to_menu, "mnu_auto_return_to_map"),
+]),
+    ],
+  ),
+
+("SLAVE_hideout",menu_text_color(0xFF000d2c)|mnf_scale_picture,
+    "You smell smoke coming from a camp nearby. What do you want to do?",
+    "none",
+    [
+      (try_begin),
+        (check_quest_active, "qst_return_slave"),
+        (neg|check_quest_succeeded,"qst_return_slave"),
+        (neg|check_quest_failed,"qst_return_slave"),
+        (quest_slot_eq, "qst_return_slave", slot_quest_target_party, "$g_encountered_party"),
+        (quest_get_slot,":stage","qst_return_slave",slot_quest_current_state),
+        (is_between, ":stage", 0,3),
+        (set_background_mesh, "mesh_pic_camp"),
+      (else_try),
+        (change_screen_map),
+        (remove_party, "$g_encountered_party"),
+        (assign, "$g_encountered_party", -1),
+      (else_try),
+        (set_background_mesh, "mesh_pic_camp"),
+      (end_try),
+    ],
+    [
+      ("land",[
+        (check_quest_active, "qst_return_slave"),
+        (neg|check_quest_succeeded,"qst_return_slave"),
+        (neg|check_quest_failed,"qst_return_slave"),
+        (quest_slot_eq, "qst_return_slave", slot_quest_target_party, "$g_encountered_party"),
+        (quest_get_slot,":stage","qst_return_slave",slot_quest_current_state),
+        (is_between, ":stage", 0,3),
+],"Visit the camp.",
+        [
+        (quest_set_slot, "qst_return_slave", slot_quest_current_state, 2),
+        (set_jump_mission,"mt_slave_hideout"),
+        (set_jump_entry, 0),
+	(call_script, "script_setup_random_scene"),
+        (change_screen_mission),
+        ]
+      ),
+      ("leave",[],"Leave.",
+        [
+          (change_screen_map),
+	(try_begin),
+        (this_or_next|check_quest_succeeded,"qst_return_slave"),
+        (this_or_next|check_quest_failed,"qst_return_slave"),
+        (neg|check_quest_active, "qst_return_slave"),
+          (remove_party, "$g_encountered_party"),
+          (assign, "$g_encountered_party", -1),
+	(try_end),
+        ]
+      ),
+    ]
+  ),
+
 ]#end of file
 
 

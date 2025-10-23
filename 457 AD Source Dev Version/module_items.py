@@ -227,11 +227,10 @@ items = [
 
  ["ivory","ivory", [("ivory",0)], itp_merchandise|itp_type_goods, 0, 1020,weight(30)|abundance(10),imodbits_none],
 
- ["wine","Wine", [("amphora_slim",0)], itp_merchandise|itp_type_goods|itp_consumable, 0, 220,weight(30)|abundance(60)|max_ammo(50),imodbits_none],
- ["ale","Ale", [("trade_goods_ale_barrel",0)], itp_merchandise|itp_type_goods|itp_consumable, 0, 120,weight(30)|abundance(70)|max_ammo(50),imodbits_none],
+#foods (first one is wine)
+ ["wine","Wine", [("amphora_slim",0)], itp_merchandise|itp_type_goods|itp_consumable|itp_food, 0, 220,weight(30)|abundance(60)|max_ammo(50),imodbits_none],
+ ["ale","Ale", [("trade_goods_ale_barrel",0)], itp_merchandise|itp_type_goods|itp_consumable|itp_food, 0, 120,weight(30)|abundance(70)|max_ammo(50),imodbits_none],
 
-# ["dry_bread", "wheat_sack", itp_type_goods|itp_consumable, 0, slt_none,view_goods,95,weight(2),max_ammo(50),imodbits_none],
-#foods (first one is smoked_fish)
  ["smoked_fish","Smoked Fish", [("smoked_fish",0)], itp_merchandise|itp_type_goods|itp_consumable|itp_food, 0, 65,weight(15)|abundance(110)|food_quality(50)|max_ammo(150),imodbits_none],
  ["cheese","Cheese", [("cheese_b",0)], itp_merchandise|itp_type_goods|itp_consumable|itp_food, 0, 75,weight(6)|abundance(110)|food_quality(40)|max_ammo(100),imodbits_none],
  ["honey","Honey", [("honey_pot",0)], itp_merchandise|itp_type_goods|itp_consumable|itp_food, 0, 220,weight(5)|abundance(110)|food_quality(40)|max_ammo(100),imodbits_none],
@@ -997,6 +996,7 @@ items = [
 ["african_kilt_1", "Nubian Kilt", [("african_kilt_1",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian ,0, 10 , weight(1)|abundance(100)|head_armor(0)|body_armor(4)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [(ti_on_init_item,[(call_script, "script_init_african_kilt_body"),]),], culture_african ],
 ["african_kilt_2", "Nubian Kilt", [("african_kilt_2",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian ,0, 10 , weight(1)|abundance(100)|head_armor(0)|body_armor(4)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [(ti_on_init_item,[(call_script, "script_init_african_kilt_body"),]),], culture_african ],
 ["african_kilt_3", "Nubian Kilt", [("african_kilt_3",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian ,0, 10 , weight(1)|abundance(100)|head_armor(0)|body_armor(4)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [(ti_on_init_item,[(call_script, "script_init_african_kilt_body"),]),], culture_african ],
+["african_kilt_4", "Nubian Kilt", [("african_kilt_4",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian ,0, 10 , weight(1)|abundance(100)|head_armor(0)|body_armor(4)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [(ti_on_init_item,[(call_script, "script_init_african_kilt_body"),]),], culture_african ],
 
 ["coarse_tunic", "Tunic with vest", [("coarse_tunic_a",0)], itp_merchandise| itp_type_body_armor |itp_civilian |itp_covers_legs ,0,
  107 , weight(2)|abundance(100)|head_armor(0)|body_armor(12)|leg_armor(6)|difficulty(0) ,imodbits_cloth ],
@@ -1417,9 +1417,6 @@ items = [
 ["pictish_mail_10", "Mail Shirt", [("pictish_mail_10_1",0),("pictish_mail_10_2",imodbits_good)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
  3150 , weight(19)|abundance(22)|head_armor(0)|body_armor(52)|leg_armor(16)|difficulty(11) ,imodbits_mail, [], culture_celtic ],
 
-["mail_african_1", "Mail Shirt", [("mail_african_1",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian ,0,
- 3400 , weight(12.5)|abundance(25)|head_armor(0)|body_armor(50)|leg_armor(14)|difficulty(10) ,imodbits_mail, [(ti_on_init_item,[(call_script, "script_init_short_tunic_arms"),]),], culture_african ],
-
 #sasanids
 ["sassanid_mail_1", "Rich Persian Mail Shirt", [("sassanid_mail_1",0)], itp_merchandise|itp_type_body_armor|itp_covers_legs ,0,
  3200 , weight(18)|abundance(30)|head_armor(0)|body_armor(53)|leg_armor(14)|difficulty(11) ,imodbits_mail, [], culture_sassanid ],
@@ -1712,15 +1709,15 @@ items = [
 ["germanic_f_headware_3", "Common Veil", [("germanic_f_headware_3",0)], itp_type_head_armor  |itp_civilian |itp_attach_armature,0, 90 , weight(0.5)|abundance(100)|head_armor(10)|body_armor(0)|leg_armor(0)|difficulty(0) ,imodbits_cloth ],
 ["germanic_f_headware_4", "Common Veil", [("germanic_f_headware_4",0)], itp_type_head_armor  |itp_civilian |itp_attach_armature,0, 90 , weight(0.5)|abundance(100)|head_armor(10)|body_armor(0)|leg_armor(0)|difficulty(0) ,imodbits_cloth ],
 
-["germanic_f_cloak_1", "Woman's Cloak", [("germanic_f_cloak_1",0)], itp_type_head_armor  |itp_civilian |itp_attach_armature,0, 90 , weight(0.5)|abundance(100)|head_armor(4)|body_armor(8)|leg_armor(0)|difficulty(0) ,imodbits_cloth,
+["germanic_f_cloak_1", "Woman's Cloak", [("germanic_f_cloak_1",0)], itp_type_head_armor  |itp_civilian |itp_attach_armature|itp_doesnt_cover_hair,0, 90 , weight(0.5)|abundance(100)|head_armor(4)|body_armor(8)|leg_armor(0)|difficulty(0) ,imodbits_cloth,
 [(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_germanic_f_cloak_brooch_1","str_germanic_f_cloak_brooch_end"),(cur_item_add_mesh, ":rand_accessory"),])], culture_germanic+culture_gothic+culture_celtic ],
-["germanic_f_cloak_2", "Woman's Cloak", [("germanic_f_cloak_2",0)], itp_type_head_armor  |itp_civilian |itp_attach_armature,0, 90 , weight(0.5)|abundance(100)|head_armor(4)|body_armor(8)|leg_armor(0)|difficulty(0) ,imodbits_cloth,
+["germanic_f_cloak_2", "Woman's Cloak", [("germanic_f_cloak_2",0)], itp_type_head_armor  |itp_civilian |itp_attach_armature|itp_doesnt_cover_hair,0, 90 , weight(0.5)|abundance(100)|head_armor(4)|body_armor(8)|leg_armor(0)|difficulty(0) ,imodbits_cloth,
 [(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_germanic_f_cloak_brooch_1","str_germanic_f_cloak_brooch_end"),(cur_item_add_mesh, ":rand_accessory"),])], culture_germanic+culture_gothic+culture_celtic ],
-["germanic_f_cloak_3", "Woman's Cloak", [("germanic_f_cloak_3",0)], itp_type_head_armor  |itp_civilian |itp_attach_armature,0, 90 , weight(0.5)|abundance(100)|head_armor(4)|body_armor(8)|leg_armor(0)|difficulty(0) ,imodbits_cloth,
+["germanic_f_cloak_3", "Woman's Cloak", [("germanic_f_cloak_3",0)], itp_type_head_armor  |itp_civilian |itp_attach_armature|itp_doesnt_cover_hair,0, 90 , weight(0.5)|abundance(100)|head_armor(4)|body_armor(8)|leg_armor(0)|difficulty(0) ,imodbits_cloth,
 [(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_germanic_f_cloak_brooch_1","str_germanic_f_cloak_brooch_end"),(cur_item_add_mesh, ":rand_accessory"),])], culture_germanic+culture_gothic+culture_celtic ],
-["germanic_f_cloak_4", "Woman's Cloak", [("germanic_f_cloak_4",0)], itp_type_head_armor  |itp_civilian |itp_attach_armature,0, 90 , weight(0.5)|abundance(100)|head_armor(4)|body_armor(8)|leg_armor(0)|difficulty(0) ,imodbits_cloth,
+["germanic_f_cloak_4", "Woman's Cloak", [("germanic_f_cloak_4",0)], itp_type_head_armor  |itp_civilian |itp_attach_armature|itp_doesnt_cover_hair,0, 90 , weight(0.5)|abundance(100)|head_armor(4)|body_armor(8)|leg_armor(0)|difficulty(0) ,imodbits_cloth,
 [(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_germanic_f_cloak_brooch_1","str_germanic_f_cloak_brooch_end"),(cur_item_add_mesh, ":rand_accessory"),])], culture_germanic+culture_gothic+culture_celtic ],
-["germanic_f_cloak_5", "Woman's Cloak", [("germanic_f_cloak_5",0)], itp_type_head_armor  |itp_civilian |itp_attach_armature,0, 90 , weight(0.5)|abundance(100)|head_armor(4)|body_armor(8)|leg_armor(0)|difficulty(0) ,imodbits_cloth,
+["germanic_f_cloak_5", "Woman's Cloak", [("germanic_f_cloak_5",0)], itp_type_head_armor  |itp_civilian |itp_attach_armature|itp_doesnt_cover_hair,0, 90 , weight(0.5)|abundance(100)|head_armor(4)|body_armor(8)|leg_armor(0)|difficulty(0) ,imodbits_cloth,
 [(ti_on_init_item,[(store_random_in_range,":rand_accessory","str_germanic_f_cloak_brooch_1","str_germanic_f_cloak_brooch_end"),(cur_item_add_mesh, ":rand_accessory"),])], culture_germanic+culture_gothic+culture_celtic ],
 
 #["roman_noble_shawl_1", "Shawl", [("roman_noble_shawl_1",0),("roman_noble_shawl_1_inv",ixmesh_inventory)], itp_merchandise|itp_attach_armature|itp_type_head_armor|itp_doesnt_cover_hair,0,100 , weight(0.5)|abundance(100)|head_armor(8)|body_armor(2)|leg_armor(0)|difficulty(0) ,imodbits_cloth],
@@ -2721,6 +2718,8 @@ weight(1)|abundance(80)|head_armor(24)|body_armor(14)|leg_armor(6)|difficulty(0)
  700 , weight(3)|difficulty(8)|abundance(10)|spd_rtng(84) | weapon_length(67)|swing_damage(32 , blunt) | thrust_damage(0 ,  pierce),imodbits_mace, [], culture_roman ],
 ["rgani_mace", "Caucasian Spiked Mace", [("rgani_mace",0)], itp_merchandise|itp_type_one_handed_wpn|itp_can_knock_down|itp_primary|itp_wooden_parry, itc_longsword|itcf_carry_mace_left_hip,
  720 , weight(3.5)|abundance(20)|difficulty(8)|spd_rtng(83)|weapon_length(61)|swing_damage(29 , pierce) | thrust_damage(26 ,  blunt),imodbits_sword_high, [], culture_caucasian ], #caucasians
+["mace_nubian", "Nubian Mace", [("nubian_mace",0)], itp_merchandise|itp_type_one_handed_wpn|itp_can_knock_down| itp_primary|itp_wooden_parry, itc_scimitar|itcf_carry_mace_left_hip,
+ 700 , weight(3)|difficulty(8)|abundance(10)|spd_rtng(84) | weapon_length(67)|swing_damage(28 , blunt) | thrust_damage(0 ,  pierce),imodbits_mace, [], culture_african ],
 
 
 ["mace_1",         "Spiked Club", [("mace_d",0)], itp_type_one_handed_wpn|itp_can_knock_down|itp_merchandise| itp_primary|itp_wooden_parry, itc_scimitar|itcf_carry_mace_left_hip,
@@ -3569,12 +3568,24 @@ weight(1)|abundance(80)|head_armor(24)|body_armor(14)|leg_armor(6)|difficulty(0)
 ["dedal_lira","Lyre",[("dedal_liraL",0)],		itp_type_hand_armor,0,0,weight(1),0],
 
 ["ccoop_new_items_end", "Items End", [("cow_mod_a",0)], 0, 0, 1, 0, 0],
+["signet_ring", "Sapphire Ring", [("signet_ring",0)], itp_type_goods, 0, 1000, weight(2)|abundance(100), imodbits_none ],
+["golden_amulet", "Golden Amulet", [("golden_amulet",0)], itp_type_goods, 0, 750, weight(2)|abundance(100), imodbits_none ],
+["gem_bag", "Bag of Gems", [("gem_bag",0)], itp_type_goods, 0, 2000, weight(2)|abundance(100), imodbits_none ],
+["perfume_bottle", "Scented Oil", [("perfume_bottle",0)], itp_type_goods, 0, 500, weight(2)|abundance(100), imodbits_none ],
 #INVASION MODE END
 #invisible items
 ["empty_hands","empty_hands",[("nothing_rig",0)],itp_type_hand_armor|itp_unique,0,130,weight(225)|body_armor(100)|difficulty(0),0],
 ["empty_legs","empty_legs",[("nothing_rig",0)],itp_type_foot_armor|itp_unique,0,130,weight(225)|leg_armor(100)|difficulty(0),0],
 ["empty_head","empty head",[("nothing_rig",0)],itp_type_head_armor|itp_unique|itp_covers_head,0,1,weight(250)|head_armor(100)|difficulty(0),0],
 ["empty_body","empty body",[("nothing",0)],itp_type_body_armor|itp_unique|itp_covers_legs,0,1,weight(250)|head_armor(100)|difficulty(0),0],
+
+["animal_big","Big_Animal", [
+    ("cow_a",0),("cow_b",imodbit_cracked),("cow_c",imodbit_rusty),("cow_d",imodbit_bent)],
+    itp_type_animal|itp_disable_agent_sounds, 0, 10,abundance(10)|hit_points(25)|body_armor(0)|difficulty(10)|horse_speed(5)|horse_maneuver(5)|horse_charge(0)|horse_scale(90),0],
+["animal_small","Small_Animal", [
+    ("goat",0),("goat_c",imodbit_cracked),("sheep_mod_a",imodbit_rusty),("sheep_mod_b",imodbit_bent)],
+    itp_type_animal|itp_disable_agent_sounds, 0, 10,abundance(10)|hit_points(25)|body_armor(0)|difficulty(10)|horse_speed(5)|horse_maneuver(5)|horse_charge(0)|horse_scale(50),0],
+
 ]
 
 from copy import deepcopy

@@ -268,4 +268,14 @@ sounds = [
 ("water",sf_priority_5|sf_vol_6, ["water_splash_03.wav"]),
 ("ambient_sea_loop", sf_2d|sf_priority_6|sf_vol_3|sf_looping|sf_stream_from_hd, ["sea_loop.wav","oceansurf01.wav","oceansurf02.wav"]),
 
+#Invain animal sounds for scenes
+("cow_moo_scene", sf_priority_9|sf_vol_8, ["cow_moo_1.ogg", "silence.wav"]),
+("distant_dog_bark_scene", sf_priority_8|sf_vol_8, ["d_dog1.wav","d_dog2.wav","d_dog3.wav","d_dog7.wav"]),
+("donkey", sf_priority_8|sf_vol_5, ["cwe_osiol.ogg", "silence.wav", "silence.wav"]),
+#from sclavinia mod
+("kura",sf_priority_2|sf_vol_4, ["scla_chicken-idle1.wav","scla_chicken-idle2.wav","scla_chicken-idle3.wav","scla_chicken-idle4.wav","scla_chicken-idle5.wav","scla_chicken-idle6.wav","scla_chicken-idle7.wav", "silence.wav", "silence.wav"]),
+("pig", sf_priority_4|sf_vol_3, ["cerdo.wav","scla_boar.wav","pk_pig_sound.ogg", "silence.wav"]), #sclavinia and persistent kingdoms
+("sheep", sf_priority_4|sf_vol_3, ["sheep_1.wav","sheep_2.wav","sheep_3.wav", "silence.wav"]),
+("goat", sf_priority_4|sf_vol_3, ["goat_1.wav","goat_2.wav","goat_3.wav", "silence.wav"]),
+
 ]

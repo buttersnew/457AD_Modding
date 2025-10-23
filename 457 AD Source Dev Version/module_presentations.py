@@ -1,3 +1,4 @@
+#-*-coding:utf-8-*-
 import string
 from header_common import *
 from header_presentations import *
@@ -10961,7 +10962,7 @@ presentations = [
         (position_set_y, pos1, 1400),
         (overlay_set_size, reg1, pos1),
         (create_text_overlay, reg1, "@A good way to hasten the fall of the {s2} is to infiltrate it with a group of men to damage the defences, food stores, water supplies or loyalty of the defenders. It is a difficult and risky maneuver, almost suicidal. " +
-        "Those you send in have low chances of returning, but if successful, they could cause great damage to the enemy. They need 600 denars for their troubles. What type of sabotage would you like them to cause?", tf_center_justify|tf_double_space|tf_scrollable),
+        "Those you send in have low chances of returning, but if successful, they could cause great damage to the enemy. They need 600 siliquae for their troubles. What type of sabotage would you like them to cause?", tf_center_justify|tf_double_space|tf_scrollable),
         #  (overlay_set_color, reg1, 0xDDDDDD),
         (position_set_x, pos1, 80),
         (position_set_y, pos1, 180),
@@ -11136,7 +11137,7 @@ presentations = [
             (try_end),
           (else_try),
             (le,":cur_wealth",499),
-            (str_store_string,s4,"@You do not have the 600 denars to pay for this mission.",tf_left_align),
+            (str_store_string,s4,"@You do not have the 600 siliquae to pay for this mission.",tf_left_align),
             (assign,"$g_presentations_next_presentation",-1),
             (assign,"$cur_choice",0),
             (start_presentation,"prsnt_infiltrationandsabotage"),
@@ -12454,7 +12455,8 @@ presentations = [
         (val_add, ":offer_value", 150),
         (call_script, "script_round_value", ":offer_value"),
         (val_add, ":net_change", reg0),
-        (create_text_overlay, reg1, "str_reg0", tf_right_align|tf_single_line),
+        #(create_text_overlay, reg1, "str_reg0", tf_right_align|tf_single_line),
+        (create_text_overlay, reg1, "@{!}{reg0}", tf_right_align|tf_single_line),
         (position_set_x, pos1, 900),
         (position_set_y, pos1, 900),
         (overlay_set_size, reg1, pos1),
@@ -19134,6 +19136,7 @@ presentations = [
               (eq, ":troop", "trp_crimean_gothic_horseman"),
               (assign, ":c", 1),
             (else_try), #AOR arabs
+              (this_or_next|eq, "$current_town", "p_castle_112"),
               (this_or_next|eq, "$current_town", "p_castle_44"),
               (eq, "$current_town", "p_castle_49"),
               (this_or_next|eq, ":troop", "trp_arab_skirmisher"),
@@ -19153,6 +19156,16 @@ presentations = [
               (this_or_next|eq, "$current_town", "p_castle_65"),
               (eq, "$current_town", "p_town_26"),
               (eq, ":troop", "trp_daylamite_hillman"),
+              (assign, ":c", 1),
+            (else_try), #AOR morden
+              (eq, "$current_town", "p_town_48"),
+              (this_or_next|eq, ":troop", "trp_mordvin_footman"),
+              (eq, ":troop", "trp_mordvin_skirmisher"),
+              (assign, ":c", 1),
+            (else_try), #AOR phinnoi
+              (eq, "$current_town", "p_castle_104"),
+              (this_or_next|eq, ":troop", "trp_phinnoi_hunter"),
+              (eq, ":troop", "trp_phinnoi_warrior"),
               (assign, ":c", 1),
             (else_try), #AOR gilan
               (this_or_next|eq, "$current_town", "p_castle_42"),
@@ -19343,6 +19356,8 @@ presentations = [
               (eq, ":troop", "trp_thuringian_horseman"),
               (assign, ":c", 1),
             (else_try), #langobard aor
+              (this_or_next|eq, "$current_town", "p_castle_94"),
+              (this_or_next|eq, "$current_town", "p_castle_96"),
               (eq, "$current_town", "p_town_31"),
               (this_or_next|eq, ":troop", "trp_charudes_retainer"),
               (this_or_next|eq, ":troop", "trp_langobard_retainer"),
@@ -19352,6 +19367,7 @@ presentations = [
             (else_try), #scirii / langobard aor
               (this_or_next|eq, "$current_town", "p_castle_3"),
               (this_or_next|eq, "$current_town", "p_castle_29"),
+              (this_or_next|eq, "$current_town", "p_castle_95"),
               (eq, "$current_town", "p_town_31"),
               (eq, ":troop", "trp_limigantes_rebel"),
               (assign, ":c", 1),
@@ -19450,6 +19466,33 @@ presentations = [
               (this_or_next|eq, "$current_town", "p_town_31"),
               (eq, "$current_town", "p_castle_69"),
               (eq, ":troop", "trp_cynocephalus"),
+              (assign, ":c", 1),
+            (else_try), #venedi
+              (this_or_next|eq, "$current_town", "p_castle_103"),
+              (this_or_next|eq, "$current_town", "p_castle_107"),
+              (eq, "$current_town", "p_castle_111"),
+              (this_or_next|eq, ":troop", "trp_venedi_skirmisher"),
+              (this_or_next|eq, ":troop", "trp_venedi_warrior"),
+              (eq, ":troop", "trp_venedi_nobleman"),
+              (assign, ":c", 1),
+            (else_try), #sporoi
+              (eq, "$current_town", "p_town_47"),
+              (this_or_next|eq, ":troop", "trp_slav_archer"),
+              (eq, ":troop", "trp_slav_horsearcher"),
+              (assign, ":c", 1),
+            (else_try), #sporoi
+              (eq, "$current_town", "p_castle_105"),
+              (this_or_next|eq, ":troop", "trp_gothic_freeman"),
+              (eq, ":troop", "trp_gothic_skirmisher"),
+              (assign, ":c", 1),
+            (else_try), #carpi
+              (eq, "$current_town", "p_castle_106"),
+              (this_or_next|eq, ":troop", "trp_carpi_skirmisher"),
+              (eq, ":troop", "trp_carpi_horseman"),
+              (assign, ":c", 1),
+            (else_try), #warini
+              (eq, "$current_town", "p_castle_109"),
+              (eq, ":troop", "trp_warenae_armatus"),
               (assign, ":c", 1),
   ####################################################################
             #and now for the roman AOR!
@@ -19713,7 +19756,7 @@ presentations = [
               (eq, ":troop", "trp_african_mercenary"),
               (assign, ":c", 1),
             (else_try), #mordens
-              (eq, "$current_town", "p_morden_village"),
+              (eq, "$current_town", "p_town_48"),
               (eq, ":troop", "trp_komi_warrior"),
               (assign, ":c", 1),
             (else_try), #bosphorans
@@ -19758,12 +19801,6 @@ presentations = [
               (assign, ":c", 1),
             (else_try), #sporoi
               (eq, "$current_town", "p_village_274"),
-              (eq, ":troop", "trp_slav_horsearcher"),
-              (assign, ":c", 1),
-            (else_try), #venedi
-              (eq, "$current_town", "p_venedi_outpost"),
-              (this_or_next|eq, ":troop", "trp_aestii_skirmisher"),
-              (this_or_next|eq, ":troop", "trp_aestii_tribesman"),
               (eq, ":troop", "trp_slav_horsearcher"),
               (assign, ":c", 1),
             (else_try), #gallic alans
@@ -19924,6 +19961,12 @@ presentations = [
                 (eq, ":troop", "trp_irish_warrior"),
                 (assign, ":c", 1),
               (else_try),
+                (eq, ":culture", "fac_culture_20"), #slavic
+                (this_or_next|eq, ":troop", "trp_slav_skirmisher"), #t1
+                (this_or_next|eq, ":troop", "trp_slav_footman"), 
+                (eq, ":troop", "trp_slav_horseman"),
+                (assign, ":c", 1),
+              (else_try),
                 (eq, ":culture", "fac_culture_empire"), #romans - this is where the fun begins!
                 (this_or_next|eq, ":troop", "trp_tiro"),
                 (this_or_next|eq, ":troop", "trp_exculator"),
@@ -19939,6 +19982,63 @@ presentations = [
                 #(this_or_next|eq, ":troop", "trp_roman_sailor"),
                 (this_or_next|eq, ":troop", "trp_bucellarius"),
                 (eq, ":troop", "trp_centenarius"),
+                (assign, ":c", 1),
+              (else_try), #minor cultures - hispano roman
+                (eq, ":culture", "fac_culture_minor_1"), #
+                (this_or_next|eq, ":troop", "trp_hibero_roman_venator"), #t1
+                (eq, ":troop", "trp_hibero_roman_rusticus"),
+                (assign, ":c", 1),
+              (else_try), #phinnoi
+                (eq, ":culture", "fac_culture_minor_2"), #
+                (this_or_next|eq, ":troop", "trp_phinnoi_warrior"), #t1
+                (this_or_next|eq, ":troop", "trp_phinnoi_hunter"), #t1
+                (eq, ":troop", "trp_phinnoi_horseman"),
+                (assign, ":c", 1),
+              (else_try), #minor cultures
+                (eq, ":culture", "fac_culture_minor_3"), #copts
+                (this_or_next|eq, ":troop", "trp_coptic_youth"),
+                (this_or_next|eq, ":troop", "trp_coptic_watchman"),
+                (eq, ":troop", "trp_coptic_footman"),
+                (assign, ":c", 1),
+              (else_try), 
+                (eq, ":culture", "fac_culture_minor_4"), 
+                (this_or_next|eq, ":troop", "trp_frisian_freeman"), #t1
+                (eq, ":troop", "trp_frisian_companion"),
+                (assign, ":c", 1),
+              (else_try), 
+                (eq, ":culture", "fac_culture_minor_5"), 
+                (this_or_next|eq, ":troop", "trp_aestii_skirmisher"), #t1
+                (this_or_next|eq, ":troop", "trp_aestii_tribesman"), #t1
+                (eq, ":troop", "trp_aestii_companion"),
+                (assign, ":c", 1),
+              (else_try), 
+                (eq, ":culture", "fac_culture_minor_6"), 
+                (this_or_next|eq, ":troop", "trp_mordvin_skirmisher"), #t1
+                (this_or_next|eq, ":troop", "trp_mordvin_footman"), #t1
+                (this_or_next|eq, ":troop", "trp_mordvin_mounted_skirmisher"), #t1
+                (eq, ":troop", "trp_mordvin_companion"),
+                (assign, ":c", 1),
+              (else_try), 
+                (eq, ":culture", "fac_culture_minor_7"), 
+                (eq, ":troop", "trp_scandinavian_freeman"),
+                (assign, ":c", 1),
+              (else_try), 
+                (eq, ":culture", "fac_culture_minor_8"), 
+                (this_or_next|eq, ":troop", "trp_crimean_gothic_skirmisher"), #t1
+                (this_or_next|eq, ":troop", "trp_crimean_gothic_freeman"), #t1
+                (eq, ":troop", "trp_crimean_gothic_horseman"),
+                (assign, ":c", 1),
+              (else_try), 
+                (eq, ":culture", "fac_culture_minor_9"), 
+                (this_or_next|eq, ":troop", "trp_pedes_alani"), #t1
+                (this_or_next|eq, ":troop", "trp_eques_alani_leves"), #t1
+                (eq, ":troop", "trp_eques_sagittarii_alani"),
+                (assign, ":c", 1),
+              (else_try), 
+                (eq, ":culture", "fac_culture_minor_10"), 
+                (this_or_next|eq, ":troop", "trp_steppe_bandit"), #t1
+                (this_or_next|eq, ":troop", "trp_steppe_rider"), #t1
+                (eq, ":troop", "trp_steppe_cataphract"),
                 (assign, ":c", 1),
               (try_end),
             (try_end),
@@ -19968,12 +20068,6 @@ presentations = [
                 (this_or_next|eq, ":troop", "trp_scandinavian_freeman"),
                 (this_or_next|eq, ":troop", "trp_scandinavian_retainer"),
                 (eq, ":troop", "trp_scandinavian_comes"),
-                (assign, ":c", 1),
-              (else_try), #mordens
-                (eq, "$g_encountered_party", "p_morden_village"),
-                (this_or_next|eq, ":troop", "trp_mordvin_skirmisher"),
-                (this_or_next|eq, ":troop", "trp_mordvin_footman"),
-                (eq, ":troop", "trp_mordvin_mounted_skirmisher"),
                 (assign, ":c", 1),
               (else_try), #slavs
                 (eq, "$g_encountered_party", "p_village_274"),
@@ -20020,12 +20114,6 @@ presentations = [
                 (this_or_next|eq, ":troop", "trp_hibero_roman_venator"),
                 (this_or_next|eq, ":troop", "trp_hibero_roman_rusticus"),
                 (eq, ":troop", "trp_hibero_roman_defensor"),
-                (assign, ":c", 1),
-              (else_try), #slavs
-                (eq, "$g_encountered_party", "p_venedi_outpost"),
-                (this_or_next|eq, ":troop", "trp_venedi_skirmisher"),
-                (this_or_next|eq, ":troop", "trp_venedi_warrior"),
-                (eq, ":troop", "trp_venedi_nobleman"),
                 (assign, ":c", 1),
               (else_try), #sabir
                 (eq, "$g_encountered_party", "p_sabiroi_village"),
@@ -20179,6 +20267,12 @@ presentations = [
                     (this_or_next|eq, ":troop", "trp_irish_follower"),
                     (this_or_next|eq, ":troop", "trp_irish_companion"),
                     (eq, ":troop", "trp_irish_warrior"),
+                    (assign, ":c", 1),
+                  (else_try),
+                    (eq, ":culture", "fac_culture_20"), #slavic
+                    (this_or_next|eq, ":troop", "trp_slav_skirmisher"), #t1
+                    (this_or_next|eq, ":troop", "trp_slav_footman"), 
+                    (eq, ":troop", "trp_slav_horseman"),
                     (assign, ":c", 1),
                   (else_try),
                     (eq, ":culture", "fac_culture_empire"), #romans - this is where the fun begins!
@@ -20489,7 +20583,12 @@ presentations = [
     (try_end),
 
     (party_get_slot, ":center_culture", "$g_encountered_party", slot_center_culture),
-    (str_store_faction_name, s61, ":center_culture"),
+	(try_begin),
+	(gt, ":center_culture", 0),
+    	(str_store_faction_name, s61, ":center_culture"),
+	(else_try),
+	(str_store_string, s61, "@unknown"),
+	(try_end),
 
     #(str_store_string, s1, "@Culture:{s61}^Prosperity: {reg1}.^Town wealth: {reg3}.^Budget of the town counsel: {reg2}.^Relation: {reg4}.^Garrison size: {reg5} men.^Prisoners: {s2}."),
     (str_store_string, s1, "@Culture:{s61}^Prosperity: {reg1}.^Town wealth: {reg3}.^Town treasury: {reg2}.^Relation: {reg4}.^Garrison size: {reg5} men.^Prisoners: {s2}."),
@@ -21229,7 +21328,7 @@ presentations = [
             (str_clear, s44),
             (try_begin),
                 (eq, ":building", slot_center_has_temple),
-                (neg|troop_slot_ge, "trp_player", slot_troop_religion, 0),
+                (neg|troop_slot_ge, "trp_player", slot_troop_religion, -1),
                 (assign, ":c", 1),
             (else_try),
                 (eq, ":building", slot_center_has_fishport),
@@ -21253,7 +21352,7 @@ presentations = [
                 (assign, ":c", 1),
             (else_try),
                 (eq, ":building", slot_center_has_temple),
-                (troop_slot_eq, "trp_player", slot_troop_religion, 0),
+                (troop_slot_eq, "trp_player", slot_troop_religion, -1),
                 (assign, ":c", 1),
             (else_try),
                 (this_or_next|eq, ":building", slot_center_change_culture_village),
@@ -21464,7 +21563,7 @@ presentations = [
                     (neg|is_between, ":building", walled_center_improvements_begin, walled_center_improvements_end),
                     (assign, ":c", 1),
                     (eq, ":building", slot_center_has_temple),
-                    (neg|troop_slot_ge, "trp_player", slot_troop_religion, 0),
+                    (neg|troop_slot_ge, "trp_player", slot_troop_religion, -1),
                     (assign, ":c", 1),
                 (else_try),
                     (eq, ":building", slot_center_has_fishport),
@@ -21488,7 +21587,7 @@ presentations = [
                     (assign, ":c", 1),
                 (else_try),
                     (eq, ":building", slot_center_has_temple),
-                    (troop_slot_eq, "trp_player", slot_troop_religion, 0),
+                    (troop_slot_eq, "trp_player", slot_troop_religion, -1),
                     (assign, ":c", 1),
                 (else_try),
                     (this_or_next|eq, ":building", slot_center_change_culture_village),
@@ -21605,7 +21704,7 @@ presentations = [
                     (call_script, "script_get_improvement_details", ":building", "$g_encountered_party"),
                     (str_store_string, s10, s0),
                     (str_store_string, s11, s1),
-                    (str_store_string, s11, "@{s11}^^As the party member with the highest engineer skill ({reg2}), {reg3?you reckon:{s3} reckons} that building the {s4} will cost you {reg5} denars (base cost {reg0}) and will take {reg6} days  (base time {reg40}).^^The building time and costs are modified by: Skill: {reg44}%, slave politic of the realm: {reg45}%. Additionally, the building time is modified by the number of prisoners in the town: {reg46}%."),
+                    (str_store_string, s11, "@{s11}^^As the party member with the highest engineer skill ({reg2}), {reg3?you reckon:{s3} reckons} that building the {s4} will cost you {reg5} siliquae (base cost {reg0}) and will take {reg6} days  (base time {reg40}).^^The building time and costs are modified by: Skill: {reg44}%, slave politic of the realm: {reg45}%. Additionally, the building time is modified by the number of prisoners in the town: {reg46}%."),
                     (assign, ":value", 1),
                     (call_script, "script_get_improvement_picture", ":building", "trp_player", "$g_encountered_party"),
                     (assign, ":material", reg0),
@@ -21932,7 +22031,7 @@ presentations = [
                 (assign, ":c", 1),
             (else_try),
                 (eq, "$g_improvement_type", slot_center_has_temple),
-                (neg|troop_slot_ge, "trp_player", slot_troop_religion, 0),
+                (neg|troop_slot_ge, "trp_player", slot_troop_religion, -1),
                 (assign, ":c", 1),
             (else_try),
                 (eq, "$g_improvement_type", slot_center_has_fishport),
@@ -21956,7 +22055,7 @@ presentations = [
                 (assign, ":c", 1),
             (else_try),
                 (eq, "$g_improvement_type", slot_center_has_temple),
-                (troop_slot_eq, "trp_player", slot_troop_religion, 0),
+                (troop_slot_eq, "trp_player", slot_troop_religion, -1),
                 (assign, ":c", 1),
             (else_try),
                 (this_or_next|eq, "$g_improvement_type", slot_center_change_culture_village),
@@ -22065,6 +22164,7 @@ presentations = [
     (troop_set_slot, "trp_temp_array_a", 8, "fac_kingdom_16"),
     (troop_set_slot, "trp_temp_array_a", 9, "fac_kingdom_23"),
     (troop_set_slot, "trp_temp_array_a", 10, "fac_kingdom_13"),
+    (troop_set_slot, "trp_temp_array_a", 11, "fac_kingdom_8"),
 
     #init variables
     (assign, ":num_lords", 0),

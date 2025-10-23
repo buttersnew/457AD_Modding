@@ -1,3 +1,4 @@
+#-*-coding:utf-8-*-
 from header_quests import *
 
 from compiler import *
@@ -70,6 +71,9 @@ quests = [
  ("lend_companion", "Lend Your Companion {s3} to {s9}", qf_random_quest,
   "{!}{s9} asked you to lend your companion {s3} to him for a week."
   ),
+ ("destroy_deserters", "Find and Destroy a Group of Deserters", qf_random_quest,
+  "{!}{s9} asked you to find and destroy a group of deserters near {s6}."
+  ),
  ("collect_debt", "Collect the Debt {s3} Owes to {s9}", qf_random_quest,
   "{!}{s9} asked you to collect the debt of {reg4} denars {s3} owes to him."
   ),
@@ -138,6 +142,8 @@ quests = [
  ("rescue_lord_by_replace", "Rescue {s13} from {s14}", qf_random_quest,
   "{!}None"
   ),
+ ("lover_message","Deliver Message to {s3}", qf_random_quest,  "{s11} asked you to take a message to {s3}."
+),
  ("deliver_message_to_prisoner_lord", "Deliver Message to {s13} at {s14}", qf_random_quest,
   "{!}None"
   ),
@@ -203,6 +209,12 @@ quests = [
   ),
  ("deliver_cattle", "Deliver {reg5} Heads of Cattle to {s3}", qf_random_quest,
   "{!}The elder of the village of {s3} asked you to bring {reg5} heads of cattle."
+  ),
+ ("return_slave", "Return Runaway Slave to {s3}", qf_random_quest,
+  "The leader of {s3} asked you to bring a runaway slave back."
+  ),
+ ("kill_slavers", "Protect {s3} from Slavers", qf_random_quest,
+  "{!}The leader of {s3} asked you to defeat the slavers coming from {s7} before they reach {s3}."
   ),
  ("train_peasants_against_bandits", "Train the Peasants of {s13} Against Bandits.", qf_random_quest,
   "{!}None"
@@ -290,6 +302,10 @@ quests = [
 
  ("destroy_bandit_lair", "Destroy Bandit Lair", qf_random_quest,
   "{!}{s9} of {s4} asked you to discover a {s6} and destroy it."
+  ),
+
+ ("scout_enemy_town", "Scout {s13}", qf_random_quest,
+  "{!}{s9} asked you to scout around {s13}."
   ),
 
  ("blank_quest_2", "{!}blank_quest", qf_random_quest,

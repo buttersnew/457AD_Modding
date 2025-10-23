@@ -1501,7 +1501,8 @@ scene_prop_smoke_effect_done        = 2
 scene_prop_number_of_agents_pushing = 3 #for belfries only
 scene_prop_next_entry_point_id      = 4 #for belfries only
 scene_prop_belfry_platform_moved    = 5 #for belfries only
-scene_prop_slots_end                = 6
+slot_prop_agent_1                   = 6 #for destructible gates
+scene_prop_slots_end                = 7
 
 ########################################################
 rel_enemy   = 0
@@ -2062,7 +2063,7 @@ village_prod_max = 20 #was 20
 
 trade_goods_begin = "itm_spice"
 trade_goods_end = "itm_siege_supply"
-food_begin = "itm_smoked_fish"
+food_begin = "itm_wine"
 food_end = "itm_siege_supply"
 reference_books_begin = "itm_book_wound_treatment_reference"
 reference_books_end   = trade_goods_begin

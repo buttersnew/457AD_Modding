@@ -3184,34 +3184,24 @@ poisoned_arrows_damage = (6, 0, 0, [], [
             (store_agent_hit_points,reg22,":cur_agent", 0),
             (val_sub,reg22, 7),
             (agent_set_hit_points,":cur_agent",reg22, 0),
-
-            #debug message
-            # (str_store_agent_name, s1, ":cur_agent"),
-            # (display_message, "@{s1} has {reg22} hp"),
-
-            (le,reg22, 1),
-            (remove_agent,":cur_agent"),
+		(try_begin),
+            	(le,reg22, 1),
+            	(remove_agent,":cur_agent"),
+		(try_end),
         (try_end),
         (try_begin),
             (neg|agent_is_non_player, ":cur_agent"),
             (mission_cam_set_screen_color, 0xFF000000),
             (mission_cam_animate_to_screen_color, 0x4D000000, 2000),
             (display_message, "@The poison decreases your health!", 0x3F8000),
-        #debug message
-        # (else_try),
-            # (str_store_agent_name, s1, ":cur_agent"),
-            # (display_message, "@The poison decreases {s1} health!"),
         (try_end),
 
         (try_begin),
             (eq, ":is_poisoned", 0),
             (try_begin),
                 (neg|agent_is_non_player, ":cur_agent"),
+		(agent_is_alive, ":cur_agent"),
                 (display_message, "@You are no longer poisoned", color_good_news),
-            #debug message
-            # (else_try),
-                # (str_store_agent_name, s1, ":cur_agent"),
-                # (display_message, "@{s1} is no longer poisoned", color_good_news),
             (try_end),
         (try_end),
         (agent_set_slot, ":cur_agent", slot_agent_is_poisoned, ":is_poisoned"),
@@ -4795,6 +4785,8 @@ order_volley_triggers = [
         (try_end),
 
         (try_for_agents, ":agent"),
+		(agent_is_human, ":agent"),
+		(agent_is_alive, ":agent"),
             (agent_is_non_player, ":agent"),
             (agent_slot_ge, ":agent", slot_agent_volley_fire, 1),
             (agent_get_ammo, ":ammo", ":agent", 1),
@@ -6139,9 +6131,13 @@ dplmc_horse_cull = [
 
         (agent_get_rider, ":agent_no", ":horse_no"),
         (try_begin),
+	(gt, ":agent_no", -1),
+	(agent_is_active, ":agent_no"),
           (agent_is_non_player, ":agent_no"), #default period for npcs
           (agent_set_slot, ":horse_no", slot_agent_bought_horse, 0), #default duration
         (else_try),
+	(gt, ":agent_no", -1),
+	(agent_is_active, ":agent_no"),
           (agent_set_slot, ":horse_no", slot_agent_bought_horse, 210),
         (try_end),
         # (str_store_agent_name, s1, ":agent_no"),
@@ -7553,25 +7549,26 @@ common_siege_ai_trigger_init_2 = (
         (agent_get_troop_id, ":troop_no", ":agent_no"),
         (neg|troop_is_hero, ":troop_no"),
         (troop_is_guarantee_ranged, ":troop_no"),
-        (troop_is_guarantee_horse, ":troop_no"),
-        (troop_is_mounted, ":troop_no"),
-        (assign, ":weapon_slot", ek_head),
-        (try_for_range, ":slot_no", 0, ":weapon_slot"), #stupid khergits have both jav + bow
-          (agent_get_item_slot, ":item_no", ":agent_no", ":slot_no"),
-          (gt, ":item_no", -1),
-          (item_get_type, ":itp", ":item_no"),
-          (is_between, ":itp", itp_type_bow, itp_type_thrown),
-          (assign, ":weapon_slot", 0),
-          (str_store_item_name, s2, ":item_no"),
-        (try_end),
-        (str_store_agent_name, s1, ":agent_no"),
-        #(display_message, "@{s1} wielding {s2}"),
-        (try_begin),
-          (eq, ":weapon_slot", 0),
-          (agent_set_division, ":agent_no", grc_archers),
-        (else_try),
-          (agent_set_division, ":agent_no", grc_infantry),
-        (try_end),
+        (agent_set_division, ":agent_no", grc_archers),
+        # (troop_is_guarantee_horse, ":troop_no"),
+        # (troop_is_mounted, ":troop_no"),
+        # (assign, ":weapon_slot", ek_head),
+        # (try_for_range, ":slot_no", 0, ":weapon_slot"), #stupid khergits have both jav + bow
+          # (agent_get_item_slot, ":item_no", ":agent_no", ":slot_no"),
+          # (gt, ":item_no", -1),
+          # (item_get_type, ":itp", ":item_no"),
+          # (is_between, ":itp", itp_type_bow, itp_type_thrown),
+          # (assign, ":weapon_slot", 0),
+          # (str_store_item_name, s2, ":item_no"),
+        # (try_end),
+        # (str_store_agent_name, s1, ":agent_no"),
+        # #(display_message, "@{s1} wielding {s2}"),
+        # (try_begin),
+          # (eq, ":weapon_slot", 0),
+          # (agent_set_division, ":agent_no", grc_archers),
+        # (else_try),
+          # (agent_set_division, ":agent_no", grc_infantry),
+        # (try_end),
       (try_end),
     (try_end),
     ],
@@ -7608,7 +7605,7 @@ common_siege_defender_reinforcement_check = (
    (store_mission_timer_a,":mission_time"),
    (ge,":mission_time",10),
    (store_normalized_team_count,":num_defenders",0),
-   (lt,":num_defenders",8),
+   (lt,":num_defenders",31),
    (add_reinforcements_to_entry,4, 35),
    (val_add,"$defender_reinforcement_stage",1),
    (try_begin),
@@ -7648,7 +7645,7 @@ common_siege_attacker_reinforcement_check = (
     (store_mission_timer_a,":mission_time"),
     (ge,":mission_time",10),
     (store_normalized_team_count,":num_attackers",1),
-    (lt,":num_attackers",6)
+    (lt,":num_attackers",30)
     ],
   [
     (add_reinforcements_to_entry, 1, 35),
@@ -7704,7 +7701,7 @@ common_battle_victory_display = (
     ])
 
 common_siege_refill_ammo = (
-  120, 0, 0, [],
+  60, 0, 0, [],
   [#refill ammo of defenders every two minutes.
     (get_player_agent_no, ":player_agent"),
     (try_for_agents,":cur_agent"),
@@ -7858,11 +7855,38 @@ common_siege_assign_men_to_belfry = (
     (call_script, "script_cf_siege_assign_men_to_belfry"),
     ], [])
 
-
 tournament_triggers = [
   (ti_before_mission_start, 0, 0, [], [(call_script, "script_change_banners_and_chest"),
                                        (assign, "$g_arena_training_num_agents_spawned", 0)]),
   (ti_inventory_key_pressed, 0, 0, [(display_message,"str_cant_use_inventory_arena")], []),
+
+(5, 0, ti_once, [
+(eq, "$g_mt_mode", abm_tournament),
+],
+   [
+	(get_player_agent_no, ":player"),
+		(try_for_agents, ":agent"),
+		(neq, ":agent", ":player"),
+    		(agent_is_alive, ":agent"),
+    		(agent_is_human, ":agent"),
+		(agent_get_troop_id, ":troop", ":agent"),
+		(neq, ":troop", "trp_player"),
+			(try_begin),
+                	(agent_get_wielded_item, ":old_item_no", ":agent", 0),
+			(gt, ":old_item_no", 0),
+                	(item_get_type, ":old_item_type", ":old_item_no"),
+			(eq, ":old_item_type", itp_type_polearm),
+            			(try_for_range, reg0, 0, 4),
+                		(agent_get_item_slot, ":item", ":agent", reg0),
+				(gt, ":item", 0),
+                		(item_get_type, ":type", ":item"),
+                		(eq, ":type", itp_type_one_handed_wpn),
+                		(agent_set_wielded_item, ":agent", ":item"),
+                		(assign, reg0, -1), ##break
+            			(try_end),
+			(try_end),
+		(try_end),
+   ]),
 
 #madsci agent banner to tell the teams apart from each other because they use the same equipment
 (ti_on_agent_spawn, 0, 0, [(eq, "$g_mt_mode", abm_tournament),],
@@ -7918,78 +7942,7 @@ tournament_triggers = [
         (assign, ":team_set", 1),
       (try_end),
     ]),
-##
-##  (0, 0, 0, [],
-##   [
-##      #refresh hit points for arena visit trainers
-##      (eq, "$g_mt_mode", abm_visit),
-##      (get_player_agent_no, ":player_agent"),
-##      (try_for_agents, ":agent_no"),
-##        (neq, ":agent_no", ":player_agent"),
-##        (agent_get_troop_id, ":troop_id", ":agent_no"),
-##        (is_between, ":troop_id", regular_troops_begin, regular_troops_end),
-##        (agent_set_hit_points, ":agent_no", 100),
-##      (try_end),
-##    ]),
 
-##      (1, 4, ti_once, [(eq, "$g_mt_mode", abm_fight),
-##                       (this_or_next|main_hero_fallen),
-##                       (num_active_teams_le,1)],
-##       [
-##           (try_begin),
-##             (num_active_teams_le,1),
-##             (neg|main_hero_fallen),
-##             (assign,"$arena_fight_won",1),
-##             #Fight won, decrease odds
-##             (assign, ":player_odds_sub", 0),
-##             (try_begin),
-##               (ge,"$arena_bet_amount",1),
-##               (store_div, ":player_odds_sub", "$arena_win_amount", 2),
-##             (try_end),
-##             (party_get_slot, ":player_odds", "$g_encountered_party", slot_town_player_odds),
-##             (val_add, ":player_odds_sub", 5),
-##             (val_sub, ":player_odds", ":player_odds_sub"),
-##             (val_max, ":player_odds", 250),
-##             (party_set_slot, "$g_encountered_party", slot_town_player_odds, ":player_odds"),
-##           (else_try),
-##             #Fight lost, increase odds
-##             (assign, ":player_odds_add", 0),
-##             (try_begin),
-##               (ge,"$arena_bet_amount",1),
-##               (store_div, ":player_odds_add", "$arena_win_amount", 2),
-##             (try_end),
-##             (party_get_slot, ":player_odds", "$g_encountered_party", slot_town_player_odds),
-##             (val_add, ":player_odds_add", 5),
-##             (val_add, ":player_odds", ":player_odds_add"),
-##             (val_min, ":player_odds", 4000),
-##             (party_set_slot, "$g_encountered_party", slot_town_player_odds, ":player_odds"),
-##           (try_end),
-##           (store_remaining_team_no,"$arena_winner_team"),
-##           (assign, "$g_mt_mode", abm_visit),
-##           (party_get_slot, ":arena_mission_template", "$current_town", slot_town_arena_template),
-##           (set_jump_mission, ":arena_mission_template"),
-##           (party_get_slot, ":arena_scene", "$current_town", slot_town_arena),
-##           (modify_visitors_at_site, ":arena_scene"),
-##           (reset_visitors),
-##           (set_visitor, 35, "trp_veteran_fighter"),
-##           (set_visitor, 36, "trp_hired_blade"),
-##           (set_jump_entry, 50),
-##           (jump_to_scene, ":arena_scene"),
-##           ]),
-
-# #SB : tournament preferred weapons
-  # (ti_on_agent_spawn, 0, ti_once, [
-    # (eq, "$g_mt_mode", abm_tournament),
-    # (store_trigger_param_1, ":agent_no"),
-    # (agent_get_troop_id, ":troop_no", ":agent_no"),
-    # (eq, ":troop_no", "trp_player"),
-    # (call_script, "script_dplmc_get_troop_standing_in_faction", "trp_player", "$g_encountered_party_faction"),
-    # (this_or_next|ge, reg0, DPLMC_FACTION_STANDING_MEMBER),
-    # (party_slot_ge, "$current_town", slot_center_player_relation, 15),
-    # ],
-    # [
-    # (store_trigger_param_1, ":agent_no"),
-    # ]),
 #even though $disable_npc_complaints should really only apply for companions
  (ti_on_agent_killed_or_wounded, 0, 0, [
         # (ge, "$g_dplmc_ai_changes", DPLMC_AI_CHANGES_LOW),
@@ -8769,6 +8722,8 @@ convert_horse_props_to_living_horses,
   	 (45,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),
   	 (46,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),
   	 (47,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),
+  	 (48,mtef_visitor_source,af_override_horse,0,1,[]),
+  	 (49,mtef_visitor_source,af_override_horse,0,1,[]),
      (50,mtef_visitor_source,af_override_horse,0,1,[]), #quest npc
      ], tocan_walkers + vc_weather +
     [
@@ -10168,29 +10123,6 @@ convert_horse_props_to_living_horses,
       common_battle_check_victory_condition,
       common_battle_victory_display,
 
-#      (1, 4,
-#      ##diplomacy begin
-#      0,
-#      ##diplomacy end
-#      [(main_hero_fallen)],
-#          [
-#              ##diplomacy begin
-#              (try_begin),
-#                (call_script, "script_cf_dplmc_battle_continuation"),
-#              (else_try),
-#                ##diplomacy end
-#                (assign, "$pin_player_fallen", 1),
-#                (str_store_string, s5, "str_retreat"),
-#                (call_script, "script_simulate_retreat", 10, 20, 1),
-#                (assign, "$g_battle_result", -1),
-#                (set_mission_result, -1),
-#                (call_script, "script_count_mission_casualties_from_agents"),
-#                (finish_mission, 0),
-#                ##diplomacy begin
-#              (try_end),
-#              ##diplomacy end
-#              ]),
-
 #madsci
       (1, 4,
       ##diplomacy begin
@@ -10948,6 +10880,35 @@ convert_horse_props_to_living_horses,
       common_battle_order_panel,
       common_battle_order_panel_tick,
       common_inventory_not_available,
+
+#madsci help agents use one hand weapons when lances are not desired
+(5, 0, ti_once, [
+(mission_tpl_are_all_agents_spawned),
+],
+   [
+	(get_player_agent_no, ":player"),
+		(try_for_agents, ":agent"),
+		(neq, ":agent", ":player"),
+    		(agent_is_alive, ":agent"),
+    		(agent_is_human, ":agent"),
+		(agent_get_troop_id, ":troop", ":agent"),
+		(neq, ":troop", "trp_player"),
+			(try_begin),
+                	(agent_get_wielded_item, ":old_item_no", ":agent", 0),
+			(gt, ":old_item_no", 0),
+                	(item_get_type, ":old_item_type", ":old_item_no"),
+			(eq, ":old_item_type", itp_type_polearm),
+            			(try_for_range, reg0, 0, 4),
+                		(agent_get_item_slot, ":item", ":agent", reg0),
+				(gt, ":item", 0),
+                		(item_get_type, ":type", ":item"),
+                		(eq, ":type", itp_type_one_handed_wpn),
+                		(agent_set_wielded_item, ":agent", ":item"),
+                		(assign, reg0, -1), ##break
+            			(try_end),
+			(try_end),
+		(try_end),
+   ]),
 
       (ti_on_agent_killed_or_wounded, 0, 0, [],
        [
@@ -21454,6 +21415,34 @@ convert_horse_props_to_living_horses,
 
       common_inventory_not_available,
 
+(5, 0, ti_once, [
+(mission_tpl_are_all_agents_spawned),
+],
+   [
+	(get_player_agent_no, ":player"),
+		(try_for_agents, ":agent"),
+		(neq, ":agent", ":player"),
+    		(agent_is_alive, ":agent"),
+    		(agent_is_human, ":agent"),
+		(agent_get_troop_id, ":troop", ":agent"),
+		(neq, ":troop", "trp_player"),
+			(try_begin),
+                	(agent_get_wielded_item, ":old_item_no", ":agent", 0),
+			(gt, ":old_item_no", 0),
+                	(item_get_type, ":old_item_type", ":old_item_no"),
+			(eq, ":old_item_type", itp_type_polearm),
+            			(try_for_range, reg0, 0, 4),
+                		(agent_get_item_slot, ":item", ":agent", reg0),
+				(gt, ":item", 0),
+                		(item_get_type, ":type", ":item"),
+                		(eq, ":type", itp_type_one_handed_wpn),
+                		(agent_set_wielded_item, ":agent", ":item"),
+                		(assign, reg0, -1), ##break
+            			(try_end),
+			(try_end),
+		(try_end),
+   ]),
+
       (ti_on_agent_spawn, 0, 0, [],
       [
         (store_trigger_param_1, ":agent_no"),
@@ -22886,13 +22875,13 @@ convert_horse_props_to_living_horses,
   ("diocletian_palace_visit",0,-1,
     "Diocletian's Palace",
     [(0,mtef_scene_source|mtef_team_0,0,0,1,[]),
-      (1,mtef_scene_source|mtef_team_0,0,0,1,[]),
-      (2,mtef_scene_source|mtef_team_0,af_override_horse,0,1,[]),
-      (3,mtef_scene_source|mtef_team_0,af_override_horse,0,1,[]),
-      (4,mtef_scene_source|mtef_team_0,af_override_horse,0,1,[]),
-      (5,mtef_scene_source|mtef_team_0,af_override_horse,0,1,[]),
-      (6,mtef_scene_source|mtef_team_0,af_override_horse,0,1,[]),
-      (7,mtef_scene_source|mtef_team_0,af_override_horse,0,1,[]),
+      (1,mtef_visitor_source|mtef_team_0,0,0,1,[]),
+      (2,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
+      (3,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
+      (4,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
+      (5,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
+      (6,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
+      (7,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
 
       (8,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
       (9,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
@@ -23325,7 +23314,7 @@ convert_horse_props_to_living_horses,
           (check_quest_active,"qst_the_wolfmen"),(quest_slot_eq,"qst_the_wolfmen",slot_quest_current_state,8),
           (this_or_next|main_hero_fallen),
           (all_enemies_defeated, 5),
-          (eq, "$cam_mode", 0),
+          #(eq, "$cam_mode", 0),
         ],
         [
           (try_begin),
@@ -24206,7 +24195,7 @@ convert_horse_props_to_living_horses,
           (eq,"$basilius_interaction",1),
           (this_or_next|main_hero_fallen),
           (all_enemies_defeated, 5),
-          (eq, "$cam_mode", 0),
+          #(eq, "$cam_mode", 0),
         ],
         [
           (try_begin),
@@ -24371,7 +24360,7 @@ convert_horse_props_to_living_horses,
           (check_quest_active,"qst_mithras_statue_quest"),(quest_slot_eq,"qst_mithras_statue_quest",slot_quest_current_state,7),
           (this_or_next|main_hero_fallen),
           (all_enemies_defeated, 5),
-          (eq, "$cam_mode", 0),
+          #(eq, "$cam_mode", 0),
         ],
         [
           (try_begin),
@@ -24435,7 +24424,7 @@ convert_horse_props_to_living_horses,
           (check_quest_active,"qst_agrippinus_quest"),(quest_slot_eq,"qst_agrippinus_quest",slot_quest_current_state,2),
           (this_or_next|main_hero_fallen),
           (all_enemies_defeated, 5),
-          (eq, "$cam_mode", 0),
+          #(eq, "$cam_mode", 0),
         ],
         [
           (try_begin),
@@ -24726,21 +24715,10 @@ convert_horse_props_to_living_horses,
         (call_script, "script_apply_death_effect_on_courage_scores_vc", ":dead_agent_no", ":killer_agent_no"), #madsci
        ]),
 
-      common_battle_tab_press,
+      (ti_tab_pressed, 0, 0, [(display_message,"str_cannot_leave_now")], []),
+
       immersive_troops,
 
-      (ti_question_answered, 0, 0, [],
-       [(store_trigger_param_1,":answer"),
-        (eq,":answer",0),
-        (assign, "$pin_player_fallen", 0),
-        (try_begin),
-          (store_mission_timer_a, ":elapsed_time"),
-          (gt, ":elapsed_time", 20),
-          (str_store_string, s5, "str_retreat"),
-          (call_script, "script_simulate_retreat", 10, 20, 1),
-        (try_end),
-        (call_script, "script_count_mission_casualties_from_agents"),
-        (finish_mission,0),]),
 
       (ti_before_mission_start, 0, 0, [],
        [
@@ -24825,7 +24803,7 @@ convert_horse_props_to_living_horses,
           (ge, ":cur_time", 5),
           (this_or_next|main_hero_fallen),
           (all_enemies_defeated, 5),
-          (eq, "$cam_mode", 0),
+          #(eq, "$cam_mode", 0), #madsci what is this even for?
         ],
         [
           (try_begin),
@@ -24942,7 +24920,7 @@ convert_horse_props_to_living_horses,
           (store_mission_timer_a,":cur_time"),
           (ge, ":cur_time", 5),
           (all_enemies_defeated, 5),
-          (eq, "$cam_mode", 0),
+          #(eq, "$cam_mode", 0),
         ],
         [
           (assign,"$g_battle_won",1),
@@ -25276,13 +25254,14 @@ convert_horse_props_to_living_horses,
           (team_set_relation, 2, 1, 0),
       ]),
 
-      (ti_escape_pressed, 0, 0, [
-          (quest_slot_eq, "qst_black_river", slot_quest_current_state, 6),
-      ], [
-          (quest_set_slot,"qst_black_river", slot_quest_current_state, 5),
-          (jump_to_menu, "mnu_noricum_sarmatian_attack_won"),
-          (finish_mission),
-      ]),
+#madsci this is wrong?
+#      (ti_escape_pressed, 0, 0, [
+#          (quest_slot_eq, "qst_black_river", slot_quest_current_state, 6),
+#      ], [
+#          (quest_set_slot,"qst_black_river", slot_quest_current_state, 5),
+#          (jump_to_menu, "mnu_noricum_sarmatian_attack_won"),
+#          (finish_mission),
+#      ]),
 
       (0.1, 0, ti_once,
         [
@@ -25424,7 +25403,7 @@ convert_horse_props_to_living_horses,
       (1, 4, ti_once, #quest main
         [
           (main_hero_fallen),
-          (eq, "$cam_mode", 0),
+          #(eq, "$cam_mode", 0),
         ],
         [
           (jump_to_menu, "mnu_captivity_wilderness_taken_prisoner"),
@@ -25503,7 +25482,7 @@ convert_horse_props_to_living_horses,
       (1, 4, ti_once, #quest main
         [
           (main_hero_fallen),
-          (eq, "$cam_mode", 0),
+          #(eq, "$cam_mode", 0),
         ],
         [
           (tutorial_message,"@Despite your confidence, you were defeated by the drunkard..."),
@@ -27531,7 +27510,7 @@ common_battle_init_banner,
           (tutorial_message_set_background, 1),
           (try_begin),
             (check_quest_active, "qst_finnsburh_quest_2"),
-            (tutorial_message, "@'All known gods of the ocean and gods of the sky and all unkown gods of the ocean and the sky, hear me! Guard our ships! But destroy the ships of Finn thereby he cannot escape our wrath!'"),
+            (tutorial_message, "@'All known gods of the ocean and gods of the sky and all unknown gods of the ocean and the sky, hear me! Guard our ships! But destroy the ships of Finn thereby he cannot escape our wrath!'"),
           (else_try),
             (tutorial_message, "@'By your will, let fate be kind, And by your hand, let glory be mine. Hail Freja, mighty and wise, Hail Freja, goddess of the slain.'"),
           (try_end),
@@ -29239,7 +29218,7 @@ common_battle_init_banner,
         [
           (this_or_next|main_hero_fallen),
           (all_enemies_defeated, 5),
-          (eq, "$cam_mode", 0),
+          #(eq, "$cam_mode", 0),
         ],
         [
           (try_begin),
@@ -30070,5 +30049,96 @@ common_battle_init_banner,
     ]),
     common_inventory_not_available,
 ]),
+
+("slave_hideout", mtf_battle_mode, 0,
+    "You visit the strange camp.",
+    [
+      (0,mtef_leader_only, 0, 0, 1,[]),
+    ],
+    [ 
+      #1. Spawn the slave
+      (0, 0, ti_once, #[(mission_tpl_are_all_agents_spawned),],
+        [
+          (get_player_agent_no, ":player_agent"),
+          (agent_is_active, ":player_agent"),
+        ],
+        [
+          (mission_enable_talk),
+          
+          (get_player_agent_no, ":agent_no"),
+          (set_fixed_point_multiplier, 100),
+          (agent_get_position, pos1, ":agent_no"),
+          (store_random_in_range, ":rand", 6000, 9000),
+          (position_move_y, pos1, ":rand"),
+          (store_random_in_range, ":rand", -3000, 3000),
+          (position_move_x, pos1, ":rand"),
+          (store_random_in_range, ":rand", 0, 360),
+          (position_rotate_z, pos1, ":rand"),
+          
+          (set_spawn_position, pos1),
+          (spawn_agent, "trp_slave"),
+          (assign, "$alpha_animal", reg0),
+          (agent_get_position, pos1, "$alpha_animal"),
+	(display_message, "@You smell smoke in the air. There is someone nearby."),
+          
+          (try_begin),
+            (position_get_z, ":z", pos1),#VC-3485
+            (lt, ":z", 0),
+            (agent_get_position, pos2, ":agent_no"),
+            (agent_set_scripted_destination, "$alpha_animal", pos2),
+          (else_try),
+            (set_spawn_position, pos1),
+            (spawn_scene_prop, "spr_cooking_fire"),
+            (position_move_y, pos1, -100),
+            (agent_set_position, "$alpha_animal", pos1),
+          (end_try),
+          (agent_add_relation_with_agent, ":agent_no", "$alpha_animal", 0),
+      ]),
+      
+      # End
+      (3, 0, ti_once,
+        [
+          (this_or_next|main_hero_fallen),
+          (neg|agent_is_alive, "$alpha_animal"),
+        ],
+        [
+          (finish_mission, 10),
+          (quest_get_slot, ":village", "qst_return_slave", slot_quest_target_center),
+          
+          (try_begin),
+            (main_hero_fallen),
+            (quest_set_slot, "qst_return_slave", slot_quest_current_state, 3),
+            (call_script, "script_fail_quest", "qst_return_slave"),
+          (else_try),
+            (quest_set_slot, "qst_return_slave", slot_quest_current_state, 3),
+            (call_script, "script_fail_quest", "qst_return_slave"),
+            (set_show_messages, 0),
+            (call_script, "script_end_quest", "qst_return_slave"),
+            (set_show_messages, 1),
+            (call_script, "script_change_player_relation_with_center", ":village", -1),
+          (end_try),
+          
+      ]),
+      
+      (ti_tab_pressed, 0, 0, [],
+        [
+          (set_trigger_result, 0),
+      ]),
+      
+      (0, 0, ti_once, [],
+        [
+          (assign,"$battle_won",0),
+          (call_script, "script_music_set_situation_with_culture", mtf_sit_travel),
+      ]),
+      
+      (ti_before_mission_start, 0, 0, [],
+        [
+          (team_set_relation, 0, 2, 1),
+          (team_set_relation, 1, 3, 1),
+    ]),
+    common_inventory_not_available,
+]),
+
+
 
 ]#end of file

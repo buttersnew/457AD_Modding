@@ -268,7 +268,7 @@ meshes = [
   ("tableau_mesh_wickershield",  0, "tableau_mesh_wickershield", 0, 0, 0, 0, 0, 0, 10, 10, 10),
   ("tableau_mesh_round_shields", 0, "tableau_mesh_round_shields",  0, 0, 0, 0, 0, 0, 10, 10, 10),
   ("tableau_mesh_oval_shields", 0, "tableau_mesh_oval_shields",  0, 0, 0, 0, 0, 0, 10, 10, 10),
-  
+
   ("tableau_roman_chars", 0, "tableau_roman_chars",  0, 0, 0, 0, 0, 0, 10, 5, 10),
   ("tableau_german_chars", 0, "tableau_german_chars",  0, 0, 0, 0, 0, 0, 10, 5, 10),
   ("tableau_caucasian_chars", 0, "tableau_caucasian_chars",  0, 0, 0, 0, 0, 0, 10, 5, 10),
@@ -276,7 +276,7 @@ meshes = [
   ("tableau_mesh_heraldic_banner_03", 0, "tableau_mesh_heraldic_banner_03", 0, 0, 0, 0, 0, 0, 10, 10, 10),
 
   ("outer_terrain_plain_1", 0, "pic_empty", -90, 0, 0, 0, 0, 0, 1, 1, 1),
-  
+
   ("banner_a01", 0, "banner_a01", 0, 0, 0, -90, 0, 0, 1, 1, 1),
   ("banner_a02", 0, "banner_a02", 0, 0, 0, -90, 0, 0, 1, 1, 1),
   ("banner_a03", 0, "banner_a03", 0, 0, 0, -90, 0, 0, 1, 1, 1),
@@ -364,7 +364,7 @@ meshes = [
   ("banner_d19", 0, "banner_d19", 0, 0, 0, -90, 0, 0, 1, 1, 1),
   ("banner_d20", 0, "banner_d20", 0, 0, 0, -90, 0, 0, 1, 1, 1),
   ("banner_d21", 0, "banner_d21", 0, 0, 0, -90, 0, 0, 1, 1, 1),
-  
+
   ("banner_empire_a01", 0, "banner_empire_a01", 0, 0, 0, -90, 0, 0, 1, 1, 1),
   ("banner_empire_a02", 0, "banner_empire_a02", 0, 0, 0, -90, 0, 0, 1, 1, 1),
   ("banner_empire_a03", 0, "banner_empire_a03", 0, 0, 0, -90, 0, 0, 1, 1, 1),
@@ -498,6 +498,8 @@ meshes = [
   ("banner_kingdom_34", 0, "banner_kingdom_34", 0, 0, 0, -90, 0, 0, 1, 1, 1),
   ("banner_kingdom_35", 0, "banner_kingdom_35", 0, 0, 0, -90, 0, 0, 1, 1, 1),
   ("banner_kingdom_36", 0, "banner_kingdom_36", 0, 0, 0, -90, 0, 0, 1, 1, 1),
+  ("banner_kingdom_37", 0, "banner_kingdom_37", 0, 0, 0, -90, 0, 0, 1, 1, 1),
+  ("banner_kingdom_38", 0, "banner_kingdom_38", 0, 0, 0, -90, 0, 0, 1, 1, 1),
 
   ("banner_end", 0, "banner_a15", 0, 0, 0, -90, 0, 0, 1, 1, 1),
 
@@ -719,6 +721,8 @@ meshes = [
   ("arms_kingdom_34", 0, "arms_kingdom_34", 0, 0, 0, -90, 0, 0, 1, 1, 1),
   ("arms_kingdom_35", 0, "arms_kingdom_35", 0, 0, 0, -90, 0, 0, 1, 1, 1),
   ("arms_kingdom_36", 0, "arms_kingdom_36", 0, 0, 0, -90, 0, 0, 1, 1, 1),
+  ("arms_kingdom_37", 0, "arms_kingdom_37", 0, 0, 0, -90, 0, 0, 1, 1, 1),
+  ("arms_kingdom_38", 0, "arms_kingdom_38", 0, 0, 0, -90, 0, 0, 1, 1, 1),
 
   ("arms_end", 0, "banner_a15", 0, 0, 0, -90, 0, 0, 1, 1, 1),
 
@@ -808,7 +812,7 @@ meshes = [
   ("drop_button_child", 0, "button_drop_child", 0, 0, 0, 0, 0, 0, 1.0, 0.5, 0.5),
   ("drop_button_child_down", 0, "button_drop_child_clicked", 0, 0, 0, 0, 0, 0, 1.0, 0.5, 0.5),
   ("drop_button_child_hl", 0, "button_drop_child_hl", 0, 0, 0, 0, 0, 0, 1.0, 0.5, 0.5),
-  
+
   ("inventory_equipment_panel", 0, "inventory_equipment_panel", 0, 0, 0, 0, 0, 0, 1, 1, 1),
 ##diplomacy start+
     #old pictures
@@ -821,7 +825,7 @@ meshes = [
   ("icon_spear", 0, "ico_spear", 0, 0, 0, 0, 0, 0, 0.3, 0.3, 0.3),
   ("icon_bardiche", 0, "ico_axetwo", 0, 0, 0, 0, 0, 0, 0.3, 0.3, 0.3),
 
-#INVASION MODE START  
+#INVASION MODE START
   ("incoming_enemy", 0, "pic_empty", 0, 0, 0, 0, 0, 0, 2, 2, 2),
   ("prison_cart_pos", 0, "pic_empty", 0, 0, 0, 0, 0, 0, 2, 2, 2),
 
@@ -879,6 +883,6 @@ meshes = [
 
   ("vc_menu_board", 0, "menu_board", 0, 0, 0, 0, 0, 0, 1, 1, 1),
   ("ship_menu_tab1", 0, "button_drop_child", 0, 0, 0, 0, 0, 0, 1, 1, 1),
-  ("ship_menu_tab2", 0, "button_drop_child_clicked", 0, 0, 0, 0, 0, 0, 1, 1, 1), 
-###	) PHAIAK end  
+  ("ship_menu_tab2", 0, "button_drop_child_clicked", 0, 0, 0, 0, 0, 0, 1, 1, 1),
+###	) PHAIAK end
 ]

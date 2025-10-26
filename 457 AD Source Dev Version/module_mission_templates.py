@@ -15700,6 +15700,17 @@ convert_horse_props_to_living_horses,
           (call_script, "script_init_death_cam"), #SB : add camera
          ]),
 
+      (ti_on_agent_spawn, 0, 0, [],[
+         (store_trigger_param_1, ":agent_no"),
+         (agent_set_slot, ":agent_no", slot_agent_courage_score, 9000),
+        ]),
+
+      (ti_on_agent_killed_or_wounded, 0, 0, [],[
+        (store_trigger_param_1, ":dead_agent_no"),
+        (store_trigger_param_2, ":killer_agent_no"),
+        (call_script, "script_apply_death_effect_on_courage_scores_vc", ":dead_agent_no", ":killer_agent_no"), #madsci
+      ]),
+
     (3, 0, 0, [
           (try_for_agents, ":agent_no"),
             (agent_is_human, ":agent_no"),

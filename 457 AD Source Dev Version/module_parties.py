@@ -238,11 +238,11 @@ parties = [
   ("castle_112", "Jabiya", icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (93.4, -42), [], 170),
 
   # new castles 25/08/07: Mordvin
-  ("castle_113", "Vele", icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (44.00, 159.84), [], 170),
-  ("castle_114", "Sanf", icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (44.73, 141.13), [], 170),
+  ("castle_113", "Vele", icon_castle_b|pf_castle, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (44.00, 159.84), [], 170),
+  ("castle_114", "Sanf", icon_castle_b|pf_castle, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (44.73, 141.13), [], 170),
 
   # new castles: 25/08/13: Meshera indie
-  ("castle_115", "Potmo", icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (61.94, 155.91), [], 170),
+  ("castle_115", "Potmo", icon_castle_b|pf_castle, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (61.94, 155.91), [], 170),
 
   # == VILLAGES == 
   ("village_1", "Olisipo", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-292.93, 5.89), [], 100),

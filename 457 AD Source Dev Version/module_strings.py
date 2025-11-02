@@ -7128,6 +7128,7 @@ Even in the last case, the player can make formations up to four lines by orderi
 ("desc_kingdom_32", "'Scoti' is the name given to raiders and settlers coming from the Irish coast during Late Antiquity by Roman sources."),
 ("desc_kingdom_33", "The Sporoi are an obscure tribe that are considered the precursor of the Antes and Sklaveni. They live along the course of the Dnieper and for long time they have been subjects of Goths and Huns. Now free, the Sporoi's descendants are about to change the shape of Europe."),
 ("desc_kingdom_34", "The Veneti are an ancient tribe recorded since the times of Tacitus living in the forested area of Eastern Europe. Ancient chroniclers considered them in between Germans and Scythians. However, it seems they were a Balto-Slavic culture that will later migrate west and will be known under the name of Wends."),
+("desc_kingdom_35", "The Mordvins are a barbarous tribe beyond the lands of the Sarmatians, dwelling amidst endless forests and marshes, living by hunting and fishing, clad in furs, and ignorant of the sun's warmth."),
 
 ("desc_rebel_kingdom_1", "The rebels fight for their freedom."),
 ("desc_rebel_kingdom_2", "The rebels fight for their freedom."),

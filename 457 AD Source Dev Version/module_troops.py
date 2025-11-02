@@ -2219,27 +2219,33 @@ troops = [
   ["pedes_regii_east","Pedes Regii Orientalis","Pedites Regii Orientalis",tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_shield|tf_guarantee_helmet|tf_guarantee_polearm,0,0,fac_kingdom_2,
    [itm_late_roman_spear_1,itm_arabian_sword_b,itm_war_darts,itm_deurne_campagi_greaves_4,itm_deurne_campagi_greaves_5,itm_457_scale_hauberk_2,itm_457_scale_hauberk_5,itm_iatrus_1,itm_iatrus_2,itm_koblenz_helmet_1,itm_koblenz_helmet_2,itm_koblenz_helmet_3,itm_intercisa_helmet_rich_3,itm_augsburg_2_helmet,itm_concesti_helmet,itm_oval_shield_regii_east]+mail_roman_1+mail_roman_2,
    def_attrib_lvl_25|level(25),wp_one_handed(180)|wp_two_handed(180)|wp_polearm(180)|wp_archery(100)|wp_throwing(180),knows_lvl_25,roman_face_1, roman_face_2],
+  
   #presentalis II
   ["pedes_thraces","Pedes Thraces","Pedites Thraces",tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_shield|tf_guarantee_helmet|tf_guarantee_polearm,0,0,fac_kingdom_2,
    [itm_late_roman_spear_2,itm_sword_khergit_4,itm_roman_javelin,itm_deurne_campagi_greaves_1,itm_deurne_campagi_greaves_2,itm_iatrus_1,itm_haditha_1,itm_intercisa_helmet_1,itm_intercisa_helmet_2,itm_augst_helmet_1,itm_narona_helmet_mail,itm_narona_helmet,itm_christies_helmet_1,itm_oval_shield_thraces]+mail_roman_1+mail_roman_2,
    def_attrib_lvl_25|level(25),wp_one_handed(195)|wp_two_handed(180)|wp_polearm(190)|wp_archery(100)|wp_throwing(195),knows_lvl_25,roman_face_1, roman_face_2],
+  
   #Primi Theodosiani - Presentalis I
   ["pedes_primi_theodosiani","Pedes Primi Theodosiani","Pedites Primi Theodosiani",tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_shield|tf_guarantee_helmet|tf_guarantee_polearm,0,0,fac_kingdom_2,
    [itm_late_roman_spear_1,itm_sword_khergit_4,itm_war_darts,itm_deurne_campagi_greaves_1,itm_deurne_campagi_greaves_3,itm_intercisa_helmet_gilded_1,itm_intercisa_helmet_rich_3,itm_iatrus_1,itm_iatrus_2,itm_koblenz_helmet_2,itm_concesti_helmet,itm_christies_helmet_1,itm_heteny_helmet_1,itm_oval_shield_primi_theodosiani]+greaves_roman+mail_roman_1+mail_roman_2,
    def_attrib_lvl_25|level(25),wp_one_handed(180)|wp_two_handed(180)|wp_polearm(200)|wp_archery(100)|wp_throwing(185),knows_lvl_25,roman_face_1, roman_face_2],
+  
   #Victores - Presenatlis I
   ["pedes_victores","Pedes Victores","Pedites Victores",tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_shield|tf_guarantee_helmet|tf_guarantee_polearm,0,0,fac_kingdom_2,
    [itm_late_roman_spear_1,itm_indesheim_spatha_rich,itm_war_darts,itm_deurne_campagi_greaves_1,itm_deurne_campagi_greaves_4,itm_457_scale_hauberk_4,itm_intercisa_helmet_gilded_plume_1,itm_intercisa_helmet_rich_plume_3,itm_intercisa_helmet_rich_plume_1,itm_iatrus_plume_1,itm_iatrus_plume_2,itm_koblenz_crested_2,itm_koblenz_crested_3,itm_christies_helmet_crest_1,itm_christies_helmet_crest_2,itm_oval_shield_victores]+mail_roman_1,
    def_attrib_lvl_25|level(25),wp_one_handed(185)|wp_two_handed(180)|wp_polearm(195)|wp_archery(100)|wp_throwing(185),knows_lvl_25,roman_face_1, roman_face_2],
+  
   #per illyricum
   ["pedes_ascarii_iuniores","Pedes Ascarii Iuniores","Pedites Ascarii Iuniores",tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_shield|tf_guarantee_helmet,0,0,fac_kingdom_2,
    [itm_deurne_campagi_greaves_2,itm_deurne_campagi_greaves_5,itm_common_mail_short_5_cloak,itm_common_mail_long_1_cloak,itm_common_mail_long_5_cloak,itm_narona_helmet,itm_burgh_helmet_1,itm_burgh_helmet_2,itm_jarak_helmet_1,itm_battle_axe,itm_spiculum,itm_oval_shield_ascarii_iuniores],
    def_attrib_lvl_25|level(25),wp_one_handed(200)|wp_two_handed(180)|wp_polearm(180)|wp_archery(100)|wp_throwing(190),knows_lvl_25,roman_face_1, roman_face_2],
+  
   #per illyricum
   ["miles_sagittarii_lecti","Miles Sagittarii Lecti","Milites Sagittarii Lecti",tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_ranged,0,0,fac_kingdom_2,
    [itm_aquincum_spatha_2,itm_strong_bow,itm_khergit_bow,itm_roman_arrows_1,itm_roman_arrows_1,itm_deurne_campagi_1,itm_deurne_campagi_3,itm_intercisa_helmet_1,itm_intercisa_helmet_gilded_1,itm_intercisa_helmet_rich_3]+scale_roman_1+mail_roman_1,
    def_attrib_lvl_25|level(25),wp_one_handed(180)|wp_two_handed(160)|wp_polearm(180)|wp_archery(160)|wp_throwing(130),knows_athletics_6|knows_ironflesh_7|knows_power_strike_6|knows_power_draw_8|knows_weapon_master_6|knows_inventory_management_3|knows_riding_3|knows_power_throw_3,roman_face_1, roman_face_2],
   #will eventually add in the Felices Theodosiani
+
 #Palatina
   #has long spear, javelins
   ["pedes_scythae","Pedes Scythae","Pedites Scythae",tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_shield|tf_guarantee_helmet|tf_guarantee_polearm,0,0,fac_kingdom_2,
@@ -2692,16 +2698,19 @@ troops = [
    [itm_khergit_leather_boots,itm_deurne_campagi_1,itm_roman_military_tunic_3,itm_roman_peasant_tunic_1,itm_roman_peasant_tunic_2,itm_roman_peasant_tunic_3,itm_roman_peasant_tunic_4,itm_roman_peasant_tunic_10,itm_woolen_cap_1,itm_woolen_cap_2,itm_woolen_cap_c,
    itm_fighting_axe,itm_roman_spear_1,itm_jarid,itm_jarid],
    def_attrib_skirmisher|level(13),wp_one_handed(100)|wp_polearm(110)|wp_throwing(130)|wp_archery(100)|wp_firearm(100),knows_skirmisher,roman_face_1, roman_face_2],
+  
   #archer
   ["bosphor_archer","Bosphoran Archer (Toxotes)","Bosphoran Archers (Toxotai)",tf_mounted|tf_guarantee_armor|tf_guarantee_boots|tf_guarantee_ranged,0,0,fac_minor_bosphoran,
    [itm_khergit_leather_boots,itm_deurne_campagi_1,itm_deurne_campagi_3,itm_roman_military_tunic_3,itm_roman_peasant_tunic_4,itm_coptic_tunic_2,itm_coptic_tunic_8,itm_tunic_1,itm_tunic_7,itm_tunic_rich_5,itm_woolen_cap_1,itm_woolen_cap_2,itm_woolen_cap_c,
    itm_fighting_axe,itm_roman_spear_2,itm_khergit_bow,itm_strong_bow,itm_roman_arrows_2,itm_roman_arrows_2],
    def_attrib_lvl_18|level(17),wp_one_handed(120)|wp_polearm(140)|wp_throwing(130)|wp_archery(170)|wp_firearm(100),knows_archer,roman_face_1, roman_face_2],
+  
   #Bosphorian Infantry / Doriphoros Bosphorou
   ["bosphor_infantry","Bosphoran Infantry (Doriphoros)","Bosphoran Infantry (Doriphoros)",tf_mounted|tf_guarantee_basic,0,0,fac_minor_bosphoran,
    [itm_khergit_leather_boots,itm_deurne_campagi_1,itm_deurne_campagi_3,itm_roman_military_tunic_3,itm_roman_peasant_tunic_4,itm_coptic_tunic_2,itm_coptic_tunic_8,itm_tunic_1_cloak,itm_tunic_7_cloak,itm_tunic_rich_5_cloak,itm_roman_subarmalis_4,itm_woolen_cap_1,itm_woolen_cap_2,itm_woolen_cap_c,itm_tarasovsky_1784_helmet_mail_2,itm_intercisa_helmet_1,
    itm_long_seax_2,itm_polehammer,itm_oval_shield_blue_1,itm_oval_shield_blue_2,itm_oval_shield_red_2,itm_oval_shield_leather_1],
    def_attrib_lvl_18|level(18),wp_one_handed(130)|wp_polearm(150)|wp_throwing(130)|wp_archery(100),knows_lvl_18,roman_face_1, roman_face_2],
+  
   #Bosphorian Retainer / Machairophoros Bosphorou
   ["bosphor_horseman","Bosphoran Horseman","Bosphoran Horsemen",tf_mounted|tf_guarantee_horse|tf_guarantee_polearm|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet,0,0,fac_minor_bosphoran,
    [itm_khergit_leather_boots,itm_deurne_campagi_1,itm_deurne_campagi_3,itm_sassanid_cavalry_boots_1,itm_tunic_10_cloak,itm_tunic_11_cloak,itm_tunic_rich_5_cloak,itm_roman_subarmalis_4,itm_kaftan_alan_blue,itm_kaftan_alan_red,itm_roman_scale_6,itm_common_mail_short_2,itm_rich_mail_1_cloak,itm_tarasovsky_1784_helmet_mail_2,itm_kerch_lamellenhelm,
@@ -3319,9 +3328,9 @@ troops = [
 
   ["irish_king","Dallan Dail Fiatach","Dallan Dail Fiatach",tf_hero, no_scene, reserved, fac_kingdom_32,[itm_marcos_4,itm_pictish_tunic_1,itm_wrapping_boots,itm_pictish_mail_1,itm_burgh_helmet_2,itm_pictish_sword,itm_vae_pictish_rectangle_16],knight_attrib_5,wp_one_handed(290)|wp_two_handed(290)|wp_polearm(290)|wp_archery(100)|wp_crossbow(100)|wp_throwing(100)|wp_firearm(100),knight_skills_4|knows_trainer_5,0x0000000da50060465051a0975b512b2300000000001db6980000000000000000],
 
-  ["kingdom_33_lord","Gostislav","Gostislav",tf_hero, no_scene, reserved, fac_kingdom_33,[itm_simple_shoes,itm_kaftan_hunnic_5,itm_rich_mail_2_cloak,itm_suvorovsky_helmet_mail,itm_kruglitsa_spatha],knight_attrib_5,wp_one_handed(300)|wp_two_handed(250)|wp_polearm(300)|wp_archery(100)|wp_crossbow(100)|wp_throwing(280)|wp_firearm(100),knight_skills_6|knows_trainer_5,0x00000008000033cc525596491a4db49a00000000001ea4ea0000000000000000],
+  ["kingdom_33_lord","Gostislav","Gostislav",tf_hero, no_scene, reserved, fac_kingdom_33,[itm_simple_shoes,itm_kaftan_hunnic_5,itm_rich_mail_2_cloak,itm_suvorovsky_helmet_mail,itm_kruglitsa_spatha,itm_sporoi_hun_horse_3],knight_attrib_5,wp_one_handed(300)|wp_two_handed(250)|wp_polearm(300)|wp_archery(100)|wp_crossbow(100)|wp_throwing(280)|wp_firearm(100),knight_skills_6|knows_trainer_5,0x00000008000033cc525596491a4db49a00000000001ea4ea0000000000000000],
 
-  ["kingdom_34_lord","Voldimer","Voldimer",tf_hero, no_scene, reserved, fac_kingdom_34,[itm_simple_shoes,itm_tunic_13_cloak,itm_kaftan_lamellar_10,itm_suvorovsky_helmet_mail,itm_kruglitsa_spatha],knight_attrib_5,wp_one_handed(300)|wp_two_handed(250)|wp_polearm(300)|wp_archery(100)|wp_crossbow(100)|wp_throwing(280)|wp_firearm(100),knight_skills_6|knows_trainer_5,0x0000000c2200450b1b5569484b2d26db00000000001db4900000000000000000],
+  ["kingdom_34_lord","Voldimer","Voldimer",tf_hero, no_scene, reserved, fac_kingdom_34,[itm_simple_shoes,itm_tunic_13_cloak,itm_kaftan_lamellar_10,itm_suvorovsky_helmet_mail,itm_kruglitsa_spatha,itm_sporoi_hun_horse_3],knight_attrib_5,wp_one_handed(300)|wp_two_handed(250)|wp_polearm(300)|wp_archery(100)|wp_crossbow(100)|wp_throwing(280)|wp_firearm(100),knight_skills_6|knows_trainer_5,0x0000000c2200450b1b5569484b2d26db00000000001db4900000000000000000],
 
   ["kingdom_35_lord","Terekh","Terekh",tf_hero, no_scene, reserved, fac_kingdom_35,[itm_simple_shoes,itm_common_mail_long_6_cloak,itm_tsaritsyno_1_veiled,itm_borok_spatha,itm_niya_bow_2,itm_khergit_arrows],def_attrib_lvl_32|level(32),wp_one_handed(300)|wp_two_handed(300)|wp_polearm(300)|wp_throwing(280)|wp_archery(160)|wp_crossbow(130)|wp_firearm(130),knows_ironflesh_10|knows_power_strike_8|knows_shield_6|knows_athletics_6|knows_riding_5,0x00000009210043cb32548dd91a4db4c900000000001db4e40000000000000000],
 
@@ -3595,8 +3604,8 @@ troops = [
 ["knight_32_3", "Tovisaci Cairatini", "Cairatini", tf_hero, 0, reserved,  fac_kingdom_32,[itm_marcos_3, itm_arabian_sword_a, itm_burgh_helmet_2, itm_pictish_tunic_6, (itm_pictish_mail_6,imod_reinforced), itm_ankle_boots, itm_tab_shield_small_round_c],knight_attrib_5,wp(280),knight_skills_3,0x00000005a10c42055cca8d249a6da2db00000000001da6e30000000000000000],
 
 # pl4tte sporoi lords
-["knight_33_1", "Ziroslav Olegovich", "Ziroslav", tf_hero, 0, reserved,  fac_kingdom_33, [itm_simple_shoes, itm_tetraxitae_spatha, itm_kerch_lamellenhelm_gilded, itm_common_mail_long_8_cloak, itm_tunic_10, itm_tab_shield_small_round_c, itm_sporoi_hun_horse_2],     knight_attrib_5,wp(300),knight_skills_5|knows_trainer_2, 0x0000000a9810118b1b117268a325a75b00000000001e76dc0000000000000000],
-["knight_33_2", "Bogdan Vostokov", "Vostokov", tf_hero, 0, reserved,  fac_kingdom_33,[itm_simple_shoes, itm_sword_viking_3_small, itm_tyum_helmet_2, itm_common_mail_short_7_cloak, itm_tunic_rich_5, itm_tab_shield_small_round_c, itm_sporoi_hun_horse_3],knight_attrib_5,wp(280),knight_skills_3,0x000000071800244c159b8cb493b6b91c00000000001cd6e40000000000000000],
+["knight_33_1", "Ziroslav Olegovich", "Ziroslavh", tf_hero, 0, reserved,  fac_kingdom_33, [itm_simple_shoes, itm_tetraxitae_spatha, itm_kerch_lamellenhelm_gilded, itm_common_mail_long_8_cloak, itm_tunic_10, itm_tab_shield_small_round_c, itm_sporoi_hun_horse_2],     knight_attrib_5,wp(300),knight_skills_5|knows_trainer_2, 0x0000000a9810118b1b117268a325a75b00000000001e76dc0000000000000000],
+["knight_33_2", "Bogdan Vostokov", "Bogdan", tf_hero, 0, reserved,  fac_kingdom_33,[itm_simple_shoes, itm_sword_viking_3_small, itm_tyum_helmet_2, itm_common_mail_short_7_cloak, itm_tunic_rich_5, itm_tab_shield_small_round_c, itm_sporoi_hun_horse_3],knight_attrib_5,wp(280),knight_skills_3,0x000000071800244c159b8cb493b6b91c00000000001cd6e40000000000000000],
 
 # pl4tte venedi lords
 ["knight_34_1", "Veteslav Serversky", "Veteslav", tf_hero, 0, reserved,  fac_kingdom_34, [itm_simple_shoes, itm_sword_viking_3_small, itm_suvorovsky_helmet_mail, itm_common_mail_long_5_cloak, itm_tunic_rich_3_cloak, itm_tab_shield_small_round_c, itm_slav_heavy_forest_horse_4],     knight_attrib_5,wp(300),knight_skills_5|knows_trainer_2, 0x0000000a9d0830c4786caf5cb44dd31b00000000001db72d0000000000000000],
@@ -4263,8 +4272,8 @@ troops = [
   ["town_46_tavernkeeper", "Tavern_Keeper","{!}Tavern_Keeper",tf_hero|tf_randomize_face,           scn_town_46_tavern|entry(9),0,   fac_commoners,[itm_kaftan_hunnic_white,itm_wrapping_boots],def_attrib|level(2),wp(20),knows_common, mauri_face_1, mauri_face_2],
   ["town_47_tavernkeeper", "Tavern_Keeper","{!}Tavern_Keeper",tf_hero|tf_randomize_face,           scn_town_47_tavern|entry(9),0,   fac_commoners,[itm_kaftan_hunnic_white,itm_wrapping_boots],def_attrib|level(2),wp(20),knows_common, sarmatian_face_1, sarmatian_face_2],
   ["town_48_tavernkeeper", "Tavern_Keeper","{!}Tavern_Keeper",tf_hero|tf_randomize_face,           scn_town_5_tavern|entry(9),0,   fac_commoners,[itm_leather_apron,itm_wrapping_boots],def_attrib|level(2),wp(20),knows_common, man_face_1, man_face_2],
-#Goods Merchants
 
+#Goods Merchants
   ["town_1_merchant", "Merchant","{!}Merchant",          tf_hero|tf_randomize_face|tf_is_merchant, scn_town_1_store|entry(9),0, fac_commoners,     [itm_coarse_tunic,  itm_wrapping_boots                   ],def_attrib|level(2),wp(20),knows_inventory_management_10, man_face_1, man_face_2],
   ["town_2_merchant", "Merchant","{!}Merchant",          tf_hero|tf_randomize_face|tf_is_merchant, scn_town_2_store|entry(9),0, fac_commoners,     [itm_leather_apron, itm_wrapping_boots                   ],def_attrib|level(2),wp(20),knows_inventory_management_10, man_face_1, man_face_2],
   ["town_3_merchant", "Merchant","{!}Merchant",tf_female|tf_hero|tf_randomize_face|tf_is_merchant, scn_town_3_store|entry(9),0, fac_commoners,     [itm_dress_4,       itm_wrapping_boots,  itm_female_hood ],def_attrib|level(2),wp(20),knows_inventory_management_10, woman_face_1, woman_face_2],
@@ -4365,7 +4374,7 @@ troops = [
   ["town_45_horse_merchant","Horse Merchant","{!}Town 45 Horse Merchant",tf_hero|tf_randomize_face|tf_is_merchant,            0, 0, fac_commoners,[itm_sarranid_cloth_robe,      itm_sarranid_boots_a],                        def_attrib|level(5),wp(20),knows_inventory_management_10, man_face_1, man_face_2],
   ["town_46_horse_merchant","Horse Merchant","{!}Town 45 Horse Merchant",tf_hero|tf_randomize_face|tf_is_merchant,            0, 0, fac_commoners,[itm_sarranid_cloth_robe,      itm_sarranid_boots_a],                        def_attrib|level(5),wp(20),knows_inventory_management_10, man_face_1, man_face_2],
   ["town_47_horse_merchant","Horse Merchant","{!}Town 45 Horse Merchant",tf_hero|tf_randomize_face|tf_is_merchant,            0, 0, fac_commoners,[itm_sarranid_cloth_robe,      itm_sarranid_boots_a],                        def_attrib|level(5),wp(20),knows_inventory_management_10, sarmatian_face_1, sarmatian_face_2],
-    ["town_48_horse_merchant","Horse Merchant","{!}Town 5 Horse Merchant",tf_hero|tf_randomize_face|tf_is_merchant|tf_female,    0, 0, fac_commoners,[itm_dress,                itm_wrapping_boots,    itm_woolen_hood],   def_attrib|level(5),wp(20),knows_inventory_management_10, woman_face_1, woman_face_2],
+  ["town_48_horse_merchant","Horse Merchant","{!}Town 5 Horse Merchant",tf_hero|tf_randomize_face|tf_is_merchant|tf_female,    0, 0, fac_commoners,[itm_dress,                itm_wrapping_boots,    itm_woolen_hood],   def_attrib|level(5),wp(20),knows_inventory_management_10, woman_face_1, woman_face_2],
 
 
   ["town_1_mayor", "Domesticus", "{!}Guild_Master", tf_hero|tf_randomize_face, 0,reserved,  fac_neutral,[itm_tunic_rich_4,itm_wrapping_boots], def_attrib|level(2),wp(20),knows_common, germanic_face_1, germanic_face_2],
@@ -4414,8 +4423,8 @@ troops = [
   ["town_44_mayor", "Guild_Master", "{!}Guild_Master", tf_hero|tf_randomize_face, 0,reserved,  fac_neutral,[itm_kaftan_hunnic_1,itm_ankle_boots,itm_hunnic_phrygian_5],     def_attrib|level(2),wp(20),knows_common,  hunnic_face_1, hunnic_face_2],
   ["town_45_mayor", "Dadwar", "{!}Guild_Master", tf_hero|tf_randomize_face, 0,reserved,  fac_neutral,[itm_persian_tunic_14,itm_sassanid_cavalry_boots_2], def_attrib|level(2),wp(20),knows_common,  persian_face_1, persian_face_2],
   ["town_46_mayor", "Guild_Master", "{!}Guild_Master", tf_hero|tf_randomize_face, 0,reserved,  fac_neutral,[itm_coptic_tunic_3,itm_deurne_campagi_1,itm_pannonian_cap_1],     def_attrib|level(2),wp(20),knows_common, mauri_face_1, mauri_face_2],
-  ["town_47_mayor", "Guild_Master", "{!}Guild_Master", tf_hero|tf_randomize_face, 0,reserved,  fac_neutral,[itm_coptic_tunic_3,itm_deurne_campagi_1,itm_pannonian_cap_1],     def_attrib|level(2),wp(20),knows_common, sarmatian_face_1, sarmatian_face_2],
-
+  ["town_47_mayor", "Vozhd", "{!}Guild_Master", tf_hero|tf_randomize_face, 0,reserved,  fac_neutral,[itm_coptic_tunic_3,itm_deurne_campagi_1,itm_pannonian_cap_1],     def_attrib|level(2),wp(20),knows_common, sarmatian_face_1, sarmatian_face_2],
+  ["town_48_mayor", "Vjati", "{!}Guild_Master", tf_hero|tf_randomize_face, 0,reserved,  fac_neutral,[itm_coptic_tunic_3,itm_deurne_campagi_1,itm_pannonian_cap_1],     def_attrib|level(2),wp(20),knows_common, sarmatian_face_1, sarmatian_face_2],
 
 #Village stores
   ["village_1_elder", "Village_Elder", "{!}village_1_elder",tf_hero|tf_randomize_face|tf_is_merchant, 0,0, fac_commoners,[itm_coarse_tunic, itm_hide_boots, itm_woolen_cap_b],def_attrib|level(2),wp(20),knows_inventory_management_10,            man_face_1, man_face_2],
@@ -5171,6 +5180,7 @@ troops = [
 
   ["alan_merchant_1","Merchant","Merchants",tf_hero|tf_randomize_face|tf_is_merchant, no_scene, reserved, fac_commoners,[itm_wrapping_boots,itm_tunic_3],def_attrib|level(6),wp(80),knows_common,sarmatian_face_1, sarmatian_face_2], #sells goods -
   ["alan_merchant_2","Merchant","Merchants",tf_hero|tf_randomize_face|tf_is_merchant, no_scene, reserved, fac_commoners,[itm_ankle_boots,itm_tunic_4],def_attrib|level(6),wp(80),knows_common,sarmatian_face_1, sarmatian_face_2], #sells gear -
+  
   #MINOR FACTION MERCHANTS END
 
   #CHALCEDONIAN BISHOPS, MONKs + HOLY MEN
@@ -5477,9 +5487,11 @@ troops = [
   ["dani_hocing","Hnaef Hocing","Hnaef Hocing",tf_hero,0,0,fac_minor_dani,
    [itm_obenaltendorf_shoes_1,itm_rich_mail_3_cloak,itm_tarasovsky_782,itm_indesheim_spatha_rich,itm_concave_shield_germanic_10],
    knight_attrib_5,wp(300),knows_berserker,0x0000000196000509291a692862adb6db00000000001db6e90000000000000000],
+  
   ["dani_sigeferth","Sigeferth","Sigeferth",tf_hero,0,0,fac_minor_dani,
    [itm_wrapping_boots,itm_rich_mail_4,itm_drengsted_helmet_mail,itm_indesheim_spatha_rich,itm_round_shield_germanic_19],
    knight_attrib_5,wp(300),knows_berserker,0x00000001890010ca291189286251b2da00000000001db6e80000000000000000],
+  
   ["dani_eaha","Eaha","Eaha",tf_hero,0,0,fac_minor_dani,
    [itm_simple_shoes,itm_tunic_2_cloak,itm_germanic_cap_1,itm_sword_medieval_c_long,itm_round_shield_germanic_12],
    knight_attrib_5,wp(300),knows_berserker,0x00000005ab00144136536e586951b4e300000000001d36a30000000000000000],

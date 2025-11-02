@@ -6281,15 +6281,15 @@ TOTAL:  {reg5}"),
           (party_slot_eq,"$current_town",slot_party_type, spt_castle),
           (try_begin),
             (eq, ":center_lord", "trp_player"),
-            (str_store_string,s11,"@ Your own banner flies over the castle gate."),
+            (str_store_string,s11,"@ Your own banner flies over the fortress gate."),
 		  ##diplomacy start+ If ":relation" > 0, a relation string was written to {s11} above
 		  (else_try),
 			(ge, ":relation", 1),
-			(str_store_string, s11, "@ You see the banner of your {s11} {s7} over the castle gate."),
+			(str_store_string, s11, "@ You see the banner of your {s11} {s7} over the fortress gate."),
 		  ##diplomacy end+
           (else_try),
             (ge, ":center_lord", 0),
-            (str_store_string, s11,"@ You see the banner of {s7} over the castle gate."),
+            (str_store_string, s11,"@ You see the banner of {s7} over the fortress gate."),
           (else_try),
 		    (is_between, ":center_faction", kingdoms_begin, kingdoms_end),
             (str_store_string, s11,"str__this_castle_is_temporarily_under_royal_control"),
@@ -6812,8 +6812,8 @@ TOTAL:  {reg5}"),
 
   (
     "castle_entry_denied",mnf_scale_picture,
-    "The lord of this castle has forbidden you from coming inside these walls,\
- and the guard sergeant informs you that his men will fire if you attempt to come any closer.",
+    "The lord of this fortress has forbidden you from coming inside these walls, "+
+ "and the guard sergeant informs you that his men will fire if you attempt to come any closer.",
     "none",
     [
         (call_script, "script_set_town_picture"),
@@ -7270,7 +7270,7 @@ TOTAL:  {reg5}"),
         (try_end),
     ],
     [
-      ("siege_request_meeting",[(eq, "$cant_talk_to_enemy", 0)],"Call for a meeting with the castle commander.", [
+      ("siege_request_meeting",[(eq, "$cant_talk_to_enemy", 0)],"Call for a meeting with the fortress commander.", [
           (assign, "$cant_talk_to_enemy", 1),
           (assign, "$g_enemy_surrenders",0),
           (assign, "$g_castle_left_to_player",0),
@@ -9066,12 +9066,12 @@ TOTAL:  {reg5}"),
             (eq, ":result", 1),
             (try_begin), #SB : siege strings
               (eq, "$g_ally_party", "$g_encountered_party"),
-              (str_store_string, s1, "@As a last defensive effort, you retreat to the main hall of the keep.\
- You and your remaining soldiers will put up a desperate fight here. If you are defeated, there's no other place to fall back to."),
+              (str_store_string, s1, "@As a last defensive effort, you retreat to the main hall of the keep. "+
+ "You and your remaining soldiers will put up a desperate fight here. If you are defeated, there's no other place to fall back to."),
             (else_try),
-              (str_store_string, s1, "@The town centre is yours,\
- but the remaining defenders have retreated to the castle.\
- It must fall before you can complete your victory."),
+              (str_store_string, s1, "@The town centre is yours, "+
+ "but the remaining defenders have retreated to the castle. "+
+ "It must fall before you can complete your victory."),
             (try_end),
           (else_try),
             (jump_to_menu, "$g_siege_final_menu"),
@@ -9085,7 +9085,7 @@ TOTAL:  {reg5}"),
           (else_try),
             (eq, "$g_siege_battle_state", 1),
             (eq, ":result", 1),
-            (str_store_string, s1, "@The remaining defenders have retreated to the castle as a last defense. You must go in and crush any remaining resistance."),
+            (str_store_string, s1, "@The remaining defenders have retreated to the main hall as a last defense. You must go in and crush any remaining resistance."),
           (else_try),
             (jump_to_menu, "$g_siege_final_menu"),
           (try_end),
@@ -10073,7 +10073,7 @@ TOTAL:  {reg5}"),
 ##diplomacy start+ make gender correct
     "You receive a message from your monarch, {s3}. ^^"+
  "'I was most pleased to hear of your valiant efforts in the capture of {s2}. Your victory has gladdened all our hearts. "+
- "You also requested me to give ownership of the castle to your {wife/husband}, but that is a favor which I fear I cannot grant, "+
+ "You also requested me to give ownership of the fortress to your {wife/husband}, but that is a favor which I fear I cannot grant, "+
  "as {she/he} already holds significant estates in my realm. "+
  "Instead I have sent you {reg6} siliquae to cover the expenses of your campaign, but {s2} I give to {s5}.'",
 ##diplomacy end+
@@ -10710,15 +10710,15 @@ TOTAL:  {reg5}"),
 		(else_try),
 			(call_script, "script_dplmc_print_cultural_word_to_sreg", "trp_player", DPLMC_CULTURAL_TERM_KING, s10),
 		(try_end),
-		(str_store_string, s10, "@As you approach, you are spotted by the castle guards, who welcome you and open the gates for their {s10}."),
+		(str_store_string, s10, "@As you approach, you are spotted by the fortress guards, who welcome you and open the gates for their {s10}."),
 	  (else_try),
 	  ##diplomacy end+
         (neg|is_between, "$players_kingdom", npc_kingdoms_begin, npc_kingdoms_end),
         (faction_get_slot, ":faction_leader", "fac_player_supporters_faction", slot_faction_leader),
         (eq, ":faction_leader", "trp_player"),
-        (str_store_string, s10, "@As you approach, you are spotted by the castle guards, who welcome you and open the gates for their {king/queen}."),
+        (str_store_string, s10, "@As you approach, you are spotted by the fortress guards, who welcome you and open the gates for their {king/queen}."),
       (else_try),
-        (str_store_string, s10, "@As you approach, you are spotted by the castle guards, who welcome you and open the gates for their {lord/lady}."),
+        (str_store_string, s10, "@As you approach, you are spotted by the fortress guards, who welcome you and open the gates for their {lord/lady}."),
       (try_end),
 
       (str_store_party_name, s2, "$current_town"),
@@ -13454,11 +13454,11 @@ TOTAL:  {reg5}"),
           (party_slot_eq,"$current_town",slot_party_type, spt_castle),
           (try_begin),
             (eq, ":center_lord", "trp_player"),
-            (str_store_string,s11,"@ Your own banner flies over the castle gate."),
+            (str_store_string,s11,"@ Your own banner flies over the fortress gate."),
           ##diplomacy start+ If reg0 > 0, a relation string was written to {s11} above
           (else_try),
             (ge, reg0, 1),
-            (str_store_string, s11, "@ You see the banner of your {s11} {s7} over the castle gate."),
+            (str_store_string, s11, "@ You see the banner of your {s11} {s7} over the fortress gate."),
           ##diplomacy end+
           (else_try),
             (gt, ":center_lord", -1),
@@ -13466,21 +13466,21 @@ TOTAL:  {reg5}"),
             (str_store_string,s11,"str__you_see_the_banner_of_your_wifehusband_s7_over_the_castle_gate"),
           (else_try),
             (ge, ":center_lord", 0),
-            (str_store_string,s11,"@ You see the banner of {s7} over the castle gate."),
+            (str_store_string,s11,"@ You see the banner of {s7} over the fortress gate."),
           (else_try),
 		(this_or_next|eq, ":center_faction", "fac_outlaws"),
 		(eq, ":center_faction", "fac_commoners"),
-            	(str_store_string,s11,"@ This castle is in the hands of outlaws."),
+            	(str_store_string,s11,"@ This fortress is in the hands of outlaws."),
           (else_try),
 		(store_party_size_wo_prisoners, ":num_troops", "$current_town"),
 		(gt, ":num_troops", 200),
-            	(str_store_string,s11,"@ This castle has a strong garrison."),
+            	(str_store_string,s11,"@ This fortress has a strong garrison."),
           (else_try),
 		(store_party_size_wo_prisoners, ":num_troops", "$current_town"),
 		(gt, ":num_troops", 5),
-            	(str_store_string,s11,"@ This castle has a small garrison."),
+            	(str_store_string,s11,"@ This fortress has a small garrison."),
           (else_try),
-            	(str_store_string,s11,"@ This castle has no garrison."),
+            	(str_store_string,s11,"@ This fortress has no garrison."),
           (try_end),
         (else_try),
           (try_begin),
@@ -14653,7 +14653,7 @@ TOTAL:  {reg5}"),
            (jump_to_scene, ":cur_castle_exterior"),
            (change_screen_mission),
          (try_end),
-        ], "To the castle courtyard."),
+        ], "To the fortress courtyard."),
 
     ("visit_dungen",
       [

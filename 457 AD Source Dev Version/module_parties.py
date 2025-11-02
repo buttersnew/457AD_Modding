@@ -238,11 +238,12 @@ parties = [
   ("castle_112", "Jabiya", icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (93.4, -42), [], 170),
 
   # new castles 25/08/07: Mordvin
-  ("castle_113", "Vele", icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (44.00, 159.84), [], 170),
-  ("castle_114", "Sanf", icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (44.73, 141.13), [], 170),
+
+  ("castle_113", "Vele", icon_castle_b|pf_castle, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (44.00, 159.84), [], 170),
+  ("castle_114", "Sanf", icon_castle_b|pf_castle, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (44.73, 141.13), [], 170),
 
   # new castles: 25/08/13: Meshera indie
-  ("castle_115", "Potmo", icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (61.94, 155.91), [], 170),
+  ("castle_115", "Potmo", icon_castle_b|pf_castle, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (61.94, 155.91), [], 170),
 
   # == VILLAGES == 
   ("village_1", "Olisipo", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-292.93, 5.89), [], 100),
@@ -584,12 +585,12 @@ parties = [
   ("abandoned_mithraic_temple","Abandoned Antrum",pf_disabled|icon_castle_snow_b|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-136.05,60.09),[]),
   ("vidigoias_grave","Vidigoia's Grave",pf_disabled|icon_castle_snow_b|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-7.84,68.9),[]),
   ("grove_of_nymphs","Grove of Nymphs",pf_disabled|icon_castle_snow_b|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-25.65,-19.97),[]),
-  ("sinuessa","Sinuessa",pf_disabled|icon_village_snow_burnt_a|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-107.04,14.81),[]),    
+  ("sinuessa","Sinuessa",pf_disabled|icon_village_snow_burnt_a|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-107.04,14.81),[]),
   #roman_village_battle map
   ("silingi_village","Vicus Silingorum",pf_disabled|icon_village_a|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-68.33,123.08),[]),
   ("venedi_outpost_quest","Venedi Village",pf_disabled|icon_village_a|pf_always_visible|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-69.66,133.01),[]),  #for the quest
   ("agrippinus_quest_villa","Agrippinus's Villa",pf_disabled|pf_always_visible|icon_village_snow_a|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-182.33,88.54),[]),
-  ("court_of_attila","Attila's Court",pf_disabled|icon_castle_snow_b|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-62.33, 88.26),[]),  
+  ("court_of_attila","Attila's Court",pf_disabled|icon_castle_snow_b|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-62.33, 88.26),[]),
   #sword of attila quest
   ("noricum_refugee_camp","Refugee Camp",pf_disabled|pf_always_visible|icon_village_a|pf_is_static|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-92.53, 83.47),[]), #severinus quest
   #ernak quest

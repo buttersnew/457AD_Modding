@@ -6769,6 +6769,7 @@ Even in the last case, the player can make formations up to four lines by orderi
 ("face_culture_jewish", "000000003010c10745622fef5a84c6e800000000001e38ea0000000000000000"),
 ("face_culture_irish", "000000000b10614a36db6db6db6db6db00000000001db6db0000000000000000"),
 ("face_culture_slavic", "000000001e0c244a3daa8c987489496400000000000193390000000000000000"),
+("face_culture_finnic", "000000001e0c244a3daa8c987489496400000000000193390000000000000000"),
 
 ("face_culture_gothic_female", "00000000340c0005449a6b372d791d2300000000000db8920000000000000000"),
 ("face_culture_eastgermanic_female", "00000000230c300b5b5669bb1472392400000000000d42cb0000000000000000"),
@@ -6787,6 +6788,7 @@ Even in the last case, the player can make formations up to four lines by orderi
 ("face_culture_jewish_female", "000000003d08100324cc75c6f22f3bab000000000015a7340000000000000000"),
 ("face_culture_irish_female", "000000003204300b676b8e5a4cadbadc000000000011cb530000000000000000"),
 ("face_culture_slavic_female", "00000000340c0005449a6b372d791d2300000000000db8920000000000000000"),
+("face_culture_finnic_female", "00000000230c300b5b5669bb1472392400000000000d42cb0000000000000000"),
 
 ("culture_gothic","You_are_a_Goth._Your_people_are_scions_of_Berig,_the_warrior-king_who_led_your_forefathers_from_their_ancestral_homes_in_Scandza._They_travelled_far,_through_the_dark_forests_and_swamps_of_eastern_Europa,_across_mountains_and_wide_rivers,_in_search_of_new_lands_to_settle._When_the_Huns_came,_some_fled_while_others_fought._Now,_to_east_and_west,_they_carve_out_kingdoms_by_their_strength_and_courage."),
 ("culture_eastgermanic","You_are_a_German_of_the_east._Long_your_ancestors_roamed_the_forests_and_steppes_of_Germania_Scythica,_hard,_cruel_lands_that_breed_stern,_doughty_folk._In_recent_times,_many_of_your_people_have_journeyed_south,_whether_in_search_of_wealth_and_warmer_climes,_or_fleeing_the_terror_from_the_east."),
@@ -6805,6 +6807,7 @@ Even in the last case, the player can make formations up to four lines by orderi
 ("culture_jew","You_are_a_Jew._Your_people_are_the_descendants_of_the_ancient_Israelites,_whose_kingdoms_of_Israel_and_Judah_once_flourished_in_the_hills_and_plains_of_the_Holy_Land._Centuries_of_exile,_displacement,_and_empires_have_scattered_your_community_across_the_Mediterranean,_but_their_identity_remains_unshaken._In_Palaestina,_your_people_suffer_under_Roman_rule,_facing_restrictions_and_persecutions._Despite_this,_your_tradition_endures_through_prayer,_study,_and a_tenacious_hope_for_redemption_and_freedom."),
 ("culture_irish","You_are_an_Irish._Since_the_world_was_made,_your_people_have_ruled_the_chill,_beautiful_island_of_Eriu._Wild_and_free,_you_look_with_contempt_on_your_weak_eastern_neighbours_who_tremble_behind_their_great_walls_and_towers_of_stone,_which_now_stand_abandoned_and_silent."),
 ("culture_slavic","You are Slavic. Your people who live beyond the northern Danube in the dense forests and cold plains, are a free and unruly folk."),
+("culture_finnic","You are Finnic. The spirits and gods of the North look kindly on your ancestors, for that there is always enough food for them to make it through another winter."),
 
 ("background_slave","Your_parents_were_slaves_and_thus_you_were_born._Your_life_has_been_one_of_hardship_and_suffering._As_a_child,_you_watched_your_family_cruelly_punished_by_the_master_for_any_small_mistake_or_perceived_offense._Nor_did_you_receive_mercy_because_of_your_age._Your_parents_died_young,_as_slaves_usually_do._Determined_to_avoid_the_same_fate,_you_escaped,_leaving_the_place_far_behind."),
 ("background_freeman","Your_parents_were_freemen,_owners_of_a_smallholding_worked_by_serfs._As_soon_as_you_could_walk,_you_too_were_put_to_work._You_helped_gather_the_harvest,_fetched_water,_fed_the_animals._Though_life_could_be_hard,_it_was_happy:_you_played_and_fought_with_the_other_children,_made_fun_baiting_livestock_and_enjoyed_the_many_cultural_and_religious_festivities_of_your_people."),

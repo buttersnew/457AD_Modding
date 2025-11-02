@@ -224,6 +224,10 @@ party_templates = [
   ("culture_20_reinforcements_b", "{!}Slavic Reinforcements", 0, 0, fac_commoners, 0, [(trp_slav_footman,6,15),(trp_standard_bearer,1,1)]),
   ("culture_20_reinforcements_c", "{!}Slavic Reinforcements", 0, 0, fac_commoners, 0, [(trp_slav_horseman,2,5),(trp_slav_horsearcher,2,5)]),
 
+  ("culture_21_reinforcements_a", "{!}Phinnoi Reinforcements", 0, 0, fac_commoners, 0, [(trp_phinnoi_warrior,4,12),(trp_phinnoi_warrior,4,8)]),
+  ("culture_21_reinforcements_b", "{!}Phinnoi Reinforcements", 0, 0, fac_commoners, 0, [(trp_phinnoi_warrior,3,8),(trp_phinnoi_horseman,3,7),(trp_standard_bearer,1,1)]),
+  ("culture_21_reinforcements_c", "{!}Phinnoi Reinforcements", 0, 0, fac_commoners, 0, [(trp_phinnoi_retainer,4,10)]),
+
   ("kingdom_empire_reinforcements_a", "{!}Roman Reinforcements", 0, 0, fac_commoners, 0, [(trp_tiro,4,10),(trp_exculator,2,4),(trp_eques_mauri,2,6)]),
   ("kingdom_empire_reinforcements_b", "{!}Roman Reinforcements", 0, 0, fac_commoners, 0, [(trp_pedes,4,10),(trp_sagittarius,3,6),(trp_eques_ala,2,7),(trp_imperial_signifer,1,1)]),
   ("kingdom_empire_reinforcements_c", "{!}Roman Reinforcements", 0, 0, fac_commoners, 0, [(trp_eques_scutarii,2,6),(trp_eques_cataphractarii,1,3),(trp_centenarius,1,1)]),
@@ -233,9 +237,9 @@ party_templates = [
   ("culture_minor_1_reinforcements_b", "{!}Cantabrian Reinforcements", 0, 0, fac_commoners, 0, [(trp_hibero_roman_rusticus,6,15),(trp_imperial_signifer,1,1)]),
   ("culture_minor_1_reinforcements_c", "{!}Cantabrian Reinforcements", 0, 0, fac_commoners, 0, [(trp_eques_cantabri,1,5),(trp_bagaudae_footman,2,3),(trp_hibero_roman_defensor,1,2)]),
 
-  ("culture_minor_2_reinforcements_a", "{!}Phinnoi Reinforcements", 0, 0, fac_commoners, 0, [(trp_phinnoi_warrior,4,12),(trp_phinnoi_warrior,4,8)]),
-  ("culture_minor_2_reinforcements_b", "{!}Phinnoi Reinforcements", 0, 0, fac_commoners, 0, [(trp_phinnoi_warrior,3,8),(trp_phinnoi_horseman,3,7),(trp_standard_bearer,1,1)]),
-  ("culture_minor_2_reinforcements_c", "{!}Phinnoi Reinforcements", 0, 0, fac_commoners, 0, [(trp_phinnoi_retainer,4,10)]),
+  #("culture_minor_2_reinforcements_a", "{!}Phinnoi Reinforcements", 0, 0, fac_commoners, 0, [(trp_phinnoi_warrior,4,12),(trp_phinnoi_warrior,4,8)]),
+  #("culture_minor_2_reinforcements_b", "{!}Phinnoi Reinforcements", 0, 0, fac_commoners, 0, [(trp_phinnoi_warrior,3,8),(trp_phinnoi_horseman,3,7),(trp_standard_bearer,1,1)]),
+  #("culture_minor_2_reinforcements_c", "{!}Phinnoi Reinforcements", 0, 0, fac_commoners, 0, [(trp_phinnoi_retainer,4,10)]),
 
   ("culture_minor_3_reinforcements_a", "{!}Coptic Reinforcements", 0, 0, fac_commoners, 0, [(trp_coptic_youth,4,10),(trp_coptic_footman,4,10)]),
   ("culture_minor_3_reinforcements_b", "{!}Coptic Reinforcements", 0, 0, fac_commoners, 0, [(trp_coptic_footman,3,8),(trp_coptic_watchman,3,7),(trp_standard_bearer,1,1)]),

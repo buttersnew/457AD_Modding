@@ -19172,7 +19172,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 
   (
     "notification_player_faction_active",0,
-    "You now possess land in your name, without being tied to any kingdom. This makes you a monarch in your own right, with your court temporarily located at {s12}. However, the other kings will at first consider you a threat, for if any upstart warlord can grab a throne, then their own legitimacy is called into question.^^You may find it desirable at this time to pledge yourself to an existing kingdom. If you want to continue as a sovereign monarch, then your first priority should be to establish an independent right to rule. You can establish your right to rule through several means -- marrying into a high-born family, recruiting new lords, governing your lands, treating with other kings, or dispatching your companions on missions.^^At any rate, your first step should be to appoint a chief minister from among your companions, to handle affairs of state. Different companions have different capabilities.^You may appoint new ministers from time to time. You may also change the location of your court, by speaking to the minister.",
+    "{s10}.",
     "none",
     [
       (set_fixed_point_multiplier, 100),
@@ -19180,6 +19180,12 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       (position_set_y, pos0, 30),
       (position_set_z, pos0, 170),
       (set_game_menu_tableau_mesh, "tableau_faction_note_mesh_banner", "fac_player_supporters_faction", pos0),
+
+          (set_fixed_point_multiplier, 100),
+          (position_set_x, pos0, 70),
+          (position_set_y, pos0, 5),
+          (position_set_z, pos0, 75),
+          (set_game_menu_tableau_mesh, "tableau_troop_note_mesh", "trp_player", pos0),
 
       (unlock_achievement, ACHIEVEMENT_CALRADIAN_TEA_PARTY),
       (play_track, "track_coronation"),
@@ -19229,7 +19235,13 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 
 		(str_store_party_name, s12, "$g_player_court"),
 	  (try_end),
-
+(try_begin),
+(gt, "$g_king_start",0),
+(str_store_faction_name, s12, "$players_kingdom"),
+(str_store_string, s10, "@You are the ruler of {s12}. ^^Your first step should be to appoint a chief minister to handle affairs of state. You may also change the location of your court, by speaking to the minister."),
+(else_try),
+(str_store_string, s10, "@You now possess land in your name, without being tied to any kingdom. This makes you a monarch in your own right, with your court temporarily located at {s12}. However, the other kings will at first consider you a threat, for if any upstart warlord can grab a throne, then their own legitimacy is called into question. ^^You may find it desirable at this time to pledge yourself to an existing kingdom. If you want to continue as a sovereign monarch, then your first priority should be to establish an independent right to rule. You can establish your right to rule through several means -- marrying into a high-born family, recruiting new lords, governing your lands, treating with other kings, or dispatching your companions on missions. ^^At any rate, your first step should be to appoint a chief minister from among your companions, to handle affairs of state. Different companions have different capabilities.^You may appoint new ministers from time to time. You may also change the location of your court, by speaking to the minister."),
+(try_end),
       ],
     [
 	  ##diplomacy start+

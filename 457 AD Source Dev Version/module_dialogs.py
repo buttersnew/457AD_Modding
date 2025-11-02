@@ -55821,6 +55821,9 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
   [trp_dani_king|plyr, "danish_king_intro_5", [],
    "I wish you luck in your war and may your Gods assist you, Gramr son of Skjoldr.", "minor_faction_king_pretalk", [(call_script, "script_change_player_relation_with_troop", "trp_dani_king",5),]],
 
+  #intro dialogue for the morden king
+  [trp_kingdom_35_lord, "start", [(eq, "$g_talk_troop_met", 0),],
+   "Ohhoi aavasaksa, What wanders into our humble abode? If be you a rich wanderer then beware for you have walked into the arms of the Morden, who have bloodied their swords in northern tundras, bringing waste to the southern plains. Even the Venedae fear our bows. The steel of Mordens has subjected the Lapi as well. Sano ja puhu! Who are you, {man/woman} of sotisopa.", "morden_king_intro_1", []],
   [trp_kingdom_35_lord|plyr, "morden_king_intro_1", [],
    "Fair weather and prosperity to you son of the river, horselord grim. I am {playername}. Safe passage and peace is my desire, no ill or harm for you or your kin I bring. I have travelled the lands from where the sun rises and seen the forested lands of the Finnoi. Cold vistas I have seen, colder men I have met still, yet you I do not know, pray tell me with whom I am speaking?", "morden_king_intro_2", []],
   [trp_kingdom_35_lord, "morden_king_intro_2", [],

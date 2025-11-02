@@ -5591,6 +5591,8 @@ troops = [
   # naraj indie mordvin lord
    ["indigenoi_noble_11","Kanaken Picpanda","Picpanda",tf_hero,0,0,fac_indigenoi,   [itm_slav_heavy_forest_horse_2,itm_battered_mail_1,itm_suvorovsky_helmet_mail,itm_baltic_sword_1,itm_simple_shoes,itm_tunic_rich_7],
    def_attrib_lvl_13|level(13),wp_one_handed(210)|wp_polearm(100)|wp_firearm(150),knows_lvl_13|knows_power_strike_4,0x00000006160453904b544592e3199cc300000000000edb1b0000000000000000],
+   ["indigenoi_noble_12","Ahto","Ahto",tf_hero,0,0,fac_indigenoi,   [itm_slav_heavy_forest_horse_2,itm_battered_mail_1,itm_suvorovsky_helmet_mail,itm_baltic_sword_1,itm_simple_shoes,itm_tunic_rich_7],
+   def_attrib_lvl_13|level(13),wp_one_handed(210)|wp_polearm(100)|wp_firearm(150),knows_lvl_13|knows_power_strike_4,0x00000009a20c21cf491bad28a28628d400000000001e371a0000000000000000],
 
   ##diplomacy end
   ["no_troop","_","the place",tf_hero,0,0,fac_commoners,[],0,0,0,0,0],

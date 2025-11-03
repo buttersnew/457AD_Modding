@@ -8298,14 +8298,27 @@ simple_triggers = [
     (try_begin),
         (is_between, "$g_cur_month", 3, 11), # spring
         (eq, "$season", 0),
-        (jump_to_menu, "mnu_fruhling"),
-        # (assign,"$alt_diffuse_on",0), # es wird sommer, fruhling
+		(try_begin),
+		(eq, "$g_infinite_camping", 0),
+        	(jump_to_menu, "mnu_fruhling"),
+		(else_try),
+		(assign, "$season", 1),
+		(assign, "$shader_season", 0),##shader
+		(try_end),
     (else_try),
         (this_or_next|eq, "$g_cur_month", 12), # winter
         (is_between, "$g_cur_month", 1, 3), # winter
         (eq, "$season", 1),
-        (jump_to_menu, "mnu_winter"),
-        # (assign,"$alt_diffuse_on",1), # es wird winter
+		(try_begin),
+		(eq, "$g_infinite_camping", 0),
+        	(jump_to_menu, "mnu_winter"),
+		(else_try),
+      		(assign, "$season", 0),
+      		(assign, "$shader_season", 3),##shader
+      			(try_for_parties, ":party"),
+        		(call_script, "script_game_get_party_speed_multiplier", ":party"),
+      			(try_end),
+		(try_end),
     (try_end),
 ]),
 

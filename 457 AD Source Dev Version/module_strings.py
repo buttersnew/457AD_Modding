@@ -7145,7 +7145,7 @@ Even in the last case, the player can make formations up to four lines by orderi
 
 ("desc_minor_dani", "The Dani are a Germanic tribe living in the islands of Denmark and southern Sweden."),
 
-("desc_minor_mordens", "The Mordens are a tribal union of uncertain origins."),
+#("desc_minor_mordens", "The Mordens are a tribal union of uncertain origins."),
 
 # ("desc_minor_sporoi", "Living in the forest-steppe area of Ukraine, the Sporoi (the many) live in their villages. Former subjects of the Goths, Sarmatians and Huns, they are now free from their yoke and about to change the cultural shape of Europe forever."),
 

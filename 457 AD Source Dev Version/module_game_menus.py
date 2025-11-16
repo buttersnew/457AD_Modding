@@ -21674,7 +21674,14 @@ goods, and books will never be sold. ^^You can change some settings here freely.
                 (call_script, "script_diplomacy_start_war_between_kingdoms", "$g_notification_menu_var1", "$g_notification_menu_var2", 0),
             (try_end),
         (else_try),
-            (jump_to_menu, "mnu_notification_casus_belli_expired"),
+		(try_begin),
+		(this_or_next|eq, "$g_notification_menu_var1", "$players_kingdom"), #madsci only jump to the menu if one of these is the players kingdom
+		(eq, "$g_notification_menu_var2", "$players_kingdom"),
+            	(jump_to_menu, "mnu_notification_casus_belli_expired"),
+		(else_try),
+		(call_script, "script_faction_follows_controversial_policy", "$g_notification_menu_var1", logent_policy_ruler_ignores_provocation),
+		(jump_to_menu, "mnu_auto_return_to_map"),
+		(try_end),
         (try_end),
 
         (str_store_string, s4, ":explain_string"),
@@ -35076,8 +35083,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
   ]),
 ]),
 
-  (
-    "majorian_death",mnf_disable_all_keys|mnf_scale_picture,
+  ("majorian_death",mnf_disable_all_keys|mnf_scale_picture,
     "{s10} has died! ^^While the official cause of death is dysentery, rumour has it that the emperor was actually murdered... ^^{s11} has quickly seized power in {s12}, and riots have erupted in major cities across the empire.",
     "none",
     [
@@ -35089,6 +35095,25 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 (str_store_troop_name, s10, "trp_kingdom_1_lord"),
 (str_store_troop_name, s11, "trp_knight_1_1"),
 (str_store_faction_name, s12, "fac_kingdom_1"),
+],
+    [
+      ("continue",[],"Continue...",[
+(jump_to_menu, "mnu_auto_return_to_map"),
+]),
+    ],
+  ),
+
+("barbarian_attacks",mnf_disable_all_keys|mnf_scale_picture,
+    "Trouble in the West! ^^The empire trembles on the edge of chaos. {s11} feels the weight of history on his shoulders, as centuries of Roman authority falter before the relentless tide of barbarian ambition.",
+    "none",
+    [
+(set_fixed_point_multiplier, 100),
+(position_set_x, pos0, 70),
+(position_set_y, pos0, 5),
+(position_set_z, pos0, 75),
+(set_game_menu_tableau_mesh, "tableau_troop_note_mesh", "trp_kingdom_1_lord", pos0),
+(faction_get_slot, ":faction_1_leader", "fac_kingdom_1", slot_faction_leader),
+(str_store_troop_name_link, s11, ":faction_1_leader"),
 ],
     [
       ("continue",[],"Continue...",[

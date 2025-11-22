@@ -25271,6 +25271,12 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     (store_faction_of_party, ":fac", "$g_encountered_party"),
     (str_store_faction_name, s51, ":fac"),
 
+	(set_fixed_point_multiplier, 100),
+	(position_set_x, pos0, 65),
+	(position_set_y, pos0, 30),
+	(position_set_z, pos0, 170),
+	(set_game_menu_tableau_mesh, "tableau_faction_note_mesh_banner_religion", ":fac", pos0), #madsci show faction banner
+
     (str_clear, s52),
     (try_begin),
         (store_relation, ":faction_relation", ":fac", "fac_player_supporters_faction"),
@@ -25517,6 +25523,12 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     (str_store_party_name, s50, "$g_encountered_party"),
     (store_faction_of_party, ":fac", "$g_encountered_party"),
     (str_store_faction_name, s51, ":fac"),
+
+	(set_fixed_point_multiplier, 100),
+	(position_set_x, pos0, 65),
+	(position_set_y, pos0, 30),
+	(position_set_z, pos0, 170),
+	(set_game_menu_tableau_mesh, "tableau_faction_note_mesh_banner_religion", ":fac", pos0), #madsci show faction banner
 
     (str_clear, s52),
     (try_begin),

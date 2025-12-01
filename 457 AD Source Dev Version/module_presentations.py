@@ -12518,6 +12518,11 @@ presentations = [
           (neg|party_slot_eq, ":party_no", slot_village_infested_by_bandits, "trp_peasant_woman"),
           ##diplomacy end
           (assign, ":garrison_troop", 1),
+	(else_try),
+         (eq, ":party_no", "p_diocletians_palace"), #madsci player needs to pay for troops stored here
+	(store_party_size_wo_prisoners, ":garrison", ":party_no"),
+	(gt, ":garrison", 0),
+          (assign, ":garrison_troop", 1),
 		(else_try),
           (this_or_next|party_slot_eq, ":party_no", slot_party_type, spt_town),
 			(party_slot_eq, ":party_no", slot_party_type, spt_castle),

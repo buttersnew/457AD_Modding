@@ -33213,7 +33213,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 (eq,"$cheat_mode",1),
 ],"{!}Cheat: Walk around the test scene.",
        [(set_jump_mission,"mt_ai_training"),
-        (jump_to_scene, "scn_haddingrs_aesti_trade_post"),
+        (jump_to_scene, "scn_maxi_roman_villa"),
         (change_screen_mission),
         ]
        ),

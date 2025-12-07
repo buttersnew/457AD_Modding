@@ -9020,6 +9020,22 @@ convert_horse_props_to_living_horses,
      (finish_mission,0)
    ]),
 
+#madsci drowning
+(3, 0, 0,
+  [
+    (store_mission_timer_a, ":cur_time"),
+    (gt, ":cur_time", 5),
+    ],[
+    (set_fixed_point_multiplier, 100),
+    (try_for_agents,":agent"),
+      (agent_is_alive,":agent"),
+      (agent_get_position,pos6,":agent"),
+        (position_get_z, ":deep", pos6),
+        (lt, ":deep", -200),
+	(agent_deliver_damage_to_agent, ":agent", ":agent", 20),
+    (end_try),
+]),
+
    (ti_on_agent_killed_or_wounded, 0, 0, [],
    [
      (store_trigger_param_1, ":dead_agent_no"),
@@ -9343,6 +9359,22 @@ convert_horse_props_to_living_horses,
             (agent_set_look_target_agent, ":cur_agent", ":player_agent"),
           (try_end),
           ],[]),
+
+#madsci drowning
+(3, 0, 0,
+  [
+    (store_mission_timer_a, ":cur_time"),
+    (gt, ":cur_time", 5),
+    ],[
+    (set_fixed_point_multiplier, 100),
+    (try_for_agents,":agent"),
+      (agent_is_alive,":agent"),
+      (agent_get_position,pos6,":agent"),
+        (position_get_z, ":deep", pos6),
+        (lt, ":deep", -200),
+	(agent_deliver_damage_to_agent, ":agent", ":agent", 20),
+    (end_try),
+]),
 
 
    (ti_on_agent_killed_or_wounded, 0, 0, [(check_quest_active, "qst_hunt_down_fugitive"), #not ti_once
@@ -10051,6 +10083,13 @@ convert_horse_props_to_living_horses,
             (ge,":mission_time",3),
             #(call_script, "script_decide_run_away_or_not", ":agent_no", ":mission_time"),
             (call_script, "script_decide_run_away_or_not_vc", ":agent_no", ":mission_time"), #madsci
+		(try_begin), #madsci drowning
+	  	(set_fixed_point_multiplier, 100),
+      		(agent_get_position,pos6,":agent_no"),
+        	(position_get_z, ":deep", pos6),
+        	(lt, ":deep", -200),
+		(agent_deliver_damage_to_agent, ":agent_no", ":agent_no", 20),
+		(try_end),
           (try_end),
               ], []), #controlling courage score and if needed deciding to run away for each agent
 
@@ -10157,7 +10196,26 @@ convert_horse_props_to_living_horses,
               ##diplomacy begin
               (try_end),
               ##diplomacy end
-              ]),
+ 
+             ]),
+
+#madsci drowning
+(3, 0, 0,
+  [
+    (store_mission_timer_a, ":cur_time"),
+    (gt, ":cur_time", 5),
+    ],[
+    # ACCORDING DROWNING
+    (set_fixed_point_multiplier, 100),
+    (try_for_agents,":agent"),
+      (agent_is_alive,":agent"),
+	(set_fixed_point_multiplier, 100),
+      	(agent_get_position,pos6,":agent"),
+        (position_get_z, ":deep", pos6),
+        (lt, ":deep", -200),
+	(agent_deliver_damage_to_agent, ":agent", ":agent", 20),
+    (end_try),
+]),
 
       common_battle_inventory,
       common_battle_order_panel,
@@ -10243,6 +10301,24 @@ convert_horse_props_to_living_horses,
          (call_script, "script_count_mission_casualties_from_agents"),
          (finish_mission, 1),
          ]),
+
+#madsci drowning
+(3, 0, 0,
+  [
+    (store_mission_timer_a, ":cur_time"),
+    (gt, ":cur_time", 5),
+    ],[
+    # ACCORDING DROWNING
+    (set_fixed_point_multiplier, 100),
+    (try_for_agents,":agent"),
+      (agent_is_alive,":agent"),
+	(set_fixed_point_multiplier, 100),
+      	(agent_get_position,pos6,":agent"),
+        (position_get_z, ":deep", pos6),
+        (lt, ":deep", -200),
+	(agent_deliver_damage_to_agent, ":agent", ":agent", 20),
+    (end_try),
+]),
 
       common_battle_victory_display,
 
@@ -11038,6 +11114,22 @@ convert_horse_props_to_living_horses,
             (try_end),
           (try_end),
      ]),#Nero end
+
+#madsci drowning
+(3, 0, 0,
+  [
+    (store_mission_timer_a, ":cur_time"),
+    (gt, ":cur_time", 5),
+    ],[
+    (set_fixed_point_multiplier, 100),
+    (try_for_agents,":agent"),
+      (agent_is_alive,":agent"),
+      (agent_get_position,pos6,":agent"),
+        (position_get_z, ":deep", pos6),
+        (lt, ":deep", -200),
+	(agent_deliver_damage_to_agent, ":agent", ":agent", 20),
+    (end_try),
+]),
 
       (ti_on_agent_spawn, 0, 0, [],
       [

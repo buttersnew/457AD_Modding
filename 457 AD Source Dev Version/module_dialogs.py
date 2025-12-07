@@ -32596,9 +32596,9 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
   [anyone,"lord_tell_mission", [(eq, "$g_talk_troop", "trp_kingdom_4_lord"),
   (eq, "$g_battle_of_bolia", 0),
   (neg|check_quest_active, "qst_battle_of_bolia"),
-  ], "Yes, I have task of great importance, {playername}. A coalition of Suebi, Rugii, Iazgyes, Heruli and Gepids has formed to oppose my rule.\
- The kings of the Heruli and Suebi, Visalius and Hunimund have gathered their forces and are ready to march into my kingdom.\
- As an ally of the Amali dynasty, I wish for you to help join me in this great battle, and help me crush the coalition...", "lord_tell_mission_hunimund",
+  ], "Yes, I have task of great importance, {playername}. A coalition of Suebi, Rugii, Iazgyes, Heruli and Gepids has formed to oppose my rule. "+
+ "The kings of the Heruli and Suebi, Visalius and Hunimund have gathered their forces and are ready to march into my kingdom. "+
+ "As an ally of the Amali dynasty, I wish for you to help join me in this great battle, and help me crush the coalition...", "lord_tell_mission_hunimund",
    [
    ]],
    [anyone|plyr,"lord_tell_mission_hunimund", [
@@ -44039,7 +44039,9 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
   (quest_set_slot,"qst_agrippinus_quest",slot_quest_current_state,6),
   ]],
   [anyone|plyr,"mayor_agrippinus_talk_2",[
-  ], "Thank you for the information^^(Hint: Report back to Iacobus.)", "close_window",[]],
+  ], "Thank you for the information^^(Hint: Report back to Iacobus.)", "close_window",[
+(add_quest_note_from_sreg, "qst_agrippinus_quest", 10, "@Return to Iacobus when you are ready to decide whether or not Agrippinus is guilty or innocent.",0), #madsci add note
+]],
 
 ## SB : add conditional lordship/rulership and flavour text for guildmaster
   [anyone|plyr,"mayor_talk", [], "Goodbye.", "close_window",[]],
@@ -52172,7 +52174,7 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
   [trp_curiosi_james|plyr, "curiosi_james_intro_1", [],
    "I am {playername}, I was ordered by Majorian to meet with you in regards to investigating the allegations against Agrippinus.", "curiosi_james_intro_2", []],
   [trp_curiosi_james, "curiosi_james_intro_2", [],
-   "Ah, {playername}, I was told you would be coming. My name is Iacobus, . Curiosi of the Agentes in Rebus. I have learned so far that Agrippinus has many ties here in Gallia Lugdunensis, however, I may have aroused suspicion around myself. It would be best if you, instead investigated any local rumors about the man.", "curiosi_james_intro_3", []],
+   "Ah, {playername}, I was told you would be coming. My name is Iacobus. "+"Curiosi of the Agentes in Rebus. I have learned so far that Agrippinus has many ties here in Gallia Lugdunensis, however, I may have aroused suspicion around myself. It would be best if you, instead investigated any local rumors about the man.", "curiosi_james_intro_3", []],
   [trp_curiosi_james, "curiosi_james_intro_3", [],
    "It would be best to talk to the locals in Lutetia if they have heard anything interesting about Agrippinus. They may gives us some clues to work with. While you investigate there, I will find out what I can on my own.", "curiosi_james_intro_4", []],
   [trp_curiosi_james|plyr, "curiosi_james_intro_4", [],

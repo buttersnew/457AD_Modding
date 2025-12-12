@@ -9375,10 +9375,10 @@ Still I am sorry that I'll leave you soon. You must promise me, you'll come visi
 (lt, ":recruiter_amount", ":max_recruiters"),
 ],
 #SB : puts to put, other grammatical fixes
-"If you want, I will send someone to visit nearby villages and enlist their population to our forces. \
-After he has recruited the amount you ordered he returns to this {reg0?town:castle} and put the recruits in the garrison. \
-There's a limit for concurrent recruiters, which is 2 for castles and 4 for towns. \
-What kind of recruits do you want?", "dplmc_constable_recruit_select",
+"If you want, I will send someone to visit nearby villages and enlist their population to our forces. "+
+"After he has recruited the amount you ordered he returns to this {reg0?town:castle} and put the recruits in the garrison. "+
+"There's a limit for concurrent recruiters, which is 2 for castles and 4 for towns. "+
+"What kind of recruits do you want?", "dplmc_constable_recruit_select",
 []],
 
 [anyone|plyr|repeat_for_factions, "dplmc_constable_recruit_select",
@@ -27135,12 +27135,14 @@ I will use this to make amends to those you have wronged, and I will let it be k
         (neq, "$players_kingdom", "$g_talk_troop_faction"),
         (eq, "$players_kingdom", 0),
     (neg|troop_slot_ge, "$g_talk_troop", slot_troop_prisoner_of_party, 0),
+	(assign, "$enlisted_faction", "$g_talk_troop_faction"), #madsci
      ],"My Lord, I would like to enlist in your army.", "lord_specialise",[]],
 
   [anyone|plyr,"lord_talk", [
     (eq, "$g_talk_troop", "$enlisted_lord"),
         (eq, "$freelancer_state", 1),
     (neg|troop_slot_ge, "$g_talk_troop", slot_troop_prisoner_of_party, 0),
+	(eq, 1, 0), #madsci disable this
      ],"My Lord, I would like to be reassigned to another division.", "lord_request_reassignment",[]],
 
   # dialog_advise_retirement
@@ -27179,13 +27181,16 @@ I will use this to make amends to those you have wronged, and I will let it be k
   #stolen from 1257 ad
   [anyone,"lord_specialise",
     [
-    ], "And you are?", "lord_specialise_choose", []],
+    ], "And you are?", "lord_specialise_choose", [
+(assign, "$enlisted_faction", "$g_talk_troop_faction"), #madsci
+]],
 
   [anyone|plyr,"lord_specialise_choose",
     [
 (faction_get_slot, ":troop", "$g_talk_troop_faction", slot_faction_tier_1_troop),
 (gt, ":troop", 0),
 (neg|troop_is_mounted, ":troop"),
+(call_script, "script_cf_freelancer_player_can_upgrade", ":troop"), #madsci check if can actually be this
     ], "A skirmisher!", "lord_request_enlistment", [(assign, "$temp", slot_faction_tier_1_troop)]],
 
   [anyone|plyr,"lord_specialise_choose",
@@ -27197,6 +27202,7 @@ I will use this to make amends to those you have wronged, and I will let it be k
 (gt, ":troop2", 0),
 (neq, ":troop", ":troop2"),
 (neg|troop_is_mounted, ":troop2"),
+(call_script, "script_cf_freelancer_player_can_upgrade", ":troop2"), #madsci check if can actually be this
     ], "A footman!", "lord_request_enlistment", [(assign, "$temp", slot_faction_tier_2_troop)]],
 
   [anyone|plyr,"lord_specialise_choose",
@@ -27211,8 +27217,9 @@ I will use this to make amends to those you have wronged, and I will let it be k
 (faction_get_slot, ":troop", "$g_talk_troop_faction", slot_faction_tier_3_troop),
 (gt, ":troop", 0),
 (troop_is_mounted, ":troop"), #madsci make sure this is actually a horseman
-(store_skill_level, ":skill", skl_riding, "trp_player"),
-(ge, ":skill", 1),
+(call_script, "script_cf_freelancer_player_can_upgrade", ":troop"), #madsci check if can actually be this
+#(store_skill_level, ":skill", skl_riding, "trp_player"),
+#(ge, ":skill", 1),
     ], "A horseman!", "lord_request_enlistment", [(assign, "$temp", slot_faction_tier_3_troop)]],
 
   [anyone|plyr,"lord_specialise_choose",
@@ -27222,6 +27229,7 @@ I will use this to make amends to those you have wronged, and I will let it be k
     [anyone,"lord_request_enlistment",
     [
         (ge, "$g_talk_troop_relation", 0),
+	(assign, "$enlisted_faction", "$g_talk_troop_faction"), #madsci
     ### tom - crusader order join
     (call_script, "script_freelancer_get_troop", "$g_talk_troop", "$g_talk_troop_faction", "$temp"),
     (str_store_troop_name, s1, reg1),
@@ -27259,7 +27267,8 @@ I will use this to make amends to those you have wronged, and I will let it be k
     "A new role in the infantry: {s1}", "lord_request_reassignment_confirm", [(assign, "$temp", reg1)]],
   [anyone|plyr,"lord_request_reassignment_select", [(call_script, "script_cf_freelancer_get_reassign_troop", "trp_temp_array_a", grc_archers),(assign, reg2, reg0),(str_store_troop_name, s2, reg0)],
    "A position with your ranged troops: {s2}", "lord_request_reassignment_confirm", [(assign, "$temp", reg2)]],
-  [anyone|plyr,"lord_request_reassignment_select", [(call_script, "script_cf_freelancer_get_reassign_troop", "trp_temp_array_a", grc_cavalry),(assign, reg3, reg0),(str_store_troop_name, s3, reg0)],
+  [anyone|plyr,"lord_request_reassignment_select", [(call_script, "script_cf_freelancer_get_reassign_troop", "trp_temp_array_a", grc_cavalry),(assign, reg3, reg0),(str_store_troop_name, s3, reg0),(store_skill_level, ":skill", skl_riding, "trp_player"),
+(ge, ":skill", 1),],
     "A spot amongst your horsemen: {s3}", "lord_request_reassignment_confirm", [(assign, "$temp", reg3)]],
     [anyone|plyr,"lord_request_reassignment_select", [], "I'd like to start with the recruits again.", "lord_request_reassignment_confirm", [(faction_get_slot, "$temp", "$g_talk_troop_faction", slot_faction_tier_1_troop)]],
   [anyone|plyr,"lord_request_reassignment_select", [(str_store_troop_name, s5, "$player_cur_troop")], "Actually...maybe not, milord. No. I'm fine as a {s5}", "lord_pretalk", []],

@@ -1286,3 +1286,4 @@ g_next_pay_time
 adovacrius_dialog
 benga_dialog
 heruli_dialog
+enlisted_faction

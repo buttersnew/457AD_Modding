@@ -31567,7 +31567,28 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     ],
     [
         ("upgrade_path_1",[
-            (troop_get_upgrade_troop, ":path_1_troop", "$player_cur_troop", 0),
+	(try_begin), #madsci
+	(troop_get_upgrade_troop, ":upgrade_troop", "$player_cur_troop", 0),
+	(gt, ":upgrade_troop", 0),
+	(else_try),
+	(faction_get_slot, ":upgrade_troop", "$enlisted_faction", slot_faction_tier_4_troop),
+	(faction_get_slot, ":tier5", "$enlisted_faction", slot_faction_tier_5_troop),
+	(neq, "$player_cur_troop", ":tier5"), #dont downgrade
+	(gt, ":upgrade_troop", 0),
+	(neq, "$player_cur_troop", ":upgrade_troop"),
+	(neg|troop_is_mounted, "$player_cur_troop"),
+	(neg|troop_is_mounted, ":upgrade_troop"),
+	(else_try),
+	(faction_get_slot, ":upgrade_troop", "$enlisted_faction", slot_faction_tier_5_troop),
+	(gt, ":upgrade_troop", 0),
+	(neq, "$player_cur_troop", ":upgrade_troop"),
+	(troop_is_mounted, "$player_cur_troop"),
+	(troop_is_mounted, ":upgrade_troop"),
+	(else_try),
+	(troop_get_upgrade_troop, ":upgrade_troop", "$player_cur_troop", 0),
+	(try_end),
+	(assign, ":path_1_troop", ":upgrade_troop"),
+            #(troop_get_upgrade_troop, ":path_1_troop", "$player_cur_troop", 0),
             (ge, ":path_1_troop", 0),
       (assign, reg1, 1),
       (try_begin),
@@ -31599,6 +31620,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
             (change_screen_map),]),
 
         ("upgrade_path_2",[
+	(eq, 1, 0), #madsci we dont need this in this system
             (troop_get_upgrade_troop, ":path_2_troop", "$player_cur_troop", 1),
             (ge, ":path_2_troop", 1),
       (assign, reg2, 1),

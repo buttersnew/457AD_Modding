@@ -7190,7 +7190,26 @@ simple_triggers = [
     (quest_set_slot, "qst_freelancer_enlisted", slot_quest_freelancer_next_payday, reg0),
 
     (try_begin),
-      (troop_get_upgrade_troop, ":upgrade_troop", "$player_cur_troop", 0),
+	(try_begin), #madsci
+	(troop_get_upgrade_troop, ":upgrade_troop", "$player_cur_troop", 0),
+	(gt, ":upgrade_troop", 0),
+	(else_try),
+	(faction_get_slot, ":upgrade_troop", "$enlisted_faction", slot_faction_tier_4_troop),
+	(faction_get_slot, ":tier5", "$enlisted_faction", slot_faction_tier_5_troop),
+	(neq, "$player_cur_troop", ":tier5"), #dont downgrade
+	(gt, ":upgrade_troop", 0),
+	(neq, "$player_cur_troop", ":upgrade_troop"),
+	(neg|troop_is_mounted, "$player_cur_troop"),
+	(neg|troop_is_mounted, ":upgrade_troop"),
+	(else_try),
+	(faction_get_slot, ":upgrade_troop", "$enlisted_faction", slot_faction_tier_5_troop),
+	(gt, ":upgrade_troop", 0),
+	(neq, "$player_cur_troop", ":upgrade_troop"),
+	(troop_is_mounted, "$player_cur_troop"),
+	(troop_is_mounted, ":upgrade_troop"),
+	(else_try),
+	(troop_get_upgrade_troop, ":upgrade_troop", "$player_cur_troop", 0),
+	(try_end),
       (gt, ":upgrade_troop", 1), #make sure troop is valid and not player troop
       (quest_slot_ge, "qst_freelancer_enlisted", slot_quest_freelancer_upgrade_xp, 1),
       (quest_get_slot, ":service_xp_start", "qst_freelancer_enlisted", slot_quest_freelancer_start_xp),

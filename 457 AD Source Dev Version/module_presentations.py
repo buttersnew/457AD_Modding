@@ -19049,6 +19049,7 @@ presentations = [
               (this_or_next|eq, "$current_town", "p_castle_29"),
               (this_or_next|eq, "$current_town", "p_castle_53"),
               (this_or_next|eq, "$current_town", "p_castle_55"),
+              (this_or_next|eq, "$current_town", "p_castle_116"),
               (this_or_next|eq, "$current_town", "p_castle_60"),
               (this_or_next|eq, "$current_town", "p_town_3"),
               (this_or_next|eq, "$current_town", "p_town_5"),

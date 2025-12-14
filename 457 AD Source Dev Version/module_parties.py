@@ -243,6 +243,7 @@ parties = [
 
   # new castles: 25/08/13: Meshera indie
   ("castle_115", "Potmo", icon_castle_b|pf_castle, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (61.94, 155.91), [], 170),
+  ("castle_116", "Gades",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-272, -24),[],75), #55
 
   # == VILLAGES == 
   ("village_1", "Olisipo", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-292.93, 5.89), [], 100),

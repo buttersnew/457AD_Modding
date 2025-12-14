@@ -956,6 +956,7 @@ triggers = [
   (party_set_slot, "p_castle_22", slot_center_ex_faction, "fac_kingdom_1"),
   (party_set_slot, "p_castle_40", slot_center_ex_faction, "fac_kingdom_1"),
   (party_set_slot, "p_castle_55", slot_center_ex_faction, "fac_kingdom_1"),
+  (party_set_slot, "p_castle_116", slot_center_ex_faction, "fac_kingdom_1"),
 
 	(try_begin),
 	(faction_slot_eq, "fac_kingdom_3", slot_faction_state, sfs_active),
@@ -1182,6 +1183,7 @@ triggers = [
     (store_faction_of_party, ":castle_33_faction", "p_castle_33"),
     (store_faction_of_party, ":castle_53_faction", "p_castle_53"),
     (store_faction_of_party, ":castle_55_faction", "p_castle_55"),
+    (store_faction_of_party, ":castle_116_faction", "p_castle_116"),
     (store_faction_of_party, ":castle_60_faction", "p_castle_60"),
     (eq, ":town_23_faction", "fac_player_supporters_faction"), #towns
     (eq, ":town_25_faction", "fac_player_supporters_faction"),
@@ -1191,6 +1193,7 @@ triggers = [
     (eq, ":castle_53_faction", "fac_player_supporters_faction"),
     (eq, ":castle_55_faction", "fac_player_supporters_faction"),
     (eq, ":castle_60_faction", "fac_player_supporters_faction"),
+    (eq, ":castle_116_faction", "fac_player_supporters_faction"),
 ],[
     (dialog_box, "@You have conquered Hispania!", "@Roma invicta!"),
     (call_script, "script_end_quest", "qst_conquest_hispania"), #ends the quest

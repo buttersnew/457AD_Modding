@@ -7208,6 +7208,9 @@ simple_triggers = [
 	(troop_is_mounted, "$player_cur_troop"),
 	(troop_is_mounted, ":upgrade_troop"),
 	(else_try),
+	(eq, "$player_cur_troop", "trp_pedes"),
+	(assign, ":upgrade_troop", "trp_centenarius"),
+	(else_try),
 	(troop_get_upgrade_troop, ":upgrade_troop", "$player_cur_troop", 0),
 	(try_end),
       (gt, ":upgrade_troop", 1), #make sure troop is valid and not player troop

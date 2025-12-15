@@ -19131,6 +19131,7 @@ presentations = [
               (this_or_next|eq, "$current_town", "p_castle_40"),
               (this_or_next|eq, "$current_town", "p_town_17"),
               (this_or_next|eq, "$current_town", "p_town_33"),
+              (this_or_next|eq, "$current_town", "p_town_49"),
               (eq, "$current_town", "p_town_35"),
               (this_or_next|eq, ":troop", "trp_pedes_alani"),
               (this_or_next|eq, ":troop", "trp_eques_alani_leves"),

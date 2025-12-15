@@ -950,6 +950,7 @@ triggers = [
   (party_set_slot, "p_town_25", slot_center_ex_faction, "fac_kingdom_1"), #WRE Claims emerita augusta
   (party_set_slot, "p_town_35", slot_center_ex_faction, "fac_kingdom_1"), #WRE Claims hippo
   (party_set_slot, "p_town_40", slot_center_ex_faction, "fac_kingdom_1"), #WRE Claims tarraco
+  (party_set_slot, "p_town_49", slot_center_ex_faction, "fac_kingdom_1"), #WRE Claims Leptis Magna
 
   (party_set_slot, "p_castle_4", slot_center_ex_faction, "fac_kingdom_1"),
   (party_set_slot, "p_castle_8", slot_center_ex_faction, "fac_kingdom_1"),
@@ -1206,6 +1207,7 @@ triggers = [
     (store_faction_of_party, ":town_17_faction", "p_town_17"),  #starts with towns first - player must own most of hispania
     (store_faction_of_party, ":town_34_faction", "p_town_34"), 
     (store_faction_of_party, ":town_35_faction", "p_town_35"), 
+    (store_faction_of_party, ":town_49_faction", "p_town_49"), 
     (store_faction_of_party, ":castle_8_faction", "p_castle_8"), #now collects castle factions
     (store_faction_of_party, ":castle_22_faction", "p_castle_22"),
     (store_faction_of_party, ":castle_39_faction", "p_castle_39"),
@@ -1215,6 +1217,7 @@ triggers = [
     (eq, ":town_17_faction", "fac_player_supporters_faction"), #towns
     (eq, ":town_34_faction", "fac_player_supporters_faction"),
     (eq, ":town_35_faction", "fac_player_supporters_faction"),
+    (eq, ":town_49_faction", "fac_player_supporters_faction"),
     (eq, ":castle_8_faction", "fac_player_supporters_faction"), #castles
     (eq, ":castle_22_faction", "fac_player_supporters_faction"),
     (eq, ":castle_39_faction", "fac_player_supporters_faction"),

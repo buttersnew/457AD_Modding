@@ -1331,7 +1331,7 @@ triggers = [
     (eq, ":castle_56_faction", "fac_player_supporters_faction"),
     (eq, ":castle_66_faction", "fac_player_supporters_faction"),
 ],[
-    (dialog_box, "@You have conquered the Alemmani lands!", "@Victory!"),
+    (dialog_box, "@You have conquered the Alamanni lands!", "@Victory!"),
     (call_script, "script_end_quest", "qst_conquest_alemmani"), #ends the quest
     (call_script, "script_change_troop_renown", "trp_player", 150),
     (troop_add_gold, "trp_player", 10000),

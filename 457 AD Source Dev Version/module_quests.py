@@ -601,7 +601,7 @@ quests = [
   "{!}"
  ),
 
- ("conquest_alemmani", "Conquer the Alemmani", 0, #Salian Franks - must conquer Argentoratum, Uburzis, Augusta Rauricorum
+ ("conquest_alemmani", "Conquer the Alamanni", 0, #Salian Franks - must conquer Argentoratum, Uburzis, Augusta Rauricorum
   "{!}"
  ),
 

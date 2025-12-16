@@ -571,7 +571,7 @@ parties = [
   ("village_300", "Kuzo", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (51.33, 195.36), [], 41),
   ("village_301","Thubactis",  icon_village_c|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-86.77, -84),[], 40),
   ("village_302","Digdida_Selorum",  icon_village_c|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-72.8, -89.25),[], 40),
-  ("village_303","Apollonia",  icon_village_c|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-27, -67.8),[], 40),
+  ("village_303","Apollonia",  icon_village_c|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-24, -68.3),[], 40),
 
 
   # == SPECIAL LOCATIONS ==

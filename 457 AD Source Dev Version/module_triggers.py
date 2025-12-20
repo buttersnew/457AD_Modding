@@ -1243,6 +1243,7 @@ triggers = [
     (store_faction_of_party, ":castle_58_faction", "p_castle_58"),
     (store_faction_of_party, ":castle_73_faction", "p_castle_73"),
     (store_faction_of_party, ":castle_74_faction", "p_castle_74"),
+    (store_faction_of_party, ":castle_119_faction", "p_castle_119"),
     (eq, ":town_2_faction", "fac_player_supporters_faction"), #towns
     (eq, ":town_18_faction", "fac_player_supporters_faction"),
     (eq, ":town_24_faction", "fac_player_supporters_faction"),
@@ -1253,6 +1254,7 @@ triggers = [
     (eq, ":castle_58_faction", "fac_player_supporters_faction"),
     (eq, ":castle_73_faction", "fac_player_supporters_faction"),
     (eq, ":castle_74_faction", "fac_player_supporters_faction"),
+    (eq, ":castle_119_faction", "fac_player_supporters_faction"),
 ],[
     (dialog_box, "@You have conquered Britannia, the island is now united under your banner!", "@Victory!"),
     (call_script, "script_end_quest", "qst_unite_britannia"), #ends the quest

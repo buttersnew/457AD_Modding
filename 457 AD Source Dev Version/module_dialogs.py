@@ -27694,12 +27694,14 @@ I will use this to make amends to those you have wronged, and I will let it be k
 ],
 "Very well -- to the walls!", "close_window",
 [
- (party_get_slot, ":ai_object", "$g_talk_troop_party", slot_party_ai_object),
-(party_set_slot, "$g_talk_troop_party", slot_party_ai_substate, 0), #madsci bugfix
-(call_script, "script_begin_assault_on_center", ":ai_object"),
-
-(party_set_slot, "$g_talk_troop_party", slot_party_under_player_suggestion, spai_besieging_center),
- (assign, "$g_leave_encounter", 1),
+	(party_get_slot, ":ai_object", "$g_talk_troop_party", slot_party_ai_object),
+	(party_set_slot, "$g_talk_troop_party", slot_party_ai_substate, 0), #madsci bugfix
+	(call_script, "script_begin_assault_on_center", ":ai_object"),
+	(str_store_party_name_link, s1, "$g_talk_troop_party"),
+        (str_store_party_name_link, s2, ":ai_object"),
+        (display_message, "@{s1} assaults {s2}."),
+	(party_set_slot, "$g_talk_troop_party", slot_party_under_player_suggestion, spai_besieging_center),
+ 	(assign, "$g_leave_encounter", 1),
 
   ]],
 
@@ -27710,7 +27712,7 @@ I will use this to make amends to those you have wronged, and I will let it be k
    [anyone|plyr,"lord_give_order", [
  (neg|faction_slot_eq, "$players_kingdom", slot_faction_marshall, "trp_player"), #not an order,  only a suggestion
 ],
-"There is a fortress which can easily be taken. Go to..", "lord_give_order_details_ask",
+"There is a fortress which can easily be taken. Go to...", "lord_give_order_details_ask",
 [
   (assign, "$temp", spai_besieging_center),
   ]],

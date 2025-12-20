@@ -13779,14 +13779,17 @@ TOTAL:  {reg5}"),
 		(is_between, ":town_faction", npc_kingdoms_begin, npc_kingdoms_end),
            	(try_end),
 	(try_begin), #madsci failsafe
+	(this_or_next|eq, ":town_faction", "fac_indigenoi"),
 	(le, ":tier_2_troop", 0),
 	(assign, ":tier_2_troop", "trp_manhunter"),
 	(try_end),
 	(try_begin),
+	(this_or_next|eq, ":town_faction", "fac_indigenoi"),
 	(le, ":tier_3_troop", 0),
 	(assign, ":tier_3_troop", "trp_manhunter"),
 	(try_end),
 	(try_begin),
+	(this_or_next|eq, ":town_faction", "fac_indigenoi"),
 	(le, ":tier_4_troop", 0),
 	(assign, ":tier_4_troop", "trp_manhunter"),
 	(try_end),
@@ -13891,6 +13894,7 @@ TOTAL:  {reg5}"),
              (le, ":tier_2_troop", 0),
              (faction_get_slot, ":tier_2_troop", ":town_faction", slot_faction_tier_2_troop),
 	(gt, ":tier_2_troop", 0),
+	(neq, ":town_faction", "fac_indigenoi"),
 	(else_try),
 	(assign, ":tier_2_troop", "trp_manhunter"),
            (try_end),
@@ -13898,6 +13902,7 @@ TOTAL:  {reg5}"),
              (le, ":tier_3_troop", 0),
              (faction_get_slot, ":tier_3_troop", ":town_faction", slot_faction_tier_3_troop),
 	(gt, ":tier_3_troop", 0),
+	(neq, ":town_faction", "fac_indigenoi"),
 	(else_try),
 	(assign, ":tier_3_troop", "trp_manhunter"),
            (try_end),
@@ -16491,16 +16496,16 @@ TOTAL:  {reg5}"),
     [
       (try_begin),
         (eq, "$g_battle_result", 1),
-        (str_store_string, s9, "@The bandits are broken!\
- Those few who remain alive and conscious run off with their tails between their legs,\
- terrified of the peasants and their new champion."),
+        (str_store_string, s9, "@The bandits are broken! ^^"+
+ "Those few who remain alive and conscious run off with their tails between their legs, "+
+ "terrified of the peasants and their new champion."),
         (call_script, "script_succeed_quest", "qst_train_peasants_against_bandits"),
         (jump_to_menu, "mnu_train_peasants_against_bandits_success"),
       (else_try),
         (call_script, "script_fail_quest", "qst_train_peasants_against_bandits"),
-        (str_store_string, s9, "@Try as you might, you could not defeat the bandits.\
- Infuriated, they raze the village to the ground to punish the peasants,\
- and then leave the burning wasteland behind to find greener pastures to plunder."),
+        (str_store_string, s9, "@Try as you might, you could not defeat the bandits. ^^"+
+ "Infuriated, they raze the village to the ground to punish the peasants,"+
+ "and then leave the burning wasteland behind to find greener pastures to plunder."),
         (set_background_mesh, "mesh_pic_looted_village"),
       (try_end),
      ],
@@ -16520,11 +16525,11 @@ TOTAL:  {reg5}"),
 
    (
     "train_peasants_against_bandits_success",mnf_disable_all_keys,
-    "The bandits are broken!\
- Those few who remain run off with their tails between their legs,\
- terrified of the peasants and their new champion.\
- The villagers have little left in the way of wealth after their ordeal,\
- but they offer you all they can find to show their gratitude.",
+    "The bandits are broken! ^^"+
+ "Those few who remain run off with their tails between their legs, "+
+ "terrified of the peasants and their new champion. "+
+ "The villagers have little left in the way of wealth after their ordeal, "+
+ "but they offer you all they can find to show their gratitude.",
     "none",
     [(party_clear, "p_temp_party"),
      #SB : probably apply casualties before adding new troops?
@@ -16532,6 +16537,7 @@ TOTAL:  {reg5}"),
      (store_faction_of_party, ":village_faction", "$current_town"), #assuming player trains them with local weapons
      (faction_get_slot, ":recruit_troop", ":village_faction", slot_faction_tier_1_troop),
 	(try_begin),
+	(this_or_next|eq, ":village_faction", "fac_indigenoi"),
 	(le, ":recruit_troop", 0),
 	(assign, ":recruit_troop", "trp_manhunter"), #madsci failsafe
 	(try_end),
@@ -27905,14 +27911,17 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 
 #masci failsafes needed, otherwise the game will spawn clones of the player
 (try_begin),
+(this_or_next|eq, ":fac", "fac_indigenoi"),
 (le, ":troop_1", 0),
 (assign, ":troop_1", "trp_manhunter"),
 (try_end),
 (try_begin),
+(this_or_next|eq, ":fac", "fac_indigenoi"),
 (le, ":troop_2", 0),
 (assign, ":troop_2", "trp_manhunter"),
 (try_end),
 (try_begin),
+(this_or_next|eq, ":fac", "fac_indigenoi"),
 (le, ":troop_3", 0),
 (assign, ":troop_3", "trp_manhunter"),
 (try_end),
@@ -28127,14 +28136,17 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 
 #masci failsafes needed, otherwise the game will spawn clones of the player
 (try_begin),
+(this_or_next|eq, ":fac", "fac_indigenoi"),
 (le, ":troop_1", 0),
 (assign, ":troop_1", "trp_manhunter"),
 (try_end),
 (try_begin),
+(this_or_next|eq, ":fac", "fac_indigenoi"),
 (le, ":troop_2", 0),
 (assign, ":troop_2", "trp_manhunter"),
 (try_end),
 (try_begin),
+(this_or_next|eq, ":fac", "fac_indigenoi"),
 (le, ":troop_3", 0),
 (assign, ":troop_3", "trp_manhunter"),
 (try_end),

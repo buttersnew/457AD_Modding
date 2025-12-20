@@ -1708,12 +1708,9 @@ simple_triggers = [
   # Process siege ai
    (.024, #was 3, changed to 1/3 avg, 123 walled centers = ~0.024
    [
-      ##diplomacy start+
-	  (assign, ":save_reg0", reg0),#Save registers
-	  (assign, ":save_reg1", reg1),
-	  ##diplomacy end+
-      (store_current_hours, ":cur_hours"),
-      #(store_random_in_range, ":center_no", walled_centers_begin, walled_centers_end),
+	(assign, ":save_reg0", reg0),#Save registers
+	(assign, ":save_reg1", reg1),
+	(store_current_hours, ":cur_hours"),
 		(try_begin),
 		(neg|is_between, "$center_siege_check", walled_centers_begin, walled_centers_end),
 		(assign, "$center_siege_check", walled_centers_begin),
@@ -1725,14 +1722,13 @@ simple_triggers = [
         (gt, ":besieger_party", 0),
         (party_is_active, ":besieger_party"),
         (store_faction_of_party, ":besieger_faction", ":besieger_party"),
-        (party_slot_ge, ":center_no", slot_center_is_besieged_by, 1),
         (party_get_slot, ":siege_begin_hours", ":center_no", slot_center_siege_begin_hours),
         (store_sub, ":siege_begin_hours", ":cur_hours", ":siege_begin_hours"),
         (assign, ":launch_attack", 0),
         (assign, ":call_attack_back", 0),
         (assign, ":attacker_strength", 0),
         (assign, ":marshall_attacking", 0),
-        (try_for_range, ":troop_no", active_npcs_begin, active_npcs_end),
+        (try_for_range, ":troop_no", heroes_begin, heroes_end),
           (troop_slot_eq, ":troop_no", slot_troop_occupation, slto_kingdom_hero),
           (neg|troop_slot_ge, ":troop_no", slot_troop_prisoner_of_party, 0),
           (troop_get_slot, ":party_no", ":troop_no", slot_troop_leaded_party),
@@ -1841,7 +1837,7 @@ simple_triggers = [
           (call_script, "script_begin_assault_on_center", ":center_no"),
         (else_try),
           (eq, ":call_attack_back", 1),
-          (try_for_range, ":troop_no", active_npcs_begin, active_npcs_end),
+          (try_for_range, ":troop_no", heroes_begin, heroes_end),
             (troop_slot_eq, ":troop_no", slot_troop_occupation, slto_kingdom_hero),
             (neg|troop_slot_ge, ":troop_no", slot_troop_prisoner_of_party, 0),
             (troop_get_slot, ":party_no", ":troop_no", slot_troop_leaded_party),
@@ -2843,6 +2839,8 @@ simple_triggers = [
            #new end
 
            (troop_get_slot, ":party_no", ":troop_no", slot_troop_leaded_party),
+	(gt, ":party_no", 0),
+	(party_is_active, ":party_no"),
            (call_script, "script_party_set_ai_state", ":party_no", spai_holding_center, ":center_no"),
 
          (else_try),

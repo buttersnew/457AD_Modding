@@ -5298,6 +5298,7 @@ scene_props = [
         (faction_get_slot, ":troop", ":current_faction", slot_faction_tier_2_troop),
     (try_end),
 	(try_begin),
+	(this_or_next|eq, ":current_faction", "fac_indigenoi"),
 	(le, ":troop", 0),
 	(assign, ":troop", "trp_manhunter"),
 	(try_end),
@@ -5415,6 +5416,7 @@ scene_props = [
     (store_faction_of_party, ":current_faction", "$g_encountered_party"), #needs to be g_encountered_party so it works in sieges
     (faction_get_slot, ":troop", ":current_faction", slot_faction_tier_1_troop), #seems to be a missile troop most of the time
 	(try_begin),
+	(this_or_next|eq, ":current_faction", "fac_indigenoi"),
 	(le, ":troop", 0),
 	(assign, ":troop", "trp_mercenary_archer"),
 	(try_end),
@@ -5472,6 +5474,7 @@ scene_props = [
     (try_end),
 
 	(try_begin),
+	(this_or_next|eq, ":current_faction", "fac_indigenoi"),
 	(le, ":troop", 0),
 	(assign, ":troop", "trp_mercenary_horseman"),
 	(try_end),
@@ -5732,6 +5735,7 @@ scene_props = [
     (try_end),
 
 	(try_begin),
+	(this_or_next|eq, ":current_faction", "fac_indigenoi"),
 	(le, ":troop", 0),
 	(assign, ":troop", "trp_manhunter"),
 	(try_end),

@@ -19213,6 +19213,7 @@ presentations = [
               (this_or_next|eq, "$current_town", "p_castle_2"),
               (this_or_next|eq, "$current_town", "p_castle_58"),
               (this_or_next|eq, "$current_town", "p_castle_74"),
+              (this_or_next|eq, "$current_town", "p_castle_119"),
               (eq, "$current_town", "p_town_24"),
               (eq, ":troop", "trp_abulci"),
               (assign, ":c", 1),

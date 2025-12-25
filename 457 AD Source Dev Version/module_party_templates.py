@@ -54,6 +54,7 @@ party_templates = [
 ("slavic_bandits","Slavic Bandits",icon_sea_raider|carries_goods(8),0,fac_outlaws,bandit_personality,[(trp_slavic_bandit,15,40)]), 
   ("desert_bandits","Austuriani Rebels",icon_axeman|carries_goods(2)|pf_show_faction,0,fac_berber_rebels,bandit_personality,[(trp_desert_bandit,6,30)]),
   ("persian_bandits","Persian Bandits",icon_khergit_horseman_b|carries_goods(2),0,fac_outlaws,bandit_personality,[(trp_persian_bandit,3,20)]),
+  ("roman_bandits","Roman Bandits",icon_axeman|carries_goods(2),0,fac_outlaws,bandit_personality,[(trp_bandit,3,15),(trp_brigand,3,15)]),
   ("forest_bandits","Bagaudae Band",icon_roman_footman_2|carries_goods(2),0,fac_forest_bandits,bandit_personality,[(trp_forest_bandit_recruit,4,10),(trp_forest_bandit,4,25),(trp_bagaudae_footman,2,15)]),
   ("mountain_bandits","Isaurian Bandits",icon_roman_footman_2|carries_goods(2),0,fac_mountain_bandits,bandit_personality,[(trp_mountain_bandit,4,30),(trp_isaurian_warrior,1,10)]),
   ("sea_raiders","Saxon Raiders",icon_sea_raider|carries_goods(2),0,fac_saxons,bandit_personality,[(trp_sea_raider,5,20)]),
@@ -547,6 +548,8 @@ party_templates = [
   ("armenian_bandit_lair" ,"Armenian Rebel Hideout",icon_bandit_lair|carries_goods(2)|pf_is_static|pf_hide_defenders,0,fac_neutral,bandit_personality,[(trp_armenian_brigand,5,20)]),
   ("coptic_bandit_lair" ,"Coptic Rebel Hideout",icon_bandit_lair|carries_goods(2)|pf_is_static|pf_hide_defenders,0,fac_neutral,bandit_personality,[(trp_coptic_youth,3,10),(trp_coptic_footman,2,10)]),
   ("arab_bandit_lair" ,"Saraceni Camp",icon_bandit_lair|carries_goods(2)|pf_is_static|pf_hide_defenders,0,fac_neutral,bandit_personality,[(trp_arab_bandit,5,20)]),
+  ("persian_bandit_lair" ,"Bandit Camp",icon_bandit_lair|carries_goods(2)|pf_is_static|pf_hide_defenders,0,fac_neutral,bandit_personality,[(trp_persian_bandit,5,20)]),
+  ("roman_bandit_lair" ,"Bandit Camp",icon_bandit_lair|carries_goods(2)|pf_is_static|pf_hide_defenders,0,fac_neutral,bandit_personality,[(trp_bandit,5,20)]),
   ("looter_lair","Kidnappers' Hideout",icon_bandit_lair|carries_goods(2)|pf_is_static|pf_hide_defenders,0,fac_neutral,bandit_personality,[(trp_looter,5,20)]),
   
   ("bandit_lair_templates_end","{!}bandit_lair_templates_end",icon_axeman|carries_goods(2)|pf_is_static,0,fac_outlaws,bandit_personality,[(trp_sea_raider,15,50)]),

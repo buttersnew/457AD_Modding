@@ -1266,7 +1266,8 @@ simple_triggers = [
 
 			#Don't apply this to the leader
 			(faction_get_slot, ":faction_leader", ":faction", slot_faction_leader),
-			(gt, ":faction_leader", -1),
+			(this_or_next|eq, ":faction", "fac_player_supporters_faction"),
+			(gt, ":faction_leader", 0),
 			(neq, ":faction_leader", ":troop_no"),
 			(neg|troop_slot_eq, ":faction_leader", slot_troop_spouse, ":troop_no"),
 			(neg|troop_slot_eq, ":troop_no", slot_troop_spouse, ":faction_leader"),

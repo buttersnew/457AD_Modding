@@ -7700,6 +7700,7 @@ TOTAL:  {reg5}"),
           (ge, ":blockplace_place", 1),
           (eq, "$g_infiltracion_interna", 0),
           (neq, "$g_traicion_interna", 1),
+	(eq, 1, 0), #madsci block this for now as it's broken
         ],
         "Send some men to infiltrate the place.",
         [

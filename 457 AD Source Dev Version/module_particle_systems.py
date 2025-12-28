@@ -1121,7 +1121,7 @@ particle_systems = [
     ),
 	
     ("lt_smoke", psf_billboard_3d|psf_global_emit_dir|psf_always_emit|psf_randomize_rotation, "prt_mesh_smoke_1",
-     20, 2, 0.2, -0.2, 0.5, 0.5,     #num_particles, life, damping, gravity_strength, turbulance_size, turbulance_strength
+     20, 2, 0.2, -0.14, 0.5, 0.5,     #num_particles, life, damping, gravity_strength, turbulance_size, turbulance_strength
      (0.5, 0.15), (1, 0),       #alpha keys
      (0.2, 0.5), (1, 0.5),      #red keys
      (0.2, 0.5),(1, 0.5),       #green keys
@@ -1135,7 +1135,7 @@ particle_systems = [
     ), 
 
     ("lt_fire", psf_billboard_3d|psf_global_emit_dir|psf_always_emit|psf_randomize_rotation, "prt_mesh_fire_1",
-     80, 1.0, 0.2, -0.3, 0.5, 0.5,     #num_particles, life, damping, gravity_strength, turbulance_size, turbulance_strength
+     80, 1.0, 0.2, -0.2, 0.5, 0.5,     #num_particles, life, damping, gravity_strength, turbulance_size, turbulance_strength
      (0.2, 0.7), (1, 0),        #alpha keys
      (0.2, 1.0), (1, 0.9),      #red keys
      (0.2, 0.7),(1, 0.3),       #green keys

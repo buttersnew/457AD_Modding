@@ -1571,4 +1571,11 @@ triggers = [
 
 #+freelancer end
 
+    (0,0,ti_once,[],[
+    	(party_add_particle_system, "p_volcano1", "psys_torch_fire_sparks"),
+	(party_add_particle_system, "p_volcano1", "psys_lt_smoke"),
+
+    	(party_add_particle_system, "p_volcano2", "psys_torch_fire_sparks"),
+	(party_add_particle_system, "p_volcano2", "psys_lt_smoke"),
+    ]),
 ]

@@ -101,3 +101,5 @@ icon_camp_siege = 99
 icon_pyramids = 100
 icon_tomb = 101
 icon_temple = 102
+icon_lt_combined = 103
+icon_map_volcano = 104

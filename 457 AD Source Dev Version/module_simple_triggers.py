@@ -243,6 +243,20 @@ simple_triggers = [
           (troop_set_slot, ":troop", slot_troop_mission_participation, 0),
         (try_end),
       (try_end),
+
+(try_begin),
+(neg|is_currently_night),
+(party_slot_ge, "p_lt1", slot_village_smoke_added, 1),
+(party_set_slot, "p_lt1", slot_village_smoke_added, 0),
+(party_clear_particle_systems, "p_lt1"),
+(else_try),
+(eq, "$g_infinite_camping", 0),
+(is_currently_night),
+(party_slot_eq, "p_lt1", slot_village_smoke_added, 0),
+(party_set_slot, "p_lt1", slot_village_smoke_added, 1),
+(party_add_particle_system, "p_lt1", "psys_lt_fire"),
+(party_add_particle_system, "p_lt1", "psys_lt_smoke"),
+(try_end),
     ]),
 
 (24.0/number_of_factions,#9

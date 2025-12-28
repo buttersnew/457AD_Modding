@@ -459,4 +459,6 @@ map_icons = [
   ("pyramids",mcn_no_shadow,"pyramids", 1.27,0),
   ("tomb",mcn_no_shadow,"icon_tomb", 0.35,0),
   ("temple",mcn_no_shadow,"icon_temple", 0.35,0),
+  ("lt_combined",mcn_no_shadow,"lt_combined", 0.03,0),
+  ("map_volcano",mcn_no_shadow,"map_volcano", 0.35,0),
 ]

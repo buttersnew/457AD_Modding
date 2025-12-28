@@ -647,6 +647,9 @@ parties = [
 	#madsci pyramids
   ("pyramid_1","{!}Pyramid_1",icon_pyramids|pf_is_static|pf_always_visible|pf_no_label, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(50.44, -82.96),[], -17.7),
   ("pyramid_2","{!}Pyramid_2",icon_pyramids|pf_is_static|pf_always_visible|pf_no_label, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(49.03, -82.63),[], -17.7),
+  ("lt1","{!}Lighthouse",icon_lt_combined|pf_is_static|pf_always_visible|pf_no_label, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(42.5, -71),[], -17.7),
+  ("volcano1","{!}Volcano",icon_map_volcano|pf_is_static|pf_always_visible|pf_no_label, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-99.2,-20.75),[], -17.7),
+  ("volcano2","{!}Volcano",icon_map_volcano|pf_is_static|pf_always_visible|pf_no_label, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-100.95, 10.45),[], -17.7), #[swycartographr] prev. coords: (-101.2, 10.4) #[swycartographr] prev. coords: (-101.09, 10.63)
   ("pyramid_3","{!}Pyramid_3",icon_pyramids|pf_is_static|pf_always_visible|pf_no_label, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(49.51, -83.76),[], -17.7),
   ("malta"  ,"Island of Melita",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(-93, -45.5),[]),
   ("ibiza"  ,"Island of Ebusus",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(-207, -7),[]),

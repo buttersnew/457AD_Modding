@@ -7975,6 +7975,7 @@ presentations = [
 
         (assign, "$g_presentation_obj_banner_selection_1", 0),
         (try_for_range, ":cur_banner_mesh", banner_meshes_begin, ":try_end"),
+	(is_between, ":cur_banner_mesh", "mesh_banner_a01", "mesh_banner_kingdom_a"),
           (create_image_button_overlay, reg1, ":cur_banner_mesh", ":cur_banner_mesh"),
           (position_set_x, pos1, ":x_pos"),
           (position_set_y, pos1, ":y_pos"),

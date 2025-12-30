@@ -9957,12 +9957,22 @@ TOTAL:  {reg5}"),
 
 (
     "requested_castle_granted_to_player",mnf_scale_picture,
-    "You receive a message from your liege, {s3}.^^\
- {reg4?She:He} has decided to grant {s2}{reg3? and the nearby village of {s4}:} to you, with all due incomes and titles, to hold in {reg4?her:his} name for as long as you maintain your oath of homage..",
+    "You receive a message from your liege, {s3}.^^ "+
+ "{reg4?She:He} has decided to grant {s2}{reg3? and the nearby village of {s4}:} to you, with all due incomes and titles, to hold in {reg4?her:his} name for as long as you maintain your oath of homage..",
     "none",
     [
 		(set_background_mesh, "mesh_pic_messenger"),
 		(faction_get_slot, ":faction_leader", "$players_kingdom", slot_faction_leader),
+
+	(try_begin),
+          (is_between, ":faction_leader", heroes_begin, heroes_end),
+          (set_fixed_point_multiplier, 100),
+          (position_set_x, pos0, 70),
+          (position_set_y, pos0, 5),
+          (position_set_z, pos0, 75),
+          (set_game_menu_tableau_mesh, "tableau_troop_note_mesh", ":faction_leader", pos0),
+	(try_end),
+
 		(str_store_troop_name, s3, ":faction_leader"),
 		(str_store_party_name, s2, "$g_center_to_give_to_player"),
 		(try_begin),
@@ -9994,12 +10004,22 @@ TOTAL:  {reg5}"),
 
 (
     "requested_castle_granted_to_player_husband", mnf_scale_picture,
-    "You receive a message from your liege, {s3}.^^\
- {reg4?She:He} has decided to grant {s2}{reg3? and the nearby village of {s4}:} to your husband, {s7}.",
+    "You receive a message from your liege, {s3}.^^ "+
+ "{reg4?She:He} has decided to grant {s2}{reg3? and the nearby village of {s4}:} to your husband, {s7}.",
     "none",
     [
 		(set_background_mesh, "mesh_pic_messenger"),
 		(faction_get_slot, ":faction_leader", "$players_kingdom", slot_faction_leader),
+
+	(try_begin),
+          (is_between, ":faction_leader", heroes_begin, heroes_end),
+          (set_fixed_point_multiplier, 100),
+          (position_set_x, pos0, 70),
+          (position_set_y, pos0, 5),
+          (position_set_z, pos0, 75),
+          (set_game_menu_tableau_mesh, "tableau_troop_note_mesh", ":faction_leader", pos0),
+	(try_end),
+
 		(str_store_troop_name, s3, ":faction_leader"),
 		(str_store_party_name, s2, "$g_center_to_give_to_player"),
 		(try_begin),
@@ -10050,6 +10070,16 @@ TOTAL:  {reg5}"),
      (str_store_troop_name, s3, ":faction_leader"),
      (str_store_party_name, s2, "$g_center_to_give_to_player"),
      (party_get_slot, ":new_owner", "$g_center_to_give_to_player", slot_town_lord),
+
+	(try_begin),
+          (is_between, ":new_owner", heroes_begin, heroes_end),
+          (set_fixed_point_multiplier, 100),
+          (position_set_x, pos0, 70),
+          (position_set_y, pos0, 5),
+          (position_set_z, pos0, 75),
+          (set_game_menu_tableau_mesh, "tableau_troop_note_mesh", ":new_owner", pos0),
+	(try_end),
+
 	(try_begin),
 	(eq, ":new_owner", ":faction_leader"),
 	(str_store_string, s5, "@myself"),
@@ -18873,12 +18903,12 @@ goods, and books will never be sold. ^^You can change some settings here freely.
   (
     "invite_player_to_faction_without_center",mnf_scale_picture,
 ##diplomacy start+ fix gender of pronouns
-    "You receive an offer of vassalage!^^\
- {s8} of {s9} has sent a royal herald to bring you an invititation in {reg4?her:his} own hand.\
- You would be granted the honour of becoming a vassal {lord/lady} of {s9},\
- and in return {s8} asks you to swear an oath of homage to {reg4?her:him} and fight in {reg4?her:his} military campaigns,\
- although {reg4?she:he} offers you no lands or titles.\
- {reg4?She:He} will surely be offended if you do not take the offer...",
+    "You receive an offer of vassalage!^^ "+
+ "{s8} of {s9} has sent a royal herald to bring you an invititation in {reg4?her:his} own hand. "+
+ "You would be granted the honour of becoming a vassal {lord/lady} of {s9}, "+
+ "and in return {s8} asks you to swear an oath of homage to {reg4?her:him} and fight in {reg4?her:his} military campaigns, "+
+ "although {reg4?she:he} offers you no lands or titles. "+
+ "{reg4?She:He} will surely be offended if you do not take the offer...",
 ##diplomacy end+
     "none",
     [
@@ -18923,12 +18953,12 @@ goods, and books will never be sold. ^^You can change some settings here freely.
   (
     "invite_player_to_faction",mnf_scale_picture,
 ##diplomacy start+ fix gender of pronouns
-    "You receive an offer of vassalage!^^\
- {s8} of {s9} has sent a royal herald to bring you an invititation in {reg4?her:his} own hand.\
- You would be granted the honour of becoming a vassal {lord/lady} of {s9},\
- and in return {s8} asks you to swear an oath of homage to {reg4?her:him} and fight in {reg4?her:his} military campaigns,\
- offering you the fief of {s2} for your loyal service.\
- {reg4?She:He} will surely be offended if you do not take the offer...",
+    "You receive an offer of vassalage!^^ "+
+ "{s8} of {s9} has sent a royal herald to bring you an invititation in {reg4?her:his} own hand. "+
+ "You would be granted the honour of becoming a vassal {lord/lady} of {s9}, "+
+ "and in return {s8} asks you to swear an oath of homage to {reg4?her:him} and fight in {reg4?her:his} military campaigns, "+
+ "offering you the fief of {s2} for your loyal service. "+
+ "{reg4?She:He} will surely be offended if you do not take the offer...",
 ##diplomacy end+
     "none",
     [
@@ -20158,6 +20188,15 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       (assign, ":lady_no", "$g_notification_menu_var1"),
       (assign, ":center_no", "$g_notification_menu_var2"),
 
+	(try_begin),
+          (is_between, ":lady_no", heroes_begin, heroes_end),
+          (set_fixed_point_multiplier, 100),
+          (position_set_x, pos0, 70),
+          (position_set_y, pos0, 5),
+          (position_set_z, pos0, 75),
+          (set_game_menu_tableau_mesh, "tableau_troop_note_mesh", ":lady_no", pos0),
+	(try_end),
+
       (str_store_troop_name, s15, ":lady_no"),
       (str_store_party_name, s10, ":center_no"),
 
@@ -20262,6 +20301,15 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     "{s12}",
     "none",
     [
+
+	(try_begin),
+          (is_between, "$love_interest_in_town", heroes_begin, heroes_end),
+          (set_fixed_point_multiplier, 100),
+          (position_set_x, pos0, 70),
+          (position_set_y, pos0, 5),
+          (position_set_z, pos0, 75),
+          (set_game_menu_tableau_mesh, "tableau_troop_note_mesh", "$love_interest_in_town", pos0),
+	(try_end),
 
     (call_script, "script_get_kingdom_lady_social_determinants", "$love_interest_in_town"),
 	(assign, ":guardian_lord", reg0),

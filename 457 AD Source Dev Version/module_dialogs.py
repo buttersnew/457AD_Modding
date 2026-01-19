@@ -13866,6 +13866,8 @@ Still I am sorry that I'll leave you soon. You must promise me, you'll come visi
 [], "Who shall I send? You should choose one who has skills in persuasion!", "minister_emissary_select",
 []],
 
+
+
 ##dispatch emissary to persuade
 [anyone, "minister_emissary_dispatch",
 [
@@ -13882,9 +13884,86 @@ Still I am sorry that I'll leave you soon. You must promise me, you'll come visi
 ]],
 
 ##companion returning after persuasion request
+#madsci make it easier to recruit landless lords
+[anyone, "event_triggered", [
+    (store_conversation_troop, "$map_talk_troop"),
+    (eq, "$map_talk_troop", "$npc_to_rejoin_party"),
+	(assign, "$g_talk_troop", "$map_talk_troop"),
+    (troop_get_slot, ":mission", "$g_talk_troop", slot_troop_current_mission),
+    (eq, ":mission", dplmc_npc_mission_persuasion),
+    (troop_get_slot, ":string", "$map_talk_troop", slot_troop_honorific),
+    (str_store_string, s21, ":string"),
+    (troop_get_slot, ":mission_object", "$g_talk_troop", slot_troop_mission_object),
+    (str_store_faction_name, s31, ":mission_object"),
+    (troop_get_slot, ":target_troop", "$g_talk_troop", dplmc_slot_troop_mission_diplomacy),
+	(neg|troop_slot_eq, ":target_troop", slot_troop_occupation, dplmc_slto_dead),
+
+    (str_store_troop_name, s14, ":target_troop"),
+	(store_troop_faction, ":kingdom_hero_faction", ":target_troop"),
+        (neg|faction_slot_eq, ":kingdom_hero_faction", slot_faction_leader, ":target_troop"),
+	(neq, ":kingdom_hero_faction", "$players_kingdom"),
+
+	(assign, ":centers", 0),
+	(assign, ":lord_centers", 0),
+	(try_for_range, ":center_no", walled_centers_begin, walled_centers_end),
+		(store_faction_of_party, ":party_faction", ":center_no"),
+		(try_begin),
+		(eq, ":party_faction", "$players_kingdom"),
+		(val_add, ":centers", 1),
+		(else_try),
+		(party_slot_eq, ":center_no", slot_town_lord, ":target_troop"),
+		(val_add, ":lord_centers", 1),
+		(try_end),
+	(try_end),
+
+	(assign, ":lords", 0),
+	(try_for_range, ":lord", heroes_begin, heroes_end),
+        (troop_slot_eq, ":lord", slot_troop_occupation, slto_kingdom_hero),
+	(store_troop_faction, ":troop_faction", ":lord"),
+	(eq, ":troop_faction", "$players_kingdom"),
+	(val_add, ":lords", 1),
+	(try_end),
+
+	(gt, ":centers", ":lords"), #need a walled center for the lord
+	(eq, ":lord_centers", 0), #doesnt already have one
+
+	(troop_get_slot, ":lord_religion", ":lord", slot_troop_religion),
+	(troop_get_slot, ":player_religion", "trp_player", slot_troop_religion),
+	(store_skill_level, ":persuasion_skill", "skl_persuasion", "$g_talk_troop"),
+	(this_or_next|faction_slot_eq, ":troop_faction", slot_faction_state, sfs_defeated),
+	(this_or_next|eq, ":lord_religion", ":player_religion"),
+	(gt, ":persuasion_skill", 4),
+               ],
+"Well, {s21}, at last I've found you. I have returned from my persuasion mission to {s31}. {s14} agreed to join you.","companion_rejoin_response", [
+  (troop_get_slot, ":target_troop", "$g_talk_troop", dplmc_slot_troop_mission_diplomacy),
+  (call_script, "script_change_troop_faction", ":target_troop", "$players_kingdom"),
+
+  (store_faction_of_troop, ":target_faction", ":target_troop"),
+  (faction_get_slot, ":other_liege", ":target_faction", slot_faction_leader),
+  (try_begin),
+    (store_relation, ":relation", "$players_kingdom", ":target_faction"),
+    (ge, ":relation", 0),
+
+    (call_script, "script_add_log_entry", logent_border_incident_troop_suborns_lord, "trp_player", -1, ":target_troop",":target_faction"),
+    (store_add, ":slot_provocation_days", "$players_kingdom", slot_faction_provocation_days_with_factions_begin),
+    (val_sub, ":slot_provocation_days", kingdoms_begin),
+    (faction_set_slot, ":target_faction", ":slot_provocation_days", 30),
+
+    (faction_get_slot, ":other_liege", ":target_faction", slot_faction_leader),
+    (call_script, "script_troop_change_relation_with_troop", "trp_player", ":other_liege", -3),
+  (try_end),
+
+  #SB : add 2 relation between emissary
+  (call_script, "script_troop_change_relation_with_troop", "$g_talk_troop", ":target_troop", 2),
+  (call_script, "script_change_troop_renown", "$g_talk_troop", dplmc_companion_skill_renown), #total of 5 for success
+  (call_script, "script_change_player_right_to_rule", 2),
+]],
+
+##companion returning after persuasion request
 [anyone, "event_triggered", [
 (store_conversation_troop, "$map_talk_troop"),
 (eq, "$map_talk_troop", "$npc_to_rejoin_party"),
+(assign, "$g_talk_troop", "$map_talk_troop"),
 (troop_get_slot, ":mission", "$g_talk_troop", slot_troop_current_mission),
 (eq, ":mission", dplmc_npc_mission_persuasion),
 (troop_get_slot, ":string", "$map_talk_troop", slot_troop_honorific),
@@ -14074,7 +14153,7 @@ Still I am sorry that I'll leave you soon. You must promise me, you'll come visi
 	(gt, ":centers", 0), #madsci the lord should not be staying in a dead faction if he otherwise wants to change factions
   (assign, ":no_join", 1),
   #SB : king -> liege, added I "would"
-  (str_store_string, s40, "@{s40} I 'd rather stay with my current liege."),
+  (str_store_string, s40, "@{s40} I would rather stay with my current liege."),
 (try_end),
 
 (try_begin),
@@ -14186,6 +14265,7 @@ Still I am sorry that I'll leave you soon. You must promise me, you'll come visi
 [anyone, "event_triggered", [
     (store_conversation_troop, "$map_talk_troop"),
     (eq, "$map_talk_troop", "$npc_to_rejoin_party"),
+	(assign, "$g_talk_troop", "$map_talk_troop"),
     (troop_get_slot, ":mission", "$g_talk_troop", slot_troop_current_mission),
     (eq, ":mission", dplmc_npc_mission_persuasion),
     (troop_get_slot, ":string", "$map_talk_troop", slot_troop_honorific),

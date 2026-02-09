@@ -6816,6 +6816,7 @@ Even in the last case, the player can make formations up to four lines by orderi
 ("build_strong","You_are_naturally_sturdy_and_well-built._Your_imposing_physique_makes_you_both_strong_and_intimidating."),
 ("build_thin","You_are_naturally_lithe_and_agile._Quick_and_nimble_on_your_feet,_you_are_fast_and_graceful."),
 ("build_weak","Your_are_naturally_weak_and_small._Your_puny_stature_made_you_an_easy_target_for_bullies_growing_up."),
+
 ("mind_genius","You_are_blessed_with_rare_intellect._Your_ability_to_learn_and_analyse_gives_you_an_edge_over_others_in_understanding_complex_concepts."),
 ("mind_shrewd","You_are_sharp_and_shrewd._Life_has_already_taught_you_the_value_of_good_judgement_and_quick_wits."),
 ("mind_normal","You_are_neither_particularly_mentally_gifted_nor_lacking._You_are_as_ordinary_and_superstitious_as_most_other_people_around_you."),

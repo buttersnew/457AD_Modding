@@ -2761,19 +2761,19 @@ troops = [
    def_attrib_lvl_23|level(23),wp_one_handed(180)|wp_two_handed(160)|wp_polearm(180)|wp_throwing(170)|wp_archery(100),knows_lvl_23,coptic_face_1, coptic_face_2],
 
 #Phinnoi
-  ["phinnoi_warrior","Phinnoi Warrior (Soturi)","Phinnoi Warriors (Soturit)",tf_guarantee_basic,0,0,fac_culture_21,
+  ["phinnoi_warrior","Phinnoi Warrior (Soturi)","Phinnoi Warriors (Soturit)",tf_guarantee_basic,0,0,fac_culture_minor_2,
    [itm_tunic_1_cloak,itm_tunic_3_cloak,itm_tunic_7_cloak,itm_wrapping_boots,itm_simple_shoes,itm_obenaltendorf_shoes_1,itm_fur_hat,itm_kovas_hat_3,itm_germanic_cap_3,itm_germanic_cap_4,itm_balt_shield_wood_2,itm_balt_shield_2_white,itm_balt_shield_2_blue,itm_spear,itm_javelin,itm_hand_axe],
    def_attrib_lvl_18|level(18),wp_one_handed(130)|wp_two_handed(100)|wp_polearm(145)|wp_throwing(140)|wp_archery(100),knows_lvl_18,germanic_face_1, germanic_face_2],
 
-  ["phinnoi_retainer","Phinnoi Retainer (Sotijalo)","Phinnoi Retainer (Sotijalot)",tf_guarantee_basic|tf_guarantee_helmet,0,0,fac_culture_21,
+  ["phinnoi_retainer","Phinnoi Retainer (Sotijalo)","Phinnoi Retainer (Sotijalot)",tf_guarantee_basic|tf_guarantee_helmet,0,0,fac_culture_minor_2,
    [itm_tunic_1_cloak,itm_tunic_3_cloak,itm_tunic_7_cloak,itm_battered_mail_1_cloak,itm_common_mail_short_2_cloak,itm_wrapping_boots,itm_simple_shoes,itm_obenaltendorf_shoes_1,itm_fur_hat,itm_kovas_hat_3,itm_pilna_helmet_mail,itm_pilna_helmet_leather,itm_balt_shield_wood_1,itm_balt_shield_1_white,itm_balt_shield_1_blue,itm_angon_1,itm_poleaxe,itm_baltic_sword_1],
    def_attrib_lvl_23|level(23),wp_one_handed(175)|wp_two_handed(160)|wp_polearm(175)|wp_throwing(165)|wp_archery(100),knows_lvl_23,germanic_face_1, germanic_face_2],
 
-  ["phinnoi_hunter","Phinnoi Hunter (Metsaemees)","Phinnoi Hunters (Metsaemeehet)",tf_guarantee_armor|tf_guarantee_boots|tf_guarantee_ranged,0,0,fac_culture_21,
+  ["phinnoi_hunter","Phinnoi Hunter (Metsaemees)","Phinnoi Hunters (Metsaemeehet)",tf_guarantee_armor|tf_guarantee_boots|tf_guarantee_ranged,0,0,fac_culture_minor_2,
    [itm_tunic_1,itm_tunic_3,itm_tunic_2,itm_tunic_8,itm_wrapping_boots,itm_simple_shoes,itm_obenaltendorf_shoes_1,itm_fur_hat,itm_woolen_cap_4,itm_woolen_cap_b,itm_woolen_cap_1,itm_woolen_cap_6,itm_club,itm_arrows,itm_arrows,itm_long_bow,itm_short_bow,itm_hunting_bow],
    def_attrib_lvl_18|level(17),wp_one_handed(130)|wp_two_handed(120)|wp_polearm(100)|wp_archery(130)|wp_throwing(110),knows_archer,germanic_face_1, germanic_face_2],
 
-  ["phinnoi_horseman","Phinnoi Horseman (Ratsumees)","Phinnoi Horsemen (Ratsumeehet)",tf_mounted|tf_guarantee_armor|tf_guarantee_boots|tf_guarantee_horse|tf_guarantee_ranged|tf_guarantee_shield|tf_guarantee_polearm,0,0,fac_culture_21,
+  ["phinnoi_horseman","Phinnoi Horseman (Ratsumees)","Phinnoi Horsemen (Ratsumeehet)",tf_mounted|tf_guarantee_armor|tf_guarantee_boots|tf_guarantee_horse|tf_guarantee_ranged|tf_guarantee_shield|tf_guarantee_polearm,0,0,fac_culture_minor_2,
    [itm_tunic_1_cloak,itm_tunic_3_cloak,itm_tunic_7_cloak,itm_wrapping_boots,itm_simple_shoes,itm_obenaltendorf_shoes_1,itm_fur_hat,itm_pilna_helmet_leather,itm_battle_axe_2,itm_great_lance,itm_throwing_spears,itm_round_shield_leather_small_1,itm_round_shield_white_small_1,itm_round_shield_blue_small_1]+horses_slavic_1,
    def_attrib_lvl_18|level(18),wp_one_handed(130)|wp_two_handed(100)|wp_polearm(140)|wp_throwing(140)|wp_archery(115),knows_lvl_18,germanic_face_1, germanic_face_2],
 

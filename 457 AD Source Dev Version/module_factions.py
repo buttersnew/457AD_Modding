@@ -48,6 +48,7 @@ factions = [
   ("culture_18",  "Jewish", 0, 0.9, [], []),
   ("culture_19",  "Irish", 0, 0.9, [], []),
   ("culture_20",  "Slavic", 0, 0.9, [], []),
+  ("culture_21",  "Finnic", 0, 0.9, [], []),
 
   #minor cultures
   ("culture_minor_1",  "Hispano-Roman", 0, 0.9, [], []),

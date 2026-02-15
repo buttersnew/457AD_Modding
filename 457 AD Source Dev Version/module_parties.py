@@ -253,7 +253,7 @@ parties = [
   ("castle_119", "Aquae_Sulis",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-220.6, 128),[],75),
 
   # new castle: 26/02/14: Mauria
-  ("castle_120", "Rutubis",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-310.05 -67.58),[], 115),
+  ("castle_120", "Rutubis",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0, (-310.05, -67.58),[], 115),
 
   # == VILLAGES == 
   ("village_1", "Olisipo", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-292.93, 5.89), [], 100),
@@ -581,11 +581,11 @@ parties = [
   ("village_302","Digdida_Selorum",  icon_village_c|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-72.8, -89.25),[], 40),
   ("village_303","Apollonia",  icon_village_c|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-24, -68.3),[], 40),
   # mauria update: 26/02/15
-  ("village_304","Tamusiga",  icon_village_c|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-330.96, -97.50),[], 40),
-  ("village_305","Mysocaras",  icon_village_c|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-311.56, -80.55),[], 40),
-  ("village_306","Boccana_Specula",  icon_village_c|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-289.64, -68.69),[], 40),
-  ("village_307","Benta",  icon_village_c|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-271.65, -66.46),[], 40),
-  ("village_308","Aquae_Dacicae",  icon_village_c|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-268.32, -57.41),[], 40),
+  ("village_304","Tamusiga",  icon_village_c|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-330.96, -97.50), [], 40),
+  ("village_305","Mysocaras",  icon_village_c|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-311.56, -80.55), [], 40),
+  ("village_306","Boccana_Specula",  icon_village_c|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-289.64, -68.69), [], 40),
+  ("village_307","Benta",  icon_village_c|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-271.65, -66.46), [], 40),
+  ("village_308","Aquae_Dacicae",  icon_village_c|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-268.32, -57.41), [], 40),
 
   # == SPECIAL LOCATIONS ==
   ("salt_mine","Salt_Mine",icon_village_a|pf_disabled|pf_is_static|pf_always_visible|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(14.2, -31),[]), 

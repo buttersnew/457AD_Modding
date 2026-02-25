@@ -5612,7 +5612,7 @@ knight_attrib_5,wp(300),knows_berserker,0x00000006800044c759522e454b91231a000000
    def_attrib_lvl_13|level(13),wp_one_handed(210)|wp_polearm(100)|wp_firearm(150),knows_lvl_13|knows_power_strike_4,0x00000009a20c21cf491bad28a28628d400000000001e371a0000000000000000],
    
   # marcian (romano-berber) lords, knights & family members
-  ["indigenoi_macenites_king", <"Ait Macen","Ait Macen", tf_hero, 0, 0, fac_indigenoi, [itm_barb_cham_1,itm_sassanid_cavalry_boots_2,itm_common_mail_short_2,itm_burgh_helmet_1,itm_turban,itm_strong_hammer,itm_simple_shoes,itm_tunic_rich_7],
+  ["indigenoi_macenites_king", "Ait Macen","Ait Macen", tf_hero, 0, 0, fac_indigenoi, [itm_barb_cham_1,itm_sassanid_cavalry_boots_2,itm_common_mail_short_2,itm_burgh_helmet_1,itm_turban,itm_strong_hammer,itm_simple_shoes,itm_tunic_rich_7],
    def_attrib_lvl_13|level(13),wp_one_handed(210)|wp_polearm(100)|wp_firearm(150),knows_lvl_13|knows_power_strike_4,0x0000000f210134c04b0a8bcd75e6c72d00000000001d28a50000000000000000],
   # kings mother
   ["indigenoi_macenites_lady_1", "Taklit tin Tafouk","Taklit tin Tafouk", tf_hero|tf_female|tf_unmoveable_in_party_window, 0, reserved, fac_indigenoi,  [itm_sarranid_lady_dress,       itm_wrapping_boots], def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x00000007b6002004252d524cd925c89b00000000001d569d0000000000000000],

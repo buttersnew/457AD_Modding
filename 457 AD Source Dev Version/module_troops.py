@@ -5606,10 +5606,38 @@ knight_attrib_5,wp(300),knows_berserker,0x00000006800044c759522e454b91231a000000
   ["indigenoi_noble_10","Amorkesos","Amorkesos",tf_hero,0,0,fac_indigenoi,   [itm_barb_cham_1,itm_sassanid_cavalry_boots_2,itm_common_mail_short_2,itm_burgh_helmet_1,itm_turban,itm_strong_hammer,itm_simple_shoes,itm_tunic_rich_7],
    def_attrib_lvl_13|level(30),wp_one_handed(210)|wp_polearm(100)|wp_firearm(150),knows_lvl_13|knows_power_strike_4,0x000000001e0d950b3daa8c987489496400000000001d93390000000000000000],
   # naraj indie mordvin lord
-   ["indigenoi_noble_11","Kanaken Picpanda","Picpanda",tf_hero,0,0,fac_indigenoi,   [itm_slav_heavy_forest_horse_2,itm_battered_mail_1,itm_suvorovsky_helmet_mail,itm_baltic_sword_1,itm_simple_shoes,itm_tunic_rich_7],
+  ["indigenoi_noble_11","Kanaken Picpanda","Picpanda",tf_hero,0,0,fac_indigenoi,   [itm_slav_heavy_forest_horse_2,itm_battered_mail_1,itm_suvorovsky_helmet_mail,itm_baltic_sword_1,itm_simple_shoes,itm_tunic_rich_7],
    def_attrib_lvl_13|level(13),wp_one_handed(210)|wp_polearm(100)|wp_firearm(150),knows_lvl_13|knows_power_strike_4,0x00000006160453904b544592e3199cc300000000000edb1b0000000000000000],
    ["indigenoi_noble_12","Ahto","Ahto",tf_hero,0,0,fac_indigenoi,   [itm_slav_heavy_forest_horse_2,itm_battered_mail_1,itm_suvorovsky_helmet_mail,itm_baltic_sword_1,itm_simple_shoes,itm_tunic_rich_7],
    def_attrib_lvl_13|level(13),wp_one_handed(210)|wp_polearm(100)|wp_firearm(150),knows_lvl_13|knows_power_strike_4,0x00000009a20c21cf491bad28a28628d400000000001e371a0000000000000000],
+   
+  # marcian (romano-berber) lords, knights & family members
+  ["indigenoi_macenites_king", <"Ait Macen","Ait Macen", tf_hero, 0, 0, fac_indigenoi, [itm_barb_cham_1,itm_sassanid_cavalry_boots_2,itm_common_mail_short_2,itm_burgh_helmet_1,itm_turban,itm_strong_hammer,itm_simple_shoes,itm_tunic_rich_7],
+   def_attrib_lvl_13|level(13),wp_one_handed(210)|wp_polearm(100)|wp_firearm(150),knows_lvl_13|knows_power_strike_4,0x0000000f210134c04b0a8bcd75e6c72d00000000001d28a50000000000000000],
+  # kings mother
+  ["indigenoi_macenites_lady_1", "Taklit tin Tafouk","Taklit tin Tafouk", tf_hero|tf_female|tf_unmoveable_in_party_window, 0, reserved, fac_indigenoi,  [itm_sarranid_lady_dress,       itm_wrapping_boots], def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x00000007b6002004252d524cd925c89b00000000001d569d0000000000000000],
+  # kings wife
+  ["indigenoi_macenites_lady_2", "Taziri tin Afla","Taziri tin Afla", tf_hero|tf_randomize_face|tf_female|tf_unmoveable_in_party_window, 0, reserved, fac_indigenoi, [itm_sarranid_lady_dress,      itm_wrapping_boots],     def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x00000007fd001008168a694b15a9a91b00000000001cc4d40000000000000000],
+  # kings sister
+  ["indigenoi_macenites_lady_3", "Tin-Ilili tam Uqerram", "Tin-Ilili tam Uqerram", tf_hero|tf_female|tf_unmoveable_in_party_window, 0, reserved, fac_indigenoi, [itm_sarranid_lady_dress_b,      itm_wrapping_boots],     def_attrib|level(2),wp(50),knows_common|knows_riding_2,   0x00000003bf0010061b5cb5d8ed75b4db00000000001e271c0000000000000000],
+
+  ["indigenoi_macenites_noble_1","Marcus Sammac Chullamensis","Marcus Sammac", tf_hero, 0, 0, fac_indigenoi, [itm_barb_cham_1,itm_sassanid_cavalry_boots_2,itm_common_mail_short_2,itm_burgh_helmet_1,itm_turban,itm_strong_hammer,itm_simple_shoes,itm_tunic_rich_7],
+   def_attrib_lvl_13|level(13),wp_one_handed(210)|wp_polearm(100)|wp_firearm(150),knows_lvl_13|knows_power_strike_4,0x0000000f210134c04b0a8bcd75e6c72d00000000001d28a50000000000000000],
+  # prefectus mother
+  ["indigenoi_macenites_lady_4", "Domitia Salvina Maurica","Domitia Salvina Maurica", tf_hero|tf_randomize_face|tf_female|tf_unmoveable_in_party_window, 0, reserved, fac_indigenoi, [itm_sarranid_lady_dress,      itm_wrapping_boots],     def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x00000007fd001008168a694b15a9a91b00000000001cc4d40000000000000000],
+  # prefectus wife
+  ["indigenoi_macenites_lady_5", "Aurelia Lucilla Massyla","Aurelia Lucilla Massyla", tf_hero|tf_female|tf_unmoveable_in_party_window, 0, reserved, fac_indigenoi, [itm_sarranid_lady_dress_b,      itm_wrapping_boots],     def_attrib|level(2),wp(50),knows_common|knows_riding_2,   0x00000003bf0010061b5cb5d8ed75b4db00000000001e271c0000000000000000],
+  # prefectus sister
+  ["indigenoi_macenites_lady_6", "Cyria Marcia Chullamensis","Cyria Marcia Chullamensis", tf_hero|tf_female|tf_unmoveable_in_party_window, 0, reserved, fac_indigenoi, [itm_sarranid_lady_dress_b,      itm_wrapping_boots],     def_attrib|level(2),wp(50),knows_common|knows_riding_2,   0x00000003bf0010061b5cb5d8ed75b4db00000000001e271c0000000000000000],
+   
+  ["indigenoi_macenites_noble_2", "Ait Baquates", "Ait Baquates",tf_hero,0,0,fac_indigenoi,   [itm_barb_cham_1,itm_sassanid_cavalry_boots_2,itm_common_mail_short_2,itm_burgh_helmet_1,itm_turban,itm_strong_hammer,itm_simple_shoes,itm_tunic_rich_7],
+   def_attrib_lvl_13|level(13),wp_one_handed(210)|wp_polearm(100)|wp_firearm(150),knows_lvl_13|knows_power_strike_4,0x0000000f210134c04b0a8bcd75e6c72d00000000001d28a50000000000000000],
+  # lords mother
+  ["indigenoi_macenites_lady_7", "Tadla tin Arawen", "Tadla tin Arawen", tf_hero|tf_randomize_face|tf_female|tf_unmoveable_in_party_window, 0, reserved, fac_indigenoi, [itm_sarranid_lady_dress,      itm_wrapping_boots],     def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x00000007fd001008168a694b15a9a91b00000000001cc4d40000000000000000],
+  # lords wife
+  ["indigenoi_macenites_lady_8", "Tafoukt tan Melil", "Tafoukt tan Melil", tf_hero|tf_female|tf_unmoveable_in_party_window, 0, reserved, fac_indigenoi, [itm_sarranid_lady_dress_b,      itm_wrapping_boots],     def_attrib|level(2),wp(50),knows_common|knows_riding_2,   0x00000003bf0010061b5cb5d8ed75b4db00000000001e271c0000000000000000],
+  # lords sister
+  ["indigenoi_macenites_lady_9", "Azelma tam Ghasen", "Azelma tam Ghasen",tf_hero|tf_female|tf_unmoveable_in_party_window, 0, reserved, fac_indigenoi, [itm_sarranid_lady_dress_b,      itm_wrapping_boots],     def_attrib|level(2),wp(50),knows_common|knows_riding_2,   0x00000003bf0010061b5cb5d8ed75b4db00000000001e271c0000000000000000],
 
   ##diplomacy end
   ["no_troop","_","the place",tf_hero,0,0,fac_commoners,[],0,0,0,0,0],

@@ -1,5 +1,4 @@
 scn_random_scene = 0
-scn_none = 0
 scn_conversation_scene = 1
 scn_water = 2
 scn_scene_sea = 3
@@ -944,4 +943,3 @@ scn_haddingrs_aesti_ambush = 941
 scn_haddingrs_aesti_trade_post = 942
 scn_haddingrs_final_battle = 943
 scn_haddingrs_final_battle_duel = 944
-scn_exit = 100000

@@ -986,3 +986,5 @@ script_fully_refresh_minor_faction_garrison = 984
 script_animate_animals = 985
 script_refresh_walkers = 986
 script_efe_init = 987
+
+

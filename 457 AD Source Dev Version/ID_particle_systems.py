@@ -67,3 +67,5 @@ psys_front_water = 65
 psys_front_water_2 = 66
 psys_heck_water = 67
 psys_ocean_wave = 68
+psys_lt_smoke = 69
+psys_lt_fire = 70

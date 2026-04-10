@@ -37844,8 +37844,8 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
                     #SB : gender string
                     (call_script, "script_dplmc_store_troop_is_female_reg", ":faction_leader", 4),
                     ],
-   "Be warned, knave! This caravan is under the protection of {s9}.\
- Step out of our way or you will face {reg4?her:his} fury!", "merchant_talk",[]],
+   "Be warned, knave! This caravan is under the protection of {s9}. "+
+ "Step out of our way or you will face {reg4?her:his} fury!", "merchant_talk",[]],
 
 
   [anyone,"start", [(party_slot_eq, "$g_encountered_party", slot_party_type, spt_kingdom_caravan),(this_or_next|eq,"$talk_context", tc_party_encounter),(eq,"$talk_context", 0)],
@@ -49155,6 +49155,7 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
 
   [anyone|plyr,"party_encounter_hostile_defender", [
 	(neq, "$g_encountered_party_faction", "$players_kingdom"),
+	(neq, "$g_encountered_party_faction", "fac_player_supporters_faction"),
   (neq, "$g_talk_troop", "pt_isaurian_quest_army"),
   (neq, "$g_talk_troop", "pt_hunimund_horde_quest"),
   (neq, "$g_talk_troop", "pt_aestii_rebel_party"),
@@ -54136,6 +54137,13 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
 ]],
 
 
+[anyone, "start", [
+  (check_quest_active, "qst_haddingrs_revenge"),
+  (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 16),
+],
+"Lord Haddingr! The woods are alive with warriors! The Aestii lie in wait-an ambush!",
+"haddingrs_revenge_ambush_1", [
+]],
 [trp_scandinavian_freeman, "start", [
   (check_quest_active, "qst_haddingrs_revenge"),
   (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 16),
@@ -54207,7 +54215,6 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
 "close_window",[
   (assign, "$g_battle_result", 1),
 ]],
-
 
 [trp_dani_haddingr, "start", [
   (check_quest_active, "qst_haddingrs_revenge"),
@@ -56562,7 +56569,7 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
   [anyone|plyr, "minor_faction_king_gift_2",[],"Nevermind.", "minor_faction_king_pretalk",[]],
   [anyone, "minor_faction_king_gift_give",[],"We graciously accept your gift, {playername}.", "minor_faction_king_pretalk",[]],
 
-  [anyone|plyr, "minor_faction_king",[],"I bid my farewell.", "minor_faction_king_leave",[]],
+  [anyone|plyr, "minor_faction_king",[],"I bid my farewell.", "minor_faction_king_leave",[(assign, "$g_leave_encounter",1)]],
 
   [anyone, "minor_faction_king_leave",[],"We will meet again, {playername}.", "close_window",[]],
 

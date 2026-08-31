@@ -2104,11 +2104,9 @@ simple_triggers = [
 #simple trigger 43
   # Decide faction ai flag check
    #(0.11,
-    (7/(number_of_factions),
+    #(8/(number_of_factions),
+	(0.15,
    [
-     #(eq, "$g_recalculate_ais", 1),
-     #(assign, "$g_recalculate_ais", 0),
-     #(call_script, "script_recalculate_ais"),
 
 #madsci new system where faction AI gets decided one by one instead of everyone at the same time to avoid lag spike
 

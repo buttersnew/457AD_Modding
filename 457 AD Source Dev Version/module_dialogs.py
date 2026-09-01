@@ -76,7 +76,7 @@ dialogs = [
           (try_begin),
             (eq, "$cheat_mode", 1),
             (assign, reg3, "$g_talk_troop_effective_relation"),
-            (display_message, "str_test_effective_relation_=_reg3"),
+            (display_message, "str_test_effective_relation___reg3"),
           (try_end),
 
                (try_begin),
@@ -14172,7 +14172,7 @@ Still I am sorry that I'll leave you soon. You must promise me, you'll come visi
            ##diplomacy start+ Only show debug messages with cheat mode on
            (ge, "$cheat_mode", 1),
            ##diplomacy end+
-           (display_message, "str_result_for_political_=_reg41"),
+           (display_message, "str_result_for_political___reg41"),
          (try_end),
       (else_try),
          (troop_slot_eq, ":target_troop", slot_lord_reputation_type, lrep_quarrelsome),
@@ -24997,7 +24997,7 @@ I'll send some men to take him to our prison with due haste.", "lord_pretalk", [
    #this will store
    (try_begin),
      (eq, "$cheat_mode", 1),
-     (display_message, "str_preliminary_result_for_political_=_reg4"),
+     (display_message, "str_preliminary_result_for_political___reg4"),
    (try_end),
 
 #			(assign, ":result_for_ideological", reg6),
@@ -25041,7 +25041,7 @@ I'll send some men to take him to our prison with due haste.", "lord_pretalk", [
            ##diplomacy start+ Only show debug messages if cheat mode is on
            (ge, "$cheat_mode", 1),
            ##diplomacy end+
-           (display_message, "str_result_for_political_=_reg41"),
+           (display_message, "str_result_for_political___reg41"),
          (try_end),
       (else_try),
          (troop_slot_eq, "$g_talk_troop", slot_lord_reputation_type, lrep_quarrelsome),
@@ -25148,7 +25148,7 @@ I'll send some men to take him to our prison with due haste.", "lord_pretalk", [
 (try_begin),
  (eq, "$cheat_mode", 1),
  (assign, reg1, "$pledge_chance"),
- (display_message, "str_chance_of_success_=_reg1"),
+ (display_message, "str_chance_of_success___reg1"),
 (try_end),
 ]],
 
@@ -25183,7 +25183,7 @@ I'll send some men to take him to our prison with due haste.", "lord_pretalk", [
 (try_begin),
   (eq, "$cheat_mode", 1),
   (assign, reg3, ":random"),
-  (display_message, "str_random_=_reg3"),
+  (display_message, "str_random___reg3"),
 (try_end),
 
 (faction_get_slot, ":leader", "$g_talk_troop_faction", slot_faction_leader),
@@ -36452,7 +36452,7 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
 	(else_try),
 		(assign, reg4, "$lady_selected"),
 		(str_store_troop_name, s9, "$lady_selected"),
-		(str_store_string, s12, "str_error_lady_selected_=_s9"),
+		(str_store_string, s12, "str_error_lady_selected___s9"),
 	(try_end),
    ],
    "{s12}.",
@@ -41900,7 +41900,7 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
 	(else_try),
 		(assign, reg4, "$lady_selected"),
 		(str_store_troop_name, s9, "$lady_selected"),
-		(str_store_string, s12, "str_error_lady_selected_=_s9"),
+		(str_store_string, s12, "str_error_lady_selected___s9"),
 	(try_end),
    ],
    "{s12}.",

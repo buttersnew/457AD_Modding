@@ -25110,7 +25110,7 @@ scripts = [
 ##			(str_store_party_name, s10, ":town_no"),
 ##			(str_store_party_name, s11, ":cur_town"),
 ##			(assign, reg3, ":cur_town_score"),
-##			(display_message, "str_caravan_in_s10_considers_s11_total_price_dif_=_reg3"),
+##			(display_message, "str_caravan_in_s10_considers_s11_total_price_dif___reg3"),
 ##		(try_end),
 
         ##diplomacy start+
@@ -45822,7 +45822,7 @@ scripts = [
  	  (try_for_range, ":faction", kingdoms_begin, kingdoms_end),
 		(faction_get_slot, reg4, ":faction", slot_faction_temp_slot),
 		(str_store_faction_name, s4, ":faction"),
-		(display_message, "str_s4_unassigned_centers_plus_landless_lords_=_reg4"),
+		(display_message, "str_s4_unassigned_centers_plus_landless_lords___reg4"),
 	  (try_end),
     (try_end),
 
@@ -59580,7 +59580,7 @@ scripts = [
 	(try_begin),
 		(eq, "$cheat_mode", 2),
 		#(display_message, "@{!}DEBUG -- Analyzing lord allegiances, combined bonuses and penalties = {reg0}"),
-		#(display_message, "str_combined_bonuses_and_penalties_=_reg0"),
+		#(display_message, "str_combined_bonuses_and_penalties___reg0"),
 	(try_end),
 	]),
 
@@ -61002,7 +61002,7 @@ scripts = [
 			(store_random_in_range, reg3, 0, 3),
 			(try_begin),
 				(eq, "$cheat_mode", 1),
-				#(display_message, "str_result_stalemate_patience_roll_=_reg3"),
+				#(display_message, "str_result_stalemate_patience_roll___reg3"),
 			(try_end),
 
 			(eq, reg3, 0),
@@ -64185,7 +64185,7 @@ scripts = [
         (try_begin),
             (eq, "$cheat_mode", 1),
             (assign, reg4, ":modified_honor_and_relation"),
-            #(display_message, "str_envoymodified_diplomacy_score_honor_plus_relation_plus_envoy_persuasion_=_reg4"),
+            #(display_message, "str_envoymodified_diplomacy_score_honor_plus_relation_plus_envoy_persuasion___reg4"),
         (try_end),
     (try_end),
 

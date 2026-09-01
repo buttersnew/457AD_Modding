@@ -16814,7 +16814,7 @@ TOTAL:  {reg5}"),
 	   (item_get_slot, ":production_string", ":cur_good", slot_item_production_string),
 	   (str_store_string, s4, ":production_string"),
 
-       (str_store_string, s1, "str___s3_price_=_reg4_calradian_average_reg6_capital_reg11_s4_base_reg1modified_by_raw_material_reg2modified_by_prosperity_reg3_calradian_average_production_base_reg5_total_reg12_consumed_reg7used_as_raw_material_reg8modified_total_reg9_calradian_consumption_base_reg10_total_reg13s1_"),
+       (str_store_string, s1, "str___s3_price___reg4_calradian_average_reg6_capital_reg11_s4_base_reg1modified_by_raw_material_reg2modified_by_prosperity_reg3_calradian_average_production_base_reg5_total_reg12_consumed_reg7used_as_raw_material_reg8modified_total_reg9_calradian_consumption_base_reg10_total_reg13s1_"),
      (try_end),
 
 
@@ -20279,7 +20279,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
             (eq, "$cheat_mode", 1),
             (quest_get_slot, ":giver_troop", "qst_visit_lady", slot_quest_giver_troop),
             (str_store_troop_name, s2, ":giver_troop"),
-            (display_message, "str_giver_troop_=_s2"),
+            (display_message, "str_giver_troop___s2"),
         (try_end),
 
         (quest_set_slot, "qst_visit_lady", slot_quest_expiration_days, 30),

@@ -5787,5 +5787,6 @@ scene_props = [
    ]),
 
 ("terrain_mountain_far",0,"mountain_scene_TLD",0,[]), 
+("alano_yurt",0,"alano_yurt","bo_alano_yurt",[]),
 
 ]

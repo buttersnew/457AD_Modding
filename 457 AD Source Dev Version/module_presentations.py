@@ -19459,6 +19459,8 @@ presentations = [
             (else_try), #Gaetuli
               (this_or_next|eq, "$current_town", "p_castle_39"),
               (this_or_next|eq, "$current_town", "p_castle_40"),
+              (this_or_next|eq, "$current_town", "p_town_46"),
+              (this_or_next|eq, "$current_town", "p_town_50"),
               (eq, "$current_town", "p_town_34"),
               (this_or_next|eq, ":troop", "trp_pedes_fortenses"),
               (this_or_next|eq, ":troop", "trp_pedes_tertio_augustani"),

@@ -115,5 +115,3 @@ fac_zoroastrians = 113
 fac_zurvanism = 114
 fac_jews = 115
 fac_religion_end = 116
-
-

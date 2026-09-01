@@ -668,5 +668,3 @@ anim_unused_horse_anim_97 = 666
 anim_unused_horse_anim_98 = 667
 anim_unused_horse_anim_99 = 668
 anim_unused_horse_anim_100 = 669
-
-

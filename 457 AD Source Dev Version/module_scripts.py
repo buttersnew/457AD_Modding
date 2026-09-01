@@ -2522,6 +2522,7 @@ scripts = [
     #romano-berbers
     (call_script, "script_give_center_to_faction_aux", "p_town_34", "fac_kingdom_22"),
     (call_script, "script_give_center_to_faction_aux", "p_castle_39", "fac_kingdom_22"),
+    (call_script, "script_give_center_to_faction_aux", "p_castle_78", "fac_kingdom_22"), # Tingis
 
     #huns
     (call_script, "script_give_center_to_faction_aux", "p_town_44", "fac_kingdom_23"),
@@ -2581,7 +2582,6 @@ scripts = [
     (call_script, "script_give_center_to_faction_aux", "p_town_50", "fac_indigenoi"), # Tamdoult
     (call_script, "script_give_center_to_faction_aux", "p_castle_120", "fac_indigenoi"), #Rutubis by Tamdoult
     
-    (call_script, "script_give_center_to_faction_aux", "p_castle_78", "fac_indigenoi"), # Tingis
     (call_script, "script_give_center_to_faction_aux", "p_castle_79", "fac_indigenoi"), # Volubilis
 
     #Roman center organization - lords will get all surrounding area as well
@@ -2697,18 +2697,18 @@ scripts = [
     # indie-macenites town & castle assignment
     (party_set_slot, "p_town_50", slot_town_lord, "trp_indigenoi_macenites_king"),
     (party_add_leader, "p_town_50", "trp_indigenoi_macenites_king"),
-      (party_add_members, "p_town_50", "trp_arab_skirmisher", 100),
-      (party_add_members, "p_town_50", "trp_arab_tribesman", 200),
+	(party_add_members, "p_town_50", "trp_ferentarius_indiginae_africani", 300),
+	(party_add_members, "p_town_50", "trp_civis_armatura_mauri", 300),
 
     (party_set_slot, "p_castle_120", slot_town_lord, "trp_indigenoi_macenites_noble_1"),
     (party_add_leader, "p_castle_120", "trp_indigenoi_macenites_noble_1"),
-      (party_add_members, "p_castle_120", "trp_arab_skirmisher", 100),
-      (party_add_members, "p_castle_120", "trp_arab_tribesman", 200),
+	(party_add_members, "p_castle_120", "trp_ferentarius_indiginae_africani", 150),
+	(party_add_members, "p_castle_120", "trp_civis_armatura_mauri", 150),
 
     (party_set_slot, "p_castle_79", slot_town_lord, "trp_indigenoi_macenites_noble_2"),
     (party_add_leader, "p_castle_79", "trp_indigenoi_macenites_noble_2"),
-      (party_add_members, "p_castle_79", "trp_arab_skirmisher", 100),
-      (party_add_members, "p_castle_79", "trp_arab_tribesman", 200),
+	(party_add_members, "p_castle_79", "trp_ferentarius_indiginae_africani", 150),
+	(party_add_members, "p_castle_79", "trp_civis_armatura_mauri", 150),
 
     #Now give towns to great lords
     ##diplomacy+ notes added, otherwise unchanged
@@ -11907,6 +11907,10 @@ scripts = [
       (call_script, "script_set_trade_route_between_centers", "p_town_49", "p_town_40"), #Tarraco
       (call_script, "script_set_trade_route_between_centers", "p_town_49", "p_town_41"), #Ephesus
       (call_script, "script_set_trade_route_between_centers", "p_town_49", "p_town_46"), #Thabudeos
+
+      (call_script, "script_set_trade_route_between_centers", "p_town_50", "p_town_46"), #Thabudeos
+      (call_script, "script_set_trade_route_between_centers", "p_town_50", "p_town_49"), #Leptis Magna
+      (call_script, "script_set_trade_route_between_centers", "p_town_50", "p_town_34"), #Valtava
 	]),
 
 
@@ -12942,6 +12946,13 @@ scripts = [
       (party_set_slot,"p_town_49", slot_town_arena_melee_2_team_size,   4),
       (party_set_slot,"p_town_49", slot_town_arena_melee_3_num_teams,   2),
       (party_set_slot,"p_town_49", slot_town_arena_melee_3_team_size,   6),
+
+      (party_set_slot,"p_town_50", slot_town_arena_melee_1_num_teams,   4),
+      (party_set_slot,"p_town_50", slot_town_arena_melee_1_team_size,   3),
+      (party_set_slot,"p_town_50", slot_town_arena_melee_2_num_teams,   3),
+      (party_set_slot,"p_town_50", slot_town_arena_melee_2_team_size,   4),
+      (party_set_slot,"p_town_50", slot_town_arena_melee_3_num_teams,   2),
+      (party_set_slot,"p_town_50", slot_town_arena_melee_3_team_size,   6),
 	]),
 
 	("initialize_banner_info",
@@ -13547,6 +13558,8 @@ scripts = [
     (party_set_slot, "p_town_49", slot_center_fishing_fleet, 20),
     (party_set_slot, "p_town_49", slot_center_breweries, 5),
 
+    (party_set_slot, "p_town_50", slot_center_breweries, 20),
+
     (try_for_range, ":village_no", villages_begin, villages_end),
         (store_random_in_range, ":rand", 0, 2), ##silver smithies
 		    (party_set_slot, ":village_no", slot_center_silver_deposits, ":rand"),
@@ -13899,6 +13912,10 @@ scripts = [
             (party_set_slot, ":village_no", slot_center_acres_dates, 9000),
             (party_set_slot, ":village_no", slot_center_head_sheep, 170),
             (party_set_slot, ":village_no", slot_center_salt_pans, 2),
+        (else_try),
+            (party_slot_eq, ":village_no", slot_village_market_town, "p_town_50"),
+            (party_set_slot, ":village_no", slot_center_acres_grain, 5500),
+            (party_set_slot, ":village_no", slot_center_head_cattle, 210),
         (try_end),
     (try_end),
 
@@ -47095,6 +47112,11 @@ scripts = [
     (party_set_slot, "p_village_298", slot_center_volunteer_troop_type, "trp_phinnoi_warrior"),
     (party_set_slot, "p_village_299", slot_center_volunteer_troop_type, "trp_phinnoi_warrior"),
     (party_set_slot, "p_village_300", slot_center_volunteer_troop_type, "trp_phinnoi_warrior"),
+    (party_set_slot, "p_village_304", slot_center_volunteer_troop_type, "trp_civis_armatura_mauri"),
+    (party_set_slot, "p_village_305", slot_center_volunteer_troop_type, "trp_civis_armatura_mauri"),
+    (party_set_slot, "p_village_306", slot_center_volunteer_troop_type, "trp_civis_armatura_mauri"),
+    (party_set_slot, "p_village_307", slot_center_volunteer_troop_type, "trp_civis_armatura_mauri"),
+    (party_set_slot, "p_village_308", slot_center_volunteer_troop_type, "trp_civis_armatura_mauri"),
 ]),
 
   #script_update_volunteer_troops_in_towns_castles
@@ -99537,10 +99559,15 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 		(display_message, "@{s1} has disbanded."),
 		(call_script, "script_remove_hero_prisoners", ":party_no"),
 		(remove_party, ":party_no"),
+			(try_begin),
+			(gt, ":faction_leader", 0),
+			(neq, ":troop_no", ":faction_leader"),
+			(call_script, "script_troop_change_relation_with_troop", ":troop_no", ":faction_leader", -200),
+			(try_end),
 		(else_try),
 		(gt, ":faction_leader", 0),
 		(neq, ":troop_no", ":faction_leader"),
-		(call_script, "script_troop_change_relation_with_troop", ":troop_no", ":faction_leader", -50),
+		(call_script, "script_troop_change_relation_with_troop", ":troop_no", ":faction_leader", -200),
 		(try_end),
 	(try_end),
 (try_end),
@@ -103572,6 +103599,13 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
         	(assign, ":pt_a", "pt_culture_20_reinforcements_a"),
         	(assign, ":pt_b", "pt_culture_20_reinforcements_b"),
         	(assign, ":pt_c", "pt_culture_20_reinforcements_c"),
+		(else_try),
+		(this_or_next|eq, ":center_no", "p_castle_78"),
+		(this_or_next|eq, ":center_no", "p_castle_79"),
+		(eq, ":center_no", "p_castle_120"),
+        	(assign, ":pt_a", "pt_kingdom_11_reinforcements_a"),
+        	(assign, ":pt_b", "pt_kingdom_11_reinforcements_b"),
+        	(assign, ":pt_c", "pt_kingdom_11_reinforcements_c"),
 		(try_end),
 	(try_end),
 

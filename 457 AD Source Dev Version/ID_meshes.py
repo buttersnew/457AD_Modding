@@ -753,5 +753,3 @@ mesh_nvl_ui_ship_a_sail = 751
 mesh_vc_menu_board = 752
 mesh_ship_menu_tab1 = 753
 mesh_ship_menu_tab2 = 754
-
-

@@ -19702,13 +19702,24 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 
   (
     "notification_village_raid_started",0,
-    "Your Village is under Attack!^^{s2} of {s3} is laying waste to {s1}.",
+    "Your Village is under Attack!^^{s2}.",
     "none",
     [
-      (str_store_party_name, s1, "$g_notification_menu_var1"),
-      (str_store_troop_name, s2, "$g_notification_menu_var2"),
-      (store_troop_faction, ":troop_faction", "$g_notification_menu_var2"),
-      (str_store_faction_name, s3, ":troop_faction"),
+	(try_begin),
+	(troop_is_hero, "$g_notification_menu_var2"),
+      	(str_store_party_name, s1, "$g_notification_menu_var1"),
+      	(str_store_troop_name, s2, "$g_notification_menu_var2"),
+      	(store_troop_faction, ":troop_faction", "$g_notification_menu_var2"),
+      	(str_store_faction_name, s3, ":troop_faction"),
+	(str_store_string, s2, "@{s2} of {s3} is laying waste to {s1}"),
+	(else_try),
+      	(str_store_party_name, s1, "$g_notification_menu_var1"),
+      	(str_store_troop_name_plural, s2, "$g_notification_menu_var2"),
+      	(store_troop_faction, ":troop_faction", "$g_notification_menu_var2"),
+      	(str_store_faction_name, s3, ":troop_faction"),
+	(str_store_string, s2, "@{s2} are laying waste to {s1}"),
+	(try_end),
+
       (set_fixed_point_multiplier, 100),
       (position_set_x, pos0, 62),
       (position_set_y, pos0, 30),
@@ -21604,6 +21615,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         (store_mul, reg40, reg0, 8000),
         (call_script, "script_count_parties_of_faction_and_party_type", "$g_notification_menu_var2", spt_castle),
         (val_mul, reg0, 4000),
+        (val_add, reg40, reg0), #madsci bug fix
       ],
     [
         ("tribute",[],"Demand a tribute of {reg40} siliquae.",
@@ -25899,9 +25911,14 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     ]),
 
   ("attila_sword_location",0,
-    "You have found the grove that Ildico has told you about. As you look around for the sword, you see a familiar figure approach you.",
+    "{s5}",
     "none",
     [
+(str_store_string, s5, "@You have found the grove that Ildico has told you about."),
+(try_begin),
+(eq,"$sword_found",0),(quest_slot_eq,"qst_sword_of_mars",slot_quest_current_state, 9),
+(str_store_string, s5, "@{s5} As you look around for the sword, you see a familiar figure approach you."),
+(try_end),
       (try_begin),
         (store_troop_health, ":health", "trp_player", 0), #get relative health in 1-100 range and put it into the ":health" variable
         (lt, ":health", 30),
@@ -25920,7 +25937,12 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       (change_screen_mission),
     ]),
 
-     ("leave",[],"Leave",[(leave_encounter),(change_screen_return)]),
+     ("leave",[],"Leave",[
+(try_begin),
+(neg|check_quest_active, "qst_sword_of_mars"),
+(disable_party, "p_attila_sword_location"),  #madsci bug fix
+(try_end),
+(leave_encounter),(change_screen_return)]),
     ]),
 
   ("abandoned_mithraic_temple",0,
@@ -35366,6 +35388,33 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         ]
       ),
     ]
+  ),
+
+  (
+    "notification_village_raid_started_party",0,
+    "Your Village is under Attack!^^{s2}.",
+    "none",
+    [
+	(try_begin),
+      	(str_store_party_name, s1, "$g_notification_menu_var1"),
+      	(str_store_party_name, s2, "$g_notification_menu_var2"),
+	(str_store_string, s2, "@{s2} are laying waste to {s1}"),
+	(try_end),
+	(try_begin),
+	(party_stack_get_troop_id, ":leader", "$g_notification_menu_var2", 0),
+	(gt, ":leader", 0),
+      	(set_fixed_point_multiplier, 100),
+      	(position_set_x, pos0, 62),
+      	(position_set_y, pos0, 30),
+      	(position_set_z, pos0, 170),
+      	(set_game_menu_tableau_mesh, "tableau_center_note_mesh", ":leader", pos0),
+	(try_end),
+      ],
+    [
+      ("continue",[],"Continue...",
+       [(change_screen_return),
+        ]),
+     ]
   ),
 
 ]#end of file

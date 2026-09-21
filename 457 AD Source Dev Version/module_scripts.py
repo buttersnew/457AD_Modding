@@ -48859,7 +48859,7 @@ scripts = [
         (party_template_get_slot, ":bandit_lair_party", "pt_baltic_bandits", slot_party_template_lair_party),
         (gt, ":bandit_lair_party", 1),
         (store_num_parties_of_template, ":num_parties", "pt_baltic_bandits"),
-        (le, ":num_parties", 10),
+        (le, ":num_parties", 8),
         (set_spawn_radius, 30), #can spawn in the eastern baltics
         (spawn_around_party, "p_baltic_bandit_spawn_point", "pt_baltic_bandits"),
         (assign, ":spawned_party", reg0),
@@ -48872,7 +48872,7 @@ scripts = [
         (party_template_get_slot, ":bandit_lair_party", "pt_slavic_bandits", slot_party_template_lair_party),
         (gt, ":bandit_lair_party", 1),
         (store_num_parties_of_template, ":num_parties", "pt_slavic_bandits"),
-        (le, ":num_parties", 10),
+        (le, ":num_parties", 8),
         (set_spawn_radius, 30),
         (spawn_around_party, "p_town_47", "pt_slavic_bandits"), #niossum
         (assign, ":spawned_party", reg0),
@@ -48907,7 +48907,7 @@ scripts = [
         (party_template_get_slot, ":bandit_lair_party", "pt_sea_raiders", slot_party_template_lair_party),
         (gt, ":bandit_lair_party", 1),
         (store_num_parties_of_template, ":num_parties", "pt_sea_raiders"),
-        (le, ":num_parties", 16),
+        (le, ":num_parties", 14),
 
         (set_spawn_radius, 20), #continental germany
         (spawn_around_party, "p_sea_raider_spawn_point_1", "pt_sea_raiders"),
@@ -48921,7 +48921,7 @@ scripts = [
         (party_template_get_slot, ":bandit_lair_party", "pt_saxon_raiders", slot_party_template_lair_party),
         (gt, ":bandit_lair_party", 1),
         (store_num_parties_of_template, ":num_parties", "pt_saxon_raiders"),
-        (le, ":num_parties", 16),
+        (le, ":num_parties", 14),
         (set_spawn_radius, 20), #britian
         (spawn_around_party, "p_sea_raider_spawn_point_2", "pt_saxon_raiders"),
         (assign, ":spawned_party", reg0),
@@ -48950,7 +48950,7 @@ scripts = [
         (party_template_get_slot, ":bandit_lair_party", "pt_taiga_bandits", slot_party_template_lair_party),
         (gt, ":bandit_lair_party", 1),
         (store_num_parties_of_template, ":num_parties", "pt_taiga_bandits"),
-        (le, ":num_parties", 18),
+        (le, ":num_parties", 16),
 
         (store_random,":spawn_point",num_taiga_bandit_spawn_points),
         (val_add,":spawn_point","p_taiga_bandit_spawn_point"),
@@ -48966,7 +48966,7 @@ scripts = [
         (party_template_get_slot, ":bandit_lair_party", "pt_desert_bandits", slot_party_template_lair_party),
         (gt, ":bandit_lair_party", 1),
         (store_num_parties_of_template, ":num_parties", "pt_desert_bandits"),
-        (le, ":num_parties", 18),
+        (le, ":num_parties", 16),
 
         (store_random,":spawn_point",num_desert_bandit_spawn_points),
         (val_add,":spawn_point","p_desert_bandit_spawn_point"),
@@ -48982,7 +48982,7 @@ scripts = [
         (party_template_get_slot, ":bandit_lair_party", "pt_sabir_bandits", slot_party_template_lair_party),
         (gt, ":bandit_lair_party", 1),
         (store_num_parties_of_template, ":num_parties", "pt_sabir_bandits"),
-        (le, ":num_parties", 10),
+        (le, ":num_parties", 8),
 
         (store_random,":spawn_point",num_sabir_spawn_points),
         (val_add,":spawn_point","p_sabir_bandit_spawn_point"),

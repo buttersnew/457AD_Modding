@@ -23952,6 +23952,7 @@ convert_horse_props_to_living_horses,
             (display_message, "@You have lost the duel to Bigilas. He thinks you're dead...",color_good_news),
             (mission_cam_animate_to_screen_color, 0xFF000000, 3000),
             (call_script, "script_fail_quest", "qst_sword_of_mars"),
+		(disable_party, "p_attila_sword_location"),  #madsci bug fix
             (finish_mission,4),
           (else_try),
             (tutorial_message_set_background, 1),
@@ -23965,6 +23966,7 @@ convert_horse_props_to_living_horses,
             (assign,"$sword_found",3),
             (assign, "$ildico_companion", 1), #allows dialogue to recruit her
             (mission_cam_animate_to_screen_color, 0xFF000000, 3000),
+		(disable_party, "p_attila_sword_location"),  #madsci bug fix
             (finish_mission,4),
             (leave_encounter),
             (change_screen_return),

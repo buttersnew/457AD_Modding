@@ -5561,12 +5561,12 @@ Still I am sorry that I'll leave you soon. You must promise me, you'll come visi
 "What have you discovered?", "member_intel_liaison_results", []],
 
 [anyone|plyr, "member_intel_liaison", [],
-"It's time to pull you out. Let's leave town separately, but join me soon after", "close_window", [
+"It's time to pull you out. Let's leave town separately, but join me soon after!", "close_window", [
 (assign, "$npc_to_rejoin_party", "$g_talk_troop"),
 ]],
 
 [anyone|plyr, "member_intel_liaison", [],
-"You're doing good work. Stay here for a little longer", "close_window", []],
+"You're doing good work. Stay here for a little longer.", "close_window", []],
 
 
 
@@ -38977,6 +38977,13 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
 ],
    "You're not going anywhere. You'll be my prisoner now!", "freed_hero_answer_1",
    [
+(try_begin),
+(troop_get_slot, ":cur_prisoner_of_party", "$g_talk_troop", slot_troop_prisoner_of_party),
+(gt, ":cur_prisoner_of_party", 0),
+(party_is_active, ":cur_prisoner_of_party"),
+(party_remove_prisoners, ":cur_prisoner_of_party", "$g_talk_troop", 1), #madsci safeguard
+(try_end),
+     (troop_set_slot, "$g_talk_troop", slot_troop_prisoner_of_party, -1),
 (party_force_add_prisoners, "p_main_party", "$g_talk_troop", 1), #madsci bug fix
 (troop_set_slot, "$g_talk_troop", slot_troop_prisoner_of_party, "p_main_party"),
     ]],
@@ -38988,6 +38995,13 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
   [anyone|plyr,"freed_hero_answer", [],
    "You're free to go, {s65}.", "freed_hero_answer_2",
    [
+(try_begin),
+(troop_get_slot, ":cur_prisoner_of_party", "$g_talk_troop", slot_troop_prisoner_of_party),
+(gt, ":cur_prisoner_of_party", 0),
+(party_is_active, ":cur_prisoner_of_party"),
+(party_remove_prisoners, ":cur_prisoner_of_party", "$g_talk_troop", 1), #madsci safeguard
+(try_end),
+     (troop_set_slot, "$g_talk_troop", slot_troop_prisoner_of_party, -1),
 (troop_set_slot, "$g_talk_troop", slot_troop_prisoner_of_party, -1),
     ]],
 
@@ -39010,6 +39024,12 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
 ],
    "All right, I will join you.", "close_window",
    [
+(try_begin),
+(troop_get_slot, ":cur_prisoner_of_party", "$g_talk_troop", slot_troop_prisoner_of_party),
+(gt, ":cur_prisoner_of_party", 0),
+(party_is_active, ":cur_prisoner_of_party"),
+(party_remove_prisoners, ":cur_prisoner_of_party", "$g_talk_troop", 1), #madsci safeguard
+(try_end),
      (troop_set_slot, "$g_talk_troop", slot_troop_prisoner_of_party, -1),
      (call_script, "script_recruit_troop_as_companion", "$g_talk_troop"),
    ]],
@@ -39017,6 +39037,13 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
   [anyone,"freed_hero_answer_3", [],
    "No, I want to go on my own.", "close_window",
    [
+(try_begin),
+(troop_get_slot, ":cur_prisoner_of_party", "$g_talk_troop", slot_troop_prisoner_of_party),
+(gt, ":cur_prisoner_of_party", 0),
+(party_is_active, ":cur_prisoner_of_party"),
+(party_remove_prisoners, ":cur_prisoner_of_party", "$g_talk_troop", 1), #madsci safeguard
+(try_end),
+     (troop_set_slot, "$g_talk_troop", slot_troop_prisoner_of_party, -1),
     ]],
 
   [anyone,"start", [
@@ -50419,7 +50446,7 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
    "Ah, that old thing. Quite spectacular, isn't it? Been around since the tyrant, Nero. Well, I'll sell for 10,000 siliquae. However, if you do not wish to pay that much, I can give it to you if you complete a task for me...", "roman_landowner_talk_3", []],
 
   [trp_roman_landowner|plyr, "roman_landowner_talk_3", [(store_troop_gold,":money","trp_player"),(gt,":money",9999),],
-   "Fine, here's your 10,000 siliquae...", "roman_landowner_talk_pay_1", []],
+   "Fine, here's your 10,000 siliquae...", "roman_landowner_talk_pay_1", [(troop_remove_gold, "trp_player", 10000),(call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 10),]],
   [trp_roman_landowner, "roman_landowner_talk_pay_1", [],
    "Oh, thank you. The statue is yours, take it when you need it.", "close_window", [
     (quest_set_slot,"qst_mithras_statue_quest",slot_quest_current_state, 3), #finishing state, at 3
@@ -50454,7 +50481,7 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
    "Hello there. What do you need?", "roman_landowner_talk_normal_1", []],
 
   [trp_roman_landowner|plyr, "roman_landowner_talk_normal_1", [(store_troop_gold,":money","trp_player"),(gt,":money",9999),],
-   "I'll buy the statue, here's your 10,000 siliquae...", "roman_landowner_talk_normal_pay_1", []],
+   "I'll buy the statue, here's your 10,000 siliquae...", "roman_landowner_talk_normal_pay_1", [(troop_remove_gold, "trp_player", 10000),(call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 10),]],
   [trp_roman_landowner, "roman_landowner_talk_normal_pay_1", [],
    "Oh, thank you. The statue is yours, take it when you need it.", "close_window", [
     (quest_set_slot,"qst_mithras_statue_quest",slot_quest_current_state, 3), #finishing state, at 3
@@ -50462,12 +50489,13 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
    ]],
 
   [trp_roman_landowner|plyr, "roman_landowner_talk_normal_1", [(player_has_item,"itm_ivory"),],
-   "Here, I have your ivory", "roman_landowner_talk_normal_quest_1", []],
+   "Here, I have your ivory.", "roman_landowner_talk_normal_quest_1", []],
   [trp_roman_landowner, "roman_landowner_talk_normal_quest_1", [],
    "Oh, thank you. Finally, my wife can stop nagging me about this... The statue is yours, take it when you need it.", "close_window", [
     (quest_set_slot,"qst_mithras_statue_quest",slot_quest_current_state, 3), #finishing state, at 3
     (assign, "$g_mithras_statue_quest", 2), #will be used for peaceful option
     (troop_remove_item,"trp_player","itm_ivory"),
+	(call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 10),
    ]],
 
   [trp_roman_landowner|plyr, "roman_landowner_talk_normal_1", [],
@@ -50475,6 +50503,7 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
   [trp_roman_landowner, "roman_landowner_talk_normal_attack_1", [],
    "What? Over a statue? Guards, attack!", "close_window", [
     (quest_set_slot,"qst_mithras_statue_quest",slot_quest_current_state, 7), #attacking state
+(call_script, "script_change_player_relation_with_troop", "$g_talk_troop", -10),
    ]],
 
   [trp_roman_landowner|plyr, "roman_landowner_talk_normal_1", [],

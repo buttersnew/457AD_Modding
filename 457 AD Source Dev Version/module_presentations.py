@@ -8052,7 +8052,7 @@ presentations = [
 
 
             (party_set_banner_icon, "p_main_party", "icon_heraldic_banner_03"),
-            (party_set_banner_icon, ":leaded_party", "icon_heraldic_banner_03"),
+            #(party_set_banner_icon, ":leaded_party", "icon_heraldic_banner_03"), #madsci why is this here?
 
             # (assign, reg11, ":player_cur_banner_spr"),
             # (assign, reg12, ":selected_banner_spr"),
@@ -8088,6 +8088,7 @@ presentations = [
                   (troop_get_slot, ":cur_party", ":cur_troop", slot_troop_leaded_party),
                   (try_begin),
                     (gt, ":cur_party", 0),
+			(party_is_active, ":cur_party"),
                     #(party_set_banner_icon, ":cur_party", banner_map_icons_end_minus_one),
                     (party_set_banner_icon, ":cur_party", "icon_heraldic_banner_03"),
                   (try_end),
@@ -8098,6 +8099,7 @@ presentations = [
                   (troop_get_slot, ":cur_party", ":cur_troop", slot_troop_leaded_party),
                   (try_begin),
                     (gt, ":cur_party", 0),
+			(party_is_active, ":cur_party"),
                     #(party_set_banner_icon, ":cur_party", ":player_cur_banner_icon"),
                     (party_set_banner_icon, ":cur_party", "icon_heraldic_banner_03"),
                   (try_end),

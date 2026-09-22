@@ -48649,6 +48649,110 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
   (add_quest_note_from_sreg, "qst_agrippinus_quest", 4, "@Someone has been sending couriers to recruit mercenaries. Speaking to the domesticus (guild master) may reveal more information.",0),
   ]],
 
+  [anyone,"town_dweller_ask_rumor", [
+(party_get_slot, ":culture", "$current_town", slot_center_culture),
+(neq, "$background_answer_5", ":culture"),
+(store_random_in_range, ":rnd", 0, 5),
+(eq, ":rnd", 1),
+(party_get_slot, ":town_lord", "$g_encountered_party", slot_town_lord),
+(gt, ":town_lord", 0),
+], "You are not from these parts. Keep your hand off your knife and we shall have no trouble.", "town_dweller_talk",[]],
+
+  [anyone,"town_dweller_ask_rumor", [
+(eq, "$current_town", "p_town_24"),
+(neq, "$background_answer_5", "fac_culture_3"),
+(store_random_in_range, ":rnd", 0, 3),
+(eq, ":rnd", 1),
+], "Do not mock the old stones here. The dead of Londinium are older than your kingdom, likely.", "town_dweller_talk",[]],
+
+  [anyone,"town_dweller_ask_rumor", [
+(eq, "$current_town", "p_town_24"),
+(store_random_in_range, ":rnd", 0, 3),
+(eq, ":rnd", 1),
+], "Trade still comes through Londinium, though not like the old days. Tin, wool, slaves... whatever still sells.", "town_dweller_talk",[]],
+
+  [anyone,"town_dweller_ask_rumor", [
+(eq, "$current_town", "p_town_24"),
+(store_random_in_range, ":rnd", 0, 3),
+(eq, ":rnd", 1),
+], "There are Roman laws still written somewhere. Trouble is, few men can still read them.", "town_dweller_talk",[]],
+
+  [anyone,"town_dweller_ask_rumor", [
+(party_get_slot, ":culture", "$current_town", slot_center_culture),
+(eq, ":culture", "fac_culture_3"),
+(eq, "$background_answer_5", "fac_culture_3"),
+(store_random_in_range, ":rnd", 0, 5),
+(eq, ":rnd", 1),
+], "Londinium still stands, though half the villas beyond the walls rot completely empty. That counts for something these days, at least they are not ruins. The old emperors are gone from Britain, yet every petty lord still calls himself civilized. Hah. The Britons are a bunch of unwashed, uncouth foes of civilization.", "town_dweller_talk",[]],
+
+  [anyone,"town_dweller_ask_rumor", [
+(party_get_slot, ":culture", "$current_town", slot_center_culture),
+(eq, ":culture", "fac_culture_3"),
+(eq, "$background_answer_5", "fac_culture_3"),
+(store_random_in_range, ":rnd", 0, 5),
+(eq, ":rnd", 1),
+], "I heard news from Gaul. More towns burned, they say. Franks one year, Visigoths the next.", "town_dweller_talk",[]],
+
+  [anyone,"town_dweller_ask_rumor", [
+(eq, "$current_town", "p_iazyges_village"),
+(store_random_in_range, ":rnd", 0, 3),
+(eq, ":rnd", 1),
+], "The Huns are fierce, even more skilled horsemen than we are. I fear what will happen, maybe we ought to move north...", "town_dweller_talk",[]],
+
+  [anyone,"town_dweller_ask_rumor", [
+(this_or_next|eq, "$current_town", "p_town_8"),
+(eq, "$current_town", "p_town_13"),
+(store_random_in_range, ":rnd", 0, 3),
+(eq, ":rnd", 1),
+], "I heard a tax collector was properly beaten in the Subura. People have little patience left for levies they cannot pay. I am poorer than ever.", "town_dweller_talk",[]],
+
+  [anyone,"town_dweller_ask_rumor", [
+(this_or_next|eq, "$current_town", "p_town_8"),
+(eq, "$current_town", "p_town_13"),
+(store_random_in_range, ":rnd", 0, 3),
+(eq, ":rnd", 1),
+], "Some senators whisper that it is no longer Rome that rules, but generals behind the curtain. I say the Senate can burn for all I care, they have never cared for Rome, only for themselves.", "town_dweller_talk",[]],
+
+[anyone,"town_dweller_ask_rumor", [
+(party_get_slot, ":culture", "$current_town", slot_center_culture),
+(this_or_next|eq, ":culture", "fac_culture_12"),
+(eq, ":culture", "fac_culture_16"),
+(store_random_in_range, ":rnd", 0, 5),
+(eq, ":rnd", 1),
+], "The elders have got Roman coins stashed somewhere, I heard. True? hard to say but can't say it would be impossible.", "town_dweller_talk",[]],
+
+[anyone,"town_dweller_ask_rumor", [
+(party_get_slot, ":culture", "$current_town", slot_center_culture),
+(eq, ":culture", "fac_culture_6"),
+(neq, "$background_answer_5", "fac_culture_6"),
+(store_random_in_range, ":rnd", 0, 3),
+(eq, ":rnd", 1),
+], "Your merchants still come, though fewer now. Silk flows west, coinflows east… that much has not changed. The eastern raiders have not stopped attacking us.", "town_dweller_talk",[]],
+
+[anyone,"town_dweller_ask_rumor", [
+(party_get_slot, ":culture", "$current_town", slot_center_culture),
+(eq, ":culture", "fac_culture_6"),
+(eq, "$background_answer_5", "fac_culture_empire"),
+(store_random_in_range, ":rnd", 0, 3),
+(eq, ":rnd", 1),
+], "You Romans worship one god now, yes? Strange... here, the sacred fires still burn as they always have. We won't ever give it up.", "town_dweller_talk",[]],
+
+[anyone,"town_dweller_ask_rumor", [
+(party_get_slot, ":culture", "$current_town", slot_center_culture),
+(neq, ":culture", "fac_culture_empire"),
+(eq, "$background_answer_5", "fac_culture_empire"),
+(store_random_in_range, ":rnd", 0, 3),
+(eq, ":rnd", 1),
+], "Once, your people marched deep into our lands. Now, you send envoys and gifts, you are weak. That much is certain.", "town_dweller_talk",[]],
+
+[anyone,"town_dweller_ask_rumor", [
+(party_get_slot, ":culture", "$current_town", slot_center_culture),
+(neq, ":culture", "fac_culture_empire"),
+(eq, "$background_answer_5", ":culture"),
+(store_random_in_range, ":rnd", 0, 3),
+(eq, ":rnd", 1),
+], "Do not speak carelessly of kings or gods. Walls have ears in this city.", "town_dweller_talk",[]],
+
 
   [anyone,"town_dweller_ask_rumor", [
   (store_skill_level, reg0, "skl_persuasion", "trp_player"),
@@ -48662,6 +48766,11 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
                                      (val_add,  ":rumor_id", "$g_talk_agent"),
                                      (call_script, "script_get_rumor_to_s61", ":rumor_id"),
                                      (gt, reg0, 0)], "{s61}", "town_dweller_talk",[]],
+
+[anyone,"town_dweller_ask_rumor", [
+(store_random_in_range, ":rnd", 0, 5),
+(eq, ":rnd", 1),
+], "A man with a spear eats better than a man with books these days.", "town_dweller_talk",[]],
 
   [anyone,"town_dweller_ask_rumor", [], "I haven't heard anything interesting lately.", "town_dweller_talk",[]],
 

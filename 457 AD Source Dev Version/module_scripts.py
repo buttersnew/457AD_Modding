@@ -213,6 +213,8 @@ scripts = [
 	(assign, "$center_siege_check", walled_centers_begin),
 	(assign, "$black_river_reward", -1),
 	(assign, "$religious_donation", 0),
+	(assign, "$majorian_reforms", 0),
+	(assign, "$g_player_troop", "trp_player"),
 
     (options_set_battle_size, 0), #for slower pcs
 

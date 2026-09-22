@@ -29553,8 +29553,8 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       (str_store_string,s2,"@that one of your soldiers killed some of his livestock. He points to one of your officers, and says he was the one who did it"),
     (else_try),
       (eq, ":r", 1),
-      (str_store_string,s2,"@that one of your soldiers drunkenly assaulted him while stumbling through his farm. He points at one of your soldiers, and claims it was him who did it. \
-        He is known for being a drunkard, but denies assaulting him"),
+      (str_store_string,s2,"@that one of your soldiers drunkenly assaulted him while stumbling through his farm. He points at one of your soldiers, and claims it was him who did it. "+
+        "He is known for being a drunkard, but denies assaulting him"),
     (else_try),
       (eq, ":r", 2),
       (str_store_string,s2,"@that some of your men broke into his cellar and stole his wine"),
@@ -29687,10 +29687,309 @@ goods, and books will never be sold. ^^You can change some settings here freely.
           (display_message, "@Among the bodies, your men find 800 siliquae."),
           (call_script, "script_change_player_honor", -5),
           (troop_add_gold, "trp_player", 800),
-          (call_script, "script_change_troop_renown", "trp_player", -16),
+          (call_script, "script_change_troop_renown", "trp_player", -8),
           (change_screen_return, 0),
         ]),
     ]),
+
+  # 457 AD custom random events begin
+  # These events intentionally use only systems already present in this source:
+  # closest-center lookup, center relations/prosperity, honor, renown, morale,
+  # piety, party skills, existing troops/items, and money.
+
+  ( "event_22",menu_text_color(0xFF000000)|mnf_disable_all_keys, # requisition dispute
+    "Not far from {s2}, several farmers stop your column. They claim that men wearing your colors have been taking grain, bread, and fodder without payment. Your soldiers insist the countryside must support an army that protects it. The farmers ask you to judge the matter before tempers turn violent.",
+    "none",
+    [
+      (call_script, "script_get_closest_center", "p_main_party"),
+      (assign, "$g_457_event_center", reg0),
+      (str_store_party_name, s2, "$g_457_event_center"),
+    ],
+    [
+      ("choice_22_1",[(store_troop_gold,":money","trp_player"),(ge,":money",600)],"Pay the farmers a fair price and buy supplies (600 siliquae).",
+        [
+          (troop_remove_gold, "trp_player", 600),
+          (troop_add_items, "trp_player", "itm_grain", 1),
+          (troop_add_items, "trp_player", "itm_bread", 1),
+          (call_script, "script_change_player_relation_with_center", "$g_457_event_center", 3),
+          (call_script, "script_change_center_prosperity", "$g_457_event_center", 1),
+          (call_script, "script_change_player_honor", 1),
+          (call_script, "script_change_player_party_morale", 1),
+          (display_message, "@The farmers accept the money. Your quartermasters still get their supplies, but the locals leave praising your fairness."),
+          (change_screen_return, 0),
+        ]
+      ),
+      ("choice_22_2",[(party_get_skill_level,":leadership","p_main_party","skl_leadership"),(ge,":leadership",4)],"Forbid unauthorized foraging and punish the worst offenders. (Leadership)",
+        [
+          (call_script, "script_change_player_relation_with_center", "$g_457_event_center", 4),
+          (call_script, "script_change_player_honor", 1),
+          (call_script, "script_change_troop_renown", "trp_player", 2),
+          (call_script, "script_change_player_party_morale", -2),
+          (add_xp_as_reward, 250),
+          (display_message, "@A few soldiers grumble at the punishment, but the order is understood: your army will take only what you authorize."),
+          (change_screen_return, 0),
+        ]
+      ),
+      ("choice_22_3",[],"The army needs provisions. Requisition what is required.",
+        [
+          (troop_add_items, "trp_player", "itm_grain", 2),
+          (troop_add_items, "trp_player", "itm_bread", 1),
+          (call_script, "script_change_player_relation_with_center", "$g_457_event_center", -4),
+          (call_script, "script_change_center_prosperity", "$g_457_event_center", -2),
+          (call_script, "script_change_player_honor", -2),
+          (call_script, "script_change_player_party_morale", 2),
+          (display_message, "@Your men fill their sacks. The farmers can do little but watch, and word of the requisition will travel."),
+          (change_screen_return, 0),
+        ]
+      ),
+      ("choice_22_4",[],"Move the column on and leave the dispute unresolved.",
+        [
+          (call_script, "script_change_player_party_morale", -1),
+          (display_message, "@Neither side is satisfied, but the road soon puts the quarrel behind you."),
+          (change_screen_return, 0),
+        ]
+      ),
+    ]),
+
+  ( "event_23",menu_text_color(0xFF000000)|mnf_disable_all_keys, # broken bridge
+    "A delegation from {s2} leads you to a damaged stone bridge on the road. One arch has partly collapsed, forcing carts into a muddy ford. The locals say merchants have begun avoiding the route, but they lack the labor and money to rebuild it before the next rains.",
+    "none",
+    [
+      (call_script, "script_get_closest_center", "p_main_party"),
+      (assign, "$g_457_event_center", reg0),
+      (str_store_party_name, s2, "$g_457_event_center"),
+    ],
+    [
+      ("choice_23_1",[(store_troop_gold,":money","trp_player"),(ge,":money",1200)],"Pay local craftsmen to rebuild it properly (1200 siliquae).",
+        [
+          (troop_remove_gold, "trp_player", 1200),
+          (call_script, "script_change_center_prosperity", "$g_457_event_center", 3),
+          (call_script, "script_change_player_relation_with_center", "$g_457_event_center", 4),
+          (call_script, "script_change_player_honor", 1),
+          (call_script, "script_change_troop_renown", "trp_player", 2),
+          (display_message, "@Work begins at once. Traders will remember who restored the road when local authorities could not."),
+          (change_screen_return, 0),
+        ]
+      ),
+      ("choice_23_2",[(party_get_skill_level,":engineer","p_main_party","skl_engineer"),(ge,":engineer",4),(store_troop_gold,":money","trp_player"),(ge,":money",300)],"Have your engineers direct a cheaper repair (300 siliquae). (Engineer)",
+        [
+          (troop_remove_gold, "trp_player", 300),
+          (call_script, "script_change_center_prosperity", "$g_457_event_center", 4),
+          (call_script, "script_change_player_relation_with_center", "$g_457_event_center", 5),
+          (call_script, "script_change_troop_renown", "trp_player", 3),
+          (add_xp_as_reward, 600),
+          (display_message, "@Your men shore the weakened arch, redirect the water, and organize the villagers efficiently. The bridge is serviceable again at a fraction of the expected cost."),
+          (change_screen_return, 0),
+        ]
+      ),
+      ("choice_23_3",[],"Put the men to work for a day.",
+        [
+          (call_script, "script_change_center_prosperity", "$g_457_event_center", 2),
+          (call_script, "script_change_player_relation_with_center", "$g_457_event_center", 3),
+          (call_script, "script_change_player_party_morale", -4),
+          (call_script, "script_change_troop_renown", "trp_player", 1),
+          (display_message, "@By evening the worst damage is repaired. The locals cheer while your soldiers, covered in mud and lime, are considerably less enthusiastic."),
+          (change_screen_return, 0),
+        ]
+      ),
+      ("choice_23_4",[],"It is not your responsibility.",
+        [
+          (change_screen_return, 0),
+        ]
+      ),
+    ]),
+
+  ( "event_24",menu_text_color(0xFF000000)|mnf_disable_all_keys, # religious dispute
+    "Near {s2}, {s4}",
+    "none",
+    [
+      (call_script, "script_get_closest_center", "p_main_party"),
+      (assign, "$g_457_event_center", reg0),
+      (str_store_party_name, s2, "$g_457_event_center"),
+      (troop_get_slot, ":player_religion", "trp_player", slot_troop_religion),
+      (party_get_slot, ":center_religion", "$g_457_event_center", slot_center_religion),
+      (try_begin),
+        (eq, ":player_religion", ":center_religion"),
+        (str_store_string, s4, "@you find a crowd gathered around a small holy place. Two groups of worshippers accuse one another of impiety and improper rites. Stones have already been thrown, and both sides fall silent when your armed retinue approaches."),
+      (else_try),
+        (str_store_string, s4, "@local worshippers are confronting travellers who openly profess your own faith. The travellers call the local shrine an offense; the locals accuse them of insulting ancient custom. Stones have already been thrown, and both sides turn to you for judgment."),
+      (try_end),
+    ],
+    [
+      ("choice_24_1",[(store_skill_level,":persuasion","skl_persuasion","trp_player"),(ge,":persuasion",3)],"Hear both sides and force a compromise. (Persuasion)",
+        [
+          (call_script, "script_change_player_relation_with_center", "$g_457_event_center", 4),
+          (call_script, "script_change_player_honor", 2),
+          (call_script, "script_change_troop_renown", "trp_player", 2),
+          (val_add, "$piety", 1),
+          (add_xp_as_reward, 400),
+          (display_message, "@After a long argument, both groups accept rules for sharing the road and keeping the peace. Neither is pleased, which may be the surest sign of a workable settlement."),
+          (change_screen_return, 0),
+        ]
+      ),
+      ("choice_24_2",[(store_troop_gold,":money","trp_player"),(ge,":money",500)],"Give 500 siliquae to repair the damaged holy place.",
+        [
+          (troop_remove_gold, "trp_player", 500),
+          (call_script, "script_change_player_relation_with_center", "$g_457_event_center", 3),
+          (troop_get_slot, ":player_religion", "trp_player", slot_troop_religion),
+          (party_get_slot, ":center_religion", "$g_457_event_center", slot_center_religion),
+          (try_begin),
+            (eq, ":player_religion", ":center_religion"),
+            (val_add, "$piety", 4),
+            (display_message, "@The local faithful bless your generosity and set about repairing the damage."),
+          (else_try),
+            (call_script, "script_change_player_honor", 2),
+            (display_message, "@The locals are surprised that you protect a sanctuary not your own. The gesture earns considerable respect."),
+          (try_end),
+          (change_screen_return, 0),
+        ]
+      ),
+      ("choice_24_3",[(troop_get_slot,":player_religion","trp_player",slot_troop_religion),(party_get_slot,":center_religion","$g_457_event_center",slot_center_religion),(neq,":player_religion",":center_religion")],"Support the zealots of your own faith and order the locals aside.",
+        [
+          (val_add, "$piety", 3),
+          (call_script, "script_change_player_relation_with_center", "$g_457_event_center", -4),
+          (call_script, "script_change_troop_renown", "trp_player", 1),
+          (display_message, "@Your intervention ends the confrontation immediately, though resentment among the local worshippers is plain."),
+          (change_screen_return, 0),
+        ]
+      ),
+      ("choice_24_4",[],"Seize the offerings and disperse everyone.",
+        [
+          (call_script, "script_troop_add_gold", "trp_player", 700),
+          (call_script, "script_change_player_relation_with_center", "$g_457_event_center", -6),
+          (call_script, "script_change_center_prosperity", "$g_457_event_center", -1),
+          (call_script, "script_change_player_honor", -3),
+          (troop_get_slot, ":player_religion", "trp_player", slot_troop_religion),
+          (party_get_slot, ":center_religion", "$g_457_event_center", slot_center_religion),
+          (try_begin),
+            (eq, ":player_religion", ":center_religion"),
+            (val_sub, "$piety", 8),
+          (else_try),
+            (val_sub, "$piety", 2),
+          (try_end),
+          (display_message, "@Steel settles the theological question quickly. Your men collect the offerings while both groups curse you from a safe distance."),
+          (change_screen_return, 0),
+        ]
+      ),
+      ("choice_24_5",[],"Pass by. Their quarrel is not yours.",
+        [
+          (change_screen_return, 0),
+        ]
+      ),
+    ]),
+
+  ( "event_25",menu_text_color(0xFF000000)|mnf_disable_all_keys, # veterans of a lost army
+    "A dozen gaunt soldiers wait beside the road near {s2}. Their shields bear scraped-off emblems and their spokesman admits that their commander is dead, their pay chest gone, and their army scattered. They offer their swords to anyone who can feed them and give them a cause.",
+    "none",
+    [
+      (call_script, "script_get_closest_center", "p_main_party"),
+      (assign, "$g_457_event_center", reg0),
+      (str_store_party_name, s2, "$g_457_event_center"),
+    ],
+    [
+      ("choice_25_1",[(troops_can_join,5),(store_troop_gold,":money","trp_player"),(ge,":money",1000)],"Hire the best five of them (1000 siliquae).",
+        [
+          (troop_remove_gold, "trp_player", 1000),
+          (party_add_members, "p_main_party", "trp_mercenary_swordsman", 5),
+          (call_script, "script_change_player_party_morale", 2),
+          (display_message, "@Five veterans accept your terms, while the others leave to seek service elsewhere."),
+          (change_screen_return, 0),
+        ]
+      ),
+      ("choice_25_2",[(troops_can_join,5),(store_skill_level,":persuasion","skl_persuasion","trp_player"),(ge,":persuasion",4),(troop_get_slot,":renown","trp_player",slot_troop_renown),(ge,":renown",300),(store_troop_gold,":money","trp_player"),(ge,":money",400)],"Offer modest pay and a share of future victories (400 siliquae). (Persuasion, Renown 300)",
+        [
+          (troop_remove_gold, "trp_player", 400),
+          (party_add_members, "p_main_party", "trp_mercenary_swordsman", 5),
+          (call_script, "script_change_troop_renown", "trp_player", 2),
+          (add_xp_as_reward, 350),
+          (display_message, "@Your reputation does much of the bargaining. The veterans agree that steady leadership is worth more than a heavy purse today."),
+          (change_screen_return, 0),
+        ]
+      ),
+      ("choice_25_3",[(store_troop_gold,":money","trp_player"),(ge,":money",300)],"Give them food money and send them toward {s2} as settlers (300 siliquae).",
+        [
+          (troop_remove_gold, "trp_player", 300),
+          (call_script, "script_change_player_relation_with_center", "$g_457_event_center", 3),
+          (call_script, "script_change_center_prosperity", "$g_457_event_center", 1),
+          (call_script, "script_change_player_honor", 1),
+          (display_message, "@You give them enough to eat and tell them there is work near {s2}. Several seem relieved to exchange campaigning for a roof and field."),
+          (change_screen_return, 0),
+        ]
+      ),
+      ("choice_25_4",[],"Disarm them and take what valuables remain.",
+        [
+          (call_script, "script_troop_add_gold", "trp_player", 450),
+          (call_script, "script_change_player_honor", -3),
+          (call_script, "script_change_troop_renown", "trp_player", -2),
+          (call_script, "script_change_player_relation_with_center", "$g_457_event_center", -1),
+          (display_message, "@Outnumbered and exhausted, the veterans submit. Your men strip them of coin and usable equipment before driving them from the road."),
+          (change_screen_return, 0),
+        ]
+      ),
+      ("choice_25_5",[],"Refuse them and continue on your way.",
+        [
+          (change_screen_return, 0),
+        ]
+      ),
+    ]),
+
+  ( "event_26",menu_text_color(0xFF000000)|mnf_disable_all_keys, # lost tax chest
+    "Your scouts find a dead courier beside the road to {s2}. His mule is gone, but a heavy iron-bound chest remains hidden in the reeds. The wax seals are intact and mark it as public revenue collected from the surrounding district. No escort is in sight.",
+    "none",
+    [
+      (call_script, "script_get_closest_center", "p_main_party"),
+      (assign, "$g_457_event_center", reg0),
+      (str_store_party_name, s2, "$g_457_event_center"),
+    ],
+    [
+      ("choice_26_1",[],"Return the chest unopened to the authorities in {s2}.",
+        [
+          (call_script, "script_change_player_relation_with_center", "$g_457_event_center", 4),
+          (call_script, "script_change_center_prosperity", "$g_457_event_center", 1),
+          (call_script, "script_change_player_honor", 3),
+          (call_script, "script_change_troop_renown", "trp_player", 2),
+          (display_message, "@The seals are verified and the chest is reclaimed. Officials in {s2} are astonished that every coin survived the journey."),
+          (change_screen_return, 0),
+        ]
+      ),
+      ("choice_26_2",[],"Return the chest, but take a reasonable finder's fee.",
+        [
+          (call_script, "script_troop_add_gold", "trp_player", 500),
+          (call_script, "script_change_player_relation_with_center", "$g_457_event_center", 2),
+          (call_script, "script_change_player_honor", 1),
+          (display_message, "@The officials grumble at your accounting, but the greater part of the revenue arrives safely and they have little appetite for an argument."),
+          (change_screen_return, 0),
+        ]
+      ),
+      ("choice_26_3",[],"Break the seal. You have more urgent needs than tax collectors.",
+        [
+          (call_script, "script_troop_add_gold", "trp_player", 2200),
+          (call_script, "script_change_player_relation_with_center", "$g_457_event_center", -4),
+          (call_script, "script_change_center_prosperity", "$g_457_event_center", -2),
+          (call_script, "script_change_player_honor", -5),
+          (call_script, "script_change_player_party_morale", 2),
+          (display_message, "@The chest contains a satisfying weight of silver. By the time anyone traces it to you, much of it will already have become wages and provisions."),
+          (change_screen_return, 0),
+        ]
+      ),
+      ("choice_26_4",[],"Distribute the revenue among nearby locals.",
+        [
+          (call_script, "script_change_player_relation_with_center", "$g_457_event_center", 6),
+          (call_script, "script_change_center_prosperity", "$g_457_event_center", 2),
+          (call_script, "script_change_player_honor", 3),
+          (val_add, "$piety", 3),
+          (display_message, "@The silver changes hands before sunset. The locals praise your generosity while the officials responsible for the missing revenue will be less impressed."),
+          (change_screen_return, 0),
+        ]
+      ),
+      ("choice_26_5",[],"Leave the chest where it lies.",
+        [
+          (change_screen_return, 0),
+        ]
+      ),
+    ]),
+
+  # 457 AD custom random events end
 
   ( "event_pilos_1",menu_text_color(0xFF000000)|mnf_disable_all_keys, #pilos monks
     "While you and your men are travelling, you pass a group of strange pilgrims, wearing bronze, pointed helmets. They claim they are heading to Ravenna, to meet the great Pilos.",
@@ -34201,6 +34500,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 ("haddingr_move_party",mnf_scale_picture|mnf_enable_hot_keys,
 "Should'nt be reading this. Quest state: {reg10}.",
 "none", [
+(quest_get_slot, reg10, "qst_haddingrs_revenge", slot_quest_current_state), #madsci this should help us understand the situation if it still doesnt work
     (try_begin),# moving from landing to aesti village
       (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 14),
       (enable_party, "p_haddingrs_revenge_raiding_camp"),
@@ -34411,6 +34711,9 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       # (leave_encounter),
       (change_screen_map),
     (else_try),
+      (quest_slot_eq, "qst_haddingrs_revenge", slot_quest_current_state, 31), #madsci potential bug fix
+      (change_screen_map),
+    (else_try),
       (quest_get_slot, reg10, "qst_haddingrs_revenge", slot_quest_current_state),
     (try_end),
   ],[
@@ -34608,7 +34911,8 @@ goods, and books will never be sold. ^^You can change some settings here freely.
   ],"To battle Dani champions!",[
     (quest_set_slot, "qst_haddingrs_revenge", slot_quest_current_state, 32),
 
-    (store_encountered_party, "$g_enemy_party"),
+    #(store_encountered_party, "$g_enemy_party"),
+	(assign,"$g_enemy_party", "p_haddingrs_revenge_raiding_camp"), #madsci maybe bugfix	
 
     (assign, "$g_ally_party", "p_dani_village"),
     (assign, ":scene_to_use", "scn_haddingrs_final_battle"),
@@ -35299,6 +35603,43 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 ]),
     ],
   ),
+
+("majorian_reforms",mnf_disable_all_keys|mnf_scale_picture,
+    "The Restoration Begins ^^Word comes from Ravenna that {s10} has begun to put the exhausted Western Empire in order. "+"Earlier in the year, old tax arrears that could no longer realistically be collected were struck from the rolls, and the office of defensor civitatis was revived so that townsmen might once again appeal against abuses by officials. "+"^^Now another imperial order has gone forth. The ancient public buildings of Rome are not to be stripped piecemeal for marble, brick, and stone. Structures that can still be saved are to be preserved and repaired, and magistrates who authorize their destruction face severe punishment. Across the Empire, city councils, craftsmen, and officials take notice. "+"^^The treasury remains strained, the frontiers are dangerous, and no decree can restore a century of lost strength overnight. Yet the tone from Ravenna is unmistakable: the imperial government is trying to do more than survive the next invasion. For the first time in years, men speak openly of restoration.",
+    "none",
+    [
+(str_store_troop_name, s10, "trp_kingdom_1_lord"),
+      (set_fixed_point_multiplier, 100),
+      (position_set_x, pos0, 70),
+      (position_set_y, pos0, 5),
+      (position_set_z, pos0, 75),
+      (set_game_menu_tableau_mesh, "tableau_troop_note_mesh", "trp_kingdom_1_lord", pos0),
+      (str_store_troop_name, s10, "trp_kingdom_1_lord"),
+    ],
+    [
+      ("continue",[],"The West stirs once more.",[
+        (jump_to_menu, "mnu_auto_return_to_map"),
+      ]),
+    ],
+),
+
+    ("flavour_britain_after_rome",mnf_disable_all_keys|mnf_scale_picture,
+      "Britain Without Rome "+"^^Across the narrow sea, Britain lives on without an emperor's officials, tax collectors, or regular field armies. Roman government withdrew within living memory, but Roman Britain did not vanish in a single night. Towns, Christian communities, old landed families, and men who still think in Roman political terms endure among a landscape of competing British rulers and growing Saxon, Angle, and Jutish settlements. Resistance in Britain is not simply a war of one people against another, but a struggle over what, if anything, can be preserved from the island's Roman past. "+"^^On this distant frontier, an old identity is becoming something new.",
+      "none",
+      [
+        (set_fixed_point_multiplier, 100),
+        (position_set_x, pos0, 70),
+        (position_set_y, pos0, 5),
+        (position_set_z, pos0, 75),
+        (set_game_menu_tableau_mesh, "tableau_troop_note_mesh", "trp_kingdom_13_lord", pos0),
+        (str_store_troop_name, s10, "trp_kingdom_13_lord"),
+      ],
+      [
+        ("continue",[],"Britain remembers Rome, even as it becomes something else.",[
+          (jump_to_menu, "mnu_auto_return_to_map"),
+        ]),
+      ],
+    ),
 
 ("barbarian_attacks",mnf_disable_all_keys|mnf_scale_picture,
     "Trouble in the West! ^^The empire trembles on the edge of chaos. {s11} feels the weight of history on his shoulders, as centuries of Roman authority falter before the relentless tide of barbarian ambition.",

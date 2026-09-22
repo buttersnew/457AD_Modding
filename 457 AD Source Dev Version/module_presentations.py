@@ -7996,36 +7996,9 @@ presentations = [
         (set_container_overlay, -1),
         (presentation_set_duration, 999999),
 
-        # ####### mouse fix pos system #######
-        # (call_script, "script_mouse_fix_pos_ready"),
-        # ####### mouse fix pos system #######
         ]),
       (ti_on_presentation_event_state_change,
        [(store_trigger_param_1, ":object"),
-        # (try_begin),
-          # (eq, ":object", "$g_presentation_obj_banner_selection_1"),
-          # (val_add, "$g_presentation_page_no", 1),
-          # (val_mod, "$g_presentation_page_no", 9), ## CC
-          # (start_presentation, "prsnt_banner_selection"),
-        # (else_try),
-          ## CC give back the lord's banner ($g_troop_take_back_banner)
-          # (try_begin),
-            # (gt, "$lord_selected", 0),
-            # (troop_get_slot, ":player_cur_banner_spr", "trp_player", slot_troop_banner_scene_prop),
-            # (troop_set_slot, "$lord_selected", slot_troop_banner_scene_prop, ":player_cur_banner_spr"),
-            # (store_sub, ":cur_banner", ":player_cur_banner_spr", banner_scene_props_begin),
-            # (val_add, ":cur_banner", banner_map_icons_begin),
-            # (try_begin),
-              # (troop_get_slot, ":cur_party", "$lord_selected", slot_troop_leaded_party),
-              # (gt, ":cur_party", 0),
-              # (party_set_banner_icon, ":cur_party", ":cur_banner"),
-            # (try_end),
-            # (try_for_range, ":cur_center", walled_centers_begin, walled_centers_end),
-              # (party_slot_eq, ":cur_center", slot_town_lord, "$lord_selected"),
-              # (party_set_banner_icon, ":cur_center", ":cur_banner"),
-            # (try_end),
-          # (try_end),
-          # ## CC
           #SB : store this before change
           (troop_get_slot, ":player_cur_banner_spr", "trp_player", slot_troop_banner_scene_prop),
           (store_sub, ":player_cur_banner_icon", ":player_cur_banner_spr", banner_scene_props_begin),
@@ -8050,22 +8023,8 @@ presentations = [
             (store_add, ":selected_banner_spr", ":selected_banner", banner_scene_props_begin),
             (troop_set_slot, "$g_player_troop", slot_troop_banner_scene_prop, ":selected_banner_spr"),
 
-
-            (party_set_banner_icon, "p_main_party", "icon_heraldic_banner_03"),
+            #(party_set_banner_icon, "p_main_party", "icon_heraldic_banner_03"),
             #(party_set_banner_icon, ":leaded_party", "icon_heraldic_banner_03"), #madsci why is this here?
-
-            # (assign, reg11, ":player_cur_banner_spr"),
-            # (assign, reg12, ":selected_banner_spr"),
-            # (display_message, "@player had {reg11} now using {reg12}"),
-            #Correcting banners according to the player banner
-            #(assign, ":end_cond", active_npcs_end),
-            #(try_for_range, ":cur_troop", original_kingdom_heroes_begin, ":end_cond"),
-            #  (troop_slot_eq, ":cur_troop", slot_troop_banner_scene_prop, ":selected_banner_spr"),
-            #  (str_store_troop_name, s7, ":cur_troop"),
-            #  (display_message, "@DEBUGS : {s7}'s banner is changed"),
-            #  (troop_set_slot, ":cur_troop", slot_troop_banner_scene_prop, banner_scene_props_end_minus_one),
-            #  (assign, ":end_cond", 0),
-            #(try_end),
 
             (try_begin),
               (gt, "$g_presentation_next_presentation", 0),

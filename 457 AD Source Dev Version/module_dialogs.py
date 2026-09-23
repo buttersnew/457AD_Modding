@@ -34935,21 +34935,21 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
 	  (this_or_next|eq, "$random_quest_no", "qst_lend_surgeon"), #so far only for quest lend surgeon
 		(eq, 2, 1),
     ],
-   "Before you go, {playername}, I have something to ask of you... We may be enemies in this war,\
- but I pray that you believe, as I do, that we can still be civil towards each other.\
- Thus I hoped that you would be kind enough to assist me in something important to me.", "lord_leave_give_quest",[]],
+   "Before you go, {playername}, I have something to ask of you... We may be enemies in this war, "+
+ "but I pray that you believe, as I do, that we can still be civil towards each other. "+
+ "Thus I hoped that you would be kind enough to assist me in something important to me.", "lord_leave_give_quest",[]],
 
   [anyone|plyr,"lord_leave_give_quest", [],
    "I am listening.", "enemy_lord_tell_mission",[]],
 
 
   [anyone,"enemy_lord_tell_mission", [(eq,"$random_quest_no","qst_lend_surgeon")],
-   "I have a friend here, an old warrior, who is very sick. Pestilence has infected an old battle wound,\
- and unless he is seen to by a surgeon soon,  he will surely die. This man is dear to me, {playername},\
- but he's also stubborn as a hog and refuses to have anyone look at his injury because he doesn't trust the physicians here.\
- I have heard that you've a capable surgeon with you. If you would let your surgeon come here and have a look,\
- {reg3?she:he} may be able to convince him to give his consent to an operation.\
- Please, I will be deeply indebted to you if you grant me this request.", "lord_mission_told",
+   "I have a friend here, an old warrior, who is very sick. Pestilence has infected an old battle wound, "+
+ "and unless he is seen to by a surgeon soon,  he will surely die. This man is dear to me, {playername}, "+
+ "but he's also stubborn as a hog and refuses to have anyone look at his injury because he doesn't trust the physicians here. "+
+ "I have heard that you've a capable surgeon with you. If you would let your surgeon come here and have a look, "+
+ "{reg3?she:he} may be able to convince him to give his consent to an operation. "+
+ "Please, I will be deeply indebted to you if you grant me this request.", "lord_mission_told",
    [
      (quest_get_slot, ":quest_object_troop", "$random_quest_no", slot_quest_object_troop),
      (str_store_troop_name_link, s1,"$g_talk_troop"),
@@ -37371,7 +37371,15 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
    "{s9}", "lady_pretalk",
    []],
 
-
+  [anyone,"lady_profess_admiration", [
+(eq,"$background_type", cb_priest),
+(neq,"$background_answer_4", slot_religion_paganism),
+(faction_get_slot, ":faction_leader", "$g_talk_troop_faction",slot_faction_leader),
+(gt, ":faction_leader", 0), #not the player
+  ],
+   "But what about your holy vows, {playername}?", "lady_pretalk",
+   [(troop_set_slot, "$g_talk_troop", slot_troop_courtship_state, 2),
+   ]],
 
   [anyone,"lady_profess_admiration", [
 	(call_script, "script_troop_get_relation_with_troop", "$g_talk_troop", "trp_player"),

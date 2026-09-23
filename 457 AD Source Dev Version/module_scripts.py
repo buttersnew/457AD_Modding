@@ -92467,10 +92467,10 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
         (eq,"$background_type", cb_priest),
         (val_add, ":charisma", 1),
         (val_add, ":intelligence", 1),
-        (val_add, ":skill_persuasion", 3),
+        (val_add, ":skill_persuasion", 2),
         (val_add, ":skill_woundtreatment", 1),
-        (val_add, ":gold", 180),
-        (val_add, ":renown", 75),
+        (val_add, ":gold", 80),
+        (val_add, ":renown", 25),
     (try_end),
 
     (try_begin), #Early life

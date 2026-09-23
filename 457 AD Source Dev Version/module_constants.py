@@ -1272,6 +1272,7 @@ slot_troop_stance_on_faction_issue         = 154 #when it happened
 
 slot_troop_military_title                  = 155 #unique military title, allows for lord to have unique (stronger) party template
 slot_troop_honorary_title				   = 156 #honorary title for roman/post roman areas
+slot_troop_457_coup_support = 157
 
 #shared between ERE + WRE
 mt_domestici = 1 #Comes Domesticorum

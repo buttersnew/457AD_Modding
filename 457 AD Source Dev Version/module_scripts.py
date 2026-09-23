@@ -41655,6 +41655,11 @@ scripts = [
         	(remove_party, ":party"),
 		(try_end),
       (else_try),
+        (eq, ":quest_no", "qst_depose_faction_ruler"),
+        (assign, ":quest_return_penalty", -5),
+        (assign, ":quest_expire_penalty", -8),
+        (call_script, "script_457_coup_clear_support_flags"),
+      (else_try),
         (ge, ":quest_no", "qst_resolve_dispute"),
         (assign, ":authority_loss", -2),
         (assign, ":quest_return_penalty", 0),
@@ -103840,6 +103845,216 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
       (try_end),
   (try_end),
   ]),
+
+    ("cf_457_coup_faction_is_eligible",
+     [
+        (store_script_param, ":faction_no", 1),
+        (store_script_param, ":proposer", 2),
+
+        (is_between, ":faction_no", npc_kingdoms_begin, npc_kingdoms_end),
+        (faction_slot_eq, ":faction_no", slot_faction_state, sfs_active),
+
+        (faction_get_slot, ":old_leader", ":faction_no", slot_faction_leader),
+        (gt, ":old_leader", 0),
+        (troop_slot_eq, ":old_leader", slot_troop_occupation, slto_kingdom_hero),
+        (neq, ":proposer", ":old_leader"),
+
+        (store_faction_of_troop, ":proposer_faction", ":proposer"),
+        (eq, ":proposer_faction", ":faction_no"),
+        (troop_slot_eq, ":proposer", slot_troop_occupation, slto_kingdom_hero),
+
+        # madsci need at least the proposer and one other lord.
+        (assign, ":eligible_lords", 0),
+        (try_for_range, ":lord", active_npcs_begin, active_npcs_end),
+            (troop_slot_eq, ":lord", slot_troop_occupation, slto_kingdom_hero),
+            (neq, ":lord", ":old_leader"),
+            (store_faction_of_troop, ":lord_faction", ":lord"),
+            (eq, ":lord_faction", ":faction_no"),
+            (val_add, ":eligible_lords", 1),
+        (try_end),
+
+        (ge, ":eligible_lords", 2),
+        (assign, reg0, ":eligible_lords"),
+     ]),
+
+    ("457_coup_clear_support_flags",
+     [
+        (try_for_range, ":hero", active_npcs_begin, active_npcs_end),
+            (troop_set_slot, ":hero", slot_troop_457_coup_support, 0),
+        (try_end),
+     ]),
+
+    ("457_coup_register_support",
+     [
+        (store_script_param, ":supporter", 1),
+
+        (try_begin),
+        (check_quest_active, "qst_depose_faction_ruler"),
+            (troop_slot_eq, ":supporter", slot_troop_457_coup_support, 0),
+
+            (troop_set_slot, ":supporter", slot_troop_457_coup_support, 1),
+
+            (quest_get_slot, ":support_count", "qst_depose_faction_ruler", slot_quest_target_amount),
+            (val_add, ":support_count", 1),
+            (quest_set_slot, "qst_depose_faction_ruler", slot_quest_target_amount, ":support_count"),
+
+            (quest_get_slot, ":required", "qst_depose_faction_ruler", slot_quest_temp_slot),
+
+            (assign, reg10, ":support_count"),
+            (assign, reg11, ":required"),
+
+            (try_begin),
+                (ge, ":support_count", ":required"),
+                (quest_set_slot, "qst_depose_faction_ruler", slot_quest_current_state, 1),
+
+                (quest_get_slot, ":proposer", "qst_depose_faction_ruler", slot_quest_giver_troop),
+                (quest_get_slot, ":old_leader", "qst_depose_faction_ruler", slot_quest_target_troop),
+                (str_store_troop_name, s4, ":proposer"),
+                (str_store_troop_name, s5, ":old_leader"),
+
+                (add_quest_note_from_sreg, "qst_depose_faction_ruler", 3, "@Enough lords have pledged themselves to the conspiracy. Return to {s4}. If the council holds together, {s5}'s rule can now be challenged.", 0),
+
+                (display_message,
+                 "@{reg10} lords have pledged support. Return to the conspirator."),
+		(else_try),
+            (display_message, "@Noble support for the conspiracy is {reg10} out of required {reg11}."),
+            (try_end),
+        (try_end),
+     ]),
+
+    ("457_install_new_faction_leader",
+     [
+        (store_script_param, ":faction_no", 1),
+        (store_script_param, ":new_leader", 2),
+        (store_script_param, ":old_leader", 3),
+        (store_script_param, ":exile_old", 4),
+
+        (faction_get_slot, ":actual_leader", ":faction_no", slot_faction_leader),
+
+        (try_begin),
+            (eq, ":actual_leader", ":old_leader"),
+            (faction_slot_eq, ":faction_no", slot_faction_state, sfs_active),
+
+            (faction_get_slot, ":old_marshall", ":faction_no", slot_faction_marshall),
+
+            (troop_set_faction, ":new_leader", ":faction_no"),
+            (troop_set_slot, ":new_leader", slot_troop_occupation, slto_kingdom_hero),
+            (troop_set_note_available, ":new_leader", 1),
+            (faction_set_slot, ":faction_no", slot_faction_leader, ":new_leader"),
+
+            # The coup closes whatever ordinary internal political issue was
+            # pending. Future issues can be generated normally.
+            (faction_set_slot, ":faction_no", slot_faction_political_issue, 0),
+            (faction_set_slot, ":faction_no", slot_faction_political_issue_time, 0),
+
+            # If the deposed ruler was marshal, put the new ruler in command.
+            (try_begin),
+                (eq, ":old_marshall", ":old_leader"),
+                (call_script, "script_appoint_faction_marshall", ":faction_no", ":new_leader"),
+            (try_end),
+
+            # Reward supporters politically. This also helps prevent the new
+            # ruler from immediately starting with terrible relations.
+            (try_for_range, ":lord", heroes_begin, heroes_end),
+                (troop_slot_eq, ":lord", slot_troop_457_coup_support, 1),
+                (store_faction_of_troop, ":lord_faction", ":lord"),
+                (eq, ":lord_faction", ":faction_no"),
+                (neq, ":lord", ":new_leader"),
+                (call_script, "script_troop_change_relation_with_troop", ":new_leader", ":lord", 25),
+            (try_end),
+
+            (try_begin),
+                (eq, ":exile_old", 1),
+
+		(set_show_messages, 0),
+                (try_for_range, ":center", centers_begin, centers_end),
+                    (party_slot_eq, ":center", slot_town_lord, ":old_leader"),
+                    (call_script, "script_give_center_to_lord", ":center", ":new_leader", 0),
+                (try_end),
+		(set_show_messages, 1),
+
+                (troop_get_slot, ":prison_party", ":old_leader", slot_troop_prisoner_of_party),
+                (try_begin),
+                    (ge, ":prison_party", 0),
+                    (call_script, "script_remove_troop_from_prison", ":old_leader"),
+                (try_end),
+
+                (troop_get_slot, ":old_party", ":old_leader", slot_troop_leaded_party),
+                (try_begin),
+                    (gt, ":old_party", 0),
+                    (party_is_active, ":old_party"),
+                    (call_script, "script_remove_hero_prisoners", ":old_party"),
+                    (remove_party, ":old_party"),
+                (try_end),
+
+                (troop_set_slot, ":old_leader", slot_troop_leaded_party, -1),
+                (troop_set_slot, ":old_leader", slot_troop_cur_center, -1),
+                (troop_set_slot, ":old_leader", slot_troop_occupation, dplmc_slto_dead),
+                (troop_set_faction, ":old_leader", "fac_outlaws"),
+                #(troop_set_note_available, ":old_leader", 0),
+
+                (call_script, "script_troop_change_relation_with_troop",":old_leader", "trp_player", -100),
+
+            (else_try),
+
+                (set_show_messages, 0),
+                (try_for_range, ":center", centers_begin, centers_end),
+                    (party_slot_eq, ":center", slot_town_lord, ":old_leader"),
+                    (call_script, "script_give_center_to_lord", ":center", ":new_leader", 0),
+                (try_end),
+		(set_show_messages, 1),
+
+                (troop_get_slot, ":prison_party", ":old_leader", slot_troop_prisoner_of_party),
+                (try_begin),
+                    (ge, ":prison_party", 0),
+                    (call_script, "script_remove_troop_from_prison", ":old_leader"),
+                (try_end),
+
+                (troop_get_slot, ":old_party", ":old_leader", slot_troop_leaded_party),
+                (try_begin),
+                    (gt, ":old_party", 0),
+                    (party_is_active, ":old_party"),
+                    (call_script, "script_remove_hero_prisoners", ":old_party"),
+                    (remove_party, ":old_party"),
+                (try_end),
+
+                (troop_set_slot, ":old_leader", slot_troop_leaded_party, -1),
+                (troop_set_slot, ":old_leader", slot_troop_cur_center, -1),
+                (troop_set_slot, ":old_leader", slot_troop_occupation, dplmc_slto_exile),
+                (troop_set_faction, ":old_leader", "fac_outlaws"),
+                #(troop_set_note_available, ":old_leader", 0),
+
+                (call_script, "script_troop_change_relation_with_troop",":old_leader", "trp_player", -100),
+
+		(else_try),
+                (troop_set_faction, ":old_leader", ":faction_no"),
+                (troop_set_slot, ":old_leader", slot_troop_occupation, slto_kingdom_hero),
+                (troop_set_slot, ":old_leader", slot_troop_controversy, 0),
+
+                (call_script, "script_troop_change_relation_with_troop",":old_leader", ":new_leader", -60),
+                (call_script, "script_troop_change_relation_with_troop", ":old_leader", "trp_player", -40),
+
+                (call_script, "script_troop_set_title_according_to_faction",":old_leader", ":faction_no"),
+            (try_end),
+
+            (call_script, "script_troop_set_title_according_to_faction", ":new_leader", ":faction_no"),
+
+            (str_store_troop_name, s4, ":old_leader"),
+            (str_store_troop_name, s5, ":new_leader"),
+            (str_store_faction_name, s6, ":faction_no"),
+            (faction_get_color, ":log_color", ":faction_no"),
+            (display_log_message, "@{s4} has been deposed. {s5} now rules {s6}.", ":log_color"),
+
+            (call_script, "script_457_coup_clear_support_flags"),
+            (call_script, "script_faction_recalculate_strength", ":faction_no"),
+            (call_script, "script_recalculate_ais_for_faction", ":faction_no"),
+            (call_script, "script_update_all_notes"),
+
+        (else_try),
+            # Failsafe: another event changed the ruler between dialogue lines.
+            (display_message, "@The deposition could not be completed because the faction's leadership changed before the coup was finalized.", message_alert),
+        (try_end),
+     ]),
 
 ]
 

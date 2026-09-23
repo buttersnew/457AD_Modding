@@ -19442,14 +19442,15 @@ Here, take this purse of {reg3} siliquae, as I promised. I hope we can travel to
   	(display_log_message, "str_lord_defects_ordinary", ":color"),#change display_message to display_log_message
   	(call_script, "script_change_troop_faction", "$g_talk_troop", ":new_faction"),
 	(else_try),
-	(troop_set_slot, "$g_talk_troop", slot_troop_occupation, dplmc_slto_exile), #madsci exiled lords can return under the right circumstances
+	(troop_set_slot, "$g_talk_troop", slot_troop_occupation, dplmc_slto_exile),
 	(str_store_troop_name, s54, "$g_talk_troop"),
 	(display_log_message, "str_s54_has_left_the_realm"),
   	(call_script, "script_change_troop_faction", "$g_talk_troop", "fac_outlaws"),
-			(try_begin), #madsci cant have a kingdom hero party of non-kingdom faction on the map
+			(try_begin),
 			(troop_get_slot, ":current_party", "$g_talk_troop", slot_troop_leaded_party),
 			(gt, ":current_party", 0),
 			(party_is_active, ":current_party"),
+			(call_script, "script_remove_hero_prisoners", ":current_party"),
 			(remove_party, ":current_party"),
 			(try_end),
 	(try_end),
@@ -27130,6 +27131,661 @@ I will use this to make amends to those you have wronged, and I will let it be k
 (assign, "$political_quest_object_troop", reg2),
 ]],
 
+##MADSCI COUP 
+
+    [anyone|plyr, "combined_political_quests",
+     [
+        (neg|check_quest_active, "qst_depose_faction_ruler"),
+        (neg|quest_slot_ge, "qst_depose_faction_ruler", slot_quest_dont_give_again_remaining_days, 1),
+
+        (troop_slot_eq, "$g_talk_troop", slot_troop_occupation, slto_kingdom_hero),
+
+        (store_faction_of_troop, ":faction_no", "$g_talk_troop"),
+        (eq, ":faction_no", "$players_kingdom"),
+        (is_between, ":faction_no", npc_kingdoms_begin, npc_kingdoms_end),
+        (faction_slot_eq, ":faction_no", slot_faction_state, sfs_active),
+
+        (faction_get_slot, ":ruler", ":faction_no", slot_faction_leader),
+        (gt, ":ruler", 0),
+        (neq, ":ruler", "$g_talk_troop"),
+        (neq, ":ruler", "trp_player"),
+
+        (troop_slot_ge, "trp_player", slot_troop_renown, 100),
+        (call_script, "script_troop_get_relation_with_troop", "$g_talk_troop", "trp_player"),
+	(this_or_next|eq, "$g_talk_troop", "trp_knight_1_1"), #madsci ricimer is a snake
+        (ge, reg0, 20),
+
+        (call_script, "script_troop_get_relation_with_troop", "$g_talk_troop", ":ruler"),
+        (assign, ":relation_to_ruler", reg0),
+
+	(this_or_next|eq, "$g_talk_troop", "trp_knight_1_1"),
+        (this_or_next|lt, ":relation_to_ruler", 15),
+        (this_or_next|troop_slot_eq, "$g_talk_troop", slot_lord_reputation_type, lrep_ambitious),
+        (this_or_next|troop_slot_eq, "$g_talk_troop", slot_lord_reputation_type, lrep_cunning),
+        (troop_slot_ge, "$g_talk_troop", slot_troop_controversy, 15),
+
+        (call_script, "script_cf_457_coup_faction_is_eligible", ":faction_no", "$g_talk_troop"),
+
+        (str_store_troop_name, s4, ":ruler"),
+     ],
+     "There is something wrong in the realm, is there not? You have never spoken warmly of {s4}.",
+     "457_coup_offer_open",
+     []],
+
+    [anyone, "457_coup_offer_open",
+     [
+        (store_faction_of_troop, ":faction_no", "$g_talk_troop"),
+        (faction_get_slot, ":ruler", ":faction_no", slot_faction_leader),
+        (str_store_troop_name, s4, ":ruler"),
+        (str_store_faction_name, s5, ":faction_no"),
+     ],
+     "Choose your next words carefully. There are men in {s5} who believe {s4}'s rule has become a danger to us all. A ruler holds power because the great men obey. If enough of us cease to obey at once, even a crown can become very light.","457_coup_offer_choice",
+     []],
+
+    [anyone|plyr, "457_coup_offer_choice", [],
+     "Say plainly what you want of me.",
+     "457_coup_offer_plain",
+     []],
+
+    [anyone|plyr, "457_coup_offer_choice", [],
+     "I want no part in treason.",
+     "lord_pretalk",
+     [
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", -2),
+     ]],
+
+    [anyone, "457_coup_offer_plain",
+     [
+        (store_faction_of_troop, ":faction_no", "$g_talk_troop"),
+        (faction_get_slot, ":ruler", ":faction_no", slot_faction_leader),
+        (str_store_troop_name, s4, ":ruler"),
+     ],
+     "I want {s4} removed from the head of the realm. Not murdered in a dark corridor. Removed. If enough lords stand together, I will claim the rule and promise them continuity rather than civil war. You have the standing to ask questions that would sound like treason from another mouth. Find out who will stand with us.",
+     "457_coup_offer_accept",
+     []],
+
+    [anyone|plyr, "457_coup_offer_accept", [],
+     "Very well. I will learn who is prepared to stand against the ruler.",
+     "457_coup_offer_accepted",
+     [
+        (store_faction_of_troop, ":faction_no", "$g_talk_troop"),
+        (faction_get_slot, ":old_leader", ":faction_no", slot_faction_leader),
+
+        (call_script, "script_457_coup_clear_support_flags"),
+        (troop_set_slot, "$g_talk_troop", slot_troop_457_coup_support, 1),
+
+        # Count available non-ruler lords and scale the requirement.
+        (call_script, "script_cf_457_coup_faction_is_eligible", ":faction_no", "$g_talk_troop"),
+        (assign, ":eligible_lords", reg0),
+
+        # One of them is the proposer. Require up to three OTHERS.
+        (store_sub, ":available_others", ":eligible_lords", 1),
+        (assign, ":required", 3),
+        (val_min, ":required", ":available_others"),
+        (val_max, ":required", 1),
+
+        (quest_set_slot, "qst_depose_faction_ruler",slot_quest_target_faction, ":faction_no"),
+        (quest_set_slot, "qst_depose_faction_ruler",slot_quest_target_troop, ":old_leader"),
+        (quest_set_slot, "qst_depose_faction_ruler",slot_quest_current_state, 0),
+        (quest_set_slot, "qst_depose_faction_ruler",slot_quest_target_amount, 0),
+        (quest_set_slot, "qst_depose_faction_ruler",slot_quest_temp_slot, ":required"),
+
+        (quest_set_slot, "qst_depose_faction_ruler",slot_quest_expiration_days, 30),
+        (quest_set_slot, "qst_depose_faction_ruler",slot_quest_dont_give_again_period, 120),
+
+        (quest_set_slot, "qst_depose_faction_ruler",slot_quest_xp_reward, 2000),
+        (quest_set_slot, "qst_depose_faction_ruler",slot_quest_gold_reward, 0),
+        (quest_set_slot, "qst_depose_faction_ruler",slot_quest_importance, 2),
+
+        (assign, reg10, ":required"),
+        (str_store_troop_name, s4, "$g_talk_troop"),
+        (str_store_troop_name, s5, ":old_leader"),
+        (str_store_faction_name, s6, ":faction_no"),
+        (str_store_string, s2,
+         "@{s4} intends to depose {s5} and take leadership of {s6}. Secure the private support of {reg10} additional lords, then return to {s4}. You have thirty days before the conspiracy becomes too dangerous to sustain."),
+
+        (call_script, "script_start_quest", "qst_depose_faction_ruler", "$g_talk_troop"),
+     ]],
+
+    [anyone, "457_coup_offer_accepted", [],
+     "Do not ask them whether they love me. Ask whether they still believe the realm can endure under its present ruler. When enough answer no, return to me.","lord_pretalk",
+     []],
+
+    [anyone|plyr, "lord_talk",
+     [
+        (check_quest_active, "qst_depose_faction_ruler"),
+        (quest_slot_eq, "qst_depose_faction_ruler", slot_quest_current_state, 0),
+
+        (quest_get_slot, ":faction_no", "qst_depose_faction_ruler", slot_quest_target_faction),
+        (quest_get_slot, ":old_leader", "qst_depose_faction_ruler", slot_quest_target_troop),
+        (quest_get_slot, ":proposer", "qst_depose_faction_ruler", slot_quest_giver_troop),
+
+        (store_faction_of_troop, ":talk_faction", "$g_talk_troop"),
+        (eq, ":talk_faction", ":faction_no"),
+        (neq, "$g_talk_troop", ":old_leader"),
+        (neq, "$g_talk_troop", ":proposer"),
+        (troop_slot_eq, "$g_talk_troop", slot_troop_occupation, slto_kingdom_hero),
+        (troop_slot_eq, "$g_talk_troop", slot_troop_457_coup_support, 0),
+
+        (str_store_troop_name, s4, ":old_leader"),
+     ],
+     "I would speak privately about {s4}, and about the future of the realm.","457_coup_lord_consider",
+     []],
+
+    [anyone, "457_coup_lord_consider",
+     [
+        (quest_get_slot, ":old_leader", "qst_depose_faction_ruler",slot_quest_target_troop),
+        (str_store_troop_name, s4, ":old_leader"),
+     ],
+     "Then speak. But understand what you are asking. A complaint about {s4} is politics. A promise to stand against the ruler is treason if you fail.",
+     "457_coup_lord_choice",
+     [
+        (call_script, "script_troop_get_relation_with_troop", "$g_talk_troop", "trp_player"),
+	(val_clamp, reg0, -25, 25),
+        (assign, ":score", reg0),
+
+        (quest_get_slot, ":old_leader", "qst_depose_faction_ruler", slot_quest_target_troop),
+        (call_script, "script_troop_get_relation_with_troop", "$g_talk_troop", ":old_leader"),
+	(val_clamp, reg0, -25, 25),
+        (val_sub, ":score", reg0),
+
+        (store_skill_level, ":persuasion", "skl_persuasion", "trp_player"),
+        (store_mul, ":persuasion_bonus", ":persuasion", 8),
+        (val_add, ":score", ":persuasion_bonus"),
+
+	(try_begin),
+	(troop_get_slot, ":troop_religion", "$g_talk_troop", slot_troop_religion),
+	(troop_get_slot, ":leader_religion", ":old_leader", slot_troop_religion),
+	(neq, ":leader_religion", ":troop_religion"),
+	(val_add, ":score", 20),
+	(try_end),
+
+	(try_begin),
+	(this_or_next|troop_slot_eq, ":old_leader", slot_troop_father, "$g_talk_troop"),
+	(this_or_next|troop_slot_eq, "$g_talk_troop", slot_troop_father, ":old_leader"),
+	(this_or_next|troop_slot_eq, ":old_leader", slot_troop_mother, "$g_talk_troop"),
+	(troop_slot_eq, "$g_talk_troop", slot_troop_mother, ":old_leader"),
+	(val_sub, ":score", 100),
+	(try_end),
+
+	(try_begin),
+	(eq, "$g_talk_troop", "trp_knight_1_1"), #madsci ricimer is a snake
+	(val_add, ":score", 18),
+	(try_end),
+
+        (try_begin),
+            (troop_slot_eq, "$g_talk_troop", slot_lord_reputation_type, lrep_ambitious),
+            (val_add, ":score", 18),
+        (else_try),
+            (troop_slot_eq, "$g_talk_troop", slot_lord_reputation_type, lrep_cunning),
+            (val_add, ":score", 16),
+        (else_try),
+            (troop_slot_eq, "$g_talk_troop", slot_lord_reputation_type, lrep_quarrelsome),
+            (val_add, ":score", 12),
+        (else_try),
+            (troop_slot_eq, "$g_talk_troop", slot_lord_reputation_type, lrep_upstanding),
+            (val_sub, ":score", 15),
+        (try_end),
+
+        (store_random_in_range, ":random", -10, 11),
+        (val_add, ":score", ":random"),
+
+        (assign, "$g_457_coup_support_score", ":score"),
+     ]],
+
+    [anyone|plyr, "457_coup_lord_choice",
+     [
+        (ge, "$g_457_coup_support_score", 25), #madsci disable for testing
+     ],
+     "I am asking whether the realm can survive its present ruler. Stand with us, and the change can happen.",
+     "457_coup_lord_supports",
+     []],
+
+    [anyone|plyr, "457_coup_lord_choice",
+     [
+        (lt, "$g_457_coup_support_score", 25),
+     ],
+     "I am asking whether the realm can survive its present ruler. Stand with us, and the change can happen.",
+     "457_coup_lord_refuses",
+     []],
+
+    [anyone|plyr, "457_coup_lord_choice",
+     [
+        (store_troop_gold, ":gold", "trp_player"),
+        (ge, ":gold", 1500),
+     ],
+     "Stand with us, and I will personally see that your loyalty is remembered. Here is 1500 siliquae.",
+     "457_coup_lord_bought",
+     [
+        (troop_remove_gold, "trp_player", 1500),
+        (call_script, "script_change_player_honor", -1),
+     ]],
+
+    [anyone|plyr, "457_coup_lord_choice", [],
+     "Forget I said anything.",
+     "lord_pretalk",
+     []],
+
+    [anyone, "457_coup_lord_supports", [],
+     "You are right that divided nobles invite war. If the others truly stand together, then so will I. You have my word.",
+     "lord_pretalk",
+     [
+        (call_script, "script_457_coup_register_support", "$g_talk_troop"),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 2),
+     ]],
+
+    [anyone, "457_coup_lord_refuses", [],
+     "No. Whatever my quarrels with the ruler, I will not stake my house on your conspiracy. Do not ask me again.",
+     "lord_pretalk",
+     [
+        (troop_set_slot, "$g_talk_troop", slot_troop_457_coup_support, 2),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", -2),
+     ]],
+
+    [anyone, "457_coup_lord_bought", [],
+     "Then perhaps we understand one another better than I thought. When the moment comes, my voice will be with yours.",
+     "lord_pretalk",
+     [
+        (call_script, "script_457_coup_register_support", "$g_talk_troop"),
+     ]],
+
+    [anyone|plyr, "lord_talk",
+     [
+        (check_quest_active, "qst_depose_faction_ruler"),
+        (quest_slot_eq, "qst_depose_faction_ruler", slot_quest_current_state, 1),
+        (quest_slot_eq, "qst_depose_faction_ruler", slot_quest_giver_troop, "$g_talk_troop"),
+
+        (quest_get_slot, ":old_leader", "qst_depose_faction_ruler", slot_quest_target_troop),
+        (str_store_troop_name, s4, ":old_leader"),
+     ],
+     "Enough lords have pledged themselves. We can move against {s4}.",
+     "457_coup_ready_to_move",
+     []],
+
+    [anyone, "457_coup_ready_to_move",
+     [
+        (quest_get_slot, ":old_leader", "qst_depose_faction_ruler", slot_quest_target_troop),
+        (str_store_troop_name, s4, ":old_leader"),
+     ],
+     "Then there is no advantage in waiting. Go to {s4}. Speak as the voice of a council, not as an assassin. Make it clear that resistance now means war against the ruler's own nobles.",
+     "lord_pretalk",
+     [
+        (quest_set_slot, "qst_depose_faction_ruler", slot_quest_current_state, 2),
+
+        (quest_get_slot, ":old_leader", "qst_depose_faction_ruler", slot_quest_target_troop),
+        (quest_get_slot, ":proposer", "qst_depose_faction_ruler", slot_quest_giver_troop),
+        (str_store_troop_name, s4, ":old_leader"),
+        (str_store_troop_name, s5, ":proposer"),
+
+        (add_quest_note_from_sreg, "qst_depose_faction_ruler", 4, "@The conspiracy has committed itself. Confront {s4} and demand the surrender of the leadership of the realm to {s5}.", 0),
+     ]],
+
+    [anyone|plyr, "lord_talk",
+     [
+        (check_quest_active, "qst_depose_faction_ruler"),
+        (quest_slot_eq, "qst_depose_faction_ruler", slot_quest_current_state, 2),
+        (quest_slot_eq, "qst_depose_faction_ruler", slot_quest_giver_troop, "$g_talk_troop"),
+        (quest_get_slot, ":old_leader", "qst_depose_faction_ruler", slot_quest_target_troop),
+        (str_store_troop_name, s4, ":old_leader"),
+     ],
+     "The lords have committed themselves. I should confront {s4}.",
+     "457_coup_reminder",
+     []],
+
+    [anyone, "457_coup_reminder", [],
+     "Yes. Every extra day gives rumor time to become evidence. Finish this.",
+     "lord_pretalk",
+     []],
+
+    [anyone|plyr, "lord_talk",
+     [
+        (check_quest_active, "qst_depose_faction_ruler"),
+        (quest_get_slot, ":state", "qst_depose_faction_ruler", slot_quest_current_state),
+        (is_between, ":state", 0, 2),
+        (quest_slot_eq, "qst_depose_faction_ruler", slot_quest_target_troop, "$g_talk_troop"),
+     ],
+     "My liege, I have uncovered a conspiracy against you.",
+     "457_coup_betray_response_pre",
+     []],
+
+    [anyone, "457_coup_betray_response_pre",
+     [],
+     "It was only a matter of time, I suppose. What have you discovered?",
+     "457_coup_betray_response_pre2",
+     []],
+
+    [anyone|plyr, "457_coup_betray_response_pre2",
+     [
+        (quest_get_slot, ":proposer", "qst_depose_faction_ruler", slot_quest_giver_troop),
+        (str_store_troop_name, s4, ":proposer"),
+     ],
+     "{s4} intends to replace you.",
+     "457_coup_betray_response",
+     []],
+
+    [anyone, "457_coup_betray_response",
+     [
+        (quest_get_slot, ":proposer", "qst_depose_faction_ruler", slot_quest_giver_troop),
+        (str_store_troop_name, s4, ":proposer"),
+     ],
+     "{s4}? I wondered how far that ambition would carry. And you came to me instead. I will remember that -- though I suspect the conspirators will remember it too.",
+     "lord_pretalk",
+     [
+        (quest_get_slot, ":proposer", "qst_depose_faction_ruler", slot_quest_giver_troop),
+
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 50),
+        (call_script, "script_change_player_relation_with_troop", ":proposer", -50),
+
+        (call_script, "script_change_player_honor", -2),
+        (call_script, "script_change_player_right_to_rule", -2),
+
+        (try_for_range, ":hero", active_npcs_begin, active_npcs_end),
+	(neq, ":hero", ":proposer"),
+	(neq, ":hero", "$g_talk_troop"),
+	(troop_slot_eq, ":hero", slot_troop_457_coup_support, 1),
+        (call_script, "script_change_player_relation_with_troop", ":hero", -50),
+        (try_end),
+
+        (call_script, "script_abort_quest", "qst_depose_faction_ruler", 0),
+	(try_begin),
+	(neg|troop_slot_eq, ":proposer", slot_troop_occupation, dplmc_slto_dead),
+	(troop_set_slot, ":proposer", slot_troop_occupation, dplmc_slto_exile), #madsci exiled lords can return under the right circumstances
+	(str_store_troop_name, s54, ":proposer"),
+	(display_log_message, "str_s54_has_left_the_realm"),
+  	(call_script, "script_change_troop_faction", ":proposer", "fac_outlaws"),
+	(try_end),
+			(try_begin),
+			(troop_get_slot, ":current_party", ":proposer", slot_troop_leaded_party),
+			(gt, ":current_party", 0),
+			(party_is_active, ":current_party"),
+			(call_script, "script_remove_hero_prisoners", ":current_party"),
+			(remove_party, ":current_party"),
+			(try_end),
+(try_for_range, ":quest", all_quests_begin, all_quests_end),
+(check_quest_active, ":quest"),
+(quest_get_slot, ":giver", ":quest", slot_quest_giver_troop),
+(eq, ":giver", ":proposer"),
+(call_script, "script_cancel_quest", ":quest", 0),
+(try_end),
+     ]],
+
+    [anyone|plyr, "lord_talk",
+     [
+        (check_quest_active, "qst_depose_faction_ruler"),
+        (quest_slot_eq, "qst_depose_faction_ruler", slot_quest_current_state, 2),
+        (quest_slot_eq, "qst_depose_faction_ruler", slot_quest_target_troop, "$g_talk_troop"),
+        (quest_get_slot, ":proposer", "qst_depose_faction_ruler", slot_quest_giver_troop),
+        (str_store_troop_name, s4, ":proposer"),
+     ],
+     "I have been sent by {s4}.",
+     "457_coup_ruler_response",
+     []],
+
+    [anyone, "457_coup_ruler_response",
+     [
+	(neq, "$talk_context", tc_court_talk),
+     ],
+     "Lets discuss this when we are safe inside the city walls.",
+     "lord_pretalk",
+     []],
+
+    [anyone, "457_coup_ruler_response",
+     [
+],
+     "You seek an audience to speak on behalf of {s4}?",
+     "457_coup_ruler_demand",
+     []],
+
+    [anyone|plyr, "457_coup_ruler_demand",
+     [
+        (check_quest_active, "qst_depose_faction_ruler"),
+        (quest_slot_eq, "qst_depose_faction_ruler", slot_quest_current_state, 2),
+        (quest_slot_eq, "qst_depose_faction_ruler", slot_quest_target_troop, "$g_talk_troop"),
+
+        (quest_get_slot, ":proposer", "qst_depose_faction_ruler", slot_quest_giver_troop),
+        (str_store_troop_name, s4, ":proposer"),
+     ],
+     "I am not here as a petitioner. The leading men of the realm have made their decision. You must yield the leadership to {s4}.",
+     "457_coup_ruler_response2",
+     [
+        (try_for_range, ":hero", active_npcs_begin, active_npcs_end),
+	(neq, ":hero", "$g_talk_troop"),
+		(try_begin),
+		(troop_slot_eq, ":hero", slot_troop_457_coup_support, 1),
+        	(call_script, "script_change_player_relation_with_troop", ":hero", 5),
+		(else_try),
+		(troop_slot_eq, ":hero", slot_troop_457_coup_support, 2),
+        	(call_script, "script_change_player_relation_with_troop", ":hero", -5),
+		(try_end),
+        (try_end),
+]],
+
+    [anyone, "457_coup_ruler_response2",
+     [
+        (quest_get_slot, ":proposer", "qst_depose_faction_ruler", slot_quest_giver_troop),
+        (str_store_troop_name, s4, ":proposer"),
+     ],
+     "So that is what all the whispering meant. You come into my presence, name {s4}, and tell me my own nobles have already divided my authority among themselves. Tell me, then... what place have your new masters left for me?",
+     "457_coup_ruler_final_choice",
+     [
+(try_for_range, ":quest", all_quests_begin, all_quests_end),
+(check_quest_active, ":quest"),
+(quest_get_slot, ":giver", ":quest", slot_quest_giver_troop),
+(eq, ":giver", "$g_talk_troop"),
+(call_script, "script_cancel_quest", ":quest"),
+(try_end),
+]],
+
+    [anyone|plyr, "457_coup_ruler_final_choice", [(call_script, "script_dplmc_store_troop_is_female_reg", "$g_talk_troop", 65),],
+     "You will be tried for your crimes! Men, seize {reg65?her:him}!",
+     "457_coup_end_exile",
+     []],
+
+    [anyone|plyr, "457_coup_ruler_final_choice", [],
+     "They are my puppets! I planned all of this!",
+     "457_coup_end_exile3",
+     []],
+
+    [anyone|plyr, "457_coup_ruler_final_choice", [],
+     "You will be exiled from the realm, but you will keep your head.",
+     "457_coup_end_exile2",
+     []],
+
+    [anyone|plyr, "457_coup_ruler_final_choice", [(eq, 1,0),],
+     "I will give you time to consider what I have said.",
+     "lord_pretalk",
+     []],
+
+    [anyone, "457_coup_end_exile",
+     [
+        (quest_get_slot, ":proposer", "qst_depose_faction_ruler", slot_quest_giver_troop),
+        (str_store_troop_name, s4, ":proposer"),
+	(call_script, "script_dplmc_store_troop_is_female_reg", ":proposer", 65),
+(try_begin),
+(this_or_next|eq, "$g_talk_troop_faction", "fac_kingdom_1"),
+(eq, "$g_talk_troop_faction", "fac_kingdom_2"),
+(str_store_string, s2,"@If you mean to depose me, then do it without pretending this is lawful. Do not insult me with tribunals, decrees, and chains forged after the verdict!"),
+(else_try),
+(this_or_next|eq, "$g_talk_troop_faction", "fac_kingdom_3"),
+(eq, "$g_talk_troop_faction", "fac_kingdom_4"),
+(str_store_string, s2,"@You may take my hall. You may take my gold. You may take every oath sworn to me by men too frightened to keep it. But you will not lead me through my own gates in chains!"),
+(else_try),
+(str_store_string, s2,"@Then there is nothing left to discuss. Tell {s4} to enjoy the loyalty purchased this day. Crowns change heads more easily than men change memories."),
+(try_end),
+     ],
+     "{s2}",
+     "close_window",
+     [
+        (quest_get_slot, ":faction_no", "qst_depose_faction_ruler", slot_quest_target_faction),
+        (quest_get_slot, ":new_leader", "qst_depose_faction_ruler", slot_quest_giver_troop),
+        (quest_get_slot, ":old_leader", "qst_depose_faction_ruler", slot_quest_target_troop),
+
+        (call_script, "script_457_install_new_faction_leader", ":faction_no", ":new_leader", ":old_leader", 1),
+
+        (call_script, "script_change_player_honor", -10),
+        (call_script, "script_change_player_right_to_rule", 12),
+        (call_script, "script_change_troop_renown", "trp_player", 150),
+
+        (call_script, "script_succeed_quest", "qst_depose_faction_ruler"),
+        (call_script, "script_finish_quest", "qst_depose_faction_ruler", 100),
+
+        (assign, "$g_leave_encounter", 1),
+
+      (store_conversation_agent,"$g_talk_agent"),
+      (get_player_agent_no, ":player_agent"),
+      (set_fixed_point_multiplier, 100),
+      (agent_get_position, pos1, "$g_talk_agent"),
+      (position_move_y, pos1, 400),
+      
+      (set_spawn_position, pos1),
+      (assign, "$alpha_animal", "$g_talk_agent"),
+      (agent_add_relation_with_agent, ":player_agent", "$alpha_animal", 0),
+      (agent_get_position, pos1, "$g_talk_agent"),
+      (position_move_y, pos1, 500),
+      (position_move_x, pos1, -50),
+      (set_spawn_position, pos1),
+           	(try_begin),
+             	(faction_get_slot, ":troop_prison_guard", "$g_encountered_party_faction", slot_faction_castle_guard_troop),
+		(gt, ":troop_prison_guard", 0),
+		(else_try),
+		(assign, ":troop_prison_guard", "trp_gothic_castle_guard"), #madsci failsafe
+           	(try_end),
+      (try_for_range, ":unused", 0, 2),
+        (spawn_agent, ":troop_prison_guard"),
+        (assign, ":agent", reg0),
+        (agent_add_relation_with_agent, ":agent", "$alpha_animal", -1),
+        (agent_add_relation_with_agent, ":player_agent", ":agent", 0),
+        (agent_set_is_alarmed, ":agent", 1),
+        (agent_ai_set_always_attack_in_melee, ":agent", 1),
+        (agent_ai_set_aggressiveness, ":agent", 1000),
+        (try_for_range, ":item_slot", 0, 4),
+          (agent_get_item_slot,  ":item", ":agent", ":item_slot"),
+          (gt, ":item", -1),
+          (agent_unequip_item, ":agent", ":item"),
+        (try_end),
+        (agent_equip_item, ":agent", "itm_strong_club"),
+        (agent_set_wielded_item, ":agent", "itm_strong_club"),
+        (position_move_x, pos1, 100),
+        (set_spawn_position, pos1),
+      (end_try),  
+      
+      (mission_disable_talk),
+     ]],
+
+    [anyone, "457_coup_end_exile3",
+     [
+        (quest_get_slot, ":proposer", "qst_depose_faction_ruler", slot_quest_giver_troop),
+        (str_store_troop_name, s4, ":proposer"),
+	(call_script, "script_dplmc_store_troop_is_female_reg", ":proposer", 65),
+],
+     "You are a fool if you think you can control a {reg65?woman:man} as devious as {s4}! I suppose there is no point in trying to negotiate with you. Well, what are you waiting for then? I will not go down with a fight!",
+     "close_window",
+     [
+        (quest_get_slot, ":faction_no", "qst_depose_faction_ruler", slot_quest_target_faction),
+        (quest_get_slot, ":new_leader", "qst_depose_faction_ruler", slot_quest_giver_troop),
+        (quest_get_slot, ":old_leader", "qst_depose_faction_ruler", slot_quest_target_troop),
+
+        (call_script, "script_457_install_new_faction_leader", ":faction_no", ":new_leader", ":old_leader", 1),
+
+        (call_script, "script_change_player_honor", -10),
+        (call_script, "script_change_player_right_to_rule", 12),
+        (call_script, "script_change_troop_renown", "trp_player", 150),
+
+        (call_script, "script_succeed_quest", "qst_depose_faction_ruler"),
+        (call_script, "script_finish_quest", "qst_depose_faction_ruler", 100),
+
+        (assign, "$g_leave_encounter", 1),
+
+      (store_conversation_agent,"$g_talk_agent"),
+      (get_player_agent_no, ":player_agent"),
+      (set_fixed_point_multiplier, 100),
+      (agent_get_position, pos1, "$g_talk_agent"),
+      (position_move_y, pos1, 400),
+      
+      (set_spawn_position, pos1),
+      (assign, "$alpha_animal", "$g_talk_agent"),
+      (agent_add_relation_with_agent, ":player_agent", "$alpha_animal", 0),
+      (agent_get_position, pos1, "$g_talk_agent"),
+      (position_move_y, pos1, 500),
+      (position_move_x, pos1, -50),
+      (set_spawn_position, pos1),
+           	(try_begin),
+             	(faction_get_slot, ":troop_prison_guard", "$g_encountered_party_faction", slot_faction_castle_guard_troop),
+		(gt, ":troop_prison_guard", 0),
+		(else_try),
+		(assign, ":troop_prison_guard", "trp_gothic_castle_guard"), #madsci failsafe
+           	(try_end),
+      (try_for_range, ":unused", 0, 2),
+        (spawn_agent, ":troop_prison_guard"),
+        (assign, ":agent", reg0),
+        (agent_add_relation_with_agent, ":agent", "$alpha_animal", -1),
+        (agent_add_relation_with_agent, ":player_agent", ":agent", 0),
+        (agent_set_is_alarmed, ":agent", 1),
+        (agent_ai_set_always_attack_in_melee, ":agent", 1),
+        (agent_ai_set_aggressiveness, ":agent", 1000),
+        (try_for_range, ":item_slot", 0, 4),
+          (agent_get_item_slot,  ":item", ":agent", ":item_slot"),
+          (gt, ":item", -1),
+          (agent_unequip_item, ":agent", ":item"),
+        (try_end),
+        (agent_equip_item, ":agent", "itm_strong_club"),
+        (agent_set_wielded_item, ":agent", "itm_strong_club"),
+        (position_move_x, pos1, 100),
+        (set_spawn_position, pos1),
+      (end_try),  
+      
+      (mission_disable_talk),
+     ]],
+
+
+    [anyone, "457_coup_end_exile2",
+     [
+        (quest_get_slot, ":proposer", "qst_depose_faction_ruler", slot_quest_giver_troop),
+        (str_store_troop_name, s4, ":proposer"),
+	(call_script, "script_dplmc_store_troop_is_female_reg", ":proposer", 65),
+(try_begin),
+(this_or_next|eq, "$g_talk_troop_faction", "fac_kingdom_1"),
+(eq, "$g_talk_troop_faction", "fac_kingdom_2"),
+(str_store_string, s2,"@Yesterday men bent the knee because I wore the purple. Today they bind my hands because another {reg65?her:him} has persuaded them that the purple belongs to {reg65?her:him}. Take me away, then. Let your new {reg65?empress:emperor} have {reg65?her:him} triumph."),
+(else_try),
+(this_or_next|eq, "$g_talk_troop_faction", "fac_kingdom_6"),
+(eq, "$g_talk_troop_faction", "fac_kingdom_28"),
+(str_store_string, s2,"@Perhaps they are right. Perhaps the royal Glory has passed from me. But if Heaven has truly chosen your new {reg65?queen:king}, {reg65?she:he} should ask himself why {reg65?her:his} first act requires my chains."),
+(else_try),
+(str_store_string, s2,"@When the {reg65?woman:man} you raised above me begins to fear you, remember this day. A {reg65?queen:king} does not thank the hand that placed the crown upon {reg65?her:his} head. {reg65?She:He} wonders whether that same hand can remove it. Take me away, then. Let your new {reg65?queen:king} have {reg65?her:his} triumph."),
+(try_end),
+],
+"{s2}",
+     "close_window",
+     [
+        (quest_get_slot, ":faction_no", "qst_depose_faction_ruler", slot_quest_target_faction),
+        (quest_get_slot, ":new_leader", "qst_depose_faction_ruler", slot_quest_giver_troop),
+        (quest_get_slot, ":old_leader", "qst_depose_faction_ruler", slot_quest_target_troop),
+
+        (call_script, "script_457_install_new_faction_leader", ":faction_no", ":new_leader", ":old_leader", 0),
+		(try_begin),
+		(call_script, "script_lord_find_alternative_faction", ":old_leader"),
+		(assign, ":new_faction", reg0),
+		(is_between, ":new_faction", npc_kingdoms_begin, npc_kingdoms_end),
+		(neq, ":new_faction", ":faction_no"),
+		(call_script, "script_change_troop_faction", ":old_leader", ":new_faction"),
+		(try_end),
+
+        (call_script, "script_change_player_honor", -2),
+        (call_script, "script_change_player_right_to_rule", 8),
+        (call_script, "script_change_troop_renown", "trp_player", 100),
+
+        (call_script, "script_succeed_quest", "qst_depose_faction_ruler"),
+        (call_script, "script_finish_quest", "qst_depose_faction_ruler", 100),
+
+        (assign, "$g_leave_encounter", 1),    
+      (mission_disable_talk),
+     ]],
+
+
+##MADSCI COUP ENDS
+
+
 [anyone,"combined_political_quests", [
 (troop_slot_eq, "$g_talk_troop", slot_troop_occupation, slto_kingdom_hero),
 (lt, "$g_talk_troop_effective_relation", -5),
@@ -34008,9 +34664,9 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
   [anyone|plyr,"lord_tell_mission_incriminate_commander", [], "{s66}, I am all ears.", "lord_tell_mission_incriminate_commander_2",[]],
   [anyone|plyr,"lord_tell_mission_incriminate_commander", [], "I don't wish to involve myself in anything dishonourable against {s15}.", "lord_tell_mission_incriminate_commander_rejected",[]],
 
-  [anyone,"lord_tell_mission_incriminate_commander_rejected", [], "Dishonourable? Bah!\
- I was hoping I could count on you, {playername}, but you've shown me what a fool I was.\
- I shall have to find someone whose loyalty I can trust.", "lord_pretalk",
+  [anyone,"lord_tell_mission_incriminate_commander_rejected", [], "Dishonourable? Bah! "+
+ "I was hoping I could count on you, {playername}, but you've shown me what a fool I was. "+
+ "I shall have to find someone whose loyalty I can trust.", "lord_pretalk",
    [(call_script, "script_change_player_relation_with_troop","$g_talk_troop",-5),
     (call_script, "script_change_player_honor", 2)]],
 
@@ -34023,22 +34679,22 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
 	(call_script, "script_dplmc_store_troop_is_female", ":quest_object_troop"),
 	(assign, reg0, reg4),
 	#Change the pronouns in the next line:
-	], "I have written a fake letter to {s15},\
- bearing my own seal, which implicates {reg4?her:him} in a conspiracy with us to stage a coup in {s14}, in my favor.\
- If we can make {s13} believe the letter is genuine, {reg3?she:he} will deal with {s15} very swiftly.\
- Of course, the challenge there is to convince {s13} that the letter is indeed real...", "lord_tell_mission_incriminate_commander_3",[]],
+	], "I have written a fake letter to {s15}, "+
+ "bearing my own seal, which implicates {reg4?her:him} in a conspiracy with us to stage a coup in {s14}, in my favor. "+
+ "If we can make {s13} believe the letter is genuine, {reg3?she:he} will deal with {s15} very swiftly. "+
+ "Of course, the challenge there is to convince {s13} that the letter is indeed real...", "lord_tell_mission_incriminate_commander_3",[]],
  ##diplomacy end+
 
   [anyone|plyr,"lord_tell_mission_incriminate_commander_3", [], "Please continue, {s65}...", "lord_tell_mission_incriminate_commander_4",[]],
   [anyone|plyr,"lord_tell_mission_incriminate_commander_3", [], "No, I will not sully myself with this dishonourable scheme.", "lord_tell_mission_incriminate_commander_rejected",[]],
 
-  [anyone,"lord_tell_mission_incriminate_commander_4", [], "This is where you come into play.\
- You'll take the letter to {s14}, then give it to one of your soldiers and instruct {reg4?her:him} to take it to {s15}.\
- I will have one of my spies inform the town garrison so that your {reg4?girl:man} will be arrested on his way.\
- The guards will then find the letter and take it to {s13}.\
- They'll torture your {reg4?woman:man}, of course, to try and get the truth out of {reg4?her:him},\
- but all {reg4?she:he} knows is that you ordered the letter to be delivered to {s15} under the utmost secrecy.\
- {s13} knows you serve me, and the fool will certainly believe the whole charade.", "lord_tell_mission_incriminate_commander_5",[
+  [anyone,"lord_tell_mission_incriminate_commander_4", [], "This is where you come into play. "+
+ "You'll take the letter to {s14}, then give it to one of your soldiers and instruct {reg4?her:him} to take it to {s15}. "+
+ "I will have one of my spies inform the town garrison so that your {reg4?girl:man} will be arrested on his way. "+
+ "The guards will then find the letter and take it to {s13}. "+
+ "They'll torture your {reg4?woman:man}, of course, to try and get the truth out of {reg4?her:him}, "+
+ "but all {reg4?she:he} knows is that you ordered the letter to be delivered to {s15} under the utmost secrecy. "+
+ "{s13} knows you serve me, and the fool will certainly believe the whole charade.", "lord_tell_mission_incriminate_commander_5",[
     #SB : gender of sacrificed messenger, although highest female Sword Sister has level < 25
     (call_script, "script_dplmc_store_troop_is_female_reg", "$incriminate_quest_sacrificed_troop", 4),
  ]],
@@ -34049,10 +34705,10 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
        ##diplomacy start+ use correct gender for the other lord "s13" using reg3 (may be female)
 	   (quest_get_slot, ":quest_target_troop", "qst_incriminate_loyal_commander", slot_quest_target_troop),
 	   (call_script, "script_dplmc_store_troop_is_female_reg", ":quest_target_troop", 3),
-      ], "There is one more thing...\
- Your messenger must be someone trustworthy. If you sent the letter with a simple peasant, someone expendable,\
- {s13} might suspect a plot. {reg3?She:He} may have the wits of a snail, but even a snail can see the obvious.\
- Give the letter to someone of rank. One of your {s9}, perhaps.", "lord_tell_mission_incriminate_commander_8",[
+      ], "There is one more thing... "+
+ "Your messenger must be someone trustworthy. If you sent the letter with a simple peasant, someone expendable, "+
+ "{s13} might suspect a plot. {reg3?She:He} may have the wits of a snail, but even a snail can see the obvious. "+
+ "Give the letter to someone of rank. One of your {s9}, perhaps.", "lord_tell_mission_incriminate_commander_8",[
 
     #SB : gender of sacrificed messenger
     (call_script, "script_dplmc_store_troop_is_female_reg", "$incriminate_quest_sacrificed_troop", 4),
@@ -34060,9 +34716,9 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
  ##diplomacy end+
   [anyone|plyr,"lord_tell_mission_incriminate_commander_8", [], "What? I can't send one of my trusted {s9} to {reg4?her:his} death!", "lord_tell_mission_incriminate_commander_9",[]],
   [anyone|plyr,"lord_tell_mission_incriminate_commander_8", [], "Then a {s8} it will be.", "lord_tell_mission_incriminate_commander_fin",[]],
-  [anyone,"lord_tell_mission_incriminate_commander_9", [], "Come now, {playername}.\
- There is a place for sentimentality, but this is not it. Believe me, you shall be generously compensated,\
- and what is the purpose of soldiers if not to die at our say-so?", "lord_tell_mission_incriminate_commander_10",[
+  [anyone,"lord_tell_mission_incriminate_commander_9", [], "Come now, {playername}. "+
+ "There is a place for sentimentality, but this is not it. Believe me, you shall be generously compensated, "+
+ "and what is the purpose of soldiers if not to die at our say-so?", "lord_tell_mission_incriminate_commander_10",[
      #SB : gender of sacrificed messenger
      (call_script, "script_dplmc_store_troop_is_female_reg", "$incriminate_quest_sacrificed_troop", 4),
  ]],
@@ -34163,10 +34819,10 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
     (try_end),
     ]],
 
-  [anyone,"lord_mission_rejected", [], "Is that so? Well, I suppose you're just not up to the task.\
- I shall have to look for somebody with more mettle.", "close_window",
+  [anyone,"lord_mission_rejected", [], "Is that so? Well, I suppose you're just not up to the task. "+
+ "I shall have to look for somebody with more mettle.", "close_window",
    [(assign, "$g_leave_encounter",1),
-    (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", -1),
+    #(call_script, "script_change_player_relation_with_troop", "$g_talk_troop", -1),
     (try_begin),
       (quest_slot_eq, "$random_quest_no", slot_quest_dont_give_again_remaining_days, 0),
       (quest_set_slot, "$random_quest_no", slot_quest_dont_give_again_remaining_days, 1),

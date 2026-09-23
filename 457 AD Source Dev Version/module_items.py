@@ -2132,6 +2132,8 @@ weight(1)|abundance(80)|head_armor(24)|body_armor(14)|leg_armor(6)|difficulty(0)
 25 , weight(2.5)|difficulty(0)|spd_rtng(94) | weapon_length(53)|swing_damage(20 , blunt) | thrust_damage(0 ,  pierce),imodbits_none ],
 ["club", "Club", [("germanic_club_2",0)], itp_type_one_handed_wpn|itp_merchandise|itp_can_knock_down|itp_primary|itp_wooden_parry|itp_wooden_attack, itc_scimitar,
 90 , weight(2.5)|difficulty(0)|spd_rtng(93) | weapon_length(41)|swing_damage(22 , blunt) | thrust_damage(0 ,  pierce),imodbits_none ],
+["strong_club", "Strong Club", [("germanic_club_2",0)], itp_type_one_handed_wpn|itp_unique|itp_can_knock_down|itp_primary|itp_wooden_parry|itp_wooden_attack, itc_scimitar,
+2000 , weight(2.5)|difficulty(0)|spd_rtng(93) | weapon_length(41)|swing_damage(36 , blunt) | thrust_damage(0 ,  pierce),imodbits_none ],
 ["winged_mace", "Well Made Club", [("germanic_club_3",0)], itp_type_one_handed_wpn|itp_can_knock_down|itp_merchandise| itp_can_knock_down|itp_primary|itp_wooden_parry|itp_wooden_attack, itc_morningstar,
 160 , weight(2.5)|difficulty(0)|spd_rtng(90) | weapon_length(67)|swing_damage(23 , blunt) | thrust_damage(0 ,  pierce),imodbits_none ],
 ["spiked_club", "Spiked Club", [("spiked_club_new",0)], itp_type_one_handed_wpn|itp_can_knock_down|itp_primary|itp_wooden_parry, itc_scimitar|itcf_carry_mace_left_hip,

@@ -9894,4 +9894,75 @@ simple_triggers = [
 (try_end),
 ]),
 
+    (6,
+     [
+        (check_quest_active, "qst_depose_faction_ruler"),
+
+        (quest_get_slot, ":faction_no", "qst_depose_faction_ruler", slot_quest_target_faction),
+        (quest_get_slot, ":old_leader", "qst_depose_faction_ruler", slot_quest_target_troop),
+        (quest_get_slot, ":proposer", "qst_depose_faction_ruler", slot_quest_giver_troop),
+        (quest_get_slot, ":state", "qst_depose_faction_ruler", slot_quest_current_state),
+
+        (assign, ":abort", 0),
+
+        # Player is no longer part of the kingdom.
+        (try_begin),
+            (neq, "$players_kingdom", ":faction_no"),
+            (assign, ":abort", 1),
+        (else_try),
+            (neg|faction_slot_eq, ":faction_no", slot_faction_state, sfs_active),
+            (assign, ":abort", 1),
+        (else_try),
+            (faction_get_slot, ":current_leader", ":faction_no", slot_faction_leader),
+            (neq, ":current_leader", ":old_leader"),
+            (assign, ":abort", 1),
+        (else_try),
+            (neg|troop_slot_eq, ":old_leader", slot_troop_occupation, slto_kingdom_hero),
+            (assign, ":abort", 1),
+        (else_try),
+            # The proposed replacement has defected/retired/died.
+            (store_faction_of_troop, ":proposer_faction", ":proposer"),
+            (neq, ":proposer_faction", ":faction_no"),
+            (assign, ":abort", 1),
+        (else_try),
+            (neg|troop_slot_eq, ":proposer", slot_troop_occupation, slto_kingdom_hero),
+            (assign, ":abort", 1),
+        (try_end),
+
+        (try_begin),
+            (eq, ":abort", 1),
+            (display_message,
+             "@The conspiracy has collapsed because the political situation has changed."),
+            (call_script, "script_abort_quest", "qst_depose_faction_ruler", 0),
+
+        (else_try),
+            (is_between, ":state", 0, 2),
+
+            (assign, ":support_count", 0),
+            (try_for_range, ":lord", heroes_begin, heroes_end),
+                (troop_slot_eq, ":lord", slot_troop_457_coup_support, 1),
+                (neq, ":lord", ":proposer"),
+                (troop_slot_eq, ":lord", slot_troop_occupation, slto_kingdom_hero),
+                (store_faction_of_troop, ":lord_faction", ":lord"),
+                (eq, ":lord_faction", ":faction_no"),
+                (val_add, ":support_count", 1),
+            (try_end),
+
+            (quest_set_slot, "qst_depose_faction_ruler", slot_quest_target_amount, ":support_count"),
+            (quest_get_slot, ":required", "qst_depose_faction_ruler", slot_quest_temp_slot),
+
+            (try_begin),
+                (ge, ":support_count", ":required"),
+                (eq, ":state", 0),
+                (quest_set_slot, "qst_depose_faction_ruler", slot_quest_current_state, 1),
+                (display_message, "@Enough lords now support the conspiracy. Return to its leader."),
+            (else_try),
+                (lt, ":support_count", ":required"),
+                (eq, ":state", 1),
+                (quest_set_slot, "qst_depose_faction_ruler", slot_quest_current_state, 0),
+                (display_message, "@The conspiracy has lost a supporter. You need another pledge before it can proceed.", message_alert),
+            (try_end),
+        (try_end),
+     ]),
+
 ]#end of file

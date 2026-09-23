@@ -619,6 +619,7 @@ quests = [
  ("armenian_riot_meet", "Meet {s10} in {s11}", 0, "{!}."),
  ("armenian_kingdom_quest_1", "Meet {s10} in {s11}", 0, "{!}."),
  ("armenian_kingdom_quest_2", "Become a vassal of {s11}", 0, "{!}."),
+    ("depose_faction_ruler", "The Crown in Question",0,"{!}A powerful lord has asked you to help depose the current ruler and place a new leader at the head of the realm. You must secure enough noble support before confronting the reigning ruler."),
  ("quests_end", "Quests End", 0, "{!}."),
 
 #madsci VC sea battles these are not actual quests

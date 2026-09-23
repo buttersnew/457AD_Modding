@@ -12718,8 +12718,14 @@ Still I am sorry that I'll leave you soon. You must promise me, you'll come visi
 (troop_get_slot, ":lord_religion", "$g_talk_troop", slot_troop_religion),
 (troop_get_slot, ":player_religion", "trp_player", slot_troop_religion),
 (neq, ":lord_religion", ":player_religion"),
+				(try_begin),
+                            	(eq, "$background_type", cb_priest),
+				(str_store_string, s10, "@ (Priest)"),
+				(else_try),
+				(str_clear, s10),
+				(try_end),
 ], #lord religion conversion
-"I want you to convert to a religion.", "lord_talk_convert",[
+"I want you to convert to a religion.{s10}", "lord_talk_convert",[
 ]],
 
 [anyone,"lord_talk_convert", [
@@ -12752,13 +12758,17 @@ Still I am sorry that I'll leave you soon. You must promise me, you'll come visi
 ]],
 
 [anyone,"lord_talk_convert_chalcedonian", [
+(neq, "$background_type", cb_priest), #madsci
 (neg|main_party_has_troop, "trp_roman_priest"),
 ],
 "You don't have a Chalcedonian priest with you.", "lord_pretalk",[]],
 
 [anyone,"lord_talk_convert_chalcedonian", [],
 "Very well, I will convert to Chalcedonian Christianity.", "lord_pretalk",[
+(try_begin),
+(neq, "$background_type", cb_priest), #madsci
 (remove_member_from_party, "trp_roman_priest"),
+(try_end),
 (troop_set_slot, "$g_talk_troop", slot_troop_religion, slot_religion_christian_chalcedonian), #chalcedonian christian
 (try_begin),
 (troop_get_slot, ":kingdom_hero_party", "$g_talk_troop", slot_troop_leaded_party),
@@ -12776,12 +12786,16 @@ Still I am sorry that I'll leave you soon. You must promise me, you'll come visi
 "Arian Christianity.", "lord_talk_convert_arian",[
 ]],
 [anyone,"lord_talk_convert_arian", [
+(neq, "$background_type", cb_priest), #madsci
 (neg|main_party_has_troop, "trp_arian_priest"),
 ],
 "You don't have an Arian priest with you.", "lord_pretalk",[]],
 [anyone,"lord_talk_convert_arian", [],
 "Very well, I will convert to Arian Christianity.", "lord_pretalk",[
+(try_begin),
+(neq, "$background_type", cb_priest), #madsci
 (remove_member_from_party, "trp_arian_priest"),
+(try_end),
 (troop_set_slot, "$g_talk_troop", slot_troop_religion, slot_religion_christian_arian), #arian christian
 (try_begin),
 (troop_get_slot, ":kingdom_hero_party", "$g_talk_troop", slot_troop_leaded_party),
@@ -12800,12 +12814,16 @@ Still I am sorry that I'll leave you soon. You must promise me, you'll come visi
 "Miaphysite Christianity.", "lord_talk_convert_coptic",[
 ]],
 [anyone,"lord_talk_convert_coptic", [
+(neq, "$background_type", cb_priest), #madsci
 (neg|main_party_has_troop, "trp_coptic_priest"),
 ],
 "You don't have a Miaphysite priest with you.", "lord_pretalk",[]],
 [anyone,"lord_talk_convert_coptic", [],
 "Very well, I will convert to Miaphysite Christianity.", "lord_pretalk",[
+(try_begin),
+(neq, "$background_type", cb_priest), #madsci
 (remove_member_from_party, "trp_coptic_priest"),
+(try_end),
 (troop_set_slot, "$g_talk_troop", slot_troop_religion, slot_religion_christian_miaphysite),
 (try_begin),
 (troop_get_slot, ":kingdom_hero_party", "$g_talk_troop", slot_troop_leaded_party),
@@ -12823,12 +12841,16 @@ Still I am sorry that I'll leave you soon. You must promise me, you'll come visi
 "Paganism.", "lord_talk_convert_pagan",[
 ]],
 [anyone,"lord_talk_convert_pagan", [
+(neq, "$background_type", cb_priest), #madsci
 (neg|main_party_has_troop, "trp_pagan_priest"),
 ],
 "You don't have a Pagan priest with you.", "lord_pretalk",[]],
 [anyone,"lord_talk_convert_pagan", [],
 "Very well, I will convert to Paganism.", "lord_pretalk",[
+(try_begin),
+(neq, "$background_type", cb_priest), #madsci
 (remove_member_from_party, "trp_pagan_priest"),
+(try_end),
 (troop_set_slot, "$g_talk_troop", slot_troop_religion, slot_religion_paganism),
 (try_begin),
 (troop_get_slot, ":kingdom_hero_party", "$g_talk_troop", slot_troop_leaded_party),
@@ -12846,12 +12868,16 @@ Still I am sorry that I'll leave you soon. You must promise me, you'll come visi
 "Zoroastrianism.", "lord_talk_convert_zoroastrianism",[
 ]],
 [anyone,"lord_talk_convert_zoroastrianism", [
+(neq, "$background_type", cb_priest), #madsci
 (neg|main_party_has_troop, "trp_zoroastrian_priest"),
 ],
 "You don't have a Zoroastrian Mobad with you.", "lord_pretalk",[]],
 [anyone,"lord_talk_convert_zoroastrianism", [],
 "Very well, I will convert to Zoroastrianism.", "lord_pretalk",[
+(try_begin),
+(neq, "$background_type", cb_priest), #madsci
 (remove_member_from_party, "trp_zoroastrian_priest"),
+(try_end),
 (troop_set_slot, "$g_talk_troop", slot_troop_religion, slot_religion_zoroastrianism),
 (try_begin),
 (troop_get_slot, ":kingdom_hero_party", "$g_talk_troop", slot_troop_leaded_party),
@@ -12869,11 +12895,15 @@ Still I am sorry that I'll leave you soon. You must promise me, you'll come visi
 "Roman Paganism.", "lord_talk_convert_roman_paganism",[
 ]],
 [anyone,"lord_talk_convert_roman_paganism", [
+(neq, "$background_type", cb_priest), #madsci
 (neg|main_party_has_troop, "trp_roman_pagan_priest"),],
 "You don't have a Roman Pagan priest with you.", "lord_pretalk",[]],
 [anyone,"lord_talk_convert_roman_paganism", [],
 "Very well, I will convert to Roman Paganism.", "lord_pretalk",[
+(try_begin),
+(neq, "$background_type", cb_priest), #madsci
 (remove_member_from_party, "trp_roman_pagan_priest"),
+(try_end),
 (troop_set_slot, "$g_talk_troop", slot_troop_religion, slot_religion_roman_paganism),
 (try_begin),
 (troop_get_slot, ":kingdom_hero_party", "$g_talk_troop", slot_troop_leaded_party),
@@ -20230,6 +20260,37 @@ Such oaths to a usurper are of course invalid, and we can expect some of the {s0
 [
 ]],
 
+[anyone|auto_proceed,"lord_start",
+[
+(eq, "$g_talk_troop", "trp_knight_1_1"),
+(store_troop_faction, ":lord_faction", "trp_knight_1_1"),
+(eq, ":lord_faction", "fac_kingdom_1"),
+(eq, "$players_kingdom", "fac_kingdom_1"),
+(call_script, "script_cf_457_coup_faction_is_eligible", "fac_kingdom_1", "$g_talk_troop"),
+(eq, "$majorian_death", 0),
+(eq, "$ricimer_offer", 0),
+(faction_slot_eq, "fac_kingdom_1", slot_faction_state, sfs_active),
+(faction_slot_eq, "fac_kingdom_1", slot_faction_leader, "trp_kingdom_1_lord"),
+(troop_slot_eq, "trp_kingdom_1_lord", slot_troop_occupation, slto_kingdom_hero),
+(neg|check_quest_active, "qst_depose_faction_ruler"),
+(troop_slot_ge, "trp_player", slot_troop_renown, 200),
+(assign, "$ricimer_offer", 1),
+], "{!}.", "ricimer_offer",
+[
+]],
+
+[anyone,"ricimer_offer",
+[], "We must discuss an important matter, {playername}. Listen carefully...", "ricimer_offer2",
+[
+]],
+
+[anyone,"ricimer_offer2",
+[
+(str_store_troop_name, s4, "trp_kingdom_1_lord"),
+], "{s4} thinks that because he wears the diadem, the state belongs to him. But when the moment comes, he must discover that the army will no longer enforce his will. That the great men of the empire will not spend another generation paying for his ambitions. Because when the purple becomes more dangerous than the man wearing it is useful, someone must have the courage to remove it.", "457_coup_offer_choice",
+[
+]],
+
 [anyone,"lair_quest_intermediate_1",
 [
 ], "Splendid work, {playername} -- your audacious attack is the talk of the realm. No doubt they, or others like them, will soon be back, but for a short while you have bought this land a small respite. We are most grateful to you.", "lord_pretalk",
@@ -20274,49 +20335,6 @@ Such oaths to a usurper are of course invalid, and we can expect some of the {s0
 (call_script, "script_change_troop_renown", ":quest_object_troop", dplmc_companion_skill_renown),
 (call_script, "script_troop_change_relation_with_troop", ":quest_object_troop", "$g_talk_troop", 1),
 ]],
-
-##### TODO: QUESTS COMMENT OUT BEGIN
-
-##
-##  [anyone,"lord_start", [(troop_slot_eq, "$g_talk_troop", slot_troop_is_prisoner, 0),
-##                         (store_partner_quest,":lords_quest"),
-##                         (eq,":lords_quest","qst_bring_prisoners_to_enemy"),
-##                         (quest_slot_eq, "qst_bring_prisoners_to_enemy", slot_quest_current_state, 0),
-##                         (check_quest_succeeded, "qst_bring_prisoners_to_enemy"),
-##                         (quest_get_slot, ":quest_target_amount", "qst_bring_prisoners_to_enemy", slot_quest_target_amount),
-##                         (assign, reg1, ":quest_target_amount")],
-##   "TODO: You have brought the prisoners and received {reg1} denars. Give me the money now.", "lord_bring_prisoners_complete_2",[]],
-##
-##  [anyone,"lord_start", [(troop_slot_eq, "$g_talk_troop", slot_troop_is_prisoner, 0),
-##                         (store_partner_quest,":lords_quest"),
-##                         (eq,":lords_quest","qst_bring_prisoners_to_enemy"),
-##                         (quest_slot_eq, "qst_bring_prisoners_to_enemy", slot_quest_current_state, 1),#Some of them were brought only
-##                         (check_quest_succeeded, "qst_bring_prisoners_to_enemy"),
-##                         (quest_get_slot, ":quest_target_amount", "qst_bring_prisoners_to_enemy", slot_quest_target_amount),
-##                         (assign, reg1, ":quest_target_amount")],
-##   "TODO: You have brought the prisoners but some of them died during your expedition. Give me the full money of {reg1} denars.", "lord_bring_prisoners_complete_2",[]],
-##
-##
-##  [anyone|plyr,"lord_bring_prisoners_complete_2", [(store_troop_gold, ":cur_gold", "trp_player"),
-##                                                   (quest_get_slot, ":quest_target_amount", "qst_bring_prisoners_to_enemy", slot_quest_target_amount),
-##                                                   (ge, ":cur_gold", ":quest_target_amount")],
-##   "TODO: Here it is.", "lord_generic_mission_thank", [(quest_get_slot, ":quest_target_amount", "qst_bring_prisoners_to_enemy", slot_quest_target_amount),
-##                                                  (troop_remove_gold, "trp_player", ":quest_target_amount"),
-##                                                  (call_script, "script_finish_quest", "qst_bring_prisoners_to_enemy", 100)]],
-##
-##  [anyone|plyr,"lord_bring_prisoners_complete_2", [(store_troop_gold, ":cur_gold", "trp_player"),
-##                                                   (quest_get_slot, ":quest_target_amount", "qst_bring_prisoners_to_enemy", slot_quest_target_amount),
-##                                                   (lt, ":cur_gold", ":quest_target_amount")],
-##   "TODO: I'm afraid I spent some of it, I don't have that much money with me.", "lord_bring_prisoners_no_money", [(quest_get_slot, ":quest_target_amount", "qst_bring_prisoners_to_enemy", slot_quest_target_amount),
-##                                                                                                                   (call_script, "script_change_debt_to_troop", "$g_talk_troop", ":quest_target_amount"),#Adding the taken money as a debt
-##                                                                                                                   (call_script, "script_finish_quest", "qst_bring_prisoners_to_enemy", 100)]],
-##
-##  [anyone,"lord_bring_prisoners_no_money", [],
-##   "TODO: You owe me that money!", "lord_pretalk", []],
-##
-##
-
-
 
 #MALE PLAYER CHARACTER WEDDING
 #wedding allowed
@@ -27178,6 +27196,11 @@ I will use this to make amends to those you have wronged, and I will let it be k
         (faction_get_slot, ":ruler", ":faction_no", slot_faction_leader),
         (str_store_troop_name, s4, ":ruler"),
         (str_store_faction_name, s5, ":faction_no"),
+(try_begin),
+(eq, "$g_talk_troop", "trp_knight_1_1"),
+(eq, "$ricimer_offer", 0),
+(assign, "$ricimer_offer", 1),
+(try_end),
      ],
      "Choose your next words carefully. There are men in {s5} who believe {s4}'s rule has become a danger to us all. A ruler holds power because the great men obey. If enough of us cease to obey at once, even a crown can become very light.","457_coup_offer_choice",
      []],
@@ -27297,7 +27320,14 @@ I will use this to make amends to those you have wronged, and I will let it be k
 	(troop_get_slot, ":troop_religion", "$g_talk_troop", slot_troop_religion),
 	(troop_get_slot, ":leader_religion", ":old_leader", slot_troop_religion),
 	(neq, ":leader_religion", ":troop_religion"),
-	(val_add, ":score", 20),
+	(val_add, ":score", 50),
+	(try_end),
+
+	(try_begin),
+	(troop_get_slot, ":player_renown", "trp_player", slot_troop_renown),
+	(val_add, ":player_renown", 1),
+	(val_div, ":player_renown", 20),
+	(val_add, ":score", ":player_renown"),
 	(try_end),
 
 	(try_begin),
@@ -49908,6 +49938,14 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
 
   [party_tpl|pt_heretical_codex_bandits|plyr,"codex_bandits_talk_1", [], "I've heard you recently stole a codex from some odd priest. Hand it over now!", "codex_bandits_talk_2",[]],
 
+[party_tpl|pt_heretical_codex_bandits|plyr,"codex_bandits_talk_1", [(eq, "$background_type", cb_priest),], "Hand over the codex! It is dangerous! (Priest)", "codex_bandits_talk_2x",[]],
+
+  [party_tpl|pt_heretical_codex_bandits,"codex_bandits_talk_2x", [], "Fool, you will never have the codex! Once I unlock its secrets, I will have power and riches!", "close_window",[
+(assign,"$encountered_party_hostile",1),
+(assign,"$encountered_party_friendly",0),
+(encounter_attack)
+]],
+
   [party_tpl|pt_heretical_codex_bandits,"codex_bandits_talk_2", [], "What!? You're talking about that codex? If it is that valuable, I might as well kill you for it!", "close_window",[
 (assign,"$encountered_party_hostile",1),
 (assign,"$encountered_party_friendly",0),
@@ -53283,6 +53321,16 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
    (troop_add_gold, "trp_player", 200),
    (call_script, "script_change_troop_renown", "trp_player", 5),
    (add_xp_as_reward, 600),
+   (call_script, "script_end_quest", "qst_heretical_codex"),
+   (assign, "$corrupt_priest_left", 1),
+  ]],
+
+  [trp_corrupt_priest|plyr, "heretical_codex_finished_2", [(eq, "$background_type", cb_priest),],
+   "The codex is too dangerous, you will never have it. (Priest)", "heretical_codex_lie_1x", []],
+  [trp_corrupt_priest, "heretical_codex_lie_1x", [],"No, my master promised me power and wealth beyond imagination!", "close_window", [
+   (call_script, "script_change_troop_renown", "trp_player", 5),
+   (add_xp_as_reward, 600),
+	(call_script, "script_change_player_honor", 5),
    (call_script, "script_end_quest", "qst_heretical_codex"),
    (assign, "$corrupt_priest_left", 1),
   ]],

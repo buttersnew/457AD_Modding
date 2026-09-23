@@ -25,7 +25,7 @@ strings = [
 
   ("given_by_s1_at_s2", "Given by {s1} at {s2}"),
   ("given_by_s1_in_wilderness", "Given by {s1} whilst in the field"),
-  ("s7_raiders", "{s7} Raiders"),
+  ("s7_raiders", "{s7} Raiders"),	
 
   ("bandits_eliminated_by_another", "The troublesome bandits have been eliminated by another party."),
   ("msg_battle_won","Battle won! Press tab key to leave..."),
@@ -6814,6 +6814,7 @@ Even in the last case, the player can make formations up to four lines by orderi
 ("background_slave","Your_parents_were_slaves_and_thus_you_were_born._Your_life_has_been_one_of_hardship_and_suffering._As_a_child,_you_watched_your_family_cruelly_punished_by_the_master_for_any_small_mistake_or_perceived_offense._Nor_did_you_receive_mercy_because_of_your_age._Your_parents_died_young,_as_slaves_usually_do._Determined_to_avoid_the_same_fate,_you_escaped,_leaving_the_place_far_behind."),
 ("background_freeman","Your_parents_were_freemen,_owners_of_a_smallholding_worked_by_serfs._As_soon_as_you_could_walk,_you_too_were_put_to_work._You_helped_gather_the_harvest,_fetched_water,_fed_the_animals._Though_life_could_be_hard,_it_was_happy:_you_played_and_fought_with_the_other_children,_made_fun_baiting_livestock_and_enjoyed_the_many_cultural_and_religious_festivities_of_your_people."),
 ("background_noble","Your_parents_were_lesser_nobles,_owners_of_a_small_estate._They_were_proud_of_their_lineage_and_so_you_were_raised._Your_life_was_comfortable,_at_least_compared_with_those_of_the_smallfolk._Once_you_came_of_age,_your_father's_retainers_taught_you_the_use_of_spear,_sword_and_shield._And_you_learned_the_arts_of_tactics,_leadership_and_the_hunt."),
+("background_priest","You_were_raised_by_religious_authority_figures_of_your_community._You_took_your_vows_young,_and_your_life_became_one_of_prayer,_study_and_service,_at_least_compared_with_the_hardships_of_the_smallfolk._Once_you_came_of_age,_your_elders_taught_you_the_the_arts_of_scripture,_healing_and_pastoral_care."),
 
 ("build_strong","You_are_naturally_sturdy_and_well-built._Your_imposing_physique_makes_you_both_strong_and_intimidating."),
 ("build_thin","You_are_naturally_lithe_and_agile._Quick_and_nimble_on_your_feet,_you_are_fast_and_graceful."),

@@ -1381,6 +1381,7 @@ equip_the_player                       = 1
 cb_slave = 0
 cb_freeman = 1
 cb_noble = 2
+cb_priest = 3
 
 cb2_strong = 0
 cb2_thin = 1

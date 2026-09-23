@@ -18386,6 +18386,7 @@ presentations = [
     (overlay_add_item, "$g_presentation_obj_father", "@Slave"),
     (overlay_add_item, "$g_presentation_obj_father", "@Freeman"),
     (overlay_add_item, "$g_presentation_obj_father", "@Lesser Noble"),
+    (overlay_add_item, "$g_presentation_obj_father", "@Priest"), #madsci
 
     (overlay_set_val, "$g_presentation_obj_father", "$background_type"),
     (val_sub, ":cur_y", 40),

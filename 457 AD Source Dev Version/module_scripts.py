@@ -2,7 +2,6 @@
 from header_common import *
 from header_operations import *
 from module_constants import *
-from module_constants import *
 from header_parties import *
 from header_skills import *
 from header_mission_templates import *
@@ -215,6 +214,10 @@ scripts = [
 	(assign, "$religious_donation", 0),
 	(assign, "$majorian_reforms", 0),
 	(assign, "$g_player_troop", "trp_player"),
+	(assign, "$centers_converted", 0),
+	(assign, "$preaching", 0),
+	(assign, "$currently_preaching", 0),
+	(assign, "$ricimer_offer", 0),
 
     (options_set_battle_size, 0), #for slower pcs
 
@@ -92219,7 +92222,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 ("mcc_random_settings",
   [
 	(store_random_in_range, "$character_gender", 0, 2),
-    	(store_random_in_range, "$background_type", 0, 3),
+    	(store_random_in_range, "$background_type", 0, 4),
     	(store_random_in_range, "$background_answer_2", 0, 3),
     	(store_random_in_range, "$background_answer_3", 0, 4),
     	(store_random_in_range, "$background_answer_4", 0, 6),
@@ -92227,6 +92230,10 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 		(try_begin), #madsci rig this so that ridiculous combinations are not possible
 		(eq, "$background_answer_5", "fac_culture_6"),
 		(assign, "$background_answer_4", 7),
+		(else_try),
+		(eq, "$background_type", 3),
+		(eq, "$character_gender", 1),
+		(assign, "$character_gender", 0),
 		(else_try),
 		(eq, "$background_answer_5", "fac_culture_15"),
 		(assign, "$background_answer_4", 6),
@@ -92456,6 +92463,14 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
         (val_add, ":gold", 10),
         (val_add, ":renown", 10),
         (val_add, ":prof_throwing", 10),       # non-native
+    (else_try),
+        (eq,"$background_type", cb_priest),
+        (val_add, ":charisma", 1),
+        (val_add, ":intelligence", 1),
+        (val_add, ":skill_persuasion", 3),
+        (val_add, ":skill_woundtreatment", 1),
+        (val_add, ":gold", 180),
+        (val_add, ":renown", 75),
     (try_end),
 
     (try_begin), #Early life
@@ -93032,6 +93047,22 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
             (troop_add_item, "trp_player", "itm_bread"),
             (troop_add_item, "trp_player", "itm_apples"),
             (faction_get_slot, ":troop_to_loot", "$background_answer_5", slot_faction_tier_1_troop),
+            (assign, ":head_armour", -1),
+            (assign, ":shield", -1),
+        (else_try),
+            (eq, "$background_type", cb_priest),
+            (troop_add_item, "trp_player", "itm_bread"),
+			(try_begin),	
+        		(eq,"$background_answer_4", slot_religion_paganism),
+           		(assign, ":troop_to_loot", "trp_pagan_priest"),
+			(else_try),
+			(this_or_next|eq,"$background_answer_4", slot_religion_zoroastrianism),
+			(eq,"$background_answer_4", slot_religion_zurvanism),
+            		(assign, ":troop_to_loot", "trp_zoroastrian_priest"),
+			(else_try),
+            		(assign, ":troop_to_loot", "trp_roman_priest"),
+            		(troop_add_item, "trp_player", "itm_book_proclus_1"),
+			(try_end),
             (assign, ":head_armour", -1),
             (assign, ":shield", -1),
         (else_try),

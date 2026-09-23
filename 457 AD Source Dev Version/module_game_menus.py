@@ -11452,6 +11452,20 @@ TOTAL:  {reg5}"),
                             ], "{reg5?Continue collecting taxes:Collect taxes} due to {s1}.",
        [(jump_to_menu, "mnu_collect_taxes"),]),
 
+      ("village_preach",[
+				(neq, "$last_preached", "$current_town"),
+				(party_slot_eq, "$current_town", slot_village_state, svs_normal),
+                            	(neg|party_slot_ge, "$current_town", slot_village_infested_by_bandits, 1),
+				(try_begin),
+                            	(eq, "$currently_preaching", "$current_town"),
+				(assign, reg5, 1),
+				(else_try),
+				(assign, reg5, 0),
+				(try_end),
+				(eq, "$background_type", cb_priest),
+                            ], "{reg5?Continue preaching. (Priest):Preach to the masses. (Priest)}",
+       [(jump_to_menu, "mnu_preaching"),]),
+
       ("train_peasants_against_bandits_qst",
        [
          (party_slot_eq, "$current_town", slot_village_state, svs_normal),
@@ -15143,11 +15157,23 @@ TOTAL:  {reg5}"),
       [
         (jump_to_menu, "mnu_collect_taxes"),
       ]),
+
+      ("preach_town",
+      [
+	(eq, "$background_type", cb_priest),
+	(neq, "$last_preached", "$current_town"),
+			(try_begin),
+                        (eq, "$currently_preaching", "$current_town"),
+			(assign, reg5, 1),
+			(else_try),
+			(assign, reg5, 0),
+			(try_end),
+                            ], "{reg5?Continue preaching. (Priest):Preach to the masses. (Priest)}",
+       [(jump_to_menu, "mnu_preaching"),]),
+
       ##diplomacy begin
       ("dplmc_guild_master_meeting",
        [(party_slot_eq,"$current_town",slot_party_type, spt_town),
-	    ##nested diplomacy start+
-		#rubik had a good idea: only enable this after meeting the guild master
 		(assign, ":can_meet_guild_master", 0),
 		(try_begin),
 			#Always can jump to guild master in cheat mode.
@@ -16136,6 +16162,292 @@ TOTAL:  {reg5}"),
     ]
   ),
 
+#MADSCI PREACHING
+  (
+    "preaching",mnf_disable_all_keys,
+    "You expect that preaching to the locals takes roughly {reg4} days...",
+    "none",
+    [ 
+	(try_begin),
+	(neq, "$currently_preaching", "$current_town"),
+	(assign, "$preaching", 48),
+	(try_end),
+     	(store_div, ":target_days", "$preaching", 24),
+	(try_begin),
+	(lt, ":target_days", 1),
+	(assign, ":target_days", 1),
+	(try_end),
+     	(assign, reg4, ":target_days"),
+     ],
+    [
+      ("start_preaching", [], "Start preaching.",
+       [(assign, "$currently_preaching", "$current_town"),
+        (rest_for_hours_interactive, 1000, 5, 0), #rest while not attackable
+        (assign,"$auto_enter_town","$current_town"),
+        (assign, "$g_town_visit_after_rest", 1),
+        (change_screen_return),
+        ]),
+      ("preaching_later", [], "Put it off until later.",
+       [(try_begin),
+          (party_slot_eq, "$current_town", slot_party_type, spt_town),
+          (jump_to_menu, "mnu_town"),
+        (else_try),
+          (jump_to_menu, "mnu_village"),
+        (try_end),
+        ]),
+    ]
+  ),
+
+  (
+    "preaching_complete",mnf_disable_all_keys,
+    "{s3}.",
+    "none",
+    [(str_store_party_name, s3, "$current_town"),
+(try_begin),
+(str_store_string, s3, "@You have finished preaching in {s3}"),
+(try_end),
+(assign, "$last_preached", "$current_town"),
+          (set_fixed_point_multiplier, 100),
+          (position_set_x, pos0, 70),
+          (position_set_y, pos0, 5),
+          (position_set_z, pos0, 75),
+          (set_game_menu_tableau_mesh, "tableau_troop_note_mesh", "trp_player", pos0),
+		(try_begin),
+		(troop_get_slot, ":religion_player","trp_player", slot_troop_religion),
+        	(party_get_slot, ":religion_center",  "$g_encountered_party", slot_center_religion),
+		(eq, ":religion_player", ":religion_center"),
+		(store_random_in_range, ":rng", 0, 2),
+		(eq, ":rng", 1),
+		(call_script, "script_change_player_relation_with_center", "$current_town", 1),
+		(str_store_string, s3, "@{s3} and the population grows more fond of you."),
+		(add_xp_to_troop, 150, "trp_player"),
+		(else_try),
+		(party_get_slot,  ":lord_troop_id", "$current_town", slot_town_lord),
+		(gt, ":lord_troop_id", 0),
+		(troop_get_slot, ":religion_player","trp_player", slot_troop_religion),
+		(troop_get_slot, ":religion_troop",":lord_troop_id", slot_troop_religion),
+		(neq, ":religion_player", ":religion_troop"),
+		(store_random_in_range, ":rng", 0, 2),
+		(eq, ":rng", 1),
+		(call_script, "script_change_player_relation_with_troop", ":lord_troop_id", -1),
+		(str_store_troop_name_link, s2, ":lord_troop_id"),
+		(str_store_string, s3, "@{s3}. However, you have greatly angered {s2} who does not approve of what you are doing"),
+		(add_xp_to_troop, 50, "trp_player"),
+		(else_try),
+		(troop_get_slot, ":religion_player","trp_player", slot_troop_religion),
+        	(party_get_slot, ":religion_center",  "$current_town", slot_center_religion),
+		(neq, ":religion_player", ":religion_center"),
+		(party_get_slot,  ":lord_troop_id", "$current_town", slot_town_lord),
+		(gt, ":lord_troop_id", 0),
+		(troop_get_slot, ":religion_player","trp_player", slot_troop_religion),
+		(troop_get_slot, ":religion_troop",":lord_troop_id", slot_troop_religion),
+		(eq, ":religion_player", ":religion_troop"),
+		(store_random_in_range, ":rng", 0, 2),
+		(eq, ":rng", 1),
+		(call_script, "script_change_player_relation_with_troop", ":lord_troop_id", 1),
+		(str_store_troop_name_link, s2, ":lord_troop_id"),
+		(str_store_string, s3, "@{s3} and {s2} approves of you trying to convert the locals"),
+		(add_xp_to_troop, 50, "trp_player"),
+		(else_try), #success
+		(troop_get_slot, ":religion_player","trp_player", slot_troop_religion),
+        	(party_get_slot, ":religion_center",  "$current_town", slot_center_religion),
+		(neq, ":religion_player", ":religion_center"),
+		(store_random_in_range, ":rng", 0, 100),
+		(eq, ":rng", 1),
+		(str_store_string, s3, "@{s3} and everyone is buzzing with talk of your legendary sermon. Food is distributed, debts are publicly forgiven, the sick are visited, and prayers are offered for the living and the dead. "+"^^By sunset, most of the locals have converted to your religion"),
+			(try_begin),
+			(party_get_slot,  ":lord_troop_id", "$current_town", slot_town_lord),
+			(gt, ":lord_troop_id", 0),
+			(troop_get_slot, ":religion_player","trp_player", slot_troop_religion),
+			(troop_get_slot, ":religion_troop",":lord_troop_id", slot_troop_religion),
+			(eq, ":religion_troop", ":religion_center"),
+			(neq, ":religion_player", ":religion_troop"),
+			(call_script, "script_change_player_relation_with_troop", ":lord_troop_id", -50),
+			(str_store_troop_name_link, s2, ":lord_troop_id"),
+			(str_store_string, s3, "@{s3}. However, {s2} hates you for what you have done"),
+			(else_try),
+			(party_get_slot,  ":lord_troop_id", "$current_town", slot_town_lord),
+			(gt, ":lord_troop_id", 0),
+			(troop_get_slot, ":religion_player","trp_player", slot_troop_religion),
+			(troop_get_slot, ":religion_troop",":lord_troop_id", slot_troop_religion),
+			(eq, ":religion_player", ":religion_troop"),
+			(call_script, "script_change_player_relation_with_troop", ":lord_troop_id", 15),
+			(str_store_troop_name_link, s2, ":lord_troop_id"),
+			(str_store_string, s3, "@{s3}. Furthermore, {s2} is deeply grateful for you converting the locals to your mutual religion"),
+			(try_end),
+			(troop_get_slot, ":religion_player","trp_player", slot_troop_religion),
+			(party_set_slot, "$current_town", slot_center_religion, ":religion_player"),
+			(add_xp_to_troop, 5000, "trp_player"),
+   			(val_add, "$piety", 1),
+   			(call_script, "script_change_troop_renown", "trp_player", 50),
+			(val_add, "$centers_converted", 1),
+		(else_try),
+		(party_get_slot,  ":lord_troop_id", "$current_town", slot_town_lord),
+		(gt, ":lord_troop_id", 0),
+		(store_random_in_range, ":rng", 0, 2),
+		(eq, ":rng", 1),
+		(str_store_troop_name, s2, ":lord_troop_id"),
+		(str_store_party_name, s3, "$current_town"),
+		(str_store_string, s3, "@You preach on greed, unjust taxation, hard-hearted judges and rulers who mistake office for ownership. You never quite say {s2}'s name. You do not need to. The congregation at {s3} knows exactly whom you mean, and so does {s2}"),
+		(add_xp_to_troop, 50, "trp_player"),
+		(call_script, "script_change_player_relation_with_troop", ":lord_troop_id", -2),
+		(else_try),
+		(store_random_in_range, ":rng", 0, 20),
+		(store_skill_level, ":persuasion", "skl_persuasion", "trp_player"),
+		(val_add, ":rng", ":persuasion"),
+		(lt, ":rng", 12),
+		(str_store_party_name, s1, "$current_town"),
+		(str_store_string, s3, "@{s3}. The people of {s1}, having recently endured enough actual misery, do not appreciate being told that they deserve it because they are wicked. Your sermon ends under a hail of insults, and one object which may have been a turnip."),
+		(add_xp_to_troop, 25, "trp_player"),
+		(call_script, "script_change_player_relation_with_center", "$current_town", -1),
+		(else_try),
+		(store_random_in_range, ":rng", 0, 25),
+		(store_skill_level, ":persuasion", "skl_persuasion", "trp_player"),
+		(val_add, ":rng", ":persuasion"),
+		(gt, ":rng", 20),
+		(str_store_party_name, s1, "$current_town"),
+		(str_store_string, s3, "@{s3}. You give misery an explanation. The failed harvests, raids, taxes and graves are not random -- they are punishment for pride, greed and bad government. The suffering inhabitants of {s1} find the sermon grimly persuasive. The local authorities notice that the list of sins sounds uncomfortably specific."),
+		(add_xp_to_troop, 500, "trp_player"),
+		(call_script, "script_change_player_relation_with_center", "$current_town", 3),
+		(else_try),
+		(str_store_string, s3, "@{s3} but the locals seem largely uninterested in your teachings"),
+		(add_xp_to_troop, 50, "trp_player"),
+		(try_end),
+(assign, "$currently_preaching", 0),
+     ],
+    [
+      ("continue", [], "Continue...",
+       [(call_script, "script_change_center_prosperity", "$current_town", -2),
+	(change_screen_return),
+        ]),
+    ]
+  ),
+
+  (
+    "preaching_rebels_killed",0,
+    "{s3}.",
+    "none",
+    [
+(call_script, "script_change_player_relation_with_center", "$current_town", -1),
+(str_store_string, s3, "@Your quick action and strong arm have successfully put the false believers in their place. Surely, anyone with a mind to question the legitimacy of your teachings will think better of it after this"),
+		(try_begin),
+		(party_get_slot,  ":lord_troop_id", "$current_town", slot_town_lord),
+		(gt, ":lord_troop_id", 0),
+		(troop_get_slot, ":religion_player","trp_player", slot_troop_religion),
+		(troop_get_slot, ":religion_troop",":lord_troop_id", slot_troop_religion),
+		(neq, ":religion_player", ":religion_troop"),
+		(call_script, "script_change_player_relation_with_troop", ":lord_troop_id", -1),
+		(str_store_troop_name_link, s2, ":lord_troop_id"),
+		(str_store_string, s3, "@{s3}. However, you have greatly angered {s2} who does not approve of what you are doing"),
+		(try_end),
+    ],
+    [
+      ("continue", [], "Continue...",
+       [
+(call_script, "script_change_center_prosperity", "$current_town", -10),
+(change_screen_map),
+        ]),
+    ]
+  ),
+
+  (
+    "preaching_failed",mnf_disable_all_keys,
+##diplomacy start+ fix gender of pronoun
+    "{s3}.",
+##diplomacy end+
+    "none",
+    [
+	(call_script, "script_change_player_relation_with_center", "$current_town", -1),
+    (set_background_mesh, "mesh_pic_escape_1"),
+     (str_store_party_name, s3, "$current_town"),
+(str_store_string, s3, "@You could only preach so little in {s3} before the angry mob attacked you"),
+	(assign, "$last_preached", "$current_town"),
+(try_begin),
+(store_faction_of_party, ":party_faction", "$current_town"),
+(neq, ":party_faction", "$players_kingdom"),
+(is_between, "$current_town", walled_centers_begin, walled_centers_end),
+(assign,"$auto_menu","mnu_captivity_start_castle_surrender"),
+(str_store_string, s3, "@{s3}. The angry townsmen drag you into the dungeon."),
+(else_try),
+(str_store_string, s3, "@{s3}. Luckily you are able to escape to the wilderness."),
+(try_end),
+     (assign, "$currently_preaching", 0),
+     (rest_for_hours, 0, 0, 0), #stop resting
+     ],
+    [
+      ("continue", [], "Continue...",
+        [
+          (call_script, "script_change_troop_renown", "trp_player", -2),
+          (change_screen_map),
+        ]),
+    ]
+  ),
+
+  (
+    "preaching_revolt_warning",0,
+    "The {reg9?peasants:townsmen} of {s3} are outraged at you preaching to their youth, and they may react badly if you keep preaching.",
+    "none",
+    [(str_store_party_name, s3, "$current_town"),
+     (try_begin),
+       (party_slot_eq, "$current_town", slot_party_type, spt_village),
+       (assign, reg9, 1),
+       (set_background_mesh, "mesh_pic_villageriot"),
+     (else_try),
+       (set_background_mesh, "mesh_pic_townriot"),
+       (assign, reg9, 0),
+     (try_end),
+     ],
+    [
+      ("continue_preaching", [], "Ignore them and continue.",
+       [
+       (change_screen_return),]),
+      ("stop_preaching", [], "Stop preaching.",
+        [
+     	(assign, "$currently_preaching", 0),
+     	(rest_for_hours, 0, 0, 0), #stop resting
+	(change_screen_map),
+        ]),
+    ]
+  ),
+
+  (
+    "preaching_revolt",0,
+    "You are interrupted while preaching to the locals of {s3}. A large band of angry {reg9?peasants:townsmen} is marching nearer, "+
+ "shouting about blasphemous teachings and waving torches and weapons. It looks like they aim to fight you!",
+    "none",
+    [(str_store_party_name, s3, "$current_town"),
+     (try_begin),
+       (party_slot_eq, "$current_town", slot_party_type, spt_village),
+       (assign, reg9, 1),
+       (set_background_mesh, "mesh_pic_villageriot"),
+     (else_try),
+       (set_background_mesh, "mesh_pic_townriot"),
+       (assign, reg9, 0),
+     (try_end),
+     ],
+    [
+      ("continue", [], "Continue...",
+       [(set_jump_mission,"mt_back_alley_revolt"),
+        (assign, ":target_center", "$current_town"),
+        (try_begin),
+          (party_slot_eq, ":target_center", slot_party_type, spt_town),
+          (party_get_slot, ":town_alley", ":target_center", slot_town_alley),
+        (else_try),
+          (party_get_slot, ":town_alley", ":target_center", slot_castle_exterior),
+        (try_end),
+        (modify_visitors_at_site,":town_alley"),
+        (reset_visitors),
+        (assign, ":num_rebels", 6),
+        (store_character_level, ":level", "trp_player"),
+        (val_div, ":level", 5),
+        (val_add, ":num_rebels", ":level"),
+        (set_visitors, 1, "trp_tax_rebel", ":num_rebels"),
+        (jump_to_scene,":town_alley"),
+        (change_screen_mission),
+        ]),
+    ]
+  ),
+#MADSCI PREACHING END
 
   (
     "collect_taxes",mnf_disable_all_keys,
@@ -16261,8 +16573,8 @@ TOTAL:  {reg5}"),
 
   (
     "collect_taxes_rebels_killed",0,
-    "Your quick action and strong arm have successfully put down the revolt.\
- Surely, anyone with a mind to rebel against you will think better of it after this.",
+    "Your quick action and strong arm have successfully put down the revolt. "+
+ "Surely, anyone with a mind to rebel against you will think better of it after this.",
     "none",
     [
     ],
@@ -16276,8 +16588,8 @@ TOTAL:  {reg5}"),
   (
     "collect_taxes_failed",mnf_disable_all_keys,
 ##diplomacy start+ fix gender of pronoun
-    "You could collect only {reg3} siliquae as tax from {s3} before the revolt broke out.\
- {s1} won't be happy, but some silver will placate {reg4?her:him} better than nothing at all...",
+    "You could collect only {reg3} siliquae as tax from {s3} before the revolt broke out. "+
+ "{s1} won't be happy, but some silver will placate {reg4?her:him} better than nothing at all...",
 ##diplomacy end+
     "none",
     [
@@ -16306,8 +16618,8 @@ TOTAL:  {reg5}"),
 
   (
     "collect_taxes_revolt_warning",0,
-    "The people of {s3} are outraged at your demands and decry it as nothing more than extortion.\
- They're getting very restless, and they may react badly if you keep pressing them.",
+    "The people of {s3} are outraged at your demands and decry it as nothing more than extortion. "+
+ "They're getting very restless, and they may react badly if you keep pressing them.",
     "none",
     [(str_store_party_name, s3, "$current_town"),
      ],
@@ -16327,8 +16639,8 @@ TOTAL:  {reg5}"),
 
   (
     "collect_taxes_revolt",0,
-    "You are interrupted while collecting the taxes at {s3}. A large band of angry {reg9?peasants:townsmen} is marching nearer,\
- shouting about the exorbitant taxes and waving torches and weapons. It looks like they aim to fight you!",
+    "You are interrupted while collecting the taxes at {s3}. A large band of angry {reg9?peasants:townsmen} is marching nearer, "+
+ "shouting about the exorbitant taxes and waving torches and weapons. It looks like they aim to fight you!",
     "none",
     [(str_store_party_name, s3, "$current_town"),
      #SB : town pictures
@@ -16403,8 +16715,8 @@ TOTAL:  {reg5}"),
 
   (
     "train_peasants_against_bandits_ready",0,
-    "You put the peasants through the basics of soldiering, discipline and obedience.\
- You think {reg0} of them {reg1?have:has} fully grasped the training and {reg1?are:is} ready for some practice.",
+    "You put the peasants through the basics of soldiering, discipline and obedience. "+
+ "You think {reg0} of them {reg1?have:has} fully grasped the training and {reg1?are:is} ready for some practice.",
     "none",
     [
       (store_character_level, ":level", "trp_player"),
@@ -16474,9 +16786,9 @@ TOTAL:  {reg5}"),
 
   (
     "train_peasants_against_bandits_attack",0,
-    "As you get ready to continue the training, a sentry from the village runs up to you, shouting alarums.\
- The bandits have been spotted on the horizon, riding hard for {s3}.\
- The elder begs that you organize your newly-trained militia and face them.",
+    "As you get ready to continue the training, a sentry from the village runs up to you, shouting alarums. "+
+ "The bandits have been spotted on the horizon, riding hard for {s3}. "+
+ "The elder begs that you organize your newly-trained militia and face them.",
     "none",
     [
     (str_store_party_name, s3, "$current_town"),
@@ -17350,8 +17662,8 @@ goods, and books will never be sold. ^^You can change some settings here freely.
   ),
   (
     "sneak_into_town_caught",0,
-    "As you try to sneak in, one of the guards recognizes you and raises the alarm!\
- You must flee back through the gates before all the guards in the town come down on you!",
+    "As you try to sneak in, one of the guards recognizes you and raises the alarm! "+
+ "You must flee back through the gates before all the guards in the town come down on you!",
     "none",
     [
        (assign,"$auto_menu","mnu_captivity_start_castle_surrender"),

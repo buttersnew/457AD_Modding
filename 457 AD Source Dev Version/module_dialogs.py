@@ -12863,7 +12863,7 @@ Still I am sorry that I'll leave you soon. You must promise me, you'll come visi
 
 [anyone|plyr,"lord_talk_convert_choice", [
 (neg|troop_slot_eq, "$g_talk_troop", slot_troop_religion, slot_religion_zoroastrianism),
-(troop_slot_eq, "$g_talk_troop", slot_troop_religion, slot_religion_zoroastrianism),
+(troop_slot_eq, "trp_player", slot_troop_religion, slot_religion_zoroastrianism),
 ],
 "Zoroastrianism.", "lord_talk_convert_zoroastrianism",[
 ]],
@@ -27365,7 +27365,50 @@ I will use this to make amends to those you have wronged, and I will let it be k
 
     [anyone|plyr, "457_coup_lord_choice",
      [
-        (ge, "$g_457_coup_support_score", 25), #madsci disable for testing
+     (eq,"$background_type", cb_priest),
+        (quest_get_slot, ":old_leader", "qst_depose_faction_ruler",slot_quest_target_troop),
+        (str_store_troop_name, s4, ":old_leader"),
+	(troop_get_slot, ":troop_religion", "trp_player", slot_troop_religion),
+	(troop_get_slot, ":leader_religion", ":old_leader", slot_troop_religion),
+(try_begin),
+(is_between, ":troop_religion", slot_religion_christian_chalcedonian, slot_religion_roman_paganism),
+(neg|is_between, ":leader_religion", slot_religion_christian_chalcedonian, slot_religion_roman_paganism),
+(str_store_string, s2, "@{s4} is a Pagan."),
+(else_try),
+(is_between, ":troop_religion", slot_religion_christian_chalcedonian, slot_religion_roman_paganism),
+(is_between, ":leader_religion", slot_religion_christian_chalcedonian, slot_religion_roman_paganism),
+(str_store_string, s2, "@{s4} is a Heretic."),
+(else_try),
+(str_store_string, s2, "@{s4} is a false believer."),
+(try_end),	
+     ],
+     "{s4}. (Priest)",
+     "457_coup_lord_supports_priest",
+     []],
+
+    [anyone, "457_coup_lord_supports_priest", [
+	(troop_get_slot, ":troop_religion", "trp_player", slot_troop_religion),
+	(troop_get_slot, ":leader_religion", "$g_talk_troop", slot_troop_religion),
+	(eq, ":troop_religion", ":leader_religion"),
+],
+     "You are right that {s4}. If the others truly stand together, then so will I. You have my word.",
+     "lord_pretalk",
+     [
+        (call_script, "script_457_coup_register_support", "$g_talk_troop"),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 2),
+     ]],
+
+    [anyone, "457_coup_lord_supports_priest", [],
+     "No, I also reject your strange teachings. Do not ask me again.",
+     "lord_pretalk",
+     [
+        (troop_set_slot, "$g_talk_troop", slot_troop_457_coup_support, 2),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", -2),
+     ]],
+
+    [anyone|plyr, "457_coup_lord_choice",
+     [
+        (ge, "$g_457_coup_support_score", 25),
      ],
      "I am asking whether the realm can survive its present ruler. Stand with us, and the change can happen.",
      "457_coup_lord_supports",

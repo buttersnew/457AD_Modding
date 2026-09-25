@@ -16717,22 +16717,6 @@ TOTAL:  {reg5}"),
 	(call_script, "script_troop_add_gold", "trp_player", "$temp"),
 	(change_screen_return),
 ]),
-
-("turn_down_preaching_collected", [
-	(troop_get_slot, ":religion_player","trp_player", slot_troop_religion),
-	(call_script, "script_store_religion_name_s10", ":religion_player"),
-        (party_get_slot, ":religion_center",  "$g_encountered_party", slot_center_religion),
-(try_begin),
-(is_between, ":religion_center", 0, 5),
-(is_between, ":religion_player", 0, 5), #madsci christian
-(str_store_string, s3, "@donations"),
-(else_try),
-(str_store_string, s3, "@gifts"),
-(try_end),
-], "I refuse earthly riches!",
-       [
-	(call_script, "script_change_player_honor", 1),
-	(change_screen_return),]),
       
       ("refuse_preaching_collected", [
 	(troop_get_slot, ":religion_player","trp_player", slot_troop_religion),
@@ -16741,11 +16725,11 @@ TOTAL:  {reg5}"),
 (try_begin),
 (is_between, ":religion_center", 0, 5),
 (is_between, ":religion_player", 0, 5), #madsci christian
-(str_store_string, s3, "@Refuse the donations -- the people need it more than the church."),
+(str_store_string, s3, "@the donations"),
 (else_try),
-(str_store_string, s3, "@Refuse the gifts -- the people are poor enough."),
+(str_store_string, s3, "@the gifts"),
 (try_end),
-], "{s3}",
+], "Refuse the {s3} -- the people are poor enough.",
         [
 	(call_script, "script_change_player_relation_with_center", "$current_town", 1),
 	(change_screen_return),

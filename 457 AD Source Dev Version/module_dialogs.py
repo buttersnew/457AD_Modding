@@ -33318,32 +33318,32 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
 
 
   [anyone,"lord_mercenary_elaborate_castle", [(faction_slot_eq, "$g_talk_troop_faction", slot_faction_leader, "$g_talk_troop")],
-   "Only my loyal vassals can own lands and castles in my realm.\
- A mercenary can not be trusted with such a responsibility.\
- However, after serving for some time, you can swear homage to me and become my vassal.\
- Then you will be rewarded with a fief.", "lord_mercenary_elaborate_1", []],
+   "Only my loyal vassals can own lands and castles in my realm. "+
+ "A mercenary can not be trusted with such a responsibility. "+
+ "However, after serving for some time, you can swear homage to me and become my vassal. "+
+ "Then you will be rewarded with a fief.", "lord_mercenary_elaborate_1", []],
 
   [anyone,"lord_mercenary_elaborate_castle", [##diplomacy start+ Make gender correct
   (faction_get_slot, reg0, "$g_talk_troop_faction", slot_faction_leader),
   (call_script, "script_dplmc_store_troop_is_female", reg0),
   ##Next line, replace "his" with {reg0?her:his}
-  ], "Only loyal vassals of {s10} can own lands and castles.\
- You understand, a simple mercenary cannot be trusted with such responsibility.\
- However, after serving for some time, you may earn the right to swear homage to {s10} and become {reg0?her:his} vassal.\
- Then you would be rewarded with a fief.", "lord_mercenary_elaborate_1", []],
+  ], "Only loyal vassals of {s10} can own lands and castles. "+
+ "You understand, a simple mercenary cannot be trusted with such responsibility. "+
+ "However, after serving for some time, you may earn the right to swear homage to {s10} and become {reg0?her:his} vassal. "+
+ "Then you would be rewarded with a fief.", "lord_mercenary_elaborate_1", []],
  ##diplomacy end+
 
   [anyone,"lord_mercenary_elaborate_banner", [(faction_slot_eq, "$g_talk_troop_faction", slot_faction_leader, "$g_talk_troop")],
-   "Only my noble vassals have the honour of carrying their own banners.\
- However, after some time in mercenary service, you may earn the opportunity to swear homage to me and become my vassal,\
- gaining the right to choose a banner of your own and fight under it in battle.", "lord_mercenary_elaborate_1", []],
+   "Only my noble vassals have the honour of carrying their own banners. "+
+ "However, after some time in mercenary service, you may earn the opportunity to swear homage to me and become my vassal, "+
+ "gaining the right to choose a banner of your own and fight under it in battle.", "lord_mercenary_elaborate_1", []],
   [anyone,"lord_mercenary_elaborate_banner", [##diplomacy start+ Use correct gender
    (faction_get_slot, reg0, "$g_talk_troop_faction", slot_faction_leader),
    (call_script, "script_dplmc_store_troop_is_female", reg0),
    #Next line "his" -> {reg0?her:his}
-  ], "Only noble vassals of {s10} have the honour of carrying their own banners.\
- However, after some time of mercenary service, perhaps you can earn the opportunity to swear homage to {s10} and become {reg0?her:his} vassal,\
- gaining the right to choose a banner of your own and fight under it in battle.", "lord_mercenary_elaborate_1", []],
+  ], "Only noble vassals of {s10} have the honour of carrying their own banners. "+
+ "However, after some time of mercenary service, perhaps you can earn the opportunity to swear homage to {s10} and become {reg0?her:his} vassal, "+
+ "gaining the right to choose a banner of your own and fight under it in battle.", "lord_mercenary_elaborate_1", []],
  ##diplomacy end+
 
   [anyone,"lord_request_mission_ask", [(store_partner_quest,":lords_quest"),(ge,":lords_quest",0)],
@@ -33371,9 +33371,9 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
   (ge, ":level", 10), #minimum level
   (eq, "$g_majorian_quest_1", 0),
   (neg|check_quest_active, "qst_battle_of_garigliano"),
-  ], "Yes, I have an important mission for you, {playername}. The Vandals. under Gaiseric's brother in law, Visimar, are raiding Campania, near Sinuessa.\
- Currently, I personally do not have the time or resources to dedicate fighting them, as there are many other pressing matters in what is left of the empire...\
- I wish for you, {playername} to go and defeat him. Any of the loot they have taken is yours. It would be of great strategic importance if you capture Visimar alive, as he can be used as a bargaining tool against the Vandals.", "lord_tell_mission_garigliano_1",
+  ], "Yes, I have an important mission for you, {playername}. The Vandals under Gaiseric's brother in law, Visimar, are raiding Campania, near Sinuessa. "+
+ "Currently, I personally do not have the time or resources to dedicate fighting them, as there are many other pressing matters in what is left of the empire... ^^"+
+ "I wish for you, {playername} to go and defeat him. Any of the loot they have taken is yours. It would be of great strategic importance if you capture Visimar alive, as he can be used as a bargaining tool against the Vandals.", "lord_tell_mission_garigliano_1",
    [
    ]],
    [anyone|plyr,"lord_tell_mission_garigliano_1", [
@@ -50421,7 +50421,7 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
   [trp_priscus|plyr, "priscus_talk_history5", [], #ends the dialogue, used when the quest had already been given
    "Thank you for the history lesson. Farewell.", "close_window", []],
   [trp_priscus, "priscus_talk_history_sword", [],
-   "From what I learned, the story goes as is. A shephard saw one of his heifers limping, and could not find a cause for the wound. He followed a trail of blood, and ran into a sword, which he figured had wounded his heifer. He dug it up, and brought it straight to Attila. Attila saw the sword, and believed it was a gift from Mars, giving him supremacy to conquer the world...", "priscus_talk_history_sword2", []],
+   "From what I learned, the story goes as is. A shepherd saw one of his heifers limping, and could not find a cause for the wound. He followed a trail of blood, and ran into a sword, which he figured had wounded his heifer. He dug it up, and brought it straight to Attila. Attila saw the sword, and believed it was a gift from Mars, giving him supremacy to conquer the world...", "priscus_talk_history_sword2", []],
   [trp_priscus, "priscus_talk_history_sword2", [],
    "Other than that, I do not know much else about the whereabouts of the sword. You ought to ask someone else if the sword is what you are looking for. A former member of my embassy to Attila, Bigilas, our translator may know something about it. Unfortunately, due to a bad deal, he spent quite some time with the huns. Last I heard from him, he was in Thessalonika", "priscus_talk_history_sword3", [
   (setup_quest_text, "qst_sword_of_mars"),
@@ -50456,7 +50456,7 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
    "I didn't mean to bother you. Farewell.", "close_window", []],
 
   [trp_priscus, "priscus_talk_normal_history", [],
-   "Attila wielded a sword given to him by Mars. The story of how got it goes as; A shephard saw one of his heifers limping, and could not find a cause for the wound. He followed a trail of blood, and ran into a sword, which he figured had wounded his heifer. He dug it up, and brought it straight to Attila. Attila saw the sword, and believed it was a gift from Mars, giving him supremacy to conquer the world...", "priscus_talk_normal_history2", []],
+   "Attila wielded a sword given to him by Mars. The story of how got it goes as; A shepherd saw one of his heifers limping, and could not find a cause for the wound. He followed a trail of blood, and ran into a sword, which he figured had wounded his heifer. He dug it up, and brought it straight to Attila. Attila saw the sword, and believed it was a gift from Mars, giving him supremacy to conquer the world...", "priscus_talk_normal_history2", []],
   [trp_priscus, "priscus_talk_normal_history2", [],
    "He supposedly died of a nosebleed after the wedding to his final wife, Ildico. Some claim that she has killed him, while others stick with the claim that he died due to nosebleed. There is much more I can say about him, however I do not have the time.", "priscus_talk_normal_history3", []],
   [trp_priscus|plyr, "priscus_talk_normal_history3", [], #too lazy to do a full history lesson about attila lol

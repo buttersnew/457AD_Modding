@@ -205,7 +205,7 @@ quests = [
 ############
 # Note : This is defined as the first village elder quest in module_constants.py:
  ("deliver_grain", "Bring wheat to {s3}", qf_random_quest,
-  "{!}The elder of the village of {s3} asked you to bring them {reg5} packs of wheat.."
+  "{!}The elder of the village of {s3} asked you to bring them {reg5} packs of wheat."
   ),
  ("deliver_cattle", "Deliver {reg5} Heads of Cattle to {s3}", qf_random_quest,
   "{!}The elder of the village of {s3} asked you to bring {reg5} heads of cattle."

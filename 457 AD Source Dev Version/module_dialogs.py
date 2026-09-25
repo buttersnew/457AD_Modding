@@ -27425,13 +27425,11 @@ I will use this to make amends to those you have wronged, and I will let it be k
     [anyone|plyr, "457_coup_lord_choice",
      [
         (store_troop_gold, ":gold", "trp_player"),
-        (ge, ":gold", 1500),
+        (ge, ":gold", 3000),
      ],
-     "Stand with us, and I will personally see that your loyalty is remembered. Here is 1500 siliquae.",
+     "Stand with us, and I will personally see that your loyalty is remembered. Here is 3000 siliquae.",
      "457_coup_lord_bought",
      [
-        (troop_remove_gold, "trp_player", 1500),
-        (call_script, "script_change_player_honor", -1),
      ]],
 
     [anyone|plyr, "457_coup_lord_choice", [],
@@ -27455,10 +27453,31 @@ I will use this to make amends to those you have wronged, and I will let it be k
         (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", -2),
      ]],
 
+    [anyone, "457_coup_lord_bought", [
+(quest_get_slot, ":old_leader", "qst_depose_faction_ruler",slot_quest_target_troop),
+(troop_slot_eq, "$g_talk_troop", slot_troop_father, ":old_leader"),],
+     "I would never sell out my father, {playername}!",
+     "lord_pretalk",[
+        (troop_set_slot, "$g_talk_troop", slot_troop_457_coup_support, 2),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", -5),
+]],
+
+    [anyone, "457_coup_lord_bought", [
+	(store_random_in_range, ":rng", 0, 5),
+	(eq, ":rng", 1),
+],
+     "I would never sell out my master, {playername}!",
+     "lord_pretalk",[
+        (troop_set_slot, "$g_talk_troop", slot_troop_457_coup_support, 2),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", -1),
+      ]],
+
     [anyone, "457_coup_lord_bought", [],
      "Then perhaps we understand one another better than I thought. When the moment comes, my voice will be with yours.",
      "lord_pretalk",
      [
+        (troop_remove_gold, "trp_player", 3000),
+        (call_script, "script_change_player_honor", -1),
         (call_script, "script_457_coup_register_support", "$g_talk_troop"),
      ]],
 
@@ -50475,7 +50494,7 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
   [trp_bigilas, "start", [(check_quest_active,"qst_sword_of_mars"),
   (quest_slot_eq,"qst_sword_of_mars",slot_quest_current_state, 3),
   (main_party_has_troop, "trp_bigilas_son")],
-   "Ah, I see you have returned with my son, for that I am greatful. Now for your desired information.", "bigilas_talk_son_1", [
+   "Ah, I see you have returned with my son, for that I am grateful. Now for your desired information.", "bigilas_talk_son_1", [
    (remove_member_from_party, "trp_bigilas_son"),
    ]],
   [trp_bigilas, "bigilas_talk_son_1", [],
@@ -50498,7 +50517,7 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
   [trp_bigilas, "bigilas_duel_talk_3", [],
    "Years ago, I was greatly humiliated by Attila when I failed to give a bribe to Edeko, who was going to assassinate him. I was forced to live under Attila's watch while my son had to scrounge up the money to pay for my ransom.", "bigilas_duel_talk_4", []],
   [trp_bigilas, "bigilas_duel_talk_4", [],
-   "While I was stuck under that man's tyranny, I became infatuated by the idea of getting revenge against him, even after his pathetic death. When I heard that you were looking for it, I knew I must get my hands on it; both for its renown and for the symbolic purpose of my revenge against that bastard, the scourage of god.", "bigilas_duel_talk_5", []],
+   "While I was stuck under that man's tyranny, I became infatuated by the idea of getting revenge against him, even after his pathetic death. When I heard that you were looking for it, I knew I must get my hands on it; both for its renown and for the symbolic purpose of my revenge against that bastard, the scourge of god.", "bigilas_duel_talk_5", []],
   [trp_bigilas, "bigilas_duel_talk_5", [],
    "Now nothing shall get in my way, including you. Prepare to die!", "close_window", [(assign,"$sword_found",1),]],
 
@@ -50562,7 +50581,7 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
   [trp_greek_scythaboo, "greek_scythaboo_talk_home_1", [],
    "The ruins of my home sit along the Danube, south of Singidunum. It was once quite the important city... If you're going there, could you find and return something for me?", "greek_scythaboo_talk_home_2", []],
   [trp_greek_scythaboo, "greek_scythaboo_talk_home_2", [],
-   "I am looking for an old ring of mine. It was my fathers, during the siege, fearing the worst I hid it. Last I remember, it was next to an old temple, in a box in some bushes. I wish to have it to remind me of my old home. If you can find it, I would be most greatful.", "greek_scythaboo_talk_start_1", [
+   "I am looking for an old ring of mine. It was my fathers, during the siege, fearing the worst I hid it. Last I remember, it was next to an old temple, in a box in some bushes. I wish to have it to remind me of my old home. If you can find it, I would be most grateful.", "greek_scythaboo_talk_start_1", [
   (enable_party, "p_ruins_1"),
   (assign, "$viminacium", 2),
   ]],
@@ -50570,7 +50589,7 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
   [trp_greek_scythaboo|plyr, "greek_scythaboo_talk_start_1", [(player_has_item,"itm_heirloom")],
    "I found the ring you asked me about.", "greek_scythaboo_talk_home_quest_1", []],
   [trp_greek_scythaboo, "greek_scythaboo_talk_home_quest_1", [],
-   "Ah, yes, that is it! I am most greatful. Here, take this as a reward for what you've done for me. I hope it was no trouble to get it.", "greek_scythaboo_talk_start_1", [
+   "Ah, yes, that is it! I am most grateful. Here, take this as a reward for what you've done for me. I hope it was no trouble to get it.", "greek_scythaboo_talk_start_1", [
   (troop_remove_item, "trp_player", "itm_heirloom"),
   (add_xp_as_reward, 441), #the year the city was sacked lol
   (troop_add_gold, "trp_player", 150),
@@ -52049,7 +52068,7 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
   [trp_nero_larper|plyr, "nero_larper_intro_1", [],
    "Are you the one who claims to be Nero reborn?", "nero_larper_intro_2", []],
   [trp_nero_larper, "nero_larper_intro_2", [],
-   "Oh? I know who you are talking about, it's me, of course! You plebian! You couldn't even recongnize your true emperor?!", "nero_larper_intro_3", []],
+   "Oh? I know who you are talking about, it's me, of course! You plebeian! You couldn't even recognize your true emperor?!", "nero_larper_intro_3", []],
   [trp_nero_larper, "nero_larper_intro_3", [],
    "Now what do you want with me?", "nero_larper_talk_normal_1", []],
 
@@ -52141,7 +52160,7 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
   [trp_nero_larper|plyr, "nero_larper_talk_lyre_8", [],
    "You should go to the center of the city and sing to the people, so they recognize your rule!", "nero_larper_talk_rome_sing_1", []],
   [trp_nero_larper, "nero_larper_talk_rome_sing_1", [],
-   "Yes, the people will instantly recongnize my musical prowess, and will support my ascension to the throne! Thank you, my servant. You will be rewarded with much wealth when I ascend to the throne!", "close_window", [
+   "Yes, the people will instantly recognize my musical prowess, and will support my ascension to the throne! Thank you, my servant. You will be rewarded with much wealth when I ascend to the throne!", "close_window", [
    (add_xp_as_reward, 1000),
    (call_script, "script_end_quest", "qst_nero_larper_quest"),
    (disable_party, "p_grove_of_nymphs"),
@@ -52168,7 +52187,7 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
   [trp_nero_larper|plyr, "nero_larper_talk_lyre_8", [], #violent
    "You said you would pay me? Where the hell is my reward you madman?", "nero_larper_talk_lyre_aggressive_1", []],
   [trp_nero_larper, "nero_larper_talk_lyre_aggressive_1", [],
-   "What are you talking about? Isn't being my servant the greatest reward for a plebian like you? Do you know what misbehaved servants deserve? Death!", "close_window", [(assign,"$nero_interaction",1)]],
+   "What are you talking about? Isn't being my servant the greatest reward for a plebeian like you? Do you know what misbehaved servants deserve? Death!", "close_window", [(assign,"$nero_interaction",1)]],
 
   [trp_nero_larper|plyr, "nero_larper_talk_normal_1", [], #background details about the location
    "Why is this placed known as the grove of the nymphs?", "nero_larper_nymph_1", []],
@@ -52190,7 +52209,7 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
   [trp_nero_larper, "nero_larper_talk_begging_2", [],
    "I thought with my entrance into Rome, I would be declared emperor, however the authorities threatened to haul me off to jail. How dare they do that to their rightful emperor?", "nero_larper_talk_begging_3", []],
   [trp_nero_larper, "nero_larper_talk_begging_3", [],
-   "Now, here I am, playing my lyre in hopes the plebians realize their Imperator has returned...", "nero_larper_talk_rome_1", []],
+   "Now, here I am, playing my lyre in hopes the plebeians realize their Imperator has returned...", "nero_larper_talk_rome_1", []],
   [trp_nero_larper|plyr, "nero_larper_talk_rome_1", [],
    "Nevermind, I will leave you be.", "close_window", []],
 
@@ -53056,7 +53075,7 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
   [trp_zerkon, "zerko_story_6", [],
    "Bleda loved me so much he gave me beautiful wife. However, when he died, change, there was. An offering of peace, I was. Sent to the general, Flavius Aetius. Aetius returned me to Aspar. However, wife was separated from me.", "zerko_story_7", []],
   [trp_zerkon, "zerko_story_7", [],
-   "Later I returned with Roman embassy, to get my wife back. Attila, still disgusted, sent me away. However, those in his court loved me. So they did! After that bastard died, I returned. Sons of Attila greatfully returned my wife to me.", "zerko_story_8", []],
+   "Later I returned with Roman embassy, to get my wife back. Attila, still disgusted, sent me away. However, those in his court loved me. So they did! After that bastard died, I returned. Sons of Attila gratefully returned my wife to me.", "zerko_story_8", []],
   [trp_zerkon, "zerko_story_8", [],
    "For that, I stayed here, with them. However, thanks I give, to Aspar. He gave a freak like me, a new life. Of success, I had gained, for my strangeness!", "zerko_story_9", []],
   [trp_zerkon|plyr, "zerko_story_9", [],

@@ -771,6 +771,7 @@ slot_center_event                 = 800
 slot_party_rebellion_timer = 811
 slot_party_rebellion_cooldown = 812
 slot_party_rebel_faction = 813
+slot_party_looted_action = 814
 
 slot_icon_backup        = 271
 slot_party_on_water     = 270

@@ -218,6 +218,11 @@ scripts = [
 	(assign, "$preaching", 0),
 	(assign, "$currently_preaching", 0),
 	(assign, "$ricimer_offer", 0),
+	(assign, "$blessing", 0),
+	(assign, "$currently_blessing", 0),
+	(assign, "$last_preached", -1),
+	(assign, "$scavenging", 0),
+	(assign, "$currently_scavenging", 0),
 
     (options_set_battle_size, 0), #for slower pcs
 
@@ -32989,6 +32994,7 @@ scripts = [
 		(try_end),
       (try_end),
       (party_set_slot, ":village_no", slot_village_state, ":new_state"),
+      (party_set_slot, ":village_no", slot_party_looted_action, -1),
   ]),
 
 
@@ -104086,6 +104092,54 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
             (display_message, "@The deposition could not be completed because the faction's leadership changed before the coup was finalized.", message_alert),
         (try_end),
      ]),
+
+  ("store_religion_name_s10",
+   [
+      (store_script_param, ":religion", 1),
+
+      (str_store_string, s10, "@an unknown faith"),
+
+      (try_begin),
+        (eq, ":religion", slot_religion_christian_chalcedonian),
+        (str_store_string, s10, "@Chalcedonian Christianity"),
+
+      (else_try),
+        (eq, ":religion", slot_religion_christian_arian),
+        (str_store_string, s10, "@Arian Christianity"),
+
+      (else_try),
+        (eq, ":religion", slot_religion_christian_miaphysite),
+        (str_store_string, s10, "@Miaphysite Christianity"),
+
+      (else_try),
+        (eq, ":religion", slot_religion_christian_nestorian),
+        (str_store_string, s10, "@Nestorian Christianity"),
+
+      (else_try),
+        (eq, ":religion", slot_religion_christian_donatist),
+        (str_store_string, s10, "@Donatist Christianity"),
+
+      (else_try),
+        (eq, ":religion", slot_religion_paganism),
+        (str_store_string, s10, "@Paganism"),
+
+      (else_try),
+        (eq, ":religion", slot_religion_roman_paganism),
+        (str_store_string, s10, "@Roman Paganism"),
+
+      (else_try),
+        (eq, ":religion", slot_religion_zoroastrianism),
+        (str_store_string, s10, "@Mazdaist Zoroastrianism"),
+
+      (else_try),
+        (eq, ":religion", slot_religion_zurvanism),
+        (str_store_string, s10, "@Zurvanite Zoroastrianism"),
+
+      (else_try),
+        (eq, ":religion", slot_religion_judaism),
+        (str_store_string, s10, "@Judaism"),
+      (try_end),
+   ]),
 
 ]
 

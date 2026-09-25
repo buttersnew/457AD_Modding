@@ -989,4 +989,5 @@ script_cf_457_coup_faction_is_eligible = 987
 script_457_coup_clear_support_flags = 988
 script_457_coup_register_support = 989
 script_457_install_new_faction_leader = 990
-script_efe_init = 991
+script_store_religion_name_s10 = 991
+script_efe_init = 992

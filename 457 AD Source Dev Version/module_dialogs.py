@@ -33477,9 +33477,9 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
   (ge, ":level", 5), #minimum level
   (eq, "$g_silingi_quest", 0),
   (neg|check_quest_active, "qst_silingi_quest"),
-  ], "We, the Vandallic people have travelled far, to our new home here in Africa. However our people's kinsmen, the Silingi are still settled in our ancestral homeland.\
- With the Romans at our doorstep, always threatening us, and the Mauri people revolting, we need not only strong allies, but strong warriors within our kingdom...\
- {playername}, I wish to ask you this; Find the remnants of our kin back in Germania, and convince them to migrate here to Africa.", "lord_tell_mission_silingi_1",
+  ], "We, the Vandallic people have travelled far, to our new home here in Africa. However our people's kinsmen, the Silingi are still settled in our ancestral homeland. "+
+ "With the Romans at our doorstep, always threatening us, and the Mauri people revolting, we need not only strong allies, but strong warriors within our kingdom... ^^"+
+ "{playername}, I wish to ask you this; Find the remnants of our kin back in Germania, and convince them to migrate here to Africa.", "lord_tell_mission_silingi_1",
    [
    ]],
    [anyone|plyr,"lord_tell_mission_silingi_1", [
@@ -33489,7 +33489,7 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
    [anyone,"lord_tell_mission_silingi_2", [
   ], "Our home is East, past the lands of the Langobards and Thuringians. Convince them, and I will reward you well...", "lord_pretalk",
    [(call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 5),
-   (str_store_string, s2, "@Gaiseric has tasked you in finding the kinsmen to the vandals; the Siligini. They are said to be living east of the lands of the Thuringians and Langobards."),
+   (str_store_string, s2, "@Gaiseric has tasked you in finding the kinsmen to the vandals, the Silingi. They are said to be living east of the lands of the Thuringians and Langobards."),
    (call_script, "script_start_quest", "qst_silingi_quest", "$g_talk_troop"),
    (enable_party, "p_silingi_village"),
    (assign, "$g_silingi_quest", 1),

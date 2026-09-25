@@ -16626,7 +16626,7 @@ TOTAL:  {reg5}"),
      ],
     [
       ("continue", [], "Continue...",
-       [(call_script, "script_change_center_prosperity", "$current_town", -1),
+       [
 	(change_screen_return),
         ]),
     ]
@@ -16705,6 +16705,9 @@ TOTAL:  {reg5}"),
 (is_between, ":religion_player", 0, 5), #madsci christian
 (str_store_string, s3, "@The followers of {s10} in {s3} are eager to make donations to the church"),
 (else_try),
+(neq, ":religion_player", ":religion_center"),
+(str_store_string, s3, "@Those in {s3} who are eager to learn the sacred teachings of {s10} bring generous gifts to you"),
+(else_try),
 (str_store_string, s3, "@The worshippers of {s10} in {s3} bring generous gifts to you"),
 (try_end),
      ],
@@ -16724,6 +16727,7 @@ TOTAL:  {reg5}"),
 ], "{s3}. ({reg9} siliquae)",
        [
 	(call_script, "script_troop_add_gold", "trp_player", "$temp"),
+	(call_script, "script_change_center_prosperity", "$current_town", -5),
 	(change_screen_return),
 ]),
       

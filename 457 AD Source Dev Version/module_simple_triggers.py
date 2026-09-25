@@ -5185,7 +5185,7 @@ simple_triggers = [
          (rest_for_hours, 0, 0, 0), #stop resting
          (jump_to_menu, "mnu_preaching_complete"),
        (else_try),
-	(store_random_in_range, ":rng", 0, 20),
+	(store_random_in_range, ":rng", 0, 40),
 	(eq, ":rng", 1),
 	(store_skill_level, ":skill", "skl_persuasion", "trp_player"),
 	(val_add, ":skill", 1),

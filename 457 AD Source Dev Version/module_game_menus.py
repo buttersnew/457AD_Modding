@@ -11478,6 +11478,7 @@ TOTAL:  {reg5}"),
        [(jump_to_menu, "mnu_blessing"),]),
 
       ("village_preach",[
+				(eq, "$freelancer_state", 0),
 				(assign, ":block", 0),
 				(try_begin),
                             	(check_quest_active, "qst_collect_taxes"),
@@ -12792,8 +12793,8 @@ TOTAL:  {reg5}"),
 
   ( #SB : added fugitive related strings
     "village_start_attack",mnf_disable_all_keys|mnf_scale_picture,
-    "Some of the angry villagers grab their tools and prepare to resist you.\
- It looks like you'll have a fight on your hands if you continue.{s1}",
+    "Some of the angry villagers grab their tools and prepare to resist you. "+
+ "It looks like you'll have a fight on your hands if you continue.{s1}",
     "none",
     [
        (set_background_mesh, "mesh_pic_villageriot"),
@@ -15192,6 +15193,7 @@ TOTAL:  {reg5}"),
 
       ("preach_town",
       [
+	(eq, "$freelancer_state", 0),
 	(eq, "$background_type", cb_priest),
 	(neq, "$last_preached", "$current_town"),
 				(assign, ":block", 0),
@@ -16564,6 +16566,13 @@ TOTAL:  {reg5}"),
 			(call_script, "script_change_player_relation_with_troop", ":lord_troop_id", -50),
 			(str_store_troop_name_link, s2, ":lord_troop_id"),
 			(str_store_string, s3, "@{s3}. ^^However, the settlement belongs to {s2} -- a follower of {s10} -- who now hates you for what you have done"),
+				(try_begin),
+				(store_troop_faction, ":lord_troop_fac", ":lord_troop_id"),
+				(is_between, ":lord_troop_fac", npc_kingdoms_begin, npc_kingdoms_end),
+				(neq, ":lord_troop_fac", "$players_kingdom"),
+				(faction_slot_eq, ":lord_troop_fac", slot_faction_leader, ":lord_troop_id"),
+				(call_script, "script_make_kingdom_hostile_to_player", ":lord_troop_fac", -3),
+				(try_end),
 			(else_try),
 			(party_get_slot,  ":lord_troop_id", "$current_town", slot_town_lord),
 			(gt, ":lord_troop_id", 0),

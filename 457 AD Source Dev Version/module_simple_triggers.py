@@ -8176,6 +8176,9 @@ simple_triggers = [
   (96, #every 4 days - 25% chance of an event
     [
 	(map_free),
+	(le,"$g_player_raiding_village",0),
+	(le,"$blessing",0),
+	(le,"$scavenging",0),
 	(eq, "$freelancer_state", 0), #not freelancing
 	(eq, "$g_infinite_camping", 0),
 	(neq, "$g_player_is_captive", 1),

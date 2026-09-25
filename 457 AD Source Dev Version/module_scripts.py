@@ -3823,15 +3823,13 @@ scripts = [
           (faction_slot_eq, ":faction_no", slot_faction_religion, slot_religion_roman_paganism),
           (party_set_slot, ":center_no", slot_center_religion, slot_religion_roman_paganism),
       (else_try),
-          (try_for_range, ":faction_no2", npc_kingdoms_begin, npc_kingdoms_end), #sets specific kingdoms to rule over majority chalcedonian populations
-              (this_or_next|eq, ":faction_no2", "fac_kingdom_3"), #ostrogoths
-              (this_or_next|eq, ":faction_no2", "fac_kingdom_4"), #visigoths
-              (this_or_next|eq, ":faction_no2", "fac_kingdom_8"), #suebi
-              (this_or_next|eq, ":faction_no2", "fac_kingdom_9"), #burgundians
-              (this_or_next|eq, ":faction_no2", "fac_kingdom_30"),
-              (eq, ":faction_no2", "fac_kingdom_15"), #vandals
+              (this_or_next|eq, ":faction_no", "fac_kingdom_3"), #ostrogoths
+              (this_or_next|eq, ":faction_no", "fac_kingdom_4"), #visigoths
+              (this_or_next|eq, ":faction_no", "fac_kingdom_8"), #suebi
+              (this_or_next|eq, ":faction_no", "fac_kingdom_9"), #burgundians
+              (this_or_next|eq, ":faction_no", "fac_kingdom_30"),
+              (eq, ":faction_no", "fac_kingdom_15"), #vandals
               (party_set_slot, ":center_no", slot_center_religion, slot_religion_christian_chalcedonian),
-          (try_end),
       (else_try),
           (eq, ":faction_no", "fac_indigenoi"),
           (party_set_slot, ":center_no", slot_center_religion, slot_religion_paganism), #pagan - indiginae

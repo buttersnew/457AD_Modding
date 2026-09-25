@@ -76,7 +76,8 @@ common_maritime_prepare_cb_weather =(
       (assign, "$lightning_cycle", 0),
       (set_rain, 1, 300),
       (set_fog_distance, 800, 0x0f0f0f),
-      (play_sound,"snd_heavy_rain_sea_loop"),
+      #(play_sound,"snd_heavy_rain_sea_loop"),
+	(play_sound,"snd_ambient_sea_loop"),
     (end_try),
     (store_last_sound_channel, "$ambiance_channel"),
 ])

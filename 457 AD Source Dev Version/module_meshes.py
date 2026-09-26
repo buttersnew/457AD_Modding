@@ -500,6 +500,7 @@ meshes = [
   ("banner_kingdom_36", 0, "banner_kingdom_36", 0, 0, 0, -90, 0, 0, 1, 1, 1),
   ("banner_kingdom_37", 0, "banner_kingdom_37", 0, 0, 0, -90, 0, 0, 1, 1, 1),
   ("banner_kingdom_38", 0, "banner_kingdom_38", 0, 0, 0, -90, 0, 0, 1, 1, 1),
+  ("banner_kingdom_39", 0, "banner_kingdom_39", 0, 0, 0, -90, 0, 0, 1, 1, 1),
 
   ("banner_end", 0, "banner_a15", 0, 0, 0, -90, 0, 0, 1, 1, 1),
 
@@ -723,6 +724,7 @@ meshes = [
   ("arms_kingdom_36", 0, "arms_kingdom_36", 0, 0, 0, -90, 0, 0, 1, 1, 1),
   ("arms_kingdom_37", 0, "arms_kingdom_37", 0, 0, 0, -90, 0, 0, 1, 1, 1),
   ("arms_kingdom_38", 0, "arms_kingdom_38", 0, 0, 0, -90, 0, 0, 1, 1, 1),
+  ("arms_kingdom_39", 0, "arms_kingdom_39", 0, 0, 0, -90, 0, 0, 1, 1, 1),
 
   ("arms_end", 0, "banner_a15", 0, 0, 0, -90, 0, 0, 1, 1, 1),
 

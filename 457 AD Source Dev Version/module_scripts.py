@@ -2021,10 +2021,10 @@ scripts = [
     (faction_set_slot, "fac_kingdom_29", slot_faction_banner, "mesh_banner_kingdom_33"),
     (faction_set_slot, "fac_kingdom_30", slot_faction_banner, "mesh_banner_kingdom_34"),
     (faction_set_slot, "fac_kingdom_31", slot_faction_banner, "mesh_banner_kingdom_35"),
-    (faction_set_slot, "fac_kingdom_32", slot_faction_banner, "mesh_banner_kingdom_36"), # madsci IRISH change this
-    (faction_set_slot, "fac_kingdom_33", slot_faction_banner, "mesh_banner_kingdom_37"), # pl4tte SPOIROI change this
-    (faction_set_slot, "fac_kingdom_34", slot_faction_banner, "mesh_banner_kingdom_38"), # pl4tte VENEDI change this
-    (faction_set_slot, "fac_kingdom_35", slot_faction_banner, "mesh_banner_kingdom_38"), # pl4tte MOPRDVIN change this
+    (faction_set_slot, "fac_kingdom_32", slot_faction_banner, "mesh_banner_kingdom_36"),
+    (faction_set_slot, "fac_kingdom_33", slot_faction_banner, "mesh_banner_kingdom_37"),
+    (faction_set_slot, "fac_kingdom_34", slot_faction_banner, "mesh_banner_kingdom_38"),
+    (faction_set_slot, "fac_kingdom_35", slot_faction_banner, "mesh_banner_kingdom_39"),
 
     (try_for_range, ":cur_faction", npc_kingdoms_begin, npc_kingdoms_end),
         (faction_get_slot, ":cur_faction_king", ":cur_faction", slot_faction_leader),
@@ -2302,8 +2302,8 @@ scripts = [
 
     (troop_set_slot, "trp_knight_34_1", slot_troop_banner_scene_prop, "spr_banner_kingdom_38"),
 
-    # (troop_set_slot, "trp_knight_35_1", slot_troop_banner_scene_prop, "spr_banner_kingdom_39"),
-    # (troop_set_slot, "trp_knight_35_2", slot_troop_banner_scene_prop, "spr_banner_kingdom_39"),
+    (troop_set_slot, "trp_knight_35_1", slot_troop_banner_scene_prop, "spr_banner_kingdom_39"),
+    (troop_set_slot, "trp_knight_35_2", slot_troop_banner_scene_prop, "spr_banner_kingdom_39"),
 
     (troop_set_slot, "trp_angles_offa", slot_troop_banner_scene_prop, "spr_banner_kingdom_33"),
     (troop_set_slot, "trp_angles_freawine", slot_troop_banner_scene_prop, "spr_banner_kingdom_33"),

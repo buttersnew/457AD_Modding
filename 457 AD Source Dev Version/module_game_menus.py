@@ -30429,7 +30429,10 @@ goods, and books will never be sold. ^^You can change some settings here freely.
           (change_screen_return, 0),
         ]
       ),
-      ("choice_22_2",[(party_get_skill_level,":leadership","p_main_party","skl_leadership"),(ge,":leadership",4)],"Forbid unauthorized foraging and punish the worst offenders. (Leadership)",
+      ("choice_22_2",[
+(party_get_skill_level,":leadership","p_main_party","skl_leadership"),
+(ge,":leadership",4),
+],"Forbid unauthorized foraging and punish the worst offenders. (Leadership 4)",
         [
           (call_script, "script_change_player_relation_with_center", "$g_457_event_center", 4),
           (call_script, "script_change_player_honor", 1),

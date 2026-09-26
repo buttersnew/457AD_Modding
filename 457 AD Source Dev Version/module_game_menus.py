@@ -12280,7 +12280,7 @@ TOTAL:  {reg5}"),
         (party_set_slot, "$current_town", slot_center_religion, ":religion"),
 
         (call_script, "script_change_player_honor", -30),
-        (val_sub, "$piety", 30),
+        (call_script, "script_change_player_piety", -30),
         (party_get_slot, ":prosperity_change", "$current_town", slot_town_prosperity),
         (val_mul, ":prosperity_change", -9),
         (val_div, ":prosperity_change", 10),
@@ -12998,7 +12998,7 @@ TOTAL:  {reg5}"),
     [
     (str_store_party_name, s22, "$current_town"),
     (try_begin), #religion
-        (val_sub, "$piety", 3),
+        (call_script, "script_change_player_piety", -3),
         (party_get_slot, ":religion_center", "$current_town", slot_center_religion),
         (try_begin),
             (eq, ":religion_center", slot_religion_christian_chalcedonian),
@@ -16363,7 +16363,7 @@ TOTAL:  {reg5}"),
     [(str_store_party_name, s3, "$current_town"),
 	(party_set_slot, "$current_town", slot_party_looted_action, 1),
 	(add_xp_as_reward, 300),
-	(val_add, "$piety", 1),
+	(call_script, "script_change_player_piety", 1),
 	(str_store_string, s3, "@You have finished blessing the dead of {s3}"),
           (set_fixed_point_multiplier, 100),
           (position_set_x, pos0, 70),
@@ -16607,7 +16607,7 @@ TOTAL:  {reg5}"),
 			(troop_get_slot, ":religion_player","trp_player", slot_troop_religion),
 			(party_set_slot, "$current_town", slot_center_religion, ":religion_player"),
 			(add_xp_to_troop, 5000, "trp_player"),
-   			(val_add, "$piety", 1),
+   			(call_script, "script_change_player_piety", 5),
    			(call_script, "script_change_troop_renown", "trp_player", 50),
 			(val_add, "$centers_converted", 1),
 		(else_try),
@@ -26201,7 +26201,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         (eq,"$g_paganism_dedication",0),
         ],"Dedicate yourself to the Germanic gods.",
     [
-      (val_add, "$piety", 1), #increase in piety
+      (call_script, "script_change_player_piety", 1), #increase in piety
       (assign, "$g_paganism_dedication", 1),
       (call_script, "script_change_player_relation_with_faction", "fac_pagans", 5),
       (display_message,"@You have dedicated yourself to the gods within the Germanic pantheon.",0x6495ed),
@@ -26217,7 +26217,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         (eq,"$g_paganism_roman_dedication",0),
         ],"Dedicate yourself to the Roman gods.",
     [
-      (val_add, "$piety", 1), #increase in piety
+      (call_script, "script_change_player_piety", 1), #increase in piety
       (assign, "$g_paganism_roman_dedication", 1),
       (call_script, "script_change_player_relation_with_faction", "fac_pagans", 5),
       (display_message,"@You have dedicated yourself to the gods within the Roman pantheon.",0x6495ed),
@@ -26233,7 +26233,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         (eq,"$g_paganism_dedication",0),
         ],"Dedicate yourself to the Celtic gods.",
     [
-      (val_add, "$piety", 1), #increase in piety
+      (call_script, "script_change_player_piety", 1), #increase in piety
       (assign, "$g_paganism_dedication", 2),
       (call_script, "script_change_player_relation_with_faction", "fac_pagans", 5),
       (display_message,"@You have dedicated yourself to the gods within the Celtic pantheon.",0x6495ed),
@@ -26249,7 +26249,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         (eq,"$g_paganism_dedication",0),
         ],"Dedicate yourself to the gods of the shamans.",
     [
-      (val_add, "$piety", 1), #increase in piety
+      (call_script, "script_change_player_piety", 1), #increase in piety
       (assign, "$g_paganism_dedication", 3),
       (call_script, "script_change_player_relation_with_faction", "fac_pagans", 5),
       (display_message,"@You have dedicated yourself to the gods within the steppe pantheon.",0x6495ed),
@@ -26265,7 +26265,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         (eq,"$g_paganism_roman_dedication",0),
         ],"Dedicate yourself to the Aegyptian gods.",
     [
-      (val_add, "$piety", 1), #increase in piety
+      (call_script, "script_change_player_piety", 1), #increase in piety
       (assign, "$g_paganism_roman_dedication", 2),
       (call_script, "script_change_player_relation_with_faction", "fac_pagans", 5),
       (display_message,"@You have dedicated yourself to the gods within the Aegyptian pantheon.",0x6495ed),
@@ -26282,7 +26282,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         ],"Offer a sacrifice (+1 piety, 1 hour).",
     [
       (rest_for_hours, 1, 5, 0),
-      (val_add, "$piety", 1), #pray for piety
+      (call_script, "script_change_player_piety", 1), #pray for piety
       (store_faction_of_party, ":fac", "$g_encountered_party"),
       (call_script, "script_change_player_relation_with_faction", ":fac", 2),
       (display_message,"@After offering a sacrifice, you feel that you have gotten closer to your god.",0x6495ed),
@@ -26295,14 +26295,14 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       (call_script, "script_change_player_party_morale", 10),
       (troop_remove_gold, "trp_player", 200),
       (call_script, "script_change_player_honor", 5),
-      (val_add, "$piety", 2), #pray for piety
+      (call_script, "script_change_player_piety", 2), #pray for piety
       (assign, "$memorial_performed",1),
       (change_screen_return),
     ]),
       ("religious_center_4",[(neq, "$religious_donation", 1),(store_troop_gold,":player_gold", "trp_player"),(gt, ":player_gold", 500)],"Donate 500 siliquae.",
     [
       (troop_remove_gold, "trp_player", 500),
-      (val_add, "$piety", 3),
+      (call_script, "script_change_player_piety", 3),
       (call_script, "script_change_player_honor", 8),
       (store_faction_of_party, ":fac", "$g_encountered_party"),
       (call_script, "script_change_player_relation_with_faction", ":fac", 5),
@@ -26322,10 +26322,10 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     (party_get_slot, ":religion_center", "$g_encountered_party", slot_center_religion),
     (try_begin),
       (eq, ":player_religion", ":religion_center"),
-      (val_sub, "$piety", 10), #sacking religious locations of your religion will lower piety
+      (call_script, "script_change_player_piety", -10), #sacking religious locations of your religion will lower piety
 	(call_script, "script_change_player_relation_lords_religion", ":player_religion", -5), #madsci punish relation with lords of same religion
     (else_try),
-      (val_add, "$piety", 2), #sacking other religion's locations will give a small boost to piety (ie sword of the faith)
+      (call_script, "script_change_player_piety", 2), #sacking other religion's locations will give a small boost to piety (ie sword of the faith)
     (try_end),
 
     (store_random_in_range, ":monastery_gold", 800, 2250),
@@ -26452,7 +26452,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         ],"Pray (+1 piety, 1 hour).",
     [
       (rest_for_hours, 1, 5, 0),
-      (val_add, "$piety", 1), #pray for piety
+      (call_script, "script_change_player_piety", 1), #pray for piety
       (store_faction_of_party, ":fac", "$g_encountered_party"),
       (call_script, "script_change_player_relation_with_faction", ":fac", 2),
       (display_message,"@After an hour of praying, you feel your faith has strengthened.",0x6495ed),
@@ -26465,14 +26465,14 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       (call_script, "script_change_player_party_morale", 10),
       (troop_remove_gold, "trp_player", 200),
       (call_script, "script_change_player_honor", 5),
-      (val_add, "$piety", 2), #pray for piety
+      (call_script, "script_change_player_piety", 2), #pray for piety
       (assign, "$memorial_performed",1),
       (change_screen_return),
     ]),
       ("religious_center_4",[(neq, "$religious_donation", 1),(store_troop_gold,":player_gold", "trp_player"),(gt, ":player_gold", 500)],"Donate 500 siliquae.",
     [
       (troop_remove_gold, "trp_player", 500),
-      (val_add, "$piety", 3),
+      (call_script, "script_change_player_piety", 3),
       (call_script, "script_change_player_honor", 8),
       (store_faction_of_party, ":fac", "$g_encountered_party"),
       (call_script, "script_change_player_relation_with_faction", ":fac", 5),
@@ -26492,9 +26492,9 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     (party_get_slot, ":religion_center", "$g_encountered_party", slot_center_religion),
     (try_begin),
       (eq, ":player_religion", ":religion_center"),
-      (val_sub, "$piety", 10), #sacking religious locations of your religion will lower piety
+      (call_script, "script_change_player_piety", -10), #sacking religious locations of your religion will lower piety
     (else_try),
-      (val_add, "$piety", 2), #sacking other religion's locations will give a small boost to piety (ie sword of the faith)
+      (call_script, "script_change_player_piety", 2), #sacking other religion's locations will give a small boost to piety (ie sword of the faith)
     (try_end),
 
     (store_random_in_range, ":monastery_gold", 800, 2250),
@@ -26521,7 +26521,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     (party_set_slot,"$g_encountered_party",slot_center_religion, ":player_religion"), #player forces out current monks, replaces it with monks of their own faith
     (store_faction_of_party, ":fac", "$g_encountered_party"),
     (call_script, "script_change_player_relation_with_faction", ":fac", -10),
-    (val_add, "$piety", 5), #seizing the monastery for your faith will provide piety
+    (call_script, "script_change_player_piety", 5), #seizing the monastery for your faith will provide piety
     (call_script, "script_change_player_party_morale", 2),
     (call_script, "script_change_player_honor", -5),
     (call_script, "script_change_troop_renown", "trp_player", 5),
@@ -29571,7 +29571,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         [
           (display_message, "@Both the gods and your men are pleased by this action."), #increase morale + piety
           (call_script, "script_change_player_party_morale", 3),
-          (val_add, "$piety", 4),
+          (call_script, "script_change_player_piety", 2),
           (change_screen_return, 0),
         ]
       ),
@@ -29603,7 +29603,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       ("choice_2_1",[(store_troop_gold,":money","trp_player"),(gt,":money",499)],"Give them 500 siliquae.",
         [
           (display_message, "@The group leaves, greatful for your charity."),
-          (val_add, "$piety", 3),
+          (call_script, "script_change_player_piety", 1),
           (troop_remove_gold,"trp_player",500),
           (change_screen_return, 0),
         ]
@@ -29619,7 +29619,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         [
           (display_message, "@The group screams in terror as your troops descent upon them. After they have perished, your men loot their corpses for what little they had..."),
           (call_script, "script_change_player_honor", -5),
-          (val_sub, "$piety", 8),
+          (call_script, "script_change_player_piety", -8),
           (call_script, "script_troop_add_gold", "trp_player", 110),
           (change_screen_return, 0),
         ]
@@ -29716,7 +29716,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       ("choice_6_1",[(store_troop_gold,":money","trp_player"),(gt,":money",49)],"Give him 50 siliquae, to buy bread at the local market.",
         [
           (display_message, "@The man thanks you, and wanders off to the nearest village to buy some bread for himself."),
-          (val_add, "$piety", 1),
+          (call_script, "script_change_player_piety", 1),
           (troop_remove_gold,"trp_player",50),
           (change_screen_return, 0),
         ]
@@ -29724,7 +29724,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       ("choice_6_2",[(store_troop_gold,":money","trp_player"),(gt,":money",199)],"Give him 200 siliquae, to buy food at the local market.",
         [
           (display_message, "@The man praises you, and before he leaves, says he will tell all of your deeds."),
-          (val_add, "$piety", 2),
+          (call_script, "script_change_player_piety", 2),
           (call_script, "script_change_troop_renown", "trp_player", 1),
           (troop_remove_gold,"trp_player",200),
           (change_screen_return, 0),
@@ -29734,7 +29734,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         [
           (display_message, "@The man yells, but his cries are not heard. Your men kill him and find he had nothing of value to you..."),
           (call_script, "script_change_player_honor", -5),
-          (val_sub, "$piety", 5),
+          (call_script, "script_change_player_piety", -5),
           (change_screen_return, 0),
         ]
       ),
@@ -29747,7 +29747,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         ],"Gift him your cloak, and feed him some of your food.",
         [
           (display_message, "@The man thanks you, and goes on his way. Later, you experience a dream, where Christ appears to you. You wake up, and find a strange axe next to you..."),
-          (val_add, "$piety", 5),
+          (call_script, "script_change_player_piety", 5),
           (assign, "$g_st_martin", 1),
           (troop_add_item, "trp_player","itm_st_martin_axe",0),
           (change_screen_return, 0),
@@ -29768,7 +29768,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         [
           (display_message, "@The group leaves, greatful for your charity."),
           (call_script, "script_change_player_relation_with_faction", "fac_roman_christians", 2),
-          (val_add, "$piety", 2),
+          (call_script, "script_change_player_piety", 1),
           (troop_remove_gold,"trp_player",500),
           (change_screen_return, 0),
         ]
@@ -29777,7 +29777,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         [
           (display_message, "@The group leaves, greatful for your charity."),
           (call_script, "script_change_player_relation_with_faction", "fac_roman_christians", 5),
-          (val_add, "$piety", 5),
+          (call_script, "script_change_player_piety", 3),
           (troop_remove_gold,"trp_player",1000),
           (change_screen_return, 0),
         ]
@@ -29789,7 +29789,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
           (call_script, "script_change_player_relation_with_faction", "fac_roman_christians", -5),
           (try_begin),
             (troop_slot_eq, "trp_player", slot_troop_religion, slot_religion_christian_chalcedonian),
-            (val_sub, "$piety", 10), #only removes piety for christians
+            (call_script, "script_change_player_piety", -10), #only removes piety for christians
           (try_end),
           (call_script, "script_troop_add_gold", "trp_player", 600),
           (change_screen_return, 0),
@@ -30238,7 +30238,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
           (troop_remove_gold, "trp_player", 800),
           (call_script, "script_change_player_party_morale", 10),
           (call_script, "script_change_player_honor", -1),
-          (val_sub, "$piety", 2),
+          (call_script, "script_change_player_piety", -2),
           (str_clear,s1),
           (str_store_string,s1,"@Many of your mean eagerly join them to the village."),
           (display_message, "@{s1}"),
@@ -30247,7 +30247,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       ),
       ("choice_18_2",[],"Thank them for their offer, however continue on your way.",
         [
-          (val_add, "$piety", 2),
+          (call_script, "script_change_player_piety", 2),
           (change_screen_return, 0),
         ]),
     ]),
@@ -30536,7 +30536,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
           (call_script, "script_change_player_relation_with_center", "$g_457_event_center", 4),
           (call_script, "script_change_player_honor", 2),
           (call_script, "script_change_troop_renown", "trp_player", 2),
-          (val_add, "$piety", 1),
+          (call_script, "script_change_player_piety", 1),
           (add_xp_as_reward, 400),
           (display_message, "@After a long argument, both groups accept rules for sharing the road and keeping the peace. Neither is pleased, which may be the surest sign of a workable settlement."),
           (change_screen_return, 0),
@@ -30550,7 +30550,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
           (party_get_slot, ":center_religion", "$g_457_event_center", slot_center_religion),
           (try_begin),
             (eq, ":player_religion", ":center_religion"),
-            (val_add, "$piety", 4),
+            (call_script, "script_change_player_piety", 2),
             (display_message, "@The local faithful bless your generosity and set about repairing the damage."),
           (else_try),
             (call_script, "script_change_player_honor", 2),
@@ -30561,7 +30561,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       ),
       ("choice_24_3",[(troop_get_slot,":player_religion","trp_player",slot_troop_religion),(party_get_slot,":center_religion","$g_457_event_center",slot_center_religion),(neq,":player_religion",":center_religion")],"Support the zealots of your own faith and order the locals aside.",
         [
-          (val_add, "$piety", 3),
+          (call_script, "script_change_player_piety", 3),
           (call_script, "script_change_player_relation_with_center", "$g_457_event_center", -4),
           (call_script, "script_change_troop_renown", "trp_player", 1),
           (display_message, "@Your intervention ends the confrontation immediately, though resentment among the local worshippers is plain."),
@@ -30578,9 +30578,9 @@ goods, and books will never be sold. ^^You can change some settings here freely.
           (party_get_slot, ":center_religion", "$g_457_event_center", slot_center_religion),
           (try_begin),
             (eq, ":player_religion", ":center_religion"),
-            (val_sub, "$piety", 8),
+            (call_script, "script_change_player_piety", -8),
           (else_try),
-            (val_sub, "$piety", 2),
+            (call_script, "script_change_player_piety", -2),
           (try_end),
           (display_message, "@Steel settles the theological question quickly. Your men collect the offerings while both groups curse you from a safe distance."),
           (change_screen_return, 0),
@@ -30692,7 +30692,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
           (call_script, "script_change_player_relation_with_center", "$g_457_event_center", 6),
           (call_script, "script_change_center_prosperity", "$g_457_event_center", 2),
           (call_script, "script_change_player_honor", 3),
-          (val_add, "$piety", 3),
+          (call_script, "script_change_player_piety", 3),
           (display_message, "@The silver changes hands before sunset. The locals praise your generosity while the officials responsible for the missing revenue will be less impressed."),
           (change_screen_return, 0),
         ]
@@ -30714,7 +30714,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       ("choice_pilos_1",[(store_troop_gold,":money","trp_player"),(gt,":money",499)],"Give them 500 siliquae for their journey.",
         [
           (display_message, "@The group leaves, greatful for your charity."),
-          (val_add, "$piety", 2),
+          (call_script, "script_change_player_piety", 2),
           (call_script, "script_change_player_honor", 5),
           (troop_remove_gold,"trp_player",500),
           (assign, "$g_unique_event_1", 1),
@@ -33102,7 +33102,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     (assign, "$g_last_rest_center", "p_frisian_village"),
     (assign, "$g_last_rest_payment_until", -1),
     (rest_for_hours, reg22, 3, 0),
-    (val_add, "$piety", 5),
+    (call_script, "script_change_player_piety", 5),
     (display_message, "@Staying modest increases your piety, however being modest brings no fame..."),
     (change_screen_map),
     ]),
@@ -36494,7 +36494,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       ("vigil_priest", [(eq,"$background_type",cb_priest)],
        "Force the disputants to state their doctrine instead of trading insults. (Priest)",
        [
-         (val_add,"$piety",2),
+         (call_script, "script_change_player_piety", 1),
          (call_script,"script_change_player_honor",1),
          (call_script,"script_change_player_relation_with_center","$g_last_rest_center", 1),
          (str_store_string,s4,"@Once everyone must explain rather than shout, the crowd loses interest in fighting. The theological disagreement remains perfectly intact, but the stones return to the ground."),
@@ -36557,7 +36557,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       ("firetemple_priest", [(eq,"$background_type",cb_priest),(troop_get_slot,":religion","trp_player",slot_troop_religion),(this_or_next|eq,":religion",slot_religion_zoroastrianism),(eq,":religion",slot_religion_zurvanism)],
        "Help the attendants preserve the required purity while organizing the response. (Zoroastrian Priest)",
        [
-         (val_add,"$piety",3),
+         (call_script, "script_change_player_piety", 3),
          (call_script,"script_change_player_relation_with_center","$g_last_rest_center",3),
          (str_store_string,s4,"@Because you understand what the attendants are protecting, they cooperate instead of obstructing the rescue. The fire is secured without violating the sanctuary's rites."),
          (jump_to_menu,"mnu_457_rest_event_result"),
@@ -36587,7 +36587,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       ("grove_priest", [(eq,"$background_type",cb_priest),(troop_get_slot,":religion","trp_player",slot_troop_religion),(this_or_next|eq,":religion",slot_religion_paganism),(eq,":religion",slot_religion_roman_paganism)],
        "Inspect the grove and recognize the local rites before deciding. (Pagan Priest)",
        [
-         (val_add,"$piety",3),
+         (call_script, "script_change_player_piety", 1),
          (call_script,"script_change_player_relation_with_center","$g_last_rest_center", 1),
          (str_store_string,s4,"@You mark which trees are ordinary and which belong to the sanctuary. You gather enough deadwood without violating the place, pleasing almost everyone."),
          (jump_to_menu,"mnu_457_rest_event_result"),
@@ -36720,7 +36720,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       ("jeru_priest", [(eq,"$background_type",cb_priest)],
        "Question the dealer about the relic's chain of custody and the clergy who authenticated it. (Priest)",
        [
-         (val_add,"$piety",1),
+         (call_script, "script_change_player_piety", 1),
          (call_script,"script_change_player_relation_with_center","$g_last_rest_center",1),
          (str_store_string,s4,"@The story collapses under basic questions. The dealer retreats before the crowd can decide whether fraud is a theological or commercial offense."),
          (jump_to_menu,"mnu_457_rest_event_result"),
@@ -36792,7 +36792,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
        "Publicly shame both men for turning greed into violence. (Priest)",
        [
          (call_script,"script_change_player_honor",1),
-         (val_add,"$piety",1),
+         (call_script, "script_change_player_piety", 1),
          (str_store_string,s4,"@Your rebuke empties the table faster than a raid. The money is returned and the players disperse, muttering that gambling was more enjoyable before clergy became interested in it."),
          (jump_to_menu,"mnu_457_rest_event_result"),
        ]),

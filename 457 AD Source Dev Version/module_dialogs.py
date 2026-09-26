@@ -51582,7 +51582,7 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
    (call_script, "script_change_player_relation_with_faction", "fac_roman_christians", 20),
    (troop_add_gold, "trp_player", 4000),
    (call_script, "script_change_player_honor", 5),
-   (val_add, "$piety", 10),
+   (call_script, "script_change_player_piety", 10),
    (call_script, "script_change_troop_renown", "trp_player", 5),
    (add_xp_as_reward, 200),
    ]],
@@ -51595,7 +51595,7 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
    (call_script, "script_change_troop_renown", "trp_player", 5),
    (call_script, "script_change_player_honor", 1),
    (add_xp_as_reward, 450),
-   (val_add, "$piety", 10),
+   (call_script, "script_change_player_piety", 10),
    (call_script, "script_end_quest", "qst_heretical_codex"),
    (assign, "$corrupt_priest_left", 1),
   ]],
@@ -51613,7 +51613,7 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
    (call_script, "script_change_troop_renown", "trp_player", 5),
    (call_script, "script_change_player_honor", 1),
    (add_xp_as_reward, 450),
-   (val_add, "$piety", 10),
+   (call_script, "script_change_player_piety", 10),
   ]],
 
   [anyone|plyr, "chalcedonian_bishop_talk", [],
@@ -51665,7 +51665,7 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
    (call_script, "script_change_player_relation_with_faction", "fac_coptic_christians", 20),
    (troop_add_gold, "trp_player", 4000),
    (call_script, "script_change_player_honor", 5),
-   (val_add, "$piety", 10),
+   (call_script, "script_change_player_piety", 10),
    (call_script, "script_change_troop_renown", "trp_player", 5),
    (add_xp_as_reward, 200),
    ]],
@@ -51683,7 +51683,7 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
    (call_script, "script_change_troop_renown", "trp_player", 5),
    (call_script, "script_change_player_honor", 1),
    (add_xp_as_reward, 450),
-   (val_add, "$piety", 10),
+   (call_script, "script_change_player_piety", 10),
   ]],
 
   [anyone|plyr, "miaphysite_talk_1", [],
@@ -51733,7 +51733,7 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
    (call_script, "script_change_player_relation_with_faction", "fac_arian_christians", 20),
    (troop_add_gold, "trp_player", 4000),
    (call_script, "script_change_player_honor", 5),
-   (val_add, "$piety", 10),
+   (call_script, "script_change_player_piety", 10),
    (call_script, "script_change_troop_renown", "trp_player", 5),
    (add_xp_as_reward, 200),
    ]],
@@ -51751,7 +51751,7 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
    (call_script, "script_change_troop_renown", "trp_player", 5),
    (call_script, "script_change_player_honor", 1),
    (add_xp_as_reward, 450),
-   (val_add, "$piety", 10),
+   (call_script, "script_change_player_piety", 10),
   ]],
 
   [anyone|plyr, "arian_bishop_talk_1", [],
@@ -51801,7 +51801,7 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
    (call_script, "script_change_player_relation_with_faction", "fac_nestorian_christians", 20),
    (troop_add_gold, "trp_player", 4000),
    (call_script, "script_change_player_honor", 5),
-   (val_add, "$piety", 10),
+   (call_script, "script_change_player_piety", 10),
    (call_script, "script_change_troop_renown", "trp_player", 5),
    (add_xp_as_reward, 200),
    ]],
@@ -51818,7 +51818,7 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
    (call_script, "script_change_troop_renown", "trp_player", 5),
    (call_script, "script_change_player_honor", 1),
    (add_xp_as_reward, 450),
-   (val_add, "$piety", 10),
+   (call_script, "script_change_player_piety", 10),
   ]],
   [anyone|plyr, "nestorian_talk_1", [],
    "I do not need a man of God at this time, farewell.", "close_window", []],
@@ -52970,7 +52970,7 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
     (disable_party,"p_sq_asturis_1"),
     (call_script, "script_change_troop_renown", "trp_player", 15),
     (call_script, "script_change_player_honor", 5),
-    (val_add, "$piety", 15),
+    (call_script, "script_change_player_piety", 15),
     (finish_mission),
     (leave_encounter),
     (change_screen_return),
@@ -56005,7 +56005,7 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
 ],
 "I am sorry, but our paths split here. Your father was a murderer, and he was the one who started the feud with Svipdagr. Continue this bloodbath, but without me.",
 "close_window",[
-  (val_add, "$piety", 100), #increase in piety
+  (call_script, "script_change_player_piety", 10), #increase in piety
   (call_script, "script_change_troop_renown", "trp_player", -100),
   (call_script, "script_fail_quest", "qst_haddingrs_revenge"),
   (call_script, "script_end_quest", "qst_haddingrs_revenge"),
@@ -58105,7 +58105,7 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
    "Good day, {sir/madam}. What do you need?", "eadric_talk_1", []], #opening
   [trp_eadric|plyr, "eadric_talk_1", [(neg|troop_slot_eq, "trp_player", slot_troop_religion, slot_religion_paganism),(eq,"$g_paganism_dedication",0),], #player is not following the germanic gods
    "I wish to follow the gods of the Germanic peoples.", "eadric_talk_pantheon_1", [
-      (val_add, "$piety", 1), #increase in piety
+      (call_script, "script_change_player_piety", 1), #increase in piety
       (assign, "$g_paganism_dedication", 1),
       (call_script, "script_change_player_relation_with_faction", "fac_pagans", 5),
       (display_message,"@You have dedicated yourself to the gods within the Germanic pantheon.",0x6495ed),

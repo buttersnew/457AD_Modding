@@ -990,4 +990,4 @@ script_457_coup_clear_support_flags = 988
 script_457_coup_register_support = 989
 script_457_install_new_faction_leader = 990
 script_store_religion_name_s10 = 991
-script_efe_init = 992
+script_change_player_piety = 992

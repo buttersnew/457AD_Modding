@@ -37470,7 +37470,7 @@ scripts = [
 		(is_between, ":faction_religion", 0, 5),
 		(is_between, ":religion_player", 0, 5), #madsci same christian
 		(call_script, "script_change_player_honor", -5),
-		(val_sub, "$piety", 1),
+		(call_script, "script_change_player_piety", -1),
 		(display_log_message, "@You have broken your priestly vows by raising your hand against innocent Christians.", message_defeated),
 		(else_try),
 	    	(eq, ":attacker_party", "p_main_party"),
@@ -97746,7 +97746,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
         (call_script, "script_change_player_relation_with_center", "$g_set_center_upgrades", 4),
         (call_script, "script_change_player_honor", 2),
         (add_xp_as_reward, 1500),
-        (val_add, "$piety", 5),
+        (call_script, "script_change_player_piety", 5),
       (try_end),
     (else_try),
       (eq, ":cur_improvement", slot_center_has_theatre),
@@ -104158,7 +104158,23 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
       (try_end),
    ]),
 
+  ("change_player_piety",
+   [
+      (store_script_param_1, ":piety_change"),
+      (val_add, "$piety", ":piety_change"),
+
+      (assign, reg12, ":piety_change"),
+      (val_abs, reg12),
+      (try_begin),
+        (gt, ":piety_change", 0),
+        (display_message, "@You gain {reg12} piety.", message_positive),
+      (else_try),
+        (lt, ":piety_change", 0),
+        (display_message, "@You lose {reg12} piety.", message_negative),
+      (try_end),
+	(val_clamp, "$piety", -100, 101),
+   ]),
+
 ]
 
-# Efe
-scripts = scripts + efe_scripts
+

@@ -8140,6 +8140,11 @@ simple_triggers = [
 	(party_get_slot, ":center_religion", "$g_last_rest_center", slot_center_religion),
 	(store_random_in_range, ":rng", 0, 75),
 		(try_begin),
+		(eq, ":rng", "$last_rest_event"), #madsci dont let me same event fire twice in a row
+		(val_add, ":rng", 1),
+		(try_end),
+	(assign, "$last_rest_event", ":rng"),
+		(try_begin),
 		(eq, ":rng", 1),
        			(try_begin),
 			(is_currently_night),

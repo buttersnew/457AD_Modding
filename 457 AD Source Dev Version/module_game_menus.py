@@ -16695,10 +16695,10 @@ TOTAL:  {reg5}"),
 (store_faction_of_party, ":party_faction", "$current_town"),
 (neq, ":party_faction", "$players_kingdom"),
 (is_between, "$current_town", walled_centers_begin, walled_centers_end),
-(assign,"$auto_menu","mnu_captivity_start_castle_surrender"),
+(assign, "$auto_menu", "mnu_captivity_start_castle_surrender"),
 (str_store_string, s3, "@{s3}. The angry townsmen drag you into the dungeon."),
 (else_try),
-(str_store_string, s3, "@{s3}. Luckily you are able to escape to the wilderness."),
+(str_store_string, s3, "@{s3}. You make your way back through the gates and quickly retreat to the safety of the countryside."),
 (try_end),
      (assign, "$currently_preaching", 0),
      (rest_for_hours, 0, 0, 0), #stop resting
@@ -16790,7 +16790,7 @@ TOTAL:  {reg5}"),
 		(str_store_string, s3, "@The {reg9?peasants:townsmen} of {s3} who follow {s10}"),
 		(troop_get_slot, ":religion_player","trp_player", slot_troop_religion),
 		(call_script, "script_store_religion_name_s10", ":religion_player"),
-		(str_store_string, s3, "@{s3} are outraged at you teaching {s10} to their youth, and they may react badly if you keep preaching."),
+		(str_store_string, s3, "@{s3} are outraged at you for teaching {s10} to their youth, and they may react badly if you keep preaching."),
      ],
     [
       ("continue_preaching", [], "Ignore them and continue.",
@@ -18963,12 +18963,12 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 #####################################################################
   (
     "captivity_avoid_wilderness",0,
-    "Suddenly all the world goes black around you.\
- Many hours later you regain your conciousness and find yourself at the spot you fell.\
- Your enemies must have taken you up for dead and left you there.\
- However, it seems that none of your wound were lethal,\
- and altough you feel awful, you find out that can still walk.\
- You get up and try to look for any other survivors from your party.",
+    "Suddenly all the world goes black around you. "+
+ "Many hours later you regain your conciousness and find yourself at the spot you fell. "+
+ "Your enemies must have taken you up for dead and left you there. "+
+ "However, it seems that none of your wound were lethal, "+
+ "and altough you feel awful, you find out that can still walk. "+
+ "You get up and try to look for any other survivors from your party.",
     "none",
     [
       ],

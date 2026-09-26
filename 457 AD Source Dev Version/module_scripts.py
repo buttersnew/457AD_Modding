@@ -223,6 +223,7 @@ scripts = [
 	(assign, "$last_preached", -1),
 	(assign, "$scavenging", 0),
 	(assign, "$currently_scavenging", 0),
+	(assign, "$last_rest_event", 0),
 
     (options_set_battle_size, 0), #for slower pcs
 

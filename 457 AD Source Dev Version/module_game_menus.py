@@ -11790,9 +11790,9 @@ TOTAL:  {reg5}"),
        (eq, "$g_battle_result", 1),
        (jump_to_menu, "mnu_village_infestation_removed"),
      (else_try),
-       (str_store_string, s9, "@Try as you might, you could not defeat the bandits.\
- Infuriated, they raze the village to the ground to punish the peasants,\
- and then leave the burning wasteland behind to find greener pastures to plunder."),
+       (str_store_string, s9, "@Try as you might, you could not defeat the bandits. "+
+ "Infuriated, they raze the village to the ground to punish the peasants, "+
+ "and then leave the burning wasteland behind to find greener pastures to plunder."),
        (set_background_mesh, "mesh_pic_looted_village"),
      (try_end),
     ],
@@ -11824,8 +11824,8 @@ TOTAL:  {reg5}"),
 
   (
     "village_infestation_removed",mnf_disable_all_keys,
-    "In a battle worthy of song, you and your men drive the bandits out of the village, making it safe once more.\
- The villagers have little left in the way of wealth after their ordeal, but they offer you {reg10?all they can find:a few heads of cattle}.",
+    "In a battle worthy of song, you and your men drive the bandits out of the village, making it safe once more. ^^"+
+ "The villagers have little left in the way of wealth after their ordeal, but they offer you {reg10?all they can find:a few heads of cattle}.",
     "none",
     [(party_get_slot, ":bandit_troop", "$g_encountered_party", slot_village_infested_by_bandits),
 	(try_begin),
@@ -29893,7 +29893,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
   ( "event_10",menu_text_color(0xFF000000)|mnf_disable_all_keys,
     "While you camp, a delegation of people from a nearby village approach. They say they have had a bad harvest and ask you for money to feed their children.",
     "none",
-    [],
+    [(set_background_mesh, "mesh_pic_argument"),],
     [
       ("choice_10_1",[(store_troop_gold,":money","trp_player"),(ge,":money",5000),],"Give them 5000 siliquae.",
         [
@@ -29937,7 +29937,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
   ( "event_11",menu_text_color(0xFF000000)|mnf_disable_all_keys,
     "Along the way, you find a sick woman. Her skin has a yellow tone, and she coughs constantly. She's from a nearby village, but as no one there knows how to cure her illness, they have sent her to the roadside to see if a traveler knows a cure.",
     "none",
-    [],
+    [(set_background_mesh, "mesh_pic_argument"),],
     [
       ("choice_11_1",[(store_troop_gold,":money","trp_player"),(ge,":money",1000),],"Give her 1000 siliquae to hire a good physician.",
         [
@@ -30095,7 +30095,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     ]),
 
   ( "event_15",menu_text_color(0xFF000000)|mnf_disable_all_keys,
-    "A group of bandits approaches your camp. As your men reach for their arms, the bandits put down their weapons and say they come in peace. The leader of the bandits approaches you and asks if they may join you.",
+    "A group of bandits approaches your camp. ^^As your men reach for their arms, the bandits put down their weapons and say they come in peace. The leader of the bandits approaches you and asks if they may join you.",
     "none",
     [(set_background_mesh, "mesh_pic_bandits"),
     ],
@@ -30230,7 +30230,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
   ( "event_18",menu_text_color(0xFF000000)|mnf_disable_all_keys,
     "While travelling through a small village, a group of women approach you and your men. They offer that they can host your men, however for a fee of 800 siliquae.",
     "none",
-    [
+    [(set_background_mesh, "mesh_pic_argument"),
     ],
     [
       ("choice_18_1",[(store_troop_gold,":money","trp_player"),(ge,":money",800)],"Pay the fee and allow your men to join them.",
@@ -30253,9 +30253,10 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     ]),
 
   ( "event_19",menu_text_color(0xFF000000)|mnf_disable_all_keys,
-    "An old farmer approaches your men, demanding to see you. When he stands before you, he claims {s2}. He demands 350 siliquae in compensation for what had happened.",
+    "An old farmer approaches your men, demanding to see you. When he stands before you, he claims {s2}. ^^He demands 350 siliquae in compensation for what had happened.",
     "none",
     [
+(set_background_mesh, "mesh_pic_argument"),
     (str_clear,s2),
     (store_random_in_range, ":r", 0, 4),
     (try_begin),
@@ -30310,7 +30311,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     "While you camp, a delegation of people from nearby approach. They seem to have a problem with their landowner and want your advice. " +
     "Apparently, drought have devastated the area, so they are poor now, but must still pay taxes to their landowner. As the landwoner does not care about them, they ask whether they should not pay and prepare to fight if the landowner attacks them or whether they should pay and let their families starve.",
     "none",
-    [],
+    [(set_background_mesh, "mesh_pic_argument"),],
     [
       ("choice_20_1",[(store_troop_gold,":money","trp_player"),(ge,":money",5000),],"Give them 5000 siliquae for paying their taxes and buying food.",
         [
@@ -30411,6 +30412,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     "Not far from {s2}, several farmers stop your column. They claim that men wearing your colors have been taking grain, bread, and fodder without payment. Your soldiers insist the countryside must support an army that protects it. The farmers ask you to judge the matter before tempers turn violent.",
     "none",
     [
+	(set_background_mesh, "mesh_pic_argument"),
       (call_script, "script_get_closest_center", "p_main_party"),
       (assign, "$g_457_event_center", reg0),
       (str_store_party_name, s2, "$g_457_event_center"),
@@ -30432,7 +30434,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       ("choice_22_2",[
 (party_get_skill_level,":leadership","p_main_party","skl_leadership"),
 (ge,":leadership",4),
-],"Forbid unauthorized foraging and punish the worst offenders. (Leadership 4)",
+],"Forbid unauthorized foraging and punish the worst offenders. (Leadership)",
         [
           (call_script, "script_change_player_relation_with_center", "$g_457_event_center", 4),
           (call_script, "script_change_player_honor", 1),

@@ -36537,7 +36537,9 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 
   ("457_rest_sacred_fire", menu_text_color(0xFF000000)|mnf_disable_all_keys,
     "Smoke from a nearby building threatens a sacred fire burning in the temple of {s3}. ^^The attendants insist that the flame must be protected from pollution, while frightened townspeople want the whole structure opened and flooded before sparks spread.",
-    "none", [(str_store_party_name, s3, "$g_last_rest_center"),],
+    "none", [(str_store_party_name, s3, "$g_last_rest_center"),
+(set_background_mesh, "mesh_pic_argument"),
+],
     [
       ("firetemple_engineer", [(store_skill_level,":skill","skl_engineer","trp_player"),(ge,":skill",3)],
        "Vent the smoke and isolate the burning roof without flooding the sanctuary. (Engineer)",
@@ -36613,7 +36615,9 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 
   ("457_rest_body_alley", menu_text_color(0xFF000000)|mnf_disable_all_keys,
     "Before dawn, a corpse is found near your lodging in the streets of {s3}. ^^The dead man carries no obvious purse, and the frightened locals are already inventing explanations for his death.",
-    "none", [(str_store_party_name, s3, "$g_last_rest_center"),],
+    "none", [(str_store_party_name, s3, "$g_last_rest_center"),
+(set_background_mesh, "mesh_pic_argument"),
+],
     [
       ("body_tracking", [(store_skill_level,":skill","skl_tracking","trp_player"),(ge,":skill",2)],
        "Examine the tracks before the crowd tramples them. (Tracking)",
@@ -36656,7 +36660,9 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 
   ("457_rest_warehouse_fire", menu_text_color(0xFF000000)|mnf_disable_all_keys,
     "Bells and shouting wake you. A storehouse in {s3} is burning, sparks are reaching neighboring roofs, and people claim that several workers may still be inside.",
-    "none", [(str_store_party_name, s3, "$g_last_rest_center"),],
+    "none", [(str_store_party_name, s3, "$g_last_rest_center"),
+(set_background_mesh, "mesh_pic_argument"),
+],
     [
       ("fire_engineer", [(store_skill_level,":skill","skl_engineer","trp_player"),(ge,":skill",3)],
        "Order a firebreak and direct the bucket lines. (Engineer)",
@@ -36702,7 +36708,9 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 
   ("457_rest_jerusalem", menu_text_color(0xFF000000)|mnf_disable_all_keys,
     "A pilgrim dealer in {s3} offers a tiny splinter of wood in a silver case, swearing that it comes from a famous holy relic. The price is enormous, the provenance complicated, and a crowd is already listening.",
-    "none", [(str_store_party_name, s3, "$g_last_rest_center"),],
+    "none", [(str_store_party_name, s3, "$g_last_rest_center"),
+(set_background_mesh, "mesh_pic_argument"),
+],
     [
       ("jeru_priest", [(eq,"$background_type",cb_priest)],
        "Question the dealer about the relic's chain of custody and the clergy who authenticated it. (Priest)",
@@ -36746,7 +36754,9 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 
   ("457_rest_loaded_dice", menu_text_color(0xFF000000)|mnf_disable_all_keys,
     "A dice game in the tavern of {s3} turns ugly. ^^A laborer swears that a prosperous stranger has been cheating him. The stranger laughs and offers to double the stakes if anyone can prove it.",
-    "none", [(str_store_party_name, s3, "$g_last_rest_center"),],
+    "none", [(str_store_party_name, s3, "$g_last_rest_center"),
+(set_background_mesh, "mesh_pic_argument"),
+],
     [
       ("dice_looting", [(store_skill_level,":skill","skl_looting","trp_player"),(ge,":skill",2)],
        "Examine the dice. You have seen enough crooked games to know the tricks. (Looting)",
@@ -36770,7 +36780,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
        [
          (call_script,"script_change_player_relation_with_center","$g_last_rest_center",1),
          (call_script,"script_change_troop_renown","trp_player",5),
-         (str_store_string,s4,"@Your tone carries more weight than the evidence. The stranger returns the money, the laborer bows repeatedly, and the innkeeper suddenly remembers that your room needs fresh wine."),
+         (str_store_string,s4,"@Your tone carries more weight than the evidence. The stranger returns the money, the laborer bows repeatedly, and the innkeeper suddenly remembers that you need fresh wine."),
          (jump_to_menu,"mnu_457_rest_event_result"),
        ]),
       ("dice_priest", [(eq,"$background_type",cb_priest)],
@@ -36788,6 +36798,132 @@ goods, and books will never be sold. ^^You can change some settings here freely.
        ]),
     ]),
 
+  ("457_rest_roman_works", menu_text_color(0xFF000000)|mnf_disable_all_keys,
+    "A section of old Roman waterworks in {s3} has failed. ^^Locals argue whether repairing ancient masonry is still worth the expense, while water runs uselessly into the street and nearby cisterns empty.",
+    "none", [(str_store_party_name, s3, "$g_last_rest_center"),
+(set_background_mesh, "mesh_pic_argument"),
+],
+    [
+      ("roman_engineer", [(store_skill_level,":skill","skl_engineer","trp_player"),(ge,":skill",4)],
+       "Inspect the masonry and show them how to shore the break. (Engineer)",
+       [
+         (call_script,"script_change_center_prosperity", "$g_last_rest_center", 2),
+         (call_script,"script_change_player_relation_with_center", "$g_last_rest_center", 2),
+         (add_xp_as_reward,300),
+         (str_store_string,s4,"@The structure is old, not mysterious. With timber bracing and properly dressed stone, the flow is restored before another cistern runs dry."),
+         (jump_to_menu,"mnu_457_rest_event_result"),
+       ]),
+      ("roman_noble", [(eq,"$background_type",cb_noble),(store_troop_gold,":gold","trp_player"),(ge,":gold", 2500)],
+       "Fund the repair as an act of civic patronage for 2500 siliquae. (Noble)",
+       [
+         (troop_remove_gold,"trp_player", 2500),
+         (call_script,"script_change_center_prosperity", "$g_last_rest_center", 5),
+         (call_script,"script_change_troop_renown", "trp_player", 10),
+         (call_script,"script_change_player_relation_with_center", "$g_last_rest_center", 2),
+         (str_store_string,s4,"@Your name is attached to the repair before the mortar is even mixed. ^^Roman civic tradition survives another day, along with the useful habit of commemorating whoever paid."),
+         (jump_to_menu,"mnu_457_rest_event_result"),
+       ]),
+      ("roman_freeman", [(eq,"$background_type",cb_freeman)],
+       "Organize local craftsmen and negotiate a price everyone can tolerate. (Freeman)",
+       [
+         (call_script,"script_change_center_prosperity", "$g_last_rest_center", 1),
+         (call_script,"script_change_player_relation_with_center", "$g_last_rest_center", 2),
+         (troop_add_gold,"trp_player",100),
+         (str_store_string,s4,"@You get the masons, haulers, and householders to agree on contributions. Everyone complains about the bargain, which usually means you found a workable one."),
+         (jump_to_menu,"mnu_457_rest_event_result"),
+       ]),
+      ("roman_ignore", [], "The empire has left many ruins. One more is not your affair.",
+       [
+         (call_script,"script_change_center_prosperity", "$g_last_rest_center", -10),
+         (str_store_string,s4,"@The argument continues while the water drains away. Someone will eventually repair it, abandon it, or learn to carry water farther."),
+         (jump_to_menu,"mnu_457_rest_event_result"),
+       ]),
+    ]),
+
+  ("457_rest_germanic_feud", menu_text_color(0xFF000000)|mnf_disable_all_keys,
+    "Two kindreds gather in the market square of {s3} after a young man is killed in a drunken quarrel. ^^One family demands vengeance while the other offers cattle and silver as compensation. Weapons are already visible.",
+    "none", [(str_store_party_name, s3, "$g_last_rest_center"),
+(set_background_mesh, "mesh_pic_argument"),
+],
+    [
+      ("feud_persuasion", [(store_skill_level,":skill","skl_persuasion","trp_player"),(ge,":skill",3)],
+       "Keep both sides talking until a blood-price is agreed. (Persuasion)",
+       [
+         (call_script,"script_change_player_honor",2),
+         (call_script,"script_change_player_relation_with_center","$g_last_rest_center",1),
+         (add_xp_as_reward,250),
+         (str_store_string,s4,"@Anger slowly becomes arithmetic. Cattle, silver, and formal apologies replace spears. Neither family is happy, but both leave with their living relatives still alive."),
+         (jump_to_menu,"mnu_457_rest_event_result"),
+       ]),
+      ("feud_noble", [(eq,"$background_type",cb_noble)],
+       "Offer to witness a formal settlement and place your reputation behind it. (Noble)",
+       [
+         (call_script,"script_change_troop_renown","trp_player",2),
+         (call_script,"script_change_player_relation_with_center", "$g_last_rest_center", 1),
+         (str_store_string,s4,"@Both kindreds prefer an imperfect settlement witnessed by someone of rank to an endless feud nobody can control. Your presence gives the agreement weight."),
+         (jump_to_menu,"mnu_457_rest_event_result"),
+       ]),
+      ("feud_freeman", [(eq,"$background_type",cb_freeman),(store_skill_level,":trade","skl_trade","trp_player"),(ge,":trade",2)],
+       "Work out a compensation package they can actually pay. (Freeman, Trade)",
+       [
+         (call_script,"script_change_player_relation_with_center", "$g_last_rest_center", 3),
+         (troop_add_gold,"trp_player",120),
+         (str_store_string,s4,"@You discover that half the argument concerns impossible demands rather than honor. ^^A practical mixture of cattle, tools, and silver ends the dispute, and both sides pay you for counting what nobody else wished to count."),
+         (jump_to_menu,"mnu_457_rest_event_result"),
+       ]),
+      ("feud_slave", [(eq,"$background_type",cb_slave)],
+       "Speak to the servants who actually witnessed the killing. (Former Slave)",
+       [
+         (call_script,"script_change_player_honor", 1),
+         (call_script,"script_change_player_relation_with_center", "$g_last_rest_center", 2),
+         (str_store_string,s4,"@The servants agree that the dead man drew his weapon first. ^^Their testimony is inconvenient to his relatives but gives the mediators enough truth to reduce the demanded compensation."),
+         (jump_to_menu,"mnu_457_rest_event_result"),
+       ]),
+      ("feud_leave", [], "Do not involve yourself in another family's blood.",
+       [
+         (str_store_string,s4,"@You bar your door and let the families settle matters according to their own customs. The shouting eventually moves elsewhere."),
+(call_script,"script_change_center_prosperity", "$g_last_rest_center", -1),
+         (jump_to_menu,"mnu_457_rest_event_result"),
+       ]),
+    ]),
+
+  ("457_rest_persian_scribe", menu_text_color(0xFF000000)|mnf_disable_all_keys,
+    "A powerful merchant of {s3} and an imperial scribe are arguing over a tax register. ^^The scribe insists the assessed amount is lawful while the merchant says several trading posts listed in the account no longer exist.",
+    "none", [(str_store_party_name, s3, "$g_last_rest_center"),
+(set_background_mesh, "mesh_pic_argument"),
+],
+    [
+      ("scribe_trade", [(store_skill_level,":skill","skl_trade","trp_player"),(ge,":skill",3)],
+       "Audit the figures and compare the totals. (Trade)",
+       [
+         (call_script,"script_change_player_relation_with_center", "$g_last_rest_center", 1),
+         (add_xp_as_reward,220),
+         (str_store_string,s4,"@The register contains duplicated obligations hidden beneath perfectly respectable arithmetic. The scribe blames a copying error and becomes extremely eager to amend it."),
+         (jump_to_menu,"mnu_457_rest_event_result"),
+       ]),
+      ("scribe_noble", [(eq,"$background_type",cb_noble)],
+       "Demand that the scribe explain the assessment as if reporting to a superior. (Noble)",
+       [
+         (call_script,"script_change_troop_renown","trp_player", 5),
+         #(call_script,"script_change_player_relation_with_center", "$g_last_rest_center", 1),
+         (str_store_string,s4,"@The scribe's certainty weakens when forced to defend every line before someone who can plausibly complain upward. Several dubious charges disappear."),
+         (jump_to_menu,"mnu_457_rest_event_result"),
+       ]),
+      ("scribe_freeman", [(eq,"$background_type",cb_freeman)],
+       "Offer to reconcile the accounts for a fee paid by both sides. (Freeman)",
+       [
+         (troop_add_gold,"trp_player",180),
+         #(call_script,"script_change_player_relation_with_center", "$g_last_rest_center", 1),
+         (str_store_string,s4,"@You turn an administrative crisis into paid bookkeeping. The corrected total displeases everyone slightly, which is usually the mark of honest accounting."),
+         (jump_to_menu,"mnu_457_rest_event_result"),
+       ]),
+      ("scribe_ignore", [], "Leave imperial accountants to their mysteries.",
+       [
+         (str_store_string,s4,"@The argument resumes before you have taken three steps. Ink, seals, and tax arrears prove more durable than swords."),
+(call_script,"script_change_center_prosperity", "$g_last_rest_center", -1),
+         (jump_to_menu,"mnu_457_rest_event_result"),
+       ]),
+    ]),
 
 ]#end of file
 

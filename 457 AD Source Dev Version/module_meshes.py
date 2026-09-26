@@ -884,5 +884,6 @@ meshes = [
   ("vc_menu_board", 0, "menu_board", 0, 0, 0, 0, 0, 0, 1, 1, 1),
   ("ship_menu_tab1", 0, "button_drop_child", 0, 0, 0, 0, 0, 0, 1, 1, 1),
   ("ship_menu_tab2", 0, "button_drop_child_clicked", 0, 0, 0, 0, 0, 0, 1, 1, 1),
+  ("pic_argument", 0, "pic_argument", 0, 0, 0, 0, 0, 0, 1, 1, 1),
 ###	) PHAIAK end
 ]

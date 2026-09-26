@@ -8136,16 +8136,16 @@ simple_triggers = [
 	(neg|map_free),
 	(is_between, "$g_last_rest_center", towns_begin, towns_end),
 	(eq, "$g_last_rest_center", "$current_town"),
-	#(party_get_slot, ":center_culture", "$g_last_rest_center", slot_center_culture),
+	(party_get_slot, ":center_culture", "$g_last_rest_center", slot_center_culture),
 	(party_get_slot, ":center_religion", "$g_last_rest_center", slot_center_religion),
-	(store_random_in_range, ":rng", 0, 75),
+	(store_random_in_range, ":rng", 0, 120),
 		(try_begin),
 		(eq, ":rng", "$last_rest_event"), #madsci dont let me same event fire twice in a row
 		(val_add, ":rng", 1),
 		(try_end),
 	(assign, "$last_rest_event", ":rng"),
 		(try_begin),
-		(eq, ":rng", 1),
+		(eq, ":rng", 1), #religious
        			(try_begin),
 			(is_currently_night),
          		(is_between, ":center_religion", slot_religion_christian_chalcedonian, slot_religion_paganism),
@@ -8160,7 +8160,7 @@ simple_triggers = [
          		(jump_to_menu, "mnu_457_rest_sacred_grove"),
        			(try_end),
 		(else_try),
-		(eq, ":rng", 2),
+		(eq, ":rng", 2), #generic
 			(try_begin),
 			(is_currently_night),
 			(jump_to_menu, "mnu_457_rest_warehouse_fire"),
@@ -8168,12 +8168,29 @@ simple_triggers = [
 			(jump_to_menu, "mnu_457_rest_loaded_dice"),
 			(try_end),
 		(else_try),
-		(eq, ":rng", 3),
+		(eq, ":rng", 3), #generic but another set
 			(try_begin),
 			(is_currently_night),
 			(jump_to_menu, "mnu_457_rest_body_alley"),
 			(else_try),
 			(jump_to_menu, "mnu_457_rest_jerusalem"),
+			(try_end),
+		(else_try),
+		(eq, ":rng", 4), #cultural
+			(try_begin),
+         		(this_or_next|eq, ":center_culture", "fac_culture_1"),  # Gothic
+         		(this_or_next|eq, ":center_culture", "fac_culture_2"),  # Eastern Germanic
+         		(this_or_next|eq, ":center_culture", "fac_culture_4"),  # Northern Germanic
+         		(eq, ":center_culture", "fac_culture_7"),               # Western Germanic
+			(jump_to_menu, "mnu_457_rest_germanic_feud"),
+			(else_try),
+         		(this_or_next|eq, ":center_culture", "fac_culture_11"), #romano-mauri
+         		(eq, ":center_culture", "fac_culture_3"), #romano-briton
+			(jump_to_menu, "mnu_457_rest_roman_works"),
+			(else_try),
+         		(this_or_next|eq, ":center_culture", "fac_culture_empire"), #roman
+         		(eq, ":center_culture", "fac_culture_6"), #persian
+			(jump_to_menu, "mnu_457_rest_persian_scribe"),
 			(try_end),
 		(try_end),
 	(try_end),

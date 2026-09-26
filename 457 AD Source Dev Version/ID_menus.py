@@ -588,3 +588,6 @@ mnu_457_rest_body_alley = 586
 mnu_457_rest_warehouse_fire = 587
 mnu_457_rest_jerusalem = 588
 mnu_457_rest_loaded_dice = 589
+mnu_457_rest_roman_works = 590
+mnu_457_rest_germanic_feud = 591
+mnu_457_rest_persian_scribe = 592

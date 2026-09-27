@@ -2936,6 +2936,7 @@ scripts = [
     (party_set_slot, "p_village_298", slot_center_culture, "fac_culture_21"),
     (party_set_slot, "p_village_299", slot_center_culture, "fac_culture_21"),
     (party_set_slot, "p_village_300", slot_center_culture, "fac_culture_21"),
+    (party_set_slot, "p_castle_120", slot_center_culture, "fac_culture_11"),
 
     #poland/e germania - eastern germanic
     (party_set_slot, "p_village_289", slot_center_culture,  "fac_culture_2"),
@@ -2966,6 +2967,16 @@ scripts = [
     (party_set_slot, "p_town_48", slot_center_culture,  "fac_culture_21"), # Mustajoki
     (party_set_slot, "p_castle_115", slot_center_culture,  "fac_culture_minor_6"), # Potmo
     (party_set_slot, "p_village_294", slot_center_culture,  "fac_culture_2"), # Naraj
+
+	#mauri
+    (party_set_slot, "p_town_50", slot_center_culture,  "fac_culture_11"),
+    (party_set_slot, "p_castle_79", slot_center_culture,  "fac_culture_11"),
+    (party_set_slot, "p_village_240", slot_center_culture,  "fac_culture_11"),
+    (party_set_slot, "p_village_304", slot_center_culture,  "fac_culture_11"),
+    (party_set_slot, "p_village_305", slot_center_culture,  "fac_culture_11"),
+    (party_set_slot, "p_village_306", slot_center_culture,  "fac_culture_11"),
+    (party_set_slot, "p_village_307", slot_center_culture,  "fac_culture_11"),
+    (party_set_slot, "p_village_308", slot_center_culture,  "fac_culture_11"),
 
 
     # == SET BORDER ISSUES ==

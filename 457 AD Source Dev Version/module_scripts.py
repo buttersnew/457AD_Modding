@@ -78774,7 +78774,7 @@ scripts = [
                 (else_try),
                     (troop_slot_ge, ":companion", slot_troop_current_mission, npc_mission_peace_request),
                     (neg|troop_slot_eq, ":companion", slot_troop_current_mission, 8),
-                    (str_store_string, s1, "@{s1} (ambassy)"),
+                    (str_store_string, s1, "@{s1} (embassy)"),
                 (else_try),
                         (eq, ":companion", "$g_player_minister"),
                     (str_store_string, s1, "@{s1} (minister"),
@@ -79793,7 +79793,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
     (faction_get_slot, ":centralization", ":faction_no", dplmc_slot_faction_centralization),
     (val_add, ":string", ":centralization"),
     (str_store_string, s0, ":string"),
-    (str_store_string, s20, "@{s20}{reg2?Our government:The goverment of the {s5}} is {s0}.{reg3?^: }"),
+    (str_store_string, s20, "@{s20}{reg2?Our government:The government of the {s5}} is {s0}.{reg3?^: }"),
 
     (assign, ":string", "str_dplmc_neither_aristocratic_nor_plutocratic"),
     (faction_get_slot, ":aristocraty", ":faction_no", dplmc_slot_faction_aristocracy),
@@ -96860,7 +96860,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
     (add_troop_note_tableau_mesh, "trp_hydatius", "tableau_troop_note_mesh"),
 
     (troop_set_note_available, "trp_chal_monk_1", 1),
-    (add_troop_note_from_sreg, "trp_chal_monk_1", 3, "@Symeon is a Chalcedonian Christian hermit, known for his aesceticism.", 0),
+    (add_troop_note_from_sreg, "trp_chal_monk_1", 3, "@Symeon is a Chalcedonian Christian hermit, known for his asceticism.", 0),
     (add_troop_note_tableau_mesh, "trp_chal_monk_1", "tableau_troop_note_mesh"),
 
     (troop_set_note_available, "trp_severinus", 1),

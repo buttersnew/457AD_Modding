@@ -18967,7 +18967,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
  "Many hours later you regain your conciousness and find yourself at the spot you fell. "+
  "Your enemies must have taken you up for dead and left you there. "+
  "However, it seems that none of your wound were lethal, "+
- "and altough you feel awful, you find out that can still walk. "+
+ "and although you feel awful, you find out that can still walk. ^^"+
  "You get up and try to look for any other survivors from your party.",
     "none",
     [
@@ -22252,8 +22252,8 @@ goods, and books will never be sold. ^^You can change some settings here freely.
   ),
   (
     "notification_tributary_offer",0,
-    "You recieve a message from {s1} of the {s2}. He offers you a tribute of 20,000 siliquae and to submit to you. The {s2} would be your vassal state from now on.^^\
- As vassal state they are not able to declare war or peace and will follow you into wars.",
+    "You receive a message from {s1} of the {s2}. He offers you a tribute of 20,000 siliquae, and to submit to you. The {s2} would be your vassal state from now on.^^ "+
+ "As vassal state they are not able to declare war or peace and will follow you into wars.",
     "none",
     [
     (str_store_faction_name, s2, "$g_notification_menu_var1"),
@@ -22831,10 +22831,10 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         (store_mul, reg40, ":enemy_strength", 1000),
         (val_clamp, reg40, 5000, 750001),
 
-        (str_store_string, s57, "@Messengers are send and soon you recieve news that {s3} of {s1} has re-thought his actions. He send you a gift of {reg40} siliquae and will not future attack the {s2}"),
+        (str_store_string, s57, "@Messengers are sent and soon you receive news that {s3} of {s1} has reconsidered his actions. He has sent you a gift of {reg40} siliquae and will not future attack the {s2}"),
         (assign, "$temp1", 1),
     (else_try),
-        (str_store_string, s57, "@Messengers are send and soon you recieve news that {s3} of {s1} will attack the {s2} nevertheless. You are now forced to join the war."),
+        (str_store_string, s57, "@Messengers are sent and soon you receive news that {s3} of {s1} will attack the {s2} nevertheless. You are now forced to join the war."),
         (assign, "$temp1", -1),
     (try_end),
     ],
@@ -22893,10 +22893,10 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 
     (try_begin),
         (gt, ":player_strength", 100),
-        (str_store_string, s57, "@Messengers are send and soon you recieve news that {s3} of {s1} has re-thought his actions. He send you a best wishes and will not attack the {s2}."),
+        (str_store_string, s57, "@Messengers are sent and soon you receive news that {s3} of {s1} has reconsidered his actions. He has sent you a best wishes and will not attack the {s2}."),
         (assign, "$temp1", 1),
     (else_try),
-        (str_store_string, s57, "@Messengers are send and soon you recieve news that {s3} of {s1} will attack the {s2} nevertheless."),
+        (str_store_string, s57, "@Messengers are sent and soon you receive news that {s3} of {s1} will attack the {s2} nevertheless."),
         (assign, "$temp1", -1),
     (try_end),
     ],
@@ -25893,7 +25893,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         [
           (str_store_party_name_link, s3, "p_town_8"),
 	(setup_quest_text,"qst_mithras_quest"),
-          (str_store_string, s2, "@You have recieved a message that someone wants to meet you. He is located in the tavern of {s3}."),
+          (str_store_string, s2, "@You have received a message that someone wants to meet you. He is located in the tavern of {s3}."),
           (call_script, "script_start_quest", "qst_mithras_quest", "trp_player"),
           (quest_set_slot,"qst_mithras_quest",slot_quest_current_state, 1),
           #(add_troop_to_site, "trp_mithraist_iniate", "scn_town_8_tavern", 12), #madsci do this elsewhere
@@ -27593,7 +27593,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 
   ("wolfmen_initiation_3",0,
     "You and the Cynocephali ambush a small band of warriors on behalf of the Langobards. The warriors, not expecting to fight beasts who claimed to be men routed. As the fled, the warriors chased them down, cutting down every last man. The fight is short and violent. "
-    + "With their victory, the warriors begin to howl like wolfs, gnashing their teeth, striking their shields. Soon the men begin to loot the dead; not long after you spot some of the warriors mutilating the corpses of their once foes; some even drinking their blood...",
+    + "With their victory, the warriors begin to howl like wolves, gnashing their teeth, striking their shields. Soon the men begin to loot the dead; not long after you spot some of the warriors mutilating the corpses of their once foes; some even drinking their blood...",
     "none",
     [(quest_set_slot,"qst_the_wolfmen", slot_quest_current_state, 10)],
     [
@@ -28242,7 +28242,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 
   ("severinus_favianis_3",0,
     "Procula's hoard of goods were able to relieve the starving people of Favianis for several days. Once the supply was low, many townsfolk were worried what would happen when they ran out. However, unexpectedly several merchant vessels worth of food arrived from Raetia, bringing an abundance of food."
-    + "The townsfolk begain to praise God with uninterrupted devotion, which carried on for several days. However, during this time, local bandits raided the lands outside of the walls of the town, taking captive both cattle and people."
+    + "The townsfolk began to praise God with uninterrupted devotion, which carried on for several days. However, during this time, local bandits raided the lands outside of the walls of the town, taking captive both cattle and people."
     + "Many townsfolk and those effected by the attacks began to tell of the injustices Severinus. Once again beckons for you to join him in talking to the local tribune, a man by the name of Mamertinus in the local church.",
     "none", [],
     [
@@ -33397,7 +33397,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     ("option_1", [],"The time has come!",
     [
     (quest_set_slot, "qst_finnsburh_quest_2", slot_quest_current_state, 2),
-    (add_quest_note_from_sreg, "qst_finnsburh_quest_2", 2, "@You recieved the message that the preparations have concluded. Gather as many men as possible and travel to Heorot as fast as possible!", 0),
+    (add_quest_note_from_sreg, "qst_finnsburh_quest_2", 2, "@You received the message that the preparations have concluded. Gather as many men as possible and travel to Heorot as fast as possible!", 0),
     (add_quest_note_from_sreg, "qst_finnsburh_quest_2", 7, "str_empty_string", 0),
     (change_screen_map),
      ]),
@@ -33696,7 +33696,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     ],),
 
  ("finn_quest_final_banquet_2",0,
-    "Everything is almost the same as during the first feast. Generous amounts of food are served, although not of great varied. Plenty of mead is brought by the maidens. And finally, you spot again the maiden, who was very kind towards you during the first feast. Again you smile when she looks into your direction. She notices your sign and aigain stays close to you. "
+    "Everything is almost the same as during the first feast. Generous amounts of food are served, although not of great varied. Plenty of mead is brought by the maidens. And finally, you spot again the maiden, who was very kind towards you during the first feast. Again you smile when she looks into your direction. She notices your sign and again stays close to you. "
     +"^^However, there is an important difference. Many men are dead now, and their name will always be remembered. Among the greatest are Hnaef, Sigeferth and Eaha! Why did they have to die? You don't know. Maybe it was their fate. You only know, it is part of the life of a warrior: Death and pain, chaos and destruction are the soul of a warrior. However, after the battle comes the feast! And the warrios who survived can call themselves lucky: You see Hengest in company of two maidens, you see Guthlaf and Ordlaf in a drinking competition. Guthormr is singing and Haddingr is dancing on a table."
 +"^^You decide to join them, nothing can hold you now. Its the time after the battle, the time of joy. You sing with Guthormr, dance with Haddingr, drink with Guthlaf and Ordlaf and you secretly sneak between Hengest and his maidens and give each of them a kiss, while Hengest is laughing."
 +"^^The mead is dimming the minds,  the music is whistling and the food is warming the bellies. Finally, desires of flesh slowly bring an end to the festivities. Every warrior is in company of at least one maiden. The one who smiled at you is already lying by your side as the musicians finally stop playing....",

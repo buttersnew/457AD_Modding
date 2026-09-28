@@ -676,7 +676,7 @@ dialogs = [
   "Thank you for shopping.", "close_window",[]],
 
   [trp_bosphoran_merchant_2, "bosphoran_merchant_2_sword_shop_1", [(troop_slot_ge, "trp_player", slot_troop_renown, 300)],
-   "Ah, I see you've made a name for youself. You are free to browse my products at any time, friend!", "bosphoran_merchant_2_sword_shop_2", []],
+   "Ah, I see you've made a name for yourself. You are free to browse my products at any time, friend!", "bosphoran_merchant_2_sword_shop_2", []],
   [trp_bosphoran_merchant_2, "bosphoran_merchant_2_sword_shop_1", [],
    "I don't sell these to common rabble like you! Now shoo!", "bosphoran_merchant_2_merchant_talk_1", []],
 
@@ -18808,7 +18808,7 @@ Here, take this purse of {reg3} siliquae, as I promised. I hope we can travel to
 		(this_or_next|troop_slot_eq, "$g_talk_troop", slot_lord_reputation_type, lrep_martial),
 		(this_or_next|troop_slot_eq, "$g_talk_troop", slot_lord_reputation_type, lrep_quarrelsome),
 		(troop_slot_eq, "$g_talk_troop", slot_lord_reputation_type, lrep_selfrighteous),
-		#Exaggerate the effect of this to make it more noticable.
+		#Exaggerate the effect of this to make it more noticeable.
 		#On normal will agree if outnumbered 16-to-1.
 		(val_mul, ":surrender_ratio_10", 2),
 	(else_try),
@@ -23911,7 +23911,7 @@ I'll send some men to take him to our prison with due haste.", "lord_pretalk", [
 ##diplomacy end+
 ],
 #diplomacy start+ either gender PC can marry opposite-gender lords.  {s1} is reused from above
-"Perhaps some day, {s0} -- but before I declare myself {s1}, I should like for one of us to hold a fortress which could serve as our court before we declare ourselves publically.",
+"Perhaps some day, {s0} -- but before I declare myself {s1}, I should like for one of us to hold a fortress which could serve as our court before we declare ourselves publicly.",
 #diplomacy end+
 "lord_pretalk",[]],
 
@@ -23928,7 +23928,7 @@ I'll send some men to take him to our prison with due haste.", "lord_pretalk", [
 ##diplomacy end+
 ],
 ##diplomacy start+ either gender PC can marry opposite-gender lords
-"While I do not contest your claim, {s0}, I should like for one of us to hold a fortress which could serve as our court before we declare ourselves publically.", "lord_pretalk",[]],
+"While I do not contest your claim, {s0}, I should like for one of us to hold a fortress which could serve as our court before we declare ourselves publicly.", "lord_pretalk",[]],
 ##diplomacy end+
 
 #Proclaim yourself queen
@@ -26247,8 +26247,8 @@ and perhaps I shall be able to repay the debt I owe you.", "lord_rescue_by_repla
 ]],
 
 
-[anyone,"lord_ask_about_ransom", [], "So {s10} went crying about my hospitality to {reg3?her:his} {s11}? I'm surprised {s12} even bothers.\
- Why should I take any further interest in the well-being of that fool after {reg3?she:he} sent me that pathetic offer?", "lord_ask_to_ransom_prisoner",[
+[anyone,"lord_ask_about_ransom", [], "So {s10} went crying about my hospitality to {reg3?her:his} {s11}? I'm surprised {s12} even bothers. ^^"+
+ "Why should I take any further interest in the well-being of that fool after {reg3?she:he} sent me that pathetic offer?", "lord_ask_to_ransom_prisoner",[
   (quest_get_slot, ":prisoner", "qst_rescue_prisoner", slot_quest_target_troop),
   (str_store_troop_name, s10, ":prisoner"),
   (quest_get_slot, ":giver_troop", "qst_rescue_prisoner", slot_quest_giver_troop),
@@ -26259,7 +26259,7 @@ and perhaps I shall be able to repay the debt I owe you.", "lord_rescue_by_repla
 ]],
 
 [anyone|plyr,"lord_ask_to_ransom_prisoner", [],  "Perhaps I can talk you into it...", "convince_begin",[]],
-[anyone|plyr,"lord_ask_to_ransom_prisoner", [],  "Never mind, I'm sure the accomodations aren't too bad.", "lord_pretalk",[]],
+[anyone|plyr,"lord_ask_to_ransom_prisoner", [],  "Never mind, I'm sure the accommodations aren't too bad.", "lord_pretalk",[]],
 
 #SB : make sure this doesn't trigger from other convince quests
 [anyone,"convince_accept",[ (check_quest_active, "qst_rescue_prisoner"),
@@ -28293,7 +28293,7 @@ I will use this to make amends to those you have wronged, and I will let it be k
 	(store_party_size_wo_prisoners, ":party_size", "$g_talk_troop_party"),
 	(ge, ":party_size", ":limit"),
 ],
-"I can't accomodate any more {reg65?men:soldiers} right now.  My supply lines are overtaxed as it is.", "lord_pretalk",
+"I can't accommodate any more {reg65?men:soldiers} right now.  My supply lines are overtaxed as it is.", "lord_pretalk",
 [
 ]],
 
@@ -28303,7 +28303,7 @@ I will use this to make amends to those you have wronged, and I will let it be k
 	(assign, ":ideal_size", reg0),
 	(store_party_size_wo_prisoners, ":party_size", "$g_talk_troop_party"),
 	(gt, ":party_size", ":ideal_size"),
-	], "I have plenty of soldiers at the moment, but I suppose I could accomodate a few more.", "lord_pretalk",
+	], "I have plenty of soldiers at the moment, but I suppose I could accommodate a few more.", "lord_pretalk",
 [
 (change_screen_give_members, "$g_talk_troop_party"),
 ]],
@@ -56463,7 +56463,7 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
 
   [anyone|other(trp_dani_ordlaf), "finn_quest_2_real_final_9", [
   ],
-   "We did what had to be done! We shall now celebrate! A banquest must be held, to remember our fallen brothers Hnaef, Sigeferth and Eaha.",
+   "We did what had to be done! We shall now celebrate! A banquet must be held, to remember our fallen brothers Hnaef, Sigeferth and Eaha.",
    "finn_quest_2_real_final_10", [
     (call_script, "script_set_conversation_troop", "trp_dani_ordlaf"),
    ]],
@@ -56968,7 +56968,7 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
   [trp_vascones_king|plyr, "vascones_king_intro_1", [],
    "Hold on! I have not come here to ransack your homes or to cause trouble, I'm called {playername} and you will see I'm not so easy to slay. Who are you threaten me?", "vascones_king_intro_2", []],
   [trp_vascones_king, "vascones_king_intro_2", [],
-   "Hohhoho the little cat has some spirit in him, I wasn't truly threatening, merely wished to test are you a fearful coward. We have become reclusive outcasts, the Empire has mostly forgotten us and some of us have become full-time baugaudae and they get their pay by looting and stealing, an affrair that we too sometimes have to resort. We are the Vascones and I'm their leader Elerius: waiting for the moment when Eternal City will notices us again.", "vascones_king_intro_3", []],
+   "Hohhoho the little cat has some spirit in him! I wasn't truly threatening, merely wished to test whether you are a fearful coward. We have become reclusive outcasts, the Empire has mostly forgotten us and some of us have become full-time baugaudae and they get their pay by looting and stealing, an affair that we too sometimes have to resort. ^^We are the Vascones and I'm their leader Elerius -- waiting for the moment when Eternal City will notices us again.", "vascones_king_intro_3", []],
   [trp_vascones_king|plyr, "vascones_king_intro_3", [],
    "Bandits and renegades are not long for this world, Rome is trying to bring order again to restless lands and you want to come back into Rome's fold? what would they think of provincials attacking caravans and ravaging farmsteads?", "vascones_king_intro_4", []],
   [trp_vascones_king, "vascones_king_intro_4", [],

@@ -8116,6 +8116,10 @@ simple_triggers = [
 			(try_end),
 		(gt, ":base_center", 0),
             	(party_set_ai_patrol_radius, ":party_no", 30),
+			(try_begin),
+			(eq, ":party_template", "pt_mauri_rebel_horde"), #madsci need to give these guys a longer patrol range
+            		(party_set_ai_patrol_radius, ":party_no", 120),
+			(try_end),
             	(party_set_slot, ":party_no", slot_party_ai_state, spai_patrolling_around_center),
             	(party_set_ai_behavior,  ":party_no", ai_bhvr_patrol_party),
             	(party_set_ai_object,  ":party_no", ":base_center"),

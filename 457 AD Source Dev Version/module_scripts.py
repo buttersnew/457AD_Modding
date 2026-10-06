@@ -68039,16 +68039,8 @@ scripts = [
           (le, ":power_ratio", 150),
 
           (try_begin),
-			##diplomacy start+ Add support for companion / lady personalities: cautious
-			##OLD
-	        #(this_or_next|troop_slot_eq, ":troop_no", slot_lord_reputation_type, lrep_upstanding),
-	        #(this_or_next|troop_slot_eq, ":troop_no", slot_lord_reputation_type, lrep_debauched),
-	        #(this_or_next|troop_slot_eq, ":troop_no", slot_lord_reputation_type, lrep_goodnatured),
-	        #(troop_slot_eq, ":troop_no", slot_lord_reputation_type, lrep_cunning),
-			##NEW:
 			(call_script, "script_dplmc_store_troop_personality_caution_level", ":troop_no"),
-			(lt, reg0, 0),
-			##diplomacy end+
+			(ge, reg0, 0), #madsci bugfix
 	        (assign, ":explainer_string", "str_center_protected_by_enemy_army_cautious"),
 	      (else_try),
 	        (assign, ":explainer_string", "str_center_protected_by_enemy_army_aggressive"),

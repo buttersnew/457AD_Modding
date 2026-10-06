@@ -14179,7 +14179,7 @@ Still I am sorry that I'll leave you soon. You must promise me, you'll come visi
 (try_end),
 
 (try_begin),
-  (le, ":random", "$pledge_chance"),
+  (gt, ":random", "$pledge_chance"),
 	(gt, ":centers", 0), #madsci the lord should not be staying in a dead faction if he otherwise wants to change factions
   (assign, ":no_join", 1),
   #SB : king -> liege, added I "would"

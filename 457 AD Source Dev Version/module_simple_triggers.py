@@ -9795,10 +9795,12 @@ simple_triggers = [
 (try_begin),
         (eq, "$g_infinite_camping", 0),
     	(eq, "$total_days_passed", 1),
+	(eq, "$flavour_britain_after_rome", 0),
 	(this_or_next|eq, "$background_answer_5", "fac_culture_3"),
 	(this_or_next|eq, "$background_answer_5", "fac_culture_5"),
 	(this_or_next|eq, "$background_answer_5", "fac_culture_19"),
 	(eq, "$players_kingdom", "fac_kingdom_13"),
+	(assign, "$flavour_britain_after_rome", 1),
 	(jump_to_menu, "mnu_flavour_britain_after_rome"),
 (try_end),
 

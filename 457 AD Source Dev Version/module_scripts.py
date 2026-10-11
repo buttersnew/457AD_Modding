@@ -224,6 +224,7 @@ scripts = [
 	(assign, "$scavenging", 0),
 	(assign, "$currently_scavenging", 0),
 	(assign, "$last_rest_event", 0),
+	(assign, "$flavour_britain_after_rome", 0),
 
     (options_set_battle_size, 0), #for slower pcs
 

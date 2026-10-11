@@ -49010,7 +49010,7 @@ scripts = [
         (party_template_get_slot, ":bandit_lair_party", "pt_saxon_raiders", slot_party_template_lair_party),
         (gt, ":bandit_lair_party", 1),
         (store_num_parties_of_template, ":num_parties", "pt_saxon_raiders"),
-        (le, ":num_parties", 14),
+        (le, ":num_parties", 10),
         (set_spawn_radius, 20), #britian
         (spawn_around_party, "p_sea_raider_spawn_point_2", "pt_saxon_raiders"),
         (assign, ":spawned_party", reg0),

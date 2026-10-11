@@ -209,7 +209,7 @@ party_templates = [
 
   ("kingdom_18_reinforcements_a", "{!}Jewish Reinforcements", 0, 0, fac_commoners, 0, [(trp_jewish_levy,3,7),(trp_jewish_slinger,3,7),(trp_jewish_footman,2,6)]),
 
-  ("kingdom_32_reinforcements_a", "{!}Irish Reinforcements", 0, 0, fac_commoners, 0, [(trp_irish_skirmisher,4,10),(trp_irish_warrior,4,10)]),
+  ("kingdom_32_reinforcements_a", "{!}Irish Reinforcements", 0, 0, fac_commoners, 0, [(trp_irish_archer,2,6),(trp_irish_skirmisher,2,5),(trp_irish_warrior,4,10)]),
   ("kingdom_32_reinforcements_b", "{!}Irish Reinforcements", 0, 0, fac_commoners, 0, [(trp_irish_warrior,4,10),(trp_irish_companion,2,5),(trp_standard_bearer,1,1)]),
   ("kingdom_32_reinforcements_c", "{!}Irish Reinforcements", 0, 0, fac_commoners, 0, [(trp_irish_follower,2,5),(trp_irish_companion,2,5)]),
 

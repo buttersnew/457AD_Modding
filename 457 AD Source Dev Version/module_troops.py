@@ -2641,6 +2641,9 @@ troops = [
    [itm_woolen_hose,itm_wrapping_boots,itm_pictish_tunic_2,itm_pictish_tunic_3,itm_pictish_tunic_4,itm_pictish_tunic_6,itm_roman_spear_1,itm_glaive,itm_fighting_axe,itm_celt_axe_1,itm_jarid,itm_jarid,itm_pictish_hood_1,itm_pictish_hood_2,itm_pictish_hood_3,itm_leather_cap]+shields_simple,
    def_attrib_skirmisher|level(16),wp_one_handed(140)|wp_two_handed(140)|wp_polearm(140)|wp_archery(100)|wp_throwing(160),knows_skirmisher|knows_power_strike_6,celtic_face_1, celtic_face_2],
 
+["irish_archer","Irish Archer (Ceithernach)","Irish Archers (Ceithernach)",tf_guarantee_armor|tf_guarantee_ranged,0,0,fac_culture_19,
+   [itm_woolen_hose,itm_wrapping_boots,itm_pictish_tunic_2,itm_pictish_tunic_3,itm_pictish_tunic_4,itm_pictish_tunic_6,itm_club,itm_celt_axe_1,itm_hunting_bow,itm_short_bow,itm_roman_arrows_2,itm_roman_arrows_2,itm_pictish_hood_1,itm_pictish_hood_2,itm_pictish_hood_3,itm_leather_cap], def_attrib_skirmisher|level(14),wp_one_handed(100)|wp_two_handed(100)|wp_polearm(100)|wp_archery(120)|wp_throwing(100),knows_archer|knows_power_strike_4,celtic_face_1, celtic_face_2],
+
   ["irish_warrior","Irish Warrior (Cliarthaire)","Irish Warriors (Cliarthaire)",tf_guarantee_armor|tf_guarantee_shield|tf_guarantee_polearm,0,0,fac_culture_19,
    [itm_woolen_hose,itm_wrapping_boots,itm_pictish_tunic_2,itm_pictish_tunic_6,itm_pictish_tunic_9,itm_roman_spear_1,itm_glaive,itm_fighting_axe,itm_pict_axe_a,itm_pict_axe_b,itm_coygan_dagger,itm_javelin,itm_javelin,itm_leather_cap,itm_pictish_hood_1,itm_pictish_hood_2,itm_pictish_hood_3,itm_brown_hood1,itm_pict_shield_2,itm_pict_shield_3,itm_pict_shield_7],
    def_attrib_lvl_18|level(16),wp_one_handed(150)|wp_two_handed(150)|wp_polearm(150)|wp_archery(100)|wp_throwing(140),knows_lvl_18|knows_power_strike_6,celtic_face_1, celtic_face_2],
@@ -2845,7 +2848,7 @@ troops = [
    def_attrib_lvl_23|level(23),wp_one_handed(170)|wp_two_handed(170)|wp_polearm(175)|wp_throwing(170)|wp_archery(130),knows_lvl_23|knows_power_strike_6|knows_shield_5,roman_face_1, roman_face_2],
 
   ["sea_raider","Saxon Warrior (Duguthi)","Saxon Warriors (Duguthi)",tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_shield,0,0,fac_outlaws,
-   [itm_wrapping_boots,itm_hunter_boots,itm_tunic_1_cloak,itm_tunic_5_cloak,itm_tunic_8_cloak,itm_tunic_rich_7_cloak,itm_battered_mail_1_cloak,itm_common_mail_short_1_cloak,itm_common_mail_short_6_cloak,itm_drengsted_helmet_leather,itm_drengsted_helmet_mail,itm_triveres_leather,itm_triveres_mail,itm_pilna_helmet_mail,itm_pilna_helmet_leather,itm_tarasovsky_782_mail,itm_woolen_cap_c,itm_woolen_cap_1,itm_woolen_cap_2,itm_angon_1,itm_boar_spear,itm_sword_medieval_a,itm_round_shield_germanic_5,itm_round_shield_germanic_11,itm_concave_shield_germanic_11,itm_round_shield_yellow_1,itm_round_shield_blue_2,itm_round_shield_red_2],
+   [itm_wrapping_boots,itm_hunter_boots,itm_tunic_1_cloak,itm_tunic_5_cloak,itm_tunic_8_cloak,itm_tunic_rich_7_cloak,itm_battered_mail_1_cloak,itm_common_mail_short_1_cloak,itm_common_mail_short_6_cloak,itm_drengsted_helmet_leather,itm_drengsted_helmet_mail,itm_triveres_leather,itm_triveres_mail,itm_pilna_helmet_mail,itm_pilna_helmet_leather,itm_tarasovsky_782_mail,itm_woolen_cap_c,itm_woolen_cap_1,itm_woolen_cap_2,itm_angon_1,itm_boar_spear,itm_celt_axe_1,itm_battle_axe_1,itm_sword_medieval_a,itm_round_shield_germanic_5,itm_round_shield_germanic_11,itm_concave_shield_germanic_11,itm_round_shield_yellow_1,itm_round_shield_blue_2,itm_round_shield_red_2],
    def_attrib_lvl_23|level(23),wp_one_handed(190)|wp_two_handed(170)|wp_polearm(170)|wp_throwing(180),knows_ironflesh_8|knows_shield_4|knows_power_strike_7|knows_power_throw_6|knows_riding_2|knows_athletics_7,germanic_face_1, germanic_face_2],
 
   ["taiga_bandit","Germanic Brigand","Germanic Brigands",tf_guarantee_boots|tf_guarantee_armor,0,0,fac_outlaws, #skirmishers
@@ -5787,3 +5790,4 @@ upgrade2(troops,"jewish_levy","jewish_footman","jewish_slinger")
 
 upgrade(troops,"phinnoi_warrior","phinnoi_retainer")
 upgrade(troops,"slave","watchman")
+

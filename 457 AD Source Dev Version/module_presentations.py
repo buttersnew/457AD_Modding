@@ -19950,6 +19950,7 @@ presentations = [
                 (assign, ":c", 1),
               (else_try),
                 (eq, ":culture", "fac_culture_19"), #irish
+                (this_or_next|eq, ":troop", "trp_irish_archer"), 
                 (this_or_next|eq, ":troop", "trp_irish_skirmisher"), #t1
                 (this_or_next|eq, ":troop", "trp_irish_follower"), 
                 (this_or_next|eq, ":troop", "trp_irish_companion"), 
@@ -20264,6 +20265,7 @@ presentations = [
                     (assign, ":c", 1),
                   (else_try),
                     (eq, ":culture", "fac_culture_19"), #irish
+		    (this_or_next|eq, ":troop", "trp_irish_archer"), 
                     (this_or_next|eq, ":troop", "trp_irish_skirmisher"), #t1
                     (this_or_next|eq, ":troop", "trp_irish_follower"),
                     (this_or_next|eq, ":troop", "trp_irish_companion"),

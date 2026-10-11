@@ -27214,6 +27214,7 @@ I will use this to make amends to those you have wronged, and I will let it be k
      "I want no part in treason.",
      "lord_pretalk",
      [
+	(quest_set_slot, "qst_depose_faction_ruler", slot_quest_dont_give_again_remaining_days, 30),
         (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", -2),
      ]],
 
@@ -27313,20 +27314,20 @@ I will use this to make amends to those you have wronged, and I will let it be k
         (val_sub, ":score", reg0),
 
         (store_skill_level, ":persuasion", "skl_persuasion", "trp_player"),
-        (store_mul, ":persuasion_bonus", ":persuasion", 8),
+        (store_mul, ":persuasion_bonus", ":persuasion", 4),
         (val_add, ":score", ":persuasion_bonus"),
 
 	(try_begin),
 	(troop_get_slot, ":troop_religion", "$g_talk_troop", slot_troop_religion),
 	(troop_get_slot, ":leader_religion", ":old_leader", slot_troop_religion),
 	(neq, ":leader_religion", ":troop_religion"),
-	(val_add, ":score", 50),
+	(val_add, ":score", 25),
 	(try_end),
 
 	(try_begin),
 	(troop_get_slot, ":player_renown", "trp_player", slot_troop_renown),
 	(val_add, ":player_renown", 1),
-	(val_div, ":player_renown", 20),
+	(val_div, ":player_renown", 100),
 	(val_add, ":score", ":player_renown"),
 	(try_end),
 
@@ -27345,16 +27346,16 @@ I will use this to make amends to those you have wronged, and I will let it be k
 
         (try_begin),
             (troop_slot_eq, "$g_talk_troop", slot_lord_reputation_type, lrep_ambitious),
-            (val_add, ":score", 18),
+            (val_add, ":score", 10),
         (else_try),
             (troop_slot_eq, "$g_talk_troop", slot_lord_reputation_type, lrep_cunning),
-            (val_add, ":score", 16),
+            (val_add, ":score", 8),
         (else_try),
             (troop_slot_eq, "$g_talk_troop", slot_lord_reputation_type, lrep_quarrelsome),
-            (val_add, ":score", 12),
+            (val_add, ":score", 5),
         (else_try),
             (troop_slot_eq, "$g_talk_troop", slot_lord_reputation_type, lrep_upstanding),
-            (val_sub, ":score", 15),
+            (val_sub, ":score", 25),
         (try_end),
 
         (store_random_in_range, ":random", -10, 11),
@@ -27390,6 +27391,8 @@ I will use this to make amends to those you have wronged, and I will let it be k
 	(troop_get_slot, ":troop_religion", "trp_player", slot_troop_religion),
 	(troop_get_slot, ":leader_religion", "$g_talk_troop", slot_troop_religion),
 	(eq, ":troop_religion", ":leader_religion"),
+        (call_script, "script_troop_get_relation_with_troop", "$g_talk_troop", "trp_player"),
+        (gt, reg0, 5),
 ],
      "You are right that {s4}. If the others truly stand together, then so will I. You have my word.",
      "lord_pretalk",
@@ -27425,9 +27428,9 @@ I will use this to make amends to those you have wronged, and I will let it be k
     [anyone|plyr, "457_coup_lord_choice",
      [
         (store_troop_gold, ":gold", "trp_player"),
-        (ge, ":gold", 3000),
+        (ge, ":gold", 5000),
      ],
-     "Stand with us, and I will personally see that your loyalty is remembered. Here is 3000 siliquae.",
+     "Stand with us, and I will personally see that your loyalty is remembered. Here is 5000 siliquae.",
      "457_coup_lord_bought",
      [
      ]],
@@ -27464,6 +27467,7 @@ I will use this to make amends to those you have wronged, and I will let it be k
 
     [anyone, "457_coup_lord_bought", [
 	(store_random_in_range, ":rng", 0, 5),
+	(this_or_next|troop_slot_eq, "$g_talk_troop", slot_lord_reputation_type, lrep_upstanding),
 	(eq, ":rng", 1),
 ],
      "I would never sell out my master, {playername}!",
@@ -27476,7 +27480,7 @@ I will use this to make amends to those you have wronged, and I will let it be k
      "Then perhaps we understand one another better than I thought. When the moment comes, my voice will be with yours.",
      "lord_pretalk",
      [
-        (troop_remove_gold, "trp_player", 3000),
+        (troop_remove_gold, "trp_player", 5000),
         (call_script, "script_change_player_honor", -1),
         (call_script, "script_457_coup_register_support", "$g_talk_troop"),
      ]],

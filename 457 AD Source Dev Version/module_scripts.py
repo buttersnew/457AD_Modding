@@ -49202,7 +49202,7 @@ scripts = [
 
      (try_begin),
        (store_num_parties_of_template, ":num_parties", "pt_deserters"),
-       (lt,":num_parties",15),
+       (lt,":num_parties", 26), #madsci the map is huge so we need more of these guys
        (set_spawn_radius, 4),
        (try_for_range, ":troop_no", active_npcs_begin, active_npcs_end),
          (troop_slot_eq, ":troop_no", slot_troop_occupation, slto_kingdom_hero),

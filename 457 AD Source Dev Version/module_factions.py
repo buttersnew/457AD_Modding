@@ -62,7 +62,7 @@ factions = [
   ("culture_minor_10",  "Iazyg", 0, 0.9, [], []),
 
   ("player_faction","Player Faction",0, 0.9, [], []),
-  ("player_supporters_faction","Player's Supporters",0, 0.9, [("player_faction",1.00),("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("coptic_rebels", -0.05),("berber_rebels", -0.05),("armenian_rebels", -0.05)], [], 0xFF4433), #changed name so that can tell difference if shows up on map
+  ("player_supporters_faction","Player's Supporters",0, 0.9, [("player_faction",1.00),("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("coptic_rebels", -0.05),("berber_rebels", -0.05),("armenian_rebels", -0.05),("saxons", -0.05)], [], 0xFF4433), #changed name so that can tell difference if shows up on map
 
   ("kingdom_1",  "Imperium Romanum Pars Occidentalis", 0, 0.9, [("saxons", -0.5),("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.75),("coptic_rebels", -0.05),("minor_vascones", 0.5),("minor_gallaeci", 0.5)], [], 0x8E0D0D), #Western Roman Empire / Imperium Romanum Pars Occidentalis // Friendly with ERE and Salian franks to start
   ("kingdom_2",  "Imperium Romanum Pars Orientalis",    0, 0.9, [("saxons", -0.5),("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.75),("coptic_rebels", -0.75)], [], 0x9B3CDB), #Eastern Roman Empire / Imperium Romanum Pars Orientalis // Friendly to WRE and Lazika to start
@@ -98,7 +98,7 @@ factions = [
   ("kingdom_32",  "Regnum Scoti",  0, 0.9, [("saxons", -0.5),("outlaws",-0.75),("peasant_rebels", -0.1),("deserters", -0.05),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05),("manhunters",0.6)], [], 0x395035),
   ("kingdom_33",  "Sporoi", 0, 0.9,[("outlaws",-0.75),("peasant_rebels", -0.1),("deserters", -0.05),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05),("manhunters",0.6),("minor_saraguroi",-0.75),("minor_kutriguroi",-0.75),("minor_sabiroi",-0.75),("minor_onoguroi",-0.75),("minor_iazyges",-0.75),("kingdom_23",-0.75),("kingdom_11",-0.75)], [], 0x469696),
   ("kingdom_34",  "Veneti", 0, 0.9,[("outlaws",-0.75),("peasant_rebels", -0.1),("deserters", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05),("manhunters",0.6),("kingdom_23",-0.75),("minor_saraguroi",-0.75),("minor_onoguroi",-0.75),("minor_kutriguroi",-0.75),("minor_sabiroi",-0.75)], [], 0xD7C99D),
-  ("kingdom_35",  "Mordvins", 0, 0.9,[("outlaws",-0.75),("peasant_rebels", -0.1),("deserters", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05),("manhunters",0.6),("kingdom_23",-0.75),("minor_saraguroi",-0.75),("minor_onoguroi",-0.75),("minor_kutriguroi",-0.75),("minor_sabiroi",-0.75)], [], 0xBA62E9),
+  ("kingdom_35",  "Mordvins", 0, 0.9,[("outlaws",-0.75),("peasant_rebels", -0.1),("deserters", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05),("manhunters",0.6),("kingdom_23",-0.75),("minor_saraguroi",-0.75),("minor_onoguroi",-0.75),("minor_kutriguroi",-0.75),("minor_sabiroi",-0.75)], [], 0x863CC6),
 
 
 #madsci Spanish rebel factions, will be renamed automatically by a script depending on where they start

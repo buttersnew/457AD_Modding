@@ -488,6 +488,7 @@ items = [
 ["donkey_mount","Donkey", [("donkey_mount",0)], itp_merchandise|itp_type_horse, 0, 400,abundance(80)|hit_points(55)|body_armor(7)|difficulty(0)|horse_speed(32)|horse_maneuver(33)|horse_charge(8)|horse_scale(79),imodbits_horse_basic],
 ["mule","Mule", [("mule",0)], itp_merchandise|itp_type_horse, 0, 450,abundance(70)|hit_points(65)|body_armor(10)|difficulty(0)|horse_speed(35)|horse_maneuver(35)|horse_charge(8)|horse_scale(86),imodbits_horse_basic],
 
+# ARROWS
 #whalebone crossbow, yew bow, war bow, arming sword
  ["arrows","Arrows", [("arrow_new",0),("arrow_new",ixmesh_flying_ammo),("quiver_new", ixmesh_carry)], itp_type_arrows|itp_merchandise|itp_default_ammo, itcf_carry_quiver_back, 72,weight(3)|abundance(160)|weapon_length(95)|thrust_damage(22,cut)|max_ammo(26),imodbits_missile],
 
@@ -503,9 +504,9 @@ items = [
 
  ["roman_arrows_2","Arrows", [("roman_arrow",0),("roman_arrow",ixmesh_flying_ammo),("roman_quiver_2", ixmesh_carry)], itp_type_arrows|itp_merchandise|itp_default_ammo, itcf_carry_revolver_right, 100,weight(3.5)|abundance(80)|weapon_length(95)|thrust_damage(24,cut)|max_ammo(32),imodbits_missile],
 
-["poisoned_arrows", "Poisoned  Arrows", [("barbed_arrow_new",0),("barbed_arrow_new",ixmesh_flying_ammo),("barbed_arrows_quiver",ixmesh_carry)], itp_type_arrows|itp_default_ammo, itcf_carry_quiver_right_vertical, 300, weight(1.7)|abundance(30)|weapon_length(95)|thrust_damage(1,pierce)|max_ammo(35), imodbits_missile, [],[] ],
+ ["poisoned_arrows", "Poisoned  Arrows", [("barbed_arrow_new",0),("barbed_arrow_new",ixmesh_flying_ammo),("barbed_arrows_quiver",ixmesh_carry)], itp_type_arrows|itp_default_ammo, itcf_carry_quiver_right_vertical, 300, weight(1.7)|abundance(30)|weapon_length(95)|thrust_damage(1,pierce)|max_ammo(35), imodbits_missile, [],[] ],
 
-
+ ["dyakovo_arrow","Dyakovo Arrows", [("dyakovo_arrow",0),("dyakovo_arrow",ixmesh_flying_ammo),("wicker_quiver", ixmesh_carry)], itp_type_arrows|itp_merchandise|itp_default_ammo, itcf_carry_revolver_right, 82,weight(3.3)|abundance(55)|weapon_length(95)|thrust_damage(21,cut)|max_ammo(28),imodbits_missile],
 
  ["bolts","Bolts", [("bolt_new",0),("bolt_new",ixmesh_flying_ammo),("bolt_bag", ixmesh_carry),("bolt_bag_a_new", ixmesh_carry|imodbit_large_bag)], itp_type_bolts|itp_merchandise|itp_default_ammo|itp_can_penetrate_shield, itcf_carry_quiver_right_vertical, 64,weight(2.25)|abundance(90)|weapon_length(63)|thrust_damage(22,pierce)|max_ammo(26),imodbits_missile],
 

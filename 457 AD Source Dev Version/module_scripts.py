@@ -64471,6 +64471,7 @@ scripts = [
         ###gender fix chief
         (assign, ":explainer_string", "str_s12s15_considers_s16_to_be_dangerous_and_untrustworthy_and_shehe_wants_to_bring_s16_down"),
 	(else_try),
+		(gt, "$g_concession_demanded", 0), #madsci bugfix
 		(gt, ":actor_centers_held_by_target", 0),
 		(lt, ":war_damage_suffered", 200),
 		(lt, ":strength_ratio", 125),

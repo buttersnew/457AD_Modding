@@ -1318,7 +1318,7 @@ triggers = [
     (eq, ":castle_67_faction", "fac_player_supporters_faction"),
     (eq, ":castle_72_faction", "fac_player_supporters_faction"),
 ],[
-    (dialog_box, "@You have conquered the Sacon lands!", "@Victory!"),
+    (dialog_box, "@You have conquered the Saxon lands!", "@Victory!"),
     (call_script, "script_end_quest", "qst_conquest_saxons"), #ends the quest
     (call_script, "script_change_troop_renown", "trp_player", 150),
     (troop_add_gold, "trp_player", 12000),

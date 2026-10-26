@@ -2426,14 +2426,13 @@ troops = [
 ##SPOROI
   ["slav_archer","Sporoi Hunter","Sporoi Hunters",tf_guarantee_armor|tf_guarantee_ranged,0,0,fac_culture_20,
    [itm_simple_shoes,itm_nomad_boots,itm_wrapping_boots,itm_basic_axe,itm_hand_axe,itm_club,itm_fur_hat,
-   itm_poisoned_arrows,itm_short_bow,itm_long_bow]+tunics_slavic_1+pants_slav,
+   itm_dyakovo_arrow,itm_short_bow,itm_long_bow]+tunics_slavic_1+pants_slav,
    def_attrib_lvl_18|level(18),wp_one_handed(130)|wp_two_handed(130)|wp_polearm(130)|wp_throwing(160)|wp_archery(170),knows_archer,germanic_face_1, germanic_face_2],
 
   ["slav_horsearcher","Sarmatian Rider (Baexdzhyntae)","Sarmatian Riders (Baexdzhyntae)",tf_mounted|tf_guarantee_horse|tf_guarantee_armor|tf_guarantee_boots|tf_guarantee_ranged,0,0,fac_culture_20, #AOR
-   [itm_wrapping_boots,itm_nomad_boots,itm_tunic_3,itm_kaftan_alan_white,itm_khergit_bow,itm_roman_arrows_2,itm_roman_arrows_2,itm_light_lance]+horses_sporoi_2,
+   [itm_wrapping_boots,itm_nomad_boots,itm_tunic_3,itm_kaftan_alan_white,itm_khergit_bow,itm_dyakovo_arrow,itm_dyakovo_arrow,itm_light_lance]+horses_sporoi_2,
    def_attrib_lvl_18|level(18),wp_one_handed(130)|wp_two_handed(130)|wp_polearm(155)|wp_archery(175)|wp_throwing(140),knows_horse_archer,sarmatian_face_1, sarmatian_face_2],
 
-  #SLAVS / SPOROI
   ["slav_skirmisher","Slavic Skirmisher","Slavic Skirmishers",tf_guarantee_armor|tf_guarantee_ranged,0,0,fac_culture_20,
    [itm_simple_shoes,itm_nomad_boots,itm_wrapping_boots,itm_basic_axe,itm_hand_axe,itm_club,itm_winged_mace,itm_fur_hat,itm_throwing_spears,itm_throwing_spears,itm_eastern_germanic_shield_5]+tunics_slavic_1+pants_slav+shields_simple,
    def_attrib_skirmisher|level(13),wp_one_handed(120)|wp_two_handed(100)|wp_polearm(100)|wp_throwing(135)|wp_archery(100),knows_skirmisher, germanic_face_1, germanic_face_2],
@@ -2455,19 +2454,21 @@ troops = [
    [itm_simple_shoes,itm_wrapping_boots,itm_tunic_1,itm_tunic_2,itm_tunic_9,itm_tunic_14,itm_tunic_16,itm_fur_hat,itm_be_hunnic_cap_2,itm_be_hunnic_cap_4,itm_winged_mace,itm_battle_scythe_1,itm_throwing_spear_3,itm_medium_spear_3,itm_wicker_shields_rectangular_3,itm_balt_shield_wood_1,itm_balt_shield_1_blue,itm_balt_shield_1_green]+pants_slav,
    def_attrib_lvl_20|level(18),wp_one_handed(140)|wp_two_handed(130)|wp_polearm(160)|wp_throwing(150),knows_lvl_18|knows_power_strike_5, germanic_face_1, germanic_face_2],
 
-  ["venedi_nobleman","Venedi Nobleman","Venedi Noblemen",tf_mounted|tf_guarantee_horse|tf_guarantee_armor|tf_guarantee_boots|tf_guarantee_ranged|tf_guarantee_shield,0,0,fac_culture_20,
-   [itm_simple_shoes,itm_wrapping_boots,itm_tunic_1_cloak,itm_tunic_2_cloak,itm_tunic_14_cloak,itm_tunic_16_cloak,itm_tunic_12_cloak,itm_battered_mail_2_cloak,itm_common_mail_short_5_cloak,itm_fur_hat,itm_be_hunnic_cap_2,itm_be_hunnic_cap_4,itm_pilna_helmet_leather,itm_pilna_helmet_mail,itm_battle_axe,itm_cavalry_javelins,itm_cavalry_javelins,itm_concave_shield_leather_small_3,itm_concave_shield_blue_small_1,itm_concave_shield_green_small_1]+horses_slavic_1+horses_slavic_2,
+  ["venedi_nobleman","Venedi Nobleman","Venedi Noblemen",tf_mounted|tf_guarantee_horse|tf_guarantee_armor|tf_guarantee_boots|tf_guarantee_ranged|tf_guarantee_shield,0,0,fac_culture_20,[itm_simple_shoes,itm_wrapping_boots,itm_tunic_1_cloak,itm_tunic_2_cloak,itm_tunic_14_cloak,itm_tunic_16_cloak,itm_tunic_12_cloak,itm_battered_mail_2_cloak,itm_common_mail_short_5_cloak,itm_fur_hat,itm_be_hunnic_cap_2,itm_be_hunnic_cap_4,itm_pilna_helmet_leather,itm_pilna_helmet_mail,itm_battle_axe,itm_cavalry_javelins,itm_cavalry_javelins,itm_concave_shield_leather_small_3,itm_concave_shield_blue_small_1,itm_concave_shield_green_small_1]+horses_slavic_1+horses_slavic_2,
    def_attrib_lvl_25|level(25),wp_one_handed(205)|wp_two_handed(180)|wp_polearm(200)|wp_throwing(200),knows_lvl_25|knows_power_strike_7, germanic_face_1, germanic_face_2],
 
   ["slavic_messenger","Slavic Messenger","Slavic Messengers",tf_mounted|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_gloves|tf_guarantee_horse|tf_guarantee_ranged,0,0,fac_culture_20,
    [itm_battle_axe_3,itm_cavalry_javelins]+cloaks_slavic_1+horses_eastern_germanic_1+shoes_generic,
    def_attrib_lvl_23|level(23),wp(170),knows_common|knows_riding_7|knows_horse_archery_5,germanic_face_1, germanic_face_2],
+
   ["slavic_deserter","Slavic Deserter","Slavic Deserters",tf_guarantee_basic,0,0,fac_culture_20,
-   [itm_simple_shoes,itm_nomad_boots,itm_wrapping_boots,itm_fur_hat,itm_leather_cap,itm_pilna_helmet_leather,itm_javelin,itm_wicker_shields_rectangular_1,itm_wicker_shields_rectangular_2,itm_wicker_shields_rectangular_3,itm_battle_axe_4,itm_battle_axe_3,itm_medium_spear_1,itm_medium_spear_3,itm_war_spear]+tunics_slavic_1+cloaks_slavic_1,
+[itm_simple_shoes,itm_nomad_boots,itm_wrapping_boots,itm_fur_hat,itm_leather_cap,itm_pilna_helmet_leather,itm_javelin,itm_wicker_shields_rectangular_1,itm_wicker_shields_rectangular_2,itm_wicker_shields_rectangular_3,itm_battle_axe_4,itm_battle_axe_3,itm_medium_spear_1,itm_medium_spear_3,itm_war_spear]+tunics_slavic_1+cloaks_slavic_1,
    def_attrib_lvl_18|level(18),wp_one_handed(150)|wp_two_handed(150)|wp_polearm(155)|wp_throwing(160),knows_lvl_18|knows_power_strike_4, germanic_face_1, germanic_face_2],
+
   ["slavic_prison_guard","Prison Guard","Prison Guards",tf_guarantee_shield|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet,0,0,fac_culture_20,
    [itm_tab_shield_round_d,itm_leather_gloves,itm_pilna_helmet_mail,itm_sword_viking_3]+shoes_generic+mail_slavic_1,
    def_attrib_lvl_25|level(25),wp(180),knows_lvl_25,germanic_face_1, germanic_face_2],
+
   ["slavic_castle_guard","Castle Guard","Castle Guards",tf_guarantee_shield|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet,0,0,fac_culture_20,
    [itm_tab_shield_round_d,itm_leather_gloves,itm_pilna_helmet_mail,itm_sword_viking_3]+shoes_generic+mail_slavic_1,
    def_attrib_lvl_25|level(25),wp(180),knows_lvl_25,germanic_face_1, germanic_face_2],

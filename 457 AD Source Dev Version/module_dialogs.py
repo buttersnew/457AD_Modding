@@ -57699,16 +57699,16 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
       (store_current_scene,":current_scene"),(eq,":current_scene","scn_mithraeum"),
       ], "You should speak to our Pater.", "close_window",[]],
 
-  [anyone,"start", [(store_conversation_troop, "$g_talk_troop"),(neq, "$g_talk_troop", "trp_roman_abbot"), #religious scene
-      (store_current_scene,":current_scene"),(eq,":current_scene","scn_christian_monastery"),
-      ], "Glory to God! You should speak to our abbot.", "close_window",[]],
-
-  [anyone,"start", [(store_conversation_troop, "$g_talk_troop"),(neq, "$g_talk_troop", "trp_nestorian_abbot"),(neq, "$g_talk_troop", "trp_coptic_abbot"), #religious scene
-      (store_current_scene,":current_scene"),(eq,":current_scene","scn_christian_monastery_desert"),
-      ], "Glory to God! You should speak to our abbot.", "close_window",[]],
-
-  [anyone,"start", [(store_conversation_troop, "$g_talk_troop"),(neq, "$g_talk_troop", "trp_arian_abbot"), #religious scene
-      (store_current_scene,":current_scene"),(eq,":current_scene","scn_arian_monastery"),
+  [anyone,"start", [
+(store_conversation_troop, "$g_talk_troop"),
+(neq, "$g_talk_troop", "trp_roman_abbot"), #religious scene
+(neq, "$g_talk_troop", "trp_nestorian_abbot"),
+(neq, "$g_talk_troop", "trp_coptic_abbot"),
+(neq, "$g_talk_troop", "trp_arian_abbot"),
+(store_current_scene,":current_scene"),
+(this_or_next|eq,":current_scene","scn_christian_monastery"),
+(this_or_next|eq,":current_scene","scn_christian_monastery_desert"),
+(eq,":current_scene","scn_arian_monastery"),
       ], "Glory to God! You should speak to our abbot.", "close_window",[]],
 
   [anyone,"start", [(store_conversation_troop, "$g_talk_troop"),(neq, "$g_talk_troop", "trp_pagan_high_priest"), #religious scene

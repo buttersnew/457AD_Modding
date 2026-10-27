@@ -53220,7 +53220,13 @@ scripts = [
             (gt, ":merc_amount", 0),
             (val_sub, ":merc_amount", 1),
             (troop_set_slot, "trp_tournament_participants", ":cur_slot", ":town_merc"),
-        (else_try), #75% chance for faction's troops
+        (else_try),
+	(eq, ":center_no", "p_town_48"), #mustakoj
+	(troop_set_slot, "trp_tournament_participants", ":cur_slot", "trp_phinnoi_warrior"),
+	(else_try),
+	(eq, ":center_no", "p_town_47"),
+	(troop_set_slot, "trp_tournament_participants", ":cur_slot", "trp_slav_skirmisher"),
+	(else_try),
             (store_random_in_range, ":slot_no", slot_faction_tier_1_troop, slot_faction_tier_5_troop + 1),
             (faction_get_slot, ":troop_no", ":town_faction", ":slot_no"),
             (gt, ":troop_no", 0),

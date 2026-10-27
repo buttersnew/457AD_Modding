@@ -1686,8 +1686,8 @@ items = [
 ["leather_steppe_cap_b", "Steppe Cap ", [("tattered_steppe_cap_b_new",0)], itp_type_head_armor   ,0,
 36 , weight(1)|abundance(100)|head_armor(16)|body_armor(0)|leg_armor(0) ,imodbits_cloth ],
 ["leather_steppe_cap_c", "Steppe Cap", [("steppe_cap_a_new",0)], itp_type_head_armor   ,0, 51 , weight(1)|abundance(100)|head_armor(16)|body_armor(0)|leg_armor(0) ,imodbits_cloth ],
-["turban", "Turban", [("tuareg_new_open",0)], itp_merchandise| itp_type_head_armor   ,0, 60 , weight(1)|abundance(100)|head_armor(16)|body_armor(0)|leg_armor(0)|difficulty(7) ,imodbits_cloth, [], culture_sassanid+culture_caucasian ],
-["desert_turban", "Desert Turban", [("tuareg_new",0)], itp_merchandise| itp_type_head_armor | itp_covers_beard ,0, 90 , weight(1.50)|abundance(100)|head_armor(20)|body_armor(0)|leg_armor(0)|difficulty(7) ,imodbits_cloth, [], culture_sassanid+culture_caucasian ],
+["turban", "Turban", [("tuareg_new_open",0)], itp_merchandise| itp_type_head_armor   ,0, 60 , weight(1)|abundance(100)|head_armor(16)|body_armor(0)|leg_armor(0)|difficulty(0) ,imodbits_cloth, [], culture_sassanid+culture_caucasian ],
+["desert_turban", "Desert Turban", [("tuareg_new",0)], itp_merchandise| itp_type_head_armor | itp_covers_beard ,0, 90 , weight(1.50)|abundance(100)|head_armor(20)|body_armor(0)|leg_armor(0)|difficulty(0) ,imodbits_cloth, [], culture_sassanid+culture_caucasian ],
 
 #Helmets - Cloth
 

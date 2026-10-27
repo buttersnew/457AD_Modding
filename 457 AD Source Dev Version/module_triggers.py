@@ -36,11 +36,11 @@ triggers = [
 #      (call_script, "script_add_notification_menu","mnu_religion_selection",0,0),
 #    ]),
 
-    (0,0,ti_once,[
-    (troop_slot_eq, "trp_player", slot_troop_culture, 0),
-    ],[
-    (call_script, "script_add_notification_menu","mnu_culture_selection",0,0),
-    ]),
+    #(0,0,ti_once,[ #madsci disable this because culture is chosen elsewhere
+    #(troop_slot_eq, "trp_player", slot_troop_culture, 0),
+    #],[
+    #(call_script, "script_add_notification_menu","mnu_culture_selection",0,0),
+    #]),
 
   (1.0, 0.0, 0.0, [
   (check_quest_active, "qst_track_down_bandits"),
@@ -452,83 +452,6 @@ triggers = [
    []
    ),
 
-
-#Rebellion changes begin
-#move
-(0, 0, 24 * 14,[
-    (try_for_range, ":pretender", pretenders_begin, pretenders_end),
-	(store_troop_faction, ":kingdom_hero_faction", ":pretender"),
-	(neq, ":kingdom_hero_faction", "fac_outlaws"), #madsci exclude deliberately disabled pretenders
-
-        (troop_set_slot, ":pretender", slot_troop_cur_center, 0),
-        (neq, ":pretender", "$supported_pretender"),
-        (troop_get_slot, ":target_faction", ":pretender", slot_troop_original_faction),
-        (faction_slot_eq, ":target_faction", slot_faction_state, sfs_active),
-        (faction_slot_eq, ":target_faction", slot_faction_has_rebellion_chance, 1),
-        (neg|troop_slot_eq, ":pretender", slot_troop_occupation, slto_kingdom_hero),
-        (neg|troop_slot_eq, ":pretender", slot_troop_occupation, slto_inactive),
-        (neg|troop_slot_eq, ":pretender", slot_troop_occupation, dplmc_slto_dead),
-
-        (assign, ":break", 30),
-        (try_for_range, ":unused", 0, ":break"),
-            (troop_slot_eq, ":pretender", slot_troop_cur_center, 0),
-            (store_random_in_range, ":town", towns_begin, towns_end),
-            (party_get_slot, ":town_lord", ":town", slot_town_lord),
-            (ge, ":town_lord", "trp_player"), #not unassigned
-            (store_faction_of_party, ":town_faction", ":town"),
-            (store_relation, ":relation", ":town_faction", ":target_faction"),
-            (le, ":relation", 0), #fail if nothing qualifies
-
-            (troop_set_slot, ":pretender", slot_troop_cur_center, ":town"),
-            (try_begin), #SB : cheat mode
-                (eq, "$cheat_mode", 1),
-                (str_store_troop_name_link, 4, ":pretender"),
-                (str_store_party_name_link, 5, ":town"),
-                #(display_message, "@{!}{s4} is in {s5}"),
-            (try_end),
-            (try_begin), #SB : actually give out base gold and some renown
-                (ge, "$g_dplmc_ai_changes", DPLMC_AI_CHANGES_MEDIUM),
-                (call_script, "script_dplmc_distribute_gold_to_lord_and_holdings", 100, ":pretender"),
-                # do host relations
-                (assign, ":renown", 5),
-                (try_begin),
-                    (neq, ":town_lord", "trp_player"),
-                    (store_random_in_range, ":relation", -3, 4),
-                    (call_script, "script_troop_change_relation_with_troop", ":pretender", ":town_lord", ":relation"),
-                (try_end),
-                #do other relations
-                (call_script, "script_get_heroes_attached_to_center", ":town", "p_temp_party"),
-                (party_get_num_companion_stacks, ":num_stacks", "p_temp_party"),
-                (try_for_range, ":stack_no", 0, ":num_stacks"),
-                    (party_stack_get_troop_id, ":troop_no", "p_temp_party", ":stack_no"),
-                    (neq, ":troop_no", ":pretender"),
-                    (neq, ":troop_no", ":town_lord"), #double effect if actually at home?
-                    (store_random_in_range, ":relation", -2, 3),
-                    (call_script, "script_troop_change_relation_with_troop", ":pretender", ":troop_no", ":relation"),
-                    (try_begin), #a bit of variation
-                        (ge, ":relation", 0),
-                        (val_add, ":renown", 1),
-                    (else_try),
-                        (val_sub, ":renown", 1),
-                    (try_end),
-                  (try_end),
-                  (call_script, "script_change_troop_renown", ":troop_no", ":renown"),
-              (try_end),
-              (assign, ":break", 0),
-          (try_end),
-    (try_end),
-],[]),
-#Rebellion changes end
-
-#NPC system changes begin
-#Move unemployed NPCs around taverns
-   (24 * 15 , 0, 0,
-   [
-    (call_script, "script_update_companion_candidates_in_taverns"),
-    ],
-   []
-   ),
-
 #Process morale and determine personality clashes
       (24.5, 0, 0,
    [],[
@@ -710,38 +633,6 @@ triggers = [
         (try_end),
     ]),
 
-
-# #NPC system changes end
-# #SB : change interval
-# # Lady of the lake achievement
-   # (12, 0, 0,
-   # [
-     # # (troop_get_type, ":is_female", "trp_player"),
-     # (eq, "$character_gender", tf_female),
-
-    # ],
-   # [
-     # (assign, ":inv_cap", companions_end),
-     # (try_for_range, ":companion", companions_begin, ":inv_cap"),
-       # (troop_slot_eq, ":companion", slot_troop_occupation, slto_player_companion),
-
-       # # (troop_get_inventory_capacity, ":inv_cap", ":companion"),
-       # (try_for_range, ":i_slot", 0, ek_head),
-         # (troop_get_inventory_slot, ":item_id", ":companion", ":i_slot"),
-
-		 # (ge, ":item_id", 0),
-
-	 	 # (this_or_next|eq, ":item_id", "itm_champion_sword_1"),
-	 	 # (this_or_next|eq, ":item_id", "itm_sassanid_greatsword"),
-		 # (eq, ":item_id", "itm_strange_great_sword"),
-
-		 # (unlock_achievement, ACHIEVEMENT_LADY_OF_THE_LAKE),
-		 # (assign, ":inv_cap", 0),
-	   # (try_end),
-	 # (try_end),
-   # ]
-   # ),
-
 ##diplomacy begin
   # Appoint chamberlain
    (24 , 0, 24 * 12,
@@ -754,12 +645,6 @@ triggers = [
       (assign, ":has_fief", 1),
     (try_end),
     (eq, ":has_fief", 1),
-
-    (try_begin), #debug
-      (eq, "$cheat_mode", 1),
-      (assign, reg0, "$g_player_chamberlain"),
-      #(display_message, "@{!}DEBUG : chamberlain: {reg0}"),
-    (try_end),
 
     (assign, ":notification", 0),
     (try_begin),
@@ -1413,7 +1298,9 @@ triggers = [
  #  CHECKS IF "$enlisted_party" HAS JOINED BATTLE
     (0.0, 0, 0, [
         (eq, "$freelancer_state", 1),
-    (check_quest_active, "qst_freelancer_enlisted"),
+	(check_quest_active, "qst_freelancer_enlisted"),
+	(gt, "$enlisted_party", 0),
+	(party_is_active, "$enlisted_party"),
     
     #collected nearby enemies->detach (post-battle)
     (try_begin), 

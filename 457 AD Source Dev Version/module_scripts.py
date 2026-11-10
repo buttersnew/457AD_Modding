@@ -26459,6 +26459,7 @@ scripts = [
 	          (try_end),
 	        (else_try),
 	          (eq, ":quest_no", "qst_raise_troops"),
+			(eq, 1, 0), #madsci disable for now because troops dont upgrade in this mod like in vanilla
 	          (try_begin),
 	            (neq, ":giver_reputation", lrep_martial),
 				##diplomacy start+

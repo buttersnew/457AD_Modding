@@ -19121,26 +19121,6 @@ Here, take this purse of {reg3} siliquae, as I promised. I hope we can travel to
 (assign, "$g_leave_encounter", 1), #Not sure why this is necessary
 ]],
 
-##  [anyone|plyr,"freed_lord_answer", [(neg|faction_slot_eq, "$g_talk_troop_faction", slot_faction_leader, "$g_talk_troop"), #he is not a faction leader!
-##                                     (call_script, "script_get_number_of_hero_centers", "$g_talk_troop"),
-##                                     (eq, reg0, 0), #he has no castles or towns
-##                                     (hero_can_join)],
-##   "I need capable men like you. Would you like to join me?", "knight_offer_join",
-##   []],
-##
-##  [anyone,"freed_lord_answer_3", [(store_random_in_range, ":random_no",0,2),(eq, ":random_no", 0)],
-##   "Alright I will join you.", "close_window",
-##   [
-###     (troop_set_slot, "$g_talk_troop", slot_troop_is_player_companion, 1),
-##     (troop_set_slot, "$g_talk_troop", slot_troop_occupation, slto_player_companion),
-##     (store_conversation_troop, ":cur_troop_id"),
-##     (party_add_members, "p_main_party", ":cur_troop_id", 1),#join hero
-##   ]],
-##
-##  [anyone,"freed_lord_answer_3", [],
-##   "No, I want to go on my own.", "close_window", []],
-
-
 #Troop commentary changes begin
 [anyone,"start", [(eq,"$talk_context",tc_hero_defeated),
                   (troop_slot_eq,"$g_talk_troop",slot_troop_occupation, slto_kingdom_hero),
@@ -21241,43 +21221,11 @@ I want you to go to {s13}, {s14} and {s15} and report back whatever you find.", 
 [anyone,"lord_mission_told_scout_waypoints_rejected", [], "Hm. I'm disappointed, {playername}. Very disappointed. We'll talk later, I need to go and find somebody to scout for us.", "lord_pretalk",
 [(troop_set_slot, "$g_talk_troop", slot_troop_does_not_give_quest, 1)]],
 
-
-
-
-##
-##  [anyone,"lord_start",[(check_quest_active,"qst_rescue_lady_under_siege"),
-##                        (quest_slot_eq, "qst_rescue_lady_under_siege", slot_quest_target_troop, "$g_talk_troop"),
-##                        (quest_slot_eq, "qst_rescue_lady_under_siege", slot_quest_current_state, 1)],
-##   "I heard that you have rescued my {s7} from the siege of {s5} and brought her to safety.\
-## I am in your debt for this {playername}. Thank you.", "lord_generic_mission_completed",
-##   [(quest_get_slot, ":quest_object_troop", "qst_rescue_lady_under_siege", slot_quest_object_troop),
-##    (try_begin),
-##      (troop_slot_eq, "$g_talk_troop", slot_troop_daughter, ":quest_object_troop"),
-##      (str_store_string, s7, "str_daughter"),
-##    (else_try),
-##      (str_store_string, s7, "str_wife"),
-##    (try_end),
-##    (remove_member_from_party, ":quest_object_troop"),
-##    (try_begin),
-##      (is_between, "$g_encountered_party", centers_begin, centers_end),#Lord might be in wilderness
-##      (troop_set_slot, ":quest_object_troop", slot_troop_cur_center, "$g_encountered_party"),
-##    (try_end),
-##    (call_script, "script_finish_quest", "qst_rescue_lady_under_siege", 100),
-##    (call_script, "script_change_player_relation_with_troop","$g_talk_troop", 4),
-##    ]],
-##
-##### TODO: QUESTS COMMENT OUT END
 [anyone,"lord_generic_mission_thank", [],
 "You have been most helpful, {playername}. My thanks.", "lord_generic_mission_completed",[]],
 
 [anyone|plyr,"lord_generic_mission_completed", [],
 "It was an honour to serve.", "lord_pretalk",[]],
-
-##  [anyone|plyr,"lord_generic_mission_failed", [],
-##   "I'm sorry I failed you sir. It won't happen again.", "lord_pretalk",
-##   [(store_partner_quest,":lords_quest"),
-##    (call_script, "script_finish_quest", ":lords_quest"),
-##    ]],
 
 [anyone,"lord_start", [#(troop_slot_eq, "$g_talk_troop", slot_troop_is_prisoner, 0),
                    (neg|troop_slot_ge, "$g_talk_troop", slot_troop_prisoner_of_party, 0),
@@ -26380,9 +26328,11 @@ and perhaps I shall be able to repay the debt I owe you.", "lord_rescue_by_repla
 
     (try_begin), #if we're in the prisoner town, talk to released prisoner immediately
       (quest_slot_eq, "qst_rescue_prisoner", slot_quest_target_center, "$current_town"),
+	(troop_slot_eq, ":prisoner", slot_troop_prisoner_of_party, "$current_town"),
       (assign, "$talk_context", tc_hero_freed),
       # (call_script, "script_setup_troop_meeting", ":prisoner", -1),
       (assign, "$castle_meeting_selected_troop", ":prisoner"),
+	(mission_disable_talk), #madsci bugfix
       (jump_to_menu, "mnu_castle_meeting_selected"),
       (troop_set_slot, ":prisoner", slot_troop_mission_participation, -1),
       (party_remove_prisoners, "$current_town", ":prisoner", 1),
@@ -26390,6 +26340,11 @@ and perhaps I shall be able to repay the debt I owe you.", "lord_rescue_by_repla
       (call_script, "script_succeed_quest", "qst_rescue_prisoner"),
       (assign, "$do_not_cancel_quest", 1),
       (call_script, "script_remove_troop_from_prison", ":prisoner"),
+	(try_begin),
+	(troop_get_slot, ":cur_prisoner_of_party", ":prisoner", slot_troop_prisoner_of_party),
+	(gt, ":cur_prisoner_of_party", 0),
+      	(party_remove_prisoners, ":cur_prisoner_of_party", ":prisoner", 1),
+	(try_end),
       (assign, "$do_not_cancel_quest", 0),
       (call_script, "script_change_player_honor", 1), #this is to compensate for missing freed_lord_answer rewards
       (assign, "$g_leave_encounter", 1),
@@ -39731,7 +39686,7 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
 (store_conversation_troop, "$g_talk_troop"),
 (store_troop_faction, "$g_talk_troop_faction", "$g_talk_troop"),
 ],
-   "I am in your debt for freeing me friend.", "freed_hero_answer",
+   "I am in your debt for freeing me, friend.", "freed_hero_answer",
    []],
 
   [anyone|plyr,"freed_hero_answer", [
@@ -44500,9 +44455,9 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
                           (quest_slot_eq, "qst_move_cattle_herd", slot_quest_giver_troop, "$g_talk_troop"),
                           (check_quest_failed, "qst_move_cattle_herd"),
                           ],
-   "I heard that you have lost the cattle herd on your way to {s9}.\
- I had a very difficult time explaining your failure to the owner of that herd, {sir/madam}.\
- Do you have anything to say?", "move_cattle_herd_failed",
+   "I heard that you have lost the cattle herd on your way to {s9}. "+
+ "I had a very difficult time explaining your failure to the owner of that herd, {sir/madam}. "+
+ "Do you have anything to say?", "move_cattle_herd_failed",
    []],
 
   [anyone|plyr ,"move_cattle_herd_failed", [],
@@ -44511,9 +44466,9 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
    "I am sorry. The stupid animals wandered off during the night.", "move_cattle_herd_failed_2",[]],
 
   [anyone,"move_cattle_herd_failed_2", [],
-   "Well, it was your responsibility to deliver that herd safely, no matter what.\
- You should know that the owner of the herd demanded to be compensated for his loss, and I had to pay him 1000 siliquae.\
- So you now owe me that money.", "merchant_ask_for_debts",
+   "Well, it was your responsibility to deliver that herd safely, no matter what. "+
+ "You should know that the owner of the herd demanded to be compensated for his loss, and I had to pay him 1000 siliquae. "+
+ "So you now owe me that money.", "merchant_ask_for_debts",
    [(val_add, "$debt_to_merchants_guild", 1000), #SB : val_add
     (call_script, "script_end_quest", "qst_move_cattle_herd"),]],
 
@@ -44521,9 +44476,9 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
                           (quest_slot_eq, "qst_kidnapped_girl", slot_quest_current_state, 4),
                           (quest_slot_eq, "qst_kidnapped_girl", slot_quest_giver_troop, "$g_talk_troop"),
                           ],
-   "{playername} -- I am in your debt for bringing back my friend's daughter.\
-  Please take these {reg8} siliquae that I promised you.\
-  My friend wished he could give more but paying that ransom brought him to his knees.", "close_window",
+   "{playername} -- I am in your debt for bringing back my friend's daughter. "+
+  "Please take these {reg8} siliquae that I promised you. "+
+  "My friend wished he could give more but paying that ransom brought him to his knees.", "close_window",
    [(quest_get_slot, ":quest_gold_reward", "qst_kidnapped_girl", slot_quest_gold_reward),
     (call_script, "script_troop_add_gold", "trp_player", ":quest_gold_reward"),
     (assign, reg8, ":quest_gold_reward"),
@@ -44540,9 +44495,9 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
                           (check_quest_succeeded, "qst_track_down_bandits"),
                           (quest_slot_eq, "qst_track_down_bandits", slot_quest_giver_troop, "$g_talk_troop"),
                           ],
-   "Well -- it sounds like you were able to track down the bandits, and show them what happens to those who would disrupt the flow of commerce.\
- Here is your reward: {reg5} siliquae.\
- It is well earned, and we are most grateful.",
+   "Well -- it sounds like you were able to track down the bandits, and show them what happens to those who would disrupt the flow of commerce. ^^"+
+ "Here is your reward of {reg5} siliquae. "+
+ "It is well earned, and we are most grateful.",
    "mayor_friendly_pretalk", [(quest_get_slot, ":quest_gold_reward", "qst_track_down_bandits", slot_quest_gold_reward),
                               (call_script, "script_troop_add_gold", "trp_player", ":quest_gold_reward"),
                               (assign, ":xp_reward", ":quest_gold_reward"),

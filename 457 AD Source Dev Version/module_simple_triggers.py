@@ -2163,7 +2163,6 @@ simple_triggers = [
    [
     (store_random_in_range, ":village_no", villages_begin, villages_end),
     (call_script, "script_refresh_village_merchant_inventory", ":village_no"),
-    # (try_end),
     ]),
 
   #Refreshing village defenders
@@ -7423,6 +7422,7 @@ simple_triggers = [
 (call_script, "script_refresh_center_armories"),
 (call_script, "script_refresh_center_weaponsmiths"),
 (call_script, "script_refresh_center_stables"),
+(call_script, "script_refresh_antiquarian_inventory"),
 
 (try_begin), #armenian rebellion if the player is not involved
 (eq, "$armenian_rebellion", 0),

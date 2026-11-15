@@ -16817,12 +16817,10 @@ Still I am sorry that I'll leave you soon. You must promise me, you'll come visi
 	(val_div, ":cost", 20),
 
 	#Check if the player can afford it.
-	(store_troop_gold, ":treasury", "trp_household_possessions"),
-	(store_troop_gold, ":purse", "trp_player"),
-	(store_add, ":available_funds", ":treasury", ":purse"),
+	(store_troop_gold, ":available_funds", "trp_player"),
 	(ge, ":available_funds", ":cost"),
-
 	(assign, "$temp", ":cost"),
+	(assign, reg0, ":cost"),
 
 ], "Would {reg0} siliquae convince you to remain a while longer?", "dplmc_companion_quitting_persuasion_bribe", [
       (assign, "$player_can_persuade_npc", 0),
@@ -16830,28 +16828,17 @@ Still I am sorry that I'll leave you soon. You must promise me, you'll come visi
 
 #Return to previous
 [anyone|plyr, "dplmc_companion_quitting_persuasion_1", [
-], "Actually, nevermind.  I meant to say something else.", "companion_quitting_response", [
+], "Actually, nevermind. I meant to say something else.", "companion_quitting_response", [
 	(assign, "$player_can_persuade_npc", 1),#revert
 ]],
 
 [anyone, "dplmc_companion_quitting_persuasion_bribe", [
 	#Player bribes companion to remain
                ],
-"Hm. When you put it like that, I suppose I can stay a while longer, see if things improve.", "close_window",
+"Hmm... When you put it like that, I suppose I can stay a while longer, see if things improve.", "close_window",
 [
 		  (assign, reg0, "$temp"),#cost to pay
-		  #Remove the gold from the player
-		  (val_max, reg0, 0),
-		  (store_troop_gold, ":funds", "trp_player"),
-		  (val_min, ":funds", reg0),
-		  (val_sub, reg0, ":funds"),
-		  (troop_remove_gold, "trp_player", ":funds"),
-
-		  #Remove any remaining gold from the treasury
-		  (store_troop_gold, ":funds", "trp_household_possessions"),
-		  (val_min, ":funds", reg0),
-		  (val_sub, reg0, ":funds"),
-		  (call_script, "script_dplmc_withdraw_from_treasury", ":funds"),
+		  (troop_remove_gold, "trp_player", reg0),
 
 		  #Reduce penalties per a successful persuasion attempt
           (troop_get_slot, ":morality_penalties", "$map_talk_troop", slot_troop_morality_penalties),
@@ -16878,7 +16865,7 @@ Still I am sorry that I'll leave you soon. You must promise me, you'll come visi
 
           (le, ":random", ":persuasion"),
                ],
-"Hm. When you put it like that, I suppose I can stay a while longer, see if things improve.", "close_window",
+"Hmm... When you put it like that, I suppose I can stay a while longer, see if things improve.", "close_window",
 [
           (troop_get_slot, ":morality_penalties", "$map_talk_troop", slot_troop_morality_penalties),
           (val_div, ":morality_penalties", 2),
@@ -16895,16 +16882,6 @@ Still I am sorry that I'll leave you soon. You must promise me, you'll come visi
 [
  ]],
 
-##diplomacy start+
-#Enable refusing to allow party members to quit in cheat mode.
-#
-#OLD VERSION:
-#[anyone|plyr, "companion_quitting_response", [
-#      (eq, 1, 0),
-#      (eq, "$player_can_refuse_npc_quitting", 1),
-#], "We hang deserters in this company.", "companion_quitting_no", [
-#    ]],
-#
 [anyone|plyr, "companion_quitting_response", [
       (ge, "$cheat_mode", 1),#only enable in cheat mode
       (eq, "$player_can_refuse_npc_quitting", 1),
@@ -17390,6 +17367,14 @@ Still I am sorry that I'll leave you soon. You must promise me, you'll come visi
 
         (eq, "$map_talk_troop", "$npc_with_political_grievance"),
         (eq, "$npc_map_talk_context", slot_troop_kingsupport_objection_state),
+
+               (troop_get_slot, ":object", "$map_talk_troop", slot_troop_personalityclash_object),
+			(try_begin),
+			(gt, ":object", 0),
+			(str_store_troop_name, s14, ":object"),
+			(else_try),
+			(str_store_string, s11, "@this other companion"), #madsci failsafe
+			(try_end),
 
         (store_sub, ":npc_no", "$g_talk_troop", "trp_npc1"),
         (store_add, ":string", "str_npc1_kingsupport_objection", ":npc_no"),
@@ -52510,20 +52495,7 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
   [trp_antiquarian,"antiquarian_maximian_3", [], "Thank you, here's the statue.", "close_window",[(troop_add_item, "trp_player", "itm_maximian_statue", 0),(troop_remove_gold,"trp_player",1000),(quest_set_slot,"qst_diocletian_quest", slot_quest_current_state, 3),]],
 
   [anyone, "antiquarian_merchant_talk_shop_1",
-  [ (troop_clear_inventory, "$g_talk_troop"),
-    (troop_add_item,"$g_talk_troop","itm_richborough_helmet_2", 0),
-    (troop_add_item,"$g_talk_troop","itm_florence_helmet_1", 0),
-    (troop_add_item,"$g_talk_troop","itm_old_gladiator_helmet_1", 0),
-    (troop_add_item,"$g_talk_troop","itm_old_gladiator_helmet_2", 0),
-    (troop_add_item,"$g_talk_troop","itm_small_old_round_shield_1", 0),
-    (troop_add_item,"$g_talk_troop","itm_small_old_round_shield_2", 0),
-    (troop_add_item,"$g_talk_troop","itm_small_old_round_shield_3", 0),
-    (troop_add_item,"$g_talk_troop","itm_small_old_round_shield_4", 0),
-    (troop_add_item,"$g_talk_troop","itm_spathabarbaro_demasc", 0), #podlow - 3rd cent spatha
-    (troop_add_item,"$g_talk_troop","itm_excubitor_boots", 0),
-    (troop_add_item,"$g_talk_troop","itm_roman_javelin", 0),
-    (troop_add_item,"$g_talk_troop","itm_draco", 0),
-    ],
+  [],
   "Very good.", "antiquarian_merchant_talk_trade_1",
   [(change_screen_trade),]],
   [anyone, "antiquarian_merchant_talk_trade_1",

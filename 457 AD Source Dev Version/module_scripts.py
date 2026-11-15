@@ -3412,6 +3412,8 @@ scripts = [
       (call_script, "script_refresh_village_merchant_inventory", ":village_no"),
   (try_end),
 
+(call_script, "script_refresh_antiquarian_inventory"),
+
   #INITIALISE LORD WEALTH
   (try_for_range, ":troop_id", original_kingdom_heroes_begin, active_npcs_end),
       (try_begin),
@@ -104227,6 +104229,23 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
         (display_message, "@You lose piety.", message_negative),
       (try_end),
 	(val_clamp, "$piety", -100, 101),
+   ]),
+
+  ("refresh_antiquarian_inventory",
+   [
+(troop_clear_inventory, "trp_antiquarian"),
+(troop_add_item,"trp_antiquarian","itm_richborough_helmet_2", 0),
+(troop_add_item,"trp_antiquarian","itm_florence_helmet_1", 0),
+(troop_add_item,"trp_antiquarian","itm_old_gladiator_helmet_1", 0),
+(troop_add_item,"trp_antiquarian","itm_old_gladiator_helmet_2", 0),
+(troop_add_item,"trp_antiquarian","itm_small_old_round_shield_1", 0),
+(troop_add_item,"trp_antiquarian","itm_small_old_round_shield_2", 0),
+(troop_add_item,"trp_antiquarian","itm_small_old_round_shield_3", 0),
+(troop_add_item,"trp_antiquarian","itm_small_old_round_shield_4", 0),
+(troop_add_item,"trp_antiquarian","itm_spathabarbaro_demasc", 0), #podlow - 3rd cent spatha
+(troop_add_item,"trp_antiquarian","itm_excubitor_boots", 0),
+(troop_add_item,"trp_antiquarian","itm_roman_javelin", 0),
+(troop_add_item,"trp_antiquarian","itm_draco", 0),
    ]),
 
 ]

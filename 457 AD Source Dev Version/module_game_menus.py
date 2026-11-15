@@ -7556,6 +7556,7 @@ TOTAL:  {reg5}"),
 
       ###siege perimeter control(party_set_slot,"p_main_party",slot_center_blockaded,0),
       ("build_circunvalation",[
+	(eq, 1, 0), #madsci disable for now
           (party_slot_eq,"$g_encountered_party",slot_center_blockaded,0),],
         "Blockade: build checkpoints around {s4}.", [
 
@@ -8108,6 +8109,7 @@ TOTAL:  {reg5}"),
       ("build_mantlet",
         [           (eq, "$g_mantlets_1", 0),
           (neq, "$g_siege_method", 1),
+	(eq, 1, 0), #madsci disable for now
         ],
         "Build mantlets.",
         [
@@ -27110,6 +27112,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         (call_script, "script_change_player_honor", 5),
         (call_script, "script_change_player_relation_with_faction", "fac_kingdom_1", 6),
         (call_script, "script_change_player_relation_with_center", "p_town_11", 2), #grants additional relation to nearby villages/towns
+        (call_script, "script_change_player_relation_with_center", "p_town_51", 2),
         (call_script, "script_change_player_relation_with_center", "p_village_195", 2), #grants additional relation to nearby villages/towns
         (call_script, "script_succeed_quest", "qst_battle_of_garigliano"),
 

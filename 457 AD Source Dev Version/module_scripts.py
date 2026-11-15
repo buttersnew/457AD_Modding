@@ -1401,8 +1401,8 @@ scripts = [
     (store_faction_of_party, ":town_faction", "p_castle_8"),
     (call_script, "script_give_center_to_faction_aux", "p_village_142", ":town_faction"),
 
-    (party_set_slot, "p_village_51", slot_village_bound_center, "p_castle_20"),
-    (store_faction_of_party, ":town_faction", "p_castle_20"),
+    (party_set_slot, "p_village_51", slot_village_bound_center, "p_town_51"),
+    (store_faction_of_party, ":town_faction", "p_town_51"),
     (call_script, "script_give_center_to_faction_aux", "p_village_51", ":town_faction"),
 
     (party_set_slot, "p_village_217", slot_village_bound_center, "p_castle_22"),
@@ -1887,7 +1887,7 @@ scripts = [
     (party_set_slot, "p_castle_26", slot_castle_exterior, "scn_castle_34_exterior_var5_gate_medi_city_harbour"), #Dyrrhachium, Albania
     (party_set_slot, "p_castle_61", slot_castle_exterior, "scn_castle_34_exterior_var1_ladder_medi"), #Pollentia, Mallorca
     (party_set_slot, "p_castle_35", slot_castle_exterior, "scn_castle_34_exterior_var5_gate_medi_town_seaside"), #Corinth, Greece
-    (party_set_slot, "p_castle_20", slot_castle_exterior, "scn_castle_34_exterior_var5_gate_medi_city_harbour"), #syracuse - will eventually be replaced
+    (party_set_slot, "p_castle_20", slot_castle_exterior, "scn_castle_34_exterior_var5_gate_medi_city_harbour"), #brundisium - will eventually be replaced
 
     #setting up unique
     (party_set_slot,"p_castle_15", slot_castle_exterior, "scn_castle_15_exterior"), #Dun_At
@@ -2376,6 +2376,7 @@ scripts = [
     (call_script, "script_give_center_to_faction_aux", "p_castle_37", "fac_kingdom_1"),
     (call_script, "script_give_center_to_faction_aux", "p_castle_51", "fac_kingdom_1"),
     (call_script, "script_give_center_to_faction_aux", "p_castle_62", "fac_kingdom_1"),
+    (call_script, "script_give_center_to_faction_aux", "p_town_51", "fac_kingdom_1"),
     #ERE
     (call_script, "script_give_center_to_faction_aux", "p_town_6", "fac_kingdom_2"), #Capital
     (call_script, "script_give_center_to_faction_aux", "p_town_7", "fac_kingdom_2"),
@@ -9820,7 +9821,7 @@ scripts = [
             (eq, ":quest", "qst_conquest_sicily"),
             (str_store_string, s0, "@Your realm (not allies or tributaries) must hold the following settlements:^"),
             (try_for_range, ":walled_center", walled_centers_begin, walled_centers_end),
-                (eq, ":walled_center", "p_castle_20"),
+                (eq, ":walled_center", "p_town_51"),
                 (str_store_party_name_link, s1, ":walled_center"),
                 (store_faction_of_party, ":faction", ":walled_center"),
                 (str_store_faction_name_link, s2, ":faction"),
@@ -11978,6 +11979,9 @@ scripts = [
       (call_script, "script_set_trade_route_between_centers", "p_town_50", "p_town_46"), #Thabudeos
       (call_script, "script_set_trade_route_between_centers", "p_town_50", "p_town_49"), #Leptis Magna
       (call_script, "script_set_trade_route_between_centers", "p_town_50", "p_town_34"), #Valtava
+
+      (call_script, "script_set_trade_route_between_centers", "p_town_51", "p_town_40"), #Tarraco
+      (call_script, "script_set_trade_route_between_centers", "p_town_51", "p_town_21"), #Alexandria
 	]),
 
 
@@ -13020,6 +13024,13 @@ scripts = [
       (party_set_slot,"p_town_50", slot_town_arena_melee_2_team_size,   4),
       (party_set_slot,"p_town_50", slot_town_arena_melee_3_num_teams,   2),
       (party_set_slot,"p_town_50", slot_town_arena_melee_3_team_size,   6),
+
+      (party_set_slot,"p_town_51", slot_town_arena_melee_1_num_teams,   2),
+      (party_set_slot,"p_town_51", slot_town_arena_melee_1_team_size,   8),
+      (party_set_slot,"p_town_51", slot_town_arena_melee_2_num_teams,   3),
+      (party_set_slot,"p_town_51", slot_town_arena_melee_2_team_size,   4),
+      (party_set_slot,"p_town_51", slot_town_arena_melee_3_num_teams,   3),
+      (party_set_slot,"p_town_51", slot_town_arena_melee_3_team_size,   6),
 	]),
 
 	("initialize_banner_info",
@@ -13627,6 +13638,9 @@ scripts = [
 
     (party_set_slot, "p_town_50", slot_center_breweries, 20),
 
+    (party_set_slot, "p_town_51", slot_center_wine_presses, 15),
+    (party_set_slot, "p_town_51", slot_center_fishing_fleet, 20),
+
     (try_for_range, ":village_no", villages_begin, villages_end),
         (store_random_in_range, ":rand", 0, 2), ##silver smithies
 		    (party_set_slot, ":village_no", slot_center_silver_deposits, ":rand"),
@@ -13983,6 +13997,11 @@ scripts = [
             (party_slot_eq, ":village_no", slot_village_market_town, "p_town_50"),
             (party_set_slot, ":village_no", slot_center_acres_grain, 5500),
             (party_set_slot, ":village_no", slot_center_head_cattle, 210),
+        (else_try),
+            (party_slot_eq, ":village_no", slot_village_market_town, "p_town_51"),
+            (party_set_slot, ":village_no", slot_center_acres_vineyard, 2000),
+            (party_set_slot, ":village_no", slot_center_household_gardens, 10),
+            (party_set_slot, ":village_no", slot_center_head_cattle, 100),
         (try_end),
     (try_end),
 

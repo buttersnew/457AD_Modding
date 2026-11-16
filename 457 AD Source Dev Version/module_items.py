@@ -505,11 +505,9 @@ items = [
 
 ["poisoned_arrows", "Poisoned Arrows", [("dyakovo_arrow",0),("dyakovo_arrow",ixmesh_flying_ammo),("wicker_quiver",ixmesh_carry)], itp_type_arrows|itp_default_ammo, itcf_carry_quiver_right_vertical, 300, weight(1.7)|abundance(30)|weapon_length(95)|thrust_damage(1,pierce)|max_ammo(35), imodbits_missile, [],[] ],
 
+ ["bolts","Bolts", [("bolt_new",0),("bolt_new",ixmesh_flying_ammo),("bolt_bag", ixmesh_carry),("bolt_bag_a_new", ixmesh_carry|imodbit_large_bag)], itp_type_bolts|itp_merchandise|itp_default_ammo|itp_can_penetrate_shield, itcf_carry_quiver_right_vertical, 64,weight(2.25)|abundance(90)|weapon_length(63)|thrust_damage(22,pierce)|max_ammo(26),imodbits_missile, [], [fac_culture_empire] ],
 
-
- ["bolts","Bolts", [("bolt_new",0),("bolt_new",ixmesh_flying_ammo),("bolt_bag", ixmesh_carry),("bolt_bag_a_new", ixmesh_carry|imodbit_large_bag)], itp_type_bolts|itp_merchandise|itp_default_ammo|itp_can_penetrate_shield, itcf_carry_quiver_right_vertical, 64,weight(2.25)|abundance(90)|weapon_length(63)|thrust_damage(22,pierce)|max_ammo(26),imodbits_missile],
-
- ["steel_bolts","Steel Bolts", [("bolt_new",0),("bolt_new",ixmesh_flying_ammo),("bolt_bag_a_new", ixmesh_carry)], itp_type_bolts|itp_merchandise|itp_can_penetrate_shield, itcf_carry_quiver_right_vertical, 210,weight(2.5)|abundance(20)|weapon_length(63)|thrust_damage(24,pierce)|max_ammo(24),imodbits_missile],
+ ["steel_bolts","Steel Bolts", [("bolt_new",0),("bolt_new",ixmesh_flying_ammo),("bolt_bag_a_new", ixmesh_carry)], itp_type_bolts|itp_merchandise|itp_can_penetrate_shield, itcf_carry_quiver_right_vertical, 210,weight(2.5)|abundance(20)|weapon_length(63)|thrust_damage(24,pierce)|max_ammo(24),imodbits_missile, [], [fac_culture_empire] ],
 
  ["cartridges","Sling Stones", [("throwing_stone",0),("throwing_stone",ixmesh_flying_ammo)], itp_type_bullets|itp_merchandise|itp_default_ammo, 0, 41,weight(2.25)|abundance(90)|weapon_length(3)|thrust_damage(23,pierce)|max_ammo(50),imodbits_missile],
 
@@ -2475,8 +2473,8 @@ weight(1)|abundance(80)|head_armor(24)|body_armor(14)|leg_armor(6)|difficulty(0)
 900 , weight(3)|abundance(15)|difficulty(8)|spd_rtng(43) | shoot_speed(66) | thrust_damage(38,pierce)|max_ammo(1),imodbits_crossbow ],
 ["heavy_crossbow", "Heavy Crossbow", [("roman_crossbow_1",0)], itp_type_crossbow|itp_primary|itp_two_handed|itp_cant_reload_on_horseback ,itcf_shoot_crossbow|itcf_carry_crossbow_back,
 1000 , weight(3.5)|abundance(10)|difficulty(9)|spd_rtng(41) | shoot_speed(68) | thrust_damage(45 ,pierce)|max_ammo(1),imodbits_crossbow ],
-["sniper_crossbow", "Manuballistae", [("roman_crossbow_1",0)], itp_type_crossbow |itp_primary|itp_two_handed|itp_cant_reload_on_horseback ,itcf_shoot_crossbow|itcf_carry_crossbow_back,
-1200 , weight(5)|abundance(5)|difficulty(10)|spd_rtng(37) | shoot_speed(70) | thrust_damage(51 ,pierce)|max_ammo(1),imodbits_crossbow ],
+["sniper_crossbow", "Manuballistae", [("roman_crossbow_1",0)], itp_type_crossbow |itp_primary|itp_two_handed|itp_cant_reload_on_horseback|itp_merchandise ,itcf_shoot_crossbow|itcf_carry_crossbow_back,
+1200 , weight(5)|abundance(5)|difficulty(10)|spd_rtng(37) | shoot_speed(70) | thrust_damage(51 ,pierce)|max_ammo(1),imodbits_crossbow, [], [fac_culture_empire] ],
 ["flintlock_pistol", "Sling", [("Sling",0)], itp_type_pistol |itp_merchandise|itp_cant_use_on_horseback|itp_cant_reload_on_horseback|itp_primary ,itcf_shoot_pistol|itcf_reload_pistol, 60 , weight(0.5)|difficulty(0)|spd_rtng(100) | shoot_speed(65) | thrust_damage(18 ,pierce)|max_ammo(1)|accuracy(90),imodbits_none,
  [(ti_on_weapon_attack, [(play_sound,"snd_throw_stone")])]],
 

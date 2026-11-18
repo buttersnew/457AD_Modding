@@ -3000,6 +3000,7 @@ scripts = [
     (party_set_slot, "p_town_34",   slot_center_ex_faction, "fac_kingdom_15"), #vandal claims on mauri territory
     (party_set_slot, "p_castle_117",   slot_center_ex_faction, "fac_kingdom_15"),
     (party_set_slot, "p_castle_118",   slot_center_ex_faction, "fac_kingdom_15"),
+    (party_set_slot, "p_town_51",   slot_center_ex_faction, "fac_kingdom_15"),
 
     #WRE Claims 12/19/24 - claim on all non-initally allied barbarian kingdoms
     #towns

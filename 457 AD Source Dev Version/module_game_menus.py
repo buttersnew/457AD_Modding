@@ -34376,6 +34376,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
        ),
 
       ("camp_enable_sea_battles",[
+(eq, 1, 0), #madsci no longer needs testing
 (try_begin),
 (eq, "$sea_battles", 1),
 (str_store_string, s10, "@Disable sea battles"),
@@ -34393,6 +34394,18 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 	(display_message, "@Sea battles enabled"),
 	(try_end),
          (jump_to_menu, "mnu_camp_cheat"),
+        ]
+       ),
+
+      ("camp_cheat_battle_of_boila",[(eq, "$g_battle_of_bolia", 0),],"Start the Anti-Amal Coalition quest",
+       [
+(call_script, "script_change_player_relation_with_troop", "trp_kingdom_4_lord", 10),
+   (str_store_party_name, s3, "p_village_185"),
+   (str_store_string, s2, "@Hunt down Hunimund. He should be somewhere near {s3}."),
+   (call_script, "script_start_quest", "qst_battle_of_bolia", "trp_kingdom_4_lord"),
+   (quest_set_slot,"qst_battle_of_bolia", slot_quest_current_state, 1),
+   (enable_party, "p_coalition_camp"),
+   (assign, "$g_battle_of_bolia", 1),
         ]
        ),
 

@@ -26934,7 +26934,7 @@ I will use this to make amends to those you have wronged, and I will let it be k
 
 
 [anyone,"lord_hunimund_defeated", [ ],
-"Excellent work {playername}. Here's your reward, 10,000 siliquae.", "lord_talk",[
+"Excellent work, {playername}. Here's your reward, 10,000 siliquae.", "lord_talk",[
 (troop_add_gold, "trp_player", 10000),
 (call_script, "script_end_quest", "qst_battle_of_bolia"),
 (call_script, "script_change_player_honor", 2),
@@ -33408,7 +33408,7 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
    [anyone,"lord_tell_mission_hunimund2", [
   ], "Very good! I've heard reports of that the coalition is currently camped near Arrabona.", "lord_pretalk",
    [(call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 10),
-   (str_store_party_name, s3, "p_village_185"),
+   (str_store_party_name_link, s3, "p_village_185"),
    (str_store_string, s2, "@Hunt down Hunimund. He should be somewhere near {s3}."),
    (call_script, "script_start_quest", "qst_battle_of_bolia", "$g_talk_troop"),
    (quest_set_slot,"qst_battle_of_bolia", slot_quest_current_state, 1),

@@ -97082,6 +97082,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 ("cf_is_noble",[
     (store_script_param_1, ":troop"),
     #add additional noble troops recruitable at towns and castles here to make them use the noble manpower
+    (this_or_next|eq, ":troop", "trp_antrustion"),
     #gothic
     (this_or_next|eq, ":troop", "trp_gothic_horseman"),
     (this_or_next|eq, ":troop", "trp_gothic_centurion"),
@@ -97110,6 +97111,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
     #pictish
     (this_or_next|eq, ":troop", "trp_pictish_companion"),
     #sassanid
+    (this_or_next|eq, ":troop", "trp_persian_champion"),
     (this_or_next|eq, ":troop", "trp_sassanid_cavalry"),
     (this_or_next|eq, ":troop", "trp_sassanid_bodyguard"),
     (this_or_next|eq, ":troop", "trp_sassanid_officer"),
@@ -97126,7 +97128,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
     #caucasians
     (this_or_next|eq, ":troop", "trp_caucasian_nobleman"),
     (this_or_next|eq, ":troop", "trp_sarir_horseman"),
-    (this_or_next|eq, ":troop", "trp_adyghe_warrior"),
+    #(this_or_next|eq, ":troop", "trp_adyghe_warrior"),
     (this_or_next|eq, ":troop", "trp_mazkut_cataphract"),
     (this_or_next|eq, ":troop", "trp_zikhes_retainer"),
     (this_or_next|eq, ":troop", "trp_zikhes_horseman"),

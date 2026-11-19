@@ -52928,7 +52928,7 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
   [trp_berserker_leader|plyr, "shaman_talk_intro_pagan_3", [],
    "My fate has been weaved long time ago and Wodan didn't grant you the privilege of disposing of my life. I will soon be a prince, feared and respected, and I seek your knowledge to increase my power. Teach me the magic ways of the dire dogs that live in these woods and I shall bring your warriors with me, to appease Wodan, in my adventures.", "shaman_talk_intro_pagan_4", [(assign, "$player_ability", 1),]], #starts intro to player getting ability
   [trp_berserker_leader, "shaman_talk_intro_pagan_4", [],
-   "Cut it! You pretend and speak too much, prince. If you really wish to learn our abilities you must prove your valour first. Duel our best champion, prove me you really are chosen by Wodan and that your actions speak louder than words.", "shaman_talk_intro_pagan_5", []],
+   "Cut it! You pretend and speak too much, {prince/princess}. If you really wish to learn our abilities you must prove your valour first. Duel our best champion, prove me you really are chosen by Wodan and that your actions speak louder than words.", "shaman_talk_intro_pagan_5", []],
   [trp_berserker_leader|plyr, "shaman_talk_intro_pagan_5", [],
    "I am ready.", "close_window", [
     (quest_set_slot,"qst_severinus_quest", slot_quest_current_state, 5),
@@ -52966,7 +52966,7 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
   [trp_berserker_leader|plyr, "shaman_talk_duel_won_1", [],
    "I want to join the brotherhood of the Cynocephali, I deserve it, I won the duel.", "shaman_talk_duel_won_2", []],
   [trp_berserker_leader, "shaman_talk_duel_won_2", [],
-   "You deserve nothing, prince. Those who do not follow the old ways may not walk on our path, they shall seek their own. You defeated our best warrior, you have our respect, but you will never be one of ours and there is nothing you can do that will make you change our minds.", "close_window", [
+   "You deserve nothing, {prince/princess}. Those who do not follow the old ways may not walk on our path, they shall seek their own. You defeated our best warrior, you have our respect, but you will never be one of ours and there is nothing you can do that will make you change our minds.", "close_window", [
       (assign, "$g_wolf_quest", 3), #can recruit
       (troop_add_item, "trp_player","itm_ranja", 0),
       (succeed_quest, "qst_the_wolfmen"),

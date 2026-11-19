@@ -225,6 +225,9 @@ scripts = [
 	(assign, "$currently_scavenging", 0),
 	(assign, "$last_rest_event", 0),
 	(assign, "$flavour_britain_after_rome", 0),
+	(assign, "$flavour_sasanian_empire", 0),
+    	(assign, "$flavour_hunnic_remnants", 0),
+    	(assign, "$flavour_east_roman_empire", 0),
 
     (options_set_battle_size, 0), #for slower pcs
 
@@ -93700,7 +93703,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
         (assign, "$g_king_start",3),
 
         (setup_quest_text,"qst_conquest_northern_gaul"),
-        (str_store_string, s2, "@Through the tourmoil of the 5th century, the rich lands of Northern Gaul stay under Roman rule. Conquering the land is at the utmost importance! Take control of Lutetia, Augusta Suessionum, and Avaricum."),
+        (str_store_string, s2, "@Through the turmoil of the 5th century, the rich lands of Northern Gaul stay under Roman rule. Conquering the land is at the utmost importance! Take control of Lutetia, Augusta Suessionum, and Avaricum."),
         (call_script, "script_start_quest", "qst_conquest_northern_gaul", "trp_player"),
 
         (setup_quest_text,"qst_conquest_suebi"),
@@ -93783,7 +93786,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
         (call_script, "script_dplmc_start_alliance_between_kingdoms", "$players_kingdom", "fac_kingdom_1", 0),
 
         (setup_quest_text,"qst_conquest_northern_gaul"),
-        (str_store_string, s2, "@Through the tourmoil of the 5th century, the rich lands of Northern Gaul stay under Roman rule. Conquering the land is at the utmost importance! Take control of Lutetia, Augusta Suessionum, and Avaricum."),
+        (str_store_string, s2, "@Through the turmoil of the 5th century, the rich lands of Northern Gaul stay under Roman rule. Conquering the land is at the utmost importance! Take control of Lutetia, Augusta Suessionum, and Avaricum."),
         (call_script, "script_start_quest", "qst_conquest_northern_gaul", "trp_player"),
 
         (setup_quest_text,"qst_conquest_ripuari"),

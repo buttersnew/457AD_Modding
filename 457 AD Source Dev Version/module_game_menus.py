@@ -36387,6 +36387,69 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       ],
     ),
 
+    ("flavour_east_roman_empire",mnf_disable_all_keys|mnf_scale_picture,
+      "The Empire of the East " + "^^From Constantinople, the Roman Empire still governs vast and wealthy lands. Ships crowd the harbours, officials record the taxes of distant provinces, and the emperor's laws travel along roads built by his predecessors. The court of {s10} speaks of an undivided Roman world, yet the eastern provinces must shoulder the burdens of their own frontiers as well as the desperate appeals arriving from the West." + "^^Beyond the Danube, new powers gather among the ruins of the Hunnic dominion. To the east, Persia remains both rival and neighbour. At home, generals, courtiers, and the great cities all expect a voice in the empire's future.",
+      "none",
+      [
+        (set_fixed_point_multiplier, 100),
+        (position_set_x, pos0, 70),
+        (position_set_y, pos0, 5),
+        (position_set_z, pos0, 75),
+	(try_begin),
+	(eq, "$g_king_start", 2),
+        (str_store_troop_name, s10, "trp_player"),
+        (set_game_menu_tableau_mesh, "tableau_troop_note_mesh", "trp_player", pos0),
+	(else_try),
+        (str_store_troop_name, s10, "trp_kingdom_2_lord"),
+        (set_game_menu_tableau_mesh, "tableau_troop_note_mesh", "trp_kingdom_2_lord", pos0),
+	(try_end),
+      ],
+      [
+        ("continue",[],"The empire endures, but its burdens grow.",[
+          (jump_to_menu, "mnu_auto_return_to_map"),
+        ]),
+      ],
+    ),
+
+    ("flavour_sasanian_empire",mnf_disable_all_keys|mnf_scale_picture,
+      "The Crown of Eranshahr " + "^^Across the Iranian plateau and the fertile lands of Mesopotamia, the authority of the shahanshah rests upon great noble houses, royal armies, and the traditions of the sacred fire. Persia is no fragile remnant of antiquity. Its courts, cities, and roads sustain an empire that has stood opposite Rome for generations, and its rulers claim a dignity equal to that of any emperor." + "^^Yet the royal succession remains troubled, and rival claims threaten the unity of the court. In the east, Hephthalite power presses upon the frontier. In the west, the Roman border and the loyalties of Armenia demand constant attention. Priests, nobles, and subject communities do not always seek the same future." + "^^The King of Kings commands a vast realm, but must first keep it together.",
+      "none",
+      [
+        (set_fixed_point_multiplier, 100),
+        (position_set_x, pos0, 70),
+        (position_set_y, pos0, 5),
+        (position_set_z, pos0, 75),
+ 	(try_begin),
+	(eq, "$g_king_start", 6),
+        (set_game_menu_tableau_mesh, "tableau_troop_note_mesh", "trp_player", pos0),
+	(else_try),
+        (set_game_menu_tableau_mesh, "tableau_troop_note_mesh", "trp_kingdom_2_lord", pos0),
+	(try_end),
+      ],
+      [
+        ("continue",[],"The throne must be made secure.",[
+          (jump_to_menu, "mnu_auto_return_to_map"),
+        ]),
+      ],
+    ),
+
+    ("flavour_hunnic_remnants",mnf_disable_all_keys|mnf_scale_picture,
+      "After the Scourge " + "^^Only a few years have passed since Attila's death, yet the dominion that terrified emperors has already fractured. Former subjects of the Huns have fought to cast off their masters, and the great confederation has dissolved into competing rulers, wandering warbands, and uneasy loyalties. The memory of Attila still commands fear, but memory cannot compel tribute or gather horsemen by itself." + "^^His heirs contend over followers and grazing lands while Goths, Gepids, and other neighbours seek the rewards of independence. Warriors who once rode beneath a single command must now decide whose fortune to follow, and how to survive in a world no longer afraid to resist them." + "^^The age of Attila has ended, but the fate of the Huns has not yet been decided.",
+      "none",
+      [
+        (set_fixed_point_multiplier, 100),
+        (position_set_x, pos0, 70),
+        (position_set_y, pos0, 5),
+        (position_set_z, pos0, 75),
+        (set_game_menu_tableau_mesh, "tableau_troop_note_mesh", "trp_attila", pos0),
+      ],
+      [
+        ("continue",[],"The horsemen must find a new destiny.",[
+          (jump_to_menu, "mnu_auto_return_to_map"),
+        ]),
+      ],
+    ),
+
 ("barbarian_attacks",mnf_disable_all_keys|mnf_scale_picture,
     "Trouble in the West! ^^The empire trembles on the edge of chaos. {s11} feels the weight of history on his shoulders, as centuries of Roman authority falter before the relentless tide of barbarian ambition.",
     "none",

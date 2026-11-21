@@ -1997,3 +1997,5 @@ spr_troop_archer_train = 1995
 spr_troop_guard_train = 1996
 spr_terrain_mountain_far = 1997
 spr_alano_yurt = 1998
+spr_alano_tent_01 = 1999
+spr_alano_tent_02 = 2000

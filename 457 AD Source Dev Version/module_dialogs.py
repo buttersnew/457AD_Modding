@@ -31199,8 +31199,66 @@ I will use this to make amends to those you have wronged, and I will let it be k
                             (ge, "$g_encountered_party_relation", 0),], "I offer you one chance to surrender or die.", "lord_ultimatum_surrender",[
                             #SB : add animation
                             (call_script, "script_encounter_agent_draw_weapon"),
-
                             ]],
+
+#offer mercenary service
+
+[anyone|plyr,"lord_talk", [
+	(faction_get_slot, ":last_offer_time", "$g_talk_troop_faction", slot_faction_last_mercenary_offer_time),
+    	(store_current_hours, ":cur_hours"),
+    	(val_add,  ":last_offer_time", 24),
+    	(ge, ":cur_hours", ":last_offer_time"),
+(eq, "$players_kingdom", 0),
+(eq, "$freelancer_state", 0),
+(is_between, "$g_talk_troop_faction", npc_kingdoms_begin, npc_kingdoms_end),
+(ge, "$g_talk_troop_faction_relation", 0),
+(neg|troop_slot_ge, "$g_talk_troop", slot_troop_prisoner_of_party, 0),
+(str_store_faction_name, s9, "$g_talk_troop_faction"),
+	(try_begin),
+	(faction_slot_eq, "$g_talk_troop_faction", slot_faction_leader, "$g_talk_troop"),
+ 	(str_store_string, s2, "@Do you have work for a mercenary?"),
+	(else_try),
+ 	(str_store_string, s2, "@Does the realm you serve have work for a mercenary?"),
+	(try_end),
+     ],"{s2}", "lord_mercenary_elaborate_pay_player_offers",[
+(store_current_hours, ":cur_hours"),
+(faction_set_slot, "$g_talk_troop_faction", slot_faction_last_mercenary_offer_time,  ":cur_hours"),
+(call_script, "script_party_calculate_strength", "p_main_party", 0),
+(assign, ":offer_value", reg0),
+(val_add, ":offer_value", 100),
+(call_script, "script_round_value", ":offer_value"),
+(assign, ":offer_value", reg0),
+(assign, "$temp", ":offer_value"),
+(faction_get_slot, ":faction_leader", "$g_talk_troop_faction", slot_faction_leader),
+(str_store_faction_name, s9, "$g_talk_troop_faction"),
+(str_store_troop_name, s10, ":faction_leader"),
+]],
+
+  [anyone,"lord_mercenary_elaborate_pay_player_offers", [
+(this_or_next|lt, "$g_talk_troop_relation", 0),
+(neg|troop_slot_ge, "trp_player", slot_troop_renown, 30),
+],
+   "No, I do not trust you.", "lord_pretalk",
+   []],
+
+  [anyone,"lord_mercenary_elaborate_pay_player_offers", [
+(store_party_size_wo_prisoners, ":size", "p_main_party"),
+(lt, ":size", 15),
+],
+   "No, you do not even command a proper warband. ^^(Party size too low)", "lord_pretalk",
+   []],
+
+  [anyone,"lord_mercenary_elaborate_pay_player_offers", [(assign, reg12, "$temp")],
+   "I can offer you a contract for one month. At the end of this period, it can be extended on a monthly basis. "+
+ "An initial sum of {reg12} siliquae will be paid to you to seal the contract. "+
+ "After that, you'll receive wages from {s9} each week, according to the number and quality of the soldiers in your company. "+
+ "You still have your rights to battlefield loot and salvage, as well as any prisoners you capture. "+
+ "War can be very profitable at times...", "lord_mercenary_elaborate_1_player_offers",
+   [(str_store_faction_name, s9, "$g_talk_troop_faction"),]],
+
+  [anyone|plyr,"lord_mercenary_elaborate_1_player_offers", [], "Sounds good. I wish to enter your service as a mercenary.", "lord_mercenary_service_accept", []],
+  [anyone|plyr,"lord_mercenary_elaborate_1_player_offers", [], "Apologies, my sword is not for hire after all.", "lord_mercenary_service_reject", []],
+
 
 #Neutral attack on lord
 [anyone,"lord_ultimatum_surrender", [
@@ -32766,120 +32824,9 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
     (call_script, "script_lord_comment_to_s43", "$g_talk_troop", "str_lord_mission_failed_default"),
     (store_partner_quest,":lords_quest"),
     (call_script, "script_abort_quest", ":lords_quest", 1)]],
-#Post 0907 changes end
 
-
-#Claim center
-##  [anyone,"lord_claim_center_begin", [],
-##   "What do you want to do with {s4}?", "lord_claim_center_ask",[]],
-##
-##  [anyone|plyr,"lord_claim_center_ask", [],
-##   "I want to claim it for myself.", "lord_claim_center_2",[]],
-##  [anyone|plyr,"lord_claim_center_ask", [],
-##   "I will leave it to you my lord. I have no interest in holding {s4}.", "lord_claim_center_leave_to_lord",[]],
-
-
-##  [anyone,"lord_claim_center_2", [(eq, "$g_player_permitted_castles", 0),],
-##   "You are an able warrior {playername} and there is no question of your bravery.\
-## Alas, you are not noble born, and there are those who will be upset if I allow you to hold a castle.\
-## So, it saddens me but I must decline your request.", "lord_claim_center_deny", []],
-##
-##  [anyone|plyr,"lord_claim_center_deny", [],
-##   "This is not fair my lord. I shed my blood to take {s4}. Now another {man/master} will rule over it.", "lord_claim_center_deny_2", []],
-##  [anyone|plyr,"lord_claim_center_deny", [],
-##   "I understand sir. Do as you will.", "lord_claim_center_leave_to_lord", []],
-##  [anyone,"lord_claim_center_deny_2", [],
-##   "Remember that you gave me your oath {playername}. And you agreed to do as told.", "lord_claim_center_deny_3", []],
-##  [anyone,"lord_claim_center_deny_3", [],
-##   "Yes sir.", "lord_claim_center_leave_to_lord", []],
-##
-##  [anyone,"lord_claim_center_leave_to_lord", [],
-##   "Very well.  Then I will find a suitable master for {s4}.\
-## In recognition of your bravery and service, I give you these 5000 denars.", "lord_pretalk",
-##   [(troop_get_slot, ":wealth", "$g_talk_troop", slot_troop_wealth),
-##    (val_sub, ":wealth", 6000),
-##    (troop_set_slot, "$g_talk_troop", slot_troop_wealth, ":wealth"),
-##    (call_script, "script_troop_add_gold", "trp_player", 5000),
-##
-##    (assign, ":new_master", "$g_talk_troop"),
-##    (assign, ":max_wealth", 0),
-##
-##    (try_for_range, ":hero_no", kingdom_heroes_begin, kingdom_heroes_end),
-##      (troop_slot_eq, ":hero_no", slot_troop_is_prisoner, 0),
-##      (troop_slot_eq, ":hero_no", slot_troop_occupation, slto_kingdom_hero),
-##      (store_troop_faction, ":hero_faction", ":hero_no"),
-##      (eq, ":hero_faction", "$players_kingdom"),
-##      (call_script, "script_get_number_of_hero_centers", "$g_talk_troop"),
-##      (assign, ":no_of_owned_centers", reg0),
-##      (neg|faction_slot_eq, "$players_kingdom", slot_faction_leader, ":hero_no"),
-##      (lt, ":no_of_owned_centers", 2),
-##      (troop_get_slot, ":wealth", "$g_talk_troop", slot_troop_wealth),
-##      (ge, ":wealth", ":max_wealth"),
-##      (assign, ":new_master", ":hero_no"),
-##      (assign, ":max_wealth", ":wealth"),
-##    (try_end),
-##
-##    (call_script, "script_give_center_to_lord", "$center_to_be_claimed", ":new_master"),
-##    (set_spawn_radius, 1),
-##    (spawn_around_party, "$center_to_be_claimed", "pt_old_garrison"),
-##    (assign, ":new_party", reg0),
-##    (party_set_ai_behavior, ":new_party", ai_bhvr_attack_party),
-##    (party_set_ai_object, ":new_party", "p_main_party"),
-##    (party_set_flags, ":new_party", pf_default_behavior, 0),
-##    (call_script, "script_party_copy", ":new_party", "$center_to_be_claimed"),
-##    (party_clear, "$center_to_be_claimed"),
-##
-##    (faction_get_slot, ":reinforcement_template_a", "$g_talk_troop_faction", slot_faction_reinforcements_a),
-##    (faction_get_slot, ":reinforcement_template_b", "$g_talk_troop_faction", slot_faction_reinforcements_b),
-##    (party_add_template, "$center_to_be_claimed", ":reinforcement_template_a"),
-##    (party_add_template, "$center_to_be_claimed", ":reinforcement_template_b"),
-##    ]],
-##
-##
-##  [anyone,"lord_claim_center_2", [(assign, ":number_of_claimed_centers", 0),
-##                                  (try_for_range, ":center_no", centers_begin, centers_end),
-##                                    (party_slot_eq, ":center_no", slot_party_type, spt_castle),
-##                                    (store_faction_of_party, ":faction_no", ":center_no"),
-##                                    (eq, ":faction_no", "fac_player_supporters_faction"),
-##                                    (party_slot_eq, ":center_no", slot_town_claimed_by_player, 1),
-##                                    (val_add, ":number_of_claimed_centers", 1),
-##                                  (try_end),
-##                                  (lt, ":number_of_claimed_centers", "$g_player_permitted_castles"),
-##                                  (assign, reg7, ":number_of_claimed_centers"),
-##                                  ],
-##   "I had promised you to defend your right to hold {reg7?a:another} castle {playername}. Now I honor that promise.\
-## I can think of {no man finer than you/no one better than you} to be the {lord/lady} of {s4}.\
-## Renew your oath to me now. Then I will be your liege,\
-## and I'll support you and protect you against all those who oppose your claim.",
-##  "lord_claim_center_give_oath",[]],
-##
-##
-##  [anyone|plyr,"lord_claim_center_give_oath", [],  "I give you my oath lord, I will forever be faithful to you,\
-## I will never act in a way to cause you harm, and I will be at your side to fight your enemies should you need my sword.", "lord_claim_center_direct_3", []],
-##  [anyone,"lord_claim_center_direct_3", [],  "You have given your oath of fealty {playername}. I accept your oath and give you the fief of {s4}.\
-## Rule it wisely and protect it against our enemies.", "lord_claim_center_direct_4", [
-##     (party_set_slot, "$center_to_be_claimed", slot_town_claimed_by_player, 1),
-##     (call_script, "script_give_center_to_lord", "$center_to_be_claimed", "trp_player")]],
-##  [anyone|plyr,"lord_claim_center_direct_4", [],  "I thank you lord.", "close_window", [(assign, "$g_leave_encounter",1)]],
-
-#Ask for favor
-##  [anyone,"lord_ask_for_favor_ask", [],
-##   "What is it? I don't have time for personal requests.", "lord_ask_for_favor",[]],
-##  [anyone,"lord_ask_for_favor_ask", [],
-##   "Say it then. If it's something possible...", "lord_ask_for_favor",[]],
-##
-##  [anyone|plyr,"lord_ask_for_favor", [],
-##   "Nothing my lord. It's not important.", "lord_pretalk",[]],
-#Suggest action
   [anyone,"lord_suggest_action_ask", [],
    "{!}What do you suggest?", "lord_suggest_action",[]],
-
-##  [anyone|plyr,"lord_suggest_action",
-##   [(troop_get_type, ":is_female", "trp_player"),
-##    (eq, ":is_female", 1),
-##    (lt, "$talk_context", tc_siege_commander),
-##    ],
-##   "{!}CHEAT: I want to marry you! (1)", "lord_groom_vows",[]],
 
   [anyone|plyr,"lord_suggest_action", [],
    "{!}CHEAT: I want to join your faction.", "lord_suggest_join_faction",[]],
@@ -33122,10 +33069,6 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
    "{!}Warning: This line should never display.", "lord_propose_mercenary",[(store_current_hours, ":cur_hours"),
                                   (faction_set_slot, "$g_talk_troop_faction", slot_faction_last_mercenary_offer_time,  ":cur_hours")]],
 
-
-
-
-
   [anyone,"lord_propose_mercenary", [(call_script, "script_party_calculate_strength", "p_main_party", 0),
                                      (assign, ":offer_value", reg0),
                                      (val_add, ":offer_value", 100),
@@ -33151,53 +33094,52 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
 										(troop_slot_eq, "$g_talk_troop", slot_lord_reputation_type, lrep_martial),
 									    (str_store_string, s11, "str_now_some_might_say_that_women_have_no_business_leading_mercenary_companies_but_i_suspect_that_you_would_prove_them_wrong_what_do_you_say"),
 									 (else_try),
-									    (str_store_string, s11, "@What do you say to entering the service of {s9} as a mercenary captain?\
- I have no doubt that you would be up to the task."),
+									    (str_store_string, s11, "@What do you say to entering the service of {s9} as a mercenary captain? "+
+ "I have no doubt that you would be up to the task."),
 									 (try_end)
 									 ],
 
-   "As it happens, {playername}, I promised {s10} that I would hire a company of mercenaries for an upcoming campaign.\
-","lord_mercenary_service", []],
+   "As it happens, {playername}, I promised {s10} that I would hire a company of mercenaries for an upcoming campaign.","lord_mercenary_service", []],
   [anyone|plyr,"lord_mercenary_service", [], "I'm not interested, thank you.", "lord_mercenary_service_reject", []],
   [anyone|plyr,"lord_mercenary_service", [], "Aye, I'll join {s9}.", "lord_mercenary_service_accept", []],
   [anyone|plyr,"lord_mercenary_service", [], "I'm interested. Please tell me more.", "lord_mercenary_elaborate_pay", []],
 
   [anyone,"lord_mercenary_service_accept", [(str_store_faction_name, s9, "$g_talk_troop_faction")],
-   "Perfect. Of course you shall have to make a formal declaration of allegiance,\
- and give your oath that you and your company will remain in service to {s9}\
- for a period of no less than one month.", "lord_mercenary_service_verify", []],
-  [anyone|plyr,"lord_mercenary_service_verify", [], "As you wish. Your enemies are my enemies.", "lord_mercenary_service_verify_2", []],
+   "Perfect. Of course you shall have to make a formal declaration of allegiance, "+
+ "and give your oath that you and your company will remain in service to {s9} "+
+ "for a period of no less than one month.", "lord_mercenary_service_verify", []],
+  [anyone|plyr,"lord_mercenary_service_verify", [], "As you wish. Your enemies are my enemies.", "lord_mercenary_service_verify_2", [(call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 3),]],
   [anyone|plyr,"lord_mercenary_service_verify", [], "On second thought, forget it.", "lord_mercenary_service_reject", []],
 
-  [anyone,"lord_mercenary_service_verify_2", [], "That will do. You've made a wise choice, my friend.\
- {s9} does well by its loyal fighters, you will receive many rewards for your service.", "lord_mercenary_service_accept_3", [
+  [anyone,"lord_mercenary_service_verify_2", [], "That will do. You've made a wise choice, my friend. "+
+ "{s9} does well by its loyal fighters, you will receive many rewards for your service.", "lord_mercenary_service_accept_3", [
      (call_script, "script_troop_add_gold", "trp_player", "$temp"),
      (store_current_day, ":cur_day"),
      (store_add, "$mercenary_service_next_renew_day", ":cur_day", 30),
      (call_script, "script_player_join_faction", "$g_talk_troop_faction"),
-     (str_store_faction_name, s9, "$g_talk_troop_faction"),]],
+     (str_store_faction_name, s9, "$g_talk_troop_faction"),
+]],
 
-  [anyone,"lord_mercenary_service_accept_3", [], "Now, I suggest you prepare for a serious campaign.\
- Train and equip your soldiers as best you can in the meantime, and respond quickly when you are summoned for duty.", "lord_pretalk", []],
+  [anyone,"lord_mercenary_service_accept_3", [], "Now, I suggest you prepare for a serious campaign. "+
+ "Train and equip your soldiers as best you can in the meantime, and respond quickly when you are summoned for duty.", "lord_pretalk", []],
 
   [anyone,"lord_mercenary_service_reject", [(str_store_faction_name, s9, "$g_talk_troop_faction")],
    "I'm very sorry to hear that. You'll find no better place than {s9}, be sure of that.", "lord_pretalk", []],
 
   [anyone,"lord_mercenary_elaborate_pay", [(assign, reg12, "$temp")],
-   "I can offer you a contract for one month. At the end of this period, it can be extended on a monthly basis.\
- An initial sum of {reg12} siliquae will be paid to you to seal the contract.\
- After that, you'll receive wages from {s10} each week, according to the number and quality of the soldiers in your company.\
- You still have your rights to battlefield loot and salvage, as well as any prisoners you capture.\
- War can be very profitable at times...", "lord_mercenary_elaborate_1",
+   "I can offer you a contract for one month. At the end of this period, it can be extended on a monthly basis. "+
+ "An initial sum of {reg12} siliquae will be paid to you to seal the contract. "+
+ "After that, you'll receive wages from {s10} each week, according to the number and quality of the soldiers in your company. "+
+ "You still have your rights to battlefield loot and salvage, as well as any prisoners you capture. "+
+ "War can be very profitable at times...", "lord_mercenary_elaborate_1",
    [(faction_get_slot, ":faction_leader", "$g_talk_troop_faction", slot_faction_leader),
     (str_store_troop_name, s10, ":faction_leader")]],
 
-
   [anyone,"lord_mercenary_service_elaborate_duty", [],
-   "Duties... There are only a few, none of them difficult. The very first thing is to declare your allegiance.\
- An oath of loyalty to our cause. Once that's done, you shall be required to fulfill certain responsibilities.\
- You'll participate in military campaigns, fulfill any duties given to you by your commanders,\
- and most of all you shall attack the enemies of our kingdom wherever you might find them.", "lord_mercenary_elaborate_1",
+   "Duties... There are only a few, none of them difficult. The very first thing is to declare your allegiance. "+
+ "An oath of loyalty to our cause. Once that's done, you shall be required to fulfill certain responsibilities. "+
+ "You'll participate in military campaigns, fulfill any duties given to you by your commanders, "+
+ "and most of all you shall attack the enemies of our kingdom wherever you might find them.", "lord_mercenary_elaborate_1",
    [(faction_get_slot, ":faction_leader", "$g_talk_troop_faction", slot_faction_leader),
     (str_store_troop_name, s10, ":faction_leader")]],
 
@@ -33225,18 +33167,6 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
   (faction_slot_eq, "$g_talk_troop_faction", slot_faction_leader, "$g_talk_troop"),
 
   (call_script, "script_cf_dplmc_faction_has_bias_against_gender", "$g_talk_troop_faction", "$character_gender"),
-
-  #(assign, ":same_gender_vassal", active_npcs_end),
-  #(try_for_range, ":active_npc", active_npcs_begin, ":same_gender_vassal"),
-  #  (troop_slot_eq, ":active_npc", slot_troop_occupation, slto_kingdom_hero),
-  #  (store_troop_faction, ":faction_no"),
-  #  (this_or_next|troop_slot_eq, ":active_npc", slot_troop_original_faction, "$g_talk_troop_faction"),
-  #     (eq, ":faction_no", "$g_talk_troop_faction"),
-  #  (call_script, "script_dplmc_store_troop_is_female", ":active_npc"),
-  #  (eq, reg0, "$character_gender"),
-  #  (assign, ":same_gender_vassal", ":active_npc"),
-  #(try_end),
-  #(neg|is_between, ":same_gender_vassal", active_npcs_begin, active_npcs_end),
   ],#next line, replace "men" with "{women/men}"
    "Only my loyal vassals can own lands and castles in my realm -- and all my vassals are {women/men}. I am not inclined to depart from this tradition without a very good reason. If you prove yourself in battle, you can swear an oath of homage to me and become my vassal. We may then discuss how you may obtain a castle.",
 ##diplomacy end+
@@ -33298,12 +33228,8 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
   [anyone,"lord_request_mission_ask", [(store_partner_quest,":lords_quest"),(ge,":lords_quest",0)],
    "You still haven't finished the last job I gave you, {playername}. You should be working on that, not asking me for other things to do.", "lord_pretalk",[]],
 
-
   [anyone,"lord_request_mission_ask", [(troop_slot_eq, "$g_talk_troop", slot_troop_does_not_give_quest, 1)],
    "I don't have any other jobs for you right now.", "lord_pretalk",[]],
-
-
-
 
   [anyone|auto_proceed,"lord_request_mission_ask", [], "A task?", "lord_tell_mission",
    [
@@ -40874,20 +40800,6 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
         #TODO add spousal relationship as well (both player and town ruler)
    ], "No offense, {playername}, but I wouldn't stay in business long if {s1} got word that you're around. In fact, I would caution you to watch your back if you plan on lodging in this town... Who knows what sort of ruffians might show up in the middle of the night?", "close_window", []],
 
-  # [anyone,"tavernkeeper_buy_drinks",
-   # [
-        # (this_or_next|lt, "$player_honor", -20), #lowest game checks for (marriage), shouldn't reach this point
-        # (neg|party_slot_ge, "$current_town", slot_center_player_relation, -40), #this is the "angry" threshold
-   # ], "Why {playername}, I do believe that would be a waste of our time. The local boys would dump their perfectly good drinks as soon as they heard it came from you. I think it best if you could find other places to spend your blood money...", "close_window", []],
-
-  #SB : TODO adjust cost of buying drinks (prosperity based?)
-  # [anyone,"tavernkeeper_buy_drinks",
-   # [
-    # ], "Of course, {my lord/my lady}. I reckon {reg5} denars should be enough for that. What should I tell the lads?", "tavernkeeper_buy_drinks_2",[
-        # (assign, "$temp", 1000),
-        # (assign, reg5, "$temp"),
-        # ]],
-
   #SB : mylord replacement
   [anyone,"tavernkeeper_buy_drinks",
    [(call_script, "script_dplmc_print_commoner_at_arg1_says_sir_madame_to_s0", "$current_town"),
@@ -40968,6 +40880,63 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
   ]],
 
   [anyone|plyr,"tavernkeeper_buy_drinks_troops_2", [], "Actually, forget this.", "tavernkeeper_pretalk",[]],
+
+#madsci tavernkeeper
+
+  [anyone|plyr,"tavernkeeper_talk", [
+(assign, ":party", "p_main_party"),
+(party_get_num_prisoner_stacks, ":num_prisoner_stacks", ":party"),
+(gt, ":num_prisoner_stacks", 0),
+(assign, ":has_regular", 0),
+	(try_for_range_backwards, ":stack_no", 0, ":num_prisoner_stacks"),
+	(party_prisoner_stack_get_troop_id, ":stack_troop",":party",":stack_no"),
+	(neg|troop_is_hero, ":stack_troop"),
+	(assign, ":has_regular", 1),
+	(try_end),
+(eq, ":has_regular", 1),
+  ],
+   "I want to sell my prisoners.", "tavernkeeper_sell_prisoners",[
+   ]],
+
+[anyone,"tavernkeeper_sell_prisoners", [
+(assign, ":party", "p_main_party"),
+(assign, ":total_prisoners", 0),
+(party_get_num_prisoner_stacks, ":num_prisoner_stacks", ":party"),
+	(try_for_range_backwards, ":stack_no", 0, ":num_prisoner_stacks"),
+	(party_prisoner_stack_get_troop_id, ":stack_troop",":party",":stack_no"),
+	(neg|troop_is_hero, ":stack_troop"),
+	(party_prisoner_stack_get_size, ":stack_size",":party",":stack_no"),
+	(val_add, ":total_prisoners", ":stack_size"),
+	(try_end),
+(val_mul, ":total_prisoners", 20),
+(assign, reg0, ":total_prisoners"),
+], "You would get a much better deal from a slave trader, but I'm willing to buy all your regular prisoners at the price of 20 siliquae per head for a total sum of {reg0} siliquae. I will later sell them to a ransom broker myself and make good profit from it!", "tavernkeeper_sell_prisoners_b",[]],
+
+  [anyone|plyr,"tavernkeeper_sell_prisoners_b", [
+  ],
+   "I accept your offer.", "tavernkeeper_sell_prisoners_c",[
+   ]],
+
+  [anyone|plyr,"tavernkeeper_sell_prisoners_b", [
+  ],
+   "Forget it.", "tavernkeeper_pretalk",[
+   ]],
+
+[anyone,"tavernkeeper_sell_prisoners_c", [
+(assign, ":party", "p_main_party"),
+(assign, ":total_prisoners", 0),
+(party_get_num_prisoner_stacks, ":num_prisoner_stacks", ":party"),
+	(try_for_range_backwards, ":stack_no", 0, ":num_prisoner_stacks"),
+	(party_prisoner_stack_get_troop_id, ":stack_troop",":party",":stack_no"),
+	(neg|troop_is_hero, ":stack_troop"),
+	(party_prisoner_stack_get_size, ":stack_size",":party",":stack_no"),
+	(val_add, ":total_prisoners", ":stack_size"),
+	(party_remove_prisoners, ":party", ":stack_troop", ":stack_size"),
+	(try_end),
+(val_mul, ":total_prisoners", 20),
+(call_script, "script_troop_add_gold", "trp_player", ":total_prisoners"),
+], "Here is your siliquae. Pleasure to do business with you.", "tavernkeeper_pretalk",[]],
+
 
   [anyone|plyr,"tavernkeeper_talk", [
   (neq, "$g_encountered_party_faction", "fac_player_supporters_faction"),

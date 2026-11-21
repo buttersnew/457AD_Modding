@@ -32942,7 +32942,7 @@ scripts = [
           (lt, ":count", 10),
           (store_random_in_range, ":random_no", 2, 5),
           (party_add_members, ":village_no", "trp_watchman", ":random_no"),
-          (party_remove_members, ":village_no", "trp_farmer"),
+          (party_remove_members, ":village_no", "trp_farmer", ":random_no"),
         (try_end),
         (try_begin), #SB : add messenger
           (party_slot_ge, ":village_no", slot_center_has_messenger_post, 1),
@@ -46694,10 +46694,11 @@ scripts = [
   #Name faction
   (try_begin),
     (is_between, ":liege", active_npcs_begin, active_npcs_end),
-    (store_faction_of_troop, ":liege_faction"),
+    (store_faction_of_troop, ":liege_faction", ":liege"),
     (is_between, ":liege_faction", npc_kingdoms_begin, npc_kingdoms_end),
     (faction_get_slot, ":adjective_string", ":liege_faction", slot_faction_adjective),
-    (str_store_string, s1, ":adjective_string"),
+	(gt, ":adjective_string", 0),
+    	(str_store_string, s1, ":adjective_string"),
     (faction_set_name, "fac_player_supporters_faction", "@{s1} Rebels"), #SB : this will probably get overwritten from presentation
         #SB : opposite faction color
         (faction_get_color, ":color", ":liege_faction"),
@@ -60537,8 +60538,8 @@ scripts = [
         (this_or_next|troop_slot_eq, ":lady_no", slot_lord_reputation_type, lrep_conventional),
         (lt, ":random", 2),
         (store_random_in_range, ":veil", "itm_turret_hat_ruby", "itm_bandana1"),
+    	(troop_add_items, ":lady_no", ":veil"),
 	  (try_end),
-    (troop_add_items, ":lady_no", ":veil"),
 	  (troop_equip_items, ":lady_no"),
     ##diplomacy start+
     ##Save personal items of kingdom ladies
@@ -79377,7 +79378,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
         (try_end),
 
         # fill blank lines
-        (try_for_range, ":num_poems", 5),
+        (try_for_range, ":unused", ":num_poems", 5),
             (str_store_string, s1, "@{s1}^"),
         (try_end),
     ]),

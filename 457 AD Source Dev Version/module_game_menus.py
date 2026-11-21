@@ -4614,7 +4614,7 @@ TOTAL:  {reg5}"),
 
 			(quest_get_slot, ":quest_party", "qst_track_down_bandits", slot_quest_target_party),
 			(party_is_active, ":quest_party"),
-			(party_get_attached_to, ":quest_party_attached"),
+			(party_get_attached_to, ":quest_party_attached", ":quest_party"),
 			(this_or_next|eq, ":quest_party", "$g_enemy_party"),
 				(eq, ":quest_party_attached", "$g_enemy_party"),
 			(call_script, "script_succeed_quest", "qst_track_down_bandits"),

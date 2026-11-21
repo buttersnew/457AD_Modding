@@ -34279,10 +34279,10 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
   [anyone|plyr,"lord_mission_told_kill_local_merchant", [], "Worry not, he shan't breathe a word.", "lord_mission_accepted_kill_local_merchant",[]],
   [anyone|plyr,"lord_mission_told_kill_local_merchant", [], "I'm no common murderer, sir. Find someone else for your dirty job.", "lord_mission_rejected",[]],
 
-  [anyone,"lord_mission_accepted_kill_local_merchant", [], "Very good. I trust in your skill and discretion,\
- {playername}. Do not disappoint me.\
- Go now and wait for my word, I'll send you a message telling when and where you can catch the merchant.\
- Dispose of him for me and I shall reward you generously.", "close_window",
+  [anyone,"lord_mission_accepted_kill_local_merchant", [], "Very good. I trust in your skill and discretion, "+
+ "{playername}. Do not disappoint me. "+
+ "Go now and wait for my word, I'll send you a message telling when and where you can catch the merchant. "+
+ "Dispose of him for me and I shall reward you generously.", "close_window",
    [(call_script, "script_start_quest", "$random_quest_no", "$g_talk_troop"),
     (assign, "$g_leave_town",1),
     (assign, "$qst_kill_local_merchant_center", "$current_town"),
@@ -34292,8 +34292,9 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
 
   [anyone,"lord_tell_mission", [(eq,"$random_quest_no","qst_meet_spy_in_enemy_town"),
                                 (quest_get_slot, ":quest_target_center", "$random_quest_no", slot_quest_target_center),
+				(is_between, ":quest_target_center", centers_begin, centers_end),
                                 (str_store_party_name, s13, ":quest_target_center"),
-                                (store_faction_of_party,":quest_target_center_faction",),
+                                (store_faction_of_party, ":quest_target_center_faction", ":quest_target_center"),
                                 (str_store_faction_name, s14, ":quest_target_center_faction"),
                                 ],
    "I have a sensitive matter which needs tending to, {playername}, and no trustworthy retainers to take care of it. The fact is that I have a spy in {s13} to keep an eye on things for me, and report anything that might warrant my attention. Every week I send someone to collect the spy's reports and bring them back to me. The job's yours if you wish it.", "lord_mission_told_meet_spy_in_enemy_town",

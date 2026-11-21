@@ -15285,11 +15285,11 @@ Still I am sorry that I'll leave you soon. You must promise me, you'll come visi
 	(assign, reg4, 1),
 (try_end),
 ],
-"Pay {reg1} siliquae and give {reg4?her:him} {s18} let this truce with the {s4} be concluded","companion_rejoin_response", [
+"Pay {reg1} siliquae and give {reg4?her:him} {s18} let this truce with the {s4} be concluded.","companion_rejoin_response", [
 (troop_get_slot, ":mission_object", "$g_talk_troop", slot_troop_mission_object),
-(troop_remove_gold, "trp_player", reg1),#todo change amount
+(troop_remove_gold, "trp_player", "$temp_2"), #madsci bug fixes
 #actually give gold to other kingdom
-(call_script, "script_dplmc_faction_leader_splits_gold", ":mission_object", reg0),
+(call_script, "script_dplmc_faction_leader_splits_gold", ":mission_object", "$temp_2"),
 ##diplomacy end+
 (call_script, "script_give_center_to_faction", "$g_concession_demanded", ":mission_object"),
 (call_script, "script_diplomacy_start_peace_between_kingdoms", ":mission_object", "$players_kingdom", 1),
@@ -20646,10 +20646,10 @@ Such oaths to a usurper are of course invalid, and we can expect some of the {s0
                    (call_script, "script_dplmc_store_troop_is_female", ":quest_target_troop"),
                    ],
 #"his" to "{reg0?her:his}", "him" to "(reg0?her:him}"
-"Hah! Our little plot against {s3} worked perfectly, {playername}.\
-The fool has lost one of {reg0?her:his} most valuable retainers, and we are one step closer to bringing {reg0?her:him} to {reg0?her:his} knees.\
-Here, this purse contains {reg5} siliquae, and I wish you to have it. You deserve every copper.\
-And, need I remind you, there could be much more to come if you've a mind to earn it...", "lord_generic_mission_completed",[
+"Hah! Our little plot against {s3} worked perfectly, {playername}. "+
+"The fool has lost one of {reg0?her:his} most valuable retainers, and we are one step closer to bringing {reg0?her:him} to {reg0?her:his} knees. "+
+"Here, this purse contains {reg5} siliquae, and I wish you to have it. You deserve every copper. "+
+"And, need I remind you, there could be much more to come if you've a mind to earn it...", "lord_generic_mission_completed",[
 ##diplomacy end+
 (call_script, "script_end_quest", "qst_incriminate_loyal_commander"),
 (call_script, "script_change_player_relation_with_troop","$g_talk_troop",5),
@@ -20659,9 +20659,9 @@ And, need I remind you, there could be much more to come if you've a mind to ear
 [anyone,"lord_start", [(store_partner_quest,":lords_quest"),
                    (eq,":lords_quest","qst_incriminate_loyal_commander"),
                    (check_quest_failed, "qst_incriminate_loyal_commander")],
-"You werent't able to complete a simple task. I had set up everything.\
-The only thing you needed to do was sacrifice a messenger, and we would be celebrating now.\
-But no, you were too damned honorable, weren't you?", "close_window",[
+"You werent't able to complete a simple task. I had set up everything. "+
+"The only thing you needed to do was sacrifice a messenger, and we would be celebrating now. "+
+"But no, you were too damned honorable, weren't you?", "close_window",[
 (call_script, "script_end_quest", "qst_incriminate_loyal_commander"),
 (call_script, "script_change_player_relation_with_troop","$g_talk_troop",-5),
 (call_script, "script_change_player_honor", 3),
@@ -20695,9 +20695,9 @@ But no, you were too damned honorable, weren't you?", "close_window",[
                    (quest_get_slot, ":quest_target_faction", "qst_cause_provocation", slot_quest_target_faction),
                    (str_store_faction_name, s13, ":quest_target_faction"),
                    ],
-"Brilliant work, {playername}! Whatever you did, the nobles of the {s13} are clamoring for war!\
-Soon, the time will come for us to reap the benefits of our hard work, from fields ripe for plunder.\
-This war is going to make us rich, mark my words!", "lord_pretalk",
+"Brilliant work, {playername}! Whatever you did, the nobles of the {s13} are clamoring for war! "+
+"Soon, the time will come for us to reap the benefits of our hard work, from fields ripe for plunder. "+
+"This war is going to make us rich, mark my words!", "lord_pretalk",
 [
 (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 10),
 (try_for_range, ":vassal", active_npcs_begin, active_npcs_end),
@@ -20979,8 +20979,8 @@ You certainly earned your reward. Here, take it, with my compliments.", "lord_ge
 [anyone,"lord_start", [(store_partner_quest,":lords_quest"),
                    (eq,":lords_quest","qst_deal_with_bandits_at_lords_village"),
                    (check_quest_succeeded, "qst_deal_with_bandits_at_lords_village")],
-"{playername}, I was told that you have crushed the bandits at my village of {s5}. Please know that I am most grateful to you for that.\
- Please, let me pay the expenses of your campaign. Here, I hope these {reg14} siliquae will be adequate.", "lord_deal_with_bandits_completed",
+"{playername}, I was told that you have crushed the bandits at my village of {s5}. Please know that I am most grateful to you for that. "+
+ "Please, let me pay the expenses of your campaign. Here, I hope these {reg14} siliquae will be adequate.", "lord_deal_with_bandits_completed",
 [
  (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 3),
  #SB : finish_quest instead
@@ -20994,7 +20994,7 @@ You certainly earned your reward. Here, take it, with my compliments.", "lord_ge
  (quest_get_slot, ":village", "qst_deal_with_bandits_at_lords_village", slot_quest_target_center),
  (str_store_party_name, s5, ":village"),
  (quest_get_slot, reg14, "qst_deal_with_bandits_at_lords_village", slot_quest_gold_reward),
- (call_script, "script_finish_quest", "qst_deal_with_bandits_at_lords_village"),
+ (call_script, "script_finish_quest", "qst_deal_with_bandits_at_lords_village", 100),
  ]],
 
 [anyone|plyr, "lord_deal_with_bandits_completed", [],
@@ -25343,7 +25343,7 @@ I'll send some men to take him to our prison with due haste.", "lord_pretalk", [
 (this_or_next|troop_slot_eq, "$g_talk_troop", slot_lord_reputation_type, lrep_upstanding),
 (this_or_next|troop_slot_eq, "$g_talk_troop", slot_lord_reputation_type, lrep_goodnatured),
 (troop_slot_eq, "$g_talk_troop", slot_lord_reputation_type, lrep_martial),
-(store_random_in_range, ":random", 3),
+(store_random_in_range, ":random", 0, 3),
 (eq, ":random", 0),
 
 (quest_get_slot, ":giver_troop", "qst_offer_gift", slot_quest_giver_troop),
@@ -25371,7 +25371,7 @@ I'll send some men to take him to our prison with due haste.", "lord_pretalk", [
 (quest_slot_eq, "qst_offer_gift", slot_quest_target_troop, "$g_talk_troop"),
 (quest_slot_eq, "qst_offer_gift", slot_quest_current_state, 2),
 
-(store_random_in_range, ":random", 3),
+(store_random_in_range, ":random", 0, 3),
 (neq, ":random", 0),
 
 (quest_get_slot, ":giver_troop", "qst_offer_gift", slot_quest_giver_troop),
@@ -32935,7 +32935,9 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
    "{!}CHEAT: Like me.", "lord_pretalk",[(call_script,"script_change_player_relation_with_troop","$g_talk_troop",20)]],
 
   [anyone,"lord_suggest_lift_siege", [],
-   "{!}As you wish, {playername}.", "close_window",[(call_script, "script_party_set_ai_state", "$g_talk_troop_party", spai_undefined),
+   "{!}As you wish, {playername}.", "close_window",[
+					#(call_script, "script_party_set_ai_state", "$g_talk_troop_party", spai_undefined),
+					(call_script, "script_party_set_ai_state", "$g_talk_troop_party", spai_undefined, -1),
                                            (party_leave_cur_battle, "$g_talk_troop_party"),
                                            (assign, "$g_leave_encounter", 1)]],
 
@@ -40492,8 +40494,9 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
         (call_script, "script_objectionable_action", tmt_aristocratic, "str_hire_deserters"),
         (call_script, "script_change_troop_renown", "trp_player", ":renown_sub"),
         (party_get_num_companions, ":num_recruited", "$g_encountered_party"), #not counting prisoners
-        (val_mul, ":num_recruited", 20), #about 1 point of morale lost per 5 men
-        (call_script, "script_change_faction_troop_morale", ":faction", ":num_recruited")
+	(val_div, ":num_recruited", 5),
+	(val_mul, ":num_recruited", -1),
+	(call_script, "script_change_player_party_morale", ":num_recruited"),
      ]],
   [anyone|plyr,"deserter_recruit_2", [],
    "I don't have that much money with me", "deserter_barter_3b",[]],
@@ -54578,13 +54581,13 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
 ],
 "Thy loyalty is misplaced, and it shall cost thee.",
 "haddingrs_revenge_final_final_aesti_slavic_knows_player_5",[
-  (call_script, "script_change_player_relation_with_troop", "trp_aestii_rebel_king"),
+  (call_script, "script_change_player_relation_with_troop", "trp_aestii_rebel_king", -5),
 ]],
 [anyone,"haddingrs_revenge_final_final_aesti_slavic_knows_player_5_1_2", [
 ],
 "-- Snarling. --^^There is little to salvage, {playername}. Thy actions have made that clear. Speak quickly, or thy welcome here will end.",
 "haddingrs_revenge_final_final_aesti_slavic_knows_player_5",[
-  (call_script, "script_change_player_relation_with_troop", "trp_aestii_rebel_king"),
+  (call_script, "script_change_player_relation_with_troop", "trp_aestii_rebel_king", -1),
 ]],
 
 [anyone|other(trp_dani_haddingr),"haddingrs_revenge_final_final_aesti_slavic_knows_player_5", [

@@ -78977,7 +78977,8 @@ scripts = [
              (assign, reg43, "$player_right_to_rule"),
 
              # Current faction
-             (store_add, reg45, "$players_kingdom"),
+             #(store_add, reg45, "$players_kingdom"),
+             (assign, reg45, "$players_kingdom"), #madsci bugfix
              (try_begin),
                  (is_between, "$players_kingdom", "fac_player_supporters_faction", npc_kingdoms_end),
                  (str_store_faction_name, s45, "$players_kingdom"),
@@ -87849,7 +87850,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
     (else_try),
     (call_script, "script_formation_end", ":team_no", grc_infantry),
     (try_end),
-    (call_script, "script_battlegroup_place_around_leader", ":team_no", grc_infantry),
+    (call_script, "script_battlegroup_place_around_leader", ":team_no", grc_infantry, ":ai_leader"),
 
     (try_begin),
     (call_script, "script_cf_battlegroup_valid_formation", ":team_no", grc_archers, formation_default),
@@ -87860,7 +87861,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
     (else_try),
     (call_script, "script_formation_end", ":team_no", grc_archers),
     (try_end),
-    (call_script, "script_battlegroup_place_around_leader", ":team_no", grc_archers),
+    (call_script, "script_battlegroup_place_around_leader", ":team_no", grc_archers, ":ai_leader"),
 
     (try_begin),
     (call_script, "script_cf_battlegroup_valid_formation", ":team_no", grc_cavalry, formation_wedge),
@@ -87871,9 +87872,9 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
     (else_try),
     (call_script, "script_formation_end", ":team_no", grc_cavalry),
     (try_end),
-    (call_script, "script_battlegroup_place_around_leader", ":team_no", grc_cavalry),
+    (call_script, "script_battlegroup_place_around_leader", ":team_no", grc_cavalry, ":ai_leader"),
 
-    (team_give_order, ":team_no", grc_archers, mordr_spread_out),
+    (team_give_order, ":team_no", grc_archers, mordr_spread_out),	
     (team_give_order, ":team_no", grc_archers, mordr_spread_out),
 # end formations additions
   ]),
@@ -87944,7 +87945,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
       (else_try),
       (call_script, "script_formation_end", ":team_no", grc_infantry),
       (try_end),
-      (call_script, "script_battlegroup_place_around_leader", ":team_no", grc_infantry),
+      (call_script, "script_battlegroup_place_around_leader", ":team_no", grc_infantry, ":ai_leader"),
 
       (try_begin),
       (call_script, "script_cf_battlegroup_valid_formation", ":team_no", grc_archers, formation_default),
@@ -87955,7 +87956,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
       (else_try),
       (call_script, "script_formation_end", ":team_no", grc_archers),
       (try_end),
-      (call_script, "script_battlegroup_place_around_leader", ":team_no", grc_archers),
+      (call_script, "script_battlegroup_place_around_leader", ":team_no", grc_archers, ":ai_leader"),
 
       (try_begin),
       (call_script, "script_cf_battlegroup_valid_formation", ":team_no", grc_cavalry, formation_wedge),
@@ -87966,7 +87967,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
       (else_try),
       (call_script, "script_formation_end", ":team_no", grc_cavalry),
       (try_end),
-      (call_script, "script_battlegroup_place_around_leader", ":team_no", grc_cavalry),
+      (call_script, "script_battlegroup_place_around_leader", ":team_no", grc_cavalry, ":ai_leader"),
 
       (agent_set_position, ":ai_leader", pos49),
 #end formations code
@@ -102650,7 +102651,8 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
           ### MOVE THE OTHER INSTANCES
           (scene_prop_get_slot, ":timer", ":ship_instance", scene_prop_timer_2),#NEW 07.12.14
           (val_max, ":timer", 1),
-          (store_mul, ":animation_duration_2", ":timer"), #With the new timer the technical instances have more time to move
+          #(store_mul, ":animation_duration_2", ":timer"), #With the new timer the technical instances have more time to move
+	(store_mul, ":animation_duration_2", ":animation_duration", ":timer"), #madsci bugfix?
 
           #pos1 = main ship position
           #pos2 = deep under the ship

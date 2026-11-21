@@ -4968,10 +4968,10 @@ TOTAL:  {reg5}"),
 					(eq, ":faction_leader", "trp_player"),
 					(assign, ":faction_leader", heroes_end),
 					(try_for_range, ":troop_no", heroes_begin, ":faction_leader"),
-						(this_or_next|troop_slot_eq, slot_troop_spouse, "trp_player"),
+						(this_or_next|troop_slot_eq, ":troop_no", slot_troop_spouse, "trp_player"),
 							(troop_slot_eq, "trp_player", slot_troop_spouse, ":troop_no"),
-						(neg|troop_slot_ge, ":faction_leader", slot_troop_prisoner_of_party, 0),#Not a prisoner
-						(neg|troop_slot_ge, ":faction_leader", slot_troop_occupation, slto_retirement),#Not retired, exiled, dead
+						(neg|troop_slot_ge, ":troop_no", slot_troop_prisoner_of_party, 0),#Not a prisoner
+						(neg|troop_slot_ge, ":troop_no", slot_troop_occupation, slto_retirement),#Not retired, exiled, dead
 						(assign, ":faction_leader", ":troop_no"),#assign and break the loop
 					(try_end),
 				(try_end),

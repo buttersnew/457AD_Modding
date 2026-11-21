@@ -16055,7 +16055,8 @@ scripts = [
             (get_distance_between_positions, ":dist_2", pos0, pos1),
             (try_begin),
               (lt, ":dist_2", 300),
-              (assign, ":friend_near_score", 300, ":dist_2"),
+              #(assign, ":friend_near_score", 300, ":dist_2"),
+		(store_sub, ":friend_near_score", 300, ":dist_2"), #madsci bugfix
             (else_try),
               (assign, ":friend_near_score", 0),
             (try_end),
@@ -76055,7 +76056,7 @@ scripts = [
 			(troop_remove_gold, ":lord_no", ":gold_cost"),
 			(assign, ":gold_cost", 0),
 		(else_try),
-			(troop_remove_gold, ":treasure"),
+			(troop_remove_gold, ":lord_no", ":treasure"),
 			(val_sub, ":gold_cost", ":treasure"),
 		(try_end),
 	(try_end),

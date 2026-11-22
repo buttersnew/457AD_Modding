@@ -4245,7 +4245,7 @@ scripts = [
 	(call_script, "script_spawn_pirate"),
 	(call_script, "script_spawn_naval_patrol_naples"),
 	(call_script, "script_spawn_naval_patrol_ravenna"),
-  (call_script, "script_spawn_naval_patrol_constantinople"),
+  	(call_script, "script_spawn_naval_patrol_constantinople"),
 	(try_for_range, ":fac", npc_kingdoms_begin, npc_kingdoms_end), #madsci initialize pirate stuff here
 	(set_relation, "fac_pirates", ":fac", -50),
 	(try_end),
@@ -4253,6 +4253,7 @@ scripts = [
 	(set_relation, "fac_indigenoi", "fac_kingdom_33", -50), #sporoi
 	(set_relation, "fac_indigenoi", "fac_kingdom_34", -50), #veneti
 	(set_relation, "fac_indigenoi", "fac_kingdom_35", -50), #mordvins
+	(set_relation, "fac_indigenoi", "fac_berber_rebels", -50),
 
 	(try_for_range, ":center_no", walled_centers_begin, walled_centers_end), #madsci give lords a home if they dont have one but they do own a walled center
 	(party_get_slot, ":town_lord", ":center_no", slot_town_lord),

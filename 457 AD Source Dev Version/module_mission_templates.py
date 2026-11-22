@@ -23301,7 +23301,17 @@ convert_horse_props_to_living_horses,
 ##     [
 ##      (display_message,"@There is no turning back now!!"),
 ##    ]),
-      (ti_inventory_key_pressed, 0, 0, [(set_trigger_result,1)], []),
+
+      #(ti_inventory_key_pressed, 0, 0, [(set_trigger_result,1)], []),
+(ti_inventory_key_pressed, 0, 0, [
+(try_begin),
+(all_enemies_defeated),
+(set_trigger_result,1),
+(else_try),
+(display_message, "str_cant_use_inventory_now"),
+(try_end),
+], []),
+
       (ti_tab_pressed, 0, 0, [(set_trigger_result,1)], []),
 
 
@@ -29585,7 +29595,16 @@ common_battle_init_banner,
      (assign,"$g_encountered_party",-1),
     ]),
 
-      (ti_inventory_key_pressed, 0, 0, [(set_trigger_result,1)], []),
+      #(ti_inventory_key_pressed, 0, 0, [(set_trigger_result,1)], []),
+(ti_inventory_key_pressed, 0, 0, [
+(try_begin),
+(all_enemies_defeated),
+(set_trigger_result,1),
+(else_try),
+(display_message, "str_cant_use_inventory_now"),
+(try_end),
+], []),
+
       (ti_tab_pressed, 0, 0, [(set_trigger_result,1)], []),
 
       (2, 0, ti_once, [ (neg|agent_is_alive,"$slaver_3"),],

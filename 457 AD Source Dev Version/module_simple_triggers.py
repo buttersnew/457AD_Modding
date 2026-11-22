@@ -2624,26 +2624,13 @@ simple_triggers = [
 		(store_random_in_range, ":random", 0, ":range"),
 		##diplomacy end+
 		(try_for_range, ":npc", companions_begin, companions_end),
-			##diplomacy start+ Make the order less predictable
 			(val_add, ":npc", ":random"),
-			(try_begin), #SB : fix range
+				(try_begin), #SB : fix range
 				(ge, ":npc", companions_end),
 				(val_sub, ":npc", ":range"),
-			(try_end),
-			##diplomacy end+
+				(try_end),
 			(main_party_has_troop, ":npc"),
-			##diplmacy start+ Use a script for gender
-			##OLD:
-			#(troop_get_type, ":npc_type", ":npc"),
-			#(eq, ":npc_type", 1),
-			##NEW:
-			# (assign, ":npc_type", 0),
-			# (try_begin),
-				(call_script, "script_cf_dplmc_troop_is_female", ":npc"),
-				# (assign, ":npc_type", 1),
-			# (try_end),
-			# (eq, ":npc_type", ":type"),
-			##diplomacy end+
+			(call_script, "script_cf_dplmc_troop_is_female", ":npc"),
 			(troop_slot_ge, "trp_player", slot_troop_renown, dplmc_command_renown_limit), #SB : const / 2
 			(troop_slot_ge, ":npc", slot_troop_woman_to_woman_string, 1),
 			(assign, "$npc_with_sisterly_advice", ":npc"),

@@ -509,9 +509,9 @@ items = [
 
  ["steel_bolts","Steel Bolts", [("bolt_new",0),("bolt_new",ixmesh_flying_ammo),("bolt_bag_a_new", ixmesh_carry)], itp_type_bolts|itp_merchandise|itp_can_penetrate_shield, itcf_carry_quiver_right_vertical, 210,weight(2.5)|abundance(20)|weapon_length(63)|thrust_damage(24,pierce)|max_ammo(24),imodbits_missile, [], [fac_culture_empire] ],
 
- ["cartridges","Sling Stones", [("throwing_stone",0),("throwing_stone",ixmesh_flying_ammo)], itp_type_bullets|itp_merchandise|itp_default_ammo, 0, 41,weight(2.25)|abundance(90)|weapon_length(3)|thrust_damage(23,pierce)|max_ammo(50),imodbits_missile],
+ ["cartridges","Sling Stones", [("throwing_stone",0),("throwing_stone",ixmesh_flying_ammo)], itp_type_bullets|itp_merchandise|itp_default_ammo, 0, 41,weight(2.25)|abundance(90)|weapon_length(3)|thrust_damage(19,blunt)|max_ammo(50),imodbits_missile],
 
- ["sling_bullet","Sling Bullets", [("sling_bullet",0),("sling_bullet",ixmesh_flying_ammo)], itp_type_bullets|itp_merchandise|itp_can_penetrate_shield|itp_default_ammo, 0, 200,weight(3.5)|abundance(30)|weapon_length(3)|thrust_damage(25,pierce)|max_ammo(40),imodbits_missile],
+ ["sling_bullet","Sling Bullets", [("sling_bullet",0),("sling_bullet",ixmesh_flying_ammo)], itp_type_bullets|itp_merchandise|itp_can_penetrate_shield|itp_default_ammo, 0, 200,weight(3.5)|abundance(30)|weapon_length(3)|thrust_damage(21,blunt)|max_ammo(40),imodbits_missile],
 
 ["pilgrim_disguise", "Pilgrim Disguise", [("pilgrim_outfit",0)], 0| itp_type_body_armor |itp_covers_legs |itp_civilian ,0, 25 , weight(2)|abundance(100)|head_armor(0)|body_armor(26)|leg_armor(8)|difficulty(0) ,imodbits_cloth ],
 ["pilgrim_hood", "Pilgrim Hood", [("pilgrim_hood",0)], 0| itp_type_head_armor |itp_civilian  ,0, 35 , weight(1.25)|abundance(100)|head_armor(22)|body_armor(0)|leg_armor(0)|difficulty(0) ,imodbits_cloth ],
@@ -2536,7 +2536,7 @@ weight(1)|abundance(80)|head_armor(24)|body_armor(14)|leg_armor(6)|difficulty(0)
 660 , weight(1)|difficulty(1)|spd_rtng(98) | swing_damage(16, cut) | thrust_damage(27 ,  pierce)|weapon_length(75),imodbits_thrown ],
 
 ["cavalry_javelins", "Cavalry Javelins", [("javelin_new",0),("javelins_new_quiver", ixmesh_carry)], itp_type_thrown |itp_merchandise|itp_primary ,itcf_throw_javelin|itcf_carry_quiver_back|itcf_show_holster_when_drawn,
-500 , weight(8)|difficulty(2)|spd_rtng(94) | shoot_speed(25) | thrust_damage(22 ,  pierce)|max_ammo(7)|weapon_length(32),imodbits_thrown ],
+500 , weight(8)|difficulty(2)|spd_rtng(94) | shoot_speed(25) | thrust_damage(25 ,  pierce)|max_ammo(7)|weapon_length(32),imodbits_thrown ],
 
 #Throwing Axes
 

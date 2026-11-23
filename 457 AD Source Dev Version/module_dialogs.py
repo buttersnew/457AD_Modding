@@ -21438,10 +21438,9 @@ I want you to go to {s13}, {s14} and {s15} and report back whatever you find.", 
                    (call_script, "script_dplmc_store_troop_is_female",  "$prisoner_lord_to_buy"),
                    ],
 #"he" to "{reg0?she:he}", etc.
-"I heard that you have captured our enemy {s3} and {reg0?she:he} is with you at the moment.\
-I can pay you {reg6} siliquae for {reg0?her:him} if you want to get rid of {reg0?her:him}.\
-You can wait for {reg0?her:his} family to pay {reg0?her:his} ransom of course, but there is no telling how long that will take, eh?\
-", "lord_buy_prisoner", []],
+"I heard that you have captured our enemy {s3} and {reg0?she:he} is with you at the moment. "+
+"I can pay you {reg6} siliquae for {reg0?her:him} if you want to get rid of {reg0?her:him}. "+
+"You can wait for {reg0?her:his} family to pay {reg0?her:his} ransom of course, but there is no telling how long that will take, eh?", "lord_buy_prisoner", []],
 ##diplomacy end+
 
 [anyone|plyr,"lord_buy_prisoner", [],
@@ -26170,8 +26169,6 @@ and perhaps I shall be able to repay the debt I owe you.", "lord_rescue_by_repla
   (neg|check_quest_succeeded, "qst_rescue_prisoner"),
   (neg|check_quest_failed, "qst_rescue_prisoner"),
   (quest_get_slot, ":center", "qst_rescue_prisoner", slot_quest_target_center),
-  # (store_faction_of_party, ":faction_no", ":center"),
-  # (this_or_next|faction_slot_eq, ":faction_no", slot_faction_leader, "$g_talk_troop"),
   (party_slot_eq, ":center", slot_town_lord, "$g_talk_troop"),
   (quest_get_slot, ":prisoner", "qst_rescue_prisoner", slot_quest_target_troop),
   (str_store_troop_name, s11, ":prisoner"),
@@ -37965,10 +37962,10 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
      (call_script, "script_troop_get_family_relation_to_troop", ":quest_target_troop", "$g_talk_troop"),
 
   ],
-   "My poor {s11}, {s13}, is a prisoner in the {s14} dungeons.\
- The only way we can talk to each other is by exchanging letters whenever we can,\
- but the journey is so dangerous that we get little chance to do so.\
- Please, would you deliver one for me?", "lady_mission_told",
+   "My poor {s11}, {s13}, is a prisoner in the {s14} dungeons. "+
+ "The only way we can talk to each other is by exchanging letters whenever we can, "+
+ "but the journey is so dangerous that we get little chance to do so. "+
+ "Please, would you deliver one for me?", "lady_mission_told",
    [
      (quest_get_slot, ":quest_target_center", "$random_quest_no", slot_quest_target_center),
      (quest_get_slot, ":quest_target_troop", "$random_quest_no", slot_quest_target_troop),
@@ -41110,11 +41107,11 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
    ##diplomacy end+
 
   [anyone|plyr,"ransom_broker_intro",[], "Why is that?", "ransom_broker_intro_2",[]],
-  [anyone, "ransom_broker_intro_2", [], "I broker ransoms for the poor wretches who are captured in these endless wars.\
- Normally I travel between the salt mines and the slave markets on the coast, on commission from those whose relatives have gone missing.\
- But if I'm out on my errands of mercy, and I come across a fellow dragging around a captive or two,\
- well, there's no harm in a little speculative investment, is there?\
- And you look like the type who might have a prisoner to sell.", "ransom_broker_info_talk",[(assign, "$ransom_broker_families_told",0),
+  [anyone, "ransom_broker_intro_2", [], "I broker ransoms for the poor wretches who are captured in these endless wars. "+
+ "Normally I travel between the salt mines and the slave markets on the coast, on commission from those whose relatives have gone missing. "+
+ "But if I'm out on my errands of mercy, and I come across a fellow dragging around a captive or two, "+
+ "well, there's no harm in a little speculative investment, is there? "+
+ "And you look like the type who might have a prisoner to sell.", "ransom_broker_info_talk",[(assign, "$ransom_broker_families_told",0),
                                                                                             (assign, "$ransom_broker_prices_told",0),
                                                                                             (assign, "$ransom_broker_ransom_me_told",0),
                                                                                             ]],

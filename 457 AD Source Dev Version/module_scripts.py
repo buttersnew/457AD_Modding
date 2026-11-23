@@ -65835,24 +65835,26 @@ scripts = [
 	("activate_town_guard",
 	[
 	  (set_party_battle_mode),
-	  #(get_player_agent_no, ":player_agent"),
-	  #(agent_get_team, ":player_team", ":player_agent"),
+(faction_get_slot, ":tier1", "$g_encountered_party_faction", slot_faction_tier_1_troop),
+(faction_get_slot, ":tier2", "$g_encountered_party_faction", slot_faction_tier_1_troop),
+(faction_get_slot, ":tier3", "$g_encountered_party_faction", slot_faction_tier_1_troop),
+(faction_get_slot, ":tier4", "$g_encountered_party_faction", slot_faction_tier_1_troop),
+(faction_get_slot, ":tier5", "$g_encountered_party_faction", slot_faction_tier_1_troop),
 
-	  (try_for_agents, ":cur_agent"),
-	    (agent_get_troop_id, ":troop_type", ":cur_agent"),
-	    (is_between, ":troop_type", soldiers_begin, soldiers_end), #dckplmc
+	(try_for_agents, ":cur_agent"),
+	(agent_get_troop_id, ":troop_type", ":cur_agent"),
+	(neg|troop_is_hero, ":troop_type"),
+	(this_or_next|eq, ":troop_type", ":tier1"),
+	(this_or_next|eq, ":troop_type", ":tier2"),
+	(this_or_next|eq, ":troop_type", ":tier3"),
+	(this_or_next|eq, ":troop_type", ":tier4"),
+	(this_or_next|eq, ":troop_type", ":tier5"),
+	(is_between, ":troop_type", soldiers_begin, soldiers_end), #dckplmc
         (agent_set_team, ":cur_agent", 1),
-        #(team_give_order, 1, grc_everyone, mordr_charge), - for some reason, this freezes everyone if the player is not yet spawned
-		#(try_begin),
-		#	(eq, "$g_main_attacker_agent", 0),
-		#	(assign, "$g_main_attacker_agent", ":cur_agent"),
-		#(try_end),
-	(else_try), #dckplmc fix
-		(this_or_next|is_between, ":troop_type", walkers_begin, walkers_end),
-		(is_between, ":troop_type", armor_merchants_begin, mayors_end),
-
-		(agent_clear_scripted_mode, ":cur_agent"),
-		# (agent_set_team, ":cur_agent", 2),
+	(else_try),
+	(this_or_next|is_between, ":troop_type", walkers_begin, walkers_end),
+	(is_between, ":troop_type", armor_merchants_begin, mayors_end),
+	(agent_clear_scripted_mode, ":cur_agent"),
 	(try_end),
 	]),
 

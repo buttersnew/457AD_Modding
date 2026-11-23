@@ -3192,7 +3192,7 @@ If you would like to practice your horsemanship, you can take my horse here. The
   (store_mul, reg1, reg0, 50),
   (store_sub, reg2, reg0, 1),
   ],
-  "I'll take your {reg0} {reg2?prisoners:prisoner} off your hands for {reg1} siliquae.  We have a deal?", "ramun_sell_prisoners_all_2", []],
+  "I'll take your {reg0} {reg2?prisoners:prisoner} off your hands for {reg1} siliquae. We have a deal?", "ramun_sell_prisoners_all_2", []],
   [trp_ramun_the_slave_trader|plyr,"ramun_sell_prisoners_all_2", [],
    "We have a deal.", "ramun_sell_prisoners_2", [
     (call_script, "script_dplmc_sell_all_prisoners", 1, 50),
@@ -58791,6 +58791,12 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
 
 #generic dialogue for meeting random hero characters
 [anyone,"start", [
+	(troop_is_hero, "$g_talk_troop"),
+	(neq, "$talk_context", tc_party_encounter),
+	(troop_slot_ge, "$g_talk_troop", slot_troop_prisoner_of_party, 0),
+], "I have accepted my fate. Leave me be.", "close_window",[]],
+
+[anyone,"start", [
   (troop_is_hero, "$g_talk_troop"),
   (eq, "$g_talk_troop_met", 0),
   (neq, "$talk_context", tc_party_encounter),
@@ -58904,8 +58910,19 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
 ],"{s9} is currently under siege. Lets discuss politics at a later time.", "generic_player_introduce_c",[]],
 
 [anyone, "generic_player_ask_about_center3",[
-(neg|troop_slot_ge, "trp_player", slot_troop_renown, 300)
+(neg|troop_slot_ge, "trp_player", slot_troop_renown, 300),
 ],"No one knows who you are. I think you would need to prove yourself further before we talk about this. ^^(Renown too low)", "generic_player_introduce_c",[]],
+
+[anyone, "generic_player_ask_about_center3",[
+(store_party_size_wo_prisoners, ":size", "p_main_party"),
+(try_begin),
+(is_between, "$g_encountered_party", towns_begin, towns_end),
+(assign, ":needed", 350),
+(else_try),
+(assign, ":needed", 180),
+(try_end),
+(lt, ":size", ":needed"),
+],"You don't have the means to protect us. ^^(Party size too low)", "generic_player_introduce_c",[]],
 
 [anyone, "generic_player_ask_about_center3",[],"You are right. {s9} and its people would be safer under the protection of {s10}. We'll join you.", "close_window",[
 (party_set_slot, "$g_encountered_party", slot_town_lord, -1),

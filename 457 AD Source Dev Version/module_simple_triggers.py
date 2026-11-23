@@ -487,7 +487,7 @@ simple_triggers = [
 	  #A player bound to a kingdom by marriage will not have the contract expire. This should no longer be the case, as I've counted wives as having homage, but is in here as a fallback
 	  (assign, ":player_has_marriage_in_faction", 0),
 	  (try_begin),
-		(is_between, ":player_spouse", active_npcs_begin, active_npcs_end),
+		(is_between, ":player_spouse", active_npcs_begin, heroes_end),
 		(store_faction_of_troop, ":spouse_faction", ":player_spouse"),
 		(eq, ":spouse_faction", "$players_kingdom"),
 	    (assign, ":player_has_marriage_in_faction", 1),

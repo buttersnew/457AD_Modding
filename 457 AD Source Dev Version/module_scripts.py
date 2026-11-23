@@ -65897,6 +65897,7 @@ scripts = [
 
       (try_begin),
         (gt, "$g_main_attacker_agent", 0),
+	(agent_is_active, "$g_main_attacker_agent"), #madsci bugfix
         (agent_get_team, ":attacker_team_no", "$g_main_attacker_agent"),
         (agent_get_position, pos5, "$g_main_attacker_agent"),
       (else_try),
@@ -104009,7 +104010,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 
         # madsci need at least the proposer and one other lord.
         (assign, ":eligible_lords", 0),
-        (try_for_range, ":lord", active_npcs_begin, active_npcs_end),
+        (try_for_range, ":lord", active_npcs_begin, heroes_end),
             (troop_slot_eq, ":lord", slot_troop_occupation, slto_kingdom_hero),
             (neq, ":lord", ":old_leader"),
             (store_faction_of_troop, ":lord_faction", ":lord"),
@@ -104023,7 +104024,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 
     ("457_coup_clear_support_flags",
      [
-        (try_for_range, ":hero", active_npcs_begin, active_npcs_end),
+        (try_for_range, ":hero", active_npcs_begin, heroes_end),
             (troop_set_slot, ":hero", slot_troop_457_coup_support, 0),
         (try_end),
      ]),

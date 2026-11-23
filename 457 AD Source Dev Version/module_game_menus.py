@@ -18164,8 +18164,8 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     [
 
     (str_clear, s11),
+	(set_background_mesh, "mesh_pic_escape_1"),
     (assign, ":at_least_one_escaper_caught", 0),
-
     (assign, ":end_cond", heroes_end),
     (try_for_range, ":prisoner", active_npcs_begin, ":end_cond"),
       (try_begin),

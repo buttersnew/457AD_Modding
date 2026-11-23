@@ -65836,10 +65836,10 @@ scripts = [
 	[
 	  (set_party_battle_mode),
 (faction_get_slot, ":tier1", "$g_encountered_party_faction", slot_faction_tier_1_troop),
-(faction_get_slot, ":tier2", "$g_encountered_party_faction", slot_faction_tier_1_troop),
-(faction_get_slot, ":tier3", "$g_encountered_party_faction", slot_faction_tier_1_troop),
-(faction_get_slot, ":tier4", "$g_encountered_party_faction", slot_faction_tier_1_troop),
-(faction_get_slot, ":tier5", "$g_encountered_party_faction", slot_faction_tier_1_troop),
+(faction_get_slot, ":tier2", "$g_encountered_party_faction", slot_faction_tier_2_troop),
+(faction_get_slot, ":tier3", "$g_encountered_party_faction", slot_faction_tier_3_troop),
+(faction_get_slot, ":tier4", "$g_encountered_party_faction", slot_faction_tier_4_troop),
+(faction_get_slot, ":tier5", "$g_encountered_party_faction", slot_faction_tier_5_troop),
 
 	(try_for_agents, ":cur_agent"),
 	(agent_get_troop_id, ":troop_type", ":cur_agent"),
@@ -65849,7 +65849,7 @@ scripts = [
 	(this_or_next|eq, ":troop_type", ":tier3"),
 	(this_or_next|eq, ":troop_type", ":tier4"),
 	(this_or_next|eq, ":troop_type", ":tier5"),
-	(is_between, ":troop_type", soldiers_begin, soldiers_end), #dckplmc
+	(is_between, ":troop_type", soldiers_begin, soldiers_end),
         (agent_set_team, ":cur_agent", 1),
 	(else_try),
 	(this_or_next|is_between, ":troop_type", walkers_begin, walkers_end),

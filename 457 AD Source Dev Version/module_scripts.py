@@ -3127,6 +3127,7 @@ scripts = [
 
     (party_set_slot, "p_castle_121",   slot_center_ex_faction, "fac_kingdom_36"), #nishapur
     (party_set_slot, "p_castle_122",   slot_center_ex_faction, "fac_kingdom_6"), #marw
+    (party_set_slot, "p_castle_126",   slot_center_ex_faction, "fac_kingdom_36"), #gorgan
 
     (try_for_range, ":village_no", villages_begin, villages_end), #setting up villages
         (store_sub, ":offset", ":village_no", villages_begin),
@@ -97524,6 +97525,13 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 	(ge, ":reln", 0),
        	(call_script, "script_diplomacy_start_war_between_kingdoms", "fac_kingdom_28", ":fac_castle_88", 0),
      (try_end),
+
+(try_begin), #hephthalites join the war if they are active and independent
+(faction_slot_eq, "fac_kingdom_36", slot_faction_state, sfs_active),
+(faction_get_slot, ":tributary_cur", "fac_kingdom_36", slot_faction_tributary_of),
+(neg|is_between, ":tributary_cur", kingdoms_begin, kingdoms_end),
+(call_script, "script_dplmc_start_alliance_between_kingdoms", "fac_kingdom_36", "fac_kingdom_28", 0),
+(try_end),
 
      (set_spawn_radius, 6),
      (try_for_range, ":unused", 2, 6),

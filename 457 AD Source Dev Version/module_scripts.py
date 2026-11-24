@@ -1633,6 +1633,18 @@ scripts = [
     (store_faction_of_party, ":town_faction", "p_village_240"),
     (call_script, "script_give_center_to_faction_aux", "p_village_240", ":town_faction"),
 
+    (party_set_slot, "p_village_138", slot_village_bound_center, "p_castle_126"),
+    (store_faction_of_party, ":town_faction", "p_castle_126"),
+    (call_script, "script_give_center_to_faction_aux", "p_village_138", ":town_faction"),
+
+    (party_set_slot, "p_village_129", slot_village_bound_center, "p_castle_65"),
+    (store_faction_of_party, ":town_faction", "p_castle_65"),
+    (call_script, "script_give_center_to_faction_aux", "p_village_129", ":town_faction"),
+
+    (party_set_slot, "p_village_100", slot_village_bound_center, "p_town_26"),
+    (store_faction_of_party, ":town_faction", "p_town_26"),
+    (call_script, "script_give_center_to_faction_aux", "p_village_100", ":town_faction"),
+
     # Towns (loop)
     (try_for_range, ":town_no", towns_begin, towns_end),
         (store_sub, ":offset", ":town_no", towns_begin),
@@ -1719,6 +1731,8 @@ scripts = [
             (party_set_slot,":castle_no", slot_town_castle, "scn_castle_42_interior"),
             (party_set_slot,":castle_no", slot_town_prison, "scn_castle_42_prison"),
         (else_try), #bry old roman coastal
+            (this_or_next|eq, ":castle_no", "p_castle_126"),
+            (this_or_next|eq, ":castle_no", "p_castle_125"),
             (this_or_next|eq, ":castle_no", "p_castle_124"),
             (this_or_next|eq, ":castle_no", "p_castle_123"),
             (this_or_next|eq, ":castle_no", "p_castle_122"), #marw
@@ -2318,12 +2332,6 @@ scripts = [
     (troop_set_slot, "trp_knight_35_1", slot_troop_banner_scene_prop, "spr_banner_kingdom_39"),
     (troop_set_slot, "trp_knight_35_2", slot_troop_banner_scene_prop, "spr_banner_kingdom_39"),
 
-#Hephthalite banners placeholders
-    (troop_set_slot, "trp_knight_36_1", slot_troop_banner_scene_prop, "spr_banner_kingdom_23"),
-    (troop_set_slot, "trp_knight_36_2", slot_troop_banner_scene_prop, "spr_banner_kingdom_23"),
-    (troop_set_slot, "trp_knight_36_3", slot_troop_banner_scene_prop, "spr_banner_kingdom_23"),
-    (troop_set_slot, "trp_knight_36_4", slot_troop_banner_scene_prop, "spr_banner_kingdom_23"),
-
     (troop_set_slot, "trp_angles_offa", slot_troop_banner_scene_prop, "spr_banner_kingdom_33"),
     (troop_set_slot, "trp_angles_freawine", slot_troop_banner_scene_prop, "spr_banner_kingdom_33"),
     (troop_set_slot, "trp_angles_sigegeat", slot_troop_banner_scene_prop, "spr_banner_kingdom_33"),
@@ -2484,6 +2492,7 @@ scripts = [
     (call_script, "script_give_center_to_faction_aux", "p_castle_65", "fac_kingdom_6"),
     (call_script, "script_give_center_to_faction_aux", "p_town_45", "fac_kingdom_6"),
     (call_script, "script_give_center_to_faction_aux", "p_castle_121", "fac_kingdom_6"),
+    (call_script, "script_give_center_to_faction_aux", "p_castle_126", "fac_kingdom_6"),
 
     (call_script, "script_give_center_to_faction_aux", "p_castle_87", "fac_kingdom_6"), #arran
     (call_script, "script_give_center_to_faction_aux", "p_castle_88", "fac_kingdom_6"),  #arran
@@ -2640,6 +2649,7 @@ scripts = [
     (call_script, "script_give_center_to_faction_aux", "p_castle_79", "fac_indigenoi"), # Volubilis
 
 	#hephthalites
+    (call_script, "script_give_center_to_faction_aux", "p_castle_125", "fac_kingdom_36"),
     (call_script, "script_give_center_to_faction_aux", "p_castle_124", "fac_kingdom_36"),
     (call_script, "script_give_center_to_faction_aux", "p_castle_122", "fac_kingdom_36"),
     (call_script, "script_give_center_to_faction_aux", "p_town_52", "fac_kingdom_36"),
@@ -12073,6 +12083,9 @@ scripts = [
       (call_script, "script_set_trade_route_between_centers", "p_town_52", "p_town_26"),
       (call_script, "script_set_trade_route_between_centers", "p_town_53", "p_town_4"),
       (call_script, "script_set_trade_route_between_centers", "p_town_53", "p_town_43"),
+      (call_script, "script_set_trade_route_between_centers", "p_town_53", "p_town_26"),
+      (call_script, "script_set_trade_route_between_centers", "p_town_52", "p_town_4"),
+      (call_script, "script_set_trade_route_between_centers", "p_town_52", "p_town_43"),
 	]),
 
 

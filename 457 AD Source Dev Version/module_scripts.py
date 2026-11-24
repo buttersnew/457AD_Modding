@@ -883,6 +883,10 @@ scripts = [
     (faction_set_slot, "fac_kingdom_35",  slot_faction_leader, "trp_kingdom_35_lord"),
     (troop_set_slot, "trp_kingdom_35_lord", slot_troop_renown, 1600),
 
+    (faction_set_slot, "fac_kingdom_36",  slot_faction_culture, "fac_culture_12"),
+    (faction_set_slot, "fac_kingdom_36",  slot_faction_leader, "trp_kingdom_36_lord"),
+    (troop_set_slot, "trp_kingdom_36_lord", slot_troop_renown, 1400),
+
     (faction_set_slot, "fac_minor_aestii",  slot_faction_culture, "fac_culture_minor_5"),
     (faction_set_slot, "fac_minor_garamantians",  slot_faction_culture, "fac_culture_11"),
     (faction_set_slot, "fac_minor_dani",  slot_faction_culture, "fac_culture_minor_7"),
@@ -1703,6 +1707,7 @@ scripts = [
             (party_set_slot,":castle_no", slot_town_castle, "scn_castle_48_interior"),
             (party_set_slot,":castle_no", slot_town_prison, "scn_castle_48_prison"),
         (else_try), #sassanid castle highlands - levente
+            (this_or_next|eq, ":castle_no", "p_castle_121"),
             (this_or_next|eq, ":castle_no", "p_castle_10"),
             (this_or_next|eq, ":castle_no", "p_castle_42"),
             (this_or_next|eq, ":castle_no", "p_castle_43"),
@@ -1714,6 +1719,9 @@ scripts = [
             (party_set_slot,":castle_no", slot_town_castle, "scn_castle_42_interior"),
             (party_set_slot,":castle_no", slot_town_prison, "scn_castle_42_prison"),
         (else_try), #bry old roman coastal
+            (this_or_next|eq, ":castle_no", "p_castle_124"),
+            (this_or_next|eq, ":castle_no", "p_castle_123"),
+            (this_or_next|eq, ":castle_no", "p_castle_122"), #marw
             (this_or_next|eq, ":castle_no", "p_castle_57"),
             (this_or_next|eq, ":castle_no", "p_castle_73"),
             (this_or_next|eq, ":castle_no", "p_castle_76"),
@@ -2029,6 +2037,7 @@ scripts = [
     (faction_set_slot, "fac_kingdom_33", slot_faction_banner, "mesh_banner_kingdom_37"),
     (faction_set_slot, "fac_kingdom_34", slot_faction_banner, "mesh_banner_kingdom_38"),
     (faction_set_slot, "fac_kingdom_35", slot_faction_banner, "mesh_banner_kingdom_39"),
+    (faction_set_slot, "fac_kingdom_36", slot_faction_banner, "mesh_banner_kingdom_25"),
 
     (try_for_range, ":cur_faction", npc_kingdoms_begin, npc_kingdoms_end),
         (faction_get_slot, ":cur_faction_king", ":cur_faction", slot_faction_leader),
@@ -2309,6 +2318,12 @@ scripts = [
     (troop_set_slot, "trp_knight_35_1", slot_troop_banner_scene_prop, "spr_banner_kingdom_39"),
     (troop_set_slot, "trp_knight_35_2", slot_troop_banner_scene_prop, "spr_banner_kingdom_39"),
 
+#Hephthalite banners placeholders
+    (troop_set_slot, "trp_knight_36_1", slot_troop_banner_scene_prop, "spr_banner_kingdom_23"),
+    (troop_set_slot, "trp_knight_36_2", slot_troop_banner_scene_prop, "spr_banner_kingdom_23"),
+    (troop_set_slot, "trp_knight_36_3", slot_troop_banner_scene_prop, "spr_banner_kingdom_23"),
+    (troop_set_slot, "trp_knight_36_4", slot_troop_banner_scene_prop, "spr_banner_kingdom_23"),
+
     (troop_set_slot, "trp_angles_offa", slot_troop_banner_scene_prop, "spr_banner_kingdom_33"),
     (troop_set_slot, "trp_angles_freawine", slot_troop_banner_scene_prop, "spr_banner_kingdom_33"),
     (troop_set_slot, "trp_angles_sigegeat", slot_troop_banner_scene_prop, "spr_banner_kingdom_33"),
@@ -2361,6 +2376,29 @@ scripts = [
 	  (gt, ":cur_faction_banner", 0),
     (add_faction_note_tableau_mesh, ":faction_no", "tableau_faction_note_mesh_banner_religion"), #madsci
   (try_end),
+
+	#madsci we will give lords the father or king's banner if they don't have one
+	(try_for_range, ":lord", heroes_begin, heroes_end),
+	(troop_slot_eq, ":lord", slot_troop_occupation, slto_kingdom_hero),
+	(troop_get_slot, ":banner_spr", ":lord", slot_troop_banner_scene_prop),
+	(eq, ":banner_spr", 0), #no banner
+	(assign, ":banner_spr2", -1),
+		(try_begin),
+		(troop_get_slot, ":father", ":lord", slot_troop_father),
+		(gt, ":father", 0),
+		(troop_get_slot, ":banner_spr2", ":father", slot_troop_banner_scene_prop),
+		(gt, ":banner_spr2", 0),
+		(else_try),
+		(store_troop_faction, ":cur_faction", ":lord"),
+		(faction_get_slot, ":cur_faction_king", ":cur_faction", slot_faction_leader),
+		(gt, ":cur_faction_king", 0),
+		(neq, ":lord", ":cur_faction_king"),
+		(troop_get_slot, ":banner_spr2", ":cur_faction_king", slot_troop_banner_scene_prop),
+		(gt, ":banner_spr2", 0),
+		(try_end),
+	(gt, ":banner_spr2", 0),
+	(troop_set_slot, ":lord", slot_troop_banner_scene_prop, ":banner_spr2"),
+	(try_end),
 
     #Give centers to factions first, to ensure more equal distributions
     #WRE
@@ -2445,6 +2483,7 @@ scripts = [
     (call_script, "script_give_center_to_faction_aux", "p_castle_45", "fac_kingdom_6"),
     (call_script, "script_give_center_to_faction_aux", "p_castle_65", "fac_kingdom_6"),
     (call_script, "script_give_center_to_faction_aux", "p_town_45", "fac_kingdom_6"),
+    (call_script, "script_give_center_to_faction_aux", "p_castle_121", "fac_kingdom_6"),
 
     (call_script, "script_give_center_to_faction_aux", "p_castle_87", "fac_kingdom_6"), #arran
     (call_script, "script_give_center_to_faction_aux", "p_castle_88", "fac_kingdom_6"),  #arran
@@ -2599,6 +2638,15 @@ scripts = [
     (call_script, "script_give_center_to_faction_aux", "p_castle_120", "fac_indigenoi"), #Rutubis by Tamdoult
     
     (call_script, "script_give_center_to_faction_aux", "p_castle_79", "fac_indigenoi"), # Volubilis
+
+	#hephthalites
+    (call_script, "script_give_center_to_faction_aux", "p_castle_124", "fac_kingdom_36"),
+    (call_script, "script_give_center_to_faction_aux", "p_castle_122", "fac_kingdom_36"),
+    (call_script, "script_give_center_to_faction_aux", "p_town_52", "fac_kingdom_36"),
+
+	#khwarazm satrapy of Persia
+    (call_script, "script_give_center_to_faction_aux", "p_town_53", "fac_kingdom_6"),
+    (call_script, "script_give_center_to_faction_aux", "p_castle_123", "fac_kingdom_6"),
 
     #Roman center organization - lords will get all surrounding area as well
     #towns
@@ -2805,6 +2853,10 @@ scripts = [
     (call_script, "script_give_center_to_lord", "p_castle_113",  "trp_kingdom_35_lord", 0), #pl4tte
     (call_script, "script_give_center_to_lord", "p_castle_114",  "trp_knight_35_1", 0), 
     (call_script, "script_give_center_to_lord", "p_village_296",  "trp_knight_35_2", 0), 
+
+    (call_script, "script_give_center_to_lord", "p_town_52", "trp_kingdom_36_lord", 0),
+    (call_script, "script_give_center_to_lord", "p_town_53", "trp_knight_6_12", 0),
+    (call_script, "script_give_center_to_lord", "p_castle_123", "trp_knight_6_13", 0),
     ##diplomacy end+
 
 	  #Add home centers for claimants
@@ -2851,6 +2903,8 @@ scripts = [
     (troop_set_slot, "trp_kingdom_33_lord", slot_troop_home, "p_town_47"), #sporoi
     (troop_set_slot, "trp_kingdom_34_lord", slot_troop_home, "p_castle_103"), #venedi
     (troop_set_slot, "trp_kingdom_35_lord", slot_troop_home, "p_castle_113"), #mordvin
+    (troop_set_slot, "trp_kingdom_36_lord", slot_troop_home, "p_town_52"),
+    (troop_set_slot, "trp_knight_6_12", slot_troop_home, "p_town_53"),
 
     (troop_set_slot, "trp_indigenoi_noble_1", slot_troop_home, "p_castle_97"),
     (troop_set_slot, "trp_indigenoi_noble_2", slot_troop_home, "p_castle_98"),
@@ -3060,6 +3114,9 @@ scripts = [
     (party_set_slot, "p_castle_92",   slot_center_ex_faction, "fac_kingdom_13"),
     (party_set_slot, "p_castle_90",   slot_center_ex_faction, "fac_kingdom_12"),
     (party_set_slot, "p_castle_93",   slot_center_ex_faction, "fac_kingdom_1"),
+
+    (party_set_slot, "p_castle_121",   slot_center_ex_faction, "fac_kingdom_36"), #nishapur
+    (party_set_slot, "p_castle_122",   slot_center_ex_faction, "fac_kingdom_6"), #marw
 
     (try_for_range, ":village_no", villages_begin, villages_end), #setting up villages
         (store_sub, ":offset", ":village_no", villages_begin),
@@ -3391,6 +3448,7 @@ scripts = [
   (call_script, "script_diplomacy_start_war_between_kingdoms", "fac_kingdom_2", "fac_kingdom_15", 0), #war between ERE and vandals
   (call_script, "script_diplomacy_start_war_between_kingdoms", "fac_kingdom_22", "fac_kingdom_15", 0), #war between mauri and vandals
   (call_script, "script_diplomacy_start_war_between_kingdoms", "fac_kingdom_6", "fac_kingdom_23", 0), #war between huns + persians
+  (call_script, "script_diplomacy_start_war_between_kingdoms", "fac_kingdom_6", "fac_kingdom_36", 0),
   #war over britain
   (call_script, "script_diplomacy_start_war_between_kingdoms", "fac_kingdom_13", "fac_kingdom_5", 0), #war between picts + britons
   (call_script, "script_diplomacy_start_war_between_kingdoms", "fac_kingdom_13", "fac_kingdom_12", 0), #war between saxons + britons
@@ -3768,6 +3826,7 @@ scripts = [
   (faction_set_slot, "fac_kingdom_33", slot_faction_adjective, "str_kingdom_33_adjective"),
   (faction_set_slot, "fac_kingdom_34", slot_faction_adjective, "str_kingdom_34_adjective"),
   (faction_set_slot, "fac_kingdom_35", slot_faction_adjective, "str_kingdom_35_adjective"),
+  (faction_set_slot, "fac_kingdom_36", slot_faction_adjective, "str_kingdom_36_adjective"),
 
   (faction_set_slot, "fac_rebel_kingdom_1", slot_faction_adjective, "str_kingdom_1_adjective"),
   (faction_set_slot, "fac_rebel_kingdom_2", slot_faction_adjective, "str_kingdom_1_adjective"),
@@ -3807,6 +3866,9 @@ scripts = [
       (this_or_next|eq, ":faction_no", "fac_kingdom_28"), #Arran
       (eq, ":faction_no", "fac_kingdom_31"), #Armenia
       (faction_set_slot, ":faction_no", slot_faction_religion, slot_religion_christian_miaphysite),
+  (else_try),
+      (eq, ":faction_no", "fac_kingdom_36"), #hephthalites
+      (faction_set_slot, ":faction_no", slot_faction_religion, slot_religion_zoroastrianism),
   (else_try),
       (eq, ":faction_no", "fac_minor_garamantians"),
       (faction_set_slot, ":faction_no", slot_faction_religion, slot_religion_christian_donatist),
@@ -4626,6 +4688,13 @@ scripts = [
       (faction_set_slot, "fac_kingdom_35", slot_faction_quick_battle_tier_1_cavalry, "trp_mordvin_mounted_skirmisher"),
       (faction_set_slot, "fac_kingdom_35", slot_faction_quick_battle_tier_2_cavalry, "trp_mordvin_companion"),
 
+      (faction_set_slot, "fac_kingdom_36", slot_faction_quick_battle_tier_1_infantry, "trp_crimean_gothic_freeman"),
+      (faction_set_slot, "fac_kingdom_36", slot_faction_quick_battle_tier_2_infantry, "trp_crimean_gothic_warrior"),
+      (faction_set_slot, "fac_kingdom_36", slot_faction_quick_battle_tier_1_archer, "trp_hunnic_horse_archer"),
+      (faction_set_slot, "fac_kingdom_36", slot_faction_quick_battle_tier_2_archer, "trp_hunnic_horse_archer"),
+      (faction_set_slot, "fac_kingdom_36", slot_faction_quick_battle_tier_1_cavalry, "trp_hunnic_retainer"),
+      (faction_set_slot, "fac_kingdom_36", slot_faction_quick_battle_tier_2_cavalry, "trp_hunnic_veteran"),
+
       #for multiplayer mode
       (assign, "$g_multiplayer_selected_map", multiplayer_scenes_begin),
       (assign, "$g_multiplayer_respawn_period", 5),
@@ -4702,6 +4771,7 @@ scripts = [
       (faction_set_slot, "fac_kingdom_33", slot_faction_banner, "mesh_banner_kingdom_37"), #madsci SPOROI change this
       (faction_set_slot, "fac_kingdom_34", slot_faction_banner, "mesh_banner_kingdom_38"), #madsci VENEDI change this
       (faction_set_slot, "fac_kingdom_35", slot_faction_banner, "mesh_banner_kingdom_38"), #madsci MORDVON change this
+      (faction_set_slot, "fac_kingdom_36", slot_faction_banner, "mesh_banner_kingdom_25"),
 
       (try_for_range, ":cur_item", all_items_begin, all_items_end),
         (try_for_range, ":cur_faction", npc_kingdoms_begin, npc_kingdoms_end),
@@ -10416,6 +10486,8 @@ scripts = [
     (troop_set_slot, "trp_kingdom_23_lord", slot_troop_age, 35), #Dengizich
     (troop_set_slot, "trp_irish_king", slot_troop_age, 55),
     (troop_set_slot, "trp_kingdom_14_lord", slot_troop_age, 66), #needs an old here age or otherwise he will be younger than the son
+    (troop_set_slot, "trp_kingdom_36_lord", slot_troop_age, 60),
+    (troop_set_slot, "trp_knight_6_12", slot_troop_age, 50),
 
 #     (try_end),
 
@@ -10623,6 +10695,8 @@ scripts = [
     (troop_set_slot, "trp_kingdom_35_lady_2", slot_troop_age, 40),
     (troop_set_slot, "trp_kingdom_35_lady_3", slot_troop_age, 20),
 
+    (troop_set_slot, "trp_kingdom_36_lady_1", slot_troop_age, 50),
+
     (troop_set_slot, "trp_indigenoi_macenites_lady_1", slot_troop_age, 50),
     (troop_set_slot, "trp_indigenoi_macenites_lady_2", slot_troop_age, 28),
     (troop_set_slot, "trp_indigenoi_macenites_lady_3", slot_troop_age, 23),
@@ -10719,6 +10793,7 @@ scripts = [
     (troop_set_slot, "trp_knight_6_9", slot_troop_age, 27),
     (troop_set_slot, "trp_knight_6_10", slot_troop_age, 23),
     (troop_set_slot, "trp_knight_6_11", slot_troop_age, 19),
+    (troop_set_slot, "trp_knight_6_13", slot_troop_age, 25),
 
     (troop_set_slot, "trp_knight_7_1", slot_troop_age, 56),
     (troop_set_slot, "trp_knight_7_2", slot_troop_age, 50),
@@ -11108,6 +11183,7 @@ scripts = [
 
   #knight_6_6 is lonely lol
   (troop_set_slot, "trp_knight_6_11", slot_troop_father, "trp_knight_6_6"),
+  (troop_set_slot, "trp_knight_6_13", slot_troop_father, "trp_knight_6_12"), #khwarazm
 
   #franks - non historical except for king
   (troop_set_slot, "trp_kingdom_7_lord", slot_troop_spouse, "trp_kingdom_7_lady_1"),
@@ -11527,6 +11603,11 @@ scripts = [
 
   (troop_set_slot, "trp_kingdom_35_lady_4", slot_troop_father, "trp_kingdom_35_lord"),
   (troop_set_slot, "trp_kingdom_35_lady_4", slot_troop_mother, "trp_kingdom_35_lady_1"),
+
+  (troop_set_slot, "trp_kingdom_36_lord", slot_troop_spouse, "trp_kingdom_36_lady_1"),
+  (troop_set_slot, "trp_kingdom_36_lady_1", slot_troop_spouse, "trp_kingdom_36_lord"),
+  (troop_set_slot, "trp_knight_36_3", slot_troop_father, "trp_kingdom_36_lord"),
+  (troop_set_slot, "trp_knight_36_3", slot_troop_mother, "trp_kingdom_36_lady_1"),
 
 	#madsci
   (troop_set_slot, "trp_rebel_knight_1_1", slot_troop_spouse, "trp_rebel_kingdom_1_lady_1"),
@@ -11987,6 +12068,11 @@ scripts = [
 
       (call_script, "script_set_trade_route_between_centers", "p_town_51", "p_town_40"), #Tarraco
       (call_script, "script_set_trade_route_between_centers", "p_town_51", "p_town_21"), #Alexandria
+
+      (call_script, "script_set_trade_route_between_centers", "p_town_52", "p_town_53"),
+      (call_script, "script_set_trade_route_between_centers", "p_town_52", "p_town_26"),
+      (call_script, "script_set_trade_route_between_centers", "p_town_53", "p_town_4"),
+      (call_script, "script_set_trade_route_between_centers", "p_town_53", "p_town_43"),
 	]),
 
 
@@ -13036,6 +13122,20 @@ scripts = [
       (party_set_slot,"p_town_51", slot_town_arena_melee_2_team_size,   4),
       (party_set_slot,"p_town_51", slot_town_arena_melee_3_num_teams,   3),
       (party_set_slot,"p_town_51", slot_town_arena_melee_3_team_size,   6),
+
+      (party_set_slot,"p_town_52", slot_town_arena_melee_1_num_teams,   2),
+      (party_set_slot,"p_town_52", slot_town_arena_melee_1_team_size,   8),
+      (party_set_slot,"p_town_52", slot_town_arena_melee_2_num_teams,   2),
+      (party_set_slot,"p_town_52", slot_town_arena_melee_2_team_size,   8),
+      (party_set_slot,"p_town_52", slot_town_arena_melee_3_num_teams,   2),
+      (party_set_slot,"p_town_52", slot_town_arena_melee_3_team_size,   8),
+
+      (party_set_slot,"p_town_53", slot_town_arena_melee_1_num_teams,   2),
+      (party_set_slot,"p_town_53", slot_town_arena_melee_1_team_size,   8),
+      (party_set_slot,"p_town_53", slot_town_arena_melee_2_num_teams,   2),
+      (party_set_slot,"p_town_53", slot_town_arena_melee_2_team_size,   8),
+      (party_set_slot,"p_town_53", slot_town_arena_melee_3_num_teams,   2),
+      (party_set_slot,"p_town_53", slot_town_arena_melee_3_team_size,   8),
 	]),
 
 	("initialize_banner_info",
@@ -13646,6 +13746,14 @@ scripts = [
     (party_set_slot, "p_town_51", slot_center_wine_presses, 15),
     (party_set_slot, "p_town_51", slot_center_fishing_fleet, 20),
 
+    (party_set_slot, "p_town_52", slot_center_iron_deposits, 3),
+    (party_set_slot, "p_town_52", slot_center_wool_looms, 15),
+    (party_set_slot, "p_town_52", slot_center_tanneries, 8),
+
+    (party_set_slot, "p_town_53", slot_center_iron_deposits, 3),
+    (party_set_slot, "p_town_53", slot_center_wool_looms, 15),
+    (party_set_slot, "p_town_53", slot_center_tanneries, 8),
+
     (try_for_range, ":village_no", villages_begin, villages_end),
         (store_random_in_range, ":rand", 0, 2), ##silver smithies
 		    (party_set_slot, ":village_no", slot_center_silver_deposits, ":rand"),
@@ -14007,6 +14115,16 @@ scripts = [
             (party_set_slot, ":village_no", slot_center_acres_vineyard, 2000),
             (party_set_slot, ":village_no", slot_center_household_gardens, 10),
             (party_set_slot, ":village_no", slot_center_head_cattle, 100),
+        (else_try),
+            (party_slot_eq, ":village_no", slot_village_market_town, "p_town_52"),
+            (party_set_slot, ":village_no", slot_center_acres_flax, 1000), #low grain -- nomadic
+            (party_set_slot, ":village_no", slot_center_head_sheep, 600), #mostly nomadic in the area, therefore more cattle
+            (party_set_slot, ":village_no", slot_center_head_cattle, 500),
+        (else_try),
+            (party_slot_eq, ":village_no", slot_village_market_town, "p_town_53"),
+            (party_set_slot, ":village_no", slot_center_acres_flax, 1000), #low grain -- nomadic
+            (party_set_slot, ":village_no", slot_center_head_sheep, 600), #mostly nomadic in the area, therefore more cattle
+            (party_set_slot, ":village_no", slot_center_head_cattle, 500),
         (try_end),
     (try_end),
 
@@ -32465,6 +32583,7 @@ scripts = [
       (eq, ":troop_faction_no", "fac_kingdom_26"),
       (party_set_icon, "$pout_party", "icon_african_army"),
       (else_try),
+      (this_or_next|eq, ":troop_faction_no", "fac_kingdom_36"),
       (this_or_next|eq, ":troop_faction_no", "fac_kingdom_23"),
       (eq, ":troop_faction_no", "fac_kingdom_27"),
       (party_set_icon, "$pout_party", "icon_steppe_lord"),
@@ -33151,6 +33270,7 @@ scripts = [
             (this_or_next | eq, ":fac_no", "fac_kingdom_23"),
             (this_or_next | eq, ":fac_no", "fac_kingdom_32"),
             (this_or_next | eq, ":fac_no", "fac_kingdom_33"),
+            (this_or_next | eq, ":fac_no", "fac_kingdom_36"),
             (eq, ":fac_no", "fac_kingdom_29"),
             (assign, ":normal_village_icon", "icon_village_a"),
             (assign, ":burnt_village_icon", "icon_village_burnt_a"),
@@ -56826,6 +56946,9 @@ scripts = [
     (else_try),
         (eq, ":faction_object", "fac_kingdom_34"),
         (str_store_string, s39, "str_venedi"),
+      (else_try),
+        (eq, ":faction_object", "fac_kingdom_36"),
+        (str_store_string, s39, "str_hephthalites"),
     (else_try),
         (eq, ":faction_object", "fac_kingdom_35"),
         (str_store_string, s39, "str_mordvin"),
@@ -57577,6 +57700,9 @@ scripts = [
         (assign, ":result", mtf_culture_5),
       (else_try),
         (eq, ":faction_no", "fac_kingdom_28"),
+        (assign, ":result", mtf_culture_6),
+      (else_try),
+        (eq, ":faction_no", "fac_kingdom_36"),
         (assign, ":result", mtf_culture_6),
       (else_try),
         (eq, ":faction_no", "fac_kingdom_29"),
@@ -83083,6 +83209,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
     (faction_set_slot, "fac_kingdom_33", slot_faction_gender_ratio, 40),
     (faction_set_slot, "fac_kingdom_34", slot_faction_gender_ratio, 40),
     (faction_set_slot, "fac_kingdom_35", slot_faction_gender_ratio, 40),
+    (faction_set_slot, "fac_kingdom_36", slot_faction_gender_ratio, 40),
 
     (faction_set_slot, "fac_player_faction", slot_faction_gender_ratio, 50),
     (faction_set_slot, "fac_player_supporters_faction", slot_faction_gender_ratio, 50),

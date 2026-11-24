@@ -118,6 +118,8 @@ parties = [
   # mauria 15/02/26
   ("town_50", "Tamdoult", icon_town|pf_town, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-317.10, -114.8), [], 220),
   ("town_51", "Syracuse", icon_town|pf_town, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-94, -29), [], 150),
+  ("town_52", "Bukhara", icon_town_snow|pf_town, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (290.54, 120.26), [], 170),              #[swycartographr] prev. coords: (296.07, 120.59)
+  ("town_53", "Kath", icon_town_snow|pf_town, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (247.98, 121.69), [], 170),
      
   ("castle_1", "Batavis", icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-110.59, 91.01), [], 50),
   ("castle_2", "Venta_Silurum", icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-227.58, 128.32), [], 83), 
@@ -255,6 +257,10 @@ parties = [
 
   # new castle: 26/02/14: Mauria
   ("castle_120", "Rutubis",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0, (-310.05, -67.58),[], 115),
+  ("castle_121", "Nishapur", icon_castle_d|pf_castle, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (262.01,43.62), [], 110),
+  ("castle_122", "Marw", icon_castle_d|pf_castle, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (290.05, 80.37), [], 110),
+  ("castle_123", "Gurganj", icon_castle_d|pf_castle, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (232, 126), [], 110),
+  ("castle_124", "Samarkand", icon_castle_d|pf_castle, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (307, 139), [], 110),
 
   # == VILLAGES == 
   ("village_1", "Olisipo", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (-292.93, 5.89), [], 100),
@@ -368,7 +374,7 @@ parties = [
   ("village_109", "Diospolis", icon_village_c|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (50.51, -68.66), []),
   ("village_110", "Gaza", icon_village_c|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (78.03, -64.45), [], 40),
   #New Villages in Mod
-  ("village_111","Nishapur",  icon_village_c|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(262.01,43.62),[], 40),
+  ("village_111","Sarakhs",  icon_village_c|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(291.52, 51.84),[], 40),              #[swycartographr] prev. coords: (295, 47) #[swycartographr] prev. coords: (294.57, 52.09)
   ("village_112","Royan",  icon_village_c|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(186.14,39.44),[], 40),
   ("village_113", "Hormirzad", icon_village_a|pf_village, no_menu, pt_none, fac_neutral, 0, ai_bhvr_hold, 0, (289.1,-27.78), [], 180),
   ("village_114","Daba",  icon_village_c|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(288.34,-46.06),[], 40),
@@ -587,6 +593,15 @@ parties = [
   ("village_306","Boccana_Specula",  icon_village_c|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-289.64, -68.69), [], 40),
   ("village_307","Benta",  icon_village_c|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-271.65, -66.46), [], 40),
   ("village_308","Aquae_Dacicae",  icon_village_c|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-268.32, -57.41), [], 40),
+  ("village_309","Abiward",  icon_village_c|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(260.94, 75.63),[], 40),
+  ("village_310","Hazarasp",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(253.96, 116.85),[], 40),
+  ("village_311","Paykent",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(291.11, 113.27),[], 40),             #[swycartographr] prev. coords: (293.55, 111.96)
+  ("village_312","Amul",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(288.21, 102.35),[], 40),                #[swycartographr] prev. coords: (290.53, 101.91)
+  ("village_313","Khiva",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(244, 115),[], 40),
+  ("village_314","Kurdar",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(244.37, 135.2),[], 40),
+  ("village_315","Zamm",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(308.16, 102.78),[], 40),                #[swycartographr] prev. coords: (312, 104)
+  ("village_316","Kish",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(303.2, 132.6),[], 40),
+  ("village_317","Darghan",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(268.3, 107.4),[], 40),
 
   # == SPECIAL LOCATIONS ==
   ("salt_mine","Salt_Mine",icon_village_a|pf_disabled|pf_is_static|pf_always_visible|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(14.2, -31),[]), 

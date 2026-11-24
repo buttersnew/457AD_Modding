@@ -99,6 +99,7 @@ factions = [
   ("kingdom_33",  "Sporoi", 0, 0.9,[("outlaws",-0.75),("peasant_rebels", -0.1),("deserters", -0.05),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05),("manhunters",0.6),("minor_saraguroi",-0.75),("minor_kutriguroi",-0.75),("minor_sabiroi",-0.75),("minor_onoguroi",-0.75),("minor_iazyges",-0.75),("kingdom_23",-0.75),("kingdom_11",-0.75)], [], 0x469696),
   ("kingdom_34",  "Veneti", 0, 0.9,[("outlaws",-0.75),("peasant_rebels", -0.1),("deserters", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05),("manhunters",0.6),("kingdom_23",-0.75),("minor_saraguroi",-0.75),("minor_onoguroi",-0.75),("minor_kutriguroi",-0.75),("minor_sabiroi",-0.75)], [], 0xD7C99D),
   ("kingdom_35",  "Mordvins", 0, 0.9,[("outlaws",-0.75),("peasant_rebels", -0.1),("deserters", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05),("manhunters",0.6),("kingdom_23",-0.75),("minor_saraguroi",-0.75),("minor_onoguroi",-0.75),("minor_kutriguroi",-0.75),("minor_sabiroi",-0.75)], [], 0x863CC6),
+  ("kingdom_36",  "Ebodalo",    0, 0.9, [("saxons", -0.5),("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("berber_rebels", -0.05),("coptic_rebels", -0.05)], [], 0x80E7EE),
 
 
 #madsci Spanish rebel factions, will be renamed automatically by a script depending on where they start

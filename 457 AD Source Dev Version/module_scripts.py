@@ -2051,7 +2051,7 @@ scripts = [
     (faction_set_slot, "fac_kingdom_33", slot_faction_banner, "mesh_banner_kingdom_37"),
     (faction_set_slot, "fac_kingdom_34", slot_faction_banner, "mesh_banner_kingdom_38"),
     (faction_set_slot, "fac_kingdom_35", slot_faction_banner, "mesh_banner_kingdom_39"),
-    (faction_set_slot, "fac_kingdom_36", slot_faction_banner, "mesh_banner_kingdom_25"),
+    (faction_set_slot, "fac_kingdom_36", slot_faction_banner, "mesh_banner_kingdom_30"),
 
     (try_for_range, ":cur_faction", npc_kingdoms_begin, npc_kingdoms_end),
         (faction_get_slot, ":cur_faction_king", ":cur_faction", slot_faction_leader),
@@ -2867,6 +2867,7 @@ scripts = [
     (call_script, "script_give_center_to_lord", "p_town_52", "trp_kingdom_36_lord", 0),
     (call_script, "script_give_center_to_lord", "p_town_53", "trp_knight_6_12", 0),
     (call_script, "script_give_center_to_lord", "p_castle_123", "trp_knight_6_13", 0),
+    (call_script, "script_give_center_to_lord", "p_castle_124", "trp_knight_36_5", 0),
     ##diplomacy end+
 
 	  #Add home centers for claimants
@@ -4778,11 +4779,11 @@ scripts = [
       (faction_set_slot, "fac_kingdom_29", slot_faction_banner, "mesh_banner_kingdom_33"),
       (faction_set_slot, "fac_kingdom_30", slot_faction_banner, "mesh_banner_kingdom_34"),
       (faction_set_slot, "fac_kingdom_31", slot_faction_banner, "mesh_banner_kingdom_35"),
-      (faction_set_slot, "fac_kingdom_32", slot_faction_banner, "mesh_banner_kingdom_36"), #madsci IRISH change this
-      (faction_set_slot, "fac_kingdom_33", slot_faction_banner, "mesh_banner_kingdom_37"), #madsci SPOROI change this
-      (faction_set_slot, "fac_kingdom_34", slot_faction_banner, "mesh_banner_kingdom_38"), #madsci VENEDI change this
-      (faction_set_slot, "fac_kingdom_35", slot_faction_banner, "mesh_banner_kingdom_38"), #madsci MORDVON change this
-      (faction_set_slot, "fac_kingdom_36", slot_faction_banner, "mesh_banner_kingdom_25"),
+      (faction_set_slot, "fac_kingdom_32", slot_faction_banner, "mesh_banner_kingdom_36"),
+      (faction_set_slot, "fac_kingdom_33", slot_faction_banner, "mesh_banner_kingdom_37"),
+      (faction_set_slot, "fac_kingdom_34", slot_faction_banner, "mesh_banner_kingdom_38"),
+      (faction_set_slot, "fac_kingdom_35", slot_faction_banner, "mesh_banner_kingdom_38"),
+      (faction_set_slot, "fac_kingdom_36", slot_faction_banner, "mesh_banner_kingdom_30"),
 
       (try_for_range, ":cur_item", all_items_begin, all_items_end),
         (try_for_range, ":cur_faction", npc_kingdoms_begin, npc_kingdoms_end),

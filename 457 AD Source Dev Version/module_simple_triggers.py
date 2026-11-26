@@ -7375,6 +7375,13 @@ simple_triggers = [
 (try_end),
 
 (try_begin),
+(store_num_parties_of_template, ":kidarites", "pt_kidarite_raiders"),
+(lt, ":kidarites", 3),
+(set_spawn_radius, 10),
+(spawn_around_party, "p_village_317", "pt_kidarite_raiders"),
+(try_end),
+
+(try_begin),
   (store_faction_of_party, ":town_faction","p_town_13"),
   (eq, ":town_faction", "fac_kingdom_1"),
   (store_num_parties_of_template, ":classis", "pt_classis_ravenna"),

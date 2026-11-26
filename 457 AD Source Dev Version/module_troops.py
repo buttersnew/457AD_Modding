@@ -2867,6 +2867,10 @@ troops = [
    [itm_wrapping_boots,itm_ankle_boots,itm_roman_spear_2,itm_securis,itm_cavalry_javelins]+shields_simple+horses_mauri_1+tunics_mauri_1,
    def_attrib_lvl_13|level(12),wp(110),knows_riding_4|knows_horse_archery_3|knows_power_throw_4|knows_ironflesh_2,mauri_face_1, mauri_face_2],
 
+["kidarite_raider","Kidarite Raider","Kidarite Raiders",tf_mounted|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_horse|tf_guarantee_ranged,0,0,fac_outlaws,
+   [itm_nomad_boots,itm_simple_shoes,itm_sarranid_boots_b,itm_sassanid_cavalry_boots_1,itm_sassanid_cavalry_boots_2,itm_pannonian_cap_fur_1,itm_pannonian_cap_fur_2,itm_hunnic_phrygian_leather,itm_kaftan_hunnic_red,itm_kaftan_hunnic_blue,itm_kaftan_hunnic_white,itm_kaftan_hunnic_green,itm_be_hunnic_cap_1,itm_be_hunnic_cap_2,itm_be_hunnic_cap_3,itm_be_hunnic_cap_4,itm_khergit_bow,itm_long_seax_4,itm_sword_khergit_1,itm_roman_arrows_1,itm_roman_arrows_1]+hats_huns+horses_hunnic_1,
+   def_attrib_lvl_18|level(20),wp_one_handed(150)|wp_two_handed(120)|wp_polearm(130)|wp_throwing(130)|wp_archery(170),knows_riding_5|knows_horse_archery_5|knows_athletics_4|knows_power_strike_5|knows_power_draw_6|knows_power_throw_4|knows_ironflesh_5|knows_inventory_management_3,hunnic_face_1, hunnic_face_2],
+
 ["persian_bandit","Persian Bandit","Persian Bandits",tf_mounted|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_horse,0,0,fac_outlaws,
    [itm_javelin,itm_nomad_boots,itm_sassanid_simple_boots_1,itm_sassanid_simple_boots_2,itm_sassanid_simple_boots_3,itm_sassanid_cavalry_boots_1,itm_sassanid_cavalry_boots_2,itm_samad_sword,itm_mace_sassanid,itm_yrzi_bow_1,itm_roman_arrows_2]+horses_persian_2+mail_persian_1+mail_persian_coat_1+hats_sassanids,
    def_attrib_lvl_23|level(18),wp_one_handed(150)|wp_two_handed(150)|wp_polearm(150)|wp_archery(120),knows_lvl_23|knows_horse_archery_2,persian_face_1, persian_face_2],

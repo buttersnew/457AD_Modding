@@ -36423,7 +36423,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 	(eq, "$g_king_start", 6),
         (set_game_menu_tableau_mesh, "tableau_troop_note_mesh", "trp_player", pos0),
 	(else_try),
-        (set_game_menu_tableau_mesh, "tableau_troop_note_mesh", "trp_kingdom_2_lord", pos0),
+        (set_game_menu_tableau_mesh, "tableau_troop_note_mesh", "trp_kingdom_6_lord", pos0),
 	(try_end),
       ],
       [

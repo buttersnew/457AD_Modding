@@ -31712,6 +31712,13 @@ scripts = [
         (assign, ":party_template_c", "pt_kingdom_35_reinforcements_c"),
     (try_end),
 
+    (try_begin), #Hephthalites
+        (eq, ":real_party_faction", "fac_kingdom_36"),
+        (assign, ":party_template_a", "pt_kingdom_36_reinforcements_a"),
+        (assign, ":party_template_b", "pt_kingdom_36_reinforcements_b"),
+        (assign, ":party_template_c", "pt_kingdom_36_reinforcements_c"),
+    (try_end),
+
     (try_begin), #bagadua lord
         (eq, ":real_party_faction", "fac_player_supporters_faction"),
         (is_between, ":party_leader", active_npcs_begin, active_npcs_end),

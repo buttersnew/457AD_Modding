@@ -222,6 +222,10 @@ party_templates = [
   ("kingdom_35_reinforcements_b", "{!}Mordven Reinforcements", 0, 0, fac_commoners, 0, [(trp_mordvin_footman,3,8),(trp_mordvin_mounted_skirmisher,3,7),(trp_standard_bearer,1,1)]),
   ("kingdom_35_reinforcements_c", "{!}Mordven Reinforcements", 0, 0, fac_commoners, 0, [(trp_mordvin_companion,4,10)]),
 
+  ("kingdom_36_reinforcements_a", "{!}Hunnic Reinforcements", 0, 0, fac_commoners, 0, [(trp_hunnic_skirmisher,2,6),(trp_hunnic_horse_archer,3,8),(trp_soghdian_warrior,3,6)]),
+  ("kingdom_36_reinforcements_b", "{!}Hunnic Reinforcements", 0, 0, fac_commoners, 0, [(trp_hunnic_horse_archer,2,6),(trp_soghdian_warrior,2,6),(trp_soghdian_horseman,2,5),(trp_draco_bearer,1,1)]),
+  ("kingdom_36_reinforcements_c", "{!}Hunnic Reinforcements", 0, 0, fac_commoners, 0, [(trp_hunnic_retainer,3,8),(trp_chionite_horse_archer,1,2)]),
+
   ("culture_20_reinforcements_a", "{!}Slavic Reinforcements", 0, 0, fac_commoners, 0, [(trp_slav_skirmisher,4,10),(trp_slav_archer, 4,10)]),
   ("culture_20_reinforcements_b", "{!}Slavic Reinforcements", 0, 0, fac_commoners, 0, [(trp_slav_footman,6,15),(trp_standard_bearer,1,1)]),
   ("culture_20_reinforcements_c", "{!}Slavic Reinforcements", 0, 0, fac_commoners, 0, [(trp_slav_horseman,2,5),(trp_slav_horsearcher,2,5)]),

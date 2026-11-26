@@ -1513,6 +1513,15 @@ troops = [
    [itm_nomad_boots,itm_sassanid_simple_boots_1,itm_sassanid_simple_boots_2,itm_sassanid_simple_boots_3,itm_persian_tunic_2,itm_persian_tunic_3,itm_persian_riding_coat_2a,itm_persian_riding_coat_2b,itm_cavalry_javelins,itm_cavalry_javelins,itm_battle_axe_4,itm_medium_spear_4]+horses_persian_1,
    def_attrib_lvl_18|level(18),wp_one_handed (135) | wp_two_handed (120) | wp_polearm (145) | wp_archery (100) | wp_crossbow (100) | wp_throwing (155),knows_athletics_3|knows_riding_6|knows_ironflesh_2|knows_power_throw_6|knows_weapon_master_5|knows_inventory_management_3|knows_power_strike_6|knows_horse_archery_5,persian_face_1, persian_face_2],
 
+["soghdian_warrior","Soghdian Footman","Soghdian Footmen",tf_guarantee_basic|tf_guarantee_helmet,0,0,fac_kingdom_36,
+   [itm_nomad_boots,itm_sassanid_simple_boots_1,itm_sassanid_simple_boots_2,itm_sassanid_simple_boots_3,itm_wicker_shields_rectangular_1,itm_wicker_shields_rectangular_2,itm_wicker_shields_rectangular_3,itm_wicker_shield_dura_1,itm_wicker_shield_dura_2,itm_wicker_shield_dura_3,itm_tab_shield_pavise_c,itm_tab_shield_pavise_d,itm_medium_spear_1,itm_medium_spear_4,itm_sassanid_axe_1]+tunics_persian+helmets_sassanid_1,
+   def_attrib_lvl_18|level(18),wp_one_handed (130) | wp_two_handed (120) | wp_polearm (135) | wp_archery (75) | wp_crossbow (75) | wp_throwing (100),knows_lvl_18, hunnic_face_1, hunnic_face_2],
+
+["soghdian_horseman","Soghdian Cavalry","Soghdian Cavalry",tf_mounted|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_horse|tf_guarantee_shield,0,0,fac_kingdom_36,
+   [itm_tab_shield_small_round_c,itm_nomad_boots,itm_sassanid_simple_boots_1,itm_sassanid_simple_boots_2,itm_sassanid_simple_boots_3,itm_sassanid_cavalry_boots_1,itm_sassanid_cavalry_boots_2,
+   itm_sassanid_lamellenhelm_1,itm_sassanid_lamellenhelm_2,itm_sassanid_lamellenhelm_3,itm_sassanid_lamellenhelm_4,itm_sassanid_lamellenhelm_5,itm_lance,itm_samad_sword,itm_mace_sassanid,itm_yrzi_bow_1,itm_roman_arrows_2]+helmets_sassanid_2+horses_persian_2+mail_persian_1+mail_persian_2+mail_persian_coat_1,
+   def_attrib_lvl_23|level(21),wp_one_handed(150)|wp_two_handed(160)|wp_polearm(160)|wp_archery(130),knows_lvl_18|knows_horse_archery_2,hunnic_face_1, hunnic_face_2],
+
  ["chionite_horse_archer","Chionite Horse Archer","Chionite Horse Archers",tf_mounted|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_horse|tf_guarantee_ranged,0,0,fac_culture_12,
    [itm_nomad_boots,itm_sassanid_cavalry_boots_1,itm_sassanid_cavalry_boots_2,itm_kaftan_eastern_1,itm_kaftan_eastern_2,itm_kaftan_hunnic_blue,itm_kaftan_hunnic_red,itm_chionite_hat_1,itm_chionite_hat_2,itm_chionite_hat_3,itm_chionite_hat_4,itm_chionite_hat_5,itm_khergit_bow,itm_sword_khergit_1,itm_khergit_arrows,itm_khergit_arrows]+horses_hunnic_1,
    def_attrib_lvl_18|level(17),wp_one_handed(135)|wp_two_handed(120)|wp_polearm(120)|wp_throwing(100)|wp_archery(155),knows_horse_archer,hunnic_face_1, hunnic_face_2],

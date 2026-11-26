@@ -19228,6 +19228,7 @@ presentations = [
               (eq, ":troop", "trp_sassanid_guard_spearman"),
               (assign, ":c", 1),
             (else_try), #kurds
+              (this_or_next|eq, "$current_town", "p_castle_126"),
               (this_or_next|eq, "$current_town", "p_castle_48"),
               (eq, "$current_town", "p_town_20"),
               (this_or_next|eq, ":troop", "trp_kurdish_javelinman"),
@@ -19239,6 +19240,15 @@ presentations = [
               (eq, "$current_town", "p_town_26"),
               (this_or_next|eq, ":troop", "trp_chionite_horse_archer"),
               (eq, ":troop", "trp_hephthalite_mercenary"),
+              (assign, ":c", 1),
+            (else_try),
+              (this_or_next|eq, "$current_town", "p_castle_123"),
+              (this_or_next|eq, "$current_town", "p_castle_124"),
+              (this_or_next|eq, "$current_town", "p_castle_125"),
+              (this_or_next|eq, "$current_town", "p_town_53"),
+              (eq, "$current_town", "p_town_52"),
+              (this_or_next|eq, ":troop", "trp_chionite_horse_archer"),
+              (eq, ":troop", "trp_soghdian_warrior"),
               (assign, ":c", 1),
             (else_try), #germanic AOR! - alamans
               (this_or_next|eq, "$current_town", "p_castle_56"),

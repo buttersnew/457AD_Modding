@@ -7727,6 +7727,7 @@ scripts = [
             (this_or_next|eq, ":troop_id", "trp_abasgian_horse_archer"),
             (this_or_next|eq, ":troop_id", "trp_arab_light_cavalry"),
             (this_or_next|eq, ":troop_id", "trp_steppe_bandit"),
+            (this_or_next|eq, ":troop_id", "trp_soghdian_horseman"),
             (eq, ":troop_id", "trp_sabir_bandit"),
             (val_mul, ":join_cost", 3),
             (val_div, ":join_cost", 2),
@@ -97365,6 +97366,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
     (this_or_next|eq, ":troop", "trp_carpi_horseman"),
     (this_or_next|eq, ":troop", "trp_eques_alani_nobiles"),
     (this_or_next|eq, ":troop", "trp_venedi_nobleman"),
+    (this_or_next|eq, ":troop", "trp_soghdian_horseman"),
     (eq, ":troop", "trp_bosphor_horseman"),
 ]),
 

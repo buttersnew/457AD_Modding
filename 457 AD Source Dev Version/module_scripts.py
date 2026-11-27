@@ -49079,7 +49079,7 @@ scripts = [
     (set_spawn_radius,1),
 	(try_begin),
     	(store_num_parties_of_template, ":manhunters", "pt_manhunters"),
-    	(lt, ":manhunters", 8),
+    	(lt, ":manhunters", 16),
     	(store_random_in_range, ":selected_town", towns_begin, towns_end),
     	(spawn_around_party, ":selected_town", "pt_manhunters"),
 	(try_end),

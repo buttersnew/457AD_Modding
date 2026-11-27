@@ -1289,6 +1289,7 @@ itm_evebo_spatha = 1287
 itm_arabian_sword_d = 1288
 itm_nagelring = 1289
 itm_sassanid_sword = 1290
+itm_hunnic_spatha_b = 1291
 itm_gothic_semispatha = 1292
 itm_gothic_semispatha_b = 1293
 itm_wooden_spear = 1294

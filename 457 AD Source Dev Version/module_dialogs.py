@@ -41067,31 +41067,23 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
     [], "Hmm... Well, I have heard rumors about a talented blacksmith by the name of Wayland. I also know of a few talented armor smiths as well. But, if you want me to tell you all of this, it'll cost you 50 siliquae.", "tavernkeeper_herrero2", []],
 
   [anyone|plyr,"tavernkeeper_herrero2", [],
-    "Sure. Talk!", "tavernkeeper_herrero3",[
-      (store_troop_gold,":money","trp_player"),
-      (try_begin),
-        (gt,":money",49),
-        (troop_remove_gold, "trp_player", 50),
-      (else_try),
-        (display_message,"@You do not have enough money!"),
-      (try_end),
-  ]],
+    "Sure. Talk!", "tavernkeeper_herrero3",[]],
   [anyone|plyr,"tavernkeeper_herrero2", [],
     "You are a rat. Farewell!", "close_window",[]],
 
   [anyone,"tavernkeeper_herrero3",
-    [], "The armor smiths are in Rome, Ravenna and Constantinople, and the rumors say Wayland set up his smithy in the south of Brittania.", "tavernkeeper_herrero4", [(enable_party, "p_waylands_smithy"),]],
+    [
+(store_troop_gold,":money","trp_player"),
+(lt,":money",50),
+], "You do not have enough money!", "tavernkeeper_herrero4", []],
+
+  [anyone,"tavernkeeper_herrero3",
+    [(troop_remove_gold, "trp_player", 50),], "The armor smiths are in Rome, Ravenna and Constantinople, and the rumors say Wayland set up his smithy in the south of Brittania.", "tavernkeeper_herrero4", [(enable_party, "p_waylands_smithy"),]],
+
   [anyone|plyr,"tavernkeeper_herrero4", [],
     "Thank you. Farewell!", "close_window",[]],
 
   [anyone|plyr,"tavernkeeper_talk", [], "I guess I should leave now.", "close_window",[]],
-
-#Tavern Talk (with companions)
-#  [anyone, "companion_recruit_yes", [(neg|hero_can_join, "p_main_party"),], "I don't think can lead any more men than you do now.\
-# You need to release someone from service if you want me to join your party.", "close_window", []],
-
-
-
 
 #Tavern Talk (with ransom brokers)
 
@@ -41117,20 +41109,20 @@ Hand over my {reg19} siliquae, if you please, and end our business together.", "
                                                                                             ]],
 
   [anyone|plyr,"ransom_broker_info_talk",[(eq, "$ransom_broker_families_told",0)], "What if their families can't pay?", "ransom_broker_families",[]],
-  [anyone, "ransom_broker_families", [], "Oh, then I spin them a few heartwarming tales of life on the galleys.\
- You'd be surprised what sorts of treasures a peasant can dig out of his cowshed or wheedle out of his cousins,\
- assuming he's got the proper motivation!\
- And if in the end they cannot come up with the silver, then there are always slave merchants who are looking for galley slaves.\
- One cannot do Heaven's work with an empty purse, you see.", "ransom_broker_info_talk",[(assign, "$ransom_broker_families_told",1)]],
+  [anyone, "ransom_broker_families", [], "Oh, then I spin them a few heartwarming tales of life on the galleys. "+
+ "You'd be surprised what sorts of treasures a peasant can dig out of his cowshed or wheedle out of his cousins, "+
+ "assuming he's got the proper motivation! "+
+ "And if in the end they cannot come up with the silver, then there are always slave merchants who are looking for galley slaves. "+
+ "One cannot do Heaven's work with an empty purse, you see.", "ransom_broker_info_talk",[(assign, "$ransom_broker_families_told",1)]],
   [anyone|plyr,"ransom_broker_info_talk",[(eq, "$ransom_broker_prices_told",0)], "What can I get for a prisoner?", "ransom_broker_prices",[]],
-  [anyone, "ransom_broker_prices", [], "It varies. I fancy that I have a fine eye for assessing a ransom.\
- There are a dozen little things about a man that will tell you whether he goes to bed hungry, or dines each night on soft dumplings and goose.\
- The real money of course is in the gentry, and if you ever want to do my job you'll want to learn about every landowning family,\
- their estates, their heraldry, their offspring both lawful and bastard, and, of course, their credit with the merchants.", "ransom_broker_info_talk",[(assign, "$ransom_broker_prices_told",1)]],
+  [anyone, "ransom_broker_prices", [], "It varies. I fancy that I have a fine eye for assessing a ransom. "+
+ "There are a dozen little things about a man that will tell you whether he goes to bed hungry, or dines each night on soft dumplings and goose. ^^"+
+ "The real money of course is in the gentry, and if you ever want to do my job you'll want to learn about every landowning family, "+
+ "their estates, their heraldry, their offspring both lawful and bastard, and, of course, their credit with the merchants.", "ransom_broker_info_talk",[(assign, "$ransom_broker_prices_told",1)]],
   [anyone|plyr,"ransom_broker_info_talk",[(eq, "$ransom_broker_ransom_me_told",0)], "Would you be able to ransom me if I were taken?", "ransom_broker_ransom_me",[]],
-  [anyone, "ransom_broker_ransom_me", [], "Of course. I'm welcome in every court.\
- There's not many who can say that! So always be sure to keep a pot of siliquae buried somewhere,\
- and a loyal servant who can find it in a hurry.", "ransom_broker_info_talk",[(assign, "$ransom_broker_ransom_me_told",1)]],
+  [anyone, "ransom_broker_ransom_me", [], "Of course. I'm welcome in every court. "+
+ "There's not many who can say that! So always be sure to keep a pot of siliquae buried somewhere, "+
+ "and a loyal servant who can find it in a hurry.", "ransom_broker_info_talk",[(assign, "$ransom_broker_ransom_me_told",1)]],
   [anyone|plyr,"ransom_broker_info_talk",[], "That's all I need to know. Thank you.", "ransom_broker_pretalk",[]],
 
   [anyone,"start", [(is_between, "$g_talk_troop", ransom_brokers_begin, ransom_brokers_end),

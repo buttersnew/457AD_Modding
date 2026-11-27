@@ -2359,6 +2359,19 @@ weight(1)|abundance(80)|head_armor(24)|body_armor(14)|leg_armor(6)|difficulty(0)
 ["nagelring", "Nagelring", [("Ringsword",0),("Ringsword_scabbard", ixmesh_carry)], itp_unique|itp_type_one_handed_wpn|itp_primary, itc_longsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn,
  4000 , weight(1.5)|difficulty(0)|spd_rtng(91) | weapon_length(83)|swing_damage(35 , cut)| thrust_damage(21 ,  pierce),imodbits_sword_high ],
 
+#27-11-06 items
+["sassanid_sword", "Sassanid Sword", [("sassanid_sword",0),("sassanid_sword_scabbard", ixmesh_carry)], itp_merchandise|itp_type_one_handed_wpn|itp_primary, itc_longsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn,
+1600 , weight(1.5)|abundance(60)|difficulty(7)|spd_rtng(85) | weapon_length(100)|swing_damage(33 , cut) | thrust_damage(25 ,  pierce),imodbits_sword_high, [], culture_sassanid ],
+
+["hunnic_spatha", "Hunnic Spatha", [("hunnic_spatha",0),("hunnic_spatha_scabbard", ixmesh_carry)], itp_merchandise|itp_type_one_handed_wpn|itp_primary, itc_longsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn,
+ 1350 , weight(1.25)|abundance(60)|difficulty(0)|spd_rtng(96) | weapon_length(87)|swing_damage(32 , cut)| thrust_damage(24 ,  pierce),imodbits_sword_high, [], culture_hunnic ],
+
+["gothic_semispatha", "Gothic Semispatha", [("gothic_semispatha",0),("gothic_semispatha_c_scabbard", ixmesh_carry)], itp_merchandise|itp_type_one_handed_wpn|itp_primary, itc_longsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn,
+ 750 , weight(1)|abundance(10)|difficulty(0)|spd_rtng(99) | weapon_length(53)|swing_damage(25 , cut)| thrust_damage(19 ,  pierce),imodbits_sword_high, [], culture_gothic ],
+
+["gothic_semispatha_b", "Gothic Semispatha", [("gothic_semispatha_b",0),("gothic_semispatha_c_scabbard", ixmesh_carry)], itp_merchandise|itp_type_one_handed_wpn|itp_primary, itc_longsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn,
+ 850 , weight(1)|abundance(10)|difficulty(0)|spd_rtng(97) | weapon_length(55)|swing_damage(27 , cut)| thrust_damage(22 ,  pierce),imodbits_sword_high, [], culture_gothic ],
+
 #Spears
 
 #Light/Short Spears
